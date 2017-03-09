@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script Sample - Assign a custom domain to a web app | Microsoft Docs
-description: Azure PowerShell Script Sample - Assign a custom domain to a web app
+title: Azure PowerShell Script Sample - Monitor a web app with web server logs | Microsoft Docs
+description: Azure PowerShell Script Sample - Monitor a web app with web server logs
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 02/23/2017
+ms.date: 03/08/2017
 ms.author: cfowler
 ---
 
-# Assign a custom domain to a web app
+# Monitor a web app with web server logs
 
 In this scenario you will create a resource group, app service plan, web app and configure the web app to enable web server logs. You will then download the log files for review.
 
@@ -26,7 +26,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1 "Assign a custom domain to a web app")]
+[!code-powershell[main](../../../powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1 "Monitor a web app with web server logs")]
 
 ## Clean up deployment 
 
@@ -50,6 +50,6 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
 Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](../app-service-powershell-samples.md).
