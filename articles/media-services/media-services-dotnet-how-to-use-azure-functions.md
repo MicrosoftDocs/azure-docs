@@ -1,5 +1,5 @@
 ---
-title: Develop Azure Functions with Media Services
+title: Develop Azure functions with Media Services
 description: This topic shows how to start developing Azure functions with Media Services using the Azure portal.
 services: media-services
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 03/07/2017
 ms.author: juliako
 
 ---
-#Develop Azure Functions with Media Services
+#Develop Azure functions with Media Services
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 This topic discusses how to start developing Azure functions with Media Services using the Azure portal. 
