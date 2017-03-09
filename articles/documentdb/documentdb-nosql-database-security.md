@@ -19,7 +19,7 @@ ms.author: mimig
 
 ---
 
-# DocumentDB: NoSQL database security
+# DocumentDB NoSQL database security
 
  This article discusses NoSQL database security best practices and key features offered by Azure DocumentDB to help you prevent, detect, and respond to database breaches.
 
@@ -69,7 +69,7 @@ Let's dig into each one in detail.
 |Automated online backups|DocumentDB databases are backed up regularly and stored in a georedundant store. <br><br>Learn more in [Automatic online backup and restore with DocumentDB](documentdb-online-backup-and-restore.md).|
 |Restore deleted data|The automated online backups can be used to recover data you may have accidentally deleted up to ~30 days after the event. <br><br>Learn more in [Automatic online backup and restore with DocumentDB](documentdb-online-backup-and-restore.md)|
 |Protect and isolate sensitive data|PII and other confidential data can be isolated to specific collections and read-write, or read-only access can be limited to specific users. <br><br>*In the future, we can add encryption at rest here*|
-|Monitor for attacks|By using audit logging and activity logs, you can monitor your account for normal and abnormal activity. You can view what operations were performed on your resources, who initiated the operation, when the operation occurred, the status of the operation, and much more.<br><br>![Activity logs for Azure DocumentDB](./media/documentdb-nosql-database-security/nosql-database-security-application-logging.png)<br><br>Any denied requests (401 and 403 status codes) are logged in the activity log as well. You can set up alerts to detect an abnormal number of denied requests.|
+|Monitor for attacks|By using audit logging and activity logs, you can monitor your account for normal and abnormal activity. You can view what operations were performed on your resources, who initiated the operation, when the operation occurred, the status of the operation, and much more.<br><br>![Activity logs for Azure DocumentDB](./media/documentdb-nosql-database-security/nosql-database-security-application-logging.png)|
 |Respond to attacks|Once you have contacted Azure support to report a potential attack, a 5-step incident response process is kicked off. The goal of the 5-step process is to restore normal service security and operations as quickly as possible after an issue is detected and an investigation is started.<br><br>Learn more in [Microsoft Azure Security Response in the Cloud](https://aka.ms/securityresponsepaper).|
 |Geo-fencing|DocumentDB ensures data governance and compliance for sovereign regions (for example, Germany, China, US Gov).|
 |Protected facilities|Data in DocumentDB is stored on SSDs in Azure's protected data centers.<br><br>Learn more in [Microsoft global datacenters](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
