@@ -131,6 +131,7 @@ The services that currently do not enable moving a resource are:
 * Recovery Services vault - also do not move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
 * Security
 * Virtual Machines with certificate stored in Key Vault
+* Virtual Machines with Managed Disks
 * Virtual Machines Scale Sets
 * Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * VPN Gateway
