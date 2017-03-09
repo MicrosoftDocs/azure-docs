@@ -64,7 +64,7 @@ Follow these steps to query the database on the Azure dashboard.
 2. Click **Query editor (preview)**, click the preview checkbox, and then click **OK**. 
 
 3. Click **Login** and then, when prompted, select **SQL server authentication** and then provide the server admin login and password.
-4. Click **OK** tp log in.
+4. Click **OK** to log in.
 
 5. After you are authenticated, type a query of your choice in the query window, such as the following query:
 
@@ -89,9 +89,4 @@ The steps in this procedure show how to delete all resources created by this qui
 
 - To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
 - To connect using Visual Studio, see [Connect and query with Visual Studio](sql-database-connect-query.md).
-- To create a single database with Azure PowerShell, see [Create a single database using PowerShell](sql-database-get-started-powershell.md).
-- To create a single database Azure CLI, see [Create a single database using CLI](sql-database-get-started-cli.md).
-- For a getting started with SQL Server authentication tutorial, see [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md).
-- If you're ready to start coding, choose your programming language at [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md).
-- If you want to move your on-premises SQL Server databases to Azure, see [Migrating a database to SQL Database](sql-database-cloud-migrate.md).
 - For a technical overview of SQL Database, see [About the SQL Database service](sql-database-technical-overview.md).

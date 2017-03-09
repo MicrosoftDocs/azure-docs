@@ -80,13 +80,8 @@ To remove all the resources created by this QuickStart, run the following comman
 az group delete --name myResourceGroup
 ```
 
-## Next Steps
+## Next steps
 
 - To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
 - To connect using Visual Studio, see [Connect and query with Visual Studio](sql-database-connect-query.md).
-- To create a single database in the Azure portal, see [Create a single database in the Azure portal](sql-database-get-started.md).
-- To create a single database with Azure PowerShell, see [Create a single database using PowerShell](sql-database-get-started-powershell.md).
-- For a getting started with SQL Server authentication tutorial, see [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md).
-- If you're ready to start coding, choose your programming language at [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md).
-- If you want to move your on-premises SQL Server databases to Azure, see [Migrating a database to SQL Database](sql-database-cloud-migrate.md).
 - For a technical overview of SQL Database, see [About the SQL Database service](sql-database-technical-overview.md).
