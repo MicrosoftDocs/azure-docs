@@ -1,5 +1,5 @@
 # Azure technical content channel guidance
-GitHub is a relatively easy way (once you get over the Git hump) to author and publish technical content. But we need to ensure that content stays within the boundaries of technical documentation - there are other channels for other types of information.
+GitHub is an easy way (once you get over the Git hump) to author and publish technical content. But we need to ensure that content stays within the boundaries of technical documentation - there are other channels for other types of information.
 
 ## Technical content that belongs in the azure-docs-pr repository
 The following types of content are authored in azure-docs-pr and published to https://docs.microsoft.com/azure. 
