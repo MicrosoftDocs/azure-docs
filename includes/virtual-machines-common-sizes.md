@@ -4,7 +4,6 @@
 
 | Type                                 | Series | Best for....                                                                                                                                   | ACU        |
 |--------------------------------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------|------------|
-| [Economy](../articles/virtual-machines/virtual-machines-windows-sizes-economy.md) | A0-7   | Development workloads, build servers, code repositories, low-traffic websites, micro services, early product experiments, and small databases. | 50-100     |
 |[General-purpose](../articles/virtual-machines/virtual-machines-windows-sizes-general.md)  | D      | Applications that demand faster CPUs, better local disk performance, or higher memories. | 160        |
 |                                                                                           | Dv2    | Applications that demand more powerful CPUs, which are about 35% faster than D-series.                                                         | 210 - 250* |
 |                                                                                           | A0-7      |  | 160        |
@@ -20,7 +19,7 @@
 | 									   | DS     | Applications with similar demands to the D-series but require premium storage.                                                                 | 160        |
 |                                      | DSv2   | Optimized for premium storage.                                                                                                                 | 210 - 250* |
 | [Storage optimized](../articles/virtual-machines/virtual-machines-windows-sizes-storage.md)                    | Ls      | workloads that require low latency local storage, like NoSQL databases.                                                           | 180-240*   |
-
+| [Economy](../articles/virtual-machines/virtual-machines-windows-sizes-economy.md) | Basic_A0-4   | Development workloads, build servers, code repositories, low-traffic websites, micro services, early product experiments, and small databases. | 50-70     |
 
 ACU is currently standardized on a Small (Standard_A1) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark. 
 
