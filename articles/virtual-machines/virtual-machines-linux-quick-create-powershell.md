@@ -30,7 +30,7 @@ Log in to your Azure subscription with the `Login-AzureRmAccount` command and fo
 Login-AzureRmAccount
 ```
 
-Create an Azure resource group. An resource group is a logical container into which Azure resources are deployed and managed. 
+Create an Azure resource group. A resource group is a logical container into which Azure resources are deployed and managed. 
 
 ```powershell
 New-AzureRmResourceGroup -Name myResourceGroup -Location westeurope
