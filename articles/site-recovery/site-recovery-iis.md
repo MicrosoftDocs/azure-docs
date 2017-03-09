@@ -85,7 +85,7 @@ Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating th
 
 ### Adding virtual machines to failover groups
 
-![Recovery Plan](./media/site-recovery-iis/TestFailoverJob.png)
+![Recovery Plan](./media/site-recovery-iis/RecoveryPlan.png)
 
 
 ### Adding scripts to the recovery plan
