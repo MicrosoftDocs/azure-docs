@@ -49,7 +49,7 @@ If the outage was temporary, it is possible that the primary region will be reco
 
 * Cancel all outstanding geo-restore requests.   
 * Failover the management database(s) to the primary region (5). Note: After the region’s recovery the old primaries have automatically become secondaries. Now they will switch roles again. 
-* Change the the application's connection string to point back to the primary region. Now all new accounts and tenant databases will be created in the primary region. Some existing customers will see their data temporarily unavailable.   
+* Change the application's connection string to point back to the primary region. Now all new accounts and tenant databases will be created in the primary region. Some existing customers will see their data temporarily unavailable.   
 * Set all databases in the DR pool to read-only to ensure they cannot be modified in the DR region (6). 
 * For each database in the DR pool that has changed since the recovery, rename or delete the corresponding databases in the primary pool (7). 
 * Copy the updated databases from the DR pool to the primary pool (8). 
