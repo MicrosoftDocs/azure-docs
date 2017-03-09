@@ -89,9 +89,9 @@ The following example demonstrates how to create a fully populated email object:
 
     var recipients = new List<EmailAddress>
     {
-        new EmailAddress(){ "jeff@example.com", "Jeff Smith" },
-        new EmailAddress(){ "anna@example.com", "Anna Lidman" },
-        new EmailAddress(){ "peter@example.com", "Peter Saddow" }
+        new EmailAddress("jeff@example.com", "Jeff Smith"),
+        new EmailAddress("anna@example.com", "Anna Lidman"),
+        new EmailAddress("peter@example.com", "Peter Saddow")
     };
     msg.AddTos(recipients);
 
