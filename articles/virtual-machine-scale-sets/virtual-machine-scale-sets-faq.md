@@ -38,7 +38,7 @@ For more information, See: [https://www.microsoft.com/TrustCenter/Compliance/PCI
 
 ## VM Properties
 
-### How do I get property information for each VM without having to make multiple calls? E.g. getting the Fault Domain for each VM in my 100 VM scale set?
+### How do I get property information for each VM without having to make multiple calls? E.g. getting the Fault Domain for each VM in my 100 scale set?
 
 You can call ListVMInstanceViews by:
 
@@ -63,7 +63,7 @@ The main difference is dealloc doesn’t delete the VHDs, so there are storage c
 
 ## Updates
 
-### How to I update my VMScaleSet to a new image? How do I manage patching?
+### How to I update my scale set to a new image? How do I manage patching?
 
 See: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set
 
@@ -116,7 +116,7 @@ See this list of supported metrics: https://docs.microsoft.com/azure/monitoring-
 
 https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets
 
-### How can I set alert rules on a VM scale set?
+### How can I set alert rules on a scale set?
 
 You can create alerts on metrics on scale sets via PS or CLI. See:
 
