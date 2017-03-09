@@ -66,25 +66,25 @@ All triggers contain these top-level elements:
 
 ### Trigger types and their inputs  
 
-The **6** types of triggers are:  
+You can use these types of triggers:
   
 -   **Request** \- Makes the logic app an endpoint for you to call  
   
 -   **Recurrence** \- Fires based on a defined schedule  
   
--   **HTTP** \- Polls an HTTP web endpoint. The HTTP endpoint must conform to a specific  triggering contract \- either by using a 202\-async pattern, or by returning an array  
+-   **HTTP** \- Polls an HTTP web endpoint. The HTTP endpoint must conform to a specific triggering contract \- either by using a 202\-async pattern, or by returning an array  
   
--   **ApiConnection** \- Polls like the HTTP trigger, however, it takes advantage of the [Microsoft managed APIs](https://docs.microsoft.com/azure/connectors/apis-list)  
+-   **ApiConnection** \- Polls like the HTTP trigger, however, it takes advantage of the [Microsoft-managed APIs](https://docs.microsoft.com/azure/connectors/apis-list)  
   
 -   **HTTPWebhook** \- Opens an endpoint, similar to the Manual trigger, however, it also calls out to a specified URL to register and unregister  
   
--   **ApiConnectionWebhook** \- Operates like the HTTPWebhook trigger by taking advantage of the Microsoft managed APIs       
+-   **ApiConnectionWebhook** \- Operates like the HTTPWebhook trigger by taking advantage of the Microsoft-managed APIs       
     Each trigger type has a different set of **inputs** that defines its behavior.  
   
 ## Request trigger  
 
 This trigger serves as an endpoint that you call via an HTTP Request to invoke your logic app. 
-A request trigger looks like this:  
+A request trigger looks like this example:  
   
 ```json
 "<name-of-the-trigger>" : {
@@ -107,14 +107,14 @@ There is also an optional property called **schema**:
   
 |Element name|Required|Description|  
 |----------------|------------|---------------|  
-|schema|No|A JSON schema that validates the incoming request. This is useful so that the subsequent steps in the workflow can be aware of which properties to reference|  
-  
-You'll need to call the *listCallbackUrl* API to invoke this endpoint. See 
+|schema|No|A JSON schema that validates the incoming request. Useful for helping subsequent workflow steps know which properties to reference.|
+
+To invoke this endpoint, you need to call the *listCallbackUrl* API. See 
 [Workflow Service REST API](https://docs.microsoft.com/rest/api/logic/workflows).  
   
 ## Recurrence trigger  
 
-A Recurrence trigger is one that runs based on a defined schedule. Such a trigger might look like this:  
+A Recurrence trigger is one that runs based on a defined schedule. Such a trigger might look like this example:  
 
 ```json
 "dailyReport" : {
@@ -130,14 +130,14 @@ As you can see, it is a simple way to run a workflow.
   
 |Element name|Required|Description|  
 |----------------|------------|---------------|  
-|frequency|Yes|How often the trigger will execute. Use only one of these possible values: second, minute, hour, day, week, month or year|  
+|frequency|Yes|How often the trigger executes. Use only one of these possible values: second, minute, hour, day, week, month, or year|  
 |interval|Yes|Interval of the given frequency for the recurrence|  
-|startTime|No|If a startTime is provided without a UTC offset, this timeZone will be used.|  
-|timeZone|no|If a startTime is provided without a UTC offset, this timeZone will be used.|  
+|startTime|No|If a startTime is provided without a UTC offset, this timeZone is used.|  
+|timeZone|no|If a startTime is provided without a UTC offset, this timeZone is used.|  
   
 You can also schedule a trigger to start executing at some point in the future. 
 For example, if you want to start a weekly report every Monday you can schedule 
-the the logic app to start every Monday by creating the following trigger:  
+the logic app to start every Monday by creating the following trigger:  
 
 ```json
 "dailyReport" : {
@@ -152,39 +152,39 @@ the the logic app to start every Monday by creating the following trigger:
 
 ## HTTP trigger  
 
-HTTP triggers poll a specified endpoint and check the response to determine if the workflow should be executed. 
+HTTP triggers poll a specified endpoint and check the response to determine whether the workflow should be executed. 
 The inputs object takes the set of parameters required to construct an HTTP call:  
   
 |Element name|Required|Description|Type|  
 |----------------|------------|---------------|--------|  
 |method|yes|Can be one of the following HTTP methods: GET, POST, PUT, DELETE, PATCH, or HEAD|String|  
-|uri|yes|The http or https endpoint that will be called. Maximum of 2 kilobytes.|String|  
-|queries|No|An object representing the query parameters to be added to the URL. For example, `"queries" : { "api-version": "2015-02-01" }` will add `?api-version=2015-02-01` to the URL.|Object|  
-|headers|No|An object representing each of the headers that will be sent to the request. For example, to set the language and type on a request: `"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|Object|  
-|body|No|An object representing the payload that will be sent to the endpoint.|Object|  
-|retryPolicy|No|An object allowing you to customize the retry behavior for 4xx or 5xx errors.|Object|  
+|uri|yes|The http or https endpoint that is called. Maximum of 2 kilobytes.|String|  
+|queries|No|An object representing the query parameters to add to the URL. For example, `"queries" : { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL.|Object|  
+|headers|No|An object representing each of the headers that is sent to the request. For example, to set the language and type on a request: `"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|Object|  
+|body|No|An object representing the payload that is sent to the endpoint.|Object|  
+|retryPolicy|No|An object that lets you customize the retry behavior for 4xx or 5xx errors.|Object|  
 |authentication|No|Represents the method that the request should be authenticated. For details on this object, see [Scheduler Outbound Authentication](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). There is one additional property supported beyond scheduler: **authority**. By default it is **https:\/\/login.windows.net\/** if not specified, but you can use a different audience like **https:\/\/login.windows\-ppe.net\/**.|Object|  
   
-The HTTP trigger requires the HTTP API to conform to a specific pattern to work well with your logic app. 
+The HTTP trigger requires the HTTP API to conform with a specific pattern to work well with your logic app. 
 It requires the following fields:  
   
 |Response|Description|  
 |------------|---------------|  
-|Status code|Status code 200 \(OK\) to cause a run. Any other status code will not cause a run.|  
+|Status code|Status code 200 \(OK\) to cause a run. Any other status code doesn't cause a run.|  
 |Retry\-after header|Number of seconds until the logic app polls the endpoint again.|  
-|Location header|The URL to call on the next polling interval. If not specified the original URL will be used.|  
+|Location header|The URL to call on the next polling interval. If not specified, the original URL is used.|  
   
 Here are some examples of different behaviors for different types of requests:  
   
 |Response code|Retry\-After|Behavior|  
 |-----------------|----------------|------------|  
-|200|\(none\)|Not a valid trigger, Retry\-After is required or else the engine will never poll for the next request.|  
-|202|60|Do not trigger the workflow, the next attempt will happen in 1 minute.|  
+|200|\(none\)|Not a valid trigger, Retry\-After is required, or else the engine never polls for the next request.|  
+|202|60|Do not trigger the workflow. The next attempt happens in one minute.|  
 |200|10|Run the workflow, and check again for more content in 10 seconds.|  
-|400|\(none\)|Bad request, do not run the workflow. If there is no **Retry Policy** defined, then the default policy will be used. Once the number of retries have been reached the trigger will no longer be valid.|  
-|500|\(none\)|Server error, do not run the workflow.  If there is no **Retry Policy** defined, then the default policy will be used. Once the number of retries have been reached the trigger will no longer be valid.|  
+|400|\(none\)|Bad request, do not run the workflow. If there is no **Retry Policy** defined, then the default policy is used. After the number of retries has been reached, the trigger is no longer valid.|  
+|500|\(none\)|Server error, do not run the workflow.  If there is no **Retry Policy** defined, then the default policy is used. After the number of retries has been reached, the trigger is no longer valid.|  
   
-The outputs of an HTTP trigger look like this:  
+The outputs of an HTTP trigger look like this example:  
   
 |Element name|Description|Type|  
 |----------------|---------------|--------|  
@@ -220,9 +220,9 @@ However, the parameters for identifying the action are different. Here is an exa
 |----------------|------------|--------|---------------|  
 |host|Yes||The ApiApp hosted gateway and id.|  
 |method|Yes|String|Can be one of the following HTTP methods: **GET**, **POST**, **PUT**, **DELETE**, **PATCH**, or **HEAD**|  
-|queries|No|Object|Represents the query parameters to be added to the URL. For example, `"queries" : { "api-version": "2015-02-01" }` will add `?api-version=2015-02-01` to the URL.|  
-|headers|No|Object|Represents each of the headers that will be sent to the request. For example, to set the language and type on a request: `"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
-|body|No|Object|Represents the payload that will be sent to the endpoint.|  
+|queries|No|Object|Represents the query parameters to be added to the URL. For example, `"queries" : { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL.|  
+|headers|No|Object|Represents each of the headers that is sent to the request. For example, to set the language and type on a request: `"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
+|body|No|Object|Represents the payload that is sent to the endpoint.|  
 |retryPolicy|No|Object|Allows you to customize the retry behavior for 4xx or 5xx errors.|  
 |authentication|No|Object|Represents the method that the request should be authenticated. For details on this object, see [Scheduler Outbound Authentication](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication)|  
   
@@ -231,7 +231,7 @@ The properties for host are:
 |Element name|Required|Description|  
 |----------------|------------|---------------|  
 |api runtimeUrl|Yes|The endpoint of the managed API.|  
-|connection name||Must be a reference to a parameter called `$connection`. This is the name of the managed API connection that the workflow will use.|  
+|connection name||Must be a reference to a parameter called `$connection` and is the name of the managed API connection that the workflow uses.|
   
 The outputs of an API connection trigger look like this:  
   
@@ -282,14 +282,14 @@ The properties of a Webhook are as follows:
   
 |Element Name|Required|Description|  
 |----------------|------------|---------------|  
-|subscribe|No|The outgoing request that is called when the  the trigger is created. This performs the initial registration.|  
+|subscribe|No|The outgoing request that is called when the trigger is created and performs the initial registration.|  
 |unsubscribe|No|The outgoing request when the trigger is deleted.|  
   
--   **Subscribe** is the outgoing call that's made to start listening to events. It starts with the same set of parameters that the normal http actions do. It is an outgoing call that will be made any time the workflow changes in any way, for example, whenever the credentials are rolled, or the trigger's input parameters change.  
+-   **Subscribe** is the outgoing call that's made to start listening to events. This call starts with the same set of parameters that the normal HTTP actions do. This outgoing call is made any time the workflow changes in any way, for example, whenever the credentials are rolled, or the trigger's input parameters change.
   
-    To support this there is a new function: `@listCallbackUrl()`. This function returns a unique URL for this specific trigger in this workflow. It represents the unique identifier for the endpoints that use the Service REST.  
+    To support this call, there is a new function: `@listCallbackUrl()`. This function returns a unique URL for this specific trigger in this workflow. It represents the unique identifier for the endpoints that use the Service REST.  
   
--   **Unsubscribe** is called when the user performs an operation that renders this trigger invalid, including:  
+-   **Unsubscribe** is called when an operation renders this trigger invalid, including:  
   
     -   Deleting\/Disabling the trigger  
   
@@ -324,9 +324,9 @@ For any trigger you can use one or more conditions to determine if the workflow 
 }
 ```
 
-In this case, the report will only trigger while the sendReports parameter of the workflow is set to true. 
+In this case, the report only triggers while the workflow's `sendReports` parameter is set to true. 
 Finally, conditions may reference the status code of the trigger. For example, 
-you could kick off a workflow only when your website returns a status code 500, by doing this:  
+you could kick off a workflow only when your website returns a status code 500, as follows:
   
 ```  
 "conditions": [  
@@ -337,14 +337,17 @@ you could kick off a workflow only when your website returns a status code 500, 
 ```  
   
 > [!NOTE]  
-> When any expression references the status code of the trigger \(in any way\), the default behavior \(trigger only on 200 \(OK\)\) is completely replaced. For example, that if you want to trigger on both status code 200 and status code 201, you have to include: `@or(equals(triggers().code, 200),equals(triggers().code,201))` as your condition.  
+> When any expression references the status code of the trigger \(in any way\), 
+> the default behavior \(trigger only on 200 \(OK\)\) is replaced. 
+> For example, if you want to trigger on both status code 200 and status code 201, 
+> you have to include: `@or(equals(triggers().code, 200),equals(triggers().code,201))` as your condition.  
   
-## Split\-on  
+## Start multiple runs for a request
 
-Split\-on allows you to kick\-off multiple runs for a single request. 
-This is very useful when you want to poll an endpoint that can have multiple new items between polling intervals.  
+To kick off multiple runs for a single request, `splitOn` is useful, for example, 
+when you want to poll an endpoint that can have multiple new items between polling intervals.
   
-With Split\-on, you specify the property inside the response payload that contains the array of items, 
+With `splitOn`, you specify the property inside the response payload that contains the array of items, 
 each of which you want to use to start a run of the trigger. For example, 
 imagine you have an API that returns the following response:  
   
@@ -364,7 +367,7 @@ imagine you have an API that returns the following response:
 }
 ```
   
-Your logic app only needs the Rows content, so you can construct your trigger like this:  
+Your logic app only needs the Rows content, so you can construct your trigger like this example:  
   
 ```json
 "mysplitter" : {
@@ -381,8 +384,8 @@ Your logic app only needs the Rows content, so you can construct your trigger li
 }
 ```
   
-Then, in the workflow definition, `@triggerBody().name` will return `mycoolrow` for the first run, and  
-`another row` for the second run. This means the trigger outputs look like:  
+Then, in the workflow definition, `@triggerBody().name` returns `mycoolrow` for the first run, 
+and `another row` for the second run. The trigger outputs look like this example:  
   
 ```json
 {
@@ -393,8 +396,8 @@ Then, in the workflow definition, `@triggerBody().name` will return `mycoolrow` 
 }
 ```
 
-As you can see, if you use split\-on, you will not be able to get the properties that are outside of the array, 
-in this case the `Status` field.  
+So if you use `SplitOn`, you can't get the properties that are outside the array, 
+in this case, the `Status` field.  
   
 > [!NOTE]  
 > In this example, we use the `?` operator to be able to avoid a failure if the `Rows` property is not present. 
@@ -403,9 +406,9 @@ in this case the `Status` field.
 
 You can configure triggers that have a recurrence property to only fire if all active runs have completed. 
 If a scheduled recurrence occurs while there is an in-progress run, 
-the trigger will skip and wait until the next scheduled recurrence interval to check again.
+the trigger skips and waits until the next scheduled recurrence interval to check again.
 
-This setting can be configured via the operation options:
+You can configure this setting through the operation options:
 
 ```json
 "triggers": {
@@ -423,49 +426,51 @@ This setting can be configured via the operation options:
 There are many types of actions, each with unique behavior. 
 Collection actions may contain many other actions within itself.
 
-### Standard Actions  
+### Standard actions  
 
 -   **HTTP** This action calls an HTTP web endpoint.  
   
--   **ApiConnection** \- This action has behavior similar the HTTP action, however, it takes advantage of the Microsoft managed APIs.  
+-   **ApiConnection** \- This action behaves like the HTTP action, but uses the Microsoft-managed APIs.  
   
--   **ApiConnectionWebhook** \- like HTTPWebhook, but taking advantage of the Microsoft managed APIs.  
+-   **ApiConnectionWebhook** \- Like HTTPWebhook, but uses the Microsoft-managed APIs.  
   
 -   **Response** \- This action defines a response for an incoming call.  
   
--   **Wait** \- This is a simple action that waits a fixed amount of time or until a specific time.  
+-   **Wait** \- This simple action waits a fixed amount of time or until a specific time.  
   
 -   **Workflow** \- This action represents a nested workflow.  
 
-### Collection Actions
+### Collection actions
 
 -   **Scope** \- This action is a logical grouping of other actions.
 
--   **Condition** \- This is an action that evaluates an expression and executes the corresponding result branch.
+-   **Condition** \- This action evaluates an expression and executes the corresponding result branch.
 
--   **ForEach** \- This is a looping action that will iterate over an array and perform inner actions for each item.
+-   **ForEach** \- This looping action iterates through an array and performs inner actions for each item.
 
--   **Until** \- This is a looping action that will execute inner actions until a condition results to true.
+-   **Until** \- This looping action executes inner actions until a condition results to true.
   
-Each type of action has a different set of **inputs** which defines action's behavior.  
+Each type of action has a different set of **inputs** that define an action's behavior.  
   
 ## HTTP action  
 
-HTTP actions call a specified endpoint and checks the response in order to determine if the workflow should run. 
+HTTP actions call a specified endpoint and check the response to determine whether the workflow should run. 
 The **inputs** object takes the set of parameters required to construct the HTTP call:  
   
 |Element name|Required|Type|Description|  
 |----------------|------------|--------|---------------|  
 |method|Yes|String|Can be one of the following HTTP methods: **GET**, **POST**, **PUT**, **DELETE**, **PATCH**, or **HEAD**|  
-|uri|Yes|String|The http or https endpoint that will be called. Maximum length is 2 kilobytes.|  
-|queries|No|Object|Represents the query parameters to be added to the URL. For example, `"queries" : { "api-version": "2015-02-01" }` will add `?api-version=2015-02-01` to the URL.|  
-|headers|No|Object|Represents each of the headers that will be sent to the request. For example, to set the language and type on a request: `"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
-|body|No|Object|Represents the payload that will be sent to the endpoint.|  
-|retryPolicy|No|Object|Allows you to customize the retry behavior for 4xx or 5xx errors.|  
+|uri|Yes|String|The http or https endpoint that is called. Maximum length is 2 kilobytes.|  
+|queries|No|Object|Represents the query parameters to add to the URL. For example, `"queries" : { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL.|  
+|headers|No|Object|Represents each of the headers that is sent to the request. For example, to set the language and type on a request: `"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
+|body|No|Object|Represents the payload that is sent to the endpoint.|  
+|retryPolicy|No|Object|Lets you customize the retry behavior for 4xx or 5xx errors.|  
 |operationsOptions|No|String|Defines the set of special behaviors to override.|  
 |authentication|No|Object|Represents the method that the request should be authenticated. For details on this object, see [Scheduler Outbound Authentication](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). There is one additional property supported beyond scheduler: **authority**. By default it is **https:\/\/login.windows.net\/** if not specified, but you can use a different audience like **https:\/\/login.windows\-ppe.net\/**.|  
   
-HTTP actions \(and API Connection\) actions support retry policies. A retry policy applies to intermittent failures \(characterized as HTTP status codes 408, 429, and 5xx as well as any connectivity exceptions\) and is described using the *retryPolicy* object defined as follows:  
+HTTP actions \(and API Connection\) actions support retry policies. 
+A retry policy applies to intermittent failures, characterized as HTTP status codes 408, 429, and 5xx, in addition to any connectivity exceptions, 
+and is described using the *retryPolicy* object defined as shown here:
   
 ```json
 "retryPolicy" : {
@@ -475,15 +480,15 @@ HTTP actions \(and API Connection\) actions support retry policies. A retry poli
 }
 ```
   
-The retry interval is specified in the ISO 8601 format. Its default value is 20 seconds, 
-which is also the minimum value. The maximum value is 1 hour. 
-The default retry count is 4, 4 is also the maximum retry count. 
+The retry interval is specified in the ISO 8601 format. 
+This interval has a default and minimum value of 20 seconds, 
+while the maximum value is one hour. The default and maximum retry count is four hours. 
 If the retry policy definition is not specified, a **fixed** strategy 
 is used with default retry count and interval values. 
 To disable the retry policy, set its type to **None**.  
   
-For example, the following action will retry fetching the latest news 2 times in case of intermittent failures, 
-for a total of 3 executions, with a 30 second delay between each attempt:  
+For example, the following action retries fetching the latest news two times, 
+if there are intermittent failures, for a total of 3 executions, with a 30-second delay between each attempt:  
   
 ```json
 "latestNews" : {
@@ -505,9 +510,9 @@ That is, if the remote server indicates that the request has been accepted for p
 with a 202 \(Accepted\) response, the Logic Apps engine keeps polling the URL specified 
 in the location header of the response until a terminal state is reached \(a non\-202 response\).  
   
-In order to disable the asynchronous behavior described above, 
+To disable the asynchronous behavior previously described, 
 set a 'DisableAsyncPattern' option in the action inputs. In this case, 
-the output of the action will be based on the initial 202 response from the server.  
+the output of the action is based on the initial 202 response from the server.  
   
 ```json
 "invokeLongRunningOperation" : {
@@ -522,18 +527,18 @@ the output of the action will be based on the initial 202 response from the serv
   
 ## API Connection  
 
-API Connection is the type of action that references one of the Microsoft managed connectors. 
-It requires a reference to a valid connection, and information on the api and parameters required.
+API Connection is an action that references a Microsoft-managed connector.
+This action requires a reference to a valid connection, and information on the API and parameters required.
 
 |Element name|Required|Type|Description|  
 |----------------|------------|--------|---------------|  
 |host|Yes|Object|Represents the connector information such as the runtimeUrl and reference to the connection object|
 |method|Yes|String|Can be one of the following HTTP methods: **GET**, **POST**, **PUT**, **DELETE**, **PATCH**, or **HEAD**|  
 |path|Yes|String|The path of the API operation.|  
-|queries|No|Object|Represents the query parameters to be added to the URL. For example, `"queries" : { "api-version": "2015-02-01" }` will add `?api-version=2015-02-01` to the URL.|  
-|headers|No|Object|Represents each of the headers that will be sent to the request. For example, to set the language and type on a request: `"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
-|body|No|Object|Represents the payload that will be sent to the endpoint.|  
-|retryPolicy|No|Object|Allows you to customize the retry behavior for 4xx or 5xx errors.|  
+|queries|No|Object|Represents the query parameters to add to the URL. For example, `"queries" : { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL.|  
+|headers|No|Object|Represents each of the headers that is sent to the request. For example, to set the language and type on a request: `"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
+|body|No|Object|Represents the payload that is sent to the endpoint.|  
+|retryPolicy|No|Object|Lets you customize the retry behavior for 4xx or 5xx errors.|  
 |operationsOptions|No|String|Defines the set of special behaviors to override.|  
 
 ```json
@@ -591,8 +596,8 @@ It requires a reference to a valid connection, and information on the api and pa
   
 ## Response action  
 
-This action type contains the entire response payload from an HTTP request. 
-This includes a statusCode, body and headers:  
+This action type contains the entire response payload from an HTTP request 
+and includes a statusCode, body, and headers:  
   
 ```json
 "myresponse" : {
@@ -618,15 +623,15 @@ The response action has special restrictions that don't apply to other actions. 
 response to the incoming request is required.  
   
 -   If a response action is reached after the incoming request has already been responded to, 
-this is considered a failed action \(conflict\) and as a result the run will be Failed.  
+this is considered a failed action \(conflict\), and as a result, the run is `Failed`.  
   
--   A workflow with Response actions cannot have splitOn in its trigger because one call causes many runs. 
+-   A workflow with Response actions cannot have `splitOn` in its trigger because one call causes many runs. 
 As a result, this should be validated when the flow is PUT and cause a Bad Request.  
   
 ## Wait action  
 
-Wait action will suspend execution of the workflow for the specified interval. 
-For example, to wait for 15 minutes you can use the following:  
+The `wait` action suspends workflow execution for the specified interval. 
+For example, to wait 15 minutes, you can use this snippet:  
   
 ```json
 "waitForFifteenMinutes" : {
@@ -640,7 +645,7 @@ For example, to wait for 15 minutes you can use the following:
 }
 ```  
   
-Alternatively, to wait until a specific moment in time, you can use the following:  
+Alternatively, to wait until a specific moment in time, you can use this example:  
   
 ```json
 "waitUntilOctober" : {
@@ -660,7 +665,7 @@ Alternatively, to wait until a specific moment in time, you can use the followin
 |Name|Required|Type|Description|  
 |--------|------------|--------|---------------|  
 |interval|No|Object|The wait duration based on amount of time.|  
-|interval unit|Yes|String|One of the following: second, minute, hour, day, week, month, year.|  
+|interval unit|Yes|String|One of these intervals: second, minute, hour, day, week, month, year.|  
 |interval count|Yes|String|Duration based on the given internal unit.|  
 |until|No|Object|The wait duration based on a point in time.|  
 |until timestamp|Yes|String|String&#124;The point in time in UTC when the wait expires.|  
@@ -683,7 +688,8 @@ For example, to select numbers greater than 2, you can use:
 The output of **Query** action is an array that contains elements from the input array that satisfy the condition.
 
 > [!NOTE]
-> If no values satisfy the **where** condition, the result is an empty array.
+> If no values satisfy the `where` condition, 
+> the result is an empty array.
 
 |Name|Required|Type|Description|
 |--------|------------|--------|---------------|
@@ -738,9 +744,8 @@ For example, you can use the compose action to merge outputs of multiple actions
 ```
 
 > [!NOTE]
-> The **Compose** action can be used to constuct any output, 
-> inluding objects, arrays, and any other type natively supported by logic apps, 
-> such as xml and binary.
+> The **Compose** action can be used to construct any output, 
+> including objects, arrays, and any other type natively supported by logic apps like XML and binary.
 
 ## Workflow action   
 
@@ -748,9 +753,9 @@ For example, you can use the compose action to merge outputs of multiple actions
 |--------|------------|--------|---------------|  
 |host id|Yes|String|The resource ID of the workflow that you want to call.|  
 |host triggerName|Yes|String|The name of the trigger that you want to invoke.|  
-|queries|No|Object|Represents the query parameters to be added to the URL. For example, `"queries" : { "api-version": "2015-02-01" }` will add `?api-version=2015-02-01` to the URL.|  
-|headers|No|Object|Represents each of the headers that will be sent to the request. For example, to set the language and type on a request: `"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
-|body|No|Object|Represents the payload that will be sent to the endpoint.|  
+|queries|No|Object|Represents the query parameters to add to the URL. For example, `"queries" : { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL.|  
+|headers|No|Object|Represents each of the headers that is sent to the request. For example, to set the language and type on a request: `"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
+|body|No|Object|Represents the payload sent to the endpoint.|  
   
 ```json
 "mynestedwf" : {
@@ -776,7 +781,7 @@ For example, you can use the compose action to merge outputs of multiple actions
     }
 ```
   
-An access check will be made on the workflow \(more specifically, the trigger\), 
+An access check is made on the workflow \(more specifically, the trigger\), 
 meaning you need access to the workflow.  
   
 The outputs of the workflow action are based on what you 
@@ -786,9 +791,9 @@ If you have not defined any **Response**, then the outputs are empty.
 ## Collection actions (scopes and loops)
 
 Some action types can contain actions within themselves. 
-Actions within a collection can be referenced directly outside of the collection 
-(if `http` was defined in a scope, `@body('http')` is still valid anywhere in a workflow. 
-Actions within a collection can only `runAfter` other actions within the same collection.
+Reference actions within a collection can be referenced directly outside of the collection. 
+If you defined `http` in a scope, `@body('http')` is still valid anywhere in a workflow. 
+Actions within a collection can `runAfter` only other actions within the same collection.
 
 ## Scope action
 
@@ -816,15 +821,15 @@ Scope allows for a logic grouping of actions within a workflow.
 
 ## ForEach action
 
-This is a looping action that will iterate over an array and perform inner actions for each item. 
-By default the foreach loop will execute in parallel (20 executions in parallel at a time). 
-Execution rules can be set using the `operationOptions` parameter.
+This looping action iterates through an array and performs inner actions for each item. 
+By default, the foreach loop executes in parallel (20 executions in parallel at a time). 
+You can set execution rules using the `operationOptions` parameter.
 
 |Name|Required|Type|Description|  
 |--------|------------|--------|---------------|  
 |actions|Yes|Object|Inner actions to execute within the loop|
-|foreach|Yes|string|The array to interate over|
-|operationOptions|no|string|Any operation options for behavior.  Currently only supports `sequential` to execute iterations sequentially (default behavior is parallel)|
+|foreach|Yes|string|The array to iterate over|
+|operationOptions|no|string|Any operation options for behavior. Currently only supports `sequential` to execute iterations sequentially (default behavior is parallel)|
 
 ```json
 "forEach_email": {
@@ -855,7 +860,7 @@ Execution rules can be set using the `operationOptions` parameter.
 
 ## Until action
 
-This is a looping action that will execute inner actions until a condition results to true.
+This looping action executes inner actions until a condition results to true.
 
 |Name|Required|Type|Description|  
 |--------|------------|--------|---------------|  
@@ -890,14 +895,14 @@ This is a looping action that will execute inner actions until a condition resul
 
 ## Conditions /- If Action
 
-The If action allows you to evaluate a condition and execute a branch 
-based on if the expression evaluates to `true`.
+The `If` action lets you evaluate a condition and execute a branch 
+based on whether the expression evaluates to `true`.
 
 |Name|Required|Type|Description|  
 |--------|------------|--------|---------------|  
-|actions|Yes|Object|Inner actions to execute if expression evaluates to `true`|
+|actions|Yes|Object|Inner actions to execute when expression evaluates to `true`|
 |expression|Yes|string|The expression to evaluate|
-|else|no|Object|Inner actions to execute if expression evaluates to `false`|
+|else|no|Object|Inner actions to execute when expression evaluates to `false`|
   
 ```json
 "My_condition": {
@@ -933,15 +938,15 @@ The following table shows examples of how conditions can use expressions in an a
   
 |JSON value|Result|  
 |--------------|----------|  
-|`"expression": "@parameters('hasSpecialAction')"`|Any value that would evaluate to true will cause this condition to pass. Only boolean expression are supported. Please use functions `empty`, `equals` to convert other types to booleans.|  
-|`"expression": "@greater(actions('act1').output.value, parameters('threshold'))"`|Comparison functions are supported. For the example here, the action will only execute if the output of act1 was greater than the threshold.|  
-|`"expression": "@or(greater(actions('act1').output.value, parameters('threshold')), less(actions('act1').output.value, 100))"`|Logic functions are also supported to create nested Boolean expressions. In this case the action will execute if the output of act1 was above the threshold, or, below 100.|  
-|`"expression": "@equals(length(actions('act1').outputs.errors), 0))"`|You can use array functions to check if an array has any items in it, in this case the action will execute if the errors array is empty|  
-|`"expression": "parameters('hasSpecialAction')"`|Error. This is not a valid condition because @ is required for conditions.|  
+|`"expression": "@parameters('hasSpecialAction')"`|Any value that would evaluate to true causes this condition to pass. Only Boolean expressions are supported. To convert other types to Boolean, use functions `empty`, `equals`.|  
+|`"expression": "@greater(actions('act1').output.value, parameters('threshold'))"`|Comparison functions are supported. For the example here, the action only executes when the output of act1 is greater than the threshold.|  
+|`"expression": "@or(greater(actions('act1').output.value, parameters('threshold')), less(actions('act1').output.value, 100))"`|Logic functions are also supported to create nested Boolean expressions. In this case, the action executes when the output of act1 is above the threshold or below 100.|  
+|`"expression": "@equals(length(actions('act1').outputs.errors), 0))"`|You can use array functions to check if an array has any items. In this case, the action executes when the errors array is empty.| 
+|`"expression": "parameters('hasSpecialAction')"`|Error - not a valid condition because @ is required for conditions.|  
   
-If a condition evaluates successfully, it is marked as `Succeeded`. 
-Actions within either the `actions` or `else` objects will evaluate to either `Succeeded` 
-if executed and succeeded, `Failed` if executed and failed, or `Skipped` if that branch was not executed.
+If a condition evaluates successfully, the condition is marked as `Succeeded`. 
+Actions within either the `actions` or `else` objects evaluate to `Succeeded` 
+when executed and succeeded, `Failed` when executed and failed, or `Skipped` when that branch is not executed.
 
 ## Next steps
 
