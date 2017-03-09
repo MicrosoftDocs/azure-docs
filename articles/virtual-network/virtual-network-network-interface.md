@@ -40,7 +40,7 @@ The remaining sections of this article provide steps to complete all NIC-related
 - Commands to complete the task using Azure PowerShell with links to the command reference for the command. Install and configure PowerShell by completing the steps in the [How to Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) article. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
 - Commands to complete the task using the Azure Command-line interface (CLI) with links to the command reference for the command. Install the Azure CLI by completing the steps in the [How to Install and Configure the Azure CLI 2.0](/cli/azure/install-az-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) article. To get help for CLI commands, type `az <command> -h`.
 
-## <a name="work-with-nics"></a>Network interfaces
+## <a name="nics"></a>Network interfaces
 Complete the steps in the following sections to create, view, change, and delete network interfaces and settings:
 
 ### <a name="create-nic"></a>Create a network interface
@@ -163,7 +163,7 @@ When you delete a NIC, any MAC or IP addresses assigned to it are released.
 |**CLI**|[az network nic list](/cli/azure/network/nic#list) to view a list of NICs, [az network nic delete](/cli/azure/network/nic#delete) to delete a NIC.|
 |**PowerShell**|[Get-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.1.0/get-azurermnetworkinterface) to view a list of NICs and [Remove-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.1.0/remove-azurermnetworkinterface) to delete a NIC.|
 
-## <a name="ip-configurations"></a>IP configurations
+## <a name="ip-configs"></a>IP configurations
 Each NIC has at least one IP configuration, referred to as the **Primary** configuration. A NIC may also have one or more *secondary* IP configurations associated to it. Each IP configuration:
 - Has one private IP address assigned to it using the static or dynamic assignment method. Dynamic IP addresses may change if a VM is started after being in the stopped (deallocated) state. Static IP addresses are released from a NIC if the VM the NIC is attached to is deleted, the NIC is detached from a VM, or the NIC is deleted.  @@@ confirm @@@
 - May have one public IP address resource associated to it.
@@ -232,7 +232,7 @@ Complete the following steps to delete a secondary IP configuration from a NIC:
 |**PowerShell**|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/v3.4.0/remove-azurermnetworkinterfaceipconfig)|
 
 
-## <a name="nic-nsg"></a>Network security groups
+## <a name="nsgs"></a>Network security groups
 A network security group (NSG) contains a list of inbound and outbound rules that allow or deny network traffic to a NIC. An NSG can be associated to a NIC, the subnet the NIC is connected to, or both. A NIC, and the subnet the NIC is connected to, are not required to have an NSG associated to them though. To learn more about network security groups, read the [Network security groups](virtual-networks-nsg.md) article.
 
 ### <a name="associate-nsg"></a>Associate an NSG to or disassociate an NSG from a network interface
@@ -252,7 +252,7 @@ To associate an NSG to a NIC or disassociate an NSG from a NIC, complete the fol
 |**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface)] @@@ Is this correct? @@@ |
 
 
-## <a name="public-ip-address-resource"></a>Public IP address resource
+## <a name="public-ips"></a>Public IP address resource
 
 @@@
 May break out public IP address resource tasks into a separate article, since they're used by resources other than a NIC too. Thoughts?
@@ -262,7 +262,7 @@ To communicate from the Internet to a VM, or to the Internet from a VM without n
 
 Public IP addresses have a nominal charge. To view the pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page. There are limits to the number of public IP addresses you can use within a subscription. To view the limits, read the [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article. To create, change, or delete public IP address resources, complete the steps in the following sections:
 
-### <a name="public-ip-address-resource-create"></a>Create a public IP address resource
+### <a name="public-ip-create"></a>Create a public IP address resource
 
 To create a public IP address resource, complete the following steps:
 1. Log in to the [Azure portal](https://portal.azure.com) with an account that is assigned the Owner, Contributor, or Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles to accounts.
@@ -285,7 +285,7 @@ To create a public IP address resource, complete the following steps:
 |**CLI**|[az network public-ip-create](/cli/azure/network/public-ip#create)|
 |**PowerShell**|[New-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/v3.4.0/new-azurermpublicipaddress)|
 
-### <a name="public-ip-address-resource-change"></a>Change settings or delete a public IP address resource
+### <a name="public-ip-change"></a>Change settings or delete a public IP address resource
 
 To change or delete a public IP address resource, complete the following steps:
 
