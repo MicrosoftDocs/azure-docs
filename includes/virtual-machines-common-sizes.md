@@ -5,8 +5,8 @@
 | Type                                 | Series | Best for....                                                                                                                                   | ACU        |
 |--------------------------------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------|------------|
 | [Economy](../articles/virtual-machines/virtual-machines-windows-sizes-economy.md) | A0-7   | Development workloads, build servers, code repositories, low-traffic websites, micro services, early product experiments, and small databases. | 50-100     |
-|                                                                                           | D      | Applications that demand faster CPUs, better local disk performance, or higher memories. | 160        |
-| [General-purpose](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) | Dv2    | Applications that demand more powerful CPUs, which are about 35% faster than D-series.                                                         | 210 - 250* |
+|[General-purpose](../articles/virtual-machines/virtual-machines-windows-sizes-general.md)  | D      | Applications that demand faster CPUs, better local disk performance, or higher memories. | 160        |
+|                                                                                           | Dv2    | Applications that demand more powerful CPUs, which are about 35% faster than D-series.                                                         | 210 - 250* |
 |                                                                                           | A0-7      |  | 160        |
 |                                                                                           | A1v2-A8v2 |  | 160        |
 | [High Performance Compute](../articles/virtual-machines/virtual-machines-windows-sizes-hpc.md) | A8-11  | Compute-intensive workloads like HPC.                                                                                                          | 225*       |
