@@ -64,7 +64,7 @@ Follow these steps to query the database on the Azure dashboard.
 2. Click **Query editor (preview)**, click the preview checkbox, and then click **OK**. 
 
 3. Click **Login** and then, when prompted, select **SQL server authentication** and then provide the server admin login and password.
-4. Click **OK** tp log in.
+4. Click **OK** to log in.
 
 5. After you are authenticated, type a query of your choice in the query window, such as the following query:
 
