@@ -1,4 +1,4 @@
- ---
+---
 title: Azure Quick Start - Create VM PowerShell | Microsoft Docs
 description: Quickly learn to create a Linux virtual machines with PowerShell
 services: virtual-machines-linux
@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/08/2017
 ms.author: nepeters
+
 ---
 
 # Create a Linux virtual machine with PowerShell
@@ -50,7 +51,7 @@ $vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location w
 
 # Create a public IP address and specify a DNS name
 $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location westeurope `
--Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
+-AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
 ```
 
 Create a network security group and a network security group rule. The network security group secures the virtual machine using inbound and outbound rules. In this case, an inbound rule is created for port 22, which allows incoming SSH connections.
@@ -117,11 +118,13 @@ From a system with SSH installed, used the following command to connect to the v
 ssh <Public IP Address>
 ```
 
+When prompted, the login user name is `azureuser`. If a passphrase was entered when creating SSH keys, you will need to enter this as well.
+
 ## Delete virtual machine
 
 When no longer needed, the following command can be used to remove the Resource Group, VM, and all related resources.
 
-```azurecli
+```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
