@@ -4,7 +4,7 @@ description: Provides answers to some questions IT administrators might have abo
 services: active-directory
 keywords: enterprise state roaming settings, windows cloud, frequently asked questions on enterprise state roaming
 documentationcenter: ''
-author: ningtan
+author: tanning
 manager: swadhwa
 editor: curtand
 
