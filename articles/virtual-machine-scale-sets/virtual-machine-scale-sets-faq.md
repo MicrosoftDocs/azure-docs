@@ -40,9 +40,9 @@ For more information, See: [https://www.microsoft.com/TrustCenter/Compliance/PCI
 
 ### How do I get property information for each VM without having to make multiple calls? E.g. getting the Fault Domain for each VM in my 100 VM scale set?
 
-You can call ListVMInstanceViews by
+You can call ListVMInstanceViews by:
 
-/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView
+`/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView`
 
 ### Are there ways to parse unique arguments to extensions in scale sets?
 
