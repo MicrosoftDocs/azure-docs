@@ -22,16 +22,17 @@ ms.author: allclark
 
 This sample shows a couple of ways to get some VMs and restart them.
 
-The first restarts the VMs the same query that was used to wait on their asynchronous creation.
+The first restarts all of the VMs in the resource group.
+
 ```bash
-az vm restart --ids $(az vm list --query "join(' ', ${GROUP_QUERY}] | [].id)" \
-    -o tsv) $1>/dev/null
+az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
 ```
 
-The second uses a generic resource listing and query to fetch their IDs by tag.
+The second gets the tagged VMs using `az resouce list` and filters to the resources that are VMs,
+and restarts those.
+
 ```bash
-az vm restart --ids $(az resource list --tag ${TAG} \
-    --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv) $1>/dev/null
+az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
 ```
 
 This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
@@ -46,16 +47,23 @@ The third script restarts all of the VMs that were provisioned, and then just th
 
 ### Provision the VMs
 
-THis script creates a resource group and then it creates three VMs that will be restarted.
+This script creates a resource group and then it creates three VMs that will be restarted.
 Two of them are tagged.
 
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Provision the VMs")]
 
 ### Wait
 
+Provisioning the VMs takes a few minutes.
+This script will check on the provisioning status every 20 seconds until all three VMs are provisioned,
+or one of them fails to provision.
+
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "Wait for the VMs to be provisioned")]
 
-### Provision the VMs
+### Restart the VMs
+
+This script restarts all of the VMs in the resource group,
+and then it restrarts just the tagged VMs.
 
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "Restart VMs by tag")]
 
