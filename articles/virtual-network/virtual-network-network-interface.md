@@ -56,7 +56,7 @@ To create a NIC, complete the following steps:
 	
 	|**Setting**|**Required?**|**Details**|
 	|---|---|---|
-	|**Name**|Yes|The name cannot be changed after the NIC is created. The name must be unique within the resource group you select. Read the [Naming conventions](../architecture/best-practices/naming-conventions) article for naming suggestions.|
+	|**Name**|Yes|The name cannot be changed after the NIC is created. The name must be unique within the resource group you select. Read the [Naming conventions](../architecture/best-practices/naming-conventions.md) article for naming suggestions.|
 	|**Virtual network**|Yes|You can only connect a NIC to a VNet that exists in the same subscription and location as the NIC. The VM the NIC is attached to must also exist in the same location and subscription. If no VNets are listed, you need to create one. To create a VNet, complete the steps in the [Virtual network](virtual-networks-create-vnet-arm-pportal.md) article. Once a NIC is created, you cannot change the VNet it is connected to.|
 	|**Subnet**|Yes|You can change the subnet the NIC is connected to after it's created.|
 	|**Private IP address assignment**|Yes| A private IP address is assigned by the Azure DHCP server to the NIC when it's created. The DHCP server assigns an available address from the subnet address range defined for the subnet you connect the NIC to. **Dynamic:** A dynamic address may change when a VM is started after having been put into the stopped (deallocated) state. The address remains the same if the VM is rebooted or stopped (but not deallocated). **Static:** Static addresses do not change until the VM the NIC is attached to is deleted, the NIC is deleted, or the NIC is detached from a VM and assigned to a different VM. You can change the assignment method after the NIC is created.|
@@ -296,8 +296,8 @@ To change or delete a public IP address resource, complete the following steps:
 	- **Delete:** To delete the public IP address resource, click **Delete** in the **Overview** section of the blade. If the resource is currently associated to an IP configuration, it cannot be deleted. Click **Dissociate** to dissociate the resource from an IP configuration, if it's currently associated with one.
 	- **Change:** Click **Configuration**. Change settings using the information in step 4 of the [Create a public IP address resource](#public-ip-address-resource-create) section of this article. To change the assignment from static to dynamic, you must first dissociate the public IP address resource from the IP configuration it's associated to. You can then change the assignment method to dynamic and click **Associate** to associate the resource to the same IP configuration, a different configuration, or you can leave it dissociated. To dissociate a public IP address resource, in the **Overview** section, click **Dissociate**.
 
->[!WARNING]
->When you change the assignment method from static to dynamic, you lose the static IP address assigned to the resource. The Azure public DNS servers update their tables with the static or dynamic address.
+	>[!WARNING]
+	>When you change the assignment method from static to dynamic, you lose the static IP address assigned to the resource. The Azure public DNS servers update their tables with the static or dynamic address.
 
 |**Tool**|**Command**|
 |---|---|
