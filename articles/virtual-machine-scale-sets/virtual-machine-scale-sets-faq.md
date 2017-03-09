@@ -40,11 +40,11 @@ For more information, See: [https://www.microsoft.com/TrustCenter/Compliance/PCI
 
 ### How do I get property information for each VM without having to make multiple calls? For example: getting the Fault Domain for each VM in my 100 scale set?
 
-You can call ListVMInstanceViews by:
+You can call ListVMInstanceViews by doing a REST API `GET` on the following resource URI:
 
 `/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView`
 
-### Are there ways to parse unique arguments to extensions in scale sets?
+### Are there ways to pass different extension arguments to different VMs in a scale set?
 
 No, but extensions can act based on unique properties of the VM they are running on, such as the machine name. Additionally, extensions can query instance metadata on http://169.254.169.254 to get more information.
 
@@ -52,7 +52,7 @@ No, but extensions can act based on unique properties of the VM they are running
 
 There are gaps because your scale set overprovision property is set to the default value of true. With overprovisioning true, more VMs than requested are created, and the extra VMs are subsequently deleted. What you gain is increased deployment reliability at the expense of contiguous naming and contiguous NAT rules. You can set this property to false, and for small scale sets it won’t make much difference to deployment reliability.
 
-### What is the difference between deleting a VM in a Scale Set, vs. deallocating the VM? When should I choose one over the other?
+### What is the difference between deleting a VM in a Scale Set vs. deallocating the VM? When should I choose one over the other?
 
 The main difference is that deallocate doesn’t delete the VHDs, so there are storage costs associated with stop deallocate. Reasons you might use one over the other include:
 
@@ -63,11 +63,11 @@ The main difference is that deallocate doesn’t delete the VHDs, so there are s
 
 ## Updates
 
-### How to I update my scale set to a new image? How do I manage patching?
+### How to I update my scale set to a new image and manage patching?
 
 See: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set
 
-### Image reset: Can you use the “reimage” operation to reset a VM without changing the image (that is, reset a VM to factory settings rather than to a new image)?
+### Image reset: Can you use the reimage operation to reset a VM without changing the image (that is, reset a VM to factory settings rather than to a new image)?
 
 Yes. See: https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set
 
@@ -75,7 +75,7 @@ However, if your scale set references a platform image with version = “latest�
 
 ## Autoscale
 
-### Any best practices for Azure autoscale?
+### What are best practices for Azure autoscale?
 
 Yes. See https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-best-practices
 
@@ -89,7 +89,7 @@ Yes. See:
 
 https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/
 
-for service bus queue:
+For service bus queue:
 
 ```json
 "metricName": "MessageCount",
@@ -97,7 +97,7 @@ for service bus queue:
 "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ServiceBus/namespaces/mySB/queues/myqueue"
 ```
 
-For storage queues use this format:
+For storage queues:
 
 ```json
 "metricName": "ApproximateMessageCount",
@@ -105,7 +105,7 @@ For storage queues use this format:
 "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
 ```
 
-replace these sample values with the appropriate resource URIs.
+Replace these sample values with the appropriate resource URIs.
 
 
 ### Should we autoscale with host-based metrics or use a diagnostics extension?
@@ -138,9 +138,9 @@ See https://msftstack.wordpress.com/2017/03/05/how-to-add-autoscale-to-an-azure-
 
 ## Scale
 
-### Why would you ever not create at least a two-VM scale set?
+### Why would you ever create a scale set with fewer than 2 VMs?
 
-One reason to not create a two-VM scale set would be to use the elastic properties of a scale set. For example, you could deploy a scale set with zero VMs in order to define your infrastructure without paying VM running costs. Then, when you are ready to deploy VMs, you do so by increasing the “capacity” of the scale set to the production instance count.
+One reason would be to use the elastic properties of a scale set. For example, you could deploy a scale set with zero VMs in order to define your infrastructure without paying VM running costs. Then, when you are ready to deploy VMs, you do so by increasing the “capacity” of the scale set to the production instance count.
 
 Another reason is when you’re doing something with your scale set where you don’t care about availability in the same sense as using an availability set with discrete VMs. Scale sets add a way to work with undifferentiated compute units that are fungible. This uniformity is a key differentiator for scale sets vs. availability sets. Many stateless workloads do not care about individual units, and can scale down to one compute unit if the workload drops, then back to many when the workload increases.
 
@@ -182,7 +182,7 @@ You have some flexibility how you handle alerts; for example you can define cust
 							  ]}],
 ```
 
-In this example, it goes to Pagerduty when a threshold is reached.
+In this example, an alert goes to Pagerduty when a threshold is reached.
 
 
 ## Certificates
@@ -300,8 +300,6 @@ An example can be found here:
 
 https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json
  
-The documentation is found here:
-
 Specifically:
 
 ```json
@@ -339,7 +337,7 @@ New VMs will not have the old cert, but ones that had the cert already deployed 
  
 ### Is there a way to get certificates pushed to the scale set without providing the password when the certificate is in SecretStore currently?
 
-You do not need to hardcode passwords in scripts, you can dynamically retrieve them with whatever permissions the deployment script you have runs with. If you have a script that is moving a cert from secret store the key vault, the secret store get certificate command also outputs the password of the pfx file.
+You do not need to hardcode passwords in scripts; you can dynamically retrieve them with whatever permissions the deployment script you have runs with. If you have a script that is moving a cert from secret store the key vault, the secret store get certificate command also outputs the password of the pfx file.
  
 ### How does the secrets property of virtualMachineProfile.osProfile of a scale set work? Why do you need sourceVault when you have to specify the absolute URI to a certificate with certificateUrl? 
 
@@ -392,7 +390,7 @@ GET | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?
 
 Replace {secret-name} with the name and {secret-version} with the version of the secret you want to retrieve. Secret version may be excluded in which case the current version is retrieved.
   
-### Why does the version have to be specified?
+### Why does certificate version have to be specified when using key vault?
 
 The reason for this requirement is to make it clear to the user what certificate is deployed on their VMs.
 
@@ -431,7 +429,7 @@ $vmss=Remove-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name "extension
 Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName" -VirtualMacineScaleSet $vmss
 ```
  
-The extensionName could be found in `$vmss`.
+The extensionName can be found in `$vmss`.
    
 ### IS there a scale set template example that integrates with OMS?
 
@@ -465,8 +463,9 @@ Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName Virtual
  
  
 ### How do I add an extension to all VMs in my scale set?
- - If update policy is set to automatic, redeploying the template with the new extension properties updates every VM.
-- If update policy is set to manual, you must update the extension with manual mode, then do a manualUpdate on all instances.
+
+- If update policy is set to automatic, redeploying the template with the new extension properties updates every VM.
+- If update policy is set to manual, you must update the extension, then do a manualUpdate on all instances.
   
 ### If the extensions associated with an existing scale set are updated, would they affect already existing VMs? (that is, would the VMs show up as not matching the scale set model)? Or would they be ignored? When an existing machine is service-healed / reimaged / etc. would the scripts that are currently configured on the scale set be executed or would the ones that were configured when the machine was first created be used?
 
