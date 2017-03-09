@@ -369,7 +369,7 @@ namespace USQL_Programmability
 The programmability objects can be user-defined functions, UDF, User-Defined Types, UDT, PROCESS, or REDUCER, and so on.
 
 ## Register U-SQL assemblies
-U-SQL’s extensibility model relies heavily on the ability to add custom code. Currently, U-SQL provides you with easy ways to add your own .NET-based code (in particular, C#). However, you can also add custom code that's written in other .NET languages, such as VB.NET or F#.
+U-SQL’s extensibility model relies heavily on the ability to add custom code. Currently, U-SQL provides you with easy ways to add your own Microsoft .NET-based code (in particular, C#). However, you can also add custom code that's written in other .NET languages, such as VB.NET or F#.
 
 You can even deploy your own runtime for other languages, but you still need to provide the interoperability through a .NET layer yourself. If you want us to support a specific language, file a feature request or leave a comment at http://aka.ms/adlfeedback.
 
@@ -380,7 +380,7 @@ As we mentioned earlier, you fill in the custom code for the script (for example
 
 ![Code-behind example](./media/data-lake-analytics-u-sql-programmability-guide/code-behind-example.jpg)
 **Figure 1**: Code-behind example in Azure Data Lake Tools in Visual Studio. (Click the image to enlarge it. Sample code is available [here](https://github.com/Azure/usql/tree/master/Examples/TweetAnalysis).)
-<br />
+
 
 The advantage of code-behind is that the tooling takes care of the following steps for you when you submit your script:  
 
@@ -412,7 +412,7 @@ Thus, you can add a separate C# Class Library (for U-SQL) to your solution (see 
 **Figure 4**: The U-SQL C# class library next to the code-behind file
 <br />
 
-![register-code](./media/data-lake-analytics-u-sql-programmability-guide/register-code.png)
+![Register code](./media/data-lake-analytics-u-sql-programmability-guide/register-code.png)
 **Figure 5**: How to register the U-SQL C# code project
 <br />
 
