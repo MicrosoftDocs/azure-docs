@@ -44,7 +44,7 @@ bash Scripts/install.sh
 This installs Jenkins container on the cluster and can be monitored using the Service Fabric explorer.
 
 ### Steps
-1. Go to the URL ``http://PublicIPorFQDN:8081`` from your browser. It provides the path of the initial admin password required to login. You can continue to use Jenkins as admin user or you can create and change the user, once you login with the initial admin account.
+1. Go to the URL ``http://PublicIPorFQDN:8081`` from your browser. It provides the path of the initial admin password required to log in. You can continue to use Jenkins as admin user or you can create and change the user, once you log in with the initial admin account.
 
 > [!NOTE]
 > You need to ensure 8081 port is specified as application endpoint port while creating the cluster
@@ -58,7 +58,7 @@ This installs Jenkins container on the cluster and can be monitored using the Se
   cat PATH_TO_INITIAL_ADMIN_PASSWORD
   ```
 
-4. Setup GitHub to work with Jenkins using the steps mentioned at the  [link](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
+4. Set up GitHub to work with Jenkins using the steps mentioned at the  [link](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
 	* Use the instructions provided from GitHub to generate the SSH key and add the SSH key to the GitHub account that is hosting your repository.
 	* Run the commands mentioned in the preceding link in the Jenkins docker shell (and not on your host)
 	* To log on to the Jenkins shell from your host, use the following command:
@@ -70,7 +70,7 @@ This installs Jenkins container on the cluster and can be monitored using the Se
 ## Setting up Jenkins outside a Service Fabric cluster
 
 ### Prerequisites
-1. You need to have docker installed. The following commands can be used to insatl docker from terminal:
+1. You need to have docker installed. The following commands can be used to install docker from terminal:
 
 ```sh
 sudo apt-get install wget
@@ -83,15 +83,15 @@ Now when you run ``docker info`` in the terminal, you should see in the output t
   1. Pull the Service Fabric Jenkins container image: ``docker pull servicefabric-microsoft.azurecr.io/jenkins:v1``
   2. Run the container image: ``docker run -itd -p 8080:8080 servicefabric-microsoft.azurecr.io/jenkins:v1``
   3. Get the id the container image instance. You can list all the docker containers with the command ``docker ps –a``
-  4. Login to Jenkins portal using the following steps:
+  4. Log in to Jenkins portal using the following steps:
 
     * ```sh
     docker exec [first-four-digits-of-container-ID] cat /var/jenkins_home/secrets/initialAdminPassword
     ```
     If container id is 2d24a73b5964, use 2d24.
-    * This password is required for logging into the Jenkins dashboard from portal, which is ``http://<HOST-IP>:8080``
-    * Once you login for the first time, you can create your own user-account and use that for future purpose or you can continue to use the administrator account. Once you create an user, you need to continue with that.
-  5. Setup GitHub to work with Jenkins using [this](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
+    * This password is required for logging in to the Jenkins dashboard from portal, which is ``http://<HOST-IP>:8080``
+    * Once you log in for the first time, you can create your own user-account and use that for future purpose or you can continue to use the administrator account. Once you create a user, you need to continue with that.
+  5. Set up GitHub to work with Jenkins using the steps mentioned at the  [link](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
   	* Use the instructions provided from GitHub to generate the SSH key and add the ssh key to the GitHub account which is (would be) hosting the repository.
   	* Run the commands mentioned in the above link in the Jenkins docker shell (and not on your host)
   	* To log on to the Jenkins shell from your host, use the following commands:
