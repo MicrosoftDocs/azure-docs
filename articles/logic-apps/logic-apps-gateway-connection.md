@@ -33,6 +33,10 @@ Information on installing the on-premises data gateway can be found [in this art
 ### 2. Create an Azure on-premises data gateway resource
 Once installed, you must associate your Azure subscription with the on-premises data gateway.
 
+> [!IMPORTANT]
+> Ensure that the gateway resource is created in the same Azure region as your Logic App. If you do not deploy it to the same region it will not be accessible in your Logic App.
+>
+
 1. Login to Azure using the same work or school email address that was used during installation of the gateway
 2. Click **New** resource button
 3. Search and select the **On-premises data gateway**
@@ -52,6 +56,11 @@ Now that your Azure subscription is associated with an instance of the on-premis
 4. Click **Create** to create the connection
 
 The connection should now be successfully configured for use in your logic app.  
+
+## Data Gateway Connection Modifications
+Once you've added the data gateway connection to your logic app, you may need to modify it to adjust settings specific to that connection. You can find the connection in either of two places:
+* On the main blade for the Logic App you should see a panel for API Connections in the Development Tools section. Select that will show you all API Connections associated with the Logic App, one of which will be your data gateway connection. Selecting it you can then view and modify the settings associated with the connection.
+* Selecting the API Connections main blade will show you all API Connections in the subscription. In this list will be your data gateway connection. Selecting it you can view and modify the settings associated with the connection.
 
 ## Next Steps
 * [Common examples and scenarios for logic apps](../logic-apps/logic-apps-examples-and-scenarios.md)
