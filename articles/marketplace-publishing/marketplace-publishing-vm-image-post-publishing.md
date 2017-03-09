@@ -224,7 +224,7 @@ You cannot increment/decrement the data disk count of a listed SKU. You need a c
 There are various aspects that need to be taken care of in case of a request to remove a live offer. Please follow the steps below to get guidance from the support team to remove a listed offer from the Azure Marketplace:
 
 1. Raise a support ticket using this [link](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=15635&ccsid=635993707583706681)
-2. Select Problem type as **“Managing offers”** and select Category as **“Modifying an offer and/or SKU already in production”**
+2. Select Problem type as the workload of your offer and select Category as **“Managing Offers”**
 3. Submit the request
 
 The support team will guide you through the offer/SKU deletion process.
