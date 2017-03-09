@@ -76,6 +76,11 @@ These IIS Server versions are supported, for the supported scenarios:
 
 If you are using a shared disk based cluster as the middle tier in your application then you will not be able to use site recovery replication to replicate those virtual machines. You can use native replication provided by the application and then use a [recovery plan](site-recovery-recovery-plan.md) to failover all tiers. [This section](site-recovery.md#section-link) below covers it in detail.
 
+## Replicating virtual machines
+
+Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating the virtual machine to Azure. Once the replication is complete, make sure you go to each virtual machine of the front end and [select same availability set](site-recovery-availability-set.md) for each of the virtual machine. 
+
+
 ## Creating a recovery plan
 
 ### Adding virtual machines to failover groups
@@ -91,11 +96,18 @@ If you are using a shared disk based cluster as the middle tier in your applicat
 
 1. You can use this [script](scipt-location.md) to update the DNS with the new IPs of the failed over virtual machines.
 
+1. Use this [script](scipt-location.md) to attach a load balance on the failed over virtual machine
+
+
 ## Doing a test failover
 
+![Recovery Plan](./media/site-recovery-iis/TestFailoverJob.png)
+
+Follow [this guidance](site-recovery-test-failover-to-azure.md) to do a test failover. Make sure you do this and that before you start.
 
 ## Doing a failover
 
+Follow [this guidance](site-recovery-failover.md) when you are doing a failover. Make sure you do this and that before you start.
 
 
 ## Next steps
