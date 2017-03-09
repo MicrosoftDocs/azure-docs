@@ -51,8 +51,7 @@ Azure backup provides the capability to restore [Azure VMs and disks](./backup-a
     - outbound port 3260
 
    In case of Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If those do not exist on the machine where it is run, it asks for permission to install the relevant components and installs upon consent.
-   
-   
+      
     ![File recovery blade](./media/backup-azure-restore-files-from-vm/executable-output.png)
     
    
