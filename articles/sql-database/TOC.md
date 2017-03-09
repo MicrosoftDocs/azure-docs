@@ -1,11 +1,11 @@
 # Overview
 ## [About SQL DB](sql-database-technical-overview.md)
 ## Compare
-### [SQL Database features](sql-database-features.md)
+### [SQL DB features](sql-database-features.md)
 # QuickStart
-## [Create a single database in the Azure portal](sql-database-get-started.md)
-## [Create a single database with the Azure CLI](sql-database-get-started-cli.md)
-## [Create a single database with PowerShell](sql-database-get-started-powershell.md)
+## [Create a DB in the Azure portal](sql-database-get-started.md)
+## [Create a DB with the Azure CLI](sql-database-get-started-cli.md)
+## [Create a DB with PowerShell](sql-database-get-started-powershell.md)
 # Samples
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
@@ -139,7 +139,7 @@
 ### [Azure portal](sql-database-manage-long-term-backup-retention-portal.md)
 ### [PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
 ## [Recover a single table](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
-## Configure geo-replication and failover
+## Configure geo-replication
 ### [Azure portal](sql-database-geo-replication-portal.md)
 ### [PowerShell: Single database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
 ### [PowerShell: Pooled database](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
@@ -163,7 +163,7 @@
 ## Load data
 ### [BCP](sql-database-load-from-csv-with-bcp.md)
 ### [Azure data factory](../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-## [Configure and manage data synchronization](sql-database-get-started-sql-data-sync.md)
+## [Configure data sync](sql-database-get-started-sql-data-sync.md)
 ## Authenticate and authorize users
 ### [Azure AD authentication](sql-database-aad-authentication-configure.md)
 ## Connect applications
@@ -190,7 +190,7 @@
 ## Create and manage temporal tables
 ### [Overview](sql-database-temporal-tables.md)
 ### [Retention policies](sql-database-temporal-tables-retention-policy.md)
-## [Configure and manage In-Memory OLTP](sql-database-in-memory-oltp-migration.md)
+## [Configure In-Memory OLTP](sql-database-in-memory-oltp-migration.md)
 ## Create and manage sharded databases
 ### [Create a sharded application](sql-database-elastic-scale-get-started.md)
 ### [Move data between shards](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
@@ -200,7 +200,7 @@
 ### [Migrate existing sharded database](sql-database-elastic-convert-to-use-elastic-tools.md)
 ### [Create performance counters](sql-database-elastic-database-perf-counters.md)
 ### [Use entity framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
-## [Manage elastic database client library](sql-database-elastic-scale-upgrade-client-library.md)
+## [Upgrade elastic scale client library](sql-database-elastic-scale-upgrade-client-library.md)
 ## Create and manage elastic jobs
 ### [Install](sql-database-elastic-jobs-service-installation.md)
 ### [Azure portal](sql-database-elastic-jobs-create-and-manage.md)

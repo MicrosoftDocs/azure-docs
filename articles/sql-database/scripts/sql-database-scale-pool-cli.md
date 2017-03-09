@@ -33,7 +33,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Clean up deployment
 
-After the script sample has been run, the following command can be used to remove the Resource Group, logical server and SQL Database.
+After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
 ```azurecli
 az group delete --name myResourceGroup
