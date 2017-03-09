@@ -233,7 +233,7 @@ The properties for host are:
 |api runtimeUrl|Yes|The endpoint of the managed API.|  
 |connection name||Must be a reference to a parameter called `$connection` and is the name of the managed API connection that the workflow uses.|
   
-The outputs of an API connection trigger look like this:  
+The outputs of an API connection trigger are:
   
 |Element name|Type|Description|  
 |----------------|--------|---------------|  
@@ -244,7 +244,7 @@ The outputs of an API connection trigger look like this:
 
 The HTTPWebhook trigger opens an endpoint, similar to the manual trigger, 
 but the HTTPWebhook trigger also calls out to a specified URL to register and unregister. 
-Here's an example of what an HTTPWebhook trigger may look like:  
+Here's an example of what an HTTPWebhook trigger might look like:  
 
 ```json
 "myappspottrigger": {
@@ -280,7 +280,7 @@ Here's an example of what an HTTPWebhook trigger may look like:
 Many of these sections are optional, and the behavior of the Webhook depends on which sections are provided or omitted.  
 The properties of a Webhook are as follows:  
   
-|Element Name|Required|Description|  
+|Element name|Required|Description|  
 |----------------|------------|---------------|  
 |subscribe|No|The outgoing request that is called when the trigger is created and performs the initial registration.|  
 |unsubscribe|No|The outgoing request when the trigger is deleted.|  
@@ -301,7 +301,7 @@ The properties of a Webhook are as follows:
   
     The outputs of the HTTPWebhook trigger are the contents of the incoming request:  
   
-|Element  name|Type|Description|  
+|Element name|Type|Description|  
 |-----------------|--------|---------------|  
 |headers|Object|The headers of the http request.|  
 |body|Object|The body of the http request.|  
@@ -309,7 +309,7 @@ The properties of a Webhook are as follows:
 
 ## Conditions  
 
-For any trigger you can use one or more conditions to determine if the workflow should be run or not. For example:  
+For any trigger, you can use one or more conditions to determine whether the workflow should run or not. For example:  
 
 ```json
 "dailyReport" : {
@@ -488,7 +488,7 @@ is used with default retry count and interval values.
 To disable the retry policy, set its type to **None**.  
   
 For example, the following action retries fetching the latest news two times, 
-if there are intermittent failures, for a total of 3 executions, with a 30-second delay between each attempt:  
+if there are intermittent failures, for a total of three executions, with a 30-second delay between each attempt:  
   
 ```json
 "latestNews" : {
@@ -506,7 +506,7 @@ if there are intermittent failures, for a total of 3 executions, with a 30-secon
 ```
   
 By default, all HTTP\-based actions support the standard asynchronous operation pattern. 
-That is, if the remote server indicates that the request has been accepted for processing 
+That is, if the remote server indicates that the request is accepted for processing 
 with a 202 \(Accepted\) response, the Logic Apps engine keeps polling the URL specified 
 in the location header of the response until a terminal state is reached \(a non\-202 response\).  
   
@@ -700,7 +700,7 @@ The output of **Query** action is an array that contains elements from the input
 
 The Terminate action stops execution of the workflow run, aborting any in-flight actions, 
 and skipping any remaining actions. For example, to terminate a run with status **Failed**, 
-you can use the following:
+you can use the following snippet:
 
 ```json
 "HandleUnexpectedResponse" : {
