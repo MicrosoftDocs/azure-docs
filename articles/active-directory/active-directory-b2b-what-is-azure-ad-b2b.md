@@ -22,7 +22,7 @@ ms.author: sasubram
 # About the Azure AD B2B collaboration preview
 This article discusses the goals, features, and benefits of the refresh of the Azure Active Directory (Azure AD) B2B collaboration public preview.
 
-Whether you're an IT pro or an information worker, you can take advantage of many Azure Active Directory (Azure AD) B2B collaboration capabilities. You can work closely with partners in other organizations everywhere, regardless of their size, industry, or compliance and governance requirements. And you can provide them access to documents, resources, and applications while you maintain complete control over your internal data.
+Whether you're an IT pro or an information worker, you can take advantage of many Azure AD B2B collaboration capabilities. You can work closely with partners in other organizations everywhere, regardless of their size, industry, or compliance and governance requirements. And you can provide them access to documents, resources, and applications while you maintain complete control over your internal data.
 
 If you're a developer, you can use the Azure AD B2B APIs to write applications that bring organizations together securely. For information-worker users, the process and navigation are straightforward.
 
@@ -44,7 +44,7 @@ B2B collaboration users are typically added through an invitation and redemption
 
 3. John Doe specifies a custom invitation email to send to Sam Oogle.
 
-4. When John Doe sends the invitation, user Sam Oogle is created in the WoodGrove Active Directory, as shown here:
+4. When John Doe sends the invitation, user Sam Oogle is created in the WoodGrove Azure AD, as shown here:
 
   ![The admin user interface in portal.azure.com](media/active-directory-b2b-what-is-azure-ad-b2b/user-is-added.png)
 
@@ -57,11 +57,11 @@ The Azure portal opens.
 
 7. Sam Oogle signs in to the Azure portal.
 
-8. Azure AD updates the Sam Oogle user object in the Active Directory with information from his token, as shown here:
+8. Azure AD updates the Sam Oogle user object in Azure AD with information from his token, as shown here:
 
   ![Sam Oogle user profile in the Azure portal](media/active-directory-b2b-what-is-azure-ad-b2b/user-profile-is-populated.png)
 
-9. Now that user Sam Oogle has redeemed the invitation, he can access WoodGrove resources. And like any other user in the Active Directory, he can be managed by the administrator. The user list is shown here:
+9. Now that user Sam Oogle has redeemed the invitation, he can access WoodGrove resources. And like any other user in Azure AD, user Sam Oogle can be managed by the administrator. The user list is shown here:
 
   ![The Azure AD user list](media/active-directory-b2b-what-is-azure-ad-b2b/sam-now-user-in-azure-ad.png)
 
