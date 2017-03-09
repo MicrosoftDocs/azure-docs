@@ -123,8 +123,6 @@ Yes. The [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md) provide
 ### What is DocumentDB's API for MongoDB?
 Microsoft Azure DocumentDB's API for MongoDB is a compatability layer that allows applications to easily and transparently communicate with the native DocumentDB database engine using existing, community supported Apache MongoDB APIs and drivers. Developers can now use existing MongoDB tool chains and skills to build applications that leverage DocumentDB, benefitting from DocumentDB's unique capabilities, which include auto-indexing, backup maintenance, financially backed service level agreements (SLAs), etc.
 
-For more database questions, answers, and instructions, see the [DocumentDB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
-
 ### How to do I connect to my API for MongoDB database?
 The quickest way to connect to DocumentDB's API for MongoDB is to head over to the [Azure Portal](https://portal.azure.com). Navigate your way to your account. In the account's *Left Navigation*, click on *Quick Start*. *Quick Start* is the best way to get code snippets to connect to your database. 
 
