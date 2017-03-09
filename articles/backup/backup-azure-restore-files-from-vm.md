@@ -50,15 +50,17 @@ Azure backup provides the capability to restore [Azure VMs and disks](./backup-a
     - Azure endpoints used for Azure VM backups
     - outbound port 3260
 
-   In case of Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If those do not exist on the machine where it is run, it asks for permission to install the relevant components and installs upon consent
+   In case of Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If those do not exist on the machine where it is run, it asks for permission to install the relevant components and installs upon consent.
+   
    
     ![File recovery blade](./media/backup-azure-restore-files-from-vm/executable-output.png)
     
-    You can run the script on any machine that has the same (or compatible) operating system as the machine used to generate the recovery point. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#compatible-os) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays(for Linux VMs), then you can't run the executable script on the same virtual machine. Instead, run the executable/script on any other machine with a compatible operating system.
+   
+   You can run the script on any machine that has the same (or compatible) operating system as the machine used to generate the recovery point. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#compatible-os) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays(for Linux VMs), then you can't run the executable script on the same virtual machine. Instead, run the executable/script on any other machine with a compatible operating system.
 
 ### Compatible OS
 
-## For Windows
+#### For Windows
 
 The following table shows the compatibility between server and computer operating systems. When recovering files, you can't restore files between incompatible operating systems.
 
@@ -68,7 +70,7 @@ The following table shows the compatibility between server and computer operatin
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
 
-## For Linux
+#### For Linux
 
 In case of Linux, the fundamental requirement is that the OS of the machine where the script is run should support the filesystem of the files present in the backed up Linux VM. While selecting a machine to run the script, please ensure it has the compatible OS and the versions as mentioned in the table below. For other OS/Versions, the script might work if the machine's OS supports the backed-up VMs filesystem
 
@@ -82,13 +84,13 @@ In case of Linux, the fundamental requirement is that the OS of the machine wher
 
 ### Identifying Volumes
 
-## For Windows
+#### For Windows
 
 When you run the exectuable, the operating system mounts the new volumes and assigns drive letters. You can use Windows Explorer or File Explorer to browse those drives. The drive letters assigned to the volumes may not be the same letters as the original virtual machine, however, the volume name is preserved. For example, if the volume on the original virtual machine was “Data Disk (E:\)”, that volume can be attached as “Data Disk ('Any drive letter available':\) on the local computer. Browse through all volumes mentioned in the script output until you find your files/folder.  
        
    ![File recovery blade](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
            
-## For Linux
+#### For Linux
 
 In case of Linux, the volumes of the recovery point are mounted to the folder where the script is run. The attached disks, volumes and the corresponding mount paths are shown accordingly. Browse through the volumes mentioned in the script output.
 
@@ -123,18 +125,18 @@ After the script is run on another machine, some additional commands need to be 
 
 **For LVM Partitions**
 
-`$ pvs <volume name as shown above>` - To list the volume group names under this physical volume
+`$ pvs <volume name as shown above>` - To list the volume group names under this physical volume.
 
-`$ lvdisplay <volume-group-name from the above command’s result>` - To list all logical volumes, names and their paths in this volume group
+`$ lvdisplay <volume-group-name from the above command’s result>` - To list all logical volumes, names and their paths in this volume group.
 
-`$ mount <LV path> </mountpath>` - To mount the logical volumes to the path of your choice
+`$ mount <LV path> </mountpath>` - To mount the logical volumes to the path of your choice.
 
 **For RAID Arrays**
 
-`$ mdadm –detail –scan` - To display details about all raid disks
+`$ mdadm –detail –scan` - To display details about all raid disks.
 The relevant RAID disk will be displayed as `/dev/mdm/<RAID array name in the backed up VM>`
 
-Use the mount command if the RAID disk has physical volumes. 
+Use the mount command if the RAID disk has physical volumes.
 `$ mount [RAID Disk Path] [/mounthpath]`
 
 If this RAID disk has another LVM configured in it then follow the same procedure as outlined above for LVM partitions with the volume name being the RAID Disk name
