@@ -21,7 +21,7 @@ ms.author: magoedte
 
 With OMS, you can collect and act on data generated from Linux computers and container solutions like Docker, regardless of where your computers are located.  They might reside in your on-premises data center as physical servers or virtual machines, virtual machines in a cloud-hosted service like Amazon Web Services (AWS) or Microsoft Azure, or even a laptop on your desk. 
 
-You can view and manage data from all of those sources with Log Analytics and leverage management solutions available in OMS to track configuration changes and manage software  updates, all from a single management portal. This reduces the need to monitor it using many different systems, makes it easy to consume, and export any data you like to whatever business analytics solution or system that you already have.
+You can view and manage data from all of those sources with Log Analytics and leverage management solutions available in OMS to track configuration changes and manage software  updates, all from a single management portal. This reduces the need to manage them using many different systems or solutions.
 
 This article is a guide that will help you configure your Linux computers using the OMS Agent for Linux.
 
