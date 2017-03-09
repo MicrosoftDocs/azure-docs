@@ -40,7 +40,7 @@ Azure backup provides the capability to restore [Azure VMs and disks](./backup-a
 
 3. From the **Select recovery point** drop-down menu, select the recovery point that contains the files you want. By default, the latest recovery point is already selected.
 
-4. Click **Download Executable** (in case of Windows Azure VM) or **Download Script** (for Linux Azure VM) to download the software that you'll use to copy files from the recovery point.
+4. Click **Download Executable** (for Windows Azure VM) or **Download Script** (for Linux Azure VM) to download the software that you'll use to copy files from the recovery point.
 
   The executable/script creates a connection between the local computer and the specified recovery point.
 
@@ -50,12 +50,12 @@ Azure backup provides the capability to restore [Azure VMs and disks](./backup-a
     - Azure endpoints used for Azure VM backups
     - outbound port 3260
 
-   In case of Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If those do not exist on the machine where it is run, it asks for permission to install the relevant components and installs upon consent.
+   For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If those do not exist on the machine where it is run, it asks for permission to install the relevant components and installs them upon consent.
       
     ![File recovery blade](./media/backup-azure-restore-files-from-vm/executable-output.png)
     
    
-   You can run the script on any machine that has the same (or compatible) operating system as the machine used to generate the recovery point. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#compatible-os) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays(for Linux VMs), then you can't run the executable script on the same virtual machine. Instead, run the executable/script on any other machine with a compatible operating system.
+   You can run the script on any machine that has the same (or compatible) operating system as the backed-up VM. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#compatible-os) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays(for Linux VMs), then you can't run the executable/script on the same virtual machine. Instead, run it on any other machine with a compatible operating system.
 
 ### Compatible OS
 
@@ -71,7 +71,7 @@ The following table shows the compatibility between server and computer operatin
 
 #### For Linux
 
-In case of Linux, the fundamental requirement is that the OS of the machine where the script is run should support the filesystem of the files present in the backed up Linux VM. While selecting a machine to run the script, please ensure it has the compatible OS and the versions as mentioned in the table below. For other OS/Versions, the script might work if the machine's OS supports the backed-up VMs filesystem
+In Linux, the fundamental requirement is that the OS of the machine where the script is run should support the filesystem of the files present in the backed-up Linux VM. While selecting a machine to run the script, please ensure it has the compatible OS and the versions as mentioned in the table below. For other OS/Versions, the script might work if the machine's OS supports the backed-up VMs filesystem
 
 |Linux OS | Versions  |
 | --------------- | ---- |
@@ -91,7 +91,7 @@ When you run the exectuable, the operating system mounts the new volumes and ass
            
 #### For Linux
 
-In case of Linux, the volumes of the recovery point are mounted to the folder where the script is run. The attached disks, volumes and the corresponding mount paths are shown accordingly. Browse through the volumes mentioned in the script output.
+In Linux, the volumes of the recovery point are mounted to the folder where the script is run. The attached disks, volumes and the corresponding mount paths are shown accordingly. Browse through the volumes mentioned in the script output.
 
   ![Linux File recovery blade](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
   
@@ -104,7 +104,7 @@ After identifying the files and copying them to a local storage location, remove
 
 Once the disks have been unmounted, you receive a message letting you know it was successful. It may take a few minutes for the connection to refresh so that you can remove the disks.
 
-In case of Linux, after the connection to the recovery point is severed, the OS doesn't remove the corresponding mount paths automatically. These exist as "orphan" volumes and they are visible but throw an error when you access/write the files. They can be manually removed. The script, when run, identifies any such volumes existing from any previous recovery points and cleans them up upon consent.
+In Linux, after the connection to the recovery point is severed, the OS doesn't remove the corresponding mount paths automatically. These exist as "orphan" volumes and they are visible but throw an error when you access/write the files. They can be manually removed. The script, when run, identifies any such volumes existing from any previous recovery points and cleans them up upon consent.
 
 ## Special configurations
 
@@ -148,6 +148,6 @@ If you have problems while recovering files from the virtual machines, check the
 | ------------------------ | -------------- | ------------------ |
 | Exe output: *Exception connecting to the target* |Script is not able to access the recovery point	| Check whether the machine fulfills the access requirements mentioned above|  
 |	Exe output: *The target has already been logged in via an ISCSI session.* |	The script was already executed on the same machine and the drives have been attached |	The volumes of the recovery point have already been attached. They may NOT be mounted with the same drive letters of the original VM. Browse through all the available volumes in the file explorer for your file |
-| Exe output: *This script is invalid because the disks have been dismounted via portal/exceeded the 12-hr limit. Please download a new script from the portal.* |	The disks have been dismounted from the portal or the 12 hr limit exceeded |	This particular exe is now invalid and can’t be run. If you want to access the files of that recovery point-in-time, visit the portal for a new exe|
+| Exe output: *This script is invalid because the disks have been dismounted via portal/exceeded the 12-hr limit. Please download a new script from the portal.* |	The disks have been dismounted from the portal or the 12-hr limit exceeded |	This particular exe is now invalid and can’t be run. If you want to access the files of that recovery point-in-time, visit the portal for a new exe|
 | On the machine where the exe is run: The new volumes are not dismounted after the dismount button is clicked |	The ISCSI initiator on the machine is not responding/refreshing its connection to the target and maintaining the cache |	Wait for some mins after the dismount button is pressed. If the new volumes are still not dismounted, please browse through all the volumes. This forces the initiator to refresh the connection and the volume is dismounted with an error message that the disk is not available|
 | Exe output: Script is run successfully but “New volumes attached” is not displayed on the script output |	This is a transient error	| The volumes would have been already attached. Open Explorer to browse. If you are using the same machine for running scripts every time, consider restarting the machine and the list should be displayed in the subsequent exe runs. |
