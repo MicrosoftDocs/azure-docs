@@ -4,7 +4,7 @@ description: Learn how to use Azure App Service and Azure Notification Hubs to s
 services: app-service\mobile
 documentationcenter: xamarin
 author: ysxu
-manager: erikre
+manager: adrianha
 editor: ''
 
 ms.assetid: 6f7e8517-e532-4559-9b07-874115f4c65b
