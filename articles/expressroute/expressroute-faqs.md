@@ -76,6 +76,7 @@ The following Azure services are not supported on ExpressRoute
 ## Data and connections
 ### Are there limits on the amount of data that I can transfer using ExpressRoute?
 We do not set a limit on the amount of data transfer. Refer to [pricing details](https://azure.microsoft.com/pricing/details/expressroute/) for information on bandwidth rates.
+
 ### What connection speeds are supported by ExpressRoute?
 Supported bandwidth offers:
 
