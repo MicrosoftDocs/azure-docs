@@ -117,10 +117,10 @@ appropriate following steps for the storage type of your source VM:
 
 	The following example lists the keys for the storage account named **mystorageaccount** in the resource group named **myResourceGroup**:
 
-	```azurecli
-	az storage account keys list --resource-group myResourceGroup \
-    --account-name mystorageaccount --output table
-	```
+    ```azurecli
+    az storage account keys list --resource-group myResourceGroup \
+        --account-name mystorageaccount --output table
+    ```
 
 	The output is similar to the following example:
 
