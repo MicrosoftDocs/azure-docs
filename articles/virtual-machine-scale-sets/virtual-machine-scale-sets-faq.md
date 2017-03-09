@@ -67,7 +67,7 @@ The main difference is that deallocate doesn’t delete the VHDs, so there are s
 
 See: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set
 
-### Image reset: Can you use the reimage operation to reset a VM without changing the image (that is, reset a VM to factory settings rather than to a new image)?
+### Can you use the reimage operation to reset a VM without changing the image? (that is, reset a VM to factory settings rather than to a new image)?
 
 Yes. See: https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set
 
@@ -536,7 +536,7 @@ You must set up protected settings with the storage account key and name for thi
 See: https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/ 
  
   
-### What’s the resourceGuid property on a NIC for? It’s not documented here.
+### What is the resourceGuid property on a NIC for? It’s not documented here.
 
 It’s a unique ID. Lower layers will be logging this ID at some point in the future. 
  
