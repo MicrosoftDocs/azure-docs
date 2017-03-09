@@ -3,9 +3,9 @@
 ## Compare
 ### [SQL DB features](sql-database-features.md)
 # QuickStart
-## [Create a DB in the Azure portal](sql-database-get-started.md)
-## [Create a DB with the Azure CLI](sql-database-get-started-cli.md)
-## [Create a DB with PowerShell](sql-database-get-started-powershell.md)
+## [Create DB - Portal](sql-database-get-started.md)
+## [Create DB - Azure CLI](sql-database-get-started-cli.md)
+## [Create DB - PowerShell](sql-database-get-started-powershell.md)
 # Samples
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
