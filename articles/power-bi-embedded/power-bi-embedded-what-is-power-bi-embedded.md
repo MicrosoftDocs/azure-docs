@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 03/08/2017
 ms.author: asaxton
 
 ---
@@ -41,13 +41,13 @@ A **Workspace Collection** is the top-level Azure container for resources that c
 * **Region** – As part of provisioning a **Workspace Collection**, you can select a region to be provisioned in. For more information, see [Azure Regions](https://azure.microsoft.com/regions/).
 
 ## Workspace
-A **Workspace** is a container of Power BI content, which can include datasets, reports and dashboards. A **Workspace** is empty when first created. During Preview, you’ll author all content using Power BI Desktop and you'll programmatically deploy the PBIX into your workspace using the [Power BI Import API](https://msdn.microsoft.com/library/mt711504.aspx).
+A **Workspace** is a container of Power BI content, which can include datasets and reports. A **Workspace** is empty when first created. You’ll author content using Power BI Desktop and you'll programmatically deploy the PBIX into your workspace using the [Power BI Import API](https://msdn.microsoft.com/library/mt711504.aspx). You can also programmatically create your dataset and then create reports within your application instead of using Power BI Desktop.
 
 ## Using Workspace Collections and Workspaces
 **Workspace Collections** and **Workspaces** are containers of content that are used and organized in whichever way best fits the design of the application you are building. There will be many different ways that you could arrange the content within them. You may choose to put all content within one workspace and then later use app tokens to further subdivide the content amongst your customers. You may also choose to put all of your customers in separate workspaces so that there is some separation between them. Or, you may choose to organize users by region rather than by customer. This flexible design allows you to choose the best way to organize content.
 
 ## Cached Datasets
-Cached datasets can be used in Preview.  However, you cannot refresh cached data once it has been loaded into **Microsoft Power BI Embedded**.
+Cached datasets can be used.  However, you cannot refresh cached data once it has been loaded into **Microsoft Power BI Embedded**. A cached dataset means you have imported the data into Power BI Desktop instead of using DirectQuery.
 
 ## Authentication and authorization with app tokens
 **Microsoft Power BI Embedded** defers to your application to perform all the necessary user authentication and authorization. There is no explicit requirement that your end users be customers of Azure Active Directory (Azure AD).  Instead, your application expresses to **Microsoft Power BI Embedded** authorization to render a Power BI report by using **Application Authentication Tokens (App Tokens)**.  These **App Tokens** are created as needed when your app wants to render a report.
@@ -61,6 +61,10 @@ Cached datasets can be used in Preview.  However, you cannot refresh cached data
 3. Embedding Tokens - Used when making calls to render a report in the embedded iframe
 
 These tokens are used for the various phases of your interactions with **Microsoft Power BI Embedded**.  The tokens are designed so that you can delegate permissions from your app to Power BI. For more information, see [App Token Flow](power-bi-embedded-app-token-flow.md).
+
+## Create or Edit reports within your application
+
+You can now edit exist reports or create new reports directly in your application without having to use Power BI Desktop. This requires that a dataset exist within your workspace.
 
 ## See Also
 * [Common Microsoft Power BI Embedded scenarios](power-bi-embedded-scenarios.md)

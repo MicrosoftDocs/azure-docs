@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 02/06/2017
+ms.date: 03/03/2017
 ms.author: asaxton
 
 ---
@@ -101,9 +101,9 @@ In the previous steps, you created a workspace collection and your first report 
 * Securely embed a report
 
 ## See Also
-* [Get started with sample](power-bi-embedded-get-started-sample.md)
-* [Authenticating and authorizing with Power BI Embedded](power-bi-embedded-app-token-flow.md)
-* [Power BI desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
+[Get started with sample](power-bi-embedded-get-started-sample.md)  
+[Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
+[JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 More questions? [Try the Power BI Community](http://community.powerbi.com/)
 
