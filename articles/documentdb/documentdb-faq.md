@@ -128,7 +128,7 @@ The quickest way to connect to DocumentDB's API for MongoDB is to head over to t
 
 DocumentDB enforces strict security requirements and standards. DocumentDB accounts require authentication and secure communication via *SSL*, so make sure to use TLSv1.2.
 
-For more details, see the [Connect to your API for MongoDB database](documentdb-connect-mongodb-account.md).
+For more details, see [Connect to your API for MongoDB database](documentdb-connect-mongodb-account.md).
 
 ### Are there additional error codes for an API for MongoDB database?
 API for MongoDB has its own specific error codes in addition to the common MongoDB error codes.
