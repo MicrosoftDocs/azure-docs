@@ -219,8 +219,8 @@
 ## Manage
 ### Create an IoT hub 
 #### [Use the portal](iot-hub-create-through-portal.md)
-#### [Use the CLI 2.0](iot-hub-create-using-cli.md)
-#### [Use the CLI](iot-hub-create-using-cli-nodejs.md)
+#### [Use CLI 2.0](iot-hub-create-using-cli.md)
+#### [Use CLI](iot-hub-create-using-cli-nodejs.md)
 #### [Use the REST API](iot-hub-rm-rest.md)
 #### [Use PowerShell](iot-hub-rm-template-powershell.md)
 #### [Use a template from .NET](iot-hub-rm-template.md)

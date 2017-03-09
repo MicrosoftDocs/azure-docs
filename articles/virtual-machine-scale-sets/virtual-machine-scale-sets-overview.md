@@ -14,12 +14,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/08/2017
+ms.date: 03/09/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
 
 ---
-# What are Virtual Machine Scale Sets in Azure?
+# What are virtual machine scale sets in Azure?
 Virtual machine scale sets are an Azure Compute resource, you can use to deploy and manage a set of identical VMs. With all VMs configured the same, scale sets are designed to support true autoscale – no pre-provisioning of VMs is required – making it easier to build large-scale services targeting big compute, big data, and containerized workloads.
 
 For applications that need to scale compute resources out and in, scale operations are implicitly balanced across fault and update domains. For an introduction to scale sets, refer to the [Azure blog announcement](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
@@ -41,7 +41,23 @@ There is a button that links to the portal deployment feature in the detail page
 [VM scale set Template Dissection](https://channel9.msdn.com/Blogs/Azure/VM-Scale-Set-Template-Dissection/player)
 
 ## Scaling a scale set out and in
-To increase or decrease the number of virtual machines in a scale set, change the *capacity* property and redeploy the template. This simplicity makes it easy to write your own custom scaling layer if you want to define custom scale events that are not supported by Azure autoscale. You can also change the capacity of a scale set in the Azure portal by clicking the _Scaling_ section under _Settings_, or use the [Azure CLI](https://github.com/Azure/azure-cli) command _az vmss scale_. 
+You can change the capacity of a scale set in the Azure portal by clicking the _Scaling_ section under _Settings_. 
+
+To change scale set capacity on the command line, [Azure CLI](https://github.com/Azure/azure-cli) provides a _scale_ command. For example, to set a scale set to a capacity of 10 VMs:
+
+```bash
+az vmss scale -g resourcegroupname -n scalesetname --new-capacity 10 
+```
+
+To set the number of VMs in a scale set using PowerShell, use the _Update-AzureRmVmss_ command:
+
+```PowerShell
+$vmss = Get-AzureRmVmss -ResourceGroupName resourcegroupname -VMScaleSetName scalesetname  
+$vmss.Sku.Capacity = 10
+Update-AzureRmVmss -ResourceGroupName resourcegroupname -Name scalesetname -VirtualMachineScaleSet $vmss
+```
+
+To increase or decrease the number of virtual machines in a scale set using an Azure Resource Manager template, change the *capacity* property and redeploy the template. This simplicity makes it easy to integrate scale sets with Azure autoscale, or to write your own custom scaling layer if you need to define custom scale events that are not supported by Azure autoscale. 
 
 If you are redeploying an Azure Resource Manager template to change the capacity, you could define a much smaller template, which only includes the 'SKU' property packet with the updated capacity. An example is shown [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
@@ -83,15 +99,16 @@ This section lists some typical scale set scenarios. Some higher-level Azure ser
 
 ## Scale set performance and scale guidance
 * Scale sets support up to 1,000 VMs in a scale set. If you create and upload your own custom VM images, the limit is 100. For considerations when using large scale sets, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md).
-* You do not have to pre-create Azure storage accounts in to use scale sets. Scale sets support Azure Managed Disks, which removes performance concerns about the number of disks per storage account. For more information, see [Azure virtual machine scale sets and managed disks](virtual-machine-scale-sets-managed-disks.md).
-* The number of VMs you can create is limited by the core quota in the region in which you are deploying. You may need to contact Customer Support to increase your Compute quota limit increased, even if you have a high limit of cores for use with Azure cloud services today. To query your quota, you can run the following Azure CLI command: `azure vm list-usage`, and the following PowerShell command: `Get-AzureRmVMUsage` (if using a version of PowerShell below 1.0 use `Get-AzureVMUsage`).
+* You do not have to pre-create Azure storage accounts to use scale sets. Scale sets support Azure Managed Disks, which negates performance concerns about the number of disks per storage account. For more information, see [Azure virtual machine scale sets and managed disks](virtual-machine-scale-sets-managed-disks.md).
+* Consider using Azure Premium storage instead of Standard storage for faster, more predictable VM provisioning times, and improved IO performance.
+* The number of VMs you can create is limited by the core quota in the region in which you are deploying. You may need to contact Customer Support to increase your Compute quota limit increased, even if you have a high limit of cores for use with Azure cloud services today. To query your quota, run this Azure CLI command: `azure vm list-usage`, or the following PowerShell command: `Get-AzureRmVMUsage` (if using a version of PowerShell below 1.0 use `Get-AzureVMUsage`).
 
-## scale set frequently asked questions
+## Scale set frequently asked questions
 **Q.** How many VMs can you have in a scale set?
 
 **A.** A scale set can have between 0 and 1,000 VMs based on platform images, or 0-100 VMs based on custom images. 
 
-**Q.** Are Data Disks Supported within scale sets?
+**Q.** Are data disks Supported within scale sets?
 
 **A.** Yes. A scale set can define an attached data drives configuration that applies to all VMs in the set. For more information, see (Azure scale sets and attached data disks)[virtual-machine-scale-sets-attached-disks.md]. Other options for storing data include:
 
@@ -123,4 +140,4 @@ This section lists some typical scale set scenarios. Some higher-level Azure ser
 
 **Q.** Do scale sets work with Azure availability sets?
 
-**A.** Yes. A scale set is an implicit availability set with 5 FDs and 5 UDs. You don't need to configure anything under virtualMachineProfile. scale sets of more than 100 VMs span multiple 'placement groups', which are equivalent to multiple availability sets. An availability set of VMs can exist in the same VNET as a scale set of VMs. A common configuration is to put control node VMs, which often require unique configuration in the availability set, and data nodes in the scale set.
+**A.** Yes. A scale set is an implicit availability set with 5 FDs and 5 UDs. Scale sets of more than 100 VMs span multiple 'placement groups', which are equivalent to multiple availability sets. For more information about placement groups, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md). An availability set of VMs can exist in the same VNET as a scale set of VMs. A common configuration is to put control node VMs, which often require unique configuration, in an availability set, and data nodes in the scale set.
