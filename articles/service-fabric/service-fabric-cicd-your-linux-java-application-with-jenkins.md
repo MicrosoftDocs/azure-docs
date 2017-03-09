@@ -1,10 +1,10 @@
 ---
-title: Continuous build and deploy for your Linux java application Linux using Jenkins | Microsoft Docs
-description: Continuous build and deploy for your Linux java application Linux using Jenkins
+title: Continuous build and integration for your Linux Java application using Jenkins | Microsoft Docs
+description: Continuous build and integration for your Linux Java application using Jenkins
 services: service-fabric
 documentationcenter: java
 author: sayantancs
-manager: raunakp
+manager: timlt
 editor: ''
 
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/27/2017
-ms.author: sayantancs
+ms.author: saysa
 
 ---
 # Build and deploy your Linux Java application using Jenkins
@@ -72,8 +72,8 @@ wget -qO- https://get.docker.io/ | sh
 Now when you run ``docker info`` in the terminal, you would see in the output that docker service is running.
 
 ### Steps
-  1. Pull the Service Fabric Jenkins container: ``docker pull IMAGE_NAME ``
-  2. Run the container image: ``docker run -itd -p 8080:8080 IMAGE_NAME``
+  1. Pull the Service Fabric Jenkins container image: ``docker pull servicefabric-microsoft.azurecr.io/jenkins:v1``
+  2. Run the container image: ``docker run -itd -p 8080:8080 servicefabric-microsoft.azurecr.io/jenkins:v1``
   3. Get the id of your docker container which has the jenkins image (which you just installed). You can list all the docker containers with the command ``docker ps –a``
   4. Get the admin password for the Jenkins account. For that you can do the following -
     * ```sh
