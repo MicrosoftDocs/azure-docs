@@ -225,7 +225,7 @@ Login-AzureRmAccount
 Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
 ```
 
-The above command gives you the input for the resource manager template.
+The above command gives you the input for the Resource Manager template.
 
 #### Change Resource Manager Template
 
@@ -253,7 +253,7 @@ Add this property to the "virtualMachineProfile” as part of the scale set Reso
 ```
  
 
-### Is there a way to specify an SSH keypair that I want to use for SSH authentication with a Linux scale set from a resource manager template?  
+### Is there a way to specify an SSH keypair that I want to use for SSH authentication with a Linux scale set from a Resource Manager template?  
 
 The REST API for the osProfile looks similar to the ordinary VM case:
  
@@ -291,7 +291,7 @@ https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayho
 
 You must remove the old certificate from the vault certificates list (but leave all of the certificates that you want to remain on your machine. This will not remove the certificate from all your VMs, but it will not add the certificate to new VMs that are created in the scale set. To remove the certificate from existing VMs you must write a custom script extension which removes the certificates from your certificate store manually.
  
-### How do I take an existing SSH public key and inject it into the scale set SSH layer during provisioning?  I would like to store the SSH Public Key values in Azure Key Vault, and then utilize them in my resource manager template.
+### How do I take an existing SSH public key and inject it into the scale set SSH layer during provisioning?  I would like to store the SSH Public Key values in Azure Key Vault, and then utilize them in my Resource Manager template.
 
 If you are only providing the VMs with the public ssh key, there is no reason to put the public keys in the key vault (as a public key is not secret)
  
@@ -405,7 +405,7 @@ You can generate a pfx file that only contains .cer files, with X509ContentType 
 
 ### I do not see an option for users to pass in certificates as base64 strings that most other resource providers provide.
 
-You can extract the latest versioned URL within a resource manager template to emulate the behavior you describe. You can include the following in their resource manager template:
+You can extract the latest versioned URL within a Resource Manager template to emulate the behavior you describe. You can include the following in their Resource Manager template:
 
 ```json 
 "certificateUrl": "[reference(resourceId(parameters('vaultResourceGroup'), 'Microsoft.KeyVault/vaults/secrets', parameters('vaultName'), parameters('secretName')), '2015-06-01').secretUriWithVersion]"
@@ -505,7 +505,7 @@ You could define an extension like this using the JsonADDomainExtension for exam
  
 ### My scale set extension is trying to install something that requires a reboot, for instance: "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted Install-WindowsFeature –Name FS-Resource-Manager –IncludeManagementTools"
 
-You could use the DSC extension. If the OS is 2012 R2, then ARM pulls in the WMF5.0 setup, reboots, and continues with the configuration. 
+You could use the DSC extension. If the OS is 2012 R2, then Azure pulls in the WMF5.0 setup, reboots, and continues with the configuration. 
  
 ### How can I enable Antimalware on my scale set?
 
