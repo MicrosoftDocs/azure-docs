@@ -14,25 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/09/2017
+ms.date: 03/06/2017
 ms.author: carlrab
 
 ---
 # Azure SQL Database and performance for single databases
-Azure SQL Database offers three [service tiers](sql-database-service-tiers.md): Basic, Standard, and Premium. Each service tier strictly isolates the resources that your SQL database can use, and guarantees predictable performance for that service level. In this article, we offer guidance that can help you choose the service tier for your application. We also discuss ways that you can tune your application to get the most from Azure SQL Database.
+Azure SQL Database offers four [service tiers](sql-database-service-tiers.md): Basic, Standard, Premium, and Premium RS. Each service tier strictly isolates the resources that your SQL database can use, and guarantees predictable performance for that service level. In this article, we offer guidance that can help you choose the service tier for your application. We also discuss ways that you can tune your application to get the most from Azure SQL Database.
 
 > [!NOTE]
 > This article focuses on performance guidance for single databases in Azure SQL Database. For performance guidance related to elastic pools, see [Price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md). Note, though, that you can apply many of the tuning recommendations in this article to databases in an elastic pool, and get similar performance benefits.
 > 
 > 
-
-There are the three Azure SQL Database service tiers that you can choose from (performance is measured in database throughput units, or [DTUs](sql-database-what-is-a-dtu.md):
-
-* **Basic**. The Basic service tier offers good performance predictability for each database, hour over hour. In a Basic database, sufficient resources support good performance in a small database that doesn't have multiple concurrent requests.
-* **Standard**. The Standard service tier offers improved performance predictability and provides good performance for databases that have multiple concurrent requests, like workgroup and web applications. When you choose a Standard service tier database, you can size your database application based on predictable performance, minute over minute.
-* **Premium**. The Premium service tier provides predictable performance, second over second, for each Premium database. When you choose the Premium service tier, you can size your database application based on the peak load for that database. The plan removes cases in which performance variance can cause small queries to take longer than expected in latency-sensitive operations. This model can greatly simplify the development and product validation cycles for applications that need to make strong statements about peak resource needs, performance variance, or query latency.
-
-At each service tier, you set the performance level, so you have the flexibility to pay only for the capacity you need. You can [adjust capacity](sql-database-service-tiers.md), up or down, as workload changes. For example, if your database workload is high during the back-to-school shopping season, you might increase the performance level for the database for a set time, July through September. You can reduce it when your peak season ends. You can minimize what you pay by optimizing your cloud environment to the seasonality of your business. This model also works well for software product release cycles. A test team might allocate capacity while it does test runs, and then release that capacity when they finish testing. In a capacity request model, you pay for capacity as you need it, and avoid spending on dedicated resources that you might rarely use.
 
 ## Why service tiers?
 Although each database workload can differ, the purpose of service tiers is to provide performance predictability at various performance levels. Customers with large-scale database resource requirements can work in a more dedicated computing environment.
@@ -52,12 +44,18 @@ Most Premium service tier use cases have one or more of these characteristics:
 * **Many concurrent requests**. Some database applications service many concurrent requests, for example, when serving a website that has a high traffic volume. Basic and Standard service tiers limit the number of concurrent requests per database. Applications that require more connections would need to choose an appropriate reservation size to handle the maximum number of needed requests.
 * **Low latency**. Some applications need to guarantee a response from the database in minimal time. If a specific stored procedure is called as part of a broader customer operation, you might have a requirement to have a return from that call in no more than 20 milliseconds, 99 percent of the time. This type of application benefits from the Premium service tier, to make sure that the required computing power is available.
 
+* **Premium RS**. Designed for customers that have IO-intensive workloads but do not require the highest availability guarantees. Examples include testing high-performance workloads, or an analytical workload where the database is not the system of record.
+
 The service level that you need for your SQL database depends on the peak load requirements for each resource dimension. Some applications use a trivial amount of a single resource, but have significant requirements for other resources.
 
 ## Service tier capabilities and limits
 Each service tier and performance level is associated with different limits and performance characteristics. This table describes these characteristics for a single database.
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
+
+> [!IMPORTANT]
+> Customers using P11 and P15 performance levels can use up to 4 TB of included storage at no additional charge. This 4 TB option is currently in public preview in the following regions: US East2, West US, West Europe, South East Asia, Japan East, Australia East, Canada Central, and Canada East. For current limitations, see [Current 4 TB limitations](sql-database-service-tiers.md##current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
+>
 
 ### Maximum In-Memory OLTP storage
 You can use the **sys.dm_db_resource_stats** view to monitor your Azure In-Memory storage use. For more information about monitoring, see [Monitor In-Memory OLTP storage](sql-database-in-memory-oltp-monitoring.md).
@@ -133,7 +131,7 @@ Because this view provides a more granular look at resource use, use **sys.dm_db
 For other queries, see the examples in [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
 ### sys.resource_stats
-The [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) view in the **master** database has additional information that can help you monitor the performance of your SQL database at its specific service tier and performance level. The data is collected every 5 minutes and is maintained for approximately 35 days. This view is useful for a longer-term historical analysis of how your SQL database uses resources.
+The [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) view in the **master** database has additional information that can help you monitor the performance of your SQL database at its specific service tier and performance level. The data is collected every 5 minutes and is maintained for approximately 14 days. This view is useful for a longer-term historical analysis of how your SQL database uses resources.
 
 The following graph shows the CPU resource use for a Premium database with the P2 performance level for each hour in a week. This graph starts on a Monday, shows 5 work days, and then shows a weekend, when much less happens on the application.
 

@@ -75,7 +75,7 @@ Let's go through these steps more carefully to make sure you understand the proc
 1. Sign in to your account.
    
    ```powershell
-   Add-AzureRmAccount
+   Login-AzureRmAccount
    ```
 
 2. Create a new Active Directory application by providing a display name, the URI that describes your application, the URIs that identify your application, and the password for your application identity.
@@ -149,7 +149,7 @@ Now, you need to log in as the application to perform operations.
 4. Log in as the service principal by specifying that this account is a service principal and by providing the credentials object. 
    
    ```powershell
-   Add-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId $tenant
+   Login-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId $tenant
    ```
    
      You are now authenticated as the service principal for the Active Directory application that you created.
@@ -217,7 +217,8 @@ The version of PowerShell available with Windows 10 and Windows Server 2016 Tech
      Then, generate the certificate.
   
   ```powershell
-  $cert = New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
+  New-SelfSignedCertificateEx  -StoreLocation CurrentUser -StoreName My -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
+  $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'CN=exampleapp' }
   ```
 
 You have your certificate and can proceed with creating your AD app.
@@ -231,7 +232,7 @@ You have your certificate and can proceed with creating your AD app.
 2. Sign in to your Azure account.
    
    ```powershell
-   Add-AzureRmAccount
+   Login-AzureRmAccount
    ```
 3. Create a new Active Directory application by providing a display name, the URI that describes your application, the URIs that identify your application, and the password for your application identity.
    
@@ -301,7 +302,7 @@ $tenant = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
 To authenticate in your script, specify the account is a service principal and provide the certificate thumbprint, the application id, and tenant id. To automate your script, you can store these values as environment variables and retrieve them during execution, or you can include them in your script.
 
 ```powershell
-Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint $cert.Thumbprint -ApplicationId $app.ApplicationId -TenantId $tenant
+Login-AzureRmAccount -ServicePrincipal -CertificateThumbprint $cert.Thumbprint -ApplicationId $app.ApplicationId -TenantId $tenant
 ```
 
 You are now authenticated as the service principal for the Active Directory application that you created.

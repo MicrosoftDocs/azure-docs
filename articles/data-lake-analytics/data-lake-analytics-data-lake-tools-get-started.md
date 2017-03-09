@@ -25,7 +25,7 @@ Learn how to install Data Lake Tools for Visual Studio, and use Data Lake Tools 
 U-SQL is a hyper-scalable, highly extensible language for preparing, transforming and analyzing all data in the data lake and beyond. For more information, see [U-SQL Reference](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 ## Prerequisites
-* **Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012. Enterprise (Ultimate/Premium), Professional, Community editions are supported; Express edition is not supported. Visual Studio 2017 is currently not supported.**
+* **Visual Studio 2015 update 3, Visual Studio 2013 update 4, or Visual Studio 2012. Enterprise (Ultimate/Premium), Professional, Community editions are supported; Express edition is not supported. Visual Studio 2017 is currently not supported.**
 * **Microsoft Azure SDK for .NET version 2.7.1 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
 * **[Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)**.
 

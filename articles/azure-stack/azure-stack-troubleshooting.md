@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/1/2017
+ms.date: 3/3/2017
 ms.author: helaw
 
 ---
@@ -27,24 +27,36 @@ The recommendations for troubleshooting issues that are described in this sectio
 Code examples are provided as is and expected results cannot be guaranteed. This section is subject to frequent edits and updates as improvements to the product are implemented.
 
 ## Known Issues
-* You may notice deployment taking longer than previous releases. 
-* You will see that the  resource providers are not automatically registered for tenant subscriptions. Use the [Connect module](https://github.com/Azure/AzureStack-Tools/tree/master/Connect), or run the following command from PowerShell (after you [install and connect](azure-stack-connect-powershell.md) as a tenant): 
-  
-       Get-AzureRMResourceProvider | Register-AzureRmResourceProvider  
+* You may notice deployment taking longer than previous releases.   
 * You will see an error when signing in to a deployment with ADFS.  The text will read "Sorry, we had some trouble signing you in.  Click 'Try again' to try again."  This is a known error, and clicking Try Again will take you to the portal.  You can also add *https://*.local.azurestack.external* to the "Local Intranet" trusted sites in Internet Explorer. 
 * Logging out of portal in AD FS deployment will result in an error message.
-* You may not see usage information for Windows and Linux VMs.
+* You may see incorrect cores/minute usage information for Windows and Linux VMs.
+* The "Get started" tile on the dashboard references Azure specific information.
 * The reclaim storage procedure may take time to complete.
 * Opening Storage Explorer from the storage account blade will result in an error.  This is expected behavior for TP3.
-* Attempting to delegate or assign a offer to a user will result in an error due to a blank Azure AD tenant field.  To work around, make the offer public. 
+* Attempting to delegate or assign an offer to a user will result in a “No results” error appearing in the Directory Tenants selection blade. The workaround is to make the offer public, and then have tenants add a subscription based on the public offer. 
 * Using the Marketplace Item to create a VM with guest OS diagnostics enabled will receive an error that the VM extension failed.  To workaround, enable the Guest OS diagnostics after VM deployment. 
-* There are known issues with VM resizing and this scenario shouldn't be validate at this time.
+* There are known issues with VM resizing and this scenario shouldn't be validated at this time.
+* You will see virtual machines reboot after configuration changes.
+* You may see an error after applying a change to an existing VM, like VM extensions or adding additional resources such as data disks. 
 * Deploying Azure Stack with ADFS and without internet access will result in licensing error messages and the host will expire after 10 days.  We advise having internet connectivity during deployment, and then testing disconnected scenarios once deployment is complete.
 * Key Vault services must be created from the tenant portal or tenant API.  If you are logged in as an administrator, make sure to use the tenant portal to create new Key Vault vaults, secrets, and keys.
 * There is no marketplace experience for creating VM Scale Sets, though they can be created via template.
-* The "Getting started" tile on the dashboard references Azure specific information.
 * You will see the "Get subscription" tile is missing from the tenant dashboard.  To sign-up for a subscription, use the subscription list to select a subscription.
-* You will se the DNS namespaces have changed for Azure Stack, and also now include the region name.  Example:  *https://portal.local.azurestack.external*     
+* You will see the DNS namespaces have changed for Azure Stack, and also now include the region name.  Example:  *https://portal.local.azurestack.external*  
+* As a result of the Azure Stack deployment processes several alerts are generated and remain active.  These can be viewed by the Azure Stack administrator and can be closed manually.  If the issue persists the alert will reactivate. The titles of these alerts are:
+    * Service Fabric Application fabric:/(appname)
+    * Service Fabric Cluster is unhealthy
+    * Additional alerts that may generate and automatically close during deployment are the following:
+        * A health system component is not operating correctly
+        * Template for FaultType Microsoft.Health.FaultType.VirtualDisks.NeedsRepair is missing
+* All Infrastructure Roles will display with a known health state, however the health state is not accurate for roles outside of Compute Controller and Health Controller
+* Some alerts may recommend a “Restart” action on a specific infrastructure role.  The restart action for infrastructure roles is not available in Azure Stack TP3.
+* You will see an HSM option when creating Key Vault vaults through the portal.  HSM backed vaults are not supported in Azure Stack TP3.
+ 
+ 
+
+   
 
 ## Deployment
 ### Deployment failure
@@ -83,6 +95,15 @@ If you see "orphan" VHDs, it is important to know if they are part of the folder
 
 You can read more about configuring the retention threshold and on-demand reclamation in [manage storage accounts](azure-stack-manage-storage-accounts.md).
 
+## Storage
+### Storage reclamation
+It may take up to two hours for reclaimed capacity to show up in the portal. Space reclamation depends on various factors including usage percentage of internal container files in block blob store. Therefore, depending on how much data is deleted, there is no guarantee on the amount of space that could be reclaimed when garbage collector runs.
+
+## PowerShell
+### Resource Providers not registered
+When connecting to tenant subscriptions with PowerShell, you will notice that the resource providers are not automatically registered. Use the [Connect module](https://github.com/Azure/AzureStack-Tools/tree/master/Connect), or run the following command from PowerShell (after you [install and connect](azure-stack-connect-powershell.md) as a tenant): 
+  
+       Get-AzureRMResourceProvider | Register-AzureRmResourceProvider
 
 ## Next steps
 [Frequently asked questions](azure-stack-faq.md)

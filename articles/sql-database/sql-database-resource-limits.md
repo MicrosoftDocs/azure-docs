@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/24/2017
+ms.date: 03/06/2017
 ms.author: janeng
 
 ---
@@ -47,6 +47,10 @@ For a single database, the limits of a database are defined by the database serv
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
+> [!IMPORTANT]
+> Customers using P11 and P15 performance levels can use up to 4 TB of included storage at no additional charge. This 4 TB option is currently in public preview in the following regions: US East2, West US, West Europe, South East Asia, Japan East, Australia East, Canada Central, and Canada East. For current limitations, see [Current 4 TB limitations](sql-database-service-tiers.md##current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
+>
+
 ### Elastic pools
 [Elastic pools](sql-database-elastic-pool.md) share resources across databases in the pool. The following table describes the characteristics of Basic, Standard, and Premium elastic pools.
 
@@ -58,8 +62,8 @@ For an expanded definition of each resource listed in the previous tables, see t
 | Area | Limit | Description |
 | --- | --- | --- |
 | Databases using Automated export per subscription |10 |Automated export allows you to create a custom schedule for backing up your SQL databases. The preview of this feature will end on March 1, 2017.  |
-| Database per server |Up to 5000 |Up to 5000 databases are allowed per server on V12 servers. |
-| DTUs per server |45000 |45000 DTUs are available per server on V12 servers for provisioning databases, elastic pools, and data warehouses. |
+| Databases per server |Up to 5000 |Up to 5000 databases are allowed per server on V12 servers. |
+| DTUs per server |45000 |45000 DTUs are allowed per server on V12 servers for provisioning standalone databases and elastic pools. The total number of standalone databases and pools allowed per server is limited only by the number of server DTUs.  
 
 > [!IMPORTANT]
 > Azure SQL Database Automated Export is now in preview and will be retired on March 1, 2017. Starting December 1st, 2016, you will no longer be able to configure automated export on any SQL database. All your existing automated export jobs will continue to work until March 1st, 2017. After December 1st, 2016, you can use [long-term backup retention](sql-database-long-term-retention.md) or [Azure Automation](../automation/automation-intro.md) to archive SQL databases periodically using PowerShell periodically according to a schedule of your choice. For a sample script, you can download the [sample script from Github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 

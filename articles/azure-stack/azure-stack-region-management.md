@@ -48,7 +48,7 @@ This preview release of Azure Stack has a set of region management capabilities 
    In Azure Stack Technical Preview 3, not all infrastructure roles surface alerts in this journey.
 
 ## Next steps
-[Manage health and alerts in Azure Stack](azure-stack-monitor-health.md)
+[Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md)
 
 [Update management in Azure Stack](azure-stack-updates.md)
 

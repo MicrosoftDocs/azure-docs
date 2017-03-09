@@ -70,8 +70,8 @@ The following are the general rollout steps for password reset:
 2. Assign the appropriate licenses to each user to whom you’d like to offer password reset in the by going to the **Licenses** tab in the [Azure Management Portal](https://manage.windowsazure.com).
 3. Optionally restrict password reset to a group of users to roll out the feature slowly over time by setting the **Restrict Access to Password Reset** toggle to **Yes** and selecting a security group to enable for password reset (note these users must all have licenses assigned to them).
 4. Instruct your users to use password reset by either sending them an email instructing them to register, enabling enforced registration on the access panel, or by uploading the appropriate authentication data for those users yourself via DirSync, PowerShell, or the [Azure Management Portal](https://manage.windowsazure.com).  More details on this are provided below.
-5. Over time, review users registering by navigating to the Reports tab and viewing the [**Password Reset Registration Activity**](active-directory-passwords-get-insights.md#view-password-reset-registration-activity) report.
-6. Once a good number of users have registered, watch them use password reset by navigating to the Reports tab and viewing the [**Password Reset Activity**](active-directory-passwords-get-insights.md#view-password-reset-activity) report.
+5. Over time, review users registering by navigating to the Reports tab and viewing the [**Password Reset Registration Activity**](active-directory-passwords-get-insights.md#view-password-reset-registration-activity-in-the-classic-portal) report.
+6. Once a good number of users have registered, watch them use password reset by navigating to the Reports tab and viewing the [**Password Reset Activity**](active-directory-passwords-get-insights.md#view-password-reset-activity-in-the-classic-portal) report.
 
 There are several ways to inform your users that they can register for and use password reset in your organization.  They are detailed below.
 
@@ -80,7 +80,7 @@ Perhaps the simplest approach to inform your users about to register for or use 
 
   ![][001]
 
-You can [download the email template here](http://1drv.ms/1xWFtQM).
+You can [download the email template here](https://1drv.ms/f/s!AharQMeRmrWggcNnPlk_7xHInYJzow).
 
 ### Creating your own password portal
 One strategy that works well for larger customers deploying password management capabilities is to create a single "password portal" that your users can use to manage all things related to their passwords in a single place.  

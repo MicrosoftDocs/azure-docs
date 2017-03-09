@@ -4,7 +4,7 @@ description: How to use Android client SDK for Azure Mobile Apps.
 services: app-service\mobile
 documentationcenter: android
 author: ysxu
-manager: erikre
+manager: adrianha
 editor: ''
 
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc

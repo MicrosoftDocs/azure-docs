@@ -1,5 +1,5 @@
 ---
-title: Regional Failovers in Azure DocumentDB | Microsoft Docs
+title: Regional failovers in Azure DocumentDB | Microsoft Docs
 description: Learn about how manual and automatic failovers work with Azure DocumentDB.
 services: documentdb
 documentationcenter: ''
@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2017
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 
 ---
-# Regional Failovers in Azure DocumentDB
+# Automatic regional failovers for business continuity in DocumentDB
 Azure DocumentDB simplifies the global distribution of data by offering fully managed, [multi-region database accounts](documentdb-distribute-data-globally.md) that provide clear tradeoffs between consistency, availability, and performance, all with corresponding guarantees. DocumentDB accounts offer high availability, single digit ms latencies, [well-defined consistency levels](documentdb-consistency-levels.md), transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the globe. 
 
 Azure DocumentDB supports both explicit and policy driven failovers that allow you to control the end-to-end system behavior in the event of failures. In this article, we look at:
