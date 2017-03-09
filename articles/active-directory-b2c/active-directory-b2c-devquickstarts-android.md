@@ -31,18 +31,21 @@ If you're new to OAuth2 or OpenID Connect much of this sample configuration may 
 Not all Azure Active Directory scenarios & features are supported by the B2C platform.  To determine if you should use the B2C platform, read about [B2C limitations](active-directory-b2c-limitations.md).
 
 ## Get an Azure AD B2C directory
+
 Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all of your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue.
 
 ## Create an application
+
 Next, you need to create an app in your B2C directory. This gives Azure AD information that it needs to communicate securely with your app. To create a mobile app, follow [these instructions](active-directory-b2c-app-registration.md). Be sure to:
 
 * Include a **mobile device** in the application.
 * Copy the **Application ID** that is assigned to your app. You will need this later.
-* Set up a **Redirect URI**. You will also need this later. 
+* Set up a **Redirect URI** (e.g. com.onmicrosoft.fabrikamb2c.exampleapp:/oauthredirect). You will also need this later.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Create your policies
+
 In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains one identity experience: a combined sign-in and sign-up. You need to create this policy, as described in the
 [policy reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). When you create the policy, be sure to:
 
@@ -55,6 +58,7 @@ In Azure AD B2C, every user experience is defined by a [policy](active-directory
 After you have created your policies, you're ready to build your app.
 
 ## Download the sample code
+
 We have provided a working sample that uses AppAuth with Azure AD B2C [on GitHub](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c). You can download the code and run it. You can quickly get started with your own app using your own Azure AD B2C configuration by following the instructions in the [README.md](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md).
 
 The sample is a modification of the sample provided by [AppAuth](https://openid.github.io/AppAuth-Android/). Please visit their page to learn more about AppAuth and its features.
@@ -68,6 +72,7 @@ The sample is a modification of the sample provided by [AppAuth](https://openid.
 ### Configuration
 
 You can configure communication with Azure AD B2C by either specifying the discovery URI or by specifying both the authorization endpoint and token endpoint URIs. In either case, you will need the following information:
+
 * Tenant ID (e.g. contoso.onmicrosoft.com)
 * Policy name (e.g. B2C\_1\_SignUpIn)
 
@@ -117,9 +122,10 @@ AuthorizationServiceConfiguration config =
 
 ### Authorizing
 
-After configuring or retrieving an authorization service configuration, an authorization request can be constructed. To create the request, you will need the following information:  
+After configuring or retrieving an authorization service configuration, an authorization request can be constructed. To create the request, you will need the following information:
+
 * Client ID (e.g. 00000000-0000-0000-0000-000000000000)
-* Redirect URI (e.g. contoso://redirect)
+* Redirect URI with a custom scheme (e.g. com.onmicrosoft.fabrikamb2c.exampleapp:/oauthredirect)
 
 Both items should have been saved when you were [registering your app](#create-an-application).
 
