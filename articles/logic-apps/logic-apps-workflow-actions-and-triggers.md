@@ -657,8 +657,7 @@ Alternatively, to wait until a specific moment in time, you can use this example
         }
     }
 }
-  
-```  
+```
   
 > [!NOTE]  
 > The wait duration can be either specified using the **interval** object or the **until** object, but not both.  
