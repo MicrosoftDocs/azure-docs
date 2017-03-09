@@ -108,7 +108,7 @@ After the deployment has completed, create an SSH connection with the virtual ma
 Run the following commands to return the public IP address of the virtual machine.
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM | Get-AzureRmPublicIpAddress
+Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
 Use the following command to create an SSH session. Replace the IP address with the public IP address of your virtual machine.

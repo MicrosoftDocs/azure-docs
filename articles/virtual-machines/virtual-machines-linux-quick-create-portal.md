@@ -22,7 +22,7 @@ ms.author: nepeters
 
 Azure virtual machines (VMs) can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring VMs, and all related Azure resources.
 
-Before you start, both a private and public SSH key are needed. For detailed information on creating SSH key pairs for Azure, see [Create SSH keys](./virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Before you start, both a private and public SSH keys are needed. For detailed information on creating SSH key pairs for Azure, see [Create SSH keys](./virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Create virtual machine
 
