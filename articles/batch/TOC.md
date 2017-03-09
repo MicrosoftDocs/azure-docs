@@ -1,6 +1,7 @@
 # Overview
 ## [What is Azure Batch](batch-technical-overview.md)
 ## [Feature overview](batch-api-basics.md)
+## [Batch APIs and tools](batch-apis-tools.md)
 ## [Quotas and limits](batch-quota-limit.md)
 # Get Started
 ## [Create a Batch account](batch-account-create-portal.md)

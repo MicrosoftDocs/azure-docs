@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 03/08/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 
@@ -423,6 +423,7 @@ In situations where some of your tasks are failing, your Batch client applicatio
 >
 
 ## Next steps
+* Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.
 * Walk through a sample Batch application step-by-step in [Get started with the Azure Batch Library for .NET](batch-dotnet-get-started.md). There is also a [Python version](batch-python-tutorial.md) of the tutorial that runs a workload on Linux compute nodes.
 * Download and build the [Batch Explorer][github_batchexplorer] sample project for use while you develop your Batch solutions. Using the Batch Explorer, you can perform the following and more:
 
