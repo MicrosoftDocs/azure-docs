@@ -44,7 +44,7 @@ B2B collaboration users are typically added through an invitation and redemption
 
 3. John Doe specifies a custom invitation email to send to Sam Oogle.
 
-4. When John Doe sends the invitation, user Sam Oogle is created in the Azure AD for WoodGrove, as shown here:
+4. When John Doe sends the invitation, user Sam Oogle is created in Azure AD for WoodGrove, as shown here:
 
   ![The admin user interface in portal.azure.com](media/active-directory-b2b-what-is-azure-ad-b2b/user-is-added.png)
 
