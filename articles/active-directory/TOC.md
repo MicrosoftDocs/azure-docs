@@ -82,7 +82,7 @@
 ### [FAQ](active-directory-reporting-faq.md)
 ### [Report migration](active-directory-reporting-migration.md)
 ### [Retention](active-directory-reporting-retention.md)
-###	Programmatic Access 
+###	Programmatic Access
 #### [Audit reference](active-directory-reporting-api-audit-reference.md)
 #### [Audit samples](active-directory-reporting-api-audit-samples.md)
 #### [Prerequisites](active-directory-reporting-api-prerequisites.md)
@@ -107,6 +107,7 @@
 
 ## [Manage passwords](active-directory-manage-passwords.md)
 ### [Update your own password](active-directory-passwords-update-your-own-password.md)
+### [Set up self-service password reset](active-directory-passwords.md)
 ### [Understand password management](active-directory-passwords-how-it-works.md)
 ### [Understand policies and restrictions](active-directory-passwords-policy.md)
 ### Reset passwords
@@ -116,7 +117,6 @@
 ### Enable password management
 #### [Get started](active-directory-passwords-getting-started.md)
 #### [Deploy](active-directory-passwords-best-practices.md)
-#### [Set up self-service password reset](active-directory-passwords.md)
 #### [Customize](active-directory-passwords-customize.md)
 #### [View reports](active-directory-passwords-get-insights.md)
 #### [Learn more](active-directory-passwords-learn-more.md)
@@ -124,13 +124,14 @@
 #### [Troubleshoot](active-directory-passwords-troubleshoot.md)
 
 ## Manage devices
-### [Register devices](active-directory-conditional-access-device-registration-overview.md)
-#### [Manage automatic registration](active-directory-conditional-access-automatic-device-registration.md)
+### [Register devices](active-directory-device-registration-overview.md)
+#### [Manage automatic registration](active-directory-device-registration.md)
 #### [Setup](active-directory-conditional-access-automatic-device-registration-setup.md)
-#### [FAQs](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
+#### [FAQs](active-directory-device-registration-faq.md)
 #### Troubleshoot
-##### [Troubleshooting for Windows 10 and Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
-##### [Troubleshooting for Windows down-level clients](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+##### [Troubleshooting for Windows 10 and Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
+##### [Troubleshooting for Windows down-level clients](active-directory-device-registration-troubleshoot-windows-legacy.md)
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Plan](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Set up device registration](active-directory-azureadjoin-setup.md)
@@ -277,7 +278,6 @@
 #### [Supported apps](active-directory-conditional-access-supported-apps.md)
 #### [Understand device policies](active-directory-conditional-access-device-policies.md)
 #### [Set up access to connected apps](active-directory-conditional-access-policy-connected-applications.md)
-#### [Deploy on-premises](active-directory-conditional-access-on-premises-setup.md)
 #### [FAQs](active-directory-conditional-faqs.md)
 #### [Troubleshoot](active-directory-conditional-access-device-remediation.md)
 #### [Reference](active-directory-conditional-access-technical-reference.md)
