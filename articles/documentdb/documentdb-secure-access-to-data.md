@@ -51,7 +51,7 @@ The process of rotating your master key is simple. Navigate to the Azure portal 
 
 ### Code sample to use a master key
 
-The following code sample illustrates how to use a DocumentDB account endpoint and master key to instantiate a DocumentClient and create a new database. 
+The following code sample illustrates how to use a DocumentDB account endpoint and master key to instantiate a DocumentClient and create a database. 
 
 ```csharp
 //Read the DocumentDB endpointUrl and authorization keys from config.
@@ -80,24 +80,24 @@ Resource tokens provide access to the application resources within a database. R
 - Are created when a [user](#users) is granted [permissions](#permissions) to a specific resource.
 - Are recreated when a permission resource is acted upon on by POST, GET, or PUT call.
 - Use a hash resource token specifically constructed for the user, resource, and permission.
-- Are time bound with a customizable validity period. The devault valid timespan is 1 hour. Token lifetime, however, may be explicitly specified, up to a maximum of 5 hours.
+- Are time bound with a customizable validity period. The devault valid timespan is one hour. Token lifetime, however, may be explicitly specified, up to a maximum of five hours.
 - Provide a safe alternative to giving out the master key. 
 - Enable clients to read, write, and delete resources in the DocumentDB account according to the permissions they've been granted.
 
 You can use a resource token (by creating DocumentDB users and permissions) when you want to provide access to resources in your DocumentDB account to a client that cannot be trusted with the master key.  
 
-DocumentDB resource tokens provide a safe alternative that enable clients to read, write, and delete resources in your DocumentDB account according to the permissions you've granted, and without need for either a master or read only key.
+DocumentDB resource tokens provide a safe alternative that enables clients to read, write, and delete resources in your DocumentDB account according to the permissions you've granted, and without need for either a master or read only key.
 
-Here is a typical design pattern whereby resource tokens may be requested, generated and delivered to clients:
+Here is a typical design pattern whereby resource tokens may be requested, generated, and delivered to clients:
 
 1. A mid-tier service is set up to serve a mobile application to share user photos. 
 2. The mid-tier service possesses the master key of the DocumentDB account.
-3. The photo app is installed on end user mobile devices. 
+3. The photo app is installed on end-user mobile devices. 
 4. On login, the photo app establishes the identity of the user with the mid-tier service. This mechanism of identity establishment is purely up to the application.
 5. Once the identity is established, the mid-tier service requests permissions based on the identity.
 6. The mid-tier service sends a resource token back to the phone app.
 7. The phone app can continue to use the resource token to directly access DocumentDB resources with the permissions defined by the resource token and for the interval allowed by the resource token. 
-8. When the resource token expires, subsequent requests will receive a 401 unauthorized exception.  At this point, the phone app re-establishes the identity and requests a new resource token.
+8. When the resource token expires, subsequent requests receive a 401 unauthorized exception.  At this point, the phone app re-establishes the identity and requests a new resource token.
 
     ![DocumentDB resource tokens workflow](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
 
@@ -121,7 +121,7 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 ```
 
 > [!NOTE]
-> Each DocumentDB user has a PermissionsLink property which can be used to retrieve the list of [permissions](#permissions) associated with the user.
+> Each DocumentDB user has a PermissionsLink property that can be used to retrieve the list of [permissions](#permissions) associated with the user.
 > 
 > 
 
@@ -129,7 +129,7 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 
 ## Permissions
 A DocumentDB permission resource is associated with a DocumentDB user.  Each user may contain zero or more DocumentDB permissions.  A permission resource provides access to a security token that the user needs when trying to access a specific application resource.
-There are two available access levels which may be provided by a permission resource:
+There are two available access levels that may be provided by a permission resource:
 
 * All: The user has full permission on the resource.
 * Read: The user can only read the contents of the resource but cannot perform write, update, or delete operations on the resource.
@@ -160,7 +160,7 @@ If you have specified a partition key for your collection, then the permission f
 
 ### Code sample to read permissions for user
 
-In order to easily obtain all permission resources associated with a particular user, DocumentDB makes available a permission feed for each user object.  The following code snippet shows how to retrieve the permission associated with the user created above, construct a permission list, and instantiate a new DocumentClient on behalf of the user.
+To easily obtain all permission resources associated with a particular user, DocumentDB makes available a permission feed for each user object.  The following code snippet shows how to retrieve the permission associated with the user created above, construct a permission list, and instantiate a new DocumentClient on behalf of the user.
 
 ```csharp
 //Read a permission feed.

@@ -76,7 +76,7 @@ Let's dig into each one in detail.
 |HTTPS/SSL/TLS encryption|All client-to-service DocumentDB interactions are SSL/TLS 1.2 enforced. Also, all intra datacenter and cross datacenter replication is SSL/TLS 1.2 enforced.|
 |Patched servers|As a managed NoSQL database, DocumentDB eliminates the need to manage and patch servers, that's done for you, automatically.|
 |Administrative accounts with strong passwords|It's hard to believe we even need to mention this requirement, but unlike some of our competitors, it's impossible to have an administrative account with no password in DocumentDB.<br><br> Security via SSL and HMAC secret based authentication is baked in by default.|
-|Security and data protection certifications|DocumentDB has [ISO 27001](https://www.microsoft.com/en-us/TrustCenter/Compliance/ISO-IEC-27001), [European Model Clauses (EUMC)](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses) and [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA) certifications. Additional certifications are in progress.|
+|Security and data protection certifications|DocumentDB has [ISO 27001](https://www.microsoft.com/en-us/TrustCenter/Compliance/ISO-IEC-27001), [European Model Clauses (EUMC)](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses), and [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA) certifications. Additional certifications are in progress.|
 
 ## Next steps
 
