@@ -82,32 +82,6 @@ Body
 
 ```
 
-A decoded token would look similar to the following.
-
-```
-Header
-
-{
-    typ: "JWT",
-    alg: "HS256:
-}
-
-Body
-
-{
-  "ver": "0.2.0",
-  "wcn": "SupportDemo",
-  "wid": "ca675b19-6c3c-4003-8808-1c7ddc6bd809",
-  "rid": "96241f0f-abae-4ea9-a065-93b428eddb17",
-  "scp": "Report.Read",
-  "iss": "PowerBISDK",
-  "aud": "https://analysis.windows.net/powerbi/api",
-  "exp": 1360047056,
-  "nbf": 1360043456
-}
-
-```
-
 There are methods available within the SDKs that make creation of apptokens easier. For example, for .NET you can look at the [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) class and the [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) methods.
 
 For the .NET SDK, you can refer to [Scopes](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.scopes).
