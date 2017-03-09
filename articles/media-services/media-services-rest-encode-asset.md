@@ -26,7 +26,7 @@ ms.author: juliako
 >
 
 ## Overview
-To deliver digital video over the Internet you must compress the media. Digital video files are quite large and may be too big to deliver over the Internet, or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media.
+To deliver digital video over the Internet, you must compress the media. Digital video files are large and may be too big to deliver over the Internet, or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media.
 
 Encoding jobs are one of the most common processing operations in Azure Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in encoder (Media Encoder Standard). You can also use an encoder provided by a Media Services partner. Third-party encoders are available through the Azure Marketplace. You can specify the details of encoding tasks by using preset strings defined for your encoder, or by using preset configuration files. To see the types of presets that are available, see [Task Presets for Media Encoder Standard](http://msdn.microsoft.com/library/mt269960).
 
@@ -84,7 +84,7 @@ The following example shows how to set the assetName attribute:
     { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}
 
 ## Considerations
-* TaskBody properties must use literal XML to define the number of input, or output assets that will be used by the task. The task topic contains the XML Schema Definition for the XML.
+* TaskBody properties must use literal XML to define the number of input, or output assets that are used by the task. The task topic contains the XML Schema Definition for the XML.
 * In the TaskBody definition, each inner value for <inputAsset> and <outputAsset> must be set as JobInputAsset(value) or JobOutputAsset(value).
 * A task can have multiple output assets. One JobOutputAsset(x) can only be used once as an output of a task in a job.
 * You can specify JobInputAsset or JobOutputAsset as an input asset of a task.
@@ -92,7 +92,7 @@ The following example shows how to set the assetName attribute:
 * The value parameter that you pass to JobInputAsset or JobOutputAsset represents the index value for an asset. The actual assets are defined in the InputMediaAssets and OutputMediaAssets navigation properties on the job entity definition.
 * Because Media Services is built on OData v3, the individual assets in the InputMediaAssets and OutputMediaAssets navigation property collections are referenced through a "__metadata : uri" name-value pair.
 * InputMediaAssets maps to one or more assets that you created in Media Services. OutputMediaAssets are created by the system. They don't reference an existing asset.
-* OutputMediaAssets can be named by using the assetName attribute. If this attribute is not present, then the name of the OutputMediaAsset is whatever the inner text value of the <outputAsset> element is with a suffix of either the Job Name value, or the Job Id value (in the case where the Name property isn't defined). For example, if you set a value for assetName to "Sample", then the OutputMediaAsset Name property is set to "Sample". However, if you didn't set a value for assetName, but did set the job name to "NewJob", then the OutputMediaAsset Name would be "JobOutputAsset(value)_NewJob".
+* OutputMediaAssets can be named by using the assetName attribute. If this attribute is not present, then the name of the OutputMediaAsset is whatever the inner text value of the <outputAsset> element is with a suffix of either the Job Name value, or the Job Id value (in the case where the Name property isn't defined). For example, if you set a value for assetName to "Sample", then the OutputMediaAsset Name property is set to "Sample." However, if you didn't set a value for assetName, but did set the job name to "NewJob", then the OutputMediaAsset Name would be "JobOutputAsset(value)_NewJob."
 
 ## Create a job with chained tasks
 In many application scenarios, developers want to create a series of processing tasks. In Media Services, you can create a series of chained tasks. Each task performs different processing steps and can use different media processors. The chained tasks can hand off an asset from one task to another, performing a linear sequence of tasks on the asset. However, the tasks performed in a job are not required to be in a sequence. When you create a chained task, the chained **ITask** objects are created in a single **IJob** object.
@@ -138,7 +138,7 @@ In many application scenarios, developers want to create a series of processing 
 ### Considerations
 To enable task chaining:
 
-* A job must have at least 2 tasks.
+* A job must have at least two tasks.
 * There must be at least one task whose input is the output of another task in the job.
 
 ## Use OData batch processing
@@ -221,7 +221,7 @@ The following example shows how to create a JobTemplate with a TaskTemplate that
 
 
 > [!NOTE]
-> Unlike other Media Services entities, you must define a new GUID identifier for each TaskTemplate and place it in the taskTemplateId and Id property in your request body. The content identification scheme must follow the scheme described in [Identify Azure Media Services entities](./operations/identify-azure-media-services-entities.md). Also, JobTemplates cannot be updated. Instead, you must create a new one with your updated changes.
+> Unlike other Media Services entities, you must define a new GUID identifier for each TaskTemplate and place it in the taskTemplateId and Id property in your request body. The content identification scheme must follow the scheme described in Identify Azure Media Services Entities. Also, JobTemplates cannot be updated. Instead, you must create a new one with your updated changes.
 >
 >
 
