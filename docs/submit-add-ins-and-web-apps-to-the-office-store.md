@@ -17,7 +17,7 @@ In order for your app or add-in to be approved:
 - It must be stable and functional.
 - Any material that you associate with your apps or add-ins, such as descriptions and support documentation, must be accurate. Use correct spelling, capitalization, punctuation, and grammar in your descriptions and materials.
 - If you want a tailored experience for users in regional store, you can add additional languages so that your add-in appears in another language store with localized metadata. Your service and your add-in manifest must be updated appropriately. You must also provide descriptions for each language you add.
-- **Office Add-ins only** - Your add-in must work on all applications and platforms specified in the **Host** and **Requirements** elements in your manifest. For a list of APIs that Office applications support on each platform, see [Office Add-in host and platform availability](https://dev.office.com/add-in-availability).
+- **Office Add-ins** - Your add-in must work on all applications and platforms specified in the **Host** and **Requirements** elements in your manifest. For a list of APIs that Office applications support on each platform, see [Office Add-in host and platform availability](https://dev.office.com/add-in-availability).
 
 For more details about Office Store requirements, see [Validation policies for apps and add-ins submitted to the Office Store](validation-policies.md).
 
