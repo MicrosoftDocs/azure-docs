@@ -29,7 +29,7 @@ Before running this script, ensure that:
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=3-5 "Bind a custom SSL certificate to a web app")]
+[!code-powershell[main](../../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
 
 ## Clean up deployment 
 

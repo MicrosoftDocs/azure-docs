@@ -25,7 +25,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/app-service/deploy-github/deploy-github.ps1 "Create a web app and deploy code from GitHub")]
+[!code-powershell[main](../../../powershell_scripts/app-service/deploy-github/deploy-github.ps1?highlight=1-2 "Create a web app and deploy code from GitHub")]
 
 ## Clean up deployment 
 

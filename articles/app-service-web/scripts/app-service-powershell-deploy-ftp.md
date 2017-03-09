@@ -31,7 +31,7 @@ This sample script does the following using Azure PowerShell:
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/app-service/deploy-ftp/deploy-ftp.ps1 "Upload files to a web app using FTP")]
+[!code-powershell[main](../../../powershell_scripts/app-service/deploy-ftp/deploy-ftp.ps1?highlight=1 "Upload files to a web app using FTP")]
 
 ## Clean up deployment 
 

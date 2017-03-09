@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script Sample - Continuously deploy web app from GitHub | Microsoft Docs
-description: Azure PowerShell Script Sample - Continuously deploy web app from GitHub
+title: Azure PowerShell Script Sample - Create a web app with continuous deployment from GitHub | Microsoft Docs
+description: Azure PowerShell Script Sample - Create a web app with continuous deployment from GitHub
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -29,7 +29,7 @@ Before running this script, ensure the following:
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/app-service/deploy-github-continuous/deploy-github-continuous.ps1 "Continuously deploy web app from GitHub")]
+[!code-powershell[main](../../../powershell_scripts/app-service/deploy-github-continuous/deploy-github-continuous.ps1?highlight=1-2 "Create a web app with continuous deployment from GitHub")]
 
 ## Clean up deployment 
 
