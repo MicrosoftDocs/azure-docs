@@ -22,8 +22,9 @@ ms.author: juliako
 
 This topic discusses how to start developing Azure functions with Media Services using the Azure portal. 
 
-You can also deploy existing Media Services Azure functions from [here](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) by pressing the **Deploy to Azure** button.
+You can also deploy existing Media Services Azure functions from [here](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) by pressing the **Deploy to Azure** button. This repository contains Azure functions examples that use Azure Media Services to show workflows related to ingesting content directly from blob storage, encoding, and writing content back to blob storage. It also includes examples of how to monitor job notifications via WebHooks and Azure Queues.
 
+You can develop your functions based on the examples in [this](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) repository. This topic shows you how to get started with creating Azure functions that use Media Services. 
 
 ## Prerequisites
 
@@ -104,11 +105,57 @@ The project.json file contains dependencies. Here is an example of **function.js
 This is the C# code for your function. For an example of a webhook function, see [this](media-services-dotnet-check-job-progress-with-webhooks.md) topic. 
 
 Once you are done defining your function click **Run**.
+	
+	///////////////////////////////////////////////////
+	#r "Newtonsoft.Json"
+	
+	using System;
+	using Microsoft.WindowsAzure.MediaServices.Client;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Text;
+	using System.Threading;
+	using System.Threading.Tasks;
+	using System.IO;
+	using System.Globalization;
+	using Newtonsoft.Json;
+	using Microsoft.Azure;
+	using System.Net;
+	using System.Security.Cryptography;
+	
+
+	static string _mediaServicesAccountName = Environment.GetEnvironmentVariable("AMSAccount");
+	static string _mediaServicesAccountKey = Environment.GetEnvironmentVariable("AMSKey");
+	
+	static CloudMediaContext _context = null;
+	
+	public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+	{
+	    log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+	
+	    Task<byte[]> taskForRequestBody = req.Content.ReadAsByteArrayAsync();
+	    byte[] requestBody = await taskForRequestBody;
+	
+	    string jsonContent = await req.Content.ReadAsStringAsync();
+	    log.Info($"Request Body = {jsonContent}");
+	
+		// some valication code ...
+
+        _context = new CloudMediaContext(new MediaServicesCredentials(
+        _mediaServicesAccountName,
+        _mediaServicesAccountKey));
+
+		// some AMS operations ...
+  	
+	    return req.CreateResponse(HttpStatusCode.BadRequest, "Generic Error.");
+	}
+
 
 
 ## Configure function app settings
 
 When developing Media Services functions it is handy to add parameters that will be used throughout your functions to the **App Settings** section. 
+
 For example:
 
 ![Settings](./media/media-services-azure-functions/media-services-azure-functions001.png)
