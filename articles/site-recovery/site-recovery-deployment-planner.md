@@ -482,7 +482,7 @@ The above published limits are based on our tests but cannot cover all possible 
 
 ## How to update the Deployment Planner?
 [Download](https://aka.ms/asr-deployment-planner) the latest version of the Azure Site Recovery Deployment Planner. Copy the zip file to a server where you want to run. Extract the zip file.
-If you already have previous version of deployment planner and profiling is going on, you do not need to stop the profiling unless the new version has  profiling fix. If the release contains fixes in the profiling component, then it is recommended that you stop profiling using the older version, and launch the profiling again using the new version. Note that when you start profiling using the new version you need to pass the same output directory path so that the existing data can be used for report generation.<br> 
+If you already have previous version of deployment planner and profiling is going on, you do not need to stop the profiling unless the new version has  profiling fix. If the release contains fixes in the profiling component, then it is recommended that you stop profiling using the older version, and launch the profiling again using the new version. Note that when you start profiling using the new version you need to pass the same output directory path so that the tool appends profile data on existing files and complete set of profiled data will be used in the report generation. If you pass different output directory, new files will be created and old profiled data cannot be used in the report generation.<br> 
 Every update is a cumulative update with a zip file. You do not need to copy the new version files to the previous version folder to use it. You can use new folder for it.
 
 
