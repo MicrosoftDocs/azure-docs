@@ -92,7 +92,7 @@ When a cluster administrator configures a Service Fabric standalone cluster, the
 * Have Service Fabric SDK uninstalled
 * Have Service Fabric runtime uninstalled 
 * Have the Windows Firewall service (mpssvc) enabled
-* Have the Remove Registry Service (remoteregistry) enabled
+* Have the Remote Registry Service (remoteregistry) enabled
 * Have file sharing (SMB) enabled
 * Have necessary ports opened, based on cluster configuration ports
 * Have necessary ports opened for Windows SMB and Remote Registry service: 135, 137, 138, 139, and 445
