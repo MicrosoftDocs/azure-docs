@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/06/2017
+ms.date: 03/08/2017
 ms.author: nepeters
 ---
 
@@ -24,15 +24,13 @@ The Azure PowerShell module is used to create and manage Azure resources from th
 
 ## Create a virtual machine
 
-Log in to your Azure subscription with the Login-AzureRmAccount command and follow the on-screen directions.
+Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
 
 ```powershell
 Login-AzureRmAccount
 ```
 
-Create a resource group with New-AzureRmResourceGroup. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
-
-The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
+Create an Azure resource group. An resource group is a logical container into which Azure resources are deployed and managed. 
 
 ```powershell
 New-AzureRmResourceGroup -Name myResourceGroup -Location westeurope
@@ -66,7 +64,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Locat
   -Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH
 ```
 
-Create a network card for the virtual machine and associate it with the network security group. The network card connects the virtual machine to the virtual network and network security group.
+Create a network card for the virtual machine. The network card connects the virtual machine to a subnet, network security group, and public IP address.
 
 ```powershell
 # Get subnet object
@@ -77,10 +75,10 @@ $nic = New-AzureRmNetworkInterface -ResourceGroupName myResourceGroup -Location 
   -Subnet $subnet -NetworkSecurityGroup $nsg -PublicIpAddress $pip
 ```
 
-Create a virtual machine configuration. This configuration includes the settings that are used when deploying the VM such as VM image, VM size, and credentials.
+Create a virtual machine configuration. This configuration includes the settings that are used when deploying the virtual machine such as a virtual machine image, size, and authentication configuration.
 
 ```powershell
-# Definer user name and blank password
+# Define a credential object
 $securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
 
@@ -95,7 +93,7 @@ $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
 Add-AzureRmVMSshPublicKey -VM $vmconfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 ```
 
-Create the virtual machine. During the creation process, the virtual machine configuration is used to apply and configure the virtual machine operating system.
+Create the virtual machine.
 
 ```powershell
 New-AzureRmVM -ResourceGroupName myResourceGroup -Location westeurope -VM $vmConfig
@@ -117,7 +115,7 @@ Use the following command to create an SSH session. Replace the IP address with 
 ssh <Public IP Address>
 ```
 
-You have now created a virtual machine and created an SSH connection with it. To continue learning about using Azure virtual machines, see the Next steps section of this article.
+You have now created a virtual machine and connected with it using SSH. To continue learning about using Azure virtual machines, see the Next steps section of this article.
 
 ## Delete virtual machine
 
@@ -127,7 +125,7 @@ When no longer needed, the following command can be used to remove the Resource 
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## Next Steps
+## Next steps
 
 [Create highly available virtual machines tutorial](./virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

@@ -79,7 +79,7 @@ When no longer needed, the following command can be used to remove the Resource 
 az group delete --name myResourceGroup
 ```
 
-## Next Steps
+## Next steps
 
 [Create highly available virtual machines tutorial](./virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

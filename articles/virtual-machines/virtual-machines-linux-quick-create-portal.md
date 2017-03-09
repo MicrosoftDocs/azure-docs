@@ -66,7 +66,7 @@ You have now created a virtual machine and connected with it using SSH. To conti
 
 When no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group from the virtual machine blade and click **Delete**.
 
-## Next Steps
+## Next steps
 
 [Create highly available virtual machines tutorial](./virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
