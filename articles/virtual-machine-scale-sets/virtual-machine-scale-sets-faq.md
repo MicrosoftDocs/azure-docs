@@ -253,7 +253,7 @@ Add this property to the "virtualMachineProfile” as part of the scale set Reso
 ```
  
 
-### Is there a way to specify an SSH keypair that I want to use for SSH authentication with a Linux scale set from a Resource Manager template?  
+### Is there a way to specify an SSH key pair that I want to use for SSH authentication with a Linux scale set from a Resource Manager template?  
 
 The REST API for the osProfile looks similar to the ordinary VM case:
  
