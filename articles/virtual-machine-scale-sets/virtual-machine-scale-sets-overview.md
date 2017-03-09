@@ -19,7 +19,7 @@ ms.author: guybo
 ms.custom: H1Hack27Feb2017
 
 ---
-# What are Virtual Machine scale sets in Azure?
+# What are virtual machine scale sets in Azure?
 Virtual machine scale sets are an Azure Compute resource, you can use to deploy and manage a set of identical VMs. With all VMs configured the same, scale sets are designed to support true autoscale – no pre-provisioning of VMs is required – making it easier to build large-scale services targeting big compute, big data, and containerized workloads.
 
 For applications that need to scale compute resources out and in, scale operations are implicitly balanced across fault and update domains. For an introduction to scale sets, refer to the [Azure blog announcement](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
