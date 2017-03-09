@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/07/2017
+ms.date: 03/08/2017
 ms.author: nepeters
 ---
 
@@ -59,9 +59,6 @@ After the deployment has completed, create an SSH connection with the virtual ma
 ```bash 
 ssh <replace with IP address>
 ```
-
-You have now created a virtual machine and connected with it using SSH. To continue learning about using Azure virtual machines, see the Next steps section of this article.
-
 ## Delete virtual machine
 
 When no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group from the virtual machine blade and click **Delete**.

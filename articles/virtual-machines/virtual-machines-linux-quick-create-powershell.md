@@ -115,8 +115,6 @@ Use the following command to create an SSH session. Replace the IP address with 
 ssh <Public IP Address>
 ```
 
-You have now created a virtual machine and connected with it using SSH. To continue learning about using Azure virtual machines, see the Next steps section of this article.
-
 ## Delete virtual machine
 
 When no longer needed, the following command can be used to remove the Resource Group, VM, and all related resources.
