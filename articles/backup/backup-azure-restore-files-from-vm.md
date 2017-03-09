@@ -23,8 +23,7 @@ Azure backup provides the capability to restore [Azure VMs and disks](./backup-a
 
 > [!Note]
 > This feature is available for Azure VMs deployed using the Resource Manager model and protected to a Recovery services vault.
-> Currently, File recovery from a Windows Azure VM backup is in preview. File recovery from a Linux Azure VM is coming soon.
-Currently, File recovery from an encrypted VM backup is not supported.
+> File recovery from an encrypted VM backup is not supported.
 >
 
 ## Mount the volume and copy files
