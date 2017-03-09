@@ -40,7 +40,7 @@ Next, you need to create an app in your B2C directory. This gives Azure AD infor
 
 * Include a **mobile device** in the application.
 * Copy the **Application ID** that is assigned to your app. You will need this later.
-* Set up a **Redirect URI** (e.g. com.onmicrosoft.fabrikamb2c.exampleapp:/oauthredirect). You will also need this later.
+* Set up a **Redirect URI** (e.g. com.onmicrosoft.fabrikamb2c.exampleapp://oauthredirect). You will also need this later.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
@@ -125,7 +125,7 @@ AuthorizationServiceConfiguration config =
 After configuring or retrieving an authorization service configuration, an authorization request can be constructed. To create the request, you will need the following information:
 
 * Client ID (e.g. 00000000-0000-0000-0000-000000000000)
-* Redirect URI with a custom scheme (e.g. com.onmicrosoft.fabrikamb2c.exampleapp:/oauthredirect)
+* Redirect URI with a custom scheme (e.g. com.onmicrosoft.fabrikamb2c.exampleapp://oauthredirect)
 
 Both items should have been saved when you were [registering your app](#create-an-application).
 
