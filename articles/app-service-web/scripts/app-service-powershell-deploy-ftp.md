@@ -35,7 +35,7 @@ This sample script does the following using Azure PowerShell:
 
 ## Clean up deployment 
 
-After the script sample has been run, the follow command can be used to remove the Resource Group, web app, and all related resources.
+After the script sample has been run, the following command can be used to remove the Resource Group, web app, and all related resources.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $webappname -Force
