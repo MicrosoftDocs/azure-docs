@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2017
-ms.author: jotaub
+ms.date: 03/08/2017
+ms.author: jotaub;sethm
 
 ---
 # Send events to Azure Event Hubs using the .NET Framework
@@ -26,17 +26,21 @@ This tutorial shows how to use the [Azure portal](https://portal.azure.com) to c
 
 To complete this tutorial, you'll need the following:
 
-* [Microsoft Visual Studio](http://visualstudio.com)
+* [Microsoft Visual Studio 2015 or higher](http://visualstudio.com). The screen shots in this tutorial use Visual Studio 2017.
 * An active Azure account. If you don't have one, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/free/).
 
-## Send messages to Event Hubs
+## Create an Event Hubs namespace and an Event Hub
+
+The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the Event Hub. To create a namespace and Event Hub, follow the procedure in [this article](event-hubs-create.md), then proceed with the following steps.
+
+## Create a console application
 In this section, you'll write a Windows console app that sends events to your Event Hub.
 
-1. In Visual Studio, create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **Sender**.
+1. In Visual Studio, create a new Visual C# Desktop App project using the **Console Application** project template. Name the project **Sender**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
-2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution**. 
-3. Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Ensure that the project name (**Sender**) is specified in the **Version(s)** box. Click **Install**, and accept the terms of use. 
+2. In Solution Explorer, right-click the **Sender** project, and then click **Manage NuGet Packages for Solution**. 
+3. Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Click **Install**, and accept the terms of use. 
    
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
    
@@ -88,6 +92,9 @@ In this section, you'll write a Windows console app that sends events to your Ev
     Console.ReadLine();
     SendingRandomMessages();
     ```
+8. Run the program, and ensure that there are no errors.
+  
+Congratulations! You have now sent messages to an Event Hub.
 
 ## Next steps
 Now that you've built a working application that creates an Event Hub and sends data, you can move on to the following scenarios:
@@ -101,8 +108,4 @@ Now that you've built a working application that creates an Event Hub and sends 
 [20]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj2.png
 [21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
-
-<!-- Links -->
-[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs overview]: event-hubs-overview.md
 
