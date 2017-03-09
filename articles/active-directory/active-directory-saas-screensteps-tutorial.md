@@ -77,50 +77,59 @@ The objective of this section is to outline how to enable users to authenticate 
 
     ![Configure single sign-on](./media/active-directory-saas-screensteps-tutorial/IC778520.png "Configure single sign-on")
 
-3. On the **Configure App URL** page, in the **ScreenSteps Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.ScreenSteps.com*", and then click **Next**.
+3. In a different web browser window, log into your ScreenSteps company site as an administrator.
 
-    ![Configure app URL](./media/active-directory-saas-screensteps-tutorial/IC778521.png "Configure app URL")
-
-4. On the **Configure single sign-on at ScreenSteps** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
-
-    ![Configure single sign-on](./media/active-directory-saas-screensteps-tutorial/IC778522.png "Configure single sign-on")
-
-5. In a different web browser window, log into your ScreenSteps company site as an administrator.
-
-6. Click **Account Management**.
+4. Click **Account Management**.
 
     ![Account management](./media/active-directory-saas-screensteps-tutorial/IC778523.png "Account management")
 
-7. Click **Single Sign-on**.
+5. Click **Single Sign-on**.
 
     ![Remote authentication](./media/active-directory-saas-screensteps-tutorial/IC778524.png "Remote authentication")
 
-8. Click **Create Single Sign-on Endpoint**.
+6. Click **Create Single Sign-on Endpoint**.
 
     ![Remote authentication](./media/active-directory-saas-screensteps-tutorial/IC778525.png "Remote authentication")
 
-9. In the **Create Single Sign-on Endpoint** section, perform the following steps:
+7. In the **Create Single Sign-on Endpoint** section, perform the following steps:
 
     ![Create an authentication endpoint](./media/active-directory-saas-screensteps-tutorial/IC778526.png "Create an authentication endpoint")
 
     1. In the **Title** textbox, type a title.
     2. From the **Mode** list, select **SAML**.
-    3. In the Azure classic portal, on the **Configure single sign-on at ScreenSteps** page, copy the **Remote Login URL** value, and then paste it into the **Remote Login URL** textbox.
-    4. In the Azure classic portal, on the **Configure single sign-on at ScreenSteps** page, copy the **Remote Logout URL** value, and then paste it into the **Log out URL** textbox.
-    5. Click **Create**.
+    3. Click **Create**.
 
-10. Edit the new endpoint.
+8. Edit the new endpoint.
 
     ![Edit endpoint](./media/active-directory-saas-screensteps-tutorial/IC778528.png "Edit endpoint")
 
-11. In the **Edit Single Sign-on Endpoint** section, perform the following steps:
+9. In the **Edit Single Sign-on Endpoint** section, perform the following steps:
+
+    ![Remote authentication endpoint](./media/active-directory-saas-screensteps-tutorial/IC778527.png "Remote authentication endpoint")
+
+    1. Copy the **SAML Consumer URL** to the clipboard.
+
+10. On the **Configure App URL** page of the Azure classic portal, in the **ScreenSteps Sign In URL** textbox, paste the **SAML Consumer URL**, and then click **Next**.
+
+    ![Configure app URL](./media/active-directory-saas-screensteps-tutorial/IC778521.png "Configure app URL")
+
+11. On the **Configure single sign-on at ScreenSteps** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
+
+    ![Configure single sign-on](./media/active-directory-saas-screensteps-tutorial/IC778522.png "Configure single sign-on")
+
+
+12. Return to the **Edit Single Sign-on Endpoint** section and perform the following steps:
 
     ![Remote authentication endpoint](./media/active-directory-saas-screensteps-tutorial/IC778527.png "Remote authentication endpoint")
 
     1. Click **Upload new SAML Certificate file**, and then upload the downloaded certificate.
-    2. Click the **Make default for account** button to use this endpoint for all users who log into ScreenSteps. Alternatively you can click the **Add to Site** button to use this endpoint for specific sites in **ScreenSteps**.
-    3. Select a **Group** to assign users to when they are provisioned.
-    4. Click **Update**.
+    2. In the Azure classic portal, on the **Configure single sign-on at ScreenSteps** page, copy the **Remote Login URL** value, and then paste it into the **Remote Login URL** textbox.
+    3. In the Azure classic portal, on the **Configure single sign-on at ScreenSteps** page, copy the **Remote Logout URL** value, and then paste it into the **Log out URL** textbox.
+    4. Select a **Group** to assign users to when they are provisioned.
+    5. Click **Update**.
+    6. Return to the **Edit Single Sign-on Endpoint**.
+    7. Click the **Make default for account** button to use this endpoint for all users who log into ScreenSteps. Alternatively you can click the **Add to Site** button to use this endpoint for specific sites in **ScreenSteps**.
+
 
 12. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
