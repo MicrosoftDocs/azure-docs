@@ -54,7 +54,7 @@ Each service tier and performance level is associated with different limits and 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 > [!IMPORTANT]
-> Customers using P11 and P15 performance levels can use up to 4 TB of included storage at no additional charge. This 4 TB option is currently in public preview in the following regions: US East2, West US, West Europe, South East Asia, Japan East, Australia East, Canada Central, and Canada East. For current limitations, see [Current 4 TB limitations](sql-database-service-tiers.md##current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
+> Customers using P11 and P15 performance levels can use up to 4 TB of included storage at no additional charge. This 4 TB option is currently in public preview in the following regions: US East2, West US, West Europe, South East Asia, Japan East, Australia East, Canada Central, and Canada East. For current limitations, see [Current 4 TB limitations](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
 >
 
 ### Maximum In-Memory OLTP storage
