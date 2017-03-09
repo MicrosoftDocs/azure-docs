@@ -1,6 +1,6 @@
 ---
 title: Install on-premises data gateway - Azure Logic Apps | Microsoft Docs
-description: How your logic apps can access on-premises data by installing an on-premises data gateway.
+description: Access on-premises data from logic apps by installing an on-premises data gateway
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -163,7 +163,10 @@ nor the work or school account that you use to sign in to cloud services.
 ## Frequently asked questions
 ### General
 **Question**: What data sources does the gateway support?<br/>
-**Answer**: As of this writing, SQL Server.
+**Answer**: The gateway can connect to SQL Server, 
+SAP Application Server, SAP Message Server, DB2, Oracle Database, 
+BizTalk Server, Informix, and MQ. 
+See [Connectors for Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
 
 **Question**: Do I need a gateway for data sources in the cloud, such as SQL Azure? <br/>
 **Answer**: No. A gateway connects to on-premises data sources only.
