@@ -206,7 +206,7 @@ During public preview, PowerShell cannot be used to fully control group license 
 
 3. The [Office 365 admin portal](https://portal.office.com ) does not currently support group-based licensing. If a user inherits a license from a group, this license will show up in the Office admin portal as a regular user license. If you try to modify that license (for example, to disable a service in the license, or try to remove the license) the portal will return an error message (because inherited group licenses cannot be modified directly on a user).
 
-  `To assign a license that contains Azure Information Protection Plan 1, you must also assign one of the following service plans: Azure Rights Management.`
+  `One or more of the licenses could not be modified because they are inherited from a group membership. To view or modify group based licenses visit the Azure admin portal.`
 
 4. When a user is removed from a group and loses the license, the service plans from that license (for example, Exchange Online or SharePoint Online) are set to a “suspended” state as opposed to a final disabled state. This is done as a precaution to avoid accidental removal of user data if an admin makes a mistake in group membership management.
 
