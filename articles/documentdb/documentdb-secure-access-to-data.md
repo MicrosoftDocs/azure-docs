@@ -53,21 +53,25 @@ The process of rotating your master key is simple. Navigate to the Azure portal 
 
 The following code sample illustrates how to use a DocumentDB account endpoint and master key to instantiate a DocumentClient and create a new database. 
 
-    //Read the DocumentDB endpointUrl and authorization keys from config.
-    //These values are available from the Azure portal on the NOSQL (DocumentDB) account blade under "Keys".
-    //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
+```csharp
+//Read the DocumentDB endpointUrl and authorization keys from config.
+//These values are available from the Azure portal on the NOSQL (DocumentDB) account blade under "Keys".
+//NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
 
-    private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
-    private static readonly SecureString authorizationKey = ToSecureString(ConfigurationManager.AppSettings["AuthorizationKey"]);
+private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
+private static readonly SecureString authorizationKey = ToSecureString(ConfigurationManager.AppSettings["AuthorizationKey"]);
 
-    client = new DocumentClient(new Uri(endpointUrl), authorizationKey);
+client = new DocumentClient(new Uri(endpointUrl), authorizationKey);
 
-    // Create Database
-    Database database = await client.CreateDatabaseAsync(
-        new Database
-        {
-            Id = databaseName
-        });
+// Create Database
+Database database = await client.CreateDatabaseAsync(
+    new Database
+    {
+        Id = databaseName
+    });
+```
+
+<a id="resource-tokens"></a>
 
 ## Resource tokens
 
@@ -106,13 +110,15 @@ Here is a typical design pattern whereby resource tokens may be requested, gener
 ## Users
 DocumentDB users are associated with a DocumentDB database.  Each database can contain zero or more DocumentDB users.  The following code sample shows how to create a DocumentDB user resource.
 
-    //Create a user.
-    User docUser = new User
-    {
-        Id = "mobileuser"
-    };
+```csharp
+//Create a user.
+User docUser = new User
+{
+    Id = "mobileuser"
+};
 
-    docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUser);
+docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUser);
+```
 
 > [!NOTE]
 > Each DocumentDB user has a PermissionsLink property which can be used to retrieve the list of [permissions](#permissions) associated with the user.
@@ -137,16 +143,18 @@ There are two available access levels which may be provided by a permission reso
 
 The following code sample shows how to create a permission resource, read the resource token of the permission resource, and associate the permissions with the [user](#users) created above.
 
-    // Create a permission.
-    Permission docPermission = new Permission
-    {
-        PermissionMode = PermissionMode.Read,
-        ResourceLink = documentCollection.SelfLink,
-        Id = "readperm"
-    };
-    
-    docPermission = await client.CreatePermissionAsync(UriFactory.CreateUserUri("db", "user"), docPermission);
-    Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
+```csharp
+// Create a permission.
+Permission docPermission = new Permission
+{
+    PermissionMode = PermissionMode.Read,
+    ResourceLink = documentCollection.SelfLink,
+    Id = "readperm"
+};
+  
+docPermission = await client.CreatePermissionAsync(UriFactory.CreateUserUri("db", "user"), docPermission);
+Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
+```
 
 If you have specified a partition key for your collection, then the permission for collection, document, and attachment resources must also include the ResourcePartitionKey in addition to the ResourceLink.
 
@@ -154,18 +162,19 @@ If you have specified a partition key for your collection, then the permission f
 
 In order to easily obtain all permission resources associated with a particular user, DocumentDB makes available a permission feed for each user object.  The following code snippet shows how to retrieve the permission associated with the user created above, construct a permission list, and instantiate a new DocumentClient on behalf of the user.
 
-    //Read a permission feed.
-    FeedResponse<Permission> permFeed = await client.ReadPermissionFeedAsync(
-      UriFactory.CreateUserUri("db", "myUser"));
+```csharp
+//Read a permission feed.
+FeedResponse<Permission> permFeed = await client.ReadPermissionFeedAsync(
+  UriFactory.CreateUserUri("db", "myUser"));
+ List<Permission> permList = new List<Permission>();
 
-    List<Permission> permList = new List<Permission>();
+foreach (Permission perm in permFeed)
+{
+    permList.Add(perm);
+}
 
-    foreach (Permission perm in permFeed)
-    {
-        permList.Add(perm);
-    }
-
-    DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
+DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
+```
 
 ## Next steps
 * To learn more about DocumentDB database security, see [DocumentDB: NoSQL database security](documentdb-nosql-database-security.md).
