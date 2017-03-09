@@ -31,13 +31,10 @@ The following table includes links to bash scripts built using the Azure CLI.
 | [Create a VM with Docker enabled](./scripts/virtual-machines-linux-cli-sample-create-docker-host.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine, configures this VM as a Docker host, and runs an NGINX container. |
 | [Create a VM and run configuration script](./scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine and uses the Azure Custom Script extension to install NGINX. |
 | [Create a VM with WordPress installed](./scripts/virtual-machines-linux-cli-sample-create-vm-wordpress.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine and uses the Azure Custom Script extension to install WordPress. |
-| [Create a VM using a virtual hard disk](./scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Uploads a virtual hard disk to a storage account and uses that to create a virtual machine. |
 |**Network virtual machines**||
 | [Secure network traffic between virtual machines](./scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates two virtual machines, all related resources, and an internal and external network security groups (NSG). |
 |**Monitor virtual machines**||
 | [Monitor a VM with Operations Management Suite](./scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine, installs the Operations Management Suite agent, and enrolls the VM in an OMS Workspace.  |
-|**Restart virtual machines**||
-| [Restart VMs](./scripts/virtual-machines-linux-cli-sample-restart-by-tag.md) | Creates VMs and restarts them. |
 |**Troubleshoot virtual machines**||
 | [Troubleshoot a VMs operating system disk](./scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Mounts the operating system disk from one VM as a data disk on a second VM. |
 | | |
