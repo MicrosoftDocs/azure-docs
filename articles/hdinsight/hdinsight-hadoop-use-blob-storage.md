@@ -25,7 +25,7 @@ To analyze data in HDInsight cluster, you can use store the data either in Azure
 
 Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage as the default file system, or with HDInsight 3.5, you can select either Azure Storage or Azure Data Lake Store as the default files system.
 
-In this article, you will learn about how the two storage options work with HDInsight clusters. For more information about creating an HDInsight cluster, see [Get Started with HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+In this article, you learn how the two storage options work with HDInsight clusters. For more information about creating an HDInsight cluster, see [Get Started with HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 ## Using Azure storage with HDInsight clusters
 
@@ -34,7 +34,7 @@ Azure storage is a robust, general-purpose storage solution that integrates seam
 > [!WARNING]
 > * __Storage type__: When creating an Azure storage account, you must select either __General-purpose__ or __Blob storage__. HDInsight only supports __General-purpose__ storage accounts as the default storage for the cluster.
 > 
-> * __Blob type__:HDInsight only supports block blobs. It does not support page or append blobs.
+> * __Blob type__: HDInsight only supports block blobs. It does not support page or append blobs.
 
 ### HDInsight storage architecture
 The following diagram provides an abstract view of the HDInsight storage architecture:
@@ -61,7 +61,7 @@ Here are some considerations when using Azure Storage account with HDInsight clu
   > 
 * **Private containers in storage accounts that are NOT connected to a cluster:** You can't access the blobs in the containers unless you define the storage account when you submit the WebHCat jobs. This is explained later in this article.
 
-The storage accounts that are defined in the creation process and their keys are stored in %HADOOP_HOME%/conf/core-site.xml on the cluster nodes. The default behavior of HDInsight is to use the storage accounts defined in the core-site.xml file. It is not recommended to edit the core-site.xml file because the cluster head node(master) may be reimaged or migrated at any time, and any changes to those files will be lost.
+The storage accounts that are defined in the creation process and their keys are stored in %HADOOP_HOME%/conf/core-site.xml on the cluster nodes. The default behavior of HDInsight is to use the storage accounts defined in the core-site.xml file. It is not recommended to directly edit the core-site.xml file because the cluster head node(master) may be reimaged or migrated at any time, and any changes to this file are not persisted.
 
 Multiple WebHCat jobs, including Hive, MapReduce, Hadoop streaming, and Pig, can carry a description of storage accounts and metadata with them. (This currently works for Pig with storage accounts, but not for metadata.) In the [Access blobs using Azure PowerShell](#powershell) section of this article, there is a sample of this feature. For more information, see [Using an HDInsight Cluster with Alternate Storage Accounts and Metastores](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
@@ -81,7 +81,7 @@ There are several benefits associated with storing the data in Azure storage ins
 Certain MapReduce jobs and packages may create intermediate results that you don't really want to store in Azure storage. In that case, you can elect to store the data in the local HDFS. In fact, HDInsight uses DFS for several of these intermediate results in Hive jobs and other processes.
 
 > [!NOTE]
-> Most HDFS commands (for example, <b>ls</b>, <b>copyFromLocal</b> and <b>mkdir</b>) still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS), such as <b>fschk</b> and <b>dfsadmin</b>, will show different behavior in Azure storage.
+> Most HDFS commands (for example, <b>ls</b>, <b>copyFromLocal</b> and <b>mkdir</b>) still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS), such as <b>fschk</b> and <b>dfsadmin</b>, show different behavior in Azure storage.
 > 
 > 
 
@@ -90,7 +90,7 @@ To use blobs, you first create an [Azure Storage account][azure-storage-create].
 
 Wherever it lives, each blob you create belongs to a container in your Azure Storage account. This container may be an existing blob that was created outside of HDInsight, or it may be a container that is created for an HDInsight cluster.
 
-The default Blob container stores cluster specific information such as job history and logs. Don't share a default Blob container with multiple HDInsight clusters. This might corrupt job history, and the cluster will misbehave. It is recommended to use a different container for each cluster and put shared data on a linked storage account specified in deployment of all relevant clusters rather than the default storage account. For more information on configuring linked storage accounts, see [Create HDInsight clusters][hdinsight-creation]. However you can reuse a default storage container after the original HDInsight cluster has been deleted. For HBase clusters, you can actually retain the HBase table schema and data by create a new HBase cluster using the default blob container that is used by an HBase cluster that has been deleted.
+The default Blob container stores cluster specific information such as job history and logs. Don't share a default Blob container with multiple HDInsight clusters. This might corrupt job history. It is recommended to use a different container for each cluster and put shared data on a linked storage account specified in deployment of all relevant clusters rather than the default storage account. For more information on configuring linked storage accounts, see [Create HDInsight clusters][hdinsight-creation]. However you can reuse a default storage container after the original HDInsight cluster has been deleted. For HBase clusters, you can actually retain the HBase table schema and data by create a new HBase cluster using the default blob container that is used by an HBase cluster that has been deleted.
 
 #### Using the Azure portal
 When creating an HDInsight cluster from the Portal, you have the options (as shown below) to provide the storage account details. You can also specify whether you want an additional storage account associated with the cluster, and if so, choose from Data Lake Store or another Azure Storage blob as the additional storage.
@@ -105,11 +105,11 @@ If you have [installed and configured the Azure CLI](../xplat-cli-install.md), t
     azure storage account create <storageaccountname> --type LRS
 
 > [!NOTE]
-> The `--type` parameter indicates how the storage account will be replicated. For more information, see [Azure Storage Replication](../storage/storage-redundancy.md). Don't use ZRS as ZRS doesn't support page blob, file, table or queue.
+> The `--type` parameter indicates how the storage account is replicated. For more information, see [Azure Storage Replication](../storage/storage-redundancy.md). Don't use ZRS as ZRS doesn't support page blob, file, table or queue.
 > 
 > 
 
-You will be prompted to specify the geographic region that the storage account will be located in. You should create the storage account in the same region that you plan on creating your HDInsight cluster.
+You are prompted to specify the geographic region that the storage account is created in. You should create the storage account in the same region that you plan on creating your HDInsight cluster.
 
 Once the storage account is created, use the following command to retrieve the storage account keys:
 
@@ -341,7 +341,7 @@ Follow the links below for detailed instructions on how to create HDInsight clus
 
 
 ## Next steps
-In this article, you learned how to use HDFS-compatible Azure storage and Azure Data Lake Store with HDInsight. This allows you to build scalable, long-term, archiving data acquisition solutions and use HDInsight to unlock the information inside the stored  structured and unstructured data.
+In this article, you learned how to use HDFS-compatible Azure storage and Azure Data Lake Store with HDInsight. This allows you to build scalable, long-term, archiving data acquisition solutions and use HDInsight to unlock the information inside the stored structured and unstructured data.
 
 For more information, see:
 
