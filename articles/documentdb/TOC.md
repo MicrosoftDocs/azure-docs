@@ -15,11 +15,11 @@
 ### [.NET Core console app](documentdb-dotnetcore-get-started.md)
 ### [Java console app](documentdb-java-get-started.md)
 ### [Node.js console app](documentdb-nodejs-get-started.md)
-### [Node.js console app for MongoDB APIs](documentdb-mongodb-samples.md)
+### [Node.js console app for MongoDB API](documentdb-mongodb-samples.md)
 ### [C++ console app](documentdb-cpp-get-started.md)
 ## Build a web app
 ### [.NET web app](documentdb-dotnet-application.md)
-### [.NET web app for MongoDB APIs](documentdb-mongodb-application.md)
+### [.NET web app for MongoDB API](documentdb-mongodb-application.md)
 ### [Node.js web app](documentdb-nodejs-application.md)
 ### [Java web app](documentdb-java-application.md)
 ### [Python Flask web app](documentdb-python-application.md)
