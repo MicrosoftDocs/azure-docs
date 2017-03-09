@@ -1,4 +1,4 @@
- ---
+---
 title: Azure Quick Start - Create VM PowerShell | Microsoft Docs
 description: Quickly learn to create a Linux virtual machines with PowerShell
 services: virtual-machines-linux
@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/08/2017
 ms.author: nepeters
+
 ---
 
 # Create a Linux virtual machine with PowerShell
@@ -121,7 +122,7 @@ ssh <Public IP Address>
 
 When no longer needed, the following command can be used to remove the Resource Group, VM, and all related resources.
 
-```azurecli
+```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
