@@ -59,7 +59,7 @@ Additionally, the root of the device twin JSON document contains the read-only p
 
 ![][img-twin]
 
-The following is an example of a device twin JSON document:
+The following example shows a device twin JSON document:
 
         {
             "deviceId": "devA",
@@ -132,7 +132,7 @@ In the previous example, the `telemetryConfig` device twin desired and reported 
 3. The solution back end can track the results of the configuration operation across many devices, by [querying][lnk-query] device twins.
 
 > [!NOTE]
-> The preceeding snippets are examples, optimized for readability, of one way to encode a device configuration and its status. IoT Hub does not impose a specific schema for the device twin desired and reported properties in the device twins.
+> The preceding snippets are examples, optimized for readability, of one way to encode a device configuration and its status. IoT Hub does not impose a specific schema for the device twin desired and reported properties in the device twins.
 > 
 > 
 
@@ -141,7 +141,7 @@ You can use twins to synchronize long-running operations such as firmware update
 ## Back-end operations
 The solution back end operates on the device twin using the following atomic operations, exposed through HTTP:
 
-1. **Retrieve device twin by id**. This operation returns the device twin document, including tags and desired, reported and system properties.
+1. **Retrieve device twin by id**. This operation returns the device twin document, including tags and desired, reported, and system properties.
 2. **Partially update device twin**. This operation enables the solution back end to partially update the tags or desired properties in a device twin. The partial update is expressed as a JSON document that adds or updates any property. Properties set to `null` are removed. The following example creates a new desired property with value `{"newProperty": "newValue"}`, overwrites the existing value of `existingProperty` with `"otherNewValue"`, and removes `otherOldProperty`. No other changes are made to existing desired properties or tags:
    
         {
@@ -158,7 +158,7 @@ The solution back end operates on the device twin using the following atomic ope
 3. **Replace desired properties**. This operation enables the solution back end to completely overwrite all existing desired properties and substitute a new JSON document for `properties/desired`.
 4. **Replace tags**. This operation enables the solution back end to completely overwrite all existing tags and substitute a new JSON document for `tags`.
 
-All the preceeding operations support [Optimistic concurrency][lnk-concurrency] and require the **ServiceConnect** permission, as defined in the [Security][lnk-security] article.
+All the preceding operations support [Optimistic concurrency][lnk-concurrency] and require the **ServiceConnect** permission, as defined in the [Security][lnk-security] article.
 
 In addition to these operations, the solution back end can:
 
@@ -169,12 +169,12 @@ In addition to these operations, the solution back end can:
 The device app operates on the device twin using the following atomic operations:
 
 1. **Retrieve device twin**. This operation returns the device twin document (including tags and desired, reported and system properties) for the currently connected device.
-2. **Partially update reported properties**. This operation enables the partial update of the reported properties of the currently connected device. This operation uses the same JSON update format as the solution back end partial update of desired properties.
-3. **Observe desired properties**. The currently connected device can choose to be notified of updates to the desired properties as soon as they happen. The device receives the same form of update (partial or full replacement) executed by the solution back end.
+2. **Partially update reported properties**. This operation enables the partial update of the reported properties of the currently connected device. This operation uses the same JSON update format that the solution back end uses for a partial update of desired properties.
+3. **Observe desired properties**. The currently connected device can choose to be notified of updates to the desired properties when they happen. The device receives the same form of update (partial or full replacement) executed by the solution back end.
 
-All the preceeding operations require the **DeviceConnect** permission, as defined in the [Security][lnk-security] article.
+All the preceding operations require the **DeviceConnect** permission, as defined in the [Security][lnk-security] article.
 
-The [Azure IoT device SDKs][lnk-sdks] make it easy to use the preceeding operations from many languages and platforms. More information on the details of IoT Hub primitives for desired properties synchronization can be found in [Device reconnection flow][lnk-reconnection].
+The [Azure IoT device SDKs][lnk-sdks] make it easy to use the preceding operations from many languages and platforms. More information on the details of IoT Hub primitives for desired properties synchronization can be found in [Device reconnection flow][lnk-reconnection].
 
 > [!NOTE]
 > Currently, device twins are accessible only from devices that connect to IoT Hub using the MQTT protocol.

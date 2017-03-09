@@ -21,7 +21,7 @@ ms.author: elioda
 When sending information from the device app to the solution back end, IoT Hub exposes three options:
 
 * [Device-to-cloud messages][lnk-d2c] for time series telemetry and alerts.
-* [Reported properties][lnk-twins] for reporting device state information such as available capabilities, conditions and state of long-running workflows. For example, configuration and software updates.
+* [Reported properties][lnk-twins] for reporting device state information such as available capabilities, conditions, or the state of long-running workflows. For example, configuration and software updates.
 * [File uploads][lnk-fileupload] for media files and large telemetry batches uploaded by intermittently connected devices or compressed to save bandwidth.
 
 Here is a detailed comparison of the various device-to-cloud communication options.
@@ -34,7 +34,7 @@ Here is a detailed comparison of the various device-to-cloud communication optio
 | Frequency | High. For more information, see [IoT Hub limits][lnk-quotas]. | Medium. For more information, see [IoT Hub limits][lnk-quotas]. | Low. For more information, see [IoT Hub limits][lnk-quotas]. |
 | Protocol | Available on all protocols. | Currently available only when using MQTT. | Available when using any protocol, but requires HTTP on the device. |
 
-It is possible that an application requires to both send information as a telemetry time series or alert and also to make it available in the device twin. In this case you can chose from the following two options:
+It is possible that an application requires to both send information as a telemetry time series or alert and also to make it available in the device twin. In this scenario, you can chose one of the following options:
 
 * Either, the device app sends a device-to-cloud message and reports a property change. 
 * Or, the solution back end can store the information in the device twin's tags when it receives the message. 
