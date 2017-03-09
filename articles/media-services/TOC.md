@@ -192,7 +192,7 @@
 ### [Licensing Microsoft Smooth Streaming Client Porting Kit](media-services-sspk.md)
 
 ## Integrate
-### [Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
+### [Azure functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
 
 ## Monitor
 ### Check job progress
