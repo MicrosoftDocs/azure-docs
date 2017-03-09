@@ -20,7 +20,7 @@ ms.custom: na
 
 ---
 
-# About this article
+# Azure Virtual Machine Scale Sets FAQ
 
 This article contains answers to frequently asked questions about scale sets.
 
