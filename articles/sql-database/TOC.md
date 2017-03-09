@@ -3,7 +3,7 @@
 ## Compare
 ### [SQL DB features](sql-database-features.md)
 # QuickStart
-## [Create DB - P](sql-database-get-started.md)
+## [Create DB - PowerShell](sql-database-get-started.md)
 ## [Create DB - Azure CLI](sql-database-get-started-cli.md)
 ## [Create DB - PowerShell](sql-database-get-started-powershell.md)
 # Samples
