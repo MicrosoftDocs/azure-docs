@@ -85,7 +85,7 @@ To remove all the resources created by this QuickStart, run the following comman
 Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 ```
 
-## Next Steps
+## Next steps
 
 - To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
 - To connect using Visual Studio, see [Connect and query with Visual Studio](sql-database-connect-query.md).
