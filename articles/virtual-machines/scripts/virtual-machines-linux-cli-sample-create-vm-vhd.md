@@ -25,7 +25,8 @@ It creates a resource group, a storage account, and a container,
 then it creates a VM by uploading the VHD to the container.
 It replaces the ssh public key with your public key so that you have access to the VM.
 
-You'll need a bootable VHD. You can download the VHD that we used from https://azclisamples.blob.core.windows.net/vhds/sample.vhd,
+You'll need a bootable VHD.
+You can download the VHD that we used from https://azclisamples.blob.core.windows.net/vhds/sample.vhd,
 or use your own VHD. The script looks for `~/sample.vhd`.
 
 This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
