@@ -253,7 +253,7 @@ and see if you can reproduce the issue.
 ### Error: Failed to add user to group. (-2147463168 PBIEgwService Performance Log Users)
 
 You might get this error if you try to install the gateway on a domain controller, which isn't supported. 
-You must deploy the gateway on a machine that isn't a domain controller.
+Make sure that you deploy the gateway on a machine that isn't a domain controller.
 
 ## Tools
 ### Collect logs from the gateway configurer
