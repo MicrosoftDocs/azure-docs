@@ -33,8 +33,7 @@ Recommended:
 
 Related considerations:
 
-* You must install the on-premises data gateway 
-on a local machine.
+* Only install the on-premises data gateway on a local machine.
 
 * You can't install the gateway on a domain controller.
 
@@ -42,7 +41,7 @@ on a local machine.
 or doesn't connect to the Internet because the gateway can't run under those circumstances. 
 Also, gateway performance might suffer over a wireless network.
 
-* You must use a work or school email address in Azure, 
+* You can only use a work or school email address in Azure, 
 so that you can associate the on-premises data gateway 
 with your Azure Active Directory-based account.
 
@@ -135,7 +134,7 @@ Learn more about [hybrid solutions](../service-bus-messaging/service-bus-fundame
 | *.frontend.clouddatahub.net |443 |HTTPS |
 | *.core.windows.net |443 |HTTPS |
 | login.microsoftonline.com |443 |HTTPS |
-| *.msftncsi.com |443 |Used to test internet connectivity if the gateway is unreachable by the Power BI service. |
+| *.msftncsi.com |443 |Used to test internet connectivity when the gateway is unreachable by the Power BI service. |
 
 If you have to approve IP addresses instead of the domains, 
 you can download and use the [Microsoft Azure Datacenter IP ranges list](https://www.microsoft.com/download/details.aspx?id=41653). 
@@ -240,7 +239,7 @@ When others interact with an element that's connected to an on-premises data sou
 3. The on-premises data gateway polls the Azure Service Bus for pending requests.
 4. The gateway gets the query, decrypts the credentials, and connects to the data source with those credentials.
 5. The gateway sends the query to the data source for execution.
-6. The results are sent from the data source back to the gateway and then to the cloud service. The service then uses the results.
+6. The results are sent from the data source, back to the gateway, and then to the cloud service. The service then uses the results.
 
 ## Troubleshooting
 ### Update to the latest version
