@@ -50,11 +50,11 @@ Azure backup provides the capability to restore [Azure VMs and disks](./backup-a
     - Azure endpoints used for Azure VM backups
     - outbound port 3260
 
+   In case of Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If those do not exist on the machine where it is run, it asks for permission to install the relevant components and installs upon consent
+   
     ![File recovery blade](./media/backup-azure-restore-files-from-vm/executable-output.png)
-
+    
     You can run the script on any machine that has the same (or compatible) operating system as the machine used to generate the recovery point. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#compatible-os) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays(for Linux VMs), then you can't run the executable script on the same virtual machine. Instead, run the executable/script on any other machine with a compatible operating system.
-
-    ![File recovery blade](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
 ### Compatible OS
 
@@ -84,9 +84,16 @@ In case of Linux, the fundamental requirement is that the OS of the machine wher
 
 ## For Windows
 
-When you run the script, the operating system mounts the new volumes and assigns drive letters. You can use Windows Explorer or File Explorer to browse those drives. The drive letters assigned to the volumes may not be the same letters as the original virtual machine, however, the volume name is preserved. For example, if the volume on the original virtual machine was “Data Disk (E:\)”, that volume can be attached as “Data Disk ('Any drive letter available':\) on the local computer. Browse through all volumes mentioned in the script output until you find your files/folder.  
-
+When you run the exectuable, the operating system mounts the new volumes and assigns drive letters. You can use Windows Explorer or File Explorer to browse those drives. The drive letters assigned to the volumes may not be the same letters as the original virtual machine, however, the volume name is preserved. For example, if the volume on the original virtual machine was “Data Disk (E:\)”, that volume can be attached as “Data Disk ('Any drive letter available':\) on the local computer. Browse through all volumes mentioned in the script output until you find your files/folder.  
+       
+   ![File recovery blade](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
+           
 ## For Linux
+
+In case of Linux, the volumes of the recovery point are mounted to the folder where the script is run. The attached disks, volumes and the corresponding mount paths are shown accordingly. Browse through the volumes mentioned in the script output.
+
+  ![Linux File recovery blade](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
+  
 
 ## Closing the connection
 
@@ -96,11 +103,41 @@ After identifying the files and copying them to a local storage location, remove
 
 Once the disks have been unmounted, you receive a message letting you know it was successful. It may take a few minutes for the connection to refresh so that you can remove the disks.
 
-## Windows Storage Spaces
+In case of Linux, after the connection to the recovery point is severed, the OS doesn't remove the corresponding mount paths automatically. These exist as "orphan" volumes and they are visible but throw an error when you access/write the files. They can be manually removed. The script, when run, identifies any such volumes existing from any previous recovery points and cleans them up upon consent.
+
+## Special configurations
+
+### Windows Storage Spaces
 
 Windows Storage Spaces is a technology in Windows storage that enables you to virtualize storage. With Windows Storage Spaces you can group industry-standard disks into storage pools, and then create virtual disks, called storage spaces, from the available space in those storage pools.
 
-If the Azure VM that was backed up uses Windows Storage Spaces, then you can't run the executable script on this VM. Instead, run the executable script on any other machine that uses Windows Storage Spaces. Running the executable script on a computer with a compatible operating system is recommended.
+If the Azure VM that was backed up uses Windows Storage Spaces, then you can't run the executable script on the same VM. Instead, run the executable script on any other machine with a compatible operating system.
+
+### LVM/RAID Arrays
+
+In Linux, Logical volume manager (LVM) and/or software RAID Arrays are used to manage logical volumes over multiple disks. If the backed up Linux VM uses LVM and/or RAID Arrays, you can't run the script on the same VM. Instead run the script on any other machine with compatible OS and which supports filesystem of the backed up VM.
+
+After the script is run on another machine, some additional commands need to be run by the user to bring the partitions online. The script output displays the LVM and/or RAID Arrays disks and the volumes with the partition type as shown below
+
+   ![Linux LVM Output blade](./media/backup-azure-restore-files-from-vm/linux-LVMOutput.png)
+
+**For LVM Partitions**
+
+`$ pvs <volume name as shown above>` - To list the volume group names under this physical volume
+
+`$ lvdisplay <volume-group-name from the above command’s result>` - To list all logical volumes, names and their paths in this volume group
+
+`$ mount <LV path> </mountpath>` - To mount the logical volumes to the path of your choice
+
+**For RAID Arrays**
+
+`$ mdadm –detail –scan` - To display details about all raid disks
+The relevant RAID disk will be displayed as `/dev/mdm/<RAID array name in the backed up VM>`
+
+Use the mount command if the RAID disk has physical volumes. 
+`$ mount [RAID Disk Path] [/mounthpath]`
+
+If this RAID disk has another LVM configured in it then follow the same procedure as outlined above for LVM partitions with the volume name being the RAID Disk name
 
 ## Troubleshooting
 
