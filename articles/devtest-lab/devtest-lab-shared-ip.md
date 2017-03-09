@@ -7,7 +7,7 @@ author: camsoper
 manager: douge
 editor: ''
 
-ms.assetid: 66cfd8bb-2886-42e8-8285-87a22a5bde9e
+ms.assetid:
 ms.service: devtest-lab
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -23,7 +23,7 @@ Azure DevTest Labs uses shared IP addresses to minimize the number of public IP 
 
 ## Shared IP setting
 
-When you create a lab, it resides in a subnet of a virtual network.  By default, this subnet is created with **Enable shared public IP** set to *Yes*.  This configuration creates one public IP address for the entire subnet.
+When you create a lab, it resides in a subnet of a virtual network.  By default, this subnet is created with **Enable shared public IP** set to *Yes*.  This configuration creates one public IP address for the entire subnet.  You can turn this off after a lab is created by [following the steps in this article](devtest-lab-configure-vnet.md).
 
 ![New lab subnet](media/devtest-lab-shared-ip/lab-subnet.png)
 
