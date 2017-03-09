@@ -4,6 +4,7 @@
 # QuickStart
 ## [Create VM with portal](../virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Create VM with Azure CLI](../virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Create VM with PowerShell](../virtual-machines-linux-quick-create-powershell.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 # Samples
 ## [Azure CLI](../virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
