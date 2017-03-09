@@ -155,7 +155,7 @@ The following steps illustrate how to manage (add and remove) access policies fo
 
 5. The **Access Policies** dialog will list any access policies already created for the selected file share.
     
-    ![](media/vs-azure-tools-storage-explorer-files/vs-azure-tools-storage-explorer-filesimage14.png)
+    ![](media/vs-azure-tools-storage-explorer-files/image14.png)
 
 6. Follow these steps depending on the access policy management task:
     
