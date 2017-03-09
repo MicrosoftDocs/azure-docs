@@ -1,5 +1,5 @@
 ---
-title: DocumentDB .NET API & SDK | Microsoft Docs
+title: Azure DocumentDB .NET SDK & Resources | Microsoft Docs
 description: Learn all about the .NET API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK.
 services: documentdb
 documentationcenter: .net
@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 02/22/2017
 ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
 
 ---
-# DocumentDB APIs and SDKs
+# DocumentDB .NET SDK: Download and release notes
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -30,7 +31,6 @@ ms.author: rnagpal
 > 
 > 
 
-## DocumentDB .NET API and SDK
 <table>
 
 <tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
@@ -46,12 +46,23 @@ ms.author: rnagpal
 <tr><td>**Current supported framework**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
 </table></br>
 
-## Release Notes
+## Release notes
 
-### <a name="1.11.2"/>[1.11.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.2)
+### <a name="1.12.0"/>[1.12.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.0)
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](documentdb-sql-query.md#Aggregates).
+* Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
+
+### <a name="1.11.4"/>[1.11.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.4)
+* Fix for an issue wherein some of the cross-partition queries were failing in the 32-bit host process.
+* Fix for an issue wherein the session container was not being updated with the token for failed requests in Gateway mode.
+* Fix for an issue wherein a query with UDF calls in projection was failing in some cases.
+* Client side performance fixes for increasing the read and write throughput of the requests.
+
+### <a name="1.11.3"/>[1.11.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.3)
 * Fix for an issue wherein the session container was not being updated with the token for failed requests.
 * Added support for the SDK to work in a 32-bit host process. Note that if you use cross partition queries, 64-bit host processing is recommended for improved performance.
 * Improved performance for scenarios involving queries with a large number of partition key values in an IN expression.
+* Populated various resource quota stats in the ResourceResponse for document collection read requests when PopulateQuotaInfo request option is set.
 
 ### <a name="1.11.1"/>[1.11.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.1)
 * Minor performance fix for the CreateDocumentCollectionIfNotExistsAsync API introduced in 1.11.0.
@@ -167,9 +178,9 @@ ms.author: rnagpal
   * LINQ provider support for OrderBy() or OrderByDescending()
   * IndexingPolicy to support Order By 
     
-        **NB: Possible breaking change** 
+    **NB: Possible breaking change** 
     
-        If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
+    If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>[1.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 * Support for partitioning data by using the new HashPartitionResolver and RangePartitionResolver classes and the IPartitionResolver
@@ -180,7 +191,7 @@ ms.author: rnagpal
 ### <a name="1.0.0"/>[1.0.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.0.0)
 * GA SDK
 
-## Release & Retirement Dates
+## Release & Retirement dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
 New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. 
@@ -191,7 +202,9 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [1.11.2](#1.11.2) |January 18, 2017 |--- |
+| [1.12.0](#1.12.0) |February 15, 2017 |--- |
+| [1.11.4](#1.11.4) |February 06, 2017 |--- |
+| [1.11.3](#1.11.3) |January 26, 2017 |--- |
 | [1.11.1](#1.11.1) |December 21, 2016 |--- |
 | [1.11.0](#1.11.0) |December 08, 2016 |--- |
 | [1.10.0](#1.10.0) |September 27, 2016 |--- |
@@ -199,8 +212,6 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 | [1.9.4](#1.9.4) |August 24, 2016 |--- |
 | [1.9.3](#1.9.3) |August 15, 2016 |--- |
 | [1.9.2](#1.9.2) |July 23, 2016 |--- |
-| 1.9.1 |Deprecated |--- |
-| 1.9.0 |Deprecated |--- |
 | [1.8.0](#1.8.0) |June 14, 2016 |--- |
 | [1.7.1](#1.7.1) |May 06, 2016 |--- |
 | [1.7.0](#1.7.0) |April 26, 2016 |--- |
@@ -221,6 +232,6 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 ## FAQ
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
-## See Also
+## See also
 To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page. 
 

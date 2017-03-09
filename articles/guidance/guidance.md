@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/guidance/
+redirect_url: /azure/architecture/
 ---

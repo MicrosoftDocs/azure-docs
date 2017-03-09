@@ -15,12 +15,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-ms.date: 12/09/2016
+ms.date: 02/23/2016
 ms.author: sstein
 
 ---
 
-# SQL Database tutorial: Get started with Azure SQL Database servers, databases, and firewall rules using PowerShell
+# Tutorial: Provision and access an Azure SQL database using PowerShell
 
 In this getting-started tutorial, you learn how to use PowerShell to:
 
@@ -39,7 +39,7 @@ In this tutorial, you also:
 * Connect to the sample database
 * View user database properties
 
-When you finish this tutorial, you will have a sample database and a blank database running in an Azure resource group and attached to a logical server. You will also have a server-level firewall rule configured to enable the server-level principal to log in to the server from a specified IP address (or IP address range). 
+When you finish this tutorial, you have a sample database and a blank database running in an Azure resource group and attached to a logical server. You also have a server-level firewall rule configured to enable the server-level principal to login to the server from a specified IP address (or IP address range). 
 
 **Time estimate:** This tutorial will take you approximately 30 minutes (assuming you already meet the prerequisites).
 
@@ -51,24 +51,9 @@ When you finish this tutorial, you will have a sample database and a blank datab
 
 ## Prerequisites
 
-* You need an Azure account. You can [open a free Azure account](/pricing/free-trial/?WT.mc_id=A261C142F) or [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* You need an Azure account. You can [open a free Azure account](https://azure.microsoft.com/free/) or [Activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
 * You must be signed in using an account that is a member of either the subscription owner or contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md).
-
-* You need the AdventureWorksLT sample database .bacpac file in Azure blob storage
-
-### Download the AdventureWorksLT sample database .bacpac file and save it in Azure blob storage
-
-This tutorial creates a new AdventureWorksLT database by importing a .bacpac file from Azure Storage. The first step is to get a copy of the AdventureWorksLT.bacpac, and upload it to blob storage.
-The following steps get the sample database ready to import:
-
-1. [Download the AdventureWorksLT.bacpac](https://sqldbbacpacs.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac) and save it with a .bacpac file extension.
-2. [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) - you can create the storage account with the default settings.
-3. Create a new **Container** by browsing to the storage account, select **Blobs**, and then click **+Container**.
-4. Upload the .bacpac file to the blob container in your storage account. You can use the **Upload** button at the top of the container page, or [use AzCopy](../storage/storage-use-azcopy.md#blob-upload). 
-5. After saving the AdventureWorksLT.bacpac, you need the URL and storage account key for the import code snippet later in this tutorial. 
-   * Select your bacpac file and copy the URL. It will be similar to https://{storage-account-name}.blob.core.windows.net/{container-name}/AdventureWorksLT.bacpac. On the storage account page, click **Access keys**, and copy **key1**.
-
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
@@ -76,7 +61,9 @@ The following steps get the sample database ready to import:
 ## Create a new logical SQL server using Azure PowerShell
 
 You need a resource group to contain the server, so the first step is to either create a new resource group and server ([New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/new-azurermresourcegroup), [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserver)), or get references to existing ones ([Get-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/get-azurermresourcegroup), [Get-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserver)).
-The following snippets will create a resource group and Azure SQL server if they don't already exist:
+
+
+The following snippets create a resource group and Azure SQL server if they don't already exist:
 
 For a list of valid Azure locations and string format, see [Helper snippets](#helper-snippets) section below.
 ```
@@ -175,6 +162,25 @@ else
    Write-host "Server firewall rule $serverFirewallRuleName already exists:"
 }
 $myFirewallRule
+
+# Allow Azure services to access the server
+$serverFirewallRuleName2 = "allowAzureServices"
+$serverFirewallStartIp2 = "0.0.0.0"
+$serverFirewallEndIp2 = "0.0.0.0"
+
+$myFirewallRule2 = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName2 -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
+
+if(!$myFirewallRule2)
+{
+   Write-host "Creating server firewall rule: $serverFirewallRuleName2"
+   $myFirewallRule2 = New-AzureRmSqlServerFirewallRule -ResourceGroupName $serverResourceGroupName -ServerName $serverName -FirewallRuleName $serverFirewallRuleName2 -StartIpAddress $serverFirewallStartIp2 -EndIpAddress $serverFirewallEndIp2
+}
+else
+{
+   Write-host "Server firewall rule $serverFirewallRuleName2 already exists:"
+}
+$myFirewallRule2
+
 ```
 
 
@@ -214,9 +220,8 @@ $connection.Close()
 
 ## Create new AdventureWorksLT sample database using Azure PowerShell
 
-The following snippet imports a bacpac of the AdventureWorksLT sample database using the [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqldatabaseimport) cmdlet. The bacpac is located in Azure blob storage. After running the import cmdlet, you can monitor the progress of the import operation using the [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabaseimportexportstatus) cmdlet.
-The $storageUri is the URL property of the bacpac file you uploaded to the portal earlier, and should be similar to:
-https://{storage-account}.blob.core.windows.net/{container}/AdventureWorksLT.bacpac
+The following snippet imports a bacpac of the AdventureWorksLT sample database using the [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqldatabaseimport) cmdlet. The bacpac is located in a public, read-only Azure blob storage account. After running the import cmdlet, you can monitor the progress of the import operation using the [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabaseimportexportstatus) cmdlet.
+
 
 ```
 #$resourceGroupName = "{resource-group-name}"
@@ -226,9 +231,9 @@ $databaseName = "AdventureWorksLT"
 $databaseEdition = "Basic"
 $databaseServiceLevel = "Basic"
 
-$storageKeyType = "StorageAccessKey"
-$storageUri = "{storage-uri}" # URL of bacpac file you uploaded to your storage account
-$storageKey = "{storage-key}" # key1 in the Access keys setting of your storage account
+$storageKeyType = "SharedAccessKey"
+$storageUri = "https://sqldbtutorial.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac"
+$storageKey = "?"
 
 $importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -StorageKeytype $storageKeyType -StorageKey $storageKey -StorageUri $storageUri -AdministratorLogin $serverAdmin -AdministratorLoginPassword $securePassword -Edition $databaseEdition -ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
 
@@ -346,10 +351,14 @@ $myDatabaseName = "AdventureWorksLT"
 $myDatabaseEdition = "Basic"
 $myDatabaseServiceLevel = "Basic"
 
-$myStorageKeyType = "StorageAccessKey"
-# Get these values from your Azure storage account:
-$myStorageUri = "{http://your-storage-account.blob.core.windows.net/your-container/AdventureWorksLT.bacpac}"
-$myStorageKey = "{your-storage-key}"
+
+# Storage account details for locating
+# and accessing the sample .bacpac 
+# Do Not Edit for this tutorial
+$myStorageKeyType = "SharedAccessKey"
+$myStorageUri = "https://sqldbtutorial.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac"
+$myStorageKey = "?"
+
 
 
 # Create new, or get existing resource group
@@ -413,9 +422,8 @@ Write-Host "Server location: " $myServer.Location
 Write-Host "Server version: " $myServer.ServerVersion
 Write-Host "Server administrator login: " $myServer.SqlAdministratorLogin
 
-
-# Create or update server firewall rule
-#######################################
+# Create or update server firewall rules
+########################################
 
 $serverFirewallRuleName = $myServerFirewallRuleName
 $serverFirewallStartIp = $myServerFirewallStartIp
@@ -433,6 +441,24 @@ else
    Write-host "Server firewall rule $serverFirewallRuleName already exists:"
 }
 $myFirewallRule
+
+# Allows Azure services to access the server
+$serverFirewallRuleName2 = "allowAzureServices"
+$serverFirewallStartIp2 = "0.0.0.0"
+$serverFirewallEndIp2 = "0.0.0.0"
+
+$myFirewallRule2 = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName2 -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
+
+if(!$myFirewallRule2)
+{
+   Write-host "Creating server firewall rule: $serverFirewallRuleName2"
+   $myFirewallRule2 = New-AzureRmSqlServerFirewallRule -ResourceGroupName $serverResourceGroupName -ServerName $serverName -FirewallRuleName $serverFirewallRuleName2 -StartIpAddress $serverFirewallStartIp2 -EndIpAddress $serverFirewallEndIp2
+}
+else
+{
+   Write-host "Server firewall rule $serverFirewallRuleName2 already exists:"
+}
+$myFirewallRule2
 
 
 # Connect to the server and master database
@@ -564,7 +590,9 @@ Remove-AzureRmResourceGroup -Name {resource-group-name}
 ## Next steps
 Now that you've completed this first getting started tutorial and created a database with some sample data, there are number of additional tutorials that you may wish to explore that build what you have learned in this tutorial. 
 
-* If you want to start exploring Azure SQL Database security, see [Getting started with security](sql-database-control-access-sql-authentication-get-started.md).
+- For a getting started with SQL Server authentication tutorial, see [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md)
+- For a getting started with Azure Active Directory authentication tutorial, see [Azure AD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md)
+* If you want to query the sample database in the Azure portal, see [Public preview: Interactive query experience for SQL databases](https://azure.microsoft.com/en-us/updates/azure-sql-database-public-preview-t-sql-editor/)
 * If you know Excel, learn how to [Connect to a SQL database in Azure with Excel](sql-database-connect-excel.md).
 * If you're ready to start coding, choose your programming language at [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md).
 * If you want to move your on-premises SQL Server databases to Azure, see [Migrating a database to SQL Database](sql-database-cloud-migrate.md).

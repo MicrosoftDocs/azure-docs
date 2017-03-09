@@ -1,5 +1,5 @@
 ---
-title: Create Windows-based Hadoop clusters in HDInsight using Azure Resource Manager templates | Microsoft Docs
+title: Create Windows-based Azure HDInsight (Hadoop) using templates | Microsoft Docs
 description: Learn how to create Windows-based clusters in Azure HDInsight using Azure Resource Manager templates.
 services: hdinsight
 documentationcenter: ''

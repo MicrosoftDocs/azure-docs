@@ -1,5 +1,5 @@
 ---
-title: Protect your HLS content with Apple FairPlay and/or Microsoft PlayReady | Microsoft Docs
+title: Protect HLS content with Microsoft PlayReady or Apple FairPlay - Azure | Microsoft Docs
 description: This topic gives an overview and shows how to use Azure Media Services to dynamically encrypt your HTTP Live Streaming (HLS) content with  Apple FairPlay. It also shows how to use the Media Services license delivery service to deliver FairPlay licenses to clients.
 services: media-services
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: juliako
 
 ---
@@ -293,11 +293,9 @@ The following sample demonstrates functionality that was introduced in Azure Med
 
                 static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
                 {
-                    var encodingPreset = "H264 Multiple Bitrate 720p";
+                    var encodingPreset = "Adaptive Streaming";
 
-                    IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
-                                            inputAsset.Name,
-                                            encodingPreset));
+                    IJob job = _context.Jobs.Create(String.Format("Encoding {0}", inputAsset.Name));
 
                     var mediaProcessors =
                         _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder Standard")).ToList();

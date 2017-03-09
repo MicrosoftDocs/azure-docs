@@ -1,5 +1,5 @@
 ---
-title: Use Apache Spark to build machine learning applications on HDInsight | Microsoft Docs
+title: Use Apache Spark to build machine learning applications on Azure HDInsight | Microsoft Docs
 description: Step-by-step instructions on how to use notebooks with Apache Spark to build machine learning applications
 services: hdinsight
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 
 ---

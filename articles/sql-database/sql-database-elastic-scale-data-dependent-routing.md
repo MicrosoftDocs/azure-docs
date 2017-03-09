@@ -1,6 +1,6 @@
 ---
-title: Data dependent routing | Microsoft Docs
-description: How to use the ShardMapManager class in .NET apps for data-dependent routing, a feature of elastic databases for Azure SQL Database
+title: Data dependent routing with Azure SQL Database | Microsoft Docs
+description: How to use the ShardMapManager class in .NET apps for data-dependent routing, a feature of sharded databases in  Azure SQL Database
 services: sql-database
 documentationcenter: ''
 manager: jhubbard

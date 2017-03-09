@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 
 ---
@@ -75,6 +75,9 @@ The Azure AD B2C password policy for local accounts is based on the policy for A
 
 ### Can I use Azure AD Connect to migrate consumer identities that are stored on my on-premises Active Directory to Azure AD B2C?
 No, Azure AD Connect is not designed to work with Azure AD B2C. We will provide various migration options and tools out-of-the-box in the future.
+
+### Can my app open up Azure AD B2C pages within an iFrame?
+No, for security reasons, Azure AD B2C pages, which are served under the `login.microsftonline.com` domain, cannot be opened within an iFrame. You have to always redirect to Azure AD B2C for all consumer experiences.
 
 ### Does Azure AD B2C work with CRM systems such as Microsoft Dynamics?
 Not currently. Integrating these systems is on our roadmap.

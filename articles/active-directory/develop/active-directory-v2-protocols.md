@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2.0 Protocols | Microsoft Docs
+title: Learn about the authorization protocols supported by Azure AD v2.0 | Microsoft Docs
 description: A guide to protocols supported by the Azure AD v2.0 endpoint.
 services: active-directory
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: Reliable Actors lifecycle | Microsoft Docs
+title: Overview of actor-based Azure microservices lifecycle | Microsoft Docs
 description: Explains Service Fabric Reliable Actor lifecycle, garbage collection, and manually deleting actors and their state
 services: service-fabric
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2016
+ms.date: 03/02/2017
 ms.author: amanbha
 
 ---

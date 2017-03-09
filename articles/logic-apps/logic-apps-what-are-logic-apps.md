@@ -1,6 +1,6 @@
 ---
-title: What are Logic Apps?
-description: Learn more about Azure Logic Apps
+title: Connect apps and integrate data with workflows - Azure Logic Apps | Microsoft Docs
+description: Create workflows and automate processes by connecting apps and integrating data with Azure Logic Apps.
 author: kevinlam1
 manager: anneta
 editor: ''
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/12/2016
+ms.date: 01/23/2017
 ms.author: klam
 
 ---

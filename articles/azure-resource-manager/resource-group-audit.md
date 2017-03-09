@@ -1,6 +1,6 @@
 ---
-title: Activity logs to manage Azure resources | Microsoft Docs
-description: Use the activity log in Resource Manager to review user actions and errors. Shows Azure Portal PowerShell, Azure CLI, and REST.
+title: View Azure activity logs to monitor resources | Microsoft Docs
+description: Use the activity logs to review user actions and errors. Shows Azure Portal PowerShell, Azure CLI, and REST.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -17,7 +17,7 @@ ms.date: 01/09/2017
 ms.author: tomfitz
 
 ---
-# View activity logs to manage Azure resources
+# View activity logs to audit actions on resources
 Through activity logs, you can determine:
 
 * what operations were taken on the resources in your subscription

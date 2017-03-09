@@ -1,5 +1,5 @@
 ---
-title: Create a Spark cluster in Azure HDInsight and use Spark SQL from Jupyter for interactive analysis | Microsoft Docs
+title: Get started with Apache Spark cluster in Azure HDInsight | Microsoft Docs
 description: Step-by-step instructions on how to quickly create an Apache Spark cluster in HDInsight and then use Spark SQL from Jupyter notebooks to run interactive queries.
 services: hdinsight
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/18/2017
+ms.date: 02/22/2017
 ms.author: nitinme
 
 ---
@@ -67,19 +67,19 @@ In this section, you use Jupyter notebook to run Spark SQL queries against the S
 * **PySpark** (for applications written in Python)
 * **Spark** (for applications written in Scala)
 
-In this article, you will use the PySpark kernel. In the article [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels) you can read in detail about the benefits of using the PySpark kernel. However, couple of key benefits of using the PySpark kernel are:
+In this article, you use the PySpark kernel. For more information about the two kernels, see [Use Jupyter notebooks kernels with Apache Spark clusters in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md). Some of the key benefits of using the PySpark kernel are:
 
-* You do not need to set the contexts for Spark and Hive. These are automatically set for you.
-* You can use cell magics, such as `%%sql`, to directly run your SQL or Hive queries, without any preceding code snippets.
+* The contexts for Spark and Hive are set automatically.
+* Use cell magics, such as `%%sql`, to directly run SQL or Hive queries, without any preceding code snippets.
 * The output for the SQL or Hive queries is automatically visualized.
 
 ### Create Jupyter notebook with PySpark kernel
 
 1. Open the [Azure portal](https://portal.azure.com/).
-2. From the left menu, click **Resoruce groups**.
+2. From the left menu, click **Resource groups**.
 3. Click the resource group you created in the last section. You can use the search function if there are too many resource groups. You can see two resources in the group, the HDInsight cluster, and the default storage account.
 4. Click the cluster to open it.
- 
+
 2. From **Quick links**, click **Cluster dashboards**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
    ![HDInsight cluster dashboards](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-azure-portal-cluster-dashboards.png "HDInsight cluster dashboards")
@@ -94,14 +94,14 @@ In this article, you will use the PySpark kernel. In the article [Kernels availa
 
    ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
 
-   A new notebook is created and opened with the name Untitled(Untitled.pynb). 
+   A new notebook is created and opened with the name Untitled(Untitled.pynb).
 
 4. Click the notebook name at the top, and enter a friendly name if you want.
 
     ![Provide a name for the notebook](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
 5. Paste the following code in an empty cell, and then press **SHIFT + ENTER** to execute the code. The code imports the types required for this scenario:
 
-        from pyspark.sql.types import *
+		from pyspark.sql.types import *
 
     Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts will be automatically created for you when you run the first code cell.
 
@@ -111,29 +111,29 @@ In this article, you will use the PySpark kernel. In the article [Kernels availa
 
 6. Run the following code to register some sample data into a temporary table called **hvac**.
 
-        # Load the data
-        hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-
-        # Create the schema
-        hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
-
-        # Parse the data in hvacText
-        hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
-
-        # Create a data frame
-        hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
-
-        # Register the data fram as a table to run queries against
-        hvacdf.registerTempTable("hvac")
+		# Load the data
+		hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+		
+		# Create the schema
+		hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
+		
+		# Parse the data in hvacText
+		hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
+		
+		# Create a data frame
+		hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
+		
+		# Register the data fram as a table to run queries against
+		hvacdf.registerTempTable("hvac")
 
     Spark clusters in HDInsight come with a sample data file, **hvac.csv**, under **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
-    
+
 7. Run the following code to query the data:
 
-        %%sql
-        SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
+		%%sql
+		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 
-   Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you just created by using the `%%sql` magic. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
+   Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you just created by using the `%%sql` magic. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 
    The following tabular output is displayed by default.
 
@@ -164,7 +164,7 @@ In this article, you will use the PySpark kernel. In the article [Kernels availa
 * [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)

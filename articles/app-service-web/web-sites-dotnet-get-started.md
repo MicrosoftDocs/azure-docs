@@ -1,10 +1,10 @@
 ---
-title: Deploy an ASP.NET app to Azure App Service using Visual Studio | Microsoft Docs
+title: Deploy an ASP.NET app to Azure using Visual Studio | Microsoft Docs
 description: Learn how to deploy an ASP.NET web project to a new web app in Azure App Service, using Visual Studio.
 services: app-service\web
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 69759e3c-384c-4afb-9278-db6724f6cb74

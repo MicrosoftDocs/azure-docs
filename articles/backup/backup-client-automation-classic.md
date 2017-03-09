@@ -1,6 +1,8 @@
 ---
-title: Deploy and manage backup for Windows Server/Client using PowerShell | Microsoft Docs
-description: Learn how to deploy and manage Azure Backup using PowerShell
+
+title: Use PowerShell to manage Windows Server backups in Azure| Microsoft Docs
+description: Deploy and manage Windows Server backups using PowerShell.
+
 services: backup
 documentationcenter: ''
 author: saurabhsensharma
@@ -14,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
-ms.author: saurse;markgal;jimpark;nkolli;trinadhk
+ms.author: saurse;markgal;nkolli;trinadhk
 
 ---
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell
 > [!div class="op_single_selector"]
 > * [ARM](backup-client-automation.md)
 > * [Classic](backup-client-automation-classic.md)
-> 
-> 
+>
+>
 
 This article shows you how to use PowerShell for setting up Azure Backup on Windows Server or a Windows client, and managing backup and recovery.
 
@@ -40,8 +42,8 @@ If you want to use your scripts written for the 0.9.8 environment, in the 1.0 or
 ## Create a backup vault
 > [!WARNING]
 > For customers using Azure Backup for the first time, you need to register the Azure Backup provider to be used with your subscription. This can be done by running the following command: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
-> 
-> 
+>
+>
 
 You can create a new backup vault using the **New-AzureRMBackupVault** cmdlet. The backup vault is an ARM resource, so you need to place it within a Resource Group. In an elevated Azure PowerShell console, run the following commands:
 
@@ -120,8 +122,8 @@ Machine registration succeeded.
 
 > [!IMPORTANT]
 > Do not use relative paths to specify the vault credentials file. You must provide an absolute path as an input to the cmdlet.
-> 
-> 
+>
+>
 
 ## Networking settings
 When the connectivity of the Windows machine to the internet is through a proxy server, the proxy settings can also be provided to the agent. In this example, there is no proxy server, so we are explicitly clearing any proxy-related information.
@@ -148,8 +150,8 @@ Server properties updated successfully
 
 > [!IMPORTANT]
 > Keep the passphrase information safe and secure once it is set. You will not be able to restore data from Azure without this passphrase.
-> 
-> 
+>
+>
 
 ## Back up files and folders
 All your backups from Windows Servers and clients to Azure Backup are governed by a policy. The policy comprises three parts:
@@ -601,4 +603,3 @@ For more information about Azure Backup for Windows Server/Client see
 
 * [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
 * [Back up Windows Servers](backup-configure-vault.md)
-

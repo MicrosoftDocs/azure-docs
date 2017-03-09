@@ -1,5 +1,5 @@
 ---
-title: Batch service quotas and limits | Microsoft Docs
+title: Service quotas and limits for Azure Batch | Microsoft Docs
 description: Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases
 services: batch
 documentationcenter: ''
@@ -13,11 +13,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 
 ---
-# Quotas and limits for the Azure Batch service
+# Batch service quotas and limits
+
 As with other Azure services, there are limits on certain resources associated with the Batch service. Many of these limits are default quotas applied by Azure at the subscription or account level. This article discusses those defaults, and how you can request quota increases.
 
 If you plan to run production workloads in Batch, you may need to increase one or more of the quotas above the default. If you want to raise a quota, you can open an online [customer support request](#increase-a-quota) at no charge.
@@ -27,12 +29,7 @@ If you plan to run production workloads in Batch, you may need to increase one o
 > 
 > 
 
-## Subscription quotas
-| **Resource** | **Default Limit** | **Maximum Limit** |
-| --- | --- | --- |
-| Batch accounts per region per subscription |1 |50 |
-
-## Batch account quotas
+## Resource quotas
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
 ## Other limits

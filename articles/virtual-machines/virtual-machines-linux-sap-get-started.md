@@ -1,5 +1,5 @@
 ---
-title: Getting started with SAP Solutions | Microsoft Docs
+title: Getting started with SAP on Linux VMs in Azure | Microsoft Docs
 description: Learn about SAP solutions running on virtual machines (VMs) in Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -17,9 +17,10 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 
 ---
-# Using SAP on Azure Virtual Machines (VMs)
+# Using SAP on Azure Linux Virtual Machines (VMs)
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037

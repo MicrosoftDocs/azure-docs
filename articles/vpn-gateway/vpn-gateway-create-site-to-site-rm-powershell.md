@@ -1,10 +1,10 @@
 ---
-title: Create a virtual network with a Site-to-Site VPN connection using Azure Resource Manager and PowerShell | Microsoft Docs
-description: This article walks you through creating a VNet using the Resource Manager deployment model and connecting it to your local on-premises network using a S2S VPN gateway connection.
+title: 'Connect your on-premises network to an Azure virtual network: Site-to-Site VPN: PowerShell | Microsoft Docs'
+description: Steps to create an IPsec connection from your on-premises network to an Azure virtual network over the public Internet. These steps will help you create a cross-premises Site-to-Site VPN Gateway connection using PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/14/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 
 ---
-# Create a VNet with a Site-to-Site connection using PowerShell
+# Create a VNet with a Site-to-Site VPN connection using PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -28,7 +28,7 @@ ms.author: cherylmc
 
 This article walks you through creating a virtual network and a Site-to-Site VPN gateway connection to your on-premises network using the Azure Resource Manager deployment model. Site-to-Site connections can be used for cross-premises and hybrid configurations.
 
-![Site-to-Site diagram](./media/vpn-gateway-create-site-to-site-rm-powershell/s2srmps.png "site-to-site")
+![Site-to-Site VPN Gateway cross-premises connection diagram](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-connection-diagram.png)
 
 ### Deployment models and methods for Site-to-Site connections
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]

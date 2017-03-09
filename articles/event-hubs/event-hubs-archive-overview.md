@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs Archive | Microsoft Docs
+title: Archive telemetry data with Azure Event Hubs Archive overview | Microsoft Docs
 description: Overview of the Azure Event Hubs Archive feature.
 services: event-hubs
 documentationcenter: ''

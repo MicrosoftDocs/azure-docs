@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2.0 .NET Web API| Microsoft Docs
+title: Add sign-in to a .NET MVC web API using the Azure AD v2.0 endpoint | Microsoft Docs
 description: How to build a .NET MVC Web Api that accepts tokens from both personal Microsoft Account and work or school accounts.
 services: active-directory
 documentationcenter: .net

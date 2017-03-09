@@ -1,20 +1,19 @@
 ---
 title: Azure Governmnet DoD Overview | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: ryansoc
 manager: zakramer
-editor: ''
 
 ms.assetid: cba97199-851d-43ae-a75a-c601f3f81601
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/11/2016
+ms.date: 01/12/2017
 ms.author: ryansoc
 
 ---

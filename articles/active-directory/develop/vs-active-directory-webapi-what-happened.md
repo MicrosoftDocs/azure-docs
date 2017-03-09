@@ -1,6 +1,6 @@
 ---
-title: What happened to my WebApi project (Visual Studio Azure Active Directory connected service) | Microsoft Docs
-description: Describes what happens to your MVC project WebApi you connect to Azure AD by using Visual Studio
+title: Changes made to a WebApi project when you connect to Azure AD | Microsoft Docs
+description: Describes what happens to your WebApi project when you connect to Azure AD by using Visual Studio
 services: active-directory
 documentationcenter: ''
 author: TomArcher

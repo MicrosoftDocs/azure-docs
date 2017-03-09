@@ -1,14 +1,19 @@
 ---
-title: What is Azure Event Hubs? | Microsoft Docs
+title: What is Azure Event Hubs and why use it | Microsoft Docs
 description: Overview and introduction to Azure Event Hubs - Cloud-scale telemetry ingestion from websites, apps, and devices
 services: event-hubs
 documentationcenter: .net
-author: banisadr
+author: sethmanheim
+manager: timlt
+editor: ''
 
 ms.assetid:
 ms.service: event-hubs
+ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/29/2016
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/06/2017
 ms.author: sethm; babanisa
 
 ---
@@ -77,7 +82,7 @@ You can use a partition key to map incoming event data into specific partitions 
 The event publisher is only aware of its partition key, not the partition to which the events are published. This decoupling of key and partition insulates the sender from needing to know too much about the downstream processing. A per-device or user unique identity makes a good partition key, but other attributes such as geography can also be used to group related events into a single partition.
 
 ## SAS tokens
-Event Hubs uses *Shared Access Signatures* which are avalible at the namespace and Event Hub level. A SAS token is generated from a SAS key and is an SHA hash of a URL, encoded in a specific format. Using the name of the key (policy) and the token, Event Hubs can regenerate the hash and thus authenticate the sender. Normally, SAS tokens for event publishers are created with only **send** privileges on a specific Event Hub. This SAS token URL mechanism is the basis for publisher identification introduced in the publisher policy. For more information about working with SAS, see [Shared Access Signature Authentication with Service Bus](../service-bus-messaging/service-bus-shared-access-signature-authentication.md).
+Event Hubs uses *Shared Access Signatures* which are available at the namespace and Event Hub level. A SAS token is generated from a SAS key and is an SHA hash of a URL, encoded in a specific format. Using the name of the key (policy) and the token, Event Hubs can regenerate the hash and thus authenticate the sender. Normally, SAS tokens for event publishers are created with only **send** privileges on a specific Event Hub. This SAS token URL mechanism is the basis for publisher identification introduced in the publisher policy. For more information about working with SAS, see [Shared Access Signature Authentication with Service Bus](../service-bus-messaging/service-bus-shared-access-signature-authentication.md).
 
 ## Event consumers
 Any entity that reads event data from an Event Hub is an *event consumer*. All Event Hubs consumers connect via the AMQP 1.0 session and events are delivered through the session as they become available. The client does not need to poll for data availability.
@@ -133,7 +138,7 @@ The throughput capacity of Event Hubs is controlled by *throughput units*. Throu
 * Ingress: Up to 1 MB per second or 1000 events per second (whichever comes first)
 * Egress: Up to 2 MB per second
 
-Beyond the capacity of the purchased throughput units, ingress is throttled and a [ServerBusyException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) is returned. Egress does not produce throttling exceptions, but is still limited to the capacity of the purchased throughput units. If you receive publishing rate exceptions or are expecting to see higher egress, be sure to check how many throughput units you have purchased for the namespace. You can manage throughput units on the **Scale** blade of the namespaces in the [Azure portal][Azure portal]. This can also be accomplished progammatically using the Azure APIs.
+Beyond the capacity of the purchased throughput units, ingress is throttled and a [ServerBusyException](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) is returned. Egress does not produce throttling exceptions, but is still limited to the capacity of the purchased throughput units. If you receive publishing rate exceptions or are expecting to see higher egress, be sure to check how many throughput units you have purchased for the namespace. You can manage throughput units on the **Scale** blade of the namespaces in the [Azure portal][Azure portal]. This can also be accomplished progammatically using the Azure APIs.
 
 Throughput units are billed per hour and are pre-purchased. Once purchased, throughput units are billed for a minimum of one hour. Up to 20 throughput units can be purchased for an Event Hubs namespace and are shared across all Event Hubs in the namespace.
 
@@ -148,7 +153,7 @@ For detailed pricing information, see [Event Hubs Pricing](https://azure.microso
 * Get started with an [Event Hubs tutorial][Event Hubs tutorial]
 * A complete [sample application that uses Event Hubs]
 * [Event Hubs programming guide](event-hubs-programming-guide.md)
-* [Event Hubs availability and support FAQ](event-hubs-availability-and-support-faq.md)
+* [Event Hubs FAQ](event-hubs-faq.md)
 
 [Event Hubs tutorial]: event-hubs-csharp-ephcs-getstarted.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097

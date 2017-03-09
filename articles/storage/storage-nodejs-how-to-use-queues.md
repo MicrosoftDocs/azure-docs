@@ -20,7 +20,7 @@ ms.author: robinsh
 # How to use Queue storage from Node.js
 [!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
+[!INCLUDE [storage-check-out-samples-all](../../includes/storage-check-out-samples-all.md)]
 
 ## Overview
 This guide shows you how to perform common scenarios using the Microsoft

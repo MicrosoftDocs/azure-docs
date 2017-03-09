@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 01/25/2017
 ms.author: jeedes
 
 ---
@@ -37,7 +37,8 @@ The scenario outlined in this tutorial consists of the following building blocks
 ## Enabling the application integration for Panorama9
 The objective of this section is to outline how to enable the application integration for Panorama9.
 
-### To enable the application integration for Panorama9, perform the following steps:
+**To enable the application integration for Panorama9, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-panorama9-tutorial/IC700993.png "Active Directory")
@@ -58,13 +59,16 @@ The objective of this section is to outline how to enable the application integr
    
    ![Panorama9](./media/active-directory-saas-panorama9-tutorial/IC790018.png "Panorama9")
    
-   ## Configuring single sign-on
+## Configuring single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Panorama9 with their account in Azure AD using federation based on the SAML protocol.  
+
 Configuring single sign-on for Panorama9 requires you to retrieve a thumbprint value from a certificate.  
+
 If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
-### To configure single sign-on, perform the following steps:
+**To configure single sign-on, perform the following steps:**
+
 1. In the Azure classic portal, on the **Panorama9** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-panorama9-tutorial/IC790019.png "Configure Single Sign-On")
@@ -89,23 +93,23 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
    ![Settings](./media/active-directory-saas-panorama9-tutorial/IC790025.png "Settings")
    
    1. In the Azure classic portal, on the **Configure single sign-on at Panorama9** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **Identity provider URL** textbox.
-   2. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Certificate fingerprint** textbox.  
+   2. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Certificate fingerprint** textbox.    
+   
+      >[!TIP]
+      >For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
+      > 
       
-      > [!TIP]
-      > For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
-      > 
-      > 
    3. Click **Save**.
 9. On the Azure AD classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-panorama9-tutorial/IC790026.png "Configure Single Sign-On")
    
-   ## Configuring user provisioning
+## Configuring user provisioning
 
 In order to enable Azure AD users to log into Panorama9, they must be provisioned into Panorama9.  
 In the case of Panorama9, provisioning is a manual task.
 
-### To configure user provisioning, perform the following steps:
+**To configure user provisioning, perform the following steps:**
 1. Log in to your **Panorama9** company site as an administrator.
 2. In the menu on the top, click **Manage**, and then click **Users**.
    
@@ -121,12 +125,13 @@ In the case of Panorama9, provisioning is a manual task.
 > [!NOTE]
 > You can use any other Panorama9 user account creation tools or APIs provided by Panorama9 to provision AAD user accounts.
 > 
-> 
+
 
 ## Assigning users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to Panorama9, perform the following steps:
+**To assign users to Panorama9, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
 2. On the **Panorama9** application integration page, click **Assign users**.
    

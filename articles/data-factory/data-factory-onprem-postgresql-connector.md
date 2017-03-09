@@ -1,5 +1,5 @@
 ---
-title: Move data From PostgreSQL | Microsoft Docs
+title: Move data From PostgreSQL using Azure Data Factory | Microsoft Docs
 description: Learn about how to move data from PostgreSQL Database using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2016
+ms.date: 01/23/2017
 ms.author: jingwang
 
 ---

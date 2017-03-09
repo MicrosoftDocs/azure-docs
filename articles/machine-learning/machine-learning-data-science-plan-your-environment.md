@@ -1,5 +1,5 @@
 ---
-title: How to identify scenarios and plan for advanced analytics data processing | Microsoft Docs
+title: Identify scenarios and plan your analytics process - Azure | Microsoft Docs
 description: Plan for advanced analytics by considering a series of key questions.
 services: machine-learning
 documentationcenter: ''

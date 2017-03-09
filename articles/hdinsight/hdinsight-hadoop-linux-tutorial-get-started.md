@@ -23,7 +23,6 @@ ms.author: jgao
 Learn how to create [Hadoop](http://hadoop.apache.org/) clusters in HDInsight, and how to run Hive jobs in HDInsight. [Apache Hive](https://hive.apache.org/) is the most popular component in the Hadoop ecosystem. Currently HDInsight comes with six different cluster types: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Interactive Hive (Preview)](hdinsight-hadoop-use-interactive-hive.md) and [R server](hdinsight-hadoop-r-server-overview.md).  Each cluster type supports a different set of components. All six cluster types support Hive. For a list of supported components in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
-
 ## Prerequisites
 Before you begin this tutorial, you must have:
 
@@ -56,7 +55,7 @@ The Resource Manager template used in this tutorial is located in [Github](https
     Some properties have been hardcoded in the template.  You can configure these values from the template.
 
     * **Location**: Both the location of the cluster and the dependent storage account use the same location as the resource group.
-    * **Cluster version**: 3.4
+    * **Cluster version**: 3.5
     * **OS Type**: Linux
     * **Number of worker nodes**: 2
 

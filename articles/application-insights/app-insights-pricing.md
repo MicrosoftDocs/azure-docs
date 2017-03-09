@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 02/17/2017
 ms.author: awills
 
 ---
@@ -38,7 +38,8 @@ The Basic plan is the default when a new Application Insights resource is create
 * In the Basic plan, you are charged by data volume: number of bytes of telemetry received by Application Insights. 
 Data volume is measured as the size of the uncompressed JSON data package received by Application Insights from your application.
 * Your first 1 GB for each app is free, so if you're just experimenting or developing, you're unlikely to have to pay.
-* [Continuous Export](app-insights-export-telemetry.md) and [Log Analytics connector](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) are available for an extra per-GB charge in the Basic plan, although they are free until early March 2017.
+* [Live Metrics Stream](app-insights-live-stream.md) data isn't counted for pricing purposes.
+* [Continuous Export](app-insights-export-telemetry.md) is available for an extra per-GB charge in the Basic plan, although it is free until early March 2017.
 
 ### Enterprise plan
 
@@ -48,6 +49,7 @@ Data volume is measured as the size of the uncompressed JSON data package receiv
  * A *node* is a physical or virtual server machine, or a Platform-as-a-Service role instance, that hosts your app.
  * Development machines, client browsers, and mobile devices are not counted as nodes.
  * If your app has several components that send telemetry, such as a web service and a back-end worker, they are counted separately.
+ * [Live Metrics Stream](app-insights-live-stream.md) data isn't counted for pricing purposes.
 * Across a subscription, your charges are per node, not per app. If you have five nodes sending telemetry for 12 apps, then the charge is for five nodes.
 * Although charges are quoted per month, you're charged only for any hour in which a node sends telemetry from an app. The hourly charge is the quoted monthly charge / 744 (the number of hours in a 31-day month).
 * A data volume allocation of 200 MB per day is given for each node detected (with hourly granularity). Unused data allocation is not carried over from one day to the next.
@@ -65,7 +67,7 @@ Data volume is measured as the size of the uncompressed JSON data package receiv
 
 * The precise node counting behavior depends on which Application Insights SDK your application is using. 
   * In SDK versions 2.2 and onwards, both the Application Insights [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) or [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) will report each application host as a node, for example the computer name for physical server and VM hosts or the instance name in the case of cloud services.  The only exception is applications only using [.NET Core](https://dotnet.github.io/) and the Application Insights Core SDK, in which case only one node will be reported for all hosts because the host name is not available. 
-  * For earlier versions of the SDK, the [Web SDK}(https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) will behave just as the newer SDK versions, however the [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) will report only one node regardless of the number of actual application hosts. 
+  * For earlier versions of the SDK, the [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) will behave just as the newer SDK versions, however the [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) will report only one node regardless of the number of actual application hosts. 
   * Note that if your application is using the SDK to set roleInstance to a custom value, by default that same value will be used to determine the count of nodes. 
   * If you are using a new SDK version with an app that is run from client machines or mobile devices, it is possible that the count of nodes might return a number which is very large (from the large number of client machines or mobile devices). 
 
@@ -95,9 +97,9 @@ Application Insights charges are added to your Azure bill. You can see details o
 ## Data rate
 There are three ways in which the volume you send data is limited:
 
-* **Daily cap.** By default this is set at 500 GB/day. When your app hits the cap, we send an email and discard data until the end of the day. To change it, use the Data Volume Management blade.
+* **Daily cap.** The maximum cap is 500 GB/day. The default when creating an Application Insights resource from Visual Studio, is small (only 32.3 MB/day). When creating an Application Insights resource from the Azure portal this is set to its maximum. Use care when changing this, since hitting the cap will cause you to lose data for the remainder of the day. To change it, use the Daily volume cap blade, linked from the Data Volume Management blade.
 * **[Sampling](app-insights-sampling.md).** This mechanism can reduce the amount of telemetry sent from your server and client apps, with minimal distortion of metrics.
-* **Throttling** limits the data rate to 16 k events per second, averaged over 1 minute. 
+* **Throttling** limits the data rate to 32 k events per second, averaged over 1 minute. 
 
 
 *What happens if my app exceeds the throttling rate?*
@@ -114,12 +116,14 @@ If throttling occurs, you'll see a notification warning that this has happened.
 ## To reduce your data rate
 Here are some things you can do to reduce your data volume:
 
-* Reduce the daily volume cap. The default is 500 GB/day.
 * Use [Sampling](app-insights-sampling.md). This technology reduces data rate without skewing your metrics, and without disrupting the ability to navigate between related items in Search. In server apps, it operates automatically.
 * [Limit the number of Ajax calls that can be reported](app-insights-javascript.md#detailed-configuration) in every page view, or switch off Ajax reporting.
 * Switch off collection modules you don't need by [editing ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). For example, you might decide that performance counters or dependency data are inessential.
 * Split your telemetry to separate instrumentation keys. 
-* Pre-aggregate metrics. If you have put calls to TrackMetric in your app, you can reduce traffic by using the overload that accepts your calculation of the average and standard deviation of a batch of measurements. Or you can use a [pre-aggregating package](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
+* Pre-aggregate metrics. If you have put calls to TrackMetric in your app, you can reduce traffic by using the overload that accepts your calculation of the average and standard deviation of a batch of measurements. Or you can use a [pre-aggregating package](https://www.myget.org/gallery/applicationinsights-sdk-labs).
+* Lastly, you can reduce the daily volume cap which will limit the data collected but will result is a loss of data for the remainder of the day. To change it, open **Features+pricing**, **Data management**.
+
+    ![Adjusting the daily telemetry volume cap](./media/app-insights-pricing/daily-cap.png) 
 
 ## Sampling
 [Sampling](app-insights-sampling.md) is a method of reducing the rate at which telemetry is sent to your app, while still retaining the ability to find related events during diagnostic searches, and still retaining correct event counts. 

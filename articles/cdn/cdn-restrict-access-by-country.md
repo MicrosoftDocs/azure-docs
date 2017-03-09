@@ -1,5 +1,5 @@
 ---
-title: Restrict access to your Azure CDN content by country | Microsoft Docs
+title: Restrict Azure CDN content by country | Microsoft Docs
 description: Learn how to restrict access to your Azure CDN content using the Geo-Filtering feature.
 services: cdn
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2016
+ms.date: 01/23/2017
 ms.author: rli
 
 ---
-# Restrict access to your content by country
+# Restrict Azure CDN content by country
 
 ## Overview
 When a user requests your content, by default, the content is served regardless of where the user made this request from. In some cases, you may want to restrict access to your content by country. This topic explains how to use the **Geo-Filtering** feature in order to configure the service to allow or block access by country.

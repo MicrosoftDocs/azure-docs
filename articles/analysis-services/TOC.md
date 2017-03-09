@@ -11,9 +11,10 @@
 ##[Integrate On-premises data gateway](analysis-services-gateway.md)
 
 # Reference
-##[PowerShell](/powershell/resourcemanager)
+##[PowerShell](analysis-services-powershell.md)
 ##[REST](/rest/api/analysisservices)
 
 # Resources
 ##[Datasource connections](analysis-services-datasource.md)
-##[Data providers](analysis-services-data-providers.md) 
+##[Data providers](analysis-services-data-providers.md)
+##[Create an .odc file](analysis-services-odc.md)

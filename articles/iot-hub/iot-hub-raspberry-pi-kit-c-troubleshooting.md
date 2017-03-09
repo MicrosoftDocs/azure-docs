@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting | Microsoft Docs
+title: 'Connect Raspberry Pi (C) to Azure IoT - Troubleshoot | Microsoft Docs'
 description: Troubleshooting page for Raspberry Pi Node.js experience
 services: iot-hub
 documentationcenter: ''

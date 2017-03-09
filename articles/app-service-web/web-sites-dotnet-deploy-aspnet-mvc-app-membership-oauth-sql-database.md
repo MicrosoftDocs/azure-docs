@@ -5,7 +5,7 @@ services: app-service\web
 documentationcenter: .net
 author: Rick-Anderson
 writer: Rick-Anderson
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: c0de419d-db6f-4157-94ca-f75d0ba6c0e3

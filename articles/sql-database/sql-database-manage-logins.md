@@ -1,5 +1,5 @@
 ---
-title: SQL Database Authentication and Authorization | Microsoft Docs
+title: Azure SQL logins and users | Microsoft Docs
 description: Learn about SQL Database security management, specifically how to manage database access and login security through the server-level principal account.
 keywords: sql database security,database security management,login security,database security,database access
 services: sql-database
@@ -13,10 +13,10 @@ ms.assetid: 0a65a93f-d5dc-424b-a774-7ed62d996f8c
 ms.service: sql-database
 ms.custom: authentication and authorization
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/17/2017
+ms.date: 01/23/2017
 ms.author: rickbyh
 
 ---
@@ -26,6 +26,12 @@ When firewall rules have been configured, people can connect to a SQL Database a
 
 >  [!NOTE]  
 >  This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. 
+>
+
+> [!TIP]
+> For a tutorial using SQL Server authentication, see [Tutorial: SQL Server authentication](sql-database-control-access-sql-authentication-get-started.md). For a tutorial using Azure Active Directory authentication, see [Tutorial: AAD authentication](sql-database-control-access-aad-authentication-get-started.md).
+>
+
 
 ## Unrestricted administrative accounts
 There are two administrative accounts (**Server admin** and **Active Directory admin**) that act as administrators. To identify these administrator accounts for your SQL server, open the Azure portal, and navigate to the properties of your SQL server.
@@ -185,5 +191,5 @@ When managing logins and users in SQL Database, consider the following:
 - For a tutorial, see [Get started with SQL security](sql-database-control-access-sql-authentication-get-started.md)
 - For information about views and stored procedures, see [Creating views and stored procedures](https://msdn.microsoft.com/library/ms365311.aspx)
 - For information about granting access to a database object, see [Granting Access to a Database Object](https://msdn.microsoft.com/library/ms365327.aspx)
-- For a tutorial using SQL Server authentication, see [SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md).
-- For a tutorial using Azure Active Directory authentication, see [SQL Database tutorial: AAD authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-aad-authentication-get-started.md).
+- For a tutorial using SQL Server authentication, see [Tutorial: SQL Server authentication](sql-database-control-access-sql-authentication-get-started.md).
+- For a tutorial using Azure Active Directory authentication, see [Tutorial: AAD authentication](sql-database-control-access-aad-authentication-get-started.md).

@@ -1,6 +1,6 @@
 ---
-title: Add , rollover and remove certificates used in a Service Fabric cluster in Azure | Microsoft Docs
-description: Describes how to use add new certificates, perform rollover of certificate and to remove the certificate from being used by the cluster for security
+title: Manage certificates in an Azure Service Fabric cluster | Microsoft Docs
+description: Describes how to add new certificates, rollover certificate, and remove certificate to or from a Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
@@ -137,7 +137,7 @@ The properties should now look like this
 
 ![Json_Pub_Setting2][Json_Pub_Setting2]
 
-if you do not want to **rollover the cert**, then specify the new cert as primary and moving the current primary as secondary. This results in the rollover of your current certificate to the new certificate in one deployment step. 
+If you want to **rollover the cert**, then specify the new cert as primary and moving the current primary as secondary. This results in the rollover of your current certificate to the new certificate in one deployment step. 
 
 
 ```JSON

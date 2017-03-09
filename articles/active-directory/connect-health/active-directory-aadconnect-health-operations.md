@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 1/31/2017
 ms.author: vakarand
 
 ---
@@ -27,8 +27,8 @@ You can configure the Azure AD Connect Health Service to send email notification
 
 > [!NOTE]
 > Email notifications are disabled by default.
-> 
-> 
+>
+>
 
 ### To enable Azure AD Connect Health Email Notifications
 1. Open the Alerts Blade for the service for which you wish to receive email notification.
@@ -127,8 +127,8 @@ These steps will allow the listed users and group access as per their assigned r
 > [!NOTE]
 > * Global Administrators always have full access to all the operations but global administrator accounts will not be present in the above list.
 > * "Invite Users" feature is NOT supported within Azure AD Connect Health.
-> 
-> 
+>
+>
 
 #### Step 3: Share the blade location with users or groups
 1. After assigning permissions, a user can access Azure AD Connect Health by going to [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth).
@@ -137,8 +137,8 @@ These steps will allow the listed users and group access as per their assigned r
 
 > [!NOTE]
 > A user with the "Reader" role assigned will not be able to perform the "create" operation to get Azure AD Connect Health extension from the Azure Marketplace. This user can still get to the blade by going to the above link. For subsequent usage, the user can pin the blade to the dashboard.
-> 
-> 
+>
+>
 
 ### Remove users and/or groups
 You can remove a user or a group added to Azure AD Connect Health Role Based Access Control part by right clicking and selecting remove.<br>
@@ -154,4 +154,3 @@ You can remove a user or a group added to Azure AD Connect Health Role Based Acc
 * [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
-

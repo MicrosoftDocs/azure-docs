@@ -1,6 +1,6 @@
 ---
-title: Monitoring Kubernetes in Azure Container Service using Operations Management Suite (OMS) | Microsoft Docs
-description: Monitoring Kubernetes in Azure Container Service using Operations Management Suite (OMS)
+title: Monitor Azure Kubernetes cluster - Operations Management | Microsoft Docs
+description: Monitoring Kubernetes cluster in Azure Container Service using Microsoft Operations Management Suite
 services: container-service
 documentationcenter: ''
 author: bburns

@@ -26,10 +26,10 @@ This tutorial walks you through the steps of implementing a basic Video-on-Deman
 
 The following are required to complete the tutorial:
 
-* An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
+* An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 * A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
-* .NET Framework 4.0 or later
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later versions.
+* .NET Framework 4.0 or later.
+* Visual Studio.
 
 This tutorial includes the following tasks:
 
@@ -52,7 +52,7 @@ The following image shows some of the most commonly used objects when developing
 
 Click the image to view it full size.  
 
-<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
+<a href="./media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
 You can view the whole model [here](https://media.windows.net/API/$metadata?api-version=2.15).  
 
@@ -61,13 +61,13 @@ You can view the whole model [here](https://media.windows.net/API/$metadata?api-
 When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming. Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4 encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
 
 >[!NOTE]
->When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state.
 
 To start the streaming endpoint, do the following:
 
 1. Log in at the [Azure portal](https://portal.azure.com/).
-2. In the Settings window, click Streaming endpoints. 
-3. Click the default streaming endpoint. 
+2. In the Settings window, click Streaming endpoints.
+3. Click the default streaming endpoint.
 
 	The DEFAULT STREAMING ENDPOINT DETAILS window appears.
 
@@ -76,7 +76,7 @@ To start the streaming endpoint, do the following:
 
 ## Create and configure a Visual Studio project
 
-1. Create a new C# Console Application in Visual Studio 2013, Visual Studio 2012, or Visual Studio 2010 SP1. Enter the **Name**, **Location**, and **Solution name**, and then click **OK**.
+1. Create a new C# Console Application in Visual Studio. Enter the **Name**, **Location**, and **Solution name**, and then click **OK**.
 2. Use the  [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) NuGet package to install **Azure Media Services .NET SDK Extensions**.  The Media Services .NET SDK Extensions is a set of extension methods and helper functions that will simplify your code and make it easier to develop with Media Services. Installing this package, also installs **Media Services .NET SDK** and adds all other required dependencies.
 
 	To add references by using NuGet do the following: in Solution Explorer, click the right mouse button on the project name, select **Manage NuGet packages**. Then, search for **windowsazure.mediaservices.extensions** and click **Install**.
@@ -215,7 +215,7 @@ To take advantage of dynamic packaging, you need to encode or transcode your mez
 The following code shows how to submit an encoding job. The job contains one task that specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using **Media Encoder Standard**. The code submits the job and waits until it is completed.
 
 Once the job is completed, you would be able to stream your asset or progressively download MP4 files that were created as a result of transcoding.
- 
+
 Add the following method to the Program class.
 
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
@@ -226,7 +226,7 @@ Add the following method to the Program class.
 
         IJob job = _context.Jobs.CreateWithSingleTask(
             "Media Encoder Standard",
-            "H264 Multiple Bitrate 720p",
+            "Adaptive Streaming",
             asset,
             "Adaptive Bitrate MP4",
             options);
@@ -398,7 +398,7 @@ For more information, see the following topics:
 ## Download sample
 The following code sample contains the code that you created in this tutorial: [sample](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-## Next Steps 
+## Next Steps
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

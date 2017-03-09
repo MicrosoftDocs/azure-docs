@@ -43,7 +43,6 @@ Then, to handle any outages, you can create a CDN on top of these origin locator
 
 The following considerations apply:
 
-* The current version of Media Services SDK does not support creating a locator with a specified locator id. To achieve this task, we will use Media Services REST API.
 * The current version of Media Services SDK does not support programmatically generating IAssetFile information that would associate an asset with asset files. To achieve this task, we will use the CreateFileInfos Media Services REST API. 
 * Storage encrypted assets (AssetCreationOptions.StorageEncrypted) are not supported for replication (since the encryption key will be different in both Media Services accounts). 
 * If you want to take advantage of dynamic packaging, make sure the streaming endpoint from which you want to stream  your content is in the **Running** state.
@@ -241,10 +240,10 @@ In this section you will create and set up a C# Console Application project.
                                                     "Media Encoder Standard");
    
             // Create a task with the encoding details, using a string preset.
-            // In this case "H264 Multiple Bitrate 720p" preset is used.
+            // In this case "Adaptive Streaming" preset is used.
             ITask task = job.Tasks.AddNew("My encoding task",
                 processor,
-                "H264 Multiple Bitrate 720p",
+                "Adaptive Streaming",
                 TaskOptions.ProtectedConfiguration);
    
             // Specify the input asset to be encoded.

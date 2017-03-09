@@ -1,5 +1,5 @@
 ---
-title: Multi-region writer architectures with Azure DocumentDB | Microsoft Docs
+title: Multi-master database architectures with Azure DocumentDB | Microsoft Docs
 description: Learn about how to design application architectures with local reads and writes across multiple geographic regions with Azure DocumentDB.
 services: documentdb
 documentationcenter: ''
@@ -13,17 +13,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 01/25/2017
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 
 ---
-# Multi-region writer architectures with Azure DocumentDB
+# Multi-master globally replicated database architectures with DocumentDB
 DocumentDB supports turnkey [global replication](documentdb-distribute-data-globally.md), which allows you to distribute data to multiple regions with low latency access anywhere in the workload. This model is commonly used for publisher/consumer workloads where there is a writer in a single geographic region and globally distributed readers in other (read) regions. 
 
 You can also use DocumentDB's global replication support to build applications in which writers and readers are globally distributed. This document outlines a pattern that enables achieving local write and local read access for distributed writers using Azure DocumentDB.
 
 ## <a id="ExampleScenario"></a>Content Publishing - an example scenario
-Let's look at a real world scenario to describe how you can use globally distributed multi-region read write patterns with DocumentDB. Consider a content publishing platform built on DocumentDB. Here are some requirements that this platform must meet for a great user experience for both publishers and consumers.
+Let's look at a real world scenario to describe how you can use globally distributed multi-region/multi-master read write patterns with DocumentDB. Consider a content publishing platform built on DocumentDB. Here are some requirements that this platform must meet for a great user experience for both publishers and consumers.
 
 * Both authors and subscribers are spread over the world 
 * Authors must publish (write) articles to their local (closest) region
@@ -164,6 +165,10 @@ To guarantee local reads and writes, we must partition data not just on partitio
 | --- | --- | --- |
 | `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |
+
+The following diagram shows how reads and writes are performed in a typical application with this setup:
+
+![Azure DocumentDB multi-master architecture](./media/documentdb-multi-region-writers/documentdb-multi-master.png)
 
 Here is a code snippet showing how to initialize the clients in a DAL running in the `West US` region.
     

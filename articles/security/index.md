@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Security Documentation - Tutorials | Microsoft Docs
 description: Learn how to customize security options in Azure services to meet the requirements of your deployments of services and data in the cloud.
+services: security
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: security
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Security Documentation
 

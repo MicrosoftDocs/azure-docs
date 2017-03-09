@@ -1,5 +1,5 @@
 ---
-title: How to Schedule Planned Maintenance for Azure VMs | Microsoft Docs
+title: How to schedule maintenance for Windows VMs in Azure | Microsoft Docs
 description: Learn how to schedule planned maintenance on Azure VMs.
 services: virtual-machines-windows
 documentationcenter: ''

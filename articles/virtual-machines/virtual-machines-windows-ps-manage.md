@@ -182,37 +182,6 @@ It returns something like this example:
 
 See [Sizes for virtual machines in Azure](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for a list of available sizes for a virtual machine.
 
-## Add a data disk to a virtual machine
-This example shows how to add a data disk to an existing virtual machine.
-
-    $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-    Add-AzureRmVMDataDisk -VM $vm -Name "disk-name" -VhdUri "https://mystore1.blob.core.windows.net/vhds/datadisk1.vhd" -LUN 0 -Caching ReadWrite -DiskSizeinGB 1 -CreateOption Empty
-    Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
-
-The disk that you add is not initialized. To initialize the disk, you can log in to it and use disk management. If you installed WinRM and a certificate on it when you created it, you can use remote PowerShell to initialize the disk. You can also use a custom script extension: 
-
-    $location = "location-name"
-    $scriptName = "script-name"
-    $fileName = "script-file-name"
-    Set-AzureRmVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
-
-The script file can contain something like this code to initialize the disks:
-
-    $disks = Get-Disk |   Where partitionstyle -eq 'raw' | sort number
-
-    $letters = 70..89 | ForEach-Object { ([char]$_) }
-    $count = 0
-    $labels = @("data1","data2")
-
-    foreach($d in $disks) {
-        $driveLetter = $letters[$count].ToString()
-        $d | 
-        Initialize-Disk -PartitionStyle MBR -PassThru |
-        New-Partition -UseMaximumSize -DriveLetter $driveLetter |
-        Format-Volume -FileSystem NTFS -NewFileSystemLabel $labels[$count] `
-            -Confirm:$false -Force 
-        $count++
-    }
 
 ## Next Steps
 If there were issues with a deployment, you might look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md)

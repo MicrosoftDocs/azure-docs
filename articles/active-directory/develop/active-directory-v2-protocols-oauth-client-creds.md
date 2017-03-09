@@ -1,6 +1,6 @@
 
 ---
-title: Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow | Microsoft Docs
+title: Use Azure AD v2.0 to access secure resources without user interaction | Microsoft Docs
 description: Build web applications by using the Azure AD implementation of the OAuth 2.0 authentication protocol.
 services: active-directory
 documentationcenter: ''

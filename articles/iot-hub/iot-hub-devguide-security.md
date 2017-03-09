@@ -38,10 +38,10 @@ You can grant [permissions](#iot-hub-permissions) in the following ways:
 * **IoT hub-level shared access policies**. Shared access policies can grant any combination of [permissions](#iot-hub-permissions). You can define policies in the [Azure portal][lnk-management-portal], or programmatically by using the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis]. A newly created IoT hub has the following default policies:
   
   * **iothubowner**: Policy with all permissions.
-  * **service**: Policy with ServiceConnect permission.
-  * **device**: Policy with DeviceConnect permission.
-  * **registryRead**: Policy with RegistryRead permission.
-  * **registryReadWrite**: Policy with RegistryRead and RegistryWrite permissions.
+  * **service**: Policy with **ServiceConnect** permission.
+  * **device**: Policy with **DeviceConnect** permission.
+  * **registryRead**: Policy with **RegistryRead** permission.
+  * **registryReadWrite**: Policy with **RegistryRead** and RegistryWrite permissions.
   * **Per-device security credentials**. Each IoT Hub contains an [identity registry][lnk-identity-registry]. For each device in this identity registry, you can configure security credentials that grant **DeviceConnect** permissions scoped to the corresponding device endpoints.
 
 For example, in a typical IoT solution:
@@ -50,6 +50,9 @@ For example, in a typical IoT solution:
 * The event processor component uses the *service* policy.
 * The run-time device business logic component uses the *service* policy.
 * Individual devices connect using credentials stored in the IoT hub's identity registry.
+
+> [!NOTE]
+> See [permissions](#iot-hub-permissions) for detailed information.
 
 ## Authentication
 Azure IoT Hub grants access to endpoints by verifying a token against the shared access policies and identity registry security credentials.
@@ -220,7 +223,7 @@ The result, which grants access to all functionality for device1, would be:
     SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697
 
 > [!NOTE]
-> It is possible to generate a SAS token using the .NET [device explorer][lnk-device-explorer] tool.
+> It is possible to generate a SAS token using the .NET [device explorer][lnk-device-explorer] tool or the cross-platform, node-based [iothub-explorer][lnk-iothub-explorer] command-line utility.
 > 
 > 
 
@@ -370,10 +373,10 @@ The following table lists the permissions you can use to control access to your 
 
 | Permission | Notes |
 | --- | --- |
-| **RegistryRead** |Grants read access to the identity registry. For more information, see [Identity registry][lnk-identity-registry]. |
-| **RegistryReadWrite** |Grants read and write access to the identity registry. For more information, see [Identity registry][lnk-identity-registry]. |
-| **ServiceConnect** |Grants access to cloud service-facing communication and monitoring endpoints. For example, it grants permission to back-end cloud services to receive device-to-cloud messages, send cloud-to-device messages, and retrieve the corresponding delivery acknowledgments. |
-| **DeviceConnect** |Grants access to device-facing endpoints. For example, it grants permission to send device-to-cloud messages and receive cloud-to-device messages. This permission is used by devices. |
+| **RegistryRead** |Grants read access to the identity registry. For more information, see [Identity registry][lnk-identity-registry]. <br/>This permission is used by back-end cloud services. |
+| **RegistryReadWrite** |Grants read and write access to the identity registry. For more information, see [Identity registry][lnk-identity-registry]. <br/>This permission is used by back-end cloud services. |
+| **ServiceConnect** |Grants access to cloud service-facing communication and monitoring endpoints. <br/>Grants permission to receive device-to-cloud messages, send cloud-to-device messages, and retrieve the corresponding delivery acknowledgments. <br/>Grants permission to retrieve delivery acknowledgements for file uploads. <br/>Grants permission to access device twins to update tags and desired properties, retrieve reported properties, and run queries. <br/>This permission is used by back-end cloud services. |
+| **DeviceConnect** |Grants access to device-facing endpoints. <br/>Grants permission to send device-to-cloud messages and receive cloud-to-device messages. <br/>Grants permission to perform file upload from a device. <br/>Grants permission to receive device twin desired property notifications and update device twin reported properties. <br/>Grants permission to perform file uploads. <br/>This permission is used by devices. |
 
 ## Additional reference material
 Other reference topics in the IoT Hub developer guide include:
@@ -418,7 +421,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-sasl-plain]: http://tools.ietf.org/html/rfc4616
 [lnk-identity-registry]: iot-hub-devguide-identity-registry.md
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
-[lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
+[lnk-java-sas]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.auth._iot_hub_service_sas_token
 [lnk-tls-psk]: https://tools.ietf.org/html/rfc4279
 [lnk-protocols]: iot-hub-protocol-gateway.md
 [lnk-custom-auth]: iot-hub-devguide-security.md#custom-device-authentication
@@ -429,6 +432,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
+[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md

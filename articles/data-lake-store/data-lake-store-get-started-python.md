@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Data Lake Store using Python | Microsoft Docs
+title: Use the Python SDK to get started with Azure Data Lake Store | Microsoft Docs
 description: Learn how to use Python SDK to work with Data Lake Store accounts and the file system.
 services: data-lake-store
 documentationcenter: ''

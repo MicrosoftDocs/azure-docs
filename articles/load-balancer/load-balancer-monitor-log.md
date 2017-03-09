@@ -17,7 +17,7 @@ ms.date: 10/24/2016
 ms.author: kumud
 ---
 
-# Log analytics for Azure Load Balancer (Preview)
+# Log analytics for Azure Load Balancer
 
 You can use different types of logs in Azure to manage and troubleshoot load balancers. Some of these logs can be accessed through the portal. All logs can be extracted from an Azure blob storage, and viewed in different tools, such as Excel and PowerBI. You can learn more about the different types of logs from the list below.
 

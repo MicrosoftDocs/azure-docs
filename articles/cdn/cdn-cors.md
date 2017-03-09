@@ -3,7 +3,7 @@ title: Using Azure CDN with CORS | Microsoft Docs
 description: Learn how to use the Azure Content Delivery Network (CDN) to with Cross-Origin Resource Sharing (CORS).
 services: cdn
 documentationcenter: ''
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 
 ---
 # Using Azure CDN with CORS

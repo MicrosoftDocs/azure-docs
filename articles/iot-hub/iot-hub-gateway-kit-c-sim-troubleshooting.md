@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting your Azure IoT gateway | Microsoft Docs
+title: 'Simulated device & Azure IoT Gateway - Troubleshooting | Microsoft Docs'
 description: Troubleshooting page for Intel NUC gateway
 services: iot-hub
 documentationcenter: ''
