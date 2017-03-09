@@ -18,6 +18,10 @@ ms.author: ruturajd
 
 ---
 # Failback in Site Recovery
+> [!div class="op_single_selector"]
+> * [VMware/physical machines from Azure](site-recovery-failback-azure-to-vmware.md)
+> * [Hyper-V VMs from Azure](site-recovery-failback-from-azure-to-hyper-v.md)
+
 This article describes how to failback virtual machines protected by Site Recovery. 
 
 ## Prerequisites
