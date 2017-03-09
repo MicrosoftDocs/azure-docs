@@ -80,7 +80,7 @@ logmsg('Start')
 logmsg(paste('Number of task nodes=',length(trackers)))
 ```
 
-**Next we’ll add “Spark_Home” to the search path for R packages so we can use SparkR, and initialize a SparkR session.**
+Next we’ll add “Spark_Home” to the search path for R packages so we can use SparkR, and initialize a SparkR session.
 
 ```
 #..setup for use of SparkR  
@@ -241,7 +241,7 @@ airDF <- select(airDF, varsToKeep)
 airDF$CRSDepTime <- floor(airDF$CRSDepTime / 100)
 ```
 
-**Now we‘ll perform similar operations on the weather data:**
+Now we‘ll perform similar operations on the weather data:
 
 ```
 # Average weather readings by hour
@@ -293,7 +293,7 @@ joinedDF2 <- rename(joinedDF1,
 )
 ```
 
-**In a similar fashion, we’ll join the weather and airline data based on arrival AirportID and datetime.**
+In a similar fashion, we’ll join the weather and airline data based on arrival AirportID and datetime.
 
 ```
 logmsg('Join airline data with weather at Destination Airport')
@@ -474,7 +474,7 @@ logitModel <- rxLogit(formula, data = trainDS, maxIterations = 3)
 base::summary(logitModel)
 ```
 
-**Now let’s see how it does on the test data by making some predictions and looking at ROC and AUC.**
+Now let’s see how it does on the test data by making some predictions and looking at ROC and AUC.
 
 ```
 # Predict over test data (Logistic Regression).
