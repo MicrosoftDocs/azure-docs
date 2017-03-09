@@ -53,7 +53,7 @@ The [SendGrid NuGet package](https://www.nuget.org/packages/Sendgrid) is the eas
 
 To install the SendGrid NuGet package in your application, do the following:
 
-1. Create a **New Project** and select a **Template**.
+1. Click on **New Project** and select a **Template**.
 
    ![Create a new project][create-new-project]
 2. In **Solution Explorer**, right-click **References**, then click
