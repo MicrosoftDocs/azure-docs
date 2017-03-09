@@ -40,14 +40,14 @@ Clients use access tokens to access a protected resource. An access token can be
 ### Refresh tokens
 When a client acquires an access token to access a protected resource, the client receives both a refresh token and an access token. The refresh token is used to obtain new access/refresh token pairs when the current access token expires. A refresh token is bound to a combination of user and client. A refresh token can be revoked, and the token's validity is checked every time the token is used.
 
-It is important to distinguish confidential clients from public clients. For more information about different types of clients, see [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
+It's important to make a distinction between confidential clients and public clients. For more information about different types of clients, see [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
 #### Token lifetimes with confidential client refresh tokens
-Confidential clients are applications that can securely store a client password (secret). They can prove that requests are coming from the client application and not from a malicious actor. For example, a web app is a confidential client because it can store a client secret on the web server. It is not exposed. Because these flows are more secure, the default lifetimes of refresh tokens issued to these flows are higher and cannot be changed by using policy.
+Confidential clients are applications that can securely store a client password (a secret). They can prove that requests are coming from the client application and not from a malicious actor. For example, a web app is a confidential client because it can store a client secret on the web server. It is not exposed. Because these flows are more secure, the default lifetimes of refresh tokens issued to these flows are higher and cannot be changed by using policy.
 
 #### Token lifetimes with public client refresh tokens
 
-Public clients cannot securely store a client password (secret). For example, an iOS/Android app cannot obfuscate a secret from the resource owner, so it is considered a public client. You can set policies on resources to prevent refresh tokens from public clients older than a specified period from obtaining a new access/refresh token pair (by using the Refresh Token Max Inactive Time property). You also can use policies to set a period beyond which the refresh tokens are no longer accepted (by using the Refresh Token Max Age property). You can adjust the lifetime of a refresh token to control when and how often the user is required to reenter credentials instead of being silently reauthenticated when using a public client application.
+Public clients cannot securely store a client password (a secret). For example, an iOS/Android app cannot obfuscate a secret from the resource owner, so it is considered a public client. You can set policies on resources to prevent refresh tokens from public clients older than a specified period from obtaining a new access/refresh token pair. To do this, use the Refresh Token Max Inactive Time property. You also can use policies to set a period beyond which the refresh tokens are no longer accepted. To do this, use the Refresh Token Max Age property. You can adjust the lifetime of a refresh token to control when and how often the user is required to reenter credentials instead of being silently reauthenticated when using a public client application.
 
 ### ID tokens
 ID tokens are passed to websites and native clients. ID tokens contain profile information about a user. An ID token is bound to a specific combination of user and client. ID tokens are considered valid until their expiry. Usually, a web application matches a user’s session lifetime in the application to the lifetime of the ID token issued for the user. You can adjust the lifetime of an ID token to control how often the web application expires the application session, and how often it requires the user to be reauthenticated with Azure AD (either silently or interactively).
@@ -55,11 +55,11 @@ ID tokens are passed to websites and native clients. ID tokens contain profile i
 ### Single sign-on session tokens
 When a user authenticates with Azure AD and selects the **Keep me signed in** check box, a single sign-on session (SSO) is established with the user’s browser and Azure AD. The SSO token, in the form of a cookie, represents this session. Note that the SSO session token is not bound to a specific resource/client application. SSO session tokens can be revoked, and their validity is checked every time they are used.
 
-Azure AD uses two kinds of SSO session tokens: persistent and nonpersistent. Persistent session tokens are stored as persistent cookies by the browser. Nonpersistent session tokens are stored as session cookies (they are destroyed when the browser is closed).
+Azure AD uses two kinds of SSO session tokens: persistent and nonpersistent. A persistent session token is stored as a persistent cookie by the browser. A nonpersistent session token is stored as a session cookie. (Session cookies are destroyed when the browser is closed.)
 
-Nonpersistent session tokens have a lifetime of 24 hours. Persistent tokens have a lifetime of 180 days. Any time the SSO session token is used within its validity period, the validity period is extended another 24 hours or 180 days. If the SSO session token is not used within its validity period, it is considered expired and is no longer accepted.
+A nonpersistent session token has a lifetime of 24 hours. A persistent token has a lifetime of 180 days. Any time an SSO session token is used within its validity period, the validity period is extended another 24 hours or 180 days, depending on the token type. If the SSO session token is not used within its validity period, it is considered expired and is no longer accepted.
 
-You can use a policy to set the time after the first session token was issued beyond which the session token is no longer accepted (by using the Session Token Max Age property). You can adjust the lifetime of a session token to control when and how often a user is required to reenter credentials instead of being silently authenticated when using a web application.
+You can use a policy to set the time after the first session token was issued beyond which the session token is no longer accepted. To do this, use the Session Token Max Age property. You can adjust the lifetime of a session token to control when and how often a user is required to reenter credentials instead of being silently authenticated when using a web application.
 
 ### Token lifetime policy properties
 A token lifetime policy is a type of policy object that contains token lifetime rules. Use the properties of the policy to control specified token lifetimes. If no policy is set, the system enforces the default lifetime value.
@@ -91,7 +91,7 @@ You can create and then assign a token lifetime policy to a specific application
 * If a policy is explicitly assigned to the service principal, it is enforced.
 * If no policy is explicitly assigned to the service principal, a policy explicitly assigned to the parent organization of the service principal is enforced.
 * If no policy is explicitly assigned to the service principal or to the organization, the policy assigned to the application is enforced.
-* If no policy has been assigned to the service principal, the organization, or the application object, the default values is enforced (see the table in [Configurable token lifetime properties](#configurable-token-lifetime-properties)).
+* If no policy has been assigned to the service principal, the organization, or the application object, the default values is enforced. (See the table in [Configurable token lifetime properties](#configurable-token-lifetime-properties).)
 
 For more information about the relationship between application objects and service principal objects in Azure AD, see [Application and service principal objects in Azure Active Directory](active-directory-application-objects.md).
 
@@ -124,7 +124,7 @@ A token’s validity is evaluated at the time the token is used. The policy with
 
 **Affects:** Access tokens, ID tokens
 
-**Summary:** This policy controls how long access and ID tokens for this resource are considered valid. Reducing the Access Token Lifetime property mitigates the risk of an access token or ID token being used by a malicious actor for an extended period of time (because these tokens can't be revoked). The trade-off is that performance is adversely affected, because the tokens have to be replaced more often.
+**Summary:** This policy controls how long access and ID tokens for this resource are considered valid. Reducing the Access Token Lifetime property mitigates the risk of an access token or ID token being used by a malicious actor for an extended period of time. (Because these tokens cannot be revoked.) The trade-off is that performance is adversely affected, because the tokens have to be replaced more often.
 
 ### Refresh Token Max Inactive Time
 **String:** MaxInactiveTime
@@ -301,7 +301,7 @@ In this example, you create a policy that requires users to authenticate less fr
 
 
 ### Example: Manage an advanced policy
-In this example, you create a few policies, to learn how the priority system works, and how you can manage multiple policies that are applied to several objects. This example can give you some insight into policy priorities, discussed earlier. It also can help you manage more complex scenarios.
+In this example, you create a few policies, to learn how the priority system works. You also can learn how to manage multiple policies that are applied to several objects.
 
 1. Create a token lifetime policy.
 
