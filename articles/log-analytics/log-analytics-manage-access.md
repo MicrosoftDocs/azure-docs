@@ -93,8 +93,8 @@ The following activities in the Log Analytics portal also require Azure permissi
 
 | Action                                                          | Azure Permissions Needed | Notes |
 |-----------------------------------------------------------------|--------------------------|-------|
-| Adding and removing management solutions                        | Resource Group write <br> Microsoft.OperationalInsights/\* <br> Microsoft.OperationsManagement/\* <br> Microsoft.Automation/\* <br> Microsoft.Resources/deployments/\*/write | |
-| Changing the pricing tier                                       | Microsoft.OperationalInsights/workspaces/\*/write | |
+| Adding and removing management solutions                        | Resource Group write <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| Changing the pricing tier                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Viewing data in the *Backup* and *Site Recovery* solution tiles | Administrator / Co-administrator | Accesses resources deployed using the classic deployment model |
  
 ### Managing access to Log Analytics using Azure permissions
@@ -108,12 +108,14 @@ Your role assignment in the Log Analytics portal is determined using as follows:
 | Conditions                                                   | Log Analytics user role assigned | Notes |
 |--------------------------------------------------------------|----------------------------------|-------|
 | Your account belongs to a legacy Log Analytics user role     | The specified Log Analytics user role | |
-| Your account does not belong to a legacy Log Analytics user role <br> Full Azure permissions to the workspace (\* or Microsoft.OperationalInsights/workspaces/\* permission) | Administrator ||
-| Your account does not belong to a legacy Log Analytics user role <br> Full Azure permissions to the workspace (\* or Microsoft.OperationalInsights/workspaces/\*) <br> *not actions* of Microsoft.Authorization/\*/Delete and Microsoft.Authorization/\*/Write | Contributor ||
+| Your account does not belong to a legacy Log Analytics user role <br> Full Azure permissions to the workspace (`*` permission <sup>1</sup>) | Administrator ||
+| Your account does not belong to a legacy Log Analytics user role <br> Full Azure permissions to the workspace (`*` permission <sup>1</sup>) <br> *not actions* of `Microsoft.Authorization/*/Delete` and `Microsoft.Authorization/*/Write` | Contributor ||
 | Your account does not belong to a legacy Log Analytics user role <br> Azure read permission | Read Only ||
 | Your account does not belong to a legacy Log Analytics user role <br> Azure permissions are not understood | Read Only ||
 | For Cloud Solution Provider (CSP) managed subscriptions <br> The account you are signed-in with is in the Azure Active Directory linked to the workspace | Administrator | Typically the customer of a CSP |
 | For Cloud Solution Provider (CSP) managed subscriptions <br> The account you are signed-in with is not in the Azure Active Directory linked to the workspace | Contributor | Typically the CSP |
+
+<sup>1</sup> Refer to [Azure permissions](../active-directory/role-based-access-control-custom-roles.md) for more information on role definitions. When evaluating roles, an action of `*` is not equivalent to `Microsoft.OperationalInsights/workspaces/*`. 
 
 Some points to keep in mind about the Azure portal:
 
