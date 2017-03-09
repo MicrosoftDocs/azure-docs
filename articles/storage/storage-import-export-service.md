@@ -373,7 +373,7 @@ Following pre-checks are recommended for preparing your drives for an export job
    To specify all blobs starting with a prefix, use the **Starts With** selector, and specify the prefix, beginning with a forward slash '/'. The prefix may be the prefix of the container name, the complete container name, or the complete container name followed by the prefix of the blob name.
    
    The following table shows examples of valid blob paths:
-   
+  
    | Selector | Blob Path | Description |
    | --- | --- | --- |
    | Starts With |/ |Exports all blobs in the storage account |
@@ -383,7 +383,7 @@ Following pre-checks are recommended for preparing your drives for an export job
    | Starts With |/music/love |Exports all blobs in container **music** that begin with prefix **love** |
    | Equal To |$root/logo.bmp |Exports blob **logo.bmp** in the root container |
    | Equal To |videos/story.mp4 |Exports blob **story.mp4** in container **videos** |
-   
+  
    You must provide the blob paths in valid formats to avoid errors during processing, as shown in this screenshot.
    
    ![Create export job - Step 3](./media/storage-import-export-service/export-job-03.png)
@@ -420,7 +420,7 @@ No, the Azure Import/Export service only supports Block Blobs and Page Blobs. Al
 
 **Is the Azure Import/Export service available for CSP subscriptions?**
 
-No, the Azure Import/Export service does not support CSP subscriptions. The support will be added in the future.
+Yes, the Azure Import/Export service supports CSP subscriptions.
 
 **Can I skip the drive preparation step for an import job or can I prepare a drive without copying?**
 
