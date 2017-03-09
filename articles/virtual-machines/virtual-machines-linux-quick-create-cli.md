@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location westeurope
 
 Create a VM with [az vm create](/cli/azure/vm#create). 
 
-The following example creates a VM named `myVM` and creates an SSH key pair if these do not already exist in the default key location. T use a specific set of keys, use the `--ssh-key-value` option.  
+The following example creates a VM named `myVM` and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
 ```azurecli
 az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
@@ -65,7 +65,7 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 
 ## Connect to virtual machine
 
-Use the following command to create an SSH session. Replace the IP address with the public IP address of your virtual machine.
+Use the following command to create an SSH session with the virtual machine. Replace the IP address with the public IP address of your virtual machine.
 
 ```bash 
 ssh <Public IP Address>

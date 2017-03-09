@@ -44,11 +44,11 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPre
 
 # Create a virtual network
 $vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location westeurope `
-  -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+-Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
 # Create a public IP address and specify a DNS name
 $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location westeurope `
-  -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
+-Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
 ```
 
 Create a network security group and a network security group rule. The network security group secures the virtual machine using inbound and outbound rules. In this case, an inbound rule is created for port 22, which allows incoming SSH connections.
@@ -56,12 +56,12 @@ Create a network security group and a network security group rule. The network s
 ```powershell
 # Create an inbound network security group rule for port 22
 $nsgRuleSSH = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleSSH  -Protocol Tcp `
-  -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 22 -Access Allow
+-Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+-DestinationPortRange 22 -Access Allow
 
 # Create a network security group
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location westeurope `
-  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH
+-Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH
 ```
 
 Create a network card for the virtual machine. The network card connects the virtual machine to a subnet, network security group, and public IP address.
@@ -72,7 +72,7 @@ $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -VirtualNetwor
 
 # Create a virtual network card and associate with public IP address and NSG
 $nic = New-AzureRmNetworkInterface -ResourceGroupName myResourceGroup -Location westeurope -Name myNic `
-  -Subnet $subnet -NetworkSecurityGroup $nsg -PublicIpAddress $pip
+-Subnet $subnet -NetworkSecurityGroup $nsg -PublicIpAddress $pip
 ```
 
 Create a virtual machine configuration. This configuration includes the settings that are used when deploying the virtual machine such as a virtual machine image, size, and authentication configuration.
@@ -109,7 +109,7 @@ Run the following commands to return the public IP address of the virtual machin
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Use the following command to create an SSH session. Replace the IP address with the public IP address of your virtual machine.
+From a system with SSH installed, used the following command to connect to the virtual machine. If working on Windows, [Putty](./virtual-machines-linux-ssh-from-windows#create-a-private-key-for-putty) can be used to create the connection. 
 
 ```bash 
 ssh <Public IP Address>
