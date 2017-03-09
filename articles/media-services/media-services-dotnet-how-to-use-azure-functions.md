@@ -1,5 +1,5 @@
 ---
-title: How to develop Azure Functions with Media Services
+title: Develop Azure Functions with Media Services
 description: This topic shows how to start developing Azure functions with Media Services using the Azure portal.
 services: media-services
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 03/07/2017
 ms.author: juliako
 
 ---
-# Media Services development with .NET
+#Develop Azure Functions with Media Services
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 This topic discusses how to start developing Azure functions with Media Services using the Azure portal. 
@@ -53,7 +53,7 @@ To trigger execution of your functions from an HTTP testing tool or from another
 
 ## Files
 
-Your Azure function is associated with code files and other files that are described in this section. By default, a function is associated with **function.json** and **run.csx** files. You will need to add a **project.json** file. The rest of this sections shows the definitions for these files.
+Your Azure function is associated with code files and other files that are described in this section. By default, a function is associated with **function.json** and **run.csx** files. You will need to add a **project.json** file. The rest of this section shows the definitions for these files.
 
 ![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
