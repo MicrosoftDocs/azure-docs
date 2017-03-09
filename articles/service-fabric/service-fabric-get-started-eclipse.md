@@ -1,10 +1,10 @@
 ---
-title: Getting Started with Eclipse Plugin for Service Fabric | Microsoft Docs
-description: Getting Started with Eclipse Plugin for Service Fabric.
+title: Getting Started with Eclipse Plugin for Azure Service Fabric | Microsoft Docs
+description: Getting Started with Eclipse Plugin for Azure Service Fabric.
 services: service-fabric
 documentationcenter: java
 author: sayantancs
-manager: raunakp
+manager: timlt
 editor: ''
 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
@@ -14,26 +14,26 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/27/2016
-ms.author: sayantancs
+ms.author: saysa
 
 ---
 
-# Getting Started with Eclipse Plugin for Service Fabric Java application development
+# Getting started with Eclipse Plugin for Service Fabric Java application development
 Eclipse is one of the most used IDEs for Java Developers. In this article we discuss how you can set up your Eclipse development environment to work with Service Fabric. This article will help you install the plugin, create Service fabric applications and deploy your Service Fabric application to local or remote Service Fabric cluster.
 
-## Install or Update Service Fabric Plugin on Eclipse Neon
+## Install or update Service Fabric Plugin on Eclipse Neon
 Service Fabric provides a plugin for the **Eclipse IDE for Java Developers** that can simplify the process of building and deploying Java services.
 
 1. Ensure that you have latest Eclipse **Neon** and latest Buildship version (1.0.17 or later) installed. You can check the versions of installed components by choosing ``Help => Installation Details``. You can update Buildship using the instructions [here][buildship-update]. To check and update if your Eclipse Neon is on latest version, you can go to ``Help => Check for Updates``.
 
 2. To install the Service Fabric plugin, choose ``Help => Install New Software...``.
-  * In the "Work with" textbox, enter: http://dl.windowsazure.com/eclipse/servicefabric.
-  * Click Add.
+  1. In the "Work with" textbox, enter: ``http://dl.windowsazure.com/eclipse/servicefabric``.
+  2. Click Add.
 
   ![Eclipse Neon plugin for Service Fabric][sf-eclipse-plugin-install]
 
-  * Choose the Service Fabric plugin and click next.
-  * Proceed through the installation and accept the end-user license agreement.
+  3. Choose the Service Fabric plugin and click next.
+  4. Proceed through the installation and accept the end-user license agreement.
 
 If you already have the Service Fabric Eclipse plugin installed, make sure you are on the latest version. You can check if it can be updated any further be following - ``Help => Installation Details``. Then search for Service fabric in the list of installed plugin and click on update. If there is any pending update, it will be fetched and installed.
 
@@ -148,3 +148,6 @@ You can now monitor the application upgrade using Service Fabric Explorer. In a 
 [add-service/p2]: ./media/service-fabric-get-started-eclipse/add-service/p2.png
 [add-service/p3]: ./media/service-fabric-get-started-eclipse/add-service/p3.png
 [add-service/p4]: ./media/service-fabric-get-started-eclipse/add-service/p4.png
+
+<!-- Links -->
+[buildship-update]: https://projects.eclipse.org/projects/tools.buildship

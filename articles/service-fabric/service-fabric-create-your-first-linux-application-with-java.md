@@ -98,19 +98,19 @@ Actor projects do not do anything on their own. They require another service or 
 
 3. Click the node you found in the previous step, then select **Deactivate (restart)** from the Actions menu. This action restarts one of the five nodes in your local cluster and force a failover to one of the secondary replicas running on another node. As you perform this action, pay attention to the output from the test client and note that the counter continues to increment despite the failover.
 
-## Create and Deploy an application with the Eclipse Neon plugin
+## Create and deploy an application with the Eclipse Neon plugin
 
 Service Fabric also gives you the provision to create, build and deploy Service Fabric Java application using Eclipse. When installing Eclipse, choose the **Eclipse IDE for Java developers**. Also, Service Fabric currently supports the plugin for Eclipse **Neon**. Please refer to the detailed documentation - [Create and deploy your first Service Fabric Java application using Service Fabric Plugin for Eclipse on Linux](service-fabric-get-started-eclipse.md)
 
 ## Adding more services to an existing application
 
-### Using Command line utility
+### Using command line utility
 To add another service to an application already created using `yo`, perform the following steps:
 1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
 2. Run `yo azuresfjava:AddService`
 
 ### Using Service Fabric Eclipse plugin for Java on Linux
-To add service to an existing application created using Eclipse plugin for Service Fabric refer to documentation [here](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-eclipse#add-new-service-fabric-service-to-your-service-fabric-application).
+To add service to an existing application created using Eclipse plugin for Service Fabric refer to documentation [here](service-fabric-get-started-eclipse.md#add-new-service-fabric-service-to-your-service-fabric-application).
 
 ## Next steps
 * [Create and deploy your first Service Fabric Java application using Service Fabric Plugin for Eclipse on Linux](service-fabric-get-started-eclipse.md)

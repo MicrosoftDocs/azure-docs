@@ -33,7 +33,8 @@ Service Fabric does not run natively on OS X. To run a local Service Fabric clus
 * [Vagrant (v1.8.4 or later)](http://www.vagrantup.com/downloads.html)
 * [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
- >[Note] You need to use mutually supported versions of Vagrant and VirtualBox. Vagrant might behave erratically on an unsupported VirtualBox version.
+>[!NOTE]
+>  You need to use mutually supported versions of Vagrant and VirtualBox. Vagrant might behave erratically on an unsupported VirtualBox version.
 >
 
 ## Create the local VM
@@ -73,7 +74,7 @@ To create the local VM containing a 5-node Service Fabric cluster, perform the f
 
 ## Install the Service Fabric plugin for Eclipse Neon
 
-Service Fabric provides a plugin for the **Eclipse Neon for Java IDE** that can simplify the process of creating, building and deploying Java services. You can follow the installation steps mentioned in this general  [documentation](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-eclipse#install-or-update-service-fabric-plugin-on-eclipse-neon) about installing or updating Service Fabric Eclipse plugin.
+Service Fabric provides a plugin for the **Eclipse Neon for Java IDE** that can simplify the process of creating, building and deploying Java services. You can follow the installation steps mentioned in this general  [documentation](service-fabric-get-started-eclipse.md#install-or-update-service-fabric-plugin-on-eclipse-neon) about installing or updating Service Fabric Eclipse plugin.
 
 ## Using Service Fabric Eclipse plugin on Mac
 
