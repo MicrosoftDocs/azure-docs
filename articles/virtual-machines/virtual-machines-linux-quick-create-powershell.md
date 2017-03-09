@@ -118,6 +118,8 @@ From a system with SSH installed, used the following command to connect to the v
 ssh <Public IP Address>
 ```
 
+When prompted, the login user name is `azureuser`. If a passphrase was entered when creating SSH keys, you will need to enter this as well.
+
 ## Delete virtual machine
 
 When no longer needed, the following command can be used to remove the Resource Group, VM, and all related resources.
