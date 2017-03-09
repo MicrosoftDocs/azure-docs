@@ -28,7 +28,7 @@ Download your invoice using the preview version of [Invoice API](/rest/api/billi
 * **Date Filtering** - Use the `$filter` parameter to get all the invoices in reverse chronological order by the invoice period end date. 
 
 > [!NOTE]
-> This feature is in preview and may be subject to backward-incompatible changes. It also may not be available for Azure Germany, Azure China, and Azure Government.
+> This feature is in first version of preview and may be subject to backward-incompatible changes. Currently, it's not available for certain subscription offers (EA, CSP, AIO not supported) and Azure Germany.
 
 ## Azure Resource Usage API (Preview)
 Use the [Azure Resource Usage API](https://msdn.microsoft.com/library/azure/mt219003.aspx) to get your estimated Azure consumption data. The features include:

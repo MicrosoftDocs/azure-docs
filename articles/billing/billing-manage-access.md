@@ -32,7 +32,7 @@ The Billing Reader role has read-only access to subscription billing information
 
     ![Screenshot shows IAM in the subscription blade](./media/billing-manage-access/select-iam.PNG)
     
-3. Choose **Billing Reader** in the "Select a role" page.
+3. Choose **Billing Reader** in the **Select a role** page.
 
     ![Screenshot shows Billing Reader in the popup view](./media/billing-manage-access/select-roles.PNG)
  
@@ -45,7 +45,7 @@ The Billing Reader role has read-only access to subscription billing information
     ![Screenshot that shows what the Billing Reader can see in Azure portal](./media/billing-manage-access/billing-reader-view.png)
 
 > [!NOTE]
-> The Billing Reader feature is in preview, and may not be available for Azure Germany, Azure China, and Azure Government.
+> The Billing Reader feature is in preview, and may not be available for Azure Germany.
 
 ## Adding users to other roles 
 
