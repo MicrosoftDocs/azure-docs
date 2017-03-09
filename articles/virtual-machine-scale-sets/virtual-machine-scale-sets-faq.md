@@ -314,7 +314,7 @@ Specifically:
           }
 ```
  
-linuxConfiguration Element |  name | Required | Type | Description
+linuxConfiguration Element Name | Required | Type | Description
 --- | --- | --- | --- |  ---
 ssh | No | Collection | Specifies the ssh key configuration for a Linux OS.
 path | Yes | String | Specifies the Linux file path that the ssh keys or certificate should be placed at.
