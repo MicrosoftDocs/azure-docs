@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 03/09/2017
 ms.author: awills
 
 ---
@@ -30,7 +30,7 @@ Additional sources of information:
 ## Index
 **Let** [let](#let-clause) | [materialize](#materialize) 
 
-**Queries and operators** [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
+**Queries and operators** [as](#as-operator) | [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **Aggregations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -202,6 +202,30 @@ A query may be prefixed by one or more [let clauses](#let-clause), which define 
 > `T` is used in query examples below to denote the preceding pipeline or source table.
 > 
 > 
+
+### as operator
+
+Temporarily binds a name to the input tabular expression.
+
+**Syntax**
+
+    T | as name
+
+**Arguments**
+
+* *name:* A temporary name for the table
+
+**Notes**
+
+* Use [let](#let-clause) instead of *as* if you want to use the name in a later subexpression.
+* Use *as* to specify the name of the table as it appears in the result of a [union](#union-operator), [find](#find-operator), or [search](#search-operator).
+
+**Example**
+
+```AIQL
+range x from 1 to 10 step 1 | as T1
+| union withsource=TableName (requests | take 10 | as T2)
+```
 
 ### count operator
 The `count` operator returns the number of records (rows) in the input record set.
@@ -518,7 +542,7 @@ Find rows that match a predicate across a set of tables.
 
 By default, the output table contains:
 
-* `source_` - An indicator of the source table for each row.
+* `source_` - An indicator of the source table for each row. Use [as](#as-operator) at the end of each table expression, if you want to specify the name that appears in this column.
 * Columns explicitly mentioned in the predicate
 * Non-empty columns common to all the input tables.
 * `pack_` - A property bag containing the data from the other columns.
@@ -659,6 +683,40 @@ Returns up to the specified number of rows from the input table. There is no gua
 `Take` is a simple and efficient way to see a sample of your results when you're working interactively. Be aware that it doesn't guarantee to produce any particular rows, or to produce them in any particular order.
 
 There's an implicit limit on the number of rows returned to the client, even if you don't use `take`. To lift this limit, use the `notruncation` client request option.
+
+### make-series operator
+
+Performs an aggregation. Unlike [summarize](#summarize-operator), there is one output row for each group. In the result columns, the values in each group are packed into arrays. 
+
+**Syntax**
+
+    T | 
+    make-series [Column =] Aggregation default = DefaultValue [, ...] 
+    on AxisColumn in range(start, stop, step) 
+    by [Column =] GroupExpression [, ...]
+
+
+**Arguments**
+
+* *Column:* Optional name for a result column. Defaults to a name derived from the expression.
+* *DefaultValue:* If there is no row with specific values of AxisColumn and GroupExpression then in the results the correponding element of the array will be assigned with a DefaultValue. 
+* *Aggregation:* A numeric expression using an [aggregation function](#aggregations). 
+* *AxisColumn:* A column on which the series is ordered. It can be considered as a timeline, but any numeric types are accepted.
+*start, stop, step:* Defines the list of values of AxisColumn for every row. Every other result aggregation column has an array of the same length. 
+* *GroupExpression:* An expression over the columns, that provides a set of distinct values. There is one row in the output for each value of the GroupExpression. Typically it's a column name that already provides a restricted set of values. 
+
+**Tip**
+
+The result arrays are rendered in an Analytics chart in the same way as the corresponding summarize operation.
+
+**Example**
+
+requests
+| make-series sum(itemCount) default=0, avg(duration) default=0
+  on timestamp in range (ago(7d), now(), 1d)
+  by client_City
+
+![Results of make-series](./media/app-insights-analytics-reference/make-series.png)
 
 ### mvexpand operator
     T | mvexpand listColumn 
@@ -1034,6 +1092,45 @@ Sample a population and do further computation knowing the summarize won't excee
 let sampleops = toscalar(requests | sample-distinct 10 of OperationName);
 requests | where OperationName in (sampleops) | summarize total=count() by OperationName
 ```
+### search operator
+
+Search for strings in multiple tables and columns.
+
+**Syntax**
+
+    search [kind=case_sensitive] [in (TableName, ...)] SearchToken
+
+    T | search [kind=case_sensitive] SearchToken
+
+    search [kind=case_sensitive] [in (TableName, ...)] SearchPredicate
+
+    T | search [kind=case_sensitive] SearchPredicate
+
+Finds occurrences of the given token string in any column of any table.
+ 
+* *TableName* Name of a table that is defined globally (requests, exceptions, ...) or by a [let clause](#let-clause). You can use wildcards such as r*.
+* *SearchToken:* A token string, which must match a whole word. You can use trailing wildcards. "Amster*" matches "Amsterdam", but "Amster" does not.
+* *SearchPredicate:* A Boolean expression over the columns in the tables. You can use "*" as a wildcard in column names.
+
+**Examples**
+
+```AIQL
+search "Amster*"  //All columns, all tables
+
+search name has "home"  // one column
+
+search * has "home"     // all columns
+
+search in (requests, exceptions) "Amster*"  // two tables
+
+requests | search "Amster*"
+
+requests | search name has "home"
+
+```
+
+
+
 
 ### sort operator
     T | sort by country asc, price desc
@@ -1190,7 +1287,7 @@ Takes two or more tables and returns the rows of all of them.
   * `inner` - The result has the subset of columns that are common to all of the input tables.
   * `outer` - The result has all the columns that occur in any of the inputs. Cells that were not defined by an input row are set to `null`.
 * `withsource=`*ColumnName:* If specified, the output will include a column
-  called *ColumnName* whose value indicates which source table has contributed each row.
+  called *ColumnName* whose value indicates which source table has contributed each row. Use [as](#as-operator) at the end of each table expression, if you want to specify the name that appears in this column.
 
 **Returns**
 
@@ -1198,39 +1295,29 @@ A table with as many rows as there are in all the input tables, and as many colu
 
 There is no guaranteed ordering in the rows.
 
-**Example**
-
-Union of all tables whose names begin "tt":
-
-```AIQL
-
-    let ttrr = requests | where timestamp > ago(1h);
-    let ttee = exceptions | where timestamp > ago(1h);
-    union tt* | count
-```
 
 **Example**
 
 The number of distinct users that have produced
-either a `exceptions` event or a `traces` event over the past day. In the result, the 'SourceTable' column will indicate either "Query" or "Command":
+either a `exceptions` event or a `traces` event over the past 12h. In the result, the 'SourceTable' column will indicate either "exceptions" or "traces":
 
 ```AIQL
-
-    union withsource=SourceTable kind=outer Query, Command
-    | where Timestamp > ago(1d)
-    | summarize dcount(UserId)
+    
+    union withsource=SourceTable kind=outer exceptions, traces
+    | where timestamp > ago(12h)
+    | summarize dcount(user_Id) by SourceTable
 ```
 
 This more efficient version produces the same result. It filters each table before creating the union:
 
 ```AIQL
-
     exceptions
-    | where Timestamp > ago(12h)
-    | union withsource=SourceTable kind=outer 
-       (Command | where Timestamp > ago(12h))
-    | summarize dcount(UserId)
+    | where timestamp > ago(24h) | as exceptions
+    | union withsource=SourceTable kind=outer (requests | where timestamp > ago(12h) | as traces)
+    | summarize dcount(user_Id) by SourceTable 
 ```
+
+Use [as](#as-operator) to specify the name that will appear in the source column.
 
 #### Forcing an order of results
 
