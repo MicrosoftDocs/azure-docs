@@ -73,7 +73,7 @@ Name                  : contoso.com
 ResourceGroupName     : myresourcegroup
 Etag                  : 00000003-0000-0000-b40d-0996b97ed101
 Tags                  : {}
-NameServers           : {**ns1-01.azure-dns.com., ns2-01.azure-dns.net., ns3-01.azure-dns.org., ns4-01.azure-dns.info.**}
+NameServers           : {ns1-01.azure-dns.com., ns2-01.azure-dns.net., ns3-01.azure-dns.org., ns4-01.azure-dns.info.}
 NumberOfRecordSets    : 3
 MaxNumberOfRecordSets : 5000
 ```

@@ -82,10 +82,10 @@ az network dns zone show -g MyResourceGroup -n contoso.com -o json
   "maxNumberOfRecordSets": 5000,
   "name": "contoso.com",
   "nameServers": [
-    "**ns1-01.azure-dns.com.**",
-    "**ns2-01.azure-dns.net.**",
-    "**ns3-01.azure-dns.org.**",
-    "**ns4-01.azure-dns.info.**"
+    "ns1-01.azure-dns.com.",
+    "ns2-01.azure-dns.net.",
+    "ns3-01.azure-dns.org.",
+    "ns4-01.azure-dns.info."
   ],
   "numberOfRecordSets": 3,
   "resourceGroup": "myresourcegroup",

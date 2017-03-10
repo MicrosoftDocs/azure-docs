@@ -93,10 +93,10 @@ data:    Location                        : global
 data:    Number of record sets           : 3
 data:    Max number of record sets       : 5000
 data:    Name servers:
-data:        **ns1-01.azure-dns.com.**
-data:        **ns2-01.azure-dns.net.**
-data:        **ns3-01.azure-dns.org.**
-data:        **ns4-01.azure-dns.info.**
+data:        ns1-01.azure-dns.com.
+data:        ns2-01.azure-dns.net.
+data:        ns3-01.azure-dns.org.
+data:        ns4-01.azure-dns.info.
 data:    Tags                            :
 info:    network dns zone show command OK
 ```
