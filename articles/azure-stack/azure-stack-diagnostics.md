@@ -19,7 +19,7 @@ ms.author: victorh
 ---
 # Azure Stack Diagnostics Tools
  
-Azure Stack is a large collection of components working together and interacting with each other. All these components  generate their own unique logs which means that diagnosing issues can quickly become a challenging task, especially for errors coming from multiple interacting Azure Stack components. 
+Azure Stack is a large collection of components working together and interacting with each other. All these components  generate their own unique logs, which means that diagnosing issues can quickly become a challenging task, especially for errors coming from multiple interacting Azure Stack components. 
 
 Our diagnostics tools help make sure the log collection mechanism is easy and efficient. The following diagram shows how log collection tools in Azure Stack work:
 
@@ -35,7 +35,7 @@ The following are important things to know about the Trace Collector:
 * The Trace Collector runs continuously with default size limits. The default maximum size allowed for each file (200 MB) is **not** a cutoff size. A size check occurs periodically (currently every 10 minutes) and if the current file is >= 200 MB, it is saved and a new file is generated. There is also an 8 GB (configurable) limit on the total file size generated per event session. Once this limit is reached, the oldest files are deleted as new ones are created.
 * There is a 5-day age limit on the logs. This limit is also configurable. 
 * Each component defines the trace configuration properties through a JSON file. The JSON files are stored in `C:\TraceCollector\Configuration`. If necessary, these files can be edited to change the age and size limits of the collected logs. Changes to these files require a restart of the *Microsoft Azure Stack Trace Collector* service for the changes to take effect.
-* The following is an example trace configuration JSON file for FabricRingServices Operations from the XRP VM: 
+* The following example is a trace configuration JSON file for FabricRingServices Operations from the XRP VM: 
 
 ```
 {
@@ -59,7 +59,7 @@ The following are important things to know about the Trace Collector:
 
 * **MaxDaysOfFiles**
 
-    This parameter controls the age of files to keep, older log files are deleted.
+    This parameter controls the age of files to keep. Older log files are deleted.
 * **MaxSizeInMB**
 
     This parameter controls the size threshold for a single file. If the size is reached, a new .etl file is created.
@@ -69,10 +69,10 @@ The following are important things to know about the Trace Collector:
   
 ## Log Collection Tool
  
-The PowerShell command `Get-AzureStackLogs` can be used to collect logs from all the components  in an Azure Stack environment. It saves them in zip files in a user defined location. Our technical support team may ask you to run this tool if they need your logs to help troubleshoot an issue.
+The PowerShell command `Get-AzureStackLogs` can be used to collect logs from all the components  in an Azure Stack environment. It saves them in zip files in a user defined location. If our technical support team needs your logs to help troubleshoot an issue, they may ask you to run this tool.
 
 > [!CAUTION]
-> These log files may contain personally identifiable information (PII) Take this into account before you publicly post any log files.
+> These log files may contain personally identifiable information (PII). Take this into account before you publicly post any log files.
  
 We currently collect the following log types:
 *   **Azure Stack deployment logs**
@@ -119,7 +119,7 @@ A few things to note:
 
 * This command takes some time for log collection based on which role logs are collected. Contributing factors include the time duration specified for log collection, and the numbers of nodes in the Azure Stack environment.
 * After log collection completes, check the new folder created in the `-OutputPath` parameter specified in the command.
-* A file called `Get-AzureStackLogs_Output.log` is created in the folder containing the zip files and includes the command output which can be used for troubleshooting any failures in log collection.
+* A file called `Get-AzureStackLogs_Output.log` is created in the folder containing the zip files and includes the command output, which can be used for troubleshooting any failures in log collection.
 * Each role has its logs inside an individual zip file. 
 * To investigate a specific failure, logs may be needed from more than one component.
     -	System and Event logs for all infrastructure VMs are collected in the *VirtualMachines* role.
