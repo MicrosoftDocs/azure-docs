@@ -58,11 +58,13 @@ To set the IP access control policy in the Azure portal, navigate to the Documen
 
 In the new pane, specify whether the Azure portal can access the account, and add other addresses and ranges as appropriate, then click **Save**.  
 
-![Screenshot showing a how to configure firewall settings in the Azure portal](./media/documentdb-firewall-support/documentdb-azure-portal-firewall-configure.png).
+![Screenshot showing a how to configure firewall settings in the Azure portal](./media/documentdb-firewall-support/documentdb-azure-portal-firewall-configure.png)
 
 ## Troubleshooting the IP access control policy
 ### Portal operations
-By enabling an IP access control policy for your DocumentDB database account, all access to your DocumentDB database account from machines outside the configured allowed list of IP address ranges are blocked. By virtue of this model, browsing the data plane operation from the portal can either be enabled or blocked to ensure the integrity of access control. 
+By enabling an IP access control policy for your DocumentDB database account, all access to your DocumentDB database account from machines outside the configured allowed list of IP address ranges are blocked. Therefore if you want to enable portal data plane operations like browsing collections and query documents, you need to explicitly allow Azure portal access using the **Firewall** blade in the portal. 
+
+![Screenshot showing a how to enable access to the Azure portal](./media/documentdb-firewall-support/documentdb-azure-portal-access-firewall.png)
 
 ### SDK & Rest API
 For security reasons, access via SDK or REST API from machines not on the allowed list will return a generic 404 Not Found response with no additional details. Please verify the IP allowed list configured for your DocumentDB database account to ensure the correct policy configuration is applied to your DocumentDB database account.
