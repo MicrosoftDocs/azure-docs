@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/22/2017
+ms.date: 03/09/2017
 ms.author: nitinme
 
 ---
@@ -50,12 +50,13 @@ In this section, you create a Spark cluster in HDInsight using an [Azure Resourc
 
     ![Create Spark cluster in HDInsight using an Azure Resource Manager template](./media/hdinsight-apache-spark-jupyter-spark-sql/create-spark-cluster-in-hdinsight-using-azure-resource-manager-template.png "Create Spark cluster in HDInsight using an Azure Resource Manager template")
 
-   * **Subscription**: Select your Azure subscription for this cluster.
-   * **Resource group**: Create a new resource group or select an existing one. Resource group is used to manage Azure resources for your projects.
-   * **Location**: Select a location for the resource group.  This location is also used for the default cluster storage and the HDInsight cluster.
-   * **ClusterName**: Enter a name for the Hadoop cluster that you will create.
-   * **Cluster login name and password**: The default login name is admin.
-   * **SSH user name and password**.
+	* **Subscription**: Select your Azure subscription for this cluster.
+	* **Resource group**: Create a new resource group or select an existing one. Resource group is used to manage Azure resources for your projects.
+	* **Location**: Select a location for the resource group.  This location is also used for the default cluster storage and the HDInsight cluster.
+	* **ClusterName**: Enter a name for the Hadoop cluster that you will create.
+	* **Spark version**: Select the Spark version that you want to install on the cluster.
+	* **Cluster login name and password**: The default login name is admin.
+	* **SSH user name and password**.
 
    Please write down these values.  You will need them later in the tutorial.
 
