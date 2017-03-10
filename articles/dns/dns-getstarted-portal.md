@@ -51,7 +51,7 @@ A DNS zone is used to host the DNS records for a particular domain. To start hos
 
     ![Creating](./media/dns-getstarted-portal/creating150.png)
 
-8. When your new zone has been created, the blade for your new zone will open on the dashboard.
+8. When your new zone has been created, the blade for your new zone opens on the dashboard.
 
 
 ## Create a DNS record
@@ -70,30 +70,30 @@ The following example walks you through the process of creating new 'A' record. 
 5. Select the type of record you want to create. For this example, select **A**.
 6. Set the **TTL**. The default time to live is one hour.
 7. Add the IP address of the record.
-8. Select **OK** at the bottom of the blade. The DNS record will be created.
+8. Select **OK** at the bottom of the blade to create the DNS record.
 
 
 ## View records
 
-In the lower part of the DNS zone blade, you can see the records for the DNS zone. You should see the default NS and SOA records which are created in every zone, plus any new records you have created.
+In the lower part of the DNS zone blade, you can see the records for the DNS zone. You should see the default NS and SOA records, which are created in every zone, plus any new records you have created.
 
 ![zone](./media/dns-getstarted-portal/viewzone500.png)
 
 
 ## Update name servers
 
-Once you are satisfied that your DNS zone and records have been set up correctly in Azure DNS, you need to configure your domain name to use the Azure DNS name servers. This enables other users on the Internet to find your DNS records.
+Once you are satisfied that your DNS zone and records have been set up correctly, you need to configure your domain name to use the Azure DNS name servers. This enables other users on the Internet to find your DNS records.
 
 The name servers for your zone are given in the Azure portal:
 
 ![zone](./media/dns-getstarted-portal/viewzonens500.png)
 
-These name servers need to be configured with the domain name registrar (where you purchased the domain name). Your registrar will offer the option to set up the name servers for the domain. For more information, see [delegate your domain to Azure DNS](dns-domain-delegation.md).
+These name servers should be configured with the domain name registrar (where you purchased the domain name). Your registrar will offer the option to set up the name servers for the domain. For more information, see [Delegate your domain to Azure DNS](dns-domain-delegation.md).
 
 
 ## Next steps
 
 To learn more about Azure DNS, see [Azure DNS overview](dns-overview.md).
 
-To learn more about managing DNS records in Azure DNS, see [manage DNS records and record sets by using the Azure portal](dns-operations-recordsets-portal.md).
+To learn more about managing DNS records in Azure DNS, see [Manage DNS records and record sets by using the Azure portal](dns-operations-recordsets-portal.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure DNS using Azure CLI 2.0 | Microsoft Docs
-description: Learn how to create a DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first DNS zone and record using the Azure CLI 1.0.
+description: Learn how to create a DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first DNS zone and record using the Azure CLI 2.0.
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -30,7 +30,7 @@ This article walks you through the steps to create your first DNS zone and recor
 
 A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. Finally, to publish your DNS zone to the Internet, you need to configure the name servers for the domain. Each of these steps is described below.
 
-These instructions assume you have already installed and signed in to Azure CLI 1.0. If not, see [How to manage DNS zones using Azure CLI 2.0](dns-operations-dnszones-cli.md).
+These instructions assume you have already installed and signed in to Azure CLI 1.0. For help, see [How to manage DNS zones using Azure CLI 2.0](dns-operations-dnszones-cli.md).
 
 
 ## Create a DNS zone
@@ -68,7 +68,7 @@ az network dns record-set list -g MyResourceGroup -z contoso.com
 
 ## Update name servers
 
-Once you are satisfied that your DNS zone and records have been set up correctly in Azure DNS, you need to configure your domain name to use the Azure DNS name servers. This enables other users on the Internet to find your DNS records.
+Once you are satisfied that your DNS zone and records have been set up correctly, you need to configure your domain name to use the Azure DNS name servers. This enables other users on the Internet to find your DNS records.
 
 The name servers for your zone are given by the `az network dns zone show` command. To see the name server names, use JSON output, as shown in the following example.
 
@@ -94,13 +94,13 @@ az network dns zone show -g MyResourceGroup -n contoso.com -o json
 }
 ```
 
-These name servers need to be configured with the domain name registrar (where you purchased the domain name). Your registrar will offer the option to set up the name servers for the domain. For more information, see [delegate your domain to Azure DNS](dns-domain-delegation.md).
+These name servers should be configured with the domain name registrar (where you purchased the domain name). Your registrar will offer the option to set up the name servers for the domain. For more information, see [Delegate your domain to Azure DNS](dns-domain-delegation.md).
 
 
 ## Next steps
 
 To learn more about Azure DNS, see [Azure DNS overview](dns-overview.md).
 
-To learn more about managing DNS zones in Azure DNS, see [manage DNS zones in Azure DNS using Azure CLI 2.0](dns-operations-dnszones-cli.md).
+To learn more about managing DNS zones in Azure DNS, see [Manage DNS zones in Azure DNS using Azure CLI 2.0](dns-operations-dnszones-cli.md).
 
-To learn more about managing DNS records in Azure DNS, see [manage DNS records and record sets in Azure DNS using Azure CLI 2.0](dns-operations-recordsets-cli.md).
+To learn more about managing DNS records in Azure DNS, see [Manage DNS records and record sets in Azure DNS using Azure CLI 2.0](dns-operations-recordsets-cli.md).
