@@ -142,9 +142,7 @@ az storage blob upload \
 ```
 
 ### Provide SAS token during deployment
-To deploy a private template in a storage account, retrieve a SAS token and include it in the URI for the template.
-
-Create a SAS token with read permissions and an expiry time to limit access. Set the expiry time to allow enough time to complete the deployment. Retrieve the full URI of the template including the SAS token.
+To deploy a private template in a storage account, generate a SAS token and include it in the URI for the template. Set the expiry time to allow enough time to complete the deployment.
    
 ```azurecli
 seconds='@'$(( $(date +%s) + 1800 ))
