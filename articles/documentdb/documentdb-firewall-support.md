@@ -52,11 +52,11 @@ The IP access control policy can be set in the Azure portal, or programmatically
 
 To set the IP access control policy in the Azure portal, navigate to the DocumentDB account blade, click **Firewall** in the navigation menu, then click **ON** 
 
-![Screenshot showing a public IP address for a virtual machine displayed in the Azure portal](./media/documentdb-firewall-support/documentdb-azure-portal-firewall.png)
+![Screenshot showing how to open the Firewall blade in the Azure portal](./media/documentdb-firewall-support/documentdb-azure-portal-firewall.png)
 
 In the new pane, specify whether the Azure portal can access the account, and add other addresses and ranges as appropriate, then click **Save**.  
 
-![Screenshot showing a public IP address for a virtual machine displayed in the Azure portal](./media/documentdb-firewall-support/documentdb-azure-portal-firewall-configure.png).
+![Screenshot showing a how to configure firewall settings in the Azure portal](./media/documentdb-firewall-support/documentdb-azure-portal-firewall-configure.png).
 
 ## Troubleshooting the IP access control policy
 ### Portal operations
