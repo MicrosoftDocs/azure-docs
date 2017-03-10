@@ -161,8 +161,9 @@ If you are using a self-signed root certificate, see [Generate a client certific
 
 
 ### <a name="exportclientcert"></a>Step 3 - Export the client certificate
-The following steps export help you export client certificates that you generated from your self-signed root. You will later install the exported client certificates on each computer that will connect to the VNet using P2S.
 
+If you generate a client certificate from a self-signed root certificate using the [PowerShell](vpn-gateway-certificates-point-to-site.md#clientcert) instructions, it's automatically installed on the computer that you used to generate it. If you want to install a client certificate on another client computer, you need to export it.
+ 
 1. To export a client certificate, open **certmgr.msc**. Right-click the client certificate that you want to export, click **all tasks**, and then click **export**. This opens the **Certificate Export Wizard**.
 2. In the Wizard, click **Next**, then select **Yes, export the private key**, and then click **Next**.
 3. On the **Export File Format** page, you can leave the defaults selected. Then click **Next**. 
@@ -210,8 +211,8 @@ The VPN client package contains configuration information to configure the VPN c
    
     ![VPN client](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png)
 
-## <a name="clientcertificate"></a>Part 6 - Install the client certificate
-Each client computer must have a client certificate in order to authenticate. When installing the client certificate, you will need the password that was created when the client certificate was exported.
+## <a name="clientcertificate"></a>Part 6 - Install an exported client certificate
+Each client computer must have a client certificate in order to authenticate. When installing a client certificate, you will need the password that was created when the client certificate was exported.
 
 1. Locate and copy the *.pfx* file to the client computer. On the client computer, double-click the *.pfx* file to install. Leave the **Store Location** as **Current User**, then click **Next**.
 2. On the **File** to import page, don't make any changes. Click **Next**.
