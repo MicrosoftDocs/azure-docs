@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/10/2017
 ms.author: billmath
 
 ---
@@ -159,7 +159,7 @@ The Global Parameters page is used to configure Delta Import, Date/Time format, 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
 
 >[!IMPORTANT]
- “*” aka **any option** cannot be used during export/delete operations. 
+ “*” aka **any option** cannot be used during export/delete operations.
 
 The Generic SQL Connector supports the following methods for Delta Import:
 
