@@ -186,7 +186,7 @@ ExpressRoute premium is a collection of features listed below.
 
 * Increased routing table limit from 4000 routes to 10,000 routes for private peering.
 * Increased number of VNets that can be connected to the ExpressRoute circuit (default is 10). See table below for more details.
-* Global connectivity over the Microsoft core network. You will now be able to link a VNet in one geopolitical region with an ExpressRoute circuit in another region. **Example:** You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley.
+* Global connectivity over the Microsoft core network. You will now be able to link a VNet in one geopolitical region with an ExpressRoute circuit in another region. **Example:** You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley. **Other example:** On the public peering, prefixes from other geopolitical regions are advertised such that you can connect to, for example, SQL Azure in Europe West from a circuit in Silicon Valley.
 * Connectivity to Office 365 services and CRM Online.
 
 ### How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
