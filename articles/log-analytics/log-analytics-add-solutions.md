@@ -34,6 +34,12 @@ Using this article, you add management solutions to a workspace using the Azure 
 
 You can easily remove a management solution when it is no longer needed. When you remove a management solution, its data is not sent to OMS. If you are on the Free pricing tier, removing a solution can reduce the amount of data used, helping you stay under daily quota of data.
 
+## View available management solutions
+
+The Azure marketplace contains the list of [management solutions for Log Analytics](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
+
+You can install a management solutions from Azure marketplace by clicking the **Get it now** link at the bottom of each solution.
+
 ## Add a management solution
 1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com) using your Azure subscription.
 2. In the **New** blade under **Marketplace**, select **Monitoring + management**.
