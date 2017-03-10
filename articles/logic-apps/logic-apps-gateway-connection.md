@@ -56,9 +56,10 @@ Claim happens at ([creation during Step 2 in this topic](#2-create-an-azure-on-p
 
 ### 1. Install the on-premises data gateway
 
+If you haven't already, follow these steps to 
+[install the on-premises data gateway](logic-apps-gateway-install.md). 
 Before you can continue with the other steps, 
-follow these steps to [install the on-premises data gateway](logic-apps-gateway-install.md). 
-Make sure that you install the data gateway on an on-premises machine.
+make sure that you installed the data gateway on an on-premises machine.
 
 ### 2. Create an Azure on-premises data gateway resource
 
