@@ -3,7 +3,7 @@
   cd /tmp
   tar -xvzf Microsoft-ASR_UA*release.tar.gz
   ```
-2. To install Mobility Service, use the following command line:
+2. To install Mobility Service, run the following command:
 
   ```
   sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i <IP address> -p <port> -s y -c https -P MobSvc.passphrase
@@ -16,7 +16,7 @@
 |-t |Mandatory|Agent type<br>(Will be deprecated in the next release)|*both*|
 |-a |Mandatory|Agent configuration<br>(Will be deprecated in the next release) |*host*|
 |-R |Optional|Role of the agent|Agent<br>MasterTarget|
-|-d |Optional|Where Mobility Service will be installed|/usr/local/ASR|
+|-d |Optional|Location where Mobility Service will be installed|/usr/local/ASR|
 |-i |Mandatory|IP address of Configuration Server|Any valid IP Address|
 |-p |Mandatory|Port on which Configuration Server listens for incoming connections|443|
 |-s |Mandatory|Start service after a successful install<br>(Will be deprecated in the next release)|*y*|

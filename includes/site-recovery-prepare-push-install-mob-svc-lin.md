@@ -1,7 +1,7 @@
-### Prepare for push installation on Linux servers
+### Prepare for push installation on a Linux server
 
 1. Ensure that there’s network connectivity between the Linux computer and the process server.
-2. Create an account that can be used by the process server to access the computer. The account should be a **root** user on the source Linux server. (This account is used only for the push installation and updates.)
+2. Create an account that the process server can use to access the computer. The account should be a **root** user on the source Linux server. (This account is used only for the push installation and updates.)
 3. Check that the /etc/hosts file on the source Linux server has entries that map the local hostname to IP addresses associated with all network adapters.
 4. Install the latest openssh, openssh-server, and openssl packages on the machine that you want to replicate.
 5. Ensure SSH is enabled and running on port 22.
