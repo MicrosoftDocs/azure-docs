@@ -124,19 +124,31 @@ After the script is run on another machine, some additional commands need to be 
 
 **For LVM Partitions**
 
-`$ pvs <volume name as shown above>` - To list the volume group names under this physical volume.
-
-`$ lvdisplay <volume-group-name from the above command’s result>` - To list all logical volumes, names and their paths in this volume group.
-
-`$ mount <LV path> </mountpath>` - To mount the logical volumes to the path of your choice.
+- To list the volume group names under a physical volume.
+```
+$ pvs <volume name as shown above in the script output> 
+```
+- To list all logical volumes, names and their paths in a volume group.
+```
+$ lvdisplay <volume-group-name from the pvs command’s results> 
+```
+- To mount the logical volumes to the path of your choice.
+```
+$ mount <LV path> </mountpath>
+```
 
 **For RAID Arrays**
 
-`$ mdadm –detail –scan` - To display details about all raid disks.
+- To display details about all raid disks.
+```
+$ mdadm –detail –scan
+```
 The relevant RAID disk will be displayed as `/dev/mdm/<RAID array name in the backed up VM>`
 
-Use the mount command if the RAID disk has physical volumes.
-`$ mount [RAID Disk Path] [/mounthpath]`
+- Use the mount command if the RAID disk has physical volumes.
+```
+$ mount [RAID Disk Path] [/mounthpath]
+```
 
 If this RAID disk has another LVM configured in it then follow the same procedure as outlined above for LVM partitions with the volume name being the RAID Disk name
 
