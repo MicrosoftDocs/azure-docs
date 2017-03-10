@@ -13,22 +13,25 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2017
+ms.date: 03/13/2017
 ms.author: marsma
 
 ---
 # Monitor a storage account in the Azure portal
 
-## Overview
-You can use the [Azure portal](https://portal.azure.com) to monitor your Azure Storage account. Azure Storage uses [Storage Analytics](storage-analytics.md) to track metrics for your account and log request data. By using the Azure portal, you can configure both metrics and request logging, and view metrics data.
+Using the [Azure portal](https://portal.azure.com), you can configure and view metrics for your storage account, and configure logging for the blob, queue, and table services. Azure Storage uses [Storage Analytics](storage-analytics.md) to track metrics and log request data, and configurable charts in the portal provide visual representations of your metrics data.
 
 > [!NOTE]
 > There are costs associated with examining monitoring data in the Azure portal. For more information, see [Storage Analytics and Billing](/rest/api/storageservices/fileservices/Storage-Analytics-and-Billing).
+>
+> Azure File storage currently supports Storage Analytics metrics, but does not yet support logging.
+>
+> Storage accounts with a replication type of Zone-Redundant Storage (ZRS) currently do not have the metrics or logging capability enabled.
 > 
 > For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 >
 
-## How to: Configure monitoring for a storage account
+## Configure monitoring for a storage account
 
 1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the storage account name to open the account dashboard.
 1. Select **Diagnostics** in the **MONITORING** section of the menu blade.
@@ -52,7 +55,7 @@ You can use the [Azure portal](https://portal.azure.com) to monitor your Azure S
 
 1. When you finish the monitoring configuration, select **Save**.
 
-A default set of metrics is displayed in charts for each service. Once you've enabled metrics for a service, it may take up to an hour for data to appear in its charts. You can select **Edit** on any metric chart to [configure which metrics](#how-to-customize-metrics-charts) are displayed in the chart.
+A default set of metrics is displayed in charts on the storage account blade, as well as the individual service blades (blob, queue, table, and file). Once you've enabled metrics for a service, it may take up to an hour for data to appear in its charts. You can select **Edit** on any metric chart to [configure which metrics](#how-to-customize-metrics-charts) are displayed in the chart.
 
 You can disable metrics collection and logging by setting **Status** to **Off**.
 
@@ -60,15 +63,17 @@ You can disable metrics collection and logging by setting **Status** to **Off**.
 > Azure Storage uses [table storage](storage-introduction.md#table-storage) to store the metrics for your storage account, and stores the metrics in tables in your account. For more information, see. [How metrics are stored](storage-analytics.md#how-metrics-are-stored).
 >
 
-## How to: Customize metrics charts
+## Customize metrics charts
 
-Use the following procedure to choose which storage metrics to view in a metrics chart.
+Use the following procedure to choose which storage metrics to view in a metrics chart. 
 
-1. Open the chart blade for the chart you wish to customize by clicking anywhere within the chart's tile. In this example, we work with the chart highlighted in the following image:
+1. Start by displaying a storage metric chart in the Azure portal. You can find charts on the **storage account blade** and in the **Metrics** blade for an individual service (blob, queue, table, file).
+
+   In this example, we work with the following chart that appears on the **storage account blade**:
 
    ![Chart selection in Azure portal](./media/storage-monitor-storage-account/stg-customize-chart-00.png)
 
-1. Select **Edit chart** to open the **Edit Chart** blade.
+1. Next, click anywhere within the chart to open the **Metric** blade. Select **Edit chart** to open the **Edit Chart** blade.
 
    ![Edit chart button on chart blade](./media/storage-monitor-storage-account/stg-customize-chart-01.png)
 
@@ -97,7 +102,7 @@ The metrics you selected in Diagnostics determines the resolution of the metrics
 * **Aggregate** monitoring provides metrics such as ingress/egress, availability, latency, and success percentages. These metrics are aggregated from the blob, table, file, and queue services.
 * **Per API** provides finer resolution, with metrics available for individual storage operations, in addition to the service-level aggregates.
 
-## How to: Configure metrics alerts
+## Configure metrics alerts
 
 You can create alerts to notify you when thresholds have been reached for storage resource metrics.
 
@@ -110,7 +115,7 @@ You can create alerts to notify you when thresholds have been reached for storag
 
 !['Add an alert rule' blade in the Azure portal](./media/storage-monitor-storage-account/stg-alert-rules-01.png)
 
-## How to: Add metrics charts to the portal dashboard
+## Add metrics charts to the portal dashboard
 
 You can add Azure Storage metrics charts for any of your storage accounts to your portal dashboard.
 
@@ -124,9 +129,9 @@ You can add Azure Storage metrics charts for any of your storage accounts to you
    ![Tile gallery in Azure portal](./media/storage-monitor-storage-account/stg-customize-dashboard-01.png)
 1. Select **Done customizing** near the top of the dashboard when you're done adding charts.
 
-Once you've added charts to your dashboard, you can further customize them as described in [How to: Customize metrics charts](#how-to-customize-metrics-charts).
+Once you've added charts to your dashboard, you can further customize them as described in [Customize metrics charts](#how-to-customize-metrics-charts).
 
-## How to: Configure logging
+## Configure logging
 
 You can instruct Azure Storage to save diagnostics logs for read, write, and delete requests for the blob, table, and queue services. The data retention policy you set also applies to these logs.
 
