@@ -50,6 +50,8 @@ The IP access control policy can be set in the Azure portal, or programmatically
 > [!NOTE]
 > By enabling an IP access control policy for your DocumentDB database account, all access to your DocumentDB database account from machines outside the configured allowed list of IP address ranges are blocked. By virtue of this model, browsing the data plane operation from the portal will also be blocked to ensure the integrity of access control.
 
+To simplify development, the Azure portal helps you identify and add the IP of your client machine to the allowed list, so that apps running your machine can access the DocumentDB account. Note that the client IP address here is detected as seen by the portal. It may be the client IP address of your machine, but it could also be the IP address of your network gateway. Do not forget to remove it before going to production.
+
 To set the IP access control policy in the Azure portal, navigate to the DocumentDB account blade, click **Firewall** in the navigation menu, then click **ON** 
 
 ![Screenshot showing how to open the Firewall blade in the Azure portal](./media/documentdb-firewall-support/documentdb-azure-portal-firewall.png)
