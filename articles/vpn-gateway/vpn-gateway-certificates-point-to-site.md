@@ -107,7 +107,7 @@ If you are creating additional client certificates, or are not using the same Po
 
 ## <a name="clientexport"></a>Export a client certificate   
 
-When you generate a client certificate, it's automatically installed on the computer that you used to generate it. If you want to install a client certificate on another client computer, you need to first export the client certificate that you generated.                              
+When you generate a client certificate, it's automatically installed on the computer that you used to generate it. If you want to install the client certificate on another client computer, you need to export the client certificate that you generated.                              
 
 1. To export a client certificate, open **certmgr.msc**. The client certificates that you generated are, by default, located in 'Certificates - Current User\Personal\Certificates'. Right-click the client certificate that you want to export, click **all tasks**, and then click **export**. This opens the **Certificate Export Wizard**.
 2. In the Wizard, click **Next**, then select **Yes, export the private key**, and then click **Next**.
