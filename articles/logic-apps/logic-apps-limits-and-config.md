@@ -31,13 +31,13 @@ These are limits for a single HTTP request and/or connector call
 
 |Name|Limit|Notes|
 |----|----|----|
-|Request Timeout|90 Seconds|An [async pattern](../logic-apps/logic-apps-create-api-app.md) or [until loop](logic-apps-loops-and-scopes.md) can compensate as needed|
+|Request Timeout|120 Seconds|An [async pattern](../logic-apps/logic-apps-create-api-app.md) or [until loop](logic-apps-loops-and-scopes.md) can compensate as needed|
 
 #### Message size
 
 |Name|Limit|Notes|
 |----|----|----|
-|Message size|50 MB|Some connectors and APIs may not support 50MB |
+|Message size|100 MB|Some connectors and APIs may not support 100MB |
 |Expression evaluation limit|131,072 characters|`@concat()`, `@base64()`, `string` cannot be longer than this|
 
 #### Retry policy
