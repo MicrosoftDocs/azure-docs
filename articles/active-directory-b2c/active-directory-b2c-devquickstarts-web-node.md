@@ -51,17 +51,18 @@ Next, you need to create an app in your B2C directory. This gives Azure AD infor
 - Create an **Application secret** for your application and copy it. You will need it later. Note that this value needs to be [XML escaped](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) before you use it.
 - Copy the **Application ID** that is assigned to your app. You'll also need this later.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Create your policies
 
-In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains three identity experiences: sign up, sign in, and sign in by using Facebook. You need to create one policy of each type, as described in the [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). When you create your three policies, be sure to:
+In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains three identity experiences: sign up, sign in, and sign in by using Facebook. You need to create this policy of each type, as described in the
+[policy reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). When you create your three policies, be sure to:
 
 - Choose the **Display name** and other sign-up attributes in your sign-up policy.
 - Choose the **Display name** and **Object ID** application claims in every policy. You can choose other claims as well.
 - Copy the **Name** of each policy after you create it. It should have the prefix `b2c_1_`.  You'll need these policy names later.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 After you create your three policies, you're ready to build your app.
 
@@ -98,7 +99,7 @@ Open the `config.js` file in the root of the project and enter your app's config
 - `returnURL`: The **Redirect URI** you entered in the portal.
 - `tenantName`: The tenant name of your app, for example, **contoso.onmicrosoft.com**.
 
-[AZURE.INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 Open the `app.js` file in the root of the project. Add the following call to invoke the `OIDCStrategy` strategy that comes with `passport-azure-ad`.
 
