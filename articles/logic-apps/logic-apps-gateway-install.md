@@ -17,9 +17,26 @@ ms.date: 07/05/2016
 ms.author: jehollan
 
 ---
-# Install the on-premises data gateway for Azure Logic Apps
-## Installation and Configuration
-### Prerequisites
+# Install an on-premises data gateway for Azure Logic Apps
+
+The on-premises data gateway supports these data source connections:
+
+*   BizTalk Server
+*	DB2  
+*   File System
+*   Informix
+*   MQ
+*	Oracle Database 
+*   SAP Application Server or SAP Message Server
+*	SQL Server
+
+For more details about these connections, see 
+[Connectors for Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
+
+## Installation and configuration
+
+### Requirements
+
 Minimum:
 
 * .NET 4.5 Framework
@@ -34,8 +51,7 @@ Recommended:
 Related considerations:
 
 * Only install the on-premises data gateway on a local machine.
-
-* You can't install the gateway on a domain controller.
+You can't install the gateway on a domain controller.
 
 * Don't install the gateway on a computer that might turn off, go to sleep, 
 or doesn't connect to the Internet because the gateway can't run under those circumstances. 
@@ -159,13 +175,19 @@ within the context of the machine where you installing the gateway.
 This service account isn't same account used for connecting to on-premises data sources, 
 nor the work or school account that you use to sign in to cloud services.
 
+## How the gateway works
+When others interact with an element that's connected to an on-premises data source:
+
+1. The cloud service creates a query, along with the encrypted credentials for the data source, and sends the query to the queue for the gateway to process.
+2. The service analyzes the query and pushes the request to the Azure Service Bus.
+3. The on-premises data gateway polls the Azure Service Bus for pending requests.
+4. The gateway gets the query, decrypts the credentials, and connects to the data source with those credentials.
+5. The gateway sends the query to the data source for execution.
+6. The results are sent from the data source, back to the gateway, and then to the cloud service. The service then uses the results.
+
 ## Frequently asked questions
+
 ### General
-**Question**: What data sources does the gateway support?<br/>
-**Answer**: The gateway can connect to SQL Server, 
-SAP Application Server, SAP Message Server, DB2, Oracle Database, 
-BizTalk Server, Informix, and MQ. 
-See [Connectors for Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
 
 **Question**: Do I need a gateway for data sources in the cloud, such as SQL Azure? <br/>
 **Answer**: No. A gateway connects to on-premises data sources only.
@@ -219,7 +241,8 @@ The credentials are decrypted at the on-premises gateway.
 **Question**: What is the benefit of the recovery key? <br/>
 **Answer**: The recovery key provides a way to migrate or recover your gateway settings after a disaster.
 
-### Troubleshooting
+## Troubleshooting
+
 **Question**: Where are the gateway logs? <br/>
 **Answer**: See Tools later in this topic.
 
@@ -231,17 +254,6 @@ Leaving query tracing turned on creates larger logs.
 You can also look at tools that your data source has for tracing queries. 
 For example, you can use Extended Events or SQL Profiler for SQL Server and Analysis Services.
 
-## How the gateway works
-When others interact with an element that's connected to an on-premises data source:
-
-1. The cloud service creates a query, along with the encrypted credentials for the data source, and sends the query to the queue for the gateway to process.
-2. The service analyzes the query and pushes the request to the Azure Service Bus.
-3. The on-premises data gateway polls the Azure Service Bus for pending requests.
-4. The gateway gets the query, decrypts the credentials, and connects to the data source with those credentials.
-5. The gateway sends the query to the data source for execution.
-6. The results are sent from the data source, back to the gateway, and then to the cloud service. The service then uses the results.
-
-## Troubleshooting
 ### Update to the latest version
 
 Many issues can surface when the gateway version becomes outdated. 
