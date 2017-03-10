@@ -40,6 +40,9 @@
 ## Troubleshoot
 ### [Autoscale](virtual-machine-scale-sets-troubleshoot.md)
 
+## FAQ
+### [Scale Set FAQ](virtual-machine-scale-sets-faq.md)
+
 # Reference
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
