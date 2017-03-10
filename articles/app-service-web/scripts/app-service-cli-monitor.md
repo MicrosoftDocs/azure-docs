@@ -30,7 +30,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 [!code-azurecli[main](../../../cli_scripts/app-service/monitor-with-logs/monitor-with-logs.sh "Monitor Logs")]
 
-[!INCLUDE [cli-script-clean-up](../azure-docs-pr/includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 

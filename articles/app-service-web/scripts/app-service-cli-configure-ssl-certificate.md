@@ -33,7 +33,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 [!code-azurecli[main](../../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")]
 
-[!INCLUDE [cli-script-clean-up](../azure-docs-pr/includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 

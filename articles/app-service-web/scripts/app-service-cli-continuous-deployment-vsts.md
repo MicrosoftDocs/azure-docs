@@ -35,7 +35,7 @@ This sample script does the following using Azure CLI 2.0:
 
 [!code-azurecli[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Visual Studio Team Services")]
 
-[!INCLUDE [cli-script-clean-up](../azure-docs-pr/includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 

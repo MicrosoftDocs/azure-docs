@@ -41,7 +41,7 @@ This sample script does the following using Azure CLI 2.0:
 
 [!code-azurecli[main](../../../cli_scripts/app-service/deploy-github/deploy-github.sh?highlight=3 "Create a web app with deployment from GitHub")]
 
-[!INCLUDE [cli-script-clean-up](../azure-docs-pr/includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 
