@@ -73,7 +73,7 @@ The tool has two main phases: profiling and report generation. There is also a t
 >
 
 ## Download and extract the public preview
-1. [Download the latest version of the Site Recovery deployment planner public preview](https://aka.ms/asr-deployment-planner).  
+1. Download the latest version of the [Site Recovery deployment planner public preview](https://aka.ms/asr-deployment-planner).  
 The tool is packaged in a .zip folder. The current version of the tool supports only the VMware-to-Azure scenario.
 
 2. Copy the .zip folder to the Windows Server from which you want to run the tool.  
@@ -425,11 +425,11 @@ The Input page provides an overview of the profiled VMware environment.
 **Virtual Machines to Place**: A list of all the VMs that should be placed on the given storage account for optimal performance and use.
 
 ## Compatible VMs
-![Compatible VMs](./media/site-recovery-deployment-planner/compatible-vms.png)
+![Excel spreadsheet of compatible VMs](./media/site-recovery-deployment-planner/compatible-vms.png)
 
-**VM Name**: The VM name or IP address that's used in the VMListFile at the time of report generation. This column also lists the disks (VMDKs) attached to the VMs.
+**VM Name**: The VM name or IP address that's used in the VMListFile when a report is generated. This column also lists the disks (VMDKs) that are attached to the VMs. To distinguish vCenter VMs with duplicate names or IP addresses, the names include the ESXi host name. The listed ESXi host is the one where the VM was placed when the tool discovered during the profiling period.
 
-**VM Compatibility** has two values: **Yes** and **Yes\***. **Yes\*** is for instances in which the VM is a fit for [Azure Premium Storage](https://aka.ms/premium-storage-workload). Here, the profiled high churn or IOPS disk fits in the P20 or P30 category, but the size of the disk causes it to be mapped down to a P10 or P20. The storage account decides which premium storage disk type to map a disk to, based on its size. For example:
+**VM Compatibility**: Values are **Yes** and **Yes\***. **Yes\*** is for instances in which the VM is a fit for [Azure Premium Storage](https://aka.ms/premium-storage-workload). Here, the profiled high churn or IOPS disk fits in the P20 or P30 category, but the size of the disk causes it to be mapped down to a P10 or P20. The storage account decides which premium storage disk type to map a disk to, based on its size. For example:
 * <128 GB is a P10.
 * 128 GB to 512 GB is a P20.
 * 512 GB to 1023 GB is a P30.
@@ -460,13 +460,14 @@ If the workload characteristics of a disk put it in the P20 or P30 category, but
 
 ## Incompatible VMs
 
-![Incompatible VMs](./media/site-recovery-deployment-planner/incompatible-vms.png)
+![Excel spreadsheet of incompatible VMs](./media/site-recovery-deployment-planner/incompatible-vms.png)
 
-**VM Name**: The VM name or IP address that's used in the VMListFile at the time of report generation. This column also lists the VMDKs that are attached to the VMs.
+**VM Name**: The VM name or IP address that's used in the VMListFile when a report is generated. This column also lists the VMDKs that are attached to the VMs. To distinguish vCenter VMs with duplicate names or IP addresses, the names include the ESXi host name. The listed ESXi host is the one where the VM was placed when the tool discovered during the profiling period.
 
 **VM Compatibility**: Indicates why the given VM is incompatible for use with Site Recovery. The reasons are described for each incompatible disk of the VM and, based on published [storage limits](https://aka.ms/azure-storage-scalbility-performance), can be any of the following:
 
-* Disk size is >1023 GB. Azure Storage currently does not support >1-TB disk sizes.
+* Disk size is >1023 GB. Azure Storage currently does not support disk sizes greater than 1 TB.
+
 * Total VM size (replication + TFO) exceeds the supported storage-account size limit (35 TB). This incompatibility usually occurs when a single disk in the VM has a performance characteristic that exceeds the maximum supported Azure or Site Recovery limits for standard storage. Such an instance pushes the VM into the premium storage zone. However, the maximum supported size of a premium storage account is 35 TB, and a single protected VM cannot be protected across multiple storage accounts. Also note that when a test failover is executed on a protected VM, it runs in the same storage account where replication is progressing. In this instance, set up 2x the size of the disk for replication to progress and test failover to succeed in parallel.
 * Source IOPS exceeds supported storage IOPS limit of 5000 per disk.
 * Source IOPS exceeds supported storage IOPS limit of 80,000 per VM.
@@ -505,9 +506,36 @@ These are average numbers assuming a 30 percent I/O overlap. Site Recovery is ca
 
 These limits are based on our tests, but they cannot cover all possible application I/O combinations. Actual results can vary based on your application I/O mix. For best results, even after deployment planning, we always recommend that you perform extensive application testing by using a test failover to get the true performance picture.
 
-## Release notes
-The Azure Site Recovery deployment planner public preview 1.0 has the following known issues that will be addressed in upcoming updates:
+## Updating the deployment planner
+To update the deployment planner, do the following:
 
-* The tool works only for the VMware-to-Azure scenario, not for Hyper-V to Azure deployments. For Hyper-V to Azure scenario use [Hyper-V capacity planner tool](./site-recovery-capacity-planning-for-hyper-v-replication.md).
-* The GetThroughput operation is not supported in US Government and China Microsoft Azure regions.
-* The tool cannot profile VMs if the vCenter has two or more VMs with the same name/IP address across various ESXi hosts. In this version, the tool skips profiling for duplicate VM names/IP addresses in the VMListFile. The workaround is to profile VMs with an ESXi host instead of vCenter server. You need to run one instance for each ESXi host.
+1. Download the latest version of the [Azure Site Recovery deployment planner](https://aka.ms/asr-deployment-planner).
+2. Copy the .zip folder to a server that you want to run it on.
+3. Extract the .zip folder.
+4. Do either of the following:
+ * If the latest version doesn't contain a profiling fix and profiling is already in progress on your current version of the planner, continue the profiling.
+ * If the latest version does contain a profiling fix, we recommended that you stop profiling on your current version and restart the profiling with the new version.
+
+  >[!NOTE]
+  >When you start profiling with the new version, pass the same output directory path so that the tool appends profile data on the existing files. A complete set of profiled data will be used to generate the report. If you pass a different output directory, new files are created, and old profiled data is not used to generate the report.
+  >
+  >Each new deployment planner is a cumulative update of the .zip file. You don't need to copy the newest files to the previous  folder. You can create and use a new folder.
+
+
+## Version history
+### 1.1
+Updated: 09-Mar-2017
+
+Fixed the following issues:
+
+* The tool cannot profile VMs if the vCenter has two or more VMs with the same name or IP address across various ESXi hosts.
+* Copy and search is disabled for the Compatible VMs and Incompatible VMs worksheets.
+
+### 1.0
+Updated: 23-Feb-2017
+
+Azure Site Recovery Deployment Planner public preview 1.0 has the following known issues (to be addressed in upcoming updates):
+
+* The tool works only for VMware-to-Azure scenarios, not for Hyper-V-to-Azure deployments. For Hyper-V-to-Azure scenarios, use the [Hyper-V capacity planner tool.](./site-recovery-capacity-planning-for-hyper-v-replication.md).
+* The GetThroughput operation is not supported in the US Government and China Microsoft Azure regions.
+* The tool cannot profile VMs if the vCenter server has two or more VMs with the same name or IP address across various ESXi hosts. In this version, the tool skips profiling for duplicate VM names or IP addresses in the VMListFile. The workaround is to profile the VMs by using an ESXi host instead of the vCenter server. You must run one instance for each ESXi host.

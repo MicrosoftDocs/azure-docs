@@ -43,17 +43,25 @@ To install the SDK and the associated runtime package via apt-get, you must firs
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ trusty main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
-3. Add the new GPG key to your apt keyring.
+3. Add the dotnet repo to your sources list.
+
+    ```bash
+    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+    ```
+4. Add the new GPG key to your apt keyring.
 
     ```bash
     sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
     ```
-4. Refresh your package lists based on the newly added repositories.
+    ```bash
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+    ```
+
+5. Refresh your package lists based on the newly added repositories.
 
     ```bash
     sudo apt-get update
     ```
-
 ## Install and set up the SDK
 Once your sources are updated, you can install the SDK.
 

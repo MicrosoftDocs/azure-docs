@@ -19,7 +19,7 @@ ms.date: 07/29/2016
 ms.author: b-hoedid
 
 ---
-# Scenario: Exception handling and logging errors for logic apps
+# Scenario: Exception handling and error logging for logic apps
 
 This scenario describes how you can extend a logic app to better support exception handling. 
 We've used a real-life use case to answer the question: "Does Azure Logic Apps support exception and error handling?"
@@ -450,9 +450,8 @@ Here are examples of our MVC app details created with the previously described a
 
 #### Logic Apps exception management API
 
-Our open-source Azure Logic Apps exception management API app provides the following functionality.
-
-There are two controllers:
+Our open-source Azure Logic Apps exception management API app 
+provides functionality as described here - there are two controllers:
 
 * **ErrorController** inserts an error record (document) in a DocumentDB collection.
 * **LogController** Inserts a log record (document) in a DocumentDB collection.

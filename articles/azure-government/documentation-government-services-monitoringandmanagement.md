@@ -35,6 +35,10 @@ Backup is generally available in Azure Government.
 
 For more information, see [Azure Government Backup](documentation-government-services-backup.md).
 
+## Resource Policy
+
+[Azure resource policies](../azure-resource-manager/resource-manager-policy.md) are not available in Azure Government.
+
 ## Site Recovery
 Site Recovery (ASR) is generally available in Azure Government.
 
