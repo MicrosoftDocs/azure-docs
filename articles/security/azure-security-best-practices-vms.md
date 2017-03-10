@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2017
+ms.date: 03/02/2017
 ms.author: yurid
 
 ---
-# Azure Virtual Machine Security Best Practices
+# Azure Virtual Machine security best practices
 
 In most IaaS (Infrastructure as a Service) scenarios, [Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/) are the main workload for organizations that are using cloud computing. This is predominant in [hybrid scenarios](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) where organizations want to slowly migrate workloads to the cloud. You should follow [general security considerations for IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx) scenario and ensure that you have security best practices applied to all your VMs located in Azure.
 
@@ -62,7 +62,7 @@ Organizations that are not enforcing data access control by leveraging capabilit
 
 If your VM runs critical applications that need to have high availability, it is strongly recommended that you use multiple VMs.  For better availability, create at least two VMs in the [availability set](../virtual-machines/virtual-machines-windows-infrastructure-availability-sets-guidelines.md). The Azure [load balancer](../load-balancer/load-balancer-overview.md) also requires that load-balanced VMs belong to the same availability set. If these VMs need to be access from the Internet, you will need to configure an [Internet facing load balancer](../load-balancer/load-balancer-internet-overview.md).
 
-When VMs are exposed to the Internet, it is important to ensure that have [network access control list](../virtual-network/virtual-networks-acl.md) in place to restrict the access scope.  By using network access control list you can selectively permit or deny incoming traffic based on remote subnet IPv4 address range to a virtual machine input endpoint. You can also use *rule ordering* to ensure the correct set of rules are applied on a given virtual machine endpoint (lowest to highest). 
+When VMs are exposed to the Internet, it is important to ensure that you [control network traffic flow with network security groups](../virtual-network/virtual-networks-nsg.md).  Since NSGs can be applied to subnets, you can minimize the number of NSGs by grouping your resources by subnet, and applying NSGs to subnets. The intent is to create a layer of network isolation, which can be accomplished by proper configuring [network security](../best-practices-network-security.md) capabilities in Azure.  
 
 You can also use just in time VM access feature from Azure Security Center to control who and for how long someone can have remote access to a specific VM. Watch the video below for more information on how to use this capability:
 

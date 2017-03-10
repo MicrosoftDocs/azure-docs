@@ -14,11 +14,11 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 03/01/2017
 ms.author: cjiang
-
+ms.custom: H1Hack27Feb2017
 ---
-# I can't sign up for Azure
+# Troubleshoot sign-up issues for Azure
 If you can't sign up for Azure, there are several things you can check to troubleshoot the issue.
 
 ## Progress bar hangs in "Identity verification by card" section

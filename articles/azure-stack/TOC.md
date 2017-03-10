@@ -76,6 +76,7 @@
 ### [Differences and considerations](azure-stack-acs-differences-tp2.md)
 ## Network
 ### [iDNS for Azure Stack](azure-stack-understanding-dns-in-tp2.md)
+### [DNS in Azure Stack](azure-stack-dns.md)
 ### [Understanding site-to-site VPN connections](azure-stack-create-vpn-connection-one-node-tp2.md)
 ## Key Vault
 ### [Overview](azure-stack-kv-intro.md)
@@ -109,6 +110,7 @@
 
 # Troubleshoot
 ## [Known issues](azure-stack-troubleshooting.md)
+## [Diagnostics in Azure Stack](azure-stack-diagnostics.md)
 
 # Resources
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  
