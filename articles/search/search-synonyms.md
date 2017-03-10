@@ -42,7 +42,7 @@ Incorporating synonyms into your search application is a two-step process:
 
 #### Add or update a synonym map under your service, using POST or PUT.
 
-Synonym configuration and its mappings, is uploaded to the service via POST or PUT. You can define up to 5,000 rules per synonym map in a free service and 10,000 rules in basic and above. Each rule can have up to 20 expansions.
+Synonym configuration and its mapping rules, is uploaded to the service via POST or PUT. Each rule must be delimited by the new line character ('\n'). You can define up to 5,000 rules per synonym map in a free service and 10,000 rules in basic and above. Each rule can have up to 20 expansions.
 
 In this preview, only the 'solr' format is supported for synonym maps.`*` If you have an existing synonym dictionary in a different format and want to use it directly, please let us know on [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
@@ -55,9 +55,9 @@ You can create a new synonym map using HTTP POST, as in the following example:
 	   "name":"mysynonymmap",
 	   "format":"solr",
 	   "synonyms": "
-	      chair, armchair, rocker, recliner 
-	      Washington, Wash., WA => WA
-	      pet => cat, dog, puppy, kitten, pet"
+	      chair, armchair, rocker, recliner\n
+	      Washington, Wash., WA => WA\n
+	      pet => cat, dog, puppy, kitten, pet\n"
 	}
 
 Alternatively, you can use PUT and specify the synonym map name on the URI. If the synonym map does not exist, it will be created. 
@@ -68,9 +68,9 @@ Alternatively, you can use PUT and specify the synonym map name on the URI. If t
     {  
        "format":"solr",
        "synonyms": "
-          chair, armchair, rocker, recliner 
-          Washington, Wash., WA => WA
-          pet => cat, dog, puppy, kitten, pet"
+          chair, armchair, rocker, recliner\n
+          Washington, Wash., WA => WA\n
+          pet => cat, dog, puppy, kitten, pet\n"
     }
 
 `*` The Solr format supports equivalent and explicit synonym mappings. Below is a sample rule for equivalent synonyms.   
