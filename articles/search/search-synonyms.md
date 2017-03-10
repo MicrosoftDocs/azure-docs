@@ -20,11 +20,11 @@
 
 Synonyms in search engines associate equivalent terms that implicitly expand the scope of a query, without the user having to actually provide the term. For example, given the term "dog" and synonym associations of "canine" and "puppy", any documents containing "dog", "canine" or "puppy" will fall within the scope of the query.
 
-In Azure Search, synonyms are a query-time expansion. You can use it on existing indexes without having to rebuild them.
+In Azure Search, synonym expansion is done at query time. You can use it on existing indexes without having to rebuild them.
 
 ## Feature availability
 
-Synonyms are currently in preview, and the feature is available only in the Service REST API (api-version=2015-02-28-Preview). There is no portal or .NET SDK support at this time. Because the REST API version is specified on the request, it's possible to combine generally available (GA) and preview APIs in the same app. However, preview APIs are not under SLA, so we do not recommend using them in production applications.
+Synonyms feature is currently in preview and only supported in the latest preview api-version (api-version=2016-09-01-Preview). There is no portal support at this time. Because the API version is specified on the request, it's possible to combine generally available (GA) and preview APIs in the same app. However, preview APIs are not under SLA, so we do not recommend using them in production applications.
 
 ## How to use synonyms in Azure search
 
@@ -42,13 +42,13 @@ Incorporating synonyms into your search application is a two-step process:
 
 #### Add or update a synonym map under your service, using POST or PUT.
 
-Synonym configuration and its mappings, is uploaded to the service via POST or PUT. The request payload must be under 16 MB.
+Synonym configuration and its mappings, is uploaded to the service via POST or PUT. You can define up to 5,000 rules per synonym map in a free service and 10,000 rules in basic and above. Each rule can have up to 20 expansions.
 
 In this preview, only the 'solr' format is supported for synonym maps.`*` If you have an existing synonym dictionary in a different format and want to use it directly, please let us know on [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 You can create a new synonym map using HTTP POST, as in the following example:
 
-	POST https://[servicename].search.windows.net/synonymmaps/?api-version=2015-02-28-Preview
+	POST https://[servicename].search.windows.net/synonymmaps/?api-version=2016-09-01-Preview
 	api-key: [admin key]
 	
 	{  
@@ -62,7 +62,7 @@ You can create a new synonym map using HTTP POST, as in the following example:
 
 Alternatively, you can use PUT and specify the synonym map name on the URI. If the synonym map does not exist, it will be created. 
 
-	PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2015-02-28-Preview
+	PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
 	api-key: [admin key]
 	
     {  
@@ -87,17 +87,17 @@ Explicit mapping is denoted by an arrow "=>". When specified, a token sequence o
 
 #### List synonym maps under your service.
 
-	GET https://[servicename].search.windows.net/synonymmaps?api-version=2015-02-28-Preview
+	GET https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
 	api-key: [admin key]
 
 #### Get a synonym map under your service.
 		
-	GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2015-02-28-Preview
+	GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
 	api-key: [admin key]
 
 #### Delete a synonyms map under your service.
 
-	DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2015-02-28-Preview
+	DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
 	api-key: [admin key]
 
 ### SynonymMaps property in the field definition
@@ -105,7 +105,7 @@ Explicit mapping is denoted by an arrow "=>". When specified, a token sequence o
 A new field property **synonymMaps** can be used to specify a synonym map to use for a searchable field. Multiple search indexes under a service can refer to the same synonym map.
 
 
-	POST https://[servicename].search.windows.net/indexes?api-version=2015-02-28-Preview
+	POST https://[servicename].search.windows.net/indexes?api-version=2016-09-01-Preview
 	api-key: [admin key]
 	
 	{
@@ -129,7 +129,7 @@ A new field property **synonymMaps** can be used to specify a synonym map to use
 	         "name":"name_jp",
 	         "type":"Edm.String",
 	         "searchable":true,
-	         "analyzer":"ja.lucene",
+	         "analyzer":"ja.microsoft",
 	         "synonymMaps":[
 	            "japanesesynonymmap"
 	         ]
@@ -137,14 +137,7 @@ A new field property **synonymMaps** can be used to specify a synonym map to use
 	   ]
 	}
 
-**synonymMaps** can be specified for fields that meet the following criteria:
-
-- Edm.String or Collection(Edm.String) 
-- searchable:true
-- analyzer: null (standard) | [Lucene Language analyzers](https://msdn.microsoft.com/library/azure/dn879793.aspx) `*`
-- synonymMaps: `<a single synonym map on the same service as the index>` `**`
-
-`*` Microsoft language analyzers and custom analyzers are unsupported for synonyms in this preview.
+**synonymMaps** can be specified for searchable fields of the type 'Edm.String' or 'Collection(Edm.String)'.
 
 `**` In this preview, you can only have one synonym map per field. If you want to use multiple synonym maps, please let us know on [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
@@ -153,6 +146,8 @@ A new field property **synonymMaps** can be used to specify a synonym map to use
 A phrase is parsed as an OR'd construction. For this reason, hit highlighting and scoring profiles treat the original term and synonyms as equivalent.
 
 In contrast, filters and facets are pegged to a static value, and would not factor synonyms into filters or a faceted navigation structure. Similarly, suggestions are based only on the original term; synonym matches do not appear in the response.
+
+Synonym expansions do not apply to wildcard terms; prefix, fuzzy, and regex terms aren't expanded. 
 
 ## Tips for building a synonym map
 
