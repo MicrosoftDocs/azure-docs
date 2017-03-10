@@ -4,7 +4,7 @@ description: Learn how to configure Google authentication for your App Services 
 services: app-service
 documentationcenter: ''
 author: mattchenderson
-manager: erikre
+manager: adrianha
 editor: ''
 
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
