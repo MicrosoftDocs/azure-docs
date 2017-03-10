@@ -17,13 +17,13 @@ ms.date: 03/02/2017
 ms.author: yurid
 
 ---
-# Best practices for Azure virtual machine security
+# Best practices for Azure VM security
 
-In most infrastructure as a service (IaaS) scenarios, [virtual machines (VMs)](https://docs.microsoft.com/en-us/azure/virtual-machines/) are the main workload for organizations that use cloud computing. This fact is especially evident in [hybrid scenarios](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) where organizations want to slowly migrate workloads to the cloud. In such a scenario, you should follow [general security considerations for IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx), and apply security best practices to all your Azure VMs.
+In most infrastructure as a service (IaaS) scenarios, [Azure virtual machines (VMs)](https://docs.microsoft.com/en-us/azure/virtual-machines/) are the main workload for organizations that use cloud computing. This fact is especially evident in [hybrid scenarios](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) where organizations want to slowly migrate workloads to the cloud. In such scenarios, follow the [general security considerations for IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx), and apply security best practices to all your VMs.
 
-This article discusses a variety of Azure VM security best practices, each derived from our own and our customers' direct experiences with Azure VMs.
+This article discusses various VM security best practices, each derived from our customers' and our own direct experiences with VMs.
 
-The best practices are based on a consensus of opinion, and they work with Azure platform capabilities and feature sets as they currently exist. Because opinions and technologies change over time, we plan to update this article regularly to reflect those changes.
+The best practices are based on a consensus of opinion, and they work with current Azure platform capabilities and feature sets. Because opinions and technologies can change over time, we plan to update this article regularly to reflect those changes.
 
 For each best practice, the article explains:
 
@@ -33,22 +33,22 @@ For each best practice, the article explains:
 * What might happen if you fail to enable it.
 * Possible alternatives to the best practice.
 
-The article examines the following Azure VM security best practices:
+The article examines the following VM security best practices:
 
 * VM authentication and access control
 * VM availability and network access
-* Protect data at rest in Azure VMs by enforcing encryption
+* Protect data at rest in VMs by enforcing encryption
 * Manage your VM updates
 * Manage your VM security posture
-* Monitor your VM performance
+* Monitor VM performance
 
 ## VM authentication and access control
 
 The first step in protecting your VM is to ensure that only authorized users are able to set up new VMs. You can use [Azure Resource Manager policies](../azure-resource-manager/resource-manager-policy.md) to establish conventions for resources in your organization, create customized policies, and apply these policies to resources, such as [resource groups](../azure-resource-manager/resource-group-overview.md).
 
-VMs that belong to a resource group inherit its policies. Although we recommend this approach to managing resources (including VMs) that have various needs and are located in various resource groups, you can also control individual access to VMs by using [role-based access control (RBAC)](../active-directory/role-based-access-control-configure.md).
+VMs that belong to a resource group naturally inherit its policies. Although we recommend this approach to managing VMs, you can also control access to individual VM policies by using [role-based access control (RBAC)](../active-directory/role-based-access-control-configure.md).
 
-By enabling Resource Manager policies and RBAC to control VM access, you help improve the overall security of your VM. We recommend that you tightly consolidate VMs that share the same life cycle into the same resource group. When you use resource groups, you can deploy, monitor, and roll up billing costs for your resources. To enable users to access and set up VMs, use a [least privilege approach](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). And when you assign privileges to users, plan to use the following built-in Azure roles:
+When you enable Resource Manager policies and RBAC to control VM access, you help improve overall VM security. We recommend that you consolidate VMs with the same life cycle into the same resource group. By using resource groups, you can deploy, monitor, and roll up billing costs for your resources. To enable users to access and set up VMs, use a [least privilege approach](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). And when you assign privileges to users, plan to use the following built-in Azure roles:
 
 - [Virtual Machine Contributor](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor): Can manage VMs, but not the virtual network or storage account to which they are connected.
 - [Classic Virtual Machine Contributor](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor): Can manage VMs created by using the classic deployment model, but not the virtual network or storage account to which the VMs are connected.
@@ -65,7 +65,7 @@ If your VM runs critical applications that need to have high availability, we st
 
 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) also requires that load-balanced VMs belong to the same availability set. If these VMs must be accessed from the Internet, you must configure an [Internet-facing load balancer](../load-balancer/load-balancer-internet-overview.md).
 
-When VMs are exposed to the Internet, it is important that you [control network traffic flow with network security groups (NSGs)](../virtual-network/virtual-networks-nsg.md). Because NSGs can be applied to subnets, you can minimize the number of NSGs by grouping your resources by subnet and by applying NSGs to the subnets. The intent is to create a layer of network isolation, which you can do by properly configuring the [network security](../best-practices-network-security.md) capabilities in Azure.
+When VMs are exposed to the Internet, it is important that you [control network traffic flow with network security groups (NSGs)](../virtual-network/virtual-networks-nsg.md). Because NSGs can be applied to subnets, you can minimize the number of NSGs by grouping your resources by subnet and then applying NSGs to the subnets. The intent is to create a layer of network isolation, which you can do by properly configuring the [network security](../best-practices-network-security.md) capabilities in Azure.
 
 You can also use the just-in-time (JIT) VM-access feature from Azure Security Center to control who has remote access to a specific VM, and for how long.
 
@@ -75,11 +75,11 @@ You can also use the just-in-time (JIT) VM-access feature from Azure Security Ce
 
 Organizations that don't enforce network-access restrictions to Internet-facing VMs are exposed to security risks, such as a Remote Desktop Protocol (RDP) Brute Force attack.
 
-## Protect data at rest in Azure VMs by enforcing encryption
+## Protect data at rest in your VMs by enforcing encryption
 
 [Data encryption at rest](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is a mandatory step toward data privacy, compliance, and data sovereignty. [Azure Disk Encryption](../security/azure-security-disk-encryption.md) enables IT administrators to encrypt Windows and Linux IaaS VM disks. Disk Encryption combines the industry-standard Windows BitLocker feature and the Linux dm-crypt feature to provide volume encryption for the OS and the data disks.
 
-You can apply Disk Encryption to help safeguard your data to meet your organizational security and compliance requirements. Your organization should consider using encryption to help mitigate risks related to unauthorized data access. We also recommend that you encrypt your drives prior to writing sensitive data to them.
+You can apply Disk Encryption to help safeguard your data to meet your organizational security and compliance requirements. Your organization should consider using encryption to help mitigate risks related to unauthorized data access. We also recommend that you encrypt your drives before you write sensitive data to them.
 
 Be sure to encrypt your VM data volumes to protect them at rest in your Azure storage account. Safeguard the encryption keys and secret by using [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/key-vault-whatis/).
 
@@ -90,13 +90,13 @@ To learn more about Disk Encryption, see [Azure Disk Encryption for Windows and 
 
 ## Manage your VM updates
 
-Because Windows Azure VMs, like any on-premises VMs, are intended to be managed by their users, Azure doesn't push Windows Updates to them. You are, however, encouraged to leave the automatic Windows Update setting enabled. Another option is to deploy [Windows Server Update Services (WSUS)](https://technet.microsoft.com/windowsserver/bb332157.aspx) or another suitable update-management product either on another Azure VM or on-premises. Both WSUS and Windows Update keep VMs current. We also recommend that you use a scanning product to verify that all your IaaS VMs are up to date.
+Because Azure VMs, like all on-premises VMs, are intended to be user-managed, Azure doesn't push Windows updates to them. You are, however, encouraged to leave the automatic Windows Update setting enabled. Another option is to deploy [Windows Server Update Services (WSUS)](https://technet.microsoft.com/windowsserver/bb332157.aspx) or another suitable update-management product either on another VM or on-premises. Both WSUS and Windows Update keep VMs current. We also recommend that you use a scanning product to verify that all your IaaS VMs are up to date.
 
-Stock images provided by Azure are routinely updated to include the most recent round of Windows Updates. However, there is no guarantee that the images will be current at deployment time. A slight lag (of no more than a few weeks) following public releases might be possible. Checking for and installing all Windows Updates should be the first step of every deployment. This measure is especially important to apply when you deploy images that come from either you or your own library. Images that are provided as part of the Azure Marketplace always have automatic Windows Updates enabled by default.
+Stock images provided by Azure are routinely updated to include the most recent round of Windows updates. However, there is no guarantee that the images will be current at deployment time. A slight lag (of no more than a few weeks) following public releases might be possible. Checking for and installing all Windows updates should be the first step of every deployment. This measure is especially important to apply when you deploy images that come from either you or your own library. Images that are provided as part of the Azure Marketplace are updated automatically by default.
 
 Organizations that don't enforce software-update policies are more exposed to threats that exploit known, previously fixed vulnerabilities. Besides risking such threats, to comply with industry regulations, companies must prove that they are exercising diligence and using correct security controls to help ensure the security of their workload located in the cloud.
 
-It is important to emphasize that many similarities exist between software-update best practices for traditional datacenters and those for Azure IaaS. We therefore recommend that you evaluate your current software update policies to include Azure VMs.
+It is important to emphasize that software-update best practices for traditional datacenters and Azure IaaS have many similarities. We therefore recommend that you evaluate your current software update policies to include VMs.
 
 ## Manage your VM security posture
 
@@ -113,17 +113,17 @@ To monitor the security posture of your [Windows](../security-center/security-ce
 
 Security Center can actively monitor for threats, and potential threats are exposed under **Security Alerts**. Correlated threats are aggregated in a single view called **Security Incident**.
 
-To understand how Security Center can help you identify potential threats in your VMs located in Azure, watch the following video.
+To understand how Security Center can help you identify potential threats in your VMs located in Azure, watch the following video:
 
 <iframe src="https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
-Organizations that don't enforce a strong security posture for their VMs remain unaware of potential attempts by unauthorized users to circumvent security controls that are in place.
+Organizations that don't enforce a strong security posture for their VMs remain unaware of potential attempts by unauthorized users to circumvent established security controls.
 
-## Monitor your VM performance
+## Monitor VM performance
 
-Resource abuse can be a problem when VM processes consume more resources than they should. Performance issues with a VM can lead to service disruption, which violates the security principle of availability. For this reason, it is imperative to monitor VM access not only reactively, while an issue is occurring, but also proactively, against baseline performance as measured during normal hours of operation.
+Resource abuse can be a problem when VM processes consume more resources than they should. Performance issues with a VM can lead to service disruption, which violates the security principle of availability. For this reason, it is imperative to monitor VM access not only reactively, while an issue is occurring, but also proactively, against baseline performance as measured during normal operation.
 
-By analyzing [Azure diagnostic log files](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), you can monitor your VM resources and identify potential issues that might compromise performance and availability. The Azure Diagnostics Extension provides monitoring and diagnostics capabilities on Windows-based Azure VMs. You can enable these capabilities by including the extension as part of the [Azure Resource Manager template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
+By analyzing [Azure diagnostic log files](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), you can monitor your VM resources and identify potential issues that might compromise performance and availability. The Azure Diagnostics Extension provides monitoring and diagnostics capabilities on Windows-based VMs. You can enable these capabilities by including the extension as part of the [Azure Resource Manager template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
 
 You can also use [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) to gain visibility into your resource’s health.
 
