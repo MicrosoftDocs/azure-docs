@@ -329,7 +329,7 @@ The [Azure IoT device SDK for .NET][lnk-client-sdk] (version 1.0.11+) supports t
 
 ### C\# Support
 The class **DeviceAuthenticationWithX509Certificate** supports the creation of 
- **DeviceClient** instances using an X.509 certificate.
+ **DeviceClient** instances using an X.509 certificate. The X.509 certificate must be in the PFX (also called PKCS #12) format which includes the private key. 
 
 Here is a sample code snippet:
 
