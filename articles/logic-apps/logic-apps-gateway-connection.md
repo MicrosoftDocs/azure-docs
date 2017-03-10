@@ -23,14 +23,31 @@ To access on-premises data, you can set up a connection to an
 on-premises data gateway for supported Azure Logic Apps connectors. 
 The following steps walk you through how to install and set up the 
 on-premises data gateway to work with your logic apps.
+The on-premises data gateway supports these data source connections:
 
-## Prerequisites
+*   BizTalk Server
+*	DB2  
+*   File System
+*   Informix
+*   MQ
+*	Oracle Database 
+*   SAP Application Server 
+*   SAP Message Server
+*	SQL Server
+
+For more details about these connections, see 
+[Connectors for Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
+
+## Requirements
 
 * You must have a work or school email address in Azure to associate the 
 on-premises data gateway with your account (Azure Active Directory based account).
+
 * If you are using a Microsoft account, like @outlook.com, you can use your Azure account to 
 [create a work or school email address](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
+
 * You must have [installed the on-premises data gateway on a local machine](logic-apps-gateway-install.md).
+
 * You can associate your installation to one gateway resource only. 
 Your gateway can't be claimed by another Azure on-premises data gateway. 
 Claim happens at ([creation during Step 2 in this topic](#2-create-an-azure-on-premises-data-gateway-resource)).
@@ -39,8 +56,10 @@ Claim happens at ([creation during Step 2 in this topic](#2-create-an-azure-on-p
 
 ### 1. Install the on-premises data gateway
 
-To install the on-premises data gateway, see [Install the on-premises gate](logic-apps-gateway-install.md). 
-Before you can continue with the other steps, you must first install the gateway on an on-premises machine.
+To install the on-premises data gateway, see 
+[Install the on-premises data gateway](logic-apps-gateway-install.md). 
+Before you can continue with the other steps, 
+you must first install the gateway on an on-premises machine.
 
 ### 2. Create an Azure on-premises data gateway resource
 

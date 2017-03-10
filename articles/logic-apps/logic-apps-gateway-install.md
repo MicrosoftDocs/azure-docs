@@ -27,7 +27,8 @@ The on-premises data gateway supports these data source connections:
 *   Informix
 *   MQ
 *	Oracle Database 
-*   SAP Application Server or SAP Message Server
+*   SAP Application Server 
+*   SAP Message Server
 *	SQL Server
 
 For more details about these connections, see 
