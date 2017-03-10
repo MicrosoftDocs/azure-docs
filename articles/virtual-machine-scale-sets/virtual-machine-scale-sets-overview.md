@@ -78,7 +78,7 @@ $profile1 = New-AzureRmAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -
 Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGroup $rgname -TargetResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -AutoscaleProfiles $profile1
 ```
 
- You can find a list of valid metrics to scale on here: [https://azure.microsoft.com/en-us/documentation/articles/monitoring-supported-metrics/](https://azure.microsoft.com/en-us/documentation/articles/monitoring-supported-metrics/) under the heading _Microsoft.Compute/virtualMachineScaleSets_. More advanced autoscale options are also available, including schedule-based autoscale, and using webhooks to integrate with alerting systems.
+ You can find a list of valid metrics to scale on here: [Supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md) under the heading _Microsoft.Compute/virtualMachineScaleSets_. More advanced autoscale options are also available, including schedule-based autoscale, and using webhooks to integrate with alerting systems.
 
 ## Monitoring your scale set
 The [Azure portal](https://portal.azure.com) lists scale sets, and shows their properties. The portal also supports management operations, which can be performed both on scale sets, and on individual VMs within a scale set. The portal also provides a customizable resource usage graph. If you need to see or edit the underlying JSON definition of an Azure resource, you can also use the [Azure Resource Explorer](https://resources.azure.com). Scale sets are a resource under the Microsoft.Compute Azure Resource Provider, so from this site you can see them by expanding the following links:
