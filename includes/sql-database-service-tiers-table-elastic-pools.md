@@ -75,6 +75,20 @@ sql-database-service-tiers.md
 | Max eDTUs per database | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750,4000} | 
 ||||||||
 
+### Premium RS elastic pool limits
+
+| Pool size (eDTUs)  | **125** | **250** | **500** | **1000** |
+|:---|---:|---:|---:| ---: | ---: | 
+| Max data storage per pool* | 250 GB| 500 GB | 750 GB | 750 GB |
+| Max In-Memory OLTP storage per pool* | 1 GB | 2 GB | 4 GB | 10 GB |
+| Max number DBs per pool | 50 | 100 | 100 | 100 |
+| Max concurrent workers per pool | 200 | 400 | 800 | 1600 |
+| Max concurrent logins per pool | 200 | 400 | 800 | 1600 |
+| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 |
+| Min eDTUs per database | {0,25,50,75,<br>125} | {0,25,50,75,<br>125,250} | {0,25,50,75,<br>125,250,500} | {0,25,50,75,<br>125,250,500,<br>1000} |
+| Max eDTUs per database | {25,50,75,<br>125} | {25,50,75,<br>125,250} | {25,50,75,<br>125,250,500} | {25,50,75,<br>125,250,500,<br>1000} | 
+||||||||
+
 > [!IMPORTANT]
 >\* Pooled databases share pool storage, so data storage in an elastic pool is limited to the smaller of the remaining pool storage or max storage per database.
 >

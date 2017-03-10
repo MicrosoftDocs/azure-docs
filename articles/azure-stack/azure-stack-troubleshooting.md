@@ -34,7 +34,7 @@ Code examples are provided as is and expected results cannot be guaranteed. This
 * The "Get started" tile on the dashboard references Azure specific information.
 * The reclaim storage procedure may take time to complete.
 * Opening Storage Explorer from the storage account blade will result in an error.  This is expected behavior for TP3.
-* Attempting to delegate or assign a offer to a user will result in an error due to a blank Azure AD tenant field.  To work around, make the offer public. 
+* Attempting to delegate or assign an offer to a user will result in a “No results” error appearing in the Directory Tenants selection blade. The workaround is to make the offer public, and then have tenants add a subscription based on the public offer. 
 * Using the Marketplace Item to create a VM with guest OS diagnostics enabled will receive an error that the VM extension failed.  To workaround, enable the Guest OS diagnostics after VM deployment. 
 * There are known issues with VM resizing and this scenario shouldn't be validated at this time.
 * You will see virtual machines reboot after configuration changes.

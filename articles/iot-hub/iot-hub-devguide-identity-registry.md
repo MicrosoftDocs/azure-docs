@@ -106,7 +106,7 @@ Device identities are represented as JSON documents with the following propertie
 | --- | --- | --- |
 | deviceId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | generationId |required, read-only |An IoT hub-generated, case-sensitive string up to 128 characters long. This value is used to distinguish devices with the same **deviceId**, when they have been deleted and re-created. |
-| etag |required, read-only |A string representing a weak etag for the device identity, as per [RFC7232][lnk-rfc7232]. |
+| etag |required, read-only |A string representing a weak ETag for the device identity, as per [RFC7232][lnk-rfc7232]. |
 | auth |optional |A composite object containing authentication information and security materials. |
 | auth.symkey |optional |A composite object containing a primary and a secondary key, stored in base64 format. |
 | status |required |An access indicator. Can be **Enabled** or **Disabled**. If **Enabled**, the device is allowed to connect. If **Disabled**, this device cannot access any device-facing endpoint. |
