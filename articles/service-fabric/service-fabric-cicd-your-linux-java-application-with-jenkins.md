@@ -58,7 +58,7 @@ This installs Jenkins container on the cluster and can be monitored using the Se
   cat PATH_TO_INITIAL_ADMIN_PASSWORD
   ```
 
-4. Set up GitHub to work with Jenkins using the steps mentioned at the  [link](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
+4. Set up GitHub to work with Jenkins using the steps mentioned at the [link](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
 	* Use the instructions provided from GitHub to generate the SSH key and add the SSH key to the GitHub account that is hosting your repository.
 	* Run the commands mentioned in the preceding link in the Jenkins Docker shell (and not on your host)
 	* To log on to the Jenkins shell from your host, use the following command:
@@ -91,9 +91,9 @@ Now when you run ``docker info`` in the terminal, you should see in the output t
     If container id is 2d24a73b5964, use 2d24.
     * This password is required for logging in to the Jenkins dashboard from portal, which is ``http://<HOST-IP>:8080``
     * Once you log in for the first time, you can create your own user-account and use that for future purpose or you can continue to use the administrator account. Once you create a user, you need to continue with that.
-  5. Set up GitHub to work with Jenkins using the steps mentioned at the  [link](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
+  5. Set up GitHub to work with Jenkins using the steps mentioned at the [link](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
   	* Use the instructions provided from GitHub to generate the SSH key and add the ssh key to the GitHub account which is (would be) hosting the repository.
-  	* Run the commands mentioned in the above link in the Jenkins Docker shell (and not on your host)
+  	* Run the commands mentioned in the preceding link in the Jenkins Docker shell (and not on your host)
   	* To log on to the Jenkins shell from your host, use the following commands:
 
       ```sh
@@ -101,7 +101,7 @@ Now when you run ``docker info`` in the terminal, you should see in the output t
       ```
 
     > [!NOTE]
-    > Ensure that the cluster / machine where the Jenkins container image is hosted has a public  facing IP such that notifications from GitHub are received by the Jenkins instance.
+    > Ensure that the cluster / machine where the Jenkins container image is hosted has a public facing IP such that notifications from GitHub are received by the Jenkins instance.
     >
 
 ## Install the Service Fabric Jenkins plugin from portal
@@ -116,21 +116,21 @@ Here, you can upload a plugin. Select the ``Choose file`` option, then select th
 2. Enter an item name - say ``MyJob``, select free-style project, and click ok
 3. Then go the job page and click ``Configure`` -
   * In the general section, under ``Github project`` specify your GitHub project URL, which hosts the Service Fabric Java application that you wish to integrate with the Jenkins CI/CD flow (for example - ``https://github.com/sayantancs/SFJenkins``).
-  * Under the ``Source Code Management`` Section, select ``Git``. Specify the repository URL which hosts the Service Fabric Java application that you wish to integrate with the Jenkins CI/CD flow (for example - ``https://github.com/sayantancs/SFJenkins.git``). Also you can specify here which branch to build, example - ``*/master``.
+  * Under the ``Source Code Management`` section, select ``Git``. Specify the repository URL which hosts the Service Fabric Java application that you wish to integrate with the Jenkins CI/CD flow (for example - ``https://github.com/sayantancs/SFJenkins.git``). Also you can specify here which branch to build, example - ``*/master``.
 4. Configure your *GitHub* (which is hosting the repository) so that it is able to talk to Jenkins, using the following steps -
   1. Go to your GitHub repository page. Go to ``Settings`` -> ``Integrations and Services``.
   2. Select ``Add Service``, type in Jenkins, select the ``Jenkins-Github plugin``.
   3. Enter your Jenkins webhook URL (by default, it should be ``http://<PublicIPorFQDN>:8081/github-webhook/``). Click add/update service.
   4. A test event is sent to your Jenkins instance. You should see a green check by the webhook in GitHub, and your project will build!
-  5. Under the ``Build Triggers`` section select which build option do you want - for this use case we plan to trigger a build whenever some push to the repository happens - so the corresponding option would be - ``GitHub hook trigger for GITScm polling`` (previously it was 'Build when a change is pushed to GitHub')
-  6. Under the ``Build section`` - from the drop-down ``Add build step``, select the option ``Invoke Gradle Script``. In the widget that comes, specify the path to ``Root build script``, for your application. It picks up the build.gradle from the path specified and works accordingly. Note that - if you create a project named ``MyActor``(using Eclipse plugin or Yeoman generator), then the root build script should contain - ``${WORKSPACE}/MyActor``. As an example, this section mostly looks like -
+  5. Under the ``Build Triggers`` section, select which build option do you want - for this use case we plan to trigger a build whenever some push to the repository happens - so the corresponding option would be - ``GitHub hook trigger for GITScm polling`` (previously it was 'Build when a change is pushed to GitHub')
+  6. Under the ``Build section`` - from the drop-down ``Add build step``, select the option ``Invoke Gradle Script``. In the widget that comes, specify the path to ``Root build script``, for your application. It picks up the build.gradle from the path specified and works accordingly. If you create a project named ``MyActor``(using Eclipse plugin or Yeoman generator), then the root build script should contain - ``${WORKSPACE}/MyActor``. As an example, this section mostly looks like -
 
     ![Service Fabric Jenkins Build action][build-step]
   7. Under the ``Post-Build Actions`` drop-down, select ``Deploy Service Fabric Project``. Here you need to provide cluster details where the Jenkins compiled Service Fabric application would be deployed and additional application details used to deploy the application. Following screenshot can be used as a reference:
 
     ![Service Fabric Jenkins Build action][post-build-step]
 
- >[!Note]
+ > [!NOTE]
  > The cluster here could be same as the one hosting the Jenkins container application in case you are using Service Fabric to deploy the Jenkins container image.
  >
 
