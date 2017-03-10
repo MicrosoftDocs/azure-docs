@@ -79,9 +79,12 @@
 ### [Risky sign-ins](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risk events](active-directory-reporting-risk-events.md)
 ### [Named networks](active-directory-known-networks-azure-portal.md)
-### [FAQ](active-directory-reporting-faq.md)
 ### [Report migration](active-directory-reporting-migration.md)
 ### [Retention](active-directory-reporting-retention.md)
+### [FAQ](active-directory-reporting-faq.md)
+### Troubleshoot
+#### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
+#### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
 ###	Programmatic Access
 #### [Audit reference](active-directory-reporting-api-audit-reference.md)
 #### [Audit samples](active-directory-reporting-api-audit-samples.md)

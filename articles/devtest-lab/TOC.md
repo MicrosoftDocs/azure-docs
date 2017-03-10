@@ -16,6 +16,7 @@
 ### [Grant permissions to policies](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
 ### [Configure cost management](devtest-lab-configure-cost-management.md)
 ### [Configure virtual networks](devtest-lab-configure-vnet.md)
+### [Understand shared IP addresses](devtest-lab-shared-ip.md)
 
 ## Manage Artifacts
 ### [Add artifacts repository](devtest-lab-add-artifact-repo.md)
@@ -33,8 +34,6 @@
 ### [Upload VHD file using AzCopy](devtest-lab-upload-vhd-using-azcopy.md)
 ### [Upload VHD file using PowerShell](devtest-lab-upload-vhd-using-powershell.md)
 ### [Upload VHD file using Storage Explorer](devtest-lab-upload-vhd-using-storage-explorer.md)
-
-
 
 # Resources
 ## [Service Updates](https://azure.microsoft.com/updates/?product=devtest-lab)

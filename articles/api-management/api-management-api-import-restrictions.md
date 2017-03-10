@@ -26,7 +26,7 @@ In general, if you are receiving errors importing your Open API document, please
 
 * **Host Name** we require a host name attribute.
 * **Base Path** we require a base path attribute.
-* **Schemes** we require a scheme array.
+* **Schemes** we require a scheme array. 
 
 ## <a name="wsdl"> </a>WSDL
 WSDL files are used to generate SOAP Pass-through APIs, or serve as the backend of a SOAP-to-REST API.
@@ -35,6 +35,7 @@ WSDL files are used to generate SOAP Pass-through APIs, or serve as the backend 
 * **Messages with multiple parts** are currently not supported.
 * **WCF wsHttpBinding** SOAP services created with Windows Communication Foundation should use basicHttpBinding - wsHttpBinding.
 * **MTOM** Services using MTOM <em>may</em> work. Official support is not offered at this time.
+* **Recursion** types that are defined recursively (e.g. refer to an array of themselves) are not supported.
 
 ## <a name="wadl"> </a>WADL
 There are no known WADL import issues currently.
