@@ -1,5 +1,5 @@
 ---
-title: 'Azure Virtual Machine Scale Sets: Minimum Viable Scale Set | Microsoft Docs'
+title: 'Virtual machine scale sets: Minimum viable scale set | Microsoft Docs'
 description: Learn to create a minimum viable scale set template
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -21,13 +21,13 @@ ms.author: negat
 
 # About this tutorial
 
-[Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) are a great way to deploy groups of related resources. This tutorial series shows how to create a minimum viable scale set template and how to modify this template to suit various scenarios. All examples come from this [github repo](https://github.com/gatneil/mvss). Each diff shown in this walkthrough is the result of doing a `git diff` between branches in this repo. These templates and diffs are intended to be simple, not full-fledged examples. For more complete examples of scale set templates, see the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates) and search for folders that contain the string `vmss`.
+[Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) are a great way to deploy groups of related resources. This tutorial series shows how to create a minimum viable scale set template and how to modify this template to suit various scenarios. All examples come from this [github repo](https://github.com/gatneil/mvss). Each diff shown in this walkthrough is the result of doing a `git diff` between branches in this repo. These templates and diffs are intended to be simple, not full-fledged, examples. For more complete examples of scale set templates, see the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates) and search for folders that contain the string `vmss`.
 
 ## A minimum viable scale set
 
 Our minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json). If you are already familiar with templates, you can safely skip to the "Next Steps" section to see how to modify this template for other scenarios. However, if you are less familiar with templates, you might find this piece by piece description helpful. To start, let's examine the diff to create this template (`git diff master minimum-viable-scale-set`) piece by piece:
 
-First, we define the `$schema` and `contentVersion` of the template. `$schema` defines the version of the template language and is used for Visual Studio syntax highlighting and similar validation features. `contentVersion` is actually not used by Azure at all. Instead, it is to help you keep track of which version of the template this is.
+First, we define the `$schema` and `contentVersion` of the template. `$schema` defines the version of the template language and is used for Visual Studio syntax highlighting and similar validation features. `contentVersion` is actually not used by Azure at all. Instead, it helps you keep track of which version of the template this is.
 
 ```diff
 +{
@@ -35,7 +35,7 @@ First, we define the `$schema` and `contentVersion` of the template. `$schema` d
 +  "contentVersion": "1.0.0.0",
 ```
 
-Next, we define two parameters, `adminUsername` and `adminPassword`. Parameters are values specified by the user at the time of deployment. `adminUsername` is simply a `string`, but because `adminPassword` is a secret, we give it type `securestring`. We will see later on that these parameters are passed into the scale set configuration.
+Next, we define two parameters, `adminUsername` and `adminPassword`. Parameters are values specified by the user at the time of deployment. The `adminUsername` parameter is simply a `string`, but because `adminPassword` is a secret, we give it type `securestring`. We will see later on that these parameters are passed into the scale set configuration.
 
 ```diff
 +  "parameters": {
