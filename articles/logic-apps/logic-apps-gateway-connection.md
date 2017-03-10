@@ -35,7 +35,7 @@ The on-premises data gateway supports these data source connections:
 *   SAP Message Server
 *	SQL Server
 
-For more details about these connections, see 
+For more information about these connections, see 
 [Connectors for Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
 
 ## Requirements

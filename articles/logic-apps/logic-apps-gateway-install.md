@@ -31,7 +31,7 @@ The on-premises data gateway supports these data source connections:
 *   SAP Message Server
 *	SQL Server
 
-For more details about these connections, see 
+For more information about these connections, see 
 [Connectors for Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
 
 ## Installation and configuration
@@ -159,10 +159,11 @@ In some cases, the Azure Service Bus connections are made with IP Address rather
 
 ### Sign-in accounts
 
-Users can sign in with either a work or school account, which is your organization account. 
+You can sign in with either a work or school account, which is your organization account. 
 If you signed up for an Office 365 offering and didn't supply your actual work email, 
-your sign-in address might look like jeff@contoso.onmicrosoft.com. Your account, within a cloud service, 
-is stored within a tenant in Azure Active Directory (Azure AD). 
+your sign-in address might look like jeff@contoso.onmicrosoft.com. 
+Your account, within a cloud service, is stored within a 
+tenant in Azure Active Directory (Azure AD). 
 Usually, your Azure AD account's UPN matches the email address.
 
 ### Windows service account
@@ -210,7 +211,7 @@ The gateway just needs the capability to connect to the server name that was pro
 **Question**: What is the latency for running queries to a data source from the gateway? What is the best architecture? <br/>
 **Answer**: To reduce network latency, install the gateway as close to the data source as possible. 
 If you can install the gateway on the actual data source, this proximity minimizes the latency introduced. 
-Consider the data centers too. For example, if your service uses the West US data center, 
+Consider the data centers too. For example, if your service uses the West US datacenter, 
 and you have SQL Server hosted in an Azure VM, your Azure VM should be in the West US too. 
 This proximity minimizes latency and avoids egress charges on the Azure VM.
 
