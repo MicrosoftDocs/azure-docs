@@ -92,6 +92,7 @@ The gateway key has been regenerated or the gateway has been deleted in the Azur
 
 ### Resolution
 Check if the Data Management Gateway setup is the latest version, you can find the latest version on the Microsoft [download center](https://go.microsoft.com/fwlink/p/?LinkId=271260).
+
 If setup is current/ latest and gateway still exists on Portal, regenerate the gateway key in the Azure portal, and use the copy button to copy the whole key, and then paste it in this window to register the gateway. Otherwise, recreate the gateway and start over.
 
 ### 6. Problem
