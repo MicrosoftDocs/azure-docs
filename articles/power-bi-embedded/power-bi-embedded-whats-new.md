@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 03/09/2017
+ms.date: 03/10/2017
 ms.author: asaxton
 ---
 # What's new in Power BI Embedded
@@ -40,6 +40,10 @@ Updates to **Power BI Embedded** are released on a regular basis. However, not e
 
 * Clone report and dataset
 * Bind report to a different dataset
+
+**Samples**
+
+* Updated [JavaScript Report Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 ## December 2016
 

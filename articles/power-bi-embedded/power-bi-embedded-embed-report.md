@@ -36,11 +36,15 @@ Every access token is based on a report. You will need to get the given report i
 
 ### Using the Power BI .NET SDK
 
-When using the .NET SDK, you will need to create a token credential which is based on the access key you get from the Azure portal. This requires that you install the Power BI SDK via NuGet.
+When using the .NET SDK, you will need to create a token credential which is based on the access key you get from the Azure portal. This requires that you install the [Power BI API NuGet package](https://www.nuget.org/profiles/powerbi).
+
+**NuGet package install**
 
 ```
 Install-Package Microsoft.PowerBI.Api
 ```
+
+**C# code**
 
 ```
 using Microsoft.PowerBI.Api.V1;
@@ -80,7 +84,15 @@ Power BI Embedded uses embed token, which are HMAC signed JSON Web Tokens. The t
 
 Access tokens should be created on the server as the access keys are used to sign/encrypt the tokens. For information on how to create an access token, see [Authenticating and authorizing with Power BI Embedded](power-bi-embedded-app-token-flow.md). You can also review the [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) method. Here is an example of what this would look like using the .NET SDK for Power BI.
 
-You will use the report id that you retrieved earlier. Once the embed token is created, you will then use the access key to generate the token which you can use from the javascript perspective.
+You will use the report id that you retrieved earlier. Once the embed token is created, you will then use the access key to generate the token which you can use from the javascript perspective. The *PowerBIToken class* requires that you install the [Power BI Core NuGut Package](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
+
+**NuGet package install**
+
+```
+Install-Package Microsoft.PowerBI.Core
+```
+
+**C# code**
 
 ```
 using Microsoft.PowerBI.Security;
@@ -97,11 +109,18 @@ When using Embed tokens, you may want to restrict usage of the resources you giv
 
 ## Embed using JavaScript
 
-After you have the access token and the report id, we can embed the report using JavaScript. This requires that you install the nuget Power BI JavaScript package.
+After you have the access token and the report id, we can embed the report using JavaScript. This requires that you install the nuget [Power BI JavaScript package](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). The embedUrl will just be https://embedded.powerbi.com/appTokenReportEmbed.
+
+> [!NOTE]
+> You can use the [JavaScript Report Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/) to test functionality. It also gives code examples for the different operations that are available.
+
+**NuGet package install**
 
 ```
 Install-Package Microsoft.PowerBI.JavaScript
 ```
+
+**JavaScript code**
 
 ```
 <script src="/scripts/powerbi.js"></script>
@@ -128,6 +147,9 @@ The report will automatically be embedded based on the size of its container. To
 [Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)  
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
+[Power BI JavaScript package](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
+[Power BI API NuGet package](https://www.nuget.org/profiles/powerbi)
+[Power BI Core NuGut Package](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  
 [PowerBI-CSharp Git Repo](https://github.com/Microsoft/PowerBI-CSharp)  
 [PowerBI-Node Git Repo](https://github.com/Microsoft/PowerBI-Node)  
 More questions? [Try the Power BI Community](http://community.powerbi.com/)

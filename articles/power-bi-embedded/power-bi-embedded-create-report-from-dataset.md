@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 03/09/2017
+ms.date: 03/10/2017
 ms.author: asaxton
 ---
 # Create a new report from a dataset in Power BI Embedded
@@ -33,6 +33,16 @@ Access tokens should be created on the server as the access keys are used to sig
 
 In this example, we have our dataset id that we want to creat the new report on. We also need to add the scopes for *Dataset.Read and Workspace.Report.Create*.
 
+The *PowerBIToken class* requires that you install the [Power BI Core NuGut Package](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
+
+**NuGet package install**
+
+```
+Install-Package Microsoft.PowerBI.Core
+```
+
+**C# code**
+
 ```
 using Microsoft.PowerBI.Security;
 
@@ -45,10 +55,18 @@ var token = embedToken.Generate("{access key}");
 
 ## Create a new blank report
 
-In order to create a new report, the create configuration should be provided. This should include the access token, the embedURL and the datasetID that we want to create the report against. The embedUrl will just be https://embedded.powerbi.com/appTokenReportEmbed.
+In order to create a new report, the create configuration should be provided. This should include the access token, the embedURL and the datasetID that we want to create the report against. This requires that you install the nuget [Power BI JavaScript package](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). The embedUrl will just be https://embedded.powerbi.com/appTokenReportEmbed.
 
 > [!NOTE]
-> Code examples are using JavaScript.
+> You can use the [JavaScript Report Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/) to test functionality. It also gives code examples for the different operations that are available.
+
+**NuGet package install**
+
+```
+Install-Package Microsoft.PowerBI.JavaScript
+```
+
+**JavaScript code**
 
 ```
 <div id="reportContainer"></div>
@@ -66,7 +84,7 @@ var embedCreateConfiguration = {
     var report = powerbi.createReport(reportContainer, embedCreateConfiguration);
 ```
 
-Calling powerbi.createReport() will make a blank canvas in edit mode load within the *div*. 
+Calling *powerbi.createReport()* will make a blank canvas in edit mode appear within the *div* element.
 
 ![](media/power-bi-embedded-create-report-from-dataset/pbi-embedded-create-new-report.png)
 
@@ -181,4 +199,6 @@ var embedCreateConfiguration = {
 [Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
+[Power BI Core NuGut Package](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  
+[Power BI JavaScript package](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
 More questions? [Try the Power BI Community](http://community.powerbi.com/)
