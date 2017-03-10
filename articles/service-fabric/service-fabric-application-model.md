@@ -215,7 +215,8 @@ D:\Temp> msbuild HelloWorld.sfproj /t:Package
 ```
 
 ### Test the package
-You can verify the package structure locally through PowerShell by using the **Test-ServiceFabricApplicationPackage** command. This command will check for manifest parsing issues and verify all references. Note that this command only verifies the structural correctness of the directories and files in the package. It will not verify any of the code or data package contents beyond checking that all necessary files are present.
+You can verify the package structure locally through PowerShell by using the [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) command.
+This command will check for manifest parsing issues and verify all references. Note that this command only verifies the structural correctness of the directories and files in the package. It will not verify any of the code or data package contents beyond checking that all necessary files are present.
 
 ```
 PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
@@ -250,7 +251,74 @@ True
 PS D:\temp>
 ```
 
-Once the application is packaged correctly and passes verification, then it's ready for deployment.
+If your application has [application parameters](service-fabric-manage-multiple-environment-app-configuration.md) defined, you can pass them in [Test-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) for proper validation.
+
+If you know the cluster where the application will be deployed, it is recommended you pass in the image store connection string. In this case, the package is also validated against previous versions of the application
+that are already running in the cluster. For example, the validation can detect whether a package with the same version but different content was already deployed.  
+
+Once the application is packaged correctly and passes validation, evaluate based on the size and the number of files if compression is needed. 
+
+### Compress a package
+When a package is large or has a very large number of files, you can compress it for faster deployment. Compression reduces the number of files and the package size.
+It is highly recommended to apply compression for large packages (on the order of GBs or thousands of files), to prevent timeouts and other errors while [uploading the application package](service-fabric-deploy-remove-applications.md#upload-the-application-package),
+[registering](service-fabric-deploy-remove-applications.md#register-the-application-package) or [un-registering the application type](service-fabric-deploy-remove-applications.md#unregister-an-application-type).
+
+The deploy mechanism is same for compressed and uncompressed packages. If the package is compressed, it is stored as such in the cluster image store and it's uncompressed on the node before the application is run.
+The compression replaces the valid Service Fabric package with the compressed version. The folder must allow write permissions. Running compression on an already compressed package yields no changes. 
+
+You can compress a package by running the Powershell command [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) 
+with `CompressPackage` switch. You can uncompress the package with the same command, using `UncompressPackage` switch.
+
+The following command compresses the package without copying it to the image store. The package now includes zipped files for the `code`, `config` and `data` packages 
+The application and the service manifests are not zipped, because they are needed for many internal operations (like package sharing, application type name and version extraction for certain validations etc). Zipping the manifests would make these operations inefficient.
+
+```
+PS D:\temp> tree /f .\MyApplicationType
+
+D:\TEMP\MYAPPLICATIONTYPE
+│   ApplicationManifest.xml
+│
+└───MyServiceManifest
+    │   ServiceManifest.xml
+    │
+    ├───MyCode
+    │       MyServiceHost.exe
+    │       MySetup.bat
+    │
+    ├───MyConfig
+    │       Settings.xml
+    │
+    └───MyData
+            init.dat
+PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -CompressPackage -SkipCopy
+
+PS D:\temp> tree /f .\MyApplicationType
+
+D:\TEMP\MYAPPLICATIONTYPE
+│   ApplicationManifest.xml
+│
+└───MyServiceManifest
+       ServiceManifest.xml
+       MyCode.zip
+       MyConfig.zip
+       MyData.zip
+
+```
+
+You can copy a compressed package to one or more Service Fabric clusters, as needed, using [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage)
+without the `SkipCopy` flag. 
+
+Alternatively, you can compress and copy the package with [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) in one step.
+Since the package is large, provide a high enough timeout to allow time for both the package compression and the upload to the cluster.
+```
+PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -ApplicationPackagePathInImageStore MyApplicationType -ImageStoreConnectionString fabric:ImageStore -CompressPackage -TimeoutSec 5400
+```
+
+Internally, Service Fabric computes checksums for the application packages for validation. When using compression, the checksums are computed on the zipped versions of each package.
+If you want to switch between compressed and uncompressed packages for the same application type, you must change the application manifest version or omit the unchanged package(s) and take advantage of differential packaging.
+These options allow you to avoid checksum mismatch.
+
+The package is now packaged correctly, validated and compressed (if needed), so it is ready for [deployment](service-fabric-deploy-remove-applications.md) to one or more Service Fabric clusters.
 
 ## Next steps
 [Deploy and remove applications][10] describes how to use PowerShell to manage application instances

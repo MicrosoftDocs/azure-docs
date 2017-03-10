@@ -32,7 +32,7 @@ Once an [application type has been packaged][10], it's ready for deployment into
 2. Register the application type
 3. Create the application instance
 
-After an app is deployed and an instance is running in the cluster, you can delete the app instance and it's application type. To completely remove an app from the cluster involves the following steps:
+After an app is deployed and an instance is running in the cluster, you can delete the app instance and its application type. To completely remove an app from the cluster involves the following steps:
 
 1. Remove (or delete) the running application instance
 2. Unregister the application type if you no longer need it
@@ -50,7 +50,11 @@ PS C:\>Connect-ServiceFabricCluster
 For examples of connecting to a remote cluster or cluster secured using Azure Active Directory, X509 certificates, or Windows Active Directory see [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md).
 
 ## Upload the application package
-Uploading the application package puts it in a location that's accessible by internal Service Fabric components. If you want to verify the app package locally, use the [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet.  The [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) command uploads the application package to the cluster image store. The **Get-ImageStoreConnectionStringFromClusterManifest** cmdlet, which is part of the Service Fabric SDK PowerShell module, is used to get the image store connection string.  To import the SDK module, run:
+Uploading the application package puts it in a location that's accessible by internal Service Fabric components.
+If you want to verify the app package locally, use the [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet.
+
+The [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) command uploads the application package to the cluster image store.
+The **Get-ImageStoreConnectionStringFromClusterManifest** cmdlet, which is part of the Service Fabric SDK PowerShell module, is used to get the image store connection string.  To import the SDK module, run:
 
 ```powershell
 Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
@@ -61,7 +65,8 @@ Suppose you build and package an app named *MyApplication* in Visual Studio. By 
 The following command lists the contents of the application package:
 
 ```powershell
-PS C:\> tree /f 'C:\Users\user\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
+PS C:\> $path = 'C:\Users\user\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
+PS C:\> tree /f $path
 Folder PATH listing for volume OSDisk
 Volume serial number is 0459-2393
 C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\PKG\DEBUG
@@ -87,19 +92,64 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
             Settings.xml
 ```
 
+> [!NOTE]
+> If the application package is large and/or has many files, we recommend you [compress it](service-fabric-application-model.md#compress-a-package). This reduces the size and the number of files
+and prevents timeout or other errors when uploading the package to the cluster or when registering/un-registering the application type.
+>
+
+To compress a package, use the same [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) command. Compression can be done separate from upload,
+by using the `SkipCopy` flag, or together with the upload operation. Applying compression on a compressed package is no-op.
+To uncompress a compressed package, use the same [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) command with the `UncompressPackage` switch.
+
+The following cmdlet compresses the package without copying it to the image store. The package now includes zipped files for the `Code` and `Config` packages. 
+The application and the service manifests are not zipped, because they are needed for many internal operations (like package sharing, application type name and version extraction for certain validations etc). Zipping the manifests would make these operations inefficient.
+
+```
+PS C:\> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -CompressPackage -SkipCopy
+PS C:\> tree /f $path
+Folder PATH listing for volume OSDisk
+Volume serial number is 0459-2393
+C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\PKG\DEBUG
+|   ApplicationManifest.xml
+|
+└───Stateless1Pkg
+       Code.zip
+       Config.zip
+       ServiceManifest.xml
+```
+
+For large application packages, the compression will take time. For best results, use a fast SSD drive. The compression times and the size will also differ based on the package content.
+For example, here is compression statistics for some packages, which show the initial and the compressed package size, with the compression time.
+
+|Initial size (MB)|File count|Compression Time|Compressed package size (MB)|
+|----------------:|---------:|---------------:|---------------------------:|
+|100|100|00:00:03.3547592|60|
+|512|100|00:00:16.3850303|307|
+|1024|500|00:00:32.5907950|615|
+|2048|1000|00:01:04.3775554|1231|
+|5012|100|00:02:45.2951288|3074|
+
+Once a package is compressed, it can be uploaded to one or multiple Service Fabric clusters as needed. The deploy mechanism is same for compressed and uncompressed packages. If the package is compressed, it is stored as such in the cluster image store and it's uncompressed on the node before the application is run.
+
+
 The following example uploads the package to the image store, into a folder named "MyApplicationV1":
 
 ```powershell
-PS C:\> $path = 'C:\Users\user\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -ApplicationPackagePathInImageStore MyApplicationV1 -ImageStoreConnectionString (Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest))
+PS C:\> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -ApplicationPackagePathInImageStore MyApplicationV1 -ImageStoreConnectionString (Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest)) -TimeoutSec 1800
 ```
 
 If you do not specify the *-ApplicationPackagePathInImageStore* parameter, the app package is copied into the "Debug" folder in the image store.
 
+The default timeout for [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) is 30 minutes.
+Depending on the package size, the number of files and the network speed between the source machine and the Service Fabric cluster image store, you may need to pass in a larger timeout.
+If you are compressing the package in the copy call, you need to also take into consideration the compression time.
+
+For large application packages or application packages with many files, we recommend to first compress the application package, then upload with a timeout determined based on the compressed package size and the link speed.  
+
 See [Understand the image store connection string](service-fabric-image-store-connection-string.md) for supplementary information about the image store and image store connection string.
 
 ## Register the application package
-The application type and version declared in the application manifest becomes available for use when the app package is registered. The system reads the package uploaded in the previous step, verifies the package, processes the package contents, and copies the processed package to an internal system location.  
+The application type and version declared in the application manifest become available for use when the app package is registered. The system reads the package uploaded in the previous step, verifies the package, processes the package contents, and copies the processed package to an internal system location.  
 
 Run the [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet to register the application type in the cluster and make it available for deployment:
 
@@ -110,9 +160,11 @@ Register application type succeeded
 
 "MyApplicationV1" is the folder in the image store where the app package is located. The application type with name "MyApplicationType" and version "1.0.0" (both are found in the application manifest) is now registered in the cluster.
 
-The [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) command returns only after the system has successfully registered the application package. How long registration takes depends on the size and contents of the application package. If needed, the **-TimeoutSec** parameter can be used to supply a longer timeout (the default timeout is 60 seconds).  If it is a large app package and you are experiencing timeouts, use the **-Async** parameter.
+The [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) command returns only after the system has successfully registered the application package. How long registration takes depends on the size and contents of the application package. If needed, the **-TimeoutSec** parameter can be used to supply a longer timeout (the default timeout is 60 seconds).
 
-The [Get-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/get-servicefabricapplicationtype) command lists all successfully registered application type versions and their registration status.
+If you have a large app package or if you are experiencing timeouts, use the **-Async** parameter. The command returns when the cluster accepts the register command, and the processing continues as needed.
+The [Get-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/get-servicefabricapplicationtype) command lists all successfully registered application type versions and their registration status. You can use
+this command to determine when the registration is done.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationType
@@ -174,7 +226,7 @@ PS C:\> Get-ServiceFabricApplication
 ```
 
 ## Unregister an application type
-When a particular version of an application type is no longer needed, you should unregister the application type the [Unregister-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/unregister-servicefabricapplicationtype) cmdlet. Unregistering unused application types releases storage space used by the image store. An application type can be unregistered as long as no applications are instantiated against it and no pending application upgrades are referencing it.
+When a particular version of an application type is no longer needed, you should unregister the application type using the [Unregister-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/unregister-servicefabricapplicationtype) cmdlet. Unregistering unused application types releases storage space used by the image store. An application type can be unregistered as long as no applications are instantiated against it and no pending application upgrades are referencing it.
 
 Run [Get-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/get-servicefabricapplicationtype) to see the application types currently registered in the cluster:
 
@@ -220,6 +272,25 @@ The ImageStoreConnectionString is found in the cluster manifest:
 
     [...]
 ```
+
+See [Understand the image store connection string](service-fabric-image-store-connection-string.md) for supplementary information about the image store and image store connection string.
+
+### Copy-ServiceFabricApplicationPackage times out
+If the application package is large (order of GB) or has many files (order of thousands), copy application package may timeout.
+Try:
+- [Compress the package](service-fabric-application-model.md#compress-a-package) before copying to the image store.
+This reduces the size and the number of files and deployments are faster, which in turn reduces the amount of traffic and work that Service Fabric must perform. 
+The compressed package can be used to deploy to one or more clusters, as needed, and all subsequent operations will benefit from the compression.
+- Specify a larger timeout for [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) command, with `TimeoutSec` parameter. By default, the timeout is 30 minutes.
+- Check the network connection between your source machine and the image store. You may be hitting external throttling.
+
+### Register-ServiceFabricApplicationType times out
+If the application package is large (order of GB) or has many files (order of thousands), register application type may timeout.
+Try:
+- [Compress the package](service-fabric-application-model.md#compress-a-package) before copying to the image store.
+- Specify `Async` switch for [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype). The command returns when the cluster accepts the command and the provision will continue async. 
+- If `Async` is not an option, specify a larger timeout for [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) with `TimeoutSec` parameter.
+
 
 ## Next steps
 [Service Fabric application upgrade](service-fabric-application-upgrade.md)
