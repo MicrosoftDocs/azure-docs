@@ -1,6 +1,6 @@
 ---
 title: Find activity reports in the Azure portal | Microsoft Docs
-description: Learn how to find activity reports in the Azure portal.
+description: Learn how to find Azure Active Directory activity reports in the Azure portal.
 services: active-directory
 documentationcenter: ''
 author: dhanyahk
@@ -31,7 +31,7 @@ Reports in the Azure classic portal are separated into categories:
 
 ### Activity and integrated app reports
 
-Using context-based reporting, in the Azure portal, existing reports are merged into a single view, with a single, underlying API that provides the data to the view.
+Using context-based reporting, in the Azure portal, existing reports are merged into a single view. A single, underlying API provides the data to the view.
 
 To see this view, on the **Azure Active Directory** blade, under **ACTIVITY**, select **Audit logs**.
 
@@ -63,7 +63,7 @@ Although the Azure portal offers a single view, you also can look at specific re
 
 ### Audit logs
 
-In response to customer feedback, in the Azure portal, you can use advanced filtering to access the data you want. One filter you can use is an *activity category*, which lists the different types of activity logs that Azure AD provides. To narrow results to what you are looking for, you can select a category.
+In response to customer feedback, in the Azure portal, you can use advanced filtering to access the data you want. One filter you can use is an *activity category*, which lists the different types of activity logs in Azure AD. To narrow results to what you are looking for, you can select a category.
 
 For example, if you are interested only in activities related to self-service password resets, you can choose the **Self-service Password Management** category. The categories you see are based on the resource you are working in.  
 
@@ -86,7 +86,7 @@ To view details about application usage for all apps or for a single app, under 
 
 #### Azure AD anomalous activity reports
 
-Azure AD anomalous activity security reports from the Azure classic portal have been consolidated to provide you with one, central view of all security-related risk events that Azure AD can detect and report on.
+Azure AD anomalous activity security reports from the Azure classic portal have been consolidated to provide you with one, central view. This view shows all security-related risk events that Azure AD can detect and report on.
 
 The following table lists the Azure AD anomalous activity security reports, and corresponding risk event types in the Azure portal.
 
@@ -127,7 +127,7 @@ For more information about security reports, see:
 
 ## Activity reports in the Azure classic portal vs. the Azure portal
 
-The table in this section lists existing reports in the Azure classic portal, and how you can get the same information in the Azure portal.
+The table in this section lists existing reports in the Azure classic portal. It also describes how you can get the same information in the Azure portal.
 
 To view all auditing data, on the **Azure Active Directory** blade, under **ACTIVITY**, go to **Audit logs**.
 
