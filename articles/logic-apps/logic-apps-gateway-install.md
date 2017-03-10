@@ -144,14 +144,14 @@ Learn more about [hybrid solutions](../service-bus-messaging/service-bus-fundame
 
 | DOMAIN NAMES | OUTBOUND PORTS | DESCRIPTION |
 | --- | --- | --- |
-| *.analysis.windows.net | 443 | HTTPS |
-| *.login.windows.net | 443 | HTTPS |
-| *.servicebus.windows.net | 5671-5672 | Advanced Message Queuing Protocol (AMQP) |
-| *.servicebus.windows.net | 443, 9350-9354 | Listeners on Service Bus Relay over TCP (requires 443 for Access Control token acquisition) |
-| *.frontend.clouddatahub.net | 443 | HTTPS |
-| *.core.windows.net | 443 | HTTPS |
-| login.microsoftonline.com | 443 | HTTPS |
-| *.msftncsi.com | 443 | Used to test internet connectivity when the gateway is unreachable by the Power BI service. |
+| *.analysis.windows.net | 443 | HTTPS | 
+| *.login.windows.net | 443 | HTTPS | 
+| *.servicebus.windows.net | 5671-5672 | Advanced Message Queuing Protocol (AMQP) | 
+| *.servicebus.windows.net | 443, 9350-9354 | Listeners on Service Bus Relay over TCP (requires 443 for Access Control token acquisition) | 
+| *.frontend.clouddatahub.net | 443 | HTTPS | 
+| *.core.windows.net | 443 | HTTPS | 
+| login.microsoftonline.com | 443 | HTTPS | 
+| *.msftncsi.com | 443 | Used to test internet connectivity when the gateway is unreachable by the Power BI service. | 
 
 If you have to approve IP addresses instead of the domains, 
 you can download and use the [Microsoft Azure Datacenter IP ranges list](https://www.microsoft.com/download/details.aspx?id=41653). 
