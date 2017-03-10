@@ -13,7 +13,7 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 03/08/2017
 ms.author: cephalin
 ---
 
@@ -31,11 +31,11 @@ This sample script does the following using Azure PowerShell:
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/app-service/deploy-ftp/deploy-ftp.ps1 "Upload files to a web app using FTP")]
+[!code-powershell[main](../../../powershell_scripts/app-service/deploy-ftp/deploy-ftp.ps1?highlight=1 "Upload files to a web app using FTP")]
 
 ## Clean up deployment 
 
-After the script sample has been run, the follow command can be used to remove the Resource Group, web app, and all related resources.
+After the script sample has been run, the following command can be used to remove the Resource Group, web app, and all related resources.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $webappname -Force
@@ -54,6 +54,6 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
 Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](../app-service-powershell-samples.md).

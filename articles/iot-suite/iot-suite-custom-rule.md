@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2016
+ms.date: 03/09/2017
 ms.author: dobett
 
 ---
@@ -30,7 +30,7 @@ To complete this tutorial, you need:
 
 * An active Azure subscription. If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk_free_trial].
 * [Node.js][lnk-node] version 0.12.x or later to create a simulated device.
-* Microsoft Visual Studio 2015 to modify the preconfigured solution back end with your new rules.
+* Visual Studio 2015 or Visual Studio 2017 to modify the preconfigured solution back end with your new rules.
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 

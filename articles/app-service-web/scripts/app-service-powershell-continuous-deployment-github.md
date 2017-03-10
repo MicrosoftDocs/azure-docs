@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script Sample - Continuously deploy web app from GitHub | Microsoft Docs
-description: Azure PowerShell Script Sample - Continuously deploy web app from GitHub
+title: Azure PowerShell Script Sample - Create a web app with continuous deployment from GitHub | Microsoft Docs
+description: Azure PowerShell Script Sample - Create a web app with continuous deployment from GitHub
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -13,7 +13,7 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 03/08/2017
 ms.author: cephalin
 ---
 
@@ -29,11 +29,11 @@ Before running this script, ensure the following:
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/app-service/deploy-github-continuous/deploy-github-continuous.ps1 "Continuously deploy web app from GitHub")]
+[!code-powershell[main](../../../powershell_scripts/app-service/deploy-github-continuous/deploy-github-continuous.ps1?highlight=1-2 "Create a web app with continuous deployment from GitHub")]
 
 ## Clean up deployment 
 
-After the script sample has been run, the follow command can be used to remove the Resource Group, web app, and all related resources.
+After the script sample has been run, the following command can be used to remove the Resource Group, web app, and all related resources.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
@@ -52,6 +52,6 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
 Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](../app-service-powershell-samples.md).

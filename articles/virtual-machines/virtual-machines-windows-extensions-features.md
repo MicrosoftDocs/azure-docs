@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/08/2016
+ms.date: 03/06/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
 
 ---
-# Virtual machine extensions and features for Windows 
+# Virtual machine extensions and features for Windows
 
 Azure virtual machine extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. For example, if a virtual machine requires software installation, anti-virus protection, or Docker configuration, a VM extension can be used to complete these tasks. Azure VM extensions can be run by using the Azure CLI, PowerShell, Azure Resource Manager templates, and the Azure portal. Extensions can be bundled with a new virtual machine deployment or run against any existing system.
 
@@ -117,7 +117,7 @@ A VM extension can be applied to an existing virtual machine through the Azure p
 
 The following image shows the installation of the Microsoft Antimalware extension from the Azure portal.
 
-![Antimalware extension](./media/virtual-machines-windows-extensions-features/anti-virus-extension.png)
+![Install antimalware extension](./media/virtual-machines-windows-extensions-features/installantimalwareextension.png)
 
 ### Azure Resource Manager templates
 

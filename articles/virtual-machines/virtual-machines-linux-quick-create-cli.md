@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/06/2017
+ms.date: 03/08/2017
 ms.author: nepeters
 ---
 
 # Create a Linux virtual machine with the Azure CLI 2.0
 
-The Azure CLI 2.0 is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a virtual machine (VM) running Ubuntu 14.04 LTS.
+The Azure CLI 2.0 is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a virtual machine running Ubuntu 14.04 LTS.
 
 Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location westeurope
 
 Create a VM with [az vm create](/cli/azure/vm#create). 
 
-The following example creates a VM named `myVM` and creates an SSH key pair if these do not already exist. 
+The following example creates a VM named `myVM` and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
 ```azurecli
 az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
@@ -65,7 +65,7 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 
 ## Connect to virtual machine
 
-Use the following command to create an SSH session. Replace the IP address with the public IP address of your virtual machine.
+Use the following command to create an SSH session with the virtual machine. Replace the IP address with the public IP address of your virtual machine.
 
 ```bash 
 ssh <Public IP Address>
@@ -79,7 +79,7 @@ When no longer needed, the following command can be used to remove the Resource 
 az group delete --name myResourceGroup
 ```
 
-## Next Steps
+## Next steps
 
 [Create highly available virtual machines tutorial](./virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

@@ -13,7 +13,7 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 03/08/2017
 ms.author: cephalin
 ---
 
@@ -25,11 +25,11 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.ps1 "Create a web app and deploy code to a staging environment")]
+[!code-powershell[main](../../../powershell_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.ps1?highlight=1 "Create a web app and deploy code to a staging environment")]
 
 ## Clean up deployment 
 
-After the script sample has been run, the follow command can be used to remove the Resource Group, web app, and all related resources.
+After the script sample has been run, the following command can be used to remove the Resource Group, web app, and all related resources.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
@@ -51,6 +51,6 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
 Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](../app-service-powershell-samples.md).
