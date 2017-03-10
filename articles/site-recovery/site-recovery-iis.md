@@ -82,7 +82,10 @@ If you are using a shared disk based cluster as the middle tier in your applicat
 
 ## Replicating virtual machines
 
-Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating the virtual machine to Azure. Once the replication is complete, make sure you go to each virtual machine of the front end and [select same availability set](site-recovery-availability-set.md) for each of the virtual machine. 
+Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating the virtual machine to Azure. 
+
+* Once the replication is complete, make sure you go to each virtual machine of the front end and [select same availability set](site-recovery-availability-set.md) for each of the virtual machine.
+* If you are using a static IP then specify the IP that you want the virtual machine to take in the **Target IP** field 
 
 
 ## Creating a recovery plan
