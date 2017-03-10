@@ -34,7 +34,7 @@ Related links:
 * [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) reference documentation
 * [Lotus Domino Connector](active-directory-aadconnectsync-connector-domino.md) reference documentation
 
-## 1.1.438.0
+## 1.1.443.0
 
 Released: 2017 March
 
@@ -53,7 +53,7 @@ Released: 2017 March
 When only few containers are selected in specific partition, then the search still will be done in whole partition. Specific will be filtered by Synchronization
 Service, but not by MA which might cause performance degradation. </br>
 
- **Solution description:** Changed GLDAP connector's code to make it possible go through all containers and search objects in each of them, instead of searching in the whole partition. 
+ **Solution description:** Changed GLDAP connector's code to make it possible go through all containers and search objects in each of them, instead of searching in the whole partition.
 
 
 * Lotus Domino:
