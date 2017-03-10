@@ -157,11 +157,37 @@ Files for the Dependency Agent are placed in the following directories:
 
 
 ## Troubleshooting
-If you encounter problems with Service Map, you can gather troubleshooting information from multiple components using the following information.
+If you run into any problems installing or running Service Map, this section can help you get up and running.  If you still can't resolve your issue, please contact Microsoft Support.
 
-### Windows agents
+### Dependency Agent Installation Issues
+#### Installer asks for a reboot
+The Dependency Agent *generally* does not require a reboot upon installation or uninstallation.  However, in certain rare cases, a Windows Server will require a reboot to continue with an installation.  This happens when a dependency, usually the Microsoft VC++ Redistributables, requires a reboot due to a locked file.
 
-#### Microsoft Dependency Agent
+#### Message "Unable to install Dependency Agent: Visual Studio Runtime libraries failed to install (code = code_number). "
+
+The Microsoft Dependency Agent is built upon the Microsoft Visual Studio Runtime Libraries. An issue was encountered while trying to install the libraries. The runtime library installers create logs in the %LOCALAPPDATA%\temp folder. The file will be dd_vcredist_arch_yyyymmddhhmmss.log, where arch will be "x86" or "amd64" and yyyymmddhhmmss will be the date and time (24 hour clock) when the log was created. The log will provide details about the issue blocking installation.
+
+Below are some code_numbers and suggested resolutions.
+
+| Code | Description | Resolution |
+|:--|:--|:--|
+| 0x17 | The library installer requires a Windows update that hasn't been installed. | Look in the most recent library installer log (see above).<br><br>If a reference to "Windows8.1-KB2999226-x64.msu" is followed by a line "Error 0x80240017: Failed to execute MSU package.", then consult the knowledge base article https://support.microsoft.com/en-us/kb/2919355.<br><br>Run the Microsoft Dependency Agent installer again. |
+
+### Post-Installation Issues
+#### Server doesn't show in Service Map
+If your Dependency Agent installation succeeded and you can see it running, but you don't see your server in the Service Map solution:
+1. Is your server sending log and perf data to OMS?  Go to Log Search and run the following query for your computer: 
+		* Computer="<your computer name here>" | measure count() by Type
+Did you get a variety of results?  And is it recent?  If not, [check the OMS Agent on your server](#oms-agent-diagnostics).
+2. If you are getting OMS data then you need to check to make sure the Dependency Agent is running correctly.  [Dependency Agent diagnostics](#dependency-agent-diagnostics).
+
+#### Server shows in Service Map, but has no processes
+If you see your server in Service Map, but it has no process or connection data, that indicates that the Dependency Agent is installed and running, but the kernel driver didn't load.  It is possible that your machine is waiting for a reboot that is keeping the driver from loading.  Run [Dependency Agent diagnostics](#dependency-agent-diagnostics).
+
+### Dependency Agent Diagnostics
+The steps below show how to gather diagnostic data for the Dependency Agent on either Windows or Linux systems.
+
+#### Windows
 To generate troubleshooting data from the Dependency Agent, open a Command Prompt as administrator and run the CollectDependencyAgentData.vbs script using the following command.  You can add the --help flag to show additional options.
 
 	cd C:\Program Files\Microsoft Dependency Agent\scripts
@@ -169,7 +195,7 @@ To generate troubleshooting data from the Dependency Agent, open a Command Promp
 
 The Support Data Package is saved in the %USERPROFILE% directory for the current user.  You can use the --file <filename> option to save it to a different location.
 
-#### Microsoft Dependency Agent Management Pack for MMA
+##### Microsoft Dependency Agent Management Pack for MMA
 The Dependency Agent Management Pack runs inside Microsoft Management Agent.  It receives data from the Dependency Agent and forwards it to the Service Map cloud service.
   
 Verify that the management pack is downloaded by performing the following steps:
@@ -179,7 +205,22 @@ Verify that the management pack is downloaded by performing the following steps:
 
 The Service Map MP writes events to the Operations Manager Windows event log.  The log can be [searched in OMS](../log-analytics/log-analytics-log-searches.md) via the system log solution, where you can configure which log files to upload.  If debug events are enabled, they are written to the Application event log, with the event source *ADMConnector*.
 
-#### Microsoft Monitoring Agent
+#### Linux
+To generate troubleshooting data from the Dependency Agent, login with an account that has sudo or root privileges and run the following command.  You can add the --help flag to show additional options.
+
+	/opt/microsoft/dependency-agent/lib/scripts/collect-dependency-agent-data.sh
+
+The Support Data Package is saved to /var/opt/microsoft/dependency-agent/log (if root) under the Agent's installation directory, or to the home directory of the user running the script (if non-root).  You can use the --file <filename> option to save it to a different location.
+
+##### Microsoft Dependency Agent Fluentd plug-in for Linux
+The Dependency Agent Fluentd Plug-in runs inside the OMS Linux Agent.  It receives data from the Dependency Agent and forwards it to the Service Map cloud service.  
+
+Logs are written to the following two files.
+
+- /var/opt/microsoft/omsagent/log/omsagent.log
+- /var/log/messages
+### OMS Agent Diagnostics
+#### Windows
 To collect diagnostic traces, open a Command Prompt as administrator and run the following commands: 
 
 	cd \Program Files\Microsoft Monitoring Agent\Agent\Tools
@@ -189,25 +230,7 @@ To collect diagnostic traces, open a Command Prompt as administrator and run the
 
 Traces are written to c:\Windows\Logs\OpsMgrTrace.  You can stop the tracing with StopTracing.cmd.
 
-
-### Linux agents
-
-#### Microsoft Dependency Agent
-To generate troubleshooting data from the Dependency Agent, login with an account that has sudo or root privileges and run the following command.  You can add the --help flag to show additional options.
-
-	/opt/microsoft/dependency-agent/lib/scripts/collect-dependency-agent-data.sh
-
-The Support Data Package is saved to /var/opt/microsoft/dependency-agent/log (if root) under the Agent's installation directory, or to the home directory of the user running the script (if non-root).  You can use the --file <filename> option to save it to a different location.
-
-#### Microsoft Dependency Agent Fluentd plug-in for Linux
-The Dependency Agent Fluentd Plug-in runs inside the OMS Linux Agent.  It receives data from the Dependency Agent and forwards it to the Service Map cloud service.  
-
-Logs are written to the following two files.
-
-- /var/opt/microsoft/omsagent/log/omsagent.log
-- /var/log/messages
-
-#### OMS Agent for Linux
+#### Linux
 A troubleshooting resource for connecting Linux servers to OMS can be found here: [https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md) 
 
 The logs for the OMS Agent for Linux are located in */var/opt/microsoft/omsagent/log/*.  
@@ -273,7 +296,7 @@ The following sections list the supported operating systems for the Dependency A
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
 | 5.10 | 2.6.18-371 |
-| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417 |
+| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419 |
 
 #### Oracle Enterprise Linux w/ Unbreakable Kernel (UEK)
 
