@@ -35,12 +35,38 @@ Related links:
 * [Lotus Domino Connector](active-directory-aadconnectsync-connector-domino.md) reference documentation
 
 ## 1.1.438.0
-**Fixed issues:**
+
+Released: 2017 March
+
+### Enhancements
+* Generic SQL:</br>
+  **Scenario Symptoms:**  It is a well-known limitation with the SQL Connector where we only allow a reference to one object type and require cross reference with members. </br>
+  **Solution description:** In the processing step for references where "*" option is chosen, ALL combinations of object types will be returned back to the sync engine.
+
+>[!Important]
+- This will create many placeholders
+- It is required to make sure the naming is unique cross object types.
+
+
+* Generic LDAP:</br>
+ **Scenario:**
+When only few containers are selected in specific partition, then the search still will be done in whole partition. Specific will be filtered by Synchronization
+Service, but not by MA which might cause performance degradation. </br>
+
+ **Solution description:** Changed GLDAP connector's code to make it possible go through all containers and search objects in each of them, instead of searching in the whole partition. 
+
+
+* Lotus Domino:
+
+  **Scenario:** Domino mail deletion support for a person removal during an export. </br>
+  **Solution:** Configurable mail deletion support for a person removal during an export.
+
+### Fixed issues:
 * Generic Web Services:
  * When changing the service URL in Default SAP wsconfig projects through WebService Configuration Tool then the following error happens:
 Could not find a part of the path
 
-``'C:\Users\cstpopovaz\AppData\Local\Temp\2\e2c9d9b0-0d8a-4409-b059-dceeb900a2b3\b9bedcc0-88ac-454c-8c69-7d6ea1c41d17\cfg.config\cloneconfig.xml'. ``
+      ``'C:\Users\cstpopovaz\AppData\Local\Temp\2\e2c9d9b0-0d8a-4409-b059-dceeb900a2b3\b9bedcc0-88ac-454c-8c69-7d6ea1c41d17\cfg.config\cloneconfig.xml'. ``
 
 * Generic LDAP:
  * Fix for Generic SQL watermark Delta Import multivalued attribute not imported bug
