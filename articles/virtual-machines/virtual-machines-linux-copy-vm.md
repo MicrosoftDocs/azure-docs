@@ -1,22 +1,4 @@
----
-title: Copy a Linux VM using Azure CLI 2.0 | Microsoft Docs
-description: Learn how to create a copy of your Azure Linux VM in the Resource Manager deployment model by using Azure CLI 2.0.
-services: virtual-machines-linux
-documentationcenter: ''
-author: cynthn
-manager: timlt
-tags: azure-resource-manager
-
-ms.assetid: 770569d2-23c1-4a5b-801e-cddcd1375164
-ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: na
-ms.topic: article
-ms.date: 03/08/2017
-ms.author: cynthn
-
----
+                   
 # Create a copy of a Linux VM by using Azure CLI 2.0
 
 
@@ -25,11 +7,7 @@ running Linux using the Azure CLI 2.0 and the Azure Resource Manager deployment
 model. You can also perform these steps with the [Azure CLI
 1.0](virtual-machines-linux-copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Copy the operating system and data disks to a new container, and then set up the
-network resources and create the VM.
-
-You can also [upload and create a VM from a custom disk
-image](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+You can also [upload and create a VM from a VHD](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Prerequisites
 
@@ -55,18 +33,18 @@ az vm deallocate --resource-group myResourceGroup --name myVM
 
 
 To copy a VM, you create a copy of the underlying virtual hard disk. This
-process creates a specialized VM that contains the same configuration and
+process creates a specialized VHD that contains the same configuration and
 settings as the source VM.
 
-The process of copying a virtual disk differs between Azure Managed Disks and
+The process of copying a VHD differs between Azure Managed Disks and
 unmanaged disks. Managed disks are handled by the Azure platform and do not
-require any preparation or location to store them. Because managed disks are a
-top-level resource, they are easier to work with - you can make a direct copy of
+require a storage account. Because managed disks are a
+top-level resource, you can make a direct copy of
 the disk resource.
 
 For more information about Azure Managed Disks, see [Azure Managed Disks
 overview](../storage/storage-managed-disks-overview.md). Choose one of the
-appropriate following steps for the storage type of your source VM:
+following steps for the storage type of your source VM:
 
 -   [Managed disks](#managed-disks)
 
@@ -90,7 +68,7 @@ appropriate following steps for the storage type of your source VM:
 	myVM    myDisk
 	```
 
-1.  Copy the disk by creating a new managed disk with [az disk
+1.  Copy the disk by creating a new managed disk using [az disk
     create](/cli/azure/disk#create). The following example creates a disk named
     **myCopiedDisk** from the managed disk named **myDisk**:
 
@@ -197,8 +175,8 @@ to [Step 4: Create a VM](#step-4-create-a-vm).
     **mySubnet** subnet:
 
 	```azurecli
-	az network nic create --resource-group myResourceGroup --location westeurope --name myNic \
-		--vnet-name myVnet --subnet mySubnet
+	az network nic create --resource-group myResourceGroup --location westus --name myNic \
+		--vnet-name myVnet --subnet mySubnet --public-ip-address myPublicIP
 	```
 
 Step 4: Create a VM
@@ -220,7 +198,6 @@ follows:
 az vm create --resource-group myResourceGroup --name myCopiedVM \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
     --nics myNic --size Standard_DS1_v2 --os-type Linux \
-    --image UbuntuLTS
     --attach-os-disk myCopiedDisk
 ```
 
