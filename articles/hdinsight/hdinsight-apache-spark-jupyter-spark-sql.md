@@ -29,10 +29,8 @@ Learn how to create an [Apache Spark](hdinsight-apache-spark-overview.md) cluste
 ## Prerequisites
 * **An Azure subscription**. Before you begin this tutorial, you must have an Azure subscription. See [Create your free Azure account today](https://azure.microsoft.com/free).
 
-* **A Secure Shell (SSH) client**: Linux, Unix, and OS X systems provied an SSH client through the `ssh` command. For Windows clients, see [Use SSH with Hadoop on HDInsight from Windows with PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md); for Linux, Unix or OS X, see [Use SSH with Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-
 > [!NOTE]
-> This article uses an Azure Resource Manager template to create a Spark cluster that uses [Azure Storage Blobs as the cluster storage](hdinsight-hadoop-use-blob-storage.md). You can also create a Spark cluster that uses [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) as an additional storage, in addition to Azure Storage Blobs as the default storage. For instructions, see [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+> This article uses an Azure Resource Manager template to create a Spark cluster that uses [Azure Storage Blobs as the cluster storage](hdinsight-hadoop-use-blob-storage.md). You can also create a Spark cluster that uses [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) as additional storage, in addition to Azure Storage Blobs as the default storage. For instructions, see [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 >
 >
 
@@ -51,14 +49,14 @@ In this section, you create a Spark cluster in HDInsight using an [Azure Resourc
     ![Create Spark cluster in HDInsight using an Azure Resource Manager template](./media/hdinsight-apache-spark-jupyter-spark-sql/create-spark-cluster-in-hdinsight-using-azure-resource-manager-template.png "Create Spark cluster in HDInsight using an Azure Resource Manager template")
 
 	* **Subscription**: Select your Azure subscription for this cluster.
-	* **Resource group**: Create a new resource group or select an existing one. Resource group is used to manage Azure resources for your projects.
+	* **Resource group**: Create a resource group or select an existing one. Resource group is used to manage Azure resources for your projects.
 	* **Location**: Select a location for the resource group.  This location is also used for the default cluster storage and the HDInsight cluster.
-	* **ClusterName**: Enter a name for the Hadoop cluster that you will create.
+	* **ClusterName**: Enter a name for the Hadoop cluster that you create.
 	* **Spark version**: Select the Spark version that you want to install on the cluster.
 	* **Cluster login name and password**: The default login name is admin.
 	* **SSH user name and password**.
 
-   Please write down these values.  You will need them later in the tutorial.
+   Write down these values.  You need them later in the tutorial.
 
 3. Select **I agree to the terms and conditions stated above**, select **Pin to dashboard**, and then click **Purchase**. You can see a new tile titled Submitting deployment for Template deployment. It takes about around 20 minutes to create the cluster.
 
@@ -77,11 +75,10 @@ In this article, you use the PySpark kernel. For more information about the two 
 ### Create Jupyter notebook with PySpark kernel
 
 1. Open the [Azure portal](https://portal.azure.com/).
-2. From the left menu, click **Resource groups**.
-3. Click the resource group you created in the last section. You can use the search function if there are too many resource groups. You can see two resources in the group, the HDInsight cluster, and the default storage account.
-4. Click the cluster to open it.
 
-2. From **Quick links**, click **Cluster dashboards**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
+2. If you opted to pin the cluster to the dashboard, click the cluster tile from the dashboard to launch the cluster blade.
+
+3. From **Quick links**, click **Cluster dashboards**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
    ![HDInsight cluster dashboards](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-azure-portal-cluster-dashboards.png "HDInsight cluster dashboards")
 
@@ -91,7 +88,7 @@ In this article, you use the PySpark kernel. For more information about the two 
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >
    >
-3. Create a new notebook. Click **New**, and then click **PySpark**.
+3. Create a notebook. Click **New**, and then click **PySpark**.
 
    ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
 
@@ -104,11 +101,11 @@ In this article, you use the PySpark kernel. For more information about the two 
 
 		from pyspark.sql.types import *
 
-    Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts will be automatically created for you when you run the first code cell.
+    Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts are automatically created for you when you run the first code cell.
 
     ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.jupyter.job.status.png "Status of a Jupyter notebook job")
 
-    Every time you run a job in Jupyter, your web browser window title will show a **(Busy)** status along with the notebook title. You will also see a solid circle next to the **PySpark** text in the top-right corner. After the job is completed, this will change to a hollow circle.
+    Every time you run a job in Jupyter, your web browser window title shows a **(Busy)** status along with the notebook title. You also see a solid circle next to the **PySpark** text in the top-right corner. After the job is completed, it changes to a hollow circle.
 
 6. Run the following code to register some sample data into a temporary table called **hvac**.
 
@@ -134,7 +131,7 @@ In this article, you use the PySpark kernel. For more information about the two 
 		%%sql
 		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 
-   Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you just created by using the `%%sql` magic. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
+   Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you created by using the `%%sql` magic. For more information about the `%%sql` magic, and other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 
    The following tabular output is displayed by default.
 
@@ -144,7 +141,7 @@ In this article, you use the PySpark kernel. For more information about the two 
 
     ![Area graph of query result](./media/hdinsight-apache-spark-jupyter-spark-sql/area.output.png "Area graph of query result")
 
-9. After you have finished running the application, you can shutdown the notebook to release the resources. To do so, from the **File** menu on the notebook, click **Close and Halt**. This will shutdown and close the notebook.
+9. After you have finished running the application, shut down the notebook to release the resources. To do so, from the **File** menu on the notebook, click **Close and Halt**.
 
 ## Delete the cluster
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
