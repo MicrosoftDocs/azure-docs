@@ -118,7 +118,7 @@ When you generate a client certificate, it's automatically installed on the comp
 
 ## <a name="install"></a>Install an exported client certificate
 
-Point-to-Site connections require connecting client computers to have a client certificate. Azure uses the client certificate for authentication. The following steps walk you through manually installing a client certificate. 
+Each client computer must have a client certificate in order to authenticate. If you are connecting from a client computer other than the one you used to generate the client certificates, you need to install a client certificate. When installing a client certificate, you will need the password that was created when the client certificate was exported. 
 
 1. Locate and copy the *.pfx* file to the client computer. On the client computer, double-click the *.pfx* file to install. Leave the **Store Location** as **Current User**, then click **Next**.
 2. On the **File** to import page, don't make any changes. Click **Next**.
