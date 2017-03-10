@@ -4,7 +4,7 @@ description: Variable assets are values that are available to all runbooks and D
 services: automation
 documentationcenter: ''
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: tysonn
 
 ms.assetid: b880c15f-46f5-4881-8e98-e034cc5a66ec
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/14/2016
+ms.date: 03/10/2017
 ms.author: magoedte;bwren
 
 ---
@@ -110,7 +110,6 @@ The following sample commands show how to create a variable with a complex type 
 	$vmIpAddress = $vmValue.IpAddress
 
 
-
 ## Using a variable in a runbook or DSC configuration
 
 Use the **Set-AutomationVariable** activity to set the value of an Automation variable in a runbook or DSC configuration, and the **Get-AutomationVariable** to retrieve it.  You shouldn't use the **Set-AzureAutomationVariable** or  **Get-AzureAutomationVariable** cmdlets in a runbook or DSC configuration since they are less efficient than the workflow activities.  You also cannot retrieve the value of secure variables with **Get-AzureAutomationVariable**.  The only way to create a new variable from within a runbook or DSC configuration is to use the [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx)  cmdlet.
@@ -166,6 +165,32 @@ In the following code, the collection is retrieved from the variable and used to
        }
     }
 
+#### Setting and retrieving a secure string
+
+If you need to pass in a secure string or a credential, then you should first create this asset as a credential or secure variable. 
+
+    $securecredential = get-credential
+
+    New-AzureRmAutomationCredential -ResourceGroupName contoso `
+    -AutomationAccountName contosoaccount -Name ContosoCredentialAsset -Value $securecredential
+
+You can then pass in the name of this asset as a parameter to the runbook and use the built in activities to retrieve and use in your script as demonstrated in the following sample code.  
+
+    ExampleScript
+    Param
+
+      (
+         $ContosoCredentialAssetName
+      )
+
+    $ContosoCred = Get-AutomationPSCredential -Name $ContosoCredentialAssetName
+
+The following example shows how to call your runbook.  
+
+    $RunbookParams = @{"ContosoCredentialAssetName"="ContosoCredentialAsset"}
+
+    Start-AzureRMAutomationRunbook -ResourceGroupName contoso `
+    -AutomationAccountName contosoaccount -Name ExampleScript -Parameters $RunbookParams
 
 ### Graphical runbook samples
 
