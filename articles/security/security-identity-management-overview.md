@@ -113,8 +113,8 @@ When combined with a mobile device management (MDM) solution such as Intune, the
 Learn more:
 
 * [Get started with Azure Active Directory Device Registration](../active-directory/active-directory-conditional-access-device-registration-overview.md)
-* [Setting up on-premises conditional access using Azure Active Directory Device Registration](../active-directory/active-directory-conditional-access-on-premises-setup.md)
 * [Automatic device registration with Azure Active Directory for Windows domain-joined devices](../active-directory/active-directory-conditional-access-automatic-device-registration.md)
+* [Set up automatic registration of Windows domain-joined devices with Azure Active Directory](../active-directory/active-directory-conditional-access-automatic-device-registration-setup.md)
 
 ## Privileged identity management
 Azure Active Directory (AD) Privileged Identity Management lets you manage, control, and monitor your privileged identities and access to resources in Azure AD as well as other Microsoft online services like Office 365 or Microsoft Intune.
