@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/07/2017
 ms.author: awills
 
 ---
@@ -99,8 +99,8 @@ Let's see just requests that returned a particular result code:
 The `where` operator takes a Boolean expression. Here are some key points about them:
 
 * `and`, `or`: Boolean operators
-* `==`, `<>` : equal and not equal
-* `=~`, `!=` : case-insensitive string equal and not equal. There are lots more string comparison operators.
+* `==`, `<>`, `!=` : equal and not equal
+* `=~`, `!~` : case-insensitive string equal and not equal. There are lots more string comparison operators.
 
 Read all about [scalar expressions](app-insights-analytics-reference.md#scalars).
 
@@ -113,7 +113,7 @@ Find unsuccessful requests:
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode` has type string, so we must [cast it](app-insights-analytics-reference.md#casts) for a numeric comparison.
+`resultCode` has type string, so we must [cast it](app-insights-analytics-reference.md#casts) for a numeric comparison.
 
 ## Time range
 
@@ -448,7 +448,7 @@ To find the exceptions related to a request that returned a failure response, we
 ```AIQL
 
     requests
-    | where toint(responseCode) >= 500
+    | where toint(resultCode) >= 500
     | join (exceptions) on operation_Id
     | take 30
 ```
@@ -458,6 +458,7 @@ It's good practice to use `project` to select just the columns we need before pe
 In the same clauses, we rename the timestamp column.
 
 ## [Let](app-insights-analytics-reference.md#let-clause): Assign a result to a variable
+
 Use `let` to separate out the parts of the previous expression. The results are unchanged:
 
 ```AIQL
@@ -470,9 +471,23 @@ Use `let` to separate out the parts of the previous expression. The results are 
     | take 30
 ```
 
-> Tip: In the Analytics client, don't put blank lines between the parts of the query. Make sure to execute all of it.
+> [!Tip] 
+> In the Analytics client, don't put blank lines between the parts of the query. Make sure to execute all of it.
 >
->
+
+Use `toscalar` to convert a single table cell to a value:
+
+```AIQL
+let topCities =  toscalar (
+   requests
+   | summarize count() by client_City 
+   | top n by count_ 
+   | summarize makeset(client_City));
+requests
+| where client_City in (topCities(3)) 
+| summarize count() by client_City;
+```
+
 
 ### Functions
 

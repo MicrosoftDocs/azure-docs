@@ -4,7 +4,7 @@ description: This third tutorial in StorSimple Virtual Array deployment instruct
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: f609f6ff-0927-48bb-a68a-6d8985d2fe34
@@ -13,10 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 ---
-# Deploy StorSimple Virtual Array - Set up as file server
+# Deploy StorSimple Virtual Array - Set up as file server via Azure portal
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
 
 ## Introduction

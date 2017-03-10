@@ -1,3 +1,3 @@
 ﻿---
-redirect_url: /azure/sql-database/sql-database-point-in-time-restore
+redirect_url: /azure/sql-database/sql-database-restore-database-powershell
 --- 

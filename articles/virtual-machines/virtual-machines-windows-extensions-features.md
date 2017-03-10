@@ -1,5 +1,5 @@
 ---
-title: Virtual machine extensions and features for Windows | Microsoft Docs
+title: Virtual machine extensions and features for Windows in Azure | Microsoft Docs
 description: Learn what extensions are available for Azure virtual machines, grouped by what they provide or improve.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/08/2016
+ms.date: 03/06/2017
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 
 ---
 # Virtual machine extensions and features for Windows
@@ -44,7 +45,7 @@ Each virtual machine extension may have its own set of prerequisites. For instan
 ### Azure VM agent
 The Azure VM agent manages interaction between an Azure virtual machine and the Azure fabric controller. The VM agent is responsible for many functional aspects of deploying and managing Azure virtual machines, including running VM extensions. The Azure VM agent is preinstalled on Azure Marketplace images and can be installed on supported operating systems.
 
-For information on supported operating systems and installation instructions, see [Azure virtual machine agent](virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+For information on supported operating systems and installation instructions, see [Azure virtual machine agent](virtual-machines-windows-agent-user-guide.md).
 
 ## Discover VM extensions
 Many different VM extensions are available for use with Azure virtual machines. To see a complete list, run the following command with the Azure Resource Manager PowerShell module. Make sure to specify the desired location when you're running this command.
@@ -116,7 +117,7 @@ A VM extension can be applied to an existing virtual machine through the Azure p
 
 The following image shows the installation of the Microsoft Antimalware extension from the Azure portal.
 
-![Antimalware extension](./media/virtual-machines-windows-extensions-features/anti-virus-extension.png)
+![Install antimalware extension](./media/virtual-machines-windows-extensions-features/installantimalwareextension.png)
 
 ### Azure Resource Manager templates
 

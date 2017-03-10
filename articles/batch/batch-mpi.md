@@ -13,11 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 
 ---
-# Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch
+# Use multi-instance tasks to run Message Passing Interface (MPI) applications in Batch
+
 Multi-instance tasks allow you to run an Azure Batch task on multiple compute nodes simultaneously. These tasks enable high performance computing scenarios like Message Passing Interface (MPI) applications in Batch. In this article, you learn how to execute multi-instance tasks using the [Batch .NET][api_net] library.
 
 > [!NOTE]
@@ -269,7 +271,7 @@ The [MultiInstanceTasks][github_mpi] code sample on GitHub demonstrates how to u
 
 ### Execution
 1. Download the [azure-batch-samples][github_samples_zip] from GitHub.
-2. Open the MultiInstanceTasks **solution** in Visual Studio 2015. The `MultiInstanceTasks.sln` solution file is located in:
+2. Open the MultiInstanceTasks **solution** in Visual Studio 2015 or newer. The `MultiInstanceTasks.sln` solution file is located in:
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Enter your Batch and Storage account credentials in `AccountSettings.settings` in the **Microsoft.Azure.Batch.Samples.Common** project.

@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
+ms.custom: H1Hack27Feb2017
 
 ---
-# Azure IoT SDKs
+# Understand and use Azure IoT SDKs
 ## Azure IoT device SDK
 The Microsoft Azure IoT device SDKs contain code that facilitates building devices and applications that connect to and are managed by Azure IoT Hub services.
 
@@ -93,12 +94,12 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
 [lnk-dotnet-ref]: https://docs.microsoft.com/dotnet/api/microsoft.azure.devices
-[lnk-c-ref]: http://azure.github.io/azure-iot-sdks/c/api_reference/index.html
+[lnk-c-ref]: https://azure.github.io/azure-iot-sdk-c/index.html
 [lnk-java-ref]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device
-[lnk-node-ref]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.15/index.html
+[lnk-node-ref]: https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.6/index.html
 [lnk-rest-ref]: https://docs.microsoft.com/rest/api/iothub/
 [lnk-java-service-ref]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.auth
-[lnk-node-service-ref]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.17/index.html
+[lnk-node-service-ref]: https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.6/index.html
 [lnk-gateway-ref]: http://azure.github.io/azure-iot-gateway-sdk/api_reference/c/html/
 
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md

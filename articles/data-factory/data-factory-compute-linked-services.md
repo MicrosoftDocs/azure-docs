@@ -48,7 +48,7 @@ Note the following **important** points about on-demand HDInsight linked service
 * You are charged only for the time when the HDInsight cluster is up and running jobs.
 
 > [!IMPORTANT]
-> It typically takes more than **15 minutes** to provision an Azure HDInsight cluster on demand.
+> It typically takes **20 minutes** or more to provision an Azure HDInsight cluster on demand.
 > 
 > 
 
@@ -83,7 +83,7 @@ To use a Windows-based HDInsight cluster, set **osType** to **windows** or do no
 | Property | Description | Required |
 | --- | --- | --- |
 | type |The type property should be set to **HDInsightOnDemand**. |Yes |
-| clusterSize |Number of worker/data nodes in the cluster. The HDInsight cluster is created with 2 head nodes along with the number of worker nodes you specify for this property. The nodes are of size Standard_D3 that has 4 cores, so a 4 worker node cluster takes 24 cores (4*4 for worker nodes + 2*4 for head nodes). See [Create Linux-based Hadoop clusters in HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) for details about the Standard_D3 tier. |Yes |
+| clusterSize |Number of worker/data nodes in the cluster. The HDInsight cluster is created with 2 head nodes along with the number of worker nodes you specify for this property. The nodes are of size Standard_D3 that has 4 cores, so a 4 worker node cluster takes 24 cores (4\*4 = 16 cores for worker nodes, plus 2\*4 = 8 cores for head nodes). See [Create Linux-based Hadoop clusters in HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) for details about the Standard_D3 tier. |Yes |
 | timetolive |The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster.<br/><br/>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6 minutes window, it is processed by the same cluster.<br/><br/>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.<br/><br/>If you set timetolive value to 0, the cluster is deleted as soon as the activity run in processed. On the other hand, if you set a high value, the cluster may stay idle unnecessarily resulting in high costs. Therefore, it is important that you set the appropriate value based on your needs.<br/><br/>Multiple pipelines can share the same instance of the on-demand HDInsight cluster if the timetolive property value is appropriately set |Yes |
 | version |Version of the HDInsight cluster. The default value is 3.1 for Windows cluster and 3.2 for Linux cluster. |No |
 | linkedServiceName |Azure Storage linked service to be used by the on-demand cluster for storing and processing data. <p>Currently, you cannot create an on-demand HDInsight cluster that uses an Azure Data Lake Store as the storage. If you want to store the result data from HDInsight processing in an Azure Data Lake Store, use a Copy Activity to copy the data from the Azure Blob Storage to the Azure Data Lake Store.</p>  | Yes |
@@ -170,7 +170,7 @@ If you want to create D4 sized head nodes and worker nodes, you need to specify 
 "dataNodeSize": "Standard_D4",
 ```
 
-If you specify a wrong value for these properties, you may receive the following **error:**    Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. When you receive this error, ensure that you are using the **CMDLET & APIS** name from the table in the above article.  
+If you specify a wrong value for these properties, you may receive the following **error:** Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. When you receive this error, ensure that you are using the **CMDLET & APIS** name from the table in the above article.  
 
 ## Bring your own compute environment
 In this type of configuration, users can register an already existing computing environment as a linked service in Data Factory. The computing environment is managed by the user and the Data Factory service uses it to execute the activities.
@@ -179,7 +179,9 @@ This type of configuration is supported for the following compute environments:
 
 * Azure HDInsight
 * Azure Batch
-* Azure Machine Learning.
+* Azure Machine Learning
+* Azure Data Lake Analytics
+* Azure SQL DB, Azure SQL DW, SQL Server
 
 ## Azure HDInsight Linked Service
 You can create an Azure HDInsight linked service to register your own HDInsight cluster with Data Factory.
@@ -208,7 +210,7 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 | clusterUri |The URI of the HDInsight cluster. |Yes |
 | username |Specify the name of the user to be used to connect to an existing HDInsight cluster. |Yes |
 | password |Specify password for the user account. |Yes |
-| linkedServiceName |Name of the linked service for the Azure Blob Storage / Azure Data Lake Store used by this HDInsight cluster. |Yes |
+| linkedServiceName | Name of the Azure Storage linked service that refers to the Azure blob storage used by the HDInsight cluster. <p>Currently, you cannot specify an Azure Data Lake Store linked service for this property. You may access data in the Azure Data Lake Store from Hive/Pig scripts if the HDInsight cluster has access to the Data Lake Store. </p>  |Yes |
 
 ## Azure Batch Linked Service
 You can create an Azure Batch linked service to register a Batch pool of virtual machines (VMs) to a data factory. You can run .NET custom activities using either Azure Batch or Azure HDInsight.
@@ -236,7 +238,7 @@ See following topics if you are new to Azure Batch service:
 }
 ```
 
-Append "**.<region name**" to the name of your batch account for the **accountName** property. Example:
+Append "**.\<region name\>**" to the name of your batch account for the **accountName** property. Example:
 
 ```json
 "accountName": "mybatchaccount.eastus"
@@ -321,7 +323,7 @@ The authorization code you generated by using the **Authorize** button expires a
 
 | User type | Expires after |
 |:--- |:--- |
-| User accounts NOT managed by Azure Active Directory (@hotmail.com, @live.com, etc.) |12 hours |
+| User accounts NOT managed by Azure Active Directory (@hotmail.com, @live.com, @outlook.com, for example) |12 hours |
 | Users accounts managed by Azure Active Directory (AAD) |14 days after the last slice run. <br/><br/>90 days, if a slice based on OAuth-based linked service runs at least once every 14 days. |
 
 To avoid/resolve this error, you need to reauthorize using the **Authorize** button when the **token expires** and redeploy the linked service. You can also generate values for sessionId and authorization properties programmatically using code in the following section. 

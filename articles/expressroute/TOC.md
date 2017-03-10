@@ -1,14 +1,15 @@
 # Overview
 ## [What is ExpressRoute?](expressroute-introduction.md)
 ## [ExpressRoute FAQ](expressroute-faqs.md)
+## [Connectivity models](expressroute-connectivity-models.md)
 ## [Locations and partners](expressroute-locations.md)
 ### [Providers by location](expressroute-locations-providers.md)
 ### [Locations by provider](expressroute-locations.md)
 
 # Get Started
-## [Circuits and routing domains](expressroute-circuit-peerings.md)
 ## [Workflows](expressroute-workflows.md)
 ## [Prerequisites](expressroute-prerequisites.md)
+## [Circuits and routing domains](expressroute-circuit-peerings.md)
 ## [Routing requirements](expressroute-routing.md)
 ## [Optimize routing](expressroute-optimize-routing.md)
 ## [NAT requirements](expressroute-nat.md)
@@ -50,7 +51,7 @@
 ### [Getting ARP tables (Classic)](expressroute-troubleshooting-arp-classic.md)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (classic)](https://msdn.microsoft.com/library/azure/dn606310)
 

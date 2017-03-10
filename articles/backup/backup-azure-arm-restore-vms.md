@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 1/26/2017
-ms.author: trinadhk;jimpark;
+ms.author: markgal;trinadhk;
 
 ---
 # Use Azure portal to restore virtual machines
@@ -146,13 +146,16 @@ To view the operation while it is processing, or to view when it completed, open
     ![list of VMs in vault](./media/backup-azure-arm-restore-vms/restore-job-in-progress.png)
 
 ## Post-Restore steps
-If you are using a cloud-init based Linux distribution such as Ubuntu, for security reasons, password is blocked post restore. Please use VMAccess extension on the restored VM to [reset the password](../virtual-machines/virtual-machines-linux-classic-reset-access.md). We recommend using SSH keys on these distributions to avoid resetting password post restore.
+* If you are using a cloud-init based Linux distribution such as Ubuntu, for security reasons, password is blocked post restore. Please use VMAccess extension on the restored VM to [reset the password](../virtual-machines/virtual-machines-linux-classic-reset-access.md). We recommend using SSH keys on these distributions to avoid resetting password post restore.
+* Extensions present during the backup config will be installed, however they won't be enabled. Please reinstall extensions if you see any issue. 
+* If the backed-up VM has static IP, post restore, restored VM will have a dynamic IP to avoid conflict when creating restored VM. Learn more on how you can [add a static IP to restored VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
+* Restored VM will not have availability value set. We recommend using restore disks option and [adding availability set](../virtual-machines/virtual-machines-windows-create-availability-set.md#use-powershell-to-create-an-availability-set) when creating a VM from PowerShell using restored disks. 
 
 ## Backup for restored VMs
 If you have restored VM to same Resource Group with the same name as originally backed up VM, backup continues on the VM post restore. If you have either restored VM to a different Resource group or specified a different name for restored VM, this is treated as a new VM and you need to setup backup for restored VM.
 
 ## Restoring a VM during Azure dataCenter disaster
-Azure Backup allows restoring backed up VMs to the paired data center in case the primary data center where VMs are running experiences disaster and you configured Backup vault to be geo-redundant. During such scenarios, you need to select a storage account, which is present in paired data center and rest of the restore process remains same. Azure Backup uses Compute service from paired geo to create the restored virtual machine.
+Azure Backup allows restoring backed up VMs to the paired data center in case the primary data center where VMs are running experiences disaster and you configured Backup vault to be geo-redundant. During such scenarios, you need to select a storage account, which is present in paired data center and rest of the restore process remains same. Azure Backup uses Compute service from paired geo to create the restored virtual machine. Learn more about [Azure Data center resiliency](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md)
 
 ## Restoring VMs with special network configurations
 It is possible to back up and restore VMs with the following special network configurations. However, these configurations require some special consideration while going through the restore process.

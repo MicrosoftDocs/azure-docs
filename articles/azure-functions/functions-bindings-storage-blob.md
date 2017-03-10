@@ -56,6 +56,8 @@ Note the following:
   editor in the **Integrate** tab configures this app setting for you when you create a storage account or selects an existing 
   one. To manually create this app setting, see [configure this app setting manually](). 
 
+When running on a Consumption plan, if a Function App has gone idle, there can be be up to a 10-minute day in processing new blobs. Once the Function App is running, blobs are processed more quickly. To avoid this initial delay, either use a regular App Service Plan with Always On enabled or use another mechanism to trigger the blob processing, such as a queue message that contains the blob name. 
+
 Also, see one of the following subheadings for more information:
 
 * [Name patterns](#pattern)
@@ -352,9 +354,9 @@ The Storage blob output for a function uses the following JSON objects in the `b
 {
   "name": "<Name of output parameter in function signature>",
   "type": "blob",
-  "direction": "out"
+  "direction": "out",
   "path": "<Path of input blob - see below>",
-  "connection":"<Name of app setting - see below>"
+  "connection": "<Name of app setting - see below>"
 }
 ```
 

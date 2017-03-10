@@ -13,18 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 02/09/2017
 ms.author: richrund
 
 ---
-# Azure Key Vault Analytics (Preview) solution in Log Analytics
+# Azure Key Vault Analytics solution in Log Analytics
 
 You can use the Azure Key Vault solution in Log Analytics to review Azure Key Vault AuditEvent logs.
-
-> [!NOTE]
-> Azure Key Vault Analytics is a [preview solution](log-analytics-add-solutions.md#preview-management-solutions-and-features).
-> 
-> 
 
 To use the solution, you need to enable logging of Azure Key Vault diagnostics and direct the diagnostics to a Log Analytics workspace. It is not necessary to write the logs to Azure Blob storage.
 
@@ -77,7 +72,7 @@ The following table shows data collection methods and other details about how da
 | Azure |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Yes](./media/log-analytics-azure-keyvault/oms-bullet-green.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) | on arrival |
 
 ## Use Azure Key Vault
-After you install the solution, view the Key Vault data by clicking on the **Azure Key Vault** tile from the **Overview** page of Log Analytics.
+After you install the solution, view the Key Vault data by clicking the **Azure Key Vault** tile from the **Overview** page of Log Analytics.
 
 ![image of Azure Key Vault tile](./media/log-analytics-azure-keyvault/log-analytics-keyvault-tile.png)
 
@@ -146,6 +141,9 @@ To use the updated solution:
 4. Remove the *Key Vault Analytics (Deprecated)* solution. If you are using PowerShell, use `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false` 
 
 Data collected before the change is not visible in the new solution. You can continue to query for this data using the old Type and field names.
+
+## Troubleshooting
+[!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## Next steps
 * Use [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed Azure Key Vault data.

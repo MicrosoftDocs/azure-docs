@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.date: 12/19/2016
 ms.author: ddove
 ms.workload: data-management
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 
 ---
@@ -112,7 +112,6 @@ In cases where you can't use tooling, the following step-by-step can help you es
 Not all single databases are optimum candidates for pools. Databases with usage patterns that are characterized by low average utilization and relatively infrequent utilization spikes are excellent candidates. Application usage patterns are dynamic, so use the information and tools described in this article to make an initial assessment to see if a pool is a good choice for some or all your databases. This article is just a starting point to help with your decision whether or not an elastic pool is a good fit. Remember that you should continually monitor historical resource usage and constantly reassess the performance levels of all your databases. Keep in mind that you can easily move databases in and out of elastic pools, and if you have a large number of databases you can have multiple pools of varying sizes that you can divide your databases into.
 
 ## Next steps
-* [Create an elastic pool](sql-database-elastic-pool-create-portal.md)
+* [Create an elastic pool](sql-database-elastic-pool-manage-portal.md)
 * [Monitor, manage, and size an elastic pool](sql-database-elastic-pool-manage-portal.md)
 * [SQL Database options and performance: understand what's available in each service tier](sql-database-service-tiers.md)
-* [PowerShell script for identifying databases suitable for an elastic pool](sql-database-elastic-pool-database-assessment-powershell.md)

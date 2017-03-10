@@ -1,5 +1,5 @@
 ---
-title: Detach a disk from a Linux VM | Microsoft Docs
+title: Detach a disk from a Linux VM in Azure | Microsoft Docs
 description: Learn to detach a data disk from an Azure virtual machine created using the classic deployment model.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 
 ---

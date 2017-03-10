@@ -32,7 +32,7 @@ For details on this service and how to use it, see [Azure Storage public documen
 | [Hot/Cool Blob Storage] (../storage/storage-blob-storage-tiers.md) |NA |NA |
 | [Storage Service Encryption] (../storage/storage-service-encryption.md) |GA |GA |
 | [Premium Storage] (../storage/storage-premium-storage.md) |GA |NA | Includes DS-series Virtual Machines. |
-| [Blob Import/Export] (../storage/storage-import-export-service.md) |GA |GA | Only classic storage accounts are supported currently. |
+| [Blob Import/Export] (../storage/storage-import-export-service.md) |GA |GA |
 | [StorSimple] (../storsimple/storsimple-ova-overview.md) |GA |GA |
 
 ### Variations

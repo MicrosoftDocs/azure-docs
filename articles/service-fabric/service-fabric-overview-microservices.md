@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/05/2017
-ms.author: mfussell
+ms.date: 02/06/2017
+ms.author: msfussell
 
 ---
 # Why a microservices approach to building applications?

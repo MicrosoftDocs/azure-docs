@@ -1,21 +1,6 @@
 ---
-title: DocumentDB change notifications using Logic Apps | Microsoft Docs
-description: .
-keywords: change notification
-services: documentdb
-author: hedidin
-manager: jhubbard
-editor: mimig
-documentationcenter: ''
-
-ms.assetid: 58925d95-dde8-441b-8142-482b487e4bdd
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: rest-api
-ms.topic: article
-ms.date: 09/23/2016
-ms.author: b-hoedid
+redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-change-feed-hl7-fhir-logic-apps
+ROBOTS: NOINDEX, NOFOLLOW
 
 ---
 # Notifications for new or changed DocumentDB resources using Logic Apps

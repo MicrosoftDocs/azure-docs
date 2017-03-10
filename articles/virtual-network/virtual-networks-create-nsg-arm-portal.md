@@ -1,10 +1,10 @@
 ---
-title: How to create NSGs in ARM mode using the Azure portal | Microsoft Docs
-description: Learn how to create and deploy NSGs in ARM using the Azure portal
+title: Manage network security groups - Azure portal | Microsoft Docs
+description: Learn how to manage network security groups using the Azure portal.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 
@@ -16,9 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
-# How to manage NSGs using the Azure portal
+# Manage network security groups using the Azure portal
+
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]

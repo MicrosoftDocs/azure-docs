@@ -1,5 +1,5 @@
 ---
-title: Retrieving state information for an Azure Import/Export service job | MicrosoftDocs
+title: Retrieving state info for an Azure Import/Export job | MicrosoftDocs
 description: Learn how to obtain state information for Microsoft Azure Import/Export service jobs
 author: muralikk
 manager: syadav
@@ -18,7 +18,7 @@ ms.author: muralikk
 
 ---
 
-# Retrieving State Information for a Job
+# Retrieving state information for an Import/Export job
 You can call the [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) operation to retrieve information about both import and export jobs. The information returned includes:
 
 -   The current status of the job.

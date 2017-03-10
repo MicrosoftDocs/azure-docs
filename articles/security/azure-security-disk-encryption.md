@@ -135,7 +135,7 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 > Azure Disk Encryption is supported on the following Linux server versions: Ubuntu, CentOS, SUSE and SUSE Linux Enterprise Server (SLES), and Red Hat Enterprise Linux.
 
 > [!NOTE]
-> Linux OS disk encryption is currently supported on the following Linux distributions: RHEL 7.2, CentOS 7.2n, and Ubuntu 16.04.
+> Linux OS disk encryption is currently supported on the following Linux distributions: RHEL 7.2, RHEL 7.3, CentOS 7.2n, and Ubuntu 16.04.
 >
 > All resources (your key vault, storage account, and VM, for example) must belong to the same Azure region and subscription.
 
@@ -349,7 +349,7 @@ Azure Disk Encryption helps safeguard the disk-encryption keys and secrets in yo
 #### Create a key vault
 To create a key vault, use one of the following options:
 
-* ["101-Create-KeyVault" Resource Manager template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-key-vault/azuredeploy.json)
+* ["101-Key-Vault-Create" Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 * [Azure PowerShell key vault cmdlets](https://msdn.microsoft.com/library/dn868052.aspx)
 * Azure Resource Manager
 
@@ -537,7 +537,7 @@ To enable encryption on existing or running IaaS Windows VM in Azure using CLI c
  ```
 
 ### Enable encryption on an existing or running IaaS Linux VM in Azure
-You can enable disk encryption on an existing or running IaaS Linux VM in Azure by using the [Resource Manager template](https://github.com/Azure/azure-quick-start-templates/tree/master/201-encrypt-running-linux-vm).
+You can enable disk encryption on an existing or running IaaS Linux VM in Azure by using the [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm).
 
 1. Click **Deploy to Azure** on the Azure quick-start template, enter the encryption configuration on the **Parameters** blade, and then click **OK**.
 

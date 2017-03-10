@@ -6,14 +6,13 @@ documentationcenter: ''
 author: karavar
 manager: samueld
 editor: curtand
-
 ms.assetid: 1cc8ae90-607d-4925-9c30-6770a4bd1b4e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/31/2017
+ms.date: 02/12/2017
 ms.author: vakarand
 
 ---
@@ -82,7 +81,7 @@ Steps for Windows Server 2008 R2 servers:
 
 In order for the Usage Analytics feature to gather and analyze data, the Azure AD Connect Health agent needs the information in the AD FS Audit Logs. These logs are not enabled by default. Use the following procedures to enable AD FS auditing and to locate the AD FS audit logs, on your AD FS servers.
 
-#### To enable auditing for AD FS on Windows Server 2008R2
+#### To enable auditing for AD FS on Windows Server 2008 R2
 1. Click **Start**, point to **Programs**, point to **Administrative Tools**, and then click **Local Security Policy**.
 2. Navigate to the **Security Settings\Local Policies\User Rights Management** folder, and then double-click Generate security audits.
 3. On the **Local Security Setting** tab, verify that the AD FS 2.0 service account is listed. If it is not present, click **Add User or Group** and add it to the list, and then click **OK**.

@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/27/2016
-ms.author: magoedte;tomfitz
+ms.date: 03/06/2017
+ms.author: tomfitz
 
 ---
 # Resource Manager providers, regions, API versions and schemas
@@ -30,7 +30,8 @@ The following tables list which Microsoft services support deployment and manage
 | Service | Resource Manager Enabled | REST API | Schema | Quickstart Templates |
 | --- | --- | --- | --- | --- |
 | Batch |Yes |[Batch REST](/rest/api/batchservice) |[Batch Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-12-01/Microsoft.Batch.json) | |
-| Container |Yes |[Container Service REST](/rest/api/containerregistry) |[Container Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-03-30/Microsoft.ContainerService.json) |[Microsoft.ContainerService](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ContainerService%22&type=Code) |
+| Container Registry |Yes |[Container Registry REST](/rest/api/containerregistry) |[Container Registry Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-06-27-preview/Microsoft.ContainerRegistry.json) |[Microsoft.ContainerRegistry](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ContainerRegistry%22&type=Code) |
+| Container Service |Yes |[Container Service REST](/rest/api/compute/containerservices) |[Container Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-03-30/Microsoft.ContainerService.json) |[Microsoft.ContainerService](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ContainerService%22&type=Code) |
 | Dynamics Lifecycle Services |Yes | | | |
 | Scale Sets |Yes |[Scale Set REST](/rest/api/compute/virtualmachinescalesets) |[Scale Set Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |[virtualMachineScaleSets](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=virtualMachineScaleSets&type=Code) |
 | Service Fabric |Yes |[Service Fabric Rest](/rest/api/servicefabric) | [Service Fabric Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-09-01/Microsoft.ServiceFabric.json) |[Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
@@ -108,7 +109,7 @@ Cloud Services (classic) can be used with other classic resources. However, clas
 | Service | Resource Manager Enabled | REST API | Schema | Quickstart Templates |
 | --- | --- | --- | --- | --- |
 | CDN |Yes |[CDN REST](/rest/api/cdn) |[CDN Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-04-02/Microsoft.Cdn.json) |[Microsoft.Cdn](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Cdn%22&type=Code) |
-| Media Service |Yes |[Media Services REST](/rest/api/media) |[Media Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01/Microsoft.Media.json) | |
+| Media Service |Yes |[Media Services REST](/rest/api/media) |[Media Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01/Microsoft.Media.json) |[Microsoft.Media](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Media%22&type=Code)  |
 
 ## Hybrid Integration
 | Service | Resource Manager Enabled | REST API | Schema | Quickstart Templates |
@@ -159,48 +160,41 @@ To get all the available resource providers, including their types, locations, A
 ### PowerShell
 The following example shows how to get all the available resource providers.
 
-    Get-AzureRmResourceProvider -ListAvailable
+```powershell
+Get-AzureRmResourceProvider -ListAvailable
+```
 
 
 The next example shows how to get the resource types for a particular resource provider.
 
-    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
-
-The output is similar to:
-
-    ResourceTypeName                Locations                                         
-    ----------------                ---------                                         
-    sites/extensions                {Brazil South, East Asia, East US, Japan East...} 
-    sites/slots/extensions          {Brazil South, East Asia, East US, Japan East...} .
-    ...
+```powershell
+(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
+```
 
 To register a resource provider, provide the namespace:
 
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
+```powershell
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
+```
 
 ### Azure CLI
 The following example shows how to get all the available resource providers.
 
-    azure provider list
+```azurecli
+az provider list
+```
 
-The output is similar to:
+You can view the information for a particular resource provider with the following command:
 
-    info:    Executing command provider list
-    + Getting registered providers
-    data:    Namespace                        Registered
-    data:    -------------------------------  -------------
-    data:    Microsoft.ApiManagement          Unregistered
-    data:    Microsoft.AppService             Registered
-    data:    Microsoft.Authorization          Registered
-    ...
-
-You can save the information for a particular resource provider to a file with the following command:
-
-    azure provider show Microsoft.Web -vv --json > c:\temp.json
+```azurecli
+az provider show --namespace Microsoft.Web
+```
 
 To register a resource provider, provide the namespace:
 
-    azure provider register -n Microsoft.ServiceBus
+```azurecli
+az provider register --namespace Microsoft.ServiceBus
+```
 
 ## Supported regions
 When deploying resources, you typically need to specify a region for the resources. Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. In addition, there may be limitations on your subscription that prevent you from using some regions that support the resource. These limitations may be related to tax issues for your home country, or the result of a policy placed by your subscription administrator to use only certain regions. 
@@ -226,40 +220,17 @@ To discover which regions are available for a particular resource type in your s
 ### PowerShell
 The following example shows how to get the supported regions for web sites.
 
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
-
-The output is similar to:
-
-    Brazil South
-    East Asia
-    East US
-    Japan East
-    Japan West
-    North Central US
-    North Europe
-    South Central US
-    West Europe
-    West US
-    Southeast Asia
-    Central US
-    East US 2
+```powershell
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+```
 
 ### Azure CLI
-The following example returns all the supported locations for each resource type.
+The following example show how to get the supported locations for web sits.
 
-    azure location list
+```azurecli
+az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
+```
 
-You can also filter the location results with a JSON utility like [jq](https://stedolan.github.io/jq/).
-
-    azure location list --json | jq '.[] | select(.name == "Microsoft.Web/sites")'
-
-Which returns:
-
-    {
-      "name": "Microsoft.Web/sites",
-      "location": "Brazil South,East Asia,East US,Japan East,Japan West,North Central US,
-            North Europe,South Central US,West Europe,West US,Southeast Asia,Central US,East US 2"
-    }
 
 ## Supported API versions
 When you deploy a template, you must specify an API version to use for creating each resource. The API version corresponds to a version of REST API operations that are released by the resource provider. As a resource provider enables new features, it releases a new version of the REST API. Therefore, the version of the API you specify in your template affects which properties you can specify in the template. In general, you want to select the most recent API version when creating templates. For existing templates, you can decide whether you want to continue using an earlier API version, or update your template for the latest version to take advantage of new features.
@@ -273,27 +244,31 @@ To discover which API versions are available for resource types, use the [List a
 ### PowerShell
 The following example shows how to get the available API versions for a particular resource type.
 
+```powershell
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+```
 
 The output is similar to:
 
-    2015-08-01
-    2015-07-01
-    2015-06-01
-    2015-05-01
-    2015-04-01
-    2015-02-01
-    2014-11-01
-    2014-06-01
-    2014-04-01-preview
-    2014-04-01
+```powershell
+2015-08-01
+2015-07-01
+2015-06-01
+2015-05-01
+2015-04-01
+2015-02-01
+2014-11-01
+2014-06-01
+2014-04-01-preview
+2014-04-01
+```
 
 ### Azure CLI
-You can save the information (including the available API versions) for a resource provider to a file with the following command:
+You get the available API versions for a resource provider with the following command:
 
-    azure provider show Microsoft.Web -vv --json > c:\temp.json
-
-You can open the file and find the **apiVersions** element
+```azurecli
+az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=='sites'].apiVersions"
+```
 
 ## Next steps
 * To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).

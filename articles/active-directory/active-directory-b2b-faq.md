@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/02/2017
+ms.date: 03/07/2017
 ms.author: sasubram
 
 ---
 
 # Azure Active Directory B2B collaboration frequently-asked questions (FAQ)
 
-Frequently-asked questions is periodically updated to reflect any new issues.
+Frequently-asked questions is periodically updated to reflect any new interests.
 
 ### Is this functionality available in the Azure classic portal?
 The new capabilities in this Azure AD B2B collaboration public preview refresh are available only through [the Azure portal](https://portal.azure.com) and the new Access Panel. Try it!
@@ -37,9 +37,6 @@ You can customize almost anything about the inviter process using the B2B invita
 
 ### Can the invited external user leave the organization to which he was invited?
 This is currently not available in this public preview refresh.
-
-### Can I use my Microsoft account (John@contosomicrosoftacct.com) to sign in to resources?
-It is not possible during this public preview refresh to use your Microsoft account. If you have a non-standard Microsoft account suffix (possibly for corporate mail such as @contoso.com), an Azure Active Directory tenant will be created for your use.
 
 ### Now that multi-factor authentication (MFA) is available for guest users, can they also reset their MFA method?
 Yes, the same way that regular users can.
@@ -71,7 +68,9 @@ You can block access to the [Azure portal](https://portal.azure.com) by guest us
   ![](media/active-directory-b2b-faq/group-with-guest-users.png)
 3. Set up a conditional access policy to block guest users from accessing the portal, as shown in the following video.
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user]
+  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player]
+
+  If this video does not appear embedded, you can reach it [here](https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user).
 
 ### What is the timeline by which Azure AD B2B collaboration will start support for MFA and consumer email accounts?
 Both MFA and consumer email accounts are supported now in this public preview refresh.
@@ -97,11 +96,12 @@ Browse our other articles on Azure AD B2B collaboration:
 
 * [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [How do Azure Active Directory admins add B2B collaboration users?](active-directory-b2b-admin-add-users.md)
-* [How do information workers add B2B collaboration users?](active-directory-b2b-how-it-works.md)
+* [How do information workers add B2B collaboration users?](active-directory-b2b-iw-add-users.md)
 * [The elements of the B2B collaboration invitation email](active-directory-b2b-invitation-email.md)
 * [B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md)
 * [Azure AD B2B collaboration licensing](active-directory-b2b-licensing.md)
 * [Troubleshooting Azure Active Directory B2B collaboration](active-directory-b2b-troubleshooting.md)
 * [Azure Active Directory B2B collaboration API and customization](active-directory-b2b-api.md)
 * [Multi-factor authentication for B2B collaboration users](active-directory-b2b-mfa-instructions.md)
+* [Add B2B collaboration users without an invitation](active-directory-b2b-add-user-without-invite.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

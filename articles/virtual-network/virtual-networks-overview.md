@@ -40,7 +40,7 @@ Notice how the Azure infrastructure takes on the role of the router, allowing ac
 * **Isolation**. VNets are completely isolated from one another. That allows you to create disjoint networks for development, testing, and production that use the same CIDR address blocks.
 * **Access to the public Internet**. All IaaS VMs and PaaS role instances in a VNet can access the public Internet by default. You can control access by using Network Security Groups (NSGs).
 * **Access to VMs within the VNet**. PaaS role instances and IaaS VMs can be launched in the same virtual network and they can connect to each other using private IP addresses even if they are in different subnets without the need to configure a gateway or use public IP addresses.
-* **Name resolution**. Azure provides internal name resolution for IaaS VMs and PaaS role instances deployed in your VNet. You can also deploy your own DNS servers and configure the VNet to use them.
+* **Name resolution**. Azure provides [internal name resolution](virtual-networks-name-resolution-for-vms-and-role-instances.md) for IaaS VMs and PaaS role instances deployed in your VNet. You can also deploy your own DNS servers and configure the VNet to use them.
 * **Security**. Traffic entering and exiting the virtual machines and PaaS role instances in a VNet can be controlled using Network Security groups.
 * **Connectivity**. VNets can be connected to each other using network gateways or VNet peering. VNets can be connected to on-premises data centers through site-to-site VPN networks or Azure ExpressRoute. To learn more about site-to-site VPN connectivity, visit [About VPN gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections). To learn more about ExpressRoute, visit [ExpressRoute technical overview](../expressroute/expressroute-introduction.md). To learn more about VNet peering, visit [VNet peering](virtual-network-peering-overview.md).
 
@@ -49,10 +49,10 @@ Notice how the Azure infrastructure takes on the role of the router, allowing ac
   >
 
 ## Subnets
-Subnet is a range of IP addresses in the VNet, you can divide a VNet into multiple subnets for organization and security. VMs and PaaS role instances deployed to subnets (same or different) within a VNet can communicate with each other without any extra configuration. You can also configure route tables and NSGs to a subnet.
+A subnet is a range of IP addresses in the VNet, you can divide a VNet into multiple subnets for organization and security. VMs and PaaS role instances deployed to subnets (same or different) within a VNet can communicate with each other without any extra configuration. You can also configure route tables and NSGs to a subnet.
 
 ## IP addresses
-There are two types of IP addresses assigned to resources in Azure: *public* and *private*. Public IP Addresses allow Azure resources to communicate with Internet and other Azure public-facing services like [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Private IP Addresses allows communication between resources in a virtual network, along with those connected through a VPN, without using an Internet-routable IP addresses.
+There are two types of IP addresses assigned to resources in Azure: *public* and *private*. Public IP Addresses allow Azure resources to communicate with the internet and other Azure public-facing services like [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Private IP Addresses allow communication between resources in a virtual network, along with those connected through a VPN, without using an Internet-routable IP addresses.
 
 To learn more about IP addresses in Azure, visit [IP addresses in virtual network](virtual-network-ip-addresses-overview-arm.md)
 

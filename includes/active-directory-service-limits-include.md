@@ -8,5 +8,5 @@ Here are the usage constraints and other service limits for the Azure Active Dir
 | Applications |A maximum of 10 users can be owners of a single application. |
 | Groups |<ul><li>A maximum of 10 users can be owners of a single group.</li><li>Any number of objects can be members of a single group in Azure Active Directory.</li><li>The number of members in a group you can synchronize from your on-premises Active Directory to Azure Active Directory is limited to 15K members, using Azure Active Directory Directory Synchronization (DirSync).</li><li>The number of members in a group you can synchronize from your on-premises Active Directory to Azure Active Directory using Azure AD Connect is limited to 50K members.</li></ul> |
 | Access Panel |<ul><li>There is no limit to the number of applications that can be seen in the Access Panel per end user, for users assigned licenses for Azure AD Premium or the Enterprise Mobility Suite.</li><li>A maximum of 10 app tiles (examples: Box, Salesforce, or Dropbox) can be seen in the Access Panel for each end user for users assigned licenses for Free or Azure AD Basic editions of Azure Active Directory. This limit does not apply to Administrator accounts.</li></ul> |
-| Reports |A maximum of 1,000 rows can be viewed or downloaded in any report. Any additional data is truncated. |
-
+| Reports | A maximum of 1,000 rows can be viewed or downloaded in any report. Any additional data is truncated. |
+| Administrative units | An object can be a member of no more than 30 administrative units. |
