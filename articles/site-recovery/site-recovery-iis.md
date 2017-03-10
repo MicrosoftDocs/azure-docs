@@ -49,7 +49,11 @@ Before you start, make sure you understand the following:
 
 An IIS based web application typically follows one of the following deployment patterns:
 
-* **Deployment pattern 1**
+* **Deployment pattern 1** - This deployment pattern will show a catchy picture with a link to an [external resource](external-resource.md)
+
+![Deployment Pattern 1](./media/site-recovery-iis/DeploymentPattern.png)
+
+
 * **Deployment pattern 2**
 
 
