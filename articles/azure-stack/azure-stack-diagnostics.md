@@ -1,6 +1,6 @@
 ---
-title: Diagnostice in Azure Stack | Microsoft Docs
-description: How to collect log files for diagnostice in Azure Stack
+title: Diagnostics in Azure Stack | Microsoft Docs
+description: How to collect log files for diagnostics in Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: vhorne
