@@ -4,7 +4,7 @@
 2. Create an account that can be used by the process server to access the computer. The account should have Administrator rights (local or domain). Use the account only for the push installation and agent updates.
 
    > [!NOTE]
-   > If you're not using a domain account, disable Remote User Access control on the local computer. To disable Remote User Access control, add a new DWORD **LocalAccountTokenFilterPolicy** under the HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registry key. Set the value to 1. To do this at a command prompt, run the following command:  
+   > If you're not using a domain account, disable Remote User Access control on the local computer. To disable Remote User Access control, under the HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registry key, add a new DWORD **LocalAccountTokenFilterPolicy**. Set the value to 1. To do this at a command prompt, run the following command:  
    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
    >
    >
