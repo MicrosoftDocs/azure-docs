@@ -1,21 +1,22 @@
-<properties
-	pageTitle="Add sign-in to a Node.js web app for Azure AD B2C | Microsoft Azure"
-	description="How to build a Node.js web app that signs in users by using an Azure AD B2C tenant."
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="brandwe"
-	manager="msmbaldwin"
-	editor=""/>
+---
+title: Add sign-in to a Node.js web app for Azure B2C | Microsoft Docs
+description: How to build a Node.js web app that signs in users by using a B2C tenant.
+services: active-directory-b2c
+documentationcenter: ''
+author: xerners
+manager: mbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-  ms.tgt_pltfrm="na"
-	ms.devlang="javascript"
-	ms.topic="hero-article"
-	ms.date="07/22/2016"
-	ms.author="brandwe"/>
+ms.assetid: db97f84a-1f24-447b-b6d2-0265c6896b27
+ms.service: active-directory-b2c
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: javascript
+ms.topic: hero-article
+ms.date: 03/10/2017
+ms.author: brandwe
 
+---
 
 # Azure AD B2C: Add sign-in to a Node.js web app
 
@@ -36,7 +37,7 @@ The code for this tutorial [is maintained on GitHub](https://github.com/AzureADQ
 
 The completed application is provided at the end of this tutorial.
 
-> [AZURE.WARNING] 	For now, you must use the same **Client ID**/**Application ID** and policies for both the web API task server and the client that connects to it. This is also true for the iOS and Android tutorials. If you have previously created an application in either of those Quickstarts, use those values; don't create new ones.
+> [!WARNING] 	For now, you must use the same **Client ID**/**Application ID** and policies for both the web API task server and the client that connects to it. This is also true for the iOS and Android tutorials. If you have previously created an application in either of those Quickstarts, use those values; don't create new ones.
 
 ## Get an Azure AD B2C directory
 
@@ -153,7 +154,7 @@ passport.use(new OIDCStrategy({
 ```
 Passport uses a similar pattern for all of its strategies (including Twitter and Facebook). All strategy writers adhere to this pattern. When you look at the strategy, you can see that you pass it a `function()` that has a token and a `done` as the parameters. The strategy comes back to you after it has done all of its work. Store the user and stash the token so that you don’t need to ask for it again.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 The preceding code takes all users whom the server authenticates. This is autoregistration. When you use production servers, you don’t want to let in users unless they have gone through a registration process that you have set up. You can often see this pattern in consumer apps. These allow you to register by using Facebook, but then they ask you to fill out additional information. If our application wasn’t a sample, we could extract an email address from the token object that is returned, and then ask the user to fill out additional information. Because this is a test server, we simply add users to the in-memory database.
 
 Add the methods that allow you to keep track of users who have signed in, as required by Passport. This includes serializing and deserializing user information:
