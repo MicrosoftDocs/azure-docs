@@ -46,7 +46,7 @@ on-premises data gateway with your account (Azure Active Directory based account
 * If you are using a Microsoft account, like @outlook.com, you can use your Azure account to 
 [create a work or school email address](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
 
-* You must have [installed the on-premises data gateway on a local machine](logic-apps-gateway-install.md).
+* You must have already [installed the on-premises data gateway on a local machine](logic-apps-gateway-install.md).
 
 * You can associate your installation to one gateway resource only. 
 Your gateway can't be claimed by another Azure on-premises data gateway. 
@@ -58,7 +58,7 @@ Claim happens at ([creation during Step 2 in this topic](#2-create-an-azure-on-p
 
 Before you can continue with the other steps, 
 follow these steps to [install the on-premises data gateway](logic-apps-gateway-install.md). 
-You must first install the data gateway on an on-premises machine.
+Make sure that you install the data gateway on an on-premises machine.
 
 ### 2. Create an Azure on-premises data gateway resource
 
