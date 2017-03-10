@@ -53,13 +53,13 @@ You connect to and manage Linux VMs in Azure using an **SSH client**. Windows co
 >
 
 ## Which key files do you need to create?
-Azure requires at least 2048-bit, **ssh-rsa** format public and private keys. If you are managing Azure resources using the Classic deployment model, you also need to generate a PEM (`.pem` file).
+Azure requires at least 2048-bit, **ssh-rsa** formatted public and private keys. If you are managing Azure resources using the Classic deployment model, you also need to generate a PEM (`.pem` file).
 
 Here are the deployment scenarios, and the types of files you use in each:
 
 1. **ssh-rsa** keys are required for any deployment using the [Azure portal](https://portal.azure.com), and Resource Manager deployments using the [Azure CLI](../xplat-cli-install.md).
    * These keys are usually all most people need.
-2. A `.pem` file is required to create VMs using the Classic deployment. These keys are supported in Classic deployments when using the [Azure portal](https://portal.azure.com)  or [Azure CLI](../xplat-cli-install.md).
+2. A `.pem` file is required to create VMs using the Classic deployment. These keys are supported in Classic deployments when using the [Azure portal](https://portal.azure.com) or [Azure CLI](../xplat-cli-install.md).
    * You only need to create these additional keys and certificates if you are managing resources created using the Classic deployment model.
 
 ## Install Git for Windows
@@ -97,10 +97,10 @@ The preceding section listed several packages that include the `openssl` tool fo
     Country Name (2 letter code) [AU]:
     ```
 
-   If bash reports an error, try opening a new **Git Bash** window with elevated privileges. Then, re-run the `openssl` commannd.
+   If bash reports an error, try opening a new **Git Bash** window with elevated privileges. Then, rerun the `openssl` command.
 
 2. Answer the prompts for country name, location, organization name, etc.
-3. Your new private key and certificate are created in your current working directory. For security best practices, you should set the permissions on your private key so that only you can access it:
+3. Your new private key and certificate are created in your current working directory. As a security measure, you should set the permissions on your private key so that only you can access it:
 
     ```bash
     chmod 0600 myPrivateKey.key
@@ -131,7 +131,7 @@ The following example creates this additional private key specifically for PuTTY
     openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa
     ```
 
-    For security best practices, you should set the permissions on your private key so that only you can access it:
+    As a security measure, you should set the permissions on your private key so that only you can access it:
 
     ```bash
     chmod 0600 myPrivateKey_rsa
@@ -143,7 +143,7 @@ The following example creates this additional private key specifically for PuTTY
     ![Load the existing private key into PuTTYgen](./media/virtual-machines-linux-ssh-from-windows/load-private-key.png)
 5. Click **Open**. A prompt indicates that the key has been successfully imported:
 
-    ![Successfully-imported key to PuTTYgen](./media/virtual-machines-linux-ssh-from-windows/successfully-imported-key.png)
+    ![Successfully imported key to PuTTYgen](./media/virtual-machines-linux-ssh-from-windows/successfully-imported-key.png)
 6. Click **OK** to close the prompt.
 7. The public key is displayed at the top of the **PuTTYgen** window. You copy and paste this public key into the Azure portal or Azure Resource Manager template when you create a Linux VM. You can also click **Save public key** to save a copy to your computer:
 
