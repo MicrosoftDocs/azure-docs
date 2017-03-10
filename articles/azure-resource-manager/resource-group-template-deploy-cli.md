@@ -96,7 +96,7 @@ This topic explains how to use [Azure CLI 2.0](/cli/azure/install-az-cli2) with 
 
 [!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
 
-To use complete mode, use the **mode** parameter:
+To use complete mode, use the mode parameter:
 
 ```azurecli
 az group deployment create \
@@ -126,9 +126,19 @@ az storage account create \
     --sku Standard_LRS \
     --kind Storage \
     --name {your-unique-name}
-connection=$(az storage account show-connection-string --resource-group ManageGroup --name {your-unique-name} --query connectionString)
-az storage container create --name templates --public-access Off --connection-string $connection
-az storage blob upload --container-name templates --file vmlinux.json --name vmlinux.json --connection-string $connection
+connection=$(az storage account show-connection-string \
+    --resource-group ManageGroup \
+    --name {your-unique-name} \
+    --query connectionString)
+az storage container create \
+    --name templates \
+    --public-access Off \
+    --connection-string $connection
+az storage blob upload \
+    --container-name templates \
+    --file vmlinux.json \
+    --name vmlinux.json \
+    --connection-string $connection
 ```
 
 ### Provide SAS token during deployment
@@ -139,8 +149,18 @@ Create a SAS token with read permissions and an expiry time to limit access. Set
 ```azurecli
 seconds='@'$(( $(date +%s) + 1800 ))
 expiretime=$(date +%Y-%m-%dT%H:%MZ --date=$seconds)
-token=$(az storage blob generate-sas --container-name templates --name vmlinux.json --expiry $expiretime --permissions r --output tsv --connection-string $connection)
-url=$(az storage blob url --container-name templates --name vmlinux.json --output tsv --connection-string $connection)
+token=$(az storage blob generate-sas \
+    --container-name templates \
+    --name vmlinux.json \
+    --expiry $expiretime \
+    --permissions r \
+    --output tsv \
+    --connection-string $connection)
+url=$(az storage blob url \
+    --container-name templates \
+    --name vmlinux.json \
+    --output tsv \
+    --connection-string $connection)
 az group deployment create --resource-group ExampleGroup --template-uri $url?$token
 ```
 
