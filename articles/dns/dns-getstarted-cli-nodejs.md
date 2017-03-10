@@ -1,13 +1,4 @@
 ---
-title: Get started with Azure DNS usingAzure CLI 1.0 | Microsoft Docs
-description: Learn how to create a DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first DNS zone and record using Azure CLI 1.0.
-services: dns
-documentationcenter: na
-author: jtuliani
-manager: timlt
-editor: ''
-tags: azure-resource-manager
----
 title: Get started with Azure DNS using Azure CLI 1.0 | Microsoft Docs
 description: Learn how to create a DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first DNS zone and record using the Azure CLI 1.0.
 services: dns
