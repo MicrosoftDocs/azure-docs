@@ -64,23 +64,24 @@ The following screenshot shows some of the options available for Azure Multi-Fac
 
 ## Limit and constrain administrative access
 
-Securing the accounts that can manage your Azure subscription is extremely important. The compromise of any of those accounts effectively negates the value of all the other steps you might take to ensure the confidentiality and integrity of your data. As recently illustrated by the [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden) leak of classified information, internal attacks pose a huge threat to the overall security of any organization.
+Securing the accounts that can manage your Azure subscription is extremely important. The compromise of any of those accounts negates the value of all the other steps you might take to ensure the confidentiality and integrity of your data. As recently illustrated by the [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden) (as described on Wikipedia) leak of classified information, internal attacks pose a huge threat to the overall security of any organization.
 
-Individuals who have administrative rights should have been evaluated by following criteria similar to these:
+Evaluate individuals for administrative rights by following criteria similar to these:
 
 - Are they performing tasks that require administrative privileges?
 - How often are the tasks performed?
-- Specific reason why the tasks cannot be performed by another administrator on their behalf.
-- Document all other known alternative approaches to granting the privilege and why each isn't acceptable.
+- Is there a specific reason why the tasks cannot be performed by another administrator on their behalf?
 
-The use of just in time administration prevents the unnecessary existence of accounts with elevated rights during time periods when those rights are not needed. Accounts have elevated rights for a limited time enabling administrators to do their jobs and then they have those rights removed at the end of a shift or when a task is completed.
+Document all other known alternative approaches to granting the privilege and why each isn't acceptable.
 
-[PIM](../active-directory/active-directory-privileged-identity-management-configure.md) allows you to manage, monitor, and control access within your organization. It helps you remain aware of the actions taken by individuals within your organization and brings just-in-time administration to Azure AD by introducing the concept of an eligible admin. These are individuals who have accounts with the potential to be granted admin rights. These types of users can go through an activation process and be granted admin rights for a limited time.
+The use of just-in-time administration prevents the unnecessary existence of accounts with elevated rights during time periods when those rights are not needed. Accounts have elevated rights for a limited time so that administrators can do their jobs. Then, those rights are removed at the end of a shift or when a task is completed.
+
+You can use [Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-configure.md) to manage, monitor, and control access in your organization. It helps you remain aware of the actions that individuals take in your organization and brings just-in-time administration to Azure AD by introducing the concept of an eligible admin. These are individuals who have accounts with the potential to be granted admin rights. These types of users can go through an activation process and be granted admin rights for a limited time.
 
 
 ## Use DevTest Labs
 
-Using Azure for labs and development environments allows organizations to gain agility in testing and development by taking away the delays introduced by hardware procurement. Unfortunately, there is the risk that a lack of familiarity with Azure or a desire to help expedite its adoption might lead the administrator to be overly permissive with rights assignment. This might unintentionally expose the organization to internal attacks. Some users might be granted a lot more access than they should have.
+Using Azure for labs and development environments allows organizations to gain agility in testing and development by taking away the delays that hardware procurement introduces. Unfortunately, a lack of familiarity with Azure or a desire to help expedite its adoption might lead the administrator to be overly permissive with rights assignment. This risk might unintentionally expose the organization to internal attacks. Some users might be granted a lot more access than they should have.
 
 The [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) service uses [Azure Role-Based Access Control](../active-directory/role-based-access-control-what-is.md)(RBAC). RBAC allows you to segregate duties within your team into roles that grant only the level of access necessary for users to do their jobs. It comes with pre-defined roles (Owner, lab user and contributor). These roles can even be used to assign rights to external partners and greatly simplify collaboration.
 
