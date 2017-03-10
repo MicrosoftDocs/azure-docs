@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/09/2017
+ms.date: 03/10/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
 
@@ -34,7 +34,7 @@ You can create a scale set in the [Azure portal](https://portal.azure.com) by se
 
 Scale sets can also be defined and deployed using JSON templates and [REST APIs](https://msdn.microsoft.com/library/mt589023.aspx) just like individual Azure Resource Manager VMs. Therefore, any standard Azure Resource Manager deployment methods can be used. For more information about templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
-A set of example templates for virtual machine scale sets can be found in the Azure Quickstart templates GitHub repository [here.](https://github.com/Azure/azure-quickstart-templates) (look for templates with *vmss* in the title)
+A set of example templates for virtual machine scale sets can be found in the Azure Quickstart templates GitHub repository [here](https://github.com/Azure/azure-quickstart-templates) (look for templates with *vmss* in the title).
 
 There is a button that links to the portal deployment feature in the detail pages for these templates. To deploy the scale set, click the button and then fill in any parameters that are required in the portal. If you are not sure whether a resource supports upper or mixed case, it is safer to always use lower case letters and numbers in parameter values. There is also a handy video dissection of a scale set template here:
 
@@ -60,6 +60,25 @@ Update-AzureRmVmss -ResourceGroupName resourcegroupname -Name scalesetname -Virt
 To increase or decrease the number of virtual machines in a scale set using an Azure Resource Manager template, change the *capacity* property and redeploy the template. This simplicity makes it easy to integrate scale sets with Azure autoscale, or to write your own custom scaling layer if you need to define custom scale events that are not supported by Azure autoscale. 
 
 If you are redeploying an Azure Resource Manager template to change the capacity, you could define a much smaller template, which only includes the 'SKU' property packet with the updated capacity. An example is shown [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
+
+## Autoscale
+
+A scale set can be optionally configured with autoscale settings when it is created in the Azure portal, allowing the number of VMs to be increased or decreased based on average CPU usage. Many of the scale set templates in [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates) define autoscale settings. You can also add autoscale settings to an existing scale set. For example, here is an Azure PowerShell script to add CPU based autoscale to a scale set:
+
+```PowerShell
+
+$subid = "yoursubscriptionid"
+$rgname = "yourresourcegroup"
+$vmssname = "yourscalesetname"
+$location = "yourlocation" # e.g. southcentralus
+
+$rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:05:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionValue 1
+$rule2 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -Operator LessThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -TimeWindow 00:05:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Decrease -ScaleActionValue 1
+$profile1 = New-AzureRmAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -MinimumCapacity 2 -Rules $rule1,$rule2 -Name "autoprofile1"
+Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGroup $rgname -TargetResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -AutoscaleProfiles $profile1
+```
+
+ You can find a list of valid metrics to scale on here: [https://azure.microsoft.com/en-us/documentation/articles/monitoring-supported-metrics/](https://azure.microsoft.com/en-us/documentation/articles/monitoring-supported-metrics/) under the heading _Microsoft.Compute/virtualMachineScaleSets_. More advanced autoscale options are also available, including schedule-based autoscale, and using webhooks to integrate with alerting systems.
 
 ## Monitoring your scale set
 The [Azure portal](https://portal.azure.com) lists scale sets, and shows their properties. The portal also supports management operations, which can be performed both on scale sets, and on individual VMs within a scale set. The portal also provides a customizable resource usage graph. If you need to see or edit the underlying JSON definition of an Azure resource, you can also use the [Azure Resource Explorer](https://resources.azure.com). Scale sets are a resource under the Microsoft.Compute Azure Resource Provider, so from this site you can see them by expanding the following links:
@@ -141,3 +160,5 @@ This section lists some typical scale set scenarios. Some higher-level Azure ser
 **Q.** Do scale sets work with Azure availability sets?
 
 **A.** Yes. A scale set is an implicit availability set with 5 FDs and 5 UDs. Scale sets of more than 100 VMs span multiple 'placement groups', which are equivalent to multiple availability sets. For more information about placement groups, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md). An availability set of VMs can exist in the same VNET as a scale set of VMs. A common configuration is to put control node VMs, which often require unique configuration, in an availability set, and data nodes in the scale set.
+
+More frequently asked questions about scale sets can be found in the [Azure Virtual Machine Scale Sets FAQ](virtual-machine-scale-sets-faq.md).
