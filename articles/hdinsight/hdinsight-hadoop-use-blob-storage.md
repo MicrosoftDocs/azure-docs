@@ -21,7 +21,7 @@ ms.author: jgao
 ---
 # Use HDFS-compatible storage with Hadoop in HDInsight
 
-To analyze data in HDInsight cluster, you can use store the data either in Azure Storage, Azure Data Lake Store, or both. Both storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
+To analyze data in HDInsight cluster, you can store the data either in Azure Storage, Azure Data Lake Store, or both. Both storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
 
 Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage as the default file system, or with HDInsight 3.5, you can select either Azure Storage or Azure Data Lake Store as the default files system.
 
@@ -29,7 +29,7 @@ In this article, you learn how the two storage options work with HDInsight clust
 
 ## Using Azure storage with HDInsight clusters
 
-Azure storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. HDInsight can use a blob container in Azure storage as the default file system for the cluster. Through a Hadoop distributed file system (HDFS) interface, the full set of components in HDInsight can operate directly on structured or unstructured data stored as blobs.
+Azure storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. HDInsight can use a blob container in Azure Storage as the default file system for the cluster. Through a Hadoop distributed file system (HDFS) interface, the full set of components in HDInsight can operate directly on structured or unstructured data stored as blobs.
 
 > [!WARNING]
 > * __Storage type__: When creating an Azure storage account, you must select either __General-purpose__ or __Blob storage__. HDInsight only supports __General-purpose__ storage accounts as the default storage for the cluster.
@@ -45,7 +45,7 @@ HDInsight provides access to the distributed file system that is locally attache
 
     hdfs://<namenodehost>/<path>
 
-In addition, HDInsight provides the ability to access data that is stored in Azure storage. The syntax is:
+In addition, HDInsight provides the ability to access data that is stored in Azure Storage. The syntax is:
 
     wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
