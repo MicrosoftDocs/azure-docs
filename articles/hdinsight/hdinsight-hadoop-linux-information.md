@@ -94,23 +94,23 @@ Hadoop-related files can be found on the cluster nodes at `/usr/hdp`. This direc
 * **2.2.4.9-1**: This directory is named for the version of the Hortonworks Data Platform used by HDInsight, so the number on your cluster may be different than the one listed here.
 * **current**: This directory contains links to directories under the **2.2.4.9-1** directory, and exists so that you don't have to type a version number (that might change,) every time you want to access a file.
 
-Example data and JAR files can be found on Hadoop Distributed File System (HDFS) or Azure Blob storage at `/example` and `/HdiSamples`
+Example data and JAR files can be found on Hadoop Distributed File System at `/example` and `/HdiSamples`
 
-## HDFS, Blob storage, and Data Lake Store
+## HDFS, Azure Storage, and Data Lake Store
 
 In most Hadoop distributions, HDFS is backed by local storage on the machines in the cluster. While this is efficient, it can be costly for a cloud-based solution where you are charged hourly or by minute for compute resources.
 
-HDInsight uses either Azure Blob storage or Azure Data Lake Store as the default store. These provide the following benefits:
+HDInsight uses either blobs in Azure Storage or Azure Data Lake Store as the default store. These provide the following benefits:
 
 * Cheap long-term storage
 * Accessibility from external services such as websites, file upload/download utilities, various language SDKs, and web browsers
 
-> [!IMPORTANT]
-> Blob storage can hold up to 4.75 TB, though individual blobs (or files from an HDInsight perspective) can only go up to 195 GB. Azure Data Lake Store can grow dynamically to hold trillions of files, with individual files greater than a petabyte.
->
-> For more information, see [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/fileservices/understanding-block-blobs--append-blobs--and-page-blobs) and [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
+> [!WARNING]
+> HDInsight only supports __General purpose__ Azure Storage accounts. It does not currently support the __Blob storage__ account type.
 
-When using either Azure Storage or Data Lake Store, you normally don't have to do anything special from HDInsight to access the data. For example, the following command will list files in the `/example/data` folder regardless of whether it is stored on Azure Blob storage or Data Lake Store:
+An Azure Storage account can hold up to 4.75 TB, though individual blobs (or files from an HDInsight perspective) can only go up to 195 GB. Azure Data Lake Store can grow dynamically to hold trillions of files, with individual files greater than a petabyte. For more information, see [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/fileservices/understanding-block-blobs--append-blobs--and-page-blobs) and [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
+
+When using either Azure Storage or Data Lake Store, you don't have to do anything special from HDInsight to access the data. For example, the following command will list files in the `/example/data` folder regardless of whether it is stored on Azure Storage or Data Lake Store:
 
     hdfs dfs -ls /example/data
 
@@ -118,7 +118,7 @@ When using either Azure Storage or Data Lake Store, you normally don't have to d
 
 Some commands may require you to specify the scheme as part of the URI when accessing a file. For example, the Storm-HDFS component requires you to specify the scheme. When using non-default storage (storage added as "additional" storage to the cluster), you must always use the scheme as part of the URI.
 
-When using __Blob storage__, the scheme can be one of the following:
+When using __Azure Storage__, the scheme can be one of the following:
 
 * `wasb:///`: Access default storage using unencrypted communication.
 

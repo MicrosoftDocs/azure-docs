@@ -1,6 +1,6 @@
 ---
 title: Introduction to Apache Storm on HDInsight | Microsoft Docs
-description: Get an introduction to Apache Storm, and learn how you can use Storm on HDInsight to build real-time data analytics solutions in the cloud.
+description: Get an introduction to Apache Storm on HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -20,13 +20,11 @@ ms.author: larryfr
 ---
 # Introduction to Apache Storm on HDInsight: Real-time analytics for Hadoop
 
-Apache Storm on HDInsight allows you to create distributed, real-time analytics solutions in the Azure environment by using [Apache Hadoop](http://hadoop.apache.org).
-
-## What is Apache Storm?
+Apache Storm on HDInsight allows you to create distributed, real-time analytics solutions on Azure.
 
 Apache Storm is a distributed, fault-tolerant, open-source computation system that allows you to process data in real-time with Hadoop. Storm solutions can also provide guaranteed processing of data, with the ability to replay data that was not successfully processed the first time.
 
-## Why use Storm on HDInsight?
+## Why use Storm on HDInsight
 
 Apache Storm on HDInsight is a managed cluster integrated into the Azure environment. Storm and other Hadoop components on HDInsight are based on the Hortonworks Data Platform (HDP), while the operating system for the cluster is Ubuntu (a Linux distribution). This provides a platform that is very compatible with popular tools and services in the Hadoop ecosystem.
 
@@ -47,7 +45,7 @@ Apache Storm on HDInsight provides the following key benefits:
 
 * Easy scale-up and scale-down of the cluster: Add or remove worker nodes with no impact to running Storm topologies.
 
-* Integrate with other Azure services, including Event Hub, Azure Virtual Network, SQL Database, Blob storage, and DocumentDB.
+* Integrate with other Azure services, including Event Hub, Azure Virtual Network, SQL Database, Azure Storage, and DocumentDB.
   
   * Securely combine the capabilities of multiple HDInsight clusters by using Azure Virtual Network: Create analytic pipelines that use HDInsight, HBase, or Hadoop clusters.
 
@@ -55,14 +53,14 @@ For a list of companies that are using Apache Storm for their real-time analytic
 
 To get started using Storm, see [Get started with Storm on HDInsight][gettingstarted].
 
-### Ease of provisioning
+### Ease of creation
 
-You can provision a new Storm on HDInsight cluster in minutes. Specify the cluster name, size, administrator account, and the storage account. Azure will create the cluster, including sample topologies and a web-management dashboard.
+You can provision a new Storm on HDInsight cluster in minutes. Specify the cluster name, size, administrator account, and the storage account. Azure creates the cluster, including sample topologies and a web-management dashboard.
 
 > [!NOTE]
 > You can also provision Storm clusters by using the [Azure CLI](../xplat-cli-install.md) or [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-Within 15 minutes of submitting the request, you will have a new Storm cluster running and ready for your first real-time analytics pipeline.
+Within 15 minutes of submitting the request, you have a new Storm cluster running and ready for your first real-time analytics pipeline.
 
 ### Ease of use
 
@@ -86,7 +84,7 @@ Within 15 minutes of submitting the request, you will have a new Storm cluster r
 
     * __Azure Data Lake Store__: Java-based topologies can access Data Lake Store by using the Storm-HDFS bolt with a URI scheme of `adl://`. For an example of using the Storm-HDFS bolt, see [Use Azure Data Lake Store with Apache Storm on HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-write-data-lake-store).
 
-    * __Azure Blob storage__ (when used as storage for HDInsight): Java-based topologies can access Azure Blob storage associated with the cluster by using the Storm-HDFS bolt with a URI scheme of `wasb://`.
+    * __Azure Storage__ (when used as storage for HDInsight): Java-based topologies can access Azure Storage associated with the cluster by using the Storm-HDFS bolt with a URI scheme of `wasb://`.
 
     * __Azure Event Hubs__: Can be accessed using EventHubSpout and EventHubBolt components provided by Microsoft. These components are written in Java, and provided as a standalone .jar file.
 
@@ -102,11 +100,11 @@ Within 15 minutes of submitting the request, you will have a new Storm cluster r
 
 ### Reliability
 
-Apache Storm always guarantees that each incoming message will be fully processed, even when the data analysis is spread over hundreds of nodes.
+Apache Storm always guarantees that each incoming message is fully processed, even when the data analysis is spread over hundreds of nodes.
 
 The **Nimbus node** provides similar functionality to the Hadoop JobTracker, and it assigns tasks to other nodes in the cluster through **Zookeeper**. Zookeeper nodes provide coordination for the cluster and facilitate communication between Nimbus and the **Supervisor** process on the worker nodes. If one processing node goes down, the Nimbus node is informed, and it assigns the task and associated data to another node.
 
-The default configuration for Apache Storm is to have only one Nimbus node. Storm on HDInsight runs two Nimbus nodes. If the primary node fails, the HDInsight cluster will switch to the secondary node while the primary node is recovered.
+The default configuration for Apache Storm is to have only one Nimbus node. Storm on HDInsight runs two Nimbus nodes. If the primary node fails, the HDInsight cluster switchs to the secondary node while the primary node is recovered.
 
 ![Diagram of nimbus, zookeeper, and supervisor](./media/hdinsight-storm-overview/nimbus.png)
 
@@ -115,11 +113,11 @@ The default configuration for Apache Storm is to have only one Nimbus node. Stor
 Although you can specify the number of nodes in your cluster during creation, you may want to grow or shrink the cluster to match workload. All HDInsight clusters allow you to change the number of nodes in the cluster, even while processing data.
 
 > [!NOTE]
-> To take advantage of new nodes added through scaling, you will need to rebalance topologies started before the cluster size was increased.
+> To take advantage of new nodes added through scaling, you need to rebalance topologies started before the cluster size was increased.
 
 ### Support
 
-Storm on HDInsight comes with full enterprise-level 24/7 support. Storm on HDInsight also has an SLA of 99.9%. That means we guarantee that the cluster will have external connectivity at least 99.9% of the time.
+Storm on HDInsight comes with full enterprise-level 24/7 support. Storm on HDInsight also has an SLA of 99.9%. That means we guarantee that the cluster has external connectivity at least 99.9% of the time.
 
 ## Common use cases for real-time analytics
 
@@ -133,7 +131,7 @@ The following are some common scenarios for which you might use Apache storm on 
 * Search
 * Mobile engagement
 
-## How is data in HDInsight Storm processed?
+## How is data in HDInsight Storm processed
 
 Apache Storm runs **topologies** instead of the MapReduce jobs that you may be familiar with in HDInsight or Hadoop. A Storm on HDInsight cluster contains two types of nodes: head nodes that run **Nimbus** and worker nodes that run **Supervisor**.
 
@@ -155,7 +153,7 @@ Apache Storm runs **topologies** instead of the MapReduce jobs that you may be f
 
 For more information about Storm components, see the [Storm tutorial][apachetutorial] at apache.org.
 
-## What programming languages can I use?
+## What programming languages can I use
 
 The Storm on HDInsight cluster provides support for C#, Java, and Python.
 
@@ -167,7 +165,7 @@ For more information, see [Develop C# topologies for Apache Storm on HDInsight u
 
 ### Java
 
-Most Java examples you encounter will be plain Java or Trident. Trident is a high-level abstraction that makes it easier to do things such as joins, aggregations, grouping, and filtering. However, Trident acts on batches of tuples, whereas a raw Java solution processes a stream one tuple at a time.
+Most Java examples you encounter are plain Java or Trident. Trident is a high-level abstraction that makes it easier to do things such as joins, aggregations, grouping, and filtering. However, Trident acts on batches of tuples, whereas a raw Java solution processes a stream one tuple at a time.
 
 For more information about Trident, see the [Trident tutorial](https://storm.apache.org/documentation/Trident-tutorial.html) at apache.org.
 
@@ -175,7 +173,11 @@ For examples of Java and Trident topologies, see the [list of example Storm topo
 
 The storm-starter examples are located in the ** /usr/hdp/current/storm-client/contrib/storm-starter** directory on your HDInsight cluster.
 
-## What are some common development patterns?
+### Python
+
+For an example of using Python components, see [Develop Storm topologies using Python on HDInsight](hdinsight-storm-develop-python-topology.md).
+
+## What are some common development patterns
 
 ### Guaranteed message processing
 
@@ -189,7 +191,7 @@ The pattern of reading an input tuple, emitting zero or more tuples, and then ac
 
 ### Joins
 
-Joining two streams of data will vary between applications. For example, you could join each tuple from multiple streams into one new stream, or you could join only batches of tuples for a specific window. Either way, joining can be accomplished by using [fieldsGrouping](http://javadox.com/org.apache.storm/storm-core/0.9.1-incubating/backtype/storm/topology/InputDeclarer.html#fieldsGrouping%28java.lang.String,%20backtype.storm.tuple.Fields%29), which is a way of defining how tuples are routed to bolts.
+How data streams are joined varies between applications. For example, you could join each tuple from multiple streams into one new stream, or you could join only batches of tuples for a specific window. Either way, joining can be accomplished by using [fieldsGrouping](http://javadox.com/org.apache.storm/storm-core/0.9.1-incubating/backtype/storm/topology/InputDeclarer.html#fieldsGrouping%28java.lang.String,%20backtype.storm.tuple.Fields%29), which is a way of defining how tuples are routed to bolts.
 
 In the following Java example, fieldsGrouping is used to route tuples that originate from components "1", "2", and "3" to the **MyJoiner** bolt.
 
@@ -213,7 +215,7 @@ When your topology depends on calculating a "top N" value, such as the top 5 tre
 
 For an example of this, see the [RollingTopWords](https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/RollingTopWords.java) example.
 
-## What type of logging does Storm use?
+## What type of logging does Storm use
 
 Storm uses Apache Log4j to log information. By default, a large amount of data is logged, and it can be difficult to sort through the information. You can include a logging configuration file as part of your Storm topology to control logging behavior.
 

@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/10/2017
 ms.author: larryfr
 
 ---
@@ -63,12 +63,14 @@ A Script Action is simply a Bash script that you provide a URI to, and parameter
         > [!NOTE]
         > The service principal HDInsight uses to access Data Lake Store must have read access to the script.
 
-    * A **blob storage account** that is either the primary or additional storage account for the HDInsight cluster. Since HDInsight is granted access to both of these types of storage accounts during cluster creation, these provide a way to use a non-public script action.
+    * A blob in an **Azure Storage account** that is either the primary or additional storage account for the HDInsight cluster. Since HDInsight is granted access to both of these types of storage accounts during cluster creation, these provide a way to use a non-public script action.
 
     * A https://docs.microsoft.com/en-us/azure/service-bus/ such as an Azure Blob, GitHub, OneDrive, Dropbox, etc.
 
         For examples of the URI for scripts stored in blob container (publicly readable,) see the [Example script action scripts](#example-script-action-scripts) section.
 
+        > [!WARNING]
+        > HDInsight only supports __General purpose__ Azure Storage accounts. It does not currently support the __Blob storage__ account type.
 
 * Can be restricted to **run on only certain node types**, for example head nodes or worker nodes.
 
@@ -123,7 +125,7 @@ During cluster creation, you can specify multiple script actions that are invoke
 > [!IMPORTANT]
 > Script actions must complete within 60 minutes, or timeout. During cluster provisioning, the script is ran concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
 >
-> To minimize the time it takes to run the script, avoid tasks such as downloading and compiling applications from source. Instead, pre-compile the application and store the binary in Azure Blob storage so that it can quickly be downloaded to the cluster.
+> To minimize the time it takes to run the script, avoid tasks such as downloading and compiling applications from source. Instead, pre-compile the application and store the binary in Azure Storage so that it can quickly be downloaded to the cluster.
 
 
 ### Script action on a running cluster
