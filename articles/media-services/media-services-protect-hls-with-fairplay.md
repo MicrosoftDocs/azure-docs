@@ -46,14 +46,14 @@ The following are required when using Media Services to deliver HLS encrypted wi
   * An Azure account. For details, see [Azure free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
   * A Media Services account. To create one, see [Create an Azure Media Services account using the Azure portal](media-services-portal-create-account.md).
   * Sign up with [Apple Development Program](https://developer.apple.com/).
-  * Apple requires the content owner to obtain the [deployment package](https://developer.apple.com/contact/fps/). State that you already implemented KSM (Key Security Module) with Media Services, and that you are requesting the final FPS package. There are instructions in the final FPS package to generate certification and obtain the Application Secret Key (ASK). You use ASK to configure FairPlay.
+  * Apple requires the content owner to obtain the [deployment package](https://developer.apple.com/contact/fps/). State that you already implemented Key Security Module (KSM) with Media Services, and that you are requesting the final FPS package. There are instructions in the final FPS package to generate certification and obtain the Application Secret Key (ASK). You use ASK to configure FairPlay.
   * Azure Media Services .NET SDK version **3.6.0** or later.
 
 The following things must be set on Media Services key delivery side:
 
-  * **App Cert (AC)** - This is a .pfx file containing the private key. This file is created by the customer, and encrypted with a password by the same customer.
+  * **App Cert (AC)** - This is a .pfx file containing the private key. You create this file, and encrypt it with a password.
 
-       When the customer configures key delivery policy, he or she must provide that password and the .pfx file in Base64 format.
+       When you configure a key delivery policy, you must provide that password and the .pfx file in Base64 format.
 
       The following steps describe how to generate a .pfx certificate file for FairPlay.
 
@@ -67,10 +67,10 @@ The following things must be set on Media Services key delivery side:
 
         "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
   * **App Cert password** - The password for creating the .pfx file.
-  * **App Cert password ID** - The customer must upload the password, similar to how they upload other Media Services keys. Use the **ContentKeyType.FairPlayPfxPassword** enum value to get the Media Services ID. This is what they need to use inside the key delivery policy option.
-  * **iv** -  This is a random value of 16 bytes. It must match the iv in the asset delivery policy. The customer generates the IV and puts it in both places: the asset delivery policy and the key delivery policy option.
+  * **App Cert password ID** - You must upload the password, similar to how they upload other Media Services keys. Use the **ContentKeyType.FairPlayPfxPassword** enum value to get the Media Services ID. This is what they need to use inside the key delivery policy option.
+  * **iv** -  This is a random value of 16 bytes. It must match the iv in the asset delivery policy. You generate the iv, and put it in both places: the asset delivery policy and the key delivery policy option.
   * **ASK** - This key is received when you generate the certification by using the Apple Developer portal. Each development team will receive a unique ASK. Save a copy of the ASK, and store it in a safe place. You will need to configure ASK as FairPlayAsk to Media Services later.
-  * **ASK ID** - This ID is obtained when the customer uploads ASK into Media Services. The customer must upload ASK by using the **ContentKeyType.FairPlayASk** enum value. As the result, the Media Services ID is returned, and this is what should be used when setting the key delivery policy option.
+  * **ASK ID** - This ID is obtained when you upload ASK into Media Services. You must upload ASK by using the **ContentKeyType.FairPlayAsk** enum value. As the result, the Media Services ID is returned, and this is what should be used when setting the key delivery policy option.
 
 The following things must be set by the FPS client side:
 
@@ -106,9 +106,9 @@ The following are general steps for protecting your assets with FairPlay, by usi
    * The license acquisition URL.
 
      > [!NOTE]
-     > If you want to deliver a stream that is encrypted with FairPlay and another DRM, you have to configure separate delivery policies:
+     > If you want to deliver a stream that is encrypted with FairPlay and another Digital Rights Management (DRM) system, you have to configure separate delivery policies:
      >
-     > * One IAssetDeliveryPolicy to configure DASH with CENC (PlayReady + WideVine) and Smooth with PlayReady.
+     > * One IAssetDeliveryPolicy to configure Dynamic Adaptive Streaming over HTTP (DASH) with Common Encryption (CENC) (PlayReady + Widevine), and Smooth with PlayReady.
      > * Another IAssetDeliveryPolicy to configure FairPlay for HLS.
      >
      >
@@ -120,7 +120,7 @@ You can develop player apps by using the iOS SDK. To be able to play FairPlay co
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Azure Media Player doesn’t support FairPlay playback out of the box. To get FairPlay playback on MAC OSX, obtain the sample player from the Apple developer account.
+> Azure Media Player doesn’t support FairPlay playback out of the box. To get FairPlay playback on MAC OS X, obtain the sample player from the Apple developer account.
 >
 >
 
@@ -133,8 +133,8 @@ The following considerations apply:
 * The encryption type doesn't have to be specified in the URL if only one encryption was applied to the asset.
 * The encryption type is case insensitive.
 * The following encryption types can be specified:  
-  * **cenc**:  Common encryption (Playready or Widevine)
-  * **cbcs-aapl**: Fairplay
+  * **cenc**:  Common encryption (PlayReady or Widevine)
+  * **cbcs-aapl**: FairPlay
   * **cbc**: AES envelope encryption
 
 ## .NET example: deliver your content encrypted with FairPlay
