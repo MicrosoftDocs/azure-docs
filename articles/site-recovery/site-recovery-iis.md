@@ -115,4 +115,4 @@ Follow [this guidance](site-recovery-failover.md) when you are doing a failover.
 
 
 ## Next steps
-You can [learn more](site-recovery-components.md) about replicating a multi-tier IIS based web application in this white paper.
+You can [learn more](site-recovery-components.md) about replicating a multi-tier IIS based web application in this white paper. Look at the guidance to [replicate other applications](site-recovery-workload.md) using Site Recovery. 
