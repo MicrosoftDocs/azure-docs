@@ -101,7 +101,7 @@ This example shows how you can use a parameter in the body section of an action:
 ## Triggers and actions  
 
 Triggers and actions specify the calls that can participate in workflow execution. 
-For details about this section, see [Workflow Actions and Triggers](logic-apps-workflow-actions-and-triggers.md).
+For details about this section, see [Workflow Actions and Triggers](logic-apps-workflow-actions-triggers.md).
   
 ## Outputs  
 
@@ -347,4 +347,4 @@ These functions help you get information about the workflow itself at run time.
 
 ## Next steps
 
-[Workflow actions and triggers](logic-apps-workflow-actions-and-triggers.md)
+[Workflow actions and triggers](logic-apps-workflow-actions-triggers.md)
