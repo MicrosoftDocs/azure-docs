@@ -28,13 +28,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 [!code-azurecli[main](../../../cli_scripts/app-service/deploy-linux-acr/deploy-linux-acr.sh?highlight=6-9 "Linux Azure Container Registry")]
 
-## Clean up deployment 
-
-After the script sample has been run, the follow command can be used to remove the Resource Group, VM, and all related resources.
-
-```azurecli
-az group delete --name myResourceGroup
-```
+[!INCLUDE [cli-script-clean-up](../azure-docs-pr/includes/cli-script-clean-up.md)]
 
 ## Script explanation
 
