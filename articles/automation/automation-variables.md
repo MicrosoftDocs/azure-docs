@@ -25,9 +25,9 @@ Variable assets are values that are available to all runbooks and DSC configurat
 
 - Share a value between multiple jobs from the same runbook or DSC configuration.
 
-- Manage a value from the portal or from the Windows PowerShell command line that is used by runbooks or DSC configurations, such as a set of common configuration items like specific list of VM names, a specific resource group, an AD domain name, etc.  
+- Manage a value from the portal or from the Windows PowerShell command line that is used by runbooks or DSC configurations, such as a set of common configuration items like specific list of VM names, a specific resource group, an AD domain name.  
 
-Automation variables are persisted so that they continue to be available even if the runbook or DSC configuration fails.  This also allows a value to be set by one runbook that is then used by another, or is used by the same runbook or DSC configuration the next time that it is run.
+Automation variables are persisted so that they continue to be available even if the runbook or DSC configuration fails.  This also allows a value to be set by one runbook that is then used by another, or is used by the same runbook or DSC configuration the next time that it is run.     
 
 When a variable is created, you can specify that it be stored encrypted.  When a variable is encrypted, it is stored securely in Azure Automation, and its value cannot be retrieved from the [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx) cmdlet that ships as part of the Azure PowerShell module.  The only way that an encrypted value can be retrieved is from the **Get-AutomationVariable** activity in a runbook or DSC configuration.
 
@@ -47,6 +47,9 @@ The following are a list of variable types available in Automation:
 * DateTime
 * Boolean
 * Null
+
+>[!NOTE]
+>Variable assets are limited to 1024 characters. 
 
 ## Cmdlets and workflow activities
 
@@ -73,17 +76,9 @@ The workflow activities in the following table are used to access Automation var
 
 ### To create a variable with the Azure portal
 
-1. From your automation account, click **Assets** at the top of the window.
-1. At the bottom of the window, click **Add Setting**.
-1. Click **Add Variable**.
-1. Complete the wizard and click the checkbox to save the new variable.  
-
-
-### To create a variable with the Azure portal
-
-1. From your automation account, click the **Assets** part to open the **Assets** blade.
-1. Click the **Variables** part to open the **Variables** blade.
-1. Click **Add a variable** at the top of the blade.
+1. From your Automation account, click the **Assets** tile to open the **Assets** blade.
+1. Click the **Variables** tile to open the **Variables** blade.
+1. Select **Add a variable** at the top of the blade.
 1. Complete the form and click **Create** to save the new variable.
 
 
