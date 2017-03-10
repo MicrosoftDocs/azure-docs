@@ -117,7 +117,7 @@ Note that `Facetable` is turned off for string fields that shouldn’t be used a
 
 <a name="checkdata"></a>
 
-## Check for data quality
+## Check the data
 The quality of your data has a direct bearing on whether the faceted navigation structure materializes as you expect it to, as well as its effectiveness in helping you construct filters that reduce the result set.
 
 If you want to facet by Brand or Price, each document should contain values for *BrandName* and *ProductPrice* that are valid, consistent, and productive as a filter option.
@@ -220,7 +220,7 @@ Facet results are documents found in the search results that match a facet term.
 
 In general, if you find that facet results are persistently too large, we recommend that you add more filters, as explained in earlier sections, to give your application users more options for narrowing the search.
 
-## Tips about result count
+### Tips about result count
 
 **Limit the number of items in the facet navigation**
 
@@ -252,7 +252,7 @@ Facet counts can be inaccurate due to the sharding architecture. Every search in
 
 Although this behavior could change at any time, if you encounter this behavior today, you can work around it by artificially inflating the count:<number> to a very large number to enforce full reporting from each shard. If the value of count: is greater than or equal to the number of unique values in the field, you are guaranteed accurate results. However, when document counts are really high, there is a performance penalty, so used this option judiciously.
 
-## User interface tips
+### User interface tips
 **Add labels for each field in facet navigation**
 
 Labels are typically defined in the HTML or form (**index.cshtml** in the sample application). There is no API in Azure Search for facet navigation labels or any other kind of metadata.
