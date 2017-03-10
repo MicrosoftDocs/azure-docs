@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2017
-ms.author: victorh
+ms.author: adshar;victorh
 
 ---
-# Azure Stack Diagnostics Tools
+# Azure Stack diagnostics tools
  
 Azure Stack is a large collection of components working together and interacting with each other. All these components  generate their own unique logs, which means that diagnosing issues can quickly become a challenging task, especially for errors coming from multiple interacting Azure Stack components. 
 
@@ -67,7 +67,7 @@ The following are important things to know about the Trace Collector:
 
     This parameter controls the total size of the .etl files generated from an event session. If the total file size is greater than this parameter value, older files are deleted.
   
-## Log Collection Tool
+## Log collection tool
  
 The PowerShell command `Get-AzureStackLogs` can be used to collect logs from all the components  in an Azure Stack environment. It saves them in zip files in a user defined location. If our technical support team needs your logs to help troubleshoot an issue, they may ask you to run this tool.
 
