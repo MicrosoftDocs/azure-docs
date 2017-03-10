@@ -39,7 +39,7 @@ You connect to Remote Desktop on the VM in an RDP client using the IP address or
 
 ![VM example](media/devtest-lab-shared-ip/vm-info.png)
 
-## Next Steps
+## Next steps
 
 * [Define lab policies in Azure DevTest Labs](devtest-lab-set-lab-policy.md)
 * [Configure a virtual network in Azure DevTest Labs](devtest-lab-configure-vnet.md)
