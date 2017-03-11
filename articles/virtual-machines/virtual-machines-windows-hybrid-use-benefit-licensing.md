@@ -17,7 +17,7 @@ ms.date: 11/17/2016
 ms.author: georgem
 
 ---
-# Azure Hybrid Use Benefit 
+# Azure Hybrid Use Benefit for Window Server and Windows Client
 For customers who purchased Software Assurance, Azure Hybrid Use Benefit allows you to bring your on-premises Windows Client and Windows Server licenses to Azure and run Windows virtual machines (VMs) in Azure at a reduced cost. For more information, please see the [Azure Hybrid Use Benefit licensing page](https://azure.microsoft.com/pricing/hybrid-use-benefit/). 
 
 ## Ways to use Azure Hybrid Use Benefit
