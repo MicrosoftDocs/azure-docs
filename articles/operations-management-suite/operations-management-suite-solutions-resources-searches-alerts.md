@@ -267,7 +267,7 @@ Following is a sample of a solution that include that includes the following res
 The sample uses [standard solution parameters](operations-management-suite-solutions-creating.md#parameters) variables that would commonly be used in a solution as opposed to hardcoding values in the resource definitions.
 
 	{
-	    "$schema": "http://schemas.microsoft.org/azure/deploymentTemplate?api-version=2015-01-01#",
+	    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 	    "contentVersion": "1.0",
 	    "parameters": {
 	      "workspaceName": {
