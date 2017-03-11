@@ -431,7 +431,7 @@ For Azure AD Connect tool versions **1.0.8667.0** to **1.1.380.0**:
 
 Once the network appliances have been configured, reboot the machine running Azure AD Connect tool.
 
-#### Idle connections on Azure AD Connect (1.1.439.0 and up)
+#### Idle connections on Azure AD Connect (1.1.443.0 and up)
 The Azure AD Connect tool will send periodic pings/keepalives to ServiceBus endpoints to ensure that the connections stay alive. Should the tool detect that too many connections are being killed, it will automatically increase the frequency of pings to the endpoint. The lowest 'ping intervals' will drop to is 1 ping every 60 seconds, however, **we strongly advise that proxies/firewalls allow idle connections to persist for at least 2-3 minutes.** \*For older versions, we suggest 4 minutes or more.
 
 ### Step 4: Set up the appropriate Active Directory permissions
