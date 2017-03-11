@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/08/2017
+ms.date: 03/10/2017
 ms.author: nepeters
 ---
 
@@ -24,13 +24,15 @@ Azure virtual machines can be created through the Azure portal. This method prov
 
 Before you start, both a private and public SSH key are needed. For detailed information on creating SSH keys for Azure, see [Create SSH keys for Azure](./virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## Create virtual machine
+## Log in to Azure 
 
 1. Log in to the Azure portal at http://portal.azure.com.
 
+## Create virtual machine
+
 2. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
-3. Select **Compute** from the Marketplace screen, select **Ubuntu Server 16.04 LTS** from the featured apps screen, and then click the **Create** button.
+3. Select **Compute** from the **New* blade, select **Ubuntu Server 16.04 LTS** from the featured apps screen, and then click the **Create** button.
 
 4. Fill out the virtual machine basics form. For **Authentication type**, SSH is recommended. When pasting in your SSH public key, take care to remove any leading or trailing white space. For **Resource group**, create a new one. A resource group is a logical container into which Azure resources are created and collectively managed.
 
