@@ -19,13 +19,13 @@ ms.author: negat
 
 ---
 
-# About this tutorial
+# Create and modify a minimum viable scale set template
 
 [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) are a great way to deploy groups of related resources. This tutorial series shows how to create a minimum viable scale set template and how to modify this template to suit various scenarios. All examples come from this [github repo](https://github.com/gatneil/mvss). Each diff shown in this walkthrough is the result of doing a `git diff` between branches in this repo. These templates and diffs are intended to be simple, not full-fledged, examples. For more complete examples of scale set templates, see the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates) and search for folders that contain the string `vmss`.
 
-## A minimum viable scale set
+## Create a template
 
-Our minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json). If you are already familiar with templates, you can safely skip to the "Next Steps" section to see how to modify this template for other scenarios. However, if you are less familiar with templates, you might find this piece by piece description helpful. To start, let's examine the diff to create this template (`git diff master minimum-viable-scale-set`) piece by piece:
+Our minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json). If you are already familiar with templates, you can skip to the "Next Steps" section to see how to modify this template for other scenarios. However, if you are less familiar with templates, this piece by piece description might be helpful. To start, let's examine the diff to create this template (`git diff master minimum-viable-scale-set`) piece by piece:
 
 First, we define the `$schema` and `contentVersion` of the template. `$schema` defines the version of the template language and is used for Visual Studio syntax highlighting and similar validation features. `contentVersion` is actually not used by Azure at all. Instead, it helps you keep track of which version of the template this is.
 
@@ -35,7 +35,7 @@ First, we define the `$schema` and `contentVersion` of the template. `$schema` d
 +  "contentVersion": "1.0.0.0",
 ```
 
-Next, we define two parameters, `adminUsername` and `adminPassword`. Parameters are values specified by the user at the time of deployment. The `adminUsername` parameter is simply a `string`, but because `adminPassword` is a secret, we give it type `securestring`. We will see later on that these parameters are passed into the scale set configuration.
+Next, we define two parameters, `adminUsername` and `adminPassword`. Parameters are values specified by the user at the time of deployment. The `adminUsername` parameter is simply a `string` type, but because `adminPassword` is a secret, we give it type `securestring`. Later, these parameters are passed into the scale set configuration.
 
 ```diff
 +  "parameters": {
@@ -54,13 +54,13 @@ Resource Manager templates also allow you to define variables to be used later o
 +  "variables": {},
 ```
 
-Next we have the resources of the template, where we define what we actually want to deploy. Unlike the `parameters` and `variables` (which are JSON objects), `resources` is a JSON list of JSON objects.
+Next we have the resources of the template, where we define what we actually want to deploy. Unlike `parameters` and `variables` (which are JSON objects), `resources` is a JSON list of JSON objects.
 
 ```diff
 +  "resources": [
 ```
 
-All resources require a `type`, `name`, `apiVersion`, and `location`. Our first resource is of type `Microsft.Network/virtualNetwork` with name `myVnet` and apiVersion `2016-03-30`. To figure out the latest api version for a resource type, refer to the [Azure REST API documentation](https://docs.microsoft.com/rest/api/).
+All resources require `type`, `name`, `apiVersion`, and `location` properties. Our first resource is of type `Microsft.Network/virtualNetwork` with name `myVnet` and apiVersion `2016-03-30`. To figure out the latest API version for a resource type, refer to the [Azure REST API documentation](https://docs.microsoft.com/rest/api/).
 
 ```diff
 +    {
@@ -97,7 +97,7 @@ Each Resource Manager resource has its own `properties` section for configuratio
 +    },
 ```
 
-In addition to the required `type`, `name`, `apiVersion`, and `location` properties, each resource may optionally have a `dependsOn` list of strings that specifies what other resources from this deployment must finish before deploying this resource. In this case, there is only one element in this list, the virtual network from above. We specify this dependency because the scale set needs the network to exist before creating any VMs. This way, the scale set can give these VMs private IP addresses from the IP address range specified in the network properties previously. The format of each string in the dependsOn list is `<type>/<name>` (the same `type` and `name` we used previously in the virtual network resource definition).
+In addition to the required `type`, `name`, `apiVersion`, and `location` properties, each resource can have an optional `dependsOn` list of strings. This list specifies which other resources from this deployment must finish before deploying this resource. In this case, there is only one element in this list, the virtual network from above. We specify this dependency because the scale set needs the network to exist before creating any VMs. This way, the scale set can give these VMs private IP addresses from the IP address range specified in the network properties previously. The format of each string in the dependsOn list is `<type>/<name>`. This is the same `type` and `name` used previously in the virtual network resource definition).
 
 ```diff
 +    {
