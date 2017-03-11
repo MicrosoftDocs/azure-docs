@@ -120,7 +120,10 @@ Follow the steps below to reset your work or school account password from any wo
 Run into a problem resetting your password? Read about [common problems and their solutions](#common-problems-and-their-solutions).
 
 ## How to unlock your account
-Follow the steps below to unlock your local account from any work or school account sign in screen. **Note: You are only able to unlock your account if it has been locked on-premises.**
+Follow the steps below to unlock your local account from any work or school account sign in screen. 
+
+> [!NOTE]
+> You are only able to unlock your account if it has been locked on-premises.
 
 > [!IMPORTANT]
 > This feature is only available to you if your admin has turned it on. If it's not turned on, you'll see a message indicating your account is not enabled for this feature. You can use the "contact your administrator" link in this case to get in touch with your admin to unlock your account.
