@@ -16,6 +16,8 @@ ms.workload: na
 ms.date: 12/2/2016
 ms.author: ryanwi
 
+redirect_url: /rest/api/servicefabric/
+
 ---
 # REST-based application lifecycle sample
 This sample demonstrates the Service Fabric application lifecycle through REST API calls. For more information on the Service Fabric application lifecycle, see [Service Fabric application lifecycle](service-fabric-application-lifecycle.md).

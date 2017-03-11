@@ -22,6 +22,11 @@ ms.author: sngun
 
 Azure Stack compatible Azure PowerShell modules are required to work with Azure Stack. In this guide, we walk you through the steps required to install PowerShell in Azure Stack. You can use the steps described in this article either from MAS-CON01, Azure Stack host computer, or from a Windows-based external client if you are connected through VPN. 
 
+   > [!NOTE]
+   > The following steps require PowerShell 5.0.  To check your version, run $PSVersionTable.PSVersion and compare the "Major" version.  
+   > 
+   >
+
 Azure Stack supports the 1.2.8 version of Azure PowerShell. Azure Stack compatible AzureRM commands are installed from the PowerShell Gallery. To verify if PowerShell Gallery is available, open a PowerShell Console on the MAS-CON01 computer or on your local computer if you are connected through VPN and run the following command:  
 
 ```powershell
@@ -52,12 +57,12 @@ To install the Azure Stack PowerShell modules on a computer, which doesn’t alr
  ```
    The **Scope** parameter is optional and can be set to the following values:
 
-   * **CurrentUser**-  use this to install the module only in the current user account.  
-   * **All Users** or not specified- use this to install the module to a location that all users can access.  
+   * **CurrentUser**-  installs the module only in the current user account.  
+   * **All Users** or not specified- installs the module to a location that all users can access.  
 
     When prompted, type **yes** to trust the PSGallery repository.
 
-2. In addition to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules such as AzureStackAdmin, AzureStackStorage, etc. To do this, run the following command:
+2. In addition to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules such as AzureStackAdmin, AzureStackStorage, etc. by running the following command:
  ```powershell
     # To install the module in current user scope
     Install-Module -Name AzureStack -Scope CurrentUser
@@ -79,7 +84,7 @@ To install the Azure Stack PowerShell modules on a computer, which already conta
 
 1. Uninstall the existing Azure PowerShell commands (AzureRM and Azure modules). To uninstall, close all the active PowerShell sessions and run the following command:
   ```powershell
-    Get-Module -ListAvailable | where-Object ($_.Name -like “Azure*”) | Uninstall-Module
+    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
 ```
 
 2. After uninstalling, follow the steps described in [Install the required version](#install-the-required-version) section. 

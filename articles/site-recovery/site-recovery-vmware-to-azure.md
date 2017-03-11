@@ -146,6 +146,9 @@ Then run the Unified Setup installation file on the configuration server.
 > [!NOTE]
 > The configuration server can be installed via command line. For more information, see [Installing the configuration server using Command-line tools](http://aka.ms/installconfigsrv).
 
+For a quick overview of the above steps refer to video here
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video1-Source-Infrastructure-Setup/player]
+
 ### Add the account for automatic discovery
 
 [!INCLUDE [site-recovery-add-vcenter-account](../../includes/site-recovery-add-vcenter-account.md)]
@@ -188,6 +191,8 @@ Before you set up the target environment, check you have an [Azure storage accou
     ![Replication policy](./media/site-recovery-vmware-to-azure/gs-replication2.png)
 8. When you create a new policy it's automatically associated with the configuration server. By default, a matching policy is automatically created for failback. For example if the replication policy is **rep-policy** then the failback policy will be **rep-policy-failback**. This policy isn't used until you initiate a failback from Azure.  
 
+For a quick overview of the above steps refer to video here
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video2-vCenter-Server-Discovery-and-Replication-Policy/player]
 
 ## Plan capacity
 
@@ -258,6 +263,8 @@ By default all disks on a machine are replicated. You can exclude disks from rep
 
 After you enable replication, the Mobility service will be installed if you set up push installation. After the Mobility service is push installed on a VM, a protection job will start and fail. After the failure you need to manually restart each machine. Then the protection job begins again, and initial replication occurs.
 
+For a quick overview of the above steps refer to this video
+>[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video3-Protect-VMware-Virtual-Machines/player]
 
 ### View and manage VM properties
 
@@ -305,6 +312,9 @@ After you've set everything up, run a test failover to make sure everything's wo
 1. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines that were created during test failover.
 
 For more details, refer to [Test failover to Azure](site-recovery-test-failover-to-azure.md) document.
+
+For a quick overview of the above steps refer to this video
+>[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
 ## VMware account permissions
 
 Site Recovery needs access to VMware for the process server to automatically discover VMs, and for failover and failback of VMs.
