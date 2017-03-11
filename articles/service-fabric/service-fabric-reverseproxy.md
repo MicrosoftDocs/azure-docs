@@ -28,7 +28,7 @@ Microservices in Service Fabric typically run on a subset of virtual machines in
 3. Determine the cause of connection failures, and resolve the service location again when necessary.
 
 This process generally involves wrapping client-side communication libraries in a retry loop that implements the service resolution and retry policies.
-For more information, see [communicating with services](service-fabric-connect-and-communicate-with-services.md).
+For more information, see [Connect and communicate with services](service-fabric-connect-and-communicate-with-services.md).
 
 ### Communicating by using the reverse proxy
 The reverse proxy in Service Fabric runs on all the nodes in the cluster. It performs the entire service resolution process on a client's behalf and then forwards the client request. So, clients that run on the cluster can use any client-side HTTP communication libraries to talk to the target service by using the reverse proxy that runs locally on the same node.
@@ -39,7 +39,7 @@ The reverse proxy in Service Fabric runs on all the nodes in the cluster. It per
 The default external communication model for microservices is an opt-in model where each service cannot be accessed directly from external clients. [Azure Load Balancer](../load-balancer/load-balancer-overview.md), which is a network boundary between microservices and external clients, performs network address translation and forwards external requests to internal IP:port endpoints. To make a microservice's endpoint directly accessible to external clients, you must first configure Load Balancer to forward traffic to each port that the service uses in the cluster. Furthermore, most microservices, especially stateful microservices, don't live on all nodes of the cluster. The microservices can move between nodes on failover. In such cases, Load Balancer cannot effectively determine the location of the target node of the replicas to which it should forward traffic.
 
 ### Reaching microservices via the reverse proxy from outside the cluster
-Instead of configuring the port of an individual service in Load Balancer, you can configure just the port of the reverse proxy in Load Balancer. This configuration let clients outside the cluster reach services inside the cluster by using the reverse proxy without additional configuration.
+Instead of configuring the port of an individual service in Load Balancer, you can configure just the port of the reverse proxy in Load Balancer. This configuration lets clients outside the cluster reach services inside the cluster by using the reverse proxy without additional configuration.
 
 ![External communication][0]
 
@@ -56,13 +56,13 @@ The reverse proxy uses a specific uniform resource identifier (URI) format to id
 http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&ListenerName=<listenerName>&TargetReplicaSelector=<targetReplicaSelector>&Timeout=<timeout_in_seconds>
 ```
 
-* **http(s):** The reverse proxy can be configured to accept HTTP or HTTPS traffic. For HTTPS traffic, secure sockets layer (SSL) termination occurs at the reverse proxy. The reverse proxy uses HTTP to forward requests to services in the cluster.
+* **http(s):** The reverse proxy can be configured to accept HTTP or HTTPS traffic. For HTTPS traffic, Secure Sockets Layer (SSL) termination occurs at the reverse proxy. The reverse proxy uses HTTP to forward requests to services in the cluster.
 
     Note that HTTPS services are not currently supported.
-* **Cluster fully qualified domain name (FQDN) | internal IP:** For external clients, you can configure the reverse proxy so that it is reachable through the cluster domain, such as, mycluster.eastus.cloudapp.azure.com. By default, the reverse proxy runs on every node. For internal traffic, the reverse proxy can be reached on localhost or on any internal node IP, such as, 10.0.0.1.
-* **Port:** This is the port, such as, 19008, that has been specified for the reverse proxy.
+* **Cluster fully qualified domain name (FQDN) | internal IP:** For external clients, you can configure the reverse proxy so that it is reachable through the cluster domain, such as mycluster.eastus.cloudapp.azure.com. By default, the reverse proxy runs on every node. For internal traffic, the reverse proxy can be reached on localhost or on any internal node IP, such as 10.0.0.1.
+* **Port:** This is the port, such as 19008, that has been specified for the reverse proxy.
 * **ServiceInstanceName:** This is the fully-qualified name of the deployed service instance that you are trying to reach without the "fabric:/" scheme. For example, to reach the *fabric:/myapp/myservice/* service, you would use *myapp/myservice*.
-* **Suffix path:** This is the actual URL path, such as, *myapi/values/add/3*, for the service that you want to connect to.
+* **Suffix path:** This is the actual URL path, such as *myapi/values/add/3*, for the service that you want to connect to.
 * **PartitionKey:** For a partitioned service, this is the computed partition key of the partition that you want to reach. Note that this is *not* the partition ID GUID. This parameter is not required for services that use the singleton partition scheme.
 * **PartitionKind:** This is the service partition scheme. This can be 'Int64Range' or 'Named'. This parameter is not required for services that use the singleton partition scheme.
 * **ListenerName** The endpoints from the service are of the form {"Endpoints":{"Listener1":"Endpoint1","Listener2":"Endpoint2" ...}}. When the service exposes multiple endpoints, this identifies the endpoint that the client request should be forwarded to. This can be omitted if the service has only one listener.
@@ -126,7 +126,7 @@ Application Gateway thus needs a way to distinguish between these two cases. To 
 * By default, Application Gateway assumes case #2 and attempts to resolve and issue the request again.
 * To indicate case #1 to Application Gateway, the service should return the following HTTP response header:
 
-`X-ServiceFabric : ResourceNotFound`
+  `X-ServiceFabric : ResourceNotFound`
 
 This HTTP response header indicates a normal HTTP 404 situation in which the requested resource does not exist, and Application Gateway will not attempt to resolve the service address again.
 
@@ -135,7 +135,7 @@ You can use the [Azure Resource Manager template](service-fabric-cluster-creatio
 
 Refer to [Configure HTTPS Reverse Proxy in a secure cluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM Templates/ReverseProxySecureSample#configure-https-reverse-proxy-in-a-secure-cluster) for Azure Resource Manager template samples to configure secure reverse proxy with a certificate and handling certificate rollover.
 
-First, you get the template for the cluster that you want to deploy. You can either use the sample templates or create a custom Resource Manager template. Then, you can enable the reverse proxy by using the following steps.
+First, you get the template for the cluster that you want to deploy. You can either use the sample templates or create a custom Resource Manager template. Then, you can enable the reverse proxy by using the following steps:
 
 1. Define a port for the reverse proxy in the [Parameters section](../azure-resource-manager/resource-group-authoring-templates.md) of the template.
 
@@ -170,7 +170,7 @@ First, you get the template for the cluster that you want to deploy. You can eit
         ...
     }
     ```
-3. To address the reverse proxy from outside the Azure cluster, set up the azure load balancer rules for the port that you specified in step 1.
+3. To address the reverse proxy from outside the Azure cluster, set up the Azure Load Balancer rules for the port that you specified in step 1.
 
     ```json
     {
@@ -293,7 +293,7 @@ First, you get the template for the cluster that you want to deploy. You can eit
 > When you use certificates that are different from the cluster certificate to enable the reverse proxy on an existing cluster, install the reverse proxy certificate and update the ACL on the cluster before you enable the reverse proxy. Complete the [Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) deployment by using the settings mentioned previously before you start a deployment to enable the reverse proxy in steps 1-4.
 
 ## Next steps
-* See an example of HTTP communication between services in a [sample project on GitHUb](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount).
+* See an example of HTTP communication between services in a [sample project on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount).
 * [Remote procedure calls with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
 * [Web API that uses OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [WCF communication by using Reliable Services](service-fabric-reliable-services-communication-wcf.md)
