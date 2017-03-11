@@ -176,9 +176,10 @@ The following steps will help Azure recognize the activation request:
 
 1. Establish the public peering for your ExpressRoute circuit.
 2. Perform a DNS lookup and find the IP address of **kms.core.windows.net**
-3. Then do one of the following two items so that the Key Management Service will recognize that the activation request comes from Azure and will honor the request.
+3. Then do one of the following three items so that the Key Management Service will recognize that the activation request comes from Azure and will honor the request.
    * On your on-premises network, route the traffic destined for the IP address (obtained in step 2) back to Azure via the public peering.
    * Have your NSP provider hair-pin the traffic back to Azure via the public peering.
+   * Create a User Defined Route that points that IP that has Internet as a next hop, and apply it to the subnet(s) where these virtual machines are.
 
 ### Can I change the bandwidth of an ExpressRoute circuit?
 Yes. You can increase the bandwidth of an ExpressRoute circuit without having to tear it down. You will have to follow up with your connectivity provider to ensure that they update the throttles within their networks to support the bandwidth increase. You will however not be able to reduce the bandwidth of an ExpressRoute circuit. Having to lower the bandwidth will mean a tear down and recreation of an ExpressRoute circuit.
