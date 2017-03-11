@@ -19,9 +19,9 @@ Here's what you need to know:
 * Spell the words out; avoid unapproved or unnecessary acronyms in file names
 
 Acronyms and initialisms in file names - specific guidelines:
-.
+
 * Do not abbreviate Azure service names - the first words of the file name should be the standard, spelled out Azure service or technology name.
-.* Do not allow rm or arm as acronyms anywhere in a file name
+* Do not allow rm or arm as acronyms anywhere in a file name
 * Other industry-standard abbreviations are acceptable as necessary in file names.
 
 ## Pattern
