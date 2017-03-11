@@ -21,7 +21,7 @@ Here's what you need to know:
 Acronyms and initialisms in file names - specific guidelines:
 .
 * Do not abbreviate Azure service names - the first words of the file name should be the standard, spelled out Azure service or technology name.
-* Do not allow rm or arm as acronyms anywhere in a file name
+.* Do not allow rm or arm as acronyms anywhere in a file name
 * Other industry-standard abbreviations are acceptable as necessary in file names.
 
 ## Pattern
@@ -46,7 +46,7 @@ Here are a few examples of valid names that follow the pattern. :
 
 ## A/B testing
 
-A/B testing on docs.microsoft.com requires one file in the A/B pair to include **.experimental** in the file name:  file-name.experimental.md
+A/B testing on docs.microsoft.com requires one file in the A/B pair to include **.experimental.** in the file name:  file-name.experimental.md
 
 ## Marketplace content
 To distinguish content that focuses on partner contributions to the Azure marketplace, start the file names with "marketplace". This content should not be too common, as most partner content should be created on the partners' own web sites.
