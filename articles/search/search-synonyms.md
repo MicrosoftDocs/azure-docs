@@ -28,7 +28,7 @@ Synonyms feature is currently in preview and only supported in the latest previe
 
 ## How to use synonyms in Azure search
 
-In Azure Search, synonym support is based on synonym maps that you define and upload to your service. These maps constitute an independent resource (like indexes or datasources), and can be used by any searchable field in any index in your search service.
+In Azure Search, synonym support is based on synonym maps that you define and upload to your service. These maps constitute an independent resource (like indexes or data sources), and can be used by any searchable field in any index in your search service.
 
 Synonym maps and indexes are maintained independently. Once you define a synonym map and upload it to your service, you can enable the synonym feature on a field by adding a new property called **synonymMaps** in the field definition. Creating, updating, and deleting a synonym map is always a whole-document operation, meaning that you cannot create, update or delete parts of the synonym map incrementally. Updating even a single entry requires a reload.
 
@@ -44,20 +44,19 @@ Incorporating synonyms into your search application is a two-step process:
 
 Synonym configuration and its mapping rules, is uploaded to the service via POST or PUT. Each rule must be delimited by the new line character ('\n'). You can define up to 5,000 rules per synonym map in a free service and 10,000 rules in basic and above. Each rule can have up to 20 expansions.
 
-In this preview, only the 'solr' format is supported for synonym maps.`*` If you have an existing synonym dictionary in a different format and want to use it directly, please let us know on [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+In this preview, synonym maps must be in the Apache Solr format which is explained below. If you have an existing synonym dictionary in a different format and want to use it directly, please let us know on [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 You can create a new synonym map using HTTP POST, as in the following example:
 
-	POST https://[servicename].search.windows.net/synonymmaps/?api-version=2016-09-01-Preview
+	POST https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
 	api-key: [admin key]
 	
 	{  
 	   "name":"mysynonymmap",
 	   "format":"solr",
 	   "synonyms": "
-	      chair, armchair, rocker, recliner\n
-	      Washington, Wash., WA => WA\n
-	      pet => cat, dog, puppy, kitten, pet\n"
+	      USA, United States, United States of America\n
+	      Washington, Wash., WA => WA\n"
 	}
 
 Alternatively, you can use PUT and specify the synonym map name on the URI. If the synonym map does not exist, it will be created. 
@@ -68,19 +67,20 @@ Alternatively, you can use PUT and specify the synonym map name on the URI. If t
     {  
        "format":"solr",
        "synonyms": "
-          chair, armchair, rocker, recliner\n
-          Washington, Wash., WA => WA\n
-          pet => cat, dog, puppy, kitten, pet\n"
+	      USA, United States, United States of America\n
+	      Washington, Wash., WA => WA\n"
     }
 
-`*` The Solr format supports equivalent and explicit synonym mappings. Below is a sample rule for equivalent synonyms.   
+#### Apache Solr synonym format
+
+The Solr format supports equivalent and explicit synonym mappings. Below is a sample rule for equivalent synonyms.
 ```
-              chair, armchair, rocker, recliner 
+              USA, United States, United States of America
 ```
 
-With the rule above, a search query "chair" will expand to "chair OR armchair OR rocker OR recliner". 
+With the rule above, a search query "USA" will expand to "USA OR \"United States\" OR \"United States of America\"".
 
-Explicit mapping is denoted by an arrow "=>". When specified, a token sequence of a search query that matches the left hand side of "=>" will be replaced with the alternatives on the right hand side. Given the rule below, a search query "Washington" will be replaced to "WA".
+Explicit mapping is denoted by an arrow "=>". When specified, a term sequence of a search query that matches the left hand side of "=>" will be replaced with the alternatives on the right hand side. Given the rule below, search queries "Washington", "Wash." or "WA" will all be rewritten to "WA". Explicit mapping only applies in the direction specified and does not rewrite the query "WA" to "Washington" in this case.
 ```
               Washington, Wash., WA => WA 
 ```
@@ -100,10 +100,9 @@ Explicit mapping is denoted by an arrow "=>". When specified, a token sequence o
 	DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
 	api-key: [admin key]
 
-### SynonymMaps property in the field definition
+### Configure a searchable field to use the synonym map in the index definition.
 
-A new field property **synonymMaps** can be used to specify a synonym map to use for a searchable field. Multiple search indexes under a service can refer to the same synonym map.
-
+A new field property **synonymMaps** can be used to specify a synonym map to use for a searchable field. Synonym maps are service level resources and can be referenced by any field of an index under the service.
 
 	POST https://[servicename].search.windows.net/indexes?api-version=2016-09-01-Preview
 	api-key: [admin key]
@@ -139,19 +138,20 @@ A new field property **synonymMaps** can be used to specify a synonym map to use
 
 **synonymMaps** can be specified for searchable fields of the type 'Edm.String' or 'Collection(Edm.String)'.
 
-`**` In this preview, you can only have one synonym map per field. If you want to use multiple synonym maps, please let us know on [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> [!NOTE]
+> In this preview, you can only have one synonym map per field. If you want to use multiple synonym maps, please let us know on [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 ## Impact of synonyms on other search features
 
-A phrase is parsed as an OR'd construction. For this reason, hit highlighting and scoring profiles treat the original term and synonyms as equivalent.
+Synonym feature rewrites the original query with synonyms with the OR operator. For this reason, hit highlighting and scoring profiles treat the original term and synonyms as equivalent.
 
-In contrast, filters and facets are pegged to a static value, and would not factor synonyms into filters or a faceted navigation structure. Similarly, suggestions are based only on the original term; synonym matches do not appear in the response.
+Synonym feature applies to search queries and does not apply to filters or facets. Similarly, suggestions are based only on the original term; synonym matches do not appear in the response.
 
-Synonym expansions do not apply to wildcard terms; prefix, fuzzy, and regex terms aren't expanded. 
+Synonym expansions do not apply to wildcard search terms; prefix, fuzzy, and regex terms aren't expanded. 
 
 ## Tips for building a synonym map
 
-- A concise, well-designed synonym map is more efficient than an exhaustive list of possible matches. Excessively large or complex dictionaries take longer to scan and affect the query response time.  Rather than guess at which terms might be used, you can get the actual terms via a [search traffic analysis report](search-traffic-analytics.md) .
+- A concise, well-designed synonym map is more efficient than an exhaustive list of possible matches. Excessively large or complex dictionaries take longer to parse and affect the query latency if the query expands to many synonyms. Rather than guess at which terms might be used, you can get the actual terms via a [search traffic analysis report](search-traffic-analytics.md).
 
 - As both a preliminary and validation exercise, enable and then use this report to precisely determine which terms will benefit from a synonym match, and then continue to use it as validation that your synonym map is producing a better outcome. In the predefined report, the tiles "Most common search queries" and "Zero-result search queries" will give you the necessary information.
 
