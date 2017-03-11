@@ -1,10 +1,24 @@
-## Microsoft OMS Service Map - Demo Instructions
+---
+title: Service Map walkthrough | Microsoft Docs
+description: .
+services: operations-management-suite
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: tysonn
 
->Latest update: 1/19/2017
+ms.assetid: 9dc437b9-e83c-45da-917c-cb4f4d8d6333
+ms.service: operations-management-suite
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/10/2017
+ms.author: bwren
 
->Author: dairwin (OMS PM)
+---
 
-### Service Map Demo Overview
+# Service Map Demo Overview
 
 * Log into OMS-Experience-Center-2016 Workspace in OMS Portal using your MSFT alias:
  * https://oms-experience-center-2016.portal.mms.microsoft.com/#Workspace/overview/index
@@ -83,7 +97,7 @@ Our solution would obviously be to remove this new backup software off the appli
 
 
 
-### Demo Conclusions
+## Demo Conclusions
 - Service Map provides you with a view of your entire application even if you don't know all of its servers and dependencies.
 - Service Map surfaces data collected by other OMS solutions to help you identify issues with your application and its underlying infrastructure.
 - Log searches allow you to drill down into specific data collected in the Log Analytics repository.    
