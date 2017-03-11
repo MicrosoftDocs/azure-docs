@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/02/2017
+ms.date: 03/10/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -26,35 +26,16 @@ To take advantage of the GPU capabilities of Azure N-series VMs running a suppor
 
 
 > [!IMPORTANT]
-> Currently, Linux GPU support is only available on Azure NC VMs.
+> Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Server 16.04 LTS.
 > 
 
 For N-series VM specs, storage capacities, and disk details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). See also [General considerations for N-series VMs](#general-considerations-for-n-series-vms).
 
 
 
-## Supported distributions for NC VMs
-
-NVIDIA GPU drivers can be installed on NC VMs running one of the following Linux distributions from the Azure Marketplace.
-
-* Ubuntu 16.04 LTS
-* CentOS-based 7.3 (NC6, NC12, and NC24 VM sizes only)
-* Red Hat Enterprise Linux 7.3 (NC6, NC12, and NC24 VM sizes only)
-
-> [!WARNING] 
-> Installation of third-party software on Red Hat products affects the Red Hat support terms. See the [Red Hat Knowledgebase article](https://access.redhat.com/articles/1067).
->
-
-
-
-
-
-
-
-
 ## Install NVIDIA CUDA drivers
 
-Here are steps to involve NVIDIA drivers on Linux NC VMs from the NVIDIA CUDA Toolkit 8.0. C and C++ developers can optionally install the full Toolkit to build GPU-accelerated applications. For more information, see the [CUDA Installation Guide](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
+Here are steps to install NVIDIA drivers on Linux NC VMs from the NVIDIA CUDA Toolkit 8.0. C and C++ developers can optionally install the full Toolkit to build GPU-accelerated applications. For more information, see the [CUDA Installation Guide](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
 
 > [!NOTE]
@@ -97,68 +78,6 @@ sudo apt-get install cuda
 
 Reboot the VM and proceed to verify the installation.
 
-### CentOS 7.3 or Red Hat Enterprise Linux 7.3
-
-> [!IMPORTANT] 
-> Because of a known issue, NVIDIA CUDA driver installation fails on NC24r VMs running CentOS 7.3 or Red Hat Enterprise Linux 7.3.
->
-
-First, get updates. 
-
-```bash
-sudo yum update
-
-sudo reboot
-```
-
-Reconnect to the VM and install Linux Integration Services 4.1.3.1, which is available for [download](https://www.microsoft.com/en-us/download/details.aspx?id=51612) from the Microsoft Download Center. Transfer the tarball to the VM (for example, using `scp`), and run the following commands:
-
-```bash
-tar xvzf lis-rpms-4.1.3-1.tar.gz
-
-cd LISISO
-
-sudo ./install.sh 
-
-sudo reboot
-```
-
-Run the following command to verify the installation of Linux Integration Services:
-
-
-```bash
-modinfo hv_vmbus
-```
-
-Continue installation with the following commands:
-
-```
-sudo yum install kernel-devel
-
-sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-
-sudo yum install dkms
-
-CUDA_REPO_PKG=cuda-repo-rhel7-8.0.61-1.x86_64.rpm
-
-wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
-
-sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
-
-rm -f /tmp/${CUDA_REPO_PKG}
-
-sudo yum install cuda-drivers
-
-```
-The installation can take several minutes. To optionally install the complete CUDA toolkit, type:
-
-```bash
-sudo yum install cuda
-```
-
-Reboot the VM and proceed to verify the installation.
-
-
 ## Verify driver installation
 
 
@@ -168,9 +87,9 @@ To query the GPU device state, SSH to the VM and run the [nvidia-smi](https://de
 
 ## CUDA driver updates
 
-We recommend that you manually update CUDA drivers after deployment.
+We recommend that you periodically update CUDA drivers after deployment.
 
-### Ubuntu 16.04 LTS:
+### Ubuntu 16.04 LTS
 
 ```bash
 sudo apt-get update
@@ -184,19 +103,10 @@ sudo apt-get install cuda-drivers
 
 After the update completes, restart the VM.
 
-### CentOS 7.3 or Red Hat Enterprise Linux 7.3
-
-```bash
-sudo yum update
-```
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../includes/virtual-machines-n-series-considerations.md)]
 
-* We don't recommend installing X server or other systems that use the nouveau driver on Ubuntu NC VMs. Before installing NVIDIA GPU drivers, you need to disable the nouveau driver.
-
-* We don't recommend installing NVIDIA CUDA drivers on NV VMs.
-
-* You can script the installation steps by running commands with options to run silently.     
+* We don't recommend installing X server or other systems that use the nouveau driver on Ubuntu NC VMs. Before installing NVIDIA GPU drivers, you need to disable the nouveau driver.  
 
 * If you want to capture an image of a Linux VM on which you installed NVIDIA drivers, see [How to generalize and capture a Linux virtual machine](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
