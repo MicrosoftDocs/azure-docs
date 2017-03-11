@@ -89,9 +89,7 @@ Your chart settings do not affect the collection, aggregation, or storage of mon
 
 ### Metrics availability in charts
 
-The list of available metrics changes based on which service you've chosen in the drop-down, and the type of chart you're editing. Only the checkboxes of the metrics applicable to the selected service and chart type are displayed and enabled.
-
-For example, to select percentage metrics like *PercentAuthorizationError*, *PercentNetworkError*, and *PercentThrottlingError*, you must configure the chart highlighted in the following image:
+The list of available metrics changes based on which service you've chosen in the drop-down, and the unit type of the chart you're editing. For example, you can select percentage metrics like *PercentNetworkError* and *PercentThrottlingError* only if you're editing a chart that displays units in percentage:
 
 ![Request error percentage chart in the Azure portal](./media/storage-monitor-storage-account/stg-customize-chart-04.png)
 
@@ -135,6 +133,10 @@ Once you've added charts to your dashboard, you can further customize them as de
 
 You can instruct Azure Storage to save diagnostics logs for read, write, and delete requests for the blob, table, and queue services. The data retention policy you set also applies to these logs.
 
+> [!NOTE]
+> Azure File storage currently supports Storage Analytics metrics, but does not yet support logging.
+>
+
 1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the name of the storage account to open the storage account blade.
 1. Select **Diagnostics** in the **MONITORING** section of the menu blade.
 
@@ -145,15 +147,11 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
     ![Configure logging in the Azure portal.](./media/storage-monitor-storage-account/stg-enable-logging-01.png)
 1. Click **Save**.
 
-The diagnostics logs are saved in a blob container named $logs in your storage account. For information about accessing the $logs container, see [Enabling Storage Logging and Accessing Log Data](/rest/api/storageservices/fileservices/enabling-storage-logging-and-accessing-log-data).
+The diagnostics logs are saved in a blob container named $logs in your storage account. You can view the log data using a storage explorer like the [Microsoft Storage Explorer](http://storageexplorer.com), or programmatically using the storage client library or PowerShell.
 
-> [!NOTE]
-> Azure File storage currently supports Storage Analytics metrics, but does not yet support logging.
->
+For information about accessing the $logs container, see [Enabling Storage Logging and Accessing Log Data](/rest/api/storageservices/fileservices/enabling-storage-logging-and-accessing-log-data).
 
 ## Next steps
 
-The following articles contain additional information about working with Storage Analytics.
-
-* [Storage Analytics](storage-analytics.md): Find more details about metrics, logging, and billing for Storage Analytics.
-* [Enabling Azure Storage metrics and viewing metrics data](storage-enable-and-view-metrics.md): Enable and access metrics data by using PowerShell and programmatically with C#.
+* Find more details about [metrics, logging, and billing](storage-analytics.md) for Storage Analytics.
+* [Enable Azure Storage metrics and view metrics data](storage-enable-and-view-metrics.md) by using PowerShell and programmatically with C#.
