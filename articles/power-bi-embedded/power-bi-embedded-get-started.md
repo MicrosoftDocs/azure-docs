@@ -14,10 +14,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 03/09/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 ---
 # Get started with Microsoft Power BI Embedded
+
 **Power BI Embedded** is an Azure service that enables application developers to add interactive Power BI reports into their own applications. **Power BI Embedded** works with existing applications without needing redesign or changing the way users sign in.
 
 Resources for **Microsoft Power BI Embedded** are provisioned through the [Azure ARM APIs](https://msdn.microsoft.com/library/mt712306.aspx). In this case, the resource you provision is a **Power BI Workspace Collection**.
@@ -25,6 +26,7 @@ Resources for **Microsoft Power BI Embedded** are provisioned through the [Azure
 ![](media/power-bi-embedded-get-started/introduction.png)
 
 ## Create a workspace collection
+
 A **Workspace Collection** is the top-level Azure resource and a container for the content that will be embedded in your application. A **Workspace Collection** can be created in two ways::
 
 * Manually using the Azure Portal
@@ -50,7 +52,8 @@ The **Creation Blade** contains the information you need to call the APIs that c
 
 <a name="view-access-keys"/>
 
-## View Power BI API Access Keys
+## View Power BI API access keys
+
 One of the most important pieces of information needed to call the Power BI REST APIs are the **Access Keys**. These are used to generate the **app tokens** that are used to authenticate your API requests. To view your **Access Keys**, click **Access Keys** on the **Settings Blade**. For more about **app tokens**, see [Authenticating and authorizing with Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
    ![](media/power-bi-embedded-get-started/access-keys.png)
@@ -70,6 +73,7 @@ Now that you have an instance of Power BI for your application, and **Access Key
 After you have created your workspace collection, you will need to create a workspace that will house your reports and datasets. To create a workspace, you will need to use the [Post Worksapce REST API](https://msdn.microsoft.com/library/azure/mt711503.aspx).
 
 ## Create Power BI datasets and reports to embed into an app using Power BI Desktop
+
 Now that you have created an instance of Power BI for your application, and have **Access Keys**, you will need to create the Power BI datasets and reports that you want to embed. Datasets and reports can be created by using **Power BI Desktop**. You can download [Power BI Desktop for free](https://go.microsoft.com/fwlink/?LinkId=521662). Or, to quickly get started, you can download the [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
 
 > [!NOTE]

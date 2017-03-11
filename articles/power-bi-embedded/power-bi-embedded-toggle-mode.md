@@ -1,5 +1,5 @@
 ---
-title: Toggle between view and edit mode for reports in Power BI Embedded
+title: Toggle between view and edit mode for reports in Azure Power BI Embedded | Microsoft Docs
 description: Learn how to toggle between view and edit mode for your reports within Power BI Embedded.
 services: power-bi-embedded
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 03/09/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 ---
 # Toggle between view and edit mode for reports in Power BI Embedded
@@ -111,7 +111,7 @@ report.switchMode("edit");
 ## See also
 
 [Get started with sample](power-bi-embedded-get-started-sample.md)  
-[Embed a report](power-bi-embedded-embed-report.md)
+[Embed a report](power-bi-embedded-embed-report.md)  
 [Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)  
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  

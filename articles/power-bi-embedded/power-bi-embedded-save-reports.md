@@ -1,5 +1,5 @@
 ---
-title: Save reports in Power BI Embedded
+title: Save reports in Azure Power BI Embedded | Microsoft Docs
 description: Learn how to save reports within Power BI embedded. This requires proper permissions in order to work successfully.
 services: power-bi-embedded
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 03/09/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 ---
 # Save reports in Power BI Embedded
@@ -88,7 +88,7 @@ After Embbeding the report in edit mode with the right token and permissions you
     report.save();
 ```
 
-## Save As
+## Save as
 
 ```
 // Get a reference to the embedded report.

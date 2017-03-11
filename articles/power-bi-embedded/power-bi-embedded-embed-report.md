@@ -1,5 +1,5 @@
 ---
-title: Embed a report in Power BI Embedded
+title: Embed a report in Azure Power BI Embedded | Microsoft Docs
 description: Learn how to embed a report that is in Power BI Embedded into your application.
 services: power-bi-embedded
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 03/09/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 
 ---

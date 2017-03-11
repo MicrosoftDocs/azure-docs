@@ -14,10 +14,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 03/10/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 ---
 # What's new in Power BI Embedded
+
 Updates to **Power BI Embedded** are released on a regular basis. However, not every release includes new user-facing features; some releases are focused on back-end service capabilities. We’ll highlight new user-facing capabilities here. Be sure to check back often.
 
 ## March 2017

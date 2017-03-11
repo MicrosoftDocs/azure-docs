@@ -1,5 +1,5 @@
 ---
-title: Create a new report from a dataset in Power BI Embedded
+title: Create a new report from a dataset in Azure Power BI Embedded | Microsoft Docs
 description: Power BI Embedded reports can now be created from a dataset in your own application. 
 services: power-bi-embedded
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 03/10/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 ---
 # Create a new report from a dataset in Power BI Embedded

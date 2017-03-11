@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 03/03/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 
 ---
@@ -80,7 +80,8 @@ Now, filters can also flow from the Sales table to the **Item** table:
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-diagram-view-11.png)
 
-**Note:** If you're using DirectQuery mode for your data, you will need to enable bidirectional-cross filtering by selecting these two options:
+> [!NOTE]
+> If you're using DirectQuery mode for your data, you will need to enable bidirectional-cross filtering by selecting these two options:
 
 1. **File** -> **Options and Settings** -> **Preview Features** -> **Enable cross filtering in both directions for DirectQuery**.
 2. **File** -> **Options and Settings** -> **DirectQuery** -> **Allow unrestricted measure in DirectQuery mode**.
