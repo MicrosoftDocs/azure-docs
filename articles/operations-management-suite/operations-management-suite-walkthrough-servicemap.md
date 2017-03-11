@@ -15,103 +15,76 @@
  * Drill into Log Search
  * Isolate backup process
 
-### Demo Scenario Setup
-Let’s assume I’m a web server admin for ACME Co, and I’ve just received a notification that the ACME Customer Portal Application is having performance issues.
+## Demo Scenario Setup
+You're the administrator for ACME Co.  You've just received a notification that the ACME Customer Portal application is having performance issues.  The only information that you have is that these issues started about 3:00 am PST today.
 
-I was told that these issues started around 3:00 am today, Pacific Time **[Note: you will need to adjust this to your local time where you are giving the demo]**
+We're going to walk through a scenario of how you could use Service Map to identify this problem.
 
-Now, instead of just jumping in to look at a list of alerts, what if I can get a live view of my ACME Customer Portal systems, starting with the web tier that I own?
+## Walkthrough
+The only information you have is that the portal is experiencing slow performance.  You aren't entirely sure of all the components that the portal is dependent on other than a set of web servers.
 
-With Service Map I get list of all the systems in our environment, and automatic discovery of all dependencies for those systems.
 
-![Service Map Tile](./media/operations-management-suite-walkthrough-servicemap/ServiceMapTile.png "Service Map Tile")
+Start the Service Map solution by clicking on the **Service Map** tile.
 
-[click on Service Map]
+![Service Map Tile](media/operations-management-suite-walkthrough-servicemap/tile.png)
 
-[Click on the AcmeWFE001 machine in list on left]
+The Service Map console is displayed.  In the left pane is a list of computers in your environment with the Service Map agent installed.
 
-Here’s a map of one of my web servers, and we can see the Acme App Pool running here, as well as all of this machine’s back-end dependencies.
+![Computer list](media/operations-management-suite-walkthrough-servicemap/computer-list.png)
 
-![AcmeWFE001](./media/operations-management-suite-walkthrough-servicemap/AcmeWFE001.png "AcmeWFE001")
+We know that the web servers are called AcmeWFE001 and AcmeWFE002, so this seems like a reasonable place to start.  Click on **AcmeWFE001**.  This displays the map for AcmeWFE001 and all of its dependencies.
 
-[Click on the AcmeAppPool process]
+![AcmeWFE001](media/operations-management-suite-walkthrough-servicemap/AcmeWFE001.png)
 
-By selecting the app pool, I can see path highlighting for just those dependencies for this one process, including my acmetomcat.
+We're concerned about the performance of our web application so click on **AcmeAppPool (IIS App Pool)**.  This displays the details for this process and highlights its dependencies.  
 
-![AcmeAppPool](./media/operations-management-suite-walkthrough-servicemap/AcmeAppPool.png "AcmeAppPool")
+![Acme AppPool](media/operations-management-suite-walkthrough-servicemap/acme-apppool.png)
 
-[Expand acmetomcat to show the Tomcat process]
 
-By expanding this machine, I can see that my app pool depends on Tomcat running on that system. 
+We heard that the problem started at 3:00 AM so let's have a look at what was happening at that time. Click on **Time Range** and change the time to 3:00 AM PST (keep the current date and adjust for your local time zone) with a duration of 20 minutes.
 
-Now, I heard that customers starting having issues this morning around 3:00 am PST, so let’s change the time range.
+![Time Picker](./media/operations-management-suite-walkthrough-servicemap/time-picker.png)
 
-[Select the time picker, and change to 3:00 am PST for 20 mins. You will need to adjust based on your local time range.]
-![Time Picker](./media/operations-management-suite-walkthrough-servicemap/TimePicker.png "Time Picker")
+We now see that the **acmetomcat** dependency has an alert displayed so that's our potential problem.  Click on the alert icon in **acmetomcat**.  This shows the details for the alert.  We can see that we have critical CPU utilization and a warning for low memory.  This is probably what's causing our slow performance. 
 
-[when the map loads, there will be a small delay before the alert icon shows on the acmetomcat machine]
+![Alert](./media/operations-management-suite-walkthrough-servicemap/acmetomcat-alert.png)
 
-![3AM](./media/operations-management-suite-walkthrough-servicemap/3AM.png "3AM")
+Let's look a bit more into those performance counters to verify our suspicion.  Select the **Performance** tab to display the performance counters over the time range.  We can see that we're getting periodic spikes in the processor and memory for this computer.
 
-Now that I’ve loaded a broader time range, we can see if there are any issues on my web server or it’s back-end dependencies.
+![Performance](./media/operations-management-suite-walkthrough-servicemap/acmetomcat-performance.png)
 
-In fact, we can see that my app server has an alert.
+Let's see if we can find out what might have caused this high utilization.  Click on the **Summary** tab.  This provides information that OMS has collected from the computer such as failed connections, critical alerts, and software changes.  Sections with interesting recent information should already be expanded, and you can expand other sections to inspect information that they contain.
 
-[Expand the acmetomcat machine and click on the alert icon]
 
-![acmetomcat](./media/operations-management-suite-walkthrough-servicemap/acmetomcat.png "acmetomcat")
+If **Change Tracking** isn't already open, then expand it.  This shows information collected by the Change Tracking solution.  It looks like there was a software change made during this time window.  Click on **Software** to get details.
 
-Here we can see that the app server is showing high CPU alerts. Given that, let’s take a closer look at that machine.
+![Performance](./media/operations-management-suite-walkthrough-servicemap/acmetomcat-software.png)
 
-[Click on the … on the top right of the acmetomcat machine and select Load Server Map]![acmetomcat_menu](./media/operations-management-suite-walkthrough-servicemap/acmetomcat_menu.png "acmetomcat_menu")
+It appears the someone added a backup process to the machine just after 3:00 AM, so it appears that identified the culprit for the excessive resources being consumed.
 
-Looking at the app server, we can see our front-end web servers, back-end dependencies, and a failed connection shown by the dotted red lines coming from a backup process.
 
-[Click on the Performance tab on the right]
+We can further verify this by looking at the detailed performance information collected in the Log Analytics repository.  Click on the **Alerts** tab again and then on one of the **High CPU** alerts.  Click on  **Show in Log Search**.
 
-![acmetomcat_perf](./media/operations-management-suite-walkthrough-servicemap/acmetomcat_perf.png "acmetomcat_perf")
 
-Here we can see the periodic spikes in CPU and memory for this machine, which clearly triggered the high CPU alerts.
+![Performance](./media/operations-management-suite-walkthrough-servicemap/acmetomcat-software.png)
 
-[Click on the summary tab on the right panel]
+This opens the Log Search window where you can perform queries against any data stored in the repository.  We already have a query filled in to retrieve the alert we're interested in, and you can inspect its details here.  Let's see if we can get some more detail on the performance collection that generated this alert and verify our suspicion that the problems are being caused by that backup process.  Change the time range to **6 hours**.  Then click on **Favorites** and scroll down to the saved searches for **Service Map**.  These are queries that we created specifically for this analysis.  Click on **Top 5 Processes by CPU for acmetomcat**.
 
-![acmetomcat_summary](./media/operations-management-suite-walkthrough-servicemap/acmetomcat_summary.png "acmetomcat_summary")
+![Saved search](./media/operations-management-suite-walkthrough-servicemap/saved-search.png)
 
-Looking at the summary we can see those failed connections, the critical alerts, and, interestingly, a software change was made.
 
-[Click on the Software change highlighted in blue]
+This query returns a list of the top 5 processes consuming processor on **acmetomcat**.  You can inspect the query to get an introduction to the query language used for log searches.  If you were interested in the processes on other computers, you could easily modify the query for that information.
 
-![acmetomcat_changes](./media/operations-management-suite-walkthrough-servicemap/acmetomcat_changes.png "acmetomcat_changes")
+In this case, we can see that the backup process is consistently consuming about 60% of the app server’s CPU.  It's pretty obvious that this new process is responsible for our performance problem.
 
-Looking at the changes for this system, we can see that someone added a backup process to the machine this morning.
 
-I don’t know about you, but I don’t know many backup products written in Perl. 
 
-This is starting to look suspicious. Let’s now take a closer look at the performance of this machine in Log Analytics. 
+Our solution would obviously be to remove this new backup software off the application server.  We could actually leverage Desired State Configuration (DSC) managed by Azure Automation to define policies that ensure this process never runs on these critical systems.
 
-[Click on the alerts icon, then on one of the High CPU alerts nearest the bottom to expand it, and click the **Show in Log Search** link] 
 
-[you will see the alert event in Log search, and now you talk about how you want to drill in and look at performance for that app server.]
 
-![alert_log](./media/operations-management-suite-walkthrough-servicemap/alert_log.png "alert_log")
+### Demo Conclusions
+- Service Map provides you with a view of your entire application even if you don't know all of its servers and dependencies.
+- Service Map surfaces data collected by other OMS solutions to help you identify issues with your application and its underlying infrastructure.
+- Log searches allow you to drill down into specific data collected in the Log Analytics repository.    
 
-We know that we were seeing high CPU utilization for our acmetomcat machine, so let’s take a look at what might be causing this.
-
-Let’s expand our time range to look at the last 6 hours and see what’s using CPU on acmetomcat.
-
-[Change time range to last 6 hours, then click on Favorites, search for “Service Map”, and click on the Top 5 Processes by CPU for acmetomcat]
-
-![Saved Searches](./media/operations-management-suite-walkthrough-servicemap/saved_searches.png "Saved Searches")
-
-Here I’ve clicked on a saved search that will show me the top 5 processes on our app server based on process CPU utilization.
-
-This clearly shows me that our backup process is consistently chewing up around 60% of the app server’s CPU.
-
-![Top 5 by CPU](./media/operations-management-suite-walkthrough-servicemap/top_5_by_cpu.png "Top 5 by CPU")
-
-It’s time to get the app server admin to kill that process, and even better, using desired state configuration we could define policies to ensure this process never runs on these critical systems.
-
-### Demo Conclusion
-In summary, Service Map can help you see your whole application, from end-to-end, even if you don’t know which servers are in your app.
-
-Service Map can then help you combine that dynamic dependency view with app and infrastructure data to help find problems whether they are in the app itself or the underlying infrastructure.
