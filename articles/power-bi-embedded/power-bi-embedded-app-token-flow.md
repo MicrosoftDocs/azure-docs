@@ -108,7 +108,7 @@ You can supply multiple scopes by using a space between the scopes like the foll
 string scopes = "Dataset.Read Workspace.Report.Create";
 ```
 
-**Required Claims - Scopes**
+**Required claims - scopes**
 
 scp: {scopesClaim} scopesClaim can be either a string or array of strings, noting the allowed permissions to workspace resources (Report, Dataset, etc.)
 
