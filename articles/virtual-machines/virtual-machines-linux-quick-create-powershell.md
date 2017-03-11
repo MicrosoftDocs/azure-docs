@@ -33,6 +33,8 @@ Log in to your Azure subscription with the `Login-AzureRmAccount` command and fo
 Login-AzureRmAccount
 ```
 
+## Create resource group
+
 Create an Azure resource group. A resource group is a logical container into which Azure resources are deployed and managed. 
 
 ```powershell
@@ -56,8 +58,6 @@ $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location w
 -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
 ```
 
-## Configure network security
-
 Create a network security group and a network security group rule. The network security group secures the virtual machine using inbound and outbound rules. In this case, an inbound rule is created for port 22, which allows incoming SSH connections.
 
 ```powershell
@@ -70,8 +70,6 @@ $nsgRuleSSH = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupR
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location westeurope `
 -Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH
 ```
-
-## Create network interface
 
 Create a network card for the virtual machine. The network card connects the virtual machine to a subnet, network security group, and public IP address.
 
