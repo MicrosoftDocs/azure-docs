@@ -250,6 +250,15 @@ After the copy operation, the target container will include the blob and its sna
     abc (2013-02-25 080757).txt
     abc (2014-02-21 150331).txt
 
+### Copy all blobs across Storage accounts
+
+```azcopy
+    AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /S
+```
+
+If option `/S` is specified, then AzCopy will copy all blobs in source container to destination container including its contained containers recursively. You can specify `/Pattern` option together in order to copy matched file pattern.
+
+
 ### Synchronously copy blobs across Storage accounts
 AzCopy by default copies data between two storage endpoints asynchronously. Therefore, the copy operation will run in the background using spare bandwidth capacity that has no SLA in terms of how fast a blob will be copied, and AzCopy will periodically check the copy status until the copying is completed or failed.
 
