@@ -107,7 +107,10 @@ No. We do not support layer 2 connectivity extensions into Azure.
 Yes. You can have more than one ExpressRoute circuit in your subscription. The default limit on the number of dedicated circuits is set to 10. You can contact Microsoft Support to increase the limit if needed.
 
 ### Can I have ExpressRoute circuits from different service providers?
-Yes. You can have ExpressRoute circuits with many service providers. Each ExpressRoute circuit will be associated with one service provider only.
+Yes. You can have ExpressRoute circuits with many service providers. Each ExpressRoute circuit will be associated with one service provider only. 
+
+### Can I have multiple ExpressRoute circuits in the same location?
+Yes. You can have multiple ExpressRoute circuits, with the same or different service providers in the same location. However it will not be possible for you to link more than one ExpressRoute circuit to the same Virtual Network.
 
 ### How do I connect my virtual networks to an ExpressRoute circuit
 The basic steps are outlined below.
@@ -122,7 +125,7 @@ See [ExpressRoute workflows for circuit provisioning and circuit states](express
 Yes. [ExpressRoute partners and locations](expressroute-locations.md) page provides an overview of the connectivity boundaries for an ExpressRoute circuit. Connectivity for an ExpressRoute circuit is limited to a single geopolitical region. Connectivity can be expanded to cross geopolitical regions by enabling the ExpressRoute premium feature.
 
 ### Can I link to more than one virtual network to an ExpressRoute circuit?
-Yes. You can link up to 10 virtual networks to an ExpressRoute circuit.
+Yes. You can have up to 10 virtual networks connections on a standard ExpressRoute circuit, and up to 100 on a [premium ExpressRoute circuit](#expressroute-premium). 
 
 ### I have multiple Azure subscriptions that contain virtual networks. Can I connect virtual networks that are in separate subscriptions to a single ExpressRoute circuit?
 Yes. You can authorize up to 10 other Azure subscriptions to use a single ExpressRoute circuit. This limit can be increased by enabling the ExpressRoute premium feature.
@@ -149,6 +152,9 @@ Yes. ExpressRoute can coexist with site-to-site VPNs.
 
 ### Can I move a virtual network from site-to-site / point-to-site configuration to use ExpressRoute?
 Yes. You will have to create an ExpressRoute gateway within your virtual network. There will be a small downtime associated with the process.
+
+### Why is there a public IP address associated with the ExpressRoute Gateway on a virtual network?
+This is used for internal management only. This public IP address is not exposed to the internet and does not constitute a security exposure of your virtual network.
 
 ### What do I need to connect to Azure storage over ExpressRoute?
 You must establish an ExpressRoute circuit and configure routes for public peering.

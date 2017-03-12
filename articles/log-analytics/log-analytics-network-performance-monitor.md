@@ -86,7 +86,7 @@ Use the following information to install and configure the solution.
     >[!NOTE]
     >The agents for Windows server operating systems support both TCP and ICMP as the protocols for synthetic transaction. However, the agents for Windows client operating systems only support ICMP as the protocol for synthetic transaction.
 
-2. Add the Network Performance Monitor solution to your workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  
+2. Add the Network Performance Monitor solution to your workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  
    ![Network Performance Monitor symbol](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 3. In the OMS portal, you'll see a new tile titled **Network Performance Monitor** with the message *Solution requires additional configuration*. You'll need to configure the solution to add networks based on subnetworks and nodes that are discovered by agents. Click **Network Performance Monitor** to start configuring the default network.  
    ![solution requires additional configuration](./media/log-analytics-network-performance-monitor/npm-config.png)
@@ -301,7 +301,7 @@ Now that you've read about Network Performance Monitor, let's look at a simple i
    In the below image you can clearly see the root-cause of the problem areas to the specific section of the network by looking at the paths and hops in red color. Clicking on a node in the topology map reveals the properties of the node, including the FQDN, and IP address. Clicking on a hop shows the IP address of the hop.  
    ![unhealthy topology - path details example](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
 
-### Provide feedback
+## Provide feedback
 
 - **UserVoice** - You can post your ideas for Network Performance Monitor features that you want us to work on. Visit our [UserVoice page](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring).
 - **Join our cohort** - We’re always interested in having new customers join our cohort. As part of it, you'll get early access to new features and help us improve Network Performance Monitor. If you're interested in joining, fill-out this [quick survey](https://aka.ms/npmcohort).
