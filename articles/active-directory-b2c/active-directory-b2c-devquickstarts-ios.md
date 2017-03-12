@@ -38,9 +38,14 @@ Next, you need to create an app in your B2C directory. The app registration give
 
 * Include a **mobile device** in the application.
 * Copy the **Application ID** that is assigned to your app. You need this GUID later.
-* Set up a **Redirect URI** with a custom scheme (for example, com.onmicrosoft.fabrikamb2c.exampleapp:/oauthredirect). You need this URI later.
+* Set up a **Redirect URI** with a custom scheme (for example, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). You need this URI later.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
+
+## Choosing a good redirect URI
+There are two important considerations when choosing a redirect URI:
+1) The scheme of the redirect URI used for OpenID Connect callbacks should be unique for every application.  In our example, we used com.onmicrosoft.fabrikamb2c.exampleapp.  We recommend following this pattern, replacing fabrikamb2c with your b2c tenant name and changing exampleapp to a different name for each application.  If the scheme is unique, the user will never see this URI.  However, if two applications share the same scheme, the user will see a "choose app" dialog.  If the user makes an incorrect choice, the login will simply fail.  (For security, PKCE will prevent the other application from using the authorization code)
+2) As of AppAuth-iOS v0.8.0, the comparison logic to handle the redirect fails if the path of the URI is NIL.  Therefore, your path must contain at least one forward slash (for example, //a/ will work and //a will fail).  We decided to use //oauth/redirect and you can reuse this path in all of your applications, but change it if desired.
 
 ## Create your policies
 In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains one identity experience: a combined sign-in and sign-up. You need to create this policy, as described in the
@@ -95,7 +100,7 @@ OIDServiceConfiguration *configuration =
 
 After configuring or retrieving an authorization service configuration, an authorization request can be constructed. To create the request, you need the following information:  
 * Client ID (for example, 00000000-0000-0000-0000-000000000000)
-* Redirect URI with a custom scheme (for example, com.onmicrosoft.fabrikamb2c.exampleapp:/oauthredirect)
+* Redirect URI with a custom scheme (for example, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect)
 
 Both items should have been saved when you were [registering your app](#create-an-application).
 
@@ -129,8 +134,8 @@ To set up your application to handle the redirect to the URI with the custom sch
 * Rename the new row 'URL types'.
 * Click the arrow to the left of 'URL types'.
 * rename the value in Item 0 to 'URL Schemes'.
-* Edit the value of 'Item 0' underneath 'URL Schemes' and set the value to your custom scheme.  It must match the scheme in redirectURL when creating the OIDAuthorizationRequest object.
-* In our sample, we used the scheme 'com.onmicrosoft.fabrikamb2c.exampleapp' to ensure we avoid scheme name collisions with other apps.
+* Edit the value of 'Item 0' underneath 'URL Schemes' and set the value to your application's unique scheme.  It must match the scheme in redirectURL when creating the OIDAuthorizationRequest object.
+* In our sample, we used the scheme 'com.onmicrosoft.fabrikamb2c.exampleapp'.
 
 Refer to the [AppAuth guide](https://openid.github.io/AppAuth-iOS/) on how to complete the rest of the process. If you need to quickly get started with a working app, check out [our sample](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Follow the steps in the [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) to enter your own Azure AD B2C configuration.
 
