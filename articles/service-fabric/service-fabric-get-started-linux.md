@@ -176,7 +176,7 @@ To update to the latest version of the SDK and runtime, run the following steps 
 
    ```bash
    sudo apt-get update
-   sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
+   sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp servicefabricsdkjava
    ```
 
 For updating the CLI, navigate to the directory where you cloned the CLI and run `git pull` for updating.
