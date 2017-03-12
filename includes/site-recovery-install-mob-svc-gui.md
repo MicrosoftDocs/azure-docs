@@ -1,4 +1,4 @@
-1. Copy the relevant installation to the server, and then launch the installer.
+1. Copy the relevant installation to the server, and then open the installer.
 2. On the **Before You Begin** blade, select **Install Mobility Service**.
 
     ![Mobility service](./media/site-recovery-install-mob-svc-gui/mobility3.png)
@@ -6,4 +6,4 @@
 
     ![Mobility service](./media/site-recovery-install-mob-svc-gui/mobility6.png)
 4. On the **Install Location** blade, keep the default settings, and then select **Next** to begin the installation.
-5. On the **Installation Progress** blade, monitor the installation. If prompted, restart the machine. After the service is installed, it can take about 15 minutes for the status to update in the portal.
+5. On the **Installation Progress** blade, monitor the installation. If prompted, restart the computer. After the service is installed, it can take about 15 minutes for the status to update in the portal.

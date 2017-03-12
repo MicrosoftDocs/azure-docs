@@ -18,7 +18,7 @@ ms.author: anoopkv
 ---
 
 # Install Mobility Service (VMware or physical to Azure)
-Azure Site Recovery Mobility Service captures data writes on the machine, and forwards them to the process server. Deploy Mobility Service to every machine (VMware virtual machine or physical server) that you want to replicate to Azure. You can use the following methods to deploy Mobility Service to the servers that you want to protect:
+Azure Site Recovery Mobility Service captures data writes on a computer, and forwards them to the process server. Deploy Mobility Service to every computer (VMware virtual machine or physical server) that you want to replicate to Azure. You can deploy Mobility Service to the servers that you want to protect by using the following methods:
 
 
 * [Install Mobility Service by using software deployment tools like System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
@@ -29,18 +29,18 @@ Azure Site Recovery Mobility Service captures data writes on the machine, and fo
 
 
 >[!IMPORTANT]
-> Beginning with version 9.7.0.0, on Windows virtual machines, the Mobility Service installer also installs the latest available [Azure VM agent](../virtual-machines/virtual-machines-windows-extensions-features.md#azure-vm-agent). This ensures that when a machine fails over to Azure, the computer meets this prerequisite for using any VM extension.
+> Beginning with version 9.7.0.0, on Windows virtual machines (VMs), the Mobility Service installer also installs the latest available [Azure VM agent](../virtual-machines/virtual-machines-windows-extensions-features.md#azure-vm-agent). This ensures that when a computer fails over to Azure, the computer meets this prerequisite for using any VM extension.
 
 ## Prerequisites
 Complete these prerequisite steps before you manually install Mobility Service on your servers:
-1. Sign in to Configuration Server, and then open a Command Prompt window as an administrator.
+1. Sign in to your configuration server, and then open a Command Prompt window as an administrator.
 2. Change the directory to the bin folder, and then create a passphrase file:
 
     ```
     cd %ProgramData%\ASR\home\svsystems\bin
     genpassphrase.exe -v > MobSvc.passphrase
     ```
-3. Store this file in a secure location. You use the file during the Mobility Service installation.
+3. Store the passphrase file in a secure location. You use the file during the Mobility Service installation.
 4. Mobility Service installers for all supported operating systems are in the %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository folder.
 
 ### Mobility Service installer-to-operating system mapping
@@ -48,7 +48,7 @@ Complete these prerequisite steps before you manually install Mobility Service o
 | Installer file template name| Operating system |
 |---|--|
 |Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64-bit) </br> Windows Server 2012 (64-bit) </br> Windows Server 2012 R2 (64-bit) |
-|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| RHEL 6.4, 6.5, 6.6, 6.7, 6.8 (64-bit only) </br> CentOS 6.4, 6.5, 6.6, 6.7. 6.8 (64-bit only) |
+|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8 (64-bit only) </br> CentOS 6.4, 6.5, 6.6, 6.7. 6.8 (64-bit only) |
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (64-bit only)|
 |Microsoft-ASR_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (64-bit only)|
 
@@ -78,7 +78,7 @@ To do a push installation of Mobility Service by using Azure Site Recovery, you 
 
 
 > [!NOTE]
-After Mobility Service is installed, in the Azure portal, select the **+Replicate** button to start protecting these VMs.
+After Mobility Service is installed, in the Azure portal, select the **Replicate** button to start protecting these VMs.
 
 ## Uninstall Mobility Service on a Windows Server computer
 Use one of the following methods to uninstall Mobility Service on a Windows Server computer.
@@ -96,7 +96,7 @@ MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\
 ```
 
 ## Uninstall Mobility Service on a Linux computer
-1. On your Linux server, sign in as **root** user.
+1. On your Linux server, sign in as a **root** user.
 2. In a terminal, go to /user/local/ASR.
 3. To uninstall Mobility Service, run the following command:
 

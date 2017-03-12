@@ -9,25 +9,25 @@
 2. To install Mobility Service, run the following command:
 
   ```
-  UnifiedAgent.exe /Role "Agent" /CSEndpoint "IP Address of Configuration Server" /PassphraseFilePath <Full path to the passphrase file>``
+  UnifiedAgent.exe /Role "Agent" /CSEndpoint "IP address of the configuration server" /PassphraseFilePath <Full path to the passphrase file>``
   ```
 
 #### Mobility Service installer command-line arguments
 
 ```
 Usage :
-UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Installation Directory>] [/CSIP <IP address>] [/PassphraseFilePath <Passphrase file path>] [/LogFilePath <Log File Path>]<br/>
+UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Installation directory>] [/CSIP <IP address>] [/PassphraseFilePath <Passphrase file path>] [/LogFilePath <Log file path>]<br/>
 ```
 
   | Parameter|Type|Description|Possible values|
   |-|-|-|-|
   |/Role|Mandatory|Specifies whether Mobility Service should be installed|Agent </br> MasterTarget|
   |/InstallLocation|Mandatory|Location where Mobility Service is installed|Any folder on the computer|
-  |/CSIP|Mandatory|IP address of Configuration Server| Any valid IP address|
-  |/PassphraseFilePath|Mandatory|Location where the passphrase is stored |Any valid UNC or local file path|
+  |/CSIP|Mandatory|IP address of the configuration server| Any valid IP address|
+  |/PassphraseFilePath|Mandatory|Location of the passphrase |Any valid UNC or local file path|
   |/LogFilePath|Optional|Location of the installation log|Any valid folder on the computer|
 
-#### Sample usage
+#### Example
 
 ```
   UnifiedAgent.exe /Role "Agent" /CSEndpoint "I192.168.2.35" /PassphraseFilePath "C:\Temp\MobSvc.passphrase"
