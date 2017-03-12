@@ -46,7 +46,7 @@ These are limits for a single HTTP request and/or connector call
 |----|----|----|
 |Retry attempts|4|Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 |Retry max delay|1 hour|Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
-|Retry min delay|20 sec|Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
+|Retry min delay|5 sec|Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 
 ### Run duration and retention
 
@@ -89,7 +89,7 @@ These are limits for a single logic app definition.
 |----|----|----|
 |Actions per workflow|250|You can add nested workflows to extend this as needed|
 |Allowed action nesting depth|5|You can add nested workflows to extend this as needed|
-|Flows per region per subscription|1000||
+|Workflows per region per subscription|1000||
 |Triggers per workflow|10||
 |Max characters per expression|8,192||
 |Max `trackedProperties` size in characters|16,000|
