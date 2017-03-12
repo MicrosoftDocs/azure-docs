@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 03/12/2017
 ms.author: juliako
 
 ---
@@ -74,29 +74,18 @@ The sample code below uses .NET SDK to perform the following tasks:
             }
 
             var assetName = Path.GetFileNameWithoutExtension(singleFilePath);
-            IAsset inputAsset = _context.Assets.Create(assetName, assetCreationOptions); 
+            IAsset inputAsset = _context.Assets.Create(assetName, assetCreationOptions);
 
             var assetFile = inputAsset.AssetFiles.Create(Path.GetFileName(singleFilePath));
-
-            Console.WriteLine("Created assetFile {0}", assetFile.Name);
-
-            var policy = _context.AccessPolicies.Create(
-                                    assetName,
-                                    TimeSpan.FromDays(30),
-                                    AccessPermissions.Write | AccessPermissions.List);
-
-            var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
 
             Console.WriteLine("Upload {0}", assetFile.Name);
 
             assetFile.Upload(singleFilePath);
             Console.WriteLine("Done uploading {0}", assetFile.Name);
 
-            locator.Delete();
-            policy.Delete();
-
             return inputAsset;
         }
+
 
 ## Upload multiple files with Media Services .NET SDK
 The following code shows how to create an asset and upload multiple files.
