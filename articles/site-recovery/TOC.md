@@ -1,6 +1,7 @@
 # Overview
 ## [What is Site Recovery?](site-recovery-overview.md)
 ## [How does Site Recovery work?](site-recovery-components.md)
+## [How does Hyper-V replication to Azure work?](site-recovery-hyper-v-azure-architecture.md)
 ## [What workloads can you protect?](site-recovery-workload.md)
 ## [Site Recovery support matrix](site-recovery-support-matrix-to-azure.md)
 ## [FAQ](site-recovery-faq.md)
@@ -23,8 +24,8 @@
 ### [Site Recovery Capacity Planner for Hyper-V replication](site-recovery-capacity-planner.md)
 
 ## Configure
-### [Set up the replication source](site-recovery-set-up-vmware-to-azure.md)
-### [Set up the replication target](site-recovery-prepare-target-vmware-to-azure.md)
+### [Set up the source environment](site-recovery-set-up-vmware-to-azure.md)
+### [Set up the target environment](site-recovery-prepare-target-vmware-to-azure.md)
 ### [Configure replication settings](site-recovery-setup-replication-settings-vmware.md)
 ### [Deploy the Mobility service for VMware replication](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [Deploy the Mobility service with System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
