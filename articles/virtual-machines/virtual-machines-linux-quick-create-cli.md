@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/08/2017
+ms.date: 03/10/2017
 ms.author: nepeters
 ---
 
@@ -24,7 +24,7 @@ The Azure CLI 2.0 is used to create and manage Azure resources from the command 
 
 Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-## Create a virtual machine
+## Log in to Azure 
 
 Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
 
@@ -32,7 +32,9 @@ Log in to your Azure subscription with the [az login](/cli/azure/#login) command
 az login
 ```
 
-Create a resource group with [az group create](/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+## Create a resource group
+
+Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
 The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
 
@@ -40,7 +42,9 @@ The following example creates a resource group named `myResourceGroup` in the `w
 az group create --name myResourceGroup --location westeurope
 ```
 
-Create a VM with [az vm create](/cli/azure/vm#create). 
+## Create virtual machine
+
+Create a VM with the [az vm create](/cli/azure/vm#create) command. 
 
 The following example creates a VM named `myVM` and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
