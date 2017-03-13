@@ -30,11 +30,6 @@ Learn how to create an [Apache Spark](hdinsight-apache-spark-overview.md) cluste
 ## Create a Spark cluster
 In this section, you create a Spark cluster in HDInsight using an [Azure Resource Manager template](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/). For other cluster creation methods, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
-> [!NOTE]
-> This article creates a Spark cluster that uses [Azure Storage Blobs as the cluster storage](hdinsight-hadoop-use-blob-storage.md). You can also create a Spark cluster that uses [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) as additional storage, in addition to Azure Storage Blobs as the default storage. For instructions, see [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
->
->
-
 1. Click the following image to open the template in the Azure portal.         
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-spark-linux%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apache-spark-jupyter-spark-sql/deploy-to-azure.png" alt="Deploy to Azure"></a>
@@ -53,7 +48,12 @@ In this section, you create a Spark cluster in HDInsight using an [Azure Resourc
 
    Write down these values.  You need them later in the tutorial.
 
-3. Select **I agree to the terms and conditions stated above**, select **Pin to dashboard**, and then click **Purchase**. You can see a new tile titled Submitting deployment for Template deployment. It takes about around 20 minutes to create the cluster.
+3. Select **I agree to the terms and conditions stated above**, select **Pin to dashboard**, and then click **Purchase**. You can see a new tile titled Submitting deployment for Template deployment. It takes about 20 minutes to create the cluster.
+
+> [!NOTE]
+> This article creates a Spark cluster that uses [Azure Storage Blobs as the cluster storage](hdinsight-hadoop-use-blob-storage.md). You can also create a Spark cluster that uses [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) as additional storage, in addition to Azure Storage Blobs as the default storage. For instructions, see [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+>
+>
 
 ## Run a Spark SQL query
 
@@ -75,7 +75,7 @@ In this article, you use the **PySpark** kernel. For more information about the 
 
 2. If you opted to pin the cluster to the dashboard, click the cluster tile from the dashboard to launch the cluster blade.
 
-	If you did not pin the cluser to the dashboard, from the left pane, click **HDInsight clusters**, and then click the cluster you created.
+	If you did not pin the cluster to the dashboard, from the left pane, click **HDInsight clusters**, and then click the cluster you created.
 
 3. From **Quick links**, click **Cluster dashboards**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
@@ -89,13 +89,14 @@ In this article, you use the **PySpark** kernel. For more information about the 
    >
 3. Create a notebook. Click **New**, and then click **PySpark**.
 
-   ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+   ![Create a Jupyter notebook](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Create a Jupyter notebook")
 
    A new notebook is created and opened with the name Untitled(Untitled.pynb).
 
 4. Click the notebook name at the top, and enter a friendly name if you want.
 
     ![Provide a name for the notebook](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
+
 5. Paste the following code in an empty cell, and then press **SHIFT + ENTER** to execute the code. The code imports the types required for this scenario:
 
 		from pyspark.sql.types import *
@@ -106,7 +107,7 @@ In this article, you use the **PySpark** kernel. For more information about the 
 
     Every time you run a job in Jupyter, your web browser window title shows a **(Busy)** status along with the notebook title. You also see a solid circle next to the **PySpark** text in the top-right corner. After the job is completed, it changes to a hollow circle.
 
-6. Run the following code to register some sample data into a temporary table called **hvac**.
+6. Register a sample data set as a temporary table (**hvac**) by running the following code.
 
 		# Load the data
 		hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -125,7 +126,7 @@ In this article, you use the **PySpark** kernel. For more information about the 
 
     Spark clusters in HDInsight come with a sample data file, **hvac.csv**, under **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
 
-7. Run the following code to query the data:
+7. To query the data run the following code.
 
 		%%sql
 		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"

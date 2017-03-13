@@ -20,7 +20,7 @@ ms.author: nitinme
 ---
 # Use BI tools with Apache Spark cluster on Azure HDInsight
 
-Learn how to use Apache Spark in Azure HDInsight to analyze a raw sample data set and then use use BI tools such as Power BI and Tableau to visualize the data.
+Learn how to use Apache Spark in Azure HDInsight to analyze a raw sample data set and then use BI tools to visualize the data. This article demonstrates how to use BI tools such as Power BI and Tableau with HDInsight Spark clusters. 
 
 > [!NOTE]
 > Connectivity with BI tools described in this article is not supported on Spark 2.1 on Azure HDInsight 3.6 Preview. Only Spark versions 1.6 and 2.0 (HDInsight 3.4, 3.5 respectively) are supported.
@@ -30,19 +30,17 @@ This tutorial is also available as a Jupyter notebook on a Spark (Linux) cluster
 
 ## Prerequisites
 
-You must have the following:
-
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 
 ## <a name="hivetable"></a>Save raw data as a table
 
-In this section, we use the [Jupyter](https://jupyter.org) notebook associated with an Apache Spark cluster in HDInsight to run jobs that process your raw sample data and save it as a table. The sample data is a .csv file (hvac.csv) available on all clusters by default.
+In this section, we use the [Jupyter](https://jupyter.org) notebook from an HDInsight Spark cluster to run jobs that process your raw sample data and save it as a table. The sample data is a .csv file (hvac.csv) available on all clusters by default.
 
-Once your data is saved as a table, in the next section we use BI tools such as Power BI and Tableau to connect to the table and do further visualizations.
+Once your data is saved as a table, in the next section we use BI tools to connect to the table and do further visualizations.
 
-1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
+1. From the [Azure portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 2. From the Spark cluster blade, click **Cluster Dashboard**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
    > [!NOTE]
@@ -52,15 +50,15 @@ Once your data is saved as a table, in the next section we use BI tools such as 
    >
    >
 
-3. Create a new notebook. Click **New**, and then click **PySpark**.
+3. Create a notebook. Click **New**, and then click **PySpark**.
 
-    ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+    ![Create a Jupyter notebook](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.createnotebook.png "Create a Jupyter notebook")
 
 4. A new notebook is created and opened with the name Untitled.pynb. Click the notebook name at the top, and enter a friendly name.
 
     ![Provide a name for the notebook](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
 
-5. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types required for this scenario. To do so, place the cursor in the cell and press **SHIFT + ENTER**.
+5. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts are automatically created for you when you run the first code cell. You can start by importing the types required for this scenario. To do so, place the cursor in the cell and press **SHIFT + ENTER**.
 
         from pyspark.sql import *
 
@@ -84,12 +82,12 @@ Once your data is saved as a table, in the next section we use BI tools such as 
         dfw = DataFrameWriter(hvacTable)
         dfw.saveAsTable('hvac')
 
-7. Verify that the table was successfully created. You can use the `%%sql` magic to run Hive queries directly. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
+7. Verify that the table was successfully created. You can use the `%%sql` magic to run Hive queries directly. For more information about the `%%sql` magic, and other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 
         %%sql
         SHOW TABLES
 
-    You will see an output like the following:
+    You see an output like shown below:
 
         +---------------+-------------+
         |tableName      |isTemporary  |
@@ -99,14 +97,14 @@ Once your data is saved as a table, in the next section we use BI tools such as 
         |hvac           |false  	  |
         +---------------+-------------+
 
-    Only the tables that have false under the **isTemporary** column are hive tables that will be stored in the metastore and can be accessed from the BI tools. In this tutorial, we will connect to the **hvac** table we just created.
+    Only the tables that have false under the **isTemporary** column are hive tables that are stored in the metastore and can be accessed from the BI tools. In this tutorial, we connect to the **hvac** table we created.
 
 8. Verify that the table contains the intended data. In an empty cell in the notebook, copy the following snippet and press **SHIFT + ENTER**.
 
         %%sql
         SELECT * FROM hvac LIMIT 10
 
-9. You can now shutdown the notebook to release the resources. To do so, from the **File** menu on the notebook, click **Close and Halt**. This will shutdown and close the notebook.
+9. Shut down the notebook to release the resources. To do so, from the **File** menu on the notebook, click **Close and Halt**.
 
 ## <a name="powerbi"></a>Use Power BI
 
@@ -128,14 +126,14 @@ Once you have saved the data as a table, you can use Power BI to connect to the 
 
     After the connection is established, Power BI starts importing data from the Spark cluster on HDInsight.
 
-6. Power BI imports the data and adds a new **Spark** dataset under the **Datasets** heading. Click the data set to open a new worksheet to visualize the data. You can also save the worksheet as a report. To save a worksheet, from the **File** menu, click **Save**.
+6. Power BI imports the data and adds a **Spark** dataset under the **Datasets** heading. Click the data set to open a new worksheet to visualize the data. You can also save the worksheet as a report. To save a worksheet, from the **File** menu, click **Save**.
 
     ![Spark tile on Power BI dashboard](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.tile.png "Spark tile on Power BI dashboard")
 7. Notice that the **Fields** list on the right lists the **hvac** table you created earlier. Expand the table to see the fields in the table, as you defined in notebook earlier.
 
       ![List Hive tables](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.display.tables.png "List Hive tables")
 
-8. Build a visualization to show the variance between target temperature and actual temperature for each building. Select **Area Chart** (shown in red box) to visualize your data. To define the axis, drag-and-drop the **BuildingID** field under **Axis**, and **ActualTemp**/**TargetTemp** fields under **Value**.
+8. Build a visualization to show the variance between target temperature and actual temperature for each building. To visualize yoru data, select **Area Chart** (shown in red box). To define the axis, drag-and-drop the **BuildingID** field under **Axis**, and **ActualTemp**/**TargetTemp** fields under **Value**.
 
     ![Create visualizations](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual1.png "Create visualizations")
 
@@ -143,13 +141,13 @@ Once you have saved the data as a table, you can use Power BI to connect to the 
 
     ![Create visualizations](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual2.png)
 
-10. Your data visualization should be similar to the following. Move your cursor over the visualization to get tool tips with relevant data.
+10. Your data visualization should be similar to the one in the screenshot. Move your cursor over the visualization to get tool tips with relevant data.
 
     ![Create visualizations](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual3.png)
 
-11. Click **Save** from the top menu and provide a report name. You can also pin the visual. When you pin a visualization, it will be stored on your dashboard so you can track the latest value at a glance.
+11. Click **Save** from the top menu and provide a report name. You can also pin the visual. When you pin a visualization, it is stored on your dashboard so you can track the latest value at a glance.
 
-   You can add as many visualizations as you want for the same dataset and pin them to the dashboard for a snapshot of your data. Also, Spark clusters on HDInsight are connected to Power BI with direct connect. This means that Power BI always has the most up-to-date from your cluster so you do not need to schedule refreshes for the dataset.
+   You can add as many visualizations as you want for the same dataset and pin them to the dashboard for a snapshot of your data. Also, Spark clusters on HDInsight are connected to Power BI with direct connect. This ensures that Power BI always has the most up-to-date data from your cluster so you do not need to schedule refreshes for the dataset.
 
 ## <a name="tableau"></a>Use Tableau Desktop to analyze data in the table
 
@@ -158,12 +156,12 @@ Once you have saved the data as a table, you can use Power BI to connect to the 
 >
 >
 
-1. Install [Tableau Desktop](http://www.tableau.com/products/desktop) on the computer where you will be running this tutorial. 
+1. Install [Tableau Desktop](http://www.tableau.com/products/desktop) on the computer where you are running this tutorial. 
 
 2. Make sure that computer also has Microsoft Spark ODBC driver installed. You can install the driver from [here](http://go.microsoft.com/fwlink/?LinkId=616229).
 
 1. Launch Tableau Desktop. In the left pane, from the list of server to connect to, click **Spark SQL**. If Spark SQL is not listed by default in the left pane, you can find it by click **More Servers**.
-2. In the Spark SQL connection dialog box, provide the values as shown below, and then click **OK**.
+2. In the Spark SQL connection dialog box, provide the values as shown in the screenshot, and then click **OK**.
 
     ![Connect to a Spark cluster](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.connect.png "Connect to a Spark cluster")
 
@@ -187,7 +185,7 @@ Once you have saved the data as a table, you can use Power BI to connect to the 
 
     ![Merge maps](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.merge.png "Merge maps")
 
-     Your data visualization should change to the following:
+     Your data visualization should change as shown in the screenshot:
 
     ![Visualization](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.final.visual.png "Visualization")
 9. Click **Save** to save the worksheet. You can create dashboards and add one or more sheets to it.
@@ -206,7 +204,7 @@ Once you have saved the data as a table, you can use Power BI to connect to the 
 * [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
