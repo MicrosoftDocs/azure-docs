@@ -34,9 +34,10 @@ The OMS Agent extension for Windows requires that the target virtual machine is 
 
 The following JSON shows the schema for the OMS Agent extension. The extension requires the workspace Id and workspace key from the target OMS workspace, these can be found in the OMS portal. Because the workspace key should be treated as sensitive data, it should be stored in a protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine. Note that **workspaceId** and **workspaceKey** are case-sensitive.
 
-The JSON for a virtual machine extension can either be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON affects the value for the name and resource type. For more information, see [Set name and type for child resources](../azure-resource-manager/resource-manager-template-child-resource.md) 
+The JSON for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON affects the value of the resource name and type. For more information, see [Set name and type for child resources](../azure-resource-manager/resource-manager-template-child-resource.md). 
 
-The following example assumes the OMS extension is nested inside of the virtual machine resource.
+The following example assumes the OMS extension is nested inside the virtual machine resource.
+
 
 ```json
 {
@@ -62,7 +63,7 @@ The following example assumes the OMS extension is nested inside of the virtual 
 }
 ```
 
-When placing the extension JSON at the root of the template, the extension name includes a reference to the parent virtual machine, and the type include a reference to the parent virtual machine resource. Placing the JSON at the root of the JSON template is useful when deploying multiple virtual machines using the `copy` and copyIndex` functions. For more information on deploying multiple virtual machines, see [Deploy multiple instances of resources](../ azure-resource-manager/resource-group-create-multiple.md).
+When placing the extension JSON at the root of the template, the resource name includes a reference to the parent virtual machine, and the type reflects the nested configuration. 
 
 ```json
 {
