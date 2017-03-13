@@ -4,6 +4,7 @@
 ## [What is DocumentDB: API for MongoDB?](documentdb-protocol-mongodb.md)
 ## [Core concepts](documentdb-resources.md)
 ## [Global distribution](documentdb-distribute-data-globally.md)
+## [Security](documentdb-nosql-database-security.md)
 ## [NoSQL TCO analysis](https://aka.ms/documentdb-tco-paper)
 ## Scenarios
 ### [Common use cases](documentdb-use-cases.md)
@@ -15,11 +16,11 @@
 ### [.NET Core console app](documentdb-dotnetcore-get-started.md)
 ### [Java console app](documentdb-java-get-started.md)
 ### [Node.js console app](documentdb-nodejs-get-started.md)
-### [Node.js console app for MongoDB APIs](documentdb-mongodb-samples.md)
+### [Node.js console app for MongoDB API](documentdb-mongodb-samples.md)
 ### [C++ console app](documentdb-cpp-get-started.md)
 ## Build a web app
 ### [.NET web app](documentdb-dotnet-application.md)
-### [.NET web app for MongoDB APIs](documentdb-mongodb-application.md)
+### [.NET web app for MongoDB API](documentdb-mongodb-application.md)
 ### [Node.js web app](documentdb-nodejs-application.md)
 ### [Java web app](documentdb-java-application.md)
 ### [Python Flask web app](documentdb-python-application.md)
@@ -36,32 +37,33 @@
 ### [Cost-effective reads and writes](documentdb-key-value-store-cost.md)
 
 ## Manage
+### [Request units](documentdb-request-units.md)
 ### [Import your data](documentdb-import-data.md)
 ### [Import to API for MongoDB](documentdb-mongodb-migrate.md)
 ### [Connect to your MongoDB account](documentdb-connect-mongodb-account.md)
 ### [Using MongoChef](documentdb-mongodb-mongochef.md)
 ### [Using Robomongo](documentdb-mongodb-robomongo.md)
 ### [Model your data](documentdb-modeling-data.md)
-### [Use geospatial data](documentdb-geospatial.md)
-### [Develop for multi-regions](documentdb-developing-with-multiple-regions.md)
-### [Regional failovers](documentdb-regional-failovers.md)
 ### [Expire data automatically](documentdb-time-to-live.md)
-### [Customize your indexes](documentdb-indexing-policies.md)
-### [Secure access to data](documentdb-secure-access-to-data.md)
 ### [Back up and restore](documentdb-online-backup-and-restore.md)
+### [Regional failovers](documentdb-regional-failovers.md)
+### Automation
+#### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+#### [Azure CLI 1.0: Create an account](documentdb-automation-resource-manager-cli-nodejs.md)
+#### [Azure CLI 1.0: Add or remove regions](documentdb-automation-region-management.md)
+#### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
+### Security
+#### [Secure access to data](documentdb-secure-access-to-data.md)
+#### [Firewall support](documentdb-firewall-support.md)
 ### [Retire S1, S2, S3](documentdb-performance-levels.md)
-### [Request units](documentdb-request-units.md)
-### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
-### Azure CLI 1.0
-#### [Create an account](documentdb-automation-resource-manager-cli-nodejs.md)
-#### [Add or remove regions](documentdb-automation-region-management.md)
-### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
-### [Firewall support](documentdb-firewall-support.md)
 
 ## Develop
 ### [SQL query](documentdb-sql-query.md)
 ### [Stored procedures, triggers, and UDFs](documentdb-programming.md)
+### [Customize your indexes](documentdb-indexing-policies.md)
+### [Multi-region development](documentdb-developing-with-multiple-regions.md)
 ### [Track changes with Change feed](documentdb-change-feed.md)
+### [Use geospatial data](documentdb-geospatial.md)
 ### [Performance testing](documentdb-performance-testing.md)
 ### [Performance tips](documentdb-performance-tips.md)
 ### Best practices
