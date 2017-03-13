@@ -3,7 +3,7 @@ title: Diagnostics in Azure Stack | Microsoft Docs
 description: How to collect log files for diagnostics in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: vhorne
+author: adshar
 manager: byronr
 editor: ''
 
@@ -90,7 +90,7 @@ To identify all the logs that get collected from all the components, refer to th
  
 ### To run Get-AzureStackLogs
 1.	Log in as AzureStack\AzureStackAdmin on the host.
-2.	Open a PowerShell window.
+2.	Open a PowerShell window as an administrator.
 3.	Run the following commands to import the PowerShell modules:
 
     -	`cd C:\CloudDeployment\AzureStackDiagnostics\Microsoft.AzureStack.Diagnostics.DataCollection`
