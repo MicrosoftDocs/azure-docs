@@ -31,7 +31,7 @@ Reports in the Azure classic portal are separated into categories:
 
 ### Activity and integrated app reports
 
-Using context-based reporting, in the Azure portal, existing reports are merged into a single view. A single, underlying API provides the data to the view.
+For context-based reporting in the Azure portal, existing reports are merged into a single view. A single, underlying API provides the data to the view.
 
 To see this view, on the **Azure Active Directory** blade, under **ACTIVITY**, select **Audit logs**.
 
