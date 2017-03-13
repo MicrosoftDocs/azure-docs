@@ -22,7 +22,7 @@ ms.author: cherylmc
 
 There are a couple of different approaches you can take when you want to delete a virtual network gateway.
 
-- If you want to delete everything and start over, as in the case of a test environment or when you are just trying a few things out, you can delete an entire resource group. When you delete a resource group, it deletes all of the resources within the group. This is only recommended if you don't want to keep any of the resources in the resource group. You can't selectively delete only a few resources this way.
+- If you want to delete everything and start over, as in the case of a test environment or, you can delete an entire resource group. When you delete a resource group, it deletes all the resources within the group. This is only recommended if you don't want to keep any of the resources in the resource group. You can't selectively delete only a few resources this way.
 
 - If you want to keep some of the resources in your resource group, deleting a virtual network gateway is more specific. Before you can delete the virtual network gateway, you must first delete any resources that are dependent on the gateway. The steps you follow depend on the type of connections that you created.
 
@@ -123,7 +123,7 @@ There may be other connections to the virtual network gateway that are part of a
 	get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG2" | where-object {$_.VirtualNetworkGateway2.Id -eq $GW.Id}
 
 ###3. Get the list of connections in both directions.
-Because this is a VNet-to-VNet configuration, you will need the list of connections in both directions.
+Because this is a VNet-to-VNet configuration, you need the list of connections in both directions.
 
 	$ConnsL=get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
  
@@ -168,29 +168,29 @@ You may be prompted to confirm the deletion of the Public IP.
 If you are not concerned about keeping any of your resources and you just want to start over, you can delete an entire resource group. This is a quick way to remove everything. When you delete an entire resource group, it's not selective about the resources that you delete. So make sure that this is what you want to do before running the example.
 
 
-### 1. Get a list of all of the resource groups in your subscription.
+### 1. Get a list of all the resource groups in your subscription.
 
 	Get-AzureRmResourceGroup
 ### 2. Locate the resource group that you want to delete.
-Locate the resource group that you want to delete and view the list of resources in that resource group. In the example, the name of the resource group is RG1. Modify the example to retrieve a list of all of the resources.
+Locate the resource group that you want to delete and view the list of resources in that resource group. In the example, the name of the resource group is RG1. Modify the example to retrieve a list of all the resources.
 
 	Find-AzureRmResource -ResourceGroupNameContains RG1
 
 ### 3. Verify the resources in the list.
-When the list is returned, review it to verify that you want to delete all of the resources in the resource group, as well as the resource group itself. 
+When the list is returned, review it to verify that you want to delete all the resources in the resource group, as well as the resource group itself. 
 
 
 ### 4. Delete the resource group and resources.
-To delete the resource group and all of the resource contained in the resource group, modify the example and run.
+To delete the resource group and all the resource contained in the resource group, modify the example and run.
 
 	Remove-AzureRmResourceGroup -Name RG1
 
 ### 5. Check the status.
-It takes some time for Azure to delete all of the resources. You can check the status of your resource group by using this cmdlet.
+It takes some time for Azure to delete all the resources. You can check the status of your resource group by using this cmdlet.
 
 	Get-AzureRmResourceGroup -ResourceGroupName RG1
 
-The result that is returned will show 'Succeeded'.
+The result that is returned shows 'Succeeded'.
 
 	ResourceGroupName : RG1
 	Location          : eastus
