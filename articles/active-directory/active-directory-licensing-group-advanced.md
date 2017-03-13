@@ -40,11 +40,11 @@ Consider an on-premises identity management solution that decides which users sh
 
 For this example, the goal is to distribute Office 365 Enterprise E5 and Enterprise Mobility + Security licenses to users. In Azure AD, create two dynamic groups, one for each product. This is because some users may need one of the products, but not the other. Then specify the dynamic membership rule and license settings on each group. Here's what they look like:
 
-#### Office 365 Enterprise E5 – base services
+#### Office 365 Enterprise E5: base services
 
 ![Screenshot of Office 365 Enterprise E5 base services](media/active-directory-licensing-group-advanced/o365-e5-base-services.png)
 
-#### Enterprise Mobility + Security – licensed users
+#### Enterprise Mobility + Security: licensed users
 
 ![Screenshot of Enterprise Mobility + Security licensed users](media/active-directory-licensing-group-advanced/o365-e5-licensed-users.png)
 
@@ -65,7 +65,7 @@ It's better not to change the membership rule on a group used for license assign
 
 A user can be a member of multiple groups with licenses. Here are some things to consider:
 
-- Multiple licenses for the same product can overlap, and result in all of the enabled services being applied to the user. The following example shows two licensing groups: *E3 – base services* contains the foundation services to deploy first, to all users. And *E3 – extended services* contains additional services (Sway and Planner) to deploy only to some users. Note that Yammer remains disabled for future deployment. In this example, the user was added to both groups:
+- Multiple licenses for the same product can overlap, and result in all of the enabled services being applied to the user. The following example shows two licensing groups: *E3 base services* contains the foundation services to deploy first, to all users. And *E3 extended services* contains additional services (Sway and Planner) to deploy only to some users. Note that Yammer remains disabled for future deployment. In this example, the user was added to both groups:
 
   ![Screenshot of enabled services](media/active-directory-licensing-group-advanced/view-enabled-services.png)
 
@@ -83,7 +83,7 @@ It is possible, however, to assign the same product license directly to the user
 
 Directly assigned licenses can be removed, but that won’t affect the inherited license. For example, consider the following user, who inherits an Office 365 Enterprise E3 license from a group.
 
-1. Initially, the user inherits the license only from the *E3 – basic services* group. This enables 4 service plans, as shown in the following image.
+1. Initially, the user inherits the license only from the *E3 basic services* group. This enables 4 service plans, as shown in the following image.
 
   ![Screenshot of E3 group enabled services](media/active-directory-licensing-group-advanced/e3-group-enabled-services.png)
 
@@ -136,7 +136,7 @@ During the preview period of an Azure AD release, PowerShell cannot be used to f
           {
               # GroupsAssigningLicense contains a collection of IDs of objects assigning the license
               # This could be a group object or a user object (contrary to what the name suggests)
-              # If the collection is empty, this means the license is assigned directly - this is the case for users who have never been licensed via groups in the past
+              # If the collection is empty, this means the license is assigned directly. This is the case for users who have never been licensed via groups in the past
 
               if ($license.GroupsAssigningLicense.Count -eq 0)
               {
