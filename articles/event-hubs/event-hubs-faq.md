@@ -24,7 +24,7 @@ ms.author: sethm;jotaub;shvija
 ### What is the difference between Event Hubs Basic and Standard tiers?
 The Standard tier of Azure Event Hubs provides features beyond what is available in the Basic tier. The following features are included with Standard:
 * Longer event retention
-* Additional brokered connections, with the ability to purchase more than the amount included
+* Additional brokered connections, with an overage charge for more than the number included
 * More than a single Consumer Group
 * [Archive](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview)
 
