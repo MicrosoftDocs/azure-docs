@@ -21,11 +21,11 @@ ms.author: negat
 
 # Create and modify a minimum viable scale set template
 
-[Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) are a great way to deploy groups of related resources. This tutorial series shows how to create a minimum viable scale set template and how to modify this template to suit various scenarios. All examples come from this [github repo](https://github.com/gatneil/mvss). Each diff shown in this walkthrough is the result of doing a `git diff` between branches in this repo. These templates and diffs are intended to be simple, not full-fledged, examples. For more complete examples of scale set templates, see the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates) and search for folders that contain the string `vmss`.
+[Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) are a great way to deploy groups of related resources. This tutorial shows how to create a minimum viable scale set template and modify it to suit various scenarios. All examples come from this [github repo](https://github.com/gatneil/mvss). Each diff shown in this walkthrough is the result of doing a `git diff` between branches in this repo. These templates and diffs are not full-fledged examples. For more complete examples of scale set templates, see the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates) and search for folders that contain the string `vmss`.
 
 ## Create a template
 
-Our minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json). If you are already familiar with templates, you can skip to the "Next Steps" section to see how to modify this template for other scenarios. However, if you are less familiar with templates, this piece by piece description might be helpful. To start, let's examine the diff to create this template (`git diff master minimum-viable-scale-set`) piece by piece:
+Use GitHub to see the minimum viable scale set template used in this tutorial,  [azuredeploy.json](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json). If you are already familiar with templates, you can skip to the "Next Steps" section to see how to modify this template for other scenarios. If you are less familiar with templates, this step-by-step description might be helpful. To start, examine the diff to create this template (`git diff master minimum-viable-scale-set`) piece by piece:
 
 First, we define the `$schema` and `contentVersion` of the template. `$schema` defines the version of the template language and is used for Visual Studio syntax highlighting and similar validation features. `contentVersion` is actually not used by Azure at all. Instead, it helps you keep track of which version of the template this is.
 
@@ -76,7 +76,7 @@ To specify the location for the virtual network, we are using a [Resource Manage
 ```
 
 
-Each Resource Manager resource has its own `properties` section for configurations specific to the resource. In this case, we are specifying that the virtual network should have one subnet using the private IP address range `10.0.0.0/16`. A scale set is always contained within one subnet. It cannot span subnets.
+Each Resource Manager resource has its own `properties` section for configurations specific to the resource. In this case, we specify that the virtual network should have one subnet using the private IP address range `10.0.0.0/16`. A scale set is always contained within one subnet. It cannot span subnets.
 
 ```diff
 +      "properties": {
@@ -97,7 +97,7 @@ Each Resource Manager resource has its own `properties` section for configuratio
 +    },
 ```
 
-In addition to the required `type`, `name`, `apiVersion`, and `location` properties, each resource can have an optional `dependsOn` list of strings. This list specifies which other resources from this deployment must finish before deploying this resource. In this case, there is only one element in this list, the virtual network from above. We specify this dependency because the scale set needs the network to exist before creating any VMs. This way, the scale set can give these VMs private IP addresses from the IP address range specified in the network properties previously. The format of each string in the dependsOn list is `<type>/<name>`. This is the same `type` and `name` used previously in the virtual network resource definition).
+In addition to the required `type`, `name`, `apiVersion`, and `location` properties, each resource can have an optional `dependsOn` list of strings. This list specifies which other resources from this deployment must finish before deploying this resource. In this case, there is only one element in this list, the virtual network from the previous example. We specify this dependency because the scale set needs the network to exist before creating any VMs. This way, the scale set can give these VMs private IP addresses from the IP address range previously specified in the network properties. The format of each string in the dependsOn list is `<type>/<name>`. This is the same `type` and `name` used previously in the virtual network resource definition.
 
 ```diff
 +    {
