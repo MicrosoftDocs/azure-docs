@@ -8,12 +8,12 @@
    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
    >
    >
-2. In Windows Firewall on the computer you want to protect, select **Allow an app or feature through Firewall**. Enable **File and Printer Sharing** and **Windows Management Instrumentation**. For computers that belong to a domain, you can configure the firewall settings by using a group policy object.
+2. In Windows Firewall on the computer you want to protect, select **Allow an app or feature through Firewall**. Enable **File and Printer Sharing** and **Windows Management Instrumentation**. For computers that belong to a domain, you can configure the firewall settings by using a Group Policy object (GPO).
 
    ![Firewall settings](./media/site-recovery-prepare-push-install-mob-svc-win/mobility1.png)
 
 3. Add the account you created in CSPSConfigtool.
     1.  Sign in to your configuration server.
-    2.  Start **cspsconfigtool.exe**. (It's available as a shortcut on the desktop and in the %ProgramData%\home\svsystems\bin folder.)
+    2.  Open **cspsconfigtool.exe**. (It's available as a shortcut on the desktop and in the %ProgramData%\home\svsystems\bin folder.)
     3.  On the **Manage Accounts** tab, select **Add Account**.
     4.  Add the account you created. After you add the account, enter the credentials you use when you enable replication for a computer.
