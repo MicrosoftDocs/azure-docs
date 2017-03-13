@@ -76,7 +76,6 @@ To create the route table and route needed for the front end subnet based on the
 
 2. Create a route that sends all traffic destined to the back-end subnet (192.168.2.0/24) to the **FW1** VM (192.168.0.4) using the [az network route-table route create](/cli/azure/network/route-table/route#create) command:
 
-
     ```azurecli 
     az network route-table route create \
     --resource-group testrg \
@@ -89,18 +88,18 @@ To create the route table and route needed for the front end subnet based on the
 
     Output:
 
-        ```json
-        {
-        "addressPrefix": "192.168.2.0/24",
-        "etag": "W/\"<guid>\"",
-        "id": "/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/routeTables/UDR-FrontEnd/routes/RouteToBackEnd",
-        "name": "RouteToBackEnd",
-        "nextHopIpAddress": "192.168.0.4",
-        "nextHopType": "VirtualAppliance",
-        "provisioningState": "Succeeded",
-        "resourceGroup": "testrg"
-        }
-        ```
+    ```json
+    {
+    "addressPrefix": "192.168.2.0/24",
+    "etag": "W/\"<guid>\"",
+    "id": "/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/routeTables/UDR-FrontEnd/routes/RouteToBackEnd",
+    "name": "RouteToBackEnd",
+    "nextHopIpAddress": "192.168.0.4",
+    "nextHopType": "VirtualAppliance",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "testrg"
+    }
+    ```
     
     Parameters:
     
@@ -194,41 +193,41 @@ To enable IP forwarding in the NIC used by **FW1**, complete the following steps
 
 1. Run the [az network nic show](/cli/az/network/nic#show) command with a JMESPATH filter to display the current **enable-ip-forwarding** value for **Enable IP forwarding**. It should be set to *false*.
 
-    ```azurecli
-    az network nic show \
-    --resource-group testrg \
-    --nname nicfw1 \
-    --query 'enableIpForwarding' -o tsv
-    ```
+        ```azurecli
+        az network nic show \
+        --resource-group testrg \
+        --nname nicfw1 \
+        --query 'enableIpForwarding' -o tsv
+        ```
 
-    Output:
+        Output:
 
-    ```bash
-    false
-    ```
+        ```bash
+        false
+        ```
 
 2. Run the following command to enable IP forwarding:
 
-	```azurecli
-    az network nic update \
-    > --resource-group testrg \
-    > --name nicfw1 \
-    > --ip-forwarding true
-    ```
+        ```azurecli
+        az network nic update \
+        > --resource-group testrg \
+        > --name nicfw1 \
+        > --ip-forwarding true
+        ```
 
     You can examine the output streamed to the console, or just retest for the specific **enableIpForwarding** value:
 
-    ```azurecli
-    az network nic show -g testrg -n nicfw1 --query 'enableIpForwarding' -o tsv
-    ```
+        ```azurecli
+        az network nic show -g testrg -n nicfw1 --query 'enableIpForwarding' -o tsv
+        ```
 
     Output:
 
-    ```bash
-    true
-    ```
-   
+        ```bash
+        true
+        ```
+    
     Parameters:
-   
-   * **--ip-forwarding**. *true* or *false*.
+    
+    * **--ip-forwarding**. *true* or *false*.
 
