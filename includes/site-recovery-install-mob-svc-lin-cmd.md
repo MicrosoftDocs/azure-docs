@@ -13,15 +13,15 @@
 
 |Parameter|Type|Description|Possible values|
 |-|-|-|-|
-|-t |Mandatory|Agent type.<br>(This will be deprecated in the next release.)|*both*|
-|-a |Mandatory|Agent configuration.<br>(This will be deprecated in the next release.) |*host*|
-|-R |Optional|Role of the agent.|Agent<br>MasterTarget|
-|-d |Optional|Location where Mobility Service will be installed.|/usr/local/ASR|
-|-i |Mandatory|IP address of the configuration server.|Any valid IP address.|
-|-p |Mandatory|Port on which the configuration server listens for incoming connections.|443|
-|-s |Mandatory|Starts the service after a successful installation.<br>(This will be deprecated in the next release.)|*y*|
-|-c |Mandatory|Communication mode between the agent and process server.<br>(This will be deprecated in the next release.) |*https*|
-|-P |Mandatory|Configuration server passphrase.|Any valid UNC or local file path.|
+|-t |Mandatory|Agent type<br>(This will be deprecated in the next release.)|*both*|
+|-a |Mandatory|Agent configuration<br>(This will be deprecated in the next release.) |*host*|
+|-R |Optional|Role of the agent|Agent<br>MasterTarget|
+|-d |Optional|Location where Mobility Service will be installed|/usr/local/ASR|
+|-i |Mandatory|IP address of the configuration server|Any valid IP address|
+|-p |Mandatory|Port on which the configuration server listens for incoming connections|443|
+|-s |Mandatory|Starts the service after a successful installation<br>(This will be deprecated in the next release.)|*y*|
+|-c |Mandatory|Communication mode between the agent and process server<br>(This will be deprecated in the next release.) |*https*|
+|-P |Mandatory|Configuration server passphrase|Any valid UNC or local file path|
 
 
 #### Example

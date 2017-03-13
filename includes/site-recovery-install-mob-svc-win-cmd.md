@@ -21,11 +21,11 @@ UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Installation di
 
   | Parameter|Type|Description|Possible values|
   |-|-|-|-|
-  |/Role|Mandatory|Specifies whether Mobility Service should be installed.|Agent </br> MasterTarget|
-  |/InstallLocation|Mandatory|Location where Mobility Service is installed.|Any folder on the computer.|
-  |/CSIP|Mandatory|IP address of the configuration server.| Any valid IP address.|
-  |/PassphraseFilePath|Mandatory|Location of the passphrase. |Any valid UNC or local file path.|
-  |/LogFilePath|Optional|Location of the installation log.|Any valid folder on the computer.|
+  |/Role|Mandatory|Specifies whether Mobility Service should be installed|Agent </br> MasterTarget|
+  |/InstallLocation|Mandatory|Location where Mobility Service is installed|Any folder on the computer|
+  |/CSIP|Mandatory|IP address of the configuration server| Any valid IP address|
+  |/PassphraseFilePath|Mandatory|Location of the passphrase |Any valid UNC or local file path|
+  |/LogFilePath|Optional|Location of the installation log|Any valid folder on the computer|
 
 #### Example
 
