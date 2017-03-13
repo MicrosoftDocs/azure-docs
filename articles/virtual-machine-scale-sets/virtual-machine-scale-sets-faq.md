@@ -24,55 +24,6 @@ ms.custom: na
 
 This article contains answers to frequently asked questions about scale sets.
 
-## Compliance
-
-### Are scale sets PCI-compliant?
-
-Scale Sets are a thin API layer on top of the Compute Resource Provider, which is all a part of the “Compute Platform” area within the Azure Service Tree.
-
-Therefore, from a compliance perspective, scale sets are a fundamental part of the Azure Compute Platform. As such, they share the same team, tools, processes, deployment methodology, security controls, JIT, monitoring, alerting, etc. as the Compute Resource Provider (CRP) itself.  Scale sets are PCI-compliant because Compute Resource Provider is a part of the current PCI DSS attestation:
-
-For more information, See: [https://www.microsoft.com/TrustCenter/Compliance/PCI](https://www.microsoft.com/TrustCenter/Compliance/PCI).
-
-
-
-## VM Properties
-
-### How do I get property information for each VM without having to make multiple calls? For example: getting the Fault Domain for each VM in my 100 scale set?
-
-You can call ListVMInstanceViews by doing a REST API `GET` on the following resource URI:
-
-`/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView`
-
-### Are there ways to pass different extension arguments to different VMs in a scale set?
-
-No, but extensions can act based on unique properties of the VM they are running on, such as the machine name. Additionally, extensions can query instance metadata on http://169.254.169.254 to get more information.
-
-### Why are there gaps between my scale set VM machine names and VM IDs? For example: 0, 1, 3...
-
-There are gaps because your scale set overprovision property is set to the default value of true. With overprovisioning true, more VMs than requested are created, and the extra VMs are subsequently deleted. What you gain is increased deployment reliability at the expense of contiguous naming and contiguous NAT rules. You can set this property to false, and for small scale sets it won’t make much difference to deployment reliability.
-
-### What is the difference between deleting a VM in a Scale Set vs. deallocating the VM? When should I choose one over the other?
-
-The main difference is that deallocate doesn’t delete the VHDs, so there are storage costs associated with stop deallocate. Reasons you might use one over the other include:
-
-- You want to stop paying Compute but keep the disk state of the VMs.
-- You want to start a set of VMs faster than scaling out a scale set.
-  - related to this scenario, you created your own autoscale engine and want faster end to end scale.
-  - You have a scale set that is unevenly distributed across FD/UDs (due to selectively deleting VMs or due to VMs being deleted after overprovisioning). Stop deallocate followed by start on the scale set will evenly distribute the VMs across FD/UDs.
-
-## Updates
-
-### How to I update my scale set to a new image and manage patching?
-
-See: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set
-
-### Can you use the reimage operation to reset a VM without changing the image? (that is, reset a VM to factory settings rather than to a new image)?
-
-Yes. See: https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set
-
-However, if your scale set references a platform image with version = “latest” your VM can update to a later OS image when you call reimage.
-
 ## Autoscale
 
 ### What are best practices for Azure autoscale?
@@ -136,53 +87,7 @@ https://azure.microsoft.com/documentation/articles/insights-autoscale-common-met
 
 See https://msftstack.wordpress.com/2017/03/05/how-to-add-autoscale-to-an-azure-vm-scale-set/
 
-## Scale
 
-### Why would you ever create a scale set with fewer than 2 VMs?
-
-One reason would be to use the elastic properties of a scale set. For example, you could deploy a scale set with zero VMs in order to define your infrastructure without paying VM running costs. Then, when you are ready to deploy VMs, you do so by increasing the “capacity” of the scale set to the production instance count.
-
-Another reason is when you’re doing something with your scale set where you don’t care about availability in the same sense as using an availability set with discrete VMs. Scale sets add a way to work with undifferentiated compute units that are fungible. This uniformity is a key differentiator for scale sets vs. availability sets. Many stateless workloads do not care about individual units, and can scale down to one compute unit if the workload drops, then back to many when the workload increases.
-
-### How do you change the number of VMs in a scale set?
-
-See: https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/
-
-### How can you define custom alerts for when certain thresholds are reached?
-
-You have some flexibility how you handle alerts; for example you can define customized webhooks like this example from a Resource Manager template:
-```json
-   {
-         "type": "Microsoft.Insights/autoscaleSettings",
-	       "apiVersion": "[variables('insightsApi')]",
-	             "name": "autoscale",
-		           "location": "[parameters('resourceLocation')]",
-			         "dependsOn": [
-				         "[concat('Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]"
-				 ],
-				 "properties": {
-				         "name": "autoscale",
-					 "targetResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/',  resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
-					 "enabled": true,
-					 "notifications": [{
-					 		  "operation": "Scale",
-							  "email": {
-							  	   "sendToSubscriptionAdministrator": true,
-							  	   "sendToSubscriptionCoAdministrators": true,
-							  	   "customEmails": [
-							  		  "youremail@address.com"
-							  	   ]},
-							  "webhooks": [{
-									"serviceUri": "https://events.pagerduty.com/integration/0b75b57246814149b4d87fa6e1273687/enqueue",
-									"properties": {
-										"key1": "custommetric",
-										"key2": "scalevmss"
-									}
-									}
-							  ]}],
-```
-
-In this example, an alert goes to Pagerduty when a threshold is reached.
 
 
 ## Certificates
@@ -415,6 +320,25 @@ http://www.rahulpnath.com/blog/pfx-certificate-in-azure-key-vault/
  
 We currently do not support .cer files, you must export your .cer files into pfx containers.
 
+
+
+
+
+## Compliance
+
+### Are scale sets PCI-compliant?
+
+Scale Sets are a thin API layer on top of the Compute Resource Provider, which is all a part of the “Compute Platform” area within the Azure Service Tree.
+
+Therefore, from a compliance perspective, scale sets are a fundamental part of the Azure Compute Platform. As such, they share the same team, tools, processes, deployment methodology, security controls, JIT, monitoring, alerting, etc. as the Compute Resource Provider (CRP) itself.  Scale sets are PCI-compliant because Compute Resource Provider is a part of the current PCI DSS attestation:
+
+For more information, See: [https://www.microsoft.com/TrustCenter/Compliance/PCI](https://www.microsoft.com/TrustCenter/Compliance/PCI).
+
+
+
+
+
+
 ## Extensions
 
 ### How do you delete a scale set extension?
@@ -529,6 +453,11 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 You must set up protected settings with the storage account key and name for this scenario to work. See https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings
 
 
+
+
+
+
+
 ## Networking
  
 ### How do I do VIP swap for scale sets in the same subscription and same region?
@@ -549,8 +478,60 @@ The allocation method of scale set IPs is always “Dynamic”. It does not mean
 ### How do I deploy a scale set into an existing VNET? 
 
 See https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet 
- 
-   
+
+
+
+
+## Scale
+
+### Why would you ever create a scale set with fewer than 2 VMs?
+
+One reason would be to use the elastic properties of a scale set. For example, you could deploy a scale set with zero VMs in order to define your infrastructure without paying VM running costs. Then, when you are ready to deploy VMs, you do so by increasing the “capacity” of the scale set to the production instance count.
+
+Another reason is when you’re doing something with your scale set where you don’t care about availability in the same sense as using an availability set with discrete VMs. Scale sets add a way to work with undifferentiated compute units that are fungible. This uniformity is a key differentiator for scale sets vs. availability sets. Many stateless workloads do not care about individual units, and can scale down to one compute unit if the workload drops, then back to many when the workload increases.
+
+### How do you change the number of VMs in a scale set?
+
+See: https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/
+
+### How can you define custom alerts for when certain thresholds are reached?
+
+You have some flexibility how you handle alerts; for example you can define customized webhooks like this example from a Resource Manager template:
+```json
+   {
+         "type": "Microsoft.Insights/autoscaleSettings",
+	       "apiVersion": "[variables('insightsApi')]",
+	             "name": "autoscale",
+		           "location": "[parameters('resourceLocation')]",
+			         "dependsOn": [
+				         "[concat('Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]"
+				 ],
+				 "properties": {
+				         "name": "autoscale",
+					 "targetResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/',  resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
+					 "enabled": true,
+					 "notifications": [{
+					 		  "operation": "Scale",
+							  "email": {
+							  	   "sendToSubscriptionAdministrator": true,
+							  	   "sendToSubscriptionCoAdministrators": true,
+							  	   "customEmails": [
+							  		  "youremail@address.com"
+							  	   ]},
+							  "webhooks": [{
+									"serviceUri": "https://events.pagerduty.com/integration/0b75b57246814149b4d87fa6e1273687/enqueue",
+									"properties": {
+										"key1": "custommetric",
+										"key2": "scalevmss"
+									}
+									}
+							  ]}],
+```
+
+In this example, an alert goes to Pagerduty when a threshold is reached.
+
+
+
 ## Troubleshooting
 
 ### How do I enable boot diagnostics?
@@ -576,4 +557,55 @@ Then when a new VM is created the InstanceView of the VM shows the details for t
 
  
 
+## Updates
 
+### How to I update my scale set to a new image and manage patching?
+
+See: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set
+
+### Can you use the reimage operation to reset a VM without changing the image? (that is, reset a VM to factory settings rather than to a new image)?
+
+Yes. See: https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set
+
+However, if your scale set references a platform image with version = “latest” your VM can update to a later OS image when you call reimage.
+
+
+
+
+
+
+
+## VM Properties
+
+### How do I get property information for each VM without having to make multiple calls? For example: getting the Fault Domain for each VM in my 100 scale set?
+
+You can call ListVMInstanceViews by doing a REST API `GET` on the following resource URI:
+
+`/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView`
+
+### Are there ways to pass different extension arguments to different VMs in a scale set?
+
+No, but extensions can act based on unique properties of the VM they are running on, such as the machine name. Additionally, extensions can query instance metadata on http://169.254.169.254 to get more information.
+
+### Why are there gaps between my scale set VM machine names and VM IDs? For example: 0, 1, 3...
+
+There are gaps because your scale set overprovision property is set to the default value of true. With overprovisioning true, more VMs than requested are created, and the extra VMs are subsequently deleted. What you gain is increased deployment reliability at the expense of contiguous naming and contiguous NAT rules. You can set this property to false, and for small scale sets it won’t make much difference to deployment reliability.
+
+### What is the difference between deleting a VM in a Scale Set vs. deallocating the VM? When should I choose one over the other?
+
+The main difference is that deallocate doesn’t delete the VHDs, so there are storage costs associated with stop deallocate. Reasons you might use one over the other include:
+
+- You want to stop paying Compute but keep the disk state of the VMs.
+- You want to start a set of VMs faster than scaling out a scale set.
+  - related to this scenario, you created your own autoscale engine and want faster end to end scale.
+  - You have a scale set that is unevenly distributed across FD/UDs (due to selectively deleting VMs or due to VMs being deleted after overprovisioning). Stop deallocate followed by start on the scale set will evenly distribute the VMs across FD/UDs.
+
+
+
+
+
+
+
+
+ 
+   
