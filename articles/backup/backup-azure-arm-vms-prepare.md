@@ -170,6 +170,44 @@ Before registering a VM with a vault, run the discovery process to ensure that a
 After successfully enabling the backup, your backup policy will execute on schedule. If you would like to generate an on-demand backup job to back up the virtual machines now, see [Triggering the Backup job](./backup-azure-arm-vms.md#triggering-the-backup-job).
 
 If you have problems registering the virtual machine, see the following information on installing the VM Agent and on Network connectivity. You probably don't need the following information if you are protecting virtual machines created in Azure. However if you migrated your virtual machines into Azure, then be sure you have properly installed the VM agent and that your virtual machine can communicate with the virtual network.
+## Configuring pre-script & post-script for Linux VMs
+If you are running Linux VMs in Azure, we provide a capability to control your backups by running custom pre-script and post-script while taking VM snapshot. Pre-script is executed just before taking the VM snapshot and post-script is executed immediately after snapshot completion. To ensure file-system consistent backup, Azure Backup uses fsfreeze to freeze Linux filesystems which is enabled by default. You can also use the below settings to disable fsfreeze as per your requirement.
+### Step 1: Copy the configuration & scripts to the VM to be backed up
+1. Connect to the VM to be backed up as the root user
+2. Download VMSnapshotScriptPluginConfig.json from [github] (https://github.com/MicrosoftAzureBackup/VMSnapshotScriptPluginConfig)
+3. Copy the VMSnapshotScriptPluginConfig.json from step 2 to /etc/azure folder on the VM to be backed up. If /etc/azure folder doesnot exist, pease create a folder with this name.
+4. Copy your pre-script and post-script on the VM to be backed up
+5. Change permission for the VMSnapshotScriptPluginConfig.json as well as the pre-script and post-script to ensure you have 700 permissions.
+> [!NOTE]
+> Make sure root user the the owner for VMSnapshotScriptPluginConfig.json as well as the pre-script and post-script files and they have 700 permissions i.e. only root user should have permissions to these files else the scripts will fail.
+>
+>
+### Step 2: Configure the pre-script and post-script framework
+Now the scripts and the VMSnapshotScriptPluginConfig.json are copied to the VM, you need to configure VMSnapshotScriptPluginConfig.json file as per your requirements to control backup of Linux VMs.
+1. Ensure you are logged in to the VM as root user
+2. open VMSnapshotScriptPluginConfig.json file, you will see following options:
+* **pluginName** - Please don't change this, leave it with default value
+* **preScriptLocation** - Please enter the full path of your pre-script that you have copied to the VM in the above step (Step 1.4)
+* **postScriptLocation** - Please enter the full path of your post-script that you have copied to the VM in the above step (Step 1.4)
+* **preScriptParams** - This is an optional field to pass any parameter to the pre-script if required
+* **postScriptParams** - This is an optional field to pass any parameter to the post-script if required
+* **preScriptNoOfRetries** - 0 means no re-tries but script will be executed once. Use this field to configure the number of re-tries if you pre-script fails before terminating the scripts and fall back to file system consistent backup (or even fail the backup based on your requirement as described below). Please don't keep very high values else your backup might take longer and can even impact production environment depending on your scripts and the exact point of failure.
+* **postScriptNoOfRetries** - 0 means no re-tries but script will be executed once. Use this field to configure the number of re-tries if you pre-script fails before terminating the scripts and fall back to file system consistent backup (or even fail the backup based on your requirement as described below). Please don't keep very high values else your backup might take longer and can even impact production environment depending on your scripts and the exact point of failure.
+* **timeoutInSeconds** - Specify the time out for both pre-script and post-script. For e.g. setting up 10 seconds your pre-script and post-script both will have an upper timeout limit of 10 seconds.
+* **continueBackupOnFailure** - This specifies if Azure Backup should continue with file system/crash consistent backup as a fallback option if the pre/post script fails. "true" means the fallback option is enabled.
+* **fsFreezeEnabled** - Azure Backup uses [Linux fsfreeze commands] (http://manpages.ubuntu.com/manpages/xenial/man8/fsfreeze.8.html) to freeze the file system while taking VM snapshot, this ensures file system consistency. If fsfreeze interferes with your application/scripts, you can disable fsfreeze by setting this flag to "false". 
+> [!NOTE]
+> If you set fsfreeze to false, Azure Backup will not be able to guarantee File system consistency for backups.
+>
+>
+### Step 3: Enable VM Backup
+Now you can enable VM backup, if the VM was already configured for backup subsequent backups after the above changes will call pre-script & post-script. 
+If you check the recovery points post the above changes, Linux VM recovery points will be marked as application consistent if the pre-script and post-script succeeed. 
+
+> [!NOTE]
+> Azure Backup only invokes the customer written pre-script and post-script, application-consistency should be guaranteed by these scripts that customer control. Azure Backup will mark the recovery point as application consistent which will signify that pre-script and post-script we executed successfully.
+>
+>
 
 ## Install the VM Agent on the virtual machine
 The Azure VM Agent must be installed on the Azure virtual machine for the Backup extension to work. If your VM was created from the Azure gallery, then the VM Agent is already present on the virtual machine. This information is provided for the situations where you are *not* using a VM created from the Azure gallery - for example you migrated a VM from an on-premises datacenter. In such a case, the VM Agent needs to be installed in order to protect the virtual machine. Learn about the [VM Agent](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md#azure-vm-agents-for-windows-and-linux).
