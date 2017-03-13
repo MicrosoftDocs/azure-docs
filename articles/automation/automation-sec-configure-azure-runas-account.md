@@ -14,17 +14,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/08/2017
+ms.date: 03/10/2017
 ms.author: magoedte
 
 ---
 # Authenticate Runbooks with Azure Run As account
-This topic will show you how to configure an Automation account from the Azure portal using the Run As account feature to authenticate runbooks managing resources in either Azure Resource Manager or Azure Service Management.
+This topic shows you how to configure an Automation account from the Azure portal using the Run As account feature to authenticate runbooks managing resources in either Azure Resource Manager or Azure Service Management.
 
-When you create a new Automation account in the Azure portal, it automatically creates:
+When you create an Automation account in the Azure portal, it automatically creates:
 
-* Run As account which creates a new service principal in Azure Active Directory, a certificate, and assigns the Contributor role-based access control (RBAC), which will be used to manage Resource Manager resources using runbooks.   
-* Classic Run As account by uploading a management certificate, which will be used to manage Azure Service Management or classic resources using runbooks.  
+* Run As account, which creates a service principal in Azure Active Directory, a certificate, and assigns the Contributor role-based access control (RBAC), which are used to manage Resource Manager resources using runbooks.   
+* Classic Run As account by uploading a management certificate, which are used to manage Azure Service Management or classic resources using runbooks.  
 
 This simplifies the process for you and helps you quickly start building and deploying runbooks to support your automation needs.      
 
@@ -37,14 +37,17 @@ Using a Run As and Classic Run As account, you can:
 > The Azure [Alert integration feature](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) with Automation Global Runbooks requires an Automation account that is configured with a Run As and Classic Run As account. You can either select an Automation account that already has a Run As and Classic Run As account defined or choose to create a new one.
 >  
 
-We will show you how to create the Automation account from the Azure portal, update an Automation account using PowerShell, manage the account configuration, and demonstrate how to authenticate in your runbooks.
+We show you how to create the Automation account from the Azure portal, update an Automation account using PowerShell, manage the account configuration, and demonstrate how to authenticate in your runbooks.
 
 Before we do that, there are a few things that you should understand and consider before proceeding.
 
 1. This does not impact existing Automation accounts already created in either the classic or Resource Manager deployment model.  
 2. This will only work for Automation accounts created through the Azure portal.  Attempting to create an account from the classic portal will not replicate the Run As account configuration.
-3. If you currently have runbooks and assets (i.e. schedules, variables, etc.) previously created to manage classic resources, and you want those runbooks to authenticate with the new Classic Run As account, you will need to create a Classic Run As Account using Managing an Run As Account or update your existing account using the PowerShell script below.  
-4. To authenticate using the new Run As account and Classic Run As Automation account, you will need to modify your existing runbooks with the example code below.  **Please note** that the Run As account is for authentication against Resource Manager resources using the certificate-based service principal, and the Classic Run As account is for authenticating against Service Management resources with the management certificate.     
+3. If you currently have runbooks and assets (that is, schedules, variables, etc.) previously created to manage classic resources, and you want those runbooks to authenticate with the new Classic Run As account, you need to create a Classic Run As Account using Managing an Run As Account or update your existing account using the PowerShell script below.  
+4. To authenticate using the new Run As account and Classic Run As Automation account, you  need to modify your existing runbooks with the example code provided in the section [Authentication code examples](#authentication-code-examples).  
+   
+    >[!NOTE] 
+    >The Run As account is for authentication against Resource Manager resources using the certificate-based service principal, and the Classic Run As account is for authenticating against Service Management resources with a management certificate.     
 
 ## Create a new Automation Account from the Azure portal
 In this section, you will perform the following steps to create a new Azure Automation account  from the Azure portal.  This creates both the Run As and classic Run As account.  
@@ -81,7 +84,7 @@ When the Automation account is successfully created, several resources are autom
 | --- | --- |
 | AzureAutomationTutorial Runbook |An example Graphical runbook that demonstrates how to authenticate using the Run As account and gets all the Resource Manager resources. |
 | AzureAutomationTutorialScript Runbook |An example PowerShell runbook that demonstrates how to authenticate using the Run As account and gets all the Resource Manager resources. |
-| AzureRunAsCertificate |Certificate asset automatically created during Automation account creation or using the PowerShell script below for an existing account.  It allows you to authenticate with Azure so that you can manage Azure Resource Manager resources from runbooks.  This certificate has a one-year lifespan. |
+| AzureRunAsCertificate |Certificate asset automatically created during Automation account creation or using the following PowerShell script below for an existing account.  It allows you to authenticate with Azure so that you can manage Azure Resource Manager resources from runbooks.  This certificate has a one-year lifespan. |
 | AzureRunAsConnection |Connection asset automatically created during Automation account creation or using the PowerShell script below for an existing account. |
 
 The following table summarizes resources for the Classic Run As account.<br>
@@ -119,7 +122,7 @@ Next we will perform a small test to confirm you are able to successfully authen
 7. To see the detailed results of the runbook, click on the **Output** tile.
 8. In the **Output** blade, you should see it has successfully authenticated and returned a list of all classic VM’s in the subscription.
 9. Close the **Output** blade to return to the **Job Summary** blade.
-10. Close the **Job Summary** and the corresponding **AzureClassicAutomationTutorialScript** runbook blade.
+10. Close the **Job Summary** and the corresponding  **AzureClassicAutomationTutorialScript** runbook blade.
 
 ## Managing Azure Run As account
 During the lifetime of your Automation account, you will need to renew the certificate before it expires or if you believe the account has been compromised, you can delete the Run As account and re-create it.  This section will provide steps on how to perform these operations.  
@@ -141,10 +144,10 @@ The following steps describe how to delete and re-create your Azure Run As or Cl
 1. In the Azure portal, open the Automation account.  
 2. On the Automation account blade, in the account properties pane, select **Run As Accounts** under the section **Account Settings**.
 3. On the **Run As Accounts** properties blade, select either the Run As Account or Classic Run As account that you wish to delete, and on the properties blade for the selected account, click **Delete**.<br><br> ![Delete Run As account](media/automation-sec-configure-azure-runas-account/automation-account-delete-runas.png)<br><br>  You will receive a prompt verifying you wish to proceed.
-4. While the account is being deleted, you can track the progress under **Notifications** from the menu.  Once the deletion is complete, you can re-create it from the On the **Run As Accounts** properties blade and selecting the create option **Azure Run As Account**.<br><br> ![Recreate the Automation Run As account](media/automation-sec-configure-azure-runas-account/automation-account-create-runas.png)<br> 
+4. While the account is being deleted, you can track the progress under **Notifications** from the menu.  Once the deletion is complete, you can re-create it on the **Run As Accounts** properties blade and selecting the create option **Azure Run As Account**.<br><br> ![Recreate the Automation Run As account](media/automation-sec-configure-azure-runas-account/automation-account-create-runas.png)<br> 
 
 ### Misconfiguration
-If any of the configuration items necessary for the Run As or Clasic Run As account to function properly are deleted or were not created properly during initial setup, such as:
+If any of the configuration items necessary for the Run As or Classic Run As account to function properly are deleted or were not created properly during initial setup, such as:
 
 * Certificate asset 
 * Connection asset 
@@ -385,9 +388,15 @@ If you select the option to create Classic Run As, after script execution you wi
     > 
     > 
 
-After the script completes successfully, if you created a Classic Run As account with self-signed public cert (.cer format), the script will create and save it to the temporary files folder on your computer under the user profile used to execute the PowerShell session - *%USERPROFILE%\AppData\Local\Temp* or if you created a Classic Run As account with a enterprise cert (.cer format), you will need to use this certificate.  Follow the steps for [uploading a management API certificate](../azure-api-management-certs.md) to the Azure classic portal and then refer to the [sample code](#sample-code-to-authenticate-with-service-management-resources) to validate credential configuration with Service Management resources.  If you did not create a Classic Run As account, refer to the [sample code](#sample-code-to-authenticate-with-resource-manager-resources) below to authenticate with Resource Manager resources and validate credential configuration or refer to the [sample code](#sample-code-to-authenticate-with-service-management-resources) to validate credential configuration with Service Management resources.
+After the script completes successfully, if you created a Classic Run As account, follow the steps to [upload management API certificate](../azure-api-management-certs.md) to the Azure classic portal.  If you created a Classic Run As account with self-signed public cert (.cer format), you can find a copy of the certificate created in the temporary files folder on your computer under the user profile used to execute the PowerShell session - *%USERPROFILE%\AppData\Local\Temp*.  Otherwise, if you configured the Classic Run As account to use a certificate generated by your enterprise CA (.cer format), you will need to use this certificate.  Once the certificate is uploaded, refer to the [sample code](#sample-code-to-authenticate-with-service-management-resources) to validate credential configuration with Service Management resources.  
 
-## Sample code to authenticate with Resource Manager resources
+If you did not create a Classic Run As account, refer to the [sample code](#sample-code-to-authenticate-with-resource-manager-resources) below to authenticate with Resource Manager resources and validate credential configuration.   
+
+##  Authentication code examples
+
+The following examples show how to authenticate your runbooks against Resource Manager or classic resources using a Run As account.
+
+### Authenticate with Resource Manager resources
 You can use the updated sample code below, taken from the **AzureAutomationTutorialScript** example runbook, to authenticate using the Run As account to manage Resource Manager resources with your runbooks.   
 
     $connectionName = "AzureRunAsConnection"
@@ -422,7 +431,7 @@ The script includes two additional lines of code to support referencing a subscr
 
 Notice the cmdlet used for authenticating in the runbook - **Add-AzureRmAccount**, uses the *ServicePrincipalCertificate* parameter set.  It authenticates by using service principal certificate, not credentials.  
 
-## Sample code to authenticate with Service Management resources
+### Authenticate with Service Management resources
 You can use the updated sample code below, taken from the **AzureClassicAutomationTutorialScript** example runbook, to authenticate using the Classic Run As account to manage classic resources with your runbooks.
 
     $ConnectionAssetName = "AzureClassicRunAsConnection"

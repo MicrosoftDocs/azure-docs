@@ -26,7 +26,7 @@ The list of storage accounts in the region can be viewed in Azure Stack
 by:
 
 1. In an Internet browser, navigate to
-   https://publicportal.local.azurestack.external.
+   https://portal.local.azurestack.external.
 2. Sign in to the Azure Stack portal as an administrator (using the
    credentials you provided during deployment)
 3. On the default dashboard – find the **Region management** list and click the region you want to explore. For example **(local**).
@@ -127,7 +127,7 @@ collection.
 **To change the retention period:**
 
 1. In an internet browser, navigate to
-   https://publicportal.local.azurestack.external.
+   https://portal.local.azurestack.external.
 2. Sign in to the Azure Stack portal as an administrator (using the
    credentials you provided during deployment)
 3. On the default dashboard – find the **Region management** list and click the region you want to explore – for example **(local**).

@@ -68,6 +68,7 @@
 ### [Service Map](../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [SQL Assessment](log-analytics-sql-assessment.md)
 ### [Surface Hub](log-analytics-surface-hubs.md)
+### [Update Management](../operations-management-suite/oms-solution-update-management.md)
 ### [VMware](log-analytics-vmware.md)
 ### [Wire Data](log-analytics-wire-data.md)
 ## Develop

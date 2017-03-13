@@ -3,7 +3,7 @@ title: Diagnostics in Azure Stack | Microsoft Docs
 description: How to collect log files for diagnostics in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: vhorne
+author: adshar
 manager: byronr
 editor: ''
 
@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2017
-ms.author: victorh
+ms.author: adshar;victorh
 
 ---
-# Azure Stack Diagnostics Tools
+# Azure Stack diagnostics tools
  
 Azure Stack is a large collection of components working together and interacting with each other. All these components  generate their own unique logs, which means that diagnosing issues can quickly become a challenging task, especially for errors coming from multiple interacting Azure Stack components. 
 
@@ -67,7 +67,7 @@ The following are important things to know about the Trace Collector:
 
     This parameter controls the total size of the .etl files generated from an event session. If the total file size is greater than this parameter value, older files are deleted.
   
-## Log Collection Tool
+## Log collection tool
  
 The PowerShell command `Get-AzureStackLogs` can be used to collect logs from all the components  in an Azure Stack environment. It saves them in zip files in a user defined location. If our technical support team needs your logs to help troubleshoot an issue, they may ask you to run this tool.
 
@@ -90,7 +90,7 @@ To identify all the logs that get collected from all the components, refer to th
  
 ### To run Get-AzureStackLogs
 1.	Log in as AzureStack\AzureStackAdmin on the host.
-2.	Open a PowerShell window.
+2.	Open a PowerShell window as an administrator.
 3.	Run the following commands to import the PowerShell modules:
 
     -	`cd C:\CloudDeployment\AzureStackDiagnostics\Microsoft.AzureStack.Diagnostics.DataCollection`
