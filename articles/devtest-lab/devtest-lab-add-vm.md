@@ -67,10 +67,12 @@ A user can claim any VM from the list of "Claimable virtual machines" by doing o
  ![Request a specific claimable VM.](./media/devtest-lab-add-vm/devtestlab-claim-VM.png)
 
 
-* At the top of the **Overview** blade, choose **Claim any** to randomly receive a virtual machine from the list of claimable VMs.
+* At the top of the **Overview** blade, choose **Claim any**. A random virtual machine is assigned from the list of claimable VMs.
 
  ![Request any claimable VM.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
+
+After a user claims a VM, it is moved up into their list of "My virtual machines" and is no longer claimable by any other user.
 
 ## Next steps
 * Once the VM has been created, you can connect to the VM by selecting **Connect** on the VM's blade.
