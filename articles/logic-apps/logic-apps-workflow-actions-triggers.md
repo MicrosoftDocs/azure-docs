@@ -15,17 +15,6 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: mandia
-translation.priority.mt: 
-  - "de-de"
-  - "es-es"
-  - "fr-fr"
-  - "it-it"
-  - "ja-jp"
-  - "ko-kr"
-  - "pt-br"
-  - "ru-ru"
-  - "zh-cn"
-  - "zh-tw"
 ---
 
 # Workflow actions and triggers for Azure Logic Apps
