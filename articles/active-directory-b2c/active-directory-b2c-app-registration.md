@@ -69,7 +69,7 @@ You can also access the blade by clicking **More services** and then searching *
 ### Choosing a redirect URI
 There are two important considerations when choosing a redirect URI for mobile/native applications: 
 1. **Unique**: The scheme of the redirect URI should be unique for every application. In our example (com.onmicrosoft.contoso.appname://redirect/path), we use com.onmicrosoft.contoso.appname as the scheme. We recommend following this pattern. If two applications share the same scheme, the user will see a "choose app" dialog. If the user makes an incorrect choice, the login will fail. 
-2. **Complete**: Redirect URI must have a scheme and a path. The path must contain at least one forward slash (for example, //contoso/ will work and //a will fail). 
+2. **Complete**: Redirect URI must have a scheme and a path. The path must contain at least one forward slash after the domain (for example, //contoso/ will work and //contoso will fail). 
 
 ## Build a Quick Start Application
 Now that you have an application registered with Azure AD B2C, you can complete one of our quick-start tutorials to get up and running. Here are a few recommendations:
