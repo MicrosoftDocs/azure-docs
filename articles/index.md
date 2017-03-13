@@ -2435,10 +2435,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent">Get the .NET SDK</a>
+                                                    <a href="/dotnet/api">Get the .NET SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/dotnet/api/">Get started</a>
+                                                    <a href="/azure/app-service-web/app-service-web-get-started-dotnet">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/dotnet/api">API reference</a>
