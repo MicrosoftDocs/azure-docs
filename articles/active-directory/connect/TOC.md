@@ -22,8 +22,10 @@
 ## Plan and design
 ### [Design concepts](active-directory-aadconnect-design-concepts.md)
 ### [Topologies for Azure AD Connect](active-directory-aadconnect-topologies.md)
+### [Single Sign On](active-directory-aadconnect-sso.md)
+### [Active Directory Federation Services in Azure](active-directory-aadconnect-azure-adfs.md)
 ### [Special considerations for instances](active-directory-aadconnect-instances.md)
-
+### [When you already have Azure AD](active-directory-aadconnect-existing-tenant.md)
 ## [Manage Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [Renew certs for O365 and Azure AD](active-directory-aadconnect-o365-certs.md)
 ### [Enable device writeback](active-directory-aadconnect-feature-device-writeback.md)
@@ -32,20 +34,24 @@
 ### [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)
 
 
+
 ## Manage Azure AD Connect Sync
 ### [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md)
+### [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md)
 ### [Azure AD service account](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Installation wizard](active-directory-aadconnectsync-installation-wizard.md)
 ### [Change the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Configure Filtering](active-directory-aadconnectsync-configure-filtering.md)
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md)
+
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
-#### [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md?toc=%2fazure%2factive-directory%2faad-connect%2ftoc.json)
+#### [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md)
 #### [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md)
 #### [Metaverse designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md)
 #### [Metaverse search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+
 
 ## Manage Federation Services
 ### [Manage and customize](active-directory-aadconnect-federation-management.md)
@@ -54,7 +60,8 @@
 ## Troubleshoot
 ### [Connectivity](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [Errors during synchronization](active-directory-aadconnect-troubleshoot-sync-errors.md)
-
+### [Object is not synchronized](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
+### [Password synchronization](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 
 # Reference
 ## [Identity synchronization and duplicate attribute resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)

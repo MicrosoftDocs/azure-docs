@@ -4,9 +4,9 @@
 ## [DevTest Labs concepts](devtest-lab-concepts.md)
 
 # Get Started
-## [Create a lab](devtest-lab-create-lab.md)
-## [Create VM artifacts](devtest-lab-add-vm-with-artifacts.md)
-## [Create a lab for training](devtest-lab-training-lab.md)
+## [Create lab](devtest-lab-create-lab.md)
+## [Create VM](devtest-lab-add-vm.md)
+## [Create lab for training](devtest-lab-training-lab.md)
 ## [FAQ](devtest-lab-faq.md)
 
 # How To
@@ -16,10 +16,12 @@
 ### [Grant permissions to policies](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
 ### [Configure cost management](devtest-lab-configure-cost-management.md)
 ### [Configure virtual networks](devtest-lab-configure-vnet.md)
+### [Understand shared IP addresses](devtest-lab-shared-ip.md)
 
 ## Manage Artifacts
 ### [Add artifacts repository](devtest-lab-add-artifact-repo.md)
 ### [Create custom artifacts](devtest-lab-artifact-author.md)
+### [Manage artifacts](devtest-lab-add-vm-with-artifacts.md)
 
 ## Manage VM bases and templates
 ### [Create multi-VM environments with Azure Resource Manager templates](devtest-lab-create-environment-from-arm.md)
@@ -32,8 +34,6 @@
 ### [Upload VHD file using AzCopy](devtest-lab-upload-vhd-using-azcopy.md)
 ### [Upload VHD file using PowerShell](devtest-lab-upload-vhd-using-powershell.md)
 ### [Upload VHD file using Storage Explorer](devtest-lab-upload-vhd-using-storage-explorer.md)
-
-
 
 # Resources
 ## [Service Updates](https://azure.microsoft.com/updates/?product=devtest-lab)

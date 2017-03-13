@@ -51,10 +51,26 @@ Machines can be expanded in the map to show the running processes with active ne
 
 By default, Service Map maps show the last 10 minutes of dependency information.  Using the time controls in the upper left, maps can be queried for historical time ranges, up to one-hour wide, to show how dependencies looked in the past, e.g. during an incident or before a change occurred.    Service Map data is stored for 30 days in paid workspaces, and for 7 days in free workspaces.
 
-## Status badges
+## Status badges and border coloring
 At the bottom of each server in the map can be a list of status badges conveying status information about the server.  The badges indicate that there is some relevant information for the server from one of the OMS solution integrations.  Clicking on a badge will take you directly to the details of the status in in the right panel.  The currently availably status badges include Alerts, Changes, Security, and Updates.
 
-![Failed connections](media/oms-service-map/status-badges.png)
+Based on the severity of the status badges, machine node borders can be colored red (Critical), yellow (Warning), or blue (Informational).  The color represents the most severe status of any of the status badges.  A grey border indicates a node with no current status indicators.
+
+![Status badges](media/oms-service-map/status-badges.png)
+
+## Role icons
+Certain processes serve particular roles on machines: web servers, application servers, database, etc.  Service Map will annotate process and machine boxes with role icons to help identify at a glance the role a process or server plays.
+
+| Role Icon | Description |
+|:--|:--|
+| ![Web server](media/oms-service-map/role-web-server.png) | Web Server |
+| ![App server](media/oms-service-map/role-application-server.png) | Application Server |
+| ![Database server](media/oms-service-map/role-database.png) | Database Server |
+| ![LDAP server](media/oms-service-map/role-ldap.png) | LDAP Server |
+| ![SMB server](media/oms-service-map/role-smb.png) | SMB Server |
+
+![Role icons](media/oms-service-map/role-icons.png)
+
 
 ## Failed connections
 Failed Connections are shown in Service Map maps for processes and computers, with a dashed red line showing if a client system is failing to reach a process or port.  Failed connections are reported from any system with a deployed Service Map agent if that system is the one attempting the failed connection.  Service Map measures this by observing TCP sockets that fail to establish a connection.  This could be due to a firewall, a misconfiguration in the client or server, or a remote service being unavailable.
@@ -134,7 +150,7 @@ Following is a drill-down view of Configuration Change event after selecting **S
 
 
 ## OMS Performance integration
-The Machine Performance Panel shows standard performance metrics for the selected server.  The metrics include CPU Utilization, Memory Utilization, Network Bytes Sent and Received, and a list of the top processes by Network Bytes sent and received.
+The Machine Performance Panel shows standard performance metrics for the selected server.  The metrics include CPU Utilization, Memory Utilization, Network Bytes Sent and Received, and a list of the top processes by Network Bytes sent and received.  Note that to get the network performance data, you must also have enabled the Wire Data 2.0 solution in OMS.
 ![Machine Change Tracking Panel](media/oms-service-map/machine-performance.png)
 
 

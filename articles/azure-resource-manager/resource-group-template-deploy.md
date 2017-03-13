@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 03/10/2017
 ms.author: tomfitz
 
 ---
@@ -52,7 +52,7 @@ These commands create a resource group, and deploy a template to that resource g
 1. Log in to your Azure account.
 
    ```powershell
-   Add-AzureRmAccount
+   Login-AzureRmAccount
    ```
 
     A summary of your account is returned.

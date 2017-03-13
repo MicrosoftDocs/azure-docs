@@ -4,7 +4,7 @@ description: Learn how API Apps in Azure App Service use Swagger metadata to fac
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: c7f8e33a-61cc-486f-89df-4a97dc3c71d4

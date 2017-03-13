@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 03/07/2017
 ms.author: iainfou
 
 ---
@@ -24,10 +24,10 @@ Linux virtual machines (VMs) in Azure are usually managed from the command line 
 ## Prerequisites
 This article requires an existing Linux VM in Azure. If you need to create a VM, use one of the following methods:
 
-- The [Azure CLI 1.0](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [Azure CLI 2.0 (Preview)](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- The [Azure CLI 2.0](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [Azure CLI 1.0](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - The [Azure portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-You also need the latest [Azure CLI 1.0](../xplat-cli-install.md) or [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an [active Azure account](https://azure.microsoft.com/pricing/free-trial/).
+You also need to be logged in to an [active Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Quick commands
@@ -66,16 +66,7 @@ Set a password for your user account if currently only using SSH key for authent
 sudo passwd ops
 ```
 
-Exit the SSH session to your Linux VM. Use the Azure CLI on your local computer to create a network security group rule to allow the remote desktop traffic. The following example uses the Azure CLI 1.0 to create a rule named `myNetworkSecurityGroupRule` within `myNetworkSecurityGroup` to allow traffic on tcp port 3389:
-
-```azurecli
-azure network nsg rule create --resource-group myResourceGroup \
-    --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-    --protocol tcp --direction inbound --priority 1010 \
-    --destination-port-range 3389 --access allow
-```
-
-Or, use [az network nsg rule create](/cli/azure/network/nsg/rule#create) with the Azure CLI 2.0 (Preview):
+Exit the SSH session to your Linux VM. Use the Azure CLI on your local computer to create a network security group rule to allow the remote desktop traffic. Use [az network nsg rule create](/cli/azure/network/nsg/rule#create) with the Azure CLI 2.0. The following example creates a rule named `myNetworkSecurityGroupRule` within `myNetworkSecurityGroup` to allow traffic on tcp port 3389:
     
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup \
@@ -84,6 +75,15 @@ az network nsg rule create --resource-group myResourceGroup \
     --source-address-prefix '*' --source-port-range '*' \
     --destination-address-prefix '*' --destination-port-range 3389 \
     --access allow
+```
+
+Or, with the Azure CLI 1.0:
+
+```azurecli
+azure network nsg rule create --resource-group myResourceGroup \
+    --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
+    --protocol tcp --direction inbound --priority 1010 \
+    --destination-port-range 3389 --access allow
 ```
 
 Connect to your Linux VM using your remote desktop client of choice.
@@ -146,16 +146,7 @@ To allow Remote Desktop traffic to reach your Linux VM, a network security group
 
 The following examples create a network security group rule named `myNetworkSecurityGroupRule` to `allow` traffic on `tcp` port `3389`.
 
-- Use the Azure CLI 1.0:
-
-    ```azurecli
-    azure network nsg rule create --resource-group myResourceGroup \
-        --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-        --protocol tcp --direction inbound --priority 1010 \
-        --destination-port-range 3389 --access allow
-    ```
-
-- Or, use [az network nsg rule create](/cli/azure/network/nsg/rule#create) with the Azure CLI 2.0 (Preview):
+- Use [az network nsg rule create](/cli/azure/network/nsg/rule#create) with the Azure CLI 2.0:
     
     ```azurecli
     az network nsg rule create --resource-group myResourceGroup \
@@ -166,6 +157,14 @@ The following examples create a network security group rule named `myNetworkSecu
         --access allow
     ```
 
+- Or, use the Azure CLI 1.0:
+
+    ```azurecli
+    azure network nsg rule create --resource-group myResourceGroup \
+        --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
+        --protocol tcp --direction inbound --priority 1010 \
+        --destination-port-range 3389 --access allow
+    ```
 
 ## Connect your Linux VM with a Remote Desktop client
 Open your local remote desktop client and connect to the IP address or DNS name of your Linux VM. Enter the username and password for the user account on your VM as follows:

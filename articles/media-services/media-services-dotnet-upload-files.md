@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 03/12/2017
 ms.author: juliako
 
 ---
@@ -57,13 +57,8 @@ If you specify for your asset to be encrypted with a **StorageEncrypted** option
 This topic shows how to use Media Services .NET SDK as well as Media Services .NET SDK extensions to upload files into a Media Services asset.
 
 ## Upload a single file with Media Services .NET SDK
-The sample code below uses .NET SDK to perform the following tasks: 
+The sample code below uses .NET SDK to upload a single file. The AccessPolicy and Locator are created and destroyed by the Upload function. 
 
-* Creates an empty Asset.
-* Creates an AssetFile instance that we want to associate with the asset.
-* Creates an AccessPolicy instance that defines the permissions and duration of access to the asset.
-* Creates a Locator instance that provides access to the asset.
-* Uploads a single media file into Media Services. 
 
         static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
         {
@@ -74,29 +69,18 @@ The sample code below uses .NET SDK to perform the following tasks:
             }
 
             var assetName = Path.GetFileNameWithoutExtension(singleFilePath);
-            IAsset inputAsset = _context.Assets.Create(assetName, assetCreationOptions); 
+            IAsset inputAsset = _context.Assets.Create(assetName, assetCreationOptions);
 
             var assetFile = inputAsset.AssetFiles.Create(Path.GetFileName(singleFilePath));
-
-            Console.WriteLine("Created assetFile {0}", assetFile.Name);
-
-            var policy = _context.AccessPolicies.Create(
-                                    assetName,
-                                    TimeSpan.FromDays(30),
-                                    AccessPermissions.Write | AccessPermissions.List);
-
-            var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
 
             Console.WriteLine("Upload {0}", assetFile.Name);
 
             assetFile.Upload(singleFilePath);
             Console.WriteLine("Done uploading {0}", assetFile.Name);
 
-            locator.Delete();
-            policy.Delete();
-
             return inputAsset;
         }
+
 
 ## Upload multiple files with Media Services .NET SDK
 The following code shows how to create an asset and upload multiple files.
