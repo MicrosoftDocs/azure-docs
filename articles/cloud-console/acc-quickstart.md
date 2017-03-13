@@ -1,6 +1,6 @@
 ---
 title: Azure Cloud Console Quickstart | Microsoft Docs
-description: Quickstart for the Azure Cloud Console
+description: Quickstart for the Azure Cloud Console.
 services: 
 documentationcenter: ''
 author: jluk
@@ -27,7 +27,7 @@ The requirements are:
 ## Sign in
 Sign into the Azure portal with your Azure account identity, click **+ New** in the upper left corner:
 
-![screen1](../media/virtual-machines-linux-quick-create-portal/screen1.png)
+![screen1](./media/virtual-machines-linux-quick-create-portal/screen1.png)
 
 ## Start console
 Click the **Start Azure Cloud Console** button in the top navigation bar of the page.
@@ -54,12 +54,12 @@ Create an Ubuntu VM in your new resource group. The Azure CLI 2.0 will create ss
 1. Search for your VM name in the Portal search bar
 2. Click "Connect" and run the command: `ssh username@ipaddress`
 
-![](../media/sshcmd-copy.png)
+![](./media/sshcmd-copy.png)
 
 **Note** The public and private keys used to create your VM are placed in `/User/.ssh/id_rsa` and `User/.ssh/id_rsa.pub` of your Cloud Console.
 
 Upon establishing the SSH connection, you should see the Ubuntu welcome prompt. You may now interact with your new VM via Cloud Console!
-![](../media/ubuntu-welcome.png)
+![](./media/ubuntu-welcome.png)
 
 ## Mount a file share to persist files
 The Cloud Console allows attaching any Azure Files Storage you have to persist anything in your user $home directory.
