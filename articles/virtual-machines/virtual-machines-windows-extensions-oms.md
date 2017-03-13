@@ -62,7 +62,7 @@ The following example assumes the OMS extension is nested inside of the virtual 
 }
 ```
 
-Likewise, when placing the extension JSON at the root of the template, the name includes a reference to the parent virtual machine, and the type fully qualifys the nested configuration. This configuration allows the extension to be installed on multiple virtual machines when using the [`copy` and `copyIndex`](../azure-resource-manager/resource-group-create-multiple.md) Resource Manager functions.
+When placing the extension JSON at the root of the template, the extension name includes a reference to the parent virtual machine, and the type include a reference to the parent virtual machine resource. Placing the JSON at the root of the JSON template is useful when deploying multiple virtual machines using the `copy` and copyIndex` functions. For more information on deploying multiple virtual machines, see [Deploy multiple instances of resources](../ azure-resource-manager/resource-group-create-multiple.md).
 
 ```json
 {
@@ -86,6 +86,7 @@ Likewise, when placing the extension JSON at the root of the template, the name 
 		}
 	}
 }
+```
 
 ### Property values
 
