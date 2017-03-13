@@ -25,7 +25,7 @@ ms.author: markgal;trinadhk;
 >
 >
 
-Protect your data by taking snapshots of your data at defined intervals. These snapshots are known as recovery points, and they are stored in recovery services vaults. If or when it is necessary to repair or rebuild a VM, you can restore the VM from any of the saved recovery points. When you restore a recovery point, you can create a new VM which is a point-in-time representation of your backed up VM, or restore disks and use the template that come along with it to customize the restored VM or do an individual file recovery. This article explains how to restore a VM to a new VM or restore all backed up disks. For individual file recovery, refer to [Recover files from Azure VM backup](backup-azure-restore-files-from-vm.md)
+Protect your data by taking snapshots of your data at defined intervals. These snapshots are known as recovery points, and they are stored in recovery services vaults. If or when it is necessary to repair or rebuild a VM, you can restore the VM from any of the saved recovery points. When you restore a recovery point, you can create a new VM which is a point-in-time representation of your backed-up VM, or restore disks and use the template that comes along with it to customize the restored VM or do an individual file recovery. This article explains how to restore a VM to a new VM or restore all backed-up disks. For individual file recovery, refer to [Recover files from Azure VM backup](backup-azure-restore-files-from-vm.md)
 
 ![3-ways-restore-from-vm-backup](./media/backup-azure-arm-restore-vms/azure-vm-backup-restore.png)
 
@@ -117,17 +117,17 @@ If you are not already there, [select a restore point](#restoring-vms-with-speci
 >
 >
 
-On the **Restore configuration** blade, click **OK** to finalize the restore configuration.On the **Restore** blade, click **Restore** to trigger the restore operation.
+On the **Restore configuration** blade, click **OK** to finalize the restore configuration. On the **Restore** blade, click **Restore** to trigger the restore operation.
 
 ## Restore backed up disks
 If you would like to customize the virtual machine you would like to create from backed up disks than what is present in restore configuration blade, select **Restore disks** as value for **Restore Type**. This choice asks for a storage account where disks from backups are copied to. When choosing a storage account, select an account that shares the same location as the Recovery Services vault. Storage accounts that are Zone redundant are not supported. If there are no storage accounts with the same location as the Recovery Services vault, you must create one before starting the restore operation. The storage account's replication type is mentioned in parentheses.
 
-After restore operation is completed, you can :
+After restore operation is completed, you can:
 * [Use the restored disks to attach to an existing virtual machine](../virtual-machines/virtual-machines-windows-attach-disk-portal.md)
 * [Create a new virtual machine using PowerShell from restored disks.](./backup-azure-vms-automation.md#restore-an-azure-vm)
 * [Use template to customize the restored VM](#use-templates-to-customize-restore-vm)
 
-On the **Restore configuration** blade, click **OK** to finalize the restore configuration.On the **Restore** blade, click **Restore** to trigger the restore operation.
+On the **Restore configuration** blade, click **OK** to finalize the restore configuration. On the **Restore** blade, click **Restore** to trigger the restore operation.
 
 ![Recovery configuration completed](./media/backup-azure-arm-restore-vms/trigger-restore-operation.png)
 
@@ -162,13 +162,13 @@ To get the template generated as part of restore disks option,
 1. Go to restore job details corresponding to the job. 
 2. This will list the template uri from which you can download the template. Please note the container name from values. 
 
-     ![restore job drill down](./media/backup-azure-arm-restore-vms/restore-job-drill-down.png)
+     ![restore job drill-down](./media/backup-azure-arm-restore-vms/restore-job-drill-down.png)
      
-3. Note down the target storage acount name, container name, template blob uri from values. Go to target storage account storage account, select Blobs, Containers and go to file and download the file that starts with name *azuredeploy*.
+3. Note down the target storage account name, container name, template blob uri from values. Go to *target storage account > select Blobs > Containers* and go to file and download the file that starts with name *azuredeploy*.
 
     ![download-template-storage-account](./media/backup-azure-arm-restore-vms/download-template.png)
     
-   Alternatively,you can use [Azure Storage explorer](http://storageexplorer.com/) to go to corresponding subscription > target storage account > Blob Containers and select the container name noted in above step. On the right side pane that shows files inside the container, download the file that starts with name *azure deploy*. 
+   Alternatively, you can use [Azure Storage explorer](http://storageexplorer.com/) to go to corresponding subscription > target storage account > Blob Containers and select the container name noted in above step. On the right side pane that shows files inside the container, download the file that starts with name *azuredeploy*. 
    
    ![download-template-storage-explorer](./media/backup-azure-arm-restore-vms/template-storage-explorer-download.png)
      
