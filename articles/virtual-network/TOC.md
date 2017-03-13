@@ -127,8 +127,8 @@
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 
 # Reference
-## [PowerShell (Resource manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-## [PowerShell (Classic)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
+## [PowerShell (Resource manager)](/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
+## [PowerShell (Classic)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
 ## [Azure CLI](/cli/azure/)
 ## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
