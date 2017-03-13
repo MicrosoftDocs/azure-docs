@@ -168,8 +168,11 @@ If you selected **IP based SSL** and your custom domain is configured using an A
   
     Note that this IP address will be different than the virtual IP address used previously to configure the A record for your domain. If you are configured to use SNI based SSL, or are not configured to use SSL, no address will be listed for this entry.
 
-1. Using the tools provided by your domain name registrar, modify the A record for your custom domain name to point to the IP address from the previous step.
+* Using the tools provided by your domain name registrar, modify the A record for your custom domain name to point to the IP address from the previous step.
    At this point, you should be able to visit your app using HTTPS:// instead of HTTP:// to verify that the certificate has been configured correctly.
+
+## <a name="bkmk_Rekey"></a>Export App Service Certificate
+You can create a local PFX copy of an App Service certificate so that you can use it with other Azure Services. For more information, **[read our blog post](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/)**
 
 ## <a name="bkmk_Rekey"></a>Rekey and Sync the Certificate
 1. For security reasons, if you ever need to Rekey your certificate then simply select **"Rekey and Sync"** option from **"Certificate Properties"** Blade. 

@@ -50,14 +50,14 @@ In this tutorial, you will:
 
    ![Azure Virtual Machines Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. Review the available SQL Server templates. Each template identifies a SQL Server version and an operating system. 
-6. Select the template for SQL Server 2016 SP1 Developer on Windows Server 2016.
+5. Review the available SQL Server images. Each image identifies a SQL Server version and an operating system. 
+6. Select the image for SQL Server 2016 SP1 Developer on Windows Server 2016.
 
    > [!TIP]
    > The Developer edition is used in this tutorial because it is a full-featured edition of SQL Server that is free for development testing purposes. You pay only for the cost of running the VM.
    
    > [!NOTE]
-   > SQL VM images include the licensing costs for SQL Server into the per-minute pricing of the VM you create (excep for the Developer and Express editions). SQL Server Developer is free for development/testing (not production) and SQL Express is free for lightweight workloads (less than 1GB memory, less than 10 GB storage). 
+   > SQL VM images include the licensing costs for SQL Server into the per-minute pricing of the VM you create (except for the Developer and Express editions). SQL Server Developer is free for development/testing (not production) and SQL Express is free for lightweight workloads (less than 1GB memory, less than 10 GB storage). 
    > There is another option to bring-your-own-license (BYOL) and pay only for the VM. Those image names are prefixed with {BYOL}. For more information on this option, see  [Get started with SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
    > 
    > 
@@ -95,7 +95,7 @@ On the **Basics** blade, provide the following information:
     ![SQL Basics Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
 ## 2. Choose virtual machine size
-On the **Size** step, choose a virtual machine size in the **Choose a size** blade. The blade initially displays recommended machine sizes based on the template you selected. It also estimates the monthly cost to run the VM.
+On the **Size** step, choose a virtual machine size in the **Choose a size** blade. The blade initially displays recommended machine sizes based on the image you selected. It also estimates the monthly cost to run the VM.
 
 ![SQL VM Size Options](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 

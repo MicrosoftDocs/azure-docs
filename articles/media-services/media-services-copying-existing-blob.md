@@ -146,7 +146,10 @@ The following code uses extension **IAsset.Copy** method to copy all files in th
 
 ### Copy blobs from some storage account into a new asset in a AMS account
 
-The following code uses copies blobs from a storage account into a Media Services asset. 
+The following code copies blobs from a storage account into a Media Services asset. 
+
+>[!NOTE]
+>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
 
 	using System;
 	using System.Configuration;

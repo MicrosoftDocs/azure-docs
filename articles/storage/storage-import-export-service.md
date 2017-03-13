@@ -420,7 +420,7 @@ No, the Azure Import/Export service only supports Block Blobs and Page Blobs. Al
 
 **Is the Azure Import/Export service available for CSP subscriptions?**
 
-No, the Azure Import/Export service does not support CSP subscriptions. The support will be added in the future.
+Azure Import/Export service does support CSP subscriptions.
 
 **Can I skip the drive preparation step for an import job or can I prepare a drive without copying?**
 

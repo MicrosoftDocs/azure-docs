@@ -50,7 +50,7 @@ To simulate the outage you can disable the web application or virtual machine co
 
 #### Recovery
 * Make sure the application configuration in the DR region points to the former secondary which will become fully accessible new primary.
-* Perform [planned failover](sql-database-geo-replication-failover-powershell.md#initiate-a-planned-failover) to make the secondary database a new primary
+* Perform [planned failover](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) to make the secondary database a new primary
 * Follow the [Configure a database after recovery](sql-database-disaster-recovery.md) guide to complete the recovery.
 
 #### Validation
