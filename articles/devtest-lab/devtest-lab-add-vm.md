@@ -58,7 +58,7 @@ You add a VM to a lab from a *base* that is either a [custom image](devtest-lab-
 >
 >
 
-### Request a claimable VM
+### Using a claimable VM
 
 A user can claim any VM from the list of "Claimable virtual machines" by doing one of these steps:
 
