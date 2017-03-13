@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/08/2017
+ms.date: 03/14/2017
 ms.author: nepeters
 
 ---
@@ -36,7 +36,7 @@ The following JSON shows the schema for the OMS Agent extension. The extension r
 
 The JSON for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON affects the value of the resource name and type. For more information, see [Set name and type for child resources](../azure-resource-manager/resource-manager-template-child-resource.md). 
 
-The following example assumes the OMS extension is nested inside the virtual machine resource.
+The following example assumes the OMS extension is nested inside the virtual machine resource. When nesting the extension resource, the JSON is placed in the `"resources": []` object of the virtual machine.
 
 
 ```json
