@@ -50,12 +50,11 @@ After the deployment has completed, create an SSH connection with the virtual ma
 
 1. Click the virtual machine. The VM can be found on the home screen of the Azure portal, or by selecting **Virtual Machines** from the left-hand menu.
 
-2. Click the **Connect** button. The connect button will initial a Windows remote desktop connection with the virtual machine. 
+2. Click the **Connect** button. The connect button will initialize a Windows remote desktop connection with the virtual machine. 
 
     ![Portal 9](./media/virtual-machine-quick-start/portal-quick-start-9.png) 
 
-3. Run the following command to create an SSH session. Replace the connection string with the one you copied from the Azure portal.
-
+3. Click **Connect** on the remote desktop connection wizard, enter the user name and password specified when creating the virtual machine, and then click **Ok**.
 
 ## Delete virtual machine
 
@@ -63,6 +62,6 @@ When no longer needed, delete the resource group, virtual machine, and all relat
 
 ## Next steps
 
-[Create highly available virtual machines tutorial](./virtual-machines-windows-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Install a role and configure firewall tutorial](./virtual-machines-windows-hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Explore VM deployment CLI samples](./virtual-machines-windows-cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
