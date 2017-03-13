@@ -26,9 +26,9 @@ ms.author: spelluru
 > * [Spark Activity](data-factory-spark.md)
 > * [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
 > * [Machine Learning Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
-> * [Stored Procedure](data-factory-stored-proc-activity.md)
-> * [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
-> * [.NET custom](data-factory-use-custom-activities.md)
+> * [Stored Procedure Activity](data-factory-stored-proc-activity.md)
+> * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
+> * [.NET Custom Activity](data-factory-use-custom-activities.md)
 
 A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs a specific processing operation. This article describes the **Data Lake Analytics U-SQL Activity** that runs a **U-SQL** script on an **Azure Data Lake Analytics** compute linked service. 
 

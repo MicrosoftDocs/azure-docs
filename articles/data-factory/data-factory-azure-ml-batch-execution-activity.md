@@ -27,9 +27,9 @@ ms.author: shlo
 > * [Spark Activity](data-factory-spark.md)
 > * [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
 > * [Machine Learning Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
-> * [Stored Procedure](data-factory-stored-proc-activity.md)
-> * [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
-> * [.NET custom](data-factory-use-custom-activities.md)
+> * [Stored Procedure Activity](data-factory-stored-proc-activity.md)
+> * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
+> * [.NET Custom Activity](data-factory-use-custom-activities.md)
 
 ## Introduction
 
