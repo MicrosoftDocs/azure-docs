@@ -82,15 +82,15 @@ $nic = New-AzureRmNetworkInterface -ResourceGroupName myResourceGroup -Location 
 
 ## Create virtual machine
 
-Create a virtual machine configuration. This configuration includes the settings that are used when deploying the virtual machine such as a virtual machine image, size, and authentication configuration.
+Create a virtual machine configuration. This configuration includes the settings that are used when deploying the virtual machine such as a virtual machine image, size, and authentication configuration. When running this step, you are prompted for credentials. The values that you enter are configured as the user name and password for the virtual machine.
 
 ```powershell
 # Define a credential object
 $cred = Get-Credential
 
 # Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
-Set-AzureRmVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
+$vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_D1 | `
+Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
 Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
 Add-AzureRmVMNetworkInterface -Id $nic.Id
 ```
