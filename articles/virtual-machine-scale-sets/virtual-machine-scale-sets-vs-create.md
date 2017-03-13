@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2016
+ms.date: 03/13/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
 
@@ -29,13 +29,13 @@ Azure Resource Group deployments are a way to group together and publish a set o
 ## Pre-requisites
 To get started deploying VM Scale Sets in Visual Studio you need the following:
 
-* Visual Studio 2013 or 2015
+* Visual Studio 2013, 2015, or 2017
 * Azure SDK 2.7, 2.8 or 2.9
 
-Note: These instructions assume you are using Visual Studio 2015 with [Azure SDK 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
+Note: These instructions assume you are using Visual Studio with [Azure SDK 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
 
 ## Creating a Project
-1. Create a new project in Visual Studio 2015 by choosing **File | New | Project**.
+1. Create a new project in Visual Studio by choosing **File | New | Project**.
    
     ![File New][file_new]
 2. Under **Visual C# | Cloud**, choose **Azure Resource Manager** to create a project for deploying an ARM Template.
