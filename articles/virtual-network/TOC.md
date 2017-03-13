@@ -49,6 +49,10 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Template](virtual-networks-create-vnetpeering-arm-template-click.md)
 
+### [Network interfaces](virtual-network-network-interface.md)
+
+### [Public IP addresses](virtual-network-public-ip-address.md)
+
 ### Virtual machines
 
 #### Static public IP addresses
