@@ -167,7 +167,7 @@ To get the template generated as part of restore disks option,
 
     ![download-template-storage-account](./media/backup-azure-arm-restore-vms/download-template.png)
     
-   Alternatively,you can use Azure Storage explorer(http://storageexplorer.com/) to go to corresponding subscription > target storage account > Blob Containers and select the container name noted in above step. On the right side pane that shows files inside the container, download the file that starts with name *azure deploy*. 
+   Alternatively,you can use [Azure Storage explorer](http://storageexplorer.com/) to go to corresponding subscription > target storage account > Blob Containers and select the container name noted in above step. On the right side pane that shows files inside the container, download the file that starts with name *azure deploy*. 
    
    ![download-template-storage-explorer](./media/backup-azure-arm-restore-vms/template-storage-explorer-download.png)
      
