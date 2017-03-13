@@ -22,7 +22,7 @@ ms.author: cherylmc
 
 There are a couple of different approaches you can take when you want to delete a virtual network gateway.
 
-- If you want to delete everything and start over, as in the case of a test environment or, you can delete an entire resource group. When you delete a resource group, it deletes all the resources within the group. This is only recommended if you don't want to keep any of the resources in the resource group. You can't selectively delete only a few resources this way.
+- If you want to delete everything and start over, as in the case of a test environment, you can delete an entire resource group. When you delete a resource group, it deletes all the resources within the group. This is only recommended if you don't want to keep any of the resources in the resource group. You can't selectively delete only a few resources this way.
 
 - If you want to keep some of the resources in your resource group, deleting a virtual network gateway is more specific. Before you can delete the virtual network gateway, you must first delete any resources that are dependent on the gateway. The steps you follow depend on the type of connections that you created.
 
