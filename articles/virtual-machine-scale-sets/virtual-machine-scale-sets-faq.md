@@ -431,7 +431,7 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
  
 The extensionName can be found in `$vmss`.
    
-### IS there a scale set template example that integrates with OMS?
+### Is there a scale set template example that integrates with OMS?
 
 Look at the second example here:
 
