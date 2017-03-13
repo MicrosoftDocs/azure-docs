@@ -121,7 +121,6 @@ Learn how to use Batch to run large-scale parallel and high-performance computin
                     <div class="cardText">
                         <h3>Command-Line</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch">PowerShell</a></p>
-                        <p><a href="/cli/azure/batch">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
