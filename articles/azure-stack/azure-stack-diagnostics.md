@@ -3,7 +3,7 @@ title: Diagnostics in Azure Stack | Microsoft Docs
 description: How to collect log files for diagnostics in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: vhorne
+author: adshar
 manager: byronr
 editor: ''
 
@@ -90,7 +90,7 @@ To identify all the logs that get collected from all the components, refer to th
  
 ### To run Get-AzureStackLogs
 1.	Log in as AzureStack\AzureStackAdmin on the host.
-2.	Open a PowerShell window.
+2.	Open a PowerShell window as an administrator.
 3.	Run the following commands to import the PowerShell modules:
 
     -	`cd C:\CloudDeployment\AzureStackDiagnostics\Microsoft.AzureStack.Diagnostics.DataCollection`
@@ -115,6 +115,19 @@ To identify all the logs that get collected from all the components, refer to th
 
 If the `FromDate` and `ToDate` parameters are not specified, logs are collected for the past 4 hours by default.
 
+Currently, you can use the `FilterByRole` parameter to filter log collection by the following roles:
+
+```
+| ACSMigrationService  | ACSMonitoringService | ACSSettingsService | ACS                     | ACSFabric              | ACSFrontEnd  
+| ACSTableMaster       | ACSTableServer       | ACSWac             | ADFS                    | ASAppGateway           | BareMetal   
+| BRP                  | CA                   | CPI                | CRP                     | DeploymentMachine      | DHCP
+| Domain               | ECE                  | ECESeedRing        | FabricRing              | FabricRingServices     | FRP
+| Gateway              | HealthMonitoring     | HRP                | IBC                     | InfraServiceController | KeyVaultAdminResourceProvider
+| KeyVaultControlPlane | KeyVaultDataPlane    | NC                 | NonPrivilegedAppGateway | NRP                    | SeedRing 
+| SeedRingServices     | SLB                  | SQL                | SRP                     | Storage                | StorageController
+| URP                  | UsageBridge          | VirtualMachines    | WAS                     | WASPUBLIC              | WDS
+
+```
 A few things to note:
 
 * This command takes some time for log collection based on which role logs are collected. Contributing factors include the time duration specified for log collection, and the numbers of nodes in the Azure Stack environment.

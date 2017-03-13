@@ -194,7 +194,7 @@ Learn how to use App Service Web Apps to build and host websites and web applica
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/cli/azure/appservice">Azure CLI 2​.0 preview</a></p>
+                        <p><a href="/cli/azure/appservice">Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>
