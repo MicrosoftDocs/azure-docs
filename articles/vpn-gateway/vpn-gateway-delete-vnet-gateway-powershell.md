@@ -28,7 +28,7 @@ There are a couple of different approaches you can take when you want to delete 
 
 ##Before beginning
 
-### 1. Download the latest PowerShell cmdlets.
+### 1. Download the latest Azure Resource Manager PowerShell cmdlets.
 Download and install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information about downloading and installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ### 2. Connect to your Azure account. 
