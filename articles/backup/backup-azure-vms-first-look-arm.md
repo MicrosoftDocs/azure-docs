@@ -35,7 +35,7 @@ This tutorial takes you through the steps for creating a recovery services vault
 * VMs running on Managed Disks
 * VMs encrypted using Azure Disk Encryption, with BEK and KEK
 
-For more information on protecting Premium storage VMs, see the article, [Back up and Restore Premium Storage VMs](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). For more information on support for managed disk VMs, see [Back up and restore VMs on managed disks](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+For more information on protecting Premium storage VMs, see the article, [Back up and Restore Premium Storage VMs](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). For more information on support for managed disk VMs, see [Back up and restore VMs on managed disks](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). For more information on enabling pre-script and post-script framework for Linux VM backup see [Customize your Linux Backups with pre-script and post-script] (https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup#customize-LinuxVM-backup)
 
 > [!NOTE]
 > This tutorial assumes you already have a VM in your Azure subscription and that you have taken measures to allow the backup service to access the VM.
