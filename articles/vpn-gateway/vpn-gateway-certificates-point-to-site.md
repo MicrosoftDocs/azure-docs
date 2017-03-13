@@ -29,7 +29,7 @@ Point-to-Site connections use certificates to authenticate. When you configure a
 
 ## <a name="rootcert"></a>Create a self-signed root certificate
 
-The following steps walk you through creating a self-signed root certificate using PowerShell.
+The following steps walk you through creating a self-signed root certificate using PowerShell. These steps have been validated on a computer running Windows 10.
 
 1. Open a Windows PowerShell console with elevated privileges.
 2. Use the following example to create the self-signed root certificate. The following example creates a self-signed root certificate named 'P2SRootCert' that is automatically installed in 'Certificates-Current User\Personal\Certificates'. You can view the certificate by opening *certmgr.msc*.
