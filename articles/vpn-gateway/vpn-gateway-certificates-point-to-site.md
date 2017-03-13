@@ -32,7 +32,7 @@ Point-to-Site connections use certificates to authenticate. When you configure a
 The following steps walk you through creating a self-signed root certificate using PowerShell.
 
 1. Open a Windows PowerShell console with elevated privileges.
-2. Use the following example to create the self-signed root certificate. The following example creates a self-signed root certificate named 'P2SRootCert'.
+2. Use the following example to create the self-signed root certificate. The following example creates a self-signed root certificate named 'P2SRootCert' that is automatically installed in 'Certificates-Current User\Personal\Certificates'. You can view the certificate by opening *certmgr.msc*.
 
     	$cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
 		-Subject "CN=P2SRootCert" -KeyExportPolicy Exportable `
@@ -58,13 +58,13 @@ To export the self-signed root certificate as a .pfx, select the root certificat
 
 Each client computer that connects to a VNet using Point-to-Site must have a client certificate installed. You generate a client certificate from the self-signed root certificate, and then export and install the client certificate. If the client certificate is not installed, authentication fails. 
 
-The following steps walk you through generating a client certificate from a self-signed root certificate. You may generate multiple client certificates from the same root certificate. Each client certificate can then be exported and installed on the client computer.
+The following steps walk you through generating a client certificate from a self-signed root certificate. You may generate multiple client certificates from the same root certificate. When you generate client certificates using the steps below, the client certificate is automatically installed on the computer that you used to generate the certificate. If you want to install a client certificate on another client computer, you can export the certificate.
 
 ### Example 1
 
 This example uses the declared '$cert' variable from the previous section. If you closed the PowerShell console after creating the self-signed root certificate, or are creating additional client certificates in a new PowerShell console session, use the steps in Example 2.
 
-Modify and run the example to generate a client certificate. If you run the following example without modifying it, the result is a client certificate named 'P2SChildCert'.  If you want to name the child certificate something else, modify the CN value. Do not change the TextExtension when running this example. The client certificate that you generate is automatically installed in the Personal certificate store on your computer.
+Modify and run the example to generate a client certificate. If you run the following example without modifying it, the result is a client certificate named 'P2SChildCert'.  If you want to name the child certificate something else, modify the CN value. Do not change the TextExtension when running this example. The client certificate that you generate is automatically installed in 'Certificates - Current User\Personal\Certificates' on your computer.
 
 	New-SelfSignedCertificate -Type Custom -KeySpec Signature `
 	-Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
@@ -97,7 +97,7 @@ If you are creating additional client certificates, or are not using the same Po
 		$cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
 		
 
-4.  Modify and run the example to generate a client certificate. If you run the following example without modifying it, the result is a client certificate named 'P2SChildCert'. If you want to name the child certificate something else, modify the CN value. Do not change the TextExtension when running this example. The client certificate that you generate is automatically installed in the Personal certificate store on your computer.
+4.  Modify and run the example to generate a client certificate. If you run the following example without modifying it, the result is a client certificate named 'P2SChildCert'. If you want to name the child certificate something else, modify the CN value. Do not change the TextExtension when running this example. The client certificate that you generate is automatically installed in 'Certificates - Current User\Personal\Certificates' on your computer.
 
 		New-SelfSignedCertificate -Type Custom -KeySpec Signature `
 		-Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
@@ -105,18 +105,20 @@ If you are creating additional client certificates, or are not using the same Po
 		-CertStoreLocation "Cert:\CurrentUser\My" `
 		-Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
 
-## <a name="clientexport"></a>Export a client certificate                                                                                                                        
+## <a name="clientexport"></a>Export a client certificate   
 
-1. To export a client certificate, open **certmgr.msc**. Right-click the client certificate that you want to export, click **all tasks**, and then click **export**. This opens the **Certificate Export Wizard**.
+When you generate a client certificate, it's automatically installed on the computer that you used to generate it. If you want to install the client certificate on another client computer, you need to export the client certificate that you generated.                              
+
+1. To export a client certificate, open **certmgr.msc**. The client certificates that you generated are, by default, located in 'Certificates - Current User\Personal\Certificates'. Right-click the client certificate that you want to export, click **all tasks**, and then click **export**. This opens the **Certificate Export Wizard**.
 2. In the Wizard, click **Next**, then select **Yes, export the private key**, and then click **Next**.
 3. On the **Export File Format** page, you can leave the defaults selected. Then click **Next**. 
 4. On the **Security** page, you must protect the private key. If you select to use a password, make sure to record or remember the password that you set for this certificate. Then click **Next**.
 5. On the **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then click **Next**.
 6. Click **Finish** to export the certificate.    
 
-## <a name="install"></a>Install a client certificate
+## <a name="install"></a>Install an exported client certificate
 
-Point-to-Site connections require connecting client computers to have a client certificate. Azure uses the client certificate for authentication. The client certificate, along with the client VPN configuration package, allows a client to connect to a virtual network using Point-to-Site. The following steps walk you through installing a client certificate manually on a client computer.
+If you want to create a P2S connection from a client computer other than the one you used to generate the client certificates, you need to install a client certificate. When installing a client certificate, you will need the password that was created when the client certificate was exported.
 
 1. Locate and copy the *.pfx* file to the client computer. On the client computer, double-click the *.pfx* file to install. Leave the **Store Location** as **Current User**, then click **Next**.
 2. On the **File** to import page, don't make any changes. Click **Next**.
