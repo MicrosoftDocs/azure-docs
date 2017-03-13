@@ -171,14 +171,13 @@ To get the template generated as part of restore disks option,
    
    ![download-template-storage-explorer](./media/backup-azure-arm-restore-vms/template-storage-explorer-download.png)
      
-Once template is downloaded, use template deployment to [edit and deploy the template](../azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template) or append more customizations by [authoring a template](../azure-resource-manager/resource-group-authoring-templates) before you deploy. You can use Load file option to deploy the template downloaded above. 
+Once template is downloaded, use template deployment to [edit and deploy the template](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) or append more customizations by [authoring a template](../azure-resource-manager/resource-group-authoring-templates.md) before you deploy. You can use Load file option to deploy the template downloaded above. 
 
    ![loading template deployment](./media/backup-azure-arm-restore-vms/loading-template.png)
    
 After entering the required values, accept the *Terms and Conditions* and click on **Purchase**.
 
    ![submitting template deployment](./media/backup-azure-arm-restore-vms/submitting-template.png)
-
 
 ## Post-Restore steps
 * If you are using a cloud-init based Linux distribution such as Ubuntu, for security reasons, password is blocked post restore. Please use VMAccess extension on the restored VM to [reset the password](../virtual-machines/virtual-machines-linux-classic-reset-access.md). We recommend using SSH keys on these distributions to avoid resetting password post restore.
