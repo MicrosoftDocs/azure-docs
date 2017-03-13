@@ -23,7 +23,7 @@ ms.custom: H1Hack27Feb2017
 > [!IMPORTANT]
 > **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 
-Password management in Azure Active Directory (Azure AD) consists of the following logical components.
+Password management in Azure Active Directory (Azure AD) consists of the following logical components:
 
 * **Password management configuration portal**: You can control different facets of how passwords are managed in your tenants by navigating to their directory’s **Configure** tab in the [Azure portal](https://manage.windowsazure.com).
 * **User registration portal**: Users can self-register for password reset through this web portal.
@@ -37,7 +37,7 @@ You can configure password management policies for a specific directory in the [
 
 * Enabling and disabling password reset for all users in a directory.
 * Setting the number of challenges (either one or two) that a user must go through to reset their password.
-* Setting the specific types of challenges that you want to enable for users in your organization from the choices below:
+* Setting the specific types of challenges that you want to enable for users in your organization from these choices:
   * Mobile phone (a verification code via text or a voice call)
   * Office phone (a voice call)
   * Alternate email (a verification code via email)
@@ -49,18 +49,18 @@ You can configure password management policies for a specific directory in the [
 * Requiring users to register for password reset when they go to the application [Access Panel](http://myapps.microsoft.com).
 * Requiring users to reconfirm their previously registered data after a configurable number of days have passed (only visible if enforced registration is enabled).
 * Providing a custom helpdesk email or URL that's shown to users in case they have a problem resetting their passwords.
-* Enabling or disabling the Password Writeback capability (when Password Writeback has been deployed by using AAD Connect).
-* Viewing the status of the Password Writeback agent (when Password Writeback has been deployed by using AAD Connect).
+* Enabling or disabling the Password Writeback capability (when Password Writeback has been deployed by using Azure AD Connect).
+* Viewing the status of the Password Writeback agent (when Password Writeback has been deployed by using Azure AD Connect).
 * Enabling email notifications to users when their own password has been reset (found in the **Notifications** section of the [Azure portal](https://manage.windowsazure.com)).
 * Enabling email notifications to administrators when other administrators reset their own passwords (found in the **Notifications** section of the [Azure portal](https://manage.windowsazure.com)).
-* Branding the user password reset portal and password reset emails with your organization’s logo and name by using the tenant branding customization feature (found in the **Directory Properties** section of the [Azure portal](https://manage.windowsazure.com).
+* Branding the user password reset portal and password reset emails with your organization’s logo and name by using the tenant branding customization feature (found in the **Directory Properties** section of the [Azure portal](https://manage.windowsazure.com)).
 
 To learn more about configuring password management in your organization, see [Getting started: Azure AD password management](active-directory-passwords-getting-started.md).
 
 ## User registration portal
 Before your users can use password reset, you must update their cloud user accounts with the correct authentication data to ensure that they can pass through the appropriate number of password reset challenges that you define. You can also define this authentication information on the user’s behalf by using the Azure or Office web portals, DirSync/Azure AD Connect, or Windows PowerShell.
 
-However, if you’d rather have your users register their own data, we also provide a web page that users can go to so that they can add this information. This page allows users to specify authentication information in accordance with the password reset policies that have been enabled in their organization. After this data is verified, it is stored in their cloud user account for use in account recovery at a later time.
+However, if you’d rather have your users register their own data, we also provide a webpage that users can go to so that they can add this information. This page allows users to specify authentication information in accordance with the password reset policies that have been enabled in their organization. After this data is verified, it is stored in their cloud user account for use in account recovery at a later time.
 
 Here’s what the registration portal looks like:
 
@@ -69,7 +69,7 @@ Here’s what the registration portal looks like:
 For more information, see [Getting started: Azure AD password management](active-directory-passwords-getting-started.md) and [Best practices: Azure AD password management](active-directory-passwords-best-practices.md).
 
 ## User password reset portal
-After you've enabled self-service password reset, set up your organization’s self-service password reset policy, and ensured that your users have the appropriate contact data in the directory, users in your organization can reset their own passwords automatically from any web page that uses a work or school account for sign-in (such as [portal.microsoftonline.com](https://portal.microsoftonline.com)). On pages such as these, users see a **Can’t access your account?** link.
+After you've enabled self-service password reset, set up your organization’s self-service password reset policy, and ensure that your users have the appropriate contact data in the directory, users in your organization can reset their own passwords automatically from any webpage that uses a work or school account for sign-in (such as [portal.microsoftonline.com](https://portal.microsoftonline.com)). On pages such as these, users see a **Can’t access your account?** link.
 
   ![][002]
 
