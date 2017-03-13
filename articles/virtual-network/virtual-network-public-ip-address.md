@@ -28,7 +28,7 @@ Learn about public IP addresses and how to create, change, and delete them. A pu
 This article explains how to work with public IP addresses. This article applies to resources deployed through the Azure Resource Manager deployment model. Though public IP addresses can be assigned to resources deployed through the classic deployment model, the addresses are applied differently than they are through Resource Manager. Read the [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article if you're not familiar with the differences between the two models.
 
 The remaining sections of this article list steps to complete all public IP address-related tasks. Each section lists:
-- Steps to complete the task within the Azure portal. To complete the steps you must be logged in to the [Azure portal](http://portal.azure.com). Sign-up for a [free trial account](https://azure.microsoft.com/free) if you don't already have one.
+- Steps to complete the task within the Azure portal. To complete the steps, you must be logged in to the [Azure portal](http://portal.azure.com). Sign up for a [free trial account](https://azure.microsoft.com/free) if you don't already have one.
 - Commands to complete the task using Azure PowerShell with links to the command reference for the command. Install and configure PowerShell by completing the steps in the [How to Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) article. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
 - Commands to complete the task using the Azure Command-line interface (CLI) with links to the command reference for the command. Install the Azure CLI by completing the steps in the [How to Install and Configure the Azure CLI 2.0](/cli/azure/install-az-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) article. To get help for CLI commands, type `az <command> -h`.
 
@@ -56,7 +56,7 @@ To create a public IP address resource, complete the following steps:
 
 |**Tool**|**Command**|
 |---|---|
-|**CLI**|[az network public-ip-create](cli/azure/network/public-ip#create)|
+|**CLI**|[az network public-ip-create](/cli/azure/network/public-ip#create)|
 |**PowerShell**|[New-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/v3.4.0/new-azurermpublicipaddress)|
 
 ### <a name="change"></a>Change settings or delete a public IP address
@@ -67,11 +67,11 @@ To change or delete a public IP address resource, complete the following steps:
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *public ip address*. When **Public IP addresses** appears in the search results, click it.
 3. In the **Public IP addresses** blade that appears, click the name of the public IP address resource you want to change settings for or delete.
 4. In the blade that appears for the public IP address resource, complete one of the following options depending on whether you want to delete or change the public IP address resource
-	- **Delete:** To delete the public IP address resource, click **Delete** in the **Overview** section of the blade. The resource cannot be deleted if it's currently associated to an IP configuration. Click **Dissociate** to dissociate the resource from an IP configuration, if it's currently associated with one.
+	- **Delete:** To delete the public IP address resource, click **Delete** in the **Overview** section of the blade. If the address is currently associated to an IP configuration, it cannot be deleted. If the address is currently associated with a configuration, click **Dissociate** to dissociate the resource from the IP configuration.
 	- **Change:** Click **Configuration**. Change settings using the information in step 4 of the [Create a public IP address resource](#public-ip-address-resource-create) section of this article. To change the assignment from static to dynamic, you must first dissociate the public IP address resource from the IP configuration it's associated to. You can then change the assignment method to dynamic and click **Associate** to associate the resource to the same IP configuration, a different configuration, or you can leave it dissociated. To dissociate a public IP address resource, in the **Overview** section, click **Dissociate**.
 
 >[!WARNING]
->When you change the assignment method from static to dynamic, you lose the IP address that was assigned to the resource. While the Azure public DNS servers maintain a mapping between static or dynamic addresses and any DNS name label (if you defined one), a dynamic IP address can change when the VM is started after being in the stopped (deallocated) state. To prevent this from happening, use a static IP address.
+>When you change the assignment method from static to dynamic, you lose the IP address that was assigned to the resource. While the Azure public DNS servers maintain a mapping between static or dynamic addresses and any DNS name label (if you defined one), a dynamic IP address can change when the VM is started after being in the stopped (deallocated) state. To prevent the address from changing, assign a static IP address.
 
 |**Tool**|**Command**|
 |---|---|
@@ -81,8 +81,8 @@ To change or delete a public IP address resource, complete the following steps:
 ## <a name="next-steps"></a>Next steps
 Assign public IP addresses when creating the following Azure resources:
 
-- [Windows](..virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machines
+- [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machines
 - [Internet-facing Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Azure Application Gateway](../azure/application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Azure Application Gateway](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Site-to-site connection using an Azure VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure Virtual Machine Scale Set](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
