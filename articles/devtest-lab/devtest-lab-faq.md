@@ -61,6 +61,7 @@ This article answers some of the most common questions about Azure DevTest Labs.
 * [My artifact failed during VM creation. How do I troubleshoot it?](#my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it)
 * [Why isn't my existing virtual network saving properly?](#why-isnt-my-existing-virtual-network-saving-properly)
 * [Why do I get a "Parent resource not found" error when provisioning from PowerShell?](#why-do-i-get-a-parent-resource-not-found-error-when-provisioning-a-vm-from-powershell)  
+* [Where can I find more error information when VM deployment is failed](#where-can-i-find-more-error-information-when-vm-deployment-is-failed)  
 
 ### What if my question isn't answered here?
 If your question isn't listed here, let us know and we'll help you find an answer.
@@ -153,7 +154,7 @@ We are designing a solution to directly move VMs to Azure DevTest Labs, but curr
 Attaching multiple disks to VMs is supported.  
 
 ### If I want to use a Windows OS image for my testing, do I have to purchase an MSDN subscription?
-Yes, you must [buy an MSDN subscription](https://www.visualstudio.com/products/how-to-buy-vs) if you need to use Client OS images (Windows 7 and later) for your testing. [Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/) shows Azure credits for each MSDN offering and provides more detail.
+If you need to use Windows Client OS images (Windows 7 and later) for your development or testing in Azure, then yes, you must [buy an MSDN subscription](https://www.visualstudio.com/products/how-to-buy-vs) or create Azure subscriptions with [Enterprise Dev/Test offer](https://azure.microsoft.com/en-us/offers/ms-azr-0148p) if you have an Enterprise Agreement. [Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/) shows Azure credits for each MSDN offering and provides more detail.
 
 ### How do I automate the process of uploading VHD files to create custom images?
 There are two options:
@@ -249,3 +250,8 @@ One possibility is that your virtual network name contains periods. If so, try r
 When one resource is a parent to another resource, the parent resource must exist before creating the child resource. If it does not exist, you receive a **ParentResourceNotFound** error. If you do not specify a dependency on the parent resource, the child resource might be deployed before the parent.
 
 VMs are child resources under a lab in a resource group. When you use ARM templates to deploy through PowerShell, the resource group name provided in the PowerShell script should be the resource group name of the lab. For more information, see [Troubleshoot common Azure deployment errors ](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+
+### Where can I find more error information when VM deployment is failed?
+All the VM deployment error is captured in the activity logs. You can find lab VMs activity logs through **Audit logs** or **Virtual machine diagnostics** from the resource menu in the lab VM blade (the blade shows up after you click the VM from **My virtual machines** list). 
+
+Sometimes, the deployment error occurs before the VM deployment starts (e.g. when the subscription limit for a resoruce created with the VM, like public IP address, is exceeded). In this case, the error details is captured at the lab level **Activity logs**, which you can find at the bottom of **Configuration and policies** settings. For more information about using activity logs in Azure, see [View activity logs to audit actions on resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
