@@ -35,8 +35,9 @@ Protect your data by taking snapshots of your data at defined intervals. These s
 >
 
 Restoring a VM or all disks from VM backup involves two steps:
-a. Select a restore point for restore
-b. Selecting the restore type - create a new VM or restore disks and specify required parameters. 
+
+1. Select a restore point for restore
+2. Selecting the restore type - create a new VM or restore disks and specify required parameters. 
 
 ## Select restore point for restore
 1. Sign in to the [Azure portal](http://portal.azure.com/)
@@ -87,12 +88,10 @@ b. Selecting the restore type - create a new VM or restore disks and specify req
     ![restore point is set](./media/backup-azure-arm-restore-vms/recovery-point-set.png)
 9. On the **Restore** blade, **Restore configuration** opens automatically after restore point is set.
 
-    ![restore configuration wizard is set](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
-
 ## Choosing a VM restore configuration
 Now that you have selected the restore point, choose a configuration for your restore VM. Your choices for configuring the restored VM are to use: Azure portal or PowerShell.
 
-1. If you are not already there, go to the **Restore** blade. Ensure a [**Restore point** has been selected](#select-restore-point-for-restore), and click **Restore configuration** to open the **Recovery configuration** blade.
+1. If you are not already there, go to the **Restore** blade. Ensure a [Restore point has been selected](#select-restore-point-for-restore), and click **Restore configuration** to open the **Recovery configuration** blade.
 
     ![recovery configuration wizard is set](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
 2. On the **Restore configuration** blade, you have two choices:
@@ -111,6 +110,8 @@ If you are not already there, [select a restore point](#restoring-vms-with-speci
 * **Subnet** - If the VNET has subnets, the first subnet is selected by default. If there are additional subnets, select the desired subnet.
 * **Storage account** - This menu lists the storage accounts in the same location as the Recovery Services vault. Storage accounts that are Zone redundant are not supported. If there are no storage accounts with the same location as the Recovery Services vault, you must create one before starting the restore operation. The storage account's replication type is mentioned in parentheses.
 
+![restore configuration wizard is set](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
+
 > [!NOTE]
 > If you are restoring a Resource Manager-deployed VM, you must identify a virtual network (VNET). A virtual network (VNET) is optional for a Classic VM.
 >
@@ -128,7 +129,7 @@ After restore operation is completed, you can :
 
 On the **Restore configuration** blade, click **OK** to finalize the restore configuration.On the **Restore** blade, click **Restore** to trigger the restore operation.
 
-    ![Recovery configuration completed](./media/backup-azure-arm-restore-vms/trigger-restore-operation.png)
+![Recovery configuration completed](./media/backup-azure-arm-restore-vms/trigger-restore-operation.png)
 
 ## Track the restore operation
 Once you trigger the restore operation, the Backup service creates a job for tracking the restore operation. The Backup service also creates and temporarily displays the notification in Notifications area of portal. If you do not see the notification, you can always click the Notifications icon to view your notifications.
