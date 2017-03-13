@@ -18,15 +18,16 @@ ms.author: parakhj
 
 ---
 # Azure Active Directory B2C: Register your application
+
+> [!IMPORTANT]
+> Applications created from the Azure AD B2C blade in the Azure portal must be managed from the same location. If you edit the B2C applications using PowerShell or another portal, they become unsupported and will likely not work with Azure AD B2C.
+> 
+> 
+
 ## Prerequisite
 To build an application that accepts consumer sign-up and sign-in, you first need to register the application with an Azure Active Directory B2C tenant. Get your own tenant by using the steps outlined in [Create an Azure AD B2C tenant](active-directory-b2c-get-started.md). After you follow all the steps in that article, you will have the B2C features blade pinned to your Startboard.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
-
-> [!IMPORTANT]
-> Applications created in the B2C features blade have to be managed from the same location they were created. If you edit B2C applications using PowerShell or another portal, they become unsupported and will likely not work with Azure AD B2C.
-> 
-> 
 
 ## Navigate to the B2C features blade
 If you have the B2C features blade pinned to your Startboard, you will see the blade as soon as you sign in to the [Azure portal](https://portal.azure.com/) as the Global Administrator of the B2C tenant.
@@ -34,7 +35,7 @@ If you have the B2C features blade pinned to your Startboard, you will see the b
 You can also access the blade by clicking **More services** and then searching **Azure AD B2C** in the left navigation pane on the [Azure portal](https://portal.azure.com/).
 
 > [!IMPORTANT]
-> You need to be a Global Administrator of the B2C tenant to be able to access the B2C features blade. A Global Administrator from any other tenant or a user from any tenant cannot access it.  You can switch to your B2C tenant by using the tenant switcher in the top right corner of the Azure Portal.
+> You need to be a Global Administrator of the B2C tenant to be able to access the B2C features blade. A Global Administrator from any other tenant or a user from any tenant cannot access it.  You can switch to your B2C tenant by using the tenant switcher in the top right corner of the Azure portal.
 > 
 > 
 
@@ -61,7 +62,7 @@ You can also access the blade by clicking **More services** and then searching *
 2. Click **+Add** at the top of the blade.
 3. Enter a **Name** for the application that will describe your application to consumers. For example, you could enter "Contoso B2C app".
 4. Toggle the **Include native client** switch to **Yes**.
-5. Enter a **Redirect URI** with a custom scheme. For example, com.onmicrosoft.contoso.appname://redirect/path. Make sure you choose a [good redirect URI](#Choosing-a-redirect-URI).
+5. Enter a **Redirect URI** with a custom scheme. For example, com.onmicrosoft.contoso.appname://redirect/path. Make sure you choose a [good redirect URI](#choosing-a-redirect-uri).
 6. Click **Save** to register your application.
 7. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
 
