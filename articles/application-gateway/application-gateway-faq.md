@@ -210,7 +210,7 @@ Yes, WAF supports all the features in the Standard SKU.
 
 **Q. What is the CRS version Application Gateway supports?**
 
-Application Gateway supports CRS 2.2.9
+Application Gateway supports CRS 2.2.9 and CRS 3.0.0
 
 **Q. How do I monitor WAF?**
 
@@ -245,6 +245,10 @@ WAF currently supports CRS 2.2.9, which provides baseline security against most 
 **Q. Does WAF also support DDos prevention?**
 
 No, WAF does not provide DDos prevention.
+
+**Q. Can I customize the rules?**
+
+Yes, rule customization is supported.  
 
 ## Diagnostics and Logging
 
