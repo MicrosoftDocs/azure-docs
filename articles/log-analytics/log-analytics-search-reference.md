@@ -426,7 +426,7 @@ Limits the returned results fields to *Name* and *Severity*.
 ### Measure
 The *measure* command is used to apply statistical functions to the raw search results. This is very useful to get *group-by* views over the data. When you use the *measure* command, Log Analytics search displays a table with aggregated results.
 
-Syntax:
+**Syntax:**
 
     measure aggregateFunction1([aggregatedField]) [as fieldAlias1] [, aggregateFunction2([aggregatedField2]) [as fieldAlias2] [, ...]] by groupField1 [, groupField2 [, groupField3]]  [interval interval]
 
@@ -637,12 +637,12 @@ Examples:
 
 
 ### Dedup
+Returns the first document found for every unique value of the given field.
+
 **Syntax**
 
     Dedup FieldName
 
-**Description**
-Returns the first document found for every unique value of the given field.
 
 **Example**
 
@@ -651,15 +651,20 @@ Returns the first document found for every unique value of the given field.
 The above example returns one event (the latest since we use DESC on TimeGenerated) per EventID
 
 ### Join
-Joins the results of two queries.
-
-**Syntax**
-<left-query> | JOIN <join-type> <left-query-field-name> (<right-query>) <right-query-field-name>
+Joins the results of two queries to form a single result set.  Supports multiple join types described in the follow table.
 
 | Join type | Description |
 |:--|:--|
 | inner | Return only records with a matching value in both queries. |
-| outer | Return all records from both queries.  Match records with a matching  |
+| outer | Return all records from both queries.  |
+| left  | Return all records from left query and matching records from right query. |
+| right | Return all records from right query and matching records from left query. |
+
+**Syntax**
+<left-query> | JOIN <join-type> <left-query-field-name> (<right-query>) <right-query-field-name>
+
+**Example**
+
 
 
 ### Extend
