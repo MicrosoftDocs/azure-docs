@@ -54,7 +54,7 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
     ```bash
     wget -O /tmp/NVIDIA-Linux-x86_64-367.48.run https://go.microsoft.com/fwlink/?linkid=836899
     ```
-
+    
 4. If you need to install `gcc` and `make` on your system (required for the Tesla drivers), type the following:
 
     ```bash
@@ -63,18 +63,30 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
     sudo apt install gcc
 
     sudo apt install make
-    ```
-
-4. Change to the directory containing the driver installer and run commands similar to the following:
+    ``` 
+    
+5. Change to the directory containing the driver installer and run commands similar to the following:`    
 
     ```bash
     chmod +x NVIDIA-Linux-x86_64-367.48.run
     
     sudo sh ./NVIDIA-Linux-x86_64-367.48.run
     ```
+    
+6. Silent Install without reboot may be performed via scripts as follows:
 
+    ```bash 
+    service lightdm stop 
+    wget -O NVIDIA-Linux-x86_64-367.64-grid.run https://go.microsoft.com/fwlink/?linkid=836899
+    chmod +x NVIDIA-Linux-x86_64-367.64-grid.run
+    DEBIAN_FRONTEND=noninteractive apt-mark hold walinuxagent
+    DEBIAN_FRONTEND=noninteractive apt-get update -y
+    DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential gcc g++ make binutils linux-headers-`uname -r`
+    DEBIAN_FRONTEND=noninteractive ./NVIDIA-Linux-x86_64-367.64-grid.run  --silent
+    DEBIAN_FRONTEND=noninteractive update-initramfs -u
+     ```
+     
 ## Verify driver installation
-
 
 To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) command-line utility installed with the driver. 
 
@@ -101,6 +113,22 @@ sudo apt-get install cuda-drivers
 ```
 
 The installation can take several minutes.
+
+## Silent and Secure installation of NVIDIA CUDA Toolkit on Ubuntu 16.04 LTS
+
+CUDA Toolkit may be silently and securely installed via scripts as follows
+
+```bash
+DEBIAN_FRONTEND=noninteractive apt-mark hold walinuxagent
+export CUDA_DOWNLOAD_SUM=16b0946a3c99ca692c817fb7df57520c && export CUDA_PKG_VERSION=8-0 && curl -o cuda-repo.deb -fsSL http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.44-1_amd64.deb && \
+    echo "$CUDA_DOWNLOAD_SUM  cuda-repo.deb" | md5sum -c --strict - && \
+    dpkg -i cuda-repo.deb && \
+    rm cuda-repo.deb && \
+    apt-get update -y && apt-get install -y cuda && \
+    apt-get install -y nvidia-cuda-toolkit && \
+export LIBRARY_PATH=/usr/local/cuda-8.0/lib64/:${LIBRARY_PATH}  && export LIBRARY_PATH=/usr/local/cuda-8.0/lib64/stubs:${LIBRARY_PATH} && \
+export PATH=/usr/local/cuda-8.0/bin:${PATH}
+```
 
 ## Next steps
 
