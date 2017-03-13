@@ -24,7 +24,7 @@ ms.author: chackdan
 >
 >
 
-For any modern system, the ability to upgrade is a key to the long-term success of your product. A Service Fabric cluster is a resource that you own. This article describes how you can make sure that the cluster always runs supported versions of Service Fabric code and configurations.
+For any modern system, the ability to upgrade is a key to the long-term success of your product. An Azure Service Fabric cluster is a resource that you own. This article describes how you can make sure that the cluster always runs supported versions of Service Fabric code and configurations.
 
 ## Control the Service Fabric version that runs on your cluster
 To set your cluster to download updates of Service Fabric when Microsoft releases a new version, set the **fabricClusterAutoupgradeEnabled** cluster configuration to true. To select a supported version of Service Fabric that you want your cluster to be on, set the **fabricClusterAutoupgradeEnabled** cluster configuration to false.
@@ -34,7 +34,7 @@ To set your cluster to download updates of Service Fabric when Microsoft release
 >
 >
 
-You can upgrade your cluster to the new version only if you are using a production-style node configuration, where each Service Fabric node is allocated on a separate physical or virtual machine. If you have a development cluster, where more than one Service Fabric node is on a single physical or virtual machine, you must recreate the cluster with the new version.
+You can upgrade your cluster to the new version only if you are using a production-style node configuration, where each Service Fabric node is allocated on a separate physical or virtual machine. If you have a development cluster, where more than one Service Fabric node is on a single physical or virtual machine, you must re-create the cluster with the new version.
 
 Two distinct workflows can upgrade your cluster to the latest version or a supported Service Fabric version. One workflow is for clusters that have connectivity to download the latest version automatically. The other workflow is for clusters that do not have connectivity to download the latest Service Fabric version.
 
@@ -72,7 +72,7 @@ After you see the cluster health warning, do the following:
 
     ```powershell
 
-    ###### Get the list of available service fabric versions
+    ###### Get the list of available Service Fabric versions
     Get-ServiceFabricRegisteredClusterCodeVersion
     ```
 
@@ -114,7 +114,7 @@ Modify your cluster configuration to set the following property to false before 
 
         "fabricClusterAutoupgradeEnabled": false,
 
-Refer to [Start-ServiceFabricClusterConfigurationUpgrade PS cmd ](https://msdn.microsoft.com/en-us/library/mt788302.aspx) for usage details. Make sure to update the 'clusterConfigurationVersion' in your JSON before you start the configuration upgrade.
+Refer to [Start-ServiceFabricClusterConfigurationUpgrade PS cmd ](https://msdn.microsoft.com/en-us/library/mt788302.aspx) for usage details. Make sure to update 'clusterConfigurationVersion' in your JSON before you start the configuration upgrade.
 
 ```powershell
 
@@ -145,7 +145,7 @@ Refer to [Start-ServiceFabricClusterConfigurationUpgrade PS cmd ](https://msdn.m
 
     ```powershell
 
-   ###### Get the list of available service fabric versions
+   ###### Get the list of available Service Fabric versions
     Copy-ServiceFabricClusterPackage -Code -CodePackagePath <name of the .cab file including the path to it> -ImageStoreConnectionString "fabric:ImageStore"
 
    ###### Here is a filled-out example
@@ -157,7 +157,7 @@ Refer to [Start-ServiceFabricClusterConfigurationUpgrade PS cmd ](https://msdn.m
 
     ```powershell
 
-    ###### Get the list of available service fabric versions
+    ###### Get the list of available Service Fabric versions
     Register-ServiceFabricClusterPackage -Code -CodePackagePath <name of the .cab file>
 
     ###### Here is a filled-out example
