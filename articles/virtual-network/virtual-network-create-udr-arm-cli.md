@@ -57,7 +57,7 @@ To create the route table and route needed for the front end subnet based on the
     --name UDR-FrontEnd
     ```
    
-    Output:
+Output:
    
     ```json
     {
@@ -87,7 +87,7 @@ To create the route table and route needed for the front end subnet based on the
     --next-hop-ip-address 192.168.0.4
     ```
 
-    Output:
+Output:
 
     ```json
     {
@@ -102,12 +102,12 @@ To create the route table and route needed for the front end subnet based on the
     }
     ```
    
-    Parameters:
+Parameters:
    
-    * **--route-table-name**. Name of the route table where the route will be added. For our scenario, *UDR-FrontEnd*.
-    * **--address-prefix**. Address prefix for the subnet where packets are destined to. For our scenario, *192.168.2.0/24*.
-    * **--next-hop-type**. Type of object traffic will be sent to. Possible values are *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet*, or *None*.
-    * **--next-hop-ip-address**. IP address for next hop. For our scenario, *192.168.0.4*.
+* **--route-table-name**. Name of the route table where the route will be added. For our scenario, *UDR-FrontEnd*.
+* **--address-prefix**. Address prefix for the subnet where packets are destined to. For our scenario, *192.168.2.0/24*.
+* **--next-hop-type**. Type of object traffic will be sent to. Possible values are *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet*, or *None*.
+* **--next-hop-ip-address**. IP address for next hop. For our scenario, *192.168.0.4*.
 
 3. Run the [az network vnet subnet update](/cli/azure/network/vnet/subnet#update) command to associate the route table created above with the **FrontEnd** subnet:
 
