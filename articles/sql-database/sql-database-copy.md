@@ -32,4 +32,4 @@ You can copy a SQL database using the [Azure portal](sql-database-copy-portal.md
 
 * See [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md) to learn about managing users and logins when copying a database to a different logical server.
 * For information on logins, see  [Manage logins](sql-database-manage-logins.md)
-* To export a datagase, see [Export the database to a BACPAC](sql-database-export.md)
+* To export a database, see [Export the database to a BACPAC](sql-database-export.md)
