@@ -57,13 +57,8 @@ If you specify for your asset to be encrypted with a **StorageEncrypted** option
 This topic shows how to use Media Services .NET SDK as well as Media Services .NET SDK extensions to upload files into a Media Services asset.
 
 ## Upload a single file with Media Services .NET SDK
-The sample code below uses .NET SDK to perform the following tasks: 
+The sample code below uses .NET SDK to upload a single file. The AccessPolicy and Locator are created and destroyed by the Upload function. 
 
-* Creates an empty Asset.
-* Creates an AssetFile instance that we want to associate with the asset.
-* Creates an AccessPolicy instance that defines the permissions and duration of access to the asset.
-* Creates a Locator instance that provides access to the asset.
-* Uploads a single media file into Media Services. 
 
         static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
         {
