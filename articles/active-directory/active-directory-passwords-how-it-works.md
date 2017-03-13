@@ -69,7 +69,7 @@ Here’s what the registration portal looks like:
 For more information, see [Getting started: Azure AD password management](active-directory-passwords-getting-started.md) and [Best practices: Azure AD password management](active-directory-passwords-best-practices.md).
 
 ## User password reset portal
-After you've enabled self-service password reset, set up your organization’s self-service password reset policy, and ensure that your users have the appropriate contact data in the directory, users in your organization can reset their own passwords automatically from any webpage that uses a work or school account for sign-in (such as [portal.microsoftonline.com](https://portal.microsoftonline.com)). On pages such as these, users see a **Can’t access your account?** link.
+After you've enabled self-service password reset, set up your organization’s self-service password reset policy, and ensured that your users have the appropriate contact data in the directory, users in your organization can reset their own passwords automatically from any webpage that uses a work or school account for sign-in (such as [portal.microsoftonline.com](https://portal.microsoftonline.com)). On pages such as these, users see a **Can’t access your account?** link.
 
   ![][002]
 
