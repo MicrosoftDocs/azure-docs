@@ -4,6 +4,7 @@
 # Get started
 ## [Create and manage account](media-services-portal-create-account.md)
 ## [Set up your dev environment](media-services-set-up-computer.md)
+###[Azure functions](media-services-dotnet-how-to-use-azure-functions.md)
 ###[.NET](media-services-dotnet-how-to-use.md)
 ###[REST](media-services-rest-how-to-use.md)  
 ## Connect programmatically
@@ -45,6 +46,7 @@
 
 ## [Encode content](media-services-encode-asset.md)
 ### [Compare encoders](media-services-compare-encoders.md)
+### [Manage speed and concurrency of your encoding](media-services-manage-encoding-speed.md)
 ### Media Encoder Standard (MES)
 #### [Media Encoder Standard Formats and Codecs](media-services-media-encoder-standard-formats.md)
 #### [Use MES to auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md)
@@ -191,7 +193,7 @@
 ### [Licensing Microsoft Smooth Streaming Client Porting Kit](media-services-sspk.md)
 
 ## Integrate
-### [Azure Functions](https://github.com/azure-samples/media-services-dotnet-functions-integration)
+### [Azure functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
 
 ## Monitor
 ### Check job progress
