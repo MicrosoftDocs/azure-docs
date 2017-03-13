@@ -638,7 +638,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                     </ul>
-								    <h3>Other Clouds</h3>
+                                    <h3>Other Clouds</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/azure-government/">
@@ -652,7 +652,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <p>Azure Stack</p>
                                             </a>
                                         </li>
-									</ul>
+                                    </ul>
                                 </div>
                             </li>
                         </ul>
@@ -2409,8 +2409,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </a>
                             </li>
-						</ul>
-					</li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li>
