@@ -88,7 +88,7 @@ The following table describes the JSON properties used in the JSON definition:
 ## Folder structure
 The Spark activity does not support an in-line script as Pig and Hive activities do. Spark jobs are also more extensible than Pig/Hive jobs. For Spark jobs, you can provide multiple dependencies such as jar packages (placed in the java CLASSPATH), python files (placed on the PYTHONPATH), and any other files.
 
-Create the following folder structure in the Azure Blob storage referenced by the the HDInsight linked service. Then, upload dependent files to the appropriate sub folders in the root folder represented by **entryFilePath**. For example, upload python files to the pyFiles subfolder and jars to the jars subfolder in the root folder. At runtime, Data Factory service expects the following folder structure in the Azure Blob storage:     
+Create the following folder structure in the Azure Blob storage referenced by the HDInsight linked service. Then, upload dependent files to the appropriate sub folders in the root folder represented by **entryFilePath**. For example, upload python files to the pyFiles subfolder and jar files to the jars subfolder of the root folder. At runtime, Data Factory service expects the following folder structure in the Azure Blob storage:     
 
 | Path | Description | Required | Type |
 | ---- | ----------- | -------- | ---- | 
