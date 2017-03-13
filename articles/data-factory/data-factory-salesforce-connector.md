@@ -248,7 +248,7 @@ In copy activity, when the source is of the type **RelationalSource** (which inc
 When specify the SOQL or SQL query, pay attention to the DateTime format difference. For example:
 
 * **SOQL sample**: $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)
-* **SQL sample**: $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate  < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`.
+* **SQL sample**: $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate >= {{ts\\\'{0:yyyy-MM-dd HH:mm:ss}\\\'}} AND LastModifiedDate  < {{ts\\\'{1:yyyy-MM-dd HH:mm:ss}\\\'}}', WindowStart, WindowEnd)`.
 
 ### Retrieving data from Salesforce Report
 You can retrieve data from Salesforce reports by specifying query as `{call "<report name>"}`, e.g. `"query": "{call \"TestReport\"}"`.
