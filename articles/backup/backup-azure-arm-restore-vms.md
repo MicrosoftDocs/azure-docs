@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/26/2017
+ms.date: 3/12/2017
 ms.author: markgal;trinadhk;
 
 ---
@@ -25,14 +25,19 @@ ms.author: markgal;trinadhk;
 >
 >
 
-Protect your data by taking snapshots of your data at defined intervals. These snapshots are known as recovery points, and they are stored in recovery services vaults. If or when it is necessary to repair or rebuild a VM, you can restore the VM from any of the saved recovery points. When you restore a recovery point, you return or revert the VM to the state when the recovery point was taken. This article explains how to restore a VM.
+Protect your data by taking snapshots of your data at defined intervals. These snapshots are known as recovery points, and they are stored in recovery services vaults. If or when it is necessary to repair or rebuild a VM, you can restore the VM from any of the saved recovery points. When you restore a recovery point, you can create a new VM which is a point-in-time representation of your backed up VM, or restore disks and use the template that come along with it to customize the restored VM or do an individual file recovery. This article explains how to restore a VM to a new VM or restore all backed up disks. For individual file recovery, refer to [Recover files from Azure VM backup](backup-azure-restore-files-from-vm.md)
+
 
 > [!NOTE]
 > Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
 >
 >
 
-## Restore a recovery point
+Restoring a VM or all disks from VM backup involves two steps:
+a. Select a restore point for restore
+b. Selecting the restore type - create a new VM or restore disks and specify required parameters. 
+
+## Select restore point for restore
 1. Sign in to the [Azure portal](http://portal.azure.com/)
 2. On the Azure menu, click **Browse** and in the list of services, type **Recovery Services**. The list of services adjusts to what you type. When you see **Recovery Services vaults**, select it.
 
