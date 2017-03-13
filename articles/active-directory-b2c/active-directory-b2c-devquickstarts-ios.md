@@ -42,11 +42,6 @@ Next, you need to create an app in your B2C directory. The app registration give
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## Choosing a good redirect URI
-There are two important considerations when choosing a redirect URI:
-1) The scheme of the redirect URI used for OpenID Connect callbacks should be unique for every application.  In our example, we used com.onmicrosoft.fabrikamb2c.exampleapp.  We recommend following this pattern, replacing fabrikamb2c with your b2c tenant name and changing exampleapp to a different name for each application.  If the scheme is unique, the user will never see this URI.  However, if two applications share the same scheme, the user will see a "choose app" dialog.  If the user makes an incorrect choice, the login will simply fail.  (For security, PKCE will prevent the other application from using the authorization code)
-2) As of AppAuth-iOS v0.8.0, the comparison logic to handle the redirect fails if the path of the URI is NIL.  Therefore, your path must contain at least one forward slash (for example, //a/ will work and //a will fail).  We decided to use //oauth/redirect and you can reuse this path in all of your applications, but change it if desired.
-
 ## Create your policies
 In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains one identity experience: a combined sign-in and sign-up. You need to create this policy, as described in the
 [policy reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). When you create the policy, be sure to:
