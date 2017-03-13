@@ -41,7 +41,8 @@
 ## [Modify local network gateway settings using PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ## [Verify a gateway connection](vpn-gateway-verify-connection-resource-manager.md)
 ## [Reset an Azure VPN Gateway](vpn-gateway-resetgw-classic.md)
-## [How to work with self-signed certificates for Point-to-Site connections](vpn-gateway-certificates-point-to-site.md)
+## [Delete an Azure VPN Gateway](vpn-gateway-delete-vnet-gateway-powershell.md)
+## [Create self-signed root certificates for P2S connections](vpn-gateway-certificates-point-to-site.md)
 ## [Configure a VPN gateway (classic)](vpn-gateway-configure-vpn-gateway-mp.md)
 
 # Reference
