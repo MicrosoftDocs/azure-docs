@@ -26,15 +26,15 @@ Before you start, both a private and public SSH key are needed. For detailed inf
 
 ## Log in to Azure 
 
-1. Log in to the Azure portal at http://portal.azure.com.
+Log in to the Azure portal at http://portal.azure.com.
 
 ## Create virtual machine
 
 2. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
-3. Select **Compute** from the **New** blade, select **Ubuntu Server 16.04 LTS** from the **Compute** blade, and then click the **Create** button.
+3. Select **Compute** from the **New* blade, select **Ubuntu Server 16.04 LTS** from the **Compute** blade, and then click the **Create** button.
 
-4. Fill out the virtual machine basics form. For **Authentication type**, SSH is recommended. When pasting in your **SSH public key**, take care to remove any leading or trailing white space. For **Resource group**, create a new one. A resource group is a logical container into which Azure resources are created and collectively managed. When complete, click **OK**.
+4. Fill out the virtual machine **Basics** form. For **Authentication type**, SSH is recommended. When pasting in your **SSH public key**, take care to remove any leading or trailing white space. For **Resource group**, create a new one. A resource group is a logical container into which Azure resources are created and collectively managed. When complete, click **OK**.
 
     ![Enter basic information about your VM in the portal blade](./media/virtual-machine-quick-start/create-vm-portal-basic-blade.png)  
 
