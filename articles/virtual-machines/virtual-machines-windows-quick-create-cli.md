@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/08/2017
+ms.date: 03/14/2017
 ms.author: nepeters
 ---
 
@@ -46,7 +46,7 @@ az group create --name myResourceGroup --location westeurope
 
 Create a VM with [az vm create](/cli/azure/vm#create). 
 
-The following example creates a VM named `myVM`. This example uses `azureuser` for an administrative user name and ` myPassword12` as the password. Update these values to something appropriate to your environment. These values will also be needed when creating a connection with the virtual machine.
+The following example creates a VM named `myVM`. This example uses `azureuser` for an administrative user name and ` myPassword12` as the password. Update these values to something appropriate to your environment. These values are needed when creating a connection with the virtual machine.
 
 ```azurecli
 az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
