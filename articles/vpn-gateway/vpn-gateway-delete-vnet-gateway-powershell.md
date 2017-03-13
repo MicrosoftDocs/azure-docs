@@ -22,9 +22,9 @@ ms.author: cherylmc
 
 There are a couple of different approaches you can take when you want to delete a virtual network gateway.
 
-- If you want to delete everything and start over, as in the case of a test environment, you can delete an entire resource group. When you delete a resource group, it deletes all the resources within the group. This is only recommended if you don't want to keep any of the resources in the resource group. You can't selectively delete only a few resources this way.
+- If you want to delete everything and start over, as in the case of a test environment, you can delete an entire resource group. When you delete a resource group, it deletes all the resources within the group. This is only recommended if you don't want to keep any of the resources in the resource group. You can't selectively delete only a few resources using this approach.
 
-- If you want to keep some of the resources in your resource group, deleting a virtual network gateway is more specific. Before you can delete the virtual network gateway, you must first delete any resources that are dependent on the gateway. The steps you follow depend on the type of connections that you created.
+- If you want to keep some of the resources in your resource group, deleting a virtual network gateway becomes slightly more complicated. Before you can delete the virtual network gateway, you must first delete any resources that are dependent on the gateway. The steps you follow depend on the type of connections that you created and the dependent resources for each connection.
 
 ##Before beginning
 
@@ -48,7 +48,7 @@ If you have more than one subscription, specify the subscription that you want t
 
 ##<a name="S2S"></a>Delete a Site-to-Site VPN gateway
 
-To delete a virtual network gateway that is used for a S2S configuration, you must delete multiple resources, in order. When working with the examples below, some of the values must be specifically called out, while other values are an output result. We use the following specific values in the examples for demonstration purposes:
+To delete a virtual network gateway for a S2S configuration, you must first delete each resource that pertains to the virtual network gateway. Resources must be deleted in a certain order due to dependencies. When working with the examples below, some of the values must be specifically called out, while other values are an output result. We use the following specific values in the examples for demonstration purposes:
 
 VNet name: VNet1<br>
 Resource Group name: RG1<br>
@@ -103,7 +103,7 @@ If the virtual network gateway was active-active, you will see two Public IP add
 
 ##<a name="v2v"></a>Delete a VNet-to-VNet VPN gateway
 
-To delete a virtual network gateway that is used for a V2V configuration, you must delete multiple resources, in order. When working with the examples below, some of the values must be specifically called out, while other values are an output result. We use the following specific values in the examples for demonstration purposes:
+To delete a virtual network gateway for a V2V configuration, you must first delete each resource that pertains to the virtual network gateway. Resources must be deleted in a certain order due to dependencies. When working with the examples below, some of the values must be specifically called out, while other values are an output result. We use the following specific values in the examples for demonstration purposes:
 
 VNet name: VNet1<br>
 Resource Group name: RG1<br>
