@@ -14,8 +14,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/27/2017
-ms.author: markgal;trinadhk
+ms.date: 3/13/2017
+ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -89,6 +89,14 @@ The following table shows the Azure Backup components that have support for Linu
 | System Center DPM |File-consistent backup on Hyper-V only<br/> (not available for Azure VM) |
 | Azure Backup Server |File-consistent backup on Hyper-V only<br/> (not available for Azure VM) |
 | Azure IaaS VM Backup |Yes |
+
+## Take Application consistent Azure Linux VM backup using pre-script and post-script 
+Azure Backup allows you to customize your Azure Linux VM backups by running custom pre-script and post-script while taking VM snapshot. 
+### Invoke pre-script and post-script while taking VM backup
+You get a lot of flexibility to control your backups by executing custom pre-script and post-script as part of VM backup. Pre-script will be invoked before taking the VM snapshot and post-script will be invoked post VM snapshot completion. For more information see the article to [configure pre-script and post-script for Azure linux VMs] (https://docs.microsoft.com/en-us/azure/backup/backup-azure-arm-vms-prepare#Configuring-pre-script-and-post-script-for-Linux-VMs )
+
+### Restore from application consistent recovery points
+If the pre-script and post-script succeed, the recovery point will be marked as application consistent for Linux VMs. You can restore from an application consistent recovery point just like any other recovery point.
 
 ## Using Premium Storage VMs with Azure Backup
 Azure Backup protects Premium Storage VMs. Azure Premium Storage is solid-state drive (SSD)-based storage designed to support I/O-intensive workloads. Premium Storage is attractive for virtual machine (VM) workloads. For more information about Premium Storage, see the article, [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md).
