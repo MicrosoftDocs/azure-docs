@@ -38,9 +38,9 @@ Before you can use Azure AD B2C, you must create a directory, or tenant. A direc
 
 Next, you need to create an app in your B2C directory. This gives Azure AD information that it needs to communicate securely with your app. To create a mobile app, follow [these instructions](active-directory-b2c-app-registration.md). Be sure to:
 
-* Include a **mobile device** in the application.
+* Include a **Native Client** in the application.
 * Copy the **Application ID** that is assigned to your app. You will need this later.
-* Set up a **Redirect URI** (e.g. com.onmicrosoft.fabrikamb2c.exampleapp://oauthredirect). You will also need this later.
+* Set up a native client **Redirect URI** (e.g. com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). You will also need this later.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
@@ -49,7 +49,7 @@ Next, you need to create an app in your B2C directory. This gives Azure AD infor
 In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains one identity experience: a combined sign-in and sign-up. You need to create this policy, as described in the
 [policy reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). When you create the policy, be sure to:
 
-* Choose the **Display name** and sign-up attributes in your policy.
+* Choose the **Display name** as a sign-up attribute in your policy.
 * Choose the **Display name** and **Object ID** application claims in every policy. You can choose other claims as well.
 * Copy the **Name** of each policy after you create it. It should have the prefix `b2c_1_`.  You'll need the policy name later.
 

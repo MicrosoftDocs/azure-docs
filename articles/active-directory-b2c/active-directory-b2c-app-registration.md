@@ -23,6 +23,11 @@ To build an application that accepts consumer sign-up and sign-in, you first nee
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
+> [!IMPORTANT]
+> Applications created in the B2C features blade have to be managed from the same location they were created. If you edit B2C applications using PowerShell or another portal, they become unsupported and will likely not work with Azure AD B2C.
+> 
+> 
+
 ## Navigate to the B2C features blade
 If you have the B2C features blade pinned to your Startboard, you will see the blade as soon as you sign in to the [Azure portal](https://portal.azure.com/) as the Global Administrator of the B2C tenant.
 
@@ -41,24 +46,6 @@ You can also access the blade by clicking **More services** and then searching *
 5. Click **Save** to register your application.
 6. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
 
-> [!IMPORTANT]
-> Applications created in the B2C features blade have to be managed in the same location. If you edit B2C applications using PowerShell or another portal, they become unsupported and will likely not work with Azure AD B2C.
-> 
-> 
-
-## Register a mobile application
-1. On the B2C features blade on the Azure portal, click **Applications**.
-2. Click **+Add** at the top of the blade.
-3. Enter a **Name** for the application that will describe your application to consumers. For example, you could enter "Contoso B2C app".
-4. Toggle the **Include native client** switch to **Yes**.
-5. Enter a **Redirect URI** with a custom scheme. For example, com.onmicrosoft.contoso.appname://redirectPath.
-6. Click **Save** to register your application.
-7. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
-
-> [!IMPORTANT]
-> Applications created in the B2C features blade have to be managed in the same location. If you edit B2C applications using PowerShell or another portal, they become unsupported and will likely not work with Azure AD B2C.
-> 
-> 
 
 ## Register a web api
 1. On the B2C features blade on the Azure portal, click **Applications**.
@@ -68,10 +55,20 @@ You can also access the blade by clicking **More services** and then searching *
 5. Click **Save** to register your application.
 6. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
 
-> [!IMPORTANT]
-> Applications created in the B2C features blade have to be managed in the same location. If you edit B2C applications using PowerShell or another portal, they become unsupported and will likely not work with Azure AD B2C.
-> 
-> 
+
+## Register a mobile/native application
+1. On the B2C features blade on the Azure portal, click **Applications**.
+2. Click **+Add** at the top of the blade.
+3. Enter a **Name** for the application that will describe your application to consumers. For example, you could enter "Contoso B2C app".
+4. Toggle the **Include native client** switch to **Yes**.
+5. Enter a **Redirect URI** with a custom scheme. For example, com.onmicrosoft.contoso.appname://redirect/path. Make sure you choose a [good redirect URI](#Choosing-a-redirect-URI).
+6. Click **Save** to register your application.
+7. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
+
+### Choosing a redirect URI
+There are two important considerations when choosing a redirect URI for mobile/native applications: 
+1. **Unique**: The scheme of the redirect URI should be unique for every application. In our example (com.onmicrosoft.contoso.appname://redirect/path), we use com.onmicrosoft.contoso.appname as the scheme. We recommend following this pattern. If two applications share the same scheme, the user will see a "choose app" dialog. If the user makes an incorrect choice, the login will fail. 
+2. **Complete**: Redirect URI must have a scheme and a path. The path must contain at least one forward slash (for example, //contoso/ will work and //a will fail). 
 
 ## Build a Quick Start Application
 Now that you have an application registered with Azure AD B2C, you can complete one of our quick-start tutorials to get up and running. Here are a few recommendations:
