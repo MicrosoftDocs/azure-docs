@@ -19,20 +19,22 @@ ms.author: juluk
 
 # Persisting storage (preview)
 The Cloud Console allows users to attach their own fileshare held in Azure Storage to maintain file persistence across console sessions.
-Anything stored in Azure Files is subject to regular Azure Storage pricing. [Click here for details on Azure Files prices.](https://azure.microsoft.com/en-us/pricing/details/storage/files/)
+Anything stored in Azure Files is subject to regular Azure Storage pricing. [Click here for details on Azure Files prices](https://azure.microsoft.com/en-us/pricing/details/storage/files/).
 
-Cloud Console file storage works in two ways: <br>
-1. File shares will mount as a `clouddrive` subdirectory in your user $HOME <br>
-Use this to [upload/download to/from your local machine via Azure Portal](#upload-or-download-local-files) <br>
-2. Your user $HOME directory will persist as an .img file stored in your mounted file share (.img defaults to 5GB) <br>
+Cloud Console file storage works in two ways: 
+1. File shares will mount as a `clouddrive` subdirectory in your user $HOME 
 
-This enables many use cases such as: <br>
-* Upload/download local files to/from the Cloud Console via clouddrive
-* Persisting ssh keys stored in .ssh across sessions (captured in mounted file share's .img)
-* Allowing multiple users to edit a shared file share from the Cloud Console
+	Use this to [upload/download to/from your local machine via Azure Portal](#upload-or-download-local-files).
+	
+2. Your user $HOME directory will persist as an .img file stored in your mounted file share (.img defaults to 5GB).
+
+This enables many use cases such as:
+- Upload/download local files to/from the Cloud Console via clouddrive
+- Persisting ssh keys stored in .ssh across sessions (captured in mounted file share's .img)
+- Allowing multiple users to edit a shared file share from the Cloud Console
 
 ## How it works
-Upon choosing to mount an Azure Storage account, the Cloud Console will add a "tag" to the selected storage account using the format: <br>
+Upon choosing to mount an Azure Storage account, the Cloud Console will add a "tag" to the selected storage account using the format: 
 
 | Key | Value |
 |:-------------:|:-------------:|
@@ -41,14 +43,19 @@ Upon choosing to mount an Azure Storage account, the Cloud Console will add a "t
 Upon initialization, every Cloud Console session searches for the key and mounts the fileshare specified in the value.
 
 ## Mounting a storage account
-To mount an Azure Files storage account: <br>
+
+To mount an Azure Files storage account.
+
 1. Open a Cloud Console session <br>
-2. Run: <br>
-```
-createclouddrive -s mySub -g myRG -n exName -f myShare
-```
+2. Type:
+
+    ```azurecli
+    createclouddrive -s mySub -g myRG -n exName -f myShare
+    ```
+	
 If successful you will be prompted to restart the console or to create a new storage account if the storage account does not already exist.
-```
+
+```azurecli
 justin@Azure:~$ createclouddrive -s borisb-internal-sub -g acc-a0 -n acca0disks656 -f myClouddrive
 INFO: Setting subscription (juluk-subscription)
 INFO: User Principal Name: juluk@microsoft.com
@@ -92,7 +99,8 @@ You should now be able to upload/download to/from your fileshare from the `cloud
 Uploading/downloading from/to your local machine can be done via the Azure Files portal blades.
 
 To see more details run `createclouddrive -h`: <br>
-```
+
+```azurecli
 Options: <br>
   -s | Subscription ID or name <br>
   -g | Resource group name <br>
@@ -114,7 +122,7 @@ To find details about your mounted storage run `df`. The filepath to clouddrive 
 
 `//storageaccountname.file.core.windows.net/filesharename`
 
-```
+```azurecli
 justin@Azure:~$ df
 Filesystem                                         1K-blocks    Used  Available Use% Mounted on
 overlay                                             29711408 5577940   24117084  19% /
@@ -130,13 +138,17 @@ justin@Azure:~$
 You can utilize the Portal GUI for Azure Files to upload or download files to/from storage.
 Editing/removing/adding files from within the console will also reflect in the File Storage GUI upon blade refresh.
 
-1. Navigate to the mounted fileshare
-![](./media/touch-txt-storage.png)
-2. Select target file in Portal
-3. Hit "Download"
-![](./media/download-storage.png)
+1. Navigate to the mounted fileshare.
+
+	![](./media/touch-txt-storage.png)
+
+2. Select target file in Portal.
+
+3. Hit **Download**.
+
+	![](./media/download-storage.png)
 
 ## Next steps
-[ACC Quickstart](../Get-started/acc-quickstart.md) <br>
-[About Azure File storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
-[Learn more about Storage tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>
+- [ACC Quickstart](acc-quickstart.md)
+- [About Azure File storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) 
+- [Learn more about Storage tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)

@@ -23,32 +23,31 @@ This repo includes staged documents for the Azure Cloud Console. Please refer to
 
 ![](media/beta-screenshot.png)
 
-* Access console via [aka.ms/accbeta] (https://www.aka.ms/accbeta)
-* Access docs via [aka.ms/accbetadocs] (https://www.aka.ms/accbetadocs)
+- Access console via [aka.ms/accbeta] (https://www.aka.ms/accbeta)
+- Access docs via [aka.ms/accbetadocs] (https://www.aka.ms/accbetadocs)
 
 ## About Cloud Console
 Azure is excited to provide a free, browser-accessible BASH shell to every Azure user from the Azure Portal. 
 This shell is your personal sandbox enabling you to deploy, manage, and develop Azure resources or integrate into your existing workflows.
 
 ### Concepts
-* Machine state and files do not persist beyond the active session by default
-  * You may [mount Azure storage to persist files.](/How-to/acc-persisting-storage.md) 
-* Permissions are set as a regular user
-* Console runs on an ephemeral container provided on a per-session, per-user basis
-* Console times out after 10 minutes without output activity (Hit enter to reactivate)
+- Machine state and files do not persist beyond the active session by default. You may [mount Azure storage to persist files](acc-persisting-storage.md).
+- Permissions are set as a regular user
+- Console runs on an ephemeral container provided on a per-session, per-user basis
+- Console times out after 10 minutes without output activity (Hit enter to reactivate)
 
 ### Features
-* A browser-based BASH workstation built for Azure
-* Automatic authentication
-* Bring your own Azure Files for file persistence
+- A browser-based BASH workstation built for Azure
+- Automatic authentication
+- Bring your own Azure Files for file persistence
 
-Check the full [feature list here](Concepts/acc-features.md).
+Check the full [feature list here](acc-features.md).
 
 ## Example use cases
-* Try out the new Azure CLI 2.0
-* SSH directly from the Azure Portal
-* Manage resources via GUI or CLI, side-by-side
-* Test documentation scripts without leaving your browser
+- Try out the new Azure CLI 2.0
+- SSH directly from the Azure Portal
+- Manage resources via GUI or CLI, side-by-side
+- Test documentation scripts without leaving your browser
 
 ## Preview access 
 In order to receive internal access you must:
@@ -72,8 +71,8 @@ The console is supported for Chrome, Firefox, Safari, IE, and Edge, but shortcut
 2. Cloud Console Teams discussion
 
 ## Known Preview Issues
-1. CLI 2.0 cmd and autocomplete performance
-2. Force kill/restart is coming soon, if your console freezes please open an issue with repro details. Refreshing the page and relaunching the console acts as a force restart for now.
-3. Portal tabs left inactive for long periods of time will have tokens expire, this can disable reactivating the console. Please refresh your page to fix this.
-4. Shortcuts (ctrl-v and ctrl-c) not supported on Windows in preview
-5. Right-click paste not supported on IE/Firefox
+- CLI 2.0 cmd and autocomplete performance
+- Force kill/restart is coming soon, if your console freezes please open an issue with repro details. Refreshing the page and relaunching the console acts as a force restart for now.
+- Portal tabs left inactive for long periods of time will have tokens expire, this can disable reactivating the console. Please refresh your page to fix this.
+- Shortcuts (ctrl-v and ctrl-c) not supported on Windows in preview
+- Right-click paste not supported on IE/Firefox

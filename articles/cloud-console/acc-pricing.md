@@ -25,6 +25,7 @@ The VM housing your container is provided for free.
 
 ## Storage
 Attaching persistent storage incurs regular storage costs. This includes any files and the default 5GB image used to persist your $HOME directory.
+
 * The 5GB image runs ~40 cents a month to store.
 
 Check [here for details on Azure Files costs](https://azure.microsoft.com/en-us/pricing/details/storage/files/).
