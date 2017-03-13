@@ -23,6 +23,8 @@ Network Security Group flow logs allow you to view information about ingress and
 
 It can be difficult to gain insights into flow logging data by manually searching the log files. In this article, we provide a solution to visualize your most recent flow logs and learn about traffic on your network.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ## Scenario
 
 In the following scenario, we connect Power BI desktop to the storage account we have configured as the sink for our NSG Flow Logging data. After we connect to our storage account, Power BI downloads and parses the logs to provide a visual representation of the traffic that is logged by Network Security groups.
@@ -72,7 +74,7 @@ The Top Talkers visual shows the IPs that have initiated the most connections ov
 
 ![toptalkers][6]
 
-The following time series graphs show the number of flows over the period. The upper graph is segmented by the flow direction, and the lower is segmented by the decision madd (allow or deny). With this visual, you can examine you traffic trends over time, and spot any abnormal spikes or decline in traffic or traffic segmentation.
+The following time series graphs show the number of flows over the period. The upper graph is segmented by the flow direction, and the lower is segmented by the decision made (allow or deny). With this visual, you can examine you traffic trends over time, and spot any abnormal spikes or decline in traffic or traffic segmentation.
 
 ![flowsoverperiod][7]
 

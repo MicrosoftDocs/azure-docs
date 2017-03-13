@@ -1,4 +1,4 @@
-{:allowed-branch-names ["master" "release-disks" "release-network-watcher" "release-azure-stack-tp3" "release-iot-hub" "release-digital-marketing-scenario" "release-pilot-cli-ga" "release-pilot-cli"]
+{:allowed-branchname-matches ["master" "release-.*" "sandbox-.*"]
  :allowed-filename-matches ["articles" "includes"]
 
  :template-header

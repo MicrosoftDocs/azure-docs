@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/16/2017
+ms.date: 03/08/2017
 ms.author: ryanwi
 
 ---
@@ -95,5 +95,3 @@ For more information on developing, testing, and managing Service Fabric applica
 * [Deploy an application](service-fabric-deploy-remove-applications.md)
 * [Application upgrade](service-fabric-application-upgrade.md)
 * [Testability overview](service-fabric-testability-overview.md)
-* [REST-based application lifecycle sample](service-fabric-rest-based-application-lifecycle-sample.md)
-
