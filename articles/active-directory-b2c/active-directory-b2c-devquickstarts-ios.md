@@ -20,6 +20,14 @@ ms.author: brandwe
 # Azure AD B2C : Call a web API from an iOS application using a third party library
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
+> [!WARNING]
+> This sample is using a 3rd party library that utilizes embedded web-views rather than the system browser. Google [has announced](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html) that on April 20, 2017 they will no longer support Google Account sign in with embedded web-views at which point those wishing to support Google accounts will need to update libraries.  
+
+>Microsoft does not provide fixes for 3rd party libraries and has not done a review of these libraries. Issues and feature requests should be directed to the library's open-source project. Please see [this article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries) for more information.
+>
+>
+
+
 The Microsoft identity platform uses open standards such as OAuth2 and OpenID Connect. This allows developers to leverage any library they wish to integrate with our services. To aid developers in using our platform with other libraries we've written a few walkthroughs like this one to demonstate how to configure third party libraries to connect to the Microsoft identity platform. Most libraries that implement [the RFC6749 OAuth2 spec](https://tools.ietf.org/html/rfc6749) will be able to connect to the Microsoft Identity platform.
 
 If you're new to OAuth2 or OpenID Connect much of this sample configuration may not make much sense to you. We recommend you look at a brief [overview of the protocol we've documented here](active-directory-b2c-reference-protocols.md).
