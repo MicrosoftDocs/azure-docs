@@ -46,7 +46,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 ## Connect to virtual machine
 
-After the deployment has completed, create an SSH connection with the virtual machine.
+After the deployment has completed, create a remote desktop connection with the virtual machine.
 
 1. Click the virtual machine. The VM can be found on the home screen of the Azure portal, or by selecting **Virtual Machines** from the left-hand menu.
 
