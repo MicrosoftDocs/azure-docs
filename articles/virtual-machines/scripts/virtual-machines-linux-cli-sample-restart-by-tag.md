@@ -55,7 +55,6 @@ Two of them are tagged.
 
 ### Wait
 
-Provisioning the VMs takes a few minutes.
 This script will check on the provisioning status every 20 seconds until all three VMs are provisioned,
 or one of them fails to provision.
 
