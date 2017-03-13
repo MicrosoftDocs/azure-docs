@@ -121,11 +121,11 @@ Use the following steps to create a Kafka cluster in the Azure Virtual Network c
 
 2. From the __Cluster summary__ blade, select the __Edit__ link for the __Advanced settings__ section.
 
-    ![Edit link for advanced settings](./media/hdinsight-apache-kafka-connect-vpn-gateway)
+    ![Edit link for advanced settings](./media/hdinsight-apache-kafka-connect-vpn-gateway/advanced-settings-link.png)
 
 3. From the __Advanced settings__ blade, select the virtual network you created perviously. Select the __default__ subnet for the virtual network. Finally, use the __Next__ button to return to the __Cluster summary__.
 
-    ![Advanced settings blade](./media/hdinsight-apache-kafka-connect-vpn-gateway)
+    ![Advanced settings blade](./media/hdinsight-apache-kafka-connect-vpn-gateway/advanced-settings.png)
 
 4. From the __Cluster summary__ blade, use the __Create__ button to create the cluster.
 
@@ -138,14 +138,20 @@ In the [Azure portal](https://portal.azure.com), find the entries that begin wit
 
 1. Select the entry.
 
+    ![List of NICs for the nodes in a typical cluster](./media/hdinsight-apache-kafka-connect-vpn-gateway/hdinsight-nics.png)
+
 2. Select __IP configurations__.
+
+    ![IP configurations link](./media/hdinsight-apache-kafka-connect-vpn-gateway/network-interface.png)
 
 3. Select the __ipConfig__ entry for the private IP address.
 
+    ![ipConfig entry for a node](./media/hdinsight-apache-kafka-connect-vpn-gateway/ipconfig.png)
+
 4. Change the __Assignment__ entry to __Static__. Select __Save__ to save the configuration change.
 
-    > [!IMPORTANT]
-    > Changing the IP address configuration from dynamic to static restarts the node.
+    ![IPConfiguration](./media/hdinsight-apache-kafka-connect-vpn-gateway/ipconfiguration.png)
+
 
 ## Create: Using PowerShell
 
@@ -167,7 +173,7 @@ Use the following steps to create an Azure Virtual Network, VPN gateway, storage
 3. Use the following code to create variables that contain data used by the steps in this section:
 
   ```powershell
-    # Prompt for generic information
+  # Prompt for generic information
   $resourceGroupName = Read-Host "What is the resource group name?"
   $baseName = Read-Host "What is the base name? This is used to create names for resources, such as 'net-basename' and 'kafka-basename':"
   $location = Read-Host "What Azure Region do you want to create the resources in?"
@@ -334,8 +340,6 @@ Use the following steps to create an Azure Virtual Network, VPN gateway, storage
   ```
 
     To download the Windows VPN client, use the returned URI in your web browser.
-
-## Create: Using the Azure CLI
 
 
 
