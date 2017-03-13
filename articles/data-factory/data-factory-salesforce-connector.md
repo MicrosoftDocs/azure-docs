@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 03/08/2017
 ms.author: jingwang
 
 ---
@@ -30,7 +30,11 @@ This connector supports the following editions of Salesforce: Developer Edition,
 * To copy data from Salesforce to on-premises data stores, you must have at least Data Management Gateway 2.0 installed in your on-premises environment.
 
 ## Salesforce request limits
-Salesforce has limits for both total API requests and concurrent API requests. See the "API Request Limits" section in the [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) article for details. Note if the number of concurrent requests exceeds the limit, throttling occurs and you will see random failures; if the total number of requests exceeds the limit, the Salesforce account will be blocked for 24 hours; you might also receive the “REQUEST_LIMIT_EXCEEDED“ error in both scenarios.
+Salesforce has limits for both total API requests and concurrent API requests. Note:
+* If the number of concurrent requests exceeds the limit, throttling occurs and you will see random failures;
+* If the total number of requests exceeds the limit, the Salesforce account will be blocked for 24 hours.
+
+You might also receive the “REQUEST_LIMIT_EXCEEDED“ error in both scenarios. See the "API Request Limits" section in the [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) article for details.
 
 ## Copy Data wizard
 The easiest way to create a pipeline that copies data from Salesforce to any of the supported sink data stores is to use the Copy Data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline by using the Copy Data wizard.
@@ -248,7 +252,9 @@ In copy activity, when the source is of the type **RelationalSource** (which inc
 When specify the SOQL or SQL query, pay attention to the DateTime format difference. For example:
 
 * **SOQL sample**: $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)
-* **SQL sample**: $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate  < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`.
+* **SQL sample**:
+    * Using copy wizard to specify the query: $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate  < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
+    * Using JSON editing to specify the query (escape char properly): $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate  < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
 
 ### Retrieving data from Salesforce Report
 You can retrieve data from Salesforce reports by specifying query as `{call "<report name>"}`, e.g. `"query": "{call \"TestReport\"}"`.
