@@ -110,7 +110,6 @@ To create the route table and route needed for the front end subnet based on the
 
 3. Run the [az network vnet subnet update](/cli/azure/network/vnet/subnet#update) command to associate the route table created above with the **FrontEnd** subnet:
 
-
     ```azurecli
     az network vnet subnet update \
     > --resource-group testrg \
@@ -121,31 +120,31 @@ To create the route table and route needed for the front end subnet based on the
 
     Output:
 
-        ```json
-        {
-        "addressPrefix": "192.168.1.0/24",
-        "etag": "W/\"<guid>\"",
-        "id": "/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/FrontEnd",
-        "ipConfigurations": null,
-        "name": "FrontEnd",
-        "networkSecurityGroup": null,
-        "provisioningState": "Succeeded",
+    ```json
+    {
+    "addressPrefix": "192.168.1.0/24",
+    "etag": "W/\"<guid>\"",
+    "id": "/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/FrontEnd",
+    "ipConfigurations": null,
+    "name": "FrontEnd",
+    "networkSecurityGroup": null,
+    "provisioningState": "Succeeded",
+    "resourceGroup": "testrg",
+    "resourceNavigationLinks": null,
+    "routeTable": {
+        "etag": null,
+        "id": "/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/routeTables/UDR-FrontEnd",
+        "location": null,
+        "name": null,
+        "provisioningState": null,
         "resourceGroup": "testrg",
-        "resourceNavigationLinks": null,
-        "routeTable": {
-            "etag": null,
-            "id": "/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/routeTables/UDR-FrontEnd",
-            "location": null,
-            "name": null,
-            "provisioningState": null,
-            "resourceGroup": "testrg",
-            "routes": null,
-            "subnets": null,
-            "tags": null,
-            "type": null
-            }
+        "routes": null,
+        "subnets": null,
+        "tags": null,
+        "type": null
         }
-        ```
+    }
+    ```
     
     Parameters:
     
@@ -157,34 +156,34 @@ To create the route table and route needed for the back-end subnet based on the 
 
 1. Run the following command to create a route table for the back-end subnet:
 
-    ```azurecli
-    az network route-table create \
-    --resource-group testrg \
-    --name UDR-BackEnd \
-    --location centralus
-    ```
+        ```azurecli
+        az network route-table create \
+        --resource-group testrg \
+        --name UDR-BackEnd \
+        --location centralus
+        ```
 
 2. Run the following command to create a route in the route table to send all traffic destined to the front-end subnet (192.168.1.0/24) to the **FW1** VM (192.168.0.4):
 
-    ```azurecli
-    az network route-table route create \
-    --resource-group testrg \
-    --name RouteToFrontEnd \
-    --route-table-name UDR-BackEnd \
-    --address-prefix 192.168.1.0/24 \
-    --next-hop-type VirtualAppliance \
-    --next-hop-ip-address 192.168.0.4
-    ```
+        ```azurecli
+        az network route-table route create \
+        --resource-group testrg \
+        --name RouteToFrontEnd \
+        --route-table-name UDR-BackEnd \
+        --address-prefix 192.168.1.0/24 \
+        --next-hop-type VirtualAppliance \
+        --next-hop-ip-address 192.168.0.4
+        ```
 
 3. Run the following command to associate the route table with the **BackEnd** subnet:
 
-    ```azurecli
-    az network vnet subnet update \
-    --resource-group testrg \
-    --vnet-name testvnet \
-    --name BackEnd \
-    --route-table UDR-BackEnd
-    ```
+        ```azurecli
+        az network vnet subnet update \
+        --resource-group testrg \
+        --vnet-name testvnet \
+        --name BackEnd \
+        --route-table UDR-BackEnd
+        ```
 
 
 ## Enable IP forwarding on FW1
