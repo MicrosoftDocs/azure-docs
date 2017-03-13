@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Create a Windows virtual machine with the Azure CLI 2.0
 
-The Azure CLI 2.0 is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a virtual machine running Ubuntu 14.04 LTS.
+The Azure CLI 2.0 is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a virtual machine running Windows Server 2016.
 
 Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
@@ -72,7 +72,7 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 Use the following command to create an remote desktop session with the virtual machine. Replace the IP address with the public IP address of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
 
 ```bash 
-mstsc <Public IP Address>
+mstsc /v:<Public IP Address>
 ```
 
 ## Delete virtual machine
