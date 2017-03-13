@@ -39,6 +39,9 @@ Before you use a Spark activity in a Data Factory pipeline, create a HDInsight (
 }
 ```
 
+> [!NOTE]
+> Currently, the Spark Activity does not support using an on-demand HDInsight linked service.  
+
 For details about the HDInsight linked service and other compute linked services, see [Data Factory compute linked services](data-factory-compute-linked-services.md) article. 
 
 ## Spark Activity JSON
@@ -77,15 +80,15 @@ The following table describes the JSON properties used in the JSON definition:
 | entryFilePath | Relative path to the root folder of the Spark code/package | Yes |
 | className | Application's Java/Spark main class | No | 
 | arguments | A list of command-line arguments to the Spark program. | No | 
-| proxyUser | The user to impersonate to execute the Spark program | No | 
+| proxyUser | The user account to impersonate to execute the Spark program | No | 
 | sparkConfig | Spark configuration properties | No | 
 | getDebugInfo | Specifies when the Spark log files are copied to the Azure storage used by HDInsight cluster (or) specified by sparkJobLinkedService. Allowed values: None, Always, or Failure. Default value: None. | No | 
 | sparkJobLinkedService | The Azure Storage linked service that holds the Spark job file, dependencies, and logs.  If you do not specify a value for this property, the storage associated with HDInsight cluster is used. | No |
 
 ## Folder structure
-The Spark activity does not support an in-line script as Pig and Hive activities do. Spark jobs are also more extensible than Pig/Hive jobs in that you can provide multiple dependencies such as jar packages (placed in the java CLASSPATH), python files (placed on the PYTHONPATH), and any other files.
+The Spark activity does not support an in-line script as Pig and Hive activities do. Spark jobs are also more extensible than Pig/Hive jobs. For Spark jobs, you can provide multiple dependencies such as jar packages (placed in the java CLASSPATH), python files (placed on the PYTHONPATH), and any other files.
 
-Create the following folder structure in the Azure Blob storage referenced by the on-demand HDInsight linked service and upload dependent files to the appropriate sub folders in the root folder represented by **entryFilePath**. For example, upload python files to the pyFiles sub-folder and jars to the jars sub-folder in the root folder. At runtime, Data Factory service expects the following folder structure in the Azure Blob storage:     
+Create the following folder structure in the Azure Blob storage referenced by the the HDInsight linked service. Then, upload dependent files to the appropriate sub folders in the root folder represented by **entryFilePath**. For example, upload python files to the pyFiles subfolder and jars to the jars subfolder in the root folder. At runtime, Data Factory service expects the following folder structure in the Azure Blob storage:     
 
 | Path | Description | Required | Type |
 | ---- | ----------- | -------- | ---- | 
@@ -97,7 +100,7 @@ Create the following folder structure in the Azure Blob storage referenced by th
 | ./archives | All files under this folder are uncompressed | No | Folder |
 | ./logs | The folder where logs from the Spark cluster are stored.| No | Folder |
 
-Here is an example for a storage containing two Spark job files in the Azure Blob Storage referenced by the on-demand HDInsight linked service. 
+Here is an example for a storage containing two Spark job files in the Azure Blob Storage referenced by the HDInsight linked service. 
 
 ```
 SparkJob1
