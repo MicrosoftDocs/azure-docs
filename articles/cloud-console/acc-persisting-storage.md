@@ -107,7 +107,7 @@ Using the `createclouddrive` command will automatically remove the tag of the pr
 ## Unmounting a storage account
 To unmount a fileshare from Cloud Console, simply delete the storage tag on the storage account.
 
-![](../media/unmount-storage.png)
+![](./media/unmount-storage.png)
 
 ## Show tagged storage account
 To find details about your mounted storage run `df`. The filepath to clouddrive will show your storage account name and fileshare in the url.
@@ -131,10 +131,10 @@ You can utilize the Portal GUI for Azure Files to upload or download files to/fr
 Editing/removing/adding files from within the console will also reflect in the File Storage GUI upon blade refresh.
 
 1. Navigate to the mounted fileshare
-![](../media/touch-txt-storage.png)
+![](./media/touch-txt-storage.png)
 2. Select target file in Portal
 3. Hit "Download"
-![](../media/download-storage.png)
+![](./media/download-storage.png)
 
 ## Next steps
 [ACC Quickstart](../Get-started/acc-quickstart.md) <br>

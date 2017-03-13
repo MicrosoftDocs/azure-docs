@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 03/09/2017
 ms.author: juluk
 ---
+
+
 # Azure Cloud Console (preview)
 This repo includes staged documents for the Azure Cloud Console. Please refer to these documents for updates throughout previews.
 
