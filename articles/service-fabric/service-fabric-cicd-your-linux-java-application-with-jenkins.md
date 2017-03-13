@@ -51,7 +51,7 @@ This installs Jenkins container on the cluster and can be monitored using the Se
   >
 
 2. Get the container instance id using ``docker ps -a``.
-3. SSH login to the container using and paste the path you were shown on the Jenkins portal. For example, if in the portal it shows the path `PATH_TO_INITIAL_ADMIN_PASSWORD`, you can do -
+3. SSH login to the container and paste the path you were shown on the Jenkins portal. For example, if in the portal it shows the path `PATH_TO_INITIAL_ADMIN_PASSWORD`, you can do -
 
   ```sh
   docker exec -t -i [first-four-digits-of-container-ID] /bin/bash   # This takes you inside Docker shell
