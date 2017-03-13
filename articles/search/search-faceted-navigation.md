@@ -18,22 +18,28 @@ ms.author: heidist
 
 ---
 # How to implement faceted navigation in Azure Search
-Faceted navigation is a filtering mechanism that provides self-directed drilldown navigation in search applications. The term ‘faceted navigation’ might be unfamiliar, but it’s almost a given that you have used one before. As the following example shows, faceted navigation is nothing more than the categories used to filter results.
+Faceted navigation is a filtering mechanism that provides self-directed drilldown navigation in search applications. The term ‘faceted navigation’ might be unfamiliar, but you've probably used one before. As the following example shows, faceted navigation is nothing more than the categories used to filter results.
 
  ![][1]
 
-## Why use faceted navigation?
 Faceted navigation is an alternative entry point to search, offering a convenient alternative to typing complex search expressions by hand. Facets can help you find what you are looking for, while ensuring that you won’t get zero results. As a developer, facets let you expose the most useful search criteria for navigating your search corpus. In online retail applications, faceted navigation is often built over brands, departments (kid’s shoes), size, price, popularity, and ratings. 
 
 Implementing faceted navigation differs across search technologies. In Azure Search, faceted navigation is built at query time, using attributed fields previously specified in your schema.
 
--   In the queries that your application builds, a query must send *facet query parameters* in order to receive the available facet filter values for that document result set.
+-   In the queries that your application builds, a query must send *facet query parameters* in order to get the available facet filter values for that document result set.
 
 -   To actually trim the document result set, the application must apply a `$filter` expression.
 
 In your application development, writing code that constructs queries constitutes the bulk of the work. Many of the application behaviors that you would expect from faceted navigation are provided by the service, including built-in support for defining ranges and getting counts for facet results. The service also includes sensible defaults that help you avoid unwieldy navigation structures. 
 
-## The basics
+## Online demo and sample code
+This article uses a job search portal as an example. The example is implemented as an ASP.NET MVC application.
+
+-   See and test the working portal online at [Azure Search Job Portal Demo](http://azjobsdemo.azurewebsites.net/).
+
+-   Download the code from the [Azure-Samples repo on GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
+
+## Get started
 If you're new to search development, the best way to think of faceted navigation is that it shows the possibilities for self-directed search. It’s a type of drill-down search experience, based on predefined filters, used for quickly narrowing down search results through point-and-click actions. 
 
 ### Interaction model
@@ -104,13 +110,7 @@ In the following sections, we’ll take a closer look at how to build each part.
 Faceting is enabled on a field-by-field basis in the index, via this index attribute: `"Facetable": true`.  
 All field types that could possibly be used in faceted navigation are `Facetable` by default. Such field types include `Edm.String`, `Edm.DateTimeOffset`, and all the numeric field types (essentially, all field types are facetable except `Edm.GeographyPoint`, which can’t be used in faceted navigation). 
 
-When building an index, a best practice for faceted navigation is to explicitly turn faceting off for fields that should never be used as a facet.  In particular, string fields for singleton values, such as an ID or product name, should be set to `"Facetable": false` to prevent their accidental (and ineffective) use in a faceted navigation.
-
-Following is the schema for the AdventureWorks Catalog sample app (trimmed of some attributes to reduce overall size):
-
- ![][3]
-
-Note that `Facetable` is turned off for string fields that shouldn’t be used as facets, such as an ID or name. Turning faceting off where you don’t need it helps keep the size of the index small, and generally improves performance.
+When building an index, a best practice for faceted navigation is to explicitly turn faceting off for fields that should never be used as a facet.  In particular, string fields for singleton values, such as an ID or product name, should be set to `"Facetable": false` to prevent their accidental (and ineffective) use in a faceted navigation. Turning faceting off where you don’t need it helps keep the size of the index small, and generally improves performance.
 
 > [!TIP]
 > As a best practice, include the full set of index attributes for each field. Although `Facetable` is on by default for almost all fields, purposely setting each attribute can help you think through the implications of each schema decision. 
@@ -150,7 +150,7 @@ Notice that each facet has:
   ![][2]
 
 > [!TIP]
-> When designing the search results page, remember to add a mechanism for clearing facets. If you use check boxes, users can easily intuit how to clear the filters. For other layouts, you might need a breadcrumb pattern or another creative approach. For example, in the AdventureWorks Catalog sample application, you can click the title, AdventureWorks Catalog, to reset the search page.
+> When you design the search results page, remember to add a mechanism for clearing facets. If you use check boxes, users can easily see how to clear the filters. For other layouts, you might need a breadcrumb pattern or another creative approach. For example, in the Job Search Portal sample application, you can click the `[X]` after a selected facet to clear the facet.
 
 <a name="buildquery"></a>
 
@@ -347,7 +347,7 @@ For more insights on design principles for faceted navigation, we recommend the 
 [Try it out]: #tryitout
 
 <!--Image references-->
-[1]: ./media/search-faceted-navigation/Facet-1-slide.PNG
+[1]: ./media/search-faceted-navigation/azure-search-faceting-example.PNG
 [2]: ./media/search-faceted-navigation/Facet-2-CSHTML.PNG
 [3]: ./media/search-faceted-navigation/Facet-3-schema.PNG
 [4]: ./media/search-faceted-navigation/Facet-4-SearchMethod.PNG
