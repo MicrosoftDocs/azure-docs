@@ -35,10 +35,10 @@ az login
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named `myResourceGroup` in the `northcentralus` location.
+Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
 
 ```azurecli
-az group create --name myResourceGroup --location northcentralus
+az group create --name myResourceGroup --location westeurope
 ```
 ## Create a logical server
 
@@ -46,7 +46,7 @@ Create a logical server with the [az sql server create](/cli/azure/sql/server#cr
 
 ```azurecli
 servername=server-$RANDOM
-az sql server create --name $servername --resource-group myResourceGroup --location northcentralus \
+az sql server create --name $servername --resource-group myResourceGroup --location westeurope \
 	--admin-user ServerAdmin --admin-password ChangeYourAdminPassword1
 ```
 
