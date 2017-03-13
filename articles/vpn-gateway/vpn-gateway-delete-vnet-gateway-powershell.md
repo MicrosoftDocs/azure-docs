@@ -20,7 +20,7 @@ ms.author: cherylmc
 ---
 # Delete a virtual network gateway using PowerShell
 
-To delete a virtual network gateway, there are a couple of different approaches you can take.
+There are a couple of different approaches you can take when you want to delete a virtual network gateway.
 
 - If you want to delete everything and start over, as in the case of a test environment or when you are just trying a few things out, you can delete an entire resource group. When you delete a resource group, it deletes all of the resources within the group. This is only recommended if you don't want to keep any of the resources in the resource group. You can't selectively delete only a few resources this way.
 
