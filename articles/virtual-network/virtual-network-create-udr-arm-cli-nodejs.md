@@ -8,7 +8,7 @@ manager: carmonm
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: 5452a0b8-21a6-4699-8d6a-e2d8faf32c25
+
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -20,34 +20,22 @@ ms.author: jdial
 ---
 # Create User-Defined Routes (UDR) using the Azure CLI 1.0
 
-> [!div class="op_single_selector"]
-- [PowerShell](virtual-network-create-udr-arm-ps.md)
-- [Azure CLI](virtual-network-create-udr-arm-cli.md)
-- [Template](virtual-network-create-udr-arm-template.md)
-- [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md)
-- [CLI (Classic)](virtual-network-create-udr-classic-cli.md)
+Create custom routing and virtual appliances using the Azure CLI.
 
 ## CLI versions to complete the task 
 
 You can complete the task using one of the following CLI versions: 
 
 - [Azure CLI 1.0](#Create-the-UDR-for-the-front-end-subnet) – our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0 (Preview)](virtual-network-create-udr-arm-cli.md) - our next generation CLI for the resource management deployment model 
+- [Azure CLI 2.0](virtual-network-create-udr-arm-cli.md) - our next generation CLI for the resource management deployment model 
 
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
-
-> [!IMPORTANT]
-> Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](../azure-resource-manager/resource-manager-deployment-model.md) before you work with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.
->
-
-This article covers the Resource Manager deployment model. You can also create UDRs in the [classic deployment model](virtual-network-create-udr-classic-cli.md).
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
 The sample Azure CLI commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, first build the test environment by deploying [this template](http://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR-Before), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
 
-[!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
 ## Create the UDR for the front-end subnet
 To create the route table and route needed for the front end subnet based on the scenario above, follow the steps below.
