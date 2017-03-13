@@ -3,7 +3,7 @@ title: Service Fabric Programmatic Scaling | Microsoft Docs
 description: Scale a Service Fabric cluster in or out programmatically, according to custom triggers
 services: service-fabric
 documentationcenter: .net
-author: mikerou
+author: mjrousos
 manager: jonjung
 editor: ''
 
@@ -18,7 +18,7 @@ ms.author: mikerou
 
 ---
 
-Fundamentals of scaling a Service Fabric cluster are covered in documentation on [cluster scaling](/service-fabric-cluster-scale-up-down.md). That article explained how Service Fabric clusters are built on top of virtual machine scale sets and can be scaled either manually or with auto-scale rules. This document looks at programmatic methods to coordinate scaling operations for more advanced scenarios. 
+Fundamentals of scaling a Service Fabric cluster are covered in documentation on [cluster scaling](./service-fabric-cluster-scale-up-down.md). That article explained how Service Fabric clusters are built on top of virtual machine scale sets and can be scaled either manually or with auto-scale rules. This document looks at programmatic methods to coordinate scaling operations for more advanced scenarios. 
 
 ## Reasons for programmatic scaling
 In some scenarios, scaling manually or via auto-scale rules will be good solutions. In other scenarios, though, they may not be the right fit. Potential drawbacks to these approaches include:
@@ -172,6 +172,6 @@ How you approach Service Fabric scaling will depend on your scenario. If scaling
 
 To get start implementing your own auto-scaling logic, familiarize yourself with the following concepts and useful APIs:
 
-- [Scaling manually or with auto-scale rules](/service-fabric-cluster-scale-up-down.md)
+- [Scaling manually or with auto-scale rules](./service-fabric-cluster-scale-up-down.md)
 - [Fluent Azure Management Libraries for .NET](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (useful for interacting with a Service Fabric cluster's underlying virtual machine scale sets)
 - [System.Fabric.FabricClient](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricclient) (useful for interacting with a Service Fabric cluster and it's nodes)
