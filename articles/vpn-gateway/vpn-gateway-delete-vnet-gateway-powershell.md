@@ -28,7 +28,7 @@ To delete a virtual network gateway, there are a couple of different approaches 
 
 ##Before beginning
 
-### 1. Download the latest PowerShell cdmlets.
+### 1. Download the latest PowerShell cmdlets.
 Download and install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information about downloading and installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ### 2. Connect to your Azure account. 
@@ -46,11 +46,9 @@ If you have more than one subscription, specify the subscription that you want t
 
 
 
-##<a name="S2S"></a>Delete Site-to-Site
+##<a name="S2S"></a>Delete a Site-to-Site VPN gateway
 
 To delete a virtual network gateway that is used for a S2S configuration, you must delete multiple resources, in order. When working with the examples below, some of the values must be specifically called out, while other values are an output result. We use the following specific values in the examples for demonstration purposes:
-
-####Example values
 
 VNet name: VNet1<br>
 Resource Group name: RG1<br>
@@ -103,11 +101,9 @@ If the virtual network gateway was active-active, you will see two Public IP add
 	$GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
 	Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
 
-##<a name="v2v"></a>Delete VNet-to-VNet
+##<a name="v2v"></a>Delete a VNet-to-VNet VPN gateway
 
 To delete a virtual network gateway that is used for a V2V configuration, you must delete multiple resources, in order. When working with the examples below, some of the values must be specifically called out, while other values are an output result. We use the following specific values in the examples for demonstration purposes:
-
-####Example values
 
 VNet name: VNet1<br>
 Resource Group name: RG1<br>
@@ -142,7 +138,7 @@ You may be prompted to confirm the deletion of each of the connections.
 	$ConnsR | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
 
 
-###5. Delete the virtual network gateway
+###5. Delete the virtual network gateway.
 You may be prompted to confirm the deletion of the virtual network gateway.
 
 	Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
@@ -151,7 +147,7 @@ You may be prompted to confirm the deletion of the virtual network gateway.
 
 	$GWIpConfigs = $GW.IpConfigurations
 
-###7. Get the list of Public IP addresses used for this virtual network gateway 
+###7. Get the list of Public IP addresses used for this virtual network gateway. 
 If the virtual network gateway was active-active, you will see two Public IP addresses.
 
 	$PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
@@ -167,7 +163,7 @@ You may be prompted to confirm the deletion of the Public IP.
 	Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
 
 
-##<a name="delete"></a>Delete a gateway by deleting the resource group
+##<a name="delete"></a>Delete a VPN gateway by deleting the resource group
 
 If you are not concerned about keeping any of your resources and you just want to start over, you can delete an entire resource group. This is a quick way to remove everything. When you delete an entire resource group, it's not selective about the resources that you delete. So make sure that this is what you want to do before running the example.
 
