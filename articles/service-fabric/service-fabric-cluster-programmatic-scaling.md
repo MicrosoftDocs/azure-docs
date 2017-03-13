@@ -26,7 +26,7 @@ Fundamentals of scaling a Service Fabric cluster are covered in documentation on
 In many scenarios, scaling manually or via auto-scale rules are good solutions. In other scenarios, though, they may not be the right fit. Potential drawbacks to these approaches include:
 
 - Manually scaling requires you to log in and explicitly request scaling operations. If scaling operations are required frequently or at unpredictable times, this approach may not be a good solution.
-- When auto-scale rules remove an instance from a virtual machine scale set, they do not automatically remove knowledge of that node from the associated Service Fabric cluster. Because auto-scale rules work at the VMSS level (rather than at the Service Fabric level), auto-scale rules can remove Service Fabric nodes without shutting them down gracefully. This will leave 'ghost' Service Fabric node state behind after scale-in operations. An individual (or a service) would need to periodically clean up removed node state in the Service Fabric cluster.
+- When auto-scale rules remove an instance from a virtual machine scale set, they do not automatically remove knowledge of that node from the associated Service Fabric cluster. Because auto-scale rules work at the VMSS level (rather than at the Service Fabric level), auto-scale rules can remove Service Fabric nodes without shutting them down gracefully. This rude node removal will leave 'ghost' Service Fabric node state behind after scale-in operations. An individual (or a service) would need to periodically clean up removed node state in the Service Fabric cluster.
 - Although there are [many](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics) metrics supported by auto-scale rules, it is still a limited set. If your scenario calls for scaling based on some metric not covered in that set, then auto-scale rules may not be a good option.
 
 Based on these limitations, you may wish to implement more customized automatic scaling models. 
@@ -109,7 +109,7 @@ using (var psInstance = PowerShell.Create())
 }
 ```
 
-As when adding a node manually, adding a VMSS instance should be all that's needed to start a new Service Fabric node since the VMSS template includes extensions to automatically join VMs to the Service Fabric cluster. 
+As when adding a node manually, adding a VMSS instance should be all that's needed to start a new Service Fabric node since the VMSS template includes extensions to automatically join new VMs to the Service Fabric cluster. 
 
 ## Scaling in
 
