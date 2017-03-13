@@ -45,12 +45,41 @@ The OMS Agent extension for Linux requires that the target virtual machine is co
 
 ## Extension schema
 
-The following JSON shows the schema for the OMS Agent extension. The extension requires the workspace Id and workspace key from the target OMS workspace, these can be found in the OMS portal. Because the workspace key should be treated as sensitive data, it should be stored in a protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine.
+The following JSON shows the schema for the OMS Agent extension. The extension requires the workspace Id and workspace key from the target OMS workspace, these can be found in the OMS portal. Because the workspace key should be treated as sensitive data, it should be stored in a protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine. Please note that **workspaceId** and **workspaceKey** are case-sensitive.
+
+The JSON for a virtual machine extension can either be nested inside of the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON will affect the value for the name and resource type. For more information see, [Set name and type for child resources](./ azure-resource-manager/resource-manager-template-child-resource.md) 
+
+The below example assumes the OMS extension is nested inside of a virtual machine resource.
+
+```json
+{
+  "type": "extensions",
+  "name": "OMSExtension",
+  "apiVersion": "2015-06-15",
+  "location": "<location>",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
+  ],
+  "properties": {
+    "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+    "type": "OmsAgentForLinux",
+    "typeHandlerVersion": "1.0",
+    "settings": {
+      "workspaceId": "myWorkspaceId"
+    },
+    "protectedSettings": {
+      "workspaceKey": "myWorkSpaceKey"
+    }
+  }
+}
+```
+
+Likewise, when placing the extension JSON at the root of the template, the name will include a reference to the parent virtual machine, and the type fully qualify the nested configuration. This configuration allows the extension to be installed on multiple virtual machine when using the [`copy` and `copyIndex`](./azure-resource-manager/resource-group-create-multiple.md) resource manager functions.
 
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
-  "name": "<extension-deployment-name>",
+  "name": "<parentVmResource>/OMSExtension",
   "apiVersion": "2015-06-15",
   "location": "<location>",
   "dependsOn": [
