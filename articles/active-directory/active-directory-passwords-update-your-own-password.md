@@ -218,34 +218,6 @@ Here are some common error cases and their solutions:
           </tr>
         </tbody></table>
 
-
-## Next steps
-Below are links to all of the Azure AD Password Reset documentation pages:
-
-* [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
-* [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow users to reset and change their cloud or on-premises passwords
-* [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
-* [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
-* [**Get insights**](active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
-* [**FAQ**](active-directory-passwords-faq.md) - get answers to frequently asked questions
-* [**Troubleshooting**](active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
-* [**Learn more**](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
-
-[001]: ./media/active-directory-passwords-update-your-own-password/001.jpg "Image_001.jpg"
-[002]: ./media/active-directory-passwords-update-your-own-password/002.jpg "Image_002.jpg"
-[003]: ./media/active-directory-passwords-update-your-own-password/003.jpg "Image_003.jpg"
-[004]: ./media/active-directory-passwords-update-your-own-password/004.jpg "Image_004.jpg"
-[005]: ./media/active-directory-passwords-update-your-own-password/005.jpg "Image_005.jpg"
-[006]: ./media/active-directory-passwords-update-your-own-password/006.jpg "Image_006.jpg"
-[007]: ./media/active-directory-passwords-update-your-own-password/007.jpg "Image_007.jpg"
-[008]: ./media/active-directory-passwords-update-your-own-password/008.jpg "Image_008.jpg"
-[009]: ./media/active-directory-passwords-update-your-own-password/009.jpg "Image_009.jpg"
-[010]: ./media/active-directory-passwords-update-your-own-password/010.jpg "Image_010.jpg"
-[011]: ./media/active-directory-passwords-update-your-own-password/011.jpg "Image_011.jpg"
-[012]: ./media/active-directory-passwords-update-your-own-password/012.jpg "Image_012.jpg"
-[013]: ./media/active-directory-passwords-update-your-own-password/013.jpg "Image_013.jpg"
-[014]: ./media/active-directory-passwords-update-your-own-password/014.jpg "Image_014.jpg"
-[015]: ./media/active-directory-passwords-update-your-own-password/015.png "Image_015.png"
 [101]: ./media/active-directory-passwords-update-your-own-password/password-1-dont-lose-access.png "password-1-dont-lose-access.png"
 [102]: ./media/active-directory-passwords-update-your-own-password/password-2-verification-response.png "password-2-verification-response.png"
 [103]: ./media/active-directory-passwords-update-your-own-password/password-2-verification-text.png "password-2-verification-text.png"
