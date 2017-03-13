@@ -27,7 +27,7 @@ The requirements are:
 ## Sign in
 Sign into the Azure portal with your Azure account identity, click **+ New** in the upper left corner:
 
-![screen1](./media/virtual-machines-linux-quick-create-portal/screen1.png)
+![screen1](../virtual-machines/media/virtual-machines-linux-quick-create-portal/create_new_resource.png)
 
 ## Start console
 Click the **Start Azure Cloud Console** button in the top navigation bar of the page.
@@ -111,4 +111,4 @@ Exit the console using the **x** in the top right corner of the console window. 
 ## Next Steps
 - [Learn more about persisting storage on Cloud Console](acc-persisting-storage.md)
 - [Learn more about Azure CLI 2.0] (/cli/azure)
-- [Learn more about Azure File Storage] (../storage/storage-introduction#file-storage) 
+- [Learn more about Azure File Storage] (../storage/storage-introduction.md#file-storage) 
