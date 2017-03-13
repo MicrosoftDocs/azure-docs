@@ -1,5 +1,5 @@
 ---
-title: 'First Look: Back up Azure VMs with a backup vault | Microsoft Docs'
+title: 'First Look- Back up Azure VMs with a backup vault | Microsoft Docs'
 description: Use the classic portal to back up Azure VMs to a Backup vault. This tutorial explains all phases of backing up a virtual machine: creating the Backup vault, register the VMs, create the backup policy, and running the initial backup job to back up the VMs to Azure.
 services: backup
 documentationcenter: ''

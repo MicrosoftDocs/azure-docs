@@ -27,7 +27,6 @@ ms.author: markgal;trinadhk;
 
 This article covers the procedures that you need to follow to prepare your environment and back up a Windows server (or workstation) to Azure. It also covers considerations for deploying your backup solution. If you're interested in trying Azure Backup for the first time, this article quickly walks you through the process.
 
-![Create vault](./media/backup-configure-vault-classic/initial-backup-process.png)
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: Resource Manager and classic. This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
