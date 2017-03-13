@@ -21,11 +21,11 @@ ms.author: juluk
 Cloud Console is rapidly iterating during preview, as a result all known limitations will be provided here.
 
 ## Performance
-* Cloud Console's first initiation may take 5-20 seconds, subsequent sessions should be less than 10 seconds.
-* New container builds are generated often in an effort to include more tools, performance may fluctuate as this process is refined.
+- Cloud Console's first initiation may take 5-20 seconds, subsequent sessions should be less than 10 seconds.
+- New container builds are generated often in an effort to include more tools, performance may fluctuate as this process is refined.
 
 ## Browser access
-* Firefox and IE do not enable clipboard access
+- Firefox and IE do not enable clipboard access
 
 ## Network connectivity
-* Any latency in the Cloud Console is subject to local internet connectivity, Cloud Console will continue to attempt functioning to any instructions sent.
+- Any latency in the Cloud Console is subject to local internet connectivity, Cloud Console will continue to attempt functioning to any instructions sent.

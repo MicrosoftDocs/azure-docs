@@ -27,17 +27,18 @@ Azure provides a Bash workstation fully customized for Azure. This sandbox is pr
 Azure resources without the overhead of installing, versioning, and maintaining a system.
 
 The container includes:
-### Pre-installed tools
-* bash, sh 
-* Azure CLI 1.0 and 2.0
-* less, jq
-* vim, nano
-* npm, pip
-* git
 
-### Language support
-* Node.js
-* Python
+**Pre-installed tools**
+- bash, sh 
+- Azure CLI 1.0 and 2.0
+- less, jq
+- vim, nano
+- npm, pip
+- git
+
+**Language support**
+- Node.js
+- Python
 
 ## Automatic authentication
 Cloud Console immediately authenticates the Azure CLI 2.0 by repurposing the credentials used to login to Azure Portal.
@@ -50,8 +51,8 @@ You may mount your own fileshares in Azure Files to persist files across session
 This enables file persistence across sessions and having a central file share to utilize with others.
 Once a fileshare is associated with your console, it will be mounted on each subsequent console on start up.
 
-To learn more visit [Attaching file storage](../How-to/acc-persisting-storage.md).
+To learn more visit [Attaching file storage](acc-persisting-storage.md).
 
 ## Next steps
-[ACC Quickstart](../Get-started/acc-quickstart.md) <br>
-[Azure CLI 2.0 documentation](https://docs.microsoft.com/en-us/cli/azure/) <br>
+- [ACC Quickstart](acc-quickstart.md) <br>
+- [Azure CLI 2.0 documentation](https://docs.microsoft.com/en-us/cli/azure/) <br>
