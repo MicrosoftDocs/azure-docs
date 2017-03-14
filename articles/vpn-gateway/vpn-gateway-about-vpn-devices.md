@@ -18,28 +18,25 @@ ms.date: 03/03/2017
 ms.author: yushwang;cherylmc
 
 ---
-# About VPN devices for Site-to-Site VPN Gateway connections
-A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN connection using a VPN gateway. Site-to-Site connections can be used to create a hybrid solution, or whenever you want a secure connection between your on-premises network and your virtual network. This article discusses compatible VPN devices and configuration parameters.
+# About VPN devices and IPsec/IKE parameters for Site-to-Site VPN Gateway connections
+
+A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN connection using a VPN gateway. Site-to-Site connections can be used to create a hybrid solution, or whenever you want a secure connection between your on-premises network and your virtual network. This article discusses compatible VPN devices and configuration parameters. This document provides the list of IPsec/IKE parameters for Azure VPN gateways, and a list of validated VPN devices connecting to Azure VPN gateways.
 
 
 > [!IMPORTANT]
 > If you are experiencing connectivity issues between your on-premises VPN devices and Azure VPN
-> gateways, refer to [Known device compatibility issues](#known).
-> 
-> 
+> gateways, refer to [Known device compatibility issues](#known). 
 
 
 ###Items to note when viewing the tables:
 
-* There has been a terminology change for static and dynamic routing. You'll likely run into both terms. There is no functionality change, only the names are changing.
+* There has been a terminology change for Azure VPN gateways. You'll likely run into both terms. There is no functionality change, only the names are changing.
   * Static Routing = PolicyBased
   * Dynamic Routing = RouteBased
 * Specifications for High Performance VPN gateway and RouteBased VPN gateway are the same unless otherwise noted. For example, the validated VPN devices that are compatible with RouteBased VPN gateways are also compatible with the Azure High Performance VPN gateway.
 
 > [!NOTE]
 > When configuring a Site-to-Site connection, a public-facing IPv4 IP address is required for your VPN device.                                                                                                                                                                               
->
->
 
 
 ## <a name="devicetable"></a>Validated VPN devices
@@ -99,58 +96,82 @@ After you download the provided VPN device configuration sample, you’ll need t
 | &lt;SP_AzureGatewayIpAddress&gt; |This information specific to your virtual network and is located in the Management Portal as **Gateway IP address**. |
 | &lt;SP_PresharedKey&gt; |This information is specific to your virtual network and is located in the Management Portal as Manage Key. |
 
-## <a name="IPSec"></a>IPsec parameters
+## <a name="IPSec"></a>IPsec/IKE parameters
 > [!NOTE]
-> Although the values listed in the following table are supported by the Azure VPN Gateway, currently there is no way for you to specify or select a specific combination from the Azure VPN Gateway. You must specify any constraints from the on-premises VPN device. In addition, you must clamp MSS at 1350.
->
->
+> Although the values listed in the following table are supported by the Azure VPN Gateway, currently there
+> is no mechanism for you to specify or select a specific combination of algorithms or parameters from the
+> Azure VPN Gateway. You must specify any constraints from the on-premises VPN device.
+> 
+> In addition, you must clamp **MSS** at **1350**.
 
-### IKE Phase 1 setup
-| **Property** | **PolicyBased** | **RouteBased and Standard or High Performance VPN gateway** |
-| --- | --- | --- |
-| IKE Version |IKEv1 |IKEv2 |
-| Diffie-Hellman Group |Group 2 (1024 bit) |Group 2 (1024 bit) |
-| Authentication Method |Pre-Shared Key |Pre-Shared Key |
-| Encryption Algorithms |AES256 AES128 3DES |AES256 3DES |
-| Hashing Algorithm |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Phase 1 Security Association (SA) Lifetime (Time) |28,800 seconds |10,800 seconds |
+In the tables below:
 
-### IKE Phase 2 setup
-| **Property** | **PolicyBased** | **RouteBased and Standard or High Performance VPN gateway** |
-| --- | --- | --- |
-| IKE Version |IKEv1 |IKEv2 |
-| Hashing Algorithm |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
-| Phase 2 Security Association (SA) Lifetime (Time) |3,600 seconds |3,600 seconds |
-| Phase 2 Security Association (SA) Lifetime (Throughput) |102,400,000 KB |- |
-| IPsec SA Encryption & Authentication Offers (in the order of preference) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/A |See 'RouteBased Gateway IPsec Security Association (SA) Offers' (below) |
-| Perfect Forward Secrecy (PFS) |No |No (*) |
-| Dead Peer Detection |Not supported |Supported |
+* SA = Security Association
+* IKE Phase 1 is also called "Main Mode"
+* IKE Phase 2 is also called "Quick Mode"
 
-(*) Azure Gateway as IKE responder can accept PFS DH Group 1, 2, 5, 14, 24.
+### IKE Phase 1 (Main Mode) parameters
+| **Property**          |**PolicyBased**    | **RouteBased**    |
+| ---                   | ---               | ---               |
+| IKE Version           |IKEv1              |IKEv2              |
+| Diffie-Hellman Group  |Group 2 (1024 bit) |Group 2 (1024 bit) |
+| Authentication Method |Pre-Shared Key     |Pre-Shared Key     |
+| Encryption & Hashing Algorithms |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |1. AES256, SHA1<br>2. AES256, SHA256<br>3. AES128, SHA1<br>4. AES128, SHA256<br>5. 3DES, SHA1<br>6. 3DES, SHA256 |
+| SA Lifetime           |28,800 seconds     |10,800 seconds     |
 
-### RouteBased Gateway IPsec Security Association (SA) Offers
-The following table lists IPsec SA Encryption and Authentication Offers. Offers are listed the order of preference that the offer is presented or accepted.
+### IKE Phase 2 (Quick Mode) parameters
+| **Property**                  |**PolicyBased**| **RouteBased**                              |
+| ---                           | ---           | ---                                         |
+| IKE Version                   |IKEv1          |IKEv2                                        |
+| Encryption & Hashing Algorithms |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[RouteBased QM SA Offers](#RouteBasedOffers) |
+| SA Lifetime (Time)            |3,600 seconds  |3,600 seconds                                |
+| SA Lifetime (Bytes)           |102,400,000 KB | -                                           |
+| Perfect Forward Secrecy (PFS) |No             |[RouteBased QM SA Offers](#RouteBasedOffers) |
+| Dead Peer Detection (DPD)     |Not supported  |Supported                                    |
 
-| **IPsec SA Encryption and Authentication Offers** | **Azure Gateway as initiator** | **Azure Gateway as responder** |
-| --- | --- | --- |
-| 1 |ESP AES_256 SHA |ESP AES_128 SHA |
-| 2 |ESP AES_128 SHA |ESP 3_DES MD5 |
-| 3 |ESP 3_DES MD5 |ESP 3_DES SHA |
-| 4 |ESP 3_DES SHA |AH SHA1 with ESP AES_128 with null HMAC |
-| 5 |AH SHA1 with ESP AES_256 with null HMAC |AH SHA1 with ESP 3_DES with null HMAC |
-| 6 |AH SHA1 with ESP AES_128 with null HMAC |AH MD5 with ESP 3_DES with null HMAC, no lifetimes proposed |
-| 7 |AH SHA1 with ESP 3_DES with null HMAC |AH SHA1 with ESP 3_DES SHA1, no lifetimes |
-| 8 |AH MD5 with ESP 3_DES with null HMAC, no lifetimes proposed |AH MD5 with ESP 3_DES MD5, no lifetimes |
-| 9 |AH SHA1 with ESP 3_DES SHA1, no lifetimes |ESP DES MD5 |
-| 10 |AH MD5 with ESP 3_DES MD5, no lifetimes |ESP DES SHA1, no lifetimes |
-| 11 |ESP DES MD5 |AH SHA1 with ESP DES null HMAC, no lifetimes proposed |
-| 12 |ESP DES SHA1, no lifetimes |AH MD5 with ESP DES null HMAC, no lifetimes proposed |
-| 13 |AH SHA1 with ESP DES null HMAC, no lifetimes proposed |AH SHA1 with ESP DES SHA1, no lifetimes |
-| 14 |AH MD5 with ESP DES null HMAC, no lifetimes proposed |AH MD5 with ESP DES MD5, no lifetimes |
-| 15 |AH SHA1 with ESP DES SHA1, no lifetimes |ESP SHA, no lifetimes |
-| 16 |AH MD5 with ESP DES MD5, no lifetimes |ESP MD5, no lifetimes |
-| 17 |- |AH SHA, no lifetimes |
-| 18 |- |AH MD5, no lifetimes |
+
+### <a name ="RouteBasedOffers"></a>RouteBased VPN IPsec Security Association (IKE Quick Mode SA) Offers
+The following table lists IPsec SA (IKE Quick Mode) Offers. Offers are listed the order of preference that the offer is presented or accepted.
+
+#### Azure Gateway as initiator
+|-  |**Encryption**|**Authentication**|**PFS Group**|
+|---| ---          |---               |---          |
+| 1 |GCM AES256    |GCM (AES256)      |None         |
+| 2 |AES256        |SHA1              |None         |
+| 3 |3DES          |SHA1              |None         |
+| 4 |AES256        |SHA256            |None         |
+| 5 |AES128        |SHA1              |None         |
+| 6 |3DES          |SHA256            |None         |
+
+#### Azure Gateway as responder
+|-  |**Encryption**|**Authentication**|**PFS Group**|
+|---| ---          | ---              |---          |
+| 1 |GCM AES256    |GCM (AES256)      |None         |
+| 2 |AES256        |SHA1              |None         |
+| 3 |3DES          |SHA1              |None         |
+| 4 |AES256        |SHA256            |None         |
+| 5 |AES128        |SHA1              |None         |
+| 6 |3DES          |SHA256            |None         |
+| 7 |DES           |SHA1              |None         |
+| 8 |AES256        |SHA1              |1            |
+| 9 |AES256        |SHA1              |2            |
+| 10|AES256        |SHA1              |14           |
+| 11|AES128        |SHA1              |1            |
+| 12|AES128        |SHA1              |2            |
+| 13|AES128        |SHA1              |14           |
+| 14|3DES          |SHA1              |1            |
+| 15|3DES          |SHA1              |2            |
+| 16|3DES          |SHA256            |2            |
+| 17|AES256        |SHA256            |1            |
+| 18|AES256        |SHA256            |2            |
+| 19|AES256        |SHA256            |14           |
+| 20|AES256        |SHA1              |24           |
+| 21|AES256        |SHA256            |24           |
+| 22|AES128        |SHA256            |None         |
+| 23|AES128        |SHA256            |1            |
+| 24|AES128        |SHA256            |2            |
+| 25|AES128        |SHA256            |14           |
+| 26|3DES          |SHA1              |14           |
 
 * You can specify IPsec ESP NULL encryption with RouteBased and High Performance VPN gateways. Null based encryption does not provide protection to data in transit, and should only be used when maximum throughput and minimum latency is required.  Clients may choose to use this in VNet-to-VNet communication scenarios, or when encryption is being applied elsewhere in the solution.
 * For cross-premises connectivity through the Internet, use the default Azure VPN gateway settings with encryption and hashing algorithms listed in the tables above to ensure security of your critical communication.
