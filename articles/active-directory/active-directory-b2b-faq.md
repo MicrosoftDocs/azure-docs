@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/07/2017
+ms.date: 03/14/2017
 ms.author: sasubram
 
 ---
@@ -84,6 +84,11 @@ Not currently.
 
 ### Does Microsoft CRM provide online support to Azure AD B2B collaboration?
 CRM will provide support to Azure AD B2B collaboration after it is generally available.
+
+### Are users added through B2B visible in SharePoint Online/OneDrive people picker?
+ 
+Yes! However, the ability to search for existing guest users in the SharePoint Online people picker is OFF by default to match legacy behavior. 
+You can enable this using the setting 'ShowPeoplePickerSuggestionsForGuestUsers' at the tenant and site collection level. This can be set using the Set-SPOTenant and Set-SPOSite cmdlets, which allow members to search all existing guest users in the directory. Changes in the tenant scope do not affect already provisioned SharePoint Online sites.
 
 ### What is the lifetime of an initial password for a newly created B2B collaboration user?
 Azure AD has a fixed set of character, password strength, and account lockout requirements that apply equally to all Azure AD cloud user accounts. Cloud user accounts are the accounts that are not federated with another identity provider such as Microsoft Account, Facebook, ADFS, or even another cloud tenant (in the case of B2B collaboration). For federated accounts, the password policy depends on the policy in the on-premises tenancy and the user's Microsoft account settings.
