@@ -28,7 +28,7 @@ Attaching persistent storage incurs regular storage costs. This includes any fil
 
 * The 5GB image runs ~40 cents a month to store.
 
-Check [here for details on Azure Files costs](https://azure.microsoft.com/en-us/pricing/details/storage/files/).
+Check [here for details on Azure Files costs](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Next Steps
 - [ACC Quickstart](acc-quickstart.md) 
