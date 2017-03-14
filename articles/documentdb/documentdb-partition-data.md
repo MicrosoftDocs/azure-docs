@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 
 ---
-# Partitioning and scaling in Azure DocumentDB
+# Partitioning, partition keys, and scaling in DocumentDB
+
 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) is designed to help you achieve fast, predictable performance and scale seamlessly along with your application as it grows. This article provides an overview of how partitioning works in DocumentDB, and describes how you can configure DocumentDB collections to effectively scale your applications.
 
 After reading this article, you will be able to answer the following questions:   

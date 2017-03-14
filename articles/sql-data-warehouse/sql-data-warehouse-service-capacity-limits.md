@@ -90,7 +90,7 @@ For more reference information, see [SQL Data Warehouse reference overview][SQL 
 <!--Image references-->
 
 <!--Article references-->
-[Data Warehouse Units (DWU)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[Data Warehouse Units (DWU)]: ./sql-data-warehouse-overview-what-is.md
 [SQL Data Warehouse reference overview]: ./sql-data-warehouse-overview-reference.md
 [Workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Tempdb]: ./sql-data-warehouse-tables-temporary.md

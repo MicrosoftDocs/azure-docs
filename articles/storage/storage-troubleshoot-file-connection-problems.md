@@ -32,7 +32,7 @@ This article lists common problems that are related to Microsoft Azure File stor
 * [Slow performance when you access Azure File storage from Windows 8.1 or Windows Server 2012 R2](#windowsslow)
 * [Error 53 attempting to mount an Azure File Share](#error53)
 * [Error 87 The parameter is incorrect while attempting to mount an Azure File Share](#error87)
-* [Net use was successful but I don’t see the Azure file share mounted in Windows Explorer](#netuse)
+* [Net use was successful but I don’t see the Azure file share mounted or drive letter in Windows Explorer UI](#netuse)
 * [My storage account contains "/" and the net use command fails](#slashfails)
 * [My application/service cannot access mounted Azure Files drive.](#accessfiledrive)
 * [Additional recommendations to optimize performance](#additional)
@@ -44,10 +44,6 @@ This article lists common problems that are related to Microsoft Azure File stor
 * [Mount error 115 when attempting to mount Azure Files on the Linux VM](#error15)
 * [Azure file share mounted on Linux VM experiencing slow performance](#delayproblem)
 
-
-**Accessing from other applications**
-
-* [Can I reference the azure file share for my application through a webjob?](#webjobs)
 
 <a id="quotaerror"></a>
 
@@ -217,9 +213,11 @@ However, note that setting the registry key affects all copy operations to netwo
 
 ## "Host is down (Error 112)" on existing file shares, or the shell hangs when you run list commands on the mount point
 ### Cause
-This error occurs on the Linux client when the client has been idle for an extended period of time. When this error occurs, the client disconnects, and the client connection times out. Also, this error may indicate a communication failures that prevent re-establishing a TCP connection to the server when “soft” mount option is used, which is the default.
+This error occurs on the Linux client when the client has been idle for an extended period of time. When the client is idle for long time, the client disconnects, and the connection times out. 
 
-This error may be an indication of Linux reconnect issue which may be caused due to some known bugs in older kernels or other problems that prevent reconnection, such as network errors. 
+The connection can be idle due to various reasons. One reason being network communication failures that prevent re-establishing a TCP connection to the server when “soft” mount option is used, which is the default.
+
+Another reason could be that there are also some reconnect fixes which are not present in older kernels.
 
 ### Solution
 
@@ -238,7 +236,7 @@ This reconnect problem in Linux kernel is now fixed as part of following change 
 However this change may not be ported to all the Linux distributions yet. This is the list of known popular Linux kernels that have this and other reconnect fixes:
 4.4.40+
 4.8.16+
-4.9.1+
+4.9.1+.
 You can move to the above recommended kernel versions in order to pick up the latest fix.
 
 ### Workaround
@@ -272,11 +270,6 @@ dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=10
 
 If the cache=strict or serverino options are not present, unmount and mount Azure Files again by running the mount command from the [documentation](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share) and re-check that "/etc/fstab" entry has the correct options.
 
-<a id="webjobs"></a>
-
-## Accessing from other applications
-### Can I reference the azure file share for my application through a webjob?
-Mounting SMB shares in appservice sandbox isn’t possible. As a workaround, you can map the Azure file share as a mapped drive and allow the application to access it as a drive letter.
 ## Learn more
 * [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
 * [Get started with Azure File storage on Linux](storage-how-to-use-files-linux.md)
