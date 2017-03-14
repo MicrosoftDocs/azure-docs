@@ -21,7 +21,7 @@ ms.author: juliako
  
 For details on this service and how to use it, see the [Azure Media Services documentation](../media-services/index.md).
 
-Azure Media Services (AMS) is currently only available in the Virginia and Iowa US Government data centers (DCs). However, these DCs have been closed to new customers. 
+Azure Media Services (AMS) is currently generally available in Azure Government.
 
 ## Connecting  
 
