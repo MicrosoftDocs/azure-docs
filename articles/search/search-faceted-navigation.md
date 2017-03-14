@@ -85,7 +85,7 @@ Both queries are valid, but the second is superior if you’re looking for non-m
 -   The first query relies on those specific words being mentioned or not mentioned in string fields like Name, Description, and any other field containing searchable data.
 -   The second query looks for precise matches on structured data and is likely to be much more accurate.
 
-In applications that include faceted navigation, make sure that each user action over a faceted navigation structure is accompanied by a narrowing of search results. You achieve this with a filter expression.
+In applications that include faceted navigation, make sure that each user action over a faceted navigation structure is accompanied by a narrowing of search results. To narrow results, use a filter expression.
 
 <a name="howtobuildit"></a>
 
@@ -100,7 +100,7 @@ At query time, your application code creates a request that includes `facet=[str
 
 Application code must also construct a `$filter` expression to handle the click events in faceted navigation. A `$filter` reduces the search results, using the facet value as filter criteria.
 
-Azure Search returns the search results, per the one or more terms that you enter, along with updates to the faceted navigation structure. In Azure Search, faceted navigation is a single-level construction, with facet values, and counts of how many results are found for each one.
+Azure Search returns the search results, based on one or more terms that you enter, along with updates to the faceted navigation structure. In Azure Search, faceted navigation is a single-level construction, with facet values, and counts of how many results are found for each one.
 
 In the following sections, we take a closer look at how to build each part.
 
@@ -216,7 +216,7 @@ function UpdateBusinessTitleFacets(data) {
 <a name="buildquery"></a>
 
 ## Build the query
-The code that you write for building queries should specify all parts of a valid query, including search expressions, facets, filters, scoring profiles– anything used to formulate a request. In this section, we’ll explore where facets fit into a query, and how filters are used with facets to deliver a reduced result set.
+The code that you write for building queries should specify all parts of a valid query, including search expressions, facets, filters, scoring profiles– anything used to formulate a request. In this section, we explore where facets fit into a query, and how filters are used with facets to deliver a reduced result set.
 
 Notice that facets are integral in this sample application. The search experience in the Job Portal Demo is designed around faceted navigation and filters. The prominent placement of faceted navigation on the page demonstrates its importance. 
 
