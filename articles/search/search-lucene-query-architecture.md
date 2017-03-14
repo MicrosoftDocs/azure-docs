@@ -102,20 +102,20 @@ The query parser restructures the subqueries into a *query tree* (an internal st
 
 Another search request parameter that affects parsing is the `searchMode` parameter. It controls the default operator for Boolean queries: any (default) or all.  
 
-When `searchMode=any`, which is the default, the space delimiter between spacious and comfort is OR'd (`|`), making the sample query text equivalent to: 
+When `searchMode=any`, which is the default, the space delimiter between spacious and air-condition is OR'd (`|`), making the sample query text equivalent to: 
 
 ~~~~
-Spacious,|Comfort*+"Ocean view" 
+Spacious,|air-condition*+"Ocean view" 
 ~~~~
 
-Explicit operators, such as `+` in `+"Ocean view"`, are unambiguous in boolean query construction (the term "must" match). Less obvious is how to interpret the remaining terms: spacious and comfort. Should the search engine find matches on ocean view *and* spacious *and* comfort? Or should if find ocean view plus *either one* of the remaining terms? 
+Explicit operators, such as `+` in `+"Ocean view"`, are unambiguous in boolean query construction (the term "must" match). Less obvious is how to interpret the remaining terms: spacious and air-condition. Should the search engine find matches on ocean view *and* spacious *and* air-condition? Or should if find ocean view plus *either one* of the remaining terms? 
 
 Using the default `searchMode=any`, the second interpretation prevails, where ocean view plus either term defines the match criteria. The initial query tree illustrated previously, with the two "should" operations, reflects the "or" semantics.  
 
 Suppose that we now set `searchMode= all`. In this case, the space is interpreted as an "and" operation. Each of the remaining terms must be present in the document to qualify as a match. The resulting sample query would be interpreted as follows: 
 
 ~~~~
-+Spacious,+Comfort*+"Ocean view"  
++Spacious,+air-condition*+"Ocean view"  
 ~~~~
 
 A modified query tree for this query would look like this, where a matching document is the intersection of all three subqueries: 
