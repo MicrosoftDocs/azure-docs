@@ -71,6 +71,7 @@ It is possible to setup a DNS server in the virtual network and configure forwar
 
 The information in this document is based on using only IP addresses to access HDInsight over the VPN gateway.
 
+<!--
 ## Create: Using a web browser (Azure portal)
 
 ### Create the virtual network and VPN gateway
@@ -152,7 +153,7 @@ In the [Azure portal](https://portal.azure.com), find the entries that begin wit
 
     ![IPConfiguration](./media/hdinsight-apache-kafka-connect-vpn-gateway/ipconfiguration.png)
 
-
+-->
 ## Create: Using PowerShell
 
 Use the following steps to create an Azure Virtual Network, VPN gateway, storage account, and Kafka on HDInsight cluster:
@@ -341,8 +342,6 @@ Use the following steps to create an Azure Virtual Network, VPN gateway, storage
 
     To download the Windows VPN client, use the returned URI in your web browser.
 
-
-
 ## Configure Kafka for IP addressing
 
 By default, Zookeeper returns the domain name of the Kafka brokers to clients. Since there is no DNS server to resolve the domain names, use the following steps to configure the cluster to return IP addresses instead.
@@ -351,21 +350,19 @@ By default, Zookeeper returns the domain name of the Kafka brokers to clients. S
 
     When prompted, use the HTTPS user name and password for the cluster. The Ambari Web UI for the cluster is displayed.
 
-    ![Ambari Web UI]()
-
 2. To view information on Kafka, select __Kafka__ from the list on the left. 
 
-    ![Service list with Kafka highlighted]()
+    ![Service list with Kafka highlighted](./media/hdinsight-apache-kafka-connect-vpn-gateway/select-kafka-service.png)
 
 3. To view Kafka configuration, select __Configs__ from the top middle.
 
-    ![Configs links for Kafka]()
+    ![Configs links for Kafka](./media/hdinsight-apache-kafka-connect-vpn-gateway/select-kafka-config.png)
 
 4. To find the __kafka-env__ configuration, enter `kafka-env` in the __Filter__ field on the upper right.
 
-    ![Kafka configuration, for kafka-env]()
+    ![Kafka configuration, for kafka-env](./media/hdinsight-apache-kafka-connect-vpn-gateway/search-for-kafka-env.png)
 
-5. To configure Kafka to advertise IP addresses, add the following text to the __kafka-env-template__:
+5. To configure Kafka to advertise IP addresses, add the following text to the bottom of the __kafka-env-template__ field:
 
     ```
     # Configure Kafka to advertise IP addresses instead of FQDN
@@ -375,31 +372,96 @@ By default, Zookeeper returns the domain name of the Kafka brokers to clients. S
     echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
     ```
 
-6. Enter `listeners` in the __Filter__ field on the upper right.
-
-    ![Kafka configuration, for listeners]()
+6. To configure the interface that Kafka listens on, enter `listeners` in the __Filter__ field on the upper right.
 
 7. To configure Kafka to listen on all network interfaces, change the value in the __listeners__ field to `PLAINTEXT://0.0.0.0:92092`.
 
 8. To save the configuration changes, use the __Save__ button. Enter a text message describing the changes. Select __OK__ once the changes have been saved.
 
-    ![Save configuration button]()
+    ![Save configuration button](./media/hdinsight-apache-kafka-connect-vpn-gateway/save-button.png)
 
 9. To prevent errors when restarting Kafka, use the __Service Actions__ button and select __Turn On Maintenance Mode__. Select OK to complete this operation.
 
-    ![Service actions, with turn on maintenance highlighted]()
+    ![Service actions, with turn on maintenance highlighted](./media/hdinsight-apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png)
 
 10. To restart Kafka, use the __Restart__ button and select __Restart All Affected__. Confirm the restart, and then use the __OK__ button after the operation has completed.
 
-    ![Restart button with restart all affected highlighted]()
+    ![Restart button with restart all affected highlighted](./media/hdinsight-apache-kafka-connect-vpn-gateway/restart-button.png)
 
 11. To disable maintenance mode, use the __Service Actions__ button and select __Turn Off Maintenance Mode__. Select **OK** to complete this operation.
 
-    ![Service actions, with turn off maintenance highlighted]()
+## Get the IP address of cluster nodes
 
-## Connect
+Use the following PowerShell script to retrieve the IP address for the nodes in the HDInsight cluster:
+
+```powershell
+$nics=Get-Azurermnetworkinterface -ResourceGroupName $resourceGroupName | where-object { $_.Name -like "*node*"}
+foreach($nic in $nics) {
+    Write-Output ("{0} - {1}" -f $nic.Name.split('-')[1],$nic.IpConfigurations.PrivateIpAddress)
+}
+```
+
+The following text is an example of the script output:
+
+```
+headnode - 10.0.0.20
+headnode - 10.0.0.19
+workernode - 10.0.0.6
+workernode - 10.0.0.5
+workernode - 10.0.0.4
+workernode - 10.0.0.8
+zookeepernode - 10.0.0.7
+zookeepernode - 10.0.0.13
+zookeepernode - 10.0.0.10
+```
+
+## Connect to the VPN gateway
 
 * To connect to the VPN gateway from a __Windows client__, use the __Connect to Azure__ section of the [Configure a Point-to-Site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#a-nameconnectapart-7---connect-to-azure) document.
+
+## Create a Kafka topic
+
+[insert steps on ssh/create kafka topic.]
+
+## Remote Kafka client
+
+To connect to Kafka from the client machine, you must use the IP address of the Kafka brokers or Zookeeper nodes (whichever your client requires). The steps in this section demonstrate how to retrieve the IP address of the Kafka brokers and then use them from a Python application.
+
+1. To use Python with Kafka, use the following to install the [kafka-python](http://kafka-python.readthedocs.io/) client:
+
+        pip install kafka-python
+
+2. To send data to Kafka, use the following Python code:
+
+  ```python
+  from kafka import KafkaProducer
+  # Replace the `ip_address` entries with the IP address of your worker nodes
+  producer = KafkaProducer(bootstrap_servers=['ip_address1','ip_address2','ip_adderess3','ip_address4'])
+  for _ in range(50):
+      # Replace 'topicname' with the name of a topic on your Kafka cluster
+      producer.send('topicname', b'test message')
+  ```
+
+    Replace the `'ip_address'` entries with the addresses returned from step 1 in this section. Replace the `'topicname'` entry with the name of a topic that exists on your Kafka cluster.
+    
+    > [!IMPORTANT]
+    > This code assumes that the topic already exists on the Kafka cluster. If you have not created any topics yet, use the steps in [Get started with Kafka on HDInsight](hdinsight-apache-kafka-get-started.md) for information on how to create a topic.
+
+3. To retrieve the messages from Kafka, use the following Python code:
+
+  ```python
+  from kafka import KafkaConsumer
+  # Replace the `ip_address` entries with the IP address of your worker nodes
+  # Note: auto_offset_reset='earliest' resets the starting offset to the beginning
+  #       of the topic
+  consumer = KafkaConsumer(bootstrap_servers=['ip_address1','ip_address2','ip_adderess3','ip_address4'],auto_offset_reset='earliest')
+  # Replace 'topicname' with the name of a topic on your Kafka cluster
+  consumer.subscribe(['topicname'])
+  for msg in consumer:
+    print (msg)
+  ``
+
+    Replace the `'ip_address'` entries with the addresses returned from step 1 in this section. Replace the `'topicname'` entry with the name of a topic that exists on your Kafka cluster.
 
 ## Additional information
 
