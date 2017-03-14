@@ -36,7 +36,7 @@ Public IP addresses have a nominal charge. To view the pricing, read the [IP add
 
 Complete the steps in the following sections to create, change, or delete public IP address resources:
 
-### <a name="create"></a>Create a public IP address
+## <a name="create"></a>Create a public IP address
 
 To create a public IP address, complete the following steps:
 1. Log in to the [Azure portal](https://portal.azure.com) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
@@ -59,7 +59,7 @@ To create a public IP address, complete the following steps:
 |**CLI**|[az network public-ip-create](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
 |**PowerShell**|[New-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/v3.4.0/new-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
-### <a name="change"></a>Change settings or delete a public IP address
+## <a name="change"></a>Change settings or delete a public IP address
 
 To change or delete a public IP address, complete the following steps:
 
