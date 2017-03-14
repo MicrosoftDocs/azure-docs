@@ -218,6 +218,14 @@ Here are some common error cases and their solutions:
           </tr>
         </tbody></table>
 
+## Next steps
+If you have further questions about Self Service Password Rest (SSPR), please contact your Administrator or follow the links below.
+
+* [Need to register your SSPR information?](http://aka.ms/ssprsetup)
+* [Cant access your account?](https://passwordreset.microsoftonline.com)
+* [Office 365 password reset info](https://support.office.com/en-us/article/Reset-user-passwords-in-Office-365-3254c031-04c9-44f1-8fda-2563847a6b31?ui=en-US&rs=en-US&ad=US)
+* [Access Panel](https://myapps.microsoft.com)
+
 [101]: ./media/active-directory-passwords-update-your-own-password/password-1-dont-lose-access.png "password-1-dont-lose-access.png"
 [102]: ./media/active-directory-passwords-update-your-own-password/password-2-verification-response.png "password-2-verification-response.png"
 [103]: ./media/active-directory-passwords-update-your-own-password/password-2-verification-text.png "password-2-verification-text.png"
