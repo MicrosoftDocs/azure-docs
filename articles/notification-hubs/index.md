@@ -207,6 +207,3 @@ Learn how to use Notification Hubs, a multi-platform, scalable push-notification
     </li>
 </ul>
 
----
-
-

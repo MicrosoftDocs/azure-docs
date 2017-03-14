@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: cli
 ms.topic: hero-article
-ms.date: 03/08/2017
+ms.date: 03/13/2017
 ms.author: carlrab
 ---
 
@@ -35,10 +35,10 @@ az login
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named `myResourceGroup` in the `northcentralus` location.
+Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
 
 ```azurecli
-az group create --name myResourceGroup --location northcentralus
+az group create --name myResourceGroup --location westeurope
 ```
 ## Create a logical server
 
@@ -46,26 +46,22 @@ Create a logical server with the [az sql server create](/cli/azure/sql/server#cr
 
 ```azurecli
 servername=server-$RANDOM
-adminlogin=ServerAdmin
-password=ChangeYourAdminPassword1
-az sql server create --name $servername --resource-group myResourceGroup --location northcentralus \
-	--administrator-login $adminlogin --administrator-login-password $password
+az sql server create --name $servername --resource-group myResourceGroup --location westeurope \
+	--admin-user ServerAdmin --admin-password ChangeYourAdminPassword1
 ```
 
 ## Configure a server firewall rule
 
-Create a server-level firewall rule with the [az sql server firewall create](/cli/azure/sql/server/firewall#create) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL database through the SQL Database service firewall. The following example creates a firewall rule for a predefined address range, which, in this example, and the entire possible range of IP address. Replace these predefined values with the values for your external IP address or IP address range. 
+Create a server-level firewall rule with the [az sql server firewall create](/cli/azure/sql/server/firewall#create) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL database through the SQL Database service firewall. The following example creates a firewall rule for a predefined address range, which, in this example, is the entire possible range of IP addresses. Replace these predefined values with the values for your external IP address or IP address range. 
 
 ```azurecli
-startip=0.0.0.0
-endip=255.255.255.255
-z sql server firewall create --resource-group myResourceGroup --server-name $servername \
-	-n AllowYourIp --start-ip-address $startip --end-ip-address $endip
+az sql server firewall create --resource-group myResourceGroup --server-name $servername \
+	-n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 ## Create a database in the server
 
-Create a database in the server with the [az sql db create](/cli/azure/sql/db#create) command. The following example creates a database called `mySampleDatabase`. Replace this predefined value as desired.
+Create a database in the server with the [az sql db create](/cli/azure/sql/db#create) command. The following example creates an empty database called `mySampleDatabase`. Replace this predefined value as desired.
 
 ```azurecli
 az sql db create --resource-group myResourceGroup --location northcentralus --server-name $servername \
