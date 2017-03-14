@@ -22,7 +22,7 @@ ms.author: nepeters
 
 This script creates an Azure Virtual Machine, installs the Operations Management Suite (OMS) agent, and enrolls the system with an OMS workspace. Once the script has run, the virtual machine will be visible in the OMS console.
 
-Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, the OMS workspace ID and workspace key need to be updated in the script.
+Before running this script, log in to Azure using the `az login` command. Also, you will need the OMS workspace ID and workspace key in order to run the script.
 
 This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
@@ -32,7 +32,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Clean up deployment 
 
-After the script sample has been run, the following command can be used to remove the Resource Group, VM, and all related resources.
+Run the following command can be used to remove the Resource Group, VM, and all related resources.
 
 ```azurecli
 az group delete --name myResourceGroup

@@ -20,9 +20,9 @@ ms.author: nepeters
 
 # Create a VM with Docker
 
-This sample script creates a virtual machine and then uses the Azure Docker VM extension to configure a Docker host. The Docker VM extension then creates a container running NGINX. Finally, the script configures an Azure network security group to all inbound traffic on port 80. Once the script has been successfully run, the NGINX web server can be access through the FQDN of the Azure virtual machine. 
+This script creates a virtual machine with Docker enabled. A NGINX Docker container is also created. After running the script, you can access the NGINX web server through the FQDN of the Azure virtual machine. 
 
-Before running this script, ensure that a connection with Azure has been created using the `az login` command.
+Before running this script, log in to Azure using the `az login` command.
 
 This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
@@ -32,7 +32,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Clean up deployment 
 
-After the script sample has been run, the following command can be used to remove the Resource Group, VM, and all related resources.
+Run the following command can be used to remove the Resource Group, VM, and all related resources.
 
 ```azurecli
 az group delete --name myResourceGroup
