@@ -157,7 +157,7 @@ A DocumentDB database is a logical container of one or more collections and user
 ![Database account and collections hierarchical model][2]  
 **A Database is a logical container of users and collections**
 
-A database can contain virtually unlimited document storage partitioned by collections.
+A database can contain virtually unlimited document storage partitioned within collections.
 
 ### Elastic scale of a DocumentDB database
 A DocumentDB database is elastic by default – ranging from a few GB to petabytes of SSD backed document storage and provisioned throughput. 
