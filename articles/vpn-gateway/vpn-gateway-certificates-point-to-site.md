@@ -20,7 +20,7 @@ ms.author: cherylmc
 ---
 # Create a self-signed root certificate for Point-to-Site connections using PowerShell
 
-Point-to-Site connections use certificates to authenticate. When you configure a Point-to-Site connection, you need to upload the public key (.cer file) of a root certificate to Azure. This article helps you create a self-signed root certificate, export the public key, and generate and install client certificates on a computer running Windows 10.
+Point-to-Site connections use certificates to authenticate. When you configure a Point-to-Site connection, you need to upload the public key (.cer file) of a root certificate to Azure. This article helps you create a self-signed root certificate, export the public key, and generate and install client certificates.
 
 > [!NOTE]
 > Previously, makecert was the recommended method to create self-signed root certificates and generate client certificates for Point-to-Site connections. You can now use PowerShell to create these certificates. One benefit of using PowerShell is the ability to create SHA-2 certificates. 
