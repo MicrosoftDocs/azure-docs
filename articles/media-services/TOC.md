@@ -121,16 +121,16 @@
 ## [Protect](media-services-content-protection-overview.md)
 ### [Configure content protection in the portal](media-services-portal-protect-content.md)
 ### [Configure AES-128 clear key for your stream](media-services-protect-with-aes128.md)
-### [Encrypting your Content with Storage Encryption using Media Services REST API](media-services-rest-storage-encryption.md)
-### [Media Services PlayReady License Template Overview](media-services-playready-license-template-overview.md)
+### [Use REST to encrypt your content with storage encryption](media-services-rest-storage-encryption.md)
+### [Media Services PlayReady license template overview](media-services-playready-license-template-overview.md)
 ### [Widevine license template overview](media-services-widevine-license-template-overview.md)
 ### [DRM license delivery](media-services-deliver-keys-and-licenses.md)
-### [Using partners to deliver Widevine licenses to Azure Media Services](media-services-licenses-partner-integration.md)
+### [Using partners to deliver Widevine licenses to Media Services](media-services-licenses-partner-integration.md)
 ### [Using PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-drm.md)
-### [Use Azure Media Services to Stream your HLS content Protected with Apple FairPlay ](media-services-protect-hls-with-fairplay.md)
-### [CENC with Multi-DRM and Access Control: A Reference Design and Implementation on Azure and Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
-### [Using Axinom to deliver Widevine licenses to Azure Media Services  ](media-services-axinom-integration.md)
-### [Using castLabs to deliver Widevine licenses to Azure Media Services](media-services-castlabs-integration.md)
+### [Stream your HLS content protected with Apple FairPlay ](media-services-protect-hls-with-fairplay.md)
+### [CENC with Multi-DRM and Access Control](media-services-cenc-with-multidrm-access-control.md)
+### [Using Axinom to deliver Widevine licenses to Media Services  ](media-services-axinom-integration.md)
+### [Using castLabs to deliver Widevine licenses to Media Services](media-services-castlabs-integration.md)
 
 ### Asset delivery
 #### Configure asset delivery policies
