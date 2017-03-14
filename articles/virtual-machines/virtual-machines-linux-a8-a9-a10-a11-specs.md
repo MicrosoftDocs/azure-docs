@@ -34,12 +34,12 @@ You can create clusters of RDMA-capable Linux VMs that run one of the following 
     
     * CentOS-based 7.1 HPC, CentOS-based 6.5 HPC  
  
-    > [!NOTE]
-    > For H-series VMs, we recommend either a SLES 12 SP1 for HPC image or CentOS-based 7.1 HPC image.
-    >
-    > On the CentOS-based HPC images, kernel updates are disabled in the **yum** configuration file. This is because the Linux RDMA drivers are distributed as an RPM package, and driver updates might not work if the kernel is updated.
-    > 
-    > 
+        > [!NOTE]
+        > For H-series VMs, we recommend either a SLES 12 SP1 for HPC image or CentOS-based 7.1 HPC image.
+        >
+        > On the CentOS-based HPC images, kernel updates are disabled in the **yum** configuration file. This is because the Linux RDMA drivers are distributed as an RPM package, and driver updates might not work if the kernel is updated.
+        > 
+        > 
 * **MPI** - Intel MPI Library 5.x
   
     Depending on the Marketplace image you choose, separate licensing, installation, or configuration of Intel MPI may be needed, as follows: 
