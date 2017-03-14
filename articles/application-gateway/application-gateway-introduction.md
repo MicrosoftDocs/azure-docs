@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 03/08/2017
+ms.date: 03/22/2017
 ms.author: gwallace
 
 ---
@@ -36,7 +36,7 @@ Application Gateway operates as an application delivery controller and offers SS
 
 ### Web Application Firewall (WAF)
 
-The WAF SKU provides all of the capabilities that the standard SKU provides with the addition of the [web application firewall](application-gateway-webapplicationfirewall-overview.md). This provides attack detection rules that provide protection for your web application.
+The WAF SKU provides all of the capabilities that the standard SKU provides with the addition of the [web application firewall](application-gateway-webapplicationfirewall-overview.md). This provides attack detection rules that provide protection for your web applications.
 
 ## Features
 
