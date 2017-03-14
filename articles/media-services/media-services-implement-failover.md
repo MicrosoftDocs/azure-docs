@@ -19,9 +19,9 @@ ms.author: juliako
 ---
 # Implement failover streaming with Azure Media Services
 
-This walkthrough demonstrates how to copy content (blobs) from one asset into another in order to handle redundancy for on-demand streaming. This scenario is useful if you want to set up your Azure Content Delivery Network to fail over between two datacenters, in case of an outage in one datacenter. This walkthrough uses the Azure Media Services SDK, the Azure Media Services REST API, and the Azure Storage SDK to demonstrate the following tasks:
+This walkthrough demonstrates how to copy content (blobs) from one asset into another in order to handle redundancy for on-demand streaming. This scenario is useful if you want to set up Azure Content Delivery Network to fail over between two datacenters, in case of an outage in one datacenter. This walkthrough uses the Azure Media Services SDK, the Azure Media Services REST API, and the Azure Storage SDK to demonstrate the following tasks:
 
-1. Set up a Media Services account in "Data Center A".
+1. Set up a Media Services account in "Data Center A."
 2. Upload a mezzanine file into a source asset.
 3. Encode the asset into multi-bit rate MP4 files. 
 4. Create a read-only shared access signature locator. This is for the source asset to have read access to the container in the storage account that is associated with the source asset.
@@ -30,12 +30,12 @@ This walkthrough demonstrates how to copy content (blobs) from one asset into an
 
 Then, to handle the failover:
 
-1. Set up a Media Services account in "Data Center B".
+1. Set up a Media Services account in "Data Center B."
 2. Create a target empty asset in the target Media Services account.
 3. Create a write shared access signature locator. This is for the target empty asset to have write access to the container in the target storage account that is associated with the target asset.
-4. Use the Azure Storage SDK to copy blobs (asset files) between the source storage account in "Data Center A" and the target storage account in "Data Center B". These storage accounts are associated with the assets of interest.
+4. Use the Azure Storage SDK to copy blobs (asset files) between the source storage account in "Data Center A" and the target storage account in "Data Center B." These storage accounts are associated with the assets of interest.
 5. Associate blobs (asset files) that were copied to the target blob container with the target asset. 
-6. Create an origin locator for the asset in "Data Center B", and specify the locator ID that was generated for the asset in "Data Center A".
+6. Create an origin locator for the asset in "Data Center B", and specify the locator ID that was generated for the asset in "Data Center A."
 
 This gives you the streaming URLs where the relative paths of the URLs are the same (only the base URLs are different). 
 
@@ -62,8 +62,8 @@ The following considerations apply:
 In this section, you create and set up a C# Console Application project.
 
 1. Use Visual Studio to create a new solution that contains the C# Console Application project. Enter **HandleRedundancyForOnDemandStreaming** for the name, and then click **OK**.
-2. Create the **SupportFiles** folder on the same level as the **HandleRedundancyForOnDemandStreaming.csproj** project file. Under the **SupportFiles** folder, create the **OutputFiles** and **MP4Files** folders. Copy an .mp4 file into the **MP4Files** folder (in this example, the **BigBuckBunny.mp4** file is used). 
-3. Use **Nuget** to add references to DLLs related to Media Services. In **Visual Studio Main Menu**, select **TOOLS** > **Library Package Manager** > **Package Manager Console**. In the console window, type **Install-Package windowsazure.mediaservices**, and press enter.
+2. Create the **SupportFiles** folder on the same level as the **HandleRedundancyForOnDemandStreaming.csproj** project file. Under the **SupportFiles** folder, create the **OutputFiles** and **MP4Files** folders. Copy an .mp4 file into the **MP4Files** folder. (In this example, the **BigBuckBunny.mp4** file is used.) 
+3. Use **Nuget** to add references to DLLs related to Media Services. In **Visual Studio Main Menu**, select **TOOLS** > **Library Package Manager** > **Package Manager Console**. In the console window, type **Install-Package windowsazure.mediaservices**, and press Enter.
 4. Add other references that are required for this project: System.Configuration, System.Runtime.Serialization, and System.Web.
 5. Replace **using** statements that were added to the **Programs.cs** file by default with the following ones:
    
@@ -208,7 +208,7 @@ In this section, you create the ability to handle redundancy.
 3. The following method definitions are called from Main.
 
 	>[!NOTE]
-	>There is a limit of 1,000,000 policies for different Media Services policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days and access permissions. For example, use the same ID for policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
+	>There is a limit of 1,000,000 policies for different Media Services policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days and access permissions. For example, use the same ID for policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this topic](media-services-dotnet-manage-entities.md#limit-access-policies).
 
         public static IAsset CreateAssetAndUploadSingleFile(CloudMediaContext context,
                                                         AssetCreationOptions assetCreationOptions,
