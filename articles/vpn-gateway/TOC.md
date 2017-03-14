@@ -39,9 +39,10 @@
 ## [Configure BGP for Azure VPN Gateways using PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Configure highly available active-active connections](vpn-gateway-activeactive-rm-powershell.md)
 ## [Modify local network gateway settings using PowerShell](vpn-gateway-modify-local-network-gateway.md)
-## [Verify a gateway connection](vpn-gateway-verify-connection-resource-manager.md)
-## [Reset an Azure VPN Gateway](vpn-gateway-resetgw-classic.md)
-## [How to work with self-signed certificates for Point-to-Site connections](vpn-gateway-certificates-point-to-site.md)
+## [Verify a VPN gateway connection](vpn-gateway-verify-connection-resource-manager.md)
+## [Reset a VPN gateway](vpn-gateway-resetgw-classic.md)
+## [Delete a VPN gateway](vpn-gateway-delete-vnet-gateway-powershell.md)
+## [Create self-signed root certificates for P2S connections](vpn-gateway-certificates-point-to-site.md)
 ## [Configure a VPN gateway (classic)](vpn-gateway-configure-vpn-gateway-mp.md)
 
 # Reference

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/08/2017
+ms.date: 03/14/2017
 ms.author: nepeters
 
 ---
@@ -32,12 +32,43 @@ The OMS Agent extension for Windows requires that the target virtual machine is 
 
 ## Extension schema
 
-The following JSON shows the schema for the OMS Agent extension. The extension requires the workspace Id and workspace key from the target OMS workspace, these can be found in the OMS portal. Because the workspace key should be treated as sensitive data, it should be stored in a protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine. Please note that **workspaceId** and **workspaceKey** are case-sensitive.
+The following JSON shows the schema for the OMS Agent extension. The extension requires the workspace Id and workspace key from the target OMS workspace, these can be found in the OMS portal. Because the workspace key should be treated as sensitive data, it should be stored in a protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine. Note that **workspaceId** and **workspaceKey** are case-sensitive.
+
+The JSON for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON affects the value of the resource name and type. For more information, see [Set name and type for child resources](../azure-resource-manager/resource-manager-template-child-resource.md). 
+
+The following example assumes the OMS extension is nested inside the virtual machine resource. When nesting the extension resource, the JSON is placed in the `"resources": []` object of the virtual machine.
+
 
 ```json
 {
 	"type": "extensions",
-	"name": "Microsoft.EnterpriseCloud.Monitoring",
+	"name": "OMSExtension",
+	"apiVersion": "[variables('apiVersion')]",
+	"location": "[resourceGroup().location]",
+	"dependsOn": [
+		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+	],
+	"properties": {
+		"publisher": "Microsoft.EnterpriseCloud.Monitoring",
+		"type": "MicrosoftMonitoringAgent",
+		"typeHandlerVersion": "1.0",
+		"autoUpgradeMinorVersion": true,
+		"settings": {
+			"workspaceId": "myWorkSpaceId"
+		},
+		"protectedSettings": {
+			"workspaceKey": "myWorkspaceKey"
+		}
+	}
+}
+```
+
+When placing the extension JSON at the root of the template, the resource name includes a reference to the parent virtual machine, and the type reflects the nested configuration. 
+
+```json
+{
+	"type": "Microsoft.Compute/virtualMachines/extensions",
+	"name": "<parentVmResource>/OMSExtension",
 	"apiVersion": "[variables('apiVersion')]",
 	"location": "[resourceGroup().location]",
 	"dependsOn": [
