@@ -138,16 +138,47 @@ Working back from the presentation layer can help you uncover requirements that 
 
 In terms of faceted navigation, your web or application page displays the faceted navigation structure, detects user input on the page, and inserts the changed elements. 
 
-For web applications, AJAX is commonly used in the presentation layer because it allows you to refresh incremental changes. You could also use ASP.NET MVC or any other visualization platform that can connect to an Azure Search service over HTTP. The sample application referenced throughout this article -- **AdventureWorks Catalog** – happens to be an ASP.NET MVC application.
+For web applications, AJAX is commonly used in the presentation layer because it allows you to refresh incremental changes. You could also use ASP.NET MVC or any other visualization platform that can connect to an Azure Search service over HTTP. The sample application referenced throughout this article -- the **Azure Search Job Portal Demo** – happens to be an ASP.NET MVC application.
 
-The following example, taken from the **index.cshtml** file of the sample application, builds a dynamic HTML structure for displaying faceted navigation in your search results page. In the sample, faceted navigation is built into the search results page, and appears after the user has submitted a search term.
+In the sample, faceted navigation is built into the search results page. The following example, taken from the `index.cshtml` file of the sample application, shows the static HTML structure for displaying faceted navigation on the search results page. The list of facets is built or rebuilt dynamically when the user submits a search term, or selects or clears a facet.
 
-Notice that each facet has:
--   A label (Colors, Categories, Prices).
--   A binding to a faceted field (color, categoryName, listPrice).
--   A `.count` parameter, used to return the number of items found for that facet result.
+```
+<div class="widget sidebar-widget jobs-filter-widget">
+  <h5 class="widget-title">Filter Results</h5>
+    <p id="filterReset"></p>
+    <div class="widget-content">
 
-  ![][2]
+      <h6 id="businessTitleFacetTitle">Business Title</h6>
+      <ul class="filter-list" id="business_title_facets">
+      </ul>
+
+      <h6>Location</h6>
+      <ul class="filter-list" id="posting_type_facets">
+      </ul>
+
+      <h6>Posting Type</h6>
+      <ul class="filter-list" id="posting_type_facets"></ul>
+
+      <h6>Minimum Salary</h6>
+      <ul class="filter-list" id="salary_range_facets">
+      </ul>
+
+  </div>
+</div>
+```
+
+The following code snippet from the `index.cshtml` page dynamically builds the HTML to display the first facet, Business Title. Similar functions dynamically build the HTML for the other facets. Each facet has a label and a count, which displays the number of items found for that facet result.
+
+```
+function UpdateBusinessTitleFacets(data) {
+  var facetResultsHTML = '';
+  for (var i = 0; i < data.length; i++) {
+    facetResultsHTML += '<li><a href="javascript:void(0)" onclick="ChooseBusinessTitleFacet(\'' + data[i].Value + '\');">' + data[i].Value + ' (' + data[i].Count + ')</span></a></li>';
+  }
+
+  $("#business_title_facets").html(facetResultsHTML);
+}
+```
 
 > [!TIP]
 > When you design the search results page, remember to add a mechanism for clearing facets. If you use check boxes, users can easily see how to clear the filters. For other layouts, you might need a breadcrumb pattern or another creative approach. For example, in the Job Search Portal sample application, you can click the `[X]` after a selected facet to clear the facet.
@@ -157,17 +188,29 @@ Notice that each facet has:
 ## Build the query
 The code that you write for building queries should specify all parts of a valid query, including search expressions, facets, filters, scoring profiles– anything used to formulate a request. In this section, we’ll explore where facets fit into a query, and how filters are used with facets to deliver a reduced result set.
 
-An example is often a good place to begin. The following example, taken from the **CatalogSearch.cs** file, builds a request that creates facet navigation based on Color, Category, and Price. 
+Aotice that facets are integral in this sample application. The search experience in the Job Portal Demo is designed around faceted navigation and filters. This is evident in the prominent placement of faceted navigation in the page. 
 
-Notice that facets are integral in this sample application. The search experience in AdventureWorks Catalog is designed around faceted navigation and filters. This is evident in the prominent placement of faceted navigation in the page. The sample application includes URI parameters for facets (color, category, prices) as properties on the Search method (as constructed in the sample application).
+An example is often a good place to begin. The following example, taken from the `JobsSearch.cs` file, builds a request that creates facet navigation based on Business Title, Location, Posting Type, and Minimum Salary. 
 
-  ![][4]
+```
+SearchParameters sp = new SearchParameters()
+{
+  ...
+  // Add facets
+  Facets = new List<String>() { "business_title", "posting_type", "level", "salary_range_from,interval:50000" },
+};
+```
 
-A facet query parameter is set to a field and depending on the data type, can be further parameterized by comma-delimited list that includes `count:<integer>`, `sort:<>`, `intervals:<integer>`, and  `values:<list>`. A values list is supported for numeric data when setting up ranges. See [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) for usage details.
+A facet query parameter is set to a field and depending on the data type, can be further parameterized by comma-delimited list that includes `count:<integer>`, `sort:<>`, `interval:<integer>`, and  `values:<list>`. A values list is supported for numeric data when setting up ranges. See [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) for usage details.
 
-Along with facets, the request formulated by your application should also build filters to narrow down the set of candidate documents based on a facet value selection. For a bike store, faceted navigation provides clues to questions like "What colors, manufacturers, and types of bikes are available", while filtering answers questions like "Which exact bikes are red, mountain bikes, in this price range".
+Along with facets, the request formulated by your application should also build filters to narrow down the set of candidate documents based on a facet value selection. For a bike store, faceted navigation provides clues to questions like "What colors, manufacturers, and types of bikes are available", while filtering answers questions like "Which exact bikes are red, mountain bikes, in this price range". When a user clicks "Red" to indicate that only Red products should be shown, the next query the application sends includes `$filter=Color eq ‘Red’`.
 
-When a user clicks "Red" to indicate that only Red products should be shown, the next query the application sends would include `$filter=Color eq ‘Red’`.
+The following code snippet from the `JobsSearch.cs` page adds the selected Business Title to the filter if the user selects a value from the Business Title facet.
+
+```
+if (businessTitleFacet != "")
+  filter = "business_title eq '" + businessTitleFacet + "'";
+```
 
 <a name="tips"></a> 
 
@@ -255,33 +298,31 @@ Although this behavior could change at any time, if you encounter this behavior 
 ### User interface tips
 **Add labels for each field in facet navigation**
 
-Labels are typically defined in the HTML or form (**index.cshtml** in the sample application). There is no API in Azure Search for facet navigation labels or any other kind of metadata.
+Labels are typically defined in the HTML or form (`index.cshtml` in the sample application). There is no API in Azure Search for facet navigation labels or any other kind of metadata.
 
 <a name="rangefacets"></a>
 
 ## Filter based on a range of values
 Faceting over ranges is a common search application requirement. Ranges are supported for numeric data and DateTime values. You can read more about each approach in [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-Azure Search simplifies range construction by providing two approaches for computing a range. For both approaches, Azure Search creates the appropriate ranges given the inputs you’ve provided. For instance, if you specify range values of 10|20|30, it will automatically create ranges of 0 -10, 10-20, 20-30. The sample application removes any intervals that are empty. 
+Azure Search simplifies range construction by providing two approaches for computing a range. For both approaches, Azure Search creates the appropriate ranges given the inputs you’ve provided. For instance, if you specify range values of 10|20|30, it will automatically create ranges of 0-10, 10-20, 20-30. Your application can optionally remove any intervals that are empty. 
 
 **Approach 1: Use the interval parameter**  
 To set price facets in $10 increments, you would specify: `&facet=price,interval:10`
 
 **Approach 2: Use a values list**  
-For numeric data, you can use a values list.  Consider the facet range for listPrice, rendered as follows:
+For numeric data, you can use a values list.  Consider the facet range for a `listPrice` field, rendered as follows:
 
   ![][5]
 
-The range is specified in the **CatalogSearch.cs** file using a values list:
+To specify a facet range like this, use a values list:
 
     facet=listPrice,values:10|25|100|500|1000|2500
 
 Each range is built using 0 as a starting point, a value from the list as an endpoint, and then trimmed of the previous range to create discrete intervals. Azure Search will do this as part of faceted navigation. You do not have to write code for structuring each interval.
 
 ### Build a filter for a range
-To filter documents based on a range selected by the user, you can use the `"ge"` and `"lt"` filter operators in a two-part expression that defines the endpoints of the range. For example, if the user chooses the range 10-25, the filter would be `$filter=listPrice ge 10 and listPrice lt 25`.
-
-In the sample application, the filter expression uses **priceFrom** and **priceTo** parameters to set the endpoints. The **BuildFilter** method in **CatalogSearch.cs** contains the filter expression that gives you the documents within a range.
+To filter documents based on a range selected by the user, you can use the `"ge"` and `"lt"` filter operators in a two-part expression that defines the endpoints of the range. For example, if the user chooses the range 10-25 for a `listPrice` field, the filter would be `$filter=listPrice ge 10 and listPrice lt 25`. In the sample code, the filter expression uses **priceFrom** and **priceTo** parameters to set the endpoints. 
 
   ![][6]
 
@@ -300,30 +341,30 @@ You can find filter examples in [OData expression syntax (Azure Search)](http://
 <a name="tryitout"></a>
 
 ## Try the demo
-Azure Search Adventure Works Demo contains the examples referenced in this article. As you work with search results, watch the URL for changes in query construction. This application happens to append facets to the URI as you select each one.
+The Azure Search Job Portal Demo contains the examples referenced in this article.
 
-1. Configure the sample application to use your service URL and api-key. 
-   
-   Notice the schema that is defined in the Program.cs file of the CatalogIndexer project. It specifies facetable fields for color, listPrice, size, weight, categoryName, and modelName.  Only a few of these (color, listPrice, categoryName) are actually implemented in faceted navigation.
-2. Run the application. 
-   
-   At first, just the Search box is visible. You can click the Search button right away to get all results, or type a search term.
-   
-   ![][7]
-3. Enter a search term, such as bike, and click **Search**. The query executes quickly.
-   
-   A faceted navigation structure is also returned with the search results.  In the URL, facets for Colors, Categories, and Prices are null. In the search result page, the faceted navigation structure includes counts for each facet result.
-   
-   ![][8]
-4. Click a color, category, and price range. Facets are null on an initial search, but as they take on values, the search results are trimmed of items that no longer match. Notice that the URI picks up the changes to your query.
-   
-   ![][9]
-5. To clear the faceted query so that you can try different query behaviors, click **AdventureWorks Catalog** at the top of the page.
-   
-   ![][10]
+-   See and test the working portal online at [Azure Search Job Portal Demo](http://azjobsdemo.azurewebsites.net/).
 
-6.  To test your knowledge, you can add a facet field for *modelName*. The index is already set up for this facet, so no changes to the index are required. But you will need to modify the HTML to include a new facet for Models, and add the facet field to the query constructor.
+-   Download the code from the [Azure-Samples repo on GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
+As you work with search results, watch the URL for changes in query construction. This application happens to append facets to the URI as you select each one.
+
+1. To use the mapping functionality of the demo app, get a Bing Maps key from the [Bing Maps Dev Center](https://www.bingmapsportal.com/) and paste it over the existing key in the Index.cshtml page. The `BingApiKey` setting in the Web.config file is not used. 
+
+2. Run the application. Take the optional tour, or dismiss the dialog box.
+   
+3. Enter a search term, such as "analyst", and click the Search icon. The query executes quickly.
+   
+   A faceted navigation structure is also returned with the search results. In the search result page, the faceted navigation structure includes counts for each facet result. No facets are selected, so all matching results are returned.
+   
+   ![][11]
+
+4. Click a Business Title, Location, or Minimum Salary. Facets were null on the initial search, but as they take on values, the search results are trimmed of items that no longer match.
+   
+   ![][12]
+
+5. To clear the faceted query so that you can try different query behaviors, click the `[X]` after the selected facets to clear the facets.
+   
 <a name="nextstep"></a>
 
 ## Learn more
@@ -357,6 +398,8 @@ For more insights on design principles for faceted navigation, we recommend the 
 [8]: ./media/search-faceted-navigation/Facet-8-appbike.png
 [9]: ./media/search-faceted-navigation/Facet-9-appbikefaceted.png
 [10]: ./media/search-faceted-navigation/Facet-10-appTitle.png
+[11]: ./media/search-faceted-navigation/faceted-search-before-facets.png
+[12]: ./media/search-faceted-navigation/faceted-search-after-facets.png
 
 <!--Link references-->
 [Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
