@@ -146,11 +146,7 @@ Now that you have a certificate, you need to associate it with an Azure AD appli
     $x509.Import("C:\data\KVWebApp.cer")
     $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
 
-    # If you used different dates for makecert then adjust these values
-    $now = [System.DateTime]::Now
-    $yearfromnow = $now.AddYears(1)
-
-    $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -CertValue $credValue -StartDate $now -EndDate $yearfromnow
+    $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -CertValue $credValue -StartDate $x509.NotBefore -EndDate $x509.NotAfter
 
     $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
