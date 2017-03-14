@@ -42,7 +42,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 7. On the summary page, click **Ok** to start the virtual machine deployment.
 
-8. To monitor deployment status, click the virtual machine. The VM can be found on the Azure portal dashboard, or by selecting **Virtual Machines** from the left-hand menu. When the VM has been created, the status will change from **Deploying** to **Running**.
+8. To monitor deployment status, click the virtual machine. The VM can be found on the Azure portal dashboard, or by selecting **Virtual Machines** from the left-hand menu. When the VM has been created, the status changes from **Deploying** to **Running**.
 
 ## Connect to virtual machine
 
