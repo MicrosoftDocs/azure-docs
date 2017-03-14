@@ -31,13 +31,13 @@ These are limits for a single HTTP request and/or connector call
 
 |Name|Limit|Notes|
 |----|----|----|
-|Request Timeout|90 Seconds|An [async pattern](../logic-apps/logic-apps-create-api-app.md) or [until loop](logic-apps-loops-and-scopes.md) can compensate as needed|
+|Request Timeout|120 Seconds|An [async pattern](../logic-apps/logic-apps-create-api-app.md) or [until loop](logic-apps-loops-and-scopes.md) can compensate as needed|
 
 #### Message size
 
 |Name|Limit|Notes|
 |----|----|----|
-|Message size|50 MB|Some connectors and APIs may not support 50MB |
+|Message size|100 MB|Some connectors and APIs may not support 100MB |
 |Expression evaluation limit|131,072 characters|`@concat()`, `@base64()`, `string` cannot be longer than this|
 
 #### Retry policy
@@ -46,7 +46,7 @@ These are limits for a single HTTP request and/or connector call
 |----|----|----|
 |Retry attempts|4|Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 |Retry max delay|1 hour|Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
-|Retry min delay|20 sec|Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
+|Retry min delay|5 sec|Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 
 ### Run duration and retention
 
@@ -89,7 +89,7 @@ These are limits for a single logic app definition.
 |----|----|----|
 |Actions per workflow|250|You can add nested workflows to extend this as needed|
 |Allowed action nesting depth|5|You can add nested workflows to extend this as needed|
-|Flows per region per subscription|1000||
+|Workflows per region per subscription|1000||
 |Triggers per workflow|10||
 |Max characters per expression|8,192||
 |Max `trackedProperties` size in characters|16,000|

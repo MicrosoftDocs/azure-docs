@@ -12,7 +12,7 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload:
 ms.date: 02/13/2017
 ms.author: ruturajd
 
@@ -20,7 +20,7 @@ ms.author: ruturajd
 # Reprotect from Azure to on-premises
 
 ## Overview
-This article describes how to reprotect Azure virtual machines from Azure to the on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure using this [tutorial](site-recovery-vmware-to-azure-classic.md).
+This article describes how to reprotect Azure virtual machines from Azure to the on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure using this [tutorial](site-recovery-failover.md).
 
 After reprotect completes and the protected virtual machines are replicating, you can initiate a failback on the VM to bring them to on-premises.
 
@@ -38,8 +38,8 @@ Following are the few pre-requisite steps you need to take or consider when prep
 * If snapshots are present on the on-premises VM, then reprotection will fail. You can delete the snapshots before proceeding to reprotect.
 * Before you fail back you’ll need to create two additional components:
   * **Create a process server**. Process server is used to receive the data from the protected VM in Azure and send the data on-premises. This requires it to be on a low latency network between the process server and the protected VM. Hence the process server can be on-premises (if you are using an express route connection) or on Azure if you are using a VPN.
-  * **Create a master target server**: The master target server receives failback data. The management server you created on-premises has a master target server installed by default. However, depending on the volume of failed back traffic you might need to create a separate master target server for failback. 
-		* [A linux VM needs a Linux master target server](site-recovery-how-to-install-linux-master-target.md). 
+  * **Create a master target server**: The master target server receives failback data. The management server you created on-premises has a master target server installed by default. However, depending on the volume of failed back traffic you might need to create a separate master target server for failback.
+		* [A linux VM needs a Linux master target server](site-recovery-how-to-install-linux-master-target.md).
 		* A windows VM needs a windows master target. You can re-use the on-premises PS+MT machine.
 * Configuration server is required on-premises when you do a failback. During failback, the virtual machine must exist in the Configuration server database, failing which failback won't be successful. Hence ensure that you take regular scheduled backup of your server. If there was a disaster, you will need to restore it with the same IP address so that failback works.
 * Ensure that you set the disk.enableUUID=true setting in Configuration Parameters of the Master target VM in VMware. If this row does not exist, add it. This is required to provide a consistent UUID to the VMDK so that it mounts correctly.
@@ -56,10 +56,10 @@ Where replication from on-premises to Azure can happen over internet or an Expre
 
 The Azure VMs that you want to reprotect, send the replication data to a Process server. Your network should be set up such that the process server is reachable from the Azure VM.
 
-You can deploy a process server in Azure or use the existing process server that you used during failover. The important point to consider is the latency to send the data from Azure VMs to the process server. 
+You can deploy a process server in Azure or use the existing process server that you used during failover. The important point to consider is the latency to send the data from Azure VMs to the process server.
 
 * If you have an express route set up, an on-premises PS can be used to send the data. This is because the latency between the VM and the PS would be low.
-    
+
     ![Architecture Diagram for ExpressRoute](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
 
 
@@ -92,11 +92,11 @@ Click on the below links to read the steps on how to install a Master Target ser
 * If the VM is present on-premises on the vCenter server, master target server needs access to the on-premises VM's VMDK. This is to write the replicated data to the VM's disks. For this you need to ensure that **the on-premises VM's datastore should be mounted on the MT's host with read write access**.
 
 * If the VM is not present on-premises on the vCenter server, a new VM will need to be created during reprotect. This VM will be created on the ESX host on which you create the MT. Hence, choose the ESX host carefully, so that the failback VM is created on the host you want.
-    
+
 * **Master target server cannot be storage vMotioned**. This can cause the failback to fail. The VM will not come up since the disks will not be made available to it.
 
 * You need a new drive added onto your existing Windows Master target server. This drive is called a retention drive. Add a new disk and format the drive. Retention Drive is used for stopping the points in time when the VM replicated back to on-premises. Some of the criteria of a retention drive are as below, without which the drive will not be listed for the master target server.
-   
+
    * Volume shouldn't be in use for any other purpose (target of replication etc.)
 
    * Volume shouldn't be in lock mode.
@@ -140,18 +140,18 @@ Before re-protection, make sure you have installed the [Process server](site-rec
 
 > [!NOTE]
 > After a VM boots up in Azure, it takes some time for the agent to register back to the configuration server (upto 15 mins). During this time you will find reprotect to fail and the error message stating that the agent is not installed. Wait for a few minutes and then try Reprotect again.
- 
- 
+
+
 
 1. In the Vault > replicated items > select the VM that's been failed over and right click to **Re-Protect**. You can also click the machine and select the reprotect from the command buttons.
 2. In the blade, you can see that the direction of protection "Azure to On-premises" is already selected.
 3. In **Master Target Server** and **Process Server** select the on-premises master target server, and the process server.
 4. Select the **Datastore** to which you want to recover the disks on-premises. This option is used when the on-premises VM is deleted and new disks needs to be created. This option is ignored if the disks already exist, but you still need to specify a value.
-5. Choose the retention drive. 
+5. Choose the retention drive.
 6. The failback policy will be auto-selected.
 7. After you click **OK** to begin reprotection a job begins to replicate the VM from Azure to the on-premises site. You can track the progress on the **Jobs** tab.
 
-If you want to recover to an alternate location (when the on-premises VM is deleted), select the retention drive and datastore configured for the master target server. When you fail back to the on-premises site the VMware VMs in the failback protection plan will use the same datastore as the master target server and a new VM will be created in vCenter. 
+If you want to recover to an alternate location (when the on-premises VM is deleted), select the retention drive and datastore configured for the master target server. When you fail back to the on-premises site the VMware VMs in the failback protection plan will use the same datastore as the master target server and a new VM will be created in vCenter.
 If you want to recover the Azure VM to an existing on-premises VM then the on-premises VM's datastores should be mounted with read/write access on the master target server's ESXi host.
     ![](./media/site-recovery-failback-azure-to-vmware-new/reprotectinputs.png)
 
@@ -159,7 +159,7 @@ You can also reprotect at a recovery plan level. If you have a replication group
 
 > [!NOTE]
 > A replication group should be protected back using the same Master target. If they are protected back using different Master target server, a common point in time cannot be taken for it.
- 
+
 
 After the reprotect succeed, the VM will enter into a protected state.
 
@@ -169,7 +169,7 @@ Once the VM has entered into protected state, you can initiate a failback. The f
 
 [Steps to initiate failback of the VM](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-failback)
 
-## Common issues 
+## Common issues
 
 * If your virtual machines were created using a template, you should ensure before protection that each VM has a unique UUID for the disks. If the on-premises VM's UUID clashes with that of the Master target (because both were created from the same template), then reprotection will fail. You will need to deploy another Master target that has not been created from the same template.
 * If you perform a read-only user vCenter discovery and protect virtual machines, it succeeds and failover works. During reprotection, failover fails because the datastores cannot be discovered. As a symptom, you will not see the datastores listed during reprotection. To resolve this issue, you can update the vCenter credential with an appropriate account that has permissions and retry the job. For more information, see [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)

@@ -164,8 +164,8 @@ You must have Excel 2013 or 2010 installed to complete this part of the tutorial
 2. Click the **Power Query** menu, click **From Other Sources**, and then click **From Azure HDInsight**.
    
     ![Excel PowerQuery Import menu open for Azure HDInsight.][image-hdi-gettingstarted-powerquery-importdata]
-3. Enter the **Account Name** of the Azure Blob Storage account that is associated with your cluster, and then click **OK**. (This is the storage account you created earlier in the tutorial.)
-4. Enter the **Account Key** for the Azure Blob Storage account, and then click **Save**.
+3. Enter the **Account Name** of the Azure Storage account that is associated with your cluster, and then click **OK**. (This is the storage account you created earlier in the tutorial.)
+4. Enter the **Account Key** for the Azure Storage account, and then click **Save**.
 5. In the right pane, double-click the blob name. By default the blob name is the same as the cluster name.
 6. Locate **stdout** in the **Name** column. Verify that the GUID in the corresponding **Folder Path** column matches the GUID you copied earlier. A match suggests that the output data corresponds to the job you submitted. Click **Binary** in the column left of **stdout**.
    
@@ -197,7 +197,7 @@ In this Hadoop tutorial, you learned how to create a Hadoop cluster on Windows i
 
 * [Get started using HDInsight Hadoop Tools for Visual Studio][1]
 * [Get started with the HDInsight Emulator][hdinsight-emulator]
-* [Use Azure Blob storage with HDInsight][hdinsight-storage]
+* [Use Azure Storage with HDInsight][hdinsight-storage]
 * [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Use MapReduce with HDInsight][hdinsight-use-mapreduce]

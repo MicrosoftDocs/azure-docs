@@ -106,6 +106,7 @@ The auto-start policy allows you to specify when the VMs in the current lab shou
 ## Next steps
 Once you've defined and applied the various VM policy settings for your lab, here are some things to try next:
 
+* [Understand shared IP addresses](devtest-lab-shared-ip.md) - Explains how shared IP addresses are used in DevTest Labs to minimize the number of public IP addresses required to connect to your lab VMs.
 * [Configure cost management](devtest-lab-configure-cost-management.md) - Illustrates how to use the **Monthly Estimated Cost Trend** chart  
   to view the current month's estimated cost-to-date and the projected end-of-month cost.
 * [Create custom image](devtest-lab-create-template.md) - When you create a VM, you specify a base, which can be either a custom image or a Marketplace image. This article illustrates

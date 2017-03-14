@@ -110,6 +110,7 @@
 
 # Troubleshoot
 ## [Known issues](azure-stack-troubleshooting.md)
+## [Diagnostics in Azure Stack](azure-stack-diagnostics.md)
 
 # Resources
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  

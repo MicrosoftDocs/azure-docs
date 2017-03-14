@@ -79,9 +79,9 @@ Extract the zip folder. You can see multiple files and subfolders. The executabl
 
 Example:
 Copy the .zip file to E:\ drive and extract it.
-E:\ASR Deployment Planner-Preview_v1.0.zip
+E:\ASR Deployment Planner-Preview_v1.1.zip
 
-E:\ASR Deployment Planner-Preview_v1.0\ ASR Deployment Planner-Preview_v1.0\ ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
 
 ##Capabilities
 The command line tool (ASRDeploymentPlanner.exe) can be run in any of the following three modes:
@@ -196,7 +196,7 @@ ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.cont
 
 
 ##### Example 2: To generate report when profiled data is on a remote server. User should have read/write access on the remote directory.
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
+ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 
 ##### Example 3: Generate report with specific bandwidth and goal to complete IR within specified time
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-Bandwidth** 100 **-GoalToCompleteIR** 24
@@ -404,10 +404,10 @@ Total number of disks across all compatible virtual machines  is the total numbe
 
 **Virtual Machines to Place** lists all the virtual machines that should be placed on the given Azure Storage account for optimal performance and utilization.
 
-##Compatible VMs
+## Compatible VMs
 ![Deployment Planner](./media/site-recovery-deployment-planner/compatible-vms.png)
 
-**VM Name** is the virtual machine name or IP address as used in the VMListFile at the time of report generation. This column also lists the disks (VMDKs) attached to the virtual machines.
+**VM Name** is the virtual machine name or IP address as used in the VMListFile at the time of report generation. This column also lists the disks (VMDKs) attached to the virtual machines. Virtual machines on a vCenter with duplicate names or IP addresses are mentioned with ESXi host name to distinguish each virtual machine. The ESXi host listed is the host where the virtual machine was placed when the tool discovered it for the first time during the profiling period.
 
 **VM Compatibility** has two values – Yes / Yes*. Yes* is for those cases where the virtual machine is a fit for [premium Azure Storage](https://aka.ms/premium-storage-workload) with the profiled high churn / IOPS disk fitting in the P20 or P30 category, but the size of the disk causes it to be mapped down to a P10 or P20. Azure Storage decides which premium storage disk type to map a disk to based on its size – i.e. < 128 GB is a P10, 128 to 512 GB is a P20, and 512 GB to 1023 GB is a P30. So if the workload characteristics of a disk put it in a P20 or P30, but the size maps it down to a lower premium storage disk type, the tool marks that virtual machine as a Yes* and recommends you to either change the source disk size to fit into the right recommended premium storage disk type, or change the target disk type post failover.
 Storage Type is standard or premium.
@@ -436,7 +436,7 @@ Storage Type is standard or premium.
 
 ![Deployment Planner](./media/site-recovery-deployment-planner/incompatible-vms.png)
 
-**VM Name** is the virtual machine name or IP address as used in the VMListFile at the time of report generation. This column also lists the disks (VMDKs) attached to the virtual machines.
+**VM Name** is the virtual machine name or IP address as used in the VMListFile at the time of report generation. This column also lists the disks (VMDKs) attached to the virtual machines. Virtual machines on a vCenter with duplicate names or IP addresses are mentioned with ESXi host name to distinguish each virtual machine. The ESXi host listed is the host where the virtual machine was placed when the tool discovered it for the first time during the profiling period.
 
 **VM Compatibility** indicates why the given virtual machine is incompatible for use with Azure Site recovery. The reasons are outlined per incompatible disk of the virtual machine and can be one of the following based on published Azure Storage [limits](https://aka.ms/azure-storage-scalbility-performance).
 
@@ -480,9 +480,27 @@ These are average numbers assuming a 30% IO overlap. Azure Site Recovery is capa
 
 The above published limits are based on our tests but cannot cover all possible application I/O combinations. Actual results will vary based on your application I/O mix. For best results, even after deployment planning, it is always recommended to perform extensive application testing using test failover to get the true performance picture.
 
-##Release notes
+## How to update the Deployment Planner?
+[Download](site-recovery-deployment-planner.md#download) the latest version of the Azure Site Recovery Deployment Planner. Copy the zip file to a server where you want to run. Extract the zip file.
+If you already have previous version of deployment planner and profiling is going on, you do not need to stop the profiling unless the new version has  profiling fix. If the release contains fixes in the profiling component, then it is recommended that you stop profiling using the older version, and launch the profiling again using the new version. Note that when you start profiling using the new version you need to pass the same output directory path so that the tool appends profile data on existing files and complete set of profiled data will be used in the report generation. If you pass different output directory, new files will be created and old profiled data cannot be used in the report generation.<br> 
+Every update is a cumulative update with a zip file. You do not need to copy the new version files to the previous version folder to use it. You can use new folder for it.
+
+
+##Version History
+### 1.1
+Updated on: 09-Mar-2017 <br>
+
+Fixed following issues<br>
+
+* Cannot profile virtual machines if the vCenter has two or more virtual machines with the same name/IP address across different ESXi hosts.<br>
+* Copy and search was disabled for the Compatible VMs and Incompatible VMs sheets.
+
+
+### 1.0 
+Updated on: 23-Feb-2017 
+
 The Azure Site Recovery Deployment Planner Public Preview 1.0 has the following known issues that will be addressed in upcoming updates.
 
-* The tool works only for the VMware to Azure scenario, not for Hyper-V to Azure deployments. For Hyper-V to Azure scenario use [Hyper-V capacity planner tool](./site-recovery-capacity-planning-for-hyper-v-replication.md).
+* The tool works only for the VMware to Azure scenario, not for Hyper-V to Azure deployments. For Hyper-V to Azure scenario use [Hyper-V capacity planner tool.](./site-recovery-capacity-planning-for-hyper-v-replication.md).
 * The GetThroughput operation is not supported in US Government and China Microsoft Azure regions.
 * The tool cannot profile virtual machines if the vCenter has two or more virtual machines with the same name/IP address  across different ESXi hosts. In this version, the tool skips profiling for duplicate virtual machine names/IP addresses in the VMListFile. Workaround is to profile virtual machines with ESXi host instead of vCenter server. You need to run one instance for each ESXi host.

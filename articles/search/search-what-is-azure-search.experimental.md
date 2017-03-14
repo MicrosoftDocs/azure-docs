@@ -46,7 +46,7 @@ Dedicated services run 24-7 at scale with [99.9% service level agreements](https
 Several cloud service providers offer custom search engines with features that power a search bar in custom apps. 
 Some offer comparable baseline features, with full-text search, geo-search, and the ability to handle a certain level of ambiguity in search inputs. Typically, it's a [specialized feature](#feature-drilldown), or the ease and overall simplicity of APIs, tools, and management that determines the best fit.
 
-As points of comparison with other search solutions, Azure Search is strongest for full text search workloads over content stores and databases on Azure, with an additional layer of functionality necessary for apps that rely primarily on search for information retrieval and content navigation. 
+As points of comparison with other search solutions, Azure Search is strongest for full text search workloads over content stores and databases on Azure, with an additional layer of functionality necessary for apps that rely primarily on search for information retrieval and content navigation. Key strengths include:
 
 + Azure data integration (crawlers) at the indexing layer
 + Azure portal for central management
