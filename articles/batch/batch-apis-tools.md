@@ -39,13 +39,13 @@ When you develop Batch solutions, you'll use the following accounts in Microsoft
 ## Batch development APIs
 Your applications and services can issue direct REST API calls or use one or more of the following client libraries to run and manage your Azure Batch workloads.
 
-| API | API reference | Download | Tutorial | Code samples |
-| --- | --- | --- | --- | --- |
-| **Batch REST** |[MSDN][batch_rest] |N/A |- |- |
-| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[Tutorial](batch-dotnet-get-started.md) |[GitHub][api_sample_net] |
-| **Batch Python** |[readthedocs.io][api_python] |[PyPI][api_python_pypi] |[Tutorial](batch-python-tutorial.md)|[GitHub][api_sample_python] |
-| **Batch Node.js** |[github.io][api_nodejs] |[npm][api_nodejs_npm] |- |- |
-| **Batch Java** (preview) |[github.io][api_java] |[Maven][api_java_jar] |- |[GitHub][api_sample_java] |
+| API | API reference | Download | Tutorial | Code samples | More Info |
+| --- | --- | --- | --- | --- | --- |
+| **Batch REST** |[MSDN][batch_rest] |N/A |- |- | [Supported Versions](https://docs.microsoft.com/rest/api/batchservice/batch-service-rest-api-versioning) |
+| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[Tutorial](batch-dotnet-get-started.md) |[GitHub][api_sample_net] | [Release Notes](https://github.com/Azure/azure-sdk-for-net/blob/AutoRest/src/Batch/Client/changelog.md) |
+| **Batch Python** |[readthedocs.io][api_python] |[PyPI][api_python_pypi] |[Tutorial](batch-python-tutorial.md)|[GitHub][api_sample_python] | [Readme](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
+| **Batch Node.js** |[github.io][api_nodejs] |[npm][api_nodejs_npm] |- |- | [Readme](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
+| **Batch Java** (preview) |[github.io][api_java] |[Maven][api_java_jar] |- |[Readme][api_sample_java] | [Readme](https://github.com/Azure/azure-batch-sdk-for-java)|
 
 ## Batch command-line tools
 
