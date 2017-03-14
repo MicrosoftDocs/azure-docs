@@ -85,7 +85,7 @@ The Cloud Console allows attaching any Azure Files Storage you have to persist a
 
 The Cloud Console will save your $home directory as an image to the mounted file share. This image will default to 5GB and incur regular Azure Storage charges (~$0.40/month).
 
-[Click here for details on Azure Files pricing](https://azure.microsoft.com/en-us/pricing/details/storage/files/).
+[Click here for details on Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
 1. Create a new Azure file share and mount it to the Cloud Console.
 

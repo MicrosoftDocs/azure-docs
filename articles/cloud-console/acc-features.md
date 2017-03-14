@@ -55,4 +55,4 @@ To learn more visit [Attaching file storage](acc-persisting-storage.md).
 
 ## Next steps
 - [ACC Quickstart](acc-quickstart.md) 
-- [Azure CLI 2.0 documentation](https://docs.microsoft.com/en-us/cli/azure/) 
+- [Azure CLI 2.0 documentation](/cli/azure) 
