@@ -79,9 +79,9 @@ Extract the zip folder. You can see multiple files and subfolders. The executabl
 
 Example:
 Copy the .zip file to E:\ drive and extract it.
-E:\ASR Deployment Planner-Preview_v1.0.zip
+E:\ASR Deployment Planner-Preview_v1.1.zip
 
-E:\ASR Deployment Planner-Preview_v1.0\ ASR Deployment Planner-Preview_v1.0\ ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
 
 ##Capabilities
 The command line tool (ASRDeploymentPlanner.exe) can be run in any of the following three modes:
@@ -196,7 +196,7 @@ ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.cont
 
 
 ##### Example 2: To generate report when profiled data is on a remote server. User should have read/write access on the remote directory.
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
+ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 
 ##### Example 3: Generate report with specific bandwidth and goal to complete IR within specified time
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-Bandwidth** 100 **-GoalToCompleteIR** 24
@@ -481,7 +481,7 @@ These are average numbers assuming a 30% IO overlap. Azure Site Recovery is capa
 The above published limits are based on our tests but cannot cover all possible application I/O combinations. Actual results will vary based on your application I/O mix. For best results, even after deployment planning, it is always recommended to perform extensive application testing using test failover to get the true performance picture.
 
 ## How to update the Deployment Planner?
-[Download](https://aka.ms/asr-deployment-planner) the latest version of the Azure Site Recovery Deployment Planner. Copy the zip file to a server where you want to run. Extract the zip file.
+[Download](site-recovery-deployment-planner.md#download) the latest version of the Azure Site Recovery Deployment Planner. Copy the zip file to a server where you want to run. Extract the zip file.
 If you already have previous version of deployment planner and profiling is going on, you do not need to stop the profiling unless the new version has  profiling fix. If the release contains fixes in the profiling component, then it is recommended that you stop profiling using the older version, and launch the profiling again using the new version. Note that when you start profiling using the new version you need to pass the same output directory path so that the tool appends profile data on existing files and complete set of profiled data will be used in the report generation. If you pass different output directory, new files will be created and old profiled data cannot be used in the report generation.<br> 
 Every update is a cumulative update with a zip file. You do not need to copy the new version files to the previous version folder to use it. You can use new folder for it.
 
