@@ -100,5 +100,19 @@ Following are the required components for disaster recovery of Hyper-V virtual m
 | --- | --- |
 | **Virtual Machine Manager** |  We recommend that you deploy a Virtual Machine Manager server in the primary site and a Virtual Machine Manager server in the secondary site.<br/><br/> You can [replicate between clouds on a single VMM server](site-recovery-vmm-to-vmm.md#prepare-for-single-server-deployment). To do this, you need at least two clouds configured on the Virtual Machine Manager server.<br/><br/> Virtual Machine Manager servers should be running at least System Center 2012 SP1 with the latest updates.<br/><br/> Each Virtual Machine Manager server must have at least one or more clouds. All clouds must have the Hyper-V Capacity profile set. <br/><br/>Clouds must contain one or more Virtual Machine Manager host groups. For more about setting up Virtual Machine Manager clouds, see [Prepare for Azure Site Recovery deployment](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric). |
 | **Hyper-V** | Hyper-V servers must be running at least Windows Server 2012 with the Hyper-V role, and have the latest updates installed.<br/><br/> A Hyper-V server should contain one or more VMs.<br/><br/>  Hyper-V host servers should be located in host groups in the primary and secondary VMM clouds.<br/><br/> If you run Hyper-V in a cluster on Windows Server 2012 R2, we recommend installing [update 2961977](https://support.microsoft.com/kb/2961977).<br/><br/> If you run Hyper-V in a cluster on Windows Server 2012 and have a static IP address-based cluster, cluster broker isn't created automatically. You must configure the cluster broker manually. For more about the cluster broker, see [Configure replica broker role cluster to cluster replication](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx). |
-
 | **Provider** | During Site Recovery deployment, install Azure Site Recovery Provider on Virtual Machine Manager servers. The Provider communicates with Site Recovery over HTTPS 443 to orchestrate replication. Data replication occurs between the primary and secondary Hyper-V servers over the LAN or a VPN connection.<br/><br/> The Provider running on the Virtual Machine Manager server needs access to these URLs:<br/><br/>[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)] <br/><br/>The Provider must allow firewall communication from the Virtual Machine Manager servers to the [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and allow the HTTPS (443) protocol. |
+
+
+## URL access
+These URLs should be available from VMware, VMM, and Hyper-V host servers.
+
+|**URL** | **VMM to VMM** | **VMM to Azure** | **Hyper-V to Azure** | **VMware to Azure** |
+|--- | --- | --- | --- | --- |
+|``*.accesscontrol.windows.net`` | Allow | Allow | Allow | Allow |
+|``*.backup.windowsazure.com`` | Not required | Allow | Allow | Allow |
+|``*.hypervrecoverymanager.windowsazure.com`` | Allow | Allow | Allow | Allow |
+|``*.store.core.windows.net`` | Allow | Allow | Allow | Allow |
+|``*.blob.core.windows.net`` | Not required | Allow | Allow | Allow |
+|``https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi`` | Not required | Not required | Not required | Allow for SQL download |
+|``time.windows.com`` | Allow | Allow | Allow | Allow|
+|``time.nist.gov`` | Allow | Allow | Allow | Allow |

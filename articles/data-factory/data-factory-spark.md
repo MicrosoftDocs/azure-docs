@@ -52,7 +52,7 @@ Before you use a Spark activity in a Data Factory pipeline, create a HDInsight (
 ```
 
 > [!NOTE]
-> Currently, the Spark Activity does not support using an on-demand HDInsight linked service.  
+> Currently, the Spark Activity does not support Spark clusters using Data Lake Store as primary storage or on-demand HDInsight linked service. 
 
 For details about the HDInsight linked service and other compute linked services, see [Data Factory compute linked services](data-factory-compute-linked-services.md) article. 
 
