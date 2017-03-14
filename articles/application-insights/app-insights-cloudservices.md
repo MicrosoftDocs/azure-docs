@@ -4,7 +4,7 @@ description: Monitor your web and worker roles effectively with Application Insi
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 editor: alancameronwills
 
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.workload: tbd
-ms.date: 11/02/2016
+ms.date: 03/14/2017
 ms.author: awills
 
 ---
@@ -98,16 +98,16 @@ If you want to vary the level of diagnostic information sent to Application Insi
 ## <a name="sdk"></a>Install the SDK in each project
 This option adds the ability to add custom business telemetry to any role, for a closer analysis of how your application is used and performs.
 
-In Visual Studio, add the Application Insights SDK to each cloud app project.
+In Visual Studio, configure the Application Insights SDK for each cloud app project.
 
-1. Edit the NuGet packages of the project.
+1. **Web roles**: Right-click the project and choose **Configure Application Insights** or **Add > Application Insights telemetry**.
    
-    ![Right-click the project and select Manage Nuget Packages](./media/app-insights-cloudservices/03-nuget.png)
-2. **Web roles**: Add [Application Insights for Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). This version of the SDK includes modules that collect HTTP request data and add server context such as role information.
-   
-    **Worker roles**: Add [Application Insights for Windows Servers](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
+2. **Worker roles**: 
+ * Right-click the project and select **Manage Nuget Packages**.
+ * Add [Application Insights for Windows Servers](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
    
     ![Search for "Application Insights"](./media/app-insights-cloudservices/04-ai-nuget.png)
+
 3. Configure the SDK to send data to the Application Insights resource.
    
     In a suitable startup function, set the instrumentation key from the configuration setting in the .cscfg file:

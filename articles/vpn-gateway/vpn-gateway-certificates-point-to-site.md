@@ -1,6 +1,6 @@
 ---
-title: 'Create a self-signed root certificate and generate client certificates for Point-to-Site: PowerShell: Azure | Microsoft Docs'
-description: This article contains steps to create a self-signed root certificate, export the public key, and generate client certificates using PowerShell.
+title: 'Create a self-signed certificates for Point-to-Site: PowerShell: Azure | Microsoft Docs'
+description: This article contains steps to create a self-signed root certificate, export the public key, and generate client certificates using PowerShell on Windows 10.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/08/2017
+ms.date: 03/14/2017
 ms.author: cherylmc
 
 ---
@@ -29,9 +29,9 @@ Point-to-Site connections use certificates to authenticate. When you configure a
 
 ## <a name="rootcert"></a>Create a self-signed root certificate
 
-The following steps walk you through creating a self-signed root certificate using PowerShell.
+The following steps walk you through creating a self-signed root certificate using PowerShell. Windows 10 is required to complete the following steps. The cmdlets and parameters that are used in these steps are part of the Windows 10 operating system, not a part of a PowerShell version.
 
-1. Open a Windows PowerShell console with elevated privileges.
+1. From a computer running Windows 10, open a Windows PowerShell console with elevated privileges.
 2. Use the following example to create the self-signed root certificate. The following example creates a self-signed root certificate named 'P2SRootCert' that is automatically installed in 'Certificates-Current User\Personal\Certificates'. You can view the certificate by opening *certmgr.msc*.
 
     	$cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
@@ -59,6 +59,8 @@ To export the self-signed root certificate as a .pfx, select the root certificat
 Each client computer that connects to a VNet using Point-to-Site must have a client certificate installed. You generate a client certificate from the self-signed root certificate, and then export and install the client certificate. If the client certificate is not installed, authentication fails. 
 
 The following steps walk you through generating a client certificate from a self-signed root certificate. You may generate multiple client certificates from the same root certificate. When you generate client certificates using the steps below, the client certificate is automatically installed on the computer that you used to generate the certificate. If you want to install a client certificate on another client computer, you can export the certificate.
+
+Windows 10 is required to complete the following steps. The cmdlets and parameters that are used in these steps are part of the Windows 10 operating system, not a part of a PowerShell version.
 
 ### Example 1
 

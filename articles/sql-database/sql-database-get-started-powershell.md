@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: hero-article
-ms.date: 03/08/2017
+ms.date: 03/13/2017
 ms.author: carlrab
 ---
 
@@ -30,40 +30,36 @@ Before you start, make sure that the latest version of PowerShell is installed. 
 Log in to your Azure subscription with the [Add-AzureRmAccount](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.profile/v2.5.0/add-azurermaccount) command and follow the on-screen directions.
 
 ```powershell
-az login
+Add-AzureRmAccount
 ```
 
 ## Create a resource group
 
-Create a resource group with the [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named `myResourceGroup` in the `northcentralus` location.
+Create a resource group with the [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
 
 ```powershell
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "northcentralus"
+New-AzureRmResourceGroup -Name "myResourceGroup" -Location "westeurope"
 ```
 ## Create a logical server
 
 Create a SQL Database logical server with the [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver) command. The following example creates a randomly-named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
 
 ```powershell
-$servername = "server-$($(Get-AzureRMContext).Subscription.SubscriptionId)"
-$adminlogin = "ServerAdmin"
-$password = "ChangeYourAdminPassword1"
+$servername = "server-$(Get-Random)"
 New-AzureRmSqlServer -ResourceGroupName "myResourceGroup" `
     -ServerName $servername `
-    -Location "northcentralus" `
-    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+    -Location "westeurope" `
+    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList "ServerAdmin", $(ConvertTo-SecureString -String "ChangeYourAdminPassword1" -AsPlainText -Force))
 ```
 
 ## Configure a server firewall rule
 
-Create a SQL Database server-level firewall rule with the [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserverfirewallrule) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL database through the SQL Database service firewall. The following example creates a firewall rule for a predefined address range, which, in this example, and the entire possible range of IP address. Replace these predefined values with the values for your external IP address or IP address range. 
+Create a SQL Database server-level firewall rule with the [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserverfirewallrule) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL database through the SQL Database service firewall. The following example creates a firewall rule for a predefined address range, which, in this example, is the entire possible range of IP addresses. Replace these predefined values with the values for your external IP address or IP address range. 
 
 ```powershell
-$startip = "0.0.0.0"
-$endip = "255.255.255.255"
 New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
     -ServerName $servername `
-    -FirewallRuleName "AllowSome" -StartIpAddress $startip -EndIpAddress $endip
+    -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "255.255.255.255"
 ```
 
 ## Create a blank database

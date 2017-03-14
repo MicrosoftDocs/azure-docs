@@ -82,10 +82,7 @@ Click through any chart to see more detailed metrics. [Learn more about metrics.
 Now deploy your application to IIS or to Azure and watch the data accumulate.
 
 #### No data after you publish to your server?
-Open these ports for outgoing traffic in your server's firewall:
-
-* `dc.services.visualstudio.com:443`
-* `f5.services.visualstudio.com:443`
+Check that [the necessary firewall ports are open](app-insights-ip-addresses.md).
 
 #### Trouble on your build server?
 Please see [this Troubleshooting item](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
