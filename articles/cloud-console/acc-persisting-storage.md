@@ -19,7 +19,7 @@ ms.author: juluk
 
 # Persisting storage (preview)
 The Cloud Console allows users to attach their own fileshare held in Azure Storage to maintain file persistence across console sessions.
-Anything stored in Azure Files is subject to regular Azure Storage pricing. [Click here for details on Azure Files prices](https://azure.microsoft.com/en-us/pricing/details/storage/files/).
+Anything stored in Azure Files is subject to regular Azure Storage pricing. [Click here for details on Azure Files prices](https://azure.microsoft.com/pricing/details/storage/files/).
 
 Cloud Console file storage works in two ways: 
 1. File shares will mount as a `clouddrive` subdirectory in your user $HOME 
