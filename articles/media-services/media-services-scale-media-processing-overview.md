@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 03/13/2017
 ms.author: juliako
 
 ---
@@ -43,7 +43,18 @@ The following table helps you make decision when choosing between different enco
 * If using the shared pool, that is, without any reserved units, then your encode tasks have the same performance as with S1 RUs. However, there is no upper bound to the time your Tasks can spend in queued state, and at any given time, at most only one Task will be running.
 * The following data centers do not offer the **S2** reserved unit type: Brazil South, and India West.
 * The following data center does not offer the **S3** reserved unit type: India West.
-* The highest number of units specified for the 24-hour period is used in calculating the cost.
+
+## Billing
+
+You are charged based on actual minutes of usage of Media Reserved Units. Here is a more detailed example. Suppose Joe had zero Media Reserved Units (RU) to begin with, and at 10:00AM that day, set his account to use two S1 RUs. More videos arrive in the afternoon, so Joe changes his account to use four S3 RUs at 1:15PM. All his videos are processed by 4:00PM, and then Joe turns off the RUs in his account (sets number of RUs to zero). Joe’s usage is calculated as follows.
+
+S1 Media Reserved Units: 2 units x 3.25 hours (10AM to 1:15PM) x $0.02/hr = $0.13
+S3 Media Reserved Units: 4 units x 2.75 hours (1:15PM to 4PM) x $0.08/hr = $0.88
+
+So Joe’s total cost for using Media Reserved Units that day would be $0.13 + $0.88 = $1.01
+Unlike Media Reserved Units, the Streaming Units are charged based on the highest number of Streaming Units that are provisioned each day (high watermark).
+
+For more information about Media Services pricing, see [this](https://azure.microsoft.com/pricing/details/media-services/) page. The FAQ section has detailed explanations.  
 
 ## Quotas and limitations
 For information about quotas and limitations and how to open a support ticket, see [Quotas and limitations](media-services-quotas-and-limitations.md).
