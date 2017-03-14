@@ -1,11 +1,12 @@
 ---
 title: Azure Site Recovery best practices | Microsoft Docs
-description: "Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers located on on-premises servers to Azure or to a secondary datacenter."
+description: This article describes best practices for Azure Site Recovery deployment
 services: site-recovery
-documentationCenter= ''
+documentationCenter: ''
 author: rayne-wiselman"
 manager: cfreeman
 editor: ''
+
 
 ms.assetid: c413efcd-d750-4b22-b34b-15bcaa03934a
 ms.service: site-recovery
@@ -17,7 +18,6 @@ ms.date: 03/14/2017
 ms.author: raynew
 ROBOTS: NOINDEX, NOFOLLOW
 redirect_url: azure/site-recovery/site-recovery-support-matrix-to-azure
-
 ---
 
 # Get ready to deploy Azure Site Recovery
