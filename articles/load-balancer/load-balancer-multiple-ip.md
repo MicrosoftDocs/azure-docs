@@ -19,8 +19,8 @@ ms.author: kumudd
 # Load balancing on multiple IP configurations using the Azure portal
 
 > [!div class="op_single_selector"]
-> * [Portal](load-balancer-multiple-ip-portal.md)
-> * [PowerShell](load-balancer-multiple-ip.md)
+> * [Portal](load-balancer-multiple-ip.md)
+> * [PowerShell](load-balancer-multiple-ip-ps.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
 
 This article describes how to use Azure Load Balancer with multiple IP addresses on a secondary network interface (NIC). The support for multiple IP addresses on a NIC is a feature that is in Preview release, at this time. For more information, see the [Limitations](#limitations) section of this article. The following scenario illustrates how this feature works with Load Balancer.
@@ -34,7 +34,7 @@ For this scenario (see Figure 1), we have two VMs running Windows, each with a p
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
-Register for the preview by running the following commands in PowerShell after you login and select the appropriate subscription:
+Register for the preview by running the following commands in PowerShell after you log in and select the appropriate subscription:
 
 ```
 Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
@@ -56,12 +56,12 @@ AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered
 >[!NOTE] 
 >This may take a few minutes.
 ## Steps to load balance on multiple IP configurations
+Follow the steps below to achieve the scenario outlined in this article:
+
 >[!IMPORTANT] This example assumes that you have a virtual network with the following configuration:
  - a virtual network named *myVNet* in the Resource Group named *myRG* that includes two VMs called VM1 and VM2 respectively within the same availability set named *myAvailSet*. 
- - Each VM has a primary NIC and a seconday NIC. The primary NICs are named *VM1NIC1* and *VM2NIC1* and the secondary NICs are named *VM1NIC2* and *VM2NIC2*. 
+ - Each VM has a primary NIC and a secondary NIC. The primary NICs are named *VM1NIC1* and *VM2NIC1* and the secondary NICs are named *VM1NIC2* and *VM2NIC2*. 
  For more information about creating VMs with multiple NICs, see [Create a VM with multiple NICs using PowerShell](../virtual-network/virtual-network-deploy-multinic-arm-ps.md).
-
-Follow the steps below to achieve the scenario outlined in this article:
 
 1. From a browser navigate to the Azure portal: http://portal.azure.com and login with your Azure account.
 2. To the secondary NIC of each VM, add an IP configuration as follows:
@@ -69,10 +69,10 @@ Follow the steps below to achieve the scenario outlined in this article:
     2. Select the network interface you want to add the IP configuration to.
     3. In the blade that appears for the NIC that you selected, click **IP configurations**. Then click **Add** towards the top of the blade that shows up.
     4. In the **Add IP configurations** blade, add a second IP configuration to the NIC as follows: 
-        1. TYpe a name for your secondary IP configuration (for example, for VM1 and VM2 name the IP configurations as *VM1NIC2-ipconfig2* and *VM2NIC2-ipconfig2* respectively).
+        1. Type a name for your secondary IP configuration (for example, for VM1 and VM2 name the IP configurations as *VM1NIC2-ipconfig2* and *VM2NIC2-ipconfig2* respectively).
         2. For **Private IP address**, for **Allocation**, select **Static**.
         3. Click **OK**.
-        4. When the second IP configration for the secondary NIC is complete, it is displayed in the **IP configurations** settings blade for the given NIC.
+        4. When the second IP configuration for the secondary NIC is complete, it is displayed in the **IP configurations** settings blade for the given NIC.
 3. Create a load balancer as follows:
     1. On the top left-hand side of the screen select New > Networking > Load Balancer.
     2. In the **Create load balancer** blade, type a name for your load balancer. Here it is called *myLoadBalancer*.
@@ -84,17 +84,17 @@ Follow the steps below to achieve the scenario outlined in this article:
         1. In the portal, click **More services** > type **load balancer** in the filter box, and then click **Load Balancer**.  
         2. Select the load balancer that you want to add the frontend IP pool to.
         3. Under **Settings**, select **Frontend Pools**. Then click **Add** towards the top of the blade that shows up.
-        2. Type a name for your front end IP address (for example, *FarbikamFE*).
+        2. Type a name for your frontend IP address (for example, *FarbikamFE*).
         3. Click **IP address** and on the **Choose Public IP address** blade, select an IP address for Contoso website's incoming network traffic.
         4. Repeat steps to create the frontend IP address for Fabrikam's website.
-        5. When the front end IP pool configuration is complete, both frontend IP addresses are displayed in the **Front IP Pool** blade of your load balancer. 
+        5. When the frontend IP pool configuration is complete, both frontend IP addresses are displayed in the **Front IP Pool** blade of your load balancer. 
     2. Configure the backend address pools for each website (Contoso and Fabrikam) that includes:
         1. In the portal, click More services > type load balancer in the filter box, and then click **Load Balancer**.  
         2. Select the load balancer that you want to add the backend pools to.
         3. Under **Settings**, select **Backend Pools**. Type a name for your backend pool (for example, *Contosopool* or *Fabrikampool*). Then click the **Add** button toward the top of the blade that shows up. 
         4. For **Associated to**, select **Availability set**.
         5. For **Availability set**, select **myAvailSet**.
-        6. Add Target network IP configurations, for both VMs as follows (see Figure 2):.  
+        6. Add Target network IP configurations, for both VMs as follows (see Figure 2):  
             1. For **Target Virtual machine**, select the VM that you want to add to the backend pool (for example, VM1 or VM2).
             2. For **Network IP configuration**, select the secondary NICs IP configuration for that VM (for example, VM1NIC2-ipconfig2) or VM2NIC2-ipconfig2).
             ![LB scenario image](./media/load-balancer-multiple-ip/lb-backendpool.PNG)
