@@ -44,7 +44,7 @@ Following are the prerequisite steps that you need to take or consider when you 
 * Ensure that you set the disk.EnableUUID=true setting in configuration parameters of the master target virtual machine in VMware. If this row does not exist, add it. This setting is required to provide a consistent UUID to the virtual machine disk (VMDK) so that it mounts correctly.
 * **You cannot use Storage vMaster for master target server**. This can cause the failback to fail. The virtual machine will not start because the disks will not be made available to it.
 * You need add a new drive to the master target server. This drive is called a retention drive. Add a new disk and format the drive.
-* Master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-master-target).
+* Master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
 
 ### Why do I need a S2S VPN or an ExpressRoute to replicate data back to the on-premises site?
