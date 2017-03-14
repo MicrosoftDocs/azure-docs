@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/14/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 
@@ -49,7 +49,7 @@ DocumentDB creates a small number of physical partitions behind each collection 
 For example, let’s say you create a collection with 25,000 requests per second throughput and DocumentDB can support 10,000 requests per second per single physical partition. DocumentDB would create 3 physical partitions P1, P2, and P3 for your collection. During the insertion or read of a document, the DocumentDB service hashes the corresponding `Department` value to map data to the three partitions P1, P2, and P3. So for example, if “Marketing” and “Sales” hash to 1, they are both stored in P1. And if P1 becomes full, DocumentDB splits P1 into two new partitions P4 and P5. Then the service might move “Marketing” to P4 and “Sales” to P5 after the split, then drop P1. These moves of partition keys between partitions are transparent to your application, and have no impact to the availability of your collection.
 
 ## Sharding in API for MongoDB
-Sharded collections in API for MongoDB are underneath using the same technology as DocumentDB's partitioned collections. Like partitioned collections, sharded collections can have any number of shards and each shard has a fixed amount of SSD-backed storage associated with it. Sharded collections are practically unlimited in terms of storage and throughput. API for MongoDB's shard key is equivalent to DocumentDB's partition key and when deciding a shard key, make sure to read the [Partition keys](#partition-keys) and [Designing for partitioning](#designing-for-partitioning) sections.
+Sharded collections in API for MongoDB are using the same infrastructure as DocumentDB's partitioned collections. Like partitioned collections, sharded collections can have any number of shards and each shard has a fixed amount of SSD-backed storage associated with it. Sharded collections are practically unlimited in terms of storage and throughput. API for MongoDB's shard key is equivalent to DocumentDB's partition key and when deciding a shard key, make sure to read the [Partition keys](#partition-keys) and [Designing for partitioning](#designing-for-partitioning) sections.
 
 <a name="partition-keys"></a>
 ## Partition keys
