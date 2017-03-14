@@ -81,9 +81,9 @@ This test determines the status of the hardware components, the USM firmware, an
 
 * The hardware components reported are those componentes that failed the test or are not present in the system.
 * The USM firmware and disk firmware versions are reported for the Controller 0, Controller 1, and shared components in your system. For a complete list of hardware components, go to:
-    * Controller 0 components
-    * Controller 1 components
-    * Shared components
+
+    * [Components in primary enclosure](storsimple-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
+    * [Components in EBOD enclosure](storsimple-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
 
 > [!NOTE]
 > If the hardware test reports failed components, [log in a service request with Microsoft Support](storsimple-contact-microsoft-support.md).
@@ -205,9 +205,9 @@ DisksFirmware       : SmrtStor:TXA2D20400GA6XYR:KZ50
 This test reports the system information, the updates available, the cluster information, and the service information for your device.
 
 * The system information includes the model, device serial number, time zone, controller status, and the detailed software version running on the system.
-* The update availability reports whether the regular and maintenance modes are available and their associated package names.
+* The update availability reports whether the regular and maintenance modes are available and their associated package names. If `RegularUpdates` and `MaintenanceModeUpdates` are `false`, this indicates that the updates are not available. Your device is up-to-date. 
 * The cluster information contains the information on various logical components of all the HCS cluster groups and their respective statuses. If you see an offline cluster group in this section of the report, [contact Microsoft Support](storsimple-contact-microsoft-support).
-* The service information includes the names and statuses of all the HCS and CiS services running on your device. Passive controller - reverse output This information is helpful for the Microsoft Support in troubleshooting the device issue.
+* The service information includes the names and statuses of all the HCS and CiS services running on your device. This information is helpful for the Microsoft Support in troubleshooting the device issue.
 
 #### Sample output of system test run on an 8100 device
 
@@ -323,8 +323,8 @@ This test validates the status of the network interfaces, ports, DNS and NTP ser
 #### Sample output of network test when only DATA0 is enabled
 
 Here is a sample output of the 8100 device. You can see in the output that:
-* Only DATA 0 network interface is enabled and configured.
-* DATA 1 - 5 are not enabled in the portal.
+* Only DATA 0 and DATA 1 network interfaces are enabled and configured.
+* DATA 2 - 5 are not enabled in the portal.
 * The DNS server configuration is valid and the device can connect via the DNS server.
 * The NTP server connectivity is also fine.
 * Ports 80 and 443 are open, however port 9354 is blocked. Based on the [system network requirements](storsimple-system-requirements.md), you need to open this port for the service bus communication.
@@ -332,34 +332,6 @@ Here is a sample output of the 8100 device. You can see in the output that:
 * The device can connect to the storage account: _myss8000storageacct_.
 * The connectivity to Update servers is valid.
 * The web proxy is not configured on this device.
-
-```
-Controller0>Invoke-HcsDiagnostics -Scope Network
-Running network diagnostics ....
---------------------------------------------------
-Validating networks ....
-Name                Entity              Result              Details
-----                ------              ------              -------
-Network interface   Data0               Valid
-Network interface   Data1               Not enabled
-Network interface   Data2               Not enabled
-Network interface   Data3               Not enabled
-Network interface   Data4               Not enabled
-Network interface   Data5               Not enabled
-DNS                 10.222.118.154      Valid
-NTP                 time.windows.com    Valid
-Port                80                  Open
-Port                443                 Open
-Port                9354                Blocked
-SSL certificate     https://myss8000... Valid
-Storage account ... myss8000storageacct Valid
-URL                 http://download.... Valid
-URL                 http://download.... Valid
-Web proxy                               Not enabled         Web proxy is not...
---------------------------------------------------
-Controller0>
-```
-
 
 #### Sample output of network test when DATA0 and DATA1 are enabled
 
