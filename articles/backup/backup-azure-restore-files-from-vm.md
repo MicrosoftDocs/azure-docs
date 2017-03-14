@@ -71,15 +71,23 @@ The following table shows the compatibility between server and computer operatin
 
 #### For Linux
 
-In Linux, the fundamental requirement is that the OS of the machine where the script is run should support the filesystem of the files present in the backed-up Linux VM. While selecting a machine to run the script, please ensure it has the compatible OS and the versions as mentioned in the table below. For other OS/Versions, the script might work if the machine's OS supports the backed-up VMs filesystem
+In Linux, the fundamental requirement is that the OS of the machine where the script is run should support the filesystem of the files present in the backed-up Linux VM. While selecting a machine to run the script, please ensure it has the compatible OS and the versions as mentioned in the table below.
 
 |Linux OS | Versions  |
 | --------------- | ---- |
-| Ubuntu | 12.04, 14.04, 16.04 |
-| CentOS | 6.5, 6.7, 6.8, 7.0, 7.1, 7.2  |
-| RHEL | 6.7, 7.2 |
-| Debian | 7, 8 |
-| Oracle Linux | 6.4, 7.0 |
+| Ubuntu | 12.04 and above |
+| CentOS | 6.5 and above  |
+| RHEL | 6.7 and above |
+| Debian | 7 and above |
+| Oracle Linux | 6.4 and above |
+
+The script also requires python and bash components to execute and connect securely to the recovery point.
+
+|Component | Version  |
+| --------------- | ---- |
+| bash | 4 and above |
+| python | 2.6.6 and above  |
+
 
 ### Identifying Volumes
 
@@ -91,7 +99,7 @@ When you run the exectuable, the operating system mounts the new volumes and ass
            
 #### For Linux
 
-In Linux, the volumes of the recovery point are mounted to the folder where the script is run. The attached disks, volumes and the corresponding mount paths are shown accordingly. Browse through the volumes mentioned in the script output.
+In Linux, the volumes of the recovery point are mounted to the folder where the script is run. The attached disks, volumes and the corresponding mount paths are shown accordingly. These mount paths are visible to users having root level access. Browse through the volumes mentioned in the script output.
 
   ![Linux File recovery blade](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
   
@@ -118,34 +126,38 @@ If the Azure VM that was backed up uses Windows Storage Spaces, then you can't r
 
 In Linux, Logical volume manager (LVM) and/or software RAID Arrays are used to manage logical volumes over multiple disks. If the backed up Linux VM uses LVM and/or RAID Arrays, you can't run the script on the same VM. Instead run the script on any other machine with compatible OS and which supports filesystem of the backed up VM.
 
-After the script is run on another machine, some additional commands need to be run by the user to bring the partitions online. The script output displays the LVM and/or RAID Arrays disks and the volumes with the partition type as shown below
+The script output displays the LVM and/or RAID Arrays disks and the volumes with the partition type as shown below
 
    ![Linux LVM Output blade](./media/backup-azure-restore-files-from-vm/linux-LVMOutput.png)
+   
+The following commands need to be run by the user to bring these partitions online. 
 
 **For LVM Partitions**
 
-- To list the volume group names under a physical volume.
 ```
 $ pvs <volume name as shown above in the script output> 
 ```
-- To list all logical volumes, names and their paths in a volume group.
+This lists the volume group names under a physical volume.
+
 ```
 $ lvdisplay <volume-group-name from the pvs command’s results> 
 ```
-- To mount the logical volumes to the path of your choice.
+This lists all logical volumes, names and their paths in a volume group.
+
 ```
 $ mount <LV path> </mountpath>
 ```
+To mount the logical volumes to the path of your choice.
+
 
 **For RAID Arrays**
 
-- To display details about all raid disks.
 ```
 $ mdadm –detail –scan
 ```
-The relevant RAID disk will be displayed as `/dev/mdm/<RAID array name in the backed up VM>`
+This displays details about all raid disks. The relevant RAID disk will be displayed as `/dev/mdm/<RAID array name in the backed up VM>`
 
-- Use the mount command if the RAID disk has physical volumes.
+Use the mount command if the RAID disk has physical volumes.
 ```
 $ mount [RAID Disk Path] [/mounthpath]
 ```
@@ -163,3 +175,4 @@ If you have problems while recovering files from the virtual machines, check the
 | Exe output: *This script is invalid because the disks have been dismounted via portal/exceeded the 12-hr limit. Please download a new script from the portal.* |	The disks have been dismounted from the portal or the 12-hr limit exceeded |	This particular exe is now invalid and can’t be run. If you want to access the files of that recovery point-in-time, visit the portal for a new exe|
 | On the machine where the exe is run: The new volumes are not dismounted after the dismount button is clicked |	The ISCSI initiator on the machine is not responding/refreshing its connection to the target and maintaining the cache |	Wait for some mins after the dismount button is pressed. If the new volumes are still not dismounted, please browse through all the volumes. This forces the initiator to refresh the connection and the volume is dismounted with an error message that the disk is not available|
 | Exe output: Script is run successfully but “New volumes attached” is not displayed on the script output |	This is a transient error	| The volumes would have been already attached. Open Explorer to browse. If you are using the same machine for running scripts every time, consider restarting the machine and the list should be displayed in the subsequent exe runs. |
+| Linux specific: Not able to view the desired volumes | The OS of the machine where the script is run may not recognize the underlying filesystem of the backed up VM | Check whether the recovery point is crash consistent or file-consistent. If file consistent, run the script on another machine whose OS recognizes the backed up VM's filesystem |
