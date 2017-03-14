@@ -262,7 +262,7 @@ For Numeric and DateTime values only, you can explicitly set values on the facet
 
 **By default you can only have one level of faceted navigation** 
 
-As noted, there is no direct support for nesting facets in a hierarchy. By default, faceted navigation in Azure Search only supports one level of filters. However, workarounds do exist. You can encode a hierarchical facet structure in a `Collection(Edm.String)` with one entry point per hierarchy. Implementing this workaround is beyond the scope of this article, but you can read about collections in [OData by Example](http://msdn.microsoft.com/library/ff478141.aspx). 
+As noted, there is no direct support for nesting facets in a hierarchy. By default, faceted navigation in Azure Search only supports one level of filters. However, workarounds do exist. You can encode a hierarchical facet structure in a `Collection(Edm.String)` with one entry point per hierarchy. Implementing this workaround is beyond the scope of this article. 
 
 ### Querying tips
 **Validate fields**
