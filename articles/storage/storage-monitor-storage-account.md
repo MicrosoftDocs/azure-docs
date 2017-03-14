@@ -13,13 +13,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 03/14/2017
 ms.author: marsma
 
 ---
 # Monitor a storage account in the Azure portal
 
-Using the [Azure portal](https://portal.azure.com), you can configure and view metrics for your storage account, and configure logging for the blob, queue, and table services. Azure Storage uses [Storage Analytics](storage-analytics.md) to track metrics and log request data, and configurable charts in the portal provide visual representations of your metrics data.
+[Azure Storage Analytics](storage-analytics.md) provides metrics for all storage services, and logs for blobs, queues, and tables. You can use the [Azure portal](https://portal.azure.com) to configure which metrics and logs are tracked for your account, and configure charts that provide visual representations of your metrics data.
 
 > [!NOTE]
 > There are costs associated with examining monitoring data in the Azure portal. For more information, see [Storage Analytics and Billing](/rest/api/storageservices/fileservices/Storage-Analytics-and-Billing).
