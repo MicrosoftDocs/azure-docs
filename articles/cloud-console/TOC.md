@@ -13,7 +13,7 @@
 ## [Persisting storage](acc-persisting-storage.md)
 
 # Reference
-## [Azure CLI 2.0] (/cli/azure) 
+## [Azure CLI 2.0](/cli/azure) 
 
 
 
