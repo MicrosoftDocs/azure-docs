@@ -20,7 +20,7 @@ ms.author: jeffstok
 
 # Real-time Twitter sentiment analysis in Azure Stream Analytics
 
-Learn how to build a sentiment analysis solution for social media analytics by bringing real-time Twitter events into Azure Event Hubs. In this scenario, you  write an Azure Stream Analytics query to analyze the data. Then you either store the results for later use or use a dashboard and [Power BI](https://powerbi.com/) to provide insights in real-time.
+Learn how to build a sentiment analysis solution for social media analytics by bringing real-time Twitter events into Azure Event Hubs. In this scenario, you write an Azure Stream Analytics query to analyze the data. Then you either store the results for later use or use a dashboard and [Power BI](https://powerbi.com/) to provide insights in real-time.
 
 Social media analytics tools help organizations understand trending topics. Trending topics are subjects and attitudes that have a high volume of posts in social media). Sentiment analysis, which is also called *opinion mining*, uses social media analytics tools to determine attitudes toward a product, idea, and so on.
 
@@ -53,12 +53,11 @@ Take the following steps to create an event hub:
 
 3. After the deployment is complete, select the event hub. Then select **Event Hubs** under **Entities**.
 
-4. Select the **+ Event Hub** button to create your
- event hub. Provide your name again (ours was `socialtwitter-eh`), and then select **Create**.
+4. Select the **+ Event Hub** button to create your event hub. Provide your name again (ours was `socialtwitter-eh`), and then select **Create**.
 
 5. To grant access to the event hub, we need to create a shared access policy. Select the event hub, and then, under **Settings**, select **Shared access policies**.
 
-6. Under **Shared access policies**, create a new policy with **MANAGE** permissions by selecting **+ Add**. Give the policy a name , check **MANAGE**, and then select **Create**.
+6. Under **Shared access policies**, create a new policy with **MANAGE** permissions by selecting **+ Add**. Give the policy a name, check **MANAGE**, and then select **Create**.
 
 7. Select your new policy once after it has been created, and then select the copy button for the **CONNECTION STRING - PRIMARY KEY** entity. We need this later in the exercise. Then return to the dashboard.
 
@@ -137,9 +136,9 @@ To specify the job input, take the following steps:
 
 1. In your Stream Analytics job, select **INPUTS** in the middle of the job pane, in **Job Topology**. Then select **ADD**.
 
-    Next, the portal  prompts you for some of the following information. Most of the default values  work, and are defined here:
+    Next, the portal prompts you for some of the following information. Most of the default values work, and are defined here:
 
-   * **INPUT ALIAS**: Enter a friendly name for this job input, such as `TwitterStream`. You use this name in the query later.
+   * **INPUT ALIAS**: Enter a friendly name for this job input, such as `TwitterStream`. You use this name in the query later.values  work
 
    * **EVENT HUB NAME**: Select the name of the event hub.
 
@@ -151,7 +150,7 @@ To specify the job input, take the following steps:
 
 Stream Analytics supports a simple, declarative query model that describes transformations. To learn more about the language, see the [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx).  This tutorial helps you author and test several queries over Twitter data.
 
-To compare the number of mentions among topics, we  use a [Tumbling Window](https://msdn.microsoft.com/library/azure/dn835055.aspx) to get the count of mentions by topic every five seconds.
+To compare the number of mentions among topics, we use a [Tumbling Window](https://msdn.microsoft.com/library/azure/dn835055.aspx) to get the count of mentions by topic every five seconds.
 
 Change the query in the code editor to the following, and then select **Save**:
 
@@ -188,7 +187,7 @@ To specify the job output, take the following steps:
 
     * **STORAGE account**: Give the new storage account a name (`socialtwitter` in this example).
 
-    * **CONTAINER**: Give the new container a name  (`socialtwitter` in this example).
+    * **CONTAINER**: Give the new container a name (`socialtwitter` in this example).
 
 3. Leave the rest of the entries as default values. Finally, select **Create**.
 
