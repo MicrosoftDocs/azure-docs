@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/01/2017
+ms.date: 03/14/2017
 ms.author: nepeters
 ---
 
@@ -26,7 +26,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-monitor-oms/create-vm-monitor-oms.ps1 "Create VM OMS")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-windows-vm-monitor-oms/create-vm-monitor-oms.ps1 "Create VM OMS")]
 
 ## Clean up deployment 
 
