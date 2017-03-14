@@ -41,8 +41,8 @@ The ACS base address should be set to "https://ams-usge-0-acs-global-1-1.accessc
 
 The API server address depends on what region you are deployed to:
 
-US Gov Virginia - "https://ams-usge-1-hos-rest-1-1.usgovcloudapp.net/API/"
-US Gov Iowa - "https://ams-usgc-1-hos-rest-1-1.usgovcloudapp.net/API/"
+- US Gov Virginia: "https://ams-usge-1-hos-rest-1-1.usgovcloudapp.net/API/"
+- US Gov Iowa: "https://ams-usgc-1-hos-rest-1-1.usgovcloudapp.net/API/"
 
 ## Analyzing
 
