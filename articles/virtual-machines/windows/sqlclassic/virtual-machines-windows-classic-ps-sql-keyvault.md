@@ -1,5 +1,5 @@
 ---
-title: Automated configuration of Azure Key Vault for SQL VMs (Classic) | Microsoft Docs
+title: Integrate Key Vault with SQL Server on Windows VMs in Azure (Classic) | Microsoft Docs
 description: Learn how to automate the configuration of SQL Server encryption for use with Azure Key Vault. This topic explains how to use Azure Key Vault Integration with SQL Server virtual machines create in the classic deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
