@@ -92,7 +92,7 @@ Once your data is saved as a table, in the next section we use BI tools to conne
         +---------------+-------------+
         |tableName      |isTemporary  |
         +---------------+-------------+
-        |hvactemptable  |true		  |
+        |hvactemptable  |true		 |
         |hivesampletable|false  	  |
         |hvac           |false  	  |
         +---------------+-------------+
