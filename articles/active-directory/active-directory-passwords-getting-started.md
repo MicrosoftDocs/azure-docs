@@ -306,6 +306,7 @@ This section walks you through configuring password reset to write passwords bac
 Before you can enable and use the Password Writeback, you must make sure you complete the following prerequisites:
 
 * You have an Azure AD tenant with Azure AD Premium enabled.  For more information, see [Azure Active Directory Editions](active-directory-editions.md).
+* You must connect Azure AD Connect to the Primary Domain Controller for password writeback to work.  If you need to, you can configure Azure AD Connect to use a Primary Domain Controller by right clicking on the **properties** of the Active Directory synchronization connector, then selecting **configure directory partitions**. From there, look for the **domain controller connection settings** section and check the box titled **only use preferred domain controllers**.
 * Password reset has been configured and enabled in your tenant.  For more information, see [Enable users to reset their Azure AD passwords](#enable-users-to-reset-their-azure-ad-passwords)
 * You have at least one administrator account and one test user account with an Azure AD Premium license that you can use to test this feature.  For more information, see [Azure Active Directory Editions](active-directory-editions.md).
 
