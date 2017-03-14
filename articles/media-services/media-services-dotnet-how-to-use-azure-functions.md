@@ -154,7 +154,7 @@ Once you are done defining your function click **Run**.
 
 ## Configure function app settings
 
-When developing Media Services functions it is handy to add parameters that will be used throughout your functions to the **App Settings** section. 
+When developing Media Services functions, it is handy to add parameters that will be used throughout your functions to the **App Settings** section. 
 
 For example:
 
