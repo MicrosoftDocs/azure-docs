@@ -15,53 +15,67 @@ ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/08/2017
+ms.date: 03/13/2017
 ms.author: carlrab
 
 ---
 # Create and query a single Azure SQL database in the Azure portal
 
-Azure SQL databases can be created through the Azure portal. This quick start details the portal deployment experience.
+Azure SQL databases can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring Azure SQL databases and all related Azure resources.
+
+## Log in to the Azure portal
+
+Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a SQL database
 
-Follow these steps to create a SQL database with sample data in a SQL Database logical server and Azure resource group. 
+An Azure SQL database is created within an Azure resource group, on a logical server, and with a defined set of compute and storage resources. Follow these steps to create a SQL database containing the Adventure Works LT sample data. 
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Click the **New** button.
+1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
-      ![new](./media/sql-database-get-started/new.png)
+2. Select **Databases** from the **New** blade, and select **SQL Database** from the **Databases** blade.
 
-3. Select **Databases** from the Marketplace screen, select **SQL Database** from the featured apps page.
+3. Fill out the SQL Database form with the required information: 
+   - Database name: Provide a database name
+   - Subscription: Select your subscription
+   - Resource group: Select new or existing
+   - Source: Select **Sample (AdventureWOrksLT)**
+   - Server: Create a new server (the **Server** name must be globally unique)
+   - Elastic pool: Select **Not now** for this quick start
+   - Pricing tier: Select **20 DTUs** and **250** GB of storage
+   - Collation: You cannot change this value when importing the sample database 
+   - Pin to dashboard: Select this checkbox
 
-4. Fill out the form with the required information (the **Server** name must be globally unique). 
+      ![create database](./media/sql-database-get-started/create-database-s1.png)
 
-      ![create database](./media/sql-database-get-started/create-database2.png)
+4. Click **Create** when complete. Provisioning takes a few minutes.
+5. Once the SQL database deployment has finished, select the **SQL databases** on the dashboard or by selecting **SQL Databases** from the left-hand menu, and click your new database on the **SQL databases** page. An overview page for your database opens, showing you the fully qualified server name (such as **mynewserver20170313.database.windows.net**) and provides options for further configuration.
 
-5. Click **Create** when complete. Provisioning takes a few minutes.
-6. Once the SQL database deployment has finished, select the **SQL databases** icon in the left-hand section of the Azure dashboard and click your new database on the **SQL databases** page. This opens the Azure dashboard page for your database, showing you the fully qualified server name (such as **mynewserver0308.database.windows.net**) and provides options for further configuration.
-
-      ![new sql database](./media/sql-database-get-started/sql-database.png) 
+      ![new-sql database](./media/sql-database-get-started/new-database-s1-overview.png) 
 
 ## Create a server-level firewall rule
 
-Follow these steps to create a SQL Database server-level firewall rule for your IP address to enable external connectivity through the SQL Database firewall. 
+The SQL Database service creates a firewall preventing external applications and tools from connecting to your new server and database. Follow these steps to create a SQL Database server-level firewall rule for your IP address to enable external connectivity through the SQL Database firewall. 
 
-1. Click **Set server firewall** on the toolbar for your database. This opens the **Firewall settings** page for the SQL Database server. 
+1. Click **Set server firewall** on the toolbar for your database. The **Firewall settings** page for the SQL Database server opens. 
 
-2. Click **Add client IP** on the toolbar and then click **Save**. This creates a server-level firewall rule for your current IP address.
+      ![server firewall rule](./media/sql-database-get-started/server-firewall-rule.png) 
 
-3. Click **OK** and then click the **X** to close the Firewall settings page. This returns you to the SQL database page for the next step.
+2. Click **Add client IP** on the toolbar and then click **Save**. A server-level firewall rule is created for your current IP address.
+
+3. Click **OK** and then click the **X** to close the Firewall settings page.
 
 You can now connect to the database and its server using SQL Server Management Studio or another tool of your choice.
 
 ## Query the SQL database
 
-Follow these steps to query the database on the Azure dashboard. 
+Follow these steps to query the database using the query editor in the Azure portal. 
 
-1. Click **Tools** on the toolbar for your database. This opens the **Query editor** page.
+1. On the SQL Databse page for your database, click **Tools** on the toolbar. The **Query editor** preview page opens.
 
-2. Click **Query editor (preview)**, click the preview checkbox, and then click **OK**. 
+     ![tools menu](./media/sql-database-get-started/tools-menu.png) 
+
+2. Click **Query editor (preview)**, click the **Preview terms** checkbox, and then click **OK**. The query editor opens.
 
 3. Click **Login** and then, when prompted, select **SQL server authentication** and then provide the server admin login and password.
 4. Click **OK** to log in.
@@ -69,21 +83,24 @@ Follow these steps to query the database on the Azure dashboard.
 5. After you are authenticated, type a query of your choice in the query window, such as the following query:
 
    ```
-   SELECT * FROM sys.objects;
+   SELECT pc.Name as CategoryName, p.name as ProductName
+   FROM SalesLT.ProductCategory pc
+   JOIN SalesLT.Product p
+   ON pc.productcategoryid = p.productcategoryid;
    ```
 
 6. Click **Run** and then review the query results in the **Results** pane.
 
     ![query editor results](./media/sql-database-get-started/query-editor-results.png)
 
-7. Click the **X** to close the Query editor page. This returns you to the SQL database page.
+7. Click the **X** to close the Query editor page.
 
 ## Clean up resources
 
-The steps in this procedure show how to delete all resources created by this quick start in the Azure portal.
+You can choose to save the resources created in this quick start for later tutorials. Or, you can use the following steps to delete all resources created by this quick start in the Azure portal.
 
-1. On the Azure dashboard, click **Resource groups** and then click **myResourceGroup**. 
-2. On the page for your resource group, click **Delete**, type **myResourceGroup** in the text box and then click **Delete**.
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**. 
+2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.
 
 ## Next steps
 
