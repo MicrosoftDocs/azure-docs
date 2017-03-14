@@ -17,7 +17,7 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: raynew
 ROBOTS: NOINDEX, NOFOLLOW
-redirect_url: azure/site-recovery/site-recovery-support-matrix-to-azure
+redirect_url: site-recovery-support-matrix-to-azure
 ---
 
 # Get ready to deploy Azure Site Recovery
