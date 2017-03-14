@@ -83,7 +83,18 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
     DEBIAN_FRONTEND=noninteractive ./NVIDIA-Linux-x86_64-375.39.run  --silent
     DEBIAN_FRONTEND=noninteractive update-initramfs -u
      ```
+7.  Options for NVIDIA kernel module availability post kernel upgrade
 
+       * Silent Installer option
+            ```bash
+               apt-get install -y dkms
+               DEBIAN_FRONTEND=noninteractive ./NVIDIA-Linux-x86_64-375.39.run  --silent --dkms
+            ```
+        * For kernel module loading after kernel upgrade when dkms option was not supplied during initial install of NVIDIA Driver
+            ```bash
+                dkms install -m nvidia -v 375.39 -k 'NEW_KERNEL_NAME'
+            ```
+            
 ## Verify driver installation
 
 
@@ -129,6 +140,7 @@ The installation can take several minutes.
  export LIBRARY_PATH=/usr/local/cuda-8.0/lib64/:${LIBRARY_PATH}  && export LIBRARY_PATH=/usr/local/cuda-8.0/lib64/stubs:${LIBRARY_PATH} && \
  export PATH=/usr/local/cuda-8.0/bin:${PATH}
  ```
+
 ### CUDA Samples Install
  
  [CUDA Samples](http://docs.nvidia.com/cuda/cuda-samples/#new-features-in-cuda-toolkit-8-0) can be installed in a location as follows:
