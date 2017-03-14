@@ -3,7 +3,7 @@
 ## [Limitations](acc-limitations.md)
 ## [Pricing](acc-pricing.md)
 
-# [Quick Start](acc-quickstart.md)
+# [QuickStart](acc-quickstart.md)
 
 # [Samples](cli-scripts.md)
 ## [Quick commands](quick-commands.md)
