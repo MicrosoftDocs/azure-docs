@@ -1,6 +1,6 @@
 ---
-title: Use different kernels with Jupyter notebooks on Azure Spark clusters | Microsoft Docs
-description: Learn about the PySpark and Spark kernels you can use with the Jupyter notebook available with Spark clusters on HDInsight Linux.
+title: Use different kernels with Jupyter notebooks on Azure HDInsight Spark clusters | Microsoft Docs
+description: Learn about the PySpark, PySpark3, and Spark kernels you can use with the Jupyter notebook available with Spark clusters on HDInsight Linux.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -14,30 +14,34 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 03/14/2017
 ms.author: nitinme
 
 ---
 # Jupyter notebooks kernels with Apache Spark clusters in HDInsight 
 
-HDInsight Spark clusters provide two kernels that you can use with the Jupyter notebook for testing your Spark applications. A kernel is a program that runs and interprets your code. The two kernels are:
+HDInsight Spark clusters provide kernels that you can use with the Jupyter notebook for testing your Spark applications. A kernel is a program that runs and interprets your code. The two kernels are:
 
-- **PySpark** (for applications written in Python)
-- **Spark** (for applications written in Scala)
+- **PySpark** - for applications written in Python2
+- **PySpark3** - for applications written in Python3
+- **Spark** - for applications written in Scala
 
 In this article, you learn how to use these kernels and the benefits of using them.
 
-**Prerequisites:**
+## Prerequisites
 
 You must have the following:
 
 * An Apache Spark cluster in HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## Create a Jupyter notebook
+
 1. From the [Azure portal](https://portal.azure.com/), open your cluster.  See [List and show clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters) for the instructions. The cluster is opened in a new portal blade.
+
 2. From the **Quick links** section, click **Cluster dashboards** to open the **Cluster dashboards** blade.  If you don't see **Quick Links**, click **Overview** from the left menu on the blade.
 
     ![Cluster dashboards](./media/hdinsight-apache-spark-jupyter-notebook-kernels/hdinsight-azure-portal-cluster-dashboards.png "Cluster dashboards") 
+
 3. Click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
    
    > [!NOTE]
@@ -46,24 +50,26 @@ You must have the following:
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    > 
    > 
-3. Click **New**, and then click either **Pyspark** or **Spark** to create a new notebook. You should use the Spark kernel for Scala applications and PySpark kernel for Python applications.
+
+3. Click **New**, and then click either **Pyspark**, **PySpark3**, or **Spark** to create a new notebook. You should use the Spark kernel for Scala applications, PySpark kernel for Python2 applications, and PySpark3 kernel for Python3 applications.
    
     ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Create a new Jupyter notebook") 
 
 4. This should open a new notebook with the kernel you selected.
 
-## Choose between the kernels
+## Benefits of using these kernels
+
 Here are a few benefits of using the new kernels.
 
-- **Preset contexts**. With either the **PySpark** or the **Spark** kernels, you do not need to set the Spark or Hive contexts explicitly before you start working with your applications; these are available for you by default. These contexts are:
+- **Preset contexts**. With either the **PySpark**, **PySpark3**, or the **Spark** kernels, you do not need to set the Spark or Hive contexts explicitly before you start working with your applications; these are available for you by default. These contexts are:
    
    * **sc** - for Spark context
    * **sqlContext** - for Hive context
 
     So, you don't have to run statements like the following to set the contexts:
 
-      sc = SparkContext('yarn-client')
-      sqlContext = HiveContext(sc)
+      	sc = SparkContext('yarn-client')
+      	sqlContext = HiveContext(sc)
 
     Instead, you can directly use the preset contexts in your application.
 
@@ -77,7 +83,7 @@ Here are a few benefits of using the new kernels.
    | info |`%%info` |Outputs session information for the current Livy endpoint |
    | configure |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configures the parameters for creating a session. The force flag (-f) is mandatory if a session has already been created and the session will be dropped and recreated. Look at [Livy's POST /sessions Request Body](https://github.com/cloudera/livy#request-body) for a list of valid parameters. Parameters must be passed in as a JSON string and must be on the next line after the magic, as shown in the example column. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executes a Hive query against the sqlContext. If the `-o` parameter is passed, the result of the query is persisted in the %%local Python context as a [Pandas](http://pandas.pydata.org/) dataframe. |
-   | local |`%%local`<br>`a=1` |All the code in subsequent lines will be executed locally. Code must be valid Python code. |
+   | local |`%%local`<br>`a=1` |All the code in subsequent lines will be executed locally. Code must be valid Python2 code even irrespective of the kernel you are using. So, even if you selected **PySpark3** or **Spark** kernels while creating the notebook, if you use the `%%local` magic in a cell, that cell must only have valid Python2 code.. |
    | logs |`%%logs` |Outputs the logs for the current Livy session. |
    | delete |`%%delete -f -s <session number>` |Deletes a specific session of the current Livy endpoint. Note that you cannot delete the session that is initiated for the kernel itself. |
    | cleanup |`%%cleanup -f` |Deletes all the sessions for the current Livy endpoint, including this notebook's session. The force flag -f is mandatory. |
@@ -89,7 +95,7 @@ Here are a few benefits of using the new kernels.
 2. **Auto visualization**. The **Pyspark** kernel automatically visualizes the output of Hive and SQL queries. You have the option to choose between several different types of visualizations including Table, Pie, Line, Area, Bar.
 
 ## Parameters supported with the %%sql magic
-The %%sql magic supports different parameters that you can use to control the kind of output that you receive when you run queries. The following table lists the output.
+The `%%sql` magic supports different parameters that you can use to control the kind of output that you receive when you run queries. The following table lists the output.
 
 | Parameter | Example | Description |
 | --- | --- | --- |
@@ -112,9 +118,11 @@ The statement above does the following:
 * Finally, because we used `-o query2` it also saves the output into a dataframe called **query2**.
 
 ## Considerations while using the new kernels
-Whichever kernel you use (PySpark or Spark), leaving the notebooks running will consume your cluster resources.  With these kernels, because the contexts are preset, simply exiting the notebooks does not kill the context and hence the cluster resources will continue to be in use. A good practice with the PySpark and Spark kernels would be to use the **Close and Halt** option from the notebook's **File** menu. This kills the context and then exits the notebook.     
+
+Whichever kernel you use, leaving the notebooks running will consume your cluster resources.  With these kernels, because the contexts are preset, simply exiting the notebooks does not kill the context and hence the cluster resources will continue to be in use. A good practice is to use the **Close and Halt** option from the notebook's **File** menu when you are finished using the notebook. This kills the context and then exits the notebook.     
 
 ## Show me some examples
+
 When you open a Jupyter notebook, you will see two folders available at the root level.
 
 * The **PySpark** folder has sample notebooks that use the new **Python** kernel.
@@ -123,7 +131,8 @@ When you open a Jupyter notebook, you will see two folders available at the root
 You can open the **00 - [READ ME FIRST] Spark Magic Kernel Features** notebook from the **PySpark** or **Spark** folder to learn about the different magics available. You can also use the other sample notebooks available under the two folders to learn how to achieve different scenarios using Jupyter notebooks with HDInsight Spark clusters.
 
 ## Where are the notebooks stored?
-Jupyter notebooks are saved to the storage account associated with the cluster under the **/HdiNotebooks** folder.  Notebooks, text files, and folders that you create from within Jupyter will be accessible from WASB.  For example, if you use Jupyter to create a folder **myfolder** and a notebook **myfolder/mynotebook.ipynb**, you can access that notebook at `wasbs:///HdiNotebooks/myfolder/mynotebook.ipynb`.  The reverse is also true, that is, if you upload a notebook directly to your storage account at `/HdiNotebooks/mynotebook1.ipynb`, the notebook will be visible from Jupyter as well.  Notebooks will remain in the storage account even after the cluster is deleted.
+
+Jupyter notebooks are saved to the storage account associated with the cluster under the **/HdiNotebooks** folder.  Notebooks, text files, and folders that you create from within Jupyter will be accessible from the storage account.  For example, if you use Jupyter to create a folder **myfolder** and a notebook **myfolder/mynotebook.ipynb**, you can access that notebook at `/HdiNotebooks/myfolder/mynotebook.ipynb` within the storage account.  The reverse is also true, that is, if you upload a notebook directly to your storage account at `/HdiNotebooks/mynotebook1.ipynb`, the notebook will be visible from Jupyter as well.  Notebooks will remain in the storage account even after the cluster is deleted.
 
 The way notebooks are saved to the storage account is compatible with HDFS. So, if you SSH into the cluster you can use file management commands like the following:
 
@@ -135,6 +144,7 @@ The way notebooks are saved to the storage account is compatible with HDFS. So, 
 In case there are issues accessing the storage account for the cluster, the notebooks are also saved on the headnode `/var/lib/jupyter`.
 
 ## Supported browser
+
 Jupyter notebooks running against HDInsight Spark clusters are supported only on Google Chrome.
 
 ## Feedback
