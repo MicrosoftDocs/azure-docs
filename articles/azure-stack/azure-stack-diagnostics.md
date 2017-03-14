@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/10/2017
+ms.date: 3/14/2017
 ms.author: adshar;victorh
 
 ---
@@ -117,17 +117,26 @@ If the `FromDate` and `ToDate` parameters are not specified, logs are collected 
 
 Currently, you can use the `FilterByRole` parameter to filter log collection by the following roles:
 
-```
-| ACSMigrationService  | ACSMonitoringService | ACSSettingsService | ACS                     | ACSFabric              | ACSFrontEnd  
-| ACSTableMaster       | ACSTableServer       | ACSWac             | ADFS                    | ASAppGateway           | BareMetal   
-| BRP                  | CA                   | CPI                | CRP                     | DeploymentMachine      | DHCP
-| Domain               | ECE                  | ECESeedRing        | FabricRing              | FabricRingServices     | FRP
-| Gateway              | HealthMonitoring     | HRP                | IBC                     | InfraServiceController | KeyVaultAdminResourceProvider
-| KeyVaultControlPlane | KeyVaultDataPlane    | NC                 | NonPrivilegedAppGateway | NRP                    | SeedRing 
-| SeedRingServices     | SLB                  | SQL                | SRP                     | Storage                | StorageController
-| URP                  | UsageBridge          | VirtualMachines    | WAS                     | WASPUBLIC              | WDS
+|   |   |   |
+| - | - | - |
+| `ACSMigrationService`     | `ACSMonitoringService`   | `ACSSettingsService` |
+| `ACS`                     | `ACSFabric`              | `ACSFrontEnd`        |
+| `ACSTableMaster`          | `ACSTableServer`         | `ACSWac`             |
+| `ADFS`                    | `ASAppGateway`           | `BareMetal`          |
+| `BRP`                     | `CA`                     | `CPI`                |
+| `CRP`                     | `DeploymentMachine`      | `DHCP`               |
+|`Domain`                   | `ECE`                    | `ECESeedRing`        |        
+| `FabricRing`              | `FabricRingServices`     | `FRP`                |
+|` Gateway`                 | `HealthMonitoring`       | `HRP`                |               
+| `IBC`                     | `InfraServiceController` | `KeyVaultAdminResourceProvider`|
+| `KeyVaultControlPlane`    | `KeyVaultDataPlane`      | `NC`                 |            
+| `NonPrivilegedAppGateway` | `NRP`                    | `SeedRing`           |
+| `SeedRingServices`        | `SLB`                    | `SQL`                |     
+| `SRP`                     | `Storage`                | `StorageController`  |
+| `URP`                     | `UsageBridge`            | `VirtualMachines`    |  
+| `WAS`                     | `WASPUBLIC`              | `WDS`                |
 
-```
+
 A few things to note:
 
 * This command takes some time for log collection based on which role logs are collected. Contributing factors include the time duration specified for log collection, and the numbers of nodes in the Azure Stack environment.
@@ -141,4 +150,5 @@ A few things to note:
     -	ACS logs are collected in the *Storage* and *ACS* roles.
 * For more details, you can refer to the customer configuration file. Investigate the `<Logs>` tags for the different roles.
 
-
+## Next steps
+[Microsoft Azure Stack troubleshooting](azure-stack-troubleshooting.md)
