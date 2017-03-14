@@ -44,7 +44,7 @@ An Azure SQL database is created within an Azure resource group, on a logical se
    - Elastic pool: Select **Not now** for this quick start
    - Pricing tier: Select **20 DTUs** and **250** GB of storage
    - Collation: You cannot change this value when importing the sample database 
-   - Pin to dashboard: Select this chackbox
+   - Pin to dashboard: Select this checkbox
 
       ![create database](./media/sql-database-get-started/create-database-s1.png)
 
@@ -55,15 +55,15 @@ An Azure SQL database is created within an Azure resource group, on a logical se
 
 ## Create a server-level firewall rule
 
-The SQL Databse service creates a firewall preventing external applications and tools from connecting to your new server and database. Follow these steps to create a SQL Database server-level firewall rule for your IP address to enable external connectivity through the SQL Database firewall. 
+The SQL Database service creates a firewall preventing external applications and tools from connecting to your new server and database. Follow these steps to create a SQL Database server-level firewall rule for your IP address to enable external connectivity through the SQL Database firewall. 
 
 1. Click **Set server firewall** on the toolbar for your database. The **Firewall settings** page for the SQL Database server opens. 
 
       ![server firewall rule](./media/sql-database-get-started/server-firewall-rule.png) 
 
-2. Click **Add client IP** on the toolbar and then click **Save**. This creates a server-level firewall rule for your current IP address.
+2. Click **Add client IP** on the toolbar and then click **Save**. A server-level firewall rule is created for your current IP address.
 
-3. Click **OK** and then click the **X** to close the Firewall settings page. This returns you to the SQL database page for the next step.
+3. Click **OK** and then click the **X** to close the Firewall settings page.
 
 You can now connect to the database and its server using SQL Server Management Studio or another tool of your choice.
 
@@ -71,7 +71,7 @@ You can now connect to the database and its server using SQL Server Management S
 
 Follow these steps to query the database using the query editor in the Azure portal. 
 
-1. Click **Tools** on the toolbar for your database. The **Query editor** preview page opens.
+1. On the SQL Databse page for your database, click **Tools** on the toolbar. The **Query editor** preview page opens.
 
      ![tools menu](./media/sql-database-get-started/tools-menu.png) 
 
@@ -93,13 +93,13 @@ Follow these steps to query the database using the query editor in the Azure por
 
     ![query editor results](./media/sql-database-get-started/query-editor-results.png)
 
-7. Click the **X** to close the Query editor page. This returns you to the SQL database page.
+7. Click the **X** to close the Query editor page.
 
 ## Clean up resources
 
 You can choose to save the resources created in this quick start for later tutorials. Or, you can use the following steps to delete all resources created by this quick start in the Azure portal.
 
-1. From the left hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**. 
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**. 
 2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.
 
 ## Next steps
