@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 03/13/2017
 ms.author: jingwang
 
 ---
@@ -24,6 +24,10 @@ Data factory currently supports only moving data from an on-premises HDFS to oth
 
 ## Enabling connectivity
 Data Factory service supports connecting to on-premises HDFS using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. Use the gateway to connect to HDFS even if it is hosted in an Azure IaaS VM.
+
+> [!NOTE]
+> Make sure the Data Management Gateway can access to **ALL** the [name node server]:[name node port] and [data node servers]:[data node port] of the Hadoop cluster. Default [name node port] is 50070, and default [data node port] is 50075.
+>
 
 While you can install gateway on the same on-premises machine or the Azure VM as the HDFS, we recommend that you install the gateway on a separate machine/Azure IaaS VM. Having gateway on a separate machine reduces resource contention and improves performance. When you install the gateway on a separate machine, the machine should be able to access the machine with the HDFS.
 
