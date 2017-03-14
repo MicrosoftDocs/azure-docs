@@ -1,4 +1,4 @@
----
+ ---
 title: Azure Government Compute | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
 services: Azure-Government
@@ -25,17 +25,18 @@ For details on this service and how to use it, see [Azure Virtual Machines Sizes
 ### Variations
 The products (VMs) are available in Azure Government:
 
-| Products (VMs) | US Gov VA | US Gov IA |
-| --- | --- | --- |
-| A0-A7 |Y |Y |
-| D-series |Y |N |
-| Dv2-series |Y |Y |
-| DS-series |Y |N |
-| DSv2-series |Y |N |
-| F-series |Y |Y |
-| FS-series |Y |N |
-| G-series |Y |N |
-| GS-series |Y |N |
+| Products (VMs) | US Gov VA | US Gov IA | US DOD East | US DOD West
+| --- | --- | --- |--- |--- |
+| A0-A7 |Y |Y |Y |Y |Y |
+| Av2 |Y |Y |Y |Y |Y |
+| D-series |Y |N |N |N |
+| Dv2-series |Y |Y |Y |Y |
+| DS-series |Y |N |N |N |
+| DSv2-series |Y |N |Y |Y |
+| F-series |Y |Y |Y |Y |
+| FS-series |Y |N |Y |Y |
+| G-series |Y |N |N |N |
+| GS-series |Y |N |N |N |
 
 ### Data Considerations
 The following information identifies the Azure Government boundary for Azure Virtual Machines:
