@@ -46,7 +46,7 @@ Complete the steps in the following sections to create, view, change, and delete
 
 ### <a name="create-nic"></a>Create a network interface
 
-A NIC may be attached to a VM, or exist on its own. To learn how to attach a NIC to a VM, read the [Attach and detach NICs to or from a virtual machine](#vms) section of this article.
+A NIC may be attached to a VM, or exist on its own. To learn how to attach a NIC to a VM, read the [Attach a NIC to a virtual machine](#vm-attach-nic) section of this article.
 
 To create a NIC, complete the following steps:
 
@@ -57,7 +57,7 @@ To create a NIC, complete the following steps:
 	
 	|**Setting**|**Required?**|**Details**|
 	|---|---|---|
-	|**Name**|Yes|The name cannot be changed after the NIC is created. The name must be unique within the resource group you select. Read the [Naming conventions](/azure/architecture/best-practices/naming-conventions.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article for naming suggestions.|
+	|**Name**|Yes|The name cannot be changed after the NIC is created. The name must be unique within the resource group you select. Read the [Naming conventions](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions) article for naming suggestions.|
 	|**Virtual network**|Yes|You can only connect a NIC to a VNet that exists in the same subscription and location as the NIC. The VM the NIC is attached to must also exist in the same location and subscription as the NIC. If no VNets are listed, you need to create one. To create a VNet, complete the steps in the [Virtual network](virtual-networks-create-vnet-arm-pportal.md) article. Once a NIC is created, you cannot change the VNet it is connected to.|
 	|**Subnet**|Yes|Select a subnet within the VNet you selected. You can change the subnet the NIC is connected to after it's created.|
 	|**Private IP address assignment**|Yes| A private IP address is assigned by the Azure DHCP server to the NIC when it's created. The DHCP server assigns an available address from the subnet address range defined for the subnet you connect the NIC to. **Dynamic:** Azure may assign a different address to a NIC when the VM it's attached to is started after having been in the stopped (deallocated) state. The address remains the same if the VM is restarted without having been in the stopped (deallocated) state. **Static:** Static addresses do not change until you change them or the NIC is deleted. You can change the assignment method after the NIC is created.|
@@ -66,7 +66,7 @@ To create a NIC, complete the following steps:
 	|**Resource group**|Yes| The NIC can exist in the same, or different resource group, than the VM you attach it to, or the VNet you connect it to.|
 	|**Location**|Yes|The VM you attach a NIC to and the VNet you connect it to must exist in the same location.|
 
-The Azure portal creates a primary IP configuration named **ipconfig1** with a dynamic private IP address, and associates it to the NIC you create. To learn more about IP configurations, read the [IP configurations](#ip-configs) section of this article. You cannot specify the name of the IP configuration the portal creates, assign a static private IP address, or assign a public IP address when creating the NIC. If you create the NIC using PowerShell or the CLI, you can specify the name of the IP configuration, a static IP address, and assign a public IP address. You can change the private IP address assignment method and whether a public IP address is associated to the NIC after the NIC is created. To change settings after a NIC is created, complete the steps in the [Change an IP configuration](#change-ipconfig) section of this article. 
+The Azure portal creates a primary IP configuration named **ipconfig1** with a dynamic private IP address, and associates it to the NIC you create. To learn more about IP configurations, read the [IP configurations](#ip-configs) section of this article. You cannot specify the name of the IP configuration the portal creates, assign a static private IP address, or assign a public IP address when creating the NIC. If you create the NIC using PowerShell or the CLI, you can specify the name of the IP configuration, a static IP address, and assign a public IP address. You can change the private IP address assignment method and whether a public IP address is associated to the NIC after the NIC is created. To change settings after a NIC is created, complete the steps in the [Change an IP configuration](#change-ip-config) section of this article. 
 
 >[!Note]
 > Azure assigns a MAC address to the NIC only after the NIC is attached to a VM and the VM is started the first time. You cannot specify the MAC address that Azure assigns to the NIC. The MAC address remains assigned to the NIC until the NIC is deleted or the private IP address assigned to the primary IP configuration of the primary NIC is changed. To learn more about IP configurations, read the [IP configurations](#ip-configs) section of this article.
@@ -211,7 +211,7 @@ To change the private and public IP address settings for any primary or secondar
 1. Complete steps 1-3 in the [View network interface settings](#view-nics) section of this article for the NIC you want to modify.
 2. Click **IP configurations** in the blade for the NIC you selected.
 3. Click the IP configuration you want to modify from the list in the blade that opens for IP configurations.
-4. Change the settings, as desired, using the information about the settings in the [Add an IP configuration](#create-ipconfig) section of this article, then click **Save** to close the blade for the IP config you selected.
+4. Change the settings, as desired, using the information about the settings in the [Add an IP configuration](#create-ip-config) section of this article, then click **Save** to close the blade for the IP config you selected.
 
 >[!NOTE]
 >If the primary NIC has multiple IP configurations and you change the private IP address of the primary IP configuration, you must manually reassign all secondary IP addresses to the NIC within Windows (not required for Linux). To manually assign IP addresses to a NIC within an operating system, read the [Assign multiple IP addresses to virtual machines](virtual-network-multiple-ip-addresses-portal.md#os-config) article. Do not add any public IP addresses to the VM operating system.
