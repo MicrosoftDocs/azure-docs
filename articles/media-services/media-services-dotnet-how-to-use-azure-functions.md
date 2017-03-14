@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/13/2017
 ms.author: juliako
 
 ---
@@ -34,7 +34,7 @@ If you are going to create Azure functions that perform actions on your Azure Me
 
 ## Create a function app
 
-Create Create a function app as described [here](../azure-functions/functions-create-first-azure-function-azure-portal.md#create-a-function-app).
+Create a function app as described [here](../azure-functions/functions-create-first-azure-function-azure-portal.md#create-a-function-app).
 
 ## Create a function
 
