@@ -147,6 +147,10 @@ To deploy a private template in a storage account, generate a SAS token and incl
 ```azurecli
 seconds='@'$(( $(date +%s) + 1800 ))
 expiretime=$(date +%Y-%m-%dT%H:%MZ --date=$seconds)
+connection=$(az storage account show-connection-string \
+    --resource-group ManageGroup \
+    --name {your-unique-name} \
+    --query connectionString)
 token=$(az storage blob generate-sas \
     --container-name templates \
     --name vmlinux.json \
