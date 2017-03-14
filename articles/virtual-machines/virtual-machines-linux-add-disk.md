@@ -28,8 +28,8 @@ The following example attaches a `50`GB disk to the VM named `myVM` in the resou
 To use managed disks:
 
 ```azurecli
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk \
-  –-new --size-gb 50
+az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
+  --new --size-gb 50
 ```
 
 To use unmanaged disks:
@@ -49,8 +49,8 @@ Using managed disks enables you to focus on your VMs and their disks without wor
 If you just need a new disk on your VM, you can use the `az vm disk attach` command.
 
 ```azurecli
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk \
-  –-new --size-gb 50
+az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
+  --new --size-gb 50
 ```
 
 ### Attach an existing disk 

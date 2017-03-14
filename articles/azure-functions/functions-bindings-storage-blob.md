@@ -15,8 +15,8 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/11/2017
-ms.author: chrande
+ms.date: 03/06/2017
+ms.author: chrande, glenga
 
 ---
 # Azure Functions Storage blob bindings
@@ -258,7 +258,7 @@ Where `T` is the data type that you want to deserialize the data into, and `para
 The blob can be deserialized into any of the following types:
 
 * Any [Object](https://msdn.microsoft.com/library/system.object.aspx) - useful for JSON-serialized blob data.
-  If you declare a custom input type (e.g. `FooType`), Azure Functions attempts to deserialize the JSON data
+  If you declare a custom input type (e.g. `InputType`), Azure Functions attempts to deserialize the JSON data
   into your specified type.
 * String - useful for text blob data.
 
@@ -379,7 +379,7 @@ where `T` is the data type that you want to serialize the data into, and `paramN
 You can write to the output blob using any of the following types:
 
 * Any [Object](https://msdn.microsoft.com/library/system.object.aspx) - useful for JSON-serialization.
-  If you declare a custom output type (e.g. `out FooType paramName`), Azure Functions attempts to serialize object 
+  If you declare a custom output type (e.g. `out OutputType paramName`), Azure Functions attempts to serialize object 
   into JSON. If the output parameter is null when the function exits, the Functions runtime creates a blob as 
   a null object.
 * String - (`out string paramName`) useful for text blob data. the Functions runtime creates a blob only if the 
@@ -393,8 +393,6 @@ In C# functions you can also output to any of the following types:
 * `ICloudBlob`
 * `CloudBlockBlob` 
 * `CloudPageBlob` 
-* `ICollector<T>` (to output multiple blobs)
-* `IAsyncCollector<T>` (async version of `ICollector<T>`)
 
 <a name="outputsample"></a>
 
