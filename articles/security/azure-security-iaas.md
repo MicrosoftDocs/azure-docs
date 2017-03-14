@@ -40,7 +40,7 @@ Organizations often fall prey to cyberattacks because administrators perform act
 
 Doing things like checking email and browsing the Internet seem innocent enough. But they might expose elevated accounts to compromise by malicious actors who can use browsing activities, specially crafted emails, or other techniques to gain access to your enterprise. We highly recommend the use of secure management workstations for conducting all Azure administration tasks, as a way of reducing exposure to accidental compromise.
 
-Privileged Access Workstations (PAWs) provide a dedicated operating system for sensitive tasks--one that is protected from Internet attacks and threat vectors. Separating these sensitive tasks and accounts from the daily-use workstations and devices provides very strong protection from phishing attacks, application and OS vulnerabilities, various impersonation attacks, and credential theft attacks such as keystroke logging, Pass-the-Hash, and Pass-the-Ticket.
+Privileged Access Workstations (PAWs) provide a dedicated operating system for sensitive tasks--one that is protected from Internet attacks and threat vectors. Separating these sensitive tasks and accounts from the daily-use workstations and devices provides strong protection from phishing attacks, application and OS vulnerabilities, various impersonation attacks, and credential theft attacks such as keystroke logging, Pass-the-Hash, and Pass-the-Ticket.
 
 The PAW approach is an extension of the well-established and recommended practice to use an individually assigned administrative account that is separate from a user's standard user account. A PAW provides a trustworthy workstation for those sensitive accounts.
 
@@ -76,7 +76,7 @@ Document all other known alternative approaches to granting the privilege and wh
 
 The use of just-in-time administration prevents the unnecessary existence of accounts with elevated rights during periods when those rights are not needed. Accounts have elevated rights for a limited time so that administrators can do their jobs. Then, those rights are removed at the end of a shift or when a task is completed.
 
-You can use [Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-configure.md) to manage, monitor, and control access in your organization. It helps you remain aware of the actions that individuals take in your organization and brings just-in-time administration to Azure AD by introducing the concept of eligible admins. These are individuals who have accounts with the potential to be granted admin rights. These types of users can go through an activation process and be granted admin rights for a limited time.
+You can use [Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-configure.md) to manage, monitor, and control access in your organization. It helps you remain aware of the actions that individuals take in your organization. It also brings just-in-time administration to Azure AD by introducing the concept of eligible admins. These are individuals who have accounts with the potential to be granted admin rights. These types of users can go through an activation process and be granted admin rights for a limited time.
 
 
 ## Use DevTest Labs
