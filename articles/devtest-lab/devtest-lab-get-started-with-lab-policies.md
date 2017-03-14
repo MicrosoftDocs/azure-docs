@@ -37,7 +37,7 @@ To view (and change) the policies for a lab, follow these steps:
 
     ![Policy settings blade](./media/devtest-lab-set-lab-policy/policies-menu.png)
 
-1. The **Configuration and policies** blade contains a menu of settings that you can specify. This article covers only the settings for **Virtual machines per user** and **Auto-shutdown**. To learn about the remaining settings, see [Manage all policies for a lab in Azure DevTest Labs](./devtest-lab\devtest-lab-set-lab-policy.md). 
+1. The **Configuration and policies** blade contains a menu of settings that you can specify. This article covers only the settings for **Virtual machines per user** and **Auto-shutdown**. To learn about the remaining settings, see [Manage all policies for a lab in Azure DevTest Labs](./devtest-lab-set-lab-policy.md). 
    
 ## Set virtual machines per user
 The policy for **Virtual machines per user** allows you to specify the maximum number of VMs that can be created by an individual user. If a user attempts to create or claim a VM when the user limit has been met, an error message indicates that the VM cannot be created/claimed. 
