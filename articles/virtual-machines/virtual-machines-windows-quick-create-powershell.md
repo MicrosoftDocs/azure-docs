@@ -103,7 +103,7 @@ New-AzureRmVM -ResourceGroupName myResourceGroup -Location westeurope -VM $vmCon
 
 ## Connect to virtual machine
 
-After the deployment has completed, create an remote desktop connection with the virtual machine.
+After the deployment has completed, create a remote desktop connection with the virtual machine.
 
 Run the following commands to return the public IP address of the virtual machine.
 
@@ -111,7 +111,7 @@ Run the following commands to return the public IP address of the virtual machin
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Use the following command to create an remote desktop session with the virtual machine. Replace the IP address with the public IP address of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
+Use the following command to create a remote desktop session with the virtual machine. Replace the IP address with the public IP address of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
 
 ```bash 
 mstsc /v:<Public IP Address>

@@ -44,7 +44,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 7. On the summary page, click **Ok** to start the virtual machine deployment.
 
-A virtual machine icon will be placed on the Azure portal dashboard. Deployment status can be tracked using this icon.
+A virtual machine icon is placed on the Azure portal dashboard. Deployment status can be tracked using this icon.
 
 ## Connect to virtual machine
 
@@ -52,7 +52,7 @@ After the deployment has completed, create a remote desktop connection with the 
 
 1. Click the virtual machine. The VM can be found on the Azure portal dashboard, or by selecting **Virtual Machines** from the left-hand menu.
 
-2. Click the **Connect** button. The connect button will initialize a Windows remote desktop connection with the virtual machine. 
+2. Click the **Connect** button. The connect button initializes a Windows remote desktop connection with the virtual machine. 
 
     ![Portal 9](./media/virtual-machine-quick-start/portal-quick-start-9.png) 
 
