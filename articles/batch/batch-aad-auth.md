@@ -87,10 +87,10 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
                                                         PromptBehavior.Auto);
 ```
 
-After you provide your service administrator or coadministrator credentials, the sample application can proceed to issue authenticated requests. For more information on running the AccountManagement sample application, see [Manage Batch accounts and quotas with the Batch Management client library for .NET](batch-management-dotnet.ms).
+After you provide your service administrator or coadministrator credentials, the sample application can proceed to issue authenticated requests. For more information on running the AccountManagement sample application, see [Manage Batch accounts and quotas with the Batch Management client library for .NET](batch-management-dotnet.md).
 
 > [!NOTE] 
-> To run the AccountManagement sample, you'll also need to register the sample application with Azure Resource Manager. For information about how to do this, see [Manage Batch accounts and quotas with the Batch Management client library for .NET](batch-management-dotnet.ms).
+> To run the AccountManagement sample, you'll also need to register the sample application with Azure Resource Manager. For information about how to do this, see [Manage Batch accounts and quotas with the Batch Management client library for .NET](batch-management-dotnet.md).
 >
 >
 
@@ -142,7 +142,7 @@ Before deleting the newly created Batch account and resource group, you can insp
 *Azure portal displaying new resource group and Batch account*
 
 
-## Authenticate Batch parallel processing workloads with Azure AD
+## Authenticate requests to Azure Batch with Azure AD
 
 
 
@@ -178,4 +178,4 @@ https://batch.core.windows.net/
 [4]: ./media/batch-aad-auth/app-registration-01.png
 [5]: ./media/batch-aad-auth/app-registration-02.png
 [6]: ./media/batch-aad-auth/app-registration-03.png
-[1]: ./media/batch-management-dotnet/portal-01.png
+[1]: ./media/batch-aad-auth/portal-01.png
