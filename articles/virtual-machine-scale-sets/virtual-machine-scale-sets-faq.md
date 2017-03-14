@@ -199,7 +199,7 @@ https://msdn.microsoft.com/library/mt589035.aspx
         "secrets": [ {
 	          "sourceVault": {
 		              "id": "/subscriptions/{subscriptionid}/resourceGroups/myrg1/providers/Microsoft.KeyVault/vaults/mykeyvault1"
-		  }
+		  },
 		  "vaultCertificates": [ {
 		              "certificateUrl": "https://mykeyvault1.vault.azure.net/secrets/{secretname}/{secret-version}",
 			      "certificateStore": "certificateStoreName"

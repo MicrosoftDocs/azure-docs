@@ -46,6 +46,7 @@
 
 ## [Encode content](media-services-encode-asset.md)
 ### [Compare encoders](media-services-compare-encoders.md)
+### [Manage speed and concurrency of your encoding](media-services-manage-encoding-speed.md)
 ### Media Encoder Standard (MES)
 #### [Media Encoder Standard Formats and Codecs](media-services-media-encoder-standard-formats.md)
 #### [Use MES to auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md)

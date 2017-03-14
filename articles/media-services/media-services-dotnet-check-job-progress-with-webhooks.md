@@ -112,6 +112,10 @@ The project.json file contains dependencies.
 
 The following C# code shows a definition of an Azure function that is a webhook. The function listens for the webhook call back from Media Services notifications and publishes the output asset once the job finishes. 
 
+
+>[!NOTE]
+>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
+
 	///////////////////////////////////////////////////
 	#r "Newtonsoft.Json"
 
