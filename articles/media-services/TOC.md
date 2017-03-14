@@ -192,8 +192,8 @@
 ### [Licensing Microsoft Smooth Streaming Client Porting Kit](media-services-sspk.md)
 
 ## Integrate
-### [Get started with AMS Azure functions](media-services-dotnet-how-to-use-azure-functions.md)
-### [AMS Azure functions examples](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
+### [Get started with AMS Azure Functions](media-services-dotnet-how-to-use-azure-functions.md)
+### [AMS Azure Functions examples](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
 
 ## Monitor
 ### Check job progress
