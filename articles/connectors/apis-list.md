@@ -49,9 +49,9 @@ Select a connector to learn how to build workflows quickly.
 
 | Integration account<br/>connectors |  |  |  |
 | --- | --- | --- | --- |
-| [![API Icon][xmlvalidateicon]<br/>**XML <br/>validation**][xmlvalidatedoc] |[![API Icon][xmltransformicon]<br/>**XML<br/> transform**][xmltransformdoc] |[![API Icon][flatfileicon]<br/>**Flat file</br> encode**][flatfiledoc] |[![API Icon][flatfiledecodeicon]<br/>**Flat file</br> decode**][flatfiledecodedoc] |
-| [![API Icon][as2icon]<br/>**AS2</br>decode**][as2decode] |[![API Icon][as2icon]<br/>**AS2</br>encode**][as2encode] |[![API Icon][x12icon]<br/>**X12</br>decode**][x12decode] |[![API Icon][x12icon]<br/>**X12</br>encode**][x12encode] |
-| [![API Icon][x12icon]<br/>**EDIFACT</br>decode**][EDIFACTdecode] |[![API Icon][x12icon]<br/>**EDIFACT</br>encode**][EDIFACTencode] | | |
+| [![API Icon][xmlvalidateicon]<br/>**XML <br/>validation**][xmlvalidatedoc] |[![API Icon][xmltransformicon]<br/>**XML<br/> transform**][xmltransformdoc] |[![API Icon][flatfileicon]<br/>**Flat file</br> encoding**][flatfiledoc] |[![API Icon][flatfiledecodeicon]<br/>**Flat file</br> decoding**][flatfiledecodedoc] |
+| [![API Icon][as2icon]<br/>**AS2</br> decoding**][as2decode] |[![API Icon][as2icon]<br/>**AS2</br> encoding**][as2encode] |[![API Icon][x12icon]<br/>**X12</br> decoding**][x12decode] |[![API Icon][x12icon]<br/>**X12</br> encoding**][x12encode] |
+| [![API Icon][x12icon]<br/>**EDIFACT</br> decoding**][EDIFACTdecode] |[![API Icon][x12icon]<br/>**EDIFACT</br> encoding**][EDIFACTencode] | | |
 
 > [!NOTE]
 > If you want to get started with Azure Logic Apps before signing up for an Azure account, 
