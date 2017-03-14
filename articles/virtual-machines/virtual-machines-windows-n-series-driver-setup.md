@@ -67,7 +67,7 @@ To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com
 
 RDMA network connectivity can be enabled on NC24r VMs deployed in the same availability set. The HpcVmDrivers extension must be added to install Windows network device drivers that enable RDMA connectivity. To add the VM extension to an NC24r VM, use [Azure PowerShell](/powershell/azureps-cmdlets-docs) cmdlets for Azure Resource Manager.
 
-> [!AZURE.NOTE]
+> [!NOTE]
 > Currently, only Windows Server 2012 R2 supports the RDMA network on NC24r VMs.
 > 
 
