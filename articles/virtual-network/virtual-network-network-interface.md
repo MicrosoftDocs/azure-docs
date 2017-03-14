@@ -281,7 +281,7 @@ You cannot attach existing NICs to a new VM, or create a VM with multiple NICs u
 
 ### <a name="vm-view-nic"></a> View NICs attached to a virtual machine
 
-1.Log in to the [Azure portal](https://portal.azure.com) with an account that is assigned the Owner, Contributor, or Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles to accounts.
+1. Log in to the [Azure portal](https://portal.azure.com) with an account that is assigned the Owner, Contributor, or Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles to accounts.
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *virtual machines*. When **virtual machines** appears in the search results, click it.
 3. In the **Virtual machines** blade that appears, click the name of the VM you want to view attached network interfaces for.
 4. In the **Virtual machine** blade that appears for the VM you selected, click **Network interfaces**.
