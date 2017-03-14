@@ -20,7 +20,7 @@ ms.author: amsriva
 
 # Application Gateway Web Application Firewall (WAF)
 
-Web application firewall (WAF) is a feature of azure application gateway that provides protection to web applications that leverage application gateway for standard Application Delivery Control (ADC) functions. Web application firewall does this by protecting them based on rules from the OWASP CRS 3.0 or 2.2.9 core rule sets. Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks, cross site scripting attacks to name a few. Preventing such attacks in application code can be challenging and may require rigorous maintenance, patching and monitoring at multiple layers of the application topology. A centralized web application firewall to protect against web attacks makes security management much simpler and gives better assurance to the application against the threats of intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications. Existing application gateways can be converted to an application gateway with web application firewall easily.
+Web application firewall (WAF) is a feature of Applcation Gateway that provides protection to web applications that leverage application gateway for standard Application Delivery Control (ADC) functions. Web application firewall does this by protecting them based on rules from the OWASP CRS 3.0 or 2.2.9 core rule sets. Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks, cross site scripting attacks to name a few. Preventing such attacks in application code can be challenging and may require rigorous maintenance, patching and monitoring at multiple layers of the application topology. A centralized web application firewall to protect against web attacks makes security management much simpler and gives better assurance to the application against the threats of intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications. Existing application gateways can be converted to an application gateway with web application firewall easily.
 
 ![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/WAF1.png)
 
@@ -56,7 +56,7 @@ The 3.0 core rule set provided has 13 rule groups as shown in the following tabl
 
 |RuleGroup|Description|
 |---|---|
-|**[REQUEST-910-IP-REPUTATION](application-gateway-crs-rulegroups-rules.md#910)**|Contains rules to protect against known spammers or malicious activity.|
+|**[REQUEST-910-IP-REPUTATION](application-gateway-crs-rulegroups-rules.md#crs910)**|Contains rules to protect against known spammers or malicious activity.|
 |**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|Contains rules to lock down methods (PUT, PATCH< ..)|
 |**[REQUEST-912-DOS-PROTECTION](application-gateway-crs-rulegroups-rules.md#crs912)**| Contains rules to protect against Denial of Service (DoS) attacks.|
 |**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**| Contains rules to protect against port and environment scanners.|
@@ -92,9 +92,6 @@ CRS 3 contains many improvements over CRS 2.2.9.  Some of these improvements are
 * Reduction in false positives
 * SLi/XSS parsing using libinjection
 * IP repuditation
-
-## Rule groups and rules
-
 
 ## WAF Modes
 
