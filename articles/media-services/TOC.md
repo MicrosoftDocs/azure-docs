@@ -121,7 +121,7 @@
 ## [Protect](media-services-content-protection-overview.md)
 ### [Configure content protection in the portal](media-services-portal-protect-content.md)
 ### [Configure AES-128 clear key for your stream](media-services-protect-with-aes128.md)
-### [Encrypting your Content with Storage Encryption using AMS REST API](media-services-rest-storage-encryption.md)
+### [Encrypting your Content with Storage Encryption using Media Services REST API](media-services-rest-storage-encryption.md)
 ### [Media Services PlayReady License Template Overview](media-services-playready-license-template-overview.md)
 ### [Widevine license template overview](media-services-widevine-license-template-overview.md)
 ### [DRM license delivery](media-services-deliver-keys-and-licenses.md)
@@ -192,8 +192,8 @@
 ### [Licensing Microsoft Smooth Streaming Client Porting Kit](media-services-sspk.md)
 
 ## Integrate
-### [Get started with AMS Azure Functions](media-services-dotnet-how-to-use-azure-functions.md)
-### [AMS Azure Functions examples](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
+### [Use Azure Functions with Media Services](media-services-dotnet-how-to-use-azure-functions.md)
+### [Azure Functions with Media Services examples](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
 
 ## Monitor
 ### Check job progress
