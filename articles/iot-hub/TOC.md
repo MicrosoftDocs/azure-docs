@@ -96,7 +96,7 @@
 #### [Troubleshoot](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
 ## Use an Arduino
-### [Node.js](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+### [Arduino](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Lesson 1: Configure your device
 ##### [Configure your device](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
 ##### [Get the tools (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
@@ -140,6 +140,8 @@
 ##### [Create an Azure function app and Azure Storage account](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
 ##### [Read messages persisted in Azure Table storage](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
 
+#### [Lesson 5: Create your first Azure IoT Gateway module](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
+
 #### [Troubleshooting](iot-hub-gateway-kit-c-sim-troubleshooting.md)
 
 ### [SensorTag device](iot-hub-gateway-kit-c-get-started.md)
@@ -159,6 +161,8 @@
 #### Lesson 4: Save messages to Azure Table storage
 ##### [Create an Azure function app and Azure Storage account](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
 ##### [Read messages persisted in Azure Table storage](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
+
+#### [Lesson 5: Create your first Azure IoT Gateway module](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
 
 ##### [Troubleshooting](iot-hub-gateway-kit-c-troubleshooting.md)
 
