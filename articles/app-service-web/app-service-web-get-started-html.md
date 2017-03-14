@@ -20,9 +20,9 @@ ms.author: cephalin
 # Create a static HTML web app in Azure in five minutes
 [!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
-This QuickStart helps you deploy a simple HTML+CSS site to [Azure App Service](../app-service/app-service-value-prop-what-is.md) in just a few minutes.
+This Quickstart helps you deploy a simple HTML+CSS site to [Azure App Service](../app-service/app-service-value-prop-what-is.md) in just a few minutes.
 
-Before starting this QuickStart, ensure that [the Azure CLI is installed](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) on your machine.
+Before starting this Quickstart, ensure that [the Azure CLI is installed](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) on your machine.
 
 ## Create a static HTML site in Azure
 2. Log in to Azure by running `az login` and following the on-screen directions.

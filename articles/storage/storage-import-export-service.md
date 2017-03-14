@@ -267,7 +267,7 @@ The first step when importing data using the Azure Import/Export service is to p
 
     **Driveset CSV File**
 
-    The value of the driveset flag is a CSV file which contains the list of disks to which the drive letters are mapped in order to the tool to correctly pick the list of disks to be prepared. 
+    The value of the driveset flag is a CSV file which contains the list of disks to which the drive letters are mapped in order for the tool to correctly pick the list of disks to be prepared. 
 
     Below is the example of driveset CSV file:
     
