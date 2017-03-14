@@ -55,7 +55,7 @@ The tool provides the following details:
 
 >[!IMPORTANT]
 >
->Because usage is likely to increase over time, all the preceding tool calculations are performed assuming a 30 percent growth factor in  workload characteristics, and using a 95th percentile value of all the profiling metrics (read/write IOPS, churn, and so forth). Both of these elements (growth factor and percentile calculation) are configurable. Learn more about [growth factor](site-recovery-deployment-planner.md#growth-factor) and [percentile value used for the calculation](site-recovery-deployment-planner.md#percentile-value-used-for-the-calculation).
+>Because usage is likely to increase over time, all the preceding tool calculations are performed assuming a 30 percent growth factor in  workload characteristics, and using a 95th percentile value of all the profiling metrics (read/write IOPS, churn, and so forth). Both of these elements (growth factor and percentile calculation) are configurable. To learn more about growth factor, see the "Growth-factor considerations" section. To learn more about  percentile value, see the "Percentile value used for the calculation" section.
 >
 
 ## Requirements
@@ -84,11 +84,11 @@ You can run the tool from any Windows Server 2012 R2 that has network access to 
 3. Extract the .zip folder.  
 The folder contains multiple files and subfolders. The executable file is ASRDeploymentPlanner.exe in the parent folder.
 
-	Example:
-	Copy the .zip file to E:\ drive and extract it.
-	E:\ASR Deployment Planner-Preview_v1.0.zip
+    Example:  
+    Copy the .zip file to E:\ drive and extract it.
+    E:\ASR Deployment Planner-Preview_v1.1.zip
 
-	E:\ASR Deployment Planner-Preview_v1.0\ ASR Deployment Planner-Preview_v1.0\ ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
 
 ## Capabilities
 You can run the command-line tool (ASRDeploymentPlanner.exe) in any of the following three modes:
@@ -198,12 +198,12 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 | -GrowthFactor | (Optional) The growth factor, expressed as a percentage. The default is 30 percent. |
 
 ### Example 1: Generate a report with default values when the profiled data is on the local drive
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt”
-
-### Example 2: Generate a report when the profiled data is on a remote server.
-Users should have read/write access on the remote directory.
-
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
+
+### Example 2: Generate a report when the profiled data is on a remote server
+You should have read/write access on the remote directory.
+
+ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 
 ### Example 3: Generate a report with a specific bandwidth and goal to complete IR within specified time
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-Bandwidth** 100 **-GoalToCompleteIR** 24
@@ -216,10 +216,10 @@ For example, you have 30 days of profiled data and want to generate a report for
 
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-StartDate**  01-10-2017:12:30 -**EndDate** 01-19-2017:12:30
 
-### Example 6: Generate a report for 5-minute RPO.
+### Example 6: Generate a report for 5-minute RPO
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  **-DesiredRPO** 5
 
-## The percentile value used for the calculation
+## Percentile value used for the calculation
 **What default percentile value of the performance metrics collected during profiling does the tool use when it generates a report?**
 
 The tool defaults to the 95th percentile values of read/write IOPS, write IOPS, and data churn that are collected during profiling of all the VMs. This metric ensures that the 100th percentile spike your VMs might see because of temporary events is not used to determine your target storage-account and source-bandwidth requirements. For example, a temporary event might be a backup job running once a day, a periodic database indexing or analytics report-generation activity, or other similar short-lived, point-in-time events.
@@ -510,8 +510,11 @@ These limits are based on our tests, but they cannot cover all possible applicat
 To update the deployment planner, do the following:
 
 1. Download the latest version of the [Azure Site Recovery deployment planner](https://aka.ms/asr-deployment-planner).
+
 2. Copy the .zip folder to a server that you want to run it on.
+
 3. Extract the .zip folder.
+
 4. Do either of the following:
  * If the latest version doesn't contain a profiling fix and profiling is already in progress on your current version of the planner, continue the profiling.
  * If the latest version does contain a profiling fix, we recommended that you stop profiling on your current version and restart the profiling with the new version.
