@@ -28,14 +28,14 @@ Implementing faceted navigation differs across search technologies. In Azure Sea
 
 -   In the queries that your application builds, a query must send *facet query parameters* in order to get the available facet filter values for that document result set.
 
--   To actually trim the document result set, the application must apply a `$filter` expression.
+-   To actually trim the document result set, the application must also apply a `$filter` expression.
 
 In your application development, writing code that constructs queries constitutes the bulk of the work. Many of the application behaviors that you would expect from faceted navigation are provided by the service, including built-in support for defining ranges and getting counts for facet results. The service also includes sensible defaults that help you avoid unwieldy navigation structures. 
 
 ## Online demo and sample code
 This article uses a job search portal as an example. The example is implemented as an ASP.NET MVC application.
 
--   See and test the working portal online at [Azure Search Job Portal Demo](http://azjobsdemo.azurewebsites.net/).
+-   See and test the working demo online at [Azure Search Job Portal Demo](http://azjobsdemo.azurewebsites.net/).
 
 -   Download the code from the [Azure-Samples repo on GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -111,6 +111,36 @@ Faceting is enabled on a field-by-field basis in the index, via this index attri
 All field types that could possibly be used in faceted navigation are `Facetable` by default. Such field types include `Edm.String`, `Edm.DateTimeOffset`, and all the numeric field types (essentially, all field types are facetable except `Edm.GeographyPoint`, which can’t be used in faceted navigation). 
 
 When building an index, a best practice for faceted navigation is to explicitly turn faceting off for fields that should never be used as a facet.  In particular, string fields for singleton values, such as an ID or product name, should be set to `"Facetable": false` to prevent their accidental (and ineffective) use in a faceted navigation. Turning faceting off where you don’t need it helps keep the size of the index small, and generally improves performance.
+
+Following is part of the schema for the Job Portal Demo sample app, trimmed of some attributes to reduce the size:
+
+```
+{
+  ...
+  "name": "nycjobs",
+  "fields": [
+    { “name”: "id", "type": "Edm.String", "searchable": false, "filterable": false, ... "facetable": false, ... },
+    { “name”: "job_id", "type": "Edm.String", "searchable": false, "filterable": false, ... "facetable": false, ... },
+    { “name”: "agency", "type": "Edm.String", "searchable": true, "filterable": true, ... "facetable": true, ... },
+    { “name”: "posting_type", "type": "Edm.String", "searchable": true, "filterable": true, ... "facetable": true, ... },
+    { “name”: "num_of_positions", "type": "Edm.Int32", "searchable": false, "filterable": true, ... "facetable": true, ... },
+    { “name”: "business_title", "type": "Edm.String", "searchable": true, "filterable": true, ... "facetable": true, ... },
+    { “name”: "civil_service_title", "type": "Edm.String", "searchable": true, "filterable": true, ... "facetable": true, ... },
+    { “name”: "title_code_no", "type": "Edm.String", "searchable": true, "filterable": true, ... "facetable": true, ... },
+    { “name”: "level", "type": "Edm.String", "searchable": true, "filterable": true, ... "facetable": true, ... },
+    { “name”: "salary_range_from", "type": "Edm.Int32", "searchable": false, "filterable": true, ... "facetable": true, ... },
+    { “name”: "salary_range_to", "type": "Edm.Int32", "searchable": false, "filterable": true, ... "facetable": true, ... },
+    { “name”: "salary_frequency", "type": "Edm.String", "searchable": true, "filterable": true, ... "facetable": true, ... },
+    { “name”: "work_location", "type": "Edm.String", "searchable": true, "filterable": true, ... "facetable": true, ... },
+…
+    { “name”: "geo_location", "type": "Edm.GeographyPoint", "searchable": false, "filterable": true, ... "facetable": false, ... },
+    { “name”: "tags", "type": "Collection(Edm.String)", "searchable": true, "filterable": true, ... "facetable": true, ... }
+  ],
+…
+}
+```
+
+Note that `Facetable` is turned off for string fields that shouldn’t be used as facets, such as ID values. Turning faceting off where you don’t need it helps keep the size of the index small, and generally improves performance.
 
 > [!TIP]
 > As a best practice, include the full set of index attributes for each field. Although `Facetable` is on by default for almost all fields, purposely setting each attribute can help you think through the implications of each schema decision. 
@@ -343,7 +373,7 @@ You can find filter examples in [OData expression syntax (Azure Search)](http://
 ## Try the demo
 The Azure Search Job Portal Demo contains the examples referenced in this article.
 
--   See and test the working portal online at [Azure Search Job Portal Demo](http://azjobsdemo.azurewebsites.net/).
+-   See and test the working demo online at [Azure Search Job Portal Demo](http://azjobsdemo.azurewebsites.net/).
 
 -   Download the code from the [Azure-Samples repo on GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
