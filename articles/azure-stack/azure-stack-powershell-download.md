@@ -26,6 +26,8 @@ To clone the repository, download [Git](https://git-scm.com/download/win) for Wi
 
 ```PowerShell
 
+cd \
+
 git clone https://github.com/Azure/AzureStack-Tools.git --recursive
 
 cd AzureStack-Tools
@@ -34,6 +36,8 @@ cd AzureStack-Tools
 To download the tools folder, run the following command:
 
 ```PowerShell
+
+cd \
 
 invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip -OutFile master.zip
 
