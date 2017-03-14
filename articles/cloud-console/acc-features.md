@@ -54,5 +54,5 @@ Once a fileshare is associated with your console, it will be mounted on each sub
 To learn more visit [Attaching file storage](acc-persisting-storage.md).
 
 ## Next steps
-- [ACC Quickstart](acc-quickstart.md) <br>
-- [Azure CLI 2.0 documentation](https://docs.microsoft.com/en-us/cli/azure/) <br>
+- [ACC Quickstart](acc-quickstart.md) 
+- [Azure CLI 2.0 documentation](https://docs.microsoft.com/en-us/cli/azure/) 

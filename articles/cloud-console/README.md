@@ -76,3 +76,6 @@ The console is supported for Chrome, Firefox, Safari, IE, and Edge, but shortcut
 - Portal tabs left inactive for long periods of time will have tokens expire, this can disable reactivating the console. Please refresh your page to fix this.
 - Shortcuts (ctrl-v and ctrl-c) not supported on Windows in preview
 - Right-click paste not supported on IE/Firefox
+
+## Next steps
+- [ACC Quickstart](acc-quickstart.md) 
