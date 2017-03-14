@@ -13,23 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2017
+ms.date: 03/14/2017
 ms.author: alkohli
 
 ---
 # Use the StorSimple Diagnostics Tool to troubleshoot 8000 series device issues
 
-The StorSimple Diagnostics tool diagnoses and troubleshoots issues related to system, performance, network, and hardware component health of a StorSimple device. The diagnostics tool can be used in a host of scenarios such as planning a deployment, deploying a StorSimple device, assessing the network environment, and determining the performance of an operational device. This article provides an overview of the diagnostics tool and describes how the tool can be used in conjunction with a StorSimple device.
+## Overview
+
+The StorSimple Diagnostics tool diagnoses issues related to system, performance, network, and hardware component health for a StorSimple device. The diagnostics tool can be used in various scenarios. These scenarios include planning a deployment, deploying a StorSimple device, assessing the network environment, and determining the performance of an operational device. This article provides an overview of the diagnostics tool and describes how the tool can be used with a StorSimple device.
 
 The diagnostics tool is primarily intended for StorSimple 8000 series on-premises devices (8100 and 8600).
 
-## Run StorSimple Diagnostics Tool
+## Run diagnostics tool
 
 This tool can be run via the Windows PowerShell interface of your StorSimple device. There are two ways to access the local interface of your device:
 
-* [Use PuTTy to connect to the device serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+* [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 * [Remotely access the tool via the Windows PowerShell for StorSimple](storsimple-remote-connect.md).
 
+In this article, we assume that you have connected to the device serial console via PuTTY.
 
 #### To run the diagnostics tool
 
@@ -40,33 +43,34 @@ Once you have connected to the Windows PowerShell interface of the device, perfo
 
 	`Invoke-HcsDiagnostics`
 
-	If the scope parameter is not specified, the cmdlet will execute all the diagnostics tests, system, hardware component health, network, and performance. Specify the scope parameter to run only a specific test.
-
-	For instance to run only the network test, type
+	If the scope parameter is not specified, the cmdlet executes all the diagnostic tests. These tests include system, hardware component health, network, and performance. 
+    
+    To run only a specific test, specify the scope parameter. For instance, to run only the network test, type
 
     `Invoke-HcsDiagnostics -Scope Network`
 
+3. Select and copy the output from the PuTTY window into a text file for further analysis.
 
 ## Scenarios to use the diagnostics tool
 
-The diagnostics tool can be used in various scenarios to troubleshoot the network, performance, system, and hardware component health of the system. Here are some possible scenarios:
+Use the diagnostics tool to troubleshoot the network, performance, system, and hardware health of the system. Here are some possible scenarios:
 
-* Your StorSimple 8000 series device is offline. However, from the Windows PowerShell interface, it seems that both the controllers are up and running.
+* **Device offline** - Your StorSimple 8000 series device is offline. However, from the Windows PowerShell interface, it seems that both the controllers are up and running.
     * You can use this tool to then determine the network state.
          
          > [!NOTE]
-         > Do not use this tool to assess performance and network settings on a device prior to registration (or configuring via setup wizard). A valid IP is assigned to the device during setup wizard and registration. You can run this cmdlet, on a device that is not registered, for hardware health and system. Use the scope parameter, for example:
+         > Do not use this tool to assess performance and network settings on a device before the registration (or configuring via setup wizard). A valid IP is assigned to the device during setup wizard and registration. You can run this cmdlet, on a device that is not registered, for hardware health and system. Use the scope parameter, for example:
          >
          > `Invoke-HcsDiagnostics -Scope Hardware`
          >
          > `Invoke-HcsDiagnostics -Scope System`
 
-* You are experiencing device issues that seem to persist. For instance, registration is failing. You could also be experiencing device issues after the device is successfully registered and operational for a while.
+* **Persistent device issues** - You are experiencing device issues that seem to persist. For instance, registration is failing. You could also be experiencing device issues after the device is successfully registered and operational for a while.
     * In this case, use this tool for preliminary troubleshooting prior to logging a service request with Microsoft Support. We recommend that you run this tool and capture the output of this tool. You can then provide this output to Support to expedite troubleshooting.
     * If there are any hardware component or cluster failures, you should log in a Support request.
 
-* The performance of your StorSimple device is slow.
-    * In this case, run this cmdlet with scope parameter set to performance. Analyze the output. You will get the cloud read-write latencies. Use the reported latencies as maximum achievable target, factor in some overhead for the internal data processing, and then deploy the workloads on the system.
+* **Low device performance** - Your StorSimple device is slow.
+    * In this case, run this cmdlet with scope parameter set to performance. Analyze the output. You get the cloud read-write latencies. Use the reported latencies as maximum achievable target, factor in some overhead for the internal data processing, and then deploy the workloads on the system. For more information, go to [Use the network test to troubleshoot device performance](#network-test).
 
 
 ## Diagnostics test and sample outputs
@@ -75,7 +79,7 @@ The diagnostics tool can be used in various scenarios to troubleshoot the networ
 
 This test determines the status of the hardware components, the USM firmware, and the disk firmware running on your system.
 
-* The hardware components reported are those that failed the test or are not present in the system.
+* The hardware components reported are those componentes that failed the test or are not present in the system.
 * The USM firmware and disk firmware versions are reported for the Controller 0, Controller 1, and shared components in your system. For a complete list of hardware components, go to:
     * Controller 0 components
     * Controller 1 components
@@ -86,7 +90,7 @@ This test determines the status of the hardware components, the USM firmware, an
 
 #### Sample output of hardware test run on an 8100 device
 
-Here is a sample output from a StorSimple 8100 device. In the 8100 model device, the EBOD enclosure is not present, hence EBOD controller components will not be reported.
+Here is a sample output from a StorSimple 8100 device. In the 8100 model device, the EBOD enclosure is not present. Hence, the EBOD controller components are not reported.
 
 ```
 Controller0>Invoke-HcsDiagnostics -Scope Hardware
@@ -389,26 +393,27 @@ Web proxy                               Not enabled         Web proxy is not...
 
 This test reports the cloud performance via the cloud read-write latencies for your device. This tool can be used to establish a baseline of the cloud performance that you can achieve with StorSimple. The tool reports the maximum performance (best case scenario for read-write latencies) that you can get for your connection.
 
-As the tool reports the maxmimum achievable performance, we can use the reported read-write latencies as targets when deploying the workloads.
+As the tool reports the maximum achievable performance, we can use the reported read-write latencies as targets when deploying the workloads.
 
-The test simulates the blob sizes associated with the different volume types on the device. Regular tiered and backups of locally pinned volumes use a 64 KB blob size. Tiered volumes with archive option checked use 512 KB blob data size. If your device has only regular tiered and locally pinned volumes configured, only the test corresponding to 64 KB blob data size is run.
+The test simulates the blob sizes associated with the different volume types on the device. Regular tiered and backups of locally pinned volumes use a 64 KB blob size. Tiered volumes with archive option checked use 512 KB blob data size. If your device has tiered and locally pinned volumes configured, only the test corresponding to 64 KB blob data size is run.
 
-To use this tool, perform the following steps.
+To use this tool, perform the following steps:
 
-*  First, create a mix of tiered volumes and tiered volumes with archived option checked. This ensures that the tool runs the tests for both 64 KB and 512 KB blob sizes.
+1.  First, create a mix of tiered volumes and tiered volumes with archived option checked. This action ensures that the tool runs the tests for both 64 KB and 512 KB blob sizes.
 
-* Run the cmdlet after you have created and configured the volumes. Type:
+2. Run the cmdlet after you have created and configured the volumes. Type:
 
     `Invoke-HcsDiagnostics - Scope Performance`
 
-* Make a note of the read-write latencies reported by the tool. This test can take several minutes to run before it reports the results.
+3. Make a note of the read-write latencies reported by the tool. This test can take several minutes to run before it reports the results.
 
-* If the read-write latencies reported are high
-    * You need to contact your network administrator to investigate any latency issues in your network.
+4. If the connection latencies are all under the expected range, then the latencies reported by the tool can be used as maximum achievable target when deploying the workloads. Factor in some overhead for internal data processing.
 
-    * Run the Azure storage tool to ensure that performance of your Azure storage account is fine. Make a note of the read-write latencies reported in this case. For more information, go to []() If the Azure storage latencies are high, you will need to log a service request with Azure storage.
+    If the read-write latencies reported by the diagnostics tool are high:
 
-* If the connection latencies are all under the expected range, then the latencies reported by the tool can be used as maxmimum achiveable target when deploying the workloads. Factor in some overhead for internal data processing.
+    1. Configure Storage Analytics for blob services and analyze the output to understand the latencies for the Azure storage account. For detailed instructions, go to [enable and configure Storage Analytics](/articles/storage/storage-enable-and-view-metrics.md). If those latencies are also high and comparable to the numbers you received from the StorSimple Diagnostics tool, then you need to log a service request with Azure storage.
+
+    2. If the storage account latencies are low, then you need to contact your network administrator to investigate any latency issues in your network.
 
 #### Sample output of performance test run on an 8100 device
 
@@ -430,5 +435,4 @@ Controller0>
 
 ## Next steps
 
-Learn how to [apply normal and maintenance mode updates](storsimple-update-device.md) on your StorSimple device.
-
+Learn the [syntax of the Invoke-HcsDiagnostics cmdlet](https://technet.microsoft.com/library/mt795371.aspx).
