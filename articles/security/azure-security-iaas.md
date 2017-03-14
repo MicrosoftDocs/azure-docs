@@ -42,7 +42,7 @@ Doing things like checking email and browsing the Internet seem innocent enough.
 
 Privileged Access Workstations (PAWs) provide a dedicated operating system for sensitive tasks--one that is protected from Internet attacks and threat vectors. Separating these sensitive tasks and accounts from the daily-use workstations and devices provides strong protection from phishing attacks, application and OS vulnerabilities, various impersonation attacks, and credential theft attacks such as keystroke logging, Pass-the-Hash, and Pass-the-Ticket.
 
-The PAW approach is an extension of the well-established and recommended practice to use an individually assigned administrative account that is separate from a user's standard user account. A PAW provides a trustworthy workstation for those sensitive accounts.
+The PAW approach is an extension of the well-established and recommended practice to use an individually assigned administrative account that is separate from a standard user account. A PAW provides a trustworthy workstation for those sensitive accounts.
 
 For more information and implementation guidance, see [Privileged Access Workstations](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations).
 
@@ -54,9 +54,9 @@ One of the most beneficial steps that you can take to secure an account is to en
 
 [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options--phone call, text message, or mobile app notification. Users choose the method that they prefer.
 
-The easiest way to use Multi-Factor Authentication is the Microsoft Authenticator mobile app that can be used on mobile devices running Windows, iOS, and Android. With the latest release of Windows 10 and the integration of on-premises Active Directory with Azure Active Directory (Azure AD), [Microsoft Hello for Business](../active-directory/active-directory-azureadjoin-passport-deployment.md) can be used for seamless single sign-on to Azure resources. In this case, the Windows 10 device is used as the second factor for authentication.
+The easiest way to use Multi-Factor Authentication is the Microsoft Authenticator mobile app that can be used on mobile devices running Windows, iOS, and Android. With the latest release of Windows 10 and the integration of on-premises Active Directory with Azure Active Directory (Azure AD), [Windows Hello for Business](../active-directory/active-directory-azureadjoin-passport-deployment.md) can be used for seamless single sign-on to Azure resources. In this case, the Windows 10 device is used as the second factor for authentication.
 
-For accounts that manage your Azure subscription and for accounts that can log on to virtual machines, using Multi-Factor Authentication gives you a much greater level of security than using only a password. Other forms of two-factor authentication might work just as well, but deploying them might be complicated if they're not already in production.
+For accounts that manage your Azure subscription and for accounts that can sign in to virtual machines, using Multi-Factor Authentication gives you a much greater level of security than using only a password. Other forms of two-factor authentication might work just as well, but deploying them might be complicated if they're not already in production.
 
 The following screenshot shows some of the options available for Azure Multi-Factor Authentication:
 
@@ -81,7 +81,7 @@ You can use [Privileged Identity Management](../active-directory/active-director
 
 ## Use DevTest Labs
 
-Using Azure for labs and development environments allows organizations to gain agility in testing and development by taking away the delays that hardware procurement introduces. Unfortunately, a lack of familiarity with Azure or a desire to help expedite its adoption might lead the administrator to be overly permissive with rights assignment. This risk might unintentionally expose the organization to internal attacks. Some users might be granted a lot more access than they should have.
+Using Azure for labs and development environments enables organizations to gain agility in testing and development by taking away the delays that hardware procurement introduces. Unfortunately, a lack of familiarity with Azure or a desire to help expedite its adoption might lead the administrator to be overly permissive with rights assignment. This risk might unintentionally expose the organization to internal attacks. Some users might be granted a lot more access than they should have.
 
 The [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) service uses [Azure Role-Based Access Control](../active-directory/role-based-access-control-what-is.md) (RBAC). By using RBAC, you can segregate duties within your team into roles that grant only the level of access necessary for users to do their jobs. RBAC comes with predefined roles (owner, lab user, and contributor). You can even use these roles to assign rights to external partners and greatly simplify collaboration.
 
@@ -183,7 +183,7 @@ For environments that are hosted separately from your production environment, yo
 ![Azure Antimalware](./media/azure-security-iaas/azantimalware.png)
 
 ### Install the latest security updates
-Some of the first workloads that customers move to Azure are labs and external-facing systems. If your Azure-hosted virtual machines host applications or services that need to be accessible to the Internet, be vigilant about patching. Patch beyond the operating system. Unpatched vulnerabilities on third-party applications can also lead to problems that would have been avoided if good patch management was in place.
+Some of the first workloads that customers move to Azure are labs and external-facing systems. If your Azure-hosted virtual machines host applications or services that need to be accessible to the Internet, be vigilant about patching. Patch beyond the operating system. Unpatched vulnerabilities on third-party applications can also lead to problems that can be avoided if good patch management is in place.
 
 ### Deploy and test a backup solution
 
@@ -214,11 +214,11 @@ New features are delivered automatically, saving you from ongoing maintenance an
 
 You can use the security and compliance features in Operations Management Suite to view information about your resources. The information is organized into four major categories:
 
-- Security domains: Further explore security records over time, and access malware assessment, update assessment, network security information, identity and access information, and computers with security events. Take advantage of quick access to the Azure Security Center dashboard.
-- Notable issues: Quickly identify the number of active issues and the severity of these issues.
-- Detections (preview): Identify attack patterns by visualizing security alerts as they happen against your resources.
-- Threat intelligence: Identify attack patterns by visualizing the total number of servers with outbound malicious IP traffic, the malicious threat type, and a map that shows where these IPs are coming from.
-- Common security queries: See a list of the most common security queries that you can use to monitor your environment. When you click one of those queries, the **Search** blade opens and shows the results for that query.
+- **Security domains**: Further explore security records over time. Access malware assessment, update assessment, network security information, identity and access information, and computers with security events. Take advantage of quick access to the Azure Security Center dashboard.
+- **Notable issues**: Quickly identify the number of active issues and the severity of these issues.
+- **Detections (preview)**: Identify attack patterns by visualizing security alerts as they happen against your resources.
+- **Threat intelligence**: Identify attack patterns by visualizing the total number of servers with outbound malicious IP traffic, the malicious threat type, and a map that shows where these IPs are coming from.
+- **Common security queries**: See a list of the most common security queries that you can use to monitor your environment. When you click one of those queries, the **Search** blade opens and shows the results for that query.
 
 The following screenshot shows an example of the information that Operations Management Suite can display.
 
