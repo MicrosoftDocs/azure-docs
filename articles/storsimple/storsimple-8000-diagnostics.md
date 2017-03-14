@@ -413,7 +413,7 @@ To use this tool, perform the following steps:
 
     1. Configure Storage Analytics for blob services and analyze the output to understand the latencies for the Azure storage account. For detailed instructions, go to [enable and configure Storage Analytics](/articles/storage/storage-enable-and-view-metrics.md). If those latencies are also high and comparable to the numbers you received from the StorSimple Diagnostics tool, then you need to log a service request with Azure storage.
 
-    2. If the storage account latencies are low, then you need to contact your network administrator to investigate any latency issues in your network.
+    2. If the storage account latencies are low, contact your network administrator to investigate any latency issues in your network.
 
 #### Sample output of performance test run on an 8100 device
 
