@@ -1,4 +1,4 @@
-# Overview
+# [Overview](overview.md)
 ## [Features](acc-features.md)
 ## [Limitations](acc-limitations.md)
 ## [Pricing](acc-pricing.md)
@@ -13,7 +13,6 @@
 ## [Persisting storage](acc-persisting-storage.md)
 
 # Reference
-## [Readme](readme.md)
 ## [Azure CLI 2.0] (/cli/azure) 
 
 
