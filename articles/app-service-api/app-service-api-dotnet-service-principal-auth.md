@@ -4,7 +4,7 @@ description: Learn how to protect an API app in Azure App Service for service-to
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 7ca0bab2-1d29-4d51-b779-dce0edd34f8b

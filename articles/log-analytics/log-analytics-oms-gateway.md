@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
-# Connect computers and devices to OMS using the OMS Gateway
+# Connect computers and devices without Internet access to OMS using the OMS Gateway
+
 This document describes how your OMS-managed devices and System Center Operations Manager (SCOM)-monitored computers can send data to the OMS service when they do not have Internet access. The OMS Gateway can collect the data and send it to the OMS service on their behalf.
 
 The gateway is a HTTP forward proxy that supports HTTP tunneling using the HTTP CONNECT command. The gateway can handle up to 2000 OMS concurrently connected devices when run on a 4-core CPU, 16-GB server running Windows.
@@ -96,11 +98,11 @@ Prerequisites: .Net Framework 4.5, Windows Server 2012 R2 SP1 and above
 4. On the port and proxy address page:
    1. Type the TCP port number to be used for the gateway. Setup opens this port number from Windows firewall. The default value is 8080.
       The valid range of the port number is 1 - 65535. If the input does not fall into this range, an error message appears.
-   2. Optionally, if the server where the gateway is installed needs to use a proxy, type the proxy address where the gateway needs to connect. For example, `http://myorgname.corp.contoso.com:80` If blank, the gateway will try to connect to the Internet directly. Otherwise, the gateway connects to the proxy. If your proxy server requires authentication, type your username and password.
+   2. Optionally, if the server where the gateway is installed needs to use a proxy, type the proxy address where the gateway needs to connect. For example, `http://myorgname.corp.contoso.com:80` If blank, the gateway will try to connect to the Internet directly. Otherwise, the gateway connects to the proxy. If your proxy server requires authentication, type your username and password.  
        ![Gateway Wizard proxy configuration](./media/log-analytics-oms-gateway/gateway-wizard02.png)  
    3. Click **Next**
 5. If you do not have Microsoft Updates enabled, the Microsoft Update page appears where you can choose to enable Microsoft Updates. Make a selection and then click **Next**. Otherwise, continue to the next step.
-6. On the Destination Folder page, either leave the default folder **%ProgramFiles%\OMS Gateway** or type the location where you want to install gateway and then click **Next**.
+6. On the Destination Folder page, either leave the default folder c:\ProgramFiles\OMS Gateway or type the location where you want to install gateway and then click **Next**.
 7. On the Ready to install page, click **Install**. A User Account Control might appear requesting permission to install. If so, click **Yes**.
 8. After Setup completes, click **Finish**. You can verify that the service is running by opening the services.msc snap-in and verify that **OMS Gateway** appears in the list of services.  
     ![Services – OMS Gateway](./media/log-analytics-oms-gateway/gateway-service.png)
@@ -214,7 +216,7 @@ Cmdlets can help you complete tasks that are needed to update the OMS Gateway's 
 4. If no error occurred in the previous step, the module was successfully imported, and the cmdlets can be used. Type `Get-Module OMSGateway`
 5. After you make changes by using the cmdlets, ensure that you restart the Gateway service.
 
-If you get an error in step 3, the module wasn't imported. The error might occur when PowerShell is unable to find the module. You can find it in the Gateway's installation path: C:\Program File\Microsoft OMS Gateway\PowerShell.
+If you get an error in step 3, the module wasn't imported. The error might occur when PowerShell is unable to find the module. You can find it in the Gateway's installation path: C:\Program Files\Microsoft OMS Gateway\PowerShell.
 
 | **Cmdlet** | **Parameters** | **Description** | **Examples** |
 | --- | --- | --- | --- |

@@ -21,11 +21,6 @@ ms.author: sstein;carlrab
 
 ---
 # Connect to SQL Database with SQL Server Management Studio and execute a sample T-SQL query
-> [!div class="op_single_selector"]
-> * [Visual Studio](sql-database-connect-query.md)
-> * [SSMS](sql-database-connect-query-ssms.md)
-> * [Excel](sql-database-connect-excel.md)
-> 
 
 This article shows how to connect to an Azure SQL database using SQL Server Management Studio (SSMS). After successfully connecting, we run a simple Transact-SQL (T-SQL) query to verify communication with the database.
 

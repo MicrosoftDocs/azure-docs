@@ -12,8 +12,7 @@
 ### [Name resolution](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 # Get Started
-## [Create a virtual network](virtual-networks-create-vnet-arm-pportal.md)
-## [Deploy a VM to a virtual network](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+## [Create your first virtual network](virtual-network-get-started-vnet-subnet.md)
 
 # How To
 ## Plan and design
@@ -97,9 +96,10 @@
 ##### [Sample application](virtual-networks-sample-app.md)
 
 ## Configure
-### Accelerated networking
+### Accelerated networking for VMs
 #### [Azure portal](virtual-network-accelerated-networking-portal.md)
 #### [PowerShell](virtual-network-accelerated-networking-powershell.md)
+### [Optimize VM network throughput](virtual-network-optimize-network-bandwidth.md)
 ### Access control lists
 #### [Classic portal](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)

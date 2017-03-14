@@ -3,7 +3,7 @@ title: Connect to Azure Storage in your Xamarin.Forms app
 description: Add images to the todo list Xamarin.Forms mobile app by connecting to Azure blob storage
 documentationcenter: xamarin
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: ''
 services: app-service\mobile
 

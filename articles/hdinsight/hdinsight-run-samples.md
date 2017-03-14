@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 02/14/2017
 ms.author: jgao
 
 ---
 # Run Hadoop MapReduce samples in Windows-based HDInsight
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-A set of samples are provided to help you get started running MapReduce jobs on Hadoop clusters using Azure HDInsight. These samples are made available on each of the HDInsight managed clusters that you create. Running these samples will familiarize you with using Azure PowerShell cmdlets to run jobs on Hadoop clusters.
+A set of samples are provided to help you get started running MapReduce jobs on Hadoop clusters using Azure HDInsight. These samples are made available on each of the HDInsight managed clusters that you create. Running these samples familiarize you with using Azure PowerShell cmdlets to run jobs on Hadoop clusters.
 
 * [**Word count**][hdinsight-sample-wordcount]: Counts word occurrences in a text file.
 * [**C# streaming word count**][hdinsight-sample-csharp-streaming]: Counts word occurrences in a text file using the Hadoop streaming interface.
@@ -37,7 +37,7 @@ Much additional documentation exists on the web for Hadoop-related technologies,
 * [Submit Hadoop jobs in HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
 * [Introduction to Azure HDInsight][hdinsight-introduction]
 
-Nowadays, a lot of people choose Hive and Pig over MapReduce.  For more information, see :
+Nowadays, many people choose Hive and Pig over MapReduce.  For more information, see:
 
 * [Use Hive in HDInsight](hdinsight-use-hive.md)
 * [Use Pig in HDInsight](hdinsight-use-pig.md)
@@ -51,10 +51,10 @@ Nowadays, a lot of people choose Hive and Pig over MapReduce.  For more informat
     > [!IMPORTANT]
     > Azure PowerShell support for managing HDInsight resources using Azure Service Manager is **deprecated**, and will be removed by January 1, 2017. The steps in this document use the new HDInsight cmdlets that work with Azure Resource Manager.
     >
-    > Please follow the steps in [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) to install the latest version of Azure PowerShell. If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) for more information.
+    > Follow the steps in [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) to install the latest version of Azure PowerShell. If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
 ## <a name="hdinsight-sample-wordcount"></a>Word count - Java
-To submit a MapReduce project, you first create a MapReduce job definition. In the job definition, you specify the MapReduce program jar file and the location of the jar file, which is **wasbs:///example/jars/hadoop-mapreduce-examples.jar**, the class name, and the arguments.  The wordcount MapReduce program takes two arguments: the source file that will be used to count words, and the location for output.
+To submit a MapReduce project, you first create a MapReduce job definition. In the job definition, you specify the MapReduce program jar file and the location of the jar file, which is **wasbs:///example/jars/hadoop-mapreduce-examples.jar**, the class name, and the arguments.  The wordcount MapReduce program takes two arguments: the source file that is used to count words, and the location for output.
 
 The source code can be found in the [Appendix A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
@@ -116,8 +116,8 @@ For the procedure of developing a Java MapReduce program, see - [Develop Java Ma
     cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
     ```
 
-    The MapReduce job produces a file named *part-r-00000*, which contains words and the counts. The script uses the **findstr** command to list all of the words that contains *"there"*.
-3. Set the first 3 variables, and run the script.
+    The MapReduce job produces a file named *part-r-00000*, which contains words and the counts. The script uses the **findstr** command to list all the words that contains *"there"*.
+3. Set the first three variables, and run the script.
 
 ## <a name="hdinsight-sample-csharp-streaming"></a>Word count - C# streaming
 Hadoop provides a streaming API to MapReduce, which enables you to write map and reduce functions in languages other than Java.
@@ -125,7 +125,7 @@ Hadoop provides a streaming API to MapReduce, which enables you to write map and
 > [!NOTE]
 > The steps in this tutorial apply only to Windows-based HDInsight clusters. For an example of streaming for Linux-based HDInsight clusters, see [Develop Python streaming programs for HDInsight](hdinsight-hadoop-streaming-python.md).
 
-In the example, the mapper and the reducer are executables that read the input from [stdin][stdin-stdout-stderr] (line-by-line) and emit the output to [stdout][stdin-stdout-stderr]. The program counts all of the words in the text.
+In the example, the mapper and the reducer are executables that read the input from [stdin][stdin-stdout-stderr] (line-by-line) and emit the output to [stdout][stdin-stdout-stderr]. The program counts all the words in the text.
 
 When an executable is specified for **mappers**, each mapper task launches the executable as a separate process when the mapper is initialized. As the mapper task runs, it converts its input into lines, and feeds the lines to the [stdin][stdin-stdout-stderr] of the process.
 
@@ -135,11 +135,9 @@ When an executable is specified for **reducers**, each reducer task launches the
 
 In the meantime, the reducer collects the line-oriented output from the [stdout][stdin-stdout-stderr] of the process. It converts each line to a key/value pair, which is collected as the output of the reducer. By default, the prefix of a line up to the first Tab character is the key, and the remainder of the line (excluding the Tab character) is the value.
 
-For more information about the Hadoop Streaming interface, see [Hadoop Streaming][hadoop-streaming].
-
 **To submit a C# streaming word count job**
 
-* Follow the procedure in [Word count - Java](#word-count-java), and replace the job definition with the following:
+* Follow the procedure in [Word count - Java](#word-count-java), and replace the job definition with the following line:
 
     ```powershell
     $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
@@ -161,7 +159,7 @@ The script provided for this sample submits a Hadoop jar job and is set up to ru
 
 **To submit a pi estimator job**
 
-* Follow the procedure in [Word count - Java](#word-count-java), and replace the job definition with the following:
+* Follow the procedure in [Word count - Java](#word-count-java), and replace the job definition with the following line:
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -612,7 +610,7 @@ FileOutputFormat.setOutputPath(jobConf, outDir);
 final FileSystem fs = FileSystem.get(jobConf);
 if (fs.exists(TMP_DIR)) {
 throw new IOException("Tmp directory " + fs.makeQualified(TMP_DIR)
-+ " already exists. Please remove it first.");
++ " already exists. Remove it first.");
 }
 if (!fs.mkdirs(inDir)) {
 throw new IOException("Cannot create input directory " + inDir);

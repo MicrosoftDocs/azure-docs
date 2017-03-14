@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/14/2016
+ms.date: 03/07/2017
 ms.author: ryanwi
 
 ---
@@ -25,7 +25,7 @@ ms.author: ryanwi
 > 
 > 
 
-The Service Fabric SDK includes an add-in for Visual Studio that provides templates and tools for creating, deploying, and debugging Service Fabric applications. This topic walks you through the process of creating your first application in Visual Studio.
+The Service Fabric SDK includes an add-in for Visual Studio that provides templates and tools for creating, deploying, and debugging Service Fabric applications. This topic walks you through the process of creating your first application in Visual Studio 2017 or Visual Studio 2015.
 
 ## Prerequisites
 Before you get started, make sure that you have [set up your development environment](service-fabric-get-started.md).
@@ -119,6 +119,19 @@ By default, the local development cluster is configured to run as a five-node cl
 
 The development cluster resets when you change cluster mode and all applications provisioned or running on the cluster are removed.
 
+You can also change the cluster mode using PowerShell:
+
+1. Launch a new PowerShell window as an administrator.
+2. Run the cluster setup script from the SDK folder:
+   
+    ```powershell
+    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+    ```
+   
+    Cluster setup takes a few moments. After setup is finished, you should see output similar to:
+   
+    ![Cluster setup output][cluster-setup-success-1-node]
+
 ## Cleaning up
 Before wrapping up, it's important to remember that the local cluster is real. Stopping the debugger removes your application instance and unregisters the application type. The cluster continues to run in the background, however. You have several options to manage the cluster:
 
@@ -147,3 +160,4 @@ Before wrapping up, it's important to remember that the local cluster is real. S
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png

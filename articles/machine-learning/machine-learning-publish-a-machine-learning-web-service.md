@@ -60,6 +60,9 @@ Now that the predictive experiment has been prepared, you can deploy it as a new
 
 To deploy your predictive experiment, click **Run** at the bottom of the experiment canvas. Once the experiment has finished running, click **Deploy Web Service** and select **Deploy Web Service [New]**.  The deployment page of the Machine Learning Web Service portal opens.
 
+> [!NOTE] 
+> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md). 
+
 #### Machine Learning Web Service portal Deploy Experiment Page
 On the Deploy Experiment page, enter a name for the web service.
 Select a pricing plan. If you have an existing pricing plan you can select it, otherwise you must create a new price plan for the service.
@@ -113,7 +116,7 @@ The **Consume** page provides all the information you need to access your web se
 For more information about accessing a Machine Learning web service, see [How to consume a deployed Azure Machine Learning web service](machine-learning-consume-web-services.md).
 
 #### Manage your New web service
-You can manage your classic web services Machine Learning Web Services portal. From the [main portal page](https://services.azureml-test.net/), click **Web Services**. From the web services page, you can delete or copy a service. To monitor a specific service, click the service and then click **Dashboard**. To monitor batch jobs associated with the web service, click **Batch Request Log**.
+You can manage your New web services Machine Learning Web Services portal. From the [main portal page](https://services.azureml-test.net/), click **Web Services**. From the web services page, you can delete or copy a service. To monitor a specific service, click the service and then click **Dashboard**. To monitor batch jobs associated with the web service, click **Batch Request Log**.
 
 ### Deploy the predictive experiment as a Classic web service
 

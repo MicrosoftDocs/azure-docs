@@ -4,7 +4,7 @@ description: Learn how to flight new features in your app or beta test your upda
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 17953c51-38f8-442d-bb0b-f69c1542f0e9

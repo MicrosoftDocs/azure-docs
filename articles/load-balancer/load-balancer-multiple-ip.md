@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2016
+ms.date: 02/10/2017
 ms.author: annahar
 ---
 
@@ -36,7 +36,27 @@ At this time, configuration of load balancing on secondary IP configurations is 
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
-To register for the preview, send an email to [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use.
+Register for the preview by running the following commands in PowerShell after you login and select the appropriate subscription:
+
+```
+Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+```
+
+Do not attempt to complete the remaining steps until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
+		
+```powershell
+FeatureName                            ProviderName      RegistrationState
+-----------                            ------------      -----------------      
+AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+```
+		
+>[!NOTE] 
+>This may take a few minutes.
 
 ## Steps to load balance on multiple IP configurations
 
@@ -70,7 +90,7 @@ Follow the steps below to achieve the scenario outlined in this article:
 5. Add a second IP configuration to each of the VMs. Follow the instructions in [Assign multiple IP addresses to virtual machines](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md#add) article. Use the following configuration settings:
 
     ```powershell
-    $NicName = "VM1-NIC"
+    $NicName = "VM1-NIC2"
     $RgName = "contosofabrikam"
     $NicLocation = "West Central US"
     $IPConfigName4 = "VM1-ipconfig2"
@@ -126,11 +146,11 @@ Follow the steps below to achieve the scenario outlined in this article:
     Add-AzureRmLoadBalancerRuleConfig -Name HTTP -LoadBalancer $mylb -FrontendIpConfiguration $frontendIP2 -BackendAddressPool $beaddresspool2 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80 | Set-AzureRmLoadBalancer
     ```
 
-12. The commands below get the NICs and then add both IP configurations of each NIC to the backend address pool of the load balancer:
+12. The commands below get the NICs and then add both IP configurations of each secondary NIC to the backend address pool of the load balancer:
 
     ```powershell
-    $nic1 = Get-AzureRmNetworkInterface -Name "VM1-NIC" -ResourceGroupName "MyResourcegroup";
-    $nic2 = Get-AzureRmNetworkInterface -Name "VM2-NIC" -ResourceGroupName "MyResourcegroup";
+    $nic1 = Get-AzureRmNetworkInterface -Name "VM1-NIC2" -ResourceGroupName "MyResourcegroup";
+    $nic2 = Get-AzureRmNetworkInterface -Name "VM2-NIC2" -ResourceGroupName "MyResourcegroup";
 
     $nic1.IpConfigurations[0].LoadBalancerBackendAddressPools.Add($mylb.BackendAddressPools[0]);
     $nic1.IpConfigurations[1].LoadBalancerBackendAddressPools.Add($mylb.BackendAddressPools[1]);

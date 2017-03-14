@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/15/2017
 ms.author: tomfitz
 
 ---
@@ -25,6 +25,10 @@ ms.author: tomfitz
 > 
 > 
 
+## Ensure tag consistency with policies
+
+Resource policies enable you to create standard rules for your organization. You can create policies that ensure resources are tagged with the appropriate values. For more information, see [Apply resource policies for tags](resource-manager-policy-tags.md).
+
 ## Templates
 
 [!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
@@ -35,9 +39,9 @@ ms.author: tomfitz
 ## PowerShell
 [!INCLUDE [resource-manager-tag-resources-powershell](../../includes/resource-manager-tag-resources-powershell.md)]
 
-## Azure CLI 2.0 (Preview)
+## Azure CLI 2.0
 
-With Azure CLI 2.0 (Preview), you can add tags to resources and resource group, and query resources by tag values.
+With Azure CLI 2.0, you can add tags to resources and resource group, and query resources by tag values.
 
 Every time you apply tags to a resource or resource group, you overwrite the existing tags on that resource or resource group. Therefore, you must use a different approach based on whether the resource or resource group has existing tags that you want to preserve. To add tags to a:
 
@@ -93,7 +97,9 @@ The portal and PowerShell both use the [Resource Manager REST API](https://docs.
 ## Tags and billing
 Tags enable you to group your billing data. For example, if you are running multiple VMs for different organizations, use the tags to group usage by cost center. You can also use tags to categorize costs by runtime environment; such as, the billing usage for VMs running in production environment.
 
-You retrieve information about tags through the [Azure Resource Usage and RateCard APIs](../billing-usage-rate-card-overview.md) or the usage comma-separated values (CSV) file. You download the usage file from the [Azure accounts portal](https://account.windowsazure.com/) or [EA portal](https://ea.azure.com). For more information about programmatic access to billing information, see [Gain insights into your Microsoft Azure resource consumption](../billing-usage-rate-card-overview.md). For REST API operations, see [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+
+You can retrieve information about tags through the [Azure Resource Usage and RateCard APIs](../billing/billing-usage-rate-card-overview.md) or the usage comma-separated values (CSV) file. You download the usage file from the [Azure accounts portal](https://account.windowsazure.com/) or [EA portal](https://ea.azure.com). For more information about programmatic access to billing information, see [Gain insights into your Microsoft Azure resource consumption](../billing/billing-usage-rate-card-overview.md). For REST API operations, see [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+
 
 When you download the usage CSV for services that support tags with billing, the tags appear in the **Tags** column. For more information, see [Understand your bill for Microsoft Azure](../billing/billing-understand-your-bill.md).
 

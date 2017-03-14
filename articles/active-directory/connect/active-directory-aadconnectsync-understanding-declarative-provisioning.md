@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/08/2017
 ms.author: billmath
 
 ---
@@ -159,4 +159,3 @@ For this scenario, you need to change the scope of the sync rules so the source 
 **Reference topics**
 
 * [Azure AD Connect sync: Functions Reference](active-directory-aadconnectsync-functions-reference.md)
-

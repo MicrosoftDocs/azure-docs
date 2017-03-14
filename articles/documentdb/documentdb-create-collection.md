@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 02/08/2017
 ms.author: mimig
 
 ---
@@ -37,7 +37,7 @@ Not sure what a collection is? See [What is a DocumentDB collection?](#what-is-a
 
     Set storage capcity to **10 GB** if you want a [single partition collection](documentdb-partition-data.md#single-partition-and-partitioned-collections) with throughput levels from 400-10,000 request units/second (RU/s). One RU corresponds to the throughput of a read of a 1KB document. For more information about request units, see [Request units](documentdb-request-units.md).
 
-    Set storage capacity to **250 GB** if you want a [partitioned collection](documentdb-partition-data.md#single-partition-and-partitioned-collections) that can scale to handle an unlimited amount of storage over multiple partitions, and can have throughput levels starting at 10,100 RU/s.
+    Set storage capacity to **250 GB** if you want a [partitioned collection](documentdb-partition-data.md#single-partition-and-partitioned-collections) that can scale to handle an unlimited amount of storage over multiple partitions, and can have throughput levels starting at 2,500 RU/s.
 
     Set storage capacity to **Custom** if you want to provision an amount other than 10 GB or 250 GB. DocumentDB has virtually limitless scale, so please include your requested storage size and throughput value in the support request.
 
@@ -76,4 +76,4 @@ Now that you have a collection, the next step is to add documents or import docu
 * You can [import documents and data](documentdb-import-data.md) by using the DocumentDB Data Migration Tool, which enables you to import JSON and CSV files, as well as data from SQL Server, MongoDB, Azure Table storage, and other DocumentDB collections.
 * Or you can add documents by using one of the [DocumentDB SDKs](documentdb-sdk-dotnet.md). DocumentDB has .NET, Java, Python, Node.js, and JavaScript API SDKs. For C# code samples showing how to work with documents by using the DocumentDB .NET SDK, see the [C# document samples](documentdb-dotnet-samples.md#document-examples). For Node.js code samples showing how to work with documents by using the DocumentDB Node.js SDK, see the [Node.js document samples](documentdb-nodejs-samples.md#document-examples).
 
-After you have documents in a collection, you can use [DocumentDB SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#executing-sql-queries) against your documents by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](documentdb-sdk-dotnet.md). 
+After you have documents in a collection, you can use [DocumentDB SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#ExecutingSqlQueries) against your documents by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](documentdb-sdk-dotnet.md). 

@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2017
+ms.date: 03/14/2017
 ms.author: jingwang
 
 ---
@@ -101,7 +101,7 @@ When both source and sink data stores are in the cloud, Data Factory uses a serv
 | . | West India | Central India |
 | . | South India | Central India |
 
-Alternatively, you can explicitly indicate the region of Data Factory service to be used to perform the copy by specifying `executionLocation` property under Copy Activity `typeProperties`. Supported values for this property are listed in above **Region used for data movement** column. Note your data will go through that region over the wire during copy. For example, to copy between Azure stores in UK, you can specify `executionLocation` as "North Europe" to route through North Europe.
+Alternatively, you can explicitly indicate the region of Data Factory service to be used to perform the copy by specifying `executionLocation` property under Copy Activity `typeProperties`. Supported values for this property are listed in above **Region used for data movement** column. Note your data will go through that region over the wire during copy. For example, to copy between Azure stores in UK, you can specify `"executionLocation": "North Europe"` to route through North Europe (see [sample JSON](#by-using-json-scripts) as reference).
 
 > [!NOTE]
 > If the region of the destination data store is not in preceding list or undetectable, by default Copy Activity fails instead of going through an alternative region, unless `executionLocation` is specified. The supported region list will be expanded over time.
@@ -121,7 +121,7 @@ You can use Data Factory Editor in the Azure portal, Visual Studio, or Azure Pow
 
 JSON properties (such as name, description, input and output tables, and policies) are available for all types of activities. Properties that are available in the `typeProperties` section of the activity vary with each activity type.
 
-For Copy Activity, the `typeProperties` section varies depending on the types of sources and sinks. Click a source/sink in the [Supported sources and sinks](#supported-data-stores) section to learn about type properties that Copy Activity supports for that data store.   
+For Copy Activity, the `typeProperties` section varies depending on the types of sources and sinks. Click a source/sink in the [Supported sources and sinks](#supported-data-stores-and-formats) section to learn about type properties that Copy Activity supports for that data store.
 
 Here's a sample JSON definition:
 
@@ -149,10 +149,9 @@ Here's a sample JSON definition:
             "type": "BlobSource"
           },
           "sink": {
-            "type": "SqlSink",
-            "writeBatchSize": 10000,
-            "writeBatchTimeout": "60:00:00"
-          }
+            "type": "SqlSink"
+          },
+          "executionLocation": "North Europe"          
         },
         "Policy": {
           "concurrency": 1,

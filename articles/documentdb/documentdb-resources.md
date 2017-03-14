@@ -1,5 +1,5 @@
 ---
-title: DocumentDB hierarchical resource model and concepts | Microsoft Docs
+title: Azure DocumentDB resource model and concepts | Microsoft Docs
 description: Learn about DocumentDB’s hierarchical model of databases, collections, user defined function (UDF), documents, permissions to manage resources, and more.
 keywords: Hierarchical model, documentdb, azure, Microsoft azure
 services: documentdb
@@ -14,11 +14,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 02/15/2017
 ms.author: anhoh
+ms.custom: H1Hack27Feb2017
 
 ---
-# DocumentDB hierarchical resource model and concepts
+# DocumentDB hierarchical resource model and core concepts
 The database entities that DocumentDB manages are referred to as **resources**. Each resource is uniquely identified by a logical URI. You can interact with the resources using standard HTTP verbs, request/response headers and status codes. 
 
 By reading this article, you'll be able to answer the following questions:
@@ -40,7 +41,7 @@ As the following diagram illustrates, the DocumentDB hierarchical **resource mod
 ![DocumentDB hierarchical resource model][1]  
 **Hierarchical resource model**   
 
-To start working with resources, you must [create a DocumentDB database account](documentdb-create-account.md) using your Azure subscription. A database account can consist of a set of **databases**, each containing multiple **collections**, each of which in turn contain **stored procedures, triggers, UDFs, documents** and related **attachments**. A database also has associated **users**, each with a set of **permissions** to access collections, stored procedures, triggers, UDFs, documents or attachments. While databases, users, permissions and collections are system-defined resources with well-known schemas, documents and attachments contain arbitrary, user defined JSON content.  
+To start working with resources, you must [create a database account](documentdb-create-account.md) using your Azure subscription. A database account can consist of a set of **databases**, each containing multiple **collections**, each of which in turn contain **stored procedures, triggers, UDFs, documents** and related **attachments**. A database also has associated **users**, each with a set of **permissions** to access collections, stored procedures, triggers, UDFs, documents or attachments. While databases, users, permissions and collections are system-defined resources with well-known schemas, documents and attachments contain arbitrary, user defined JSON content.  
 
 | Resource | Description |
 | --- | --- |
@@ -403,14 +404,14 @@ Unregistering a UDF is simply done by issuing an HTTP DELETE against an existing
 Although the snippets above showed the registration (POST), unregistration (PUT), read/list (GET) and execution (POST) via the [DocumentDB JavaScript SDK](https://github.com/Azure/azure-documentdb-js), you can also use the [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) or other [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). 
 
 ## Documents
-You can insert, replace, delete, read, enumerate and query arbitrary JSON documents in a collection. DocumentDB does not mandate any schema and does not require secondary indexes in order to support querying over documents in a collection.   
+You can insert, replace, delete, read, enumerate and query arbitrary JSON documents in a collection. DocumentDB does not mandate any schema and does not require secondary indexes in order to support querying over documents in a collection. By default, the maximum size for a document is 2 MB.   
 
 Being a truly open database service, DocumentDB does not invent any specialized data types (e.g. date time) or specific encodings for JSON documents. Note that DocumentDB does not require any special JSON conventions to codify the relationships among various documents; the SQL syntax of DocumentDB provides very powerful hierarchical and relational query operators to query and project documents without any special annotations or need to codify relationships among documents using distinguished properties.  
 
 As with all other resources, documents can be created, replaced, deleted, read, enumerated and queried easily using either REST APIs or any of the [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). Deleting a document instantly frees up the quota corresponding to all of the nested attachments. The read consistency level of documents follows the consistency policy on the database account. This policy can be overridden on a per-request basis depending on data consistency requirements of your application. When querying documents, the read consistency follows the indexing mode set on the collection. For “consistent”, this follows the account’s consistency policy. 
 
 ## Attachments and media
-DocumentDB allows you to store binary blobs/media either with DocumentDB or to your own remote media store. It also allows you to represent the metadata of a media in terms of a special document called attachment. An attachment in DocumentDB is a special (JSON) document that references the media/blob stored elsewhere. An attachment is simply a special document that captures the metadata (e.g. location, author etc.) of a media stored in a remote media storage. 
+DocumentDB allows you to store binary blobs/media either with DocumentDB (maximum of 2 GB per account) or to your own remote media store. It also allows you to represent the metadata of a media in terms of a special document called attachment. An attachment in DocumentDB is a special (JSON) document that references the media/blob stored elsewhere. An attachment is simply a special document that captures the metadata (e.g. location, author etc.) of a media stored in a remote media storage. 
 
 Consider a social reading application which uses DocumentDB to store ink annotations, and metadata including comments, highlights, bookmarks, ratings, likes/dislikes etc. associated for an e-book of a given user.   
 

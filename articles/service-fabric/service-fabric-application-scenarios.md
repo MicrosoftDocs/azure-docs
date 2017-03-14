@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/22/2016
+ms.date: 2/17/2017
 ms.author: mfussell
 
 ---
 # Service Fabric application scenarios
 Azure Service Fabric offers a reliable and flexible platform that enables you to write and run many types of business applications and services. These applications and microservices can be stateless or stateful, and they are resource-balanced across virtual machines to maximize efficiency. The unique architecture of Service Fabric enables you to perform near real-time data analysis, in-memory computation, parallel transactions, and event processing in your applications. You can easily scale your applications up or down (really in or out), depending on your changing resource requirements.
 
-The Service Fabric platform in Azure is ideal for the following categories of applications and services:
+The Service Fabric platform in Azure is ideal for the following categories of applications:
 
 * **Highly available services**: Service Fabric services provide fast failover by creating multiple secondary service replicas. If a node, process, or individual service goes down due to hardware or other failure, one of the secondary replicas is promoted to a primary replica with minimal loss of service.
 * **Scalable services**: Individual services can be partitioned, allowing for state to be scaled out across the cluster. In addition, individual services can be created and removed on the fly. Services can be quickly and easily scaled out from a few instances on a few nodes to thousands of instances on many nodes, and then scaled in again, depending on your resource needs. You can use Service Fabric to build these services and manage their complete lifecycles.
@@ -28,9 +28,14 @@ The Service Fabric platform in Azure is ideal for the following categories of ap
 * **Session-based interactive applications**: Service Fabric is useful if your applications, such as online gaming or instant messaging, require low latency reads and writes. Service Fabric enables you to build these interactive, stateful applications without having to create a separate store or cache, as required for stateless apps. (This increases latency and potentially introduces consistency issues.)
 * **Distributed graph processing**: The growth of social networks has greatly increased the need to analyze large-scale graphs in parallel. Fast scaling and parallel load processing make Service Fabric a natural platform for processing large-scale graphs. Service Fabric enables you to build highly scalable services for groups such as social networking, business intelligence, and scientific research.
 * **Data analytics and workflows**: The fast reads and writes of Service Fabric enable applications that must reliably process events or streams of data. Service Fabric also enables applications that describe processing pipelines, where results must be reliable and passed on to the next processing stage without loss. These include transactional and financial systems, where data consistency and computation guarantees are essential.
+* **Data gathering, processing and IoT**: Since Service Fabric handles large scale and has low latency through its stateful services, it is ideal for data processing on millions of devices where the data for the device and the computation are co-located.
+We have seen several customers who have built IoT systems using Service Fabric including [BMW](https://blogs.msdn.microsoft.com/azureservicefabric/2016/08/24/service-fabric-customer-profile-bmw-technology-corporation/),
+[Schneider Electric](https://blogs.msdn.microsoft.com/azureservicefabric/2016/08/05/service-fabric-customer-profile-schneider-electric/) and
+[Mesh Systems](https://blogs.msdn.microsoft.com/azureservicefabric/2016/06/20/service-fabric-customer-profile-mesh-systems/).
 
 ## Application design case studies
-A number of case studies showing how Service Fabric is used to design applications are published on the [microservices solutions site](https://azure.microsoft.com/solutions/microservice-applications/)
+A number of case studies showing how Service Fabric is used to design applications are published on the [Service Fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/tag/customer-profile/) and 
+the [microservices solutions site](https://azure.microsoft.com/solutions/microservice-applications/)
 
 ## Design applications composed of stateless and stateful microservices
 Building applications with Azure cloud service worker roles is an example of a stateless service. In contrast, stateful microservices maintain their authoritative state beyond the request and its response. This provides high availability and consistency of the state through simple APIs that provide transactional guarantees backed by replication. Service Fabric's stateful services democratize high availability, bringing it to all types of applications, not just databases and other data stores. This is a natural progression. Applications have already moved from using purely relational databases for high availability to NoSQL databases. Now the applications themselves can have their "hot" state and data managed within them for additional performance gains without sacrificing reliability, consistency, or availability.
@@ -50,6 +55,8 @@ Stateful microservices simplify application designs because they remove the need
 * Get started building stateless and stateful services with the Service Fabric
   [reliable services](service-fabric-reliable-services-quick-start.md) and [reliable actors](service-fabric-reliable-actors-get-started.md) programming models.
 * Learn more about [Patterns and scenarios](service-fabric-patterns-and-scenarios.md).
+* Learn about [customer case studies](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=qDJnf86yC_5206218965
+).
 * Also see the following topics:
   * [Tell me about microservices](service-fabric-overview-microservices.md)
   * [Define and manage service state](service-fabric-concepts-state.md)

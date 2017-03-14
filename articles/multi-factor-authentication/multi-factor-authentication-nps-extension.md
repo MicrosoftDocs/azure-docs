@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 02/23/2017
 ms.author: kgremban
 
+ms.custom: H1Hack27Feb2017
 ---
-# Augment your existing authentication infrastructure with the NPS extension for Azure Multi-Factor Authentication - Public preview
+# Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication - Public preview
 
 The Network Policy Server (NPS) extension for Azure MFA adds cloud-based MFA capabilities to your authentication infrastructure using your existing servers. With the NPS extension, you can add phone call, SMS, or phone app verification to your existing authentication flow without having to install, configure, and maintain new servers. 
  
@@ -46,10 +47,8 @@ Windows Server 2008 R2 SP1 or above with the NPS component enabled.
 
 ### Libraries
 
-Two libraries are required for the NPS extension. They're installed during the setup process:
-
--	Microsoft Visual Studio 2013 C++ Redistributable (X64)
--	Microsoft Azure Active Directory Module for Windows PowerShell version 1.1.166
+-	[Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+-	[Microsoft Azure Active Directory Module for Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
 ### Azure Active Directory
 
@@ -60,6 +59,9 @@ When you install the extension, you need the directory ID and admin credentials 
 ![Find your Directory ID under Azure Active Directory properties](./media/multi-factor-authentication-nps-extension/find-directory-id.png)
 
 ## Install the NPS extension
+
+> [!IMPORTANT]
+> Install the NPS extension on a different server than the VPN access point. 
 
 To install the NPS Extension for Azure MFA:
 
@@ -134,7 +136,7 @@ This error could be due to one of several reasons. Use these steps to help troub
 1. Restart your NPS server.
 2. Verify that that client cert is installed as expected.
 3. Verify that the certificate is associated with your tenant on Azure AD.
-4. Verify that https://login.windows.new/ is accessible from the server running the extension.
+4. Verify that https://login.windows.net/ is accessible from the server running the extension.
 
 -------------------------------------------------------------
 
