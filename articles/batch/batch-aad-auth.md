@@ -20,19 +20,18 @@ ms.author: tamram
 
 # Use Azure Active Directory to authenticate from Batch solutions
 
-Azure Batch supports authentication with Azure Active Directory (Azure AD) for all of your Batch solutions.
+Azure Batch supports authentication with [Azure Active Directory][aad_about] (Azure AD) for all of your Batch solutions. Which types of authentication are supported depends on which .NET client library you are using.
 
-All requests to the Batch service must be authenticated. When you develop with the Batch .NET library, you have two options for authentication:
+- The Batch Management .NET library supports only Azure AD authentication.
+- The Batch .NET library supports both [Shared Key](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service) and Azure AD authentication.  
 
-- [Shared Key authentication](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service)
-- [Azure AD][aad_about]
+This article explores authenticating with Azure AD for both Batch Management .NET and Batch .NET.
 
+## Authenticate Batch management applications with Azure AD
 
-## Use Azure AD with Batch Management .NET
+The Batch Management .NET library exposes types for working with Batch accounts, account keys, applications, and application packages. The Batch Management .NET library is an Azure resource provider client, and is used together with [Azure Resource Manager][resman_overview] to manage these resources programmatically.
 
-The Batch Management .NET library exposes types for working with Batch accounts, account keys, applications, and application packages. The Batch Management .NET library is an Azure resource provider, and is used together with [Azure Resource Manager][resman_overview] to manage these resources programmatically.
-
-Azure AD is required to authenticate requests made through the Batch Management .NET library and through [Azure Resource Manager][resman_overview]. 
+Azure AD is required to authenticate requests made through any Azure resource provider client, including the Batch Management .NET library, and through [Azure Resource Manager][resman_overview]. 
 
 In this section, we'll use the [AccountManagment][acct_mgmt_sample] sample project, available on GitHub, to walk through using Azure AD with the Batch Management .NET library. The AccountManagement sample is a console application that demonstrates how to access a subscription programmatically, create a new resource group, create a new Batch account, perform some operations on the account, and then delete the new account and resource group. 
 
@@ -45,14 +44,6 @@ The Azure [Active Directory Authentication Library][aad_adal] (ADAL) provides a 
 To register the AccountManagement sample application, follow the steps in the [Adding an Application](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) section in [Integrating applications with Azure Active Directory][aad_integrate]. Specify **Native Client Application** for the type of application. For the **Redirect URI**, you can specify any valid URI (such as `http://myaccountmanagementsample`), as it does not need to be a real endpoint:
 
 ![](./media/batch-aad-auth/app-registration-01.png)
-
-In the source code for the AccountManagement sample application, you'll notice constants that provide the endpoint for Azure AD and for Azure Resource Manager. The sample application uses these constants to query Azure AD for subscription information. Leave these constants unchanged:
-
-```csharp
-// These endpoints are used during authentication and authorization with AAD.
-private const string AuthorityUri = "https://login.microsoftonline.com/common"; // Azure Active Directory "common" endpoint
-private const string ResourceUri = "https://management.core.windows.net/";     // Azure service management resource
-```
 
 Your client application uses the application object ID (also referred to as the client ID) to access Azure AD at runtime. In the AccountManagement sample application, copy your application ID from the Azure portal to the appropriate constant:
 
@@ -71,6 +62,16 @@ Also copy the redirect URI that you specified during the registration process.
 // specified by you when you register an application with AAD (see ClientId comment). It does not
 // need to be a real endpoint, but must be a valid URI (e.g. https://accountmgmtsampleapp).
 private const string RedirectUri = "https://batchsampleapp";
+```
+
+### Acquire an Azure AD authentication token
+
+In the source code for the AccountManagement sample application, you'll notice constants that provide the endpoint for Azure AD and for Azure Resource Manager. The sample application uses these constants to query Azure AD for subscription information. Leave these constants unchanged:
+
+```csharp
+// These endpoints are used during authentication and authorization with AAD.
+private const string AuthorityUri = "https://login.microsoftonline.com/common"; // Azure Active Directory "common" endpoint
+private const string ResourceUri = "https://management.core.windows.net/";     // Azure service management resource
 ```
 
 Once you've registered the AccountManagement sample in the Azure AD tenant and provided the necessary constant values within the sample source code, the sample is ready to authenticate using Azure AD. When you run the sample, the ADAL attempts to acquire an authentication token. At this step, it prompts you for for your Microsoft credentials: 
@@ -140,6 +141,8 @@ Before deleting the newly created Batch account and resource group, you can insp
 <br />
 *Azure portal displaying new resource group and Batch account*
 
+
+## Authenticate Batch parallel processing workloads with Azure AD
 
 
 
