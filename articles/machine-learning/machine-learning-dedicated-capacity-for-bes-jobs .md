@@ -19,8 +19,7 @@ ms.author: v-donglo
 ---
 # Azure Batch Service for Machine Learning jobs
 
-Machine Learning Batch Pool processing uses the [Azure Batch Service](https://docs.microsoft.com/en-us/azure/batch/batch-technical-overview) to provide customer-managed scale for the Azure Machine Learning Batch Execution Service. Classic batch processing takes place in a multi-tenant environment which limits the number of concurrent jobs you
-can submit, and jobs are queued on a first-in-first-out basis. This means that you can't accurately predict when your job will run.
+Machine Learning Batch Pool processing uses the [Azure Batch Service](../batch/batch-technical-overview.md) to provide customer-managed scale for the Azure Machine Learning Batch Execution Service. Classic batch processing takes place in a multi-tenant environment which limits the number of concurrent jobs you can submit, and jobs are queued on a first-in-first-out basis. This means that you can't accurately predict when your job will run.
 
 Batch Pool processing allows you to create Azure Batch pools on which you can submit batch jobs. You control the size of the pool, and to which pool the job is submitted. Batch Pool processing runs your BES job in its own processing space providing predictable processing performance and the ability to create resource pools that
 correspond to the processing load that you submit.
@@ -37,13 +36,13 @@ To create your account, call Microsoft Customer Service and Support (CSS) and pr
 
 After your account is created you use the Pool Service URL and authorization key to perform pool management operations on your Batch Pool.
 
-![Batch pool service architecture.](architecturedrawing.png)
+![Batch pool service architecture.](media/machine-learning-dedicated-capacity-for-bes-jobs/pool-architecture.png)
 
 You create pools by calling the Create Pool operation on the pool service URL that CSS provided to you. When you create a pool, specify the number of VMs and the URL of the swagger.json of a New Resource Manager based Machine Learning web service. This web service is provided to establish the billing association, the Batch Pool service uses the swagger.json to associate the pool with a billing plan. You can run any BES web service, both New Resource Manager based and classic, you choose on the pool.
 
 You can use any New Resource Manager based web service, but be aware that the billing for the jobs will be credited against the billing plan associated with that service. You may want to create a web service and new billing plan specifically for running Batch Pool jobs.
 
-For more information on creating web services, see [Deploy an Azure Machine Learning web service](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-publish-a-machine-learning-web-service).
+For more information on creating web services, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
 
 Once you have created a pool, you submit the BES job using the Batch Requests URL for the web service. You can choose to submit it to a pool or to classic batch processing. To submit a job to Batch Pool processing you add the following parameter to the job submission request body:
 
@@ -98,7 +97,7 @@ https://ussouthcentral.services.azureml.net/subscriptions/80c77c7674ba4c8c82294c
 
 ## Considerations when using Batch Pool Processing
 
-Batch Pool Processing is an always-on billable service and that requires you to associate it with a Resource Manager based billing plan. You are only billed for the number of compute hours the pool is running; regardless of the number of job run during that time pool. This means that if you create a pool, you are billed for the compute hours of each virtual machine in the pool until the pool is deleted, even if no batch jobs are running in the pool. Billing for the virtual machines start as soon as they have finished provisioning and stops when they have been deleted. You can use any of the plans found on the [Machine Learning Pricing page](https://azure.microsoft.com/en-us/pricing/details/machine-learning/).
+Batch Pool Processing is an always-on billable service and that requires you to associate it with a Resource Manager based billing plan. You are only billed for the number of compute hours the pool is running; regardless of the number of job run during that time pool. This means that if you create a pool, you are billed for the compute hours of each virtual machine in the pool until the pool is deleted, even if no batch jobs are running in the pool. Billing for the virtual machines start as soon as they have finished provisioning and stops when they have been deleted. You can use any of the plans found on the [Machine Learning Pricing page](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 Billing example:
 
