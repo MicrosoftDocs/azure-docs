@@ -38,23 +38,27 @@ Log in to the Azure portal at http://portal.azure.com.
 
 5. Choose a size for the VM and click **Select**. 
 
-    ![Select a size for your VM in the portal blade](./media/virtual-machine-quick-start/create-windows-vm-portal-size-blade.png)
-
 6. On the settings blade, select **Yes** under **Use managed disks**, keep the defaults for the rest of the settings, and click **OK**.
 
 7. On the summary page, click **Ok** to start the virtual machine deployment.
 
-8. Click the virtual machine. The VM can be found on the Azure portal dashboard, or by selecting **Virtual Machines** from the left-hand menu. When the VM has been created, the status will change from **Deploying** to **Running**.
+8. To monitor deployment status, click the virtual machine. The VM can be found on the Azure portal dashboard, or by selecting **Virtual Machines** from the left-hand menu. When the VM has been created, the status will change from **Deploying** to **Running**.
 
 ## Connect to virtual machine
 
 After the deployment has completed, create a remote desktop connection with the virtual machine.
 
-1. Click the **Connect** button on the virtual machine blade. The connect button initializes a Windows remote desktop connection with the virtual machine. 
+1. Click the **Connect** button on the virtual machine blade. This creates and downloads a Remote Desktop Protocol file (.rdp file) that is like a shortcut to connect to your machine. Open this file to connect to your VM.
 
     ![Portal 9](./media/virtual-machine-quick-start/portal-quick-start-9.png) 
 
-3. Click **Connect** on the remote desktop connection wizard, enter the user name and password specified when creating the virtual machine, and then click **Ok**.
+3. Click **Connect** on the remote desktop connection window.
+
+    ![Portal 10](./media/virtual-machine-quick-start/portal-quick-start-10.png) 
+
+4. Enter the user name and password specified when creating the virtual machine, and then click **Ok**.
+
+5. You may receive a certificate warning, click **Yes** to proceed with the connection.
 
 ## Delete virtual machine
 
