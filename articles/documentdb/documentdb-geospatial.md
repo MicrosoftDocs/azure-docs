@@ -1,5 +1,5 @@
 ---
-title: Working with Geospatial data in Azure DocumentDB | Microsoft Docs
+title: Working with geospatial data in Azure DocumentDB | Microsoft Docs
 description: Understand how to create, index and query spatial objects with Azure DocumentDB.
 services: documentdb
 documentationcenter: ''
@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2016
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 
 ---
-# Working with Geospatial data in Azure DocumentDB
+# Working with geospatial and GeoJSON location data in DocumentDB
 This article is an introduction to the geospatial functionality in [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). After reading this, you will be able to answer the following questions:
 
 * How do I store spatial data in Azure DocumentDB?

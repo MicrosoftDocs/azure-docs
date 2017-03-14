@@ -4,9 +4,9 @@ description: Learn how to use Stream Analytics for real-time Twitter sentiment a
 keywords: real-time twitter trend analysis, sentiment analysis, social media analysis, trend analysis example
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: jeffstokes72 
 manager: jhubbard
-editor: cgronlun
+editor: cgronlun 
 
 ms.assetid: 42068691-074b-4c3b-a527-acafa484fda2
 ms.service: stream-analytics
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/03/2017
+ms.date: 03/09/2017
 ms.author: jeffstok
 ---
 
 # Real-time Twitter sentiment analysis in Azure Stream Analytics
 
-Learn how to build a sentiment analysis solution for social media analytics by bringing real-time Twitter events into Azure Event Hubs. You'll write an Azure Stream Analytics query to analyze the data. You'll then either store the results for later perusal or use a dashboard and [Power BI](https://powerbi.com/) to provide insights in real-time.
+Learn how to build a sentiment analysis solution for social media analytics by bringing real-time Twitter events into Azure Event Hubs. You will write an Azure Stream Analytics query to analyze the data. You'll then either store the results for later perusal or use a dashboard and [Power BI](https://powerbi.com/) to provide insights in real-time.
 
 Social media analytics tools help organizations understand trending topics, that is, subjects and attitudes that have a high volume of posts in social media. Sentiment analysis, which is also called *opinion mining*, uses social media analytics tools to determine attitudes toward a product, idea, and so on. real-time Twitter trend analysis is a great example because the hashtag subscription model enables you to listen to specific keywords and develop sentiment analysis on the feed.
 
@@ -168,7 +168,7 @@ After your job is running and processing the real-time Twitter stream, choose ho
 
 ![powerbi](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 
-## Another query of interest  in this scenario
+## Another query of interest in this scenario
 
 Another sample query we created for this scenario are based on [Sliding Window](https://msdn.microsoft.com/library/azure/dn835051.aspx). To identify trending topics, we'll look for topics that cross a threshold value for mentions in a given amount of time. For the purposes of this tutorial, we'll check for topics that are mentioned more than 20 times in the last five seconds.
 
@@ -178,6 +178,19 @@ FROM TwitterStream TIMESTAMP BY CreatedAt
 GROUP BY SLIDINGWINDOW(s, 5), topic
 HAVING COUNT(*) > 20
 ```
+
+## Table of the field headers
+
+For full disclosure, the field labels you can use in this exercise are listed in this table. Feel free to experiment in the query editor.
+
+JSON property | definition
+--- | ---
+CreatedAt | time the tweet was created
+Topic | Topic that matches the keyword specified
+SentimentScore | sentiment score from Sentiment140
+Author | Twitter handle that sent the tweet
+Text | full body of the tweet
+
 
 ## Get support
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
