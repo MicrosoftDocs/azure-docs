@@ -77,7 +77,7 @@ $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -VirtualNetwor
 
 # Create a virtual network card and associate with public IP address and NSG
 $nic = New-AzureRmNetworkInterface -ResourceGroupName myResourceGroup -Location westeurope -Name myNic `
--SubnetId $vnet.Subnets[0].Id -NetworkSecurityGroup $nsg -PublicIpAddress $pip
+-Subnet $subnet -NetworkSecurityGroup $nsg -PublicIpAddress $pip
 ```
 
 ## Create virtual machine
