@@ -93,25 +93,25 @@ DocumentDB allows you to interact with the database using either logical (region
 ### <a id="ReadPreferencesAPIforMongoDB"></a> Configurable read preferences in API for MongoDB
 API for MongoDB enables you to specify your collection's read preference for a globally distributed database. For both low latency reads and global high availability, we recommend setting your collection's read preference to *nearest*. A read preference of *nearest* is configured to read from the closest region.
 
-	```csharp
-	var collection = database.GetCollection<BsonDocument>(collectionName);
-	collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Nearest));
-	```
+```csharp
+var collection = database.GetCollection<BsonDocument>(collectionName);
+collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Nearest));
+```
 
 For applications with a primary read/write region and a secondary region for disaster recovery (DR) scenarios, we recommend setting your collection's read preference to *secondary preferred*. A read preference of *secondary preferred* is configured to read from the secondary region when the primary region is unavailable.
 
-	```csharp
-	var collection = database.GetCollection<BsonDocument>(collectionName);
-	collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.SecondaryPreferred));
-	```
-	
+```csharp
+var collection = database.GetCollection<BsonDocument>(collectionName);
+collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.SecondaryPreferred));
+```
+
 Lastly, if you would like to manually specify your read regions. You can set the region Tag within your read preference.
 
-	```csharp
-	var collection = database.GetCollection<BsonDocument>(collectionName);
-	var tag = new Tag("region", "Southeast Asia");
-	collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Secondary, new[] { new TagSet(new[] { tag }) }));
-	```
+```csharp
+var collection = database.GetCollection<BsonDocument>(collectionName);
+var tag = new Tag("region", "Southeast Asia");
+collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Secondary, new[] { new TagSet(new[] { tag }) }));
+```
 
 ### <a id="TransparentSchemaMigration"></a>Transparent and consistent database schema and index migration 
 DocumentDB is fully [schema agnostic](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). The unique design of its database engine allows it to automatically and synchronously index all of the data it ingests without requiring any schema or secondary indices from you. This enables you to iterate your globally distributed application rapidly without worrying about database schema and index migration or coordinating multi-phase application rollouts of schema changes. DocumentDB guarantees that any changes to indexing policies explicitly made by you does not result into degradation of either performance or availability.  
