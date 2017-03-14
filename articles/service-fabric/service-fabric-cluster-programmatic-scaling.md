@@ -79,7 +79,7 @@ var newCapacity = Math.Min(MaximumNodeCount, NodeCount.Value + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-**There is currently [a bug](https://github.com/Azure/azure-sdk-for-net/issues/2716) that keeps this code from working**, but a fix has been merged, so the issue should be resolved in published versions of Microsoft.Azure.Management.Compute.Fluent soon. The bug is that when changing virtual machine scale set properties (like capacity) with the fluent compute API, protected settings from the scale set's Resource Manager template are lost. These missing settings cause (among other things) Service Fabric services to not set up properly on new  virtual machine instances.
+**There is currently [a bug](https://github.com/Azure/azure-sdk-for-net/issues/2716) that keeps this code from working**, but a fix has been merged, so the issue should be resolved in published versions of Microsoft.Azure.Management.Compute.Fluent soon. The bug is that when changing virtual machine scale set properties (like capacity) with the fluent compute API, protected settings from the scale set's Resource Manager template are lost. These missing settings cause (among other things) Service Fabric services to not set up properly on new virtual machine instances.
 
 As a temporary workaround, PowerShell cmdlets can be invoked from the scaling service to enact the same change (though this route means that PowerShell tools must be present):
 
