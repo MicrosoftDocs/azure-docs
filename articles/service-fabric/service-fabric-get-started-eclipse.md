@@ -19,7 +19,7 @@ ms.author: saysa
 ---
 
 # Service Fabric plug-in for Eclipse Java application development
-Eclipse is one of the most widely used integrated development environments (IDEs) for Java developers. In this article, we describe how to set up your Eclipse development environment to work with Azure Service Fabric. Learn how to install the Service Fabric plug-in, create a Service Fabric application, and deploy your Service Fabric application to a local or remote Service Fabric cluster from Eclipse Neon.
+Eclipse is one of the most widely used integrated development environments (IDEs) for Java developers. In this article, we describe how to set up your Eclipse development environment to work with Azure Service Fabric. Learn how to install the Service Fabric plug-in, create a Service Fabric application, and deploy your Service Fabric application to a local or remote Service Fabric cluster in Eclipse Neon.
 
 ## Install or update the Service Fabric plug-in in Eclipse Neon
 You can install a Service Fabric plug-in in Eclipse. The plug-in can help simplify the process of building and deploying Java services. To install the Service Fabric plug-in, you need the latest version of Eclipse Neon, and the latest version of Buildship.
@@ -32,11 +32,9 @@ You can install a Service Fabric plug-in in Eclipse. The plug-in can help simpli
 2. To install the Service Fabric plug-in, in Eclipse Neon, go to **Help** > **Install New Software**.
   1. In the **Work with** box, enter **http://dl.windowsazure.com/eclipse/servicefabric**.
   2. Click **Add**.
-
-   ![Service Fabric plug-in for Eclipse Neon][sf-eclipse-plugin-install]
-
+    ![Service Fabric plug-in for Eclipse Neon][sf-eclipse-plugin-install]
   3. Select the Service Fabric plug-in, and then click **Next**.
-  4. Complete the installation steps, and then accept the end-user license agreement.
+  4. Complete the installation steps, and then accept the Microsoft Software License Terms.
 
 If you already have the Service Fabric plug-in installed, make sure that you have the latest version. To check for available updates, go to **Help** > **Installation Details**. In the list of installed plug-ins, select Service Fabric, and then click **Update**. Available updates will be installed.
 
@@ -84,8 +82,9 @@ If you already have the Service Fabric plug-in installed, make sure that you hav
 3.  From this menu, you also can deploy, undeploy, and publish your application:
   - To deploy to your local cluster, click **Deploy Application**.
   - In the **Publish Application** dialog box, select a publish profile: 
-    -  **Local.json**
-    - **Cloud.json**
+    
+     -  **Local.json**
+     -  **Cloud.json**
     
      These JavaScript Object Notation (JSON) files store information (such as connection endpoints and security information) that is required to connect to your local or cloud (Azure) cluster.
 
@@ -96,11 +95,11 @@ An alternate way to deploy your Service Fabric application is by using Eclipse r
   1.    Go to **Run** > **Run Configurations**.
   2.    Under **Grade Project**, select the **ServiceFabricDeployer** run configuration.
   3.    In the right pane, on the **Arguments** tab, for **publishProfile**, select **local** or **cloud**.  The default is **local**. To deploy to a remote or cloud cluster, select **cloud**.
-  4. To ensure that the proper information is populated in the publish profiles, edit **Local.json** or **Cloud.json** as needed. Add or update endpoint details and security credentials, as needed.
+  4. To ensure that the proper information is populated in the publish profiles, edit **Local.json** or **Cloud.json** as needed. You can add or update endpoint details and security credentials.
   5.    Ensure that **Working Directory** points to the application you want to deploy. To change the application, click the **Workspace** button, and then select the application you want.
   6.    Click **Apply**, and then click **Run**.
 
-Your application builds and deploys within a few moments. You can monitor its status in Service Fabric Explorer.  
+Your application builds and deploys within a few moments. You can monitor the build or deployment status in Service Fabric Explorer.  
 
 ## Add a Service Fabric service to your Service Fabric application
 
@@ -129,14 +128,15 @@ For an upgrade scenario, say you created the **App1** project by using the Servi
 
 First, make any changes to your application, and then rebuild the modified service. Update the modified service’s manifest file (ServiceManifest.xml) with the updated versions for the service (and Code, Config, or Data, as relevant). Also, modify the application’s manifest (ApplicationManifest.xml) with the updated version number for the application and the modified service.  
 
-To upgrade your application by using Eclipse  Neon, you can create a duplicate run configuration profile. Then, use it to upgrade your application as needed. 
+To upgrade your application by using Eclipse Neon, you can create a duplicate run configuration profile. Then, use it to upgrade your application as needed. 
 
 1. Go to **Run** > **Run Configurations**. In the left pane, click the small arrow to the left of **Grade Project**.
 2. Right-click **ServiceFabricDeployer**, and then select **Duplicate**. Enter a new name for this configuration, for example, **ServiceFabricUpgrader**.
-3. in the right panel, on the **Arguments** tab, change **-Pconfig='deploy'** to **-Pconfig=upgrade**, and then click **Apply**.
-4. This creates and saves a run configuration profile you can use at any time to upgrade your application. It also gets the latest updated application type version from the application manifest file.
+3. In the right panel, on the **Arguments** tab, change **-Pconfig='deploy'** to **-Pconfig=upgrade**, and then click **Apply**.
 
-The application update takes a few minutes. To monitor the application upgrade, open Service Fabric Explorer. 
+This process creates and saves a run configuration profile you can use at any time to upgrade your application. It also gets the latest updated application type version from the application manifest file.
+
+The application update takes a few minutes. You can monitor the application upgrade in Service Fabric Explorer. 
 
 <!-- Images -->
 
