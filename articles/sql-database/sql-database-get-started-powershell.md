@@ -35,10 +35,10 @@ Add-AzureRmAccount
 
 ## Create a resource group
 
-Create a resource group with the [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named `myResourceGroup` in the `northcentralus` location.
+Create a resource group with the [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
 
 ```powershell
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "northcentralus"
+New-AzureRmResourceGroup -Name "myResourceGroup" -Location "westeurope"
 ```
 ## Create a logical server
 
@@ -48,7 +48,7 @@ Create a SQL Database logical server with the [New-AzureRmSqlServer](https://doc
 $servername = "server-$(Get-Random)"
 New-AzureRmSqlServer -ResourceGroupName "myResourceGroup" `
     -ServerName $servername `
-    -Location "northcentralus" `
+    -Location "westeurope" `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList "ServerAdmin", $(ConvertTo-SecureString -String "ChangeYourAdminPassword1" -AsPlainText -Force))
 ```
 

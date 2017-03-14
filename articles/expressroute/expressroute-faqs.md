@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2017
+ms.date: 03/13/2017
 ms.author: cherylmc
 
 ---
@@ -23,9 +23,6 @@ ExpressRoute is an Azure service that lets you create private connections betwee
 
 ### What are the benefits of using ExpressRoute and private network connections?
 ExpressRoute connections do not go over the public Internet, and offer higher security, reliability, and speeds with lower and consistent latencies than typical connections over the Internet. In some cases, using ExpressRoute connections to transfer data between on-premises devices and Azure can yield significant cost benefits.
-
-### What Microsoft cloud services are supported over ExpressRoute?
-ExpressRoute supports most Microsoft Azure services today including Office 365.  Look for updates on general availability soon.
 
 ### Where is the service available?
 See this page for service location and availability: [ExpressRoute partners and locations](expressroute-locations.md).
