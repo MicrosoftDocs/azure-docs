@@ -54,7 +54,7 @@ S3 Media Reserved Units: 4 units x 2.75 hours (1:15PM to 4PM) x $0.08/hr = $0.88
 So Joe’s total cost for using Media Reserved Units that day would be $0.13 + $0.88 = $1.01
 Unlike Media Reserved Units, the Streaming Units are charged based on the highest number of Streaming Units that are provisioned each day (high watermark).
 
-For more information about Media Services pricing, see [this](https://azure.microsoft.com/pricing/details/media-services/) page. The FAQ section has detailed explanations.  
+For more information, see the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page. The FAQ section has detailed explanations.  
 
 ## Quotas and limitations
 For information about quotas and limitations and how to open a support ticket, see [Quotas and limitations](media-services-quotas-and-limitations.md).
