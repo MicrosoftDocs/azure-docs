@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/14/2017
 ms.author: anhoh
 
 ---
@@ -29,7 +29,7 @@ DocumentDB databases can now be used as the data store for apps written for Mong
 
 **Enterprise grade** - DocumentDB supports multiple local replicas to deliver 99.99% availability and data protection in the face of local and regional failures. DocumentDB has enterprise grade [compliance certifications](https://www.microsoft.com/trustcenter) and security features. 
 
-**MongoDB Compatibility** - DocumentDB: API for MongoDB is designed for compatability with MongoDB. You can use your existing code, applications, drivers, and tools to work with DocumentDB. 
+**MongoDB compatibility** - DocumentDB: API for MongoDB is designed for compatability with MongoDB. You can use your existing code, applications, drivers, and tools to work with DocumentDB. 
 
 Learn more in this Azure Friday video with Scott Hanselman and DocumentDB Principal Engineering Manager, Kirill Gavrylyuk.
 
@@ -45,7 +45,14 @@ Create a DocumentDB: API for MongoDB account in the [Azure Portal](https://porta
 For more detailed instructions, follow [create account](documentdb-create-mongodb-account.md) and [connect to your account](documentdb-connect-mongodb-account.md).
 
 ## Next steps
+
+Information about DocumentDB: API for MongoDB is integrated into the overall DocumentDB documentation, but here are a few pointers to get you started:
 * Follow the [Connect to a MongoDB account](documentdb-connect-mongodb-account.md) tutorial to learn how to get your account connection string information.
 * Follow the [Use MongoChef with DocumentDB](documentdb-mongodb-mongochef.md) tutorial to learn how to create a connection between your DocumentDB database and MongoDB app in MongoChef.
-* Explore DocumentDB: API for MongoDB [samples](documentdb-mongodb-samples.md).
+* Follow the [Migrate data to DocumentDB with protocol support for MongoDB](documentdb-mongodb-migrate.md) tutorial to import your data to an API for MongoDB database.
+* Build your first API for MongoDB app using [Node.js](documentdb-mongodb-samples.md).
+* Build your first API for MongoDB web app using .[NET](documentdb-mongodb-application.md).
+* Connect to an API for MongoDB account using [Robomongo](documentdb-mongodb-robomongo.md).
+* Learn how many RUs your operations are using with the [GetLastRequestStatistics command and the Azure portal metrics](documentdb-request-units.md#GetLastRequestStatistics).
+* Learn how to [configure read preferences for globally distributed apps](documentdb-distribute-data-globally.md#ReadPreferencesAPIforMongoDB).
 
