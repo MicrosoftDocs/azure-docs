@@ -93,7 +93,7 @@ Don't forget that [proactive failure rate diagnostics](app-insights-proactive-fa
 
 ## Video
 
-[!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## See also
 * [Availability web tests](app-insights-monitor-web-app-availability.md)
