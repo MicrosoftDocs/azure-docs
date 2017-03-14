@@ -413,7 +413,7 @@ You are now ready to load data into your data warehouse. This step shows you how
         REJECT_VALUE = 0
     )
     ;
-    ```
+```
 
 ### Import the data from Azure blob storage.
 
