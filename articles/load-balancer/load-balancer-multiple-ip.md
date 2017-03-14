@@ -52,16 +52,19 @@ FeatureName                            ProviderName      RegistrationState
 AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
 AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
 ```
-		
+	
 >[!NOTE] 
 >This may take a few minutes.
-## Steps to load balance on multiple IP configurations
-Follow the steps below to achieve the scenario outlined in this article:
 
->[!IMPORTANT] This example assumes that you have a virtual network with the following configuration:
+##Prerequisites
+This example assumes that you have a virtual network with the following configuration:
  - a virtual network named *myVNet* in the Resource Group named *myRG* that includes two VMs called VM1 and VM2 respectively within the same availability set named *myAvailSet*. 
  - Each VM has a primary NIC and a secondary NIC. The primary NICs are named *VM1NIC1* and *VM2NIC1* and the secondary NICs are named *VM1NIC2* and *VM2NIC2*. 
- For more information about creating VMs with multiple NICs, see [Create a VM with multiple NICs using PowerShell](../virtual-network/virtual-network-deploy-multinic-arm-ps.md).
+For more information about creating VMs with multiple NICs, see [Create a VM with multiple NICs using PowerShell](../virtual-network/virtual-network-deploy-multinic-arm-ps.md).
+
+# Steps to load balance on multiple IP configurations
+
+Follow the steps below to achieve the scenario outlined in this article:
 
 1. From a browser navigate to the Azure portal: http://portal.azure.com and login with your Azure account.
 2. To the secondary NIC of each VM, add an IP configuration as follows:
