@@ -33,7 +33,7 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
 
 ### NVIDIA Tesla drivers for NC VMs
 
-* [Ubuntu 16.04 LTS](https://go.microsoft.com/fwlink/?linkid=836899) (.run self-extracting installer)
+* [Ubuntu 16.04 LTS](http://us.download.nvidia.com/XFree86/Linux-x86_64/375.39/NVIDIA-Linux-x86_64-375.39.run&lang=us&type=Tesla) (.run self-extracting installer)
 
 ## Tesla driver installation on Ubuntu 16.04 LTS
 
@@ -51,7 +51,7 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
 3. Download the .run file for the driver for your distribution. The following example command downloads the Ubuntu 16.04 LTS Tesla driver to the /tmp directory:
 
     ```bash
-    wget -O /tmp/NVIDIA-Linux-x86_64-367.48.run https://go.microsoft.com/fwlink/?linkid=836899
+    wget -O /tmp/NVIDIA-Linux-x86_64-375.39.run http://us.download.nvidia.com/XFree86/Linux-x86_64/375.39/NVIDIA-Linux-x86_64-375.39.run&lang=us&type=Tesla
     ```
 
 4. If you need to install `gcc` and `make` on your system (required for the Tesla drivers), type the following:
@@ -67,20 +67,20 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
 4. Change to the directory containing the driver installer and run commands similar to the following:
 
     ```bash
-    chmod +x NVIDIA-Linux-x86_64-367.48.run
+    chmod +x NVIDIA-Linux-x86_64-375.39.run
     
-    sudo sh ./NVIDIA-Linux-x86_64-367.48.run
+    sudo sh ./NVIDIA-Linux-x86_64-375.39.run
     ```
 6. Silent Install without reboot may be performed via scripts as follows:
  
     ```bash 
     service lightdm stop 
-    wget -O NVIDIA-Linux-x86_64-367.48.run https://go.microsoft.com/fwlink/?linkid=836899
-    chmod +x NVIDIA-Linux-x86_64-367.48.run
+    wget  http://us.download.nvidia.com/XFree86/Linux-x86_64/375.39/NVIDIA-Linux-x86_64-375.39.run&lang=us&type=Tesla
+    chmod +x NVIDIA-Linux-x86_64-375.39.run
     DEBIAN_FRONTEND=noninteractive apt-mark hold walinuxagent
     DEBIAN_FRONTEND=noninteractive apt-get update -y
     DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential gcc g++ make binutils linux-headers-`uname -r`
-    DEBIAN_FRONTEND=noninteractive ./NVIDIA-Linux-x86_64-367.48.run  --silent
+    DEBIAN_FRONTEND=noninteractive ./NVIDIA-Linux-x86_64-375.39.run  --silent
     DEBIAN_FRONTEND=noninteractive update-initramfs -u
      ```
 
