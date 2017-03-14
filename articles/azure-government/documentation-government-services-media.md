@@ -46,10 +46,7 @@ The API server address depends on what region you are deployed to:
 
 ## Analyzing
 
-The following Azure Media Analytics media processors are not available in Azure Government:
-
-- "Azure Media Indexer 2 Preview"
-- "Thumbnail Generator 1.0"
+The "Azure Media Indexer 2 Preview" Azure Media Analytics media processor is not available in Azure Government.
  
 ## CDN integration
 
