@@ -4,7 +4,7 @@ description: Get page view and session counts, web client data, and track usage 
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 03/14/2017
 ms.author: awills
 
 ---
@@ -214,10 +214,13 @@ Want to find out what your users do with your app?
 * [Learn about usage tracking](app-insights-web-track-usage.md)
 * [Learn about custom events and metrics API](app-insights-api-custom-events-metrics.md).
 
-#### <a name="video"></a> Video: Tracking Usage
+## <a name="video"></a> Video
+ 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 > [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Tracking-Usage-with-Application-Insights/player]
 > 
-> 
+
 
 ## <a name="next"></a> Next steps
 * [Track usage](app-insights-web-track-usage.md)

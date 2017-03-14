@@ -182,6 +182,10 @@ Find out which apps are being monitored:
 
 * Downloads the latest Application Insights SDK to the server.
 
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 ## <a name="next"></a>Next steps
 
 View your telemetry:

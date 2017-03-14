@@ -44,6 +44,10 @@ There are three kinds of detection:
 
 (The help links in each notification take you to the relevant articles.)
 
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
 ## Next steps
 These diagnostic tools help you inspect the telemetry from your app:
 

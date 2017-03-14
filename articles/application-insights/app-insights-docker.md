@@ -4,7 +4,7 @@ description: Docker perf counters, events and exceptions can be displayed on App
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2016
+ms.date: 03/14/2017
 ms.author: awills
 
 ---
@@ -119,3 +119,12 @@ Processor time and available memory performance counters, enriched and grouped b
 * Install the Application Insights SDK in the app. 
   Learn how for: [Java web apps](app-insights-java-get-started.md), [Windows web apps](app-insights-asp-net.md).
 
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+## Next steps
+
+* [Application Insights for Java](app-insights-java-get-started.md)
+* [Application Insights for Node.js](app-insights-nodejs.md)
+* [Application Insights for ASP.NET](app-insights-asp-net.md)

@@ -229,6 +229,10 @@ If you have a client mobile app, insert some code to send custom events on key u
 ## Exception "method not found" on running in Azure Cloud Services
 Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Services roles. [Install 4.6 on each role](../cloud-services/cloud-services-dotnet-install-dotnet.md) before running your app.
 
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 ## Next steps
 * [Configure sending Azure Diagnostics to Application Insights](app-insights-azure-diagnostics.md)
 * [Automate creation of Application Insights resources](app-insights-powershell.md)

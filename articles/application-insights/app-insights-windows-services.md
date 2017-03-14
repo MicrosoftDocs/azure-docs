@@ -125,6 +125,10 @@ Please see [this Troubleshooting item](app-insights-asp-net-troubleshoot-no-data
 > 
 > 
 
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 ## Next steps
 * [Add more telemetry](app-insights-asp-net-more.md) to get the full 360-degree view of your application.
 

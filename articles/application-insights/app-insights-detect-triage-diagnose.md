@@ -4,7 +4,7 @@ description: Analyse crashes and detect  and diagnose performance issues in your
 author: alancameronwills
 services: application-insights
 documentationcenter: ''
-manager: douge
+manager: carmonm
 
 ms.assetid: 6ccab5d4-34c4-4303-9d3b-a0f1b11e6651
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 03/14/2017
 ms.author: awills
 
 ---
@@ -216,6 +216,10 @@ Application Insights can also be used to learn what users do with an app. Once i
 
 ## Your applications
 So that's how one team use Application Insights not just to fix individual issues, but to improve their development lifecycle. I hope it has given you some ideas about how Application Insights can help you with application performance management in your own applications.
+
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## Next steps
 You can get started in several ways, depending on the characteristics of your application. Pick what suits you best:
