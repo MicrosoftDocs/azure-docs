@@ -22,7 +22,7 @@ redirect_url: site-recovery-support-matrix-to-azure
 
 # Get ready to deploy Azure Site Recovery
 
-This article describes how to prepare for your Azure Site Recovery deployment.
+This article describes how to prepare for Azure Site Recovery deployment.
 
 ## Protecting Hyper-V virtual machines
 
