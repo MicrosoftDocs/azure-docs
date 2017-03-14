@@ -18,12 +18,7 @@ ms.author: jlembicz
 
 # How full text search works in Azure Search
 
-Azure Search is designed to seamlessly deliver expected search results in most scenarios. Occasionally, however, developers observe a behavior that seems strange or wrong. In those situations, understanding the inner workings of a full text search engine is all that’s needed to adjust query parameters or an index configuration to achieve the desired outcomes. 
-
-This article explores the mechanics of Lucene, a full text search engine, in the context of Azure Search. 
-The objective is to give you sufficient background in the four stages of search query processing and execution, recognize the potential for unexpected outcomes, and provide guidance if you feel customization are needed. 
-
-This article explains how the four stages of Lucene query execution - query parsing, lexical analysis, document matching and scoring - are performed in Azure Search.
+This article is for developers who need a deeper understanding of how the Lucene full text search engine is used in Azure Search. Azure Search will seamlessly deliver expected search results in most scenarios, but occasionally you might observe a behavior that seems strange or wrong. In these situations, having a background in the four stages of Lucene query execution - query parsing, lexical analysis, document matching, scoring - can help you identify the right adjustments to query parameters or an index configuration that achieves the desired outcome. 
 
 > [!Note] 
 > In Azure Search, Lucene integration is not exhaustive. We selectively expose and extend Lucene functionality to enable the scenarios important to Azure Search. As a developer, using the Azure Search APIs, and not Lucene APIs, is required for any custom work related to full text search. 
