@@ -39,7 +39,7 @@ This article applies to VMs and NICs created through the Azure Resource Manager 
 The remaining sections of this article provide steps to complete all NIC-related tasks. Each section lists:
 - Steps to complete the task within the Azure portal. To complete the steps, you must be logged in to the [Azure portal](http://portal.azure.com). Sign up for a [free trial account](https://azure.microsoft.com/free) if you don't already have one.
 - Commands to complete the task using Azure PowerShell with links to the command reference for the command. Install and configure PowerShell by completing the steps in the [How to Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) article. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
-- Commands to complete the task using the Azure Command-line interface (CLI) with links to the command reference for the command. Install the Azure CLI by completing the steps in the [How to Install and Configure the Azure CLI 2.0](/cli/azure/install-az-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) article. To get help for CLI commands, type `az <command> -h`.
+- Commands to complete the task using the Azure Command-line interface (CLI) with links to the command reference for the command. Install the Azure CLI by completing the steps in the [How to Install and Configure the Azure CLI 2.0](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) article. To get help for CLI commands, type `az <command> -h`.
 
 ## <a name="nics"></a>Network interfaces
 Complete the steps in the following sections to create, view, change, and delete network interfaces and settings:
@@ -57,7 +57,7 @@ To create a NIC, complete the following steps:
 	
 	|**Setting**|**Required?**|**Details**|
 	|---|---|---|
-	|**Name**|Yes|The name cannot be changed after the NIC is created. The name must be unique within the resource group you select. Read the [Naming conventions](/architecture/best-practices/naming-conventions.md) article for naming suggestions.|
+	|**Name**|Yes|The name cannot be changed after the NIC is created. The name must be unique within the resource group you select. Read the [Naming conventions](/azure/architecture/best-practices/naming-conventions.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article for naming suggestions.|
 	|**Virtual network**|Yes|You can only connect a NIC to a VNet that exists in the same subscription and location as the NIC. The VM the NIC is attached to must also exist in the same location and subscription as the NIC. If no VNets are listed, you need to create one. To create a VNet, complete the steps in the [Virtual network](virtual-networks-create-vnet-arm-pportal.md) article. Once a NIC is created, you cannot change the VNet it is connected to.|
 	|**Subnet**|Yes|Select a subnet within the VNet you selected. You can change the subnet the NIC is connected to after it's created.|
 	|**Private IP address assignment**|Yes| A private IP address is assigned by the Azure DHCP server to the NIC when it's created. The DHCP server assigns an available address from the subnet address range defined for the subnet you connect the NIC to. **Dynamic:** Azure may assign a different address to a NIC when the VM it's attached to is started after having been in the stopped (deallocated) state. The address remains the same if the VM is restarted without having been in the stopped (deallocated) state. **Static:** Static addresses do not change until you change them or the NIC is deleted. You can change the assignment method after the NIC is created.|
@@ -73,8 +73,8 @@ The Azure portal creates a primary IP configuration named **ipconfig1** with a d
 
 |**Tool**|**Command**|
 |---|---|
-|**CLI**|[az network nic create](/cli/azure/network/nic)|
-|**PowerShell**|[New-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/new-azurermnetworkinterface)|
+|**CLI**|[az network nic create](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|**PowerShell**|[New-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/new-azurermnetworkinterface/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
 
 ### <a name="view-nics"></a>View and change network interfaces and settings
 
@@ -87,17 +87,17 @@ To view and change network interfaces and settings, complete the following steps
 	- **Overview:** Provides information about the NIC, such as the IP addresses assigned to it, the VNet/subnet the NIC is connected to, and the VM the NIC is attached to (if it's attached to one).The following picture shows the overview settings for a NIC named **mywebserver256**:
 		![Network interface overview](./media/virtual-network-network-interface/nic-overview.png)
 	- **IP configurations:** A NIC has at least one IP configuration assigned to it, but can have several IP configurations assigned to it. To learn about the maximum number of IP configurations supported for a NIC, read the [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article. Each IP configuration has one assigned private IP address, and may have one public IP address associated to it. To modify what's displayed, complete the steps in the [Add a secondary IP configuration to a NIC](#create-ip-config), [Change an IP configuration](#change-ip-config), or [Delete an IP configuration](#delete-ip-config) sections of this article.
-	- **DNS servers:** You can specify which DNS server a NIC is assigned by the Azure DHCP servers. Choose between the Azure internal DNS server or a custom DNS server. To modify what's displayed, complete the steps in the [Change DNS settings for a NIC](#change-dns) section of this article.
+	- **DNS servers:** You can specify which DNS server a NIC is assigned by the Azure DHCP servers. Choose between the Azure internal DNS server or a custom DNS server. To modify what's displayed, complete the steps in the [Change DNS settings for a NIC](#dns) section of this article.
 	- **Network security group (NSG):** Displays whether an NSG is associated to the NIC. If an NSG is associated to the NIC, the name of the associated NSG is displayed. To modify what's displayed, complete the steps in the [Associate an NSG to or disassociate an NSG from a network interface](#associate-nsg) section of this article.
 	- **Properties:** Displays key settings about the NIC, to include its MAC address and the subscription it exists in. You can move a NIC to a different resource group or subscription, as long as you also move all resources related to the NIC. If the NIC is attached to a VM, for example, you must also move the VM and any additional resources related to it. To move a NIC, read the [Move resource to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-portal) article. It lists prerequisites, and how to move resources using the Azure portal, PowerShell, and the Azure CLI.
 	- **Effective security rules:**  Security rules are listed if the NIC is attached to a running VM, and an NSG is associated to the NIC, the subnet it's connected to, or both. To learn more about what's displayed, read the [Troubleshoot network security groups](virtual-network-nsg-troubleshoot-portal.md#view-effective-security-rules-for-a-network-interface) article . To learn more about NSGs, read the [Network security groups](virtual-networks-nsg.md) article.
-	- **Effective routes:** Routes are listed if the NIC is attached to a running VM. The routes are a combination of the Azure default routes, any user-defined routes, and any BGP routes that may exist for the subnet the NIC is connected to. To learn more about what's displayed, read the [Troubleshoot routes](virtual-network-routes-troubleshoot-portal.md#view-effective-routes-for-a-network-interface) article. To learn more about user-defined routes, read the [User-defined routes](virtual-networks-udr-overview.md) article .
-	- **Common Azure Resource Manager settings:**  To learn more about common Azure Resource Manager settings, read the [Activity log](../azure-resource-manager/resource-group-overview.md#activity-logs), [Access control (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [Tags](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags), [Locks](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and [Automation script](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group) articles.
+	- **Effective routes:** Routes are listed if the NIC is attached to a running VM. The routes are a combination of the Azure default routes, any user-defined routes, and any BGP routes that may exist for the subnet the NIC is connected to. To learn more about what's displayed, read the [Troubleshoot routes](virtual-network-routes-troubleshoot-portal.md#view-effective-routes-for-a-network-interface) article. To learn more about user-defined routes, read the [User-defined routes](virtual-networks-udr-overview.md) article.
+	- **Common Azure Resource Manager settings:**  To learn more about common Azure Resource Manager settings, read the [Activity log](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [Access control (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [Tags](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags), [Locks](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and [Automation script](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group) articles.
 
 |**Tool**|**Command**|
 |---|---|
-|**CLI**|[az network nic list](/cli/azure/network/nic#list) to view NICs in the subscription; [az network nic show](/cli/azure/network/nic#show) to view settings for a NIC|
-|**PowerShell**|[Get-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/get-azurermnetworkinterface) to view NICs in the subscription or view settings for a NIC|
+|**CLI**|[az network nic list](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#list) to view NICs in the subscription; [az network nic show](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#show) to view settings for a NIC|
+|**PowerShell**|[Get-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/get-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) to view NICs in the subscription or view settings for a NIC|
 
 ### <a name="dns"></a>Change DNS settings for a NIC
 
@@ -112,8 +112,8 @@ To change the DNS settings for a NIC, complete the following steps. The DNS serv
 
 |**Tool**|**Command**|
 |---|---|
-|**CLI**|[az network nic update](/cli/azure/network/nic#update)|
-|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface)|
+|**CLI**|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ### <a name="ip-forwarding"></a>Change IP forwarding for a NIC
 
@@ -132,8 +132,8 @@ To change IP forwarding settings for a NIC, complete the following steps:
 
 |**Tool**|**Command**|
 |---|---|
-|**CLI**|[az network nic update](/cli/azure/network/nic#update)|
-|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface)|
+|**CLI**|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ### <a name="subnet"></a>Change the subnet a NIC is connected to
 
@@ -149,8 +149,8 @@ You can change the subnet, but not the VNet, that a NIC is connected to. To chan
 
 |**Tool**|**Command**|
 |---|---|
-|**CLI**|[az network nic ip-config update](/cli/azure/network/nic/ip-config#update)|
-|**PowerShell**|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterfaceipconfig)|
+|**CLI**|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|**PowerShell**|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
 ### <a name="delete-nic"></a>Delete a network interface
@@ -165,8 +165,8 @@ When you delete a NIC, any MAC or IP addresses assigned to it are released.
 
 |**Tool**|**Command**|
 |---|---|
-|**CLI**|[az network nic delete](/cli/azure/network/nic#delete)|
-|**PowerShell**|[Remove-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.1.0/remove-azurermnetworkinterface)|
+|**CLI**|[az network nic delete](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|**PowerShell**|[Remove-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.1.0/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="ip-configs"></a>IP configurations
 Each NIC has at least one IP configuration, referred to as the **Primary** configuration. A NIC may also have one or more *secondary* IP configurations associated to it. There are limits to the number of IP addresses that you can assign to a NIC. For details, read the [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article. Each IP configuration:
@@ -182,11 +182,11 @@ Assigning multiple IP addresses to a NIC is helpful in scenarios such as:
 
 There is a limited number of public IP addresses that can be used within a subscription and a limited number of private IP addresses that can be assigned to a NIC. To learn more about these limits, read the [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article.
 
-### <a name="create-ipconfig"></a>Add a secondary IP configuration to a NIC
+### <a name="create-ip-config"></a>Add a secondary IP configuration to a NIC
 
 You can add as many IP configurations as necessary to a NIC, within the limits listed in the [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article. To add an IP configuration to a NIC, complete the following steps:
  
-1. Complete steps 1-3 in the [View network interface settings](#view) section of this article for the NIC you want to add an IP configuration to.
+1. Complete steps 1-3 in the [View network interface settings](#view-nics) section of this article for the NIC you want to add an IP configuration to.
 2. Click **IP configurations** in the blade for the NIC you selected.
 3. Click **+ Add** in the blade that opens for IP configurations.
 4. Specify the following, then click **OK** to close the **Add IP configuration** blade:
@@ -196,19 +196,19 @@ You can add as many IP configurations as necessary to a NIC, within the limits l
 	|**Name**|Yes|Must be unique for the NIC|
 	|**Type**|Yes|Since you're adding an IP configuration to an existing NIC, and each NIC must have a primary IP configuration, your only option is **Secondary**.|
 	|**Private IP address assignment method**|Yes|**Dynamic** addresses can change if the VM is restarted after having been in the stopped (deallocated) state. **Static** addresses aren't released until the NIC is deleted. Specify an IP address from the subnet address space range that is not currently in use by another IP configuration.|
-	|Public IP address|No|**Disabled:** No public IP address resource is currently associated to the IP configuration. **Enabled:** Select an existing Public IP address, or create a new one. To learn how to create a public IP address, read the [Public IP addresses](virtual-network-public-ip-address.md) article.|
+	|Public IP address|No|**Disabled:** No public IP address resource is currently associated to the IP configuration. **Enabled:** Select an existing Public IP address, or create a new one. To learn how to create a public IP address, read the [Public IP addresses](virtual-network-public-ip-address.md#create) article.|
 5. Manually add secondary private IP addresses to the VM operating system by completing the instructions in the [Assign multiple IP addresses to virtual machines](virtual-network-multiple-ip-addresses-portal.md#os-config) article. Do not add any public IP addresses to the VM operating system.
 
 |**Tool**|**Command**|
 |---|---|
-|**CLI**|[az network nic ip-config create](/cli/azure/network/nic/ip-config#create)|
-|**PowerShell**|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/v3.4.0/add-azurermnetworkinterfaceipconfig)|
+|**CLI**|[az network nic ip-config create](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|**PowerShell**|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/v3.4.0/add-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
-### <a name="change-ipconfig"></a>Change an IP configuration
+### <a name="change-ip-config"></a>Change an IP configuration
 
 To change the private and public IP address settings for any primary or secondary IP configuration, complete the following steps:
 
-1. Complete steps 1-3 in the [View network interface settings](#view) section of this article for the NIC you want to modify.
+1. Complete steps 1-3 in the [View network interface settings](#view-nics) section of this article for the NIC you want to modify.
 2. Click **IP configurations** in the blade for the NIC you selected.
 3. Click the IP configuration you want to modify from the list in the blade that opens for IP configurations.
 4. Change the settings, as desired, using the information about the settings in the [Add an IP configuration](#create-ipconfig) section of this article, then click **Save** to close the blade for the IP config you selected.
@@ -218,22 +218,22 @@ To change the private and public IP address settings for any primary or secondar
 
 |**Tool**|**Command**|
 |---|---|
-|**CLI**|[az network nic ip-config update](/cli/azure/network/nic/ip-config#update)|
-|**PowerShell**|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterfaceipconfig)|
+|**CLI**|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|**PowerShell**|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
-### <a name="delete-ipconfig"></a>Delete a secondary IP configuration from a NIC
+### <a name="delete-ip-config"></a>Delete a secondary IP configuration from a NIC
 
 Complete the following steps to delete a secondary IP configuration from a NIC:
 
-1. Complete steps 1-3 in the [View network interface settings](#view) section of this article for the NIC you want to modify.
+1. Complete steps 1-3 in the [View network interface settings](#view-nics) section of this article for the NIC you want to modify.
 2. Click **IP configurations** in the blade for the NIC you selected.
 3. Right-click the secondary IP configuration you want to delete and click **Delete**. If the configuration had a public IP address resource associated to it, the resource is dissociated from the IP configuration, but the resource is not deleted.
 4. Close the **IP configurations** blade.
 
 |**Tool**|**Command**|
 |---|---|
-|**CLI**|[az network nic ip-config delete](/cli/azure/network/nic/ip-config#delete)|
-|**PowerShell**|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/v3.4.0/remove-azurermnetworkinterfaceipconfig)|
+|**CLI**|[az network nic ip-config delete](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|**PowerShell**|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/v3.4.0/remove-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
 ## <a name="nsgs"></a>Network security groups
@@ -252,8 +252,8 @@ To associate an NSG to a NIC or disassociate an NSG from a NIC, complete the fol
 
 |**Tool**|**Command**|
 |---|---|
-|**CLI**|[az network nic update](/cli/azure/network/nic#update)|
-|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface)]|
+|**CLI**|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)]|
 
 ## <a name="vms"></a>Attach and detach NICs to or from a virtual machine
 
@@ -272,14 +272,14 @@ You can use PowerShell or the CLI to create a NIC or VM with all the previous at
 - In the past, all VMs within the same availability set were required to have a single, or multiple, NICs. VMs with any number of NICs can now exist in the same availability set. A VM can only be added to an availability set when it's created though. To learn more about availability sets, read the [Manage the availability of Windows virtual machines in Azure](../virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) article.
 - While NICs attached to the same VM can be connected to different subnets within a VNet, the NICs must all be connected to the same VNet.
 
-### <vm-create-windows></a>Attach one or more NICs when creating a virtual machine
+### <a name="vm-create"></a>Attach one or more NICs when creating a virtual machine
 
 You cannot attach existing NICs to a new VM, or create a VM with multiple NICs using the Azure portal. You can use the following Azure CLI or PowerShell commands to attach one or more existing NICs when creating a VM:
 
-- **CLI:** [az vm create](/cli/azure/vm#create)
-- **PowerShell:** [New-AzureRmVM](/powershell/resourcemanager/azurerm.compute/v2.5.0/new-azurermvm)
+- **CLI:** [az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#create)
+- **PowerShell:** [New-AzureRmVM](/powershell/resourcemanager/azurerm.compute/v2.5.0/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
-### <vm-view-nic></a> View NICs attached to a virtual machine
+### <a name="vm-view-nic"></a> View NICs attached to a virtual machine
 
 1.Log in to the [Azure portal](https://portal.azure.com) with an account that is assigned the Owner, Contributor, or Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles to accounts.
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *virtual machines*. When **virtual machines** appears in the search results, click it.
@@ -288,27 +288,27 @@ You cannot attach existing NICs to a new VM, or create a VM with multiple NICs u
 
 |**Tool**|**Command**|
 |---|---|
-|**CLI**|[az vm show](/cli/azure/vm#show)|
-|**PowerShell**|[Get-AzureRmVM](/powershell/resourcemanager/azurerm.compute/v1.3.4/get-azurermvm)|
+|**CLI**|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
+|**PowerShell**|[Get-AzureRmVM](/powershell/resourcemanager/azurerm.compute/v1.3.4/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
-### <vm-attach-nic></a>Attach a NIC to an existing virtual machine
+### <a name="vm-attach-nic"></a>Attach a NIC to an existing virtual machine
 
 The VM you want to attach a NIC to must support multiple NICs and be in the stopped (deallocated) state. You cannot attach NICs to an existing VM using the Azure portal. You can use the following Azure CLI or PowerShell commands to attach NICs to VMs:
 
-- **CLI:** [az vm nic add](/cli/azure/vm/nic#add)
-- **PowerShell:** [Add-AzureRmVMNetworkInterface](/powershell/resourcemanager/azurerm.compute/v2.5.0/add-azurermvmnetworkinterface)
+- **CLI:** [az vm nic add](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#add)
+- **PowerShell:** [Add-AzureRmVMNetworkInterface](/powershell/resourcemanager/azurerm.compute/v2.5.0/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
-### <vm-detach-nic></a>Detach a NIC from an existing virtual machine
+### <a name="vm-detach-nic"></a>Detach a NIC from an existing virtual machine
 
 The VM you want to detach a NIC from must be in the stopped (deallocated) state. You can detach any NIC, even the primary NIC. Azure assigns the primary attribute to another NIC in the VM. You cannot detach NICs from a VM using the Azure portal. You can use the following Azure CLI or PowerShell commands to detach NICs from VMs:
 
-- **CLI:** [az vm nic remove](/cli/azure/vm/nic#remove)
-- **PowerShell:** [Remove-AzureRMVMNetworkInterface](/powershell/resourcemanager/azurerm.compute/v2.5.0/remove-azurermvmnetworkinterface)
+- **CLI:** [az vm nic remove](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#remove)
+- **PowerShell:** [Remove-AzureRMVMNetworkInterface](/powershell/resourcemanager/azurerm.compute/v2.5.0/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="next-steps"></a>Next Steps
 To create a VM with multiple NICs or IP configurations using scripts, read the following articles:
 
 |**Task**|**Tool**|
 |---|---|
-|**Create a VM with multiple NICs**|[CLI](virtual-network-deploy-multinic-arm-cli.md) and [PowerShell](/virtual-network-deploy-multinic-arm-ps.md)|
+|**Create a VM with multiple NICs**|[CLI](virtual-network-deploy-multinic-arm-cli.md) and [PowerShell](virtual-network-deploy-multinic-arm-ps.md)|
 |**Create a single NIC VM with multiple IP addresses assigned to it**|[CLI](virtual-network-multiple-ip-addresses-cli.md) and [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
