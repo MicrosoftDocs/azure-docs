@@ -90,24 +90,24 @@ Currently the automatic and manual failover capabilities are exposed at the gran
 ### <a id="MultiHomingAPIs"></a>Multi-homing APIs in DocumentDB
 DocumentDB allows you to interact with the database using either logical (region agnostic) or physical (region-specific) endpoints. Using logical endpoints ensures that the application can transparently be multi-homed in case of failover. The latter, physical endpoints, provide fine-grained control to the application to redirect reads and writes to specific regions.
 
-### <a id="ReadPreferencesAPIforMongoDB"></a> Configurable Read Preferences in API for MongoDB
-API for MongoDB allows you to specify your collection's read preference for a globally distributed database. For both low latency reads and global high availability, we recommend setting your collection's read preference to *nearest*. A read preference of *nearest* is configured to read from the closest region.
+### <a id="ReadPreferencesAPIforMongoDB"></a> Configurable read preferences in API for MongoDB
+API for MongoDB enables you to specify your collection's read preference for a globally distributed database. For both low latency reads and global high availability, we recommend setting your collection's read preference to *nearest*. A read preference of *nearest* is configured to read from the closest region.
 
-	```C#
+	```csharp
 	var collection = database.GetCollection<BsonDocument>(collectionName);
 	collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Nearest));
 	```
 
 For applications with a primary read/write region and a secondary region for disaster recovery (DR) scenarios, we recommend setting your collection's read preference to *secondary preferred*. A read preference of *secondary preferred* is configured to read from the secondary region when the primary region is unavailable.
 
-	```C#
+	```csharp
 	var collection = database.GetCollection<BsonDocument>(collectionName);
 	collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.SecondaryPreferred));
 	```
 	
 Lastly, if you would like to manually specify your read regions. You can set the region Tag within your read preference.
 
-	```C#
+	```csharp
 	var collection = database.GetCollection<BsonDocument>(collectionName);
 	var tag = new Tag("region", "Southeast Asia");
 	collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Secondary, new[] { new TagSet(new[] { tag }) }));
