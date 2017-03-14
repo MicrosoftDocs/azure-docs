@@ -26,7 +26,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-windows-vm-monitor-oms/create-vm-monitor-oms.ps1 "Create VM OMS")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-windows-vm-monitor-oms/create-windows-vm-monitor-oms.ps1 "Create VM OMS")]
 
 ## Clean up deployment 
 
