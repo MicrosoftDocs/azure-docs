@@ -90,7 +90,7 @@ Currently the automatic and manual failover capabilities are exposed at the gran
 ### <a id="MultiHomingAPIs"></a>Multi-homing APIs in DocumentDB
 DocumentDB allows you to interact with the database using either logical (region agnostic) or physical (region-specific) endpoints. Using logical endpoints ensures that the application can transparently be multi-homed in case of failover. The latter, physical endpoints, provide fine-grained control to the application to redirect reads and writes to specific regions.
 
-### <a id=""></a> Configurable Read Preferences in API for MongoDB
+### <a id="ReadPreferencesAPIforMongoDB"></a> Configurable Read Preferences in API for MongoDB
 API for MongoDB allows you to specify your collection's read preference for a globally distributed database. For both low latency reads and global high availability, we recommend setting your collection's read preference to *nearest*. A read preference of *nearest* is configured to read from the closest region.
 
 	```C#
