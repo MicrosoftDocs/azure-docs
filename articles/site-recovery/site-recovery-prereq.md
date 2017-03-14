@@ -113,7 +113,6 @@ These URLs should be available from VMware, VMM, and Hyper-V host servers.
 |``*.hypervrecoverymanager.windowsazure.com`` | Allow | Allow | Allow | Allow |
 |``*.store.core.windows.net`` | Allow | Allow | Allow | Allow |
 |``*.blob.core.windows.net`` | Not required | Allow | Allow | Allow |
-|``https://www.msftncsi.com/ncsi.txt`` | Allow | Allow | Allow | Allow |
 |``https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi`` | Not required | Not required | Not required | Allow for SQL download |
 |``time.windows.com`` | Allow | Allow | Allow | Allow|
 |``time.nist.gov`` | Allow | Allow | Allow | Allow |
