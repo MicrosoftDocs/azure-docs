@@ -36,7 +36,7 @@ Select a connector to learn how to build workflows quickly.
 |![API Icon][Insightlyicon]<br/>**Insightly**|![API Icon][Instagramicon]<br/>**Instagram**|![API Icon][Instapapericon]<br/>**Instapaper**|![API Icon][JIRAicon]<br/>**JIRA**|
 |[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![API Icon][Mandrillicon]<br/>**Mandrill**|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|[![API Icon][Nested-Logic-Appicon]<br/>**Nested<br/>Logic App**][Nested-Logic-Appdoc]|
 |[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Office 365<br/>Users**|[![API Icon][Office-365-Videoicon]<br/>**Office 365<br/>Video**][office365-videodoc]|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|
-|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive for<br/>Business**][OneDrive-for-Businessdoc]|![API Icon][Oracle-DB-icon]<br/>**Oracle DB**<br/>[oracledbdoc]|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![API Icon][PagerDutyicon]<br/>**PagerDuty**|
+|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive for<br/>Business**][OneDrive-for-Businessdoc]|[![API Icon][Oracle-DB-icon]<br/>**Oracle DB**][oracle-db-doc]|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![API Icon][PagerDutyicon]<br/>**PagerDuty**|
 |![API Icon][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![API Icon][Queryicon]<br/>**Query**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Recurrence**][Recurrencedoc]|
 |![API Icon][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|
 |[![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc]|[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|
@@ -158,7 +158,7 @@ Actions map to operations that are defined in the Swagger metadata.
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "Connects to SparkPost for communication"
 [filesystemdoc]: ..//logic-apps/logic-apps-using-file-connector.md "Connects to an on-premises file system"
 [sapconnector]: ..//logic-apps/logic-apps-using-sap-connector.md "Connects to an on-premises SAP system"
-[oracledbdoc]: https://powerapps.microsoft.com/blog/connecting-to-oracle-database-from-powerapps-flow-and-logic-apps "Connects to an Oracle database"
+[oracle-db-doc]: https://powerapps.microsoft.com/blog/connecting-to-oracle-database-from-powerapps-flow-and-logic-apps "Connects to an Oracle database"
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
