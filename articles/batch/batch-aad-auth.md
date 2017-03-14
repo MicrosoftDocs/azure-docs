@@ -146,6 +146,8 @@ Before deleting the newly created Batch account and resource group, you can insp
 
 
 
+https://batch.core.windows.net/
+
 
 
 [aad_about]: ../active-directory/active-directory-whatis.md "What is Azure Active Directory?"
