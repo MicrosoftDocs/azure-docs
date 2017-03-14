@@ -30,10 +30,10 @@ You can create clusters of RDMA-capable Linux VMs that run one of the following 
 
 * **Distributions** - You must deploy VMs from RDMA-capable SUSE Linux Enterprise Server (SLES) or OpenLogic CentOS-based HPC images in the Azure Marketplace. Only the following Marketplace images support the necessary Linux RDMA drivers:
   
-  * SLES 12 SP1 for HPC, SLES 12 SP1 for HPC (Premium)
-  * CentOS-based 7.1 HPC, CentOS-based 6.5 HPC
- 
+    * SLES 12 SP1 for HPC, SLES 12 SP1 for HPC (Premium)
     
+    * CentOS-based 7.1 HPC, CentOS-based 6.5 HPC  
+ 
     > [!NOTE]
     > For H-series VMs, we recommend either a SLES 12 SP1 for HPC image or CentOS-based 7.1 HPC image.
     >
