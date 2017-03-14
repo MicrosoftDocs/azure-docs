@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -47,6 +47,12 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+
+### <a name="1.12.1"/>[1.12.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.1)
+* Added LINQ support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG).
+* Fix for a memory leak issue for the ConnectionPolicy object caused by the use of event handler.
+* Fix for an issue wherein UpsertAttachmentAsync was not working when ETag was used.
+* Fix for an issue wherein cross partition order-by query continuation was not working when sorting on string field.
 
 ### <a name="1.12.0"/>[1.12.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.0)
 * Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](documentdb-sql-query.md#Aggregates).
@@ -202,6 +208,7 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.12.1](#1.12.1) |March 14, 2017 |--- |
 | [1.12.0](#1.12.0) |February 15, 2017 |--- |
 | [1.11.4](#1.11.4) |February 06, 2017 |--- |
 | [1.11.3](#1.11.3) |January 26, 2017 |--- |
