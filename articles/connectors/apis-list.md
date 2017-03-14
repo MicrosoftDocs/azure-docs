@@ -47,7 +47,7 @@ Select a connector to learn how to build workflows quickly.
 
 ### Integration account connectors 
 
-| integration account<br/>connectors |  |  |  |
+| Integration account<br/>connectors |  |  |  |
 | --- | --- | --- | --- |
 | [![API Icon][xmlvalidateicon]<br/>**XML <br/>validation**][xmlvalidatedoc] |[![API Icon][xmltransformicon]<br/>**XML<br/> transform**][xmltransformdoc] |[![API Icon][flatfileicon]<br/>**Flat file</br>encode**][flatfiledoc] |[![API Icon][flatfiledecodeicon]<br/>**Flat file</br>decode**][flatfiledecodedoc] |
 | [![API Icon][as2icon]<br/>**AS2</br>decode**][as2decode] |[![API Icon][as2icon]<br/>**AS2</br>encode**][as2encode] |[![API Icon][x12icon]<br/>**X12</br>decode**][x12decode] |[![API Icon][x12icon]<br/>**X12</br>encode**][x12encode] |
@@ -62,9 +62,9 @@ Select a connector to learn how to build workflows quickly.
 ## Enterprise connectors
 Use the enterprise connectors to create logic apps for B2B scenarios that include EAI and EDI.  
 
-| enterprise<br/>connectors |  |
+| Enterprise<br/>connectors |  |
 | --- | --- |
-|![API Icon][MQicon]<br/>**MQ**|![API Icon][SAPicon]<br/>**SAP**<br/>[sapconnector]|
+|![API Icon][MQicon]<br/>**MQ**|[![API Icon][SAPicon]<br/>**SAP**][sapconnector]|
 
 
 
