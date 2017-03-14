@@ -121,7 +121,7 @@ You can use Data Factory Editor in the Azure portal, Visual Studio, or Azure Pow
 
 JSON properties (such as name, description, input and output tables, and policies) are available for all types of activities. Properties that are available in the `typeProperties` section of the activity vary with each activity type.
 
-For Copy Activity, the `typeProperties` section varies depending on the types of sources and sinks. Click a source/sink in the [Supported sources and sinks](../../includes/data-factory-supported-data-stores.md) section to learn about type properties that Copy Activity supports for that data store.   
+For Copy Activity, the `typeProperties` section varies depending on the types of sources and sinks. Click a source/sink in the [Supported sources and sinks](#supported-data-stores-and-formats) section to learn about type properties that Copy Activity supports for that data store.
 
 Here's a sample JSON definition:
 
