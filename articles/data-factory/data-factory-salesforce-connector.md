@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/14/2017
 ms.author: jingwang
 
 ---
@@ -30,7 +30,7 @@ This connector supports the following editions of Salesforce: Developer Edition,
 * To copy data from Salesforce to on-premises data stores, you must have at least Data Management Gateway 2.0 installed in your on-premises environment.
 
 ## Salesforce request limits
-Salesforce has limits for both total API requests and concurrent API requests. Note:
+Salesforce has limits for both total API requests and concurrent API requests. Note the following:
 * If the number of concurrent requests exceeds the limit, throttling occurs and you will see random failures;
 * If the total number of requests exceeds the limit, the Salesforce account will be blocked for 24 hours.
 
@@ -253,8 +253,8 @@ When specify the SOQL or SQL query, pay attention to the DateTime format differe
 
 * **SOQL sample**: $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)
 * **SQL sample**:
-    * Using copy wizard to specify the query: $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate  < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
-    * Using JSON editing to specify the query (escape char properly): $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate  < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
+    * **Using copy wizard to specify the query:** $$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)
+    * **Using JSON editing to specify the query (escape char properly):** $$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)
 
 ### Retrieving data from Salesforce Report
 You can retrieve data from Salesforce reports by specifying query as `{call "<report name>"}`, e.g. `"query": "{call \"TestReport\"}"`.
