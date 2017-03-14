@@ -56,6 +56,9 @@ In order to deliver a storage encrypted asset, you must configure the asset’s 
 ### Access policy
 An [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) defines permissions (like read, write, and list) and duration of access to an asset. You would usually pass an AccessPolicy object to a locator that would then be used to access the files contained in an asset.
 
+>[!NOTE]
+>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
+
 ### Blob container
 A blob container provides a grouping of a set of blobs. Blob containers are used in Media Services as boundary point for access control, and Shared Access Signature (SAS) locators on assets. An Azure Storage account can contain an unlimited number of blob containers. A container can store an unlimited number of blobs.
 

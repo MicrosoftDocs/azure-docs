@@ -97,7 +97,7 @@ If you want to migrate the VMs to a platform-created virtual network, use the fo
 
 If you want to migrate to an existing virtual network in the Resource Manager deployment model, use the following command.
 
-    azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> subnetName <vnetName>
+    azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> <subnetName> <vnetName>
 
 After the prepare operation is successful, you can look through the verbose output to get the migration state of the VMs and ensure that they are in the `Prepared` state.
 

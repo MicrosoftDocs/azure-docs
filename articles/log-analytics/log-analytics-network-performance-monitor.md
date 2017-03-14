@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/09/2017
 ms.author: banders
 
 ---
@@ -56,7 +56,19 @@ Agents monitor network connectivity (links) between hosts -- not the hosts thems
 
 ### Configure agents
 
-If you intend to use the ICMP protocol for synthetic transactions, you do not need to configure the agents. Then, you can start configuring the solution. However, if you intend to use the TCP protocol you need to open firewall ports for those computers to ensure that agents can communicate. You need to download and then run the [EnableRules.ps1 PowerShell script](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) without any parameters in a PowerShell window with administrative privileges
+If you intend to use the ICMP protocol for synthetic transactions, you need to enable the following firewall rules for reliably utilizing ICMP:
+
+```
+netsh advfirewall firewall add rule name="NPMDICMPV4Echo" protocol="icmpv4:8,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV6Echo" protocol="icmpv6:128,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV4DestinationUnreachable" protocol="icmpv4:3,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV6DestinationUnreachable" protocol="icmpv6:1,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV4TimeExceeded" protocol="icmpv4:11,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action=allow
+```
+
+
+If you intend to use the TCP protocol you need to open firewall ports for those computers to ensure that agents can communicate. You need to download and then run the [EnableRules.ps1 PowerShell script](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) without any parameters in a PowerShell window with administrative privileges.
 
 The script creates registry keys required by the Network Performance Monitor and it creates Windows firewall rules to allow agents to create TCP connections with each other. The registry keys created by the script also specify whether to log the debug logs and the path for the logs file. It also defines the agent TCP port used for communication. The values for these keys are automatically set by the script, so you should not manually change these keys.
 
@@ -71,7 +83,10 @@ The port opened by default is 8084. You can use a custom port by providing the p
 Use the following information to install and configure the solution.
 
 1. The Network Performance Monitor solution acquires data from computers running Windows Server 2008 SP 1 or later or Windows 7 SP1 or later, which are the same requirements as the Microsoft Monitoring Agent (MMA). NPM agents can also run on Windows desktop/client operating systems (Windows 10, Windows 8.1, Windows 8 and Windows 7).
-2. Add the Network Performance Monitor solution to your workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  
+    >[!NOTE]
+    >The agents for Windows server operating systems support both TCP and ICMP as the protocols for synthetic transaction. However, the agents for Windows client operating systems only support ICMP as the protocol for synthetic transaction.
+
+2. Add the Network Performance Monitor solution to your workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  
    ![Network Performance Monitor symbol](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 3. In the OMS portal, you'll see a new tile titled **Network Performance Monitor** with the message *Solution requires additional configuration*. You'll need to configure the solution to add networks based on subnetworks and nodes that are discovered by agents. Click **Network Performance Monitor** to start configuring the default network.  
    ![solution requires additional configuration](./media/log-analytics-network-performance-monitor/npm-config.png)
@@ -285,6 +300,11 @@ Now that you've read about Network Performance Monitor, let's look at a simple i
 
    In the below image you can clearly see the root-cause of the problem areas to the specific section of the network by looking at the paths and hops in red color. Clicking on a node in the topology map reveals the properties of the node, including the FQDN, and IP address. Clicking on a hop shows the IP address of the hop.  
    ![unhealthy topology - path details example](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
+
+## Provide feedback
+
+- **UserVoice** - You can post your ideas for Network Performance Monitor features that you want us to work on. Visit our [UserVoice page](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring).
+- **Join our cohort** - We’re always interested in having new customers join our cohort. As part of it, you'll get early access to new features and help us improve Network Performance Monitor. If you're interested in joining, fill-out this [quick survey](https://aka.ms/npmcohort).
 
 ## Next steps
 * [Search logs](log-analytics-log-searches.md) to view detailed network performance data records.
