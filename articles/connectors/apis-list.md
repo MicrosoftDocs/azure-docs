@@ -202,7 +202,7 @@ Actions map to operations that are defined in the Swagger metadata.
 [Office-365-Videoicon]: ./media/apis-list/office365video.png
 [OneDriveicon]: ./media/apis-list/onedrive.png
 [OneDrive-for-Businessicon]: ./media/apis-list/onedriveforbusiness.png
-[Oracle-DB-icon]: ./media/apis-list/oracle-db.ping
+[Oracle-DB-icon]: ./media/apis-list/oracle-db.png
 [Outlook.comicon]: ./media/apis-list/outlook.png
 [PagerDutyicon]: ./media/apis-list/pagerduty.png
 [Pinteresticon]: ./media/apis-list/pinterest.png
