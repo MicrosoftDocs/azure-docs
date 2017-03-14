@@ -18,6 +18,7 @@
 ### [Grant permissions to policies](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
 ### [Configure cost management](devtest-lab-configure-cost-management.md)
 ### [Configure virtual networks](devtest-lab-configure-vnet.md)
+### [Understand shared IP addresses](devtest-lab-shared-ip.md)
 
 ## Manage Artifacts
 ### [Add artifacts repository](devtest-lab-add-artifact-repo.md)
