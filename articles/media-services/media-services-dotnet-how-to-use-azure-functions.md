@@ -1,6 +1,6 @@
 ---
-title: Develop Azure functions with Media Services
-description: This topic shows how to start developing Azure functions with Media Services using the Azure portal.
+title: Develop Azure Functions with Media Services
+description: This topic shows how to start developing Azure Functions with Media Services using the Azure portal.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -17,20 +17,20 @@ ms.date: 03/13/2017
 ms.author: juliako
 
 ---
-#Develop Azure functions with Media Services
+#Develop Azure Functions with Media Services
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
-This topic discusses how to start developing Azure functions with Media Services using the Azure portal. 
+This topic discusses how to start developing Azure Functions with Media Services using the Azure portal. 
 
-You can also deploy existing Media Services Azure functions from [here](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) by pressing the **Deploy to Azure** button. This repository contains Azure functions examples that use Azure Media Services to show workflows related to ingesting content directly from blob storage, encoding, and writing content back to blob storage. It also includes examples of how to monitor job notifications via WebHooks and Azure Queues.
+You can also deploy existing Media Services Azure Functions from [here](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) by pressing the **Deploy to Azure** button. This repository contains Azure Functions examples that use Azure Media Services to show workflows related to ingesting content directly from blob storage, encoding, and writing content back to blob storage. It also includes examples of how to monitor job notifications via WebHooks and Azure Queues.
 
-You can develop your functions based on the examples in [this](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) repository. This topic shows you how to get started with creating Azure functions that use Media Services. 
+You can develop your Functions based on the examples in [this](https://github.com/Azure-Samples/media-services-dotnet-Functions-integration) repository. This topic shows you how to get started with creating Azure Functions that use Media Services. 
 
 ## Prerequisites
 
 Before you can create your first function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/).
 
-If you are going to create Azure functions that perform actions on your Azure Media Services (AMS) account or listen to events sent by Media Services, you should create an AMS account, as described [here](media-services-portal-create-account.md).
+If you are going to create Azure Functions that perform actions on your Azure Media Services (AMS) account or listen to events sent by Media Services, you should create an AMS account, as described [here](media-services-portal-create-account.md).
 
 ## Create a function app
 
@@ -38,7 +38,7 @@ Create a function app as described [here](../azure-functions/functions-create-fi
 
 ## Create a function
 
-Once your function app was deployed, you can find it among **App Services** Azure functions. 
+Once your function app was deployed, you can find it among **App Services** Azure Functions. 
 
 1. Select your function app and click **New Function**.
 3. Choose the **C#** language and **Webhook + API** scenario.
