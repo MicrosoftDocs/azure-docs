@@ -78,6 +78,8 @@
 ### [Before you get started](azure-stack-app-service-before-you-get-started.md)
 ### [Deploy App Service resource provider](azure-stack-app-service-deploy.md)
 ### [Add more web worker roles](azure-stack-app-service-add-worker-roles.md)
+### [Enable FTP publishing](azure-stack-app-service-enable-ftp.md)
+### [Configure deployment sources](azure-stack-app-service-configure-deployment-sources.md)
 
 
 # Troubleshoot

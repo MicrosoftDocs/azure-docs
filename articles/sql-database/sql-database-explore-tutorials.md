@@ -1,164 +1,105 @@
+---		
+title: Explore Azure SQL Database Tutorials | Microsoft Docs		
+description: Learn about SQL Database features and capabilities		
+keywords: ''		
+services: sql-database		
+documentationcenter: ''		
+author: CarlRabeler		
+manager: jhubbard		
+editor: ''		
+		
+ms.assetid: 04c0fd7f-d260-4e43-a4f0-41cdcd5e3786		
+ms.service: sql-database		
+ms.custom: overview		
+ms.devlang: NA		
+ms.topic: article		
+ms.tgt_pltfrm: NA		
+ms.workload: data-management		
+ms.date: 02/08/2017		
+ms.author: carlrab		
+		
 ---
-title: Explore Azure SQL Database Tutorials | Microsoft Docs
-description: Learn about SQL Database features and capabilities
-keywords: ''
-services: sql-database
-documentationcenter: ''
-author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: 04c0fd7f-d260-4e43-a4f0-41cdcd5e3786
-ms.service: sql-database
-ms.custom: overview
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-management
-ms.date: 12/08/2016
-ms.author: carlrab
-
----
+ 
 # Explore Azure SQL Database tutorials
-The links below take you to an overview of each listed feature area and a simple step-by-start tutorial for each area. For solution-scoped quick starts that demonstrate the use of SQL Database in a complete solution based on real world scenarios, see [Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md).
+The links in the following tables take you to an overview of each listed feature area and a simple step-by-start tutorial for each area. For solution-scoped quick starts that demonstrate the use of SQL Database in a complete solution based on real world scenarios, see [Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md).
 
 ## Create servers, databases and server-level firewall rules
-In the following tutorials, you create servers, databases and server-level firewall rules - and learn to connect and query servers and databases.
+In the following tutorials, you create servers, databases, and server-level firewall rules - and learn to connect and query servers and databases.
 
 | Tutorial | Description |
 | --- | --- | 
-| [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](sql-database-get-started.md) | In this tutorial, you use the Azure portal and SQL Server Management Studio to create an Azure SQL Database logical server, view its properties, create a server-level firewall, connect to the master database, create a sample database, view its properties, connect to the sample database, and create a blank database. |
-| [Get started with Azure SQL Database servers, databases, and firewall rules by using Azure PowerShell](sql-database-get-started-powershell.md) | In this tutorial, you use PowerShell to create an Azure SQL Database logical server, view its properties, create a server-level firewall, connect to the master database, create a sample database, view its properties, connect to the sample database, and create a blank database. |
+| [Quick start tutorial: Your first Azure SQL database](sql-database-get-started.md) | When you finish this quick start tutorial, you have a sample database and a blank database running in an Azure resource group and attached to a logical server. You also have two server-level firewall rules configured to enable the server-level principal to log in to the server from two specified IP addresses. Finally, you learn know how to query a database in the Azure portal and to connect and query using SQL Server Management Studio. |
+| [Tutorial: Provision and access an Azure SQL database using PowerShell](sql-database-get-started-powershell.md) | When you finish this tutorial, you have a sample database and a blank database running in an Azure resource group and attached to a logical server. You also have a server-level firewall rule configured to enable the server-level principal to log in to the server from a specified IP address (or IP address range). |
 | [Use C# to create a SQL database with the SQL Database Library for .NET](sql-database-get-started-csharp.md)| In this tutorial, you use the C# to create a SQL Database server, firewall rule, and SQL database. You also create an Active Directory (AD) application and the service principal needed to authenticate the C# app. |
 |  | |
 
-## Backup and recovery
-In the following tutorial, you restore a database to a point in time, configure long-term backup retention, and restore a database from retention in the Azure Recovery Services vault. 
+## Backups, long-term retention, and database recovery
+In the following tutorials, you learn about using [database backups](sql-database-automated-backups.md), [long-term backup retention](sql-database-long-term-retention.md), and [database recovery using backups](sql-database-recovery-using-backups.md).
 
 | Tutorial | Description |
 | --- | --- | 
-| [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery.md)| In this tutorial, you use the Azure portal to restore a database to a point in time, configure long-term backup retention, and restore a database from retention in the Azure Recovery Services vault. |
+| [Back up and restore using the Azure portal](sql-database-get-started-backup-recovery.md) | In this tutorial, you learn how to use the Azure portal to view backups, recover to a point in time, configure long-term backup retention, and recover from a backup in the Azure Recovery Services vault
+| [Back up and restore using PowerShell](sql-database-get-started-backup-recovery-powershell.md) | In this tutorial, you learn how to use PowerShell to view backups, recover to a point in time, configure long-term backup retention, and recover from a backup in the Azure Recovery Services vault
 |  | |
 
-## Elastic pools
-In the following tutorials, you will learn about using [elastic pools](sql-database-elastic-pool.md) to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns.
+## Sharded databases
+In the following tutorials, you learn how to [Scale out databases with the shard map manager](sql-database-elastic-scale-shard-map-management.md).
 
 | Tutorial | Description |
 | --- | --- | 
-| [Create an elastic pool](sql-database-elastic-pool-create-portal.md) |In this tutorial, you learn how to create a scalable pool of Azure SQL databases. |
-| [Monitor an elastic database](sql-database-elastic-pool-manage-portal.md#elastic-database-monitoring) |In this tutorial, you learn how to monitor an individual elastic database for potential trouble. |
-| [Add an alert to a pool resource](sql-database-elastic-pool-manage-portal.md#add-an-alert-to-a-pool-resource) |In this tutorial, you learn how to add rules to resources that send email to people or alert strings to URL endpoints when the resource hits a utilization threshold that you set up. |
-| [Move a database into an elastic pool](sql-database-elastic-pool-manage-portal.md#move-a-database-into-an-elastic-pool) |In this tutorial, you learn how to move a database into an elastic pool. |
-| [Move a database out of an elastic pool](sql-database-elastic-pool-manage-portal.md#move-a-database-out-of-an-elastic-pool) |In this tutorial, you learn how to move a database out of an elastic pool. |
-| [Change performance settings of a pool](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) |In this tutorial, you learn how to adjust the performance and storage limits for a pool. |
+| [Create a sharded application](sql-database-elastic-scale-get-started.md) |In this tutorial, you learn how to use the capabilities of elastic database tools using a simple sharded application. |
+| [Deploy a split-merge service](sql-database-elastic-scale-configure-deploy-split-and-merge.md) |In this tutorial, you learn how to move data between sharded databases. |
 |  | |
 
 ## Elastic database jobs
-In the following tutorials, you will learn about using [elastic database jobs](sql-database-elastic-jobs-overview.md).
+In the following tutorials, you learn about using [elastic database jobs](sql-database-elastic-jobs-overview.md).
 
 | Tutorial | Description |
 | --- | --- | 
-| [Get started with Elastic Database tools](sql-database-elastic-scale-get-started.md) |In this tutorial, you learn how to use the capabilities of elastic database tools using a simple sharded application. |
-| [Get started with Azure SQL Database elastic jobs](sql-database-elastic-jobs-getting-started.md) |In this tutorial, you learn how to  how to create and manage jobs that manage a group of related databases. |
+| [Get started with Azure SQL Database elastic jobs](sql-database-elastic-jobs-getting-started.md) |In this tutorial, you learn how to create and manage jobs that manage a group of related databases. |
 |  | |
 
 ## Elastic queries
-In the following tutorials, you will learn about running [elastic queries](sql-database-elastic-query-overview.md).
+In the following tutorials, you learn about running [elastic queries](sql-database-elastic-query-overview.md).
 
 | Tutorial | Description |
 | --- | --- | 
-| [Querying across a horizontally partitioned (sharded) database)](sql-database-elastic-query-getting-started.md) |In this tutorial, you learn how to create reports from all databases in a horizontally partitioned (sharded) database using [elastic query](sql-database-elastic-query-overview.md) |
-| [Querying across a vertically partitioned database)](sql-database-elastic-query-getting-started-vertical.md#create-database-objects) |In this tutorial, you learn how to create reports from all databases in a vertically database using [elastic query](sql-database-elastic-query-overview.md) |
-| [Migrate an existing database to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md) |In this tutorial, you learn to horizontally scale (shard) an Azure SQL database. |
-|  | |
-
-## Performance optimization
-In the following tutorials, you will learn about optimizing the [performance of standalone databases](sql-database-performance-guidance.md). For optimizing the performance of multiple databases, see [Elastic pools](#elastic-pools).
-
-| Tutorial | Description |
-| --- | --- | 
-| [Change the service tier and performance level of your database](sql-database-scale-up.md#change-the-service-tier-and-performance-level-of-your-database) |In this tutorial, you learn how to scale up or scale down the performance of an Azure SQL database using service tiers. |
-| [SQL Database Advisor Query Performance Insight](sql-database-performance.md#performance-overview) |In this tutorial, you learn how to open and use SQL Database Advisor Query Performance Insight. |
-| [SQL Database Advisor performance recommendations](sql-database-advisor.md) |In this tutorial, you learn how to view and apply SQL Database Advisor performance recommendations. |
-| [Review top CPU consuming queries](sql-database-query-performance.md#review-top-cpu-consuming-queries) |In this tutorial, you learn how to use SQL Database Advisor Query Performance Insight to review top CPU consuming queries. |
-| [Viewing individual query details](sql-database-query-performance.md#viewing-individual-query-details) |In this tutorial, you learn how to use SQL Database Advisor Query Performance Insight to view individual query performance details. |
-|  | |
-
-## SQL Database migration and archive
-In the following tutorials, you will learn about [migrating an existing SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
-
-| Tutorial | Description |
-| --- | --- | 
-| [Detecting Compatibility Issues Using SQL Server Data Tools for Visual Studio](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md#detecting-compatibility-issues-using-sql-server-data-tools-for-visual-studio) |In this tutorial, you learn how to use SQL Server Data Tools for Visual Studio to determine Azure SQL Database compatibility. |
-| [Fixing Compatibility Issues Using SQL Server Data Tools for Visual Studio](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md#fixing-compatibility-issues-using-sql-server-data-tools-for-visual-studio) |In this tutorial, you learn how to use SQL Server Data Tools for Visual Studio to fix Azure SQL Database compatibility issues. |
-| [Determine SQL Database compatibility using SqlPackage.exe](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md#using-sqlpackageexe) |In this tutorial, you learn how to use the SQLPackage.exe command-line utility to determine Azure SQL Database compatibility. |
-| [Determine SQL Database compatibility using SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md#using-sql-server-management-studio) |In this tutorial, you learn how to use SQL Server Management Studio to determine Azure SQL Database compatibility. |
-| [Migrate SQL Server database to SQL Database using Deploy Database to Microsoft Azure Database Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md#use-the-deploy-database-to-microsoft-azure-database-wizard) |In this tutorial, you will learn how to migrate a compatible SQL Server database to Azure SQL Database using the Deploy Database to Microsoft Azure Database Wizard in SQL Server Management Studio. |
-| [Export a SQL Server database to a BACPAC file using SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md) |In this tutorial, you will learn how to export a compatible SQL Server database to a BACPAC file using the Export Data Tier Application Wizard in SQL Server Management Studio. |
-| [Export a SQL Server database to a BACPAC file using SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md) |In this tutorial, you will learn how to export a compatible SQL Server database to a BACPAC file using the SQLPackage.exe command-line utility. |
-| [Import a BACPAC file into Azure SQL Database using SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) |In this tutorial, you will learn how to import a database into Azure SQL Database from a BACPAC file using the Export Data Tier Application Wizard in SQL Server Management Studio. |
-| [Import a BACPAC file into Azure SQL Database using SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md#import-from-a-bacpac-file-into-azure-sql-database-using-sqlpackage) |In this tutorial, you will learn how to import a database into Azure SQL Database from a BACPAC file using the SQLPackage command-line utility. |
-| [Import a BACPAC file into Azure SQL Database using the Azure portal](sql-database-import.md) |In this tutorial, you will learn how to import a database into Azure SQL Database from a BACPAC file that is stored in an Azure blob using the Azure Portal. |
-| [Import a BACPAC file into Azure SQL Database using PowerShell](sql-database-import-powershell.md) |In this tutorial, you will learn how to import a database into Azure SQL Database from a BACPAC file using PowerShell. |
-| [Archive an Azure SQL database using the Azure portal](sql-database-export.md#export-your-database) |In this tutorial, you learn how to archive an Azure SQL database to a BACPAC file using the Azure portal. |
-| [Archive an Azure SQL database using PowerShell](sql-database-export-powershell.md) |In this tutorial, you learn how to archive an Azure SQL database to a BACPAC file using PowerShell. |
-| [Copy an Azure SQL database using the Azure portal](sql-database-copy.md) |In this tutorial, you learn how to copy an Azure SQL database using the Azure portal. |
-| [Copy an Azure SQL database using PowerShell](sql-database-copy-powershell.md) |In this tutorial, you learn how to copy an Azure SQL database using PowerShell. |
-| [Copy an Azure SQL database using Transact-SQL](sql-database-copy-transact-sql.md#copy-your-sql-database) |In this tutorial, you learn how to copy an Azure SQL database using Transact-SQL. |
-|  | |
-
-## Develop
-In the following tutorials, you will learn about [SQL Database Development](sql-database-develop-overview.md) and using [connectivity libraries](sql-database-libraries.md).
-
-| Tutorial | Description |
-| --- | --- | 
-| [Connect to SQL Database by using .NET (C#)](sql-database-develop-dotnet-simple.md) |In this tutorial, you learn how to connect to an Azure SQL database using C#. |
-| [Connect to SQL Database by using Java](sql-database-develop-java-simple.md) |In this tutorial, you learn how to connect to an Azure SQL database using Java. |
-| [Connect to SQL Database by using Node.js](sql-database-develop-nodejs-simple.md) |In this tutorial, you learn how to connect to an Azure SQL database using Node.js. |
-| [Connect to SQL Database by using PHP](sql-database-develop-php-simple.md) |In this tutorial, you learn how to connect to an Azure SQL database using PHP. |
-| [Connect to SQL Database by using Python](sql-database-develop-python-simple.md) |In this tutorial, you learn how to connect to an Azure SQL database using Python. |
-| [Connect to SQL Database by using Ruby](sql-database-develop-ruby-simple.md) |In this tutorial, you learn how to connect to an Azure SQL database using Ruby. |
+| [Create elastic queries)](sql-database-elastic-query-getting-started-vertical.md) | In this tutorial, you learn how to run T-SQL queries that span multiple databases using a single connection point |
+| [Report across scaled-out cloud databases](sql-database-elastic-query-getting-started.md) |In this tutorial, you learn how to create reports from all databases in a horizontally partitioned (sharded) database |
+| [Query across cloud databases with different schemas](sql-database-elastic-query-vertical-partitioning.md) | In this tutorial, you learn how to run T-SQL queries that span multiple databases with different schemas |
+| [Reporting across scaled-out cloud databases](sql-database-elastic-query-horizontal-partitioning.md) |In this tutorial, you learn to create reports that span all databases in a sharded database. |
 |  | |
 
 ## Database authentication and authorization
-In the following tutorials, you will learn about [creating and managing logins and users](sql-database-manage-logins.md).
+In the following tutorials, you learn about [creating and managing logins and users](sql-database-manage-logins.md).
 
 | Tutorial | Description |
-| --- | --- | 
-| [Using SQL Server authentication) |In this tutorial, you learn how to use SQL Server Management Studio to work with SQL Server authentication, logins, users, and database roles that grant access and permissions to Azure SQL Database servers and databases. |
+| --- | --- | --- |
+| [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md) | In this tutorial, you learn about creating logins and users using SQL Server authentication, and adding them to roles as well as granting them permissions |
+| [Azure AD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md) | In this tutorial, you learn about creating logins and users using Azure Active Directory authentication |
 |  | |
 
 ## Secure and protect data
-In the following tutorials, you will learn about [securing Azure SQL Database data](sql-database-security-overview.md).
+In the following tutorials, you learn about [securing Azure SQL Database data](sql-database-security-overview.md).
 
 | Tutorial | Description |
 | --- | --- | 
-| [Enable threat detection for your database using the Azure portal](sql-database-threat-detection-get-started.md#set-up-threat-detection-for-your-database) |In this tutorial, you learn how to set up threat detection in the Azure portal for your database. |
-| [Secure sensitive data uisng Always Encrypted ](sql-database-always-encrypted-azure-key-vault.md) |In this tutorial, you will use the Always Encrypted wizard to secure sensitive data in an Azure SQL database. |
-| [Secure senstive data using transparent data encryption](https://msdn.microsoft.com/library/dn948096.aspx) |In this tutorial, you learn how to use transparent data encryption to secure senstive data. |
-| [Encrypt a column of data](https://msdn.microsoft.com/library/ms179331.aspx) |In this tutorial, you learn how to encrypt a column of data using Transact-SQL. |
-| [Set up dynamic data masking](sql-database-dynamic-data-masking-get-started.md#set-up-dynamic-data-masking-for-your-database-using-the-azure-portal) |In this tutorial, you learn how to set up dynamic data masking for your Azure SQL database. |
+| [Secure sensitive data using Always Encrypted ](sql-database-always-encrypted-azure-key-vault.md) |In this tutorial, you use the Always Encrypted wizard to secure sensitive data in an Azure SQL database. |
 |  | |
 
-## Business continuity
-In the following tutorials, you will learn about using [Geo-Restore and Active Geo-Replication](sql-database-business-continuity.md) to reccover from errors, for business continuity and for query scale-out.
+## Develop
+In the following tutorials, you learn about application and database development.
 
 | Tutorial | Description |
 | --- | --- | 
-| [Restore an Azure SQL Database to a previous point in time with the Azure Portal](sql-database-point-in-time-restore.md) |In this tutorial, you learn how to restore your database to an earlier point in time using the Azure portal. |
-| [Restore an Azure SQL Database to a previous point in time with PowerShell](sql-database-point-in-time-restore.md) |In this tutorial, you learn how to restore your database to an earlier point in time using PowerShell |
-| [Restore a deleted Azure SQL database using the Azure Portal](sql-database-restore-deleted-database-portal.md) |In this tutorial, you learn how to restore a deleted database using the Azure portal. |
-| [Restore a deleted Azure SQL database using the PowerShell](sql-database-restore-deleted-database-powershell.md) |In this tutorial, you learn how to restore a deleted database using PowerShell. |
-| [Configure Geo-Replication for Azure SQL Database using the Azure portal](sql-database-geo-replication-portal.md) |In this tutorial, you learn how to configure Active Geo-Replication using the Azure portal. |
-| [Configure Geo-Replication for Azure SQL Database using PowerShell](sql-database-geo-replication-powershell.md) |In this tutorial, you learn how to configure Active Geo-Replication using PowerShell. |
-| [Configure Geo-Replication for Azure SQL Database using Transact-SQL](sql-database-geo-replication-transact-sql.md) |In this tutorial, you learn how to configure Active Geo-Replication using Transact-SQL. |
-| [Initiate a planned or unplanned failover for Azure SQL Database using the Azure portal](sql-database-geo-replication-failover-portal.md) |In this tutorial, you learn how to failover to a geo-replicated secondary replica using the Azure portal. |
-| [Initiate a planned or unplanned failover for Azure SQL Database using PowerShell](sql-database-geo-replication-failover-powershell.md) |In this tutorial, you learn how to failover to a geo-replicated secondary replica using PowerShell. |
-| [Initiate a planned or unplanned failover for Azure SQL Database using Transact-SQL](sql-database-geo-replication-failover-transact-sql.md) |In this tutorial, you learn how to failover to a geo-replicated secondary replica using Transact-SQL. |
+| [Create a report using Excel](sql-database-connect-excel.md) |In this tutorial, you learn how to connect Excel to a SQL database in the cloud so you can import data and create tables and charts based on values in the database. |
+| [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) |In this tutorial, you learn how to build an application using SQL Server |
+| [Use entity framework with elastic tools](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) |In this tutorial, you learn the changes in an Entity Framework application that are needed to integrate with the Elastic Database tools. |
+| [Adopt in-memory OLTP](sql-database-in-memory-oltp-migration.md) | In this tutorial, you learn how to use [in-memory OLTP](sql-database-in-memory.md) to improve the performance of transaction processing. |
 |  | |
 
 ## Data sync
-In this tutorial, you will learn about [Data Sync](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
+In this tutorial, you learn about [Data Sync](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 | Tutorial | Description |
 | --- | --- | 

@@ -1,3 +1,4 @@
+
 # Overview
 ## [What is DocumentDB?](documentdb-introduction.md)
 ## [Core concepts](documentdb-resources.md)
@@ -29,6 +30,7 @@
 ### [Partitioning and scaling](documentdb-partition-data.md)
 ### [Consistency](documentdb-consistency-levels.md)
 ### [NoSQL vs SQL](documentdb-nosql-vs-sql.md)
+### [Cost-effective reads and writes](documentdb-key-value-store-cost.md)
 
 ## Manage
 ### [Import your data](documentdb-import-data.md)
@@ -40,14 +42,13 @@
 ### [Customize your indexes](documentdb-indexing-policies.md)
 ### [Secure access to data](documentdb-secure-access-to-data.md)
 ### [Back up and restore](documentdb-online-backup-and-restore.md)
-### [Performance levels](documentdb-performance-levels.md)
+### [Retire S1, S2, S3](documentdb-performance-levels.md)
 ### [Request units](documentdb-request-units.md)
 ### Azure CLI
 #### [Create an account](documentdb-automation-resource-manager-cli.md)
 #### [Add or remove regions](documentdb-automation-region-management.md)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Firewall support](documentdb-firewall-support.md)
-### [Supercharge your account](documentdb-supercharge-your-account.md)
 
 ## Develop
 ### [SQL query](documentdb-sql-query.md)
@@ -71,6 +72,7 @@
 ## Use the portal
 ### [Create a database account](documentdb-create-account.md)
 ### [Create a collection](documentdb-create-collection.md)
+### [Set throughput](documentdb-set-throughput.md)
 ### [Add global replication](documentdb-portal-global-replication.md)
 ### [Add and edit documents](documentdb-view-json-document-explorer.md)
 ### [Query documents](documentdb-query-collections-query-explorer.md)
@@ -88,7 +90,7 @@
 ### [Integrate with Azure Search](../search/search-howto-index-documentdb.md)
 ### [Move data with Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Analyze real-time data with Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
-### [Get notifications with Logic Apps](documentdb-change-notification.md)
+### [Get changed HL7 FHIR record using Logic Apps](documentdb-change-feed-hl7-fhir-logic-apps.md)
 ### [Process sensor data in real time](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Visualize your data with Power BI](documentdb-powerbi-visualize.md)
 ### [Leverage the ODBC driver for data visualization](documentdb-nosql-odbc-driver.md)

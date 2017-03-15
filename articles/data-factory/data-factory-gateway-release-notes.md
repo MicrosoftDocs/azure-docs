@@ -23,15 +23,36 @@ See the following articles for detailed information about Data Management Gatewa
 *  [Data Management Gateway](data-factory-data-management-gateway.md)
 *  [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) 
 
-## CURRENT VERSION (2.5.6164.1)
+
+## CURRENT VERSION (2.7.6219.2)
+
+### What’s new
+- You can now authenticate into your Azure Data Lake Store using service principal. Previous we only supported OAuth.
+- We have packaged new driver for reading data from Oracle on premise data store in gateway.
+
+### Enhancements-
+- Improved data read performance from Oracle data source.
+- Fixed: OData source OAuth token expiration issue.
+- Fixed: Unable to read Oracle decimal over 28 bits issue.
+
+
+## Earlier versions
+
+## 2.6.6192.2
+### What’s new
+- Customers can provide feedback on gateway registering experience.
+- Support a new compression format: ZIP (Deflate)
+
+### Enhancements-
+- Performance improvement for Oracle Sink, HDFS source.
+- Bug fix for gateway auto update, gateway parallel processing capacity.
+
+
+## 2.5.6164.1
 ### Enhancements
 - Improved and more robust Gateway registration experience- Now you can track progress status during the Gateway registration process, which makes the registration experience more responsive.
 - Improvement in Gateway Restore Process- You can still recover gateway even if you do not have the gateway backup file with this update. This would require you to reset Linked Service credentials in Portal.
 - Bug fix.
-
-
-
-## Earlier versions
 
 ## 2.4.6151.1
 
