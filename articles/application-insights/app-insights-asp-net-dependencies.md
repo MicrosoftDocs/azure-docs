@@ -31,7 +31,7 @@ The out-of-the-box dependency monitor currently reports calls to these  types of
 * Web pages
   * AJAX calls
 
-Monitoring works by using [byte code instrumentation](https://msdn.microsoft.com/en-us/library/z9z62c29.aspx) around selected methods. Performance overhead is minimal.
+Monitoring works by using [byte code instrumentation](https://msdn.microsoft.com/library/z9z62c29.aspx) around selected methods. Performance overhead is minimal.
 
 You can also write your own SDK calls to monitor other dependencies, both in the client and server code, using the [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
 
