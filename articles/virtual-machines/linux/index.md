@@ -102,8 +102,8 @@ Learn how to run Virtual Machines on Azure using the Linux distribution of your 
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
                         <p><a href="/cli/azure/vm">Azure CLI</a></p>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
                     </div>
                 </div>
             </div>
