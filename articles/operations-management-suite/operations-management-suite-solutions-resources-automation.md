@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/07/2017
+ms.date: 03/14/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -66,7 +66,7 @@ You can include any runbooks in the solution file so that their created when the
 			"description": "[variables('Runbook').Description]",
 			"publishContentLink": {
 				"uri": "[variables('Runbook').Uri]",
-				"version": "1.0.0.0"
+				"version": [variables('Runbook').Version]"
 			}
 		}
 	}
@@ -93,23 +93,23 @@ There are two methods to start a runbook in a management solution.
 When you start a runbook in Azure Automation, it creates an automation job.  You can add an automation job resource to your solution to start a runbook when the management solution is installed.  Job resources have a type of **Microsoft.Automation/automationAccounts/jobs** and have the following structure.
 
     {
-        "name": "<name-of-job-resource>",
-        "type": "Microsoft.Automation/automationAccounts/jobs",
-        "apiVersion": "<api-version-of-resource>",
-        "location": "<resource-group-region>",
-        "dependsOn": [
-            "<name-of-runbook>",
-            "<name-of-previous-jobs>"
-        ],
-        "tags": { },
-        "properties": {
-            "runbook": {
-                "name": "<name-of-runbook>"
-            },
-            "parameters": {
-                "<runbook-parameter-values>"
-            }
+      "name": "[concat(parameters('accountName'), '/', parameters('Runbook').JobGuid)]",
+      "type": "Microsoft.Automation/automationAccounts/jobs",
+      "apiVersion": "[variables('AutomationApiVersion')]",
+      "location": "[parameters('regionId')]",
+      "dependsOn": [
+        "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('Runbook').Name)]"
+      ],
+      "tags": { },
+      "properties": {
+        "runbook": {
+          "name": "[variables('Runbook').Name]"
+        },
+        "parameters": {
+          "Parameter1": "[[variables('Runbook').Parameter1]",
+          "Parameter2": "[[variables('Runbook').Parameter2]"
         }
+      }
     }
 
 The properties for automation jobs are described in the following table.
@@ -216,7 +216,8 @@ Use one of the following two strategies when using schedule resources in a solut
 - Create the schedules using a runbook that starts when the solution is installed.  This removes the requirement of the user to specify a time, but you can't contain the schedule in your solution so it will be removed when the solution is removed.
 
 
-### Schedule links
+### Job schedules
+Job schedule resources link a runbook with a schedule.  They have a type of **Microsoft.Automation/automationAccounts/jobSchedules** and have the the following structure.
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Schedule').LinkGuid)]",
@@ -239,6 +240,13 @@ Use one of the following two strategies when using schedule resources in a solut
       }
     }
 
+
+The properties for job schedules are described in the following table.
+
+| Property | Description |
+|:--- |:--- |
+| schedule name |Single **name** entity with the name of the schedule. |
+| runbook name  |Single **name** entity with the name of the runbook.  |
 
 
 
