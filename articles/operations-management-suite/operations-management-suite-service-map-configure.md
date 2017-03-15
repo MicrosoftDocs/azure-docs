@@ -182,69 +182,11 @@ Linux: Look for the running process "microsoft-dependency-agent"
 2. Are you on the Free Pricing Tier of OMS/Log Analytics?  The Free plan allows for up to five unique Service Map servers.  Any subsequent servers won't show up in Service Map, even if the prior five are no longer sending data.
 3. Is your server sending log and perf data to OMS?  Go to Log Search and run the following query for your computer: 
 		* Computer="<your computer name here>" | measure count() by Type
-Did you get a variety of results?  And is it recent?  If not, [check the OMS Agent on your server](#oms-agent-diagnostics).
 
 #### Server shows in Service Map, but has no processes
 If you see your server in Service Map, but it has no process or connection data, that indicates that the Dependency Agent is installed and running, but the kernel driver didn't load.  To find out why your driver didn't load, check the wrapper.log file (Windows) or service.log file (Linux).  If the driver failed to load, the last lines of the file should indicate why (e.g. kernel not supported, which can happen on Linux if you updated your kernel) and may offer a solution.
 Windows: C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log
 Linux: /var/opt/microsoft/dependency-agent/log/service.log
-
-
-### Dependency Agent Diagnostics
-The steps below show how to gather diagnostic data for the Dependency Agent on either Windows or Linux systems.
-
-#### Windows
-To generate troubleshooting data from the Dependency Agent, open a Command Prompt as administrator and run the CollectDependencyAgentData.vbs script using the following command.  You can add the --help flag to show additional options.
-
-	cd C:\Program Files\Microsoft Dependency Agent\scripts
-	cscript CollectDependencyData.vbs
-
-The Support Data Package is saved in the %USERPROFILE% directory for the current user.  You can use the --file <filename> option to save it to a different location.
-
-##### Microsoft Dependency Agent Management Pack for MMA
-The Dependency Agent Management Pack runs inside Microsoft Management Agent.  It receives data from the Dependency Agent and forwards it to the Service Map cloud service.
-  
-Verify that the management pack is downloaded by performing the following steps:
-
-1.	Look for a file called Microsoft.IntelligencePacks.ApplicationDependencyMonitor.mp in C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.  
-2.	If the file is not present and the agent is connected to a SCOM management group, then verify that it has been imported into SCOM by checking Management Packs in the Administration workspace of the Operations Console.
-
-The Service Map MP writes events to the Operations Manager Windows event log.  The log can be [searched in OMS](../log-analytics/log-analytics-log-searches.md) via the system log solution, where you can configure which log files to upload.  If debug events are enabled, they are written to the Application event log, with the event source *ADMConnector*.
-
-#### Linux
-To generate troubleshooting data from the Dependency Agent, login with an account that has sudo or root privileges and run the following command.  You can add the --help flag to show additional options.
-
-	/opt/microsoft/dependency-agent/lib/scripts/collect-dependency-agent-data.sh
-
-The Support Data Package is saved to /var/opt/microsoft/dependency-agent/log (if root) under the Agent's installation directory, or to the home directory of the user running the script (if non-root).  You can use the --file <filename> option to save it to a different location.
-
-##### Microsoft Dependency Agent Fluentd plug-in for Linux
-The Dependency Agent Fluentd Plug-in runs inside the OMS Linux Agent.  It receives data from the Dependency Agent and forwards it to the Service Map cloud service.  
-
-Logs are written to the following two files.
-
-- /var/opt/microsoft/omsagent/log/omsagent.log
-- /var/log/messages
-### OMS Agent Diagnostics
-#### Windows
-To collect diagnostic traces, open a Command Prompt as administrator and run the following commands: 
-
-	cd \Program Files\Microsoft Monitoring Agent\Agent\Tools
-	net stop healthservice 
-	StartTracing.cmd ERR
-	net start healthservice
-
-Traces are written to c:\Windows\Logs\OpsMgrTrace.  You can stop the tracing with StopTracing.cmd.
-
-#### Linux
-A troubleshooting resource for connecting Linux servers to OMS can be found here: [https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md) 
-
-The logs for the OMS Agent for Linux are located in */var/opt/microsoft/omsagent/log/*.  
-
-The logs for omsconfig (agent configuration) are located in */var/opt/microsoft/omsconfig/log/*.
- 
-The log for the OMI and SCX components which provide performance metrics data are located in */var/opt/omi/log/* and */var/opt/microsoft/scx/log*.
-
 
 ## Data collection
 You can expect each agent to transmit roughly 25 MB per day, depending on how complex your system dependencies are.  Service Map dependency data is sent by each agent every 15 seconds.  
