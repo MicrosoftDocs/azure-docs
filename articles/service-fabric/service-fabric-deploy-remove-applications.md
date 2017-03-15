@@ -51,7 +51,7 @@ For examples of connecting to a remote cluster or cluster secured using Azure Ac
 
 ## Upload the application package
 Uploading the application package puts it in a location that's accessible by internal Service Fabric components.
-If you want to verify the app package locally, use the [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet.
+If you want to verify the application package locally, use the [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet.
 
 The [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) command uploads the application package to the cluster image store.
 The **Get-ImageStoreConnectionStringFromClusterManifest** cmdlet, which is part of the Service Fabric SDK PowerShell module, is used to get the image store connection string.  To import the SDK module, run:
@@ -92,10 +92,8 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
             Settings.xml
 ```
 
-> [!NOTE]
-> If the application package is large and/or has many files, we recommend you [compress it](service-fabric-application-model.md#compress-a-package). This reduces the size and the number of files
-and prevents timeout or other errors when uploading the package to the cluster or when registering/un-registering the application type.
->
+If the application package is large and/or has many files, you can [compress it](service-fabric-application-model.md#compress-a-package). This reduces the size and the number of files.
+While uploading with compression may be slower that uploading an uncompressed package, registering and un-registering the application type will be faster.
 
 To compress a package, use the same [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) command. Compression can be done separate from upload,
 by using the `SkipCopy` flag, or together with the upload operation. Applying compression on a compressed package is no-op.
@@ -141,10 +139,8 @@ PS C:\> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -Appl
 If you do not specify the *-ApplicationPackagePathInImageStore* parameter, the app package is copied into the "Debug" folder in the image store.
 
 The default timeout for [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) is 30 minutes.
-Depending on the package size, the number of files and the network speed between the source machine and the Service Fabric cluster image store, you may need to pass in a larger timeout.
+Depending on the package size, the number of files and the network speed between the source machine and the Service Fabric cluster image store, you may need to pass a larger timeout.
 If you are compressing the package in the copy call, you need to also take into consideration the compression time.
-
-For large application packages or application packages with many files, we recommend to first compress the application package, then upload with a timeout determined based on the compressed package size and the link speed.  
 
 See [Understand the image store connection string](service-fabric-image-store-connection-string.md) for supplementary information about the image store and image store connection string.
 
@@ -244,6 +240,7 @@ Run [Unregister-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/
 ```powershell
 PS C:\> Unregister-ServiceFabricApplicationType MyApplicationType 1.0.0
 ```
+
 ## Remove an application package from the image store
 When an application package is no longer needed, you can delete it from the image store to free up system resources.
 
@@ -275,21 +272,27 @@ The ImageStoreConnectionString is found in the cluster manifest:
 
 See [Understand the image store connection string](service-fabric-image-store-connection-string.md) for supplementary information about the image store and image store connection string.
 
-### Copy-ServiceFabricApplicationPackage times out
-If the application package is large (order of GB) or has many files (order of thousands), copy application package may timeout.
+### Deploy large application package
+If the application package is large (order of GB), [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) may timeout.
 Try:
-- [Compress the package](service-fabric-application-model.md#compress-a-package) before copying to the image store.
-This reduces the size and the number of files and deployments are faster, which in turn reduces the amount of traffic and work that Service Fabric must perform. 
-The compressed package can be used to deploy to one or more clusters, as needed, and all subsequent operations will benefit from the compression.
 - Specify a larger timeout for [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) command, with `TimeoutSec` parameter. By default, the timeout is 30 minutes.
-- Check the network connection between your source machine and the image store. You may be hitting external throttling.
+- Check the network connection between your source machine and the image store. You may be hitting external throttling. One example when throttling can happen is when the image store is configured to use azure storage.
 
-### Register-ServiceFabricApplicationType times out
-If the application package is large (order of GB) or has many files (order of thousands), register application type may timeout.
+If copy is successful, [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) may timeout.
 Try:
 - [Compress the package](service-fabric-application-model.md#compress-a-package) before copying to the image store.
-- Specify `Async` switch for [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype). The command returns when the cluster accepts the command and the provision will continue async. 
-- If `Async` is not an option, specify a larger timeout for [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) with `TimeoutSec` parameter.
+This reduces the size and the number of files, which in turn reduces the amount of traffic and work that Service Fabric must perform. The upload operation may be slower (especially if you include the compression time), but register and unregister will be faster.
+- Specify a larger timeout for [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) with `TimeoutSec` parameter.
+- Specify `Async` switch for [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype). The command returns when the cluster accepts the command and the provision will continue async.
+For this reason, there is no need to specify a higher timeout in this case. 
+
+### Deploy application package with many files
+If the application package has many files (order of thousands), [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) may timeout.
+The suggestions to try are similar to the ones for large application package:
+- [Compress the package](service-fabric-application-model.md#compress-a-package) before copying to the image store. This reduces the number of files.
+- Specify a larger timeout for [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) with `TimeoutSec` parameter.
+- Specify `Async` switch for [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype). The command returns when the cluster accepts the command and the provision will continue async.
+For this reason, there is no need to specify a higher timeout in this case. 
 
 
 ## Next steps
