@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Create an IIS VM with PowerShell
 
-This script creates an Azure Virtual Machine with Windows Server 2016, and then uses the Azure Virtual Machine Custom Script Extension to install IIS. After running the script, you can access the default IIS website on the public IP address of the virtual machine.
+This script creates an Azure Virtual Machine running Windows Server 2016, and then uses the Azure Virtual Machine Custom Script Extension to install IIS. After running the script, you can access the default IIS website on the public IP address of the virtual machine.
 
 If needed, install the Azure PowerShell using the instruction found [here]( https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount` to create a connection with Azure.
 
