@@ -20,7 +20,7 @@ ms.author: heidist
 # How to implement faceted navigation in Azure Search
 Faceted navigation is a filtering mechanism that provides self-directed drilldown navigation in search applications. The term ‘faceted navigation’ might be unfamiliar, but you've probably used one before. As the following example shows, faceted navigation is nothing more than the categories used to filter results.
 
- ![][1]
+ ![Azure Search Job Portal Demo][1]
 
 Faceted navigation is an alternative entry point to search, offering a convenient alternative to typing complex search expressions by hand. Facets can help you find what you are looking for, while ensuring that you don’t get zero results. As a developer, facets let you expose the most useful search criteria for navigating your search corpus. In online retail applications, faceted navigation is often built over brands, departments (kid’s shoes), size, price, popularity, and ratings. 
 
@@ -343,7 +343,7 @@ To set price facets in $10 increments, you would specify: `&facet=price,interval
 **Approach 2: Use a values list**  
 For numeric data, you can use a values list.  Consider the facet range for a `listPrice` field, rendered as follows:
 
-  ![][5]
+  ![Sample values list][5]
 
 To specify a facet range like the one in the preceding screen shot, use a values list:
 
@@ -354,7 +354,7 @@ Each range is built using 0 as a starting point, a value from the list as an end
 ### Build a filter for a range
 To filter documents based on a range you select, you can use the `"ge"` and `"lt"` filter operators in a two-part expression that defines the endpoints of the range. For example, if you choose the range 10-25 for a `listPrice` field, the filter would be `$filter=listPrice ge 10 and listPrice lt 25`. In the sample code, the filter expression uses **priceFrom** and **priceTo** parameters to set the endpoints. 
 
-  ![][6]
+  ![Query for a range of values][6]
 
 <a name="geofacets"></a> 
 
@@ -387,11 +387,11 @@ As you work with search results, watch the URL for changes in query construction
    
    A faceted navigation structure is also returned with the search results. In the search result page, the faceted navigation structure includes counts for each facet result. No facets are selected, so all matching results are returned.
    
-   ![][11]
+   ![Search results before selecting facets][11]
 
 4. Click a Business Title, Location, or Minimum Salary. Facets were null on the initial search, but as they take on values, the search results are trimmed of items that no longer match.
    
-   ![][12]
+   ![Search results after selecting facets][12]
 
 5. To clear the faceted query so that you can try different query behaviors, click the `[X]` after the selected facets to clear the facets.
    
