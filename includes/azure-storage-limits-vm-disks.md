@@ -1,6 +1,6 @@
 An Azure virtual machine supports attaching a number of data disks. For optimal performance, you will want to limit the number of highly utilized disks attached to the virtual machine to avoid possible throttling. If all disks are not being highly utilized at the same time, the storage account can support a larger number disks.
 
-* **For Azure Managed Disks:** Managed Disks count limit is regional for the subscription. The default soft limit is 2,000. To increase your limit, contact Azure support.
+* **For Azure Managed Disks:** Managed Disks count limit is regional for the subscription. The default soft limit is 2,000 per region per subscription. To increase your limit, contact Azure support.
 
     Managed Snapshots and Images are counted against the Managed Disks limit.
 

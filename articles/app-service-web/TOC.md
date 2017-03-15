@@ -2,7 +2,7 @@
 ## [About Web Apps](app-service-web-overview.md)
 ## [Compare hosting options](choose-web-site-cloud-service-vm.md)
 
-# QuickStart	
+# Quickstart	
 ## [Create static HTML site](app-service-web-get-started-html.md)
 ## [Create ASP.NET app](app-service-web-get-started-dotnet.md)		
 ## [Create PHP app](app-service-web-get-started-php.md) 
