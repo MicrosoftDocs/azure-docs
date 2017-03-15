@@ -531,7 +531,7 @@ Tests have shown, however, that SAP HANA backup doesn&#39;t currently work direc
 
 ![This figure shows an error in the backup dialog in SAP HANA Studio](./media/sap-hana-backup-guide/image038.png)
 
-This figure shows an error in the backup dialog in SAP HANA Studio, when trying to back up directly to a CIFS mounted Azure file share. So one has to do a standard SAP HANA backup into a VM file system first, and then copy the backup files from there to Azure file service.
+This figure shows an error in the backup dialog in SAP HANA Studio, when trying to back up directly to a CIFS-mounted Azure file share. So one has to do a standard SAP HANA backup into a VM file system first, and then copy the backup files from there to Azure file service.
 
 ![This figure shows that it took about 929 seconds to copy 19 SAP HANA backup files](./media/sap-hana-backup-guide/image039.png)
 
