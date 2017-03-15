@@ -20,18 +20,13 @@ ms.author: tamram
 
 # Use Azure Active Directory to authenticate from Batch solutions
 
-Azure Batch supports authentication with [Azure Active Directory][aad_about] (Azure AD) for all of your Batch solutions. Which types of authentication are supported depends on which .NET client library you are using.
-
-- The Batch Management .NET library supports only Azure AD authentication.
-- The Batch .NET library supports both [Shared Key](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service) and Azure AD authentication.  
-
-This article explores authenticating with Azure AD for both Batch Management .NET and Batch .NET.
+Azure Batch supports authentication with [Azure Active Directory][aad_about] (Azure AD) for your Batch solutions. In this article, we'll explore using Azure AD to authenticate from applications that use the Batch Management .NET library or the Batch .NET library. 
 
 ## Authenticate Batch management applications with Azure AD
 
-The Batch Management .NET library exposes types for working with Batch accounts, account keys, applications, and application packages. The Batch Management .NET library is an Azure resource provider client, and is used together with [Azure Resource Manager][resman_overview] to manage these resources programmatically.
+The Batch Management .NET library exposes types for working with Batch accounts, account keys, applications, and application packages. The Batch Management .NET library is an Azure resource provider client, and is used together with [Azure Resource Manager][resman_overview] to manage these resources programmatically. 
 
-Azure AD is required to authenticate requests made through any Azure resource provider client, including the Batch Management .NET library, and through [Azure Resource Manager][resman_overview]. 
+Azure AD is required to authenticate requests made through any Azure resource provider client, including the Batch Management .NET library, and through [Azure Resource Manager][resman_overview]. The Batch Management .NET library supports  authentication through Azure AD only.
 
 In this section, we'll use the [AccountManagment][acct_mgmt_sample] sample project, available on GitHub, to walk through using Azure AD with the Batch Management .NET library. The AccountManagement sample is a console application that demonstrates how to access a subscription programmatically, create a new resource group, create a new Batch account, perform some operations on the account, and then delete the new account and resource group. 
 
@@ -142,11 +137,76 @@ Before deleting the newly created Batch account and resource group, you can insp
 *Azure portal displaying new resource group and Batch account*
 
 
-## Authenticate requests to Azure Batch with Azure AD
+## Authenticate Batch service applications with Azure AD
+
+The Batch .NET library provides types for building parallel processing workflows with the Batch service. The Batch service supports both [Shared Key](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service) authentication and authentication through Azure AD. 
+
+Authenticating Batch .NET applications via Azure AD is similar to authenticating Batch Management .NET applications. There are a few differences, which we'll cover in this section.
+
+### Batch service endpoints
+
+The Batch service endpoints differ from those that you use with Batch Management .NET.
+
+The Azure AD endpoint for Batch is:
+
+`https://login.microsoftonline.com/microsoft.onmicrosoft.com`
+
+The resource endpoint for Batch is:
+
+`https://batch.core.windows.net/`
+
+### Grant the Batch service permissions to use Azure AD
+
+Before you can authenticate via Azure AD from your Batch application, you need to register your application with Azure AD and grant access to the Batch API. This process is similar to how you registered the AccountManagement sample application in (ref above).
+
+1. To register your Batch application, follow the steps in the [Adding an Application](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) section in [Integrating applications with Azure Active Directory][aad_integrate]. For the **Redirect URI**, you can specify any valid URI; it does not need to be a real endpoint.
+
+    ![Register your Batch application with Azure AD](./media/batch-aad-auth/app-registration-data-plane.png)
+
+2. Display the **Settings** blade. In the **API Access** section, select **Required permissions**.
+3. In the **Required permissions** blade, click the **Add** button.
+4. In step 1, search for **MicrosoftAzureBatch**, select **Microsoft Azure Batch (MicrosoftAzureBatch)**, and click the **Select** button.
+5. In step 2, select the check box next to  **Access Azure Batch Service** and click the **Select** button.
+6. Click the **Done** button.
+
+The **Required Permissions** blade now shows that your application grants access to both the Azure AD and Azure Batch APIs. 
+
+![API permissions](./media/batch-aad-auth/app-registration-data-plane.png)
+
+### Authentication for Batch accounts in a user subscription.
+
+When you create a new Batch account, you can choose the subscription in which pools are allocated. Your choice affects how you authenticate requests made to resources in that account:
+
+- By default, Batch pools are allocated in a Batch service subscription. If you choose this option, you can authenticate requests to resources in that account with either Shared Key or with Azure AD.
+- You can also specify that Batch pools are allocated in a specified user subscription. If you choose this option, you must authenticate requests to resources in that account with Azure AD.
+
+### Best practices for using Azure AD with Batch
+
+An Azure AD authentication token expires after one hour. To ensure that you have a valid token valid for the duration of your Batch jobs, best practices recommend that you retrieve a new token for every request to the Batch service. To achieve this, use a delegate to pass a method that retrieves the token.
+
+At the same time, your BatchClient object should be long-lived   
+
+### Examples using Azure AD with Batch .NET
+
+To write Batch .NET code that authenticates with Azure AD, you'll need to reference the Azure Batch .NET package and the Azure [Active Directory Authentication Library][aad_adal] (ADAL) package.
+
+Include the following `using` statements in your code:
+
+```csharp
+using Microsoft.Azure.Batch;
+using Microsoft.Azure.Batch.Auth;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+```
+
+Reference the Batch service endpoints for Azure AD in your code, for example:  
+
+```csharp
+private const string BatchAuthorityUrl = "https://login.microsoftonline.com/microsoft.onmicrosoft.com";
+private const string BatchAccountUrl = "https://batch.core.windows.net/";
+```
 
 
 
-https://batch.core.windows.net/
 
 
 
@@ -161,7 +221,7 @@ https://batch.core.windows.net/
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [azure_tokencreds]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.tokencloudcredentials.aspx
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[net_batch_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
+[net_batch_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.###
 [net_list_keys]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.accountoperationsextensions.listkeysasync.aspx
 [net_create]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.accountoperationsextensions.createasync.aspx
 [net_delete]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.accountoperationsextensions.deleteasync.aspx
