@@ -125,12 +125,13 @@ appDelegate.currentAuthorizationFlow =
 
 To set up your application to handle the redirect to the URI with the custom scheme, you need to update the list of 'URL Schemes' in your Info.pList:
 * Open Info.pList.
-* Hover over a row like 'Bundle creator OS Type Code' and click the \+ symbol.
+* Hover over a row like 'Bundle OS Type Code' and click the \+ symbol.
 * Rename the new row 'URL types'.
-* Click the arrow to the left of 'URL types'.
-* rename the value in Item 0 to 'URL Schemes'.
-* Edit the value of 'Item 0' underneath 'URL Schemes' and set the value to your application's unique scheme.  It must match the scheme in redirectURL when creating the OIDAuthorizationRequest object.
-* In our sample, we used the scheme 'com.onmicrosoft.fabrikamb2c.exampleapp'.
+* Click the arrow to the left of 'URL types' to open the tree below.
+* Click the arrow to the left of 'Item 0' to open the tree below.
+* Rename first item underneath Item 0 to 'URL Schemes'.
+* Click the arrow to the left of 'URL Schemes' to open the tree below.
+* In the 'Value' column, there is a blank field to the left of 'Item 0' underneath 'URL Schemes'.  Set the value to your application's unique scheme.  The value must match the scheme used in redirectURL when creating the OIDAuthorizationRequest object.  In our sample, we used the scheme 'com.onmicrosoft.fabrikamb2c.exampleapp'.
 
 Refer to the [AppAuth guide](https://openid.github.io/AppAuth-iOS/) on how to complete the rest of the process. If you need to quickly get started with a working app, check out [our sample](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Follow the steps in the [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) to enter your own Azure AD B2C configuration.
 
