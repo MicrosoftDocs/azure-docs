@@ -131,7 +131,8 @@
 
 ## Manage application lifecycle
 ### [Overview](service-fabric-application-lifecycle.md)
-### [Set up continuous integration](service-fabric-set-up-continuous-integration.md)
+### [Set up continuous integration with VSTS](service-fabric-set-up-continuous-integration.md)
+### [Deploy your Linux Java app using Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 ### [Understand the ImageStoreConnectionString setting](service-fabric-image-store-connection-string.md)
 ### Deploy or remove applications
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
