@@ -46,7 +46,7 @@ If you are a SCOM customer with a Management Group connected to OMS:
 - If your SCOM agents can access the internet to connect to OMS, no additional configuration is required.  
 - If your SCOM agents cannot access OMS over the internet, you need to configure the OMS Gateway to work with SCOM.
   
-If you are using the OMS Direct Agent, you need to configure the OMS Agent itself to connect to OMS or to your OMS Gateway.  The OMS Gateway can be downloaded from [https://www.microsoft.com/en-us/download/details.aspx?id=52666](https://www.microsoft.com/en-us/download/details.aspx?id=52666)
+If you are using the OMS Direct Agent, you need to configure the OMS Agent itself to connect to OMS or to your OMS Gateway.  The OMS Gateway can be downloaded from [https://www.microsoft.com/download/details.aspx?id=52666](https://www.microsoft.com/download/details.aspx?id=52666)
 
 
 ### Avoiding duplicate data
@@ -159,7 +159,7 @@ Files for the Dependency Agent are placed in the following directories:
 ## Troubleshooting
 If you run into any problems installing or running Service Map, this section can help you get up and running.  If you still can't resolve your issue, please contact Microsoft Support.
 
-### Dependency Agent Installation Issues
+### Dependency Agent installation issues
 #### Installer asks for a reboot
 The Dependency Agent *generally* does not require a reboot upon installation or uninstallation.  However, in certain rare cases, a Windows Server will require a reboot to continue with an installation.  This happens when a dependency, usually the Microsoft VC++ Redistributables, requires a reboot due to a locked file.
 
@@ -171,9 +171,9 @@ Below are some code_numbers and suggested resolutions.
 
 | Code | Description | Resolution |
 |:--|:--|:--|
-| 0x17 | The library installer requires a Windows update that hasn't been installed. | Look in the most recent library installer log (see above).<br><br>If a reference to "Windows8.1-KB2999226-x64.msu" is followed by a line "Error 0x80240017: Failed to execute MSU package.", then consult the knowledge base article https://support.microsoft.com/en-us/kb/2919355.<br><br>Run the Microsoft Dependency Agent installer again. |
+| 0x17 | The library installer requires a Windows update that hasn't been installed. | Look in the most recent library installer log (see above).<br><br>If a reference to "Windows8.1-KB2999226-x64.msu" is followed by a line "Error 0x80240017: Failed to execute MSU package.", then consult the knowledge base article https://support.microsoft.com/kb/2919355.<br><br>Run the Microsoft Dependency Agent installer again. |
 
-### Post-Installation Issues
+### Post-Installation issues
 #### Server doesn't show in Service Map
 If your Dependency Agent installation succeeded, but you don't see your server in the Service Map solution:
 1. Is the Dependency Agent installed successfully?  You can validate this by checking to see if the service is installed and running.
@@ -182,13 +182,13 @@ Windows: Look for the Service named "Microsoft Dependency Agent"
 
 Linux: Look for the running process "microsoft-dependency-agent"
 
-2. Are you on the [Free Pricing Tier of OMS/Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)?  The Free plan allows for up to five unique Service Map servers.  Any subsequent servers won't show up in Service Map, even if the prior five are no longer sending data.
+2. Are you on the [Free Pricing Tier of OMS/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)?  The Free plan allows for up to five unique Service Map servers.  Any subsequent servers won't show up in Service Map, even if the prior five are no longer sending data.
 
 3. Is your server sending log and perf data to OMS?  Go to Log Search and run the following query for your computer: 
 
 		* Computer="<your computer name here>" | measure count() by Type
 		
-Did you get a variety of events in the results?  Is the data recent?  If so, your OMS Agent is operating correctly and communicating to the OMS service. If not, check the OMS Agent on your server: [OMS Agent for Windows troubleshooting](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).  [OMS Agent for Linux troubleshooting](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
+Did you get a variety of events in the results?  Is the data recent?  If so, your OMS Agent is operating correctly and communicating to the OMS service. If not, check the OMS Agent on your server: [OMS Agent for Windows troubleshooting](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).  [OMS Agent for Linux troubleshooting](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
 
 #### Server shows in Service Map, but has no processes
 If you see your server in Service Map, but it has no process or connection data, that indicates that the Dependency Agent is installed and running, but the kernel driver didn't load.  To find out why your driver didn't load, check the wrapper.log file (Windows) or service.log file (Linux).  The last lines of the file should indicate why (e.g. kernel not supported, which can happen on Linux if you updated your kernel) the kernel didn't load.
