@@ -150,7 +150,8 @@ $nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name
 Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId -Primary | Update-AzureRmVm -ResourceGroupName "myResourceGroup"
 ```
 
-*Note: One of the NICs on a multi-NIC VM needs to be Primary so we're setting the new NIC as primary. If your previous NIC on the VM is Primary, then you do not need to specify the -Primary switch. If you want to switch the Primary NIC on the VM, follow the steps below*
+> [!NOTE]
+> One of the NICs on a multi-NIC VM needs to be Primary so we're setting the new NIC as primary. If your previous NIC on the VM is Primary, then you do not need to specify the -Primary switch. If you want to switch the Primary NIC on the VM, follow the steps below*
 
 ```
 $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
