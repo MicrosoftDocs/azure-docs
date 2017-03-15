@@ -22,7 +22,7 @@ ms.author: nepeters
 
 This script creates an Azure Virtual Machine with an Ubuntu operating system and related networking resources. After running the script, you can access the virtual machine over SSH.
 
-Before running this script, log in to Azure using the `Login-AzureRmAccount` command.
+If needed, install the Azure PowerShell using the instruction found [here]( https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount` to create a connection with Azure.
 
 ## Sample script
 

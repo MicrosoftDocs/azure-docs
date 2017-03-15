@@ -22,7 +22,7 @@ ms.author: rclaus
 
 This script sample creates everything needed to run several Ubuntu virtual machines configured in a highly available and load balanced configuration. After running the script, you will have three virtual machines, joined to an Azure Availability Set, and accessible through an Azure Load Balancer.
 
-If needed, install the Azure CLI using the instruction found [here](/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure. Also, you should change the $AdminPassword variable at the start of the script to unique and meeting password complexity requirements.
+If needed, install the Azure CLI using the instruction found [here](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure. Also, you should change the $AdminPassword variable at the start of the script to unique and meeting password complexity requirements.
 
 This sample works in a Bash Shell. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
