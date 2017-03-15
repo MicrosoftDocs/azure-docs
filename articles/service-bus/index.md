@@ -37,7 +37,7 @@ Learn how to use Service Bus and Relay to connect across on-premises and cloud e
         </a>
     </li>
     <li>
-        <a href="/azure/service-bus-messaging">
+        <a href="/azure/service-bus-relay">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
