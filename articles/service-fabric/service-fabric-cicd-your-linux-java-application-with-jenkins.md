@@ -21,7 +21,7 @@ ms.author: saysa
 Jenkins is a popular tool for continuous integration and deployment of your apps. Here's how to build and deploy your Azure Service Fabric application by using Jenkins.
 
 ## General prerequisites
-- Have git installed locally. You can install the appropriate git version from [the git downloads page](https://git-scm.com/downloads), based on your operating system. If you are new to git, learn more about it from the [git documentation](https://git-scm.com/docs).
+- Have Git installed locally. You can install the appropriate Git version from [the Git downloads page](https://git-scm.com/downloads), based on your operating system. If you are new to Git, learn more about it from the [Git documentation](https://git-scm.com/docs).
 - Have the Service Fabric Jenkins plug-in handy. You can download it from [Service Fabric downloads](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi).
 
 ## Set up Jenkins inside a Service Fabric cluster
@@ -120,14 +120,14 @@ Here, you can upload a plug-in. Select **Choose file**, and then select the **se
 2. Enter an item name (for example, **MyJob**). Select **free-style project**, and click **OK**.
 3. Go the job page, and click **Configure**.
 
-   a. In the general section, under **Github project**, specify your GitHub project URL. This URL hosts the Service Fabric Java application that you wish to integrate with the Jenkins continuous integration, continuous deployment (CI/CD) flow (for example, ``https://github.com/sayantancs/SFJenkins``).
+   a. In the general section, under **GitHub project**, specify your GitHub project URL. This URL hosts the Service Fabric Java application that you wish to integrate with the Jenkins continuous integration, continuous deployment (CI/CD) flow (for example, ``https://github.com/sayantancs/SFJenkins``).
 
    b. Under the **Source Code Management** section, select **Git**. Specify the repository URL that hosts the Service Fabric Java application that you wish to integrate with the Jenkins CI/CD flow (for example, ``https://github.com/sayantancs/SFJenkins.git``). Also, you can specify here which branch to build (for example, ***/master**).
 4. Configure your *GitHub* (which is hosting the repository) so that it is able to talk to Jenkins. Use the following steps:
 
    a. Go to your GitHub repository page. Go to **Settings** > **Integrations and Services**.
 
-   b. Select **Add Service**, type **Jenkins**, and select the **Jenkins-Github plugin**.
+   b. Select **Add Service**, type **Jenkins**, and select the **Jenkins-GitHub plugin**.
 
    c. Enter your Jenkins webhook URL (by default, it should be ``http://<PublicIPorFQDN>:8081/github-webhook/``). Click **add/update service**.
 
