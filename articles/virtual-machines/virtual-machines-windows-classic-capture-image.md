@@ -55,13 +55,13 @@ Prior to capturing an image of an Azure virtual machine, it is recommended the t
 6. In the Azure portal, click **Virtual Machines** and select the virtual machine you want to capture.
 7. On the command bar, click **Capture**.
 
-   ![Capture virtual machine](./media/virtual-machines-windows-classic-capture-image/capturevm.png)
+   ![Capture virtual machine](./media/virtual-machines-windows-classic-capture-image/CaptureVM.png)
 
    The **Capture the Virtual Machine** dialog box appears.
 
 8. In **Image name**, type a name for the new image. In **Image label**, type a label for the new image.
 
-9. Click **I've run Sysprep on the virtual machine**. This item refers to the actions in step 5. An image _must_ be generalized by running Sysprep before you add a Windows Server image to your set of custom images.
+9. Click **I've run Sysprep on the virtual machine**. This checkbox refers to the actions with Sysprep in steps 3-5. An image _must_ be generalized by running Sysprep before you add a Windows Server image to your set of custom images.
 
 10. Once the capture completes, the new image becomes available in the **Marketplace**, in the **Compute**, **VM images (classic)** container.
 
