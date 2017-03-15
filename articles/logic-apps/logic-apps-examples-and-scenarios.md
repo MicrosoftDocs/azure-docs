@@ -33,7 +33,7 @@ is a great use case for Azure Logic Apps. Here are some patterns and examples.
 
 ## Respond to triggers and extend actions
 
-Every logic app starts with a trigger. For example, 
+Every logic app begins with a trigger. For example, 
 your workflow can start with a schedule event, 
 a manual invocation, or an event from an external system, 
 such as the "when a file is added to an FTP server" trigger. 
