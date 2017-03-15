@@ -20,9 +20,9 @@ ms.author: tamram
 
 # Use Azure Active Directory to authenticate Batch solutions
 
-Azure Batch supports authentication with [Azure Active Directory][aad_about] (Azure AD) for your Batch solutions. Azure AD is Microsoft’s multi-tenant cloud based directory and identity management service. Azure itself uses Azure AD for the authentication of its customers, service administrators, and organizational users.
+Azure Batch supports authentication with [Azure Active Directory][aad_about] (Azure AD) for both the Batch management service and the Batch service. Azure AD is Microsoft’s multi-tenant cloud based directory and identity management service. Azure itself uses Azure AD for the authentication of its customers, service administrators, and organizational users.
 
-In this article, explore using Azure AD to authenticate from applications that use the Batch Management .NET library or the Batch .NET library. In the context of the Batch .NET APIs, you use Azure AD to authenticate a subscription administrator or co-administrator (integrated authentication). This authenticated user can then issue requests to Azure Batch.
+In this article, we explore using Azure AD to authenticate from applications that use the Batch Management .NET library or the Batch .NET library. In the context of the Batch .NET APIs, we show how to use Azure AD to authenticate a subscription administrator or co-administrator, using integrated authentication. The authenticated user can then issue requests to Azure Batch.
 
 It's also possible to use Azure AD to authenticate access to an application running unattended. In this article, we focus on using Azure AD integrated authentication, and refer you to other resources to learn about authenticating unattended applications.
 
