@@ -24,15 +24,15 @@ Azure virtual machines can be created through the Azure portal. This method prov
 
 ## Create SSH key pair
 
-You will need an SSH key pair to complete this quick start. If you have an existing key par this step can be skipped. 
+You need an SSH key pair to complete this quick start. If you have an existing key par this step can be skipped. 
 
-From a Bash shell, run the following command and follow the on screen directions. 
+From a Bash shell, run the following command and follow the on-screen directions. 
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
-The output of this coammnd will include the location and file name of the public key file. The contents of this file will be needed when creating the virtual machine. 
+The output of this command includes the location and file name of the public key file. The contents of this file is needed when creating the virtual machine. 
 
 ## Log in to Azure 
 
@@ -44,7 +44,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 3. Select **Compute** from the **New** blade, select **Ubuntu Server 16.04 LTS** from the **Compute** blade, and then click the **Create** button.
 
-4. Fill out the virtual machine **Basics** form. For **Authentication type** select **SSH**. When pasting in your **SSH public key**, take care to remove any leading or trailing white space. For **Resource group**, create a new one. A resource group is a logical container into which Azure resources are created and collectively managed. When complete, click **OK**.
+4. Fill out the virtual machine **Basics** form. For **Authentication type**, select **SSH**. When pasting in your **SSH public key**, take care to remove any leading or trailing white space. For **Resource group**, create a new one. A resource group is a logical container into which Azure resources are created and collectively managed. When complete, click **OK**.
 
     ![Enter basic information about your VM in the portal blade](./media/virtual-machine-quick-start/create-vm-portal-basic-blade.png)  
 
