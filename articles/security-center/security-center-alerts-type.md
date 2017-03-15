@@ -180,34 +180,34 @@ This is an example of this type of alert:
 ![Outgoing DOS](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
 ## Resource analysis
-Security center resource analysis focuses in PaaS services, such as the integration with [Azure SQL Database Threat Detection](../sql-database/sql-database-threat-detection.md) feature. Based on the analysis’s results from these areas, security center triggers a resource related alert.
+Security center resource analysis focuses on platform as a service (PaaS) services, such as the integration with the [Azure SQL Database threat detection](../sql-database/sql-database-threat-detection.md) feature. Based on the analysis’s results from these areas, security center triggers a resource related alert.
 
 ### Potential SQL injection
-SQL injection is an attack in which malicious code is inserted into strings that are later passed to an instance of SQL Server for parsing and execution. Any procedure that constructs SQL statements should be reviewed for injection vulnerabilities because SQL Server executes all syntactically valid queries that it receives. SQL Threat Detection uses machine learning, behavioral analysis and anomaly detection to determine suspicious events that might be taking place in your Azure SQL Databases. For example:
+SQL injection is an attack where malicious code is inserted into strings that are later passed to an instance of SQL Server for parsing and execution. Because SQL Server executes all syntactically valid queries that it receives, any procedure that constructs SQL statements should be reviewed for injection vulnerabilities. SQL Threat Detection uses machine learning, behavioral analysis, and anomaly detection to determine suspicious events that might be taking place in your Azure SQL Databases. For example:
 
 * Attempted database access by a former employee
 * SQL injection attacks
-* Unusual access to production database from a user at home
+* Unusual access to a production database from a user at home
 
 ![Potential SQL Injection alert](./media/security-center-alerts-type/security-center-alerts-type-fig11.png)
 
-This alert gives information that enables you to identify the attacked resource, the detection time, the state of the attack and it also provides a link to further investigation steps.
+The information in this alert can be used to identify the attacked resource, the detection time, the state of the attack, and it also provides a link to further investigation steps.
 
 ### Vulnerability to SQL Injection
-This alert is triggered when an application error has been detected on a database which may indicate a possible vulnerability to SQL injection attacks.
+This alert is triggered when an application error is detected on a database. This alert may indicate a possible vulnerability to SQL injection attacks.
 
 ![Potential SQL Injection alert](./media/security-center-alerts-type/security-center-alerts-type-fig12-new.png)
 
 ### Unusual access from unfamiliar location
-This alert is triggered when an access from an unfamiliar IP address was detected on server, which was not seen in the last period.
+This alert is triggered when an access event from an unfamiliar IP address was detected on the server, which was not seen in the last period.
 
 ![Unusual access alert](./media/security-center-alerts-type/security-center-alerts-type-fig13-new.png)
 
 ## See also
 In this article, you learned about the different types of security alerts in security center. To learn more about security center, see the following:
 
-* [Handling Security Incident in Azure security center](security-center-incident.md)
-* [Azure security center Detection Capabilities](security-center-detection-capabilities.md)
-* [Azure security center Planning and Operations Guide](security-center-planning-and-operations-guide.md)
-* [Azure security center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
+* [Handling security incident in Azure security center](security-center-incident.md)
+* [Azure security center detection capabilities](security-center-detection-capabilities.md)
+* [Azure security center planning and operations guide](security-center-planning-and-operations-guide.md)
+* [Azure security center FAQ](security-center-faq.md): Find frequently asked questions about using the service.
+* [Azure security blog](http://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.
