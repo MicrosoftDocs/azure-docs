@@ -29,10 +29,11 @@ Azure Resource Group deployments are a way to group and publish a set of related
 ## Pre-requisites
 To get started deploying Virtual Machine Scale Sets in Visual Studio, you need the following:
 
-* Visual Studio 2013, 2015, or 2017
+* Visual Studio 2013 or later
 * Azure SDK 2.7, 2.8 or 2.9
 
-Note: These instructions assume you are using Visual Studio with [Azure SDK 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
+>[!NOTE]
+>These instructions assume you are using Visual Studio with [Azure SDK 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
 
 ## Creating a Project
 1. Create a new project in Visual Studio by choosing **File | New | Project**.
