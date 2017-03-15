@@ -22,7 +22,7 @@ ms.author: nepeters
 
 This script creates an Azure Virtual Machine with an Ubuntu operating system. After running the script, you can access the virtual machine over SSH.
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell module installation guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount` to create a connection with Azure. Also, you will need to have an SSH public key named `id_rsa.pub` in the .ssh directory of your user profile.
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount` to create a connection with Azure. Also, you will need to have an SSH public key named `id_rsa.pub` in the .ssh directory of your user profile.
 
 ## Sample script
 
