@@ -70,7 +70,9 @@ private const string RedirectUri = "http://myaccountmanagementsample";
 
 ### Grant the Azure Resource Manager API access to your application
 
-Next, you'll need to delegate access to your application to the Azure Resource Manager API. Follow these steps in the Azure portal:
+Next, you'll need to delegate access to your application to the Azure Resource Manager API. The Azure AD identifier for the Resource Manager API is **Windows Azure Service Management API**.
+
+Follow these steps in the Azure portal:
 
 1. In the left-hand navigation pane of the Azure portal, choose **More Services**, click **App Registrations**, and click **Add**.
 2. Search for the name of your application in the list of app registrations:
@@ -79,13 +81,13 @@ Next, you'll need to delegate access to your application to the Azure Resource M
 
 3. Display the **Settings** blade. In the **API Access** section, select **Required permissions**.
 4. Click **Add** to add a new required permission. 
-5. In step 1, enter `Windows Azure Service Management API`, select that API from the list of results, and click the **Select** button.
+5. In step 1, enter **Windows Azure Service Management API**, select that API from the list of results, and click the **Select** button.
 6. In step 2, select the check box next to **Access Azure classic deployment model as organization users**, and click the **Select** button.
 7. Click the **Done** button.
 
 The **Required Permissions** blade now shows that permissions to your application are granted to both the ADAL and Resource Manager APIs. Permissions are granted to ADAL by default when you first register your app with Azure AD.
 
-![Delegate permissions to the Azure Resource Manager API](./media/batch-aad-auth/app-registration-complete.png)
+![Delegate permissions to the Azure Resource Manager API](./media/batch-aad-auth/required-permissions-management-plane.png)
 
 
 ### Acquire an Azure AD authentication token
@@ -93,9 +95,10 @@ The **Required Permissions** blade now shows that permissions to your applicatio
 The AccountManagement sample application defines constants that provide the endpoint for Azure AD and for Azure Resource Manager. The sample application uses these constants to query Azure AD for subscription information. Leave these constants unchanged:
 
 ```csharp
-// These endpoints are used during authentication and authorization with AAD.
-private const string AuthorityUri = "https://login.microsoftonline.com/common"; // Azure Active Directory "common" endpoint
-private const string ResourceUri = "https://management.core.windows.net/";     // Azure service management resource
+// Azure Active Directory "common" endpoint.
+private const string AuthorityUri = "https://login.microsoftonline.com/common";
+// Azure service management resource 
+private const string ResourceUri = "https://management.core.windows.net/";
 ```
 
 After you register the AccountManagement sample in the Azure AD tenant and provide the necessary values within the sample source code, the sample is ready to authenticate using Azure AD. When you run the sample, the ADAL attempts to acquire an authentication token. At this step, it prompts you for your Microsoft credentials: 
@@ -128,17 +131,17 @@ Authenticating Batch .NET applications via Azure AD is similar to authenticating
 
 The Batch service endpoints differ from those that you use with Batch Management .NET.
 
-The Azure AD endpoint for Batch is:
+The Azure AD endpoint for the Batch service is:
 
 `https://login.microsoftonline.com/microsoft.onmicrosoft.com`
 
-The resource endpoint for Batch is:
+The resource endpoint for the Batch service is:
 
 `https://batch.core.windows.net/`
 
 ### Grant the Batch service API access to your application
 
-Before you can authenticate via Azure AD from your Batch application, you need to register your application with Azure AD and grant access to the Batch service API.
+Before you can authenticate via Azure AD from your Batch application, you need to register your application with Azure AD and grant access to the Batch service API. The Azure AD identifier for the Batch service API is **Microsoft Azure Batch (MicrosoftAzureBatch)**.
 
 1. To register your Batch application, follow the steps in the [Adding an Application](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) section in [Integrating applications with Azure Active Directory][aad_integrate]. For the **Redirect URI**, you can specify any valid URI. It does not need to be a real endpoint.
 
@@ -170,7 +173,7 @@ An Azure AD authentication token expires after one hour. When using a long-lived
 
 To achieve this in .NET, write a method that retrieves the token from Azure AD and pass that method to a BatchTokenCredentials object as a delegate. The delegate method is called on every request to the Batch service to ensure that a valid token is provided. By default ADAL caches tokens, so a new token is retrieved from Azure AD only when necessary. For an example, see [Examples using Azure AD with Batch .NET](#code-example-using-azure-ad-with-batch-net).
 
-The token is cached for one hour by default. When the token is within five minutes of expiry, ADAL retrieves a new token. For more information about tokens in Azure AD, see [Authentication Scenarios for Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md).
+The token is cached for one hour by default. When the token is within five minutes of expiry, ADAL retrieves a new token. For more information about tokens in Azure AD, see [Authentication Scenarios for Azure AD][aad_auth_scenarios].
 
 ### Code example: Using Azure AD with Batch .NET
 
@@ -200,7 +203,7 @@ private const string ClientId = "<client-id>";
 Also specify a redirect URI, which can be any valid URI.
 
 ```csharp
-private const string RedirectUri = "http://mydataplanesample";
+private const string RedirectUri = "http://mybatchdatasample";
 ```
 
 Write a callback method to acquire the authentication token from Azure AD. The **AcquireTokenAsync** method prompts the user for their credentials and uses those credentials to acquire a new token.
