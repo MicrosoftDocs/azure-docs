@@ -18,13 +18,13 @@ ms.author: heidist
 
 ---
 # How to implement faceted navigation in Azure Search
-Faceted navigation is a filtering mechanism that provides self-directed drilldown navigation in search applications. The term ‘faceted navigation’ might be unfamiliar, but you've probably used one before. As the following example shows, faceted navigation is nothing more than the categories used to filter results.
+Faceted navigation is a filtering mechanism that provides self-directed drilldown navigation in search applications. The term 'faceted navigation' may be unfamiliar, but you've probably used it before. As the following example shows, faceted navigation is nothing more than the categories used to filter results.
 
  ![Azure Search Job Portal Demo][1]
 
-Faceted navigation is an alternative entry point to search, offering a convenient alternative to typing complex search expressions by hand. Facets can help you find what you are looking for, while ensuring that you don’t get zero results. As a developer, facets let you expose the most useful search criteria for navigating your search corpus. In online retail applications, faceted navigation is often built over brands, departments (kid’s shoes), size, price, popularity, and ratings. 
+Faceted navigation is an alternative entry point to search. It offers a convenient alternative to typing complex search expressions by hand. Facets can help you find what you're looking for, while ensuring that you don’t get zero results. As a developer, facets let you expose the most useful search criteria for navigating your search corpus. In online retail applications, faceted navigation is often built over brands, departments (kid’s shoes), size, price, popularity, and ratings. 
 
-Implementing faceted navigation differs across search technologies. In Azure Search, faceted navigation is built at query time, using attributed fields previously specified in your schema.
+Implementing faceted navigation differs across search technologies. In Azure Search, faceted navigation is built at query time, using fields that you previously attributed in your schema.
 
 -   In the queries that your application builds, a query must send *facet query parameters* to get the available facet filter values for that document result set.
 
@@ -71,7 +71,7 @@ Precision, understood as the ability to filter out irrelevant hits, is achieved 
 -   **search=**  
     The value of this parameter constitutes the search expression. It might be a single piece of text, or a complex search expression that includes multiple terms and operators. On the server, a search expression is used for full-text search, querying searchable fields in the index for matching terms, returning results in rank order. If you set `search` to null, query execution is over the entire index (that is, `search=*`). In this case, other elements of the query, such as a `$filter` or scoring profile, are the primary factors affecting which documents are returned `($filter`) and in what order (`scoringProfile` or `$orderby`).
 
--   **$filter=**
+-   **$filter=**  
     A filter is a powerful mechanism for limiting the size of search results based on the values of specific document attributes. A `$filter` is evaluated first, followed by faceting logic that generates the available values and corresponding counts for each value
 
 Complex search expressions decrease the performance of the query. Where possible, use well-constructed filter expressions to increase precision and improve query performance.
