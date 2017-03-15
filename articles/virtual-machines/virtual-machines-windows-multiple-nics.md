@@ -127,6 +127,66 @@ Finally, create a VM:
 New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "WestUS"
 ```
 
+## Add a NIC to an existing VM
+
+It is now possible to add a NIC to an existing VM. To use this feature, you'll first need to deallocate the VM using the Stop-AzureRmVM cmdlet below.
+
+```
+Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+```
+
+Next, get the existing configuration of the VM using the Get-AzureRmVM cmdlet
+
+```
+$vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+```
+
+You can create a new NIC in the **same VNET as the VM** as shown at the beginning of this article or attach an existing NIC. We'll assume you're attaching an existing NIC `MyNic3` in the VNET. 
+
+```
+$nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "MyNic3").Id
+Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId -Primary | Update-AzureRmVm -ResourceGroupName "myResourceGroup"
+```
+
+> [!NOTE]
+> One of the NICs on a multi-NIC VM needs to be Primary so we're setting the new NIC as primary. If your previous NIC on the VM is Primary, then you do not need to specify the -Primary switch. If you want to switch the Primary NIC on the VM, follow the steps below*
+
+```
+$vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+
+# Find out all the NICs on the VM and find which one is Primary
+$vm.NetworkProfile.NetworkInterfaces
+
+# Set the NIC 0 to be primary
+$vm.NetworkProfile.NetworkInterfaces[0].Primary = $true
+$vm.NetworkProfile.NetworkInterfaces[1].Primary = $false
+
+# Update the VM state in Azure
+Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroup"
+```
+
+## Remove a NIC from an existing VM
+
+A NIC can also be removed from a VM. To use this feature, you'll first need to deallocate the VM using the Stop-AzureRmVM cmdlet below.
+
+```
+Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+```
+
+Next, get the existing configuration of the VM using the Get-AzureRmVM cmdlet
+
+```
+$vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+```
+
+Now view all the NICs on the VM and copy the name of the one you want to remove
+
+```
+$vm.NetworkProfile.NetworkInterfaces
+
+Remove-AzureRmNetworkInterface -Name "myNic3" -ResourceGroupName "myResourceGroup"
+```
+
 ## Creating multiple NICs using Resource Manager templates
 Azure Resource Manager templates use declarative JSON files to define your environment. You can read an [overview of Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Resource Manager templates provide a way to create multiple instances of a resource during deployment, such as creating multiple NICs. You use *copy* to specify the number of instances to create:
 
@@ -150,5 +210,4 @@ You can read a complete example of [creating multiple NICs using Resource Manage
 ## Next steps
 Make sure to review [Windows VM sizes](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) when trying to creating a VM with multiple NICs. Pay attention to the maximum number of NICs each VM size supports. 
 
-Remember that you cannot add additional NICs to an existing VM, you must create all the NICs when you deploy the VM. Take care when planning your deployments to make sure that you have all the required network connectivity from the outset.
 
