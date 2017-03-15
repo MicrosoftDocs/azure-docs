@@ -164,6 +164,7 @@ Click any row for specific details.
 
 ![](./media/app-insights-javascript/37.png)
 
+
 Click `...` for the full telemetry for an Ajax call.
 
 ### No Ajax calls reported?
@@ -216,12 +217,10 @@ Want to find out what your users do with your app?
 * [Learn about custom events and metrics API](app-insights-api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video
- 
+
+
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Tracking-Usage-with-Application-Insights/player]
-> 
 
 
 ## <a name="next"></a> Next steps
