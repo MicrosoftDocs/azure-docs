@@ -48,13 +48,13 @@ Log in to the Azure portal at http://portal.azure.com.
 
 After the deployment has completed, create a remote desktop connection to the virtual machine.
 
-1. Click the **Connect** button on the virtual machine blade. This creates and downloads a Remote Desktop Protocol file (.rdp file).
+1. Click the **Connect** button on the virtual machine blade. A Remote Desktop Protocol file (.rdp file) is created and downloaded.
 
     ![Portal 9](./media/virtual-machine-quick-start/portal-quick-start-9.png) 
 
-2. Open the RDP file to connect to your VM. If prompted, click **Connect**. On a Mac, you need an RDP client such as [the Remote Desktop Client from the Mac App Store](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12).
+2. To connect to your VM, open the downloaded RDP file. If prompted, click **Connect**. On a Mac, you need an RDP client such as [the Remote Desktop Client](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) from the Mac App Store.
 
-3. Enter the user name and password you specified when creating the virtual machine, and then click **Ok**.
+3. Enter the user name and password you specified when creating the virtual machine, then click **Ok**.
 
 4. You may receive a certificate warning during the login process. Click **Yes** or **Continue** to proceed with the connection.
 
