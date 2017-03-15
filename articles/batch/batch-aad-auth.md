@@ -18,11 +18,11 @@ ms.date: 03/13/2017
 ms.author: tamram
 ---
 
-# Use Azure Active Directory to authenticate from Batch solutions
+# Use Azure Active Directory to authenticate Batch solutions
 
-Azure Batch supports authentication with [Azure Active Directory][aad_about] (Azure AD) for your Batch solutions. In this article, we'll explore using Azure AD to authenticate from applications that use the Batch Management .NET library or the Batch .NET library.
+Azure Batch supports authentication with [Azure Active Directory][aad_about] (Azure AD) for your Batch solutions. Azure AD is Microsoft’s multi-tenant cloud based directory and identity management service. Azure itself uses Azure AD for the authentication of its customers, service administrators, and organizational users.
 
-Azure AD is Microsoft’s multi-tenant cloud based directory and identity management service. Azure itself uses Azure AD for the authentication of its customers, service administrators, and organizational users. In the context of the Batch .NET APIs, you use Azure AD to authenticate a subscription administrator or co-administrator (integrated authentication). This authenticated user can then issue requests to Azure Batch.
+In this article, we'll explore using Azure AD to authenticate from applications that use the Batch Management .NET library or the Batch .NET library. In the context of the Batch .NET APIs, you use Azure AD to authenticate a subscription administrator or co-administrator (integrated authentication). This authenticated user can then issue requests to Azure Batch.
 
 It's also possible to use Azure AD to authenticate access to an application running unattended. In this article, we focus on using Azure AD integrated authentication to authenticate a user interacting with the application, and refer you to other resources to learn about authenticating unattended applications.
 
@@ -34,7 +34,7 @@ Azure AD is required to authenticate requests made through any Azure resource pr
 
 In this section, we'll use the [AccountManagment][acct_mgmt_sample] sample project, available on GitHub, to walk through using Azure AD with the Batch Management .NET library. The AccountManagement sample is a console application that demonstrates how to access a subscription programmatically, create a new resource group, create a new Batch account, perform some operations on the account, and then delete the new account and resource group. 
 
-To learn more about using the Batch Management .NET library, see [Manage Batch accounts and quotas with the Batch Management client library for .NET](batch-management-dotnet.md).
+To learn more about using the Batch Management .NET library and the AccountManagement sample, see [Manage Batch accounts and quotas with the Batch Management client library for .NET](batch-management-dotnet.md).
 
 ### Register your application with Azure AD
 
@@ -70,7 +70,7 @@ private const string RedirectUri = "http://myaccountmanagementsample";
 
 ### Grant the Azure Resource Manager API access to your application
 
-Next, you'll need to delegate permissions to the Azure Resource Manager API. Follow these steps in the Azure portal:
+Next, you'll need to delegate access to your application to the Azure Resource Manager API. Follow these steps in the Azure portal:
 
 1. In the left-hand navigation pane of the Azure portal, choose **More Services**, click **App Registrations**, and click **Add**.
 2. Search for the name of your application in the list of app registrations:
@@ -79,11 +79,11 @@ Next, you'll need to delegate permissions to the Azure Resource Manager API. Fol
 
 3. Display the **Settings** blade. In the **API Access** section, select **Required permissions**.
 4. Click **Add** to add a new required permission. 
-5. In step 1, enter **Windows Azure Service Management API**, and select that API.
-6. In step 2, select the check box next to  **Access Azure Service Management as organization users**.
+5. In step 1, enter `Windows Azure Service Management API`, select that API from the list of results, and click the **Select** button.
+6. In step 2, select the check box next to  **Access Azure Service Management as organization users**, and click the **Select** button.
 7. Click the **Done** button.
 
-You'll now see that permissions to your app are granted to both the ADAL and Resource Manager APIs. Permissions are granted to ADAL are granted by default when you first register your app with Azure AD.
+You'll now see that permissions to your app are granted to both the ADAL and Resource Manager APIs. Permissions are granted to ADAL by default when you first register your app with Azure AD.
 
 ![Delegate permissions to the Azure Resource Manager API](./media/batch-aad-auth/app-registration-complete.png)
 
@@ -111,13 +111,7 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
                                                         PromptBehavior.Auto);
 ```
 
-After you provide your service administrator or coadministrator credentials, the sample application can proceed to issue authenticated requests. For more information on running the AccountManagement sample application, see [Manage Batch accounts and quotas with the Batch Management client library for .NET](batch-management-dotnet.md).
-
-> [!NOTE] 
-> To run the AccountManagement sample, you'll also need to register the sample application with Azure Resource Manager. For information about how to do this, see [Manage Batch accounts and quotas with the Batch Management client library for .NET](batch-management-dotnet.md).
->
->
-
+After you provide your service administrator or coadministrator credentials, the sample application can proceed to issue authenticated requests to the Batch management service. For more information on running the AccountManagement sample application, see [Manage Batch accounts and quotas with the Batch Management client library for .NET](batch-management-dotnet.md).
 
 ## Authenticate Batch service applications with Azure AD
 
@@ -139,7 +133,7 @@ The resource endpoint for Batch is:
 
 ### Grant the Batch service API access to your application
 
-Before you can authenticate via Azure AD from your Batch application, you need to register your application with Azure AD and grant access to the Batch service API. This process is similar to how you registered the AccountManagement sample application in (ref above).
+Before you can authenticate via Azure AD from your Batch application, you need to register your application with Azure AD and grant access to the Batch service API. This process is similar to how you registered the AccountManagement sample application and granted access to the Resource Manager API in [Authenticate Batch management applications with Azure AD](#authenticate-batch-management-applications-with-azure-ad).
 
 1. To register your Batch application, follow the steps in the [Adding an Application](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) section in [Integrating applications with Azure Active Directory][aad_integrate]. For the **Redirect URI**, you can specify any valid URI; it does not need to be a real endpoint.
 
@@ -157,12 +151,13 @@ The **Required Permissions** blade now shows that your application grants access
 
 ![API permissions](./media/batch-aad-auth/required-permissions-data-plane.png)
 
-### Authentication for Batch accounts in a user subscription.
+### Authentication for Batch accounts in a user subscription
 
-When you create a new Batch account, you can choose the subscription in which pools are allocated. Your choice affects how you authenticate requests made to resources in that account:
+When you create a new Batch account, you can choose the subscription in which pools are allocated. Your choice affects how you authenticate requests made to resources in that account
 
-- By default, Batch pools are allocated in a Batch service subscription. If you choose this option, you can authenticate requests to resources in that account with either Shared Key or with Azure AD.
-- You can also specify that Batch pools are allocated in a specified user subscription. If you choose this option, you must authenticate requests to resources in that account with Azure AD.
+By default, Batch pools are allocated in a Batch service subscription. If you choose this option, you can authenticate requests to resources in that account with either Shared Key or with Azure AD.
+
+You can also specify that Batch pools are allocated in a specified user subscription. If you choose this option, you must authenticate requests to resources in that account with Azure AD.
 
 ### Best practices for using Azure AD with Batch
 
