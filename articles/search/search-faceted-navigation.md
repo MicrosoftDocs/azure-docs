@@ -32,7 +32,7 @@ Implementing faceted navigation differs across search technologies. In Azure Sea
 
 In your application development, writing code that constructs queries constitutes the bulk of the work. Many of the application behaviors that you would expect from faceted navigation are provided by the service, including built-in support for defining ranges and getting counts for facet results. The service also includes sensible defaults that help you avoid unwieldy navigation structures. 
 
-## Online demo and sample code
+## Sample code and demo
 This article uses a job search portal as an example. The example is implemented as an ASP.NET MVC application.
 
 -   See and test the working demo online at [Azure Search Job Portal Demo](http://azjobsdemo.azurewebsites.net/).
@@ -58,7 +58,7 @@ A facet is a query parameter, but do not confuse it with query input. It is neve
 
 Notice the `$filter` in step 4. The filter is an important aspect of faceted navigation. Although facets and filters are independent in the API, you need both to deliver the experience you intend. 
 
-### Application design pattern
+### App design pattern
 
 In application code, the pattern is to use facet query parameters to return the faceted navigation structure along with facet results, plus a $filter expression.  The filter expression handles the click event on the facet value. Think of the `$filter` expression as the code behind the actual trimming of search results returned to the presentation layer. Given a Colors facet, clicking the color Red is implemented through a `$filter` expression that selects only those items that have a color of red. 
 
@@ -89,8 +89,8 @@ In applications that include faceted navigation, make sure that each user action
 
 <a name="howtobuildit"></a>
 
-## Build a search app with faceted navigation
-Faceted navigation in Azure Search is implemented in your application code that builds the request, but relies on predefined elements in your schema.
+## Build a faceted navigation app
+You implement faceted navigation with Azure Search in your application code that builds the search request. The faceted navigation relies on elements in your schema that you defined previously.
 
 Predefined in your search index is the `Facetable [true|false]` index attribute, set on selected fields to enable or disable their use in a faceted navigation structure. Without `"Facetable" = true`, a field cannot be used in facet navigation.
 
@@ -114,27 +114,27 @@ When building an index, a best practice for faceted navigation is to explicitly 
 
 Following is part of the schema for the Job Portal Demo sample app, trimmed of some attributes to reduce the size:
 
-```
+```json
 {
   ...
   "name": "nycjobs",
   "fields": [
-    { “name”: "id", "type": "Edm.String", "searchable": false, "filterable": false, ... "facetable": false, ... },
-    { “name”: "job_id", "type": "Edm.String", "searchable": false, "filterable": false, ... "facetable": false, ... },
-    { “name”: "agency", "type": "Edm.String", "searchable": true, "filterable": true, ... "facetable": true, ... },
-    { “name”: "posting_type", "type": "Edm.String", "searchable": true, "filterable": true, ... "facetable": true, ... },
-    { “name”: "num_of_positions", "type": "Edm.Int32", "searchable": false, "filterable": true, ... "facetable": true, ... },
-    { “name”: "business_title", "type": "Edm.String", "searchable": true, "filterable": true, ... "facetable": true, ... },
-    { “name”: "civil_service_title", "type": "Edm.String", "searchable": true, "filterable": true, ... "facetable": true, ... },
-    { “name”: "title_code_no", "type": "Edm.String", "searchable": true, "filterable": true, ... "facetable": true, ... },
-    { “name”: "level", "type": "Edm.String", "searchable": true, "filterable": true, ... "facetable": true, ... },
-    { “name”: "salary_range_from", "type": "Edm.Int32", "searchable": false, "filterable": true, ... "facetable": true, ... },
-    { “name”: "salary_range_to", "type": "Edm.Int32", "searchable": false, "filterable": true, ... "facetable": true, ... },
-    { “name”: "salary_frequency", "type": "Edm.String", "searchable": true, "filterable": true, ... "facetable": true, ... },
-    { “name”: "work_location", "type": "Edm.String", "searchable": true, "filterable": true, ... "facetable": true, ... },
+    { “name”: "id",                 "type": "Edm.String",              "searchable": false, "filterable": false, ... "facetable": false, ... },
+    { “name”: "job_id",             "type": "Edm.String",              "searchable": false, "filterable": false, ... "facetable": false, ... },
+    { “name”: "agency",              "type": "Edm.String",             "searchable": true,  "filterable": true, ...  "facetable": true, ...  },
+    { “name”: "posting_type",        "type": "Edm.String",             "searchable": true,  "filterable": true, ...  "facetable": true, ...  },
+    { “name”: "num_of_positions",    "type": "Edm.Int32",              "searchable": false, "filterable": true, ...  "facetable": true, ...  },
+    { “name”: "business_title",      "type": "Edm.String",             "searchable": true,  "filterable": true, ...  "facetable": true, ...  },
+    { “name”: "civil_service_title", "type": "Edm.String",             "searchable": true,  "filterable": true, ...  "facetable": true, ...  },
+    { “name”: "title_code_no",       "type": "Edm.String",             "searchable": true,  "filterable": true, ...  "facetable": true, ...  },
+    { “name”: "level",               "type": "Edm.String",             "searchable": true,  "filterable": true, ...  "facetable": true, ...  },
+    { “name”: "salary_range_from",   "type": "Edm.Int32",              "searchable": false, "filterable": true, ...  "facetable": true, ...  },
+    { “name”: "salary_range_to",     "type": "Edm.Int32",              "searchable": false, "filterable": true, ...  "facetable": true, ...  },
+    { “name”: "salary_frequency",    "type": "Edm.String",             "searchable": true,  "filterable": true, ...  "facetable": true, ...  },
+    { “name”: "work_location",       "type": "Edm.String",             "searchable": true,  "filterable": true, ...  "facetable": true, ...  },
 …
-    { “name”: "geo_location", "type": "Edm.GeographyPoint", "searchable": false, "filterable": true, ... "facetable": false, ... },
-    { “name”: "tags", "type": "Collection(Edm.String)", "searchable": true, "filterable": true, ... "facetable": true, ... }
+    { “name”: "geo_location",        "type": "Edm.GeographyPoint",     "searchable": false, "filterable": true, ...  "facetable": false, ... },
+    { “name”: "tags",                "type": "Collection(Edm.String)", "searchable": true,  "filterable": true, ...  "facetable": true, ...  }
   ],
 …
 }
@@ -163,7 +163,7 @@ As you can imagine, diligence in preparing the data is an essential aspect of ef
 
 <a name="presentationlayer"></a>
 
-## Build the presentation layer
+## Build the UI
 Working back from the presentation layer can help you uncover requirements that might be missed otherwise, and understand which capabilities are essential to the search experience.
 
 In terms of faceted navigation, your web or application page displays the faceted navigation structure, detects user input on the page, and inserts the changed elements. 
@@ -172,7 +172,7 @@ For web applications, AJAX is commonly used in the presentation layer because it
 
 In the sample, faceted navigation is built into the search results page. The following example, taken from the `index.cshtml` file of the sample application, shows the static HTML structure for displaying faceted navigation on the search results page. The list of facets is built or rebuilt dynamically when you submit a search term, or select or clear a facet.
 
-```
+```html
 <div class="widget sidebar-widget jobs-filter-widget">
   <h5 class="widget-title">Filter Results</h5>
     <p id="filterReset"></p>
@@ -199,7 +199,7 @@ In the sample, faceted navigation is built into the search results page. The fol
 
 The following code snippet from the `index.cshtml` page dynamically builds the HTML to display the first facet, Business Title. Similar functions dynamically build the HTML for the other facets. Each facet has a label and a count, which displays the number of items found for that facet result.
 
-```
+```js
 function UpdateBusinessTitleFacets(data) {
   var facetResultsHTML = '';
   for (var i = 0; i < data.length; i++) {
@@ -222,7 +222,7 @@ Notice that facets are integral in this sample application. The search experienc
 
 An example is often a good place to begin. The following example, taken from the `JobsSearch.cs` file, builds a request that creates facet navigation based on Business Title, Location, Posting Type, and Minimum Salary. 
 
-```
+```cs
 SearchParameters sp = new SearchParameters()
 {
   ...
@@ -237,7 +237,7 @@ Along with facets, the request formulated by your application should also build 
 
 The following code snippet from the `JobsSearch.cs` page adds the selected Business Title to the filter if you select a value from the Business Title facet.
 
-```
+```cs
 if (businessTitleFacet != "")
   filter = "business_title eq '" + businessTitleFacet + "'";
 ```
@@ -332,8 +332,8 @@ Labels are typically defined in the HTML or form (`index.cshtml` in the sample a
 
 <a name="rangefacets"></a>
 
-## Filter based on a range of values
-Faceting over ranges is a common search application requirement. Ranges are supported for numeric data and DateTime values. You can read more about each approach in [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
+## Filter based on a range
+Faceting over ranges of values is a common search application requirement. Ranges are supported for numeric data and DateTime values. You can read more about each approach in [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
 
 Azure Search simplifies range construction by providing two approaches for computing a range. For both approaches, Azure Search creates the appropriate ranges given the inputs you’ve provided. For instance, if you specify range values of 10|20|30, it automatically creates ranges of 0-10, 10-20, 20-30. Your application can optionally remove any intervals that are empty. 
 
