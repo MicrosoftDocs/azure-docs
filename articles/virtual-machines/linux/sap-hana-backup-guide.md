@@ -413,7 +413,7 @@ The procedure would look less complex if it was possible to shut down SAP HANA b
 
 ### Introduction
 
-Looking at the Azure VM sizes, one can see that a GS5 allows 64 attached data disks. For big SAP HANA systems, a significant portion of the number of disks might already be taken for SAP HANA data and log files, possibly in combination with software raid for optimal disk IO throughput. The question then is where to store SAP HANA backup files, which could fill up the attached data disks over time? See [Sizes for Linux virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for the Azure VM size tables.
+Looking at the Azure VM sizes, one can see that a GS5 allows 64 attached data disks. For big SAP HANA systems, a significant portion of the number of disks might already be taken for SAP HANA data and log files, possibly in combination with software raid for optimal disk IO throughput. The question then is where to store SAP HANA backup files, which could fill up the attached data disks over time? See [Sizes for Linux virtual machines in Azure](../virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for the Azure VM size tables.
 
 As there is no SAP HANA backup integration available with Azure Backup service at this point in time, the standard way to manage backup/restore at the file level would be a file-based backup via SAP HANA Studio or via SAP HANA SQL statements (see [SAP HANA SQL and System Views Reference](https://help.sap.com/hana/SAP_HANA_SQL_and_System_Views_Reference_en.pdf)).
 
