@@ -138,9 +138,10 @@ PS C:\> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -Appl
 
 If you do not specify the *-ApplicationPackagePathInImageStore* parameter, the app package is copied into the "Debug" folder in the image store.
 
-The time it takes to upload a package differs based on the number of files in the package, the package size, the file sizes, and the network speed between
-the source machine and the Service Fabric cluster image store. The default timeout for [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) is 30 minutes.
-You need to evaluate if this time is sufficient depending on the factors that affect the upload. If you are compressing the package in the copy call, you need to also consider the compression time.
+The time it takes to upload a package differs depending on multiple factors. Some of these factors are the number of files in the package, the package size and the file sizes. The network speed between
+the source machine and the Service Fabric cluster also impacts the upload time. 
+The default timeout for [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) is 30 minutes.
+Depending on the described factors, you may have to increase the timeout. If you are compressing the package in the copy call, you need to also consider the compression time.
 
 See [Understand the image store connection string](service-fabric-image-store-connection-string.md) for supplementary information about the image store and image store connection string.
 
@@ -276,7 +277,8 @@ See [Understand the image store connection string](service-fabric-image-store-co
 Issue: [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) times out for a large application package (order of GB).
 Try:
 - Specify a larger timeout for [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) command, with `TimeoutSec` parameter. By default, the timeout is 30 minutes.
-- Check the network connection between your source machine and cluster. If the connection is slow, consider copying the package from a machine closer to the cluster (region-wise) or a machine with a better network connection.
+- Check the network connection between your source machine and cluster. If the connection is slow, consider using a machine with a better network connection.
+If the client machine is in another region than the cluster, consider using a client machine in a closer or same region as the cluster.
 - Check if you are hitting external throttling. For example, when the image store is configured to use azure storage, upload may be throttled.
 
 Issue: Upload package completed successfully, but [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) times out.
