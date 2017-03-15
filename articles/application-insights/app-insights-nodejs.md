@@ -1,5 +1,5 @@
 ---
-title: Monitor your Node.js app with Azure Application Insights SDK  | Microsoft Docs
+title: Monitor your Node.js app with Azure Application Insights  | Microsoft Docs
 description: Analyze usage, availability and performance of your on-premises or Microsoft Azure web application by using Application Insights.
 services: application-insights
 documentationcenter: ''

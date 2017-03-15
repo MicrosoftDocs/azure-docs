@@ -1,5 +1,5 @@
 ---
-title: Dashboards and navigation in the Application Insights portal | Microsoft Docs
+title: Dashboards and navigation in the Azure Application Insights | Microsoft Docs
 description: Create views of your key APM charts and queries.
 services: application-insights
 documentationcenter: ''

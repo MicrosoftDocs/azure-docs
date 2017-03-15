@@ -1,5 +1,5 @@
 ---
-title: Application Insights for JavaScript web apps | Microsoft Docs
+title: Azure Application Insights for JavaScript web apps | Microsoft Docs
 description: Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript web pages.
 services: application-insights
 documentationcenter: ''
