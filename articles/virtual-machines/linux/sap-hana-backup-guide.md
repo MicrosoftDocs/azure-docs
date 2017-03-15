@@ -57,40 +57,39 @@ ms.author: rclaus
 
 ## Overview
 
-The SAP HANA Azure backup guide will only describe Azure-specific topics. For general SAP HANA backup related items one should check the SAP HANA documentation. See _SAP HANA backup documentation_ later in this document.
+The SAP HANA Azure backup guide only describes Azure-specific topics. For general SAP HANA backup related items one should check the SAP HANA documentation. See _SAP HANA backup documentation_ later in this document.
 
 The focus of this document is on three major backup possibilities for SAP HANA on Azure:
 
 - HANA backup to the file system in an Azure Linux Virtual Machine
 - HANA backup via storage snapshot using the Azure storage blob snapshot feature
 - HANA backup using the Azure Backup service
-
 SAP HANA offers a backup API which allows third-party backup tools to integrate directly with SAP HANA. (That is not within the scope of this guide.) There is no direct integration of SAP HANA with Azure Backup service available right now based on this API.
 
-SAP HANA is officially supported on Azure VM type GS5 as single instance with an additional restriction to OLAP workloads (see [Find Certified IaaS Platforms](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html) on the SAP website). The document will be updated accordingly, once new offerings for SAP HANA on Azure become available.
+SAP HANA is officially supported on Azure VM type GS5 as single instance with an additional restriction to OLAP workloads (see [Find Certified IaaS Platforms](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html) on the SAP website). The document will be updated as new offerings for SAP HANA on Azure become available.
 
 There is also an SAP HANA hybrid solution available on Azure, where SAP HANA runs non-virtualized on physical servers. However, this SAP HANA Azure backup guide is about a pure Azure environment where SAP HANA runs in an Azure VM, and does not cover SAP HANA running on &quot;large instances.&quot; See [SAP HANA (large instances) overview and architecture on Azure](./sap-hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information about this backup solution on &quot;large instances&quot; based on storage snapshots.
 
 General information about SAP products supported on Azure can be found in [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533).
 
-The following three figures give an overview of the SAP HANA backup options using native Azure capabilities at this point in time, and also show three potential future backup scenarios. The following sections of this guide describe these options in more detail, and also discuss size and performance considerations regarding SAP HANA backups which are of multi-terabytes in size.
+The following three figures give an overview of the SAP HANA backup options using native Azure capabilities currently, and also show three potential future backup scenarios. The following sections of this guide describe these options in more detail, and also discuss size and performance considerations regarding SAP HANA backups, which are multi-terabytes in size.
 
-![This figure shows two possibilities for saving the current state of the whole VM](./media/sap-hana-backup-guide/image001.png)
+![This figure shows two possibilities for saving the current VM state](./media/sap-hana-backup-guide/image001.png)
 
-This figure shows the possibility of saving the current state of the whole VM either via Azure Backup service or manual snapshot of VM disks. With this approach, one doesn&#39;t have to manage SAP HANA backups. The challenge of the disk snapshot scenario is file system consistency, as well as an application-consistent disk state. The consistency topic is discussed in the section _SAP HANA data consistency when taking storage snapshots_ later in this document. Capabilities and restrictions of Azure Backup service related to SAP HANA backups will be discussed later in this document.
+This figure shows the possibility of saving the current VM state, either via Azure Backup service or manual snapshot of VM disks. With this approach, one doesn&#39;t have to manage SAP HANA backups. The challenge of the disk snapshot scenario is file system consistency, as well as an application-consistent disk state. The consistency topic is discussed in the section _SAP HANA data consistency when taking storage snapshots_ later in this document. Capabilities and restrictions of Azure Backup service related to SAP HANA backups are discussed later in this document.
 
 ![This figure shows options for taking an SAP HANA file backup inside the VM](./media/sap-hana-backup-guide/image002.png)
 
-This figure shows options for taking an SAP HANA file backup inside the VM, and then storing it HANA backup files somewhere else using different tools. To take a HANA backup will require more time than a snapshot-based backup solution, but it has advantages regarding integrity and consistency. More details are provided later in this document.
+This figure shows options for taking an SAP HANA file backup inside the VM, and then storing it HANA backup files somewhere else using different tools. Taking a HANA backup requires more time than a snapshot-based backup solution, but it has advantages regarding integrity and consistency. More details are provided later in this document.
 
 ![This figure shows a potential future SAP HANA backup scenario](./media/sap-hana-backup-guide/image003.png)
 
-This figure shows a potential future SAP HANA backup scenario. If SAP HANA were to allow taking backups from a replication secondary, it would add additional options for backup strategies. Right now this isn&#39;t possible according to a post in the SAP HANA Wiki, which states:
+This figure shows a potential future SAP HANA backup scenario. If SAP HANA allowed taking backups from a replication secondary, it would add additional options for backup strategies, but that isn&#39;t currently possible according to a post in the SAP HANA Wiki, which states:
 
 &quot;Is it possible to take backups on the secondary side?
 
 No, currently you can only take data and log backups on the primary side. If automatic log backup
-is enabled, after takeover to the secondary side the log backups will automatically be written there.&quot;
+is enabled, after takeover to the secondary side, the log backups will automatically be written there.&quot;
 
 ## SAP HANA backup documentation
 
@@ -104,28 +103,28 @@ is enabled, after takeover to the secondary side the log backups will automatica
 
 ## Conclusion
 
-As of December, 2016, the usage of the Azure Backup service for SAP HANA backups has some limitations. For production systems, where SAP HANA should stay online, one has to build a custom script to check the Azure Backup snapshot in order to automate the end-to-end process, and synchronize with the SAP HANA snapshot to guarantee app consistency. Another issue is a missing &quot;in-place VM restore,&quot; which implies the creation of a new VM during the restore process. The latter issue then requires a new SAP HANA license key. A new feature in preview mode when this guide was created allows file level restore from a former VM backup, which then avoids the license key issue.
+As of December 2016, the usage of the Azure Backup service for SAP HANA backups has some limitations. For production systems, where SAP HANA should stay online, one has to build a custom script to check the Azure Backup snapshot to automate the end-to-end process, and synchronize with the SAP HANA snapshot to guarantee app consistency. Another issue is a missing &quot;in-place VM restore,&quot; which implies the creation of a new VM during the restore process. The latter issue then requires a new SAP HANA license key. A new feature in preview mode when this guide was created allows file level restore from a former VM backup, which then avoids the license key issue.
 
-Azure Backup service would be exceptional once it supports file backup for Azure Linux VMs as well as backup of individual virtual disks. Its key advantage will be the administration and management of several backups, which has to be handled by the customer otherwise.
+Azure Backup service would be exceptional once it supports file backup for Azure Linux VMs and backup of individual virtual disks. Its key advantage is the administration and management of several backups, which has to be handled by the customer otherwise.
 
 Apart from Azure Backup there are two basic backup approaches left using native Azure capabilities:
 
 - Standard SAP HANA full and delta backups, and log backups to the file system
 - Azure storage blob snapshots for HANA data and standard log backups
 
-In both cases, one has to think about copying the backups to another location afterwards. For example, for additional safety via geo-redundancy (see [Azure Storage replication](../../storage/storage-redundancy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)), or simply because of space limitations within the Azure Linux VM or using cool blob storage for cost reasons (see [Azure Blob Storage: Hot and cool storage tiers](../../storage/storage-blob-storage-tiers.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)).
+In both cases, one has to think about copying the backups to another location afterwards. Reasons for this include: additional safety via geo-redundancy (see [Azure Storage replication](../../storage/storage-redundancy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)), because of space limitations within the Azure Linux VM, or using cool blob storage for cost reasons (see [Azure Blob Storage: Hot and cool storage tiers](../../storage/storage-blob-storage-tiers.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)).
 
-While standard SAP HANA backups are straight forward there are a few things to consider on Azure when it comes to storage snapshots. See _SAP HANA Data consistency_ later in this document for details.
+While standard SAP HANA backups are straight forward, there are a few things to consider on Azure regarding storage snapshots. See _SAP HANA Data consistency_ later in this document for details.
 
-Due to many customer-specific factors and individual requirements it is not possible to give a general backup guideline which fits every use case. For some customers, it might be fine to shut down an SAP HANA dev system in the evening, or even the whole VM, to save costs and then simply copy all virtual disks to back up the complete environment. Other customers might run an SAP HANA production system, which has to stay online during the backup, and would have to keep backups geo-redundant to protect against a theoretical disaster like a meteor crushing an Azure data center.
+Due to many customer-specific factors and individual requirements, it is not possible to give backup guidelines that fit every use case. For some, it might be fine to shut down an SAP HANA dev system (or VM) in the evening to save costs, and then copy all virtual disks to back up the complete environment. Others might run an SAP HANA production system, which has to stay online during the backup, and would have to keep backups geo-redundant to protect against a theoretical disaster like a meteor crushing an Azure data center.
 
-What can be said as a general recommendation for online backups is this:
+A general recommendation for online backups is:
 
 - SAP recommends doing a standard full HANA backup once a week
 - To be on the safe side, a test recovery should be done to verify the correctness of the backup
-- In the case of storage snapshots, the same procedure should always be used no matter if there is a single disk, or a software raid across multiple disks, to guarantee file system and SAP HANA data consistency
+- With storage snapshots, the same procedure should always be used to guarantee file system and SAP HANA data consistency (for a single disk or a software raid across multiple disks) 
 
-See detailed discussions about topics related to SAP HANA backup on Azure later in this document.
+See detailed discussion topics related to SAP HANA backup on Azure later in this document.
 
 ## Why SAP HANA backup?
 
