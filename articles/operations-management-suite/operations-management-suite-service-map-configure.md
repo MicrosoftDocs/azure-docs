@@ -176,13 +176,19 @@ Below are some code_numbers and suggested resolutions.
 ### Post-Installation Issues
 #### Server doesn't show in Service Map
 If your Dependency Agent installation succeeded and you can see it running, but you don't see your server in the Service Map solution:
-1. Is your server sending log and perf data to OMS?  Go to Log Search and run the following query for your computer: 
+1. Is the Dependency Agent installed successfully?  You can validate this by checking to see if the service is installed and running.
+Windows: Look for the Service named "Microsoft Dependency Agent"
+Linux: Look for the running process "microsoft-dependency-agent"
+2. Are you on the Free Pricing Tier of OMS/Log Analytics?  The Free plan allows for up to five unique Service Map servers.  Any subsequent servers won't show up in Service Map, even if the prior five are no longer sending data.
+3. Is your server sending log and perf data to OMS?  Go to Log Search and run the following query for your computer: 
 		* Computer="<your computer name here>" | measure count() by Type
 Did you get a variety of results?  And is it recent?  If not, [check the OMS Agent on your server](#oms-agent-diagnostics).
-2. If you are getting OMS data then you need to check to make sure the Dependency Agent is running correctly.  [Dependency Agent diagnostics](#dependency-agent-diagnostics).
 
 #### Server shows in Service Map, but has no processes
-If you see your server in Service Map, but it has no process or connection data, that indicates that the Dependency Agent is installed and running, but the kernel driver didn't load.  It is possible that your machine is waiting for a reboot that is keeping the driver from loading.  Run [Dependency Agent diagnostics](#dependency-agent-diagnostics).
+If you see your server in Service Map, but it has no process or connection data, that indicates that the Dependency Agent is installed and running, but the kernel driver didn't load.  To find out why your driver didn't load, check the wrapper.log file (Windows) or service.log file (Linux).  If the driver failed to load, the last lines of the file should indicate why (e.g. kernel not supported, which can happen on Linux if you updated your kernel) and may offer a solution.
+Windows: C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log
+Linux: /var/opt/microsoft/dependency-agent/log/service.log
+
 
 ### Dependency Agent Diagnostics
 The steps below show how to gather diagnostic data for the Dependency Agent on either Windows or Linux systems.
