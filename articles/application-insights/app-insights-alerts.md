@@ -1,5 +1,5 @@
 ---
-title: Set Alerts in Application Insights | Microsoft Docs
+title: Set Alerts in Azure Application Insights | Microsoft Docs
 description: Get notified about slow response times, exceptions, and other performance or usage changes in your web app.
 services: application-insights
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2016
+ms.date: 03/14/2017
 ms.author: awills
 
 ---
@@ -90,6 +90,10 @@ Don't forget that [proactive failure rate diagnostics](app-insights-proactive-fa
 ## Automation
 * [Use PowerShell to automate setting up alerts](app-insights-powershell-alerts.md)
 * [Use webhooks to automate responding to alerts](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## See also
 * [Availability web tests](app-insights-monitor-web-app-availability.md)
