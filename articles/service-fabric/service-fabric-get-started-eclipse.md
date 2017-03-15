@@ -25,8 +25,8 @@ Eclipse is one of the most widely used integrated development environments (IDEs
 You can install a Service Fabric plug-in in Eclipse. The plug-in can help simplify the process of building and deploying Java services. To install the Service Fabric plug-in, you need the latest version of Eclipse Neon, and the latest version of Buildship.
 
 1.  Ensure that you have the latest version of Eclipse Neon and the latest version of Buildship (1.0.17 or a later version) installed:
-    -   To check the versions of installed components, in Eclipse Neon, go to **Help** > **Installation Details**. 
-    -   To update Buildship, see [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update]. 
+    -   To check the versions of installed components, in Eclipse Neon, go to **Help** > **Installation Details**.
+    -   To update Buildship, see [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update].
     -   To check for and install updates for Eclipse Neon, go to **Help** > **Check for Updates**.
 
 2.  To install the Service Fabric plug-in, in Eclipse Neon, go to **Help** > **Install New Software**.
@@ -70,22 +70,21 @@ If you already have the Service Fabric plug-in installed, make sure that you hav
 
 ## Build and deploy a Service Fabric application in Eclipse
 
-1.  Right-click your new Service Fabric application, and then select **Service Fabric**. 
+1.  Right-click your new Service Fabric application, and then select **Service Fabric**.
 
     ![Service Fabric right-click menu][publish/RightClick]
 
- 2. In the submenu, select the option you want:
+2. In the submenu, select the option you want:
     -   To build the application without cleaning, click **Build Application**.
     -   To do a clean build of the application, click **Rebuild Application**.
-    -   To clean the application of built artifacts, click **Clean Application**. 
+    -   To clean the application of built artifacts, click **Clean Application**.
 
 3.  From this menu, you also can deploy, undeploy, and publish your application:
     -   To deploy to your local cluster, click **Deploy Application**.
-    -   In the **Publish Application** dialog box, select a publish profile: 
-    
+    -   In the **Publish Application** dialog box, select a publish profile:
         -  **Local.json**
         -  **Cloud.json**
-    
+
      These JavaScript Object Notation (JSON) files store information (such as connection endpoints and security information) that is required to connect to your local or cloud (Azure) cluster.
 
   ![Service Fabric Publish menu][publish/Publish]
@@ -105,7 +104,7 @@ Your application builds and deploys within a few moments. You can monitor the de
 
 To add a Service Fabric service to an existing Service Fabric application, do the following steps:
 
-1.  Right-click the project you want to add a service to, and then click **Service Fabric**. 
+1.  Right-click the project you want to add a service to, and then click **Service Fabric**.
 
     ![Service Fabric Add Service page 1][add-service/p1]
 
@@ -128,7 +127,7 @@ For an upgrade scenario, say you created the **App1** project by using the Servi
 
 First, make any changes to your application, and then rebuild the modified service. Update the modified service’s manifest file (ServiceManifest.xml) with the updated versions for the service (and Code, Config, or Data, as relevant). Also, modify the application’s manifest (ApplicationManifest.xml) with the updated version number for the application and the modified service.  
 
-To upgrade your application by using Eclipse Neon, you can create a duplicate run configuration profile. Then, use it to upgrade your application as needed. 
+To upgrade your application by using Eclipse Neon, you can create a duplicate run configuration profile. Then, use it to upgrade your application as needed.
 
 1.  Go to **Run** > **Run Configurations**. In the left pane, click the small arrow to the left of **Gradle Project**.
 2.  Right-click **ServiceFabricDeployer**, and then select **Duplicate**. Enter a new name for this configuration, for example, **ServiceFabricUpgrader**.
@@ -136,7 +135,7 @@ To upgrade your application by using Eclipse Neon, you can create a duplicate ru
 
 This process creates and saves a run configuration profile you can use at any time to upgrade your application. It also gets the latest updated application type version from the application manifest file.
 
-The application upgrade takes a few minutes. You can monitor the application upgrade in Service Fabric Explorer. 
+The application upgrade takes a few minutes. You can monitor the application upgrade in Service Fabric Explorer.
 
 <!-- Images -->
 
