@@ -19,8 +19,8 @@ ms.author: jehollan
 ---
 # Examples and common scenarios for Azure Logic Apps
 
-To help you to understand the many patterns and capabilities in Azure Logic Apps, 
-here's more information about common scenarios and examples.
+To help you learn more about the many patterns and capabilities in Azure Logic Apps, 
+here are common examples and scenarios.
 
 ## Key scenarios for logic apps
 
