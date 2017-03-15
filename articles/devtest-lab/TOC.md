@@ -5,14 +5,16 @@
 
 # Get Started
 ## [Create lab](devtest-lab-create-lab.md)
+## [Create formulas](devtest-lab-create-formulas.md)
 ## [Create VM](devtest-lab-add-vm.md)
+## [Manage basic lab policies](devtest-lab-get-started-with-lab-policies.md)
 ## [Create lab for training](devtest-lab-training-lab.md)
 ## [FAQ](devtest-lab-faq.md)
 
 # How To
 ## Manage Labs
 ### [Add lab owners and users](devtest-lab-add-devtest-user.md)
-### [Define lab policies](devtest-lab-set-lab-policy.md)
+### [Manage all lab policies](devtest-lab-set-lab-policy.md)
 ### [Grant permissions to policies](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
 ### [Configure cost management](devtest-lab-configure-cost-management.md)
 ### [Configure virtual networks](devtest-lab-configure-vnet.md)
