@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Machine Scale Sets FAQ | Microsoft Docs
-description: Get answers to frequently asked questions about Virtual Machine Scale Sets
+title: Azure virtual machine scale sets FAQs | Microsoft Docs
+description: Get answers to frequently asked questions about virtual machine scale sets.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gatneil
@@ -20,19 +20,19 @@ ms.custom: na
 
 ---
 
-# Azure Virtual Machine Scale Sets FAQ
+# Azure virtual machine scale sets FAQs
 
-This article contains answers to frequently asked questions about scale sets.
+Find answers to frequently asked questions about virtual machine scale sets.
 
 ## Autoscale
 
-### What are best practices for Azure autoscale?
+### What are best practices for Azure Autoscale?
 
-Yes. See https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-best-practices
+For best practices for Azure Autoscale, see https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-best-practices.
 
 ### Where do I find the metric names for autoscaling using host-based metrics?
 
-https://azure.microsoft.com/documentation/articles/monitoring-supported-metrics/
+For the metric names for autoscaling using host-based metrics, see https://azure.microsoft.com/documentation/articles/monitoring-supported-metrics/.
 
 ### Are there any examples of autoscaling based on a service bus topic and queue length?
 
