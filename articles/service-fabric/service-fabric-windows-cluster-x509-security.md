@@ -281,6 +281,3 @@ To remove the cluster, connect to the node on the cluster where you downloaded t
 > 
 > 
 
-## Next steps
-
-For information on managing certificates in a cluster in Azure, see [Add, remove, or rollover certificates for a cluster](service-fabric-cluster-security-update-certs-azure.md).
