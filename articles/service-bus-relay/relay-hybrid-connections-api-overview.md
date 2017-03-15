@@ -27,7 +27,7 @@ See [additional information](#additional-information) for more details on the st
 
 | Language/Platform | Available feature | Client package | Repository |
 | --- | --- | --- | --- |
-| .NET Standard | Hybrid Connections | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) | [GitHub](https://github.com/azure/azure-event-hubs-dotnet) |
+| .NET Standard | Hybrid Connections | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
 | .NET Framework | WCF Relay | [Microsoft.ServiceBus.Relay](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | N/A |
 | Node | Hybrid Connections | [hyco-ws](https://www.npmjs.com/package/hyco-ws)<br/>[hyco-websocket](https://www.npmjs.com/package/hyco-websocket) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
