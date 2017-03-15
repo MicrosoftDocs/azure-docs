@@ -23,13 +23,13 @@ ms.author: jotaub
 
 The following is a listing of all currently available Relay runtime clients. While some of these libraries also include limited management functionality, there are also [specific libraries](#management-apis) dedicated to management operations.
 
-See [additional information](#additional-information) for more details on the current status of each runtime library.
+See [additional information](#additional-information) for more details on the status of each runtime library.
 
 | Language/Platform | Available feature | Client package | Repository |
 | --- | --- | --- | --- |
 | .NET Standard | Hybrid Connections | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) | [GitHub](https://github.com/azure/azure-event-hubs-dotnet) |
 | .NET Framework | WCF Relay | [Microsoft.ServiceBus.Relay](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | N/A |
-| Node | Hyrbid Connections | [hyco-ws](https://www.npmjs.com/package/hyco-ws)<br/>[hyco-websocket](https://www.npmjs.com/package/hyco-ws) | [GitHub](https://github.com/Azure/azure-relay-node) |
+| Node | Hybrid Connections | [hyco-ws](https://www.npmjs.com/package/hyco-ws)<br/>[hyco-websocket](https://www.npmjs.com/package/hyco-ws) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
 ### Additional information
 
@@ -38,7 +38,7 @@ The .NET ecosystem has multiple runtimes, hence there are multiple .NET librarie
 
 ## Management APIs
 
-The following is a listing of all currently available Relay management specific libraries. None of these libraries contain runtime operations, and are for the sole purpose of managing Relay entities.
+The following is a listing of all currently available Relay management-specific libraries. None of these libraries contain runtime operations, and are for the sole purpose of managing Relay entities.
 
 | Language/Platform | Management package | Repository |
 | --- | --- | --- | --- |
