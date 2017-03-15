@@ -29,7 +29,7 @@ When you create a Spark cluster in HDInsight, you create Azure compute resources
 **Want to get started with Apache Spark on Azure HDInsight?** See [QuickStart: create a Spark cluster on HDInsight and run sample applications using Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 > [!NOTE]
-> For a list of known issues and limitations with the current release, see [Known issues of Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+> For a list of known issues and limitations with the current release, see [Known issues of Apache Spark in Azure HDInsight](hdinsight-apache-spark-known-issues.md).
 > 
 > 
 

@@ -2,7 +2,7 @@
 ## [About SQL DB](sql-database-technical-overview.md)
 ## Compare
 ### [SQL DB features](sql-database-features.md)
-# QuickStart
+# Quickstart
 ## [Create DB - Portal](sql-database-get-started.md)
 ## [Create DB - Azure CLI](sql-database-get-started-cli.md)
 ## [Create DB - PowerShell](sql-database-get-started-powershell.md)
