@@ -37,6 +37,12 @@ Each level of persistence is simply a different *state provider* and *replicatio
 class MyActor : Actor, IMyActor
 {
 }
+```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+class MyActorImpl  extends FabricActor implements MyActor
+{
+}
 ```  
 This setting uses a state provider that stores data on disk and automatically sets the service replica count to 3.
 
@@ -44,6 +50,12 @@ This setting uses a state provider that stores data on disk and automatically se
 ```csharp
 [StatePersistence(StatePersistence.Volatile)]
 class MyActor : Actor, IMyActor
+{
+}
+```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Volatile)
+class MyActorImpl extends FabricActor implements MyActor
 {
 }
 ```
@@ -56,10 +68,16 @@ class MyActor : Actor, IMyActor
 {
 }
 ```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.None)
+class MyActorImpl extends FabricActor implements MyActor
+{
+}
+```
 This setting uses an in-memory-only state provider and sets the replica count to 1.
 
 ### Defaults and generated settings
-When using the `StatePersistence` attribute, a state provider is automatically selected for you at runtime when the actor service starts. The replica count, however, is set at compile time by the Visual Studio actor build tools. The build tools automatically generate a *default service* for the actor service in ApplicationManifest.xml. Parameters are created for **min replica set size** and **target replica set size**. You can of course change these parameters manually, however each time the `StatePersistence` attribute is changed, the parameters will be set to the default replica set size values for the selected `StatePersistence` attribute, overriding any previous values. In other words, the values you set in ServiceManifest.xml will **only** be overridden at build time when you change the `StatePersistence` attribute value. 
+When using the `StatePersistence` attribute, a state provider is automatically selected for you at runtime when the actor service starts. The replica count, however, is set at compile time by the Visual Studio actor build tools. The build tools automatically generate a *default service* for the actor service in ApplicationManifest.xml. Parameters are created for **min replica set size** and **target replica set size**. You can of course change these parameters manually, however each time the `StatePersistence` attribute is changed, the parameters will be set to the default replica set size values for the selected `StatePersistence` attribute, overriding any previous values. In other words, the values you set in ServiceManifest.xml will **only** be overridden at build time when you change the `StatePersistence` attribute value.
 
 ```xml
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -82,9 +100,9 @@ When using the `StatePersistence` attribute, a state provider is automatically s
 ```
 
 ## State Manager
-Every actor instance has its own State Manager: A dictionary-like data structure that reliably stores key-value pairs. The State Manager is a wrapper around a state provider. It can be used to store data regardless of which persistence setting is used, but it does not provide any guarantees that a running actor service can be changed from a volatile (in-memory-only) state setting to a persisted state setting through a rolling upgrade while preserving data. However, it is possible to change replica count for a running service. 
+Every actor instance has its own State Manager: A dictionary-like data structure that reliably stores key-value pairs. The State Manager is a wrapper around a state provider. It can be used to store data regardless of which persistence setting is used, but it does not provide any guarantees that a running actor service can be changed from a volatile (in-memory-only) state setting to a persisted state setting through a rolling upgrade while preserving data. However, it is possible to change replica count for a running service.
 
-State Manager keys must be strings, while values are generic and can be any type, including custom types. Values stored in the State Manager must be Data Contract serializable because they may be transmitted over the network to other nodes during replication and may be written to disk, depending on an actor's state persistence setting. 
+State Manager keys must be strings, while values are generic and can be any type, including custom types. Values stored in the State Manager must be Data Contract serializable because they may be transmitted over the network to other nodes during replication and may be written to disk, depending on an actor's state persistence setting.
 
 The State Manager exposes common dictionary methods for managing state, similar to those found in Reliable Dictionary.
 
@@ -93,9 +111,9 @@ State can be accessed through the State Manager by key. State Manager methods ar
 
 * An actor method throws an unhandled exception after retrieving an object from the State Manager.
 * An actor is re-activated, either after being deactivated or due to failure.
-* If the state provider pages state to disk. This behavior depends on the state provider implementation. The default state provider for the `Persisted` setting has this behavior. 
+* If the state provider pages state to disk. This behavior depends on the state provider implementation. The default state provider for the `Persisted` setting has this behavior.
 
-State can be retrieved using a standard *Get* operation that throws `KeyNotFoundException` if an entry does not exist for the given key: 
+State can be retrieved using a standard *Get* operation that throws `KeyNotFoundException` if an entry does not exist for the given key:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -109,6 +127,21 @@ class MyActor : Actor, IMyActor
     public Task<int> GetCountAsync()
     {
         return this.StateManager.GetStateAsync<int>("MyState");
+    }
+}
+```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+class MyActorImpl extends FabricActor implements  MyActor
+{
+    public MyActorImpl(ActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
+
+    public CompletableFuture<Integer> getCountAsync()
+    {
+        return this.stateManager().getStateAsync("MyState");
     }
 }
 ```
@@ -135,6 +168,25 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
+```Java
+class MyActorImpl extends FabricActor implements  MyActor
+{
+    public MyActorImpl(ActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
+
+    public CompletableFuture<Integer> getCountAsync()
+    {
+        return this.stateManager().<Integer>tryGetStateAsync("MyState").thenApply(result -> {
+            if (result.hasValue()) {
+                return result.getValue();
+            } else {
+                return 0;
+            });
+    }
+}
+```
 
 ### Saving state
 The State Manager retrieval methods return a reference to an object in local memory. Modifying this object in local memory alone does not cause it to be saved durably. When an object is retrieved from the State Manager and modified, it must be re-inserted into the State Manager to be saved durably.
@@ -156,6 +208,21 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+class MyActorImpl extends FabricActor implements  MyActor
+{
+    public MyActorImpl(ActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
+
+    public CompletableFuture setCountAsync(int value)
+    {
+        return this.stateManager().setStateAsync("MyState", value);
+    }
+}
+```
 
 State can be added using an *Add* method, which will throw `InvalidOperationException` when trying to add a key that already exists:
 
@@ -171,6 +238,21 @@ class MyActor : Actor, IMyActor
     public Task AddCountAsync(int value)
     {
         return this.StateManager.AddStateAsync<int>("MyState", value);
+    }
+}
+```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+class MyActorImpl extends FabricActor implements  MyActor
+{
+    public MyActorImpl(ActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
+
+    public CompletableFuture addCountAsync(int value)
+    {
+        return this.stateManager().addOrUpdateStateAsync("MyState", value, (key, old_value) -> old_value + value);
     }
 }
 ```
@@ -197,6 +279,26 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+class MyActorImpl extends FabricActor implements  MyActor
+{
+    public MyActorImpl(ActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
+
+    public CompletableFuture addCountAsync(int value)
+    {
+      Boolean result = this.stateManager().tryAddStateAsync("MyState", value);
+
+      if (result)
+      {
+          // Added successfully!
+      }
+    }
+}
+```
 
 At the end of an actor method, the State Manager automatically saves any values that have been added or modified by an insert or update operation. A "save" can include persisting to disk and replication, depending on the settings used. Values that have not been modified are not persisted or replicated. If no values have been modified, the save operation does nothing. In the event that saving fails, the modified state is discarded and the original state is reloaded.
 
@@ -208,6 +310,14 @@ async Task IMyActor.SetCountAsync(int count)
     await this.StateManager.AddOrUpdateStateAsync("count", count, (key, value) => count > value ? count : value);
 
     await this.SaveStateAsync();
+}
+```
+```Java
+CompletableFuture MyActor.setCountAsync(int count)
+{
+    this.stateManager().addOrUpdateStateAsync("count", count, (key, value) -> count > value ? count : value);
+
+    this.stateManager().saveStateAsync();
 }
 ```
 
@@ -229,8 +339,23 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+class MyActorImpl extends FabricActor implements  MyActor
+{
+    public MyActorImpl(ActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
 
-State can also be removed permanently by using the *TryRemove* method, which will not throw when trying to remove a key that doesn't exist:
+    public CompletableFuture removeCountAsync()
+    {
+        return this.stateManager().removeStateAsync("MyState");
+    }
+}
+```
+
+State can also be removed permanently by using the *TryRemove* method, which will not throw when trying to remove a key that does not exist:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -252,11 +377,31 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+class MyActorImpl extends FabricActor implements  MyActor
+{
+    public MyActorImpl(ActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
+
+    public CompletableFuture removeCountAsync()
+    {
+        Boolean result = this.stateManager().tryRemoveStateAsync("MyState");
+
+        if (result)
+        {
+            // State removed!
+        }
+    }
+}
+```
 
 ## Next steps
 * [Actor type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 * [Actor polymorphism and object-oriented design patterns](service-fabric-reliable-actors-polymorphism.md)
 * [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
 * [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Sample code](https://github.com/Azure/servicefabric-samples)
-
+* [C# Sample code](https://github.com/Azure/servicefabric-samples)
+* [Java Sample code](http://github.com/Azure-Samples/service-fabric-java-getting-started)

@@ -20,7 +20,8 @@ ms.author: suchia
 # Configuring FabricTransport settings for Reliable Actors
 
 Here are the list of settings that user can configure
-[FabrictTansportSettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.fabrictransport.common.fabrictransportsettings)
+C#: [FabrictTansportSettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.fabrictransport.common.fabrictransportsettings)
+Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 
 You can modify the default configuration of FabricTransport in following ways.
 

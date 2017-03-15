@@ -30,6 +30,13 @@ public interface IVoiceMailBoxActor : IActor
 }
 ```
 
+```Java
+public interface VoiceMailBoxActor extends Actor
+{
+    CompletableFuture<VoicemailBox> getMailBoxAsync();
+}
+```
+
 The interface is impelemented by an actor, which uses the State Manager to store a `VoicemailBox` object:
 
 ```csharp
@@ -44,6 +51,23 @@ public class VoiceMailBoxActor : Actor, IVoicemailBoxActor
     public Task<VoicemailBox> GetMailboxAsync()
     {
         return this.StateManager.GetStateAsync<VoicemailBox>("Mailbox");
+    }
+}
+
+```
+
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+public class VoiceMailBoxActorImpl extends FabricActor implements VoicemailBoxActor
+{
+    public VoiceMailBoxActorImpl(ActorService actorService, ActorId actorId)
+    {
+         super(actorService, actorId);
+    }
+
+    public CompletableFuture<VoicemailBox> getMailBoxAsync()
+    {
+         return this.stateManager().getStateAsync("Mailbox");
     }
 }
 
@@ -64,12 +88,25 @@ public class Voicemail
     public Guid Id { get; set; }
 
     [DataMember]
-    public string Message { get; set; }
+    public String Message { get; set; }
 
     [DataMember]
     public DateTime ReceivedAt { get; set; }
 }
 ```
+```Java
+public class Voicemail implements Serializable
+{
+    private static final long serialVersionUID = 42L;
+
+    private UUID id;                    //getUUID() and setUUID()
+
+    private String message;             //getMessage() and setMessage()
+
+    private GregorianCalendar receivedAt; //getReceivedAt() and setReceivedAt()
+}
+```
+
 
 ```csharp
 [DataContract]
@@ -87,6 +124,22 @@ public class VoicemailBox
     public string Greeting { get; set; }
 }
 ```
+```Java
+public class VoicemailBox implements Serializable
+{
+    static final long serialVersionUID = 42L;
+    
+    public VoicemailBox()
+    {
+        this.messageList = new List<Voicemail>();
+    }
+
+    private List<Voicemail> messageList;   //getMessageList() and setMessageList()
+
+    private String greeting;               //getGreeting() and setGreeting()
+}
+```
+
 
 ## Next steps
 * [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
