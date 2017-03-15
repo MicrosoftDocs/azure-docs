@@ -167,24 +167,18 @@ The following instructions are for deleting a Backup vault in the classic portal
 
 1. Open the [Classic portal](https://manage.windowsazure.com).
 
-2. From the list of services in the hub menu, click **Recovery Services**.
-
-    ![delete backup data](./media/backup-azure-delete-vault/classic-portal-list-of-vaults.png)
-
-  The list of backup vaults in your subscription, appears. If there are Azure Site Recovery vaults in your subscription, they appear too.
-
-3. From the list of backup vaults, select the vault you want to delete.
+2. From the list of backup vaults, select the vault you want to delete.
 
     ![delete backup data](./media/backup-azure-delete-vault/classic-portal-delete-vault-open-vault.png)
 
     The vault dashboard opens. Look at the number of Windows Servers and/or Azure virtual machines associated with the vault. Also, look at the total storage consumed in Azure. Stop all backup jobs and delete all data before deleting the vault.
 
-4. Click the **Protected Items** tab, and then click **Stop Protection**
+3. Click the **Protected Items** tab, and then click **Stop Protection**
 
     ![delete backup data](./media/backup-azure-delete-vault/classic-portal-delete-vault-stop-protect.png)
 
     The **Stop protection of 'your vault'** dialog appears.
-5. In the **Stop protection of 'your vault'** dialog, check **Delete associated backup data** and click ![checkmark](./media/backup-azure-delete-vault/checkmark.png). <br/>
+4. In the **Stop protection of 'your vault'** dialog, check **Delete associated backup data** and click ![checkmark](./media/backup-azure-delete-vault/checkmark.png). <br/>
     Optionally, you can choose a reason for stopping protection, and provide a comment.
 
     ![delete backup data](./media/backup-azure-delete-vault/classic-portal-delete-vault-verify-stop-protect.png)
@@ -192,7 +186,7 @@ The following instructions are for deleting a Backup vault in the classic portal
     After deleting the items in the vault, the vault will be empty.
 
     ![delete backup data](./media/backup-azure-delete-vault/classic-portal-delete-vault-post-delete-data.png)
-6. In the list of tabs, click **Registered Items**. The **Type** drop-down menu, enables you to choose the type of server registered to the vault. The type can be Windows Server or Azure Virtual Machine. In the following example, select the virtual machine registered to the vault, and click **Unregister**.
+5. In the list of tabs, click **Registered Items**. The **Type** drop-down menu, enables you to choose the type of server registered to the vault. The type can be Windows Server or Azure Virtual Machine. In the following example, select the virtual machine registered to the vault, and click **Unregister**.
 
     ![delete backup data](./media/backup-azure-delete-vault/classic-portal-unregister.png)
 
@@ -200,7 +194,7 @@ The following instructions are for deleting a Backup vault in the classic portal
 
   ![select Windows Server](./media/backup-azure-delete-vault/select-windows-server.png)
 
-7. In the list of tabs, click **Dashboard** to open that tab. Verify there are no registered servers or Azure virtual machines protected in the cloud. Also, verify there is no data in storage. Click **Delete** to delete the vault.
+6. In the list of tabs, click **Dashboard** to open that tab. Verify there are no registered servers or Azure virtual machines protected in the cloud. Also, verify there is no data in storage. Click **Delete** to delete the vault.
 
     ![delete backup data](./media/backup-azure-delete-vault/classic-portal-list-of-tabs-dashboard.png)
 
