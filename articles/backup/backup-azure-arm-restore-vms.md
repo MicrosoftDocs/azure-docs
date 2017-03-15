@@ -123,9 +123,9 @@ On the **Restore configuration** blade, click **OK** to finalize the restore con
 If you would like to customize the virtual machine you would like to create from backed up disks than what is present in restore configuration blade, select **Restore disks** as value for **Restore Type**. This choice asks for a storage account where disks from backups are copied to. When choosing a storage account, select an account that shares the same location as the Recovery Services vault. Storage accounts that are Zone redundant are not supported. If there are no storage accounts with the same location as the Recovery Services vault, you must create one before starting the restore operation. The storage account's replication type is mentioned in parentheses.
 
 After restore operation is completed, you can:
+* [Use template to customize the restored VM](#use-templates-to-customize-restore-vm)
 * [Use the restored disks to attach to an existing virtual machine](../virtual-machines/virtual-machines-windows-attach-disk-portal.md)
 * [Create a new virtual machine using PowerShell from restored disks.](./backup-azure-vms-automation.md#restore-an-azure-vm)
-* [Use template to customize the restored VM](#use-templates-to-customize-restore-vm)
 
 On the **Restore configuration** blade, click **OK** to finalize the restore configuration. On the **Restore** blade, click **Restore** to trigger the restore operation.
 
@@ -156,6 +156,11 @@ To view the operation while it is processing, or to view when it completed, open
     
 ## Use templates to customize restore vm
 Once [restore disks operation is completed](#Track-the-restore-operation), you can use the template that is generated as part of restore operation to create a new VM with a configuration different from backup configuration or to customize names of resources created as create a new vm from restore point. 
+
+> [!NOTE]
+> Templates will be added as part of Restore Disks for recovery points taken after 1st March, 2017. They are applicable for non-encrypted and non-managed disk VMs. Support for encrypted VMs and Managed Disk VMs is coming in upcoming releases. 
+>
+>
 
 To get the template generated as part of restore disks option,
 
