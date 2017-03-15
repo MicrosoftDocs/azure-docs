@@ -75,8 +75,8 @@ If you already have the Recovery Services vault open, skip to the second step.
 
     ![delete backup data](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-      Optionally, you can provide a reason why you are deleting the data, and add comments. After you click **Stop Backup**, allow the delete job to complete before attempting to delete the vault. To verify that the job has completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png). <br/>
-      Once the job is complete, you receive a message stating the backup process was stopped and the backup data, for that item, was deleted.
+    Optionally, you can provide a reason why you are deleting the data, and add comments. After you click **Stop Backup**, allow the delete job to complete before attempting to delete the vault. To verify that the job has completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png). <br/>
+    Once the job is complete, you receive a message stating the backup process was stopped and the backup data, for that item, was deleted.
 
     c. After deleting an item in the list, on the **Backup Items** menu, click **Refresh** to see the remaining items in the vault.
 
@@ -169,7 +169,7 @@ The following instructions are for deleting a Backup vault in the classic portal
 
 2. From the list of services in the hub menu, click **Recovery Services**.
 
-  ![delete backup data](./media/backup-azure-delete-vault/classic-portal-list-of-vaults.png)
+    ![delete backup data](./media/backup-azure-delete-vault/classic-portal-list-of-vaults.png)
 
   The list of backup vaults in your subscription, appears. If there are Azure Site Recovery vaults in your subscription, they appear too.
 
@@ -178,6 +178,7 @@ The following instructions are for deleting a Backup vault in the classic portal
     ![delete backup data](./media/backup-azure-delete-vault/classic-portal-delete-vault-open-vault.png)
 
     The vault dashboard opens. Look at the number of Windows Servers and/or Azure virtual machines associated with the vault. Also, look at the total storage consumed in Azure. Stop all backup jobs and delete all data before deleting the vault.
+
 4. Click the **Protected Items** tab, and then click **Stop Protection**
 
     ![delete backup data](./media/backup-azure-delete-vault/classic-portal-delete-vault-stop-protect.png)
