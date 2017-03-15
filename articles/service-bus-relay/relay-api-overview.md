@@ -41,5 +41,5 @@ The .NET ecosystem has multiple runtimes, hence there are multiple .NET librarie
 The following is a listing of all currently available Relay management-specific libraries. None of these libraries contain runtime operations, and are for the sole purpose of managing Relay entities.
 
 | Language/Platform | Management package | Repository |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Relay) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/ResourceManagement/Relay) |
