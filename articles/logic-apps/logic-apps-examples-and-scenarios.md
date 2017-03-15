@@ -24,8 +24,8 @@ here are common examples and scenarios.
 
 ## Key scenarios for logic apps
 
-Logic apps provide resilient orchestration and integration for different services. 
-The Azure Logic Apps service is "serverless", so you don't have to worry about scale or instances - 
+Azure Logic Apps provides resilient orchestration and integration for different services. 
+The Logic Apps service is "serverless", so you don't have to worry about scale or instances - 
 all you have to do is define the workflow (trigger and actions). 
 The underlying platform handles scale, availability, and performance. 
 Any scenario where you need to coordinate multiple actions, especially across multiple systems, 
