@@ -98,7 +98,7 @@ The app map finds server nodes by looking for all Application Insights resources
 
 ## Video
 
-[!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
 ## Feedback
 Please [provide feedback through the portal feedback option](app-insights-get-dev-support.md).

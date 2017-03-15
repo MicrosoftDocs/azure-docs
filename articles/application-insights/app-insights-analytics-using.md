@@ -223,7 +223,7 @@ If you use [LogStash](https://www.elastic.co/guide/en/logstash/current/getting-s
 
 ## Video
 
-[!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 

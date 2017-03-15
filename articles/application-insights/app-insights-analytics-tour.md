@@ -689,7 +689,7 @@ Contains the telemetry sent by your app using TrackTrace(), or [other logging fr
 
 ## Video 
  
-[!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## Next steps
 * [Analytics language reference](app-insights-analytics-reference.md)
