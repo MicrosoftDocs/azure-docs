@@ -177,6 +177,7 @@ On the Browsers blade, there's an exceptions summary chart, and a grid of except
 If you don't see browser exceptions reported, check that the code snippet doesn't set the `disableExceptionTracking` [parameter](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
 
 ## Inspect individual page view events
+
 Usually page view telemetry is analyzed by Application Insights and you see only cumulative reports, averaged over all your users. But for debugging purposes, you can also look at individual page view events.
 
 In the Diagnostic Search blade, set Filters to Page View.
@@ -217,6 +218,7 @@ Want to find out what your users do with your app?
 ## <a name="video"></a> Video
  
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 
 > [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Tracking-Usage-with-Application-Insights/player]
 > 
