@@ -139,7 +139,7 @@ Use options from the following table to install. To see a list of the installati
 
 	InstallDependencyAgent-Linux64.bin -help
 
-| Flag	Description
+| Flag | Description |
 |:--|:--|
 | -s | Perform a silent installation with no user prompts. |
 | --check | Checks permissions and operating system but does not install the agent. |
