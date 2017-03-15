@@ -22,7 +22,7 @@ ms.author: nepeters
 
 This script creates an Azure Virtual Machine running Windows Server 2016, and uses the Azure Virtual Machine Custom Script Extension to install IIS. After running the script, you can access the default IIS website on the public IP address of the virtual machine.
 
-If needed, install the Azure CLI using the instruction found [here](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure.
+If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure.
 
 This sample works in a Bash Shell. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 

@@ -20,9 +20,9 @@ ms.author: nepeters
 
 # Create a fully configured virtual machine with PowerShell
 
-This script creates an Azure Virtual Machine with an Ubuntu operating system and related networking resources. After running the script, you can access the virtual machine over SSH.
+This script creates an Azure Virtual Machine running Windows Server 2016. After running the script, you can access the virtual machine over SSH.
 
-If needed, install the Azure PowerShell using the instruction found [here]( https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount` to create a connection with Azure.
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell module installation guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount` to create a connection with Azure.
 
 ## Sample script
 

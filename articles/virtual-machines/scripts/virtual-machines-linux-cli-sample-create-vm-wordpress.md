@@ -22,7 +22,7 @@ ms.author: nepeters
 
 This script creates a virtual machine, and then uses the Azure Virtual Machine custom script extension to install WordPress. After running the script, you can access the WordPress configuration site at  `http://<public IP of VM>/wordpress`. 
 
-If needed, install the Azure CLI using the instruction found [here](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure.
+If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure.
 
 This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
