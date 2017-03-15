@@ -1,5 +1,5 @@
 ---
-title: Create a function from the Azure Portal | Microsoft Docs
+title: Create a function app from the Azure Portal | Microsoft Docs
 description: Create a new function app in Azure App Service from the portal. 
 services: functions
 documentationcenter: na
@@ -18,13 +18,15 @@ ms.date: 03/15/2017
 ms.author: glenga
 
 ---
-# Create a function from the Azure portal
+# Create a function app from the Azure portal
 
 Azure Function Apps uses the Azure App Service infrastructure. This topic shows you how to create a function app in the Azure portal. A function app is the container that hosts the execution of individual functions. When you create a function app in the App Service hosting plan, your function app can use all the features of App Service.
 
 ## Create a function app
 
 [!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
+
+After the function app is created, you can create individual functions in one or more different languages. Create new functions [by using the portal](functions-create-first-azure-function-azure-portal.md#create-a-function), [continuous deployment](functions-continuous-deployment.md), or by [uploading with FTP](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp).  
 
 ## Service plans
 

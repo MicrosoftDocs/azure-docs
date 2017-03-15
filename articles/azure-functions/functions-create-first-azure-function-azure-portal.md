@@ -1,5 +1,5 @@
 ---
-title: Create a function app from the Azure Portal | Microsoft Docs
+title: Create your first function from the Azure Portal | Microsoft Docs
 description: Welcome to Azure. Create your first Azure Function from the Azure portal.
 services: functions
 documentationcenter: na
@@ -19,8 +19,10 @@ ms.author: glenga
 
 ms.custom: welcome-email
 
+ROBOTS: NOINDEX, NOFOLLOW
+
 ---
-# Create a function app in the Azure portal
+# Create your first function in the Azure portal
 
 This topic shows you how to create a simple "hello world" Azure Function that is invoked by an HTTP request. Before you can create a function in the Azure portal, you must create a function app in Azure App Service to host the execution of your function.
 
