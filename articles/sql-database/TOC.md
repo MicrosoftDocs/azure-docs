@@ -12,7 +12,6 @@
 ### [SQL versus NoSQL](../documentdb/documentdb-nosql-vs-sql.md)
 ## [SQL Database tools](sql-database-manage-overview.md)
 ## [SQL Database tutorials](sql-database-explore-tutorials.md)
-## [Solution quick-starts](sql-database-solution-quick-starts.md)
 ## Security
 ### [Security overview](sql-database-security-overview.md)
 ### [Azure Security Center for Azure SQL Database](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
@@ -59,33 +58,37 @@
 ## Migrate and move data
 ### Learn
 #### [Migrate a database](sql-database-cloud-migrate.md)
-#### [Transactional replication](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
+#### [Export a database](sql-database-export.md)
 #### [Data sync](sql-database-get-started-sql-data-sync.md)
 #### [Copy a SQL database](sql-database-copy.md)
 ## Firewall rules, authentication, and authorization
 ### Learn
 #### [Access control](sql-database-control-access.md)
-#### [Firewall](sql-database-firewall-configure.md)
+#### [Firewall rules](sql-database-firewall-configure.md)
 #### [Manage logins](sql-database-manage-logins.md)
+#### [Azure AD authentication](sql-database-aad-authentication.md)
+#### [Multi-factor authentication](sql-database-ssms-mfa-authentication.md)
 ### Do
 #### [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md)
 #### [Azure AD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md)
 ## Secure and protect data
 ### Learn
 #### Auditing
-##### [Audit](sql-database-auditing-get-started.md)
+##### [Audit](sql-database-auditing.md)
 ##### [Downlevel clients support and IP endpoint changes for auditing](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
-#### [Threat detection](sql-database-threat-detection-get-started.md)
+#### [Threat detection](sql-database-threat-detection.md)
 #### Encrypt data
-##### [Azure key vault](sql-database-always-encrypted-azure-key-vault.md)
 ##### [Transparent data encryption](https://msdn.microsoft.com/library/azure/dn948096)
 ##### [Column encryption](https://msdn.microsoft.com/library/azure/ms179331)
 #### Mask data
-##### Dynamic data masking
-###### [Azure portal](sql-database-dynamic-data-masking-get-started.md)
+##### [Dynamic data masking](sql-database-dynamic-data-masking-get-started.md)
 ### Do
-#### [Dynamic data masking using the Azure portal](sql-database-dynamic-data-masking-get-started.md)
-##### [Always Encrypted using the Windows certificate store](sql-database-always-encrypted.md)
+#### [Dynamic data masking using the Azure portal](sql-database-dynamic-data-masking-get-started-portal.md)
+#### [Configure auditing using the Azure portal](sql-database-auditing-portal.md)
+#### [Configure auditing using PowerShell](sql-database-auditing-powershell.md)
+#### [Configure auditing using the REST API](sql-database-auditing-rest.md)
+#### [Always Encrypted using Windows certificate](sql-database-always-encrypted.md)
+#### [Always Encrypted using Azure key vault](sql-database-always-encrypted-azure-key-vault.md)
 ## Business continuity
 ### Learn
 #### [Overview](sql-database-business-continuity.md)
@@ -101,7 +104,7 @@
 #### [Perform disaster recovery drills](sql-database-disaster-recovery-drills.md)
 #### [Active Geo-Replication overview](sql-database-geo-replication-overview.md)
 ### Do
-#### [Azure portal: Backup and restore](sql-database-get-started-backup-recovery.md)
+#### [Azure portal: Backup and restore](sql-database-get-started-backup-recovery-portal.md)
 #### [PowerShell: Backup and restore](sql-database-get-started-backup-recovery-powershell.md)
 ## App development
 ### Learn
@@ -141,7 +144,7 @@
 ### Do
 #### [SQL Server development](https://msdn.microsoft.com/library/ms179422.aspx)
 #### [Adopt in-memory OLTP](sql-database-in-memory-oltp-migration.md)
-## Monitoring and Tuning
+## Monitor and tune
 ### Learn
 #### [Single databases](sql-database-single-database-monitor.md)
 #### [SQL Database Advisor overview](sql-database-advisor.md)
@@ -158,69 +161,57 @@
 #### [Upgrade using PowerShell](sql-database-upgrade-server-powershell.md)
 # How To
 ## Create and manage
-### [Manage SQL Database using the Azure portal](sql-database-manage-portal.md)
-### [Manage SQL Database using PowerShell](sql-database-manage-powershell.md)
-### [Manage SQL Database using SSMS](sql-database-manage-azure-ssms.md)
+### [Manage using the Azure portal](sql-database-manage-portal.md)
+### [Manage using PowerShell](sql-database-manage-powershell.md)
+### [Manage using SSMS](sql-database-manage-azure-ssms.md)
 ### Servers
-#### [Create servers](sql-database-create-servers.md)
-#### [View or update server settings](sql-database-view-update-server-settings.md)
+#### [Manage using the Azure portal](sql-database-manage-servers-portal.md)
+#### [Manage using PowerShell](sql-database-manage-servers-powershell.md)
 ### Single databases
-#### [Create single databases](sql-database-create-databases.md)
-#### [View or update database settings](sql-database-view-update-database-settings.md)
+#### [Manage using the Azure portal](sql-database-manage-single-databases-portal.md)
+#### [Manage using PowerShell](sql-database-manage-single-databases-powershell.md)
+#### [Manage using Transact-SQL](sql-database-manage-single-databases-tsql.md)
 ### Firewall rules
-#### [Create firewall rules using the Azure portal](sql-database-configure-firewall-settings.md)
-#### [Create firewall rules using PowerShell](sql-database-configure-firewall-settings-powershell.md)
-#### [Create firewall rules using REST API](sql-database-configure-firewall-settings-rest.md)
-#### [Create firewall rules using T-SQL](sql-database-configure-firewall-settings-tsql.md)
+#### [Create using the Azure portal](sql-database-configure-firewall-settings.md)
+#### [Create using PowerShell](sql-database-configure-firewall-settings-powershell.md)
+#### [Create using REST API](sql-database-configure-firewall-settings-rest.md)
+#### [Create using T-SQL](sql-database-configure-firewall-settings-tsql.md)
 ### Multiple databases
 #### [Upgrade client library in client applications](sql-database-elastic-scale-upgrade-client-library.md)
 #### Sharded databases
 ##### [Security configuration](sql-database-elastic-scale-split-merge-security-configuration.md)
 ##### [Add a shard](sql-database-elastic-scale-add-a-shard.md)
 ##### [Fix shard map problems](sql-database-elastic-database-recovery-manager.md)
-##### [Migrate existing scaled-out databases to sharded databases](sql-database-elastic-convert-to-use-elastic-tools.md)
+##### [Migrate to sharded databases](sql-database-elastic-convert-to-use-elastic-tools.md)
 ##### [Create performance counters for shard map manager](sql-database-elastic-database-perf-counters.md)
 #### Elastic jobs
-##### [How do I install the elastic jobs service?](sql-database-elastic-jobs-service-installation.md)
-##### [Create and manage elastic jobs using PowerShell](sql-database-elastic-jobs-powershell.md) 
-##### [Create and manage elastic jobs using the Azure portal](sql-database-elastic-jobs-create-and-manage.md)
-##### [How do I uninstall elastic jobs?](sql-database-elastic-jobs-uninstall.md)
+##### [How do I install?](sql-database-elastic-jobs-service-installation.md)
+##### [Manage using PowerShell](sql-database-elastic-jobs-powershell.md) 
+##### [Manage using the Azure portal](sql-database-elastic-jobs-create-and-manage.md)
+##### [How do I uninstall?](sql-database-elastic-jobs-uninstall.md)
 #### Elastic pools
-##### [Create using the Azure portal](sql-database-elastic-pool-create-portal.md)
-##### [Create using PowerShell](sql-database-elastic-pool-create-powershell.md)
-##### [Create using C#](sql-database-elastic-pool-create-csharp.md)
 ##### [Manage using the Azure portal](sql-database-elastic-pool-manage-portal.md)
 ##### [Manage using PowerShell](sql-database-elastic-pool-manage-powershell.md)
 ##### [Manage using C#](sql-database-elastic-pool-manage-csharp.md)
 ##### [Manage using T-SQL](sql-database-elastic-pool-manage-tsql.md)
-##  Authenticate and authorize
-### [Azure AD authentication](sql-database-aad-authentication.md)
-### [Multi-factor authentication](sql-database-ssms-mfa-authentication.md)
+## Authenticate and authorize
+### [Configure Azure AD authentication](sql-database-aad-authentication-configure.md)
+### [Configure multi-factor authentication](sql-database-ssms-mfa-authentication-configure.md)
+## Configure threat detection
+### [Configure threat detection using the Azure portal](sql-database-threat-detection-portal.md)
 ## Encrypt data
 ### [Transparent data encryption](https://msdn.microsoft.com/library/azure/dn948096)
 ### [Column encryption](https://msdn.microsoft.com/library/azure/ms179331)
-## Migrate databases
-### Determine compatibility
-#### [Determine compatibility using the SQL Package utility](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
-#### [Determine compatibility using SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-### Fix compatibility issues
-#### [Fix compatibility issues using SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-#### [Fix compatibility issues using SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
-#### [Fix compatibility issues using SMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
-### [Migrate using the SSMS Migration Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
 ## Monitor and tune
 ### [Query Performance Insight](sql-database-query-performance.md)
 ### [SQL Database Advisor](sql-database-advisor-portal.md)
 ### [DMVs](sql-database-monitoring-with-dmvs.md)
 ### [Compatibility levels](sql-database-compatibility-level-query-performance-130.md)
 ### [Performance tuning tips](sql-database-troubleshoot-performance.md)
-### Change service tiers and performance levels
-#### [Change service tiers using the Azure portal](sql-database-scale-up.md)
-#### [Change service tiers using PowerShell](sql-database-scale-up-powershell.md)
 ### [Create alerts](sql-database-insights-alerts-portal.md)
-#### [Monitor In-Memory OLTP Storage](sql-database-in-memory-oltp-monitoring.md)
+### [Monitor In-Memory OLTP Storage](sql-database-in-memory-oltp-monitoring.md)
 ### Query Store
-#### [Monitoring performance by using the Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
+#### [Monitoring performance using the Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 #### [Query Store usage scenarios](https://msdn.microsoft.com/library/mt614796.aspx)
 #### [Operating the Query Store](sql-database-operate-query-store.md)
 ### Extended events
@@ -232,31 +223,30 @@
 #### [Copy using PowerShell](sql-database-copy-powershell.md)
 #### [Copy using T-SQL](sql-database-copy-transact-sql.md)
 ### Export database to a BACPAC file
-#### [Export using the Azure portal](sql-database-export.md)
-#### [Export using SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-#### [Export using SQL Package utility](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
+#### [Export using the Azure portal](sql-database-export-portal.md)
+#### [Export using SQL Package utility](sql-database-export-sqlpackage.md)
 #### [Export using PowerShell](sql-database-export-powershell.md)
-### Import database from a BACPAC file
-#### [Import using the Azure portal](sql-database-import.md)
-#### [Import using PowerShell](sql-database-import-powershell.md)
-#### [Import using SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-#### [Import using SQL Package utility](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
+#### [Export using SSMS](sql-database-export-ssms.md)
+## Import data
+### [Import using the Azure portal](sql-database-import-portal.md)
+### [Import using PowerShell](sql-database-import-powershell.md)
+### [Import using SQLPackage](sql-database-import-sqlpackage.md)
 ### [Load from CSV file using BCP](sql-database-load-from-csv-with-bcp.md)
 ## Query
 ### [Query using SSMS](sql-database-connect-query-ssms.md)
-## Backup and Restore
+## Backup and restore
 ### Long-term backup retention
-#### [Configure long-term backup retention](sql-database-configure-long-term-retention.md)
-#### [View backups in a Recovery Services vault](sql-database-view-backups-in-vault.md)
-#### [Restore from long-term backup retention](sql-database-restore-from-long-term-retention.md)
-#### [Delete from long-term backup retention](sql-database-long-term-retention-delete.md)
+#### [Manage long-term backup retention using the Azure portal](sql-database-manage-long-term-backup-retention-portal.md)
+#### [Manage long-term backup retention using PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
 ### Restore deleted database
 #### [Restore deleted using the Azure portal](sql-database-restore-deleted-database-portal.md)
 #### [Restore deleted using PowerShell](sql-database-restore-deleted-database-powershell.md)
-### Point in time restore
-#### [Restore to a point in time](sql-database-point-in-time-restore.md)
-#### [View oldest restore point](sql-database-view-oldest-restore-point.md)
-### [Restore from geo-redundant backup](sql-database-geo-restore.md)
+### Point in time database restore
+#### [Point in time restore using the Azure portal](sql-database-point-in-time-restore-portal.md)
+#### [Point in time database restore using PowerShell](sql-database-point-in-time-restore-powershell.md)
+### Restore from geo-redundant backup
+### [Geo-restore using the Azure portal](sql-database-geo-restore-portal.md)
+### [Geo-restore using PowerShell](sql-database-geo-restore-powershell.md)
 ## Active Geo-Replication
 ### [Configure using the Azure portal](sql-database-geo-replication-portal.md)
 ### [Configure using PowerShell](sql-database-geo-replication-powershell.md)
@@ -273,6 +263,7 @@
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql)
 ## [PowerShell (Elastic DB)](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
+## [Azure CLI 2.0](/cli/azure/appservice)
 ## [.NET](/dotnet/api/microsoft.azure.management.sql.models)
 ## [Java](/java/api/com.microsoft.azure.management.sql)
 ## [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)

@@ -13,31 +13,36 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 02/27/2017
 ms.author: adegeo
-
 ---
-# How to auto scale a cloud service
+
+# How to configure auto scaling for a Cloud Service in the portal
 > [!div class="op_single_selector"]
 > * [Azure portal](cloud-services-how-to-scale-portal.md)
 > * [Azure classic portal](cloud-services-how-to-scale.md)
-> 
-> 
 
-Conditions can be set for a cloud service worker role that trigger a scale in or out operation. The conditions for the role can be based on the CPU, disk, or network load of the role. You can also set a conditation based on a message queue or the metric of some other Azure resource associated with your subscription.
+Conditions can be set for a cloud service worker role that trigger a scale in or out operation. The conditions for the role can be based on the CPU, disk, or network load of the role. You can also set a condition based on a message queue or the metric of some other Azure resource associated with your subscription.
 
 > [!NOTE]
 > This article focuses on Cloud Service web and worker roles. When you create a virtual machine (classic) directly, it is hosted in a cloud service. You can scale a standard virtual machine by associating it with an [availability set](../virtual-machines/virtual-machines-windows-classic-configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) and manually turn them on or off.
-> 
-> 
 
 ## Considerations
 You should consider the following information before you configure scaling for your application:
 
-* Scaling is affected by core usage. Larger role instances use more cores. You can scale an application only within the limit of cores for your subscription. For example, if your subscription has a limit of twenty cores and you run an application with two medium sized cloud services (a total of four cores), you can only scale up other cloud service deployments in your subscription by sixteen cores. See [Cloud Service Sizes](cloud-services-sizes-specs.md) for more information about sizes.
+* Scaling is affected by core usage.
+
+    Larger role instances use more cores. You can scale an application only within the limit of cores for your subscription. For example, say your subscription has a limit of 20 cores. If you run an application with two medium-sized cloud services (a total of 4 cores), you can only scale up other cloud service deployments in your subscription by the remaining 16 cores. For more information about sizes, see [Cloud Service Sizes](cloud-services-sizes-specs.md).
+
 * You can scale based on a queue message threshold. For more information about how to use queues, see [How to use the Queue Storage Service](../storage/storage-dotnet-how-to-use-queues.md).
+
 * You can also scale other resources associated with your subscription.
+
 * To enable high availability of your application, you should ensure that it is deployed with two or more role instances. For more information, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+
+> [!WARNING]
+> Automatic scaling only works with Classic Azure Storage Accounts. It does not work with Azure Resource Manager Storage Accounts.
+
 
 ## Where scale is located
 After you select your cloud service, you should have the cloud service blade visible.
@@ -87,7 +92,7 @@ The profile sets minimum and maximum instances for the scale, and also when this
 After you have configured the profile, select the **OK** button at the bottom of the profile blade.
 
 #### Rule
-Rules are added to a profile and represent a condition that will trigger the scale. 
+Rules are added to a profile and represent a condition that triggers the scale. 
 
 The rule trigger is based on a metric of the cloud service (CPU usage, disk activity, or network activity) to which you can add a conditional value. Additionally you can have the trigger based on a message queue or the metric of some other Azure resource associated with your subscription.
 
@@ -100,7 +105,7 @@ Navigate to the [scale settings](#where-scale-is-located) and set the **Scale by
 
 ![Cloud services scale settings with profile and rule](./media/cloud-services-how-to-scale-portal/manual-basics.png)
 
-This removes automated scaling from the role and then you can set the instance count directly. 
+This setting removes automated scaling from the role and then you can set the instance count directly. 
 
 1. The scale (manual or automated) option.
 2. A role instance slider to set the instances to scale to.

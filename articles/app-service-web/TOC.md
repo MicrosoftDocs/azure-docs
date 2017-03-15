@@ -257,13 +257,14 @@
 ### [Troubleshoot web app performance issues](app-service-web-troubleshoot-performance-degradation.md)
 
 # Reference
-## [Azure CLI 2.0 preview](/cli/azure/appservice)
+## [Azure CLI 2.0](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/)
 ## [REST](/rest/api/appservice)
 
 # Related
 ## [Azure SDK for .NET release notes](azure-sdk-dotnet-release-notes.md)
+### [3.0 release](azure-sdk-dotnet-release-notes-3-0.md)
 ### [2.9 release](azure-sdk-dotnet-release-notes-2-9.md)
 ### [2.8.X releases](azure-sdk-dotnet-release-notes-2-8.md)
 ### [2.7.X releases](azure-sdk-dotnet-release-notes-2-7.md)
@@ -273,4 +274,3 @@
 # Resources
 ## [Best practices](app-service-best-practices.md)
 ## [List of WebJob resources](websites-webjobs-resources.md)
-

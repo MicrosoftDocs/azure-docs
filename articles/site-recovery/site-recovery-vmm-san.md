@@ -317,7 +317,7 @@ Test your deployment to make sure that VMs fail over as expected. To do this, cr
 
     ![Select virtual machines](./media/site-recovery-vmm-san/r-plan-vm.png)
 4. After the recovery plan is created, it appears in the list on the **Recovery Plans** tab. Select the plan and choose **Test Failover**.
-5. On the **Confirm Test Failover** page, select **None**. With this option enabled, the failed over replica VMs won't be connected to any network. This tests that the VMs fail over as expected, but it doesn't test the network environment. For more about other networking options, see [Site Recovery failover](site-recovery-failover.md#run-a-test-failover).
+5. On the **Confirm Test Failover** page, select **None**. With this option enabled, the failed over replica VMs won't be connected to any network. This tests that the VMs fail over as expected, but it doesn't test the network environment. For more about other networking options, see [Site Recovery failover](site-recovery-failover.md).
 
     ![Select test network](./media/site-recovery-vmm-san/test-fail1.png)
 

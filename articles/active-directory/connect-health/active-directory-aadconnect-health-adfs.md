@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/15/2017
+ms.date: 2/27/2017
 ms.author: vakarand
-
+ms.custom: H1Hack27Feb2017
 ---
-# Using Azure AD Connect Health with AD FS
+# Monitor AD FS using Azure AD Connect Health
 The following documentation is specific to monitoring your AD FS infrastructure with Azure AD Connect Health. For information on monitoring Azure AD Connect (Sync) with Azure AD Connect Health, see [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md). Additionally, for information on monitoring Active Directory Domain Services with Azure AD Connect Health, see [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md).
 
 ## Alerts for AD FS

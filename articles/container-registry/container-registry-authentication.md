@@ -17,8 +17,9 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 ---
-# Authenticate with a container registry
+# Authenticate with a private Docker container registry
 To work with container images in an Azure container registry, you log in using the `docker login` command. You can log in using either an **[Azure Active Directory service principal](../active-directory/active-directory-application-objects.md)** or a registry-specific **admin account**. This article provides more detail about these identities. 
 
 

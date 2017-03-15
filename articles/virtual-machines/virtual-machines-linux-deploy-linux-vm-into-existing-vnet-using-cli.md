@@ -1,6 +1,6 @@
 ---
-title: Deploy Linux VM into existing network with the Azure CLI 2.0 (Preview) | Microsoft Docs
-description: Learn how to deploy a Linux virtual machine into an existing Virtual Network using the Azure CLI 2.0 (Preview)
+title: Deploy Linux VM into existing network with the Azure CLI 2.0 | Microsoft Docs
+description: Learn how to deploy a Linux virtual machine into an existing Virtual Network using the Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -19,25 +19,20 @@ ms.author: iainfou
 
 ---
 
-# Deploy a Linux VM into an existing virtual network using the Azure CLI 2.0 (Preview)
+# Deploy a Linux VM into an existing virtual network
 
-This article shows you how to use the Azure CLI 2.0 (Preview) to deploy a virtual machine (VM) into an existing virtual network. The requirements are:
+This article shows you how to use the Azure CLI 2.0 to deploy a virtual machine (VM) into an existing virtual network. The requirements are:
 
 - [an Azure account](https://azure.microsoft.com/pricing/free-trial/)
 - [SSH public and private key files](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-
-## CLI versions to complete the task
-You can complete the task using one of the following CLI versions:
-
-- [Azure CLI 1.0](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0 (Preview)](#quick-commands) - our next generation CLI for the resource management deployment model (this article)
+You can also perform these steps with the [Azure CLI 1.0](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## Quick Commands
 If you need to quickly accomplish the task, the following section details the  commands needed. More detailed information and context for each step can be found the rest of the document, [starting here](#detailed-walkthrough).
 
-To create this custom environment, you need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
+To create this custom environment, you need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
 
 In the following examples, replace example parameter names with your own values. Example parameter names include `myResourceGroup`, `myVnet`, and `myVM`.
 
@@ -59,7 +54,7 @@ az vm create \
 
 It is recommended that Azure assets like virtual networks and network security groups should be static and long lived resources that are rarely deployed. Once a virtual network has been deployed, it can be reused by new deployments without any adverse affects to the infrastructure. Think about a virtual network as being a traditional hardware network switch - you would not need to configure a brand new hardware switch with each deployment. With a correctly configured virtual network, we can continue to deploy new VMs into that virtual network over and over with few, if any, changes required over the life of the virtual network.
 
-To create this custom environment, you need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
+To create this custom environment, you need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
 
 In the following examples, replace example parameter names with your own values. Example parameter names include `myResourceGroup`, `myVnet`, and `myVM`.
 
@@ -146,7 +141,7 @@ az network nic create \
 
 We now have a virtual network, a subnet, and a network security group acting as a firewall to protect our subnet by blocking all inbound traffic except port 22 for SSH. The VM can now be deployed inside this existing network infrastructure.
 
-Create your VM with [az vm create](/cli/azure/vm#create). For more information on the flags to use with the Azure CLI 2.0 (Preview) to deploy a complete VM, see [Create a complete Linux environment by using the Azure CLI](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Create your VM with [az vm create](/cli/azure/vm#create). For more information on the flags to use with the Azure CLI 2.0 to deploy a complete VM, see [Create a complete Linux environment by using the Azure CLI](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 The following example creates a VM using Azure Managed Disks. These disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about managed disks, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md). If you wish to use unmanaged disks, see the additional note below.
 

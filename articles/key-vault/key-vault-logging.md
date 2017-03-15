@@ -37,8 +37,6 @@ Use this tutorial to help you get started with Azure Key Vault logging, to creat
 > 
 > 
 
-The logs that you collect can be visualized by using Log analytics from the Operations Management Suite. For more information, see [Azure Key Vault (Preview) solution in Log Analytics](../log-analytics/log-analytics-azure-key-vault.md).
-
 For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
 
 ## Prerequisites
@@ -250,6 +248,10 @@ The following table lists the operationName and corresponding REST API command.
 | SecretDelete |[Delete a secret](https://msdn.microsoft.com/en-us/library/azure/dn903613.aspx) |
 | SecretList |[List secrets in a vault](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
 | SecretListVersions |[List versions of a secret](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
+
+## <a id="loganalytics"></a>Use Log Analytics
+
+You can use the Azure Key Vault solution in Log Analytics to review Azure Key Vault AuditEvent logs. For more information, including how to set this up, see [Azure Key Vault solution in Log Analytics](../log-analytics/log-analytics-azure-key-vault.md). This article also contains instructions if you need to migrate from the old Key Vault solution that was offered during the Log Analytics preview, where you first routed your logs to an Azure Storage account and configured Log Analytics to read from there.
 
 ## <a id="next"></a>Next steps
 For a tutorial that uses Azure Key Vault in a web application, see [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md).

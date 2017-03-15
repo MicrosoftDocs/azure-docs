@@ -28,8 +28,8 @@ In this case, start with the list of attributes in this topic and identify those
 
 > [!WARNING]
 > When deselecting attributes, you should be cautious and only deselect those attributes absolutely not possible to synchronize. Unselecting other attributes might have a negative impact on features.
-> 
-> 
+>
+>
 
 ## Office 365 ProPlus
 | Attribute Name | User | Comment |
@@ -417,7 +417,7 @@ These attributes are written back from Azure AD to on-premises Active Directory 
 
 | Attribute Name | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
-| msDS-ExternalDirectoryObjectID |X | | |Derived from cloudAnchor in Azure AD. This attribute is new in Exchange 2016. |
+| msDS-ExternalDirectoryObjectID |X | | |Derived from cloudAnchor in Azure AD. This attribute is new in Exchange 2016 and Windows Server 2016 AD. |
 | msExchArchiveStatus |X | | |Online Archive: Enables customers to archive mail. |
 | msExchBlockedSendersHash |X | | |Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients. |
 | msExchSafeRecipientsHash |X | | |Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients. |
@@ -454,4 +454,3 @@ Device objects are created in Active Directory. These objects can be devices joi
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
-

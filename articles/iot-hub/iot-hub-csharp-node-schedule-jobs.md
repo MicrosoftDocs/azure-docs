@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2016
+ms.date: 02/24/2017
 ms.author: juanpere
 
 ---
@@ -96,7 +96,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
             CloudToDeviceMethod directMethod = new CloudToDeviceMethod("lockDoor", TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5));
 
             JobResponse result = await jobClient.ScheduleDeviceMethodAsync(jobId,
-                "SELECT * from DEVICES",
+                "deviceId='myDeviceId'",
                 directMethod,
                 DateTime.Now,
                 10);
@@ -114,7 +114,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
             twin.ETag = "*";
 
             JobResponse result = await jobClient.ScheduleTwinUpdateAsync(jobId,
-                "SELECT * from DEVICES", 
+                "deviceId='myDeviceId'",
                 twin,
                 DateTime.Now,
                 10);

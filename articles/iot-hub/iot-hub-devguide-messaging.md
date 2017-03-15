@@ -85,10 +85,10 @@ For more information about creating custom endpoints in IoT Hub, see [IoT Hub en
 
 ### Built-in endpoint: messages/events
 
-An IoT hub exposes the following properties to enable you to control the built-in messaging endpoint **messages/events**.
+An IoT hub exposes the following properties to enable you to control the built-in Event Hub-compatible messaging endpoint **messages/events**.
 
-* **Partition count**. Set this property at creation to define the number of partitions for device-to-cloud event ingestion.
-* **Retention time**. This property specifies the retention time for device-to-cloud messages. The default is one day, but it can be increased to seven days.
+* **Partition count**. Set this property at creation to define the number of [partitions][lnk-event-hub-partitions] for device-to-cloud event ingestion.
+* **Retention time**. This property specifies how long in days messages are retained by IoT Hub. The default is one day, but it can be increased to seven days.
 
 IoT Hub also enables you to manage consumer groups on the built-in device-to-cloud receive endpoint.
 
@@ -229,7 +229,7 @@ Each IoT hub exposes the following configuration options for cloud-to-device mes
 For more information, see [Create IoT hubs][lnk-portal].
 
 ## Read device-to-cloud messages
-IoT Hub exposes the **messages/events** built-in endpoint for your back-end services to read the device-to-cloud messages received by your hub. This endpoint is Event Hubs-compatible, which enables you to use any of the mechanisms the Event Hubs service supports for reading messages.
+IoT Hub exposes the **messages/events** built-in endpoint for your back-end services to read the device-to-cloud messages received by your hub. This endpoint is Event Hub-compatible, which enables you to use any of the mechanisms the Event Hubs service supports for reading messages.
 
 You can also create custom endpoints in IoT Hub. IoT Hub currently supports Event Hubs, Service Bus queues, and Service Bus topics as custom endpoints. For more information about reading from those services, see: reading from [Event Hubs][lnk-getstarted-eh], reading from [Service Bus queues][lnk-getstarted-queue], reading from [Service Bus topics][lnk-getstarted-topic].
 
@@ -431,3 +431,4 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-event-hub-partitions]: ../event-hubs/event-hubs-what-is-event-hubs.md#partitions

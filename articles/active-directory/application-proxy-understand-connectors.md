@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 02/22/2017
 ms.author: kgremban
 
 ---
@@ -23,8 +23,6 @@ This article discusses connectors, which are the secret sauce of Azure AD Applic
 
 > [!NOTE]
 > Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
-> 
-> 
 
 ## What are Azure AD Application Proxy connectors?
 Application Proxy works after you install the Windows Server service, called a connector, on your network. You can install connectors based on your high availability and scalability needs. Start with one and add more as needed. Each time a connector is installed, it is added to the pool of connectors that serves your tenant.
@@ -48,12 +46,13 @@ You can monitor your connectors from the machine they are running on, using eith
 ## All networking is outbound
 Connectors only send outbound requests, so the connection is always initiated by the connector(s). There is no need to open inbound ports, because once a session has been established, the traffic will flow both ways.
 
-The outbound traffic is sent to the Application Proxy service and to the published applications. The traffic to the service is sent to Azure datacenters to several different ports numbers. For more information, see [
-Enable Application Proxy in the Azure portal](active-directory-application-proxy-enable.md) for more details.
+The outbound traffic is sent to the Application Proxy service and to the published applications. The traffic to the service is sent to Azure datacenters to several different ports numbers. For more information, see [Enable Application Proxy in the Azure portal](active-directory-application-proxy-enable.md).
 
 As a result of having only outbound traffic, there is no need to setup load balancing between the connectors or configure inbound access through your firewalls.
 
 For information about configuring outbound firewall rules, see [Work with existing on-premise Proxy servers](application-proxy-working-with-proxy-servers.md).
+
+Use the [Azure AD Application Proxy Connector Ports Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/) to verify that your connector can reach the Application Proxy service. At a minimum, make sure that the Central US region and the region closest to you have all green checkmarks. Beyond that, more green checkmarks means greater resiliency. 
 
 ## Network security
 
@@ -112,7 +111,7 @@ Another factor on performance is the quality of the networking between the conne
 * _The backend applications:_ In some cases, there are additional proxies between the connector and the back-end applications. It is easy to troubleshoot this by opening a browser from the connector machine and accessing these applications. If you run the connectors in Azure, and the applications are on-prem, the experience might not be as your users expect.
 * _The domain controllers:_ If the connectors are performing SSO using Kerberos Constrained Delegation (KCD), they contact the domain controllers before they send the request to the backend. The connectors have a cache of Kerberos tickets but in a busy environments, the responsiveness of the domain controllers can slow the experience. This is more common for connectors that run in Azure while the domain controllers are on-prem.
 
-##Automatic updates to the Connector
+## Automatic updates to the Connector
 
 With the Connector Updater service, we offer an automated way to keep up-to-date. This way you have the continued advantage of all new features, and security and performance enhancements.
 
@@ -150,7 +149,8 @@ You can examine the state of the service in the Services window. The connector i
 
 For information about resolving errors  the Application Proxy Connector, see [Troubleshoot Application Proxy](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-troubleshoot).
 
-##Next steps
-[Work with existing on-premises proxy servers](application-proxy-working-with-proxy-servers.md)<br>
+## Next steps
+[Work with existing on-premises proxy servers](application-proxy-working-with-proxy-servers.md)
+
 [How to silently install the Azure AD Application Proxy Connector ](active-directory-application-proxy-silent-installation.md)
 

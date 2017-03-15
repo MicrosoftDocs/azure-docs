@@ -78,7 +78,6 @@ For now, the services that enable moving to both a new resource group and subscr
 * CDN
 * Cloud Services - see [Classic deployment limitations](#classic-deployment-limitations)
 * Cognitive Services
-* Container Service
 * Content Moderator
 * Data Catalog
 * Data Factory
@@ -125,6 +124,7 @@ The services that currently do not enable moving a resource are:
 * Application Gateway
 * Application Insights
 * BizTalk Services
+* Container Service
 * Express Route
 * DevTest Labs - Move to new resource group in same subscription is enabled, but cross subscription move is not enabled.
 * Dynamics LCS

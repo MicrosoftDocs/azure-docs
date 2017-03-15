@@ -30,6 +30,8 @@ By using Network Watcher, Alerting, and Functions from within the Azure ecosyste
 In this example, your VM is sending more TCP segments than usual, and you would like to be alerted. TCP Segments are used as an example, you could use any alert condition. When you are alerted, you want to have packet level data to understand why communication has increased so you can take steps to return the machine to regular communication.
 This scenario assumes you have an existing instance of Network Watcher, and a resource group with a valid virtual machine to be used.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ## Scenario
 
 To automate this process, we create and connect an Alert on our VM to trigger when the incident occurs, and an Azure Function to call into Network Watcher.
@@ -102,7 +104,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
     string token = GetAuthorizationToken();
     
     //Create URI and Delete existing Packet Capture if it exists
-    string endpoint = @"https://BrazilUs.management.azure.com";
+    string endpoint = @"https://management.azure.com";
     string PacketCaptureRequestURI = $@"{endpoint}/subscriptions/{inParams.subscriptionId}/resourceGroups/{inParams.networkWatcherResourceGroup}/providers/Microsoft.Network/networkWatchers/{inParams.networkWatcherName}/packetCaptures/{inParams.packetCaptureName}?api-version=2016-03-30";
 
     //Delete Packet Capture

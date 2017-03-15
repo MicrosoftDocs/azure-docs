@@ -4,7 +4,7 @@ description: Learn how to configure your web app to use client certificate authe
 services: app-service
 documentationcenter: ''
 author: naziml
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a

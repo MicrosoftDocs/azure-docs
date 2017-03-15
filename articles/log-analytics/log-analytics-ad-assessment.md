@@ -1,5 +1,5 @@
 ---
-title: Optimize your environment with the Active Directory Assessment solution in Log Analytics | Microsoft Docs
+title: Optimize your Active Directory environment with Azure Log Analytics | Microsoft Docs
 description: You can use the Active Directory Assessment solution to assess the risk and health of your server environments on a regular interval.
 services: log-analytics
 documentationcenter: ''
@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
-# Optimize your environment with the Active Directory Assessment solution in Log Analytics
+# Optimize your Active Directory environment with the Active Directory Assessment solution in Log Analytics
+
 You can use the Active Directory Assessment solution to assess the risk and health of your server environments on a regular interval. This article will help you install and use the solution so that you can take corrective actions for potential problems.
 
 This solution provides a prioritized list of recommendations specific to your deployed server infrastructure. The recommendations are categorized across four focus areas which help you quickly understand the risk and take action.

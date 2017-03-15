@@ -16,15 +16,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/15/2017
 ms.author: rasquill
+ms.custom: H1Hack27Feb2017
 
 ---
-# Select Linux VM images with the Azure CLI
+# How to find Linux VM images with the Azure CLI
 This topic describes how to find publishers, offers, skus, and versions for each location into which you might deploy. 
 
 
-## Use Azure CLI 2.0 (Preview)
+## Use Azure CLI 2.0
 
-Once you have [installed the Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2), use the `az vm image list` command to see a cached list of popular VM images. For example, the following example of the command `az vm image list -o table` displays:
+Once you have [installed the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), use the `az vm image list` command to see a cached list of popular VM images. For example, the following example of the command `az vm image list -o table` displays:
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list

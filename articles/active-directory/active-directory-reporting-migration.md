@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/17/2017
+ms.date: 03/01/2017
 ms.author: dhanyahk;markvi
 
 ---
@@ -33,10 +33,10 @@ The reports in the Azure classic portal are split into various categories:
 
 Moving to context based reporting in Azure portal, we have merged the existing reports into one single view with a single underlying API providing the data to the view. 
 
-You can find this view under **Audit logs** in the **Activity** section of the ""Azure Active Directory** blade.
+You can find this view under **Audit logs** in the **Activity** section of the **Azure Active Directory** blade.
 
 
-![Audit logs](./media/active-directory-reporting-migration/61.png "Audit logs")
+![Audit logs](./media/active-directory-reporting-migration/482.png "Audit logs")
 
 
 
@@ -63,13 +63,22 @@ The following are the reports that have been consolidated into this view.
 - 	Account provisioning errors
 
 
-The Application Usage report has been enhanced and included in a view called the “*Activities*” -> Sign-ins (left nav) and includes all the users’ sign-ins, which, in turn can be derived to get the Application usage information. You can find App usage information through “Enterprise Applications” Overview screen as well.
+The Application Usage report has been enhanced and included in a view called the **Sign-ins**. You can find this view in the **Activity** section of the **Azure Active Directory** blade.
+
+
+![Audit logs](./media/active-directory-reporting-migration/483.png "Audit logs")
+
+This view includes all the users’ sign-ins, which, in turn can be derived to get the application usage information. You can find the application usage information through the **Enterprise Applications** overview as well.
+
+![Audit logs](./media/active-directory-reporting-migration/484.png "Audit logs")
+
+
 
 ## How can I access a specific report in this single view?
 
 ### Audit logs
 
-One of the key asks of many customers has been the ability to have multiple filter options to access Activity logs within Azure AD. In lieu of this, we have provided advanced filtering mechanism for you to filter the data you want. One of the filters we have provided is called “*Activity Category*”, which lists the different types of Activity Logs that Azure AD provides. By choosing the category you want, you can narrow down the results of the Activity logs to the ones you are interested in seeing. 
+One of the key asks of many customers has been the ability to have multiple filter options to access Activity logs within Azure AD. In lieu of this, we have provided advanced filtering mechanism for you to filter the data you want. One of the filters we have provided is called **Activity Category**, which lists the different types of activity logs that Azure AD provides. By choosing the category you want, you can narrow down the results to what you are looking for. 
 
 For example, if you are interested in just getting **Self-service Password Reset** related activities, you can choose the **Self-service Password Management** category. The categories you can see are in the context of the resource you are working on.  
 
@@ -89,7 +98,7 @@ The various categories we have today include:
 
 ### Application usage
 
-You can view the Application usage for all apps or a single app through the Activities -> Sign-ins view. As shown below, this view is present for all applications or a single application. You can filter either on User Name or Application Name if you want narrow down the results.
+You can view the application usage for all apps or a single app through the **Activities > Sign-ins** view. As shown below, this view is present for all applications or a single application. You can filter either on **User name** or **Application name** if you want narrow down the results.
  
 
 ![Audit logs](./media/active-directory-reporting-migration/07.png "Audit logs")
@@ -97,11 +106,28 @@ You can view the Application usage for all apps or a single app through the Acti
 
 ### Security reports
 
-The security reports have been consolidated to provide with a complete overview of a view of all security related risk events that Azure Active Directory can detect and report on. For a complete overview, see
-[Azure Active Directory risk events](active-directory-identity-protection-risk-events.md).  
-In this topic, you can find an overview of how the Azure Active Directry anomalous activity reports map to the risk events in Azure AD in the [Azure AD anomalous activity reports](active-directory-identity-protection-risk-events.md#azure-ad-anomalous-activity-reports) section.
+The **Azure AD anomalous activity** security reports from the Azure classic portal have been consolidated to provide you with one central view of all security related risk events that Azure Active Directory can detect and report on. 
 
-In the Azure portal, you can access the reports about detected risk events in the **Security** section of the **Azure Active Directory** blade. The detected risk events are tracked within the following reports:   
+The table below lists the various **azure AD anomalous activity** security reports and the corresponding risk event types in the Azure portal. 
+
+| Azure AD Anomalous Activity Report |  Identity Protection Risk Event Type|
+| :--- | :--- |
+| Users with leaked credentials | Leaked credentials |
+| Irregular sign-in activity | Impossible travel to atypical locations |
+| Sign-ins from possibly infected devices | Sign-ins from infected devices|
+| Sign-ins from unknown sources | Sign-ins from anonymous IP addresses |
+| Sign-ins from IP addresses with suspicious activity | Sign-ins from IP addresses with suspicious activity |
+| - | Signs in from unfamiliar locations |
+
+The following Azure AD anomalous activity security reports are not included as risk events in Azure AD. These reports are still available in the Azure classic portal. However, they will be deprecated at some time in the future.
+
+* Sign-ins after multiple failures
+* Sign-ins from multiple geographies
+
+For a complete overview, see
+[Azure Active Directory risk events](active-directory-identity-protection-risk-events.md).  
+
+In the Azure portal, you can access reports about detected risk events in the **Security** section of the **Azure Active Directory** blade. The detected risk events are tracked within the following reports:   
 
 - Users at Risk
 - Risky Sign-ins 

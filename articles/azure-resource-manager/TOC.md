@@ -17,6 +17,7 @@
 ### [Authoring templates](resource-group-authoring-templates.md)
 ### [Template functions](resource-group-template-functions.md)
 ### [Define dependency between resources](resource-group-define-dependencies.md)
+### [Set child resource name and type](resource-manager-template-child-resource.md)
 ### [Create multiple instances of resource type](resource-group-create-multiple.md)
 ### [Pass secure values during deployment](resource-manager-keyvault-parameter.md)
 ### [Link to other templates](resource-group-linked-templates.md)
@@ -35,8 +36,6 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [Use tags to organize resources](resource-group-using-tags.md)
 ### [Move resources to new group or subscription](resource-group-move-resources.md)
-### [Link related resources](resource-group-link-resources.md)
-### [Azure Resource Explorer](resource-manager-resource-explorer.md)
 ## Control Access
 ### [Create service principal with PowerShell](resource-group-authenticate-service-principal.md)
 ### [Create service principal with Azure CLI](resource-group-authenticate-service-principal-cli.md)

@@ -4,7 +4,7 @@ description: Learn how to map a custom domain name (vanity domain) to your app i
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 tags: top-support-issue
 

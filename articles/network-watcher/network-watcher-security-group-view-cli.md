@@ -21,9 +21,12 @@ ms.author: gwallace
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [Azure REST API](network-watcher-security-group-view-rest.md)
+> - [CLI](network-watcher-security-group-view-cli.md)
+> - [REST API](network-watcher-security-group-view-rest.md)
 
 Security group view returns configured and effective network security rules that are applied to a virtual machine. This capability is useful to audit and diagnose Network Security Groups and rules that are configured on a VM to ensure traffic is being correctly allowed or denied. In this article, we show you how to retrieve the configured and effective security rules to a virtual machine using Azure CLI
+
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## Before you begin
 
@@ -37,12 +40,13 @@ The scenario covered in this article retrieves the configured and effective secu
 
 A virtual machine is required to run the `vm list` cmdlet. The following command lists the virtual machinese in a resource group:
 
-```
+```azurecli
 azure vm list -g resourceGroupName
 ```
 
 Once you know the virtual machine, you can use the `vm show` cmdlet to get its resource Id:
-```
+
+```azurecli
 azure vm show -g resourceGroupName -n virtualMachineName
 ```
 
@@ -50,7 +54,7 @@ azure vm show -g resourceGroupName -n virtualMachineName
 
 The next step is to retrieve the security group view result. Adding the "--json" flag will format the results in json.
 
-```
+```azurecli
 azure network watcher security-group-view -g resourceGroupName -n networkWatcherName -t targetResourceId --json
 ```
 

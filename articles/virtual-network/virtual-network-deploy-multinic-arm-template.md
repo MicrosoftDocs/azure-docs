@@ -1,10 +1,10 @@
 ---
-title: Create a VM with multiple NICs using a template | Microsoft Docs
-description: Create a VM with multiple NICs using a template through Azure Resource Manager.
+title: Create a VM with multiple NICs - Azure Resource Manager template | Microsoft Docs
+description: Create a VM with multiple NICs using an Azure Resource Manager template.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
 # Create a VM with multiple NICs using a template

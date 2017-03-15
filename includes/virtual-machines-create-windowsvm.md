@@ -51,10 +51,6 @@ The Summary blade lists the settings specified in the previous blades. Click **O
 
  ![Summary blade report giving specified settings of the virtual machine](./media/virtual-machines-common-portal-create-fqdn/summary-blade-classic.png)
 
-<!--  deleted 2/16/2017 - RABixby
-  * A virtual machine's size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For more information, see [Sizes for virtual machines](../articles/virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-  -->
-
 After the virtual machine is created, the portal lists the new virtual machine under **All resources**, and displays a tile of the virtual machine on the dashboard. The corresponding cloud service and storage account also are created and listed. Both the virtual machine and cloud service are started automatically and their status is listed as **Running**.
 
  ![Configure VM Agent and the endpoints of the virtual machine](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)

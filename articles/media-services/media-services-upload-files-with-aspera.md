@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2017
+ms.date: 02/22/2017
 ms.author: juliako
 
 ---
@@ -113,6 +113,15 @@ Once you have logged into Azure Marketplace,  follow these basic steps to comple
 	Below is the screenshot of the Aspera client **Connection Manager** where you must specify the 'Azure' storage type and credentials as well as the blob container.
 
 	![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
+
+## Resources
+
+The following resources were mentioned in this article. 
+
+* [Connect Browser Plugin](http://downloads.asperasoft.com/connect2/)
+* [Connect Guide](http://downloads.asperasoft.com/en/documentation/8)
+* [Aspera Client](http://downloads.asperasoft.com/en/downloads/2)
+* [Client Guide](http://downloads.asperasoft.com/en/documentation/2)
 
 ## Next steps
 

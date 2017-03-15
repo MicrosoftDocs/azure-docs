@@ -4,7 +4,7 @@ description: Learn how easy it is to run web apps in App Service by deploying a 
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
@@ -13,21 +13,12 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/04/2017
+ms.date: 02/27/2017
 ms.author: cephalin
 
 ---
 # Deploy your first PHP web app to Azure in five minutes (CLI 2.0 Preview)
-
-> [!div class="op_single_selector"]
-> * [First HTML site](app-service-web-get-started-html.md)
-> * [First .NET app](app-service-web-get-started-dotnet.md)
-> * [First PHP app](app-service-web-get-started-php.md)
-> * [First Node.js app](app-service-web-get-started-nodejs.md)
-> * [First Python app](app-service-web-get-started-python.md)
-> * [First Java app](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)]
 
 This tutorial helps you deploy your first PHP web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 You can use App Service to create web apps, [mobile app back ends](/documentation/learning-paths/appservice-mobileapps/),
@@ -47,7 +38,7 @@ You will:
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](app-service-web-get-started-php-cli-nodejs.md) – our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0 (Preview)](app-service-web-get-started-php.md) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](app-service-web-get-started-php.md) - our next generation CLI for the resource management deployment model
 
 ## Prerequisites
 * [Git](http://www.git-scm.com/downloads).
@@ -63,7 +54,7 @@ You can complete the task using one of the following CLI versions:
 > 
 
 ## Deploy a PHP web app
-1. Open a new Windows command prompt, PowerShell window, Linux shell, or OS X terminal. Run `git --version` and `azure --version` to verify that Git and Azure CLI
+1. Open a new Windows command prompt, PowerShell window, Linux shell, or OS X terminal. Run `git --version` and `az --version` to verify that Git and Azure CLI
    are installed on your machine.
    
     ![Test installation of CLI tools for your first web app in Azure](./media/app-service-web-get-started-languages/1-test-tools-2.0.png)
@@ -79,7 +70,7 @@ You can complete the task using one of the following CLI versions:
 
 3. Set the deployment user for App Service. You will deploy code using these credentials later.
    
-        az appservice web deployment user set --user-name <username> --password <password>
+        az appservice web deployment user set --user-name <unique-username> --password <8-char-or-longer-password-letters-and-numbers>
 
 3. Create a new [resource group](../azure-resource-manager/resource-group-overview.md). For this first App Service tutorial, you don't really need to know
 what it is.
@@ -134,7 +125,7 @@ Congratulations, you have deployed your app to Azure App Service.
 ## See your app running live
 To see your app running live in Azure, run this command from any directory in your repository:
 
-    azure site browse
+    az appservice web browse --name <app_name> --resource-group my-first-app-group
 
 ## Make updates to your app
 You can now use Git to push from your project (repository) root anytime to make an update to the live site. You do it the same way as when you deployed your code

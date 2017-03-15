@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 02/21/2017
 ms.author: kgremban
 
 ---
@@ -28,7 +28,7 @@ This article helps you manage Azure Multi-Factor Authentication now that you are
 | [Caching](#caching-in-azure-multi-factor-authentication) |Caching allows you to set a specific time period so that subsequent authentication attempts succeed automatically. |
 | [Trusted IPs](#trusted-ips) |Administrators of a managed or federated tenant can use Trusted IPs to bypass two-step verification for users that sign in from the company’s local intranet. |
 | [App Passwords](#app-passwords) |An app password allows an application that is not MFA-aware to bypass multi-factor authentication and continue working. |
-| [Remember Multi-Factor Authentication for remembered devices and browsers](#remember-multi-factor-authentication-for-devices-users-trust) |Allows you to remember devices for a set number of days after a user has successfully signed in using MFA. |
+| [Remember Multi-Factor Authentication for remembered devices and browsers](#remember-multi-factor-authentication-for-devices-that-users-trust) |Allows you to remember devices for a set number of days after a user has successfully signed in using MFA. |
 | [Selectable Verification Methods](#selectable-verification-methods) |Allows you to choose the authentication methods that are available for users to use. |
 
 ## Access the Azure MFA Management Portal
@@ -169,7 +169,7 @@ Caching is not intended to be used for sign-ins to Azure AD.
 <center>![Cloud](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
 ## Trusted IPs
-Trusted IPs is a feature of Azure MFA that administrators of a managed or federated tenant can use to bypass two-step verification for users that are signing in from the company’s local intranet. This feature is available with the full version of Azure Multi-Factor Authentication, not the free version for administrators. For details on how to get the full version of Azure Multi-Factor Authentication, see [How to get Azure Multi-Factor Authentication](multi-factor-authentication.md#how-to-get-azure-multi-factor-authentication).
+Trusted IPs is a feature of Azure MFA that administrators of a managed or federated tenant can use to bypass two-step verification for users that are signing in from the company’s local intranet. This feature is available with the full version of Azure Multi-Factor Authentication, not the free version for administrators. For details on how to get the full version of Azure Multi-Factor Authentication, see [Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
 | Type of Azure AD Tenant | Available Trusted IP options |
 |:--- |:--- |
@@ -265,13 +265,18 @@ Users can also create app passwords after registration by changing their setting
 ## Remember Multi-Factor Authentication for devices that users trust
 Remembering Multi-Factor Authentication for devices and browsers that users trust is a free feature for all MFA users. It allows you to give users the option to by-pass MFA for a set number of days after performing a successful sign-in using MFA. This can enhance usability by minimizing the number of times a user may perform two-step verification on the same device.
 
+However, if an account or device is compromised, remembering MFA for trusted devices may affect security. If a corporate account becomes compromised or a trusted device is lost or stolen, you should [restore Multi-Factor Authentication on all devices](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-remembered-devices-for-a-user). This action revokes the trusted status from all devices, and the user is required to perform two-step verification again. You can also instruct your users to restore MFA on their own devices with the instructions in [Manage your settings for two-step verification](./end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)
+
+### How it works
+
+Remembering Multi-Factor Authentication works by setting a persistent cookie on the browser when a user checks the "Don't ask again for **X** days" box at sign-in. The user won't be prompted for MFA again from that broswer until the cookie expires. If the user opens a different browser on the same device or clears their cookies, they are prompted to verify again. 
+
+The "Don't ask again for **X** days" checkbox isn't shown on non-browser apps, whether or not they support modern authentication. These apps use refresh tokens that provide new access tokens every hour. When a refresh token is validated, Azure AD checks that the last time two-step verification was performed was within the configured number of days. 
+
+Therefore, remembering MFA on trusted devices reduces the number of authentications on web apps (which normally prompt every time) but increases the number of authentications for modern-auth clients (which normally prompt every 90 days).
+
 > [!NOTE]
-> This feature is implemented as a browser cookie cache. It doesn't work if your browser cookies are not enabled.
-
-However, if an account or device is compromised, remembering MFA for trusted devices may affect security. To ensure account security, there is an option to restore Multi-Factor Authentication on all devices. This means that all devices lose their trusted status, and the user is required to perform two-step verification again. You should restore Multi-Factor Authentication for their devices for either of the following scenarios:
-
-* If their corporate account has become compromised
-* If a remembered device is lost or stolen
+>This feature is not compatible with the "Keep me signed in" feature of AD FS when users perform two-step verification for AD FS through the Azure MFA Server or a third-party MFA solution. If your users select "Keep me signed in" on AD FS and also mark their device as trusted for MFA, they won't be able to verify after the "Remember MFA" number of days expires. Azure AD requests a fresh two-step verification, but AD FS returns a token with the original MFA claim and date instead of performing two-step verification again. This sets off a verification loop between Azure AD and AD FS. 
 
 ### Enable Remember multi-factor authentication
 1. Sign in to the [Azure classic portal](https://portal.azure.com/).

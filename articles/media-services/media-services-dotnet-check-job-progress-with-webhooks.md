@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/19/2017
+ms.date: 03/06/2017
 ms.author: juliako
 
 ---
@@ -26,8 +26,8 @@ The following are required to complete the tutorial:
 
 * An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 * A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
-* .NET Framework 4.0 or later
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later versions.
+* .NET Framework 4.0 or later.
+* Visual Studio.
 * Understanding of [how to use Azure functions](../azure-functions/functions-overview.md). Also, review [Azure functions HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md).
 
 This topic shows how to
@@ -42,7 +42,7 @@ This topic shows how to
 	
 * Add a webhook to your encoding task and specify the webhook URL and secret key that this webhook responds to. In the example shown here, the code that creates the encoding task is a console app.
 
-## Getting Webhook notifications
+## Setting up "webhook notification" Azure functions
 
 The code in this section shows an implementation of an Azure function that is a webhook. In this sample, the function listens for the webhook call back from Media Services notifications and publishes the output asset once the job finishes.
 
@@ -52,7 +52,20 @@ In the following code, the **VerifyWebHookRequestSignature** method does the ver
 
 You can find the definition of the following Media Services .NET Azure function [here](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/Notification_Webhook_Function).
 
-The following code listing shows the definitions of three files that are associated with the Azure function: function.json, project.json, and run.csx.
+The following code listing shows the definitions of Azure function paramerters and three files that are associated with the Azure function: function.json, project.json, and run.csx.
+
+### Application settings 
+
+The following table shows the parameters that are used by the Azure function defined in this section. 
+
+|Name|Definition|Example| 
+|---|---|---|
+|AMSAccount|Your AMS account name. |juliakomediaservices|
+|AMSKey |Your AMS account key. | JUWJdDaOHQQqsZeiXZuE76eDt2SO+YMJk25Lghgy2nY=|
+|MediaServicesStorageAccountName |A name of the storage account that is associated with your AMS account.| storagepkeewmg5c3peq|
+|MediaServicesStorageAccountKey |A key of the storage account that is associated with your AMS account.|
+|SigningKey |A signing key.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
+|WebHookEndpoint | A webhook endpoint address. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
 
 ### function.json
 
@@ -404,9 +417,8 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
 
 			    ITask task = job.Tasks.AddNew("My encoding task",
 				processor,
-				"H264 Multiple Bitrate 720p",
+				"Adaptive Streaming",
 				TaskOptions.None);
-
 
 			    // Specify the input asset to be encoded.
 			    task.InputAssets.Add(newAsset);

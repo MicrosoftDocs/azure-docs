@@ -395,10 +395,10 @@ The following code shows how to send a request to the Media Services key deliver
                     IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
                     // Create a task with the encoding details, using a string preset.
-                    // In this case "H264 Multiple Bitrate 720p" preset is used.
+                    // In this case "Adaptive Streaming" preset is used.
                     ITask task = job.Tasks.AddNew("My encoding task",
                         processor,
-                        "H264 Multiple Bitrate 720p",
+                        "Adaptive Streaming",
                         TaskOptions.None);
 
                     // Specify the input asset to be encoded.

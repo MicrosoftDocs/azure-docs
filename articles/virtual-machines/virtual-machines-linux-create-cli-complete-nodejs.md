@@ -1,6 +1,6 @@
 
 ---
-title: Create a complete Linux environment using the Azure CLI 1.0 | Microsoft Docs
+title: Create a complete Linux environment with the Azure CLI 1.0 | Microsoft Docs
 description: Create storage, a Linux VM, a virtual network and subnet, a load balancer, an NIC, a public IP, and a network security group, all from the ground up by using the Azure CLI 1.0.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -19,7 +19,7 @@ ms.date: 02/09/2017
 ms.author: iainfou
 
 ---
-# Create a complete Linux environment by using the Azure CLI 1.0
+# Create a complete Linux environment with the Azure CLI 1.0
 In this article, we build a simple network with a load balancer and a pair of VMs that are useful for development and simple computing. We walk through the process command by command, until you have two working, secure Linux VMs to which you can connect from anywhere on the Internet. Then you can move on to more complex networks and environments.
 
 Along the way, you learn about the dependency hierarchy that the Resource Manager deployment model gives you, and about how much power it provides. After you see how the system is built, you can rebuild it much more quickly by using [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Also, after you learn how the parts of your environment fit together, creating templates to automate them becomes easier.
@@ -39,7 +39,7 @@ To create this custom environment, you need the latest [Azure CLI 1.0](../xplat-
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#quick-commands) – our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0 (Preview)](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 
 ## Quick commands

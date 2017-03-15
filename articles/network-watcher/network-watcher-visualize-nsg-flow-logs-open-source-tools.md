@@ -23,15 +23,17 @@ Network Security Group flow logs provide information that can be used understand
 
 These flow logs can be difficult to manually parse and gain insights from. However, there are several open source tools that can help visualize this data. This article will provide a solution to visualize these logs using the Elastic Stack, which will allow you to quickly index and visualize your flow logs on a Kibana dashboard.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ## Scenario
 
 In this article, we will set up a solution that will allow you to visualize Network Security Group flow logs using the Elastic Stack.  A Logstash input plug will obtain the flow logs directly from the storage blob configured for containing the flow logs. Then, using the Elastic Stack, the flow logs will be indexed and used to create a Kibana dashboard to visualize the information.
 
 ![scenario][scenario]
 
-### Steps
+## Steps
 
-#### Enable Network Security Group flow logging
+### Enable Network Security Group flow logging
 For this scenario, you must have Network Security Group Flow Logging enabled on at least one Network Security Group in your account. For instructions on enabling Network Security Flow Logs, refer to the following article [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md).
 
 
@@ -44,7 +46,6 @@ By connecting NSG flow logs with the Elastic Stack, we can create a Kibana dashb
 1. Download the correct binary package for your system:
 
     ```
-    sudo apt-get install openjdk-8-jre
     curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
     sudo dpkg -i elasticsearch-5.2.0.deb
     sudo /etc/init.d/elasticsearch start
@@ -52,7 +53,7 @@ By connecting NSG flow logs with the Elastic Stack, we can create a Kibana dashb
 
     Other installation methods can be found at [Elasticsearch Installation](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html)
 
-1. Verify that elastic search is running with the command:
+1. Verify that Elasticsearch is running with the command:
 
     ```
     curl http://127.0.0.1:9200
@@ -153,7 +154,7 @@ For further instructions on installing Logstash, refer to the [official document
 
 ### Install the Logstash input plugin for Azure blob storage
 
-This Logstash plug in will allow you to directly access the flow logs from their designated storage account. To install this plug in, run the command:
+This Logstash plug in will allow you to directly access the flow logs from their designated storage account. To install this plug in, from the default Logstash installation directory (in this case /usr/share/logstash/bin) run the command:
 
 ```
 logstash-plugin install logstash-input-azureblob
@@ -161,9 +162,9 @@ logstash-plugin install logstash-input-azureblob
 
 To start Logstash run the command:
 
-  ```
-  sudo /etc/init.d/logstash start
-  ```
+```
+sudo /etc/init.d/logstash start
+```
 
 For more information about this plug in, refer to documentation [here](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob)
 
@@ -171,13 +172,13 @@ For more information about this plug in, refer to documentation [here](https://g
 
 1. Run the following commands to install Kibana:
 
-    ```
-    curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
-        For further instructions on installing Elastic s
-    tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
+  ```
+  curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
+  tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
+  ```
 
-    ```
 1. To run Kibana use the commands:
+
   ```
   cd kibana-5.2.0-linux-x86_64/
   ./bin/kibana
@@ -227,7 +228,7 @@ The sample dashboard provides several visualizations of the flow logs:
 1. Flow Tuples – this table shows you the information contained within each flow tuple, as well as its corresponding NGS and rule.
 
   ![figure7][7]
-  
+
 Using the query bar at the top of the dashboard, you can filter down the dashboard based on any parameter of the flows, such as subscription ID, resource groups, rule, or any other variable of interest. For more about Kibana's queries and filters, refer to the [official documentation](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 
 ## Conclusion
@@ -249,4 +250,3 @@ Learn how to visualize your NSG flow logs with Power BI by visiting [Visualize N
 [5]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure5.png
 [6]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure6.png
 [7]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure7.png
-
