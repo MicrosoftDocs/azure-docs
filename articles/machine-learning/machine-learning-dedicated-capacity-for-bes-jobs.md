@@ -1,6 +1,6 @@
 ---
-title: Dedicated Capacity for Machine Learning BES Jobs 
-description: Overview of Azure Batch Services for Machine Learning jobs.
+title: Dedicated Capacity for Machine Learning Batch Execution Service Jobs | Microsoft Docs
+description: Overview of Azure Batch services for Machine Learning jobs.
 services: machine-learning
 documentationcenter: ''
 author: vDonGlover
@@ -16,7 +16,7 @@ ms.date: 03/08/2017
 ms.author: v-donglo
 
 ---
-# Azure Batch Service for Machine Learning jobs
+# Azure Batch service for Machine Learning jobs
 
 Machine Learning Batch Pool processing uses the [Azure Batch Service](../batch/batch-technical-overview.md) to provide customer-managed scale for the Azure Machine Learning Batch Execution Service. Classic batch processing takes place in a multi-tenant environment, which limits the number of concurrent jobs you can submit, and jobs are queued on a first-in-first-out basis. This uncertainty means that you can't accurately predict when your job will run.
 
@@ -93,7 +93,7 @@ https://ussouthcentral.services.azureml.net/subscriptions/80c77c7674ba4c8c82294c
 }
 ```
 
-## Considerations when using Batch Pool Processing
+## Considerations when using Batch Pool processing
 
 Batch Pool Processing is an always-on billable service and that requires you to associate it with a Resource Manager based billing plan. You are only billed for the number of compute hours the pool is running; regardless of the number of jobs run during that time pool. If you create a pool, you are billed for the compute hours of each virtual machine in the pool until the pool is deleted, even if no batch jobs are running in the pool. Billing for the virtual machines starts when they have finished provisioning and stops when they have been deleted. You can use any of the plans found on the [Machine Learning Pricing page](https://azure.microsoft.com/pricing/details/machine-learning/).
 
