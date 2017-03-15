@@ -83,7 +83,7 @@ Any template validation warnings or errors are logged to the PowerShell console,
 This example validates all the Azure Stack Quickstart templates downloaded locally, and also validates the VM sizes and extensions against Azure Stack TP2 capabilities.
 
 ```PowerShell
-test-AzureRMTemplate -TemplatePath C:\AzureStack-QuickStart-Templates`
+test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates`
 -CapabilitiesPath C:\AzureTemplateValidator\AzureStackCapabilities_TP2.json`
 -TemplatePattern MyStandardTemplateName.json`
 -IncludeComputeCapabilities`

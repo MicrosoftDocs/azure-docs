@@ -77,6 +77,7 @@
 #### [Lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
 #### [Polymorphism](service-fabric-reliable-actors-polymorphism.md)
 #### [Reentrancy](service-fabric-reliable-actors-reentrancy.md)
+#### [Events](service-fabric-reliable-actors-events.md) 
 #### [Timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
 #### [State management](service-fabric-reliable-actors-state-management.md)
 #### [Configure KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
@@ -112,7 +113,6 @@
 #### [Delete a cluster](service-fabric-cluster-delete.md)
 #### [Access control](service-fabric-cluster-security-roles.md)
 #### [Configure a cluster](service-fabric-cluster-fabric-settings.md)
-#### [Secure a cluster using certs](service-fabric-windows-cluster-x509-security.md)
 #### [Add or rollover cluster certificates](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Try a Party Cluster for free](http://aka.ms/tryservicefabric)
 
@@ -130,7 +130,8 @@
 
 ## Manage application lifecycle
 ### [Overview](service-fabric-application-lifecycle.md)
-### [Set up continuous integration](service-fabric-set-up-continuous-integration.md)
+### [Set up continuous integration with VSTS](service-fabric-set-up-continuous-integration.md)
+### [Deploy your Linux Java app using Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 ### [Understand the ImageStoreConnectionString setting](service-fabric-image-store-connection-string.md)
 ### Deploy or remove applications
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
