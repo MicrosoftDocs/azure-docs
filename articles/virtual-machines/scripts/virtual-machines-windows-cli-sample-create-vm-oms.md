@@ -22,7 +22,7 @@ ms.author: rclaus
 
 This script creates an Azure Virtual Machine, installs the Operations Management Suite (OMS) agent, and enrolls the system with an OMS workspace. Once the script has run, the virtual machine will be visible in the OMS console.
 
-If needed, install the Azure CLI using the instruction found [here](cli/azure/install-azure-cli.md), and then run `az login` to create a connection with Azure. Also, you should change the $AdminPassword variable at the start of the script to unique and meeting password complexity requirements.
+If needed, install the Azure CLI using the instruction found [here](/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure. Also, you should change the $AdminPassword variable at the start of the script to unique and meeting password complexity requirements.
 
 This sample works in a Bash Shell. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 

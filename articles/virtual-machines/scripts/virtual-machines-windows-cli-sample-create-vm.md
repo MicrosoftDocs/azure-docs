@@ -22,7 +22,7 @@ ms.author: rclaus
 
 This script creates an Azure Virtual Machine with an Windows Server 2016 operating system. After running the script, you can access the virtual machine through a Remote Desktop connection.
 
-If needed, install the Azure CLI using the instruction found [here](cli/azure/install-azure-cli.md), and then run `az login` to create a connection with Azure.
+If needed, install the Azure CLI using the instruction found [here](/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure.
 
 This sample works in a Bash Shell. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
