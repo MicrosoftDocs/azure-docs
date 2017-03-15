@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Create a fully configured virtual machine with PowerShell
 
-This script creates an Azure Virtual Machine with an Ubuntu operating system and related networking resources. After running the script, you can access the virtual machine over SSH.
+This script creates an Azure Virtual Machine with an Ubuntu operating system. After running the script, you can access the virtual machine over SSH.
 
 Before running this script, log in to Azure using the `Login-AzureRmAccount` command. Also, you will need to have an SSH public key named `id_rsa.pub` in the .ssh directory of your user profile.
 

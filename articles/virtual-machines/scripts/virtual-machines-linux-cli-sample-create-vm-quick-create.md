@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Create a virtual machine
 
-The sample script provided here creates an Azure Virtual Machine with an Ubuntu operating system. After running the script, you can access the virtual machine over SSH. 
+This script creates an Azure Virtual Machine with an Ubuntu operating system and related networking resources. After running the script, you can access the virtual machine over SSH.
 
 Before running this script, log in to Azure using the `az login` command.
 

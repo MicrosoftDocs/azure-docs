@@ -28,8 +28,6 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Sample script
 
-The following script creates the virtual machine and invokes the custom script extension.
-
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-nginx/create-vm-nginx.sh "Quick Create VM")]
 
 ## Custom Script Extension

@@ -20,7 +20,7 @@ ms.author: rclaus
 
 # Create a VM with IIS using DSC
 
-This script creates a virtual machine, and then uses the Azure Virtual Machine DSC custom script extension to install and configure IIS. 
+This script creates a virtual machine, and uses the Azure Virtual Machine DSC custom script extension to install and configure IIS. 
 
 Before running this script, log in to Azure using the `az login` command.
 
