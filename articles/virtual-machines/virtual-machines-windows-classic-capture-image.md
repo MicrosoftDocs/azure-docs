@@ -24,7 +24,12 @@ ms.author: cynthn
 
 This article shows you how to capture an Azure virtual machine running Windows so you can use it as an image to create other virtual machines. This image includes the operating system disk and any data disks that are attached to the virtual machine. It doesn't include networking configurations, so you'll need to set up network configurations when you create the other virtual machines that use the image.
 
-Azure stores the image under **VM images (classic)**, a **Compute** service that is listed when you view all the Azure services. This is the same place where any images you've uploaded are stored. For details about images, see [About images for virtual machines](virtual-machines-linux-classic-about-images.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Azure stores the image under **VM images (classic)**, a **Compute** service that is listed when you view all the Azure services. This is the same place where any images you've uploaded are stored. For details about images, see [About images for virtual machines](virtual-machines-windows-classic-about-images.md?toc=%2fazure%2fvirtual-machines%2fWindows%2fclassic%2ftoc.json).
+
+<!-- deleted 3/15/2017. Links to linux article.
+[About images for virtual machines](virtual-machines-linux-classic-about-images.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+-->
+
 
 ## Before you begin
 These steps assume that you've already created an Azure virtual machine and configured the operating system, including attaching any data disks. If you need to haven't done this yet, see these instructions:
@@ -52,7 +57,8 @@ Prior to capturing an image of an Azure virtual machine, it is recommended the t
 
    ![Run Sysprep](./media/virtual-machines-windows-classic-capture-image/SysprepGeneral.png)
 5. Sysprep shuts down the virtual machine, which changes the status of the virtual machine in the Azure classic portal to **Stopped**.
-6. In the Azure portal, click **Virtual Machines** and select the virtual machine you want to capture.
+6. In the Azure portal, click **Virtual Machines (classic)** and select the virtual machine you want to capture. The **VM images (classic)** group is listed under **Compute** when you view **More services**.
+
 7. On the command bar, click **Capture**.
 
    ![Capture virtual machine](./media/virtual-machines-windows-classic-capture-image/CaptureVM.png)
