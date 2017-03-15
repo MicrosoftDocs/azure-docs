@@ -43,7 +43,7 @@ ms.author: rclaus
   - SAP HANA snapshots
   - HANA VM backup via Azure Backup service
   - HANA VM backup automation via Azure Backup service
-  - HANA license key and VM restore via Azure Backup service
+- HANA license key and VM restore via Azure Backup service
   - SAP HANA VM backup via manual disk snapshot
 - SAP HANA Azure Backup on file level
   - Introduction
@@ -57,18 +57,19 @@ ms.author: rclaus
 
 ## Overview
 
-The SAP HANA Azure backup guide only describes Azure-specific topics. For general SAP HANA backup related items one should check the SAP HANA documentation. See _SAP HANA backup documentation_ later in this document.
+The SAP HANA Azure backup guide only describes Azure-specific topics. For general SAP HANA backup related items, check the SAP HANA documentation. See _SAP HANA backup documentation_ later in this document.
 
 The focus of this document is on three major backup possibilities for SAP HANA on Azure:
 
 - HANA backup to the file system in an Azure Linux Virtual Machine
 - HANA backup via storage snapshot using the Azure storage blob snapshot feature
 - HANA backup using the Azure Backup service
-SAP HANA offers a backup API which allows third-party backup tools to integrate directly with SAP HANA. (That is not within the scope of this guide.) There is no direct integration of SAP HANA with Azure Backup service available right now based on this API.
+
+SAP HANA offers a backup API which, allows third-party backup tools to integrate directly with SAP HANA. (That is not within the scope of this guide.) There is no direct integration of SAP HANA with Azure Backup service available right now based on this API.
 
 SAP HANA is officially supported on Azure VM type GS5 as single instance with an additional restriction to OLAP workloads (see [Find Certified IaaS Platforms](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html) on the SAP website). The document will be updated as new offerings for SAP HANA on Azure become available.
 
-There is also an SAP HANA hybrid solution available on Azure, where SAP HANA runs non-virtualized on physical servers. However, this SAP HANA Azure backup guide is about a pure Azure environment where SAP HANA runs in an Azure VM, and does not cover SAP HANA running on &quot;large instances.&quot; See [SAP HANA (large instances) overview and architecture on Azure](./sap-hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information about this backup solution on &quot;large instances&quot; based on storage snapshots.
+There is also an SAP HANA hybrid solution available on Azure, where SAP HANA runs non-virtualized on physical servers. However, this SAP HANA Azure backup guide covers a pure Azure environment where SAP HANA runs in an Azure VM, not SAP HANA running on &quot;large instances.&quot; See [SAP HANA (large instances) overview and architecture on Azure](./sap-hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information about this backup solution on &quot;large instances&quot; based on storage snapshots.
 
 General information about SAP products supported on Azure can be found in [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533).
 
@@ -275,7 +276,7 @@ There is a general challenge when using a VM backup feature—for something like
 
 ### SAP HANA snapshots
 
-There is a feature in SAP HANA which supports taking a storage snapshot. However, as of December, 2016, there is a restriction to single-container systems. Multitenant container configurations do not support this kind of database snapshot (see [Create a Storage Snapshot (SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm)).
+There is a feature in SAP HANA which supports taking a storage snapshot. However, as of December 2016, there is a restriction to single-container systems. Multitenant container configurations do not support this kind of database snapshot (see [Create a Storage Snapshot (SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm)).
 
 It works in the following way:
 
@@ -303,7 +304,7 @@ It is very important to confirm the HANA snapshot. Due to the &quot;Copy-on-Writ
 
 ### HANA VM backup via Azure Backup service
 
-As of December, 2016, the backup agent of the Azure Backup service is not available for Linux VMs. This means that to make use of Azure backup on the file/directory level, one would have to copy SAP HANA backup files to a Windows VM first and then use the backup agent from there. Otherwise, only a full Linux VM backup is possible via the Azure Backup service. See [Overview of the features in Azure Backup](../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to find out more.
+As of December 2016, the backup agent of the Azure Backup service is not available for Linux VMs. This means that to make use of Azure backup on the file/directory level, one would have to copy SAP HANA backup files to a Windows VM first and then use the backup agent from there. Otherwise, only a full Linux VM backup is possible via the Azure Backup service. See [Overview of the features in Azure Backup](../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to find out more.
 
 The Azure Backup service offers an option to back up and restore a VM. More information about this service and how it works can be found in the article [Plan your VM backup infrastructure in Azure](../../backup/backup-azure-vms-introduction.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -430,7 +431,7 @@ One could simply place dedicated VHDs for SAP HANA backups in a dedicated backup
 
 ### Azure backup agent
 
-Azure backup offers the option to not only back up complete VMs, but also files and directories via the backup agent, which has to be installed on the guest OS. But as of December, 2016, this agent is only supported on Windows (see [Back up a Windows Server or client to Azure using the Resource Manager deployment model](../../backup/backup-configure-vault.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)).
+Azure backup offers the option to not only back up complete VMs, but also files and directories via the backup agent, which has to be installed on the guest OS. But as of December 2016, this agent is only supported on Windows (see [Back up a Windows Server or client to Azure using the Resource Manager deployment model](../../backup/backup-configure-vault.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)).
 
 A workaround could be to first copy SAP HANA backup files to a Windows VM on Azure (for example, via SAMBA share) and then use the Azure backup agent from there. While it is technically possible, it would add complexity and slow down the end-to-end backup or restore process quite a bit due to the copy between the Linux and the Windows VM.
 
@@ -456,7 +457,7 @@ Repeating exactly the same backup on a software raid with striping across five a
 
 ### Copy SAP HANA backup files to Azure blob storage
 
-As of December, 2016, the best option to quickly store SAP HANA backup files is Azure blob storage. One single blob container has a limit of 500 TB, which should be enough for most SAP HANA systems running in a GS5 VM on Azure, to keep enough SAP HANA backups. Customers have the choice between &quot;hot&quot; and &quot;cold&quot; blob storage (see [Azure Blob Storage: Hot and cool storage tiers](../../storage/storage-blob-storage-tiers.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)).
+As of December 2016, the best option to quickly store SAP HANA backup files is Azure blob storage. One single blob container has a limit of 500 TB, which should be enough for most SAP HANA systems running in a GS5 VM on Azure, to keep enough SAP HANA backups. Customers have the choice between &quot;hot&quot; and &quot;cold&quot; blob storage (see [Azure Blob Storage: Hot and cool storage tiers](../../storage/storage-blob-storage-tiers.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)).
 
 With the blobxfer tool it is easy to copy the SAP HANA backup files directly to Azure blob storage.
 
