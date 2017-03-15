@@ -37,7 +37,7 @@
 
 ### Configure Remote Desktop
 #### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
-#### [Visual Studio](cloud-services-role-enable-remote-desktop.md)
+#### [Classic Portal](cloud-services-role-enable-remote-desktop.md)
 #### [Node.js](cloud-services-nodejs-enable-remote-desktop.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
