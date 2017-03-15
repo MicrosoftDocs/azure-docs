@@ -35,8 +35,8 @@ is a great use case for Azure Logic Apps. Here are some patterns and examples.
 
 Every logic app starts with a trigger. For example, 
 your workflow can start with a scheduling event, 
-a manual invocation, or an event from an external system, 
-like "when a file is added to an FTP server". 
+a manual invocation, or an event from an external system 
+such as the "when a file is added to an FTP server" trigger. 
 Azure Logic Apps currently supports over 100 ready-to-use connectors, 
 ranging from on-premises SAP to Azure Cognitive Services. 
 For systems and services that might not have published connectors, 
@@ -46,7 +46,7 @@ you can also extend logic apps.
 * [Create custom triggers or actions](../logic-apps/logic-apps-create-api-app.md)
 * [Set up long-running actions for workflow runs](../logic-apps/logic-apps-create-api-app.md)
 * [Respond to external events and actions with webhooks](../logic-apps/logic-apps-create-api-app.md)
-* [Call, trigger or nest workflows with synchronous responses to HTTP requests](logic-apps-http-endpoint.md)
+* [Call, trigger, or nest workflows with synchronous responses to HTTP requests](logic-apps-http-endpoint.md)
 * [Tutorial: Respond to Twilio SMS webhooks and send a text response](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## Error handling, logging, and control flow capabilities
@@ -93,9 +93,10 @@ like `application/xml`, `application/octet-stream`, and `multipart/formdata`
 
 ## Other integrations and capabilities
 
-Logic apps also provide integration with many other services, 
-including Azure Functions, Azure API Management, 
-Azure App Services, and custom HTTP endpoints including REST and SOAP.
+Logic apps also offer integration with many services, 
+like Azure Functions, Azure API Management, 
+Azure App Services, and custom HTTP endpoints, 
+for example, REST and SOAP.
 
 * [Call Azure Functions from logic apps](../logic-apps/logic-apps-azure-functions.md)
 * [Scenario: Trigger logic apps with Azure Functions](logic-apps-scenario-function-sb-trigger.md)
