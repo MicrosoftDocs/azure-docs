@@ -32,11 +32,21 @@ To expand the portal menu, click the three bars in the upper left corner and the
 
 ![Browse for your Azure VM](./media/virtual-machines-windows-reset-rdp/Portal-Select-VM.png)
 
+### **Reset the local administrator account password**
+
 Select your Windows virtual machine then click **Support + Troubleshooting** > **Reset password**. The password reset blade is displayed:
 
 ![Password reset page](./media/virtual-machines-windows-reset-rdp/Portal-RM-PW-Reset-Windows.png)
 
-Enter the username and a new password, then click **Save**. Try connecting to your VM again.
+Enter the username and a new password, then click **Update**. Try connecting to your VM again.
+
+### **Reset the Remote Desktop service configuration**
+
+Select your Windows virtual machine then click **Support + Troubleshooting** > **Reset password**. The password reset blade is displayed. 
+
+![Reset RDP configuration](./media/virtual-machines-windows-reset-rdp/Portal-RM-RDP-Reset.png)
+
+Select **Reset configuration only** from the drop-down menu, then click **Update**. Try connecting to your VM again.
 
 
 ## VMAccess extension and PowerShell
