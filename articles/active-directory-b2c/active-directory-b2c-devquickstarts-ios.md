@@ -48,7 +48,7 @@ In Azure AD B2C, every user experience is defined by a [policy](active-directory
 
 * Under **Sign-up attributes**, select the attribute **Display name**.  You can select other attributes as well.
 * Under **Application claims**, select the claims **Display name** and **User's Object ID**. You can select other claims as well.
-* Copy the **Name** of each policy after you create it. The policy name you type will be prefixed with `b2c_1_` when you Save the policy.  You need the policy name later.
+* Copy the **Name** of each policy after you create it. Your policy name is prefixed with `b2c_1_` when you save the policy.  You need the policy name later.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
