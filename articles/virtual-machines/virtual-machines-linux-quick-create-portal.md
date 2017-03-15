@@ -26,13 +26,11 @@ Azure virtual machines can be created through the Azure portal. This method prov
 
 You need an SSH key pair to complete this quick start. If you have an existing key par this step can be skipped. 
 
-From a Bash shell, run the following command and follow the on-screen directions. 
+From a Bash shell, run the following command and follow the on-screen directions. The command output includes the location and file name of the public key file. The contents of this file is needed when creating the virtual machine.
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
-
-The output of this command includes the location and file name of the public key file. The contents of this file is needed when creating the virtual machine. 
 
 ## Log in to Azure 
 
