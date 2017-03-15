@@ -84,7 +84,7 @@ While not required to build solutions using Batch, here are some valuable tools 
 [api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_nuget]: https://www.nuget.org/packages/Azure.Batch/
-[api_rest_mgmt]: https://docs.microsoft.com/en-us/rest/api/batchmanagement/
+[api_rest_mgmt]: https://docs.microsoft.com/\rest/api/batchmanagement/
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
 [api_net_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
 [api_nodejs]: http://azure.github.io/azure-sdk-for-node/azure-batch/latest/
