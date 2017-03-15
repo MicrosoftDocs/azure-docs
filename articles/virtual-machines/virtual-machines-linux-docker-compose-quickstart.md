@@ -18,7 +18,7 @@ ms.date: 02/13/2017
 ms.author: iainfou
 
 ---
-# Get started with Docker and Compose to define and run a multi-container application on an Azure virtual machine
+# Get started with Docker and Compose to define and run a multi-container application in Azure
 With [Compose](http://github.com/docker/compose), you use a simple text file to define an application consisting of multiple Docker containers. You then spin up your application in a single command that does everything to deploy your defined environment. As an example, this article shows you how to quickly set up a WordPress blog with a backend MariaDB SQL database on an Ubuntu VM. You can also use Compose to set up more complex applications.
 
 ## Step 1: Set up a Linux VM as a Docker host
@@ -26,28 +26,11 @@ You can use various Azure procedures and available images or Resource Manager te
 
 When you use the Docker VM extension, your VM is automatically set up as a Docker host and Compose is already installed. You can create a VM and use the Docker VM extension using one of the following CLI versions:
 
+- [Azure CLI 2.0](#azure-cli-20) - our next generation CLI for the resource management deployment model
 - [Azure CLI 1.0](#azure-cli-10) – our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0 (Preview)](#azure-cli-20-preview) - our next generation CLI for the resource management deployment model
 
-
-### Azure CLI 1.0
-Install the latest [Azure CLI 1.0](../xplat-cli-install.md) and log in to an Azure account. Make sure that you are in Resource Manager mode to create the VM (`azure config mode arm`).
-
-The following example creates a resource group named `myResourceGroup` in the `West US` location and deploys a VM with the Azure Docker VM extension. An [Azure Resource Manager template from Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) is used to deploy the environment:
-
-```azurecli
-azure group create --name myResourceGroup --location "West US" \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
-```
-
-The Azure CLI returns you to the prompt after only a few seconds, but your Docker host is still being created and configured. It takes a few minutes for the deployment to finish. You can view details about the Docker host status using the `azure vm show` command. The following example checks the status of the VM named `myDockerVM` (the default name from the template - don't change this name) in the resource group named `myResourceGroup`. Enter the name of the resource group you created in the preceding step:
-
-```azurecli
-azure vm show --resource-group myResourceGroup --name myDockerVM
-```
-
-### Azure CLI 2.0 (Preview)
-Install the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login).
+### Azure CLI 2.0
+Install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login).
 
 First, create a resource group for your Docker environment with [az group create](/cli/azure/group#create). The following example creates a resource group named `myResourceGroup` in the `West US` location:
 
@@ -77,8 +60,24 @@ az vm show --resource-group myResourceGroup --name myDockerVM \
 
 When this command returns `Succeeded`, the deployment has finished and you can SSH to the VM in the following step.
 
+### Azure CLI 1.0
+Install the latest [Azure CLI 1.0](../xplat-cli-install.md) and log in to an Azure account. Make sure that you are in Resource Manager mode to create the VM (`azure config mode arm`).
+
+The following example creates a resource group named `myResourceGroup` in the `West US` location and deploys a VM with the Azure Docker VM extension. An [Azure Resource Manager template from Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) is used to deploy the environment:
+
+```azurecli
+azure group create --name myResourceGroup --location "West US" \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
+```
+
+The Azure CLI returns you to the prompt after only a few seconds, but your Docker host is still being created and configured. It takes a few minutes for the deployment to finish. You can view details about the Docker host status using the `azure vm show` command. The following example checks the status of the VM named `myDockerVM` (the default name from the template - don't change this name) in the resource group named `myResourceGroup`. Enter the name of the resource group you created in the preceding step:
+
+```azurecli
+azure vm show --resource-group myResourceGroup --name myDockerVM
+```
+
 ## Step 2: Verify that Compose is installed
-Once the deployment is finished, SSH to your new Docker host using the DNS name you provided during deployment. You can use `azure vm show -g myResourceGroup -n myDockerVM` (Azure CLI 1.0) or `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv` (Azure CLI 2.0 (Preview)) to view details of your VM, including the DNS name.
+Once the deployment is finished, SSH to your new Docker host using the DNS name you provided during deployment. You can use `azure vm show -g myResourceGroup -n myDockerVM` (Azure CLI 1.0) or `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv` (Azure CLI 2.0) to view details of your VM, including the DNS name.
 
 To check that Compose is installed on the VM, run the following command:
 

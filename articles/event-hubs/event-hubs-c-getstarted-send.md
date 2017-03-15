@@ -29,7 +29,7 @@ In this tutorial, you will learn how to send events to an Event Hub using a cons
 To complete this tutorial, you will need the following:
 
 * A C development environment. For this tutorial, we will assume the gcc stack on an Azure Linux VM with Ubuntu 14.04.
-* Microsoft Visual Studio Express for Windows
+* Microsoft Visual Studio, or Visual Studio Community Edition
 * An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Send messages to Event Hubs

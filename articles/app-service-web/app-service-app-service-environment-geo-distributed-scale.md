@@ -4,7 +4,7 @@ description: Learn how to horizontally scale apps using geo-distribution with Tr
 services: app-service
 documentationcenter: ''
 author: stefsch
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb

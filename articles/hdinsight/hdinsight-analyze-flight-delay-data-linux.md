@@ -17,15 +17,16 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: larryfr
 
+ms.custom: H1Hack27Feb2017
 ---
-# Analyze flight delay data by using Hive in HDInsight
-Learn how to analyze flight delay data using Hive on Linux-based HDInsight then export the data to Azure SQL Database using using Sqoop.
+# Analyze flight delay data by using Hive on Linux-based HDInsight
+
+Learn how to analyze flight delay data using Hive on Linux-based HDInsight then export the data to Azure SQL Database using Sqoop.
 
 > [!IMPORTANT]
 > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ### Prerequisites
-Before you begin this tutorial, you must have the following:
 
 * **An HDInsight cluster**. See [Get started using Hadoop with Hive in HDInsight on Linux](hdinsight-hadoop-linux-tutorial-get-started.md) for steps on creating a new Linux-based HDInsight cluster.
 
@@ -58,7 +59,7 @@ Before you begin this tutorial, you must have the following:
     Replace **FILENAME** with the name of the zip file. Replace **USERNAME** with the SSH login for the HDInsight cluster. Replace CLUSTERNAME with the name of the HDInsight cluster.
    
    > [!NOTE]
-   > If you use a password to authenticate your SSH login, you are prompted for the password. If you used a public key, you may need to use the `-i` parameter and specify the path to the matching private key. For example `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+   > If you use a password to authenticate your SSH login, you are prompted for the password. If you used a public key, you may need to use the `-i` parameter and specify the path to the matching private key. For example, `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
 2. Once the upload has completed, connect to the cluster using SSH:
    
@@ -75,9 +76,9 @@ Before you begin this tutorial, you must have the following:
     unzip FILENAME.zip
     ```
    
-    This extracts a .csv file that is roughly 60MB in size.
+    This command extracts a .csv file that is roughly 60 MB in size.
 
-4. Use the following to create a new directory on WASB (the distributed data store used by HDInsight,) and copy the file:
+4. Use the following command to create a directory on HDInsight storage, and then copy the file to the directory:
    
     ```
     hdfs dfs -mkdir -p /tutorials/flightdelays/data
@@ -85,15 +86,16 @@ Before you begin this tutorial, you must have the following:
     ```
 
 ## Create and run the HiveQL
+
 Use the following steps to import data from the CSV file into a Hive table named **Delays**.
 
-1. Use the following to create and edit a new file named **flightdelays.hql**:
+1. Use the following command to create and edit a new file named **flightdelays.hql**:
    
     ```
     nano flightdelays.hql
     ```
    
-    Use the following as the contents of this file:
+    Use the following text as the contents of this file:
    
     ```hiveql
     DROP TABLE delays_raw;
@@ -157,7 +159,7 @@ Use the following steps to import data from the CSV file into a Hive table named
 
 2. Use **Ctrl + X**, then **Y** to save the file.
 
-3. Use the following to start Hive and run the **flightdelays.hql** file:
+3. Use the following command to start Hive and run the **flightdelays.hql** file:
    
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql
@@ -172,7 +174,7 @@ Use the following steps to import data from the CSV file into a Hive table named
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
     ```
 
-5. When you receive the `jdbc:hive2://localhost:10001/>` prompt, use the following to retrieve data from the imported flight delay data.
+5. When you receive the `jdbc:hive2://localhost:10001/>` prompt, use the following query to retrieve data from the imported flight delay data.
    
     ```hiveql
     INSERT OVERWRITE DIRECTORY '/tutorials/flightdelays/output'
@@ -184,20 +186,20 @@ Use the following steps to import data from the CSV file into a Hive table named
     GROUP BY origin_city_name;
     ```
    
-    This retrieves a list of cities that experienced weather delays, along with the average delay time, and save it to `/tutorials/flightdelays/output`. Later, Sqoop reads the data from this location and export it to Azure SQL Database.
+    This query retrieves a list of cities that experienced weather delays, along with the average delay time, and save it to `/tutorials/flightdelays/output`. Later, Sqoop reads the data from this location and export it to Azure SQL Database.
 
 6. To exit Beeline, enter `!quit` at the prompt.
 
 ## Create a SQL Database
 
-If you already have a SQL Database, you must get the server name. You can find this in the [Azure Portal](https://portal.azure.com) by selecting **SQL Databases**, and then filtering on the name of the database you wish to use. The server name is listed in the **SERVER** column.
+If you already have a SQL Database, you must get the server name. You can find the server name in the [Azure portal](https://portal.azure.com) by selecting **SQL Databases**, and then filtering on the name of the database you wish to use. The server name is listed in the **SERVER** column.
 
 If you do not already have a SQL Database, use the information in [SQL Database tutorial: Create a SQL database in minutes](../sql-database/sql-database-get-started.md) to create one. You need to save the server name used for the database.
 
 ## Create a SQL Database table
 
 > [!NOTE]
-> There are many ways to connect to SQL Database to create a table. The following steps use [FreeTDS](http://www.freetds.org/) from the HDInsight cluster.
+> There are many ways to connect to SQL Database and create a table. The following steps use [FreeTDS](http://www.freetds.org/) from the HDInsight cluster.
 
 
 1. Use SSH to connect to the Linux-based HDInsight cluster, and run the following steps from the SSH session.
@@ -214,7 +216,7 @@ If you do not already have a SQL Database, use the information in [SQL Database 
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
    
-    You receive output similar to the following:
+    You receive output similar to the following text:
    
     ```
     locale is "en_US.UTF-8"
@@ -235,7 +237,7 @@ If you do not already have a SQL Database, use the information in [SQL Database 
     GO
     ```
    
-    When the `GO` statement is entered, the previous statements are evaluated. This creates a new table named **delays**, with a clustered index (required by SQL Database.)
+    When the `GO` statement is entered, the previous statements are evaluated. This creates a table named **delays**, with a clustered index.
    
     Use the following to verify that the table has been created:
    
@@ -261,7 +263,7 @@ If you do not already have a SQL Database, use the information in [SQL Database 
     sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
     ```
    
-    This should return a list of databases, including the database that you created the delays table in earlier.
+    This command returns a list of databases, including the database that you created the delays table in earlier.
 
 2. Use the following command to export data from hivesampletable to the mobiledata table:
    
@@ -269,7 +271,7 @@ If you do not already have a SQL Database, use the information in [SQL Database 
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
    
-    This instructs Sqoop to connect to SQL Database, to the database containing the delays table, and export data from the `/tutorials/flightdelays/output` directory (where we stored the output of the hive query earlier,) to the delays table.
+    Sqoop connects to the database containing the delays table, and exports data from the `/tutorials/flightdelays/output` directory to the delays table.
 
 3. After the command completes, use the following to connect to the database using TSQL:
    
@@ -288,9 +290,8 @@ If you do not already have a SQL Database, use the information in [SQL Database 
 
 ## <a id="nextsteps"></a> Next steps
 
-Now you understand how to upload a file to Azure Blob storage, how to populate a Hive table by using the data from Azure Blob storage, how to run Hive queries, and how to use Sqoop to export data from HDFS to an Azure SQL database. To learn more, see the following articles:
+To learn more ways to work with data in HDInsight, see the following documents:
 
-* [Getting started with HDInsight][hdinsight-get-started]
 * [Use Hive with HDInsight][hdinsight-use-hive]
 * [Use Oozie with HDInsight][hdinsight-use-oozie]
 * [Use Sqoop with HDInsight][hdinsight-use-sqoop]

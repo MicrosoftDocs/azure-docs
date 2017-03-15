@@ -4,7 +4,7 @@ description: Learn how to use the Python Tools for Visual Studio to create a Bot
 services: app-service\web
 documentationcenter: python
 author: huguesv
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: f075124b-db79-4e51-b394-09187dd6c634

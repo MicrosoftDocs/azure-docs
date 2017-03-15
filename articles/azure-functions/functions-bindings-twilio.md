@@ -16,10 +16,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/20/2016
-ms.author: wesmc
+ms.author: wesmc, glenga
+
+ms.custom: H1Hack27Feb2017
 
 ---
-# Azure Functions Twilio output binding
+# Send SMS messages from Azure Functions using the Twilio output binding
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and use Twilio bindings with Azure Functions. 
@@ -28,7 +30,7 @@ This article explains how to configure and use Twilio bindings with Azure Functi
 
 Azure Functions supports Twilio output bindings to enable your functions to send SMS text messages with a few lines of code and a [Twilio](https://www.twilio.com/) account. 
 
-## function.json for Azure Notification Hub output binding
+## function.json for the Twilio output binding
 The function.json file provides the following properties:
 
 * `name` : Variable name used in function code for the Twilio SMS text message.

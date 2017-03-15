@@ -16,9 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
+ms.custom: H1Hack27Feb2017
 
 ---
-# Get started with Raspberry Pi 3 (C)
+# Connect your Raspberry Pi 3 device to your IoT hub using C
 > [!div class="op_single_selector"]
 > * [Node.JS](iot-hub-raspberry-pi-kit-node-get-started.md)
 > * [C](iot-hub-raspberry-pi-kit-c-get-started.md)

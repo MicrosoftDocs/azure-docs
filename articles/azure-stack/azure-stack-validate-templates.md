@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 3/1/2016
 ms.author: helaw
 
 ---
@@ -83,7 +83,7 @@ Any template validation warnings or errors are logged to the PowerShell console,
 This example validates all the Azure Stack Quickstart templates downloaded locally, and also validates the VM sizes and extensions against Azure Stack TP2 capabilities.
 
 ```PowerShell
-test-AzureRMTemplate -TemplatePath C:\AzureStack-QuickStart-Templates`
+test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates`
 -CapabilitiesPath C:\AzureTemplateValidator\AzureStackCapabilities_TP2.json`
 -TemplatePattern MyStandardTemplateName.json`
 -IncludeComputeCapabilities`

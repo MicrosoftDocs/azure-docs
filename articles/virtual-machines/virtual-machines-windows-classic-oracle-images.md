@@ -16,8 +16,9 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/06/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 
 ---
-# List of Oracle virtual machine images
+# List of Oracle virtual machine images for Windows 
 [!INCLUDE [virtual-machines-common-classic-oracle-images](../../includes/virtual-machines-common-classic-oracle-images.md)]
 

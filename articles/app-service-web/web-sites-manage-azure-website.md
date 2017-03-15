@@ -4,7 +4,7 @@ description: Links to resources for managing a web app in Azure App Service.
 services: app-service\web
 documentationcenter: ''
 author: erikre
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: d5e2887a-84f9-4747-a573-867635cb8b39

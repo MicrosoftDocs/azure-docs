@@ -1,5 +1,5 @@
 ---
-title: .NET API & SDK Resources - Azure DocumentDB | Microsoft Docs
+title: Azure DocumentDB .NET SDK & Resources | Microsoft Docs
 description: Learn all about the .NET API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK.
 services: documentdb
 documentationcenter: .net
@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 03/14/2017
 ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
 
 ---
-# DocumentDB APIs and SDKs
+# DocumentDB .NET SDK: Download and release notes
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -30,7 +31,6 @@ ms.author: rnagpal
 > 
 > 
 
-## DocumentDB .NET API and SDK
 <table>
 
 <tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
@@ -48,15 +48,27 @@ ms.author: rnagpal
 
 ## Release notes
 
+### <a name="1.12.1"/>[1.12.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.1)
+* Added LINQ support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG).
+* Fix for a memory leak issue for the ConnectionPolicy object caused by the use of event handler.
+* Fix for an issue wherein UpsertAttachmentAsync was not working when ETag was used.
+* Fix for an issue wherein cross partition order-by query continuation was not working when sorting on string field.
+
+### <a name="1.12.0"/>[1.12.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.0)
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](documentdb-sql-query.md#Aggregates).
+* Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
+
 ### <a name="1.11.4"/>[1.11.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.4)
 * Fix for an issue wherein some of the cross-partition queries were failing in the 32-bit host process.
 * Fix for an issue wherein the session container was not being updated with the token for failed requests in Gateway mode.
 * Fix for an issue wherein a query with UDF calls in projection was failing in some cases.
+* Client side performance fixes for increasing the read and write throughput of the requests.
 
 ### <a name="1.11.3"/>[1.11.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.3)
 * Fix for an issue wherein the session container was not being updated with the token for failed requests.
 * Added support for the SDK to work in a 32-bit host process. Note that if you use cross partition queries, 64-bit host processing is recommended for improved performance.
 * Improved performance for scenarios involving queries with a large number of partition key values in an IN expression.
+* Populated various resource quota stats in the ResourceResponse for document collection read requests when PopulateQuotaInfo request option is set.
 
 ### <a name="1.11.1"/>[1.11.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.1)
 * Minor performance fix for the CreateDocumentCollectionIfNotExistsAsync API introduced in 1.11.0.
@@ -196,6 +208,8 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.12.1](#1.12.1) |March 14, 2017 |--- |
+| [1.12.0](#1.12.0) |February 15, 2017 |--- |
 | [1.11.4](#1.11.4) |February 06, 2017 |--- |
 | [1.11.3](#1.11.3) |January 26, 2017 |--- |
 | [1.11.1](#1.11.1) |December 21, 2016 |--- |

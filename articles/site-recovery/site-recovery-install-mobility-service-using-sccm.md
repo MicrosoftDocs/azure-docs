@@ -80,8 +80,10 @@ This article provides you an example of how you can use System Center Configurat
 | Command line | install.bat |
 | Program can run | Whether or not a user is logged on |
 9. In the next page, select the target operating systems. Mobility Service can be installed only on Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2.
+
   ![sccm-package-properties-page2](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)   
 10. Complete Next twice to complete the wizard.
+
 > [!NOTE]
 > The script supports both new installations of Mobility Service Agents and upgrade/update of already installed Agents.
 
@@ -193,6 +195,30 @@ Read more about other ways to install mobility services.
 * [Manual Installation using command-line](http://aka.ms/mobsvcmanualinstallcli)
 * [Push Installation using Configuration Server ](http://aka.ms/pushinstall)
 * [Automated Installation using Azure Automation & Desired State Configuration ](http://aka.ms/mobsvcdscinstall)
+
+## Uninstall Mobility Service
+Just like installation you can create SCCM packages to uninstall Mobility Service. Use the below script to uninstall the Mobility Service.
+
+```
+Time /t >> C:\logfile.log
+REM ==================================================
+REM ==== Check if Mob Svc is already installed =======
+REM ==== If not installed no operation required ========
+REM ==== Else run uninstall command =====================
+REM ==== {275197FC-14FD-4560-A5EB-38217F80CBD1} is ====
+REM ==== guid for Mob Svc Installer ====================
+whoami >> C:\logfile.log
+NET START | FIND "InMage Scout Application Service"
+IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
+:NOOPERATION
+                echo "No Operation Required." >> c:\logfile.log
+                GOTO :ENDSCRIPT
+:UNINSTALL
+                echo "Uninstall" >> C:\logfile.log
+                MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
+:ENDSCRIPT
+
+```
 
 ## Next steps
 You are now ready to [Enable protection](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications) for your virtual machines.

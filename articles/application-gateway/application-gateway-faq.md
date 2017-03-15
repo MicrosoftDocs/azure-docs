@@ -62,6 +62,7 @@ When using a public IP address as an endpoint, this information can be found on 
 
 The VIP can change if the gateway is stopped and started by the customer. The DNS associated with Application Gateway does not change over the lifecycle of the gateway. For this reason, it is recommended to use a CNAME alias and point it to the DNS address of the Application Gateway.
 
+
 **Q. Does Application Gateway support static IP?**
 
 No, Application Gateway does not support static public IP addresses, but it does support static internal IPs.
@@ -119,6 +120,10 @@ Custom probes do not support wildcard or regex on response data.
 **Q. What does the Host field for custom probes signify?**
 
 Host field specifies the name to send the probe to. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This value is different from VM host name and is in format \<protocol\>://\<host\>:\<port\>\<path\>. 
+
+**Q. Does Application Gateway also support multi-tenant backends?**
+
+No, currently Application Gateway preserves the incoming host header and sends the same header to backend. If the backend requires a different header then this will not work. Similarly if the backend is multi tenant and end-to-end SSL is enabled, the backend would expect server name in SNI extension. Application Gateway does not currently send SNI header in backend requests in end-to-end SSL scenarios which would cause probe and data path issues. 
 
 ## Performance
 
@@ -228,21 +233,19 @@ Currently WAF rules are not customizable.
 
 WAF currently supports CRS 2.2.9, which provides baseline security against most of the top 10 vulnerabilities identified by the Open Web Application Security Project (OWASP) found here [OWASP top 10 Vulnerabilities](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)
 
-* SQL Injection
+* SQL injection protection
 
-* Broken Authentication and Session Management
+* Cross site scripting protection
 
-* Cross-Site Scripting (XSS)
+* Common Web Attacks Protection such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion attack
 
-* Protocol Anomalies
+* Protection against HTTP protocol violations
 
-* Insecure Direct Object References
+* Protection against HTTP protocol anomalies such as missing host user-agent and accept headers
 
-* Security Misconfiguration
+* Prevention against bots, crawlers, and scanners
 
-* Using Known Vulnerable Components
-
-* Unvalidated Redirects and Forwards
+* Detection of common application misconfigurations (i.e. Apache, IIS, etc.)
 
 **Q. Does WAF also support DDos prevention?**
 

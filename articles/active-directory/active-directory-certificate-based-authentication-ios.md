@@ -27,8 +27,7 @@ Configuring this feature eliminates the need to enter a username and password co
 
 This topic provides you with the requirements and the supported scenarios for configuring CBA on an Android device for users of tenants in Office 365 Enterprise, Business, Education, and US Government plans. 
 
-This feature is available in preview for Office 365 China, US Government Defense and US Government Federal plans.
-
+This feature is available in preview in Office 365 US Government Defense and Federal plans.
 
 
 
@@ -42,7 +41,7 @@ This feature is available in preview for Office 365 China, US Government Defense
 | OneDrive |![Check][1] |
 | Outlook |![Check][1] |
 | Yammer |![Check][1] |
-| Skype for Business |Coming soon |
+| Skype for Business |![Check][1] |
 
 ## Requirements 
 

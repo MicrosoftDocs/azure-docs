@@ -128,5 +128,4 @@ Use Site Recovery to protect your SAP deployment, as follows:
 [Learn more](http://aka.ms/asr-sap) about protecting SAP.
 
 ## Next steps
-[Prepare for Site Recovery deployment](site-recovery-best-practices.md) 
-
+[Check prerequisites](site-recovery-prereq.md) 

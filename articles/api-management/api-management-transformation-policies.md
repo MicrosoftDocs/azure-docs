@@ -327,13 +327,93 @@ This topic provides a reference for the following API Management policies. For i
   </when>  
 </choose>  
 ```  
-  
+
+### Using Liquid templates with set body 
+The `set-body` policy can be configured to use the [Liquid](https://shopify.github.io/liquid/basics/introduction/) templating language to transfom the body of a request or response. This can be very effective if you need to completely reshape the format of your message.
+
+> [!IMPORTANT]
+> The implementation of Liquid used in the `set-body` policy is configured in 'C# mode'. This is particularly important when doing things such as filtering. As an example, using a date filter requires the use of Pascal casing and C# date formatting e.g.:
+>
+> {{body.foo.startDateTime| Date:"yyyyMMddTHH:mm:ddZ"}}
+
+> [!IMPORTANT]
+> In order to correctly bind to an XML body using the Liquid template, use a `set-header` policy to set Content-Type to either application/xml, text/xml (or any type ending with +xml); for a JSON body, it must be application/json, text/json (or any type ending with +json).
+
+#### Convert JSON to SOAP using a Liquid template
+```xml
+<set-body template="liquid">
+    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+        <soap:Body>
+            <GetOpenOrders>
+                <cust>{{body.getOpenOrders.cust}}</cust>
+            </GetOpenOrders>
+        </soap:Body>
+    </soap:Envelope>
+</set-body>
+```
+
+#### Tranform JSON using a Liquid template
+```xml
+{
+"order": {
+    "id": "{{body.customer.purchase.identifier}}",
+    "summary": "{{body.customer.purchase.orderShortDesc}}"
+    }
+}
+```
+
 ### Elements  
   
 |Name|Description|Required|  
 |----------|-----------------|--------------|  
 |set-body|Root element. Contains the body text or an expressions that returns a body.|Yes|  
+
+### Properties  
   
+|Name|Description|Required|Default|  
+|----------|-----------------|--------------|-------------|  
+|template|Used to change the templating mode that the set body policy will run in. Currently the only supported value is:<br /><br />- liquid - the set body policy will use the liquid templating engine |No|liquid|  
+
+For accessing information about the request and response, the Liquid template can bind to a context object with the following properties: <br />
+<pre>context.
+    Request.
+        Url
+        Method
+        OriginalMethod
+        OriginalUrl
+        IpAddress
+        MatchedParameters
+        HasBody
+        ClientCertificates
+        Headers
+
+    Response.
+        StatusCode
+        Method
+        Headers
+Url.
+    Scheme
+    Host
+    Port
+    Path
+    Query
+    QueryString
+    ToUri
+    ToString
+
+OriginalUrl.
+    Scheme
+    Host
+    Port
+    Path
+    Query
+    QueryString
+    ToUri
+    ToString
+</pre>
+
+
+
 ### Usage  
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   

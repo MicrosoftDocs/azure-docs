@@ -4,7 +4,7 @@ description: Media app scenario to implement Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 48201cc8-4e04-485c-a8dc-d6406d23f3ed

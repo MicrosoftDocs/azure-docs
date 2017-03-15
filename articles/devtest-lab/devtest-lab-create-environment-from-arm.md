@@ -65,7 +65,7 @@ The following steps guide you through adding a repository to your lab using the 
 1. Select **Add+** to add your Azure Resource Manager template repository.
 1. When the second **Repositories** blade opens, enter the necessary information as follows:
 	- **Name** - Enter the repository name that is used in the lab.
-	- **Git clone URI** - Enter the GIT HTTPS clone URL from GitHub or Visual Studio Team Services.  
+	- **Git clone URL** - Enter the GIT HTTPS clone URL from GitHub or Visual Studio Team Services.  
 	- **Branch** - Enter the branch name to access your Azure Resource Manager template definitions. 
 	- **Personal access token** - The personal access token is used to securely access your repository. To get your token from Visual Studio Team Services, select **&lt;YourName> > My profile > Security > Public access token**. To get your token from GitHub, select your avatar followed by selecting **Settings > Public access token**. 
 	- **Folder paths** - Using one of the two input fields, enter the folder path that starts with a forward slash - / - and is relative to your Git clone URI to either your artifact definitions (first input field) or your Azure Resource Manager template definitions.   
@@ -111,4 +111,4 @@ Once an Azure Resource Manager template repository has been configured in the la
 
 ## Next steps
 * Once a VM has been created, you can connect to the VM by selecting **Connect** on the VM's blade.
-* Explore the [Azure Resource Manager templates from Azure QuickStart template gallery](https://github.com/Azure/azure-quickstart-templates)
+* Explore the [Azure Resource Manager templates from Azure Quickstart template gallery](https://github.com/Azure/azure-quickstart-templates)
