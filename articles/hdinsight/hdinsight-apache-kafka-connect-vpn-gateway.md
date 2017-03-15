@@ -433,4 +433,7 @@ For more information on creating an Azure Virtual Network with Point-to-Site VPN
 
 * [Configure a Point-to-Site connection using Azure PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
-For more information on 
+For more information on working with Kafka on HDInsight, see the following documents:
+
+* [Get started with Kafka on HDInsight](hdinsight-apache-kafka-get-started.md)
+* [Use mirroring with Kafka on HDInsight](hdinsight-apache-kafka-mirroring.md)
