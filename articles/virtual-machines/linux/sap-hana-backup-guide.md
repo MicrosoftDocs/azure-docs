@@ -117,7 +117,7 @@ In both cases, one has to think about copying the backups to another location af
 
 While standard SAP HANA backups are straight forward there are a few things to consider on Azure when it comes to storage snapshots. See _SAP HANA Data consistency_ later in this document for details.
 
-Due to many customer-specific factors and individual requirements it is not possible to give a general backup guideline which fits every use case. For some customers, it might be fine to shutdown an SAP HANA dev system in the evening, or even the whole VM, to save costs and then simply copy all virtual disks to back up the complete environment. Other customers might run an SAP HANA production system, which has to stay online during the backup, and would have to keep backups geo-redundant to protect against a theoretical disaster like a meteor crushing an Azure data center.
+Due to many customer-specific factors and individual requirements it is not possible to give a general backup guideline which fits every use case. For some customers, it might be fine to shut down an SAP HANA dev system in the evening, or even the whole VM, to save costs and then simply copy all virtual disks to back up the complete environment. Other customers might run an SAP HANA production system, which has to stay online during the backup, and would have to keep backups geo-redundant to protect against a theoretical disaster like a meteor crushing an Azure data center.
 
 What can be said as a general recommendation for online backups is this:
 
@@ -204,10 +204,10 @@ SAP also recommends doing some housekeeping of the backup catalog to keep it fro
 As stated in the FAQ in [SAP Note 1642148](https://launchpad.support.sap.com/#/notes/1642148), the SAP HANA configuration files are not part of a standard HANA backup. They are not essential to restore a system. The HANA configuration could be changed manually after the restore. In case one would like to get the same custom configuration during the restore process, it is necessary to back up the HANA configuration files separately.
 
 If standard HANA backups are going to a dedicated HANA backup file system, one could also copy the configuration files to the same backup filesystem, and then copy everything together to the final storage destination like cool blob storage.
+
 ## SAP HANA Cockpit
 
-SAP HANA Cockpit offers the possibility of monitoring and managing SAP HANA via a browser. It also allows handling of SAP HANA backups, and therefore can be used as an alternative to SAP HANA
-Studio and ABAP DBACOCKPIT (see [SAP HANA Cockpit](https://help.sap.com/saphelp_hanaplatform/helpdata/en/73/c37822444344f3973e0e976b77958e/content.htm) for more information).
+SAP HANA Cockpit offers the possibility of monitoring and managing SAP HANA via a browser. It also allows handling of SAP HANA backups, and therefore can be used as an alternative to SAP HANA Studio and ABAP DBACOCKPIT (see [SAP HANA Cockpit](https://help.sap.com/saphelp_hanaplatform/helpdata/en/73/c37822444344f3973e0e976b77958e/content.htm) for more information).
 
 ![This figure shows the SAP HANA Cockpit Database Administration Screen](./media/sap-hana-backup-guide/image004.png)
 
@@ -525,7 +525,7 @@ So it works, but performance wasn&#39;t very good for the 230 GB backup test. It
 
 ### Copy SAP HANA backup files to Azure file service
 
-It is possible to mount an Azure file share inside an Azure Linux VM, the article [How to use Azure File Storage with Linux](../../storage/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) provides details on how to do it. One has to keep in mind, though, that there is currently a 5 TB quota limit of one Azure file share, and a file size limit of 1 TB per file. See [Azure Storage Scalability and Performance Targets](../../storage/storage-scalability-targets.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for information on storage limits.
+It is possible to mount an Azure file share inside an Azure Linux VM. The article [How to use Azure File Storage with Linux](../../storage/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) provides details on how to do it. One has to keep in mind, though, that there is currently a 5 TB quota limit of one Azure file share, and a file size limit of 1 TB per file. See [Azure Storage Scalability and Performance Targets](../../storage/storage-scalability-targets.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for information on storage limits.
 
 Tests have shown, however, that SAP HANA backup doesn&#39;t currently work directly with this kind of CIFS mount. It is also stated in [SAP Note 1820529](https://launchpad.support.sap.com/#/notes/1820529) that CIFS is not recommended.
 
