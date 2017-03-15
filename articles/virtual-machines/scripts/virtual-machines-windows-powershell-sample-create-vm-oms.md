@@ -30,7 +30,7 @@ Before running this script, log in to Azure using the `Login-AzureRmAccount` com
 
 ## Clean up deployment 
 
-Run the following command can be used to remove the Resource Group, VM, and all related resources.
+Run the following command to remove the Resource Group, VM, and all related resources.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

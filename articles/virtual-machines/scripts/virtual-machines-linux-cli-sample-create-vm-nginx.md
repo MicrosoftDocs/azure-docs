@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Create a VM with NGINX
 
-This script creates an Azure Virtual Machine and then uses the Azure Virtual Machine Custom Script Extension to install NGINX. After running the script, you can access a demo website on the public IP address of the virtual machine.
+This script creates an Azure Virtual Machine and uses the Azure Virtual Machine Custom Script Extension to install NGINX. After running the script, you can access a demo website on the public IP address of the virtual machine.
 
 Before running this script, log in to Azure using the `az login` command.
 
@@ -48,7 +48,7 @@ apt-get -y install nginx
 
 ## Clean up deployment 
 
-Run the following command can be used to remove the Resource Group, VM, and all related resources.
+Run the following command to remove the Resource Group, VM, and all related resources.
 
 ```azurecli
 az group delete --name myResourceGroup

@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Create a Docker host with PowerShell
 
-This script creates a virtual machine with Docker enabled. A NGINX Docker container is also created. After running the script, you can access the NGINX web server through the FQDN of the Azure virtual machine. 
+This script creates a virtual machine with Docker enabled and starts a container running NGINX. After running the script, you can access the NGINX web server through the FQDN of the Azure virtual machine. 
 
 Before running this script, log in to Azure using the `Login-AzureRmAccount` command. Also, you will need to have an SSH public key named `id_rsa.pub` in the .ssh directory of your user profile.
 
@@ -30,7 +30,7 @@ Before running this script, log in to Azure using the `Login-AzureRmAccount` com
 
 ## Clean up deployment 
 
-Run the following command can be used to remove the Resource Group, VM, and all related resources.
+Run the following command to remove the Resource Group, VM, and all related resources.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
