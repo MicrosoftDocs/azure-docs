@@ -22,7 +22,7 @@ ms.author: rclaus
 
 This script creates a virtual machine, and then uses the Azure Virtual Machine DSC custom script extension to install and configure IIS. 
 
-Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, you should change the $AdminPassword variable at the start of the script to unique and meeting password complexity requirements.
+Before running this script, log in to Azure using the `az login` command.
 
 This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 

@@ -20,9 +20,9 @@ ms.author: nepeters
 
 # Create a fully configured virtual machine with PowerShell
 
-This script creates an Azure Virtual Machine with a Windows operating system and related networking resources. Once the script has been successfully run, the virtual Machine can be accessed over SSH. 
+This script creates an Azure Virtual Machine with an Ubuntu operating system and related networking resources. After running the script, you can access the virtual machine over SSH.
 
-Before running this script, ensure that a connection with Azure has been created using the `Login-AzureRmAccount` command.
+Before running this script, log in to Azure using the `Login-AzureRmAccount` command.
 
 ## Sample script
 
@@ -30,7 +30,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Clean up deployment 
 
-After the script sample has been run, the following command can be used to remove the Resource Group, VM, and all related resources.
+Run the following command can be used to remove the Resource Group, VM, and all related resources.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
