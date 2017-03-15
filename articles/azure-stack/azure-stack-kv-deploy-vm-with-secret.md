@@ -34,7 +34,7 @@ You reference the secret from within a parameters file, which passes values to y
     "keyVault": {
     "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
     },
-    "secretName": "sqlAdminPassword"
+    "secretName": "{Secret name}"
 
 
 > [!NOTE]
