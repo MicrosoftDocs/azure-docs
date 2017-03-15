@@ -163,7 +163,7 @@ If you run into any problems installing or running Service Map, this section can
 #### Installer asks for a reboot
 The Dependency Agent *generally* does not require a reboot upon installation or uninstallation.  However, in certain rare cases, a Windows Server will require a reboot to continue with an installation.  This happens when a dependency, usually the Microsoft VC++ Redistributables, requires a reboot due to a locked file.
 
-#### Message "Unable to install Dependency Agent: Visual Studio Runtime libraries failed to install (code = code_number). "
+#### Message "Unable to install Dependency Agent: Visual Studio Runtime libraries failed to install (code = <code_number>). "
 
 The Microsoft Dependency Agent is built upon the Microsoft Visual Studio Runtime Libraries. An issue was encountered while trying to install the libraries. The runtime library installers create logs in the %LOCALAPPDATA%\temp folder. The file will be dd_vcredist_arch_yyyymmddhhmmss.log, where arch will be "x86" or "amd64" and yyyymmddhhmmss will be the date and time (24 hour clock) when the log was created. The log will provide details about the issue blocking installation.
 
@@ -175,17 +175,21 @@ Below are some code_numbers and suggested resolutions.
 
 ### Post-Installation Issues
 #### Server doesn't show in Service Map
-If your Dependency Agent installation succeeded and you can see it running, but you don't see your server in the Service Map solution:
+If your Dependency Agent installation succeeded, but you don't see your server in the Service Map solution:
 1. Is the Dependency Agent installed successfully?  You can validate this by checking to see if the service is installed and running.
+
 Windows: Look for the Service named "Microsoft Dependency Agent"
+
 Linux: Look for the running process "microsoft-dependency-agent"
-2. Are you on the Free Pricing Tier of OMS/Log Analytics?  The Free plan allows for up to five unique Service Map servers.  Any subsequent servers won't show up in Service Map, even if the prior five are no longer sending data.
+2. Are you on the [Free Pricing Tier of OMS/Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)?  The Free plan allows for up to five unique Service Map servers.  Any subsequent servers won't show up in Service Map, even if the prior five are no longer sending data.
 3. Is your server sending log and perf data to OMS?  Go to Log Search and run the following query for your computer: 
+
 		* Computer="<your computer name here>" | measure count() by Type
-Did you get a variety of events in the results?  Is the data recent?  If so, your OMS Agent is operating correctly and communicating to the OMS service. If not, check the OMS Agent on your server: [Windows troubleshooting](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues), [Linux troubleshooting](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
+		
+Did you get a variety of events in the results?  Is the data recent?  If so, your OMS Agent is operating correctly and communicating to the OMS service. If not, check the OMS Agent on your server: [OMS Agent for Windows troubleshooting](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).  [OMS Agent for Linux troubleshooting](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
 
 #### Server shows in Service Map, but has no processes
-If you see your server in Service Map, but it has no process or connection data, that indicates that the Dependency Agent is installed and running, but the kernel driver didn't load.  To find out why your driver didn't load, check the wrapper.log file (Windows) or service.log file (Linux).  If the driver failed to load, the last lines of the file should indicate why (e.g. kernel not supported, which can happen on Linux if you updated your kernel) and may offer a solution.
+If you see your server in Service Map, but it has no process or connection data, that indicates that the Dependency Agent is installed and running, but the kernel driver didn't load.  To find out why your driver didn't load, check the wrapper.log file (Windows) or service.log file (Linux).  The last lines of the file should indicate why (e.g. kernel not supported, which can happen on Linux if you updated your kernel) the kernel didn't load.
 
 Windows: C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log
 
