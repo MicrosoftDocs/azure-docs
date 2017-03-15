@@ -74,7 +74,7 @@ The Top Talkers visual shows the IPs that have initiated the most connections ov
 
 ![toptalkers][6]
 
-The following time series graphs show the number of flows over the period. The upper graph is segmented by the flow direction, and the lower is segmented by the decision madd (allow or deny). With this visual, you can examine you traffic trends over time, and spot any abnormal spikes or decline in traffic or traffic segmentation.
+The following time series graphs show the number of flows over the period. The upper graph is segmented by the flow direction, and the lower is segmented by the decision made (allow or deny). With this visual, you can examine you traffic trends over time, and spot any abnormal spikes or decline in traffic or traffic segmentation.
 
 ![flowsoverperiod][7]
 

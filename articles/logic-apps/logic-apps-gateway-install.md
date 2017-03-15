@@ -1,6 +1,6 @@
 ---
 title: Install on-premises data gateway - Azure Logic Apps | Microsoft Docs
-description: How your logic apps can access on-premises data by installing an on-premises data gateway.
+description: Access on-premises data from logic apps by installing an on-premises data gateway
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -17,9 +17,27 @@ ms.date: 07/05/2016
 ms.author: jehollan
 
 ---
-# Install the on-premises data gateway for Azure Logic Apps
-## Installation and Configuration
-### Prerequisites
+# Install an on-premises data gateway for Azure Logic Apps
+
+The on-premises data gateway supports these data source connections:
+
+*   BizTalk Server
+*	DB2  
+*   File System
+*   Informix
+*   MQ
+*	Oracle Database 
+*   SAP Application Server 
+*   SAP Message Server
+*	SQL Server
+
+For more information about these connections, see 
+[Connectors for Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
+
+## Installation and configuration
+
+### Requirements
+
 Minimum:
 
 * .NET 4.5 Framework
@@ -33,16 +51,14 @@ Recommended:
 
 Related considerations:
 
-* You must install the on-premises data gateway 
-on a local machine.
-
-* You can't install the gateway on a domain controller.
+* Only install the on-premises data gateway on a local machine.
+You can't install the gateway on a domain controller.
 
 * Don't install the gateway on a computer that might turn off, go to sleep, 
 or doesn't connect to the Internet because the gateway can't run under those circumstances. 
 Also, gateway performance might suffer over a wireless network.
 
-* You must use a work or school email address in Azure, 
+* You can only use a work or school email address in Azure, 
 so that you can associate the on-premises data gateway 
 with your Azure Active Directory-based account.
 
@@ -128,14 +144,14 @@ Learn more about [hybrid solutions](../service-bus-messaging/service-bus-fundame
 
 | DOMAIN NAMES | OUTBOUND PORTS | DESCRIPTION |
 | --- | --- | --- |
-| *.analysis.windows.net |443 |HTTPS |
-| *.login.windows.net |443 |HTTPS |
-| *.servicebus.windows.net |5671-5672 |Advanced Message Queuing Protocol (AMQP) |
-| *.servicebus.windows.net |443, 9350-9354 |Listeners on Service Bus Relay over TCP (requires 443 for Access Control token acquisition) |
-| *.frontend.clouddatahub.net |443 |HTTPS |
-| *.core.windows.net |443 |HTTPS |
-| login.microsoftonline.com |443 |HTTPS |
-| *.msftncsi.com |443 |Used to test internet connectivity if the gateway is unreachable by the Power BI service. |
+| *.analysis.windows.net | 443 | HTTPS | 
+| *.login.windows.net | 443 | HTTPS | 
+| *.servicebus.windows.net | 5671-5672 | Advanced Message Queuing Protocol (AMQP) | 
+| *.servicebus.windows.net | 443, 9350-9354 | Listeners on Service Bus Relay over TCP (requires 443 for Access Control token acquisition) | 
+| *.frontend.clouddatahub.net | 443 | HTTPS | 
+| *.core.windows.net | 443 | HTTPS | 
+| login.microsoftonline.com | 443 | HTTPS | 
+| *.msftncsi.com | 443 | Used to test internet connectivity when the gateway is unreachable by the Power BI service. | 
 
 If you have to approve IP addresses instead of the domains, 
 you can download and use the [Microsoft Azure Datacenter IP ranges list](https://www.microsoft.com/download/details.aspx?id=41653). 
@@ -143,10 +159,11 @@ In some cases, the Azure Service Bus connections are made with IP Address rather
 
 ### Sign-in accounts
 
-Users can sign in with either a work or school account, which is your organization account. 
+You can sign in with either a work or school account, which is your organization account. 
 If you signed up for an Office 365 offering and didn't supply your actual work email, 
-your sign-in address might look like jeff@contoso.onmicrosoft.com. Your account, within a cloud service, 
-is stored within a tenant in Azure Active Directory (Azure AD). 
+your sign-in address might look like jeff@contoso.onmicrosoft.com. 
+Your account, within a cloud service, is stored within a 
+tenant in Azure Active Directory (Azure AD). 
 Usually, your Azure AD account's UPN matches the email address.
 
 ### Windows service account
@@ -160,10 +177,19 @@ within the context of the machine where you installing the gateway.
 This service account isn't same account used for connecting to on-premises data sources, 
 nor the work or school account that you use to sign in to cloud services.
 
+## How the gateway works
+When others interact with an element that's connected to an on-premises data source:
+
+1. The cloud service creates a query, along with the encrypted credentials for the data source, and sends the query to the queue for the gateway to process.
+2. The service analyzes the query and pushes the request to the Azure Service Bus.
+3. The on-premises data gateway polls the Azure Service Bus for pending requests.
+4. The gateway gets the query, decrypts the credentials, and connects to the data source with those credentials.
+5. The gateway sends the query to the data source for execution.
+6. The results are sent from the data source, back to the gateway, and then to the cloud service. The service then uses the results.
+
 ## Frequently asked questions
+
 ### General
-**Question**: What data sources does the gateway support?<br/>
-**Answer**: As of this writing, SQL Server.
 
 **Question**: Do I need a gateway for data sources in the cloud, such as SQL Azure? <br/>
 **Answer**: No. A gateway connects to on-premises data sources only.
@@ -185,7 +211,7 @@ The gateway just needs the capability to connect to the server name that was pro
 **Question**: What is the latency for running queries to a data source from the gateway? What is the best architecture? <br/>
 **Answer**: To reduce network latency, install the gateway as close to the data source as possible. 
 If you can install the gateway on the actual data source, this proximity minimizes the latency introduced. 
-Consider the data centers too. For example, if your service uses the West US data center, 
+Consider the data centers too. For example, if your service uses the West US datacenter, 
 and you have SQL Server hosted in an Azure VM, your Azure VM should be in the West US too. 
 This proximity minimizes latency and avoids egress charges on the Azure VM.
 
@@ -217,7 +243,8 @@ The credentials are decrypted at the on-premises gateway.
 **Question**: What is the benefit of the recovery key? <br/>
 **Answer**: The recovery key provides a way to migrate or recover your gateway settings after a disaster.
 
-### Troubleshooting
+## Troubleshooting
+
 **Question**: Where are the gateway logs? <br/>
 **Answer**: See Tools later in this topic.
 
@@ -229,17 +256,6 @@ Leaving query tracing turned on creates larger logs.
 You can also look at tools that your data source has for tracing queries. 
 For example, you can use Extended Events or SQL Profiler for SQL Server and Analysis Services.
 
-## How the gateway works
-When others interact with an element that's connected to an on-premises data source:
-
-1. The cloud service creates a query, along with the encrypted credentials for the data source, and sends the query to the queue for the gateway to process.
-2. The service analyzes the query and pushes the request to the Azure Service Bus.
-3. The on-premises data gateway polls the Azure Service Bus for pending requests.
-4. The gateway gets the query, decrypts the credentials, and connects to the data source with those credentials.
-5. The gateway sends the query to the data source for execution.
-6. The results are sent from the data source back to the gateway and then to the cloud service. The service then uses the results.
-
-## Troubleshooting
 ### Update to the latest version
 
 Many issues can surface when the gateway version becomes outdated. 
@@ -251,7 +267,7 @@ and see if you can reproduce the issue.
 ### Error: Failed to add user to group. (-2147463168 PBIEgwService Performance Log Users)
 
 You might get this error if you try to install the gateway on a domain controller, which isn't supported. 
-You must deploy the gateway on a machine that isn't a domain controller.
+Make sure that you deploy the gateway on a machine that isn't a domain controller.
 
 ## Tools
 ### Collect logs from the gateway configurer
