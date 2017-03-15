@@ -22,7 +22,7 @@ ms.author: larryfr
 
 Learn how to connect directly to Kafka on HDInsight by using an Azure Virtual Network configured with a VPN gateway. A VPN gateway allows individual clients to securely connect to the virtual network and communicate directly with the HDInsight cluster.
 
-HDInsight clusters are secured inside an Azure Virtual Network, and only allow incoming SSH and HTTPS traffic. You cannot connect to the Kafka brokers directly over the internet. Instead, you must use a VPN gateway into the virtual network that contains HDInsight. This allows remote clients to directly connect to Kafka over the internet.
+HDInsight clusters are secured inside an Azure Virtual Network, and only allow incoming SSH and HTTPS traffic. You cannot connect to the Kafka brokers directly over the internet. Instead, you must use a VPN gateway into the virtual network that contains HDInsight. A VPN gateway allows remote clients to directly connect to Kafka over the internet.
 
 > [!NOTE]
 > Kafka applications that run directly on the cluster are already inside the virtual network.
@@ -36,7 +36,7 @@ The information in this document is primarily for the following scenarios:
 > [!IMPORTANT]
 > One of the limitations of Azure Virtual Networks is that the automatic domain name resolution provided by the virtual network only works for Azure resources. When connecting to the network using the VPN gateway, your client can only use IP addresses to connect to the HDInsight cluster. The information in this document is based on using only IP addresses to access HDInsight over the VPN gateway.
 >
-> While it is possible to create and configure DNS servers to enable name resolution between your local system and the virtual network, it is not discussed in this document. If you are familiar with configuring a DNS server, see [Manage DNS servers used by a virtual network](../virtual-network/virtual-networks-manage-dns-in-vnet.md) for more information on how to add a DNS server to your virtual network configuration.
+> While it is possible to create and configure DNS servers to enable name resolution between your local system and the virtual network, it is not discussed in this document. For more information, see [Manage DNS servers used by a virtual network](../virtual-network/virtual-networks-manage-dns-in-vnet.md).
 
 ## How this example works
 
@@ -45,7 +45,7 @@ The information in this document is primarily for the following scenarios:
 > [!IMPORTANT]
 > HDInsight is secured inside an Azure Virtual Network. If you create an HDInsight cluster and do not specify a virtual network, one is automatically created. However, this auto-created virtual network is hidden and you cannot add a VPN gateway to it.
 >
-> To use VPN to connect to HDInsight, you must instead create the virtual network first. Then specify the virtual network when creating the HDInsight cluster. This gives you full control over the virtual network, including the ability to configure a VPN gateway.
+> To use VPN to connect to HDInsight, you must instead create the virtual network first. Then specify the virtual network when creating the HDInsight cluster.
 
 * __Virtual Network__: Provides a security boundary for HDInsight. Includes a default gateway that provides internet access to SSH and HTTPS services hosted on the cluster head nodes.
 
@@ -166,9 +166,9 @@ Use the following steps to create an Azure Virtual Network, VPN gateway, storage
   ```powershell
   # Prompt for generic information
   $resourceGroupName = Read-Host "What is the resource group name?"
-  $baseName = Read-Host "What is the base name? This is used to create names for resources, such as 'net-basename' and 'kafka-basename':"
+  $baseName = Read-Host "What is the base name? It is used to create names for resources, such as 'net-basename' and 'kafka-basename':"
   $location = Read-Host "What Azure Region do you want to create the resources in?"
-  $rootCert = Read-Host "What is the file path to the root certificate? This is used to secure the VPN gateway."
+  $rootCert = Read-Host "What is the file path to the root certificate? It is used to secure the VPN gateway."
 
   # Prompt for HDInsight credentials
   $adminCreds = Get-Credential -Message "Enter the HTTPS user name and password for the HDInsight cluster" -UserName "admin"
@@ -421,7 +421,7 @@ To connect to Kafka from the client machine, you must use the IP address of the 
    consumer.subscribe(['testtopic'])
    for msg in consumer:
      print (msg)
-   ``
+   ```
 
     Replace the `'ip_address'` entries with the addresses returned from step 1 in this section.
 
