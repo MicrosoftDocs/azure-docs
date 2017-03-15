@@ -22,13 +22,13 @@ ms.author: jeffstok
 
 Learn how to build a sentiment analysis solution for social media analytics by bringing real-time Twitter events into Azure Event Hubs. In this scenario, you write an Azure Stream Analytics query to analyze the data. Then you either store the results for later use or use a dashboard and [Power BI](https://powerbi.com/) to provide insights in real-time.
 
-Social media analytics tools help organizations understand trending topics. Trending topics are subjects and attitudes that have a high volume of posts in social media). Sentiment analysis, which is also called *opinion mining*, uses social media analytics tools to determine attitudes toward a product, idea, and so on.
+Social media analytics tools help organizations understand trending topics. Trending topics are subjects and attitudes that have a high volume of posts in social media. Sentiment analysis, which is also called *opinion mining*, uses social media analytics tools to determine attitudes toward a product, idea, and so on.
 
-Real-time Twitter trend analysis is a great example of an analytics tool, because the hashtag subscription model enables you to listen to specific keywords and develop sentiment analysis on the feed.
+Real-time Twitter trend analysis is a great example of an analytics tool, because the hashtag subscription model enables you to listen to specific keywords and develop sentiment analysis of the feed.
 
 ## Scenario: Social media sentiment analysis in real-time
 
-A company that has a news media website is interested in getting an advantage over its competitors by featuring site content that is immediately relevant to its readers. The company uses social media analysis on topics that are relevant to readers by doing real-time sentiment analysis on Twitter data.
+A company that has a news media website is interested in gaining an advantage over its competitors by featuring site content that is immediately relevant to its readers. The company uses social media analysis on topics that are relevant to readers by doing real-time sentiment analysis of Twitter data.
 
 Specifically, to identify trending topics in real-time on Twitter, the company needs real-time analytics about the tweet volume and sentiment for key topics. In other words, the need is a sentiment analysis analytics engine that's based on this social media feed.
 
@@ -36,7 +36,7 @@ Specifically, to identify trending topics in real-time on Twitter, the company n
 
 * An Azure subscription
 * A Twitter account and [OAuth access token](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
-* The [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) file from GitHub.
+* The [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) file from GitHub
 * Optional: The source code for the Twitter client from [GitHub](https://aka.ms/azure-stream-analytics-twitterclient)
 
 ## Create an event hub input
@@ -47,19 +47,19 @@ The sample application generates events and push them to an event hubs instance 
 
 Take the following steps to create an event hub:
 
-1. In the [Azure portal](https://portal.azure.com), click **NEW**, type **Event Hubs**, and then select **Event Hubs** from the resulting search. Then select **Create**.
+1. In the [Azure portal](https://portal.azure.com), select **NEW**, type **Event Hubs**, and then select **Event Hubs** from the resulting search. Then select **Create**.
 
 2. Provide a name for the event hub, and then create a resource group. We've specified `socialtwitter-eh` and `socialtwitter-rg` respectively. Check the box to pin the account to the dashboard, and then select the **Create** button.
 
-3. After the deployment is complete, select the event hub. Then select **Event Hubs** under **Entities**.
+3. After the deployment is complete, select the event hub. Then, under **Entities**, select **Event Hubs**.
 
-4. Select the **+ Event Hub** button to create your event hub. Provide your name again (ours was `socialtwitter-eh`), and then select **Create**.
+4. To create the event hub, select the **+ Event Hub** button. Provide your name again (ours was `socialtwitter-eh`), and then select **Create**.
 
 5. To grant access to the event hub, we need to create a shared access policy. Select the event hub, and then, under **Settings**, select **Shared access policies**.
 
 6. Under **Shared access policies**, create a new policy with **MANAGE** permissions by selecting **+ Add**. Give the policy a name, check **MANAGE**, and then select **Create**.
 
-7. Select your new policy once after it has been created, and then select the copy button for the **CONNECTION STRING - PRIMARY KEY** entity. We need this later in the exercise. Then return to the dashboard.
+7. Select your new policy after it has been created, and then select the copy button for the **CONNECTION STRING - PRIMARY KEY** entity. We need this later in the exercise. Then return to the dashboard.
 
 ![Shared access policy endpoints](./media/stream-analytics-twitter-sentiment-analysis-trends/keysandendpoints.png)
 
@@ -77,8 +77,9 @@ Then Tweet events are pushed to the event hub.
 
 Follow these steps to set up the application:
 
-1. [Download the TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) and unzip it.
-2. Run the `TwitterWPFClient.exe` application. Then enter your data for the Twitter API Key and Secret, Twitter Access Token and Secret, and also the event hub information. Finally, define which keywords you wish to determine sentiment on.
+1. [Download the TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip), and then and unzip it.
+
+2. Run the `TwitterWPFClient.exe` application. Then enter your data for the Twitter API Key and Secret, Twitter Access Token and Secret, and also the event hub information. Finally, define which keywords you want to determine sentiment for.
 
 > [!NOTE]
 If you specify more than one word (by using commas to define multiple values), and you want ANY, you must flip the control to **Match ANY**.
@@ -92,14 +93,14 @@ For more information, see [Steps to generate an OAuth access token](https://dev.
 
    `Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub`
 
-   The TwitterWpfClient.exe.config file should contain your settings as, in the following example:
+   The TwitterWpfClient.exe.config file should contain your settings as shown in the following example:
 
    ```
      add key="EventHubConnectionString" value="Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey"
      add key="EventHubName" value="yourhub"
    ```
 > [!NOTE]
-   The text "EntityPath=" does *not** appear in the EventHubName value.
+   The text "EntityPath=" does **not** appear in the EventHubName value.
 
    You can also enter the values for your Twitter and Azure connection information directly into the client. The same logic applies where "EntityPath=" is not used.
 
@@ -107,7 +108,7 @@ For more information, see [Steps to generate an OAuth access token](https://dev.
 
 4. **Optional:** Adjust the keywords to search for. By default, this application looks for some game keywords.  You can adjust the values for **twitter_keywords** in TwitterWpfClient.exe.config, if desired.
 
-5. Run TwitterWpfClient.exe. Then select the green start button to collect social sentiment. You will see Tweet events with the **CreatedAt**, **Topic**, and **SentimentScore** values being sent to your event hub.
+5. Run TwitterWpfClient.exe. Then select the green start button to collect social sentiment. You see Tweet events with the **CreatedAt**, **Topic**, and **SentimentScore** values being sent to your event hub.
 
 ## Create a Stream Analytics job
 
@@ -138,7 +139,7 @@ To specify the job input, take the following steps:
 
     Next, the portal prompts you for some of the following information. Most of the default values work, and are defined here:
 
-   * **INPUT ALIAS**: Enter a friendly name for this job input, such as `TwitterStream`. You use this name in the query later.values  work
+   * **INPUT ALIAS**: Enter a friendly name for this job input, such as `TwitterStream`. You use this name in the query later.  
 
    * **EVENT HUB NAME**: Select the name of the event hub.
 
@@ -197,7 +198,7 @@ Because a job input, query, and output have all been specified, we are ready to 
 
 To start the job, take the following steps:
 
-1. In the job overview pane, select **START** at the top of the page.
+1. In the job overview pane, at the top of the page, select **START**.
 
 2. In the dialog box that opens, select **JOB START TIME**, and then select the **CHECK** button on the bottom of the dialog box. The job status changes first to **Starting** and then to **Running**.
 
@@ -211,9 +212,9 @@ Use a tool like [Azure Storage Explorer](https://http://storageexplorer.com/) or
 
 ![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 
-## Create another query of interest for this scenario
+## Create another query to identify trending topics
 
-Another sample query we created for this scenario is based on [Sliding Window](https://msdn.microsoft.com/library/azure/dn835051.aspx). To identify trending topics, we look for topics that cross a threshold value for mentions in a given amount of time.
+Another sample query that we created for this scenario is based on [Sliding Window](https://msdn.microsoft.com/library/azure/dn835051.aspx). To identify trending topics, we look for topics that cross a threshold value for mentions in a given amount of time.
 
 For the purposes of this tutorial, we check for topics that are mentioned more than 20 times in the last 5 seconds.
 
@@ -228,7 +229,7 @@ HAVING COUNT(*) > 20
 
 The field labels you can use in this exercise are listed in this table. Feel free to experiment in the query editor.
 
-JSON property | definition
+JSON property | Definition
 --- | ---
 CreatedAt | The time that the tweet was created
 Topic | The topic that matches the specified keyword
