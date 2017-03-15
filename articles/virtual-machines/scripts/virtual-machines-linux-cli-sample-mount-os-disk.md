@@ -22,7 +22,7 @@ ms.author: nepeters
 
 This script mounts the operating system disk of a failed or problematic virtual machine as a data disk to a second virtual machine. This can be useful when troubleshooting disk issues or recovering data. 
 
-Before running this script, log in to Azure using the `az login` command. Also, you will need an existing virtual machine. Update the name and Resource Group of the existing virtual machine in the script sample.
+If needed, install the Azure CLI using the instruction found [here](cli/azure/install-azure-cli.md), and then run `az login` to create a connection with Azure. Also, you will need an existing virtual machine. Update the name and Resource Group of the existing virtual machine in the script sample.
 
 This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
