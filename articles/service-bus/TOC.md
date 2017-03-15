@@ -1,2 +1,2 @@
-# [Queues and Topics](/azure/service-bus-messaging)
+# [Service Bus](/azure/service-bus-messaging)
 # [Relay](/azure/service-bus-relay)
