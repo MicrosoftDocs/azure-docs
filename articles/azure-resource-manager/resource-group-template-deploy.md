@@ -80,7 +80,7 @@ These commands create a resource group, and deploy a template to that resource g
    ```
    
      A summary of the new resource group is returned.
-4. Before executing your deployment, you can validate your deployment settings. The **Test-AzureRmResourceGroupDeployment** cmdlet enables you to find problems before creating actual resources. The following example shows how to validate a deployment.
+4. Before executing your deployment, you can validate your deployment settings. The **Test-AzureRmResourceGroupDeployment** cmdlet enables you to find problems before creating actual resources. If the template is invalid you will get a return stating template invalid with the details. If the template is valid you'll not get any return stating the template is valid unless you provide 'verbose' option explicitly.  The following example shows how to validate a deployment.
    
    ```powershell
    Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate>
