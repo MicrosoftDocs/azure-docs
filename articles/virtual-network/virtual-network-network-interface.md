@@ -186,7 +186,8 @@ There is a limited number of public IP addresses that can be used within a subsc
 
 You can add as many IP configurations as necessary to a NIC, within the limits listed in the [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article. 
 
->[!NOTE] The ability to add secondary IP configurations to a NIC is currently in preview release. This feature may not have the same level of availability and reliability as features that are in general availability release. The feature is not supported, may have constrained capabilities, and may not be available in all Azure locations. For the most up-to-date notifications on availability and status of this feature, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
+>[!NOTE]
+> The ability to add secondary IP configurations to a NIC is currently in preview release. This feature may not have the same level of availability and reliability as features that are in general availability release. The feature is not supported, may have constrained capabilities, and may not be available in all Azure locations. For the most up-to-date notifications on availability and status of this feature, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
 To add an IP configuration to a NIC, complete the following steps:
  
@@ -196,7 +197,7 @@ To add an IP configuration to a NIC, complete the following steps:
 	Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
 	Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
 	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-	```powershell
+	```
 	
 	Do not attempt to complete the remaining steps until you see the following output after running the previous commands:
 	
