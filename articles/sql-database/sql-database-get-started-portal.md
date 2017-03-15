@@ -35,7 +35,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
-2. Select **Databases** from the **New** blade, and select **SQL Database** from the **Databases** blade.
+2. Select **Databases** from the **New** page, and select **SQL Database** from the **Databases** page.
 
 3. Fill out the SQL Database form with the required information: 
    - Database name: Provide a database name
