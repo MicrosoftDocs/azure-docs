@@ -131,7 +131,7 @@ New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "West
 
 ## Add a NIC to an existing VM
 
-It is now possible to add a NIC from an existing VM. To use this feature, you'll first need to deallocate the VM using the Stop-AzureRmVM cmdlet below.
+It is now possible to add a NIC to an existing VM. To use this feature, you'll first need to deallocate the VM using the Stop-AzureRmVM cmdlet below.
 
 ```
 Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
