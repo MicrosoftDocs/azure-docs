@@ -1,6 +1,6 @@
 ---
 title: Overview of the Azure Relay .NET Standard APIs | Microsoft Docs
-description: .NET Standard API overview
+description: Relay .NET Standard API overview
 services: service-bus-relay
 documentationcenter: na
 author: jtaubensee
@@ -13,110 +13,87 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
+ms.date: 03/15/2017
 ms.author: jotaub
 ---
 
 # Azure Relay Hybrid Connections .NET Standard API overview
-This article summarizes some of the key Azure Relay Hybrid Connections .NET Standard client APIs. There are currently two .NET Standard client libraries:
-* [Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)
+This article summarizes some of the key [Azure Relay Hybrid Connections .NET Standard client APIs](/dotnet/api/microsoft.azure.relay).
   
-## Event Hub client
-[**EventHubClient**](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) is the primary object you use to send events, create receivers, and to get runtime information. This client is linked to a particular Event Hub, and creates a new connection to the Event Hubs endpoint.
-
-### Create an Event Hub client
-An [**EventHubClient**](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) object is created from a connection string. The simplest way to instantiate a new client is shown in the following example:
+## Relay connection string builder
+The [**RelayConnectionStringBuilder**](/dotnet/api/microsoft.azure.relay.relayconnectionstringbuilder) class will format connection strings that are specific to Relay Hybrid Connections. You can use it to verify the format of a connection string, or to build a connection string from scratch. See the following for an example.
 
 ```csharp
-var eventHubClient = EventHubClient.CreateFromConnectionString("{Event Hub connection string}");
-```
+var endpoint = "{ Relay namespace }";
+var entityPath = "{ Name of the Hybrid Connection }";
+var sharedAccessKeyName = "{ SAS key name }";
+var sharedAccessKey = "{ SAS key value }";
 
-To programmatically edit the connection string, you can use the [**EventHubsConnectionStringBuilder**](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) class, and pass the connection string as a parameter to [**EventHubClient.CreateFromConnectionString**](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_).
-
-```csharp
-var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hub connection string}")
+var connectionStringBuilder = new RelayConnectionStringBuilder()
 {
-    EntityPath = EhEntityPath
+    Endpoint = endpoint,
+    EntityPath = entityPath,
+    SharedAccessKeyName = sasKeyName,
+    SharedAccessKey = sasKeyValue
 };
-
-var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
 ```
 
-### Send events
-To send events to an Event Hub, use the [**EventData**](/dotnet/api/microsoft.azure.eventhubs.eventdata) class. The body must be a `byte` array, or a `byte` array segment.
+## Hybrid Connection client
+The [**HybridConnectionClient**](/dotnet/api/microsoft.azure.relay.hybridconnectionclient) is the primary object used to create a client for Hybrid Connections. 
+
+### Create a Hybrid Connection client and connect to the Relay endpoint
+The easiest way to create a `HybridConnectionClient` is with a Relay connection string. Using the above example of a [`RelayConnectionStringBuilder`](#relay-connection-string-builder), you can call `connectionStringBuilder.ToString()` to populate the required parameter. Once the `HybridConnectionClient` object is instantiated, you can then create a connection to the Relay endpoint.
 
 ```csharp
-// Create a new EventData object by encoding a string as a byte array
-var data = new EventData(Encoding.UTF8.GetBytes("This is my message..."));
-// Set user properties if needed
-data.Properties.Add("Type", "Informational");
-// Send single message async
-await eventHubClient.SendAsync(data);
+var client = new HybridConnectionClient(csb.ToString());
+var clientConnection = await client.CreateConnectionAsync();
 ```
 
-### Receive events
-The recommended way to receive events from Event Hubs is using the [**EventProcessorHost**](##Event-Processor-Host-APIs), which provides functionality to automatically keep track of offset, and partition information. However, there are certain situations in which you may want to use the flexibility of the core Event Hubs library to receive events.
-
-#### Create a receiver
-Receivers are tied to specific partitions, so in order to receive all events in an Event Hub, you will need to create multiple instances. Generally speaking, it is a good practice to get the partition information programatically, rather than hard-coding the partition ids. In order to do so, you can use the [**GetRuntimeInformationAsync**](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) method.
+### Send a message
+Once you have a connection established, you can send a message to the Relay endpoint. Since the connection object inherits [`Stream`](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx), you will need to send your data as a `byte[]`. The following example shows how to do this:
 
 ```csharp
+var data = Encoding.UTF8.GetBytes("hello");
+await clientConnection.WriteAsync(data, 0, data.Length);
+```
 
-// Create a list to keep track of the receivers
-var receivers = new List<PartitionReceiver>();
-// Use the eventHubClient created above to get the runtime information
-var runTimeInformation = await eventHubClient.GetRuntimeInformationAsync();
-// Loop over the resulting partition ids
-foreach (var partitionId in runTimeInformation.PartitionIds)
+However, if you would like to send text directly, without needing to encode the string each time you can wrap the stream with a writer.
+
+```csharp
+// The StreamWriter object only needs to be created once
+var textWriter = new StreamWriter(clientConnection);
+await textWriter.WriteLineAsync("hello");
+```
+
+### Listen for a message
+Since Relay provides two-way communication, you can listen for data using the [**HybridConnectionClient**](/dotnet/api/microsoft.azure.relay.hybridconnectionclient). To do so, see the following:
+
+```csharp
+// Create a CancellationToken, so that we can cancel the while loop
+var cancellationToken = new CancellationToken();
+// Create a StreamReader that will allow us to 
+var streamReader = new StreamReader(clientConnection);
+
+while (!cancellationToken.IsCancellationRequested)
 {
-    // Create the receiver
-    var receiver = eventHubClient.CreateReceiver(PartitionReceiver.DefaultConsumerGroupName, partitionId, PartitionReceiver.EndOfStream);
-    // Add the receiver to the list
-    receivers.Add(receiver);
+    // Read a line of input until a newline is encountered
+    var line = await streamReader.ReadLineAsync();
+
+    if (string.IsNullOrEmpty(line))
+    {
+        // If there's no input data, we will signal that 
+        // we will no longer send data on this connection
+        // and then break out of the processing loop.
+        await clientConnection.ShutdownAsync(cancellationToken);
+        break;
+    }
 }
 ```
 
-Since events are never removed from an Event Hub (and only expire), you will need to specify the proper starting point. The following example shows possible combinations.
-
-```csharp
-// partitionId is assumed to come from GetRuntimeInformationAsync()
-
-// Using the constant 'PartitionReceiver.EndOfStream' will only receive all messages from this point forward.
-var receiver = eventHubClient.CreateReceiver(PartitionReceiver.DefaultConsumerGroupName, partitionId, PartitionReceiver.EndOfStream);
-
-// All messages available
-var receiver = eventHubClient.CreateReceiver(PartitionReceiver.DefaultConsumerGroupName, partitionId, "-1");
-
-// From one day ago
-var receiver = eventHubClient.CreateReceiver(PartitionReceiver.DefaultConsumerGroupName, partitionId, DateTime.Now.AddDays(-1));
-```
-
-#### Consume an event
-```csharp
-// Receive a maximum of 100 messages in this call to ReceiveAsync
-var ehEvents = await receiver.ReceiveAsync(100);
-// ReceiveAsync can return null if there are no messages
-if (ehEvents != null)
-{
-    // Since ReceiveAsync can return more than a single event you will need a loop to process
-    foreach (var ehEvent in ehEvents)
-    {
-        // Decode the byte array segment
-        var message = UnicodeEncoding.UTF8.GetString(ehEvent.Body.Array);
-        // Load the custom property that we set in the send example
-        var customType = ehEvent.Properties["Type"];
-        // Implement processing logic here
-    }
-}		
-```
-
 ## Next steps
-To learn more about Event Hubs scenarios, visit these links:
+To learn more about Azure Relay, visit these links:
 
-* [What is Azure Event Hubs?](event-hubs-what-is-event-hubs.md)
-* [Available Event Hubs apis](event-hubs-api-overview.md)
+* [What is Azure Relay?](relay-what-is-it.md)
+* [Available Relay apis](relay-api-overview.md)
 
-The .NET API references are here:
-
-* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
-* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
+The .NET API reference is [Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)
