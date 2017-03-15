@@ -186,7 +186,9 @@ Did you get a variety of events in the results?  Is the data recent?  If so, you
 
 #### Server shows in Service Map, but has no processes
 If you see your server in Service Map, but it has no process or connection data, that indicates that the Dependency Agent is installed and running, but the kernel driver didn't load.  To find out why your driver didn't load, check the wrapper.log file (Windows) or service.log file (Linux).  If the driver failed to load, the last lines of the file should indicate why (e.g. kernel not supported, which can happen on Linux if you updated your kernel) and may offer a solution.
+
 Windows: C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log
+
 Linux: /var/opt/microsoft/dependency-agent/log/service.log
 
 ## Data collection
