@@ -52,7 +52,7 @@ After the deployment has completed, create a remote desktop connection to the vi
 
     ![Portal 9](./media/virtual-machine-quick-start/portal-quick-start-9.png) 
 
-2. To connect to your VM, open the downloaded RDP file. If prompted, click **Connect**. On a Mac, you need an RDP client such as [the Remote Desktop Client](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) from the Mac App Store.
+2. To connect to your VM, open the downloaded RDP file. If prompted, click **Connect**. On a Mac, you need an RDP client such as this [Remote Desktop Client](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) from the Mac App Store.
 
 3. Enter the user name and password you specified when creating the virtual machine, then click **Ok**.
 
