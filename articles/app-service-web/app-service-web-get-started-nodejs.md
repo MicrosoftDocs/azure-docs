@@ -20,7 +20,7 @@ ms.author: cephalin
 # Create a Node.js Application on Web App with the Azure CLI 2.0
 [!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
-The Azure CLI 2.0 is used to create and manage Azure resources from the command-line or in scripts. This guide details using the Azure CLI to deploy a Node.js Application on Web App.
+The Azure CLI 2.0 is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a Node.js Application on Web App.
 
 If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure.
 
@@ -37,7 +37,7 @@ Create a [resource group](../azure-resource-manager/resource-group-overview.md) 
 
 ## Create an App Service Plan
 
-Create a App Service Plan on Linux Worker with the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) command.
+Create an App Service Plan on Linux Worker with the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) command.
 
 The following example creates an App Service Plan on Linux Workers named `quickStartASP` using the **Standard** pricing tier.
 
@@ -95,13 +95,13 @@ When the Web App has been created, the Azure CLI shows information similar to th
 
 ## Configure the Web App for Node.js
 
-Use the [az appservice web config update](https://docs.microsoft.com/en-us/cli/azure/appservice/web/config#update) command to configure the Web App to use Node.js version `6.9.3`. Setting the node.js version this way will use a default container provided by the platform. If you would like to use your own container refer to the reference for the [az appservice web config container update](https://docs.microsoft.com/en-us/cli/azure/appservice/web/config/container#update) command.
+Use the [az appservice web config update](https://docs.microsoft.com/en-us/cli/azure/appservice/web/config#update) command to configure the Web App to use Node.js version `6.9.3`. Setting the node.js version this way uses a default container provided by the platform, if you would like to use your own container refer to the reference for the [az appservice web config container update](https://docs.microsoft.com/en-us/cli/azure/appservice/web/config/container#update) command.
 
     ```azurecli
     az appservice web config update --node-version 6.9.3 --name <app_name> --resource-group myResourceGroup
     ```
 
-## Configure continuos deployment from GitHub
+## Configure continuous deployment from GitHub
 
 Use the [az appservice web source-control config](https://docs.microsoft.com/en-us/cli/azure/appservice/web/source-control#config) command to configure continuous integration of your application from GitHub. Using the `--manual-integration` flag is required on GitHub repositories of which you do not have administrative permissions.
 
