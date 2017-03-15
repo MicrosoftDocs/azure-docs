@@ -21,12 +21,12 @@ ms.author: jgao
 # Create Hadoop clusters in HDInsight using Azure Resource Management templates
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Learn how to create HDInsight clusters using Azure Resource Management templates. For more information, see [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). For other cluster creation tools and features click the tab select on the top of this page or see [Cluster creation methods](hdinsight-provision-clusters.md#cluster-creation-methods).
+Learn how to create HDInsight clusters using Azure Resource Management templates. For more information, see [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). To learn other cluster creation tools and features, click the tab select on the top of this page or see [Cluster creation methods](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 ## Prerequisites:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Before you begin the instructions in this article, you must have the following:
+Before you begin the instructions in this article, you must have the following prerequisites:
 
 * [Azure subscription](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Azure PowerShell and/or Azure CLI
@@ -39,9 +39,9 @@ Before you begin the instructions in this article, you must have the following:
 ## Resource Management templates
 Resource Manager template makes it easy to create HDInsight clusters, their dependent resources (such as the default storage account), and other resources (such as Azure SQL Database to use Apache Sqoop) for your application in a single, coordinated operation. In the template, you define the resources that are needed for the application and specify deployment parameters to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment.
 
-A Resource Manager template for creating an HDInsight cluster and the dependent Azure Storage account can be found in [Appendix-A](#appx-a-arm-template). Use cross-platform [VSCode](https://code.visualstudio.com/#alt-downloads) with the [Resource Manager extention](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) or a text editor to save the template into a file on your workstation. You will learn how to call the template using different methods.
+You can find HDInsight template samples at [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/?term=hdinsight). Use cross-platform [VSCode](https://code.visualstudio.com/#alt-downloads) with the [Resource Manager extention](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) or a text editor to save the template into a file on your workstation. You learn how to call the template using different methods.
 
-For more information about Resource Manager template, see
+For more information about Resource Manager template, see the following articles:
 
 * [Author Azure Resource Management templates](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md)
@@ -54,7 +54,7 @@ Using the Azure portal, you can configure all the properties of a cluster and th
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Click **New** on the left menu, click **Intelligence + analytics**, and then click **HDInsight**.
-3. Follow the instruction to fill the properties. You can use either the **Quick create** or the **Custom** option.
+3. Follow the instructions entering the properties. You can use either the **Quick create** or the **Custom** option.
 4. On the Summary tab, click **Download template and parameters**.
 
     ![HDInsight Hadoop create cluster Resource Management template download](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-download.png)
@@ -130,7 +130,7 @@ The following procedure creates Hadoop cluster in HDInsight:
         # List cluster
         Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName
 
-    The PowerShell script only configures the cluster name. The storage account name is hardcoded in the template. You will be prompted to enter the cluster user password (the default username is *admin*); and the SSH user password (the default SSH username is *sshuser*).  
+    The PowerShell script only configures the cluster name. The storage account name is hardcoded in the template. You are prompted to enter the cluster user password (the default username is *admin*); and the SSH user password (the default SSH username is *sshuser*).  
 
 For more information, see  [Deploy with PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy).
 
@@ -142,7 +142,7 @@ The following sample creates a cluster and its dependent storage account and con
     azure group create -n hdi1229rg -l "East US"
     azure group deployment create --resource-group "hdi1229rg" --name "hdi1229" --template-file "C:\HDITutorials-ARM\hdinsight-arm-template.json"
 
-You will be prompted to enter the cluster name, cluster user password (the default username is *admin*), and the SSH user password (the default SSH username is *sshuser*). To provide in-line parameters:
+You are prompted to enter the cluster name, cluster user password (the default username is *admin*), and the SSH user password (the default SSH username is *sshuser*). To provide in-line parameters:
 
     azure group deployment create --resource-group "hdi1229rg" --name "hdi1229" --template-file "c:\Tutorials\HDInsightARM\create-linux-based-hadoop-cluster-in-hdinsight.json" --parameters '{\"clusterName\":{\"value\":\"hdi1229\"},\"clusterLoginPassword\":{\"value\":\"Pass@word1\"},\"sshPassword\":{\"value\":\"Pass@word1\"}}'
 
