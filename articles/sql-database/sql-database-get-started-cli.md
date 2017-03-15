@@ -52,10 +52,10 @@ az sql server create --name $servername --resource-group myResourceGroup --locat
 
 ## Configure a server firewall rule
 
-Create a server-level firewall rule with the [az sql server firewall create](/cli/azure/sql/server/firewall#create) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL database through the SQL Database service firewall. The following example creates a firewall rule for a predefined address range, which, in this example, is the entire possible range of IP addresses. Replace these predefined values with the values for your external IP address or IP address range. 
+Create a server-level firewall rule with the [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL database through the SQL Database service firewall. The following example creates a firewall rule for a predefined address range, which, in this example, is the entire possible range of IP addresses. Replace these predefined values with the values for your external IP address or IP address range. 
 
 ```azurecli
-az sql server firewall create --resource-group myResourceGroup --server-name $servername \
+az sql server firewall-rule create --resource-group myResourceGroup --server $servername \
 	-n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
@@ -64,8 +64,8 @@ az sql server firewall create --resource-group myResourceGroup --server-name $se
 Create a database in the server with the [az sql db create](/cli/azure/sql/db#create) command. The following example creates an empty database called `mySampleDatabase`. Replace this predefined value as desired.
 
 ```azurecli
-az sql db create --resource-group myResourceGroup --location northcentralus --server-name $servername \
-	--name mySampleDatabase --requested-service-objective-name S0
+az sql db create --resource-group myResourceGroup --server $servername \
+	--name mySampleDatabase --service-objective S0
 ```
 
 ## Clean up resources
