@@ -425,7 +425,7 @@ To connect to Kafka from the client machine, you must use the IP address of the 
 
     Replace the `'ip_address'` entries with the addresses returned from step 1 in this section.
 
-## Additional information
+## Next steps
 
 For more information on creating an Azure Virtual Network with Point-to-Site VPN gateway, see the following documents:
 
