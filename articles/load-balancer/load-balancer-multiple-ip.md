@@ -58,7 +58,7 @@ AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered
 
 ##Prerequisites
 This example assumes that you have a virtual network with the following configuration:
- - a virtual network named *myVNet* in the Resource Group named *myRG* that includes two VMs called VM1 and VM2 respectively within the same availability set named *myAvailSet*. 
+ - a virtual network named *myVNet* in the Resource Group named *contosofabrikam* that includes two VMs called *VM1* and *VM2* respectively within the same availability set named *myAvailset*. 
  - Each VM has a primary NIC and a secondary NIC. The primary NICs are named *VM1NIC1* and *VM2NIC1* and the secondary NICs are named *VM1NIC2* and *VM2NIC2*. 
 For more information about creating VMs with multiple NICs, see [Create a VM with multiple NICs using PowerShell](../virtual-network/virtual-network-deploy-multinic-arm-ps.md).
 
@@ -78,28 +78,28 @@ Follow the steps below to achieve the scenario outlined in this article:
         4. When the second IP configuration for the secondary NIC is complete, it is displayed in the **IP configurations** settings blade for the given NIC.
 3. Create a load balancer as follows:
     1. On the top left-hand side of the screen select New > Networking > Load Balancer.
-    2. In the **Create load balancer** blade, type a name for your load balancer. Here it is called *myLoadBalancer*.
+    2. In the **Create load balancer** blade, type a name for your load balancer. Here it is called *mylb*.
     3. Under Public IP address, create a new public IP called **PublicIP1**.
-    4. Under Resource Group, select the existing Resource group of your VMs (for example, *myRG*). Then, select an appropriate location, and then click **OK**. The load balancer will then start to deploy and will take a few minutes to successfully complete deployment.
+    4. Under Resource Group, select the existing Resource group of your VMs (for example, *contosofabrikam*). Then, select an appropriate location, and then click **OK**. The load balancer will then start to deploy and will take a few minutes to successfully complete deployment.
     5. Once deployed, the load balancer is displayed as a resource in your Resource Group.
 4. Configure the frontend IP pool, Backend pools, Health probes, and load balancing rules for your load balancer as follows:
     1. Configure your frontend IP pool for each website (Contoso and Fabrikam) as follows:
         1. In the portal, click **More services** > type **load balancer** in the filter box, and then click **Load Balancer**.  
         2. Select the load balancer that you want to add the frontend IP pool to.
         3. Under **Settings**, select **Frontend Pools**. Then click **Add** towards the top of the blade that shows up.
-        2. Type a name for your frontend IP address (for example, *FarbikamFE*).
+        2. Type a name for your frontend IP address (for example, *farbikamfe*).
         3. Click **IP address** and on the **Choose Public IP address** blade, select an IP address for Contoso website's incoming network traffic.
         4. Repeat steps to create the frontend IP address for Fabrikam's website.
         5. When the frontend IP pool configuration is complete, both frontend IP addresses are displayed in the **Front IP Pool** blade of your load balancer. 
     2. Configure the backend address pools for each website (Contoso and Fabrikam) that includes:
         1. In the portal, click More services > type load balancer in the filter box, and then click **Load Balancer**.  
         2. Select the load balancer that you want to add the backend pools to.
-        3. Under **Settings**, select **Backend Pools**. Type a name for your backend pool (for example, *Contosopool* or *Fabrikampool*). Then click the **Add** button toward the top of the blade that shows up. 
+        3. Under **Settings**, select **Backend Pools**. Type a name for your backend pool (for example, *contosopool* or *fabrikampool*). Then click the **Add** button toward the top of the blade that shows up. 
         4. For **Associated to**, select **Availability set**.
-        5. For **Availability set**, select **myAvailSet**.
+        5. For **Availability set**, select **myAvailset**.
         6. Add Target network IP configurations, for both VMs as follows (see Figure 2):  
             1. For **Target Virtual machine**, select the VM that you want to add to the backend pool (for example, VM1 or VM2).
-            2. For **Network IP configuration**, select the secondary NICs IP configuration for that VM (for example, VM1NIC2-ipconfig2) or VM2NIC2-ipconfig2).
+            2. For **Network IP configuration**, select the secondary NICs IP configuration for that VM (for example, VM1NIC2-ipconfig2 or VM2NIC2-ipconfig2).
             ![LB scenario image](./media/load-balancer-multiple-ip/lb-backendpool.PNG)
             
             **Figure 2**: Configuring the load balancer with backend pools  
@@ -113,7 +113,7 @@ Follow the steps below to achieve the scenario outlined in this article:
 6. Configure load balancing rules for each website (Contoso and Fabrikam) as follows:
     1. Under **Settings**, select **Health probe**. Then click **Add** towards the top of the blade that shows up.
     2. For **Name**, type a name for the load balancing rule (for example, *HTTPc* for Contoso, or *HTTPf* for Fabrikam)
-    3. For Frontend IP address, select the the frontend IP address (for example *ContosoFE* or FabrikamFE*)
+    3. For Frontend IP address, select the the frontend IP address (for example *Contosofe* or *Fabrikamfe*)
     4. For Port and Backend port, keep the default value **80**.
     5. For **Floating IP (direct server return)**, click **Enabled**.
     6. Click **OK**.
