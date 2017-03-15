@@ -22,12 +22,12 @@ ms.author: cynthn
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For Resource Manager model information, see [Create a copy Windows VM running in Azure](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-This article shows you how to capture an Azure virtual machine running Windows so you can use it as an image to create other virtual machines. This image includes the operating system disk and any data disks that are attached to the virtual machine. It doesn't include networking configurations, so you'll need to configure those when you create the other virtual machines that use the image.
+This article shows you how to capture an Azure virtual machine running Windows so you can use it as an image to create other virtual machines. This image includes the operating system disk and any data disks that are attached to the virtual machine. It doesn't include networking configurations, so you'll need to set up network configurations when you create the other virtual machines that use the image.
 
-Azure stores the image under **My Images**. This is the same place where any images you've uploaded are stored. For details about images, see [About images for virtual machines](virtual-machines-linux-classic-about-images.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Azure stores the image under **VM images (classic)**, a **Compute** service that is listed when you view all the Azure services. This is the same place where any images you've uploaded are stored. For details about images, see [About images for virtual machines](virtual-machines-linux-classic-about-images.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## Before you begin
-These steps assume that you've already created an Azure virtual machine and configured the operating system, including attaching any data disks. If you haven't done this yet, see these instructions:
+These steps assume that you've already created an Azure virtual machine and configured the operating system, including attaching any data disks. If you need to haven't done this yet, see these instructions:
 
 * [Create a virtual machine from an image](virtual-machines-windows-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [How to attach a data disk to a virtual machine](virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
