@@ -66,11 +66,11 @@ Azure Logic Apps also provides monitoring and alerts.
 
 ## Deploy and manage logic apps
 
-You can fully develop and deploy logic apps through Visual Studio, 
+You can fully develop and deploy logic apps with Visual Studio, 
 Visual Studio Team Services, or any other source control and automated build tools. 
 To support deployment for workflows and dependent connections in a resource template, 
 logic apps use Azure resource deployment templates. 
-These templates are automatically generated from Visual Studio tools, 
+Visual Studio tools automatically generate these templates, 
 which you can check in to source control for versioning.
 
 * [Create an automated deployment template](../logic-apps/logic-apps-create-deploy-template.md)
