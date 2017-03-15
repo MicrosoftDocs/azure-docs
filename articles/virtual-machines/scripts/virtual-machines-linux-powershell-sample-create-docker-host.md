@@ -20,9 +20,9 @@ ms.author: nepeters
 
 # Create a Docker host with PowerShell
 
-This sample script creates a virtual machine and then uses the Azure Docker VM extension to configure a Docker host. The Docker VM extension then creates a container running NGINX. Finally, the script configures an Azure network security group to all inbound traffic on port 80. Once the script has been successfully run, the NGINX web server can be access through the FQDN of the Azure virtual machine. 
+This script creates a virtual machine with Docker enabled and starts a container running NGINX. After running the script, you can access the NGINX web server through the FQDN of the Azure virtual machine. 
 
-Before running this script, ensure that a connection with Azure has been created using the `Login-AzureRmAccount` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the .ssh directory of your user profile.
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount` to create a connection with Azure. Also, you will need to have an SSH public key named `id_rsa.pub` in the .ssh directory of your user profile.
 
 ## Sample script
 
@@ -30,7 +30,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Clean up deployment 
 
-After the script sample has been run, the following command can be used to remove the Resource Group, VM, and all related resources.
+Run the following command to remove the Resource Group, VM, and all related resources.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
