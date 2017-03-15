@@ -31,12 +31,12 @@ This topic explains how to use Azure PowerShell with Resource Manager templates 
 ## Deploy
 * To quickly get started with deployment, use the following commands to deploy a local template with inline parameters:
 
-   ```powershell
-   Login-AzureRmAccount
-   Set-AzureRmContext -SubscriptionID {your-subscription-ID}
-   New-AzureRmResourceGroup -Name ExampleGroup -Location "South Central US"
-   New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile c:\MyTemplates\storage.json -storageNamePrefix contoso -storageSKU Standard_GRS
-   ```
+  ```powershell
+  Login-AzureRmAccount
+  Set-AzureRmContext -SubscriptionID {your-subscription-ID}
+  New-AzureRmResourceGroup -Name ExampleGroup -Location "South Central US"
+  New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile c:\MyTemplates\storage.json -storageNamePrefix contoso -storageSKU Standard_GRS
+  ```
 
   The deployment can take a few minutes to complete. When it finishes, you see a message that includes the result:
 
@@ -84,7 +84,7 @@ This topic explains how to use Azure PowerShell with Resource Manager templates 
 To use complete mode, use the **Mode** parameter:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile c:\MyTemplates\storage.json -Mode Complete
+New-AzureRmResourceGroupDeployment -Mode Complete -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile c:\MyTemplates\storage.json 
 ```
 
 ## Deploy private template with SAS token
