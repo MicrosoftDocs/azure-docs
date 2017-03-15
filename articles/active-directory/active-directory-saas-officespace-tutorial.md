@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 03/10/2017
 ms.author: jeedes
 
 ---
@@ -177,11 +177,11 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Configure Single Sign-On On App Side](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_002.png)
 
-14. Click **SAML Authorization**.
+14. Click **SAML Authentication**.
 
 	![Configure Single Sign-On On App Side](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_003.png)
 
-15. In the **SAML Authorization** section, perform the following steps:
+15. In the **SAML Authentication** section, perform the following steps:
 
 	![Configure Single Sign-On On App Side](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_004.png)
 
