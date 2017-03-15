@@ -1,5 +1,5 @@
 ---
-title: Create your first Node.js web app in Azure in five minutes | Microsoft Docs
+title: Create a Node.js Application on Web App with the Azure CLI 2.0 | Microsoft Docs
 description: Learn how easy it is to run web apps in App Service by deploying a sample Node.js app. 
 services: app-service\web
 documentationcenter: ''
@@ -17,55 +17,102 @@ ms.date: 03/08/2017
 ms.author: cephalin
 
 ---
-# Create your first Node.js web app in Azure in five minutes
+# Create a Node.js Application on Web App with the Azure CLI 2.0
 [!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
-This Quickstart helps you deploy your first Node.js web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md) in just a few minutes.
+The Azure CLI 2.0 is used to create and manage Azure resources from the command-line or in scripts. This guide details using the Azure CLI to deploy a Node.js Application on Web App.
 
-Before starting this Quickstart, ensure that [the Azure CLI is installed](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) on your machine.
+If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure.
 
-# Create a Node.js web app
-2. Log in to Azure by running `az login` and following the on-screen directions.
-   
-    ```azurecli
-    az login
-    ```
-   
-3. Create a [resource group](../azure-resource-manager/resource-group-overview.md). This is where you put all the Azure resources that you want to manage together, such as 
-the web app and its SQL Database back end.
+## Create a resource group
+
+Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](https://docs.microsoft.com/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
     ```azurecli
-    az group create --location "West Europe" --name myResourceGroup
+    az group create --name myResourceGroup --location westeurope 
     ```
 
-    To see what possible values you can use for `---location`, use the `az appservice list-locations` Azure CLI command.
+    > [!TIP]
+    > To see what possible values you can use for `--location`, use the `az appservice list-locations` Azure CLI command.
 
-3. Create a "Standard" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Standard tier is required to run Linux containers.
+## Create an App Service Plan
+
+Create a App Service Plan on Linux Worker with the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) command.
+
+The following example creates an App Service Plan on Linux Workers named `quickStartASP` using the **Standard** pricing tier.
 
     ```azurecli
-    az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku S1 --is-linux 
+    az appservice plan create --name quickStartASP --resource-group myResourceGroup --sku S1 --is-linux 
     ```
 
-4. Create a web app with a unique name in `<app_name>`.
+When the App Service Plan has been created, the Azure CLI shows information similar to the following example.
 
     ```azurecli
-    az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/quickStarts/providers/Microsoft.Web/serverfarms/quickStartASP",
+      "kind": "linux",
+      "location": "West Europe",
+      "sku": {
+        "capacity": 1,
+        "family": "S",
+        "name": "S1",
+        "tier": "Standard"
+      },
+      "status": "Ready",
+      "type": "Microsoft.Web/serverfarms"
+    }
+    ``` 
+
+## Create a web app 
+
+Create a Web App using the [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) command.
+
+The following example creates the Web App in the previously created App Service Plan.
+
+    ```azurecli
+    az appservice web create --name <app-name> --plan quickStartASP --resource-group myResourceGroup
     ```
 
-4. Configure the Linux container to use the default Node.js 6.9.3 image.
+When the Web App has been created, the Azure CLI shows information similar to the following example. Take note of the 
+
+    ```azurecli
+    {
+      "clientAffinityEnabled": true,
+      "defaultHostName": "<app-name>.azurewebsites.net",
+      "id": "/subscriptions/5d6c94cd-6781-43e3-8a94-ceef4c28850e/resourceGroups/quickStarts/providers/Microsoft.Web/sites/<app-name>",
+      "isDefaultContainer": null,
+      "kind": "app",
+      "location": "West Europe",
+      "name": "<app-name>",
+      "repositorySiteName": "<app-name>",
+      "reserved": true,
+      "resourceGroup": "quickStarts",
+      "serverFarmId": "/subscriptions/5d6c94cd-6781-43e3-8a94-ceef4c28850e/resourceGroups/quickStarts/providers/Microsoft.Web/serverfarms/quickStartASP",
+      "state": "Running",
+      "type": "Microsoft.Web/sites",
+    }
+    ```
+
+## Configure the Web App for Node.js
+
+Use the [az appservice web config update](https://docs.microsoft.com/en-us/cli/azure/appservice/web/config#update) command to configure the Web App to use Node.js version `6.9.3`. Setting the node.js version this way will use a default container provided by the platform. If you would like to use your own container refer to the reference for the [az appservice web config container update](https://docs.microsoft.com/en-us/cli/azure/appservice/web/config/container#update) command.
 
     ```azurecli
     az appservice web config update --node-version 6.9.3 --name <app_name> --resource-group myResourceGroup
     ```
 
-4. Deploy a sample Node.js app from GitHub.
+## Configure continuos deployment from GitHub
+
+Use the [az appservice web source-control config](https://docs.microsoft.com/en-us/cli/azure/appservice/web/source-control#config) command to configure continuous integration of your application from GitHub. Using the `--manual-integration` flag is required on GitHub repositories of which you do not have administrative permissions.
 
     ```azurecli
     az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
     --repo-url "https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git" --branch master --manual-integration 
     ```
 
-5. To see your app running live in Azure, run this command.
+## Browse to the app
+
+Use the [az appservice web browse](https://docs.microsoft.com/en-us/cli/azure/appservice/web#browse) command to launch the application using your default web browser.
 
     ```azurecli
     az appservice web browse --name <app_name> --resource-group myResourceGroup
