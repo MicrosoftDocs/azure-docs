@@ -13,25 +13,28 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 03/14/2017
 ms.author: raynew
 
 ---
 # How does Azure Site Recovery work?
 
-Read this article to understand the underlying architecture of the [Azure Site Recovery](site-recovery-overview.md) service, and the components that make it work.
+This article describes underlying architecture of the [Azure Site Recovery](site-recovery-overview.md) service, and the components that make it work.
 
 Post any comments at the bottom of this article, or in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-## Replication to Azure
+## Replicate to Azure
 
 You can replicate the following to Azure:
+
 - **VMware**: On-premises VMware VMs running on a [supported host](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). You can replicate VMware VMs running [supported operating systems](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
 - **Hyper-V**: On-premises Hyper-V VMs running on [supported hosts](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
 - **Physical machines**: On-premises physical servers running Windows or Linux on [supported operating systems](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions). You can replicate Hyper-V VMs running any guest operating system [supported by Hyper-V and Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
-## VMware replication to Azure
+## VMware to Azure
+
+Here's what you need for replicating VMware VMs to Azure.
 
 Area | Component | Details
 --- | --- | ---
@@ -81,14 +84,16 @@ There are a few failback requirements:
 
 ![Failback](./media/site-recovery-components/enhanced-failback.png)
 
-## Physical server replication to Azure
+## Physical to Azure
 
-This replication scenario uses also the same components and process as [VMware to Azure](#vmware-replication-to-azure), but note these differences:
+When you replicate physical on-premises servers to Azure, replication uses also the same components and processes as [VMware to Azure](#vmware-replication-to-azure), but note these differences:
 
 - You can use a physical server for the configuration server, instead of a VMware VM
 - You will need an on-premises VMware infrastructure for failback. You can't fail back to a physical machine.
 
-## Hyper-V replication to Azure
+## Hyper-V to Azure
+
+Here's what you need for replicating Hyper-V VMs to Azure.
 
 **Area** | **Component** | **Details**
 --- | --- | ---
@@ -126,7 +131,7 @@ This replication scenario uses also the same components and process as [VMware t
 ![Components](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
 
-## Replication to a secondary site
+## Replicate to a secondary site
 
 You can replicate the following to your secondary site:
 
@@ -135,13 +140,15 @@ You can replicate the following to your secondary site:
 - **Hyper-V**: On-premises Hyper-V VMs running on [supported Hyper-V hosts](site-recovery-support-matrix-to-sec-site.md#on-premises-servers) managed in VMM clouds. [supported hosts](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). You can replicate Hyper-V VMs running any guest operating system [supported by Hyper-V and Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
 
-## VMware VM/physical server replication to a secondary site
+## VMware/physical to a secondary site
+
+You replicate VMware VMs or physical servers to a secondary site using InMage Scout.
 
 ### Components
 
 **Area** | **Component** | **Details**
 --- | --- | ---
-**Azure** | You deploy this scenario using InMage Scout. | To obtain InMage Scout you need an Azure subscription.<br/><br/> After you create a Recovery Services vault, you download InMage Scout and install the latest updates to set up the deployment.
+**Azure** | InMage Scout. | To obtain InMage Scout you need an Azure subscription.<br/><br/> After you create a Recovery Services vault, you download InMage Scout and install the latest updates to set up the deployment.
 **Process server** | Located in primary site | You deploy the process server to handle caching, compression, and data optimization.<br/><br/> It also handles push installation of the Unified Agent to machines you want to protect.
 **Configuration server** | Located in secondary site | The configuration server manages, configure, and monitor your deployment, either using the management website or the vContinuum console.
 **vContinuum server** | Optional. Installed in the same location as the configuration server. | It provides a console for managing and monitoring your protected environment.
@@ -162,7 +169,9 @@ You can replicate the following to your secondary site:
 
 
 
-## Hyper-V VM replication to a secondary site
+## Hyper-V to a secondary site
+
+Here's what you need for replicating Hyper-V VMs to a secondary site.
 
 
 **Area** | **Component** | **Details**
@@ -198,24 +207,7 @@ You can replicate the following to your secondary site:
 7. To make the primary site into the active location again, you initiate a planned failover from secondary to primary, followed by another reverse replication.
 
 
-## Hyper-V replication workflow
-
-**Workflow stage** | **Action**
---- | ---
-1. **Enable protection** | After you enable protection for a Hyper-V VM the **Enable Protection** job is initiated, to check that the machine complies with prerequisites. The job invokes two methods:<br/><br/> [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) to set up replication with the settings you've configured.<br/><br/> [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), to initialize a full VM replication.
-2. **Initial replication** |  A virtual machine snapshot is taken, and virtual hard disks are replicated one by one until they're all copied to the secondary location.<br/><br/> The time needed to complete this depends on the VM size, network bandwidth, and the initial replication method.<br/><br/> If disk changes occur while initial replication is in progress, the Hyper-V Replica Replication Tracker tracks those changes as Hyper-V Replication Logs (.hrl) that are located in the same folder as the disks.<br/><br/> Each disk has an associated .hrl file that will be sent to secondary storage.<br/><br/> The snapshot and log files consume disk resources while initial replication is in progress. When the initial replication finishes, the VM snapshot is deleted, and the delta disk changes in the log are synchronized and merged.
-3. **Finalize protection** | After initial replication finishes, the **Finalize protection** job configures network and other post-replication settings, so that the virtual machine is protected.<br/><br/> If you're replicating to Azure, you might need to tweak the settings for the virtual machine so that it's ready for failover.<br/><br/> At this point you can run a test failover to check everything is working as expected.
-4. **Replication** | After the initial replication, delta synchronization begins, in accordance with replication settings.<br/><br/> **Replication failure**: If delta replication fails, and a full replication would be costly in terms of bandwidth or time, then resynchronization occurs. For example, if the .hrl files reach 50% of the disk size, then the VM will be marked for resynchronization. Resynchronization minimizes the amount of data sent by computing checksums of the source and target virtual machines, and sending only the delta. After resynchronization finishes, delta replication will resume. By default resynchronization is scheduled to run automatically outside office hours, but you can resynchronize a virtual machine manually.<br/><br/> **Replication error**: If a replication error occurs, there's a built-in retry. If it's a non-recoverable error such as an authentication or authorization error, or a replica machine is in an invalid state, then no retry will be attempted. If it's a recoverable error such as a network error, or low disk space/memory, then a retry occurs with increasing intervals between retries (1, 2, 4, 8, 10, and then every 30 minutes).
-5. **Planned/unplanned failover** | You can run planned or unplanned failovers as needed.<br/><br/> If you run a planned failover, then source VMs are shut down to ensure no data loss.<br/><br/> After replica VMs are created, they're placed in a commit pending state. You need to commit them to complete the failover.<br/><br/> After the primary site is up and running, you can fail back to the primary site, when it's available.
-
-
-**Figure 8: Hyper-V workflow**
-
-![workflow](./media/site-recovery-components/arch-hyperv-azure-workflow.png)
-
-
-
-
 ## Next steps
 
-[Check prerequisites](site-recovery-prereq.md)
+- [Learn more](site-recovery-hyper-v-azure-architecture.md) about the Hyper-V replication workflow.
+- [Check prerequisites](site-recovery-prereq.md)
