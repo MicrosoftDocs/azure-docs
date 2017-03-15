@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/27/2017
+ms.date: 03/15/2017
 ms.author: nepeters
 ---
 
 # Create a VM with Docker
 
-This script creates a virtual machine with Docker enabled and starts a container running NGINX. After running the script, you can access the NGINX web server through the FQDN of the Azure virtual machine. 
+This script creates a virtual machine with Docker enabled, and starts a Docker container running NGINX. After running the script, you can access the NGINX web server through the FQDN of the Azure virtual machine. 
 
-Before running this script, log in to Azure using the `az login` command.
+This script requires Azure CLI. If needed, see the [CLI installation instructions](cli/azure/install-azure-cli.md). After installation, run `az login` to connect with Azure.
 
 This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
