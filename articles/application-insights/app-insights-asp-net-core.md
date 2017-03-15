@@ -4,7 +4,7 @@ description: Monitor web applications for availability, performance and usage.
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 03/14/2017
 ms.author: awills
 
 ---
@@ -44,12 +44,17 @@ Views in the portal fall into two main categories:
 * Set up [availability tests](app-insights-monitor-web-app-availability.md) to test your website continually from locations worldwide, and get emails as soon as any test fails.
 * Set up [metric alerts](app-insights-monitor-web-app-availability.md) to know if metrics such as response times or exception rates go outside acceptable limits.
 
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
+
+## Open source
+[Read and contribute to the code](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
+
+
 ## Next steps
 * [Add telemetry to your web pages](app-insights-javascript.md) to monitor page usage and performance.
 * [Monitor dependencies](app-insights-asp-net-dependencies.md) to see if REST, SQL or other external resources are slowing you down.
 * [Use the API](app-insights-api-custom-events-metrics.md) to send your own events and metrics for a more detailed view of your app's performance and usage.
 * [Availability tests](app-insights-monitor-web-app-availability.md) check your app constantly from around the world. 
-
-## Open source
-[Read and contribute to the code](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
 
