@@ -81,10 +81,11 @@ Create a VM to encrypt with [az vm create] and attach a 5Gb data disk. Only cert
 
 ```azurecli
 az vm create -g myResourceGroup -n myVM --image OpenLogic:CentOS:7.2n:7.2.20160629 \
+  --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
   --data-disk-sizes-gb 5
 ```
 
-SSH to your VM with to create a partition and filesystem, then mount the data disk. For more information, see [Connect to a Linux VM to mount the new disk](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Close your SSH session.
+SSH to your VM. Create a partition and filesystem, then mount the data disk. For more information, see [Connect to a Linux VM to mount the new disk](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Close your SSH session.
 
 Encrypt your VM with [az vm encryption enable](/cli/azure/vm/encryption#enable). Provide the information for the service principal you created:
 
@@ -92,6 +93,8 @@ Encrypt your VM with [az vm encryption enable](/cli/azure/vm/encryption#enable).
 |---------------------|----------------------------|
 | --aad-client-id     | appId                      |
 | --aad-client-secret | password                   |
+
+The following example uses the `appId` and `password` displayed from the preceding `ad sp create-for-rbac` command. Replace these with your own values:
 
 ```azurecli
 az vm encryption enable --resource-group myResourceGroup --name myVM \
@@ -102,22 +105,13 @@ az vm encryption enable --resource-group myResourceGroup --name myVM \
   --volume-type all
 ```
 
-It will take some time for the disk encryption process to complete. Monitor the status of the process with [az vm encryption show](/cli/azure/vm/encryption#show):
+It takes some time for the disk encryption process to complete. Monitor the status of the process with [az vm encryption show](/cli/azure/vm/encryption#show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM --query [dataDisk,osDisk]
 ```
 
-The status shows **EncryptionInProgress**. Wait until the status for both the OS disk and data disk shows the following:
-
-```json
-[
-  "NotMounted",
-  "VMRestartPending"
-]
-```
-
-Restart your VM with [az vm restart](/cli/azure/vm#restart):
+The status shows **EncryptionInProgress**. Wait until the status for the OS disk reports **VMRestartPending**, then restart your VM with [az vm restart](/cli/azure/vm#restart):
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
@@ -256,6 +250,8 @@ Encrypt your VM with [az vm encryption enable](/cli/azure/vm/encryption#enable).
 | --aad-client-id     | appId                      |
 | --aad-client-secret | password                   |
 
+The following example uses the `appId` and `password` displayed from the preceding `ad sp create-for-rbac` command. Replace these with your own values:
+
 ```azurecli
 az vm encryption enable --resource-group myResourceGroup --name myVM \
   --aad-client-id 54dae448-d995-4814-806d-c0daaed10266 \
@@ -265,7 +261,7 @@ az vm encryption enable --resource-group myResourceGroup --name myVM \
   --volume-type all
 ```
 
-It will take some time for the disk encryption process to complete. Monitor the status of the process with [az vm encryption show](/cli/azure/vm/encryption#show):
+It takes some time for the disk encryption process to complete. Monitor the status of the process with [az vm encryption show](/cli/azure/vm/encryption#show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM --query [dataDisk,osDisk]
@@ -280,16 +276,7 @@ The output is similar to the following example:
 ]
 ```
 
-Wait until the status for both the OS disk and data disk shows the following:
-
-```json
-[
-  "NotMounted",
-  "VMRestartPending"
-]
-```
-
-Restart your VM with [az vm restart](/cli/azure/vm#restart):
+Wait until the status for the OS diskreports **VMRestartPending**, then restart your VM with [az vm restart](/cli/azure/vm#restart):
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
