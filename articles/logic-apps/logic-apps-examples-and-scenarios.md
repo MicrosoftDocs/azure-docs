@@ -33,32 +33,35 @@ is a great use case for Azure Logic Apps. Here are some patterns and examples.
 
 ## Respond to triggers and extend actions
 
-Every logic app starts with a trigger, like a schedule, 
-a manual invocation, or an event from an external system 
-(for example, "when a file is added to an FTP server"). 
+Every logic app starts with a trigger. For example, 
+your workflow can start with a scheduling event, 
+a manual invocation, or an event from an external system, 
+like "when a file is added to an FTP server". 
 Azure Logic Apps currently supports over 100 ready-to-use connectors, 
 ranging from on-premises SAP to Azure Cognitive Services. 
 For systems and services that might not have published connectors, 
 you can also extend logic apps.
 
 * [Tutorial: Build an AI-powered social dashboard in minutes with Logic Apps and Power BI](http://aka.ms/logicappsdemo)
-* [Create a custom trigger or action](../logic-apps/logic-apps-create-api-app.md)
-* [Set up long-running actions in a run](../logic-apps/logic-apps-create-api-app.md)
-* [Manually invoke a logic app through an HTTP request](logic-apps-http-endpoint.md)
+* [Create custom triggers or actions](../logic-apps/logic-apps-create-api-app.md)
+* [Set up long-running actions for workflow runs](../logic-apps/logic-apps-create-api-app.md)
 * [Respond to external events and actions with webhooks](../logic-apps/logic-apps-create-api-app.md)
-* [Synchronous responses to HTTP request triggers](logic-apps-http-endpoint.md)
+* [Call, trigger or nest workflows with synchronous responses to HTTP requests](logic-apps-http-endpoint.md)
 * [Tutorial: Respond to Twilio SMS webhooks and send a text response](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## Error handling, logging, and control flow capabilities
 
-Logic apps provides rich capabilities for advanced control flow, 
-including conditions, switches, loops, and scopes. 
-For ensuring robust solutions, a workflow can also implement error and exception handling. 
-For notification and diagnostic logs for workflow run status, monitoring and alerting is also provided. 
+Logic apps include rich capabilities for advanced control flow, 
+like conditions, switches, loops, and scopes. 
+To ensure resilient solutions, you can also implement 
+error and exception handling in your workflows. 
+For notification and diagnostic logs for workflow run status, 
+Azure Logic Apps also provides monitoring and alerts.
 
+* [Perform different actions with switch statements](logic-apps-switch-case.md)
+* [Process items in arrays and collections with loops and batches in logic apps](logic-apps-loops-and-scopes.md)
 * [Author error and exception handling in a workflow](logic-apps-exception-handling.md)
 * [Configure Azure Alerts and diagnostics](logic-apps-monitor-your-logic-apps.md)
-* [Scopes and loops for logic apps](logic-apps-loops-and-scopes.md)
 * [Use case: How a healthcare company uses logic app exception handling for HL7 FHIR workflows](logic-apps-scenario-error-and-exception-handling.md)
 
 ## Deploy and manage logic apps
@@ -78,12 +81,14 @@ which you can check in to source control for versioning.
 
 You can access, convert, and transform multiple content types by using the many functions 
 in the Azure Logic Apps [workflow definition language](http://aka.ms/logicappsdocs). 
-For example, you can convert between a string, JSON, and XML with the `@json()` and `@xml()` workflow expressions. 
-The Logic Apps engine preserves content types to support content transfer in a lossless manner between services.
+For example, you can convert between a string, JSON, and XML with 
+the `@json()` and `@xml()` workflow expressions. 
+The Logic Apps engine preserves content types to support 
+content transfer in a lossless manner between services.
 
-* [How logic apps handle non-JSON content-types](../logic-apps/logic-apps-content-type.md), 
+* [Handle non-JSON content types](../logic-apps/logic-apps-content-type.md), 
 like `application/xml`, `application/octet-stream`, and `multipart/formdata`
-* [Understand logic app workflow expressions](../logic-apps/logic-apps-author-definitions.md)
+* [How workflow expressions work in logic apps](../logic-apps/logic-apps-author-definitions.md)
 * [Reference: Azure Logic Apps workflow definition language](http://aka.ms/logicappsdocs)
 
 ## Other integrations and capabilities
@@ -92,12 +97,12 @@ Logic apps also provide integration with many other services,
 including Azure Functions, Azure API Management, 
 Azure App Services, and custom HTTP endpoints including REST and SOAP.
 
-* [Call an Azure Function from a logic app](../logic-apps/logic-apps-azure-functions.md)
-* [Scenario: Fire logic apps from Azure Functions](logic-apps-scenario-function-sb-trigger.md)
-* [Blog: Calling a SOAP endpoint from a logic app](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
+* [Call Azure Functions from logic apps](../logic-apps/logic-apps-azure-functions.md)
+* [Scenario: Trigger logic apps with Azure Functions](logic-apps-scenario-function-sb-trigger.md)
+* [Blog: Call SOAP endpoints from logic apps](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 ## Next Steps
 
 - [Handle errors and exceptions in logic apps](logic-apps-exception-handling.md)
-- [Author workflow defintions with the workflow definition language](logic-apps-author-definitions.md)
+- [Author workflow definitions with the workflow definition language](logic-apps-author-definitions.md)
 - [Submit your comments, questions, feedback, or suggestions for how can we improve Azure Logic Apps](https://feedback.azure.com/forums/287593-logic-apps)
