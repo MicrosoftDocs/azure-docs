@@ -15,7 +15,7 @@ ms.devlang: CLI
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
+ms.date: 03/14/2017
 ms.author: janeng
 ---
 
