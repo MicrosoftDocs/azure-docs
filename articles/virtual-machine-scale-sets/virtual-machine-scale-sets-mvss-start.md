@@ -23,16 +23,18 @@ ms.author: negat
 
 [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) are a great way to deploy groups of related resources. This tutorial shows how to create a minimum viable scale set template and modify it to suit various scenarios.
 
-All examples come from this [github repository](https://github.com/gatneil/mvss). Each diff shown in this walkthrough is the result of doing a `git diff` between branches in this repository. These templates and diffs are not full-fledged examples. For more complete examples of scale set templates, see the [Azure Quickstart Templates github repository](https://github.com/Azure/azure-quickstart-templates) and search for folders that contain the string `vmss`.
+All examples come from this [GitHub repository](https://github.com/gatneil/mvss). Each diff shown in this walkthrough is the result of doing a `git diff` between branches in this repository. These templates and diffs are not full-fledged examples. For more complete examples of scale set templates, see the [Azure Quickstart Templates GitHub repository](https://github.com/Azure/azure-quickstart-templates) and search for folders that contain the string `vmss`.
+
+If you are already familiar with creating templates, you can skip to the "Next Steps" section to see how to modify this template.
 
 ## Review the template
 
-Use GitHub to review our minimum viable scale set template,  [azuredeploy.json](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json). If you are already familiar with creating templates, you can skip to the "Next Steps" section to see how to modify this template for other scenarios.
+Use GitHub to review our minimum viable scale set template,  [azuredeploy.json](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json).
 
 In this tutorial, we examine the diff (`git diff master minimum-viable-scale-set`) to create the minimum viable scale set template piece by piece.
 
 ## Define $schema and contentVersion
-First, define `$schema` and `contentVersion` in the template. The `$schema` element defines the version of the template language and is used for Visual Studio syntax highlighting and similar validation features. The `contentVersion `element is actually not used by Azure. Instead, it helps you keep track of which version of the template this is.
+First, we define `$schema` and `contentVersion` in the template. The `$schema` element defines the version of the template language and is used for Visual Studio syntax highlighting and similar validation features. The `contentVersion `element is actually not used by Azure. Instead, it helps you keep track of which version of the template this is.
 
 ```diff
 +{
@@ -40,7 +42,7 @@ First, define `$schema` and `contentVersion` in the template. The `$schema` elem
 +  "contentVersion": "1.0.0.0",
 ```
 ## Define adminUsername and adminPassword
-Next, define two parameters, `adminUsername` and `adminPassword`. Parameters are values specified by the user at the time of deployment. The `adminUsername` parameter is simply a `string` type, but because `adminPassword` is a secret, we give it type `securestring`. Later, these parameters are passed into the scale set configuration.
+Next, we define two parameters, `adminUsername` and `adminPassword`. Parameters are values specified by the user at the time of deployment. The `adminUsername` parameter is simply a `string` type, but because `adminPassword` is a secret, we give it type `securestring`. Later, these parameters are passed into the scale set configuration.
 
 ```diff
 +  "parameters": {
@@ -76,7 +78,7 @@ All resources require `type`, `name`, `apiVersion`, and `location` properties. T
 ```
 
 ## Specify location
-To specify the location for the virtual network, we use a [Resource Manager template function](../azure-resource-manager/resource-group-template-functions.md). This function must be enclosed in quotes and square brackets like this: `"[<template-function>]"`. In this case, we use the ****resourceGroup**** function. It takes in no arguments and returns a JSON object with metadata about the resource group this deployment is being deployed to. The resource group is set by the user at the time of deployment. We then index into this JSON object with `.location` to get the location from the JSON object.
+To specify the location for the virtual network, we use a [Resource Manager template function](../azure-resource-manager/resource-group-template-functions.md). This function must be enclosed in quotes and square brackets like this: `"[<template-function>]"`. In this case, we use the `resourceGroup` function. It takes in no arguments and returns a JSON object with metadata about the resource group this deployment is being deployed to. The resource group is set by the user at the time of deployment. We then index into this JSON object with `.location` to get the location from the JSON object.
 
 ```diff
 +      "location": "[resourceGroup().location]",
@@ -131,7 +133,7 @@ The scale set needs to know what size of VM to create ("sku name") and how many 
 ```
 
 ## Manual and automatic updates
-The scale set also needs to know how to handle updates on the scale set. Currently there are two options, `Manual` and `Automatic`. For more information on the differences between the two, see the documentation on [how to upgrade a scale set](./virtual-machine-scale-sets-upgrade-scale-set.md).
+The scale set also needs to know how to handle updates on the scale set. Currently, there are two options, `Manual` and `Automatic`. For more information on the differences between the two, see the documentation on [how to upgrade a scale set](./virtual-machine-scale-sets-upgrade-scale-set.md).
 
 ```diff
 +      "properties": {
