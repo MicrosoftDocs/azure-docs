@@ -73,7 +73,7 @@ The following example creates the Web App in the previously created App Service 
 az appservice web create --name <app-name> --plan quickStartASP --resource-group myResourceGroup
 ```
 
-When the Web App has been created, the Azure CLI shows information similar to the following example. Take note of the 
+When the Web App has been created, the Azure CLI shows information similar to the following example.
 
 ```azurecli
 {
