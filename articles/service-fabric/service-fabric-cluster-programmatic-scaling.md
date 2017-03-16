@@ -26,7 +26,8 @@ Fundamentals of scaling a Service Fabric cluster in Azure are covered in documen
 In many scenarios, scaling manually or via auto-scale rules are good solutions. In other scenarios, though, they may not be the right fit. Potential drawbacks to these approaches include:
 
 - Manually scaling requires you to log in and explicitly request scaling operations. If scaling operations are required frequently or at unpredictable times, this approach may not be a good solution.
-- When auto-scale rules remove an instance from a virtual machine scale set, they do not automatically remove knowledge of that node from the associated Service Fabric cluster. Because auto-scale rules work at the scale set level (rather than at the Service Fabric level), auto-scale rules can remove Service Fabric nodes without shutting them down gracefully. This rude node removal will leave 'ghost' Service Fabric node state behind after scale-in operations. An individual (or a service) would need to periodically clean up removed node state in the Service Fabric cluster.
+- When auto-scale rules remove an instance from a virtual machine scale set, they do not automatically remove knowledge of that node from the associated Service Fabric cluster unless the node type has a durability level of Silver or Gold. Because auto-scale rules work at the scale set level (rather than at the Service Fabric level), auto-scale rules can remove Service Fabric nodes without shutting them down gracefully. This rude node removal will leave 'ghost' Service Fabric node state behind after scale-in operations. An individual (or a service) would need to periodically clean up removed node state in the Service Fabric cluster.
+  - Note that a node type with a durability level of Gold or Silver will automatically clean up removed nodes.  
 - Although there are [many metrics](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md) supported by auto-scale rules, it is still a limited set. If your scenario calls for scaling based on some metric not covered in that set, then auto-scale rules may not be a good option.
 
 Based on these limitations, you may wish to implement more customized automatic scaling models. 
@@ -113,7 +114,7 @@ As when adding a node manually, adding a scale set instance should be all that's
 
 ## Scaling in
 
-Scaling in is similar to scaling out. The actual virtual machine scale set changes are practically the same. But, in the scale-in case, it's also necessary to interact with the Service Fabric cluster to shut down the node to be removed and then to remove its state.
+Scaling in is similar to scaling out. The actual virtual machine scale set changes are practically the same. But, as was discussed previously, Service Fabric only automatically cleans up removed nodes with a durability of Gold or Silver. So, in the Bronze-durability scale-in case, it's necessary to interact with the Service Fabric cluster to shut down the node to be removed and then to remove its state.
 
 Preparing the node for shutdown involves finding the node to be removed (the most recently added node) and deactivating it. For non-seed nodes, newer nodes can be found by comparing `NodeInstanceId`. 
 
