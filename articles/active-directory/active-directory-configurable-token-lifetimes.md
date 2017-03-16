@@ -297,7 +297,7 @@ In this example, you create a policy that requires users to authenticate less fr
 
         ```PowerShell
         Add-AzureADApplicationPolicy -ObjectId <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
-    ```
+        ```
 
 
 ### Example: Manage an advanced policy
