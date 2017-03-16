@@ -75,7 +75,7 @@ az keyvault set-policy --name myKeyVault --spn appId \
   --secret-permissions all
 ```
 
-Create a VM to encrypt with [az vm create] and attach a 5Gb data disk. Only certain marketplace images support disk encryption. The following example create a VM named `myVM` using a **CentOS 7.2n** image:
+Create a VM to encrypt with [az vm create] and attach a 5Gb data disk. Only certain marketplace images support disk encryption. The following example creates a VM named `myVM` using a **CentOS 7.2n** image:
 
 ```azurecli
 az vm create -g myResourceGroup -n myVM --image OpenLogic:CentOS:7.2n:7.2.20160629 \
@@ -92,7 +92,7 @@ Encrypt your VM with [az vm encryption enable](/cli/azure/vm/encryption#enable).
 | --aad-client-id     | appId                      |
 | --aad-client-secret | password                   |
 
-The following example uses the `appId` and `password` displayed from the preceding `ad sp create-for-rbac` command. Replace these with your own values:
+The following example uses the `appId` and `password` displayed from the preceding `ad sp create-for-rbac` command. Replace these values with your own credentials:
 
 ```azurecli
 az vm encryption enable --resource-group myResourceGroup --name myVM \
@@ -221,7 +221,7 @@ az keyvault set-policy --name myKeyVault --spn appId \
 
 
 ## Create a virtual disk and review encryption status
-To actually encrypt some virtual disks, lets create a VM and add a data disk. Create a VM to encrypt with [az vm create] and attach a 5Gb data disk. Only certain marketplace images support disk encryption. The following example create a VM named `myVM` using a **CentOS 7.2n** image:
+To actually encrypt some virtual disks, lets create a VM and add a data disk. Create a VM to encrypt with [az vm create] and attach a 5Gb data disk. Only certain marketplace images support disk encryption. The following example creates a VM named `myVM` using a **CentOS 7.2n** image:
 
 ```azurecli
 az vm create -g myResourceGroup -n myVM --image OpenLogic:CentOS:7.2n:7.2.20160629 \
@@ -246,7 +246,7 @@ Encrypt your VM with [az vm encryption enable](/cli/azure/vm/encryption#enable).
 | --aad-client-id     | appId                      |
 | --aad-client-secret | password                   |
 
-The following example uses the `appId` and `password` displayed from the preceding `ad sp create-for-rbac` command. Replace these with your own values:
+The following example uses the `appId` and `password` displayed from the preceding `ad sp create-for-rbac` command. Replace these values with your own credentials:
 
 ```azurecli
 az vm encryption enable --resource-group myResourceGroup --name myVM \
@@ -272,7 +272,7 @@ The output is similar to the following example:
 ]
 ```
 
-Wait until the status for the OS diskreports **VMRestartPending**, then restart your VM with [az vm restart](/cli/azure/vm#restart):
+Wait until the status for the OS disk reports **VMRestartPending**, then restart your VM with [az vm restart](/cli/azure/vm#restart):
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
