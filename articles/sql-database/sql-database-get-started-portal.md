@@ -41,7 +41,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
    - Database name: Provide a database name
    - Subscription: Select your subscription
    - Resource group: Select new or existing
-   - Source: Select **Sample (AdventureWOrksLT)**
+   - Source: Select **Sample (AdventureWorksLT)**
    - Server: Create a new server (the **Server** name must be globally unique)
    - Elastic pool: Select **Not now** for this quick start
    - Pricing tier: Select **20 DTUs** and **250** GB of storage

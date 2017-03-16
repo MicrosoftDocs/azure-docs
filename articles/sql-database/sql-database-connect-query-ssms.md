@@ -34,7 +34,7 @@ Before you start, make sure you have installed the newest version of [SSMS](http
 
 ## Get connection information
 
-Get the fully qualified server name for your Azure SQL Dataase server in the Azure portal. You will use this name to connect to this server using SQL Server Management Studio.
+Get the fully qualified server name for your Azure SQL Database server in the Azure portal. You use this name to connect to your server using SQL Server Management Studio.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
@@ -158,7 +158,7 @@ Use the [UPDATE](https://msdn.microsoft.com/en-us/library/ms177523.aspx) Transac
 
 ## Delete data
 
-Use the [DELETE](https://msdn.microsoft.com/en-us/library/ms189835.aspx) Transact-SQL statement to delated data in your Azure SQL database.
+Use the [DELETE](https://msdn.microsoft.com/en-us/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
 
 1. On the toolbar, click **New Query**. A blank query window opens connected to your database.
 2. In the query window, type the following query in the query window to delete a row in the Product table:
