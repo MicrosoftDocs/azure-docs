@@ -68,7 +68,7 @@ Use the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 
 1. In Object Explorer, right-click **mySampleDatabase** and click **New Query**. A blank query window opens that is connected to your database.
 2. In the query window, type the following query in the query window to retrieve data from the Product and ProductCategory tables:
 
-   ```tsql
+   ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
    FROM [SalesLT].[ProductCategory] pc
    JOIN [SalesLT].[Product] p
@@ -86,7 +86,7 @@ Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transcat-SQL 
 1. On the toolbar, click **New Query**. A blank query window opens connected to your database.
 2. In the query window, type the following query in the query window to insert a new row in the Product table:
 
-   ```tsql
+   ```sql
    INSERT INTO [SalesLT].[Product]
            ( [Name]
            , [ProductNumber]
@@ -112,7 +112,7 @@ Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transcat-SQL 
 
 4. In the query window, use the following query to view the newly added product:
 
-   ```tsql
+   ```sql
    SELECT [ProductId]
 	, [Name]
 	, [ProductNumber]
@@ -134,7 +134,7 @@ Use the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 
 1. On the toolbar, click **New Query**. A blank query window opens connected to your database.
 2. In the query window, type the following query in the query window to update a row in the Product table:
 
-   ```tsql
+   ```sql
    UPDATE [SalesLT].[Product]
    SET [ListPrice] = 125
    WHERE Name = 'myNewProduct';
@@ -146,7 +146,7 @@ Use the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 
 
 4. In the query window, use the following query to view the updated list price for the product:
 
-   ```tsql
+   ```sql
    SELECT [ProductId]
 	, [Name]
 	, [ListPrice]
@@ -163,7 +163,7 @@ Use the [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 
 1. On the toolbar, click **New Query**. A blank query window opens connected to your database.
 2. In the query window, type the following query in the query window to delete a row in the Product table:
 
-   ```tsql
+   ```sql
    DELETE FROM [SalesLT].[Product]
    WHERE Name = 'myNewProduct';
    ```
@@ -174,7 +174,7 @@ Use the [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 
 
 4. In the query window, use the following query to verify the row was deleted:
 
-   ```tsql
+   ```sql
    SELECT [ProductId]
 	, [Name]
 	, [ProductNumber]
