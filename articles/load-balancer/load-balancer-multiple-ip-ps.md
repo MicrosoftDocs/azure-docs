@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/10/2017
+ms.date: 03/16/2017
 ms.author: annahar
 ---
 
@@ -24,9 +24,9 @@ ms.author: annahar
 > * [CLI](load-balancer-multiple-ip-cli.md)
 > * [PowerShell](load-balancer-multiple-ip-ps.md)
 
-This article describes how to use Azure Load Balancer with multiple IP addresses per virtual Network Interface (NIC) using PowerShell. The support for multiple IP addresses on a NIC is a feature that is in Preview release, at this time. For more information, see the [Limitations](#limitations) section of this article. The following scenario illustrates how this feature works with Load Balancer.
+This article describes how to use Azure Load Balancer with multiple IP addresses on a secondary network interface (NIC). The support for multiple IP addresses on a NIC is a feature that is in Preview release, at this time. For more information, see the [Limitations](#limitations) section of this article. The following scenario illustrates how this feature works with Load Balancer.
 
-For this scenario we have two VMs running Windows, each with a single NIC. Each NIC has multiple IP configurations. Each VM hosts both websites for contoso.com and fabrikam.com. Each website is bound to one of the IP configurations on the NIC. We use Load Balancer to expose two frontend IP addresses, one for each website, to distribute traffic to the respective IP configuration for the website. This scenario uses the same port number across both frontends, as well as both backend pool IP addresses.
+For this scenario, we have two VMs running Windows, each with a primary and a secondary NIC. Each of the secondary NICs have two IP configurations. Each VM hosts both websites contoso.com and fabrikam.com. Each website is bound to one of the IP configurations on the secondary NIC. We use Azure Load Balancer to expose two frontend IP addresses, one for each website, to distribute traffic to the respective IP configuration for the website. This scenario uses the same port number across both frontends, as well as both backend pool IP addresses.
 
 ![LB scenario image](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
