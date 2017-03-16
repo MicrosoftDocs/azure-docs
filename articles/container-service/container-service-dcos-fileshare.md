@@ -63,7 +63,7 @@ Next, we need to mount this share on every virtual machine inside your cluster u
 We will do that with the following command line : ```mount -t cifs```
 
 Here, one example for a  :
-* Storage account name 'anystorageaccountname' 
+* Storage account name **'anystorageaccountname'**
 * The account key **'P/GuWEUuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqQADF1w=='** mounted on the following mount point **'/mnt/share/demoshare'**
 
 ```bash
@@ -95,8 +95,10 @@ We will run this command on each virtual machine of our cluster (Master and Node
     # Install jq used for the next command
     sudo apt-get install jq
 
-    # Mount the share on the current vm (master)
+    # Create the local folder that will contain our share
     if [ ! -d "/mnt/share/demoshare" ]; then sudo mkdir -p "/mnt/share/demoshare" ; fi
+
+    # Mount the share on the current vm (master)
     sudo mount -t cifs //anystorageaccountname.file.core.windows.net/demoshare /mnt/share/demoshare -o vers=3.0,username=anystorageaccountname,password=P/GuWEUuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqQADF1w==,dir_mode=0777,file_mode=0777
 
     # Get the ip of each node using the mesos API and store it inside a file called nodes
