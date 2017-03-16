@@ -48,20 +48,25 @@ Download the sample app and navigate into the app directory:
 
 1. Change to the directory that contains the sample code:
 
+    ```cli
     cd nodejs-docs-hello-world
+    ```
 
 ## Run Hello World on your local machine
 
 1. Run the start script.
+
     ```cli
     npm start
     ```
+
 1. In your web browser, enter the following address:
 
    ```cli
    http://localhost:1337
    ```
-You  can see the **Hello World** message from the sample app displayed in the page.
+
+You can see the **Hello World** message from the sample app displayed in the page.
 
 In your terminal window, press **Ctrl+C** to exit the web server.
 
