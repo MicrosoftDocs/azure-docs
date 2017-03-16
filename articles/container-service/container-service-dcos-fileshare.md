@@ -74,13 +74,13 @@ We will run this command on each virtual machine of our cluster (Master and Node
 
 1. First, [connect to your DC/OS-based ACS cluster](https://docs.microsoft.com/en-us/azure/container-service/container-service-connect).
 
-2. Import your private key on the master that will execute our command using the ```ssh-add yourPrivateKeyFile```command.
+2. Import your private key on the master that will execute our command using the ```ssh-add yourPrivateKeyFile``` command
 
 3. From the master, create two files, using your favorite editor such as vi, nano or vim : 
     * One with the script to execute on each vms, called : **cifsMount.sh**  
     * Another one to initiate all the ssh connections that will call the first script, called : **mountShares.sh**
 
-    Contain of **cifsMount.sh** (You have to change the last command with your own settings such as the name of the storage account and the password) :
+    Contain of **cifsMount.sh** :
     ```bash
     # Install the cifs utils, should be already installed
     sudo apt-get update && sudo apt-get -y install cifs-utils
@@ -96,6 +96,7 @@ We will run this command on each virtual machine of our cluster (Master and Node
     sudo apt-get install jq
 
     # Mount the share on the current vm (master)
+    if [ ! -d "/mnt/share/demoshare" ]; then sudo mkdir -p "/mnt/share/demoshare" ; fi
     sudo mount -t cifs //anystorageaccountname.file.core.windows.net/demoshare /mnt/share/demoshare -o vers=3.0,username=anystorageaccountname,password=P/GuWEUuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqQADF1w==,dir_mode=0777,file_mode=0777
 
     # Get the ip of each node using the mesos API and store it inside a file called nodes
@@ -107,6 +108,9 @@ We will run this command on each virtual machine of our cluster (Master and Node
     ssh `whoami`@$line -o StrictHostKeyChecking=no -i yourPrivateKeyFile < ./cifsMount.sh
     done
     ```
+
+    > [!IMPORTANT]
+    > You have to change the **'mount'** command with your own settings such as the name of the storage account and the password.
 
 4. From the folder where you created the previous scripts you should now have 3 files :
 
