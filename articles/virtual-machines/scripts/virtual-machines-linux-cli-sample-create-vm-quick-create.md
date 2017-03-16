@@ -20,9 +20,9 @@ ms.author: nepeters
 
 # Create a virtual machine
 
-The sample script provided here creates an Azure Virtual Machine with an Ubuntu operating system. Once the script has been successfully run, the virtual Machine can be accessed over SSH. 
+This script creates an Azure Virtual Machine with an Ubuntu operating system and related networking resources. After running the script, you can access the virtual machine over SSH.
 
-Before running this script, ensure that a connection with Azure has been created using the `az login` command.
+If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure.
 
 This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
@@ -32,7 +32,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Clean up deployment 
 
-After the script sample has been run, the following command can be used to remove the Resource Group, VM, and all related resources.
+Run the following command to remove the Resource Group, VM, and all related resources.
 
 ```azurecli
 az group delete --name myResourceGroup
