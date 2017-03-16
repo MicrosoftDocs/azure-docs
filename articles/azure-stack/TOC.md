@@ -55,6 +55,8 @@
 #### [Before you get started](azure-stack-app-service-before-you-get-started.md)
 #### [Deploy App Service resource provider](azure-stack-app-service-deploy.md)
 #### [Add more web worker roles](azure-stack-app-service-add-worker-roles.md)
+#### [Configure deployment sources](azure-stack-app-service-configure-deployment-sources.md)
+#### [Enable FTP in App Service on Azure Stack](azure-stack-app-service-enable-ftp.md)
 ### Populate the Marketplace
 #### [Marketplace overview](azure-stack-marketplace.md)
 #### [Download marketplace items](azure-stack-download-azure-marketplace-item.md)
@@ -110,6 +112,7 @@
 
 # Troubleshoot
 ## [Known issues](azure-stack-troubleshooting.md)
+## [Diagnostics in Azure Stack](azure-stack-diagnostics.md)
 
 # Resources
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  

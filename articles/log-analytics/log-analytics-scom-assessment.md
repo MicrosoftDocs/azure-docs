@@ -40,7 +40,7 @@ The solution works with Microsoft System Operations Manager 2012 R2 and 2012 SP1
 
 Use the following information to install and configure the solution.
 
- - Before you can use an assessment solution in OMS, you must have the solution installed. To read more about installing solutions, see [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+ - Before you can use an assessment solution in OMS, you must have the solution installed. Install the solution from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview) or by following the instructions in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 
  - After adding the solution to the workspace, the System Center Operations Manager Assessment tile on the dashboard displays the additional configuration required message. Click on the tile and follow the configuration steps mentioned in the page
 

@@ -14,13 +14,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2017
+ms.date: 03/08/2017
 ms.author: joflore
 
 ---
 # Getting started with Password Management
 > [!IMPORTANT]
-> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
@@ -306,6 +306,7 @@ This section walks you through configuring password reset to write passwords bac
 Before you can enable and use the Password Writeback, you must make sure you complete the following prerequisites:
 
 * You have an Azure AD tenant with Azure AD Premium enabled.  For more information, see [Azure Active Directory Editions](active-directory-editions.md).
+* You must connect Azure AD Connect to the Primary Domain Controller Emulator for password writeback to work.  If you need to, you can configure Azure AD Connect to use a Primary Domain Controller by right clicking on the **properties** of the Active Directory synchronization connector, then selecting **configure directory partitions**. From there, look for the **domain controller connection settings** section and check the box titled **only use preferred domain controllers**.  Note: if the preferred DC is not a PDC emulator, Azure AD Connect will still reach out to the PDC for password writeback.
 * Password reset has been configured and enabled in your tenant.  For more information, see [Enable users to reset their Azure AD passwords](#enable-users-to-reset-their-azure-ad-passwords)
 * You have at least one administrator account and one test user account with an Azure AD Premium license that you can use to test this feature.  For more information, see [Azure Active Directory Editions](active-directory-editions.md).
 
@@ -431,7 +432,7 @@ For Azure AD Connect tool versions **1.0.8667.0** to **1.1.380.0**:
 
 Once the network appliances have been configured, reboot the machine running Azure AD Connect tool.
 
-#### Idle connections on Azure AD Connect (1.1.439.0 and up)
+#### Idle connections on Azure AD Connect (1.1.443.0 and up)
 The Azure AD Connect tool will send periodic pings/keepalives to ServiceBus endpoints to ensure that the connections stay alive. Should the tool detect that too many connections are being killed, it will automatically increase the frequency of pings to the endpoint. The lowest 'ping intervals' will drop to is 1 ping every 60 seconds, however, **we strongly advise that proxies/firewalls allow idle connections to persist for at least 2-3 minutes.** \*For older versions, we suggest 4 minutes or more.
 
 ### Step 4: Set up the appropriate Active Directory permissions
@@ -490,7 +491,7 @@ Now that Password Writeback has been enabled, you can test that it works by rese
 ## Next steps
 Below are links to all of the Azure AD Password Reset documentation pages:
 
-* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
 * [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
 * [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
