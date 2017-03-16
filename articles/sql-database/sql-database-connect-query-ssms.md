@@ -63,7 +63,7 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
 
 ## Query data
 
-Use the [SELECT](https://msdn.microsoft.com/en-us/library/ms189499.aspx) Transact-SQL statement to query data in your Azure SQL database.
+Use the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement to query data in your Azure SQL database.
 
 1. In Object Explorer, right-click **mySampleDatabase** and click **New Query**. A blank query window opens that is connected to your database.
 2. In the query window, type the following query in the query window to retrieve data from the Product and ProductCategory tables:
@@ -81,7 +81,7 @@ Use the [SELECT](https://msdn.microsoft.com/en-us/library/ms189499.aspx) Transac
 
 ## Insert data
 
-Use the [INSERT](https://msdn.microsoft.com/en-us/library/ms174335.aspx) Transcat-SQL statement to insert data into your Azure SQL database.
+Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transcat-SQL statement to insert data into your Azure SQL database.
 
 1. On the toolbar, click **New Query**. A blank query window opens connected to your database.
 2. In the query window, type the following query in the query window to insert a new row in the Product table:
@@ -129,7 +129,7 @@ Use the [INSERT](https://msdn.microsoft.com/en-us/library/ms174335.aspx) Transca
 
 ## Update data
 
-Use the [UPDATE](https://msdn.microsoft.com/en-us/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
+Use the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
 
 1. On the toolbar, click **New Query**. A blank query window opens connected to your database.
 2. In the query window, type the following query in the query window to update a row in the Product table:
@@ -158,7 +158,7 @@ Use the [UPDATE](https://msdn.microsoft.com/en-us/library/ms177523.aspx) Transac
 
 ## Delete data
 
-Use the [DELETE](https://msdn.microsoft.com/en-us/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
+Use the [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
 
 1. On the toolbar, click **New Query**. A blank query window opens connected to your database.
 2. In the query window, type the following query in the query window to delete a row in the Product table:
