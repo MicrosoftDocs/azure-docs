@@ -24,22 +24,8 @@ Before you can provision virtual machines, you must add the Windows Server VM im
 1. After deploying Azure Stack, sign in to the MAS-CON01 virtual machine.
 2. Go to https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 and download the Windows Server 2016 evaluation. When prompted, select the **ISO** version of the download. Record the path to the download location to use later in these steps.
 3. Open PowerShell ISE as an administrator.
-4. Install the following PowerShell modules:
-
-    ```powershell
-    Install-Module -Name AzureRM -RequiredVersion 1.2.8 -Scope CurrentUser
-    Install-Module -Name AzureStack
-    ```
-5. Download the Azure Stack Tools archive, expand the downloaded files, and changes to the tools directory by running the following script:    
-
-    ```powershell
-    #Download the tools archive
-    invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip -OutFile master.zip 
-    #Expand the downloaded files. 
-    expand-archive master.zip -DestinationPath . -Force
-    #Change to the tools directory
-    cd AzureStack-Tools-master 
-    ```
+4. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
+5. [Download the Azure Stack tools from GitHub](azure-stack-powershell-download.md).
 6. Import the Azure Stack Connect and Compute Modules by using the following script:
 
     ```powershell
