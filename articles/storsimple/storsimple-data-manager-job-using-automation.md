@@ -98,3 +98,8 @@ Before you begin, ensure that you have:
 5. In the **Start runbook** blade, enter all the parameters. Click **OK** to submit the Data Transformation job.
 
    ![Start runbook](./media/storsimple-data-manager-job-using-automation/run-runbook2m.png)
+
+
+## Next steps
+
+[Use StorSimple Data Manager UI to transform your data](storsimple-data-manager-ui.md).
