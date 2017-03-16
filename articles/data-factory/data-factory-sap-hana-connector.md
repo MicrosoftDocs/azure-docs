@@ -24,8 +24,8 @@ Data Factory service supports connecting to on-premises SAP HANA instances using
 ## Supported versions and installation
 This connector supports any version of SAP HANA database. It supports copying data from HANA information models (such as Analytic and Calculation views) and Row/Column tables using SQL queries.
 
-To enable the connectivity to the SAP HANA instance, install the following:
-- **Data Management Gateway**: Data Factory service supports connecting to on-premises data stores (including SAP Business Warehouse) using a component called Data Management Gateway. See [Moving data between on-premises data store to cloud data store](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions for` setting up the gateway.
+To enable the connectivity to the SAP HANA instance, install the following components:
+- **Data Management Gateway**: Data Factory service supports connecting to on-premises data stores (including SAP Business Warehouse) using a component called Data Management Gateway. To learn about Data Management Gateway and step-by-step instructions for setting up the gateway, see [Moving data between on-premises data store to cloud data store](data-factory-move-data-between-onprem-and-cloud.md) article.
 - **SAP HANA ODBC driver** on the gateway machine. You can download the SAP HANA ODBC driver from the [SAP Software Download Center](https://support.sap.com/swdc). Search with the keyword **SAP HANA CLIENT for Windows**. 
 
 ## Supported sinks
@@ -50,7 +50,7 @@ The sample has the following data factory entities:
 4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](sap-hana-source-in-copy-activity) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
-The sample copies data from a SAP HANA instance to an Azure blob hourly. The JSON properties used in these samples are described in sections following the samples.
+The sample copies data from an SAP HANA instance to an Azure blob hourly. The JSON properties used in these samples are described in sections following the samples.
 
 As a first step, setup the data management gateway. The instructions are in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
 
@@ -236,15 +236,15 @@ encryptedCredential | The encrypted credential string. | string | No
 ## SAP HANA dataset
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
-The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. There are no type specific properties supported for the SAP HANA dataset of type **RelationalTable**. 
+The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. There are no type-specific properties supported for the SAP HANA dataset of type **RelationalTable**. 
 
 
 ## SAP HANA source in copy activity
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, are policies are available for all types of activities.
 
-Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
+Whereas, properties available in the **typeProperties** section of the activity vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
 
-When source in copy activity is of type **RelationalSource** (which includes SAP HANA) the following properties are available in typeProperties section:
+When source in copy activity is of type **RelationalSource** (which includes SAP HANA), the following properties are available in typeProperties section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |

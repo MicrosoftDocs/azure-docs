@@ -24,9 +24,9 @@ Data Factory service supports connecting to on-premises SAP Business Warehouse i
 ## Supported versions and installation
 This connector supports SAP Business Warehouse version 7.x. It supports copying data from InfoCubes and QueryCubes (including BEx queries) using MDX queries.
 
-To enable the connectivity to the SAP BW instance, install the following:
-- **Data Management Gateway**: Data Factory service supports connecting to on-premises data stores (including SAP Business Warehouse) using a component called Data Management Gateway. See [Moving data between on-premises data store to cloud data store](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions for` setting up the gateway.
-- **SAP NetWeaver library** on the gateway machine. You can get the SAP Netweaver library from your SAP administrator, or directly from the [SAP Software Download Center](https://support.sap.com/swdc). Search for the **SAP Note #1025361** to get the download location for the most recent version. Make sure the architecture for the SAP NetWeaver library (32-bit or 64-bit) matches your gateway installation. Then install all files included in the SAP NetWeaver RFC SDK according to the SAP Note. The SAP NetWeaver library is also usually included in the SAP Client Tools installation.
+To enable the connectivity to the SAP BW instance, install the following components:
+- **Data Management Gateway**: Data Factory service supports connecting to on-premises data stores (including SAP Business Warehouse) using a component called Data Management Gateway. To learn about Data Management Gateway and step-by-step instructions for setting up the gateway, see [Moving data between on-premises data store to cloud data store](data-factory-move-data-between-onprem-and-cloud.md) article .
+- **SAP NetWeaver library** on the gateway machine. You can get the SAP Netweaver library from your SAP administrator, or directly from the [SAP Software Download Center](https://support.sap.com/swdc). Search for the **SAP Note #1025361** to get the download location for the most recent version. Make sure the architecture for the SAP NetWeaver library (32-bit or 64-bit) matches your gateway installation. Then install all files included in the SAP NetWeaver RFC SDK according to the SAP Note. The SAP NetWeaver library is also included in the SAP Client Tools installation.
 
 ## Supported sinks
 See [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table for a list of data stores supported as sources or sinks by the Copy Activity. You can move data from SAP Business Warehouse to any supported sink data store. 
@@ -50,7 +50,7 @@ The sample has the following data factory entities:
 4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](sap-bw-source-in-copy-activity) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
-The sample copies data from a SAP Business Warehouse instance to an Azure blob hourly. The JSON properties used in these samples are described in sections following the samples.
+The sample copies data from an SAP Business Warehouse instance to an Azure blob hourly. The JSON properties used in these samples are described in sections following the samples.
 
 As a first step, setup the data management gateway. The instructions are in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
 
@@ -237,15 +237,15 @@ encryptedCredential | The encrypted credential string. | string | No
 ## SAP BW dataset
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
-The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. There are no type specific properties supported for the SAP BW dataset of type **RelationalTable**. 
+The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. There are no type-specific properties supported for the SAP BW dataset of type **RelationalTable**. 
 
 
 ## SAP BW source in copy activity
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, are policies are available for all types of activities.
 
-Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
+Whereas, properties available in the **typeProperties** section of the activity vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
 
-When source in copy activity is of type **RelationalSource** (which includes SAP BW) the following properties are available in typeProperties section:
+When source in copy activity is of type **RelationalSource** (which includes SAP BW), the following properties are available in typeProperties section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
