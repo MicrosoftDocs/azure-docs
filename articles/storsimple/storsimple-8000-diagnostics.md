@@ -406,7 +406,7 @@ Cloud read latency: 4924 ms using credential 'myss8000storageacct', blob size '5
 Controller0>
 ```
 
-#### Appendix - interpreting system information
+## Appendix - interpreting system information
 
 Here is a table describing what the various Windows PowerShell parameters in the system information map to. 
 
