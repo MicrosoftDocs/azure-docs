@@ -15,7 +15,6 @@ This section provides the steps to reclaim DB space required for Azure AD Connec
 3. [Delete run history data](#delete-run-history-data)
 4. [Shorten retention period for run history data](#shorten-retention-period-for-run-history-data)
 
-
 ### Determine the Synchronization Service status
 First, determine whether the Synchronization Service is still running or not:
 
@@ -37,33 +36,32 @@ Use the Shrink operation to free up enough DB space to start the Synchronization
 > [!IMPORTANT]
 > Skip this step if you can get the Synchronization Service to run. It is not recommended to shrink the SQL DB as it can lead to poor performance due to increased fragmentation.
 
-1. The name of the database created for Azure AD Connect is **ADSync**. To perform a Shrink operation, you must login either as the sysadmin or DBO of the database. During Azure AD Connect installation, the following accounts are granted sysadmin rights:
-    * Local Administrators
-    * The user account which was used to run Azure AD Connect installation.
-    * The Sync Service account which is used as the operating context of Azure AD Connect Synchronization Service.
-    * The local group ADSyncAdmins which was created during installation.
+The name of the database created for Azure AD Connect is **ADSync**. To perform a Shrink operation, you must login either as the sysadmin or DBO of the database. During Azure AD Connect installation, the following accounts are granted sysadmin rights:
+* Local Administrators
+* The user account which was used to run Azure AD Connect installation.
+* The Sync Service account which is used as the operating context of Azure AD Connect Synchronization Service.
+* The local group ADSyncAdmins which was created during installation.
 
+1.  Backup the database by copying **ADSync.mdf** and **ADSync_log.ldf** files located under `%ProgramFiles%\program files\Microsoft Azure AD Sync\Data` to a safe location.
 
-2.  Backup the database by copying **ADSync.mdf** and **ADSync_log.ldf** files located under `%ProgramFiles%\program files\Microsoft Azure AD Sync\Data` to a safe location.
+2. Start a new PowerShell session.
 
-3. Start a new PowerShell session.
+3. Navigate to folder `%ProgramFiles%\Program Files\Microsoft SQL Server\110\Tools\Binn`.
 
-4. Navigate to folder `%ProgramFiles%\Program Files\Microsoft SQL Server\110\Tools\Binn`.
+4. Start **sqlcmd** utility by running the command `./SQLCMD.EXE -S “(localdb)\.\ADSync” -U <Username> -P <Password>`, using the credential of a sysadmin or the database DBO.
 
-5. Start **sqlcmd** utility by running the command `./SQLCMD.EXE -S “(localdb)\.\ADSync” -U <Username> -P <Password>`, using the credential of a sysadmin or the database DBO.
+5. To shrink the database, at the sqlcmd prompt (1>), enter `DBCC Shrinkdatabase(ADSync,1);`, followed by `GO` in the following line.
 
-6. To shrink the database, at the sqlcmd prompt (1>), enter `DBCC Shrinkdatabase(ADSync,1);`, followed by `GO` in the following line.
-
-7. If the operation is successful, try to start the Synchronization Service again. If you can start the Synchronization Service, go to [Delete run history data](#delete-run-history-data) step. If not, you will need to contact Support.
+6. If the operation is successful, try to start the Synchronization Service again. If you can start the Synchronization Service, go to [Delete run history data](#delete-run-history-data) step. If not, you will need to contact Support.
 
 ### Delete run history data
 By default, Azure AD Connect retains up to 7 days’ worth of run history data. In this step, we delete the run history data to reclaim DB space so that Azure AD Connect Synchronization Service can start syncing again.
 
-1.	Start *Synchronization Service Manager* by going to START → Synchronization Service.
+1.	Start **Synchronization Service Manager** by going to START → Synchronization Service.
 
 2.	Go to the **Operations** tab.
 
-3.	Under Actions, select **Clear Runs**…
+3.	Under **Actions**, select **Clear Runs**…
 
 4.	You can either choose **Clear all runs** or **Clear runs before… <date>** option. It is recommended that you start by clearing run history which are older than 2 days. If you continue to run into DB size issue, then choose the **Clear all runs** option.
 
