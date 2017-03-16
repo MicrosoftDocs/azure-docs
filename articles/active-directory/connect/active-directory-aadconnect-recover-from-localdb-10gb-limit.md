@@ -15,14 +15,16 @@ This section provides the steps to reclaim DB space required for Azure AD Connec
 3. [Delete run history data](#delete-run-history-data)
 4. [Shorten retention period for run history data](#shorten-retention-period-for-run-history-data)
 
+
 ### Determine the Synchronization Service status
 First, determine whether the Synchronization Service is still running or not:
 
-1. Log in to your Azure AD Connect server as administrator.
+1. Login to your Azure AD Connect server as administrator.
 
 2. Go to **Service Control Manager**.
 
 3. Check the status of **Microsoft Azure AD Sync**.
+
 
 4. If it is running, do not stop or restart the service. Skip [Shrink the database](#shrink-the-database) step and go to [Delete run 
 history data](#delete-run-history-data) step.
@@ -73,4 +75,9 @@ This step is to reduce the likelihood of running into the 10GB limit issue after
 2. Run `Get-ADSyncScheduler` and take note of the PurgeRunHistoryInterval property, which specifies the current retention period.
 
 3. Run `Set-ADSyncScheduler -PurgeRunHistoryInterval 2.00:00:00` to set the retention period to 2 days. Adjust the retention period as appropriate.
+
+## Long term solution – Migrate to full SQL
+In general, the issue is indicative that 10GB database size is no longer sufficient for Azure AD Connect to synchronize your on-premises Active Directory to Azure AD. It is recommended that you switch to using the full version of SQL server. You cannot directly replace the LocalDB of an existing Azure AD Connect deployment with the database of the full version of SQL. Instead, you must deploy a new Azure AD Connect server with the full version of SQL. It is recommended that you do a swing migration where the new Azure AD Connect server (with SQL DB) is deployed as a staging server, next to the existing Azure AD Connect server (with LocalDB). 
+* For instruction on how to configure remote SQL with Azure AD Connect, refer to article [Custom installation of Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom).
+* For instructions on swing migration for Azure AD Connect upgrade, refer to article [Azure AD Connect: Upgrade from a previous version to the latest](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration).
 
