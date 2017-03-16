@@ -96,13 +96,14 @@ To enable multi-cloud mode, you must run the ConfigureAzurePackConnector.ps1 scr
 If you want to run the ConfigureAzurePackConnector.ps1 script immediately after deployment, use the same Windows PowerShell session where Azure Stack deployment completed. Or, you can open a new Windows PowerShell session as an administrator (signed in as the azurestackadmin account).
 
  1. Run the ConfigureAzurePackConnector.ps1 script by using the following command (with values specific to your environment):
-
-    ```powershell
+ 
+ ```powershell
     C:\CloudDeployment\Setup\Activation\AzurePackConnector\ConfigureAzurePackConnector.ps1 `
-    -AzurePackConnectorEndpoint "https://waptenantportal:40005" -AzurePackCloudName "Azure_Pack" `
+    -AzurePackConnectorEndpoint "https://waptenantportal:40005" `
+    -AzurePackCloudName "Azure_Pack" `
     -AzureStackCloudName "Azure_Stack" -EnableMultiCloud $true
-    ```
-
+ ```
+    
 2. Make note of the output file that is produced by this script, "$env:TEMP\AzurePackConnectorOutput.txt." This file contains the information that is required to configure the target Windows Azure Pack environment. You pass this file as a parameter to a script later in these instructions. This file contains the following information:
 
     * AzurePackConnectorEndpoint: Contains the endpoint to the Windows Azure Pack Connector service.
@@ -112,6 +113,7 @@ If you want to run the ConfigureAzurePackConnector.ps1 script immediately after 
         * The "Realm" associated with the signing certificate. For example: https://adfs.local.azurestack.global.external/adfs/c1d72562-534e-4aa5-92aa-d65df289a107/.
 
 3.	Browse to $env:TEMP\AzurePackConnectorOutput.txt, and copy the file to your local computer.
+
 4.	Test the configuration.
 
     a. Open your browser and sign in to the Azure Stack user portal (https://publicportal.local.azurestack.external/).
@@ -136,7 +138,7 @@ For this preview, use the Windows Azure Pack Connector only in test environments
 
     c. Change directories to **c:\temp\wapconnector\setup\scripts**, and run the **Install-Connector.ps1** script to install three MSI files. No parameters are required.
 
-    ```powershell
+     ```powershell
     cd C:\temp\wapconnector\setup\scripts\
 
     .\Install-Connector.ps1
@@ -151,8 +153,9 @@ For this preview, use the Windows Azure Pack Connector only in test environments
 
      e. From the same **c:\temp\wapconnector\setup\scripts** folder, run the **Configure-Certificates.ps1** script to install certificates. By default, it will use the same certificate that is available in for the Tenant Portal site in Windows Azure Pack. Make sure this is a valid certificate (trusted by the Azure Stack MAS-WASP01 virtual machine and any client computer that accesses the Azure Stack portal). Otherwise, communication won’t work. (Alternatively, you can explicitly pass a certificate thumbprint as a parameter by using the -Thumbprint parameter.) Type:
 
-    ```powershell
+     ```powershell
         cd C:\temp\wapconnector\setup\scripts\
+
         .\Configure-Certificates.ps1
     ```
 
@@ -165,10 +168,10 @@ For this preview, use the Windows Azure Pack Connector only in test environments
     | AzureStackPortalFQDN | The Azure Stack portal FQDN | publicportal.local.azurestack.external |
     | | |
     
-    ```powershell
-    .\Configure-WapConnector.ps1 -TenantPortalFQDN tenant.contoso.com `
-         -TenantAPIFQDN tenantapi.contoso.com `
-         -AzureStackPortalFQDN  publicportal.local.azurestack.external
+     ```powershell
+    .\Configure-WapConnector.ps1 -TenantPortalFQDN "tenant.contoso.com" `
+         -TenantAPIFQDN "tenantapi.contoso.com" `
+         -AzureStackPortalFQDN  "publicportal.local.azurestack.external"
     ```
     g. If you have multiple tenant portal virtual machines, repeat step 1 for each of these virtual machines.
 
@@ -182,13 +185,13 @@ For this preview, use the Windows Azure Pack Connector only in test environments
 
     d. Open a Console or RDP connection to the Tenant API VM you copied the files to. Change directories to **c:\temp\wapconnector\setup\scripts**, and run **Update-TenantAPI.ps1**. This new version of the WAP Tenant API contains a change to enable a trust relationship not only with the current STS, but also with the instance of AD FS in Azure Stack.
 
-    ```powershell
+     ```powershell
     cd C:\temp\wapconnector\setup\packages\
 
     .\Update-TenantAPI.ps1
     ```
 
-    e.	Repeat steps a through d in this section on any other virtual machine running the Tenant API.
+    e.	Repeat step 2 on any other virtual machine running the Tenant API.
 3. From only one of the Tenant API VMs, run the Configure-TrustAzureStack.ps1 script to add a trust relationship between the Tenant API and the AD FS instance on Azure Stack. You must use an account with sysadmin access to the Microsoft.MgmtSvc.Store database. This script has the following parameters:
 
     | Parameter | Description | Example |
@@ -200,23 +203,23 @@ For this preview, use the Windows Azure Pack Connector only in test environments
 
     If you don't know the SQL Server to use, you can discover it. Connect to the Tenant API computer, use the Unprotect-MgmtSvc command to unprotect the Tenant API Web.config file, and look for the server name in the connection string. Remember to run Protect-MgmtSvc again to protect the Tenant API Web.config file.
 
-    ```powershell
-    cd C:\temp\wapconnector\setup\scripts\
+  ```powershell
+  cd C:\temp\wapconnector\setup\scripts\
 
-   .\Configure-TrustAzureStack.ps1 -SqlServer "SQLServer" `
-         -DataFile "C:\temp\wapconnector\AzurePackConnectorOutput.txt"
-    ```
+ .\Configure-TrustAzureStack.ps1 -SqlServer "SQLServer" `
+       -DataFile "C:\temp\wapconnector\AzurePackConnectorOutput.txt"
+  ```
 
 ## Example
 The following example shows a complete Windows Azure Pack Connector deployment on a single-node Azure Stack configuration and a Windows Azure Pack Express installation. (The Express installation is on a single computer, with the example name *wapcomputer*.)
 
 ```powershell
-    # Run the following script on the Azure Stack host
-    cd C:\CloudDeployment\Setup\Activation\AzurePackConnector\
-    ./ConfigureAzurePackConnector.ps1 -AzurePackConnectorEndpoint "https://wapcomputer.com:40005" `
-                                  -AzurePackCloudName "Azure_Pack" `
-                                  -AzureStackCloudName "Azure_Stack" `
-                                  -EnableMultiCloud $true 
+# Run the following script on the Azure Stack host
+cd C:\CloudDeployment\Setup\Activation\AzurePackConnector\
+./ConfigureAzurePackConnector.ps1 -AzurePackConnectorEndpoint "https://wapcomputer.com:40005" `
+     -AzurePackCloudName "Azure_Pack" `
+     -AzureStackCloudName "Azure_Stack" `
+     -EnableMultiCloud $true 
     ```
 Download the zip file from the Download Center, extract it, and copy the WAPConnector folder to a **c:\temp** folder on the Windows Azure Pack computer. Copy the file "AzurePackConnectorOutput.txt" that was generated in the previous step to the c:\temp\WAPConnector folder, and then run the following script:
 
@@ -230,8 +233,8 @@ cd C:\temp\WAPConnector\Setup\Scripts
 
 # Configure the Connector services
 .\Configure-WapConnector.ps1 -TenantPortalFQDN wapcomputer.com `
-     -TenantAPIFQDN wapcomputer.com `
-     -AzureStackPortalFQDN publicportal.local.azurestack.external
+     -TenantAPIFQDN "wapcomputer.com" `
+     -AzureStackPortalFQDN "publicportal.local.azurestack.external"
 
 # Install the updated TenantAPI
 .\Update-TenantAPI.ps1
