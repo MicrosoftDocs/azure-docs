@@ -72,7 +72,7 @@ Use Visual Studio Code to establish a connection to your Azure SQL Database serv
 
    | Setting | Description |
    |-----|-----|
-   | **Server name** | Enter your fully qualified server name in the form of **mynewserver20170313.database.windows.net** |
+   | **Server name** | Enter your fully qualified server name, such as **mynewserver20170313.database.windows.net** |
    | **Database name** | Enter your database name, such as **mySampleDatabase** |
    | **Authentication** | Select SQL Login |
    | **User name** | Enter your server admin account |
