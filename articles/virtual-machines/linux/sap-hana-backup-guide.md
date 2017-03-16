@@ -526,10 +526,11 @@ The HANA Studio backup console allows one to restrict the max file size of HANA 
 
 Based on the test results the following tables will show pros and cons of solutions to backup a SAP HANA database running on Azure virtual machines.
 
+
 |Backup SAP HANA to the file system and copy backup files afterwards to the final backup destination|
------------------------------------------------------------------------------------------------------
+|---------------------------------------------------------------------------------------------------|
 |Solution|Pros|Cons|
---------------------
+|--------|----|----|
 |Keep HANA backups on VM disks|no additional management efforts|eats up local VM disk space|
 |Blobxfer tool to copy backup files to blob storage|parallelism to copy multiple files,choice to use cool blob storage|Additional tool maintenance and custom scripting as well as management of blobs for restore|
 
