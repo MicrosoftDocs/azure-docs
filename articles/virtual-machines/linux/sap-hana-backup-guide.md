@@ -87,10 +87,10 @@ This figure shows options for taking an SAP HANA file backup inside the VM, and 
 
 This figure shows a potential future SAP HANA backup scenario. If SAP HANA allowed taking backups from a replication secondary, it would add additional options for backup strategies. Currently it isn't possible according to a post in the SAP HANA Wiki:
 
-&quot;Is it possible to take backups on the secondary side?
+_&quot;Is it possible to take backups on the secondary side?_
 
-No, currently you can only take data and log backups on the primary side. If automatic log backup
-is enabled, after takeover to the secondary side, the log backups will automatically be written there.&quot;
+_No, currently you can only take data and log backups on the primary side. If automatic log backup
+is enabled, after takeover to the secondary side, the log backups will automatically be written there.&quot;_
 
 ## SAP HANA backup documentation
 
@@ -261,11 +261,13 @@ Fortunately, there is a simple SQL statement that estimates the size of the back
 For the test system, the output of this SQL statement matches almost exactly the real size of the full data backup on disk.
 
 ### Test HANA backup file size
+
 ![The HANA Studio backup console allows one to restrict the max file size of HANA backup files](./media/sap-hana-backup-guide/image010.png)
 
 The HANA Studio backup console allows one to restrict the max file size of HANA backup files. In the sample environment, that feature makes it possible to get multiple smaller backup files instead of one 230-GB backup file. Smaller file size has a significant impact on performance (see _SAP HANA Azure Backup on file level_ later in this document).
 
 ## SAP HANA Azure Backup on VM level and storage snapshots
+
 ### Introduction
 
 When using a VM backup feature for a single-instance all-in-one demo system, one should to consider doing a VM backup instead of managing HANA backups at the OS level. An alternative is to take Azure blob snapshots to create copies of individual virtual disks, which are attached to a virtual machine, and keep the HANA data files. But a critical point is app consistency when creating a VM backup or disk snapshot while the system is up and running. See _SAP HANA data consistency when taking storage snapshots_ earlier in this document. SAP HANA has a feature that supports these kinds of storage snapshots.
@@ -307,15 +309,15 @@ The Azure Backup service offers an option to back up and restore a VM. More info
 
 There are two important considerations according to that article:
 
-&quot;For Linux virtual machines, only file-consistent backups are possible, since Linux does not have an equivalent platform to VSS.&quot;
+_&quot;For Linux virtual machines, only file-consistent backups are possible, since Linux does not have an equivalent platform to VSS.&quot;_
 
-&quot;Applications need to implement their own &quot;fix-up&quot; mechanism on the restored data.&quot;
+_&quot;Applications need to implement their own &quot;fix-up&quot; mechanism on the restored data.&quot;_
 
 Therefore, one has to make sure SAP HANA is in a consistent state on disk when the backup starts. See _SAP HANA snapshots_ described earlier in the document. But there is a potential issue when SAP HANA stays in this snapshot preparation mode. See [Create a Storage Snapshot (SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm) for more information.
 
 That article states:
 
-&quot;It is strongly recommended to confirm or abandon a storage snapshot as soon as possible after it has been created. While the storage snapshot is being prepared or created, the snapshot-relevant data is frozen. While the snapshot-relevant data remains frozen, changes can still be made in the database. Such changes will not cause the frozen snapshot-relevant data to be changed. Instead, the changes are written to positions in the data area that are separate from the storage snapshot. Changes are also written to the log. However, the longer the snapshot-relevant data is kept frozen, the more the data volume can grow.&quot;
+_&quot;It is strongly recommended to confirm or abandon a storage snapshot as soon as possible after it has been created. While the storage snapshot is being prepared or created, the snapshot-relevant data is frozen. While the snapshot-relevant data remains frozen, changes can still be made in the database. Such changes will not cause the frozen snapshot-relevant data to be changed. Instead, the changes are written to positions in the data area that are separate from the storage snapshot. Changes are also written to the log. However, the longer the snapshot-relevant data is kept frozen, the more the data volume can grow.&quot;_
 
 Azure Backup takes care of the file system consistency via Azure VM extensions. These extensions are not available standalone, and work only in combination with Azure Backup service. Nevertheless, it is still a requirement to manage an SAP HANA snapshot to guarantee app consistency.
 
