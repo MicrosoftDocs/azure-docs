@@ -1,5 +1,5 @@
 ---
-title: Load balancing on multiple IP configurations | Microsoft Docs
+title: Load balancing on multiple IP configurations in Azure| Microsoft Docs
 description: Load balancing across primary and secondary IP configurations.
 services: load-balancer
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
-ms.author: kumudd
+ms.author: kumud
 ---
 
 # Load balancing on multiple IP configurations using the Azure portal
@@ -149,4 +149,8 @@ Configure load balancing rules (*HTTPc* and *HTTPf*) for each website as follows
 8. When the load balancing rules configuration is complete, both rules ((*HTTPc* and *HTTPf*) are displayed in the **Load balancing rules** blade of your load balancer.
 
 ### STEP 7: Configure DNS records
-Finally, you must configure DNS resource records to point to the respective frontend IP address of the Load Balancer. You may host your domains in Azure DNS. For more information about using Azure DNS with Load Balancer, see [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).
+Finally, you must configure DNS resource records to point to the respective frontend IP address of the load balancer. You may host your domains in Azure DNS. For more information about using Azure DNS with Load Balancer, see [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).
+
+## Next steps
+- Learn more about how to combine load balancing services in Azure in [Using load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure).
+- Learn how you can use different types of logs in Azure to manage and troubleshoot load balancer in [Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

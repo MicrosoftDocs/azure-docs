@@ -1,5 +1,5 @@
 ---
-title: Load balancing on multiple IP configurations | Microsoft Docs
+title: Load balancing on multiple IP configurations in Azure| Microsoft Docs
 description: Load balancing across primary and secondary IP configurations.
 services: load-balancer
 documentationcenter: na
@@ -164,3 +164,7 @@ Follow the steps below to achieve the scenario outlined in this article:
     ```
 
 13. Finally, you must configure DNS resource records to point to the respective frontend IP address of the Load Balancer. You may host your domains in Azure DNS. For more information about using Azure DNS with Load Balancer, see [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).
+
+## Next steps
+- Learn more about how to combine load balancing services in Azure in [Using load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure).
+- Learn how you can use different types of logs in Azure to manage and troubleshoot load balancer in [Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
