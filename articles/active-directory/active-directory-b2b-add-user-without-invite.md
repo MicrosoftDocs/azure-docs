@@ -22,14 +22,13 @@ ms.author: sasubram
 
 # Add B2B collaboration guest users without an invitation
 
-You can allow a user, such as a partner representative, to add users from the partner to your to your organization without needing invitations to be redeeemed. All you must do is grant that user enumeration privileges in the directory you're using for the partner org. 
+You can allow a user, such as a partner representative, to add users from the partner to your organization without needing invitations to be redeemed. All you must do is grant that user enumeration privileges in the directory you're using for the partner org. 
 
-
-This is useful when:
+Grant these privileges when:
 
 1. A user in the host organization (for example, WoodGrove) invites one user from the partner organization (for example, Sam@litware.com) as Guest.
 2. The admin in the host organization sets up policies that allow Sam to identify and add other users from the partner organization (Litware).
-3. Now Sam can add other users from Litware to the WoodGrove directory, groups, or applications without needing invitations to be redeemed. If Sam has the appropriate enumeration privileges in Litware, this happens automatically.
+3. Now Sam can add other users from Litware to the WoodGrove directory, groups, or applications without needing invitations to be redeemed. If Sam has the appropriate enumeration privileges in Litware, it happens automatically.
 
 ### Next steps
 
