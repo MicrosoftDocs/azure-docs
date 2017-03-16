@@ -6,13 +6,13 @@
 ## [Create DB - Portal](sql-database-get-started.md)
 ## [Create DB - Azure CLI](sql-database-get-started-cli.md)
 ## [Create DB - PowerShell](sql-database-get-started-powershell.md)
+## Manage
+### [Connect with SSMS](sql-database-connect-query-ssms.md)
+### [Connect with VS Code](sql-database-connect-query-vscode.md)
 # Samples
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
 # Tutorials
-## Databases, servers, and firewalls
-### [PowerShell](sql-database-get-started-powershell.md)
-### [C#](sql-database-get-started-csharp.md)
 ## Authentication and access
 ### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
 ### [Azure Active Directory](sql-database-control-access-aad-authentication-get-started.md)
@@ -154,12 +154,12 @@
 ### [PHP](sql-database-develop-php-simple.md)
 ### [Python](sql-database-develop-python-simple.md)
 ### [Ruby](sql-database-develop-ruby-simple.md)
-### [Visual Studio](sql-database-connect-query.md)
 ### [SSMS using Azure RemoteApp](sql-database-ssms-remoteapp.md)
 ### [SSMS using multi-factor authentication](sql-database-ssms-mfa-authentication-configure.md)
 ### [Excel](sql-database-connect-excel.md)
 ### [Connectivity guidance](sql-database-connectivity-issues.md)
 ### [Resolve connection issues](sql-database-troubleshoot-common-connection-issues.md)
+## [Create DB with C#](sql-database-get-started-csharp.md)
 ## Configure encryption
 ### [Encrypt data using Windows certificate](sql-database-always-encrypted.md)
 ### [Encrypt data using Azure key vault](sql-database-always-encrypted-azure-key-vault.md)
@@ -187,8 +187,7 @@
 ### [PowerShell](sql-database-elastic-jobs-powershell.md) 
 ### [Cross-database jobs](sql-database-elastic-jobs-getting-started.md)
 ### [Uninstall](sql-database-elastic-jobs-uninstall.md)
-## Query data
-### [SSMS](sql-database-connect-query-ssms.md)
+## Elastic query
 ### [Horizontally partitioned data](sql-database-elastic-query-getting-started.md)
 ### [Vertically partitioned data](sql-database-elastic-query-getting-started-vertical.md)
 ## Monitor and tune
