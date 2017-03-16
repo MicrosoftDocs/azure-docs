@@ -92,7 +92,7 @@ For more information, see [Steps to generate an OAuth access token](https://dev.
 1. Replace the EventHubConnectionString and EventHubName values in TwitterWpfClient.exe.config with the connection string and name of your event hub. The connection string that you copied earlier gives you both the connection string and the name of your event hub. Be sure to separate them and put each in the correct field. For example, consider the following connection string:
 
 ```
-   Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub`
+   Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub
 ```  
 
    The TwitterWpfClient.exe.config file should contain your settings as shown in the following example:
