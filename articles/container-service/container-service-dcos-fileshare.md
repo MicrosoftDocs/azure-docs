@@ -9,6 +9,7 @@ editor: ''
 tags: acs, azure-container-service
 keywords: Docker, Containers, Micro-services, Mesos, Azure, FileShare, cifs
 
+ms.assetid:
 ms.service: container-service
 ms.devlang: na
 ms.topic: article
@@ -19,7 +20,9 @@ ms.author: juliens
 
 ---
 # Create and mount a file share to a DC/OS cluster
-In this article, we'll explore how to create a file share on Azure and mount it on each node and master of the DCOS cluster.
+In this article, we'll explore how to create a file share on Azure and mount it on each node and master of the DCOS cluster. Thanks to that, it will be easier to share files accross your cluster such as configuration, access, logs, and more.
+
+Before working through this example, you need a DC/OS cluster that is configured in Azure Container Service. [See Deploy an Azure Container Service cluster](https://docs.microsoft.com/en-us/azure/container-service/container-service-deployment)
 
 ## Create a file share on Microsoft Azure
 ### Using the portal :
@@ -38,6 +41,8 @@ In this article, we'll explore how to create a file share on Azure and mount it 
     ![Azure container service + File Share](media/container-service-dcos-fileshare/newFileShare.png)  
 
 ### Using Azure-cli :
+
+[Click here, In case you do want to install and set up the Azure CLI](https://github.com/cli/azure/install-azure-cli.md)
 
 ```
 ################# Change those four parameters ##############
@@ -74,9 +79,13 @@ We will run this command on each virtual machine of our cluster (Master and Node
 
 1. First, [connect to your DC/OS-based ACS cluster](https://docs.microsoft.com/en-us/azure/container-service/container-service-connect)
 
-2. Import your private key on the master that will execute our command using the ```ssh-add yourPrivateKeyFile``` command
+2. Copy your private key to the working directory (~) on master
 
-3. From the master, create two files, using your favorite editor such as vi, nano or vim : 
+3. Change the permissions on it with the command : ```chmod 600 yourPrivateKeyFile```
+
+4. Import your private key using ```ssh-add yourPrivateKeyFile``` command. You may have to do ```eval ssh-agent -s``` if it doesn't work at the first time.
+
+5. From the master, create two files, using your favorite editor such as vi, nano or vim : 
     * One with the script to execute on each vms, called : **cifsMount.sh**  
     * Another one to initiate all the ssh connections that will call the first script, called : **mountShares.sh**
 
@@ -114,13 +123,13 @@ We will run this command on each virtual machine of our cluster (Master and Node
     > [!IMPORTANT]
     > You have to change the **'mount'** command with your own settings such as the name of the storage account and the password.
 
-4. From the folder where you created the previous scripts you should now have 3 files :
+6. From the folder where you created the previous scripts you should now have 3 files :
 
     * **cifsMount.sh**
     * **mountShares.sh**
     * **yourPrivateKeyFile**
 
-5. Execute the **mountShares.sh** file with the following command : ```sh mountShares.sh```
+7. Execute the **mountShares.sh** file with the following command : ```sh mountShares.sh```
 
 You should see the result printing in the terminal. You can for sure optimize the code, that one is really straighforward and its purpose is to provide guidance.
 
@@ -131,4 +140,4 @@ Demo on video :
 >
 >
 
-It should be noted that this method is not recommanded for high IOPS, but it is very useful to share documents and information accross the cluster, such as private registry credentials for example.
+It should be noted that this method is not recommanded for high IOPS, but it is very useful to share documents and information accross the cluster.
