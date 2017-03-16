@@ -184,12 +184,34 @@ There is a limited number of public IP addresses that can be used within a subsc
 
 ### <a name="create-ip-config"></a>Add a secondary IP configuration to a NIC
 
-You can add as many IP configurations as necessary to a NIC, within the limits listed in the [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article. To add an IP configuration to a NIC, complete the following steps:
+You can add as many IP configurations as necessary to a NIC, within the limits listed in the [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article. 
+
+>[!NOTE]
+> The ability to add secondary IP configurations to a NIC is currently in preview release. This feature may not have the same level of availability and reliability as features that are in general availability release. The feature is not supported, may have constrained capabilities, and may not be available in all Azure locations. For the most up-to-date notifications on availability and status of this feature, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
+
+To add an IP configuration to a NIC, complete the following steps:
  
-1. Complete steps 1-3 in the [View network interface settings](#view-nics) section of this article for the NIC you want to add an IP configuration to.
-2. Click **IP configurations** in the blade for the NIC you selected.
-3. Click **+ Add** in the blade that opens for IP configurations.
-4. Specify the following, then click **OK** to close the **Add IP configuration** blade:
+1. Register for the preview by running the commands that follow after you login and select the subscription you want to enable the feature for. You cannot use the CLI or the portal to register for the preview.
+	
+	```powershell
+	Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+	Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+	```
+	
+	Do not attempt to complete the remaining steps until you see the following output after running the previous commands:
+	
+	```powershell
+	FeatureName                            ProviderName      RegistrationState
+	-----------                            ------------      -----------------      
+	AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+	AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered
+	```
+	
+2. Complete steps 1-3 in the [View network interface settings](#view-nics) section of this article for the NIC you want to add an IP configuration to.
+3. Click **IP configurations** in the blade for the NIC you selected.
+4. Click **+ Add** in the blade that opens for IP configurations.
+5. Specify the following, then click **OK** to close the **Add IP configuration** blade:
 
 	|**Setting**|**Required?**|**Details**|
 	|---|---|---|
@@ -197,7 +219,7 @@ You can add as many IP configurations as necessary to a NIC, within the limits l
 	|**Type**|Yes|Since you're adding an IP configuration to an existing NIC, and each NIC must have a primary IP configuration, your only option is **Secondary**.|
 	|**Private IP address assignment method**|Yes|**Dynamic** addresses can change if the VM is restarted after having been in the stopped (deallocated) state. **Static** addresses aren't released until the NIC is deleted. Specify an IP address from the subnet address space range that is not currently in use by another IP configuration.|
 	|Public IP address|No|**Disabled:** No public IP address resource is currently associated to the IP configuration. **Enabled:** Select an existing Public IP address, or create a new one. To learn how to create a public IP address, read the [Public IP addresses](virtual-network-public-ip-address.md#create) article.|
-5. Manually add secondary private IP addresses to the VM operating system by completing the instructions in the [Assign multiple IP addresses to virtual machines](virtual-network-multiple-ip-addresses-portal.md#os-config) article. Do not add any public IP addresses to the VM operating system.
+6. Manually add secondary private IP addresses to the VM operating system by completing the instructions in the [Assign multiple IP addresses to virtual machines](virtual-network-multiple-ip-addresses-portal.md#os-config) article. Do not add any public IP addresses to the VM operating system.
 
 |**Tool**|**Command**|
 |---|---|
@@ -257,7 +279,7 @@ To associate an NSG to a NIC or disassociate an NSG from a NIC, complete the fol
 
 ## <a name="vms"></a>Attach and detach NICs to or from a virtual machine
 
-You can attach an existing NIC to a VM when you create it or you can attach an existing NIC to an existing VM. You can also detach a NIC from an existing VM. Though the portal creates a NIC when you create a VM, it does not allow you to:
+You can attach an existing NIC to a VM when you create it or you can attach an existing NIC to an existing VM. You can also detach a NIC from an existing VM that has at least two NICs. Though the portal creates a NIC when you create a VM, it does not allow you to:
 
 - Specify an existing NIC to attach when creating the VM
 - Create a VM with multiple NICs attached
@@ -300,7 +322,7 @@ The VM you want to attach a NIC to must support multiple NICs and be in the stop
 
 ### <a name="vm-detach-nic"></a>Detach a NIC from an existing virtual machine
 
-The VM you want to detach a NIC from must be in the stopped (deallocated) state. You can detach any NIC, even the primary NIC. Azure assigns the primary attribute to another NIC in the VM. You cannot detach NICs from a VM using the Azure portal. You can use the following Azure CLI or PowerShell commands to detach NICs from VMs:
+The VM you want to detach a NIC from must be in the stopped (deallocated) state and must currently have at least two attached NICs. You can detach any NIC, even the primary NIC, but the VM must always have at least one attached NIC. Azure assigns the primary attribute to another NIC in the VM. You cannot detach NICs from a VM using the Azure portal. You can use the following Azure CLI or PowerShell commands to detach NICs from VMs:
 
 - **CLI:** [az vm nic remove](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#remove)
 - **PowerShell:** [Remove-AzureRMVMNetworkInterface](/powershell/resourcemanager/azurerm.compute/v2.5.0/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)

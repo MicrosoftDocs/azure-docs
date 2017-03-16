@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/3/2017
+ms.date: 3/15/2017
 ms.author: helaw
 
 ---
@@ -27,7 +27,8 @@ The recommendations for troubleshooting issues that are described in this sectio
 Code examples are provided as is and expected results cannot be guaranteed. This section is subject to frequent edits and updates as improvements to the product are implemented.
 
 ## Known Issues
-* You may notice deployment taking longer than previous releases.   
+* You may notice deployment taking longer than previous releases.
+* You may experience a deployment failure, with an error indicating date or time problems.  If you receive this, wait one minute and use the *-rerun* option to start your deployment again.   
 * You will see an error when signing in to a deployment with ADFS.  The text will read "Sorry, we had some trouble signing you in.  Click 'Try again' to try again."  This is a known error, and clicking Try Again will take you to the portal.  You can also add *https://*.local.azurestack.external* to the "Local Intranet" trusted sites in Internet Explorer. 
 * Logging out of portal in AD FS deployment will result in an error message.
 * You may see incorrect cores/minute usage information for Windows and Linux VMs.
