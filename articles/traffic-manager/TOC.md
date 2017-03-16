@@ -7,6 +7,7 @@
 ## [Nested profiles](traffic-manager-nested-profiles.md)
 ## [Performance considerations for Traffic Manager](traffic-manager-performance-considerations.md)
 ## [Azure Resource Manager support](traffic-manager-powershell-arm.md)
+## [FAQs](traffic-manager-FAQs.md)
 
 # Get Started
 ## [Manage endpoints](traffic-manager-manage-endpoints.md)
@@ -22,8 +23,7 @@
 ### [Troubleshoot a degraded endpoint](traffic-manager-troubleshooting-degraded.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
-## [PowerShell (classic)](/powershell/servicemanagement/azure.trafficmanager/v3.1.0/azure.trafficmanager)
+## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)
 ## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
