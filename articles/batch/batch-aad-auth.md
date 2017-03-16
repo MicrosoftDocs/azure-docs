@@ -30,7 +30,7 @@ It's also possible to use Azure AD to authenticate access to an application runn
 
 The Batch Management .NET library exposes types for working with Batch accounts, account keys, applications, and application packages. The Batch Management .NET library is an Azure resource provider client, and is used together with [Azure Resource Manager][resman_overview] to manage these resources programmatically. 
 
-Azure AD is required to authenticate requests made through any Azure resource provider client, including the Batch Management .NET library, and through [Azure Resource Manager][resman_overview]. The Batch Management .NET library supports authentication through Azure AD only.
+Azure AD is required to authenticate requests made through any Azure resource provider client, including the Batch Management .NET library, and through [Azure Resource Manager][resman_overview].
 
 In this section, we use the [AccountManagment][acct_mgmt_sample] sample project, available on GitHub, to walk through using Azure AD with the Batch Management .NET library. The AccountManagement sample is a console application that accesses a subscription programmatically, creates a resource group and a new Batch account, and performs some operations on the account. 
 
@@ -38,7 +38,7 @@ To learn more about using the Batch Management .NET library and the AccountManag
 
 ### Register your application with Azure AD
 
-The Azure [Active Directory Authentication Library][aad_adal] (ADAL) provides a programmatic interface to Azure AD for use within your applications. To call ADAL from your application, you must register your application in an Azure AD tenant. When you register your application, you provide Azure AD with information about your application, including a name for your application. Azure AD associates this name with two objects that are defined in your Azure AD tenant: the application object and the service principal object. The identifiers for the application and the service principal are listed in the properties for your registered application. To learn more about these objects, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+The Azure [Active Directory Authentication Library][aad_adal] (ADAL) provides a programmatic interface to Azure AD for use within your applications. To call ADAL from your application, you must register your application in an Azure AD tenant. When you register your application, you provide Azure AD with information about your application, including a name it within the Azure AD tenant. Azure AD associates this name with two objects that are defined in your Azure AD tenant: the application object and the service principal object. These objects are then used to associate your application with Azure AD at runtime. To learn more about these objects, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
 
 To register the AccountManagement sample application, follow the steps in the [Adding an Application](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) section in [Integrating applications with Azure Active Directory][aad_integrate]. Specify **Native Client Application** for the type of application. For the **Redirect URI**, you can specify any valid URI (such as `http://myaccountmanagementsample`), as it does not need to be a real endpoint:
 
@@ -121,7 +121,7 @@ After you provide your service administrator or coadministrator credentials, the
 The Batch .NET library provides types for building parallel processing workflows with the Batch service. The Batch service supports both [Shared Key](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service) authentication and authentication through Azure AD. 
 
 >[!NOTE]
->When you create a Batch account, you can specify whether pools are to be allocated in a subscription managed by Batch, or in a user subscription. If your account allocates pools in a user subscription, then you must authenticate requests to resources in that account with Azure AD.
+>When you create a Batch account, you can specify whether pools are to be allocated in a subscription managed by Batch, or in a user subscription. If your account allocates pools in a user subscription, then you must use Azure AD to authenticate requests to resources in that account.
 >
 >
 
@@ -145,7 +145,7 @@ Before you can authenticate via Azure AD from your Batch application, you need t
 
 1. To register your Batch application, follow the steps in the [Adding an Application](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) section in [Integrating applications with Azure Active Directory][aad_integrate]. For the **Redirect URI**, you can specify any valid URI. It does not need to be a real endpoint.
 
-    After you've registered your application, you'll see the application ID and service principal ID:
+    After you've registered your application, you'll see the application ID and object (service principal) ID:
 
     ![Register your Batch application with Azure AD](./media/batch-aad-auth/app-registration-data-plane.png)
 
@@ -155,7 +155,7 @@ Before you can authenticate via Azure AD from your Batch application, you need t
 5. In step 2, select the check box next to **Access Azure Batch Service** and click the **Select** button.
 6. Click the **Done** button.
 
-The **Required Permissions** blade now shows that your application grants access to both the Azure AD and Azure Batch APIs. 
+The **Required Permissions** blade now shows that your Azure AD application grants access to both the Azure AD and Azure Batch APIs. 
 
 ![API permissions](./media/batch-aad-auth/required-permissions-data-plane.png)
 
@@ -171,7 +171,7 @@ You can also specify that Batch pools are allocated in a specified user subscrip
 
 An Azure AD authentication token expires after one hour. When using a long-lived BatchClient, we recommend that you retrieve a token from ADAL on every request to ensure you always have a valid token. 
 
-To achieve this in .NET, write a method that retrieves the token from Azure AD and pass that method to a BatchTokenCredentials object as a delegate. The delegate method is called on every request to the Batch service to ensure that a valid token is provided. By default ADAL caches tokens, so a new token is retrieved from Azure AD only when necessary. For an example, see [Examples using Azure AD with Batch .NET](#code-example-using-azure-ad-with-batch-net).
+To achieve this in .NET, write a method that retrieves the token from Azure AD and pass that method to a BatchTokenCredentials object as a delegate. The delegate method is called on every request to the Batch service to ensure that a valid token is provided. By default ADAL caches tokens, so a new token is retrieved from Azure AD only when necessary. For an example, see [Code example: Using Azure AD with Batch .NET](#code-example-using-azure-ad-with-batch-net).
 
 The token is cached for one hour by default. When the token is within five minutes of expiry, ADAL retrieves a new token. For more information about tokens in Azure AD, see [Authentication Scenarios for Azure AD][aad_auth_scenarios].
 
