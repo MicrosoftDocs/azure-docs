@@ -44,7 +44,7 @@ cd \
 # Download the tools archive
 invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip -OutFile master.zip
 
-# Expand th downloaded files
+# Expand the downloaded files
 expand-archive master.zip -DestinationPath . -Force
 
 # Change to the tools directory
