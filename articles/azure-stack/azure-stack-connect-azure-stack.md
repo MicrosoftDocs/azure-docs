@@ -54,7 +54,7 @@ The following sections describe the steps that are required to establish VPN con
 After you download the tools, navigate to the downloaded folder and import the **Connect** PowerShell module by using the following command:
 
 ```PowerShell
-Import-Module .\AzureStack.Connect.psm1
+Import-Module .\Connect\AzureStack.Connect.psm1 
 ```
 When you import the module, if you receive an error that says “**AzureStack.Connect.psm1** is not digitally signed. The script will not execute on the system”. To resolve this issue, run the following command in an elevated PowerShell session:
 

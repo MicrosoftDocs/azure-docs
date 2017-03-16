@@ -212,7 +212,7 @@ For example:
 5. Record the request unit charge of any custom scripts (stored procedures, triggers, user-defined functions) leveraged by the application
 6. Calculate the required request units given the estimated number of operations you anticipate to run each second.
 
-### Use API for MongoDB's GetLastRequestStatistics command
+### <a id="GetLastRequestStatistics"></a>Use API for MongoDB's GetLastRequestStatistics command
 API for MongoDB supports a custom command, *getLastRequestStatistics*, for retrieving the request charge for specified operations.
 
 For example, in the Mongo Shell, execute the operation you want to verify the request charge for.
@@ -238,6 +238,11 @@ With this in mind, one method for estimating the amount of reserved throughput r
 > If you have document types which will differ dramatically in terms of size and the number of indexed properties, then record the applicable operation request unit charge associated with each *type* of typical document.
 > 
 > 
+
+## Use API for MongoDB's portal metrics
+The simplest way to get a good estimation of request unit charges for your API for MongoDB database is to use the [Azure portal](https://portal.azure.com) metrics. With the *Number of requests* and *Request Charge* charts, you can get an estimation of how many request units each operation is consuming and how many request units they consume relative to one another.
+
+![API for MongoDB portal metrics][6]
 
 ## A request unit estimation example
 Consider the following ~1KB document:
@@ -361,3 +366,4 @@ To get started with scale and performance testing with DocumentDB, see [Performa
 [3]: ./media/documentdb-request-units/RUEstimatorDocuments.png
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
+[6]: ./media/documentdb-request-units/api-for-mongodb-metrics.png
