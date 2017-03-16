@@ -485,10 +485,9 @@ Storing SAP HANA backup files on Azure files could become an interesting option 
 
 ## Test setup
 
-Test Virtual Machine on Azure
+### Test Virtual Machine on Azure
 
-
-An SAP HANA installation in an Azure GS5 VM was used for the following backup/restore tests.
+A SAP HANA installation in an Azure GS5 VM was used for the following backup/restore tests.
 
 ![This figure shows part of the Azure portal overview for the HANA test VM](./media/sap-hana-backup-guide/image007.png)
 
@@ -529,15 +528,20 @@ Based on the test results the following tables will show pros and cons of soluti
 
 |Backup SAP HANA to the file system and copy backup files afterwards to the final backup destination|
 |---------------------------------------------------------------------------------------------------|
-|Solution|Pros|Cons|
-|--------|----|----|
-|Keep HANA backups on VM disks|no additional management efforts|eats up local VM disk space|
-|Blobxfer tool to copy backup files to blob storage|parallelism to copy multiple files,choice to use cool blob storage|Additional tool maintenance and custom scripting as well as management of blobs for restore|
+
+|Solution                                           |Pros                                 |Cons                                  |
+|---------------------------------------------------|-------------------------------------|--------------------------------------|
+|Keep HANA backups on VM disks                      |no additional management efforts     |eats up local VM disk space           |
+|Blobxfer tool to copy backup files to blob storage |parallelism to copy multiple files,  |                                      |
+|                                                   |choice to use cool blob storage      |additional tool maintenance and custom|
+|                                                   |                                     |scripting as well as management of    |
+|                                                   |                                     |blobs for restore                     |
 
 |Backup SAP HANA based on storage snapshots|
 --------------------------------------------
-|Solution|Pros|Cons|
---------------------
+
+|Solution                                           |Pros                                 |Cons                                  |
+|---------------------------------------------------|-------------------------------------|--------------------------------------|
 |Azure Backup Service| allows VM backup based on blob snapshots | when not using file level restore it requires the creation of a new VM for the restore process which then implies the need of a new SAP HANA license key|
 |Manual blob snapshots| flexibility to create and restore specific VM disks without changing the unique VM ID|all manual work which has to be done by the customer|
 
