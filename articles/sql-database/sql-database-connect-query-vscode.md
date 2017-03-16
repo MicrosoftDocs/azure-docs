@@ -22,7 +22,7 @@ ms.author: carlrab
 ---
 # Azure SQL Database: Use Visual Studio Code to connect and query data
 
-[Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows that supports extensions. With the [mssql extension](https://aka.ms/mssql-marketplace), you can use Visual Studio Code to connect to and query an Azure SQL database. This guide details using Visual Studio Code to connect to an Azure SQL database, and then execute query, insert. update, and deletes statements.
+[Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows that supports extensions. With the [mssql extension](https://aka.ms/mssql-marketplace), you can use Visual Studio Code to connect to and query an Azure SQL database. This guide details using Visual Studio Code to connect to an Azure SQL database, and then execute query, insert, update, and deletee statements.
 
 This quick start uses as its starting point the resources created in one of these quick starts:
 
@@ -72,13 +72,13 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
 
    | Setting | Description |
    |-----|-----|
-   | **Server name** | The fully qualified server name in the form of **mynewserver20170313.database.windows.net** |
-   | **Database name** | The database name, such as **mySampleDatabase** |
-   | **Authentication** | SQL Login |
-   | **User name** | Your server admin account |
-   | **Password (SQL Login)** | The password for your server admin account | 
+   | **Server name** | Enter your fully qualified server name in the form of **mynewserver20170313.database.windows.net** |
+   | **Database name** | Enter your database name, such as **mySampleDatabase** |
+   | **Authentication** | Select SQL Login |
+   | **User name** | Enter your server admin account |
+   | **Password (SQL Login)** | Enter the password for your server admin account | 
    | **Save Password?** | Select **Yes** or **No** |
-   | **[Optional] Enter a name for this profile** | A connection profile name, such as **lmySampleDatabase**. 
+   | **[Optional] Enter a name for this profile** | Entter a connection profile name, such as **lmySampleDatabase**. 
 
    > [!Tip] 
    > You can create and edit connection profiles in User Settings file (settings.json). Open the settings file by selecting **Preference** and then **User Settings** in the VS Code menu. For more details, see [manage connection profiles].

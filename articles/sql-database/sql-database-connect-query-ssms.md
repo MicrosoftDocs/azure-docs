@@ -22,7 +22,7 @@ ms.author: carlrab
 ---
 # Azure SQL Database: Use SQL Server Management Studio to connect and query data
 
-[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) is used to create and manage SQL Server resources from the user interface or in scripts. This guide details using SSMS to connect to an Azure SQL database, and then execute query, insert. update, and delets statements.
+[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) is used to create and manage SQL Server resources from the user interface or in scripts. This guide details using SSMS to connect to an Azure SQL database, and then execute query, insert, update, and delete statements.
 
 This quick start uses as its starting point the resources created in one of these quick starts:
 
@@ -40,25 +40,27 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**.
 
-    ![connection information](./media/sql-database-connect-query-ssms/connection-information.png)
+    <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 500px;" />
 
 ## Connect to the server
 
-Use SQL Server Management Studio to establish a connection to your Azure SQL Database server with SQL Server authentication.
+Use SQL Server Management Studio to establish a connection to your Azure SQL Database server.
 
 1. Type **SSMS** in the Windows search box and then click **Enter** to open SSMS.
 
 2. In the **Connect to Server** dialog box, enter the following information:
-   - **Server type**: Database engine
-   - **Server name**: the fully qualified server name in the form of **mynewserver20170313.database.windows.net**
-   - **Authentication**: SQL Server Authentication
-   - **Login**: your server admin account
-   - **Password**: the password for your server admin account
+   - **Server type**: Specify Database engine
+   - **Server name**: Enter your fully qualified server name, such as **mynewserver20170313.database.windows.net**
+   - **Authentication**: Specify SQL Server Authentication
+   - **Login**: Enter your server admin account
+   - **Password**: Enter the password for your server admin account
  
-    ![connect to server](./media/sql-database-connect-query-ssms/connect.png)
+    <img src="./media/sql-database-connect-query-ssms/connect.png" alt="connect to server" style="width: 500px;" />
+
 3. Click **Connect**. The Object Explorer window opens in SSMS. 
 
-    ![connected to server](./media/sql-database-connect-query-ssms/connected.png)
+    <img src="./media/sql-database-connect-query-ssms/connected.png" alt="connected to server" style="width: 500px;" />
+
 4. In Object Explorer, expand **Databases** and then expand **mySampleDatabase** to view the objects in the sample database.
 
 ## Query data
@@ -77,7 +79,7 @@ Use the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 
 
 3. On the toolbar, click **Execute** to retrieve data from the Product and ProductCategory tables.
 
-    ![query](./media/sql-database-connect-query-ssms/query.png)
+    <img src="./media/sql-database-connect-query-ssms/query.png" alt="query" style="width: 500px;" />
 
 ## Insert data
 
@@ -108,7 +110,7 @@ Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transcat-SQL 
 
 3. On the toolbar, click **Execute**  to insert a new row in the Product table.
 
-    ![insert](./media/sql-database-connect-query-ssms/insert.png)
+    <img src="./media/sql-database-connect-query-ssms/insert.png" alt="insert" style="width: 500px;" />
 
 ## Update data
 
@@ -125,7 +127,7 @@ Use the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 
 
 3. On the toolbar, click **Execute** to update the specified row in the Product table.
 
-    ![update](./media/sql-database-connect-query-ssms/update.png)
+    <img src="./media/sql-database-connect-query-ssms/update.png" alt="update" style="width: 500px;" />
 
 ## Delete data
 
@@ -141,7 +143,7 @@ Use the [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 
 
 3. On the toolbar, click **Execute** to delete the specified row in the Product table.
 
-    ![delete](./media/sql-database-connect-query-ssms/delete.png)
+    <img src="./media/sql-database-connect-query-ssms/delete.png" alt="delete" style="width: 500px;" />
 
 ## Next steps
 
