@@ -1,6 +1,6 @@
 ---
 title: Create a scalable Node.js+MongoDB app in Azure | Microsoft Docs 
-description: Learn how to create a scalable Node.js+MongoDB app in Azure. This tutorial shows you how to deploy a Sails.js web app.
+description: Learn how to create a scalable Node.js+MongoDB app in Azure. This tutorial shows you how to deploy an Express.js web app.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -18,10 +18,9 @@ ms.author: cephalin
 
 ---
 # Create a scalable Node.js+MongoDB app in Azure
-This tutorial shows you how to deploy an Express.js app to Azure App Service. In the process, you can glean some general knowledge
-on how to configure your Express.js app to run in App Service.
+This tutorial shows you how to deploy an Express.js app to Azure App Service. In the process, you can glean some general knowledge on how to configure your Express.js app to run in App Service.
 
-You should have working knowledge of Sails.js. This tutorial is not intended to help you with issues related to running Sail.js in general.
+You should have working knowledge of Node.js. This tutorial is not intended to help you with issues related to developing Node.js apps in general.
 
 ## Prerequisites
 * [Node.js](https://nodejs.org/)
