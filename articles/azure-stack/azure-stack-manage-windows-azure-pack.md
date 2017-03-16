@@ -90,8 +90,8 @@ To enable multi-cloud mode, you must run the ConfigureAzurePackConnector.ps1 scr
 |  Parameter | Description | Example |   
 | -------- | ------------- | ------- |  
 | AzurePackConnectorEndpoint | URI of the Windows Azure Pack Connector. This URI should correspond to the Windows Azure Pack tenant portal. | https://waptenantportal:40005 (By default, the port value is 40005.) |  
-| AzurePackCloudName | The display name of the Windows Azure Pack cloud that appears in the cloud selector list in the Azure Stack user portal. **Note:** In this preview release, you can't use spaces in the display name. | "Azure_Pack"  |
-| AzureStackCloudName | The display name of the Azure Stack cloud that appears in the cloud selector list in the Azure Stack user portal. **Note:** In this preview release, you can't use spaces in the display name. | "Azure_Stack" |
+| AzurePackCloudName | The display name of the Windows Azure Pack cloud that appears in the cloud selector list in the Azure Stack user portal. In this preview release, you can't use spaces in the display name. | "Azure_Pack"  |
+| AzureStackCloudName | The display name of the Azure Stack cloud that appears in the cloud selector list in the Azure Stack user portal. In this preview release, you can't use spaces in the display name. | "Azure_Stack" |
 | EnableMultiCloud | A Boolean where true enables multi-cloud mode and false disables it.| $true |
 | | |
 
