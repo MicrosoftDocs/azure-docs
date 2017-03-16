@@ -532,13 +532,11 @@ Based on the test results the following tables will show pros and cons of soluti
 |Solution                                           |Pros                                 |Cons                                  |
 |---------------------------------------------------|-------------------------------------|--------------------------------------|
 |Keep HANA backups on VM disks                      |no additional management efforts     |eats up local VM disk space           |
-|Blobxfer tool to copy backup files to blob storage |parallelism to copy multiple files,  |                                      |
-|                                                   |choice to use cool blob storage      |additional tool maintenance and custom|
-|                                                   |                                     |scripting as well as management of    |
-|                                                   |                                     |blobs for restore                     |
+|Blobxfer tool to copy backup files to blob storage |parallelism to copy multiple files, choice to use cool blob storage | additional tool maintenance and custom |                                   
+
 
 |Backup SAP HANA based on storage snapshots|
---------------------------------------------
+|------------------------------------------|
 
 |Solution                                           |Pros                                 |Cons                                  |
 |---------------------------------------------------|-------------------------------------|--------------------------------------|
