@@ -65,7 +65,7 @@ Take the following steps to create an event hub:
 
 ## Configure and start the Twitter client application
 
-We have created a client application that connects to Twitter data via [Twitter's Streaming APIs](https://dev.twitter.com/streaming/overview) to collect Tweet events about a parameterized set of topics. The [Sentiment140](http://help.sentiment140.com/) open source tool assigns a sentiment value to each tweet.
+We have created a client application that connects to Twitter data via [Twitter's Streaming APIs](https://dev.twitter.com/streaming/overview) to collect Tweet events about a parameterized set of topics. The [Sentiment140](http://help.sentiment140.com/) open source tool assigns a sentiment value to each tweet as follows:
 
 * 0 = negative
 * 2 = neutral
@@ -89,22 +89,24 @@ For more information, see [Steps to generate an OAuth access token](https://dev.
 
  To generate a token, you need to make an empty application.  
 
-1. Replace the EventHubConnectionString and EventHubName values in TwitterWpfClient.exe.config with the connection string and name of your event hub. The connection string that you copied earlier gives you both the connection string and the name of your event hub, so be sure to separate them and put each in the correct field. For example, consider the following connection string:  
+1. Replace the EventHubConnectionString and EventHubName values in TwitterWpfClient.exe.config with the connection string and name of your event hub. The connection string that you copied earlier gives you both the connection string and the name of your event hub, so be sure to separate them and put each in the correct field. For example, consider the following connection string:
 
-   `Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub`
+```
+   Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub`
+```  
 
    The TwitterWpfClient.exe.config file should contain your settings as shown in the following example:
 
-   ```
+```
      add key="EventHubConnectionString" value="Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey"
      add key="EventHubName" value="yourhub"
-   ```
+  ```
 > [!NOTE]
    The text "EntityPath=" does **not** appear in the EventHubName value.
 
    You can also enter the values for your Twitter and Azure connection information directly into the client. The same logic applies where "EntityPath=" is not used.
 
-   ![wpfclient](./media/stream-analytics-twitter-sentiment-analysis-trends/wpfclientlines.png)
+![wpfclient](./media/stream-analytics-twitter-sentiment-analysis-trends/wpfclientlines.png)
 
 4. **Optional:** Adjust the keywords to search for. By default, this application looks for some game keywords.  You can adjust the values for **twitter_keywords** in TwitterWpfClient.exe.config, if desired.
 
@@ -135,7 +137,7 @@ After the job has been created, it opens in the Azure portal.
 ## Specify the job input
 To specify the job input, take the following steps:
 
-1. In your Stream Analytics job, select **INPUTS** in the middle of the job pane, in **Job Topology**. Then select **ADD**.
+1. In your Stream Analytics job, in **Job Topology** in the middle of the job pane, select **INPUTS**. Then select **ADD**.
 
     Next, the portal prompts you for some of the following information. Most of the default values work, and are defined here:
 
