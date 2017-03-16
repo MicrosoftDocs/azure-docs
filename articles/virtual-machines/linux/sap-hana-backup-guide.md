@@ -218,7 +218,7 @@ Backups can be monitored in SAP HANA Cockpit while they are ongoing and, once it
 
 ![An example using Firefox on an Azure SLES 12 VM with Gnome deskto](./media/sap-hana-backup-guide/image006.png)
 
-The previous screenshots were made from an Azure Windows VM. This one is an example using Firefox on an Azure SLES 12 VM with Gnome desktop. It shows the option to define SAP HANA backup schedules in SAP HANA Cockpit. As one can also see, it suggests date/time as a prefix for the backup files. In SAP HANA Studio, the default prefix is &quot;COMPLETE\_DATA\_BACKUP&quot; when doing a full file backup. Using a unique prefix is recommended.
+The previous screenshots were made from an Azure Windows VM. This one is an example using Firefox on an Azure SLES 12 VM with Gnome desktIt shows the option to define SAP HANA backup schedules in SAP HANA Cockpit. As one can also see, it suggests date/time as a prefix for the backup files. In SAP HANA Studio, the default prefix is &quot;COMPLETE\_DATA\_BACKUP&quot; when doing a full file backup. Using a unique prefix is recommended.
 
 ## SAP HANA backup encryption
 
@@ -469,7 +469,7 @@ Here one can see the files of a full SAP HANA file backup. There are four files 
 
 ![It took roughly 3000 seconds to copy the 230 GB to an Azure standard storage account blob container](./media/sap-hana-backup-guide/image027.png)
 
-Not using md5 hash in the inital test, it took roughly 3000 seconds to copy the 230 GB to an Azure standard storage account blob container.
+Not using md5 hash in the initial test, it took roughly 3000 seconds to copy the 230 GB to an Azure standard storage account blob container.
 
 ![In this screenshot, one can see how it looks on the Azure portal](./media/sap-hana-backup-guide/image028.png)
 
