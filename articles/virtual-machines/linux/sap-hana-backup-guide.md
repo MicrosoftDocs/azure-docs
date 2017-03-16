@@ -485,6 +485,7 @@ Storing SAP HANA backup files on Azure files could become an interesting option 
 
 ## Test setup
 
+
 ### Test Virtual Machine on Azure
 
 A SAP HANA installation in an Azure GS5 VM was used for the following backup/restore tests.
@@ -537,6 +538,7 @@ Based on the test results the following tables will show pros and cons of soluti
 
 |Backup SAP HANA based on storage snapshots                    |
 |--------------------------------------------------------------|
+
 
 |Solution                                           |Pros                                 |Cons                                  |
 |---------------------------------------------------|-------------------------------------|--------------------------------------|
