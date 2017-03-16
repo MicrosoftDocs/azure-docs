@@ -17,7 +17,7 @@ ms.author: rclaus
 
 ---
 
-# SAP HANA Azure backup guide
+# Backup guide for SAP HANA on Azure Virtual Machines
 
 ## Contents
 
