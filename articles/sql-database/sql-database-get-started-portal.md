@@ -99,7 +99,7 @@ Follow these steps to query the database using the query editor in the Azure por
 
 ## Clean up resources
 
-Some of the quick starts in this collection and in the tutorial collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following steps to delete all resources created by this quick start in the Azure portal.
+The **Connect with** quick starts in this collection and the tutorials in the tutorial collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following steps to delete all resources created by this quick start in the Azure portal.
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**. 
 2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.
