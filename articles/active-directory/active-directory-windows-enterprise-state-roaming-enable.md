@@ -5,7 +5,7 @@ description: Frequently asked questions about Enterprise State Roaming settings 
 services: active-directory
 keywords: enterprise state roaming, windows cloud, how to enable enterprise state roaming
 documentationcenter: ''
-author: ningtan
+author: tanning
 manager: femila
 editor: curtand
 

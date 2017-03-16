@@ -52,7 +52,7 @@ In addition, you need to install the Microsoft Azure Service Fabric SDK, using W
 ### To use Visual Studio 2015 (requires Visual Studio 2015 Update 2 or later)
 For Visual Studio 2015, Service Fabric tools are installed together with the SDK, using the Web Platform Installer:
 
-* [Install the Microsoft Azure Service Fabric SDK and Tools)][full-bundle-vs2015]
+* [Install the Microsoft Azure Service Fabric SDK and Tools][full-bundle-vs2015]
 
 ### SDK installation only
 If you only need the SDK, you can install this package:

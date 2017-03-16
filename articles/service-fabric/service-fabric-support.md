@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 03/10/2017
 ms.author: chackdan
 
 ---
@@ -78,7 +78,7 @@ Here are the list of the Service Fabric versions that are supported and their su
 | --- | --- |
 | All cluster versions prior to 5.3.121 |January 20, 2017 |
 | 5.3.* |February 24, 2017 |
-| 5.4.* |April 17,2017     |
+| 5.4.* |May 10,2017     |
 | 5.5.* |Current version and so no end date
 
 

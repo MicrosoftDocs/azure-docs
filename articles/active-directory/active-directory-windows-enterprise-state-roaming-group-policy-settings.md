@@ -5,7 +5,7 @@ description: Provides information about group policy and mobile device managemen
 services: active-directory
 keywords: what are group Policy and MDM settings for Enterprise State Roaming, Enterprise State Roaming, windows cloud
 documentationcenter: ''
-author: ningtan
+author: tanning
 manager: femila
 editor: curtand
 

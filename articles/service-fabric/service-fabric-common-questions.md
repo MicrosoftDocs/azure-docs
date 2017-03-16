@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/19/2017
+ms.date: 03/08/2017
 ms.author: seanmck
 ---
 
@@ -39,6 +39,16 @@ The challenge with OS updates is that they typically require a reboot of the mac
 In the future, we will support an OS update policy that is fully automated and coordinated across update domains, ensuring that availability is maintained despite reboots and other unexpected failures.
 
 In the interim, we have [provided a script](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/) that a cluster administrator can use to manually kick off patching of each node in a safe manner.
+
+### Can I use Large Virtual Scale Sets in my SF cluster? 
+
+**Short answer** - No. 
+
+**Long Answer** - Although the Large Virtual Scale Sets (VMSS) allow you to scale a VMSS upto 1000 VM instances, it does so by the use of Placement Groups (PGs). Fault domains (FDs) and upgrade domains (UDs) are only consistent within a placement group Service fabric uses FDs and UDs to make placement decisions of your service replicas/Service instances. Since the FDs  and UDs are comparable only within a placement group SF cannot use it. For example, If VM1 in PG1 has a topology of FD=0 and VM9 in PG2 has a topology of FD=4 , it does not mean that VM1 and VM2 are on two different Hardware Racks, hence SF cannot use the FD values in this case to make placement decisions.
+
+There are other issues with Large VMSS currently, like the lack of level-4 Load balancing support. Refer to for [details on Large VMSS](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
+
+
 
 ### What is the minimum size of a Service Fabric cluster? Why can't it be smaller?
 

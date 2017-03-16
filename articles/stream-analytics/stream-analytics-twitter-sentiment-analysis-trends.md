@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/03/2017
+ms.date: 03/09/2017
 ms.author: jeffstok
 ---
 
@@ -168,7 +168,7 @@ After your job is running and processing the real-time Twitter stream, choose ho
 
 ![powerbi](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 
-## Another query of interest  in this scenario
+## Another query of interest in this scenario
 
 Another sample query we created for this scenario are based on [Sliding Window](https://msdn.microsoft.com/library/azure/dn835051.aspx). To identify trending topics, we'll look for topics that cross a threshold value for mentions in a given amount of time. For the purposes of this tutorial, we'll check for topics that are mentioned more than 20 times in the last five seconds.
 
@@ -178,6 +178,19 @@ FROM TwitterStream TIMESTAMP BY CreatedAt
 GROUP BY SLIDINGWINDOW(s, 5), topic
 HAVING COUNT(*) > 20
 ```
+
+## Table of the field headers
+
+For full disclosure, the field labels you can use in this exercise are listed in this table. Feel free to experiment in the query editor.
+
+JSON property | definition
+--- | ---
+CreatedAt | time the tweet was created
+Topic | Topic that matches the keyword specified
+SentimentScore | sentiment score from Sentiment140
+Author | Twitter handle that sent the tweet
+Text | full body of the tweet
+
 
 ## Get support
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
