@@ -28,7 +28,7 @@
 ##### [Table bindings](functions-bindings-storage-table.md)
 #### [Timer trigger](functions-bindings-timer.md)
 #### [Twilio output binding](functions-bindings-twilio.md)
-### [Create a function from the Azure portal](functions-create-first-azure-function-azure-portal.md) 
+### [Create a function app from the Azure portal](functions-create-function-app-portal.md) 
 ### [Testing Azure Functions](functions-test-a-function.md)
 ### [Develop and debug locally](functions-run-local.md)
 ### [Best practices for Azure Functions](functions-best-practices.md)

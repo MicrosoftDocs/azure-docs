@@ -125,7 +125,7 @@ To register a device for Feather HUZZAH ESP8266, follow these steps:
 1. Log in to your IoT hub by running the following command:
 
    ```bash
-   Iothub-explorer login [your iot hub connection string]
+   iothub-explorer login [your iot hub connection string]
    ```
 1. Register a new device, which `deviceID` is `new-device`, and get its connection string by running the following command.
 
@@ -145,14 +145,14 @@ Use the breadboard and jumper wires to make the connection as follows. If you do
 
 For sensor pins, we will use the following wiring:
 
-| Start                   | End                    | Cable Color   |
-| ----------------------- | ---------------------- | ------------: |
-| VDD (Pin 1G)            | Pin 29J                | Red cable     |
-| DATA (Pin 2G)           | Pin 17B                | Blue cable   |
-| GND (Pin 4G)            | Pin 27J                | Black cable   |
+| Start (Sensor)           | End (Board)           | Cable Color   |
+| -----------------------  | ---------------------- | ------------: |
+| VDD (Pin 31F)            | 3V (Pin 58H)           | Red cable     |
+| DATA (Pin 32F)           | GPIO 2 (Pin 46A)       | Blue cable    |
+| GND (Pin 34F)            | GND (PIn 56I)          | Black cable   |
 
 
-- For more information, see: [Adafruit DHT22 sensor setup](https://learn.adafruit.com/dht/connecting-to-a-dhtxx-sensor) and [Adafruit Feather Huzzah Esp8266 Pinouts](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide?view=all#pinouts)
+- For more information, see: [Adafruit DHT22 sensor setup](https://learn.adafruit.com/dht/connecting-to-a-dhtxx-sensor) and [Adafruit Feather HUZZAH Esp8266 Pinouts](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide?view=all#pinouts)
 
 Now your Adafruit Feather Huzzah ESP8266 should be connected with a working sensor.
 
@@ -235,12 +235,12 @@ Install the package for Feather HUZZAH ESP8266 in Arduino IDE:
 
 1. In the Arduino IDE, click **Sketch** > **Include Library** > **Manage Libraries**.
 1. Search for the following library names one by one. For each of the library you find, click **Install**.
-   * AzureIoTHub
-   * AzureIoTUtility
-   * AzureIoTProtocol_MQTT
-   * ArduinoJson
-   * DHT sensor library
-   * Adafruit Unified Sensor
+   * `AzureIoTHub`
+   * `AzureIoTUtility`
+   * `AzureIoTProtocol_MQTT`
+   * `ArduinoJson`
+   * `DHT sensor library`
+   * `Adafruit Unified Sensor`
 
 ### Don’t have a real DHT22 sensor?
 
