@@ -37,7 +37,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Clean up deployment 
 
-After the script sample has been run, the following command can be used to remove the resource groups, VMs, and all related resources.
+Run the following command to remove the Resource Group, VM, and all related resources.
 
 ```azurecli
 az group delete -n az-cli-vhd
