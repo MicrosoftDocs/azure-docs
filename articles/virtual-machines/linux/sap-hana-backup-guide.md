@@ -487,6 +487,7 @@ Storing SAP HANA backup files on Azure files could become an interesting option 
 
 Test Virtual Machine on Azure
 
+
 An SAP HANA installation in an Azure GS5 VM was used for the following backup/restore tests.
 
 ![This figure shows part of the Azure portal overview for the HANA test VM](./media/sap-hana-backup-guide/image007.png)
@@ -519,6 +520,25 @@ For the test system, the output of this SQL statement matches almost exactly the
 ![The HANA Studio backup console allows one to restrict the max file size of HANA backup files](./media/sap-hana-backup-guide/image010.png)
 
 The HANA Studio backup console allows one to restrict the max file size of HANA backup files. In the sample environment this gives the possibility of finally getting multiple smaller backup files instead of one large 230 GB backup file. This has a significant impact on performance, as is demonstrated later in this document.
+
+
+## Summary
+
+Based on the test results the following tables will show pros and cons of solutions to backup a SAP HANA database running on Azure virtual machines.
+
+|Backup SAP HANA to the file system and copy backup files afterwards to the final backup destination|
+-----------------------------------------------------------------------------------------------------
+|Solution|Pros|Cons|
+--------------------
+|Keep HANA backups on VM disks|no additional management efforts|eats up local VM disk space|
+|Blobxfer tool to copy backup files to blob storage|parallelism to copy multiple files,choice to use cool blob storage|Additional tool maintenance and custom scripting as well as management of blobs for restore|
+
+|Backup SAP HANA based on storage snapshots|
+--------------------------------------------
+|Solution|Pros|Cons|
+--------------------
+|Azure Backup Service| allows VM backup based on blob snapshots | when not using file level restore it requires the creation of a new VM for the restore process which then implies the need of a new SAP HANA license key|
+|Manual blob snapshots| flexibility to create and restore specific VM disks without changing the unique VM ID|all manual work which has to be done by the customer|
 
 
 
