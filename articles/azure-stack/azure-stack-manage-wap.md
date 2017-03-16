@@ -35,6 +35,7 @@ For this preview release, be aware of the following:
 * The VMM and SPF components can be either System Center 2012 R2 or System Center 2016.
 * You must perform configuration steps on both Azure Stack and on Windows Azure Pack.
 * The instructions apply to non-Cloud Platform System (CPS) environments.
+* To review the known issues, see [Microsoft Azure Stack troubleshooting](azure-stack-troubleshooting.md).
 
 
 ## Architecture
@@ -68,16 +69,17 @@ To integrate with Windows Azure Pack, you can deploy Azure Stack by using the AD
 
 ### Connectivity requirements
 1. From the computer on which you access the Azure Stack user portal, make sure that you can access the Windows Azure Pack tenant portal through the web browser.
-2.	You must have valid certificates for the new Connector services. These SSL certificates must be issued by a trusted certification authority (CA). You can't use self-signed certificates. The SSL certificates must be trusted by Azure Stack (specifically the MAS-WASP01 VM) and any other computer that the tenant may use to access the Azure Stack user portal.
+2. The MAS-WASP01 virtual machine on Azure Stack must be able to connect to the Windows Azure Pack tenant portal computer. Use Ping.exe to verify network connectivity. 
+3.	You must have valid certificates for the new Connector services. These SSL certificates must be issued by a trusted certification authority (CA). You can't use self-signed certificates. The SSL certificates must be trusted by Azure Stack (specifically the MAS-WASP01 VM) and any other computer that the tenant may use to access the Azure Stack user portal.
  
     >[!NOTE]
     Because MAS-WASP01 runs Windows Server with the Server Core installation option, you can use a command-line tool such as Certutil.ext to import the certificate. For example, you could copy the .cer file to c:\temp on MAS-WASP01, and then run the command **certutil -addstore "CA" "c:\temp\certname.cer"**.
 
-3.	To establish RDP connectivity to Windows Azure Pack tenant virtual machines through the Azure Stack portal, the Windows Azure Pack environment must allow Remote Desktop traffic to the tenant VMs.
-4.	For connectivity between Azure Stack tenant virtual machines and Windows Azure Pack tenant virtual machines, their external IP addresses must be routable across the two environments. This connectivity could also include associating a DNS server to resolve virtual machine names between the environments.
+4.	To establish RDP connectivity to Windows Azure Pack tenant virtual machines through the Azure Stack portal, the Windows Azure Pack environment must allow Remote Desktop traffic to the tenant VMs.
+5.	For connectivity between Azure Stack tenant virtual machines and Windows Azure Pack tenant virtual machines, their external IP addresses must be routable across the two environments. This connectivity could also include associating a DNS server to resolve virtual machine names between the environments.
 
 ### IIS requirements
-The computer that hosts the Windows Azure Pack tenant portal (which may be a physical host, a virtual machine, or multiple virtual machines) must have the URL Rewrite extension installed. If it is not already installed, you can download it from [here](https://www.iis.net/downloads/microsoft/url-rewrite). If multiple virtual machines host the tenant portal, install the extension on each virtual machine.
+The computer that hosts the Windows Azure Pack tenant portal (which may be a physical host, a virtual machine, or multiple virtual machines) must have the URL Rewrite IIS extension installed. If it is not already installed, you can download it from [here](https://www.iis.net/downloads/microsoft/url-rewrite). If multiple virtual machines host the tenant portal, install the extension on each virtual machine.
 
 ## Configure Azure Stack
 Before you configure the Windows Azure Pack Connector, you must enable multi-cloud mode in the Azure Stack user portal. This mode enables users to select from which cloud to access resources.
@@ -112,7 +114,7 @@ You can run the ConfigureAzurePackConnector.ps1 script immediately after deploym
 
         * The "Realm" associated with the signing certificate. For example: https://adfs.local.azurestack.global.external/adfs/c1d72562-534e-4aa5-92aa-d65df289a107/.
 
-3.	Browse to **$env:TEMP\AzurePackConnectorOutput.txt**, and copy the file to your local computer.
+3.	Browse to the temp folder that contains the **AzurePackConnectorOutput.txt** file, and copy the file to your local computer. (To determine the temp folder, type **cd $env:temp** in the PowerShell session.)
 
 4.	Test the configuration.
 
@@ -130,11 +132,11 @@ For this preview release only, Windows Azure Pack requires manual configuration.
 >[!IMPORTANT]
 For this preview release, use the Windows Azure Pack Connector only in test environments, and not in production deployments.
 
-1.	Connect to a tenant portal virtual machine. (If you have multiple tenant portal VMs, you must complete this step on each VM.)
+1.	Install Connector MSI files on the tenant portal virtual machine, and install certificates. (If you have multiple tenant portal virtual machines, you must complete this step on each virtual machine.)
 
-    a. In File Explorer, copy the **WAPConnector** folder (what you downloaded earlier) to a folder named **c:\temp** in the tenant portal VM.
+    a. In File Explorer, copy the **WAPConnector** folder (what you downloaded earlier) to a folder named **c:\temp** in the tenant portal virtual machine.
 
-    b. Open a Console or RDP connection to the tenant portal VM.
+    b. Open a Console or RDP connection to the tenant portal virtual machine.
 
     c. Change directories to **c:\temp\wapconnector\setup\scripts**, and run the **Install-Connector.ps1** script to install three MSI files. No parameters are required.
 
@@ -151,7 +153,7 @@ For this preview release, use the Windows Azure Pack Connector only in test envi
 
     * MgmtSvc-ConnectorController
 
-     e. From the same **c:\temp\wapconnector\setup\scripts** folder, run the **Configure-Certificates.ps1** script to install certificates. By default, it will use the same certificate that is available in for the Tenant Portal site in Windows Azure Pack. Make sure this is a valid certificate (trusted by the Azure Stack MAS-WASP01 virtual machine and any client computer that accesses the Azure Stack portal). Otherwise, communication won’t work. (Alternatively, you can explicitly pass a certificate thumbprint as a parameter by using the -Thumbprint parameter.) Type:
+     e. From the same **c:\temp\wapconnector\setup\scripts** folder, run the **Configure-Certificates.ps1** script to install certificates. By default, it will use the same certificate that is available for the Tenant Portal site in Windows Azure Pack. Make sure this is a valid certificate (trusted by the Azure Stack MAS-WASP01 virtual machine and any client computer that accesses the Azure Stack portal). Otherwise, communication won’t work. (Alternatively, you can explicitly pass a certificate thumbprint as a parameter by using the -Thumbprint parameter.)
 
      ```powershell
         cd C:\temp\wapconnector\setup\scripts\
@@ -220,8 +222,8 @@ cd C:\CloudDeployment\Setup\Activation\AzurePackConnector\
      -AzurePackCloudName "Azure_Pack" `
      -AzureStackCloudName "Azure_Stack" `
      -EnableMultiCloud $true 
-    ```
-Download the zip file from the Download Center, extract it, and copy the WAPConnector folder to a **c:\temp** folder on the Windows Azure Pack computer. Copy the file "AzurePackConnectorOutput.txt" that was generated in the previous step to the **c:\temp\WAPConnector** folder, and then run the following script:
+```
+Download the zip file from the [Microsoft Download Center](https://aka.ms/wapconnectorazurestackdlc), extract it, and copy the WAPConnector folder to a **c:\temp** folder on the Windows Azure Pack computer. Copy the file "AzurePackConnectorOutput.txt" that was generated as ouput in the previous script to the **c:\temp\WAPConnector** folder, and then run the following script:
 
  ```powershell
 # Install Connector components
