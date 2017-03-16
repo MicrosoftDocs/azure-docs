@@ -204,7 +204,7 @@ DisksFirmware       : SmrtStor:TXA2D20400GA6XYR:KZ50
 
 This test reports the system information, the updates available, the cluster information, and the service information for your device.
 
-* The system information includes the model, device serial number, time zone, controller status, and the detailed software version running on the system.
+* The system information includes the model, device serial number, time zone, controller status, and the detailed software version running on the system. To understand the various system parameters reported as the output, go to [Interpreting system information](#appendix-system-information).
 
 * The update availability reports whether the regular and maintenance modes are available and their associated package names. If `RegularUpdates` and `MaintenanceModeUpdates` are `false`, this indicates that the updates are not available. Your device is up-to-date.
 * The cluster information contains the information on various logical components of all the HCS cluster groups and their respective statuses. If you see an offline cluster group in this section of the report, [contact Microsoft Support](storsimple-contact-microsoft-support).
@@ -316,32 +316,6 @@ hcs_saas_agent_service                        Running hcs_saas_agent_service
 hcs_startup                                   Stopped hcs_startup
 --------------------------------------------------
 ```
-#### How to interpret system information?
-Here is a table describing what the various Windows PowerShell parameters map to.
-
-| PowerShell Parameter    | Description  |
-|-------------------------|------------------|
-| Instance ID             | Every controller has a unique identifier associated with it, this is the corresponding GUID for the controller.|
-| Name                    | The friendly name of the device as configured through the Azure portal during device deployment. The default friendly name is the device serial number. |
-| Model                   | The model of your StorSimple 8000 series device. This can be 8100 or 8600.|
-| SerialNumber            | The device serial number is assigned at the factory and is 15 characters long. For instance 8600-SHX0991003G44HT, indicates the following:<br> 8600 – Indicates the device model.<br>SHX – Indicates the manufacturing site.<br> 0991003 - Indicates a specific product. <br> G44HT- The last 5 digits are incremented to create unique serial numbers. This might not be a sequential set.|
-| TimeZone                | The device time zone as configured in the Azure portal during device deployment.|
-| CurrentController       | The controller that you are connected to through the Windows PowerShell interface of your StorSimple device.|
-| ActiveController        | The controller that is active on your device and is controlling all the network and disk operations. This can be Controller 0 or Controller 1.  |
-| Controller0Status       | The status of Controller 0 on your device. The controller status can be normal, in recovery mode, or unreachable.|
-| Controller1Status       | The status of Controller 1 on your device.  The controller status can be normal, in recovery mode, or unreachable.|
-| SystemMode              | The overall status of your StorSimple device. The device status can be normal, in maintenance, or decommissioned (corresponds to deactivated in the Azure portal).|
-| FriendlySoftwareVersion | The friendly string that corresponds to the device software version. For a system running Update 4, this would be StorSimple 8000 Series Update 4.0.|
-| HcsSoftwareVersion      | The HCS software version running on your device. For instance, the HCS software version corresponding to StorSimple 8000 Series Update 4.0 is 6.3.9600.17820. |
-| ApiVersion              | The software version of the Windows PowerShell API of the HCS device.|
-| VhdVersion              | The software version of the factory image that the device was shipped with. If you reset your device to factory defaults, then it runs this software version.|
-| OSVersion               | The software version of the Windows Server operating system running on the device. The StorSimple device is based off the Windows Server 2012 R2 that corresponds to 6.3.9600.|
-| CisAgentVersion         | The version for your Cis agent running on your StorSimple device. This agent helps communicate with the StorSimple Manager service running in Azure.|
-| MdsAgentVersion         | The version corresponding to the Mds agent running on your StorSimple device. This agent moves data to the Monitoring and Diagnostics Service (MDS).|
-| Lsisas2Version          | The version corresponding to the LSI drivers on your StorSimple device.|
-| Capacity                | The total capacity of the device in bytes.|
-| RemoteManagementMode    | Indicates whether or not the device can be remotely managed via its Windows PowerShell interface. |
-| FipsMode                | Indicates whether or not the United States Federal Information Processing Standard (FIPS) mode is enabled on your device. The FIPS 140 standard defines cryptographic algorithms approved for use by US Federal government computer systems for the protection of sensitive data. For devices running Update 4 or later, FIPS mode is enabled by default. |
 
 ### Network test
 
@@ -402,7 +376,7 @@ To use this tool, perform the following steps:
 
 2. Run the cmdlet after you have created and configured the volumes. Type:
 
-    `Invoke-HcsDiagnostics - Scope Performance`
+    `Invoke-HcsDiagnostics -Scope Performance`
 
 3. Make a note of the read-write latencies reported by the tool. This test can take several minutes to run before it reports the results.
 
@@ -431,6 +405,34 @@ Cloud read latency: 4924 ms using credential 'myss8000storageacct', blob size '5
 --------------------------------------------------
 Controller0>
 ```
+
+#### Appendix - interpreting system information
+
+Here is a table describing what the various Windows PowerShell parameters in the system information map to. 
+
+| PowerShell Parameter    | Description  |
+|-------------------------|------------------|
+| Instance ID             | Every controller has a unique identifier associated with it, this is the corresponding GUID for the controller.|
+| Name                    | The friendly name of the device as configured through the Azure portal during device deployment. The default friendly name is the device serial number. |
+| Model                   | The model of your StorSimple 8000 series device. This can be 8100 or 8600.|
+| SerialNumber            | The device serial number is assigned at the factory and is 15 characters long. For instance 8600-SHX0991003G44HT, indicates the following:<br> 8600 – Indicates the device model.<br>SHX – Indicates the manufacturing site.<br> 0991003 - Indicates a specific product. <br> G44HT- The last 5 digits are incremented to create unique serial numbers. This might not be a sequential set.|
+| TimeZone                | The device time zone as configured in the Azure portal during device deployment.|
+| CurrentController       | The controller that you are connected to through the Windows PowerShell interface of your StorSimple device.|
+| ActiveController        | The controller that is active on your device and is controlling all the network and disk operations. This can be Controller 0 or Controller 1.  |
+| Controller0Status       | The status of Controller 0 on your device. The controller status can be normal, in recovery mode, or unreachable.|
+| Controller1Status       | The status of Controller 1 on your device.  The controller status can be normal, in recovery mode, or unreachable.|
+| SystemMode              | The overall status of your StorSimple device. The device status can be normal, in maintenance, or decommissioned (corresponds to deactivated in the Azure portal).|
+| FriendlySoftwareVersion | The friendly string that corresponds to the device software version. For a system running Update 4, this would be StorSimple 8000 Series Update 4.0.|
+| HcsSoftwareVersion      | The HCS software version running on your device. For instance, the HCS software version corresponding to StorSimple 8000 Series Update 4.0 is 6.3.9600.17820. |
+| ApiVersion              | The software version of the Windows PowerShell API of the HCS device.|
+| VhdVersion              | The software version of the factory image that the device was shipped with. If you reset your device to factory defaults, then it runs this software version.|
+| OSVersion               | The software version of the Windows Server operating system running on the device. The StorSimple device is based off the Windows Server 2012 R2 that corresponds to 6.3.9600.|
+| CisAgentVersion         | The version for your Cis agent running on your StorSimple device. This agent helps communicate with the StorSimple Manager service running in Azure.|
+| MdsAgentVersion         | The version corresponding to the Mds agent running on your StorSimple device. This agent moves data to the Monitoring and Diagnostics Service (MDS).|
+| Lsisas2Version          | The version corresponding to the LSI drivers on your StorSimple device.|
+| Capacity                | The total capacity of the device in bytes.|
+| RemoteManagementMode    | Indicates whether or not the device can be remotely managed via its Windows PowerShell interface. |
+| FipsMode                | Indicates whether or not the United States Federal Information Processing Standard (FIPS) mode is enabled on your device. The FIPS 140 standard defines cryptographic algorithms approved for use by US Federal government computer systems for the protection of sensitive data. For devices running Update 4 or later, FIPS mode is enabled by default. |
 
 ## Next steps
 
