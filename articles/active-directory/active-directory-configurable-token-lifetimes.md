@@ -98,7 +98,7 @@ For more information about the relationship between application objects and serv
 A token’s validity is evaluated at the time the token is used. The policy with the highest priority on the application that is being accessed takes effect.
 
 > [!NOTE]
-> Example:
+> Here's an example scenario.
 >
 > A user wants to access two web applications: Web Application A and Web Application B.
 > 
