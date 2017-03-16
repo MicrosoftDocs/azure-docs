@@ -207,7 +207,7 @@ This test reports the system information, the updates available, the cluster inf
 * The system information includes the model, device serial number, time zone, controller status, and the detailed software version running on the system. To understand the various system parameters reported as the output, go to [Interpreting system information](#appendix---system-information).
 
 * The update availability reports whether the regular and maintenance modes are available and their associated package names. If `RegularUpdates` and `MaintenanceModeUpdates` are `false`, this indicates that the updates are not available. Your device is up-to-date.
-* The cluster information contains the information on various logical components of all the HCS cluster groups and their respective statuses. If you see an offline cluster group in this section of the report, [contact Microsoft Support](storsimple-contact-microsoft-support).
+* The cluster information contains the information on various logical components of all the HCS cluster groups and their respective statuses. If you see an offline cluster group in this section of the report, [contact Microsoft Support](storsimple-contact-microsoft-support.md).
 * The service information includes the names and statuses of all the HCS and CiS services running on your device. This information is helpful for the Microsoft Support in troubleshooting the device issue.
 
 #### Sample output of system test run on an 8100 device
