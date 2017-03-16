@@ -25,7 +25,7 @@ Data Factory service supports connecting to on-premises SAP HANA instances using
 This connector supports any version of SAP HANA database. It supports copying data from HANA information models (such as Analytic and Calculation views) and Row/Column tables using SQL queries.
 
 To enable the connectivity to the SAP HANA instance, install the following components:
-- **Data Management Gateway**: Data Factory service supports connecting to on-premises data stores (including SAP Business Warehouse) using a component called Data Management Gateway. To learn about Data Management Gateway and step-by-step instructions for setting up the gateway, see [Moving data between on-premises data store to cloud data store](data-factory-move-data-between-onprem-and-cloud.md) article.
+- **Data Management Gateway**: Data Factory service supports connecting to on-premises data stores (including SAP HANA) using a component called Data Management Gateway. To learn about Data Management Gateway and step-by-step instructions for setting up the gateway, see [Moving data between on-premises data store to cloud data store](data-factory-move-data-between-onprem-and-cloud.md) article.
 - **SAP HANA ODBC driver** on the gateway machine. You can download the SAP HANA ODBC driver from the [SAP Software Download Center](https://support.sap.com/swdc). Search with the keyword **SAP HANA CLIENT for Windows**. 
 
 ## Supported sinks
@@ -77,7 +77,7 @@ This linked service links your SAP HANA instance to the data factory. The type p
 ```
 
 ### Azure Storage linked service
-This linked service links your Azure Storage Account to the data factory. The type property is set to **AzureStorage**. The typeProperties section provides connection information for the SAP BW instance.
+This linked service links your Azure Storage account to the data factory. The type property is set to **AzureStorage**. The typeProperties section provides connection information for the Azure Storage account.
 
 ```json
 {
@@ -116,7 +116,7 @@ Frequency and interval properties defines the schedule. In this case, the data i
 ```
 
 ### Azure Blob output dataset
-This dataset defines the output Azure Blob dataset. The type property is set to AzureBlob. The typeProperties section provides where the data copied from the SAP BW instance is stored. The data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
+This dataset defines the output Azure Blob dataset. The type property is set to AzureBlob. The typeProperties section provides where the data copied from the SAP HANA instance is stored. The data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
 
 ```json
 {

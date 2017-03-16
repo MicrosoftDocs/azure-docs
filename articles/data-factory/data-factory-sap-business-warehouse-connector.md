@@ -77,7 +77,7 @@ This linked service links your SAP BW instance to the data factory. The type pro
 ```
 
 ### Azure Storage linked service
-This linked service links your Azure Storage Account to the data factory. The type property is set to **AzureStorage**. The typeProperties section provides connection information for the SAP BW instance.
+This linked service links your Azure Storage account to the data factory. The type property is set to **AzureStorage**. The typeProperties section provides connection information for the Azure Storage account.
 
 ```json
 {
@@ -177,7 +177,7 @@ This dataset defines the output Azure Blob dataset. The type property is set to 
 
 
 ### Pipeline with Copy activity
-The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** (for SAP BW source) and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data in the past hour to copy.
+The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** (for SAP BW source) and **sink** type is set to **BlobSink**. The query specified for the **query** property selects the data in the past hour to copy.
 
 ```json
 {
