@@ -19,13 +19,12 @@ ms.author: jingwang
 # Move data From SAP Business Warehouse using Azure Data Factory
 This article outlines how you can use the Copy Activity in an Azure Data Factory pipeline to move data to from SAP Business Warehouse to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations. Data factory currently supports only moving data from SAP Business Warehouse to other data stores, but not for moving data from other data stores to SAP Business Warehouse.
 
-Data Factory service supports connecting to on-premises SAP Business Warehouse instances using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. Gateway is required even if the SAP Business Warehouse is hosted in an Azure IaaS virtual machine (VM). You can install the gateway on the same VM as the data store or on a different VM as long as the gateway can connect to the database.
 
 ## Supported versions and installation
 This connector supports SAP Business Warehouse version 7.x. It supports copying data from InfoCubes and QueryCubes (including BEx queries) using MDX queries.
 
 To enable the connectivity to the SAP BW instance, install the following components:
-- **Data Management Gateway**: Data Factory service supports connecting to on-premises data stores (including SAP Business Warehouse) using a component called Data Management Gateway. To learn about Data Management Gateway and step-by-step instructions for setting up the gateway, see [Moving data between on-premises data store to cloud data store](data-factory-move-data-between-onprem-and-cloud.md) article.
+- **Data Management Gateway**: Data Factory service supports connecting to on-premises data stores (including SAP Business Warehouse) using a component called Data Management Gateway. To learn about Data Management Gateway and step-by-step instructions for setting up the gateway, see [Moving data between on-premises data store to cloud data store](data-factory-move-data-between-onprem-and-cloud.md) article. Gateway is required even if the SAP Business Warehouse is hosted in an Azure IaaS virtual machine (VM). You can install the gateway on the same VM as the data store or on a different VM as long as the gateway can connect to the database.
 - **SAP NetWeaver library** on the gateway machine. You can get the SAP Netweaver library from your SAP administrator, or directly from the [SAP Software Download Center](https://support.sap.com/swdc). Search for the **SAP Note #1025361** to get the download location for the most recent version. Make sure that the architecture for the SAP NetWeaver library (32-bit or 64-bit) matches your gateway installation. Then install all files included in the SAP NetWeaver RFC SDK according to the SAP Note. The SAP NetWeaver library is also included in the SAP Client Tools installation.
 
 ## Supported sinks
@@ -34,14 +33,12 @@ See [Supported data stores](data-factory-data-movement-activities.md#supported-d
 ## Copy data wizard
 The easiest way to create a pipeline that copies data from SAP Business Warehouse to any of the supported sink data stores is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-## Example: Copy data from SAP Business Warehouse to Azure Blob
-This example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
-
-This sample shows how to copy data from an on-premises SAP Business Warehouse to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.  
+The following exanoke provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). This sample shows how to copy data from an on-premises SAP Business Warehouse to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.  
 
 > [!IMPORTANT]
 > This sample provides JSON snippets. It does not include step-by-step instructions for creating the data factory. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions.
 
+## Sample: Copy data from SAP Business Warehouse to Azure Blob
 The sample has the following data factory entities:
 
 1. A linked service of type [SapBw](#sap-bw-linked-service).
@@ -231,7 +228,7 @@ The following table provides description for JSON elements specific to SAP Busin
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
-server | Name of the server on which the SAP BW instance resides. If your server is using a customized port, specify `server:port`. | string | Yes
+server | Name of the server on which the SAP BW instance resides. | string | Yes
 systemNumber | System number of the SAP BW system. | Two-digit decimal number represented as a string. | Yes
 clientId | Client ID of the client in the SAP W system. | Three-digit decimal number represented as a string. | Yes
 username | Name of the user who has access to the SAP server | string | Yes
