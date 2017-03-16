@@ -249,7 +249,7 @@ When source in copy activity is of type **RelationalSource** (which includes SAP
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
-| query | Specifies the SQL query to read data from the SAP HANA instance. | MDX query. | Yes |
+| query | Specifies the SQL query to read data from the SAP HANA instance. | SQL query. | Yes |
 
 ### Type mapping for SAP HANA
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from source types to sink types with the following two-step approach:
