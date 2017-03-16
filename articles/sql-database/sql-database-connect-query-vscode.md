@@ -22,7 +22,7 @@ ms.author: carlrab
 ---
 # Azure SQL Database: Use Visual Studio Code to connect and query data
 
-[Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows that supports extensions. With the [mssql extension](https://aka.ms/mssql-marketplace), you can use Visual Studio Code to connect to and query an Azure SQL database. This guide details using Visual Studio Code to connect to an Azure SQL database, and then execute query, insert, update, and deletee statements.
+[Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows that supports extensions. With the [mssql extension](https://aka.ms/mssql-marketplace), you can use Visual Studio Code to connect to and query an Azure SQL database. This guide details using Visual Studio Code to connect to an Azure SQL database, and then execute query, insert, update, and delete statements.
 
 This quick start uses as its starting point the resources created in one of these quick starts:
 
@@ -78,7 +78,7 @@ Use Visual Studio Code to establish a connection to your Azure SQL Database serv
    | **User name** | Enter your server admin account |
    | **Password (SQL Login)** | Enter the password for your server admin account | 
    | **Save Password?** | Select **Yes** or **No** |
-   | **[Optional] Enter a name for this profile** | Entter a connection profile name, such as **lmySampleDatabase**. 
+   | **[Optional] Enter a name for this profile** | Enter a connection profile name, such as **mySampleDatabase**. 
 
 6. Press the **ESC** key to close the info message that informs you that the profile is created and connected.
 
@@ -108,7 +108,7 @@ Use the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 
 
 ## Insert data
 
-Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transcat-SQL statement to insert data into your Azure SQL database.
+Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement to insert data into your Azure SQL database.
 
 1. In the **Editor** window, delete the previous query and enter the following query:
 

@@ -83,7 +83,7 @@ Use the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 
 
 ## Insert data
 
-Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transcat-SQL statement to insert data into your Azure SQL database.
+Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement to insert data into your Azure SQL database.
 
 1. On the toolbar, click **New Query**. A blank query window opens connected to your database.
 2. In the query window, enter the following query in the query window:
