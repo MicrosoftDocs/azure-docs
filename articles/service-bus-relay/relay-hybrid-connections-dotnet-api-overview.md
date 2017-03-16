@@ -81,7 +81,7 @@ var hybridConnectionStream = await client.CreateConnectionAsync();
 ```
 
 ### Receiving data
-The [**HybridConnectionStream**][HCStream] class allows for two way communication. In most use cases, you will want to continuously receive from the stream. If you are reading text from the stream, you may also want to use a [**StreamReader**](https://msdn.microsoft.com/en-us/library/system.io.streamreader(v=vs.110).aspx), which will allow for easier parsing of the data. For instance, you can read data as text, rather than `byte[]`.
+The [**HybridConnectionStream**][HCStream] class allows for two way communication. In most use cases, you will want to continuously receive from the stream. If you are reading text from the stream, you may also want to use a [**StreamReader**](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx), which will allow for easier parsing of the data. For instance, you can read data as text, rather than `byte[]`.
 
 The following loop will read individual lines of text from the stream until a cancellation is requested.
 ```csharp
@@ -113,7 +113,7 @@ var data = Encoding.UTF8.GetBytes("hello");
 await clientConnection.WriteAsync(data, 0, data.Length);
 ```
 
-However, if you would like to send text directly, without needing to encode the string each time you can wrap the `hybridConnectionStream` with a [**StreamWriter**](https://msdn.microsoft.com/en-us/library/system.io.streamwriter(v=vs.110).aspx).
+However, if you would like to send text directly, without needing to encode the string each time you can wrap the `hybridConnectionStream` with a [**StreamWriter**](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx).
 
 ```csharp
 // The StreamWriter object only needs to be created once
