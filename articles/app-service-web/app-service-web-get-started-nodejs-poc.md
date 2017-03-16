@@ -15,7 +15,6 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: cfowler
-
 ---
 
 # Quickstart for Node.js in Azure Web App
@@ -80,10 +79,10 @@ To deploy your app to Web App:
     az group create --location westeurope --name myResourceGroup
     ```
 
-1. Create an App Service Plan in FREE tier:
+1. Create an app service plan in Standard tier:
 
     ```azurecli
-    az appservice plan create --name <app_name> --resource-group myResourceGroup --sku FREE
+    az appservice plan create --name <app_name> --resource-group myResourceGroup --sku S1 --is-linux
     ```
 1. Create a Web App:
 
@@ -91,10 +90,16 @@ To deploy your app to Web App:
     az appservice web create --name <app_name> --resource-group myResourceGroup --plan <app_name>
     ```
 
+1. Configure the web app for Node.js `6.9.3`:
+
+    ```azurecli
+    az appservice web config update --node-version 6.9.3 --startup-file index.js --name <app_name> --resource-group myResourceGroup
+    ```
+
 1. Set the account-level deployment credentials:
 
     ```azurecli
-    az appservice web deployment user set --user-name <username> --password <password> --name <app_name> --resource-group myResourceGroup
+    az appservice web deployment user set --user-name <username> --password <password>
     ```
 
 1. Configure local Git and copy the deployment url:
