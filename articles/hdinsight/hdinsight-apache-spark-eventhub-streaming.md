@@ -1,6 +1,6 @@
 ---
 title: Stream data from Event Hubs with Apache Spark in Azure HDInsight | Microsoft Docs
-description: Step-by-step instructions on how to send a data stream to Azure Event Hub and then receive those events in Spark using a scala application
+description: Step-by-step instructions on how to send a data stream to Azure Event Hub and then receive those events in HDInsight Spark using a scala application
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -14,39 +14,44 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 03/17/2017
 ms.author: nitinme
 
 ---
 # Spark Streaming: Process events from Azure Event Hubs with Apache Spark cluster on HDInsight
-Spark Streaming extends the core Spark API to build scalable, high-throughput, fault-tolerant stream processing applications. Data can be ingested from many sources. In this article we use Azure Event Hubs to ingest data. Event Hubs is a highly scalable ingestion system that can intake millions of events per second. 
 
-In this tutorial, you will learn how to create an Azure Event Hub, how to ingest messages into an Event Hub using a console application in Java, and to retrieve them in parallel using a Spark application written in Scala. This application consumes the data streamed through Event Hubs and routes it to different outputs (Azure Storage Blob, Hive table, and SQL table).
+In this article, you understand some concepts related to streaming using Apache Spark and then create a streaming application that does the following:
 
-> [!NOTE]
-> To follow the instructions in this article, you will have to use both versions of the Azure portal. To create an Event Hub you will use the [Azure Classic portal](https://manage.windowsazure.com). To work with the HDInsight Spark cluster, you will use the [Azure Portal](https://portal.azure.com/).  
-> 
-> 
+1. Ingest messages into an Azure Event Hub.
+2. Retrieve the messages in real-time using Spark cluster on Azure HDInsight.
+3. Route the data to different outputs such as Azure Storage Blob, Hive table, or a SQL table. 
 
-**Prerequisites:**
+## Prerequisites
 
 You must have the following:
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
-* Oracle Java Development kit. You can install it from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-* A Java IDE. This article uses IntelliJ IDEA 15.0.1. You can install it from [here](https://www.jetbrains.com/idea/download/).
+
 * Microsoft JDBC driver for SQL Server, v4.1 or later. This is required to write the event data into a SQL Server database. You can install it from [here](https://msdn.microsoft.com/sqlserver/aa937724.aspx).
 * An Azure SQL database. For instructions, see [Create a SQL database in minutes](../sql-database/sql-database-get-started.md).
 
+## Spark streaming concepts
+
+For an in-depth explanation of how streaming is handled in Apache Spark, see [Apache Spark Streaming Overview](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview). HDInsight brings the same streaming functions to a Spark cluster on Azure.  
+
 ## What does this solution do?
-This is how the streaming solution flows:
+
+In this article, to create a streaming solution, you do the following steps:
 
 1. Create an Azure Event Hub that will receive a stream of events.
-2. Run a local standalone application that generates events and pushes it the Azure Event Hub. The sample application that does this is published at [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples).
+
+2. Run a local standalone application that generates events and pushes it to the Azure Event Hub. The sample application that does this is published at [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples).
+
 3. Run a streaming application remotely on a Spark cluster that reads streaming events from Azure Event Hub and pushes it out to different locations (Azure Blob, Hive table, and SQL database table). 
 
 ## Create Azure Event Hub
+
 1. From the [Azure Portal](https://manage.windowsazure.com), select **NEW** > **Service Bus** > **Event Hub** > **Custom Create**.
 2. On the **Add a new Event Hub** screen, enter an **Event Hub Name**, select the **Region** to create the hub in, and create a new namespace or select an existing one. Click the **Arrow** to continue.
    
@@ -77,21 +82,29 @@ This is how the streaming solution flows:
    
     ![policy keys](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policy.connection.strings.png "Save policy connection strings")
 
-## Use a Scala application to send messages to Event Hub
-In this section you use a standalone local Scala application to send a stream of events to Azure Event Hub that you created in the previous step. This application is available on GitHub at [https://github.com/hdinsight/eventhubs-sample-event-producer](https://github.com/hdinsight/eventhubs-sample-event-producer). The steps here assume that you have already forked this GitHub repository.
+## Send messages to an Azure Event Hub using a Scala application
 
-1. Open the application, **EventhubsSampleEventProducer**, in IntelliJ IDEA.
-2. Build the project. From the **Build** menu, click **Make Project**. The output jar is created under **\out\artifacts**.
+In this section you use a standalone local Scala application that generates a stream of events and sends it to Azure Event Hub that you created in the previous step. This application is available on GitHub at [https://github.com/hdinsight/eventhubs-sample-event-producer](https://github.com/hdinsight/eventhubs-sample-event-producer). The steps here assume that you have already forked this GitHub repository.
 
-> [!TIP]
-> You can also use an option available in IntelliJ IDEA to directly create the project from a GitHub repository. To understand how to use that approach, use the instructions in the next section for guidance. Note that a lot of steps that are described in the next section will not be applicable for the Scala application that you create in this step. For example:
-> 
-> * You will not have to update the POM to include the Spark version. That's because there is no dependency on Spark for creating this application
-> * You will not have to add some dependency jars to the project library. That's because those jars are not required for this project.
-> 
-> 
+1. Make sure you have the following installed on the computer where you are running this application.
 
-## Update the Scala streaming application for receiving the events
+	* Oracle Java Development kit. You can install it from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+	* A Java IDE. This article uses IntelliJ IDEA 15.0.1. You can install it from [here](https://www.jetbrains.com/idea/download/).
+
+2. Open the application, **EventhubsSampleEventProducer**, in IntelliJ IDEA.
+
+3. Build the project. From the **Build** menu, click **Make Project**. The output jar is created under **\out\artifacts**.
+
+	> [!TIP]
+	> You can also use an option available in IntelliJ IDEA to directly create the project from a GitHub repository. To understand how to use that approach, use the instructions in the next section for guidance. Note that a lot of steps that are described in the next section will not be applicable for the Scala application that you create in this step. For example:
+	> 
+	> * You will not have to update the POM to include the Spark version. That's because there is no dependency on Spark for creating this application
+	> * You will not have to add some dependency jars to the project library. That's because those jars are not required for this project.
+	> 
+	> 
+
+## Receive messages from the Event Hub using a streaming application running on Spark cluster
+
 A sample Scala application to receive the event and route it to different destinations is available at [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples). Follow the steps below to update the application and create the output jar.
 
 1. Launch IntelliJ IDEA and from the launch screen select **Check out from Version Control** and then click **Git**.
