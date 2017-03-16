@@ -36,11 +36,11 @@ The following table contains the address and port information needed when connec
 >
 > Replace `<clustername>` with the name of your HDInsight cluster.
 >
-> We recommend __always connect to the edge node__ if you have one. The head nodes host services that are critical to the health of the cluster. The edge node runs only what you put on it.
+> We recommend __always connecting to the edge node__ if you have one. The head nodes host services that are critical to the health of the cluster. The edge node runs only what you put on it.
 
 ## SSH clients
 
-Many operating systems provide the `ssh` client. Microsoft Windows does not provide an SSH client by default. You can install an SSH client using one of the following methods:
+Most operating systems provide the `ssh` client. Microsoft Windows does not provide an SSH client by default. An SSH client for Windows is available in each of the following packages:
 
 * [Bash on Ubuntu on Windows 10](https://msdn.microsoft.com/commandline/wsl/about): The `ssh` command is provided through the Bash on Windows command line.
 
@@ -50,10 +50,10 @@ Many operating systems provide the `ssh` client. Microsoft Windows does not prov
 
 * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH): The PowerShell team is porting OpenSSH to Windows, and provides **test** releases.
 
-    > [!IMPORTANT]
+    > [!WARNING]
     > The OpenSSH package includes the SSH server component, `sshd`. This component starts an SSH server on your system, allowing others to connect to it. Do not configure this component or open port 22 unless you want to host an SSH server on your system. It is not required to communicate with HDInsight.
 
-There are also several graphical SSH clients, such as [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) and [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). While these can be use to connect to HDInsight, the process of connecting to a server is different than using the `ssh` utility. For more information, see the documentation of the graphical client you are using.
+There are also several graphical SSH clients, such as [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) and [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). While these clients can be used to connect to HDInsight, the process of connecting to a server is different than using the `ssh` utility. For more information, see the documentation of the graphical client you are using.
 
 ## <a id="sshkey"></a>Authentication: SSH Keys
 
@@ -75,9 +75,7 @@ If your SSH account is secured using a key, the client must provide the matching
 
 Use the `ssh-keygen` command to create public and private key files. The following command generates a 2048-bit RSA key pair that can be used with HDInsight:
 
-```bash
-ssh-keygen -t rsa -b 2048
-```
+    ssh-keygen -t rsa -b 2048
 
 You are prompted for information during the key creation process. For example, where the keys are stored or whether to use a passphrase. After the process completes, two files are created; a public key and a private key.
 
@@ -86,32 +84,32 @@ You are prompted for information during the key creation process. For example, w
 * The __private key__ is used to authenticate your client to the HDInsight cluster.
 
 > [!IMPORTANT]
-> You can secure your keys using a passphrase. This is effectively a password on your private key. Even if someone obtains your private key, they cannot use it without knowing the passphrase.
+> You can secure your keys using a passphrase. This is effectively a password on your private key. Even if someone obtains your private key, they must have the passphrase to use the key.
 
 ### Create HDInsight using the public key
 
 | Creation method | How to use the public key |
 | ------- | ------- |
-| Azure Portal | Uncheck __Use same password as cluster login__, and then select __Public Key__ as the SSH authentication type. Finally, select the public key file or paste the text contents of the file in the __SSH public key__ field.</br>![SSH public key dialog in HDInsight cluster creation](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
-| Azure PowerShell | Use the `-SshPublicKey` parameter of the `New-AzureRmHdinsightCluster` cmdlet and pass the contents of the public key as a string.|
-| Azure CLI 1.0 | Use the `--sshPublicKey` parameter of the `azure hdinsight cluster create` command and pass the contents of the public key as a string. |
-| Resource Manager Template | For an example of using a SSH keys with a template, see [Deploy HDInsight on Linux with SSH key](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/). The `publicKeys` element in the [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) file is used to pass the keys to Azure when creating the cluster. |
+| **Azure portal** | Uncheck __Use same password as cluster login__, and then select __Public Key__ as the SSH authentication type. Finally, select the public key file or paste the text contents of the file in the __SSH public key__ field.</br>![SSH public key dialog in HDInsight cluster creation](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
+| **Azure PowerShell** | Use the `-SshPublicKey` parameter of the `New-AzureRmHdinsightCluster` cmdlet and pass the contents of the public key as a string.|
+| **Azure CLI 1.0** | Use the `--sshPublicKey` parameter of the `azure hdinsight cluster create` command and pass the contents of the public key as a string. |
+| **Resource Manager Template** | For an example of using SSH keys with a template, see [Deploy HDInsight on Linux with SSH key](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/). The `publicKeys` element in the [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) file is used to pass the keys to Azure when creating the cluster. |
 
 ## <a id="sshpassword"></a>Authentication: Password
 
 SSH accounts can be secured using a password. When you connect to HDInsight using SSH, you are prompted to enter the password.
 
 > [!WARNING]
-> We do not recommend using password authentication for SSH, as passwords can be guessed and are vulnerable to brute force attacks. Instead, we recommend that you use [SSH keys for authentication](#sshkey).
+> We do not recommend using password authentication for SSH. Passwords can be guessed and are vulnerable to brute force attacks. Instead, we recommend that you use [SSH keys for authentication](#sshkey).
 
 ### Create HDInsight using a password
 
 | Creation method | How to specify the password |
 | --------------- | ---------------- |
-| Azure portal | By default, the SSH user account has the same password as the cluster login account. To use a different password, uncheck __Use same password as cluster login__, and then enter the password in the __SSH password__ field.</br>![SSH password dialog in HDInsight cluster creation](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
-| Azure PowerShell | Use the `--SshCredential` parameter of the `New-AzureRmHdinsightCluster` cmdlet and pass a `PSCredential` object that contains the SSH user account name and password. |
-| Azure CLI 1.0 | Use the `--sshPassword` parameter of the `azure hdinsight cluster create` command and provide the password value. |
-| Resource Manager Template | For an example of using a SSH keys with a template, see [Deploy HDInsight on Linux with SSH password](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-ssh-password/). The `linuxOperatingSystemProfile` element in the [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) file is used to pass the SSH account name and password to Azure when creating the cluster.|
+| **Azure portal** | By default, the SSH user account has the same password as the cluster login account. To use a different password, uncheck __Use same password as cluster login__, and then enter the password in the __SSH password__ field.</br>![SSH password dialog in HDInsight cluster creation](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
+| **Azure PowerShell** | Use the `--SshCredential` parameter of the `New-AzureRmHdinsightCluster` cmdlet and pass a `PSCredential` object that contains the SSH user account name and password. |
+| **Azure CLI 1.0** | Use the `--sshPassword` parameter of the `azure hdinsight cluster create` command and provide the password value. |
+| **Resource Manager Template** | For an example of using a password with a template, see [Deploy HDInsight on Linux with SSH password](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-ssh-password/). The `linuxOperatingSystemProfile` element in the [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) file is used to pass the SSH account name and password to Azure when creating the cluster.|
 
 ### Change the SSH password
 
@@ -134,6 +132,11 @@ The worker nodes and Zookeeper nodes are not directly accessible from the intern
 If the SSH account is secured using a __password__, you are asked to enter the password and the connection is established.
 
 If the SSH account is secured using __SSH keys__, you must make sure that your local environment is configured for SSH agent forwarding.
+
+> [!NOTE]
+> Another way to directly access all nodes in the cluster is to install HDInsight into an Azure Virtual Network. Then, you can join your remote machine to the same virtual network and directly access all nodes in the cluster.
+>
+> For more information, see [Use a virtual network with HDInsight](hdinsight-extend-hadoop-virtual-network.md).
 
 ### Configure SSH agent forwarding
 
