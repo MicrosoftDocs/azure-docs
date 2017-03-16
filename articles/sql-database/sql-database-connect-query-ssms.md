@@ -110,23 +110,6 @@ Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transcat-SQL 
 
     ![insert](./media/sql-database-connect-query-ssms/insert.png)
 
-4. In the query window, use the following query to view the newly added product:
-
-   ```sql
-   SELECT [ProductId]
-	, [Name]
-	, [ProductNumber]
-	, [Color]
-	, [StandardCost]
-	, [ListPrice]
-	, [SellStartDate] 
-   FROM [SalesLT].[Product]
-   WHERE Name = 'myNewProduct';
-   ```
-
-    ![insert](./media/sql-database-connect-query-ssms/inserted-query.png)
-
-
 ## Update data
 
 Use the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
@@ -144,18 +127,6 @@ Use the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 
 
     ![update](./media/sql-database-connect-query-ssms/update.png)
 
-4. In the query window, use the following query to view the updated list price for the product:
-
-   ```sql
-   SELECT [ProductId]
-	, [Name]
-	, [ListPrice]
-   FROM [SalesLT].[Product]
-   WHERE Name = 'myNewProduct';
-   ```
-
-    ![updated query](./media/sql-database-connect-query-ssms/updated-query.png)
-
 ## Delete data
 
 Use the [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
@@ -171,22 +142,6 @@ Use the [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 
 3. On the toolbar, click **Execute**.
 
     ![delete](./media/sql-database-connect-query-ssms/delete.png)
-
-4. In the query window, use the following query to verify the row was deleted:
-
-   ```sql
-   SELECT [ProductId]
-	, [Name]
-	, [ProductNumber]
-	, [Color]
-	, [StandardCost]
-	, [ListPrice]
-	, [SellStartDate] 
-   FROM [SalesLT].[Product]
-   WHERE Name = 'myNewProduct';
-   ```
-
-    ![deleted query](./media/sql-database-connect-query-ssms/deleted-query.png)
 
 ## Next steps
 
