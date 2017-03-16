@@ -45,6 +45,9 @@ Managed Disks provides better reliability for Availability Sets by ensuring that
 
 You can use [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md) to assign specific permissions for a managed disk to one or more users. Managed Disks exposes a variety of operations, including read, write (create/update), delete, and retrieving a [shared access signature (SAS) URI](storage-dotnet-shared-access-signature-part-1.md) for the disk. You can grant access to only the operations a person needs to perform his job. For example, if you don’t want a person to copy a managed disk to a storage account, you can choose not to grant access to the export action for that managed disk. Similarly, if you don’t want a person to use an SAS URI to copy a managed disk, you can choose not to grant that permission to the managed disk.
 
+### Azure Backup service support 
+Use Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies. For disaster recovery, you must backup your VM disks in a different region using [Azure Backup service](../backup/backup-introduction-to-azure-backup.md) and a GRS/RA-GRS storage account as backup vault. Read more about this at [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
+
 ## Pricing and Billing 
 
 When using Managed Disks, the following billing considerations apply:
@@ -112,12 +115,6 @@ You often see the word “image” used with VMs, and now you see “snapshots�
 A snapshot is a copy of a disk at the point in time it is taken. It only applies to one disk. If you have a VM that only has one disk (the OS), you can take a snapshot or an image of it and create a VM from either the snapshot or the image.
 
 What if a VM has five disks and they are striped? You could take a snapshot of each of the disks, but there is no awareness within the VM of the state of the disks – the snapshots only know about that one disk. In this case, the snapshots would need to be coordinated with each other, and that is not currently supported.
-
-## Azure Backup service support 
-
-Virtual machines with unmanaged disks can be backed up using Azure Backup. [More details](../backup/backup-azure-vms-first-look-arm.md).
-
-You can also use the Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies. You can read more about this at [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
 
 ## Managed Disks and Encryption
 
