@@ -44,11 +44,11 @@ This sample shows how to copy data from an on-premises SAP Business Warehouse to
 
 The sample has the following data factory entities:
 
-1. A linked service of type [SapBw](sap-bw-linked-service-properties).
+1. A linked service of type [SapBw](#sap-bw-linked-service).
 2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 3. An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](#sap-bw-dataset).
 4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](sap-bw-source-in-copy-activity) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](#sap-bw-source-in-copy-activity) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 The sample copies data from an SAP Business Warehouse instance to an Azure blob hourly. The JSON properties used in these samples are described in sections following the samples.
 
