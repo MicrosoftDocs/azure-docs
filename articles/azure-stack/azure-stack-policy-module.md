@@ -24,11 +24,10 @@ The Azure Stack Policy module allows you to configure an Azure subscription with
 1. Install the required version of the AzureRM PowerShell module, as described in Step1 of [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md#install-the-required-version).   
 2. [Download the Azure Stack tools from GitHub](azure-stack-powershell-download.md)  
      
-3. Navigate to the **Policy** folder located either in AzureStack-Tools-master or AzureStack-Tools folder that is downloaded in step 2 . Import the AzureStack.Policy.psm1 module:
+3. Import the AzureStack.Policy.psm1 module:
    
    ```PowerShell
-   cd Policy
-   import-module .\AzureStack.Policy.psm1
+   import-module .\Policy\AzureStack.Policy.psm1
    ```
 
 ## Apply policy to subscription
