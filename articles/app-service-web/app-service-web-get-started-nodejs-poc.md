@@ -26,10 +26,8 @@ This quickstart shows you how to create a small Web App application that display
 
 Before running this sample, install the following prerequisites locally:
 
-1. [Download and install git](https://git-scm.com/)  
-1. [Download and install Node.js and NPM](https://nodejs.org/)  
-   > [!NOTE]
-   > NPM (Node Package Manager) is usually installed alongside Node.js, but you can install the [Yarn Package Manager](https://yarnpkg.com/) as an alternative and use Yarn throught the quickstart if you want.  
+1. [Download and install git](https://git-scm.com/)
+1. [Download and install Node.js and NPM](https://nodejs.org/)
 1. Download, install and initialize the [Azure CLI 2.0](If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 
 This quickstart demonstrates a simple Node.js application.
@@ -45,7 +43,7 @@ Download the sample app and navigate into the app directory:
     ```cli
     git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
     ```
-    
+
     Alternatively, you can [download the sample](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) as a zip file and extract it.
 
 1. Change to the directory that contains the sample code:
@@ -59,7 +57,8 @@ Download the sample app and navigate into the app directory:
     npm start
     ```
 1. In your web browser, enter the following address:
-   ```
+
+   ```cli
    http://localhost:1337
    ```
 You  can see the **Hello World** message from the sample app displayed in the page.
