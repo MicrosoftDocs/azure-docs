@@ -57,7 +57,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 
 ## Create a server-level firewall rule
 
-The SQL Database service creates a firewall preventing external applications and tools from connecting to your new server and database. Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your IP address to enable external connectivity through the SQL Database firewall. 
+The SQL Database service creates a firewall preventing external applications and tools from connecting to your server and database. Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your IP address to enable external connectivity through the SQL Database firewall. 
 
 1. Click **Set server firewall** on the toolbar for your database. The **Firewall settings** page for the SQL Database server opens. 
 
