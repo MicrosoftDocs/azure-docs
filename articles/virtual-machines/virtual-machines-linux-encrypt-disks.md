@@ -37,7 +37,7 @@ Create an Azure Key Vault with [az keyvault create](/cli/azure/keyvault#create) 
 
 ```azurecli
 az keyvault create --name myKeyVault --resource-group myResourceGroup \
-  --location WestUS --enable-for-disk-encryption
+  --location WestUS --enabled-for-disk-encryption True
 ```
 
 Create a cryptographic key in your Key Vault with [az keyvault key create](/cli/azure/keyvault/key#create). The following example creates a key named `myKey`:
@@ -175,7 +175,7 @@ The Azure Key Vault containing the cryptographic keys and associated compute res
 
 ```azurecli
 az keyvault create --name myKeyVault --resource-group myResourceGroup \
-  --location WestUS --enable-for-disk-encryption
+  --location WestUS --enabled-for-disk-encryption True
 ```
 
 You can store cryptographic keys using software or Hardware Security Model (HSM) protection. Using an HSM requires a premium Key Vault. There is an additional cost to creating a premium Key Vault rather than standard Key Vault that stores software-protected keys. To create a premium Key Vault, in the preceding step add `--sku Premium` to the command. The following example uses software-protected keys since we created a standard Key Vault. 
