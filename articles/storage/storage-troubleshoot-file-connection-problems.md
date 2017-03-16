@@ -45,10 +45,6 @@ This article lists common problems that are related to Microsoft Azure File stor
 * [Azure file share mounted on Linux VM experiencing slow performance](#delayproblem)
 
 
-**Accessing from other applications**
-
-* [Can I reference the azure file share for my application through a webjob?](#webjobs)
-
 <a id="quotaerror"></a>
 
 ## Quota error when trying to open a file
@@ -274,11 +270,6 @@ dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=10
 
 If the cache=strict or serverino options are not present, unmount and mount Azure Files again by running the mount command from the [documentation](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share) and re-check that "/etc/fstab" entry has the correct options.
 
-<a id="webjobs"></a>
-
-## Accessing from other applications
-### Can I reference the azure file share for my application through a webjob?
-Mounting SMB shares in appservice sandbox isn’t possible. As a workaround, you can map the Azure file share as a mapped drive and allow the application to access it as a drive letter.
 ## Learn more
 * [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
 * [Get started with Azure File storage on Linux](storage-how-to-use-files-linux.md)

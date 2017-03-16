@@ -60,7 +60,7 @@ In this section, you create a Java console app that creates a device identity in
     ```
     <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.0.14</version>
+      <version>1.0.15</version>
     </dependency>
     ```
     
@@ -284,7 +284,7 @@ In this section, you create a Java console app that simulates a device that send
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.0.20</version>
+      <version>1.0.21</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
