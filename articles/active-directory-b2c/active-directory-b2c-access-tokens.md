@@ -32,10 +32,10 @@ Before requesting an **access\_token**, you first need to register a web API and
 
 ## Granting Permissions to a Web API
 
-In order for a client application to get specific permissions to an API, the client application needs to be approved for those permissions via the Azure Portal. To register access to a client application:
+In order for a client application to get specific permissions to an API, the client application needs to be approved for those permissions via the Azure portal. To register access to a client application:
 
 1. Navigate to the “Applications” menu in the B2C features blade.
-2. Click on your client application ([Register an application](active-directory-b2c-app-registration) if you don’t have one]).
+2. Click on your client application ([Register an application](active-directory-b2c-app-registration.md) if you don’t have one]).
 3. Select “Api access”.
 4. Click on “Add”.
 5. Select your Web API application and the scopes (permissions) you would like to grant.

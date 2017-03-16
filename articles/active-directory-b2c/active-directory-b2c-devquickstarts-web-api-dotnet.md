@@ -26,7 +26,7 @@ This article does not cover how to implement sign-in, sign-up and profile manage
 * Get started with a [.NET web app](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
 * Get started with a [.NET web api](active-directory-b2c-devquickstarts-api-dotnet.md)
 
-## Prerequiste
+## Prerequisite
 
 To build a web application that calls a web api, you need to:
 

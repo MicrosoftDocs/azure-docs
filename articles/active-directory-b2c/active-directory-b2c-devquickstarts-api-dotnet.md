@@ -43,7 +43,7 @@ Next, you need to create a web API app in your B2C directory. This gives Azure A
 
 ## Create your policies
 
-In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). You will need to create a policy to communicate with Azure AD B2C. We recommend using the combined sign-up/sign-in policy, as described in the [policy reference article](active-directory-b2c-reference-policies.md#sign-up-or-sign-in-policy). When you create your policy, be sure to:
+In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). You will need to create a policy to communicate with Azure AD B2C. We recommend using the combined sign-up/sign-in policy, as described in the [policy reference article](active-directory-b2c-reference-policies.md). When you create your policy, be sure to:
 
 * Choose **Display name** and other sign-up attributes in your policy.
 * Choose **Display name** and **Object ID** claims as application claims for every policy. You can choose other claims as well.
