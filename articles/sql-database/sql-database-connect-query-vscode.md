@@ -42,7 +42,7 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name** for use in the next step.
 
-    ![connection information](./media/sql-database-connect-query-ssms/connection-information.png)
+    <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 500px;" />
 
 ## Set language mode to SQL
 
@@ -95,30 +95,28 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
 
 ## Query data
 
-Use the [SELECT](https://msdn.microsoft.com/en-us/library/ms189499.aspx) Transact-SQL statement to query data in your Azure SQL database.
+Use the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement to query data in your Azure SQL database.
 
-1. In Object Explorer, right-click **mySampleDatabase** and click **New Query**. A blank query window opens that is connected to your database.
-2. In the query window, type the following query in the query window to retrieve data from the Product and ProductCategory tables:
+1. In the **Editor** window, enter the following query in the empty query window:
 
-   ```tsql
+   ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
    FROM [SalesLT].[ProductCategory] pc
    JOIN [SalesLT].[Product] p
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-3. On the toolbar, click **Execute**.
+3. Press **CTRL+SHIFT+E** to retrieve data from the Product and ProductCategory tables.
 
-    ![query](./media/sql-database-connect-query-ssms/query.png)
+    <img src="./media/sql-database-connect-query-vscode/query.png" alt="Query" style="width: 500px;" />
 
 ## Insert data
 
-Use the [INSERT](https://msdn.microsoft.com/en-us/library/ms174335.aspx) Transcat-SQL statement to insert data into your Azure SQL database.
+Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transcat-SQL statement to insert data into your Azure SQL database.
 
-1. On the toolbar, click **New Query**. A blank query window opens connected to your database.
-2. In the query window, type the following query in the query window to insert a new row in the Product table:
+1. In the **Editor** window, delete the previous query and enter the following query:
 
-   ```tsql
+   ```sql
    INSERT INTO [SalesLT].[Product]
            ( [Name]
            , [ProductNumber]
@@ -138,90 +136,36 @@ Use the [INSERT](https://msdn.microsoft.com/en-us/library/ms174335.aspx) Transca
 		   ,GETDATE() );
    ```
 
-3. On the toolbar, click **Execute**.
-
-    ![insert](./media/sql-database-connect-query-ssms/insert.png)
-
-4. In the query window, use the following query to view the newly added product:
-
-   ```tsql
-   SELECT [ProductId]
-	, [Name]
-	, [ProductNumber]
-	, [Color]
-	, [StandardCost]
-	, [ListPrice]
-	, [SellStartDate] 
-   FROM [SalesLT].[Product]
-   WHERE Name = 'myNewProduct';
-   ```
-
-    ![insert](./media/sql-database-connect-query-ssms/inserted-query.png)
-
+3. Press **CTRL+SHIFT+E** to insert a new row in the Product table.
 
 ## Update data
 
-Use the [UPDATE](https://msdn.microsoft.com/en-us/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
+Use the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
 
-1. On the toolbar, click **New Query**. A blank query window opens connected to your database.
-2. In the query window, type the following query in the query window to update a row in the Product table:
+1.  In the **Editor** window, delete the previous query and enter the following query:
 
-   ```tsql
+   ```sql
    UPDATE [SalesLT].[Product]
    SET [ListPrice] = 125
    WHERE Name = 'myNewProduct';
    ```
 
-3. On the toolbar, click **Execute**.
-
-    ![update](./media/sql-database-connect-query-ssms/update.png)
-
-4. In the query window, use the following query to view the updated list price for the product:
-
-   ```tsql
-   SELECT [ProductId]
-	, [Name]
-	, [ListPrice]
-   FROM [SalesLT].[Product]
-   WHERE Name = 'myNewProduct';
-   ```
-
-    ![updated query](./media/sql-database-connect-query-ssms/updated-query.png)
+3. Press **CTRL+SHIFT+E** to update the specified row in the Product table.
 
 ## Delete data
 
-Use the [DELETE](https://msdn.microsoft.com/en-us/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
+Use the [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
 
-1. On the toolbar, click **New Query**. A blank query window opens connected to your database.
-2. In the query window, type the following query in the query window to delete a row in the Product table:
+1. In the **Editor** window, delete the previous query and enter the following query:
 
-   ```tsql
+   ```sql
    DELETE FROM [SalesLT].[Product]
    WHERE Name = 'myNewProduct';
    ```
 
-3. On the toolbar, click **Execute**.
-
-    ![delete](./media/sql-database-connect-query-ssms/delete.png)
-
-4. In the query window, use the following query to verify the row was deleted:
-
-   ```tsql
-   SELECT [ProductId]
-	, [Name]
-	, [ProductNumber]
-	, [Color]
-	, [StandardCost]
-	, [ListPrice]
-	, [SellStartDate] 
-   FROM [SalesLT].[Product]
-   WHERE Name = 'myNewProduct';
-   ```
-
-    ![deleted query](./media/sql-database-connect-query-ssms/deleted-query.png)
+3. Press **CTRL+SHIFT+E** to delete the specified row in the Product table.
 
 ## Next steps
 
-- For more information about SSMS, see [Use SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
-- For a getting started with SQL Server authentication tutorial, see [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md).
-- For a getting started with Azure Active Directory authentication tutorial, see [Azure AD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md).
+- For information about Visual Studio Code, see [Visual Studio Code](https://code.visualstudio.com/docs)
+- For information about querying and editing data using SQL Server Management Studio, see [SSMS](https://msdn.microsoft.com/library/ms174173.aspx).
