@@ -24,7 +24,7 @@ Azure Data Lake includes capabilities that make it easy for developers, data sci
 
 Azure Data Lake is a set of services that work together to provide a cloud-based big data platform. These services include:
 
-- HDInsight
+- Azure HDInsight
 - Azure Data Lake Store
 - Azure Data Lake Analytics
 
@@ -238,7 +238,7 @@ Example:
 
 In this example, we define an inline function with the string input parameter input_p. Inside this function, we verify if input string is a valid datetime value. If it is, return it, otherwise return null.
 
-The inline function is needed in this scenario because the DateTime.TryParse function contains the output parameter `out dt_result`. We define it as the `DateTime dt_result`;.
+The inline function is needed in this scenario because the DateTime.TryParse function contains the output parameter `out dt_result`. We define it as the `DateTime dt_result;`.
 
 
 ## Verify data type values
@@ -324,7 +324,7 @@ When a typical U-SQL project is created in Visual Studio, there are two parts of
 ![Base script file](./media/data-lake-analytics-u-sql-programmability-guide/base-script-file.png)
 
 
-Typical solution project   
+Typical solution project:   
 ![Typical solution project](./media/data-lake-analytics-u-sql-programmability-guide/typical-solution-project.png)
 
 
@@ -379,7 +379,7 @@ The easiest way to use custom code is to use the Azure Data Lake Tools for Visua
 As we mentioned earlier, you fill in the custom code for the script (for example, Script.usql) into its code-behind file (for example, Script.usql.cs).
 
 ![Code-behind example](./media/data-lake-analytics-u-sql-programmability-guide/code-behind-example.jpg)
-**Figure 1**: Code-behind example in Azure Data Lake Tools in Visual Studio. (Click the image to enlarge it. Sample code is available [here](https://github.com/Azure/usql/tree/master/Examples/TweetAnalysis).)
+**Figure 1**: Code-behind example in Azure Data Lake Tools in Visual Studio. (Click the image to enlarge it. [Sample code](https://github.com/Azure/usql/tree/master/Examples/TweetAnalysis) is available.)
 
 
 The advantage of code-behind is that the tooling takes care of the following steps for you when you submit your script:  
@@ -436,7 +436,7 @@ While the Azure Data Lake Tools in Visual Studio make it easy to register an ass
 We use this approach in the following spatial example.
 
 ### Register assemblies that use other .NET assemblies (based on the JSON and XML sample library)
-Our [U-SQL Github site](https://github.com/Azure/usql/) offers a set of shared example assemblies for you to use. One of the assemblies, called [Microsoft.Analytics.Samples.Formats](https://github.com/Azure/usql/tree/master/Examples/DataFormats), provides extractors, functions, and outputters to handle both JSON and XML documents. The Microsoft.Analytics.Samples.Formats assembly depends on two existing domain-specific assemblies to do the processing of the JSON and XML respectively. It uses the [Newtonsoft Json.Net](http://www.newtonsoft.com/) library for processing the JSON documents and the [System.Xml](https://msdn.microsoft.com/data/bb291078.aspx) assembly for processing XML. We use it to show how to register them and use the assemblies in our scripts.
+Our [U-SQL GitHub site](https://github.com/Azure/usql/) offers a set of shared example assemblies for you to use. One of the assemblies, called [Microsoft.Analytics.Samples.Formats](https://github.com/Azure/usql/tree/master/Examples/DataFormats), provides extractors, functions, and outputters to handle both JSON and XML documents. The Microsoft.Analytics.Samples.Formats assembly depends on two existing domain-specific assemblies to do the processing of the JSON and XML respectively. It uses the [Newtonsoft Json.Net](http://www.newtonsoft.com/) library for processing the JSON documents and the [System.Xml](https://msdn.microsoft.com/data/bb291078.aspx) assembly for processing XML. We use it to show how to register them and use the assemblies in our scripts.
 
 First we download the [Visual Studio project](https://github.com/Azure/usql/tree/master/Examples/DataFormats) to our local development environment (for example, by making a local copy with the GitHub tool for Windows). Then we open the solution in Visual Studio and right-click the project (as explained previously) to register the assembly.
 
@@ -464,7 +464,7 @@ REFERENCE ASSEMBLY JSONBlog.[Microsoft.Analytics.Samples.Formats];
 For more information about how to use the JSON functionality, see [this blog post](https://blogs.msdn.microsoft.com/mrys/?p=755).
 
 ### Register assemblies that use native C++ assemblies (using the SQL Server 2016 spatial type assembly from the feature pack)
-Now let’s look at a slightly different scenario. Let’s assume the assembly that we want to use has a dependency on code that is not .NET based. More specifically, the assembly has a dependency on a native C++ assembly. An example of such an assembly is the SQL Server type assembly [Microsoft.SqlServer.Types.dll](https://www.microsoft.com/download/details.aspx?id=52676). It provides .NET-based implementations of the SQL Server hierarchyID, geometry, and geography types to be used by SQL Server client-side applications for handling the SQL Server types. (It was also originally the assembly that provided the implementation for the SQL Server spatial types before the SQL Server 2016 release).
+Now let’s look at a slightly different scenario. Let’s assume the assembly that we want to use has a dependency on code that is not .NET based. More specifically, the assembly has a dependency on a native C++ assembly. An example of such an assembly is the SQL Server type assembly [Microsoft.SqlServer.Types.dll](https://www.microsoft.com/download/details.aspx?id=52676). It provides .NET-based implementations of the SQL Server hierarchyID, geometry, and geography types to be used by SQL Server client-side applications for handling the SQL Server types. (It was also originally the assembly that provided the implementation for the SQL Server spatial types before the SQL Server 2016 release.)
 
 Let’s look at how to register this assembly in U-SQL.
 
@@ -520,7 +520,7 @@ TO "/output/spatial.csv"
 USING Outputters.Csv();
 ```
 
-The SQL Types library has a dependency on the System.XML assembly, so we need to reference it. Also, some of the methods use the System.Data.SqlTypes types instead of the built-in C# types. Because System.Data is already included by default, we can reference the needed SQL type. The previous code is available on our [Github site](https://github.com/Azure/usql/tree/master/Examples/SQLSpatialExample).
+The SQL Types library has a dependency on the System.XML assembly, so we need to reference it. Also, some of the methods use the System.Data.SqlTypes types instead of the built-in C# types. Because System.Data is already included by default, we can reference the needed SQL type. The previous code is available on our [GitHub site](https://github.com/Azure/usql/tree/master/Examples/SQLSpatialExample).
 
 
 ### Use assembly versioning
@@ -1946,7 +1946,7 @@ It's important to note that custom producer only outputs columns and values that
 	output.Set<string>("mycolumn", mycolumn);
 ```
 
-The actual processor output is triggered by calling `return output.AsReadOnly()`;.
+The actual processor output is triggered by calling `return output.AsReadOnly();`.
 
 Following is a processor example:
 
@@ -2087,7 +2087,7 @@ The output values must be set with `IUpdatableRow` output:
 
 It is important to understand that custom appliers only output columns and values that are defined with `output.Set` method call.
 
-The actual output is triggered by calling `yield return output.AsReadOnly()`;.
+The actual output is triggered by calling `yield return output.AsReadOnly();`.
 
 The user-defined applier parameters can be passed to the constructor. Applier can return a variable number of columns that need to be defined during the applier call in base U-SQL Script.
 
@@ -2332,7 +2332,7 @@ The output values must be set with `IUpdatableRow` output.
 	output.Set<int>("mycolumn", mycolumn)
 ```
 
-The actual output is triggered by calling to `yield return output.AsReadOnly()`;.
+The actual output is triggered by calling to `yield return output.AsReadOnly();`.
 
 Following is a combiner example:
 
@@ -2388,7 +2388,7 @@ Following is a combiner example:
     }
 ```
 
-In this use-case scenario, we are building an analytics report for the retailer. The goal is to find all products that cost more than $20,000 and that sell through the Web site faster than through the regular retailer within a certain time frame.
+In this use-case scenario, we are building an analytics report for the retailer. The goal is to find all products that cost more than $20,000 and that sell through the website faster than through the regular retailer within a certain time frame.
 
 Here is the base U-SQL script. You can compare the logic between a regular JOIN and a combiner:
 
@@ -2547,7 +2547,7 @@ It is important to understand that custom reducer only outputs values that are d
 	output.Set<string>("mycolumn", guid);
 ```
 
-The actual reducer output is triggered by calling `yield return output.AsReadOnly()`;.
+The actual reducer output is triggered by calling `yield return output.AsReadOnly();`.
 
 Following is a reducer example:
 
