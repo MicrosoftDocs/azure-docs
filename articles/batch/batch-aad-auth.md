@@ -1,6 +1,6 @@
 ---
-title: Use Azure Active Directory to authenticate from Batch solutions | Microsoft Docs
-description: Use Azure Active Directory to authenticate from Batch solutions
+title: Use Azure Active Directory to authenticate Batch solutions | Microsoft Docs
+description: Use Azure Active Directory to authenticate Batch solutions
 services: batch
 documentationcenter: .net
 author: tamram
