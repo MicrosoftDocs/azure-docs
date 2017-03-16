@@ -14,11 +14,11 @@
 ## Hybrid connections
 ### [Get started with Hybrid Connections](relay-hybrid-connections-dotnet-get-started.md)
 ## WCF Relay
-## [Get started with WCF Relay](service-bus-dotnet-how-to-use-relay.md)
+### [Get started with WCF Relay](service-bus-dotnet-how-to-use-relay.md)
 
 # Concepts
-### Feature overview (NEEDED)
-### [Authentication and security](../service-bus-messaging/service-bus-sas.md)
+## Feature overview (NEEDED)
+## [Authentication and security](../service-bus-messaging/service-bus-sas.md)
 
 # How-to guides
 ## Develop
