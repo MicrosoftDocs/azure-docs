@@ -337,6 +337,7 @@ This figure shows part of the backup job list of an Azure Backup service, which 
 Click on the backup job in the Azure portal to show the job details. Here, one can see the two phases. It might take a few minutes until it shows the snapshot phase as completed. Most of the time is spent in the data transfer phase.
 
 ### HANA VM backup automation via Azure Backup service
+
 One could manually confirm the SAP HANA snapshot once the Azure Backup snapshot phase is completed, as described earlier, but it is helpful to consider automation because an admin might not monitor the backup job list in the Azure portal.
 
 Here is an explanation how it could be accomplished via Azure PowerShell cmdlets.
@@ -426,7 +427,7 @@ While this choice sounds simple and straight forward, there are some considerati
 
 Another option, which offers more freedom regarding total capacity, is Azure blob storage. While a single blob is also restricted to 1 TB, the total capacity of a single blob container is currently 500 TB. Additionally, it gives customers the choice to select so-called &quot;cool&quot; blob storage, which has a cost benefit. See [Azure Blob Storage: Hot and cool storage tiers](../../storage/storage-blob-storage-tiers.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for details about cool blob storage.
 
-Another aspect for additional safety, is to use a geo-replicated storage account to store the SAP HANA backups. See [Azure Storage replication](../../storage/storage-redundancy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for details about storage account replication.
+For additional safety, use a geo-replicated storage account to store the SAP HANA backups. See [Azure Storage replication](../../storage/storage-redundancy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for details about storage account replication.
 
 One could place dedicated VHDs for SAP HANA backups in a dedicated backup storage account that is geo-replicated. Or else one could copy the VHDs that keep the SAP HANA backups to a geo-replicated storage account, or to a storage account that is in a different region.
 
