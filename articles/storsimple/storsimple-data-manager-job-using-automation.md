@@ -95,6 +95,6 @@ Before you begin, ensure that you have:
 
    ![Start runbook](./media/storsimple-data-manager-job-using-automation/run-runbook1m.png)
 
-5. In the **Start runbook** blade, enter all the parameters then click **OK** to submit the Data Transformation job.
+5. In the **Start runbook** blade, enter all the parameters. Click **OK** to submit the Data Transformation job.
 
    ![Start runbook](./media/storsimple-data-manager-job-using-automation/run-runbook2m.png)
