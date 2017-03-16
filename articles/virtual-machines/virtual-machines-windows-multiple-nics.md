@@ -128,27 +128,27 @@ New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "West
 
 It is now possible to add a NIC to an existing VM. To use this feature, you'll first need to deallocate the VM using the Stop-AzureRmVM cmdlet below.
 
-```
+```powershell
 Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
 ```
 
 Next, get the existing configuration of the VM using the Get-AzureRmVM cmdlet
 
-```
+```powershell
 $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
 ```
 
 You can create a new NIC in the **same VNET as the VM** as shown at the beginning of this article or attach an existing NIC. We'll assume you're attaching an existing NIC `MyNic3` in the VNET. 
 
-```
+```powershell
 $nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "MyNic3").Id
 Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId -Primary | Update-AzureRmVm -ResourceGroupName "myResourceGroup"
 ```
 
 > [!NOTE]
-> One of the NICs on a multi-NIC VM needs to be Primary so we're setting the new NIC as primary. If your previous NIC on the VM is Primary, then you do not need to specify the -Primary switch. If you want to switch the Primary NIC on the VM, follow the steps below*
+> One of the NICs on a multi-NIC VM needs to be Primary so we're setting the new NIC as primary. If your previous NIC on the VM is Primary, then you do not need to specify the -Primary switch. If you want to switch the Primary NIC on the VM, follow the steps below
 
-```
+```powershell
 $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
 
 # Find out all the NICs on the VM and find which one is Primary
@@ -166,19 +166,19 @@ Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroup"
 
 A NIC can also be removed from a VM. To use this feature, you'll first need to deallocate the VM using the Stop-AzureRmVM cmdlet below.
 
-```
+```powershell
 Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
 ```
 
 Next, get the existing configuration of the VM using the Get-AzureRmVM cmdlet
 
-```
+```powershell
 $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
 ```
 
 Now view all the NICs on the VM and copy the name of the one you want to remove
 
-```
+```powershell
 $vm.NetworkProfile.NetworkInterfaces
 
 Remove-AzureRmNetworkInterface -Name "myNic3" -ResourceGroupName "myResourceGroup"
