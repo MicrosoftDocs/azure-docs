@@ -18,16 +18,16 @@ ms.author: jotaub
 ---
 
 # Azure Relay Hybrid Connections .NET Standard API overview
-This article summarizes some of the key [Azure Relay Hybrid Connections .NET Standard client APIs](/dotnet/api/microsoft.azure.relay).
+This article summarizes some of the key Azure Relay Hybrid Connections .NET Standard [client APIs](/dotnet/api/microsoft.azure.relay).
   
-## Relay connection string builder
-The [**RelayConnectionStringBuilder**](/dotnet/api/microsoft.azure.relay.relayconnectionstringbuilder) class will format connection strings that are specific to Relay Hybrid Connections. You can use it to verify the format of a connection string, or to build a connection string from scratch. See the following for an example.
+## Relay Connection String Builder
+The [**RelayConnectionStringBuilder**][RelayConnectionStringBuilder] class will format connection strings that are specific to Relay Hybrid Connections. You can use it to verify the format of a connection string, or to build a connection string from scratch. See the following for an example.
 
 ```csharp
-var endpoint = "{ Relay namespace }";
-var entityPath = "{ Name of the Hybrid Connection }";
-var sharedAccessKeyName = "{ SAS key name }";
-var sharedAccessKey = "{ SAS key value }";
+var endpoint = "{Relay namespace}";
+var entityPath = "{Name of the Hybrid Connection}";
+var sharedAccessKeyName = "{SAS key name}";
+var sharedAccessKey = "{SAS key value}";
 
 var connectionStringBuilder = new RelayConnectionStringBuilder()
 {
@@ -38,62 +38,97 @@ var connectionStringBuilder = new RelayConnectionStringBuilder()
 };
 ```
 
-## Hybrid Connection client
-The [**HybridConnectionClient**](/dotnet/api/microsoft.azure.relay.hybridconnectionclient) is the primary object used to create a client for Hybrid Connections. 
-
-### Create a Hybrid Connection client and connect to the Relay endpoint
-The easiest way to create a `HybridConnectionClient` is with a Relay connection string. Using the above example of a [`RelayConnectionStringBuilder`](#relay-connection-string-builder), you can call `connectionStringBuilder.ToString()` to populate the required parameter. Once the `HybridConnectionClient` object is instantiated, you can then create a connection to the Relay endpoint.
+You can also pass a connection string directly into the `RelayConnectionStringBuilder`. This will allow you to verify that the connection string is a valid format, and the constructor will throw a `ArgumentException` is any of the parameters are invalid.
 
 ```csharp
-var client = new HybridConnectionClient(csb.ToString());
-var clientConnection = await client.CreateConnectionAsync();
+var myConnectionString = "{RelayConnectionString}";
+// Declare the connectionStringBuilder so that it can be used outside of the loop if needed
+RelayConnectionStringBuilder connectionStringBuilder;
+try
+{
+    // Create the connectionStringBuilder using the supplied connection string
+    connectionStringBuilder = new RelayConnectionStringBuilder(myConnectionString);
+}
+catch (ArgumentException ae)
+{
+    // Perform some error handling
+}
 ```
 
-### Send a message
-Once you have a connection established, you can send a message to the Relay endpoint. Since the connection object inherits [`Stream`](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx), you will need to send your data as a `byte[]`. The following example shows how to do this:
+## Hybrid Connection Stream
+The [**HybridConnectionStream**][HCStream] class is the primary object used to send and receive data from an Azure Relay endpoint. Whether you are working with a [**HybridConnectionClient**][HCClient], or a [**HybridConnectionListener**][HCListener], the [**HybridConnectionStream**][HCStream] object will be used.
+
+### Getting a Hybrid Connection Stream
+
+#### Listener
+Using a [**HybridConnectionListener**][HCListener], you can obtain a `HybridConnectionStream` in the following way:
+```csharp
+// Use the RelayConnectionStringBuilder to get a valid connection string
+var listener = new HybridConnectionListener(csb.ToString());
+// Open a connection to the Relay endpoint
+await listener.OpenAsync();
+// Get a `HybridConnectionStream`
+var hybridConnectionStream = await listener.AcceptConnectionAsync();
+```
+
+#### Client
+Using a [**HybridConnectionClient**][HCClient], you can obtain a `HybridConnectionStream` in the following way:
+```csharp
+// Use the RelayConnectionStringBuilder to get a valid connection string
+var client = new HybridConnectionClient(csb.ToString());
+// Open a connection to the Relay endpoint and get a `HybridConnectionStream`
+var hybridConnectionStream = await client.CreateConnectionAsync();
+```
+
+### Receiving data
+The [**HybridConnectionStream**][HCStream] class allows for two way communication. In most use cases, you will want to continuously receive from the stream. If you are reading text from the stream, you may also want to use a [**StreamReader**](https://msdn.microsoft.com/en-us/library/system.io.streamreader(v=vs.110).aspx), which will allow for easier parsing of the data. For instance, you can read data as text, rather than `byte[]`.
+
+The following loop will read individual lines of text from the stream until a cancellation is requested.
+```csharp
+// Create a CancellationToken, so that we can cancel the while loop
+var cancellationToken = new CancellationToken();
+// Create a StreamReader from the 'hybridConnectionStream`
+var streamReader = new StreamReader(hybridConnectionStream);
+
+while (!cancellationToken.IsCancellationRequested)
+{
+    // Read a line of input until a newline is encountered
+    var line = await streamReader.ReadLineAsync();
+    if (string.IsNullOrEmpty(line))
+    {
+        // If there's no input data, we will signal that 
+        // we will no longer send data on this connection
+        // and then break out of the processing loop.
+        await hybridConnectionStream.ShutdownAsync(cancellationToken);
+        break;
+    }
+}
+```
+
+### Sending data
+Once you have a connection established, you can send a message to the Relay endpoint. Since the connection object inherits [**Stream**](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx), you will need to send your data as a `byte[]`. The following example shows how to do this:
 
 ```csharp
 var data = Encoding.UTF8.GetBytes("hello");
 await clientConnection.WriteAsync(data, 0, data.Length);
 ```
 
-However, if you would like to send text directly, without needing to encode the string each time you can wrap the stream with a writer.
+However, if you would like to send text directly, without needing to encode the string each time you can wrap the `hybridConnectionStream` with a [**StreamWriter**](https://msdn.microsoft.com/en-us/library/system.io.streamwriter(v=vs.110).aspx).
 
 ```csharp
 // The StreamWriter object only needs to be created once
-var textWriter = new StreamWriter(clientConnection);
+var textWriter = new StreamWriter(hybridConnectionStream);
 await textWriter.WriteLineAsync("hello");
-```
-
-### Listen for a message
-Since Relay provides two-way communication, you can listen for data using the [**HybridConnectionClient**](/dotnet/api/microsoft.azure.relay.hybridconnectionclient). To do so, see the following:
-
-```csharp
-// Create a CancellationToken, so that we can cancel the while loop
-var cancellationToken = new CancellationToken();
-// Create a StreamReader that will allow us to 
-var streamReader = new StreamReader(clientConnection);
-
-while (!cancellationToken.IsCancellationRequested)
-{
-    // Read a line of input until a newline is encountered
-    var line = await streamReader.ReadLineAsync();
-
-    if (string.IsNullOrEmpty(line))
-    {
-        // If there's no input data, we will signal that 
-        // we will no longer send data on this connection
-        // and then break out of the processing loop.
-        await clientConnection.ShutdownAsync(cancellationToken);
-        break;
-    }
-}
 ```
 
 ## Next steps
 To learn more about Azure Relay, visit these links:
 
+* [Microsoft.Azure.Relay reference](/dotnet/api/microsoft.azure.relay)
 * [What is Azure Relay?](relay-what-is-it.md)
 * [Available Relay apis](relay-api-overview.md)
 
-The .NET API reference is [Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)
+[RelayConnectionStringBuilder]: /dotnet/api/microsoft.azure.relay.relayconnectionstringbuilder
+[HCStream]: /dotnet/api/microsoft.azure.relay.hybridconnectionstream
+[HCClient]: /dotnet/api/microsoft.azure.relay.hybridconnectionclient
+[HCListener]: /dotnet/api/microsoft.azure.relay.hybridconnectionlistener
