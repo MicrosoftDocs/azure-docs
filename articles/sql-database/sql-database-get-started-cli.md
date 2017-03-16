@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location westeurope
 ```
 ## Create a logical server
 
-Create an [Azure SQL Database logical server](sql-database-features.md) with the [az sql server create](/cli/azure/sql/server#create) command. A logical server contains a group of databases managed as a group. The following example creates a randomly-named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
+Create an [Azure SQL Database logical server](sql-database-features.md) with the [az sql server create](/cli/azure/sql/server#create) command. A logical server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
 
 ```azurecli
 servername=server-$RANDOM
