@@ -30,17 +30,17 @@ Find answers to frequently asked questions about virtual machine scale sets.
 
 For best practices for Azure Autoscale, see https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-best-practices.
 
-### Where do I find the metric names for autoscaling using host-based metrics?
+### Where do I find metric names for autoscaling that uses host-based metrics?
 
-For the metric names for autoscaling using host-based metrics, see https://azure.microsoft.com/documentation/articles/monitoring-supported-metrics/.
+For metric names for autoscaling that uses host-based metrics, see https://azure.microsoft.com/documentation/articles/monitoring-supported-metrics/.
 
-### Are there any examples of autoscaling based on a service bus topic and queue length?
+### Are there any examples of autoscaling based on an Azure Service Bus topic and queue length?
 
-Yes. See:
+Yes. For examples of autoscaling based on an Azure Service Bus topic and queue lengt, see:
 
 https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/
 
-For service bus queue:
+For Service Bus queue:
 
 ```json
 "metricName": "MessageCount",
@@ -56,45 +56,40 @@ For storage queues:
 "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
 ```
 
-Replace these sample values with the appropriate resource URIs.
+Replace sample values with the appropriate resource Uniform Resource Identifiers (URIs).
 
 
-### Should we autoscale with host-based metrics or use a diagnostics extension?
+### Should I autoscale with host-based metrics or use a diagnostics extension?
 
-You can create an autoscale setting on a VM to use host-level metrics, or use guest-OS-based metrics.
+You can create an autoscale setting on a VM to use host-level metric, or guest OS-based metrics.
 
-See this list of supported metrics: https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics. Here is a full sample for scale sets (in this case we used the host-level CPU metric and a message count metric):
+For a list of supported metrics, see  https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics. 
 
-https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets
+For a full sample for virtual machine scale sets, see https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets. This sample uses the host-level CPU metric and a message count metric.
 
-### How can I set alert rules on a scale set?
 
-You can create alerts on metrics on scale sets via PS or CLI. See:
 
-https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules
+### How can I set alert rules on a virtual machine scale set?
 
-https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts
+You can create alerts on metrics on scale sets via PowerShell or Azure CLI. For more information, see https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules and 
+https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts.
 
-the TargetResourceId of the scale set looks like: /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
+The TargetResourceId of the virtual machine scale set looks like this: /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
-You can choose any VM perf counter as the metric to alert on:
+You can choose any VM perf counter as the metric to alert on. For more information, see https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#compute-metrics-for-windows-vm-v2-as-a-guest-os and https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#compute-metrics-for-linux-vm-v2-as-a-guest-os.
 
-https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#compute-metrics-for-windows-vm-v2-as-a-guest-os
+### How can I set up Autoscale on a scale set by using PowerShell?
 
-https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#compute-metrics-for-linux-vm-v2-as-a-guest-os
-
-### How can I set up autoscale on a scale set using PowerShell?
-
-See https://msftstack.wordpress.com/2017/03/05/how-to-add-autoscale-to-an-azure-vm-scale-set/
+To set up Autoscale on a scale set by using PowerShell, see https://msftstack.wordpress.com/2017/03/05/how-to-add-autoscale-to-an-azure-vm-scale-set/.
 
 
 
 
 ## Certificates
 
-### How do you securely ship a certificate into the VM?  Is there an example of provisioning a scale set to run a website where the SSL for the website is shipped securely from a certificate configuration?  The common certificate rotation operation would amount to a configuration update operation.
+### How do you securely ship a certificate into the VM?  Is there an example of provisioning a virtual machine scale set to run a website where the SSL for the website is shipped securely from a certificate configuration?  The common certificate rotation operation would amount to a configuration update operation.
 
-We support installing customer certificates directly into Windows certificate store from their key vault.
+You can install a customer certificate directly into a Windows certificate store from their key vault.
 
 In the context of scale sets...
 
