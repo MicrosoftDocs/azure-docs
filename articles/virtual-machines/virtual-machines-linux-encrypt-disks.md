@@ -33,20 +33,18 @@ az provider register -n Microsoft.KeyVault
 az group create --name myResourceGroup --location WestUS
 ```
 
-Create an Azure Key Vault with [az keyvault create](/cli/azure/keyvault#create). The following example creates a Key Vault named `myKeyVault`:
+Create an Azure Key Vault with [az keyvault create](/cli/azure/keyvault#create) and enable the Key Vault for use with disk encryption. The following example creates a Key Vault named `myKeyVault`:
 
 ```azurecli
 az keyvault create --name myKeyVault --resource-group myResourceGroup \
-  --location WestUS
+  --location WestUS --enable-for-disk-encryption
 ```
 
-Create a cryptographic key in your Key Vault with [az keyvault key create](/cli/azure/keyvault/key#create) and enable it for disk encryption with [az keyvault update](/cli/azure/keyvault#update). The following example creates a key named `myKey`:
+Create a cryptographic key in your Key Vault with [az keyvault key create](/cli/azure/keyvault/key#create). The following example creates a key named `myKey`:
 
 ```azurecli
 az keyvault key create --vault-name myKeyVault --name myKey \
   --protection software
-az keyvault update --name myKeyVault --resource-group myResourceGroup \
-  --set properties.enabledForDiskEncryption=True
 ```
 
 Create a service principal using Azure Active Directory with [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac). The service principal handles the authentication and exchanging of cryptographic keys from Key Vault:
@@ -173,22 +171,20 @@ az provider register -n Microsoft.KeyVault
 az group create --name myResourceGroup --location WestUS
 ```
 
-The Azure Key Vault containing the cryptographic keys and associated compute resources such as storage and the VM itself must reside in the same region. Create an Azure Key Vault with [az keyvault create](/cli/azure/keyvault#create). The following example creates a Key Vault named `myKeyVault`:
+The Azure Key Vault containing the cryptographic keys and associated compute resources such as storage and the VM itself must reside in the same region. Create an Azure Key Vault with [az keyvault create](/cli/azure/keyvault#create) and enable the Key Vault for use with disk encryption. The following example creates a Key Vault named `myKeyVault`:
 
 ```azurecli
 az keyvault create --name myKeyVault --resource-group myResourceGroup \
-  --location WestUS
+  --location WestUS --enable-for-disk-encryption
 ```
 
 You can store cryptographic keys using software or Hardware Security Model (HSM) protection. Using an HSM requires a premium Key Vault. There is an additional cost to creating a premium Key Vault rather than standard Key Vault that stores software-protected keys. To create a premium Key Vault, in the preceding step add `--sku Premium` to the command. The following example uses software-protected keys since we created a standard Key Vault. 
 
-For both protection models, the Azure platform needs to be granted access to request the cryptographic keys when the VM boots to decrypt the virtual disks. Create a cryptographic key in your Key Vault with [az keyvault key create](/cli/azure/keyvault/key#create) and enable it for disk encryption with [az keyvault update](/cli/azure/keyvault#update). The following example creates a key named `myKey`:
+For both protection models, the Azure platform needs to be granted access to request the cryptographic keys when the VM boots to decrypt the virtual disks. Create a cryptographic key in your Key Vault with [az keyvault key create](/cli/azure/keyvault/key#create). The following example creates a key named `myKey`:
 
 ```azurecli
 az keyvault key create --vault-name myKeyVault --name myKey \
   --protection software
-az keyvault update --name myKeyVault --resource-group myResourceGroup \
-  --set properties.enabledForDiskEncryption=True
 ```
 
 
