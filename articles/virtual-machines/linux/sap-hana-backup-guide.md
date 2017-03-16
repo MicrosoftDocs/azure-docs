@@ -57,7 +57,7 @@ ms.author: rclaus
 
 ## Overview
 
-The backup guide for SAP HANA running on Azure Virtual Machines will only describe Azure-specific topics. For general SAP HANA backup related items, check the SAP HANA documentation. See _SAP HANA backup documentation_ later in this document.
+The backup guide for SAP HANA running on Azure irtual Machines will only describe Azure-specific topics. For general SAP HANA backup related items, check the SAP HANA documentation. See _SAP HANA backup documentation_ later in this document.
 
 The focus of this document is on two major backup possibilities for SAP HANA on Azure virtual machines:
 
