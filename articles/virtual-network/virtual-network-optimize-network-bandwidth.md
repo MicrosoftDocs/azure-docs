@@ -90,7 +90,7 @@ commands to install LIS:
 ```bash
 sudo yum update
 sudo reboot
-sudo yum install microsoft-hyper-v-4.1.3 kmod-microsoft-hyper-v-4.1.3
+sudo yum install microsoft-hyper-v
 ```
 
 ### Red Hat
