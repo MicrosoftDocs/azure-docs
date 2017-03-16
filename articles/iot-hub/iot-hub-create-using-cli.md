@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 03/16/2017
 ms.author: dobett
 
 ---
@@ -57,18 +57,6 @@ Sign in to your Azure account and configure the Azure CLI to work with IoT Hub r
 
     ```azurecli
     az account set --subscription {your subscription name or id}
-    ```
-
-3. Install the Azure CLI _iot component_. Run the following [command to add the iot component][lnk-az-addcomponent-command]:
-    
-    ```azurecli
-    az component update --add iot
-    ```
-
-4. Register the IoT provider before you can deploy IoT resources. Run the following [command to register the IoT provider][lnk-az-register-command]:
-    
-    ```azurecli
-    az provider register -namespace Microsoft.Devices
     ```
 
 ## Create an IoT Hub
