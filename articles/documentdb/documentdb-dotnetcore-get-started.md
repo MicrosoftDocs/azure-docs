@@ -109,6 +109,7 @@ Now, add these two constants and your *client* variable underneath your public c
         private const string EndpointUri = "<your endpoint URI>";
         private const string PrimaryKey = "<your key>";
         private DocumentClient client;
+        private Database database;
 
 Next, head to the [Azure Portal](https://portal.azure.com) to retrieve your URI and primary key. The DocumentDB URI and primary key are necessary for your application to understand where to connect to, and for DocumentDB to trust your application's connection.
 
@@ -184,7 +185,7 @@ Copy and paste the following code to your **GetStartedDemo** method underneath t
         this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
         // ADD THIS PART TO YOUR CODE
-        await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB_oa" });
+        this.database = await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB_oa" });
 
 Press the **DocumentDBGettingStarted** button to run your application.
 
@@ -202,7 +203,7 @@ Copy and paste the following code to your **GetStartedDemo** method underneath t
 
         this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
-        await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+        this.database = await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB_oa" });
 
         // ADD THIS PART TO YOUR CODE
          await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"), new DocumentCollection { Id = "FamilyCollection_oa" });
