@@ -27,7 +27,7 @@ You should have working knowledge of Node.js. This tutorial is not intended to h
 * [Git](http://www.git-scm.com/downloads)
 * [Azure CLI 2.0](/cli/azure/install-az-cli2)
 
-## Step 0: Create a local Express.js app
+## Step 0: Create a local Node.js app
 
 1. Open the command-line terminal of your choice and `CD` to a working directory.
 
@@ -51,7 +51,7 @@ You should have working knowledge of Node.js. This tutorial is not intended to h
         git commit -m "first commit in this Azure tutorial!"
 
 <a name="step1"></a>
-## Step 1: Create an Azure app and deploy Express.js code
+## Step 1: Deploy to Azure App Service
 
 1. Log in to Azure like so:
 
@@ -133,7 +133,7 @@ To stream logs from your app in Azure directly to your terminal, do the followin
 
 3. To stop log streaming at anytime, type `Ctrl-C` (or `⌘-C` in MacOS).
 
-## Step 3: Connect to MongoDB
+## Step 3: Connect web app to MongoDB
 In this section, you connect your Express.js app to a MongoDB instance. For MongoDB, you will use [Azure DocumentDB](../documentdb/documentdb-protocol-mongodb.md) database, which can support MongoDB client connections.
 
 1. Create a DocumentDB account with MongoDB support, and retrieve the connection password.
@@ -218,7 +218,7 @@ In this section, you connect your Express.js app to a MongoDB instance. For Mong
     az appservice web browse --name <app_name> --resource-group myResourceGroup
     ```
 
-## Step 4: Monitor your Node.js app with server logs
+## Step 4: Monitor with web server logs
 In this section, you learn how to quickly turn on monitoring with server logs then download these logs. 
 
 1. Enable all logging options for your web app.
@@ -235,7 +235,7 @@ In this section, you learn how to quickly turn on monitoring with server logs th
     az appservice web log download --name <app_name> --resource-group myResourceGroup
     ```
 
-## Step 5: Scale your web app to another region
+## Step 5: Scale web app to another region
 
 1. Create a Traffic Manager propfile with a unique name and add it to your resource group.
 
