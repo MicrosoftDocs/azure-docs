@@ -133,11 +133,4 @@ We will run this command on each virtual machine of our cluster (Master and Node
 
 You should see the result printing in the terminal. You can for sure optimize the code, that one is really straighforward and its purpose is to provide guidance.
 
-## Video
-Demo on video :  
-
-> [!VIDEO https://www.youtube.com/embed/o0kR3JPLnHE]
->
->
-
 It should be noted that this method is not recommanded for high IOPS, but it is very useful to share documents and information accross the cluster.
