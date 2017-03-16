@@ -54,6 +54,7 @@ VNet name: VNet1<br>
 Resource Group name: RG1<br>
 Virtual network gateway name: GW1<br>
 
+The following steps apply to the Resource Manager deployment model.
 
 ###1. Get the virtual network gateway that you want to delete.
 
@@ -109,6 +110,7 @@ VNet name: VNet1<br>
 Resource Group name: RG1<br>
 Virtual network gateway name: GW1<br>
 
+The following steps apply to the Resource Manager deployment model.
 
 ###1. Get the virtual network gateway that you want to delete.
 
@@ -167,6 +169,7 @@ You may be prompted to confirm the deletion of the Public IP.
 
 If you are not concerned about keeping any of your resources and you just want to start over, you can delete an entire resource group. This is a quick way to remove everything. When you delete an entire resource group, it's not selective about the resources that you delete. So make sure that this is what you want to do before running the example.
 
+The following steps apply to the Resource Manager deployment model.
 
 ### 1. Get a list of all the resource groups in your subscription.
 
