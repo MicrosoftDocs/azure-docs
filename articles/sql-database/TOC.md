@@ -7,8 +7,8 @@
 ## [Create DB - Azure CLI](sql-database-get-started-cli.md)
 ## [Create DB - PowerShell](sql-database-get-started-powershell.md)
 ## Manage
-### [Connect with SSMS](sql-database-connect-query-ssms.md)
-### [Connect with VS Code](sql-database-connect-query-vscode.md)
+### [Connect - SSMS](sql-database-connect-query-ssms.md)
+### [Connect - VS Code](sql-database-connect-query-vscode.md)
 # Samples
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
