@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/22/2017
+ms.date: 03/16/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
 
@@ -78,11 +78,11 @@ Once the "DocumentDBEmulatorCertificate" SSL certificate is installed your appli
 
 ## How to use the certificate in Python
 
-By default the [Python SDK(version 2.0.0 or higher)](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-sdk-python) for DocumentDB will not try and use the SSL certificate when connecting to the local emulator. If however you want to use SSL validation you can follow the examples in the [Python socket wrappers](https://docs.python.org/2/library/ssl.html) documentation.
+If you want to use SSL validation you can follow the examples in the [Python socket wrappers](https://docs.python.org/2/library/ssl.html) documentation.
 
 ## How to use the certificate in Node.js
 
-By default the [Node.js SDK(version 1.10.1 or higher)](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-sdk-node) for DocumentDB will not try and use the SSL certificate when connecting to the local emulator. If however you want to use SSL validation you can follow the examples in the [Node.js documentation](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+If you want to disable SSL verification when connecting to the emulator from Node.js SDK, set DisableSSLVerification property on ConnectionPolicy object to false. This property is available on [Node.js SDK(version 1.11.0 or higher)](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-sdk-node). If however you want to use SSL validation you can follow the examples in the [Node.js documentation](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## Next steps
 * To learn more about DocumentDB, see [Introduction to Azure DocumentDB](documentdb-introduction.md)
