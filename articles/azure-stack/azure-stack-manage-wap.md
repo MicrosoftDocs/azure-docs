@@ -19,7 +19,7 @@ ms.author: walterov
 
 ---
 # Manage Windows Azure Pack virtual machines from Azure Stack
-In the Azure Stack Technical Preview 3 (TP3) release, you can enable access from the Azure Stack user portal to tenant VMs running on Windows Azure Pack. Tenants can use the Azure Stack portal to manage their existing IaaS virtual machines and virtual networks that are made available on Windows Azure Pack through the underlying Service Provider Foundation (SPF) and Virtual Machine Manager (VMM) components. Specifically, they can:
+In the Azure Stack Technical Preview 3 (TP3) release, you can enable access from the Azure Stack user portal to tenant VMs running on Windows Azure Pack. Tenants can use the Azure Stack portal to manage their existing IaaS virtual machines and virtual networks. These resources are made available on Windows Azure Pack through the underlying Service Provider Foundation (SPF) and Virtual Machine Manager (VMM) components. Specifically, tenants can:
 
 * Browse resources
 * Examine configuration values
@@ -30,8 +30,8 @@ In the Azure Stack Technical Preview 3 (TP3) release, you can enable access from
 
 This functionality is provided by the Windows Azure Pack Connector for Azure Stack (Preview). This topic shows how to configure the connector for a single-node Azure Stack environment.
 
-For this preview release, note the following:
-* Use this only in test environments (for both Azure Stack and Windows Azure Pack), and not in production deployments.
+For this preview release, be aware of the following:
+* Use the Windows Azure Pack Connector **only** in test environments (for both Azure Stack and Windows Azure Pack), and not in production deployments.
 * You must have Windows Azure Pack Update Rollup (UR) 9.1 or later and System Center SPF and VMM UR 9 or later.
 * The VMM and SPF components can be either System Center 2012 R2 or System Center 2016.
 * You must perform configuration steps on both Azure Stack and on Windows Azure Pack.
@@ -43,7 +43,7 @@ The following diagram shows the main components of the Windows Azure Pack Connec
 
 ![The Windows Azure Pack Connector components](media/azure-stack-manage-wap/image1.png)
 
-Notice the following:
+Notice the following details:
 * The Azure Stack user portal accesses the resource information from both clouds (Azure Stack and Windows Azure Pack).
 * The user must have an account that is valid in both environments.
 * The Azure Stack user portal must have network access to the components running on Windows Azure Pack.
@@ -62,7 +62,7 @@ In the single-node Azure Stack environment, Windows Azure Pack and Azure Stack h
 ## Prerequisites
 
 ### Download the Windows Azure Pack Connector
-Go to the Download Center https://aka.ms/wapconnectorazurestackdlc, and download and extract the zip file and extract to your local computer. You will use these files in the Windows Azure Pack environment. Later, you will copy it to a "c:\temp" directory on a computer that can access your Windows Azure Pack environment.
+On the Download Center https://aka.ms/wapconnectorazurestackdlc, download the zip file and extract it to your local computer. Later, you copy the contents to a "c:\temp" folder on a computer that can access your Windows Azure Pack environment.
 
 ### Deployment option requirement
 To integrate with Windows Azure Pack, you can deploy Azure Stack by using the AD FS option or the Azure Active Directory option.
@@ -76,7 +76,7 @@ Make sure that:
     Because MAS-WASP01 runs Windows Server Core, you can use a command line tool such as Certutil.ext to import the certificate. For example, you could copy the .cer file to c:\temp on MAS-WASP01, and then run the command certutil -addstore "CA" "c:\temp\certname.cer".
 
 3.	To establish RDP connectivity to Windows Azure Pack tenant virtual machines through the Azure Stack portal, the Windows Azure Pack environment must allow Remote Desktop traffic to the tenant VMs.
-4.	For connectivity between Azure Stack tenant virtual machines and Windows Azure Pack tenant virtual machines, the external IP addresses of the tenant virtual machines must be routable across the two environments. This could also include associating a DNS server to resolve virtual machine names between the environments.
+4.	For connectivity between Azure Stack tenant virtual machines and Windows Azure Pack tenant virtual machines, the external IP addresses of the tenant virtual machines must be routable across the two environments. This connectivity could also include associating a DNS server to resolve virtual machine names between the environments.
 
 ### IIS requirements
 The computer that hosts the Windows Azure Pack Tenant Portal (which may be a physical host, a virtual machine, or multiple virtual machines) must have the URL Rewrite extension installed. If it is not already installed, you can download it from here. If multiple virtual machines host the tenant portal, install the extension on each virtual machine.
@@ -89,7 +89,7 @@ To enable multi-cloud mode, you must run the ConfigureAzurePackConnector.ps1 scr
 
 |  Parameter | Description | Example |   
 | -------- | ------------- | ------- |  
-| AzurePackConnectorEndpoint | URI of the Windows Azure Pack Connector. This should correspond to the Windows Azure Pack tenant portal. | https://waptenantportal:40005 (By default, the port value is 40005.) |  
+| AzurePackConnectorEndpoint | URI of the Windows Azure Pack Connector. This URI should correspond to the Windows Azure Pack tenant portal. | https://waptenantportal:40005 (By default, the port value is 40005.) |  
 | AzurePackCloudName | The display name of the Windows Azure Pack cloud that appears in the cloud selector list in the Azure Stack user portal UI. In this preview release, you can't use spaces in the display name. | "Azure_Pack"  |
 | AzureStackCloudName | The display name of the Azure Stack cloud that appears in the cloud selector list in the Azure Stack user portal UI. In this preview release, you can't use spaces in the display name. | "Azure_Stack" |
 | EnableMultiCloud | A Boolean where true enables Multi-cloud mode and false disables it.| $true |
@@ -121,7 +121,7 @@ If you want to run the ConfigureAzurePackConnector.ps1 script immediately after 
 
     a. Open your browser and sign in to the Azure Stack user portal (https://publicportal.local.azurestack.external/).
 
-    b. After you sign in as a tenant and the portal loads, you'll see errors about not being able to fetch subscriptions or extensions from the Azure Pack cloud. Click OK to close these messages. (These will go away after you configure Windows Azure Pack.)
+    b. After you sign in as a tenant and the portal loads, you'll see errors about not being able to fetch subscriptions or extensions from the Azure Pack cloud. Click OK to close these messages. (These error messages will go away after you configure Windows Azure Pack.)
 
     c.	Notice the **Cloud** drop-down list in the upper left corner.
 
@@ -151,7 +151,7 @@ For this preview release only, Windows Azure Pack requires manual configuration.
 
         * MgmtSvc-ConnectorController
 
-    e.	From the same "scripts" directory run the **Configure-Certificates.ps1** script to install certificates. By default, it will use the same certificate that is available in for the Tenant Portal site in Windows Azure Pack. Make sure this is a valid certificate (trusted by the Azure Stack MAS-WASP01 virtual machine and any client computer that accesses the Azure Stack portal). Otherwise, communication won’t work. (Alternatively, you can explicitly pass a certificate thumbprint as a parameter by using the -Thumbprint parameter.) Type:
+    e.	From the same "scripts" folder, run the **Configure-Certificates.ps1** script to install certificates. By default, it will use the same certificate that is available in for the Tenant Portal site in Windows Azure Pack. Make sure this is a valid certificate (trusted by the Azure Stack MAS-WASP01 virtual machine and any client computer that accesses the Azure Stack portal). Otherwise, communication won’t work. (Alternatively, you can explicitly pass a certificate thumbprint as a parameter by using the -Thumbprint parameter.) Type:
 
     ```powershell
         cd C:\temp\wapconnector\setup\scripts\
@@ -173,11 +173,11 @@ parameters.
          -TenantAPIFQDN tenantapi.contoso.com `
          -AzureStackPortalFQDN  publicportal.local.azurestack.external
     ```
-    g. If you have multiple management portal for tenants VMs, repeat steps a through f in this section for each of these VMs.
+    g. If you have multiple tenant portal virtual machines, repeat step 1 for each of these virtual machines.
 
 2. Connect to each Tenant API virtual machine to install the new Tenant API MSI.
 
-    a. You may want to mark the VM offline on your load balancer if one is in use.
+    a. If a load balancer is in use, you may want to mark the virtual machine as offline.
 
     b. Copy the **WAPConnector** folder to a folder named **c:\temp** on each Tenant API machine.
 
@@ -198,10 +198,10 @@ parameters.
     | --------- | ------------| ------- |
    | SqlServer | The name of the SQL Server that contains the Microsoft.MgmtSvc.Store database. | SQLServer | 
    | DataFile | The output file that was generated during the configuration of the Azure Stack multi-cloud mode earlier. | AzurePackConnectorOutput.txt | 
-   | PromptForSqlCredential | Indicates that the script should prompt the user interactively for a SQL Authentication credential to use when connecting to the SQL Server instance. The given credential must have sufficient permissions to uninstall databases, schemas, and delete user logins. If none is provided, the script assumes that current user context has access. | No value is needed. |
+   | PromptForSqlCredential | Indicates that the script should prompt you interactively for a SQL Authentication credential to use when connecting to the SQL Server instance. The given credential must have sufficient permissions to uninstall databases, schemas, and delete user logins. If none is provided, the script assumes that current user context has access. | No value is needed. |
     |  |  |
 
-    If you don't know the SQL Server to use, you can discover it by connecting to the TenantAPI machine, use the Unprotect-MgmtSvc command to unprotect the TenantAPI web.config file and look for the server name in the connection string. Remember to run Protect-MgmtSvc again to protect the TenantAPI Web.config file.
+    If you don't know the SQL Server to use, you can discover it. Connect to the Tenant API computer, use the Unprotect-MgmtSvc command to unprotect the Tenant API Web.config file, and look for the server name in the connection string. Remember to run Protect-MgmtSvc again to protect the Tenant API Web.config file.
 
     ```powershell
     cd C:\temp\wapconnector\setup\scripts\
@@ -210,7 +210,7 @@ parameters.
     ```
 
 ## Example
-The following example shows a complete Windows Azure Pack Connector deployment on a single-node Azure Stack configuration and a Windows Azure Pack Express installation (all on a single computer, with the example name *wapcomputer*):
+The following example shows a complete Windows Azure Pack Connector deployment on a single-node Azure Stack configuration and a Windows Azure Pack Express installation. (The Express installation is on a single computer, with the example name *wapcomputer*.)
 
     ```powershell
     # Run the following script on the Azure Stack host
@@ -247,7 +247,7 @@ cd C:\temp\WAPConnector\Setup\Scripts
 1.	Ensure there is network connectivity between Azure Stack and Windows Azure Pack. This connectivity should be between any tenant computer that accesses the Azure Stack portal and the Windows Azure Pack Tenant Portal VM where the new Connector services are running.
 2.	Ensure that all specified FQDNs are correct.
 3.	Ensure that the SSL certificates used in the new Connector services are trusted by Azure Stack (specifically the MAS-WASP01 VM) and any other computer the tenant may use to access the Azure Stack user portal.
-4. For known issues, see [Microsof Azure Stack troubleshooting](azure-stack-troubleshooting.md).
+4. For known issues, see [Microsoft Azure Stack troubleshooting](azure-stack-troubleshooting.md).
 
   ## Next steps
 [Using the administrator and user portals in Azure Stack](/azure-stack-manage-portals.md)
