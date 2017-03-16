@@ -19,7 +19,7 @@ ms.author: cfowler
 
 # Quickstart for Node.js in Azure Web App
 
-This quickstart shows you how to create a small Web App application that displays a short message.
+This quickstart shows you how to create a Web App application that displays a short message.
 
 ## Before you begin
 
@@ -33,7 +33,7 @@ This quickstart demonstrates a simple Node.js application.
 
 ## Download the Hello World app
 
-We've created a simple Hello World app for Node.js so you can quicklyget a feel for deploying an app to Web App. Follow these steps from a command line to download the Hello World to your local machine.
+We've created a simple Hello World app for Node.js so you can quickly get a feel for deploying an app to Web App. Follow these steps from a command line to download the Hello World to your local machine.
 
 Download the sample app and navigate into the app directory:
 
@@ -128,10 +128,10 @@ To deploy your app to Web App:
 
 This time, the page that displays the Hello World message is delivered by a web server running on App Service Web App.
 
-**Congratulations!** You've deployed your first Node.js app to App Service Web App!
+**Congratulations!** You've deployed your first Node.js app to App Service Web App.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
 
-Explore pre-created [Web apps CLI scripts](app-service-cli-samples.md).
+Explore pre-created [Web Apps CLI scripts](app-service-cli-samples.md).
