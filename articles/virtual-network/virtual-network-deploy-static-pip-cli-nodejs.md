@@ -1,6 +1,6 @@
 ---
-title: Create a VM with a static public IP using the Azure CLI 1.0 | Microsoft Docs
-description: Learn how to create a VM with a static public IP address using the Azure CLI 1.0 | Resource Manager.
+title: Create a VM with a static public IP address - Azure CLI 1.0 | Microsoft Docs
+description: Learn how to create a VM with a static public IP address using the Azure command-line interface (CLI) 1.0.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,9 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
-# Create a VM with a static public IP using the Azure CLI 1.0
+# Create a VM with a static public IP address using the Azure CLI 1.0
 
 > [!div class="op_single_selector"]
 - [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)

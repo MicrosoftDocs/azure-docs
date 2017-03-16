@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/23/2016
 ms.author: andbuc
+ms.custom: H1Hack27Feb2017
 
 ---
-# Get started with the Azure IoT Gateway SDK (Linux)
+# Explore the IoT Gateway SDK architecture on Linux
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## How to build the sample

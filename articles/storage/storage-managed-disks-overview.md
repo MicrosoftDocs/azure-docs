@@ -41,9 +41,9 @@ Managed Disks will allow you to create up to 10,000 VM **disks** in a subscripti
 
 Managed Disks provides better reliability for Availability Sets by ensuring that the disks of VMs in an Availability Set are sufficiently isolated from each other to avoid single points of failure. It does this by automatically placing the disks in different storage scale units (stamps). If a stamp fails due to hardware or software failure, only the VM instances with disks on those stamps fail. For example, let’s say you have an application running on five VMs, and the VMs are in an Availability Set. The disks for those VMs won’t all be stored in the same stamp, so if one stamp goes down, the other instances of the application continue to run.
 
-### Better security
+### Granular access control
 
-You can use [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md) to assign specific permissions for a managed disk to one or more users. Managed Disks exposes a variety of operations, including read, write (create/update), delete, export, and retrieving a [shared access signature (SAS) URI](storage-dotnet-shared-access-signature-part-1.md) for the disk. You can grant access to only the operations a person needs to perform his job. For example, if you don’t want a person to copy a managed disk to a storage account, you can choose not to grant access to the export action for that managed disk. Similarly, if you don’t want a person to use an SAS URI to copy a managed disk, you can choose not to grant that permission to the managed disk.
+You can use [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md) to assign specific permissions for a managed disk to one or more users. Managed Disks exposes a variety of operations, including read, write (create/update), delete, and retrieving a [shared access signature (SAS) URI](storage-dotnet-shared-access-signature-part-1.md) for the disk. You can grant access to only the operations a person needs to perform his job. For example, if you don’t want a person to copy a managed disk to a storage account, you can choose not to grant access to the export action for that managed disk. Similarly, if you don’t want a person to use an SAS URI to copy a managed disk, you can choose not to grant that permission to the managed disk.
 
 ## Pricing and Billing 
 
@@ -99,7 +99,7 @@ For detailed information on pricing for Managed Disks, see [Managed Disks Pricin
 
 ## Images
 
-Managed Disks also support creating a managed custom image. You can create an image from your custom VHD in a storage account or directly from a running VM. This captures in a single image all managed disks associated with a running VM, including both the OS and data disks. This enables creating hundreds of VMs using your custom image without the need to copy or manage any storage accounts.
+Managed Disks also support creating a managed custom image. You can create an image from your custom VHD in a storage account or directly from a generalized (sys-prepped) VM. This captures in a single image all managed disks associated with a VM, including both the OS and data disks. This enables creating hundreds of VMs using your custom image without the need to copy or manage any storage accounts.
 
 For information on creating images, please check out the following articles:
 * [How to capture a managed image of a generalized VM in Azure](../virtual-machines/virtual-machines-windows-capture-image-resource.md)
@@ -107,12 +107,11 @@ For information on creating images, please check out the following articles:
 
 ## Images versus snapshots
 
-You often see the word “image” used with VMs, and now you see “snapshots” as well. It’s important to understand the difference between these. With Managed Disks, you can take an image of a generalized VM that has been deallocated. This image will include all of the disks attached to the VM. You can use this image
-to create a new VM, and it will include all of the disks.
+You often see the word “image” used with VMs, and now you see “snapshots” as well. It’s important to understand the difference between these. With Managed Disks, you can take an image of a generalized VM that has been deallocated. This image will include all of the disks attached to the VM. You can use this image to create a new VM, and it will include all of the disks.
 
 A snapshot is a copy of a disk at the point in time it is taken. It only applies to one disk. If you have a VM that only has one disk (the OS), you can take a snapshot or an image of it and create a VM from either the snapshot or the image.
 
-What if you have a VM has five disks and they are striped? You could take a snapshot of each of the disks, but there is no awareness within the VM of the state of the disks – the snapshots only know about that one disk. In this case, the snapshots would need to be coordinated with each other, and that is not currently supported. So in this case, if you want to create a copy of your VM, you will need to create an image. By default, the image will include a coordinated copy of all five disks.
+What if a VM has five disks and they are striped? You could take a snapshot of each of the disks, but there is no awareness within the VM of the state of the disks – the snapshots only know about that one disk. In this case, the snapshots would need to be coordinated with each other, and that is not currently supported.
 
 ## Azure Backup service support 
 
@@ -120,13 +119,21 @@ Virtual machines with unmanaged disks can be backed up using Azure Backup. [More
 
 You can also use the Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies. You can read more about this at [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
 
-## Managed Disks and Storage Service Encryption (SSE)
+## Managed Disks and Encryption
 
-Azure Storage supports automatically encrypting the data written to a storage account. For more details, please refer to [Azure Storage Service Encryption for Data at Rest](storage-service-encryption.md). What about the data on your managed disks? Currently, you can not enable Storage Service Encryption for Managed Disks, but it will be released in the future. In the meantime, you need to be aware of how to use a VHD file that resides in an encrypted storage account and has itself been encrypted. 
+There are two kinds of encryption to discuss in reference to managed disks. The first one is Storage Service Encryption (SSE), which is performed by the storage service. The second one is Azure Disk Encryption, which you can enable on the OS and data disks for your VMs. 
+
+### Storage Service Encryption (SSE)
+
+Azure Storage supports automatically encrypting the data written to a storage account. For more details, please refer to [Azure Storage Service Encryption for Data at Rest](storage-service-encryption.md). What about the data on your managed disks? Currently, you can not enable Storage Service Encryption for Managed Disks. However, it will be released in the future. In the meantime, you need to be aware of how to use a VHD file that resides in an encrypted storage account and has itself been encrypted. 
 
 SSE encrypts data as it is written to the storage account. If you have a VHD file that has ever been encrypted with SSE, you cannot use that VHD file to create a VM that uses Managed Disks. You also can't convert an encrypted unmanaged disk into a managed disk. And finally, if you disable encryption on that storage account, it does not go back and decrypt the VHD file. 
 
 To use a disk that has been encrypted, you must first copy the VHD file to a storage account that has never been encrypted. Then you can create a VM with Managed Disks and specify that VHD file during creation, or attach the copied VHD file to a running VM with Managed Disks. 
+
+### Azure Disk Encryption (ADE)
+
+Azure Disk Encryption allows you to encrypt the OS and Data disks used by an IaaS Virtual Machine. This includes managed disks. For Windows, the drives are encrypted using industry-standard BitLocker encryption technology. For Linux, the disks are encrypted using the DM-Crypt technology. This is integrated with Azure Key Vault to allow you to control and manage the disk encryption keys. For more information, please see [Azure Disk Encryption for Windows and Linux IaaS VMs](../security/azure-security-disk-encryption.md).
 
 ## Next steps
 

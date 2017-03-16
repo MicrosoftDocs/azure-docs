@@ -14,14 +14,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/18/2017
+ms.date: 2/28/2017
 ms.author: nitinme
 
 ---
 # Release notes for Hadoop components on Azure HDInsight
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
+##Notes for 02/28/2017 release of Spark 2.1 on HDInsight 3.6 Preview
+* [Spark 2.1](http://spark.apache.org/releases/spark-release-2-1-0.html) improves many stability and usability issues with previous versions. It also brings new features across all Spark workloads, such as Spark Core, SQL, ML, and Streaming.
+* Structured Streaming gets improved scalability with support for event time watermarks and Kafka 0.10 connector.
+* Spark SQL partitioning is now handled using new Scalable Partition Handling mechanism. See more details [here](http://spark.apache.org/releases/spark-release-2-1-0.html) on how to upgrade.
+* Spark 2.1 on Azure HDInsight 3.6 Preview currently does not support BI Tool connectivity using ODBC driver.
+* Azure Data Lake Store access from Spark 2.1 clusters is not supported in this Preview.
+
 
 ##Notes for 11/18/2016 release of Spark 2.0.1 on HDInsight 3.5
 Spark 2.0.1 is now available on Spark clusters (HDInsight version 3.5).

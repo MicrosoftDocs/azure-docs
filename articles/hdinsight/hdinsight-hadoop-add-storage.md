@@ -16,9 +16,10 @@ ms.workload: big-data
 ms.date: 02/23/2017
 ms.author: larryfr
 
+ms.custom: H1Hack27Feb2017
 ---
 
-# Add additional Azure storage accounts to HDInsight
+# Add additional storage accounts to HDInsight
 
 Learn how to use script actions to add additional Azure storage accounts to an existing HDInsight cluster that uses Linux as the operating system.
 

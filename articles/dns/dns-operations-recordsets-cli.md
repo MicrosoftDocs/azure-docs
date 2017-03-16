@@ -11,12 +11,13 @@ ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/20/2016
+ms.date: 02/27/2017
 ms.author: jonatul
 ---
 
-# Manage DNS records in Azure DNS using the Azure CLI 2.0
+# Manage DNS records and recordsets in Azure DNS using the Azure CLI 2.0
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)

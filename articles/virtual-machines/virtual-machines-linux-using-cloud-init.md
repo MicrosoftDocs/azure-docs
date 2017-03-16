@@ -37,7 +37,7 @@ users:
       - ssh-rsa AAAAB3<snip>==myAdminUser@myVM
 ```
 
-Create a resource group to launch VMs into with [az group create](/cli/azure/group#create. The following example creates the resource group named `myResourceGroup`:
+Create a resource group to launch VMs into with [az group create](/cli/azure/group#create). The following example creates the resource group named `myResourceGroup`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -94,7 +94,7 @@ To launch a cloud-init script when creating a VM in Azure, specify the cloud-ini
 
 Create a resource group to launch VMs into.
 
-Create a resource group to launch VMs into with [az group create](/cli/azure/group#create. The following example creates the resource group named `myResourceGroup`:
+Create a resource group to launch VMs into with [az group create](/cli/azure/group#create). The following example creates the resource group named `myResourceGroup`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus

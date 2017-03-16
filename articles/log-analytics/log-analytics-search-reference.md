@@ -1,5 +1,5 @@
 ---
-title: Log Analytics search reference | Microsoft Docs
+title: Azure Log Analytics search reference | Microsoft Docs
 description: The Log Analytics search reference describes the search language and provides the general query syntax options you can use when searching for data and filtering expressions to help narrow your search.
 services: log-analytics
 documentationcenter: ''
@@ -12,8 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
 # Log Analytics search reference

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/20/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 
 ---
@@ -27,8 +27,8 @@ The steps involved are different based on whether your organization has a cloud-
 > [!div class="op_single_selector"]
 > * [Cloud-only Azure AD tenant](active-directory-ds-getting-started-password-sync.md)
 > * [Synced Azure AD tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-> 
-> 
+>
+>
 
 <br>
 
@@ -44,8 +44,8 @@ Recommended version: **1.1.281.0** - published on September 7, 2016.
 
 > [!WARNING]
 > You MUST install the latest recommended release of Azure AD Connect to enable the legacy password credentials (required for NTLM and Kerberos authentication) to synchronize to your Azure AD tenant. This functionality is not available in prior releases of Azure AD Connect or with the legacy DirSync tool.
-> 
-> 
+>
+>
 
 Installation instructions for Azure AD Connect are available in the following article - [Getting started with Azure AD Connect](../active-directory/active-directory-aadconnect.md)
 
@@ -75,4 +75,3 @@ Depending on the size of your directory (number of users, groups etc.), synchron
 * [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
 * [Join a Windows virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-

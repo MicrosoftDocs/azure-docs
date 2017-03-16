@@ -27,6 +27,8 @@ ms.author: gwallace
 
 Network Watcher packet capture allows you to create capture sessions to track traffic to and from a virtual machine. Filters are provided for the capture session to ensure you capture only the traffic you want. Packet capture helps to diagnose network anomalies both reactively and proactively. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communications and much more. By being able to remotely trigger packet captures, this capability eases the burden of running a packet capture manually and on the desired machine, which saves valuable time.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 This article takes you through the different management tasks that are currently available for packet capture.
 
 - [**Start a packet capture**](#start-a-packet-capture)
@@ -53,8 +55,14 @@ Run the `azure vm extension set` cmdlet to install the packet capture agent on t
 For Windows virtual machines:
 
 ```azurecli
-azure vm extension set -g resourceGroupName -m virtualMachineName -p Microsoft.Azure.NetworkWatcher -r anyExtensionReferenceName -n NetworkWatcherAgentWindows -o 1.4
+azure vm extension set -g resourceGroupName -m virtualMachineName -p Microsoft.Azure.NetworkWatcher -r AzureNetworkWatcherExtension -n NetworkWatcherAgentWindows -o 1.4
 ```
+
+For Linux virtual machines:
+
+```azurecli
+azure vm extension set -g resourceGroupName -m virtualMachineName -p Microsoft.Azure.NetworkWatcher -r AzureNetworkWatcherExtension -n NetworkWatcherAgentLinux -o 1.4
+````
 
 ### Step 2
 

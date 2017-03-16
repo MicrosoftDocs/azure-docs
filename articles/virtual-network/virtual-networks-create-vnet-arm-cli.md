@@ -1,10 +1,10 @@
 ---
-title: Create a virtual network using the Azure CLI 2.0 | Microsoft Docs
-description: Learn how to create a virtual network using the Azure CLI 2.0 | Resource Manager.
+title: Create a virtual network - Azure CLI 2.0 | Microsoft Docs
+description: Learn how to create a virtual network using the Azure CLI 2.0.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -16,9 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
-# Create a virtual network using the Azure CLI
+# Create a virtual network using the Azure CLI 2.0
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 

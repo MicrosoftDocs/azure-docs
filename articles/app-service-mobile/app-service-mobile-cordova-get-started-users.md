@@ -4,7 +4,7 @@ description: Learn how to use Mobile Apps in Azure App Service to authenticate u
 services: app-service\mobile
 documentationcenter: javascript
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: ''
 
 ms.assetid: 10dd6dc9-ddf5-423d-8205-00ad74929f0d

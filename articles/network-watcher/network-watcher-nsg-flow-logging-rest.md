@@ -29,6 +29,8 @@ ms.author: gwallace
 
 Network Security Group flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through a Network Security Group. These flow logs are written in json format and show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ## Before you begin
 
 ARMclient is used to call the REST API using PowerShell. ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)
@@ -87,7 +89,7 @@ The response returned from the preceding example is as follows:
 
 ```json
 {
-  "targetResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/{nsgName}",
+  "targetResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{nsgName}",
   "properties": {
     "storageId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{saName}",
     "enabled": true,
@@ -114,7 +116,7 @@ $requestBody = @"
     'targetResourceId': '${targetUri}',
     'properties': {
     'storageId': '${storageId}',
-    'enabled': 'true',
+    'enabled': 'false',
     'retentionPolicy' : {
 			days: 5,
 			enabled: true
@@ -130,7 +132,7 @@ The response returned from the preceding example is as follows:
 
 ```json
 {
-  "targetResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/{nsgName}",
+  "targetResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{nsgName}",
   "properties": {
     "storageId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{saName}",
     "enabled": false,
@@ -164,7 +166,7 @@ The following is an example of the response returned:
 
 ```json
 {
-  "targetResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/{nsgName}",
+  "targetResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{nsgName}",
   "properties": {
     "storageId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{saName}",
     "enabled": true,

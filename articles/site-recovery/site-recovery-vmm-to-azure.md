@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/21/2017
+ms.date: 03/05/2017
 ms.author: raynew
 
 ---
@@ -125,8 +125,8 @@ Begin Getting Started by choosing how you want to deploy Site Recovery. The Gett
 ## Step 1: Choose your protection goals
 Select what you want to replicate and where you want to replicate to.
 
-1. In the **Recovery Services vaults** blade, select your vault and click **Settings**.
-2. In **Getting Started** click **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
+1. In the **Recovery Services vaults** blade, select the vault.
+2. In **Getting Started**, click **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
 
     ![Choose goals](./media/site-recovery-vmm-to-azure/choose-goals.png)
 3. In **Protection goal** select **To Azure**, and select **Yes, with Hyper-V**. Select **Yes** to confirm you're using VMM to manage Hyper-V hosts and the recovery site. Then click **OK**.
@@ -139,17 +139,17 @@ Install the Azure Site Recovery Provider on the VMM server, and register the ser
 1. Click **Step 2: Prepare Infrastructure** > **Source**.
 
     ![Set up source](./media/site-recovery-vmm-to-azure/set-source1.png)
-    
+
 2. In **Prepare source**, click **+ VMM** to add a VMM server.
 
     ![Set up source](./media/site-recovery-vmm-to-azure/set-source2.png)
-    
+
 3. In the **Add Server** blade, check that **System Center VMM server** appears in **Server type** and that the VMM server meets the [prerequisites and URL requirements](#on-premises-prerequisites).
 4. Download the Azure Site Recovery Provider installation file.
 5. Download the registration key. You need this when you run setup. The key is valid for five days after you generate it.
 
     ![Set up source](./media/site-recovery-vmm-to-azure/set-source3.png)
-    
+
 6. Install the Azure Site Recovery Provider on the VMM server.
 
 ### Set up the Azure Site Recovery Provider
@@ -159,7 +159,7 @@ Install the Azure Site Recovery Provider on the VMM server, and register the ser
 
     ![Install location](./media/site-recovery-vmm-to-azure/provider2.png)
 4. When installation finishes, click **Register** to register the VMM server in the vault.
-5. In **Vault Settings** page, click **Browse** to select the vault key file. Specify the Azure Site Recovery subscription and the vault name.
+5. In the **Vault Settings** page, click **Browse** to select the vault key file. Specify the Azure Site Recovery subscription and the vault name.
 
     ![Server registration](./media/site-recovery-vmm-to-azure/provider10.PNG)
 6. In **Internet Connection**, specify how the Provider running on the VMM server will connect to Site Recovery over the internet.
@@ -176,7 +176,7 @@ Install the Azure Site Recovery Provider on the VMM server, and register the ser
 9. Enable **Sync cloud metadata**, if you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked and synchronize each cloud individually in the cloud properties in the VMM console. Click **Register** to complete the process.
 
     ![Server registration](./media/site-recovery-vmm-to-azure/provider16.PNG)
-10. Registration starts. After registration finishes, the server is displayed on the **Settings** > **Servers** blade in the vault.
+10. Registration starts. After registration finishes, the server is displayed in **Site Recovery Infrastructure** >  **VMM Servers**.
 
 #### Command-line installation for the Azure Site Recovery Provider
 The Azure Site Recovery Provider can be installed from the command-line. This method can be used to install the Provider on Server Core for Windows Server 2012 R2.
@@ -262,7 +262,7 @@ Specify the Azure storage account to be used for replication, and the Azure netw
 
 Configure mapping as follows:
 
-1. In **Settings** > **Site Recovery Infrastructure** > **Network mappings** > **Network Mapping**, click the **+Network Mapping** icon.
+1. In **Site Recovery Infrastructure** > **Network mappings** > **Network Mapping**, click the **+Network Mapping** icon.
 
     ![Network mapping](./media/site-recovery-vmm-to-azure/network-mapping1.png)
 2. In **Add network mapping**, select the source VMM server, and **Azure** as the target.
@@ -291,7 +291,7 @@ Here's what happens when network mapping begins:
 7. In **Encrypt data stored on Azure**, specify whether to encrypt at rest data in Azure storage. Then click **OK**.
 
     ![Replication policy](./media/site-recovery-vmm-to-azure/gs-replication2.png)
-8. When you create a new policy it's automatically associated with the VMM cloud. Click **OK**. You can associate additional VMM Clouds (and the VMs in them) with this replication policy in **Settings** > **Replication** > policy name > **Associate VMM Cloud**.
+8. When you create a new policy it's automatically associated with the VMM cloud. Click **OK**. You can associate additional VMM clouds (and the VMs in them) with this replication policy in **Replication** > policy name > **Associate VMM Cloud**.
 
     ![Replication policy](./media/site-recovery-vmm-to-azure/policy-associate.png)
 
@@ -371,16 +371,16 @@ Now enable replication as follows:
 	>
 
 
-8. In **Replication settings** > **Configure replication settings**, select the replication policy you want to apply for the protected VMs. Then click **OK**. You can modify the replication policy in **Settings** > **Replication policies** > policy name > **Edit Settings**. Changes you apply are used for machines that are already replicating, and new machines.
+8. In **Replication settings** > **Configure replication settings**, select the replication policy you want to apply for the protected VMs. Then click **OK**. You can modify the replication policy in **Replication policies** > policy name > **Edit Settings**. Changes you apply are used for machines that are already replicating, and new machines.
 
    ![Enable replication](./media/site-recovery-vmm-to-azure/enable-replication7.png)
 
-You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
+You can track progress of the **Enable Protection** job in  **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
 
 ### View and manage VM properties
 We recommend that you verify the properties of the source machine. Remember that the Azure VM name should conform with [Azure virtual machine requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
-1. Click **Settings** > **Protected Items** > **Replicated Items**, and select the machine to see its details.
+1. In **Protected Items**, click **Replicated Items**, and select the machine to see its details.
 
     ![Enable replication](./media/site-recovery-vmm-to-azure/vm-essentials.png)
 2. In **Properties**, you can view replication and failover information for the VM.
@@ -434,10 +434,10 @@ If you want to access an Azure VM running Linux after failover using a Secure Sh
 ## Step 7: Test your deployment
 To test the deployment you can run a test failover for a single virtual machine or a recovery plan that contains one or more virtual machines.
 
-1. To fail over a single VM, in **Settings** > **Replicated Items**, click the VM > **+Test Failover**.
-1. To fail over a recovery plan, in **Settings** > **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).
+1. To fail over a single VM, in **Replicated Items**, click the VM > **+Test Failover**.
+1. To fail over a recovery plan, in  **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).
 1. In **Test Failover**, select the Azure network to which Azure VMs connect after failover occurs.
-1. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its properties, or on the **Test Failover** job in **Settings** > **Site Recovery jobs**.
+1. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its properties, or on the **Test Failover** job in **Site Recovery jobs**.
 1. After the failover completes, you should also be able to see the replica Azure machine appear in the Azure portal > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and is running.
 1. If you [prepared for connections after failover](#prepare-to-connect-to-Azure-VMs-after-failover), you should be able to connect to the Azure VM.
 1. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines that were created during test failover.
@@ -450,8 +450,8 @@ Here's how you can monitor the configuration settings, status, and health for yo
 1. Click on the vault name to access the **Essentials** dashboard. In this dashboard you can Site Recovery jobs, replication status, recovery plans, server health, and events.  You can customize **Essentials** to show the tiles and layouts that are most useful to you, including the status of other Site Recovery and Backup vaults.
 
     ![Essentials](./media/site-recovery-vmm-to-azure/essentials.png)
-2. In *Health**, you can monitor issues on on-premises servers (VMM or configuration servers), and the events raised by Site Recovery in the last 24 hours.
-3. In the **Replicated Items**, **Recovery Plans**, and **Site Recovery Jobs** tiles you can manage and monitor replication. You can drill into jobs in **Settings** > **Jobs** > **Site Recovery Jobs**.
+2. In **Health**, you can monitor issues on on-premises servers (VMM or configuration servers), and the events raised by Site Recovery in the last 24 hours.
+3. In the **Replicated Items**, **Recovery Plans**, and **Site Recovery Jobs** tiles you can manage and monitor replication. You can drill into jobs in **Jobs** > **Site Recovery Jobs**.
 
 ## Next steps
-After your deployment is set up and running, [learn more](site-recovery-failover.md) about different types of failover.
+After your deployment is set up and running, [learn more](site-recovery-failover.md) about failover.

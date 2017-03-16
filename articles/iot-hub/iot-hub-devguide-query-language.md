@@ -92,7 +92,7 @@ retrieves all device twins located in the US configured to send telemetry less o
         SELECT * FROM devices
         WHERE property.reported.connectivity IN ['wired', 'wifi']
 
-retrieves all device twins that reported wifi or wired connectivity. It is often necessary to identify all device twins that contain a specific property. IoT Hub supports the function `is_defined()` for this purpose. For instance,
+retrieves all device twins that reported WiFi or wired connectivity. It is often necessary to identify all device twins that contain a specific property. IoT Hub supports the function `is_defined()` for this purpose. For instance,
 
         SELECT * FROM devices
         WHERE is_defined(property.reported.connectivity)

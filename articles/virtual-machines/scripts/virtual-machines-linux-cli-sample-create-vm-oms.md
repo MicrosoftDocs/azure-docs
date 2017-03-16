@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/21/2017
+ms.date: 02/27/2017
 ms.author: nepeters
 ---
 
@@ -22,17 +22,17 @@ ms.author: nepeters
 
 This script creates an Azure Virtual Machine, installs the Operations Management Suite (OMS) agent, and enrolls the system with an OMS workspace. Once the script has run, the virtual machine will be visible in the OMS console.
 
-Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory. Finally, the OMS workspace ID and workspace key need to be updated in the script.
+If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure. Also, you need to update the OMS workspace ID and workspace key.
 
 This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-monitor-oms/create-vm-monitor-oms.sh?highlight=4-5 "Quick Create VM")]
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-monitor-oms/create-vm-monitor-oms.sh "Quick Create VM")]
 
 ## Clean up deployment 
 
-After the script sample has been run, the following command can be used to remove the Resource Group, VM, and all related resources.
+Run the following command to remove the Resource Group, VM, and all related resources.
 
 ```azurecli
 az group delete --name myResourceGroup

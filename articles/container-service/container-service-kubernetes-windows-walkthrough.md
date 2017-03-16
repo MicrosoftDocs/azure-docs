@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
-ms.author: dlepow
+ms.date: 03/03/2017
+ms.author: danlep
+ms.custom: H1Hack27Feb2017
 
 ---
 
-# Get started with Windows containers in a Kubernetes cluster
+# Get started with Kubernetes and Windows containers in Container Service
 
 
 This article shows how to create a Kubernetes cluster in Azure Container Service that contains Windows nodes to run Windows containers. 
@@ -56,10 +57,16 @@ All VMs are in the same private virtual network and are fully accessible to each
 You can use the Azure portal to [create a Kubernetes cluster](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal) with Windows agent nodes. Note the following settings when creating the cluster:
 
 * On the **Basics** blade, in **Orchestrator**, select **Kubernetes**. 
-* On the **Master configuration** blade, enter user credentials and service principal credentials for the Linux master nodes.
+
+  ![Select Kubernetes orchestrator](media/container-service-kubernetes-windows-walkthrough/portal-select-kubernetes.png)
+
+* On the **Master configuration** blade, enter user credentials and service principal credentials for the Linux master nodes. Choose 1, 3, or 5 masters.
+
 * On the **Agent configuration** blade, in **Operating system**, select **Windows (preview)**. Enter administrator credentials for the Windows agent nodes.
 
-For details, see [Deploy an Azure Container Service cluster](container-service-deployment.md).
+  ![Select Windows agents](media/container-service-kubernetes-windows-walkthrough/portal-select-windows.png)
+
+For more details, see [Deploy an Azure Container Service cluster](container-service-deployment.md).
 
 ## Connect to the cluster
 

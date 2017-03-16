@@ -23,22 +23,7 @@ Use this article to figure out how to plan capacity and scaling when replicating
 
 ## How do I start capacity planning?
 
-1. Gather information about your replication environment using the Azure Site Recovery Capacity Planner. This includes information about VMs, disks per VM, and storage per disk.
-2. Estimate the daily change (churn rate) of replicated data in your environment.
-
-
-## Gather information
-
-1. Download and run the [Capacity Planner[(https://gallery.technet.microsoft.com/Azure-Recovery-Capacity-d01dc40e)].
-2. [Get instructions](site-recovery-capacity-planner.md) for running the tool.
-
-
-## Estimate the daily churn rate
-
-The Site Recovery Capacity Planner requires you to input an average daily data change rate as a percentage. Currently you can gather this information using the [vSphere capacity planning appliance](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance).
-
-In the tool, you can compute the percentage by pointing the vSphere planning tool to all the source VMs, and getting the total daily change. This is essentially the network traffic. [Learn more](https://blogs.vmware.com/vsphere/2014/04/vsphere-replication-capacity-planning-appliance.html) about running this tool.
-
+Gather information about your replication environment using the [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc). This includes information about number of virtual machines that are compatible and incompatible, disks per VM, data churn per disk, network bandwidth requirement and required Azure infrasturcutre for successful replication and test failover/failover.
 
 ## Capacity considerations
 
@@ -90,7 +75,7 @@ The way in which you scale your servers depends on your preference for a scale u
 
 ## Control network bandwidth
 
-You can use the capacity planner tool to calculate the bandwidth you need for replication (initial replication and then delta). To control the amount of bandwidth used for replication, you have a few options:
+You can use [the deployment planner tool](https://aka.ms/asr-deployment-planner-doc) to calculate the bandwidth you need for replication (initial replication and then delta). To control the amount of bandwidth used for replication, you have a few options:
 
 * **Throttle bandwidth**: VMware traffic that replicates to Azure goes through a specific process server. You can throttle bandwidth on the machines running as process servers.
 * **Influence bandwidth**: You can influence the bandwidth used for replication using a couple of registry keys:

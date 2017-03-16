@@ -13,10 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/03/2017
+ms.date: 03/15/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 ---
-# Deploy StorSimple Virtual Array - Provision a Virtual Array in VMware
+# Deploy StorSimple Virtual Array - Provision in VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## Overview
@@ -161,7 +162,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 30. On the **Select a Disk** page, choose **Create a new virtual disk**. Click **Next**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
-31. On the **Create a Disk** page, change the **Disk Size** to 500 GB (or more). Under **Disk Provisioning**, select **Thin Provision**. Click **Next**.
+31. On the **Create a Disk** page, change the **Disk Size** to 500 GB (or more). While 500 GB is the minimum requirement, you can always provision a larger disk. Note that you cannot expand or shrink the disk once provisioned. For more information on the size of disk to provision, review the sizing section in the [best practices document](storsimple-ova-best-practices.md). Under **Disk Provisioning**, select **Thin Provision**. Click **Next**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
 32. On the **Advanced Options** page, accept the default.

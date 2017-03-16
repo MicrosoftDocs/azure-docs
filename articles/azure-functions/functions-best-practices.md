@@ -15,22 +15,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/09/2016
-ms.author: wesmc
+ms.date: 02/27/2017
+ms.author: glenga
+
+ms.custom: H1Hack27Feb2017
+
 ---
 
-# Best Practices for Azure Functions
+# Tips for improving the performance and reliability of Azure Functions
 
 ##Overview
 
-This article provides a collection of best practices for you to consider when implementing function apps. Keep in mind that your Azure Function App is an Azure App Service. So those best practices would apply.
+This article provides a collection of best practices for you to consider when implementing function apps. Keep in mind that your function app is an app in Azure App Service. So App Service best practices also apply.
 
 
 ## Avoid large long running functions
 
-Large long running functions can cause unexpected timeout issues. A function can be large because of many Node.js dependencies. Importing these dependencies can cause increased load times resulting in unexpected timeouts. Node.js dependencies could be explicitly loaded by multiple `require()` statements in your code. They could also be implicit based on a single module loaded by your code that has its own internal dependencies.  
+Large, long-running functions can cause unexpected timeout issues. A function can be large because of many Node.js dependencies. Importing these dependencies can cause increased load times resulting in unexpected timeouts. Node.js dependencies could be explicitly loaded by multiple `require()` statements in your code. Dependencies could also be implicit, based on a single module loaded by your code that has its own internal dependencies.  
 
-Whenever possible refactor large functions into smaller function sets that work together and return fast responses. For example, a webhook or HTTP trigger function might require an acknowledgment response within a certain time limit. You can pass the HTTP trigger payload into a queue to be processed by a queue trigger function. This approach allows you to defer the actual work and return an immediate response. It is common for webhooks to require an immediate response.
+Whenever possible, refactor large functions into smaller function sets that work together and return fast responses. For example, a webhook or HTTP trigger function might require an acknowledgment response within a certain time limit. You can pass the HTTP trigger payload into a queue to be processed by a queue trigger function. This approach allows you to defer the actual work and return an immediate response. It is common for webhooks to require an immediate response.
 
 
 ## Cross function communication.
@@ -67,8 +70,6 @@ If a queue item was already processed, allow your function to be a no-op.
 
 Take advantage of defensive measures already provided for components you use in the Azure Functions platform. For example, see **Handling poison queue messages** in the documentation for [Azure Storage Queue triggers](functions-bindings-storage-queue.md#trigger).
  
-
-
 
 ## Don't mix test and production code in the same function app.
 

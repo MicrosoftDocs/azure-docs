@@ -1,5 +1,5 @@
 ---
-title: How to use the Service Bus WCF Relay with .NET | Microsoft Docs
+title: Use the Service Bus WCF Relay with .NET | Microsoft Docs
 description: Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations.
 services: service-bus-relay
 documentationcenter: .net

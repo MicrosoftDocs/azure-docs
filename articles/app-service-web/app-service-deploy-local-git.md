@@ -4,7 +4,7 @@ description: Learn how to enable local Git deployment to Azure App Service.
 services: app-service
 documentationcenter: ''
 author: dariagrigoriu
-manager: wpickett
+manager: erikre
 editor: mollybos
 
 ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063

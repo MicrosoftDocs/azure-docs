@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/17/2017
+ms.date: 02/27/2017
 ms.author: kgremban
 
+ms.custom: H1Hack27Feb2017
 ---
-# Create an access change history report
+# Create an access report for Role-Based Access Control
 Any time someone grants or revokes access within your subscriptions, the changes get logged in Azure events. You can create access change history reports to see all changes for the past 90 days.
 
 ## Create a report with Azure PowerShell

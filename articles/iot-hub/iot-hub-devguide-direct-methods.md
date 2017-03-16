@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: nberdy
+ms.custom: H1Hack27Feb2017
 
 ---
-# Direct methods
+# Understand and invoke direct methods from IoT Hub
 ## Overview
 IoT Hub gives you ability to invoke direct methods on devices from the cloud. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond, such as sending an SMS wake-up to a device if a device is offline (SMS being more expensive than a method call).
 
@@ -73,7 +74,7 @@ Timeout is in seconds. If timeout is not set, it defaults to 30 seconds.
 The back-end app receives a response which comprises:
 
 * *HTTP status code*, which is used for errors coming from the IoT Hub, including a 404 error for devices not currently connected
-* *Headers* which contain the etag, request ID, content type, and content encoding
+* *Headers* which contain the ETag, request ID, content type, and content encoding
 * A JSON *body* in the following format:
 
 ```

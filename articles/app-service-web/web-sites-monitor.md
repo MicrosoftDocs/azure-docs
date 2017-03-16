@@ -4,7 +4,7 @@ description: Learn how to monitor Apps in Azure App Service by using the Azure P
 services: app-service
 documentationcenter: ''
 author: btardif
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e

@@ -1,6 +1,6 @@
 ---
 title: What is Azure Backup? | Microsoft Docs
-description: Using Azure Backup and Recovery Services, you can back up and restore data and applications from Windows Servers and workstations, System Center DPM servers and workloads, and Azure virtual machines.
+description: Use Azure Backup to back up and restore data and workloads from Windows Servers, Windows workstations, System Center DPM servers, and Azure virtual machines.
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -14,11 +14,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/23/2017
+ms.date: 2/27/2017
 ms.author: markgal;trinadhk
+ms.custom: H1Hack27Feb2017
 
 ---
-# What is Azure Backup?
+# Overview of the features in Azure Backup
 Azure Backup is the Azure-based service you can use to back up (or protect) and restore your data in the Microsoft cloud. Azure Backup replaces your existing on-premises or off-site backup solution with a cloud-based solution that is reliable, secure, and cost-competitive. Azure Backup offers multiple components that you download and deploy on the appropriate computer, server, or in the cloud. The component, or agent, that you deploy depends on what you want to protect. All Azure Backup components (no matter whether you're protecting data on-premises or in the cloud) can be used to back up data to a Backup vault in Azure. See the [Azure Backup components table](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (later in this article) for information about which component to use to protect specific data, applications, or workloads.
 
 [Watch a video overview of Azure Backup](https://azure.microsoft.com/documentation/videos/what-is-azure-backup/)
@@ -90,17 +91,15 @@ The following table shows the Azure Backup components that have support for Linu
 | Azure IaaS VM Backup |Yes |
 
 ## Using Premium Storage VMs with Azure Backup
-Azure Backup protects Premium Storage VMs. Azure Premium Storage is solid-state drive (SSD)-based storage designed to support I/O-intensive workloads. Premium Storage is attractive for virtual machine (VM) workloads. For more information about Premium Storage, see the article, [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md)
+Azure Backup protects Premium Storage VMs. Azure Premium Storage is solid-state drive (SSD)-based storage designed to support I/O-intensive workloads. Premium Storage is attractive for virtual machine (VM) workloads. For more information about Premium Storage, see the article, [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md).
 
 ### Back up Premium Storage VMs
-While backing up Premium Storage VMs, the Backup service creates a temporary staging location in the Premium Storage account. The staging location, named "AzureBackup-", is equal to the total data size of the premium disks attached to the VM. Check if there is enough free space for a temporary staging location on the storage account. For more information, see the article, [premium storage limitations](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets).
+While backing up Premium Storage VMs, the Backup service creates a temporary staging location, named "AzureBackup-", in the Premium Storage account. The staging location is equal to the size of the recovery point snapshot. Be sure there is free space in the storage account to accommodate the temporary staging location. For more information, see the article, [premium storage limitations](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets). Once the backup job finishes, the staging location is deleted. The price of storage used for the staging location is consistent with all [Premium storage pricing](../storage/storage-premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > Do not modify or edit the staging location.
 >
 >
-
-Once the backup job finishes, the staging location is deleted. The price of storage used for the staging location is consistent with all [Premium storage pricing](../storage/storage-premium-storage.md#pricing-and-billing).
 
 ### Restore Premium Storage VMs
 Premium Storage VMs can be restored to either Premium Storage or to normal storage. Restoring a Premium Storage VM recovery point back to Premium Storage is the typical process of restoration. However, it can be cost effective to restore a Premium Storage VM recovery point to standard storage. This type of restoration can be used if you need a subset of files from the VM.

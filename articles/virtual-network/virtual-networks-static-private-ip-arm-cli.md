@@ -1,10 +1,10 @@
 ---
-title: How to set a static private IP in ARM mode using the CLI| Microsoft Docs
-description: Understanding static IPs (DIPs) and how to manage them in ARM mode using the CLI
+title: Configure private IP addresses for VMs - Azure CLI 2.0 | Microsoft Docs
+description: Learn how to configure private IP addresses for virtual machines using the Azure command-line interface (CLI) 2.0.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 
@@ -16,9 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
-# How to set a static private IP address in Azure CLI
+# Configure private IP addresses for a virtual machine using the Azure CLI 2.0
+
 [!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
 

@@ -17,7 +17,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.date: 02/02/2017
 ms.author: rasquill
-
+ms.custom: H1Hack27Feb2017
 ---
 # Add a disk to a Linux VM
 This article shows how to attach a persistent disk to your VM so that you can preserve your data - even if your VM is reprovisioned due to maintenance or resizing. 
@@ -28,8 +28,8 @@ The following example attaches a `50`GB disk to the VM named `myVM` in the resou
 To use managed disks:
 
 ```azurecli
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk \
-  –-new --size-gb 50
+az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
+  --new --size-gb 50
 ```
 
 To use unmanaged disks:
@@ -49,8 +49,8 @@ Using managed disks enables you to focus on your VMs and their disks without wor
 If you just need a new disk on your VM, you can use the `az vm disk attach` command.
 
 ```azurecli
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk \
-  –-new --size-gb 50
+az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
+  --new --size-gb 50
 ```
 
 ### Attach an existing disk 

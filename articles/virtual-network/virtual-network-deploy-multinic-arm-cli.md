@@ -1,6 +1,6 @@
 ---
-title: Create a VM with multiple NICs using the Azure CLI 2.0 | Microsoft Docs
-description: Learn how to create a VM with multiple NICs through Azure Resource Manager using the Azure CLI 2.0 | Resource Manager.
+title: Create a VM with multiple NICs - Azure CLI 2.0 | Microsoft Docs
+description: Learn how to create a VM with multiple NICs using the Azure CLI 2.0.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,9 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
 # Create a VM with multiple NICs using the Azure CLI 2.0
+
 [!INCLUDE [virtual-network-deploy-multinic-arm-selectors-include.md](../../includes/virtual-network-deploy-multinic-arm-selectors-include.md)]
 
 [!INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]

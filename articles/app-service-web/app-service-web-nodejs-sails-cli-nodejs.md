@@ -4,7 +4,7 @@ description: Learn how to deploy a Node.js application Azure App Service. This t
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 8877ddc8-1476-45ae-9e7f-3c75917b4564

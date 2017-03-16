@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
-# Add Operations Management Suite (OMS) management solutions
+# Add Azure Log Analytics management solutions to your workspace
 
-Operations Management Suite (OMS) management solutions are a collection of **logic**, **visualization**, and **data acquisition rules** that provide metrics pivoted around a particular problem area. This article lists management solutions supported by Log Analytics and shows you how to add and remove for a workspace by using the Azure portal. You can also add solutions in the OMS portal using the Solutions Gallery.
+Log Analytics management solutions are a collection of **logic**, **visualization**, and **data acquisition rules** that provide metrics pivoted around a particular problem area. This article lists management solutions supported by Log Analytics and shows you how to add and remove for a workspace by using the Azure portal. You can also add solutions in the OMS portal using the Solutions Gallery.
 
 Management solutions allow deeper insights to:
 
@@ -32,6 +33,12 @@ Management solutions allow deeper insights to:
 Using this article, you add management solutions to a workspace using the Azure portal Marketplace. After you've added a solution, data is collected from the servers in your infrastructure and sent to the OMS service. Processing by the OMS service typically takes a few minutes to an hour. After the service processes the data, you can view it in OMS.
 
 You can easily remove a management solution when it is no longer needed. When you remove a management solution, its data is not sent to OMS. If you are on the Free pricing tier, removing a solution can reduce the amount of data used, helping you stay under daily quota of data.
+
+## View available management solutions
+
+The Azure marketplace contains the list of [management solutions for Log Analytics](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
+
+You can install management solutions from Azure marketplace by clicking the **Get it now** link at the bottom of each solution.
 
 ## Add a management solution
 1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com) using your Azure subscription.
@@ -166,7 +173,7 @@ The Log Analytics Windows agent and System Center Operations Manager agent are e
 | Antimalware Assessment |Windows |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |hourly |
 | Security and Audit<sup>1</sup> | Windows and Linux | ![Some](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Some](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Some](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Some](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | various |
 
-<sup>1</sup>The Security and Audit solution can collect logs from Windows, Operations Manager, and Linux agents. See [Data sources](#data-sources) for data collection information about:
+<sup>1</sup> The Security and Audit solution can collect logs from Windows, Operations Manager, and Linux agents. See [Data sources](#data-sources) for data collection information about:
 
 - Syslog
 - Windows security event logs

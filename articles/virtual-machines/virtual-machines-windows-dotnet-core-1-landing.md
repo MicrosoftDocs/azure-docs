@@ -16,9 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 
 ---
-# Automating application deployments to Azure Virtual Machines
+# Automating application deployments to Windows Virtual Machines
+
 This four-part series details deploying and configuring Azure resource and applications using Azure Resource Manager templates. In this series, a sample template is deployed and the deployment template examined. The goal of this series is to educate on the relationship between Azure resources, and to provide hands on experience deploying fully integrated Azure Resource Manager templates. This document assumes a basic level of knowledge with Azure Resource Manager, before starting this tutorial familiarize yourself with basic Azure Resource Manager concepts.
 
 ## Music store application
