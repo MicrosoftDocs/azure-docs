@@ -178,8 +178,8 @@ Below are some code_numbers and suggested resolutions.
 If your Dependency Agent installation succeeded, but you don't see your server in the Service Map solution:
 1. Is the Dependency Agent installed successfully?  You can validate this by checking to see if the service is installed and running.
 
-Windows: Look for the Service named "Microsoft Dependency Agent"
-Linux: Look for the running process "microsoft-dependency-agent"
+**Windows**: Look for the Service named "Microsoft Dependency Agent"<br>
+**Linux**: Look for the running process "microsoft-dependency-agent"
 
 2. Are you on the [Free Pricing Tier of OMS/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)?  The Free plan allows for up to five unique Service Map servers.  Any subsequent servers won't show up in Service Map, even if the prior five are no longer sending data.
 
