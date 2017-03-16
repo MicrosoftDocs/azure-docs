@@ -32,7 +32,7 @@ This quick start uses as its starting point the resources created in one of thes
 
 If you are completing this quick start with a different IP address, you may need to create a new server-level firewall rule.
 
-Before you start, make sure you have installed the newest version of [Visual Studio Code](https://code.visualstudio.com/Download) and loaded the [mssql extension](https://aka.ms/mssql-marketplace). For installation guidance for the mssql extension, see [Install VS Code](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code). 
+Before you start, make sure you have installed the newest version of [Visual Studio Code](https://code.visualstudio.com/Download) and loaded the [mssql extension](https://aka.ms/mssql-marketplace). For installation guidance for the mssql extension, see [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code). 
 
 ## Get connection information
 
