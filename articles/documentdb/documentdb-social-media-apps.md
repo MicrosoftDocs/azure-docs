@@ -233,9 +233,9 @@ But wait... you soon realize their experience with your platform is not optimal;
 
 DocumentDB lets you [replicate your data globally](documentdb-portal-global-replication.md) and transparently with a couple of clicks and automatically select among the available regions from your [client code](documentdb-developing-with-multiple-regions.md). This also means that you can have [multiple failover regions](documentdb-regional-failovers.md). 
 
-![Adding global coverage to your social platform](./media/documentdb-social-media-apps/social-media-apps-global-replicate.png)
+When you replicate your data globally, you need to make sure that your clients can take advantage of it. If you are using a web frontend or accesing APIs from mobile clients, you can deploy [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) and clone your Azure App Service on all the desired regions, using a [Performance configuration](../app-service-web/web-sites-traffic-manager.md) to support your extended global coverage. When your clients access your frontend or APIs, they will be routed to the closest App Service, which in turn, will connect to the local DocumentDB replica.
 
-If you are using a web frontend or accesing APIs from mobile clients, you can deploy [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) and clone your Azure App Service on all the desired regions, using a [Performance configuration](../app-service-web/web-sites-traffic-manager.md) to support your extended global coverage.
+![Adding global coverage to your social platform](./media/documentdb-social-media-apps/social-media-apps-global-replicate.png)
 
 ## Conclusion
 This article tries to shed some light into the alternatives of creating social networks completely on Azure with low-cost services and providing great results by encouraging the use of a multi-layered storage solution and data distribution called “Ladder”.
