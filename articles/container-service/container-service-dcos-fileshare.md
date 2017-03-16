@@ -62,7 +62,9 @@ az storage share create -n $DCOS_PERS_SHARE_NAME
 Next, we need to mount this share on every virtual machine inside your cluster using the cifs tool/protocol. 
 We will do that with the following command line : ```mount -t cifs```
 
-Here, one example for a storage account name 'anystorageaccountname' with the account key 'P/GuWEUuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqQADF1w==' mounted on the following mount point '/mnt/share/demoshare' :
+Here, one example for a  :
+* Storage account name 'anystorageaccountname' 
+* The account key **'P/GuWEUuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqQADF1w=='** mounted on the following mount point **'/mnt/share/demoshare'**
 
 ```bash
 sudo mount -t cifs //anystorageaccountname.file.core.windows.net/demoshare /mnt/share/demoshare -o vers=3.0,username=anystorageaccountname,password=P/GuWEUuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqQADF1w==,dir_mode=0777,file_mode=0777
@@ -75,10 +77,10 @@ We will run this command on each virtual machine of our cluster (Master and Node
 2. Import your private key on the master that will execute our command using the ```ssh-add yourPrivateKeyFile```command.
 
 3. From the master, create two files, using your favorite editor such as vi, nano or vim : 
-    * One with the script to execute on each vms, called : cifsMount.sh  
-    * Another one to initiate all the ssh connections that will call the first script, called : mountShares.sh
+    * One with the script to execute on each vms, called : **cifsMount.sh**  
+    * Another one to initiate all the ssh connections that will call the first script, called : **mountShares.sh**
 
-    Contain of cifsMount.sh (You have to change the last command with your own settings such as the name of the storage account and the password) :
+    Contain of **cifsMount.sh** (You have to change the last command with your own settings such as the name of the storage account and the password) :
     ```bash
     # Install the cifs utils, should be already installed
     sudo apt-get update && sudo apt-get -y install cifs-utils
@@ -88,7 +90,7 @@ We will run this command on each virtual machine of our cluster (Master and Node
     sudo mount -t cifs //anystorageaccountname.file.core.windows.net/demoshare /mnt/share/demoshare -o vers=3.0,username=anystorageaccountname,password=P/GuWEUuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqQADF1w==,dir_mode=0777,file_mode=0777
     ```
 
-    Contain of mountShares.sh :
+    Contain of **mountShares.sh** :
     ```bash
     # Install jq used for the next command
     sudo apt-get install jq
@@ -107,9 +109,10 @@ We will run this command on each virtual machine of our cluster (Master and Node
     ```
 
 4. From the folder where you created the previous scripts you should now have 3 files :
-* cifsMount.sh
-* mountShares.sh
-* yourPrivateKeyFile
+
+    * **cifsMount.sh**
+    * **mountShares.sh**
+    * **yourPrivateKeyFile**
 
 5. Execute the **mountShares.sh** file with the following command : ```sh mountShares.sh```
 
