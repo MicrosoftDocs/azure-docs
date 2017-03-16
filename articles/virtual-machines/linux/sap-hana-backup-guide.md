@@ -495,7 +495,7 @@ This figure shows part of the Azure portal overview for the HANA test VM.
 
 ### Test backup size
 
-![This figure was taken from the backup console in HANA Studio and shows the backup file size of 229 GB for the HANA index server](./media/sap-hana-backup-guide/image008.png)
+ ![This figure was taken from the backup console in HANA Studio and shows the backup file size of 229 GB for the HANA index server](./media/sap-hana-backup-guide/image008.png)
 
 A dummy table was filled up with data to get a total data backup size of over 200 GB in order to derive realistic performance data. The figure was taken from the backup console in HANA Studio and shows the backup file size of 229 GB for the HANA index server. For the tests, the default backup prefix &quot;COMPLETE\_DATA\_BACKUP&quot; in SAP HANA Studio was used. In real production systems, a more useful prefix should be defined. SAP HANA Cockpit suggests date/time.
 
@@ -535,13 +535,13 @@ Based on the test results the following tables will show pros and cons of soluti
 |Blobxfer tool to copy backup files to blob storage |parallelism to copy multiple files, choice to use cool blob storage | additional tool maintenance and custom |                                   
 
 
-|Backup SAP HANA based on storage snapshots|
-|------------------------------------------|
+|Backup SAP HANA based on storage snapshots                    |
+|--------------------------------------------------------------|
 
 |Solution                                           |Pros                                 |Cons                                  |
 |---------------------------------------------------|-------------------------------------|--------------------------------------|
-|Azure Backup Service| allows VM backup based on blob snapshots | when not using file level restore it requires the creation of a new VM for the restore process which then implies the need of a new SAP HANA license key|
-|Manual blob snapshots| flexibility to create and restore specific VM disks without changing the unique VM ID|all manual work which has to be done by the customer|
+|Azure Backup Service                               | allows VM backup based on blob snapshots | when not using file level restore it requires the creation of a new VM for the restore process which then implies the need of a new SAP HANA license key|
+|Manual blob snapshots                              | flexibility to create and restore specific VM disks without changing the unique VM ID|all manual work which has to be done by the customer|
 
 
 
