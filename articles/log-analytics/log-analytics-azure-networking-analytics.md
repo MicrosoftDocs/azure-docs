@@ -29,16 +29,19 @@ Log Analytics offers the following solutions for monitoring your networks:
  * Azure Network Security Group logs
 
 ## Network Performance Monitor (NPM)
-NPM is a network monitoring solution, that monitors the health, availability and reachability of networks.  It is used to monitor connectivity between:
+The [Network Performance Monitor](log-analytics-network-performance-monitor.md) management solution is a network monitoring solution, that monitors the health, availability and reachability of networks.  It is used to monitor connectivity between:
 * public cloud and on-premises 
 * data centers and user locations (branch offices)
 * subnets hosting various tiers of a multi-tiered application.
 
  ![image of Network Performance Monitor](./media/log-analytics-network-performance-monitor/npm-topology.png)
-More information on NPM is available [online](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-network-performance-monitor).  
+
+For more information, see [Network Performance Monitor](log-analytics-network-performance-monitor.md).
 
 ## Azure Application Gateway and Network Security Group analytics
-To use the solutions, enable diagnostics for Azure Application Gateway logs and Azure Network Security Groups and direct the diagnostics to a Log Analytics workspace. It is not necessary to write the logs to Azure Blob storage.
+To use the solutions:
+1. Add the management solution to Log Analytics, and
+2. Enable diagnostics to direct the diagnostics to a Log Analytics workspace. It is not necessary to write the logs to Azure Blob storage.
 
 You can enable diagnostics and the corresponding solution for either one or both of Application Gateway and Networking Security Groups.
 
@@ -74,8 +77,8 @@ The following metrics are supported for Application Gateways:
 ### Install and configure the solution
 Use the following instructions to install and configure the Azure Application Gateway analytics solution:
 
-1. Enable diagnostics logging for the [Application Gateways](../application-gateway/application-gateway-diagnostics.md) you want to monitor.
-2. Enable the Azure Application Gateway analytics solution by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md). 
+1. Enable the Azure Application Gateway analytics solution from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+2. Enable diagnostics logging for the [Application Gateways](../application-gateway/application-gateway-diagnostics.md) you want to monitor. 
 
 #### Enable Azure Application Gateway diagnostics in the portal
 
@@ -137,8 +140,8 @@ The following logs are supported for network security groups:
 ### Install and configure the solution
 Use the following instructions to install and configure the Azure Networking Analytics solution:
 
-1. Enable diagnostics logging for the [Network Security Group](../virtual-network/virtual-network-nsg-manage-log.md) resources you want to monitor.
-2. Enable the Azure Network Security Group analytics solution by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md). 
+1. Enable the Azure Network Security Group analytics solution from [Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md). 
+2. Enable diagnostics logging for the [Network Security Group](../virtual-network/virtual-network-nsg-manage-log.md) resources you want to monitor.
 
 ### Enable Azure network security group diagnostics in the portal
 

@@ -51,7 +51,7 @@ This installs Jenkins container on the cluster and can be monitored using the Se
   >
 
 2. Get the container instance id using ``docker ps -a``.
-3. SSH login to the container using and paste the path you were shown on the Jenkins portal. For example, if in the portal it shows the path `PATH_TO_INITIAL_ADMIN_PASSWORD`, you can do -
+3. SSH login to the container and paste the path you were shown on the Jenkins portal. For example, if in the portal it shows the path `PATH_TO_INITIAL_ADMIN_PASSWORD`, you can do -
 
   ```sh
   docker exec -t -i [first-four-digits-of-container-ID] /bin/bash   # This takes you inside Docker shell
@@ -107,26 +107,26 @@ Now when you run ``docker info`` in the terminal, you should see in the output t
 ## Install the Service Fabric Jenkins plugin from portal
 
 1. Go to ``http://PublicIPorFQDN:8081``
-2. From the Jenkins dashboard, select ``Manage Jenkins`` -> ``Manage Plugins`` -> ``Advanced``.
-Here, you can upload a plugin. Select the ``Choose file`` option, then select the serviceFabric.hpi file, which you downloaded under prerequisites. Once you select upload, Jenkins automatically installs the plugin. Allow a restart if requested.
+2. From the Jenkins dashboard, select **Manage Jenkins** -> **Manage Plugins** -> **Advanced**.
+Here, you can upload a plugin. Select the **Choose file** option, then select the serviceFabric.hpi file, which you downloaded under prerequisites. Once you select upload, Jenkins automatically installs the plugin. Allow a restart if requested.
 
 ## Creating and configuring a Jenkins job
 
-1. Create a ``new item`` from dashboard
-2. Enter an item name - say ``MyJob``, select free-style project, and click ok
-3. Then go the job page and click ``Configure`` -
-  * In the general section, under ``Github project`` specify your GitHub project URL, which hosts the Service Fabric Java application that you wish to integrate with the Jenkins CI/CD flow (for example - ``https://github.com/sayantancs/SFJenkins``).
-  * Under the ``Source Code Management`` section, select ``Git``. Specify the repository URL which hosts the Service Fabric Java application that you wish to integrate with the Jenkins CI/CD flow (for example - ``https://github.com/sayantancs/SFJenkins.git``). Also you can specify here which branch to build, example - ``*/master``.
+1. Create a **new item** from dashboard
+2. Enter an item name - say **MyJob**, select free-style project, and click ok
+3. Then go the job page and click **Configure** -
+  * In the general section, under **Github project** specify your GitHub project URL, which hosts the Service Fabric Java application that you wish to integrate with the Jenkins CI/CD flow (for example - ``https://github.com/sayantancs/SFJenkins``).
+  * Under the **Source Code Management** section, select **Git**. Specify the repository URL which hosts the Service Fabric Java application that you wish to integrate with the Jenkins CI/CD flow (for example - ``https://github.com/sayantancs/SFJenkins.git``). Also you can specify here which branch to build, example - ***/master**.
 4. Configure your *GitHub* (which is hosting the repository) so that it is able to talk to Jenkins, using the following steps -
-  1. Go to your GitHub repository page. Go to ``Settings`` -> ``Integrations and Services``.
-  2. Select ``Add Service``, type in Jenkins, select the ``Jenkins-Github plugin``.
+  1. Go to your GitHub repository page. Go to **Settings** -> **Integrations and Services**.
+  2. Select **Add Service**, type in Jenkins, select the **Jenkins-Github plugin**.
   3. Enter your Jenkins webhook URL (by default, it should be ``http://<PublicIPorFQDN>:8081/github-webhook/``). Click add/update service.
   4. A test event is sent to your Jenkins instance. You should see a green check by the webhook in GitHub, and your project will build!
-  5. Under the ``Build Triggers`` section, select which build option do you want - for this use case we plan to trigger a build whenever some push to the repository happens - so the corresponding option would be - ``GitHub hook trigger for GITScm polling`` (previously it was 'Build when a change is pushed to GitHub')
-  6. Under the ``Build section`` - from the drop-down ``Add build step``, select the option ``Invoke Gradle Script``. In the widget that comes, specify the path to ``Root build script``, for your application. It picks up the build.gradle from the path specified and works accordingly. If you create a project named ``MyActor``(using Eclipse plugin or Yeoman generator), then the root build script should contain - ``${WORKSPACE}/MyActor``. As an example, this section mostly looks like -
+  5. Under the **Build Triggers** section, select which build option do you want - for this use case we plan to trigger a build whenever some push to the repository happens - so the corresponding option would be - **GitHub hook trigger for GITScm polling** (previously it was 'Build when a change is pushed to GitHub')
+  6. Under the **Build section** - from the drop-down **Add build step**, select the option **Invoke Gradle Script**. In the widget that comes, specify the path to **Root build script**, for your application. It picks up the build.gradle from the path specified and works accordingly. If you create a project named ``MyActor``(using Eclipse plugin or Yeoman generator), then the root build script should contain - ``${WORKSPACE}/MyActor``. As an example, this section mostly looks like -
 
     ![Service Fabric Jenkins Build action][build-step]
-  7. Under the ``Post-Build Actions`` drop-down, select ``Deploy Service Fabric Project``. Here you need to provide cluster details where the Jenkins compiled Service Fabric application would be deployed and additional application details used to deploy the application. Following screenshot can be used as a reference:
+  7. Under the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. Here you need to provide cluster details where the Jenkins compiled Service Fabric application would be deployed and additional application details used to deploy the application. Following screenshot can be used as a reference:
 
     ![Service Fabric Jenkins Build action][post-build-step]
 

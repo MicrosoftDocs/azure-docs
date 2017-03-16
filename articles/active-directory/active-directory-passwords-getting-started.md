@@ -306,6 +306,7 @@ This section walks you through configuring password reset to write passwords bac
 Before you can enable and use the Password Writeback, you must make sure you complete the following prerequisites:
 
 * You have an Azure AD tenant with Azure AD Premium enabled.  For more information, see [Azure Active Directory Editions](active-directory-editions.md).
+* You must connect Azure AD Connect to the Primary Domain Controller Emulator for password writeback to work.  If you need to, you can configure Azure AD Connect to use a Primary Domain Controller by right clicking on the **properties** of the Active Directory synchronization connector, then selecting **configure directory partitions**. From there, look for the **domain controller connection settings** section and check the box titled **only use preferred domain controllers**.  Note: if the preferred DC is not a PDC emulator, Azure AD Connect will still reach out to the PDC for password writeback.
 * Password reset has been configured and enabled in your tenant.  For more information, see [Enable users to reset their Azure AD passwords](#enable-users-to-reset-their-azure-ad-passwords)
 * You have at least one administrator account and one test user account with an Azure AD Premium license that you can use to test this feature.  For more information, see [Azure Active Directory Editions](active-directory-editions.md).
 
@@ -431,7 +432,7 @@ For Azure AD Connect tool versions **1.0.8667.0** to **1.1.380.0**:
 
 Once the network appliances have been configured, reboot the machine running Azure AD Connect tool.
 
-#### Idle connections on Azure AD Connect (1.1.439.0 and up)
+#### Idle connections on Azure AD Connect (1.1.443.0 and up)
 The Azure AD Connect tool will send periodic pings/keepalives to ServiceBus endpoints to ensure that the connections stay alive. Should the tool detect that too many connections are being killed, it will automatically increase the frequency of pings to the endpoint. The lowest 'ping intervals' will drop to is 1 ping every 60 seconds, however, **we strongly advise that proxies/firewalls allow idle connections to persist for at least 2-3 minutes.** \*For older versions, we suggest 4 minutes or more.
 
 ### Step 4: Set up the appropriate Active Directory permissions
