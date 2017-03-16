@@ -27,7 +27,7 @@ Before running this sample, install the following prerequisites locally:
 
 1. [Download and install git](https://git-scm.com/)
 1. [Download and install Node.js and NPM](https://nodejs.org/)
-1. Download, install and initialize the [Azure CLI 2.0](If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+1. Download, install and initialize the [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 
 This quickstart demonstrates a simple Node.js application.
 
