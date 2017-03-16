@@ -72,9 +72,9 @@ Then [reconfigure the DNS server for the virtual network](../active-directory/ac
 ## Test failover considerations
 Test failover occurs in a network that's isolated from production network so that there's no impact on production workloads.
 
-Most applications also require the presence of a domain controller and a DNS server to function, so before the application's failed over, a domain controller needs to be created in the isolated network to be used for test failover. The easiest way to do this is to enable protection on the domain controller/DNS virtual machine with Site Recovery, and run a test failover of that virtual machine, before running a test failover of the recovery plan for the application. Here's how you do that:
+Most applications also require the presence of a domain controller and a DNS server to function, so before the application's failed over, a domain controller needs to be created in the isolated network to be used for test failover. The easiest way to do this is to replicate a domain controller/DNS virtual machine with Site Recovery, and run a test failover of that virtual machine, before running a test failover of the recovery plan for the application. Here's how you do that:
 
-1. Enable protection in Site Recovery for the domain controller/DNS virtual machine.
+1. [Replicate](site-recovery-replicate-vmware-to-azure.md) the domain controller/DNS virtual machine using Site Recovery.
 1. Create an isolated network. Any virtual network created in Azure by default is isolated from other networks. We recommend that the IP address range for this network is same as that of your production network. Don't enable site-to-site connectivity on this network.
 1. Provide a DNS IP  address in the network created,  as the IP address that you expect the DNS virtual machine to get. If you're replicating to Azure, then provide the IP address for the VM that will be used on failover in **Target IP** setting in **Compute and Network** settings. 
 
@@ -85,20 +85,56 @@ Most applications also require the presence of a domain controller and a DNS ser
 
 	**DNS in Azure Test Network**
 
-1. If you're replicating to another on-premises site and you're using DHCP follow the instructions to [setup DNS and DHCP for test failover](site-recovery-test-failover-vmm-to-vmm.md#prepare-dhcp)
-1. Do a test failover of the domain controller virtual machine run in the isolated network. Use latest available **application consistent** recovery point of the domain controller virtual machine to do the test failover. 
-1. Run a test failover for the application recovery plan.
-1. After testing is complete, mark the test failover job of domain controller virtual machine and of the recovery plan 'Complete' on the **Jobs** tab in the Site Recovery portal.
-
-
 > [!TIP]
 > Site Recovery attempts to create test virtual machines in a subnet of same name and using the same IP as that provided in **Compute and Network** settings of the virtual machine. If subnet of same name is not available in the Azure virtual network provided for test failover, then test virtual machine is created in the first subnet alphabetically. If the target IP is part of the chosen subnet, then site recovery tries to create the test failover virtual machine using the target IP. If the target IP is not part of the chosen subnet then test failover virtual machine gets created using any available IP in the chosen subnet. 
 >
 >
 
 
+1. If you're replicating to another on-premises site and you're using DHCP follow the instructions to [setup DNS and DHCP for test failover](site-recovery-test-failover-vmm-to-vmm.md#prepare-dhcp)
+1. Do a test failover of the domain controller virtual machine run in the isolated network. Use latest available **application consistent** recovery point of the domain controller virtual machine to do the test failover. 
+1. Run a test failover for the recovery plan that contains virtual machines of the application. 
+1. After testing is complete, **Cleanup test failover** on the domain controller virtual machine. This step will delete the domain controller that was created for test failover.
+
+
 ### Removing reference to other domain controllers
 When you are doing a test failover, you will not bring all of the domain controllers in the test network. To remove the reference of other domain controllers that exist in your production environment you will need to [seize FSMO Active Directory roles](http://aka.ms/ad_seize_fsmo) and do [metadata cleanup](https://technet.microsoft.com/en-us/library/cc816907.aspx) for missing domain controllers. 
+
+### Issues because of virtualization safeguards 
+
+Beginning with Windows Server 2012, [additional safeguards have been built into Active Directory Domain Services](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). These safeguards help protect virtualized domain controllers against USN Rollbacks, as long as the underlying hypervisor platform supports VM-GenerationID. Azure supports VM-GenerationID, which means that domain controllers that run Windows Server 2012 or later on Azure virtual machines have the additional safeguards. 
+
+
+When the VM-GenerationID is reset, the invocationID of the AD DS database is also reset, the RID pool is discarded, and SYSVOL is marked as non-authoritative. For more information, see [Introduction to Active Directory Domain Services Virtualization](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) and [Safely Virtualizing DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/)
+
+Failing over to Azure may cause resetting of VM-GenerationID and that will kick in the additional safeguards when the domain controller virtual machine starts in Azure. This may result in a significant delay in user being able to login to the domain controller virtual machine. Since this domain controller would be used only in case of a test failover, virtualization safeguards are not necessary. To ensure that VM-GenerationID for the domain controller virtual machine doesn't change then you can change the value of following DWORD to 4.
+
+		
+		HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\gencounter\Start
+ 
+
+#### Symptoms of virtualization safeguards
+ 
+You may see one or more of following symptoms if virutalization safegurards have kicked in after a test failover. 
+
+Generation ID change
+
+![Generation ID Change](./media/site-recovery-active-directory/Event2170.png)
+
+Invocation ID change
+
+![Invocation ID Change](./media/site-recovery-active-directory/Event1109.png)
+
+Sysvol and Netlogon shares are not available
+
+![Sysvol Share](./media/site-recovery-active-directory/sysvolshare.png)
+
+![Ntfrs Sysvol](./media/site-recovery-active-directory/Event13565.png)
+
+Any DFSR databases are deleted
+
+![DFSR DB Delete](./media/site-recovery-active-directory/Event2208.png)
+
 
 ### Troubleshooting domain controller issues during test failover
 
