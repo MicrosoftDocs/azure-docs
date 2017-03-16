@@ -54,7 +54,7 @@ The sample copies data from an SAP HANA instance to an Azure blob hourly. The JS
 
 As a first step, setup the data management gateway. The instructions are in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
 
-**SAP HANA linked service**
+### SAP HANA linked service
 This linked service links your SAP HANA instance to the data factory. The type property is set to **SapHana**. The typeProperties section provides connection information for the SAP HANA instance.
 
 ```json
@@ -76,7 +76,7 @@ This linked service links your SAP HANA instance to the data factory. The type p
 
 ```
 
-**Azure Storage linked service**
+### Azure Storage linked service
 This linked service links your Azure Storage Account to the data factory. The type property is set to **AzureStorage**. The typeProperties section provides connection information for the SAP BW instance.
 
 ```json
@@ -91,7 +91,7 @@ This linked service links your Azure Storage Account to the data factory. The ty
 }
 ```
 
-**SAP HANA input dataset**
+### SAP HANA input dataset
 
 This dataset defines the SAP HANA dataset. You set the type of the Data Factory dataset to **RelationalTable**. Currently, you do not specify any type-specific properties for an SAP HANA dataset. The query in the Copy Activity definition specifies what data to read from the SAP HANA instance. 
 
@@ -115,10 +115,8 @@ Frequency and interval properties defines the schedule. In this case, the data i
 }
 ```
 
-
-
-**Azure Blob output dataset**
-This dataset defines the output Azure Blob dataset. The type property is set to AzureBlob. The type properties section provide where the data copied from the SAP BW instance is stored. The data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
+### Azure Blob output dataset
+This dataset defines the output Azure Blob dataset. The type property is set to AzureBlob. The typeProperties section provides where the data copied from the SAP BW instance is stored. The data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
 
 ```json
 {
@@ -177,7 +175,7 @@ This dataset defines the output Azure Blob dataset. The type property is set to 
 ```
 
 
-**Pipeline with Copy activity**
+### Pipeline with Copy activity
 
 The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** (for SAP HANA source) and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data in the past hour to copy.
 
