@@ -41,7 +41,7 @@ Specifically, to identify trending topics in real time on Twitter, the company n
 
 ## Create an event hub input
 
-The sample application generates events and push them to an event hubs instance (an event hub, for short). Azure Service Bus event hubs are the preferred method of event ingestion for Stream Analytics. For more information, review the Event Hub documentation at [Azure Service Bus documentation](/azure/service-bus/).
+The sample application generates events and pushes them to an event hubs instance (an event hub, for short). Azure Service Bus event hubs are the preferred method of event ingestion for Stream Analytics. For more information, review the Event Hub documentation at [Azure Service Bus documentation](/azure/service-bus/).
 
 ### Create an event hub
 
@@ -57,7 +57,7 @@ Take the following steps to create an event hub:
 
 5. To grant access to the event hub, we need to create a shared access policy. Select the event hub, and then, under **Settings**, select **Shared access policies**.
 
-6. Under **Shared access policies**, create a new policy with **MANAGE** permissions by selecting **+ Add**. Give the policy a name, check **MANAGE**, and then select **Create**.
+6. Under **Shared access policies**, create a policy with **MANAGE** permissions by selecting **+ Add**. Give the policy a name, check **MANAGE**, and then select **Create**.
 
 7. Select your new policy after it has been created, and then select the copy button for the **CONNECTION STRING - PRIMARY KEY** entity. We need this later in the exercise. Then return to the dashboard.
 
@@ -89,7 +89,7 @@ For more information, see [Steps to generate an OAuth access token](https://dev.
 
  To generate a token, you need to make an empty application.  
 
-1. Replace the EventHubConnectionString and EventHubName values in TwitterWpfClient.exe.config with the connection string and name of your event hub. The connection string that you copied earlier gives you both the connection string and the name of your event hub, so be sure to separate them and put each in the correct field. For example, consider the following connection string:
+1. Replace the EventHubConnectionString and EventHubName values in TwitterWpfClient.exe.config with the connection string and name of your event hub. The connection string that you copied earlier gives you both the connection string and the name of your event hub. Be sure to separate them and put each in the correct field. For example, consider the following connection string:
 
 ```
    Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub`
