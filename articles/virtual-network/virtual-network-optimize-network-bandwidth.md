@@ -57,8 +57,8 @@ In order to get the optimization, first update to the latest supported version, 
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
-"Sku": "16.04.0-LTS",
-"Version": "16.04.201609071"
+"Sku": "16.04-LTS",
+"Version": "latest"
 ```
 After the update is complete, enter the following commands to get the latest kernel:
 
