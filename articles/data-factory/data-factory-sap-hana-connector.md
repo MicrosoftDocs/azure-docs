@@ -17,7 +17,7 @@ ms.author: jingwang
 
 ---
 # Move data From SAP HANA using Azure Data Factory
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to from SAP HANA to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations. Data factory currently supports only moving data from SAP HANA to other data stores, but not for moving data from other data stores to SAP HANA.
+This article outlines how you can use the Copy Activity in an Azure Data Factory pipeline to move data to from SAP HANA to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations. Data factory currently supports only moving data from SAP HANA to other data stores, but not for moving data from other data stores to SAP HANA.
 
 Data Factory service supports connecting to on-premises SAP HANA instances using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. Gateway is required even if the SAP HANA is hosted in an Azure IaaS virtual machine (VM). You can install the gateway on the same VM as the data store or on a different VM as long as the gateway can connect to the database.
 
@@ -34,10 +34,10 @@ See [Supported data stores](data-factory-data-movement-activities.md#supported-d
 ## Copy data wizard
 The easiest way to create a pipeline that copies data from SAP HANA to any of the supported sink data stores is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-The following example provides sample JSON definitions that you can use to create a pipeline. For a complete walkthrough with step-by-step instructions, see [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article. Data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.   
-
 ## Sample: Copy data from SAP HANA to Azure Blob
-This sample shows how to copy data from an on-premises SAP HANA to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.  
+This example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
+
+This sample shows how to copy data from an on-premises SAP HANA to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks listed [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.  
 
 > [!IMPORTANT]
 > This sample provides JSON snippets. It does not include step-by-step instructions for creating the data factory. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions.
@@ -55,6 +55,7 @@ The sample copies data from an SAP HANA instance to an Azure blob hourly. The JS
 As a first step, setup the data management gateway. The instructions are in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
 
 **SAP HANA linked service**
+This linked service links your SAP HANA instance to the data factory. The type property is set to **SapHana**. The typeProperties section provides connection information for the SAP HANA instance.
 
 ```json
 {
@@ -76,6 +77,7 @@ As a first step, setup the data management gateway. The instructions are in the 
 ```
 
 **Azure Storage linked service**
+This linked service links your Azure Storage Account to the data factory. The type property is set to **AzureStorage**. The typeProperties section provides connection information for the SAP BW instance.
 
 ```json
 {
@@ -91,7 +93,11 @@ As a first step, setup the data management gateway. The instructions are in the 
 
 **SAP HANA input dataset**
 
-Setting “external”: ”true” informs the Data Factory service that the table is external to the data factory and is not produced by an activity in the data factory.
+This dataset defines the SAP HANA dataset. You set the type of the Data Factory dataset to **RelationalTable**. Currently, you do not specify any type-specific properties for an SAP HANA dataset. The query in the Copy Activity definition specifies what data to read from the SAP HANA instance. 
+
+Setting external property to true informs the Data Factory service that the table is external to the data factory and is not produced by an activity in the data factory.
+
+Frequency and interval properties defines the schedule. In this case, the data is read from the SAP HANA instance hourly. 
 
 ```json
 {
@@ -112,113 +118,114 @@ Setting “external”: ”true” informs the Data Factory service that the tab
 
 
 **Azure Blob output dataset**
+This dataset defines the output Azure Blob dataset. The type property is set to AzureBlob. The type properties section provide where the data copied from the SAP BW instance is stored. The data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
 
-Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
-
-    {
-        "name": "AzureBlobDataSet",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-                "folderPath": "mycontainer/saphana/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-                "format": {
-                    "type": "TextFormat",
-                    "rowDelimiter": "\n",
-                    "columnDelimiter": "\t"
-                },
-                "partitionedBy": [
-                    {
-                        "name": "Year",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "yyyy"
-                        }
-                    },
-                    {
-                        "name": "Month",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "MM"
-                        }
-                    },
-                    {
-                        "name": "Day",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "dd"
-                        }
-                    },
-                    {
-                        "name": "Hour",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "HH"
-                        }
-                    }
-                ]
+```json
+{
+    "name": "AzureBlobDataSet",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+            "folderPath": "mycontainer/saphana/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+            "format": {
+                "type": "TextFormat",
+                "rowDelimiter": "\n",
+                "columnDelimiter": "\t"
             },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            }
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "MM"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "dd"
+                    }
+                },
+                {
+                    "name": "Hour",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "HH"
+                    }
+                }
+            ]
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
-
+}
+```
 
 
 **Pipeline with Copy activity**
 
-The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data in the past hour to copy.
+The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** (for SAP HANA source) and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data in the past hour to copy.
 
-    {
-        "name": "CopySapHanaToBlob",
-        "properties": {
-            "description": "pipeline for copy activity",
-            "activities": [
-                {
-                    "type": "Copy",
-                    "typeProperties": {
-                        "source": {
-                            "type": "RelationalSource",
-            				"query": "<SQL Query for HANA>"
-                        },
-                        "sink": {
-                            "type": "BlobSink",
-                            "writeBatchSize": 0,
-                            "writeBatchTimeout": "00:00:00"
-                        }
+```json
+{
+    "name": "CopySapHanaToBlob",
+    "properties": {
+        "description": "pipeline for copy activity",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "RelationalSource",
+        				"query": "<SQL Query for HANA>"
                     },
-                    "inputs": [
-                        {
-                            "name": "SapHanaDataset"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "AzureBlobDataSet"
-                        }
-                    ],
-                    "policy": {
-                        "timeout": "01:00:00",
-                        "concurrency": 1
-                    },
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
-                    },
-                    "name": "SapHanaToBlob"
-                }
-            ],
-            "start": "2014-06-01T18:00:00Z",
-            "end": "2014-06-01T19:00:00Z"
-        }
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "SapHanaDataset"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobDataSet"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "SapHanaToBlob"
+            }
+        ],
+        "start": "2017-03-01T18:00:00Z",
+        "end": "2017-03-01T19:00:00Z"
     }
-
+}
+```
 
 
 ## SAP HANA linked service
@@ -226,7 +233,7 @@ The following table provides description for JSON elements specific to SAP HANA 
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
-server | Name of the server on which the SAP HANA resides. If your server is using a customized port, specify `server:port`. | string | Yes
+server | Name of the server on which the SAP HANA instance resides. If your server is using a customized port, specify `server:port`. | string | Yes
 authenticationType | Type of authentication. | string. "Basic" or "Windows" | Yes 
 username | Name of the user who has access to the SAP server | string | Yes
 password | Password for the user. | string | Yes

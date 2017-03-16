@@ -17,7 +17,7 @@ ms.author: jingwang
 
 ---
 # Move data From SAP Business Warehouse using Azure Data Factory
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to from SAP Business Warehouse to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations. Data factory currently supports only moving data from SAP Business Warehouse to other data stores, but not for moving data from other data stores to SAP Business Warehouse.
+This article outlines how you can use the Copy Activity in an Azure Data Factory pipeline to move data to from SAP Business Warehouse to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations. Data factory currently supports only moving data from SAP Business Warehouse to other data stores, but not for moving data from other data stores to SAP Business Warehouse.
 
 Data Factory service supports connecting to on-premises SAP Business Warehouse instances using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. Gateway is required even if the SAP Business Warehouse is hosted in an Azure IaaS virtual machine (VM). You can install the gateway on the same VM as the data store or on a different VM as long as the gateway can connect to the database.
 
@@ -26,7 +26,7 @@ This connector supports SAP Business Warehouse version 7.x. It supports copying 
 
 To enable the connectivity to the SAP BW instance, install the following components:
 - **Data Management Gateway**: Data Factory service supports connecting to on-premises data stores (including SAP Business Warehouse) using a component called Data Management Gateway. To learn about Data Management Gateway and step-by-step instructions for setting up the gateway, see [Moving data between on-premises data store to cloud data store](data-factory-move-data-between-onprem-and-cloud.md) article.
-- **SAP NetWeaver library** on the gateway machine. You can get the SAP Netweaver library from your SAP administrator, or directly from the [SAP Software Download Center](https://support.sap.com/swdc). Search for the **SAP Note #1025361** to get the download location for the most recent version. Make sure the architecture for the SAP NetWeaver library (32-bit or 64-bit) matches your gateway installation. Then install all files included in the SAP NetWeaver RFC SDK according to the SAP Note. The SAP NetWeaver library is also included in the SAP Client Tools installation.
+- **SAP NetWeaver library** on the gateway machine. You can get the SAP Netweaver library from your SAP administrator, or directly from the [SAP Software Download Center](https://support.sap.com/swdc). Search for the **SAP Note #1025361** to get the download location for the most recent version. Make sure that the architecture for the SAP NetWeaver library (32-bit or 64-bit) matches your gateway installation. Then install all files included in the SAP NetWeaver RFC SDK according to the SAP Note. The SAP NetWeaver library is also included in the SAP Client Tools installation.
 
 ## Supported sinks
 See [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table for a list of data stores supported as sources or sinks by the Copy Activity. You can move data from SAP Business Warehouse to any supported sink data store. 
@@ -34,9 +34,9 @@ See [Supported data stores](data-factory-data-movement-activities.md#supported-d
 ## Copy data wizard
 The easiest way to create a pipeline that copies data from SAP Business Warehouse to any of the supported sink data stores is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-The following example provides sample JSON definitions that you can use to create a pipeline. For a complete walkthrough with step-by-step instructions, see [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article. Data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.   
+## Example: Copy data from SAP Business Warehouse to Azure Blob
+This example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
 
-## Sample: Copy data from SAP Business Warehouse to Azure Blob
 This sample shows how to copy data from an on-premises SAP Business Warehouse to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.  
 
 > [!IMPORTANT]
@@ -54,7 +54,8 @@ The sample copies data from an SAP Business Warehouse instance to an Azure blob 
 
 As a first step, setup the data management gateway. The instructions are in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
 
-**SAP Business Warehouse linked service**
+### SAP Business Warehouse linked service
+This linked service links your SAP BW instance to the data factory. The type property is set to **SapBw**. The typeProperties section provides connection information for the SAP BW instance. 
 
 ```json
 {
@@ -76,6 +77,7 @@ As a first step, setup the data management gateway. The instructions are in the 
 ```
 
 **Azure Storage linked service**
+This linked service links your Azure Storage Account to the data factory. The type property is set to **AzureStorage**. The typeProperties section provides connection information for the SAP BW instance.
 
 ```json
 {
@@ -90,8 +92,11 @@ As a first step, setup the data management gateway. The instructions are in the 
 ```
 
 **SAP BW input dataset**
+This dataset defines the SAP Business Warehouse dataset. You set the type of the Data Factory dataset to **RelationalTable**. Currently, you do not specify any type-specific properties for an SAP BW dataset. The query in the Copy Activity definition specifies what data to read from the SAP BW instance. 
 
-Setting “external”: ”true” informs the Data Factory service that the table is external to the data factory and is not produced by an activity in the data factory.
+Setting external property to true informs the Data Factory service that the table is external to the data factory and is not produced by an activity in the data factory.
+
+Frequency and interval properties defines the schedule. In this case, the data is read from the SAP BW instance hourly. 
 
 ```json
 {
@@ -112,113 +117,113 @@ Setting “external”: ”true” informs the Data Factory service that the tab
 
 
 **Azure Blob output dataset**
+This dataset defines the output Azure Blob dataset. The type property is set to AzureBlob. The type properties section provide where the data copied from the SAP BW instance is stored. The data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
 
-Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
-
-    {
-        "name": "AzureBlobDataSet",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-                "folderPath": "mycontainer/sapbw/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-                "format": {
-                    "type": "TextFormat",
-                    "rowDelimiter": "\n",
-                    "columnDelimiter": "\t"
-                },
-                "partitionedBy": [
-                    {
-                        "name": "Year",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "yyyy"
-                        }
-                    },
-                    {
-                        "name": "Month",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "MM"
-                        }
-                    },
-                    {
-                        "name": "Day",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "dd"
-                        }
-                    },
-                    {
-                        "name": "Hour",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "HH"
-                        }
-                    }
-                ]
+```json
+{
+    "name": "AzureBlobDataSet",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+            "folderPath": "mycontainer/sapbw/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+            "format": {
+                "type": "TextFormat",
+                "rowDelimiter": "\n",
+                "columnDelimiter": "\t"
             },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            }
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "MM"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "dd"
+                    }
+                },
+                {
+                    "name": "Hour",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "HH"
+                    }
+                }
+            ]
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
-
+}
+```
 
 
 **Pipeline with Copy activity**
+The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** (for SAP BW source) and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data in the past hour to copy.
 
-The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data in the past hour to copy.
-
-    {
-        "name": "CopySapBwToBlob",
-        "properties": {
-            "description": "pipeline for copy activity",
-            "activities": [
-                {
-                    "type": "Copy",
-                    "typeProperties": {
-                        "source": {
-                            "type": "RelationalSource",
-            				"query": "<MDX query for SAP BW>"
-                        },
-                        "sink": {
-                            "type": "BlobSink",
-                            "writeBatchSize": 0,
-                            "writeBatchTimeout": "00:00:00"
-                        }
+```json
+{
+    "name": "CopySapBwToBlob",
+    "properties": {
+        "description": "pipeline for copy activity",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "RelationalSource",
+        				"query": "<MDX query for SAP BW>"
                     },
-                    "inputs": [
-                        {
-                            "name": "SapBwDataset"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "AzureBlobDataSet"
-                        }
-                    ],
-                    "policy": {
-                        "timeout": "01:00:00",
-                        "concurrency": 1
-                    },
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
-                    },
-                    "name": "SapBwToBlob"
-                }
-            ],
-            "start": "2014-06-01T18:00:00Z",
-            "end": "2014-06-01T19:00:00Z"
-        }
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "SapBwDataset"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobDataSet"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "SapBwToBlob"
+            }
+        ],
+        "start": "2017-03-01T18:00:00Z",
+        "end": "2017-03-01T19:00:00Z"
     }
-
+}
+```
 
 
 ## SAP BW linked service
@@ -226,9 +231,9 @@ The following table provides description for JSON elements specific to SAP Busin
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
-server | Name of the host machine that has the SAP BW instance. | string | Yes
-systemNumber | System number of the BW system | Two-digit decimal number represented as a string. | Yes
-clientId | Client ID of the client on the BW system. | Three-digit decimal number represented as a string. | Yes
+server | Name of the server on which the SAP BW instance resides. If your server is using a customized port, specify `server:port`. | string | Yes
+systemNumber | System number of the SAP BW system. | Two-digit decimal number represented as a string. | Yes
+clientId | Client ID of the client in the SAP W system. | Three-digit decimal number represented as a string. | Yes
 username | Name of the user who has access to the SAP server | string | Yes
 password | Password for the user. | string | Yes
 gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises SAP BW instance. | string | Yes
