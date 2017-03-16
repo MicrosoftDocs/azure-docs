@@ -25,15 +25,15 @@ In this article, we'll explore how to create a file share on Azure and mount it 
 ### Using the portal :
 
 1. Log in to the portal.
-2. Create a storage account.
+2. Create a storage account :
    
     ![Azure container service create Storage Account](media/container-service-dcos-fileshare/createSA.png)
 
-3. When it's created, find and click on **Files** in the **Services** section.
+3. When it's created, find and click on **Files** in the **Services** section :
    
     ![Azure container service Files section](media/container-service-dcos-fileshare/filesServices.png)
 
-4. Click on **+ File share** and enter a name for this new share (Quota is not mandatory).
+4. Click on **+ File share** and enter a name for this new share (Quota is not mandatory) :
    
     ![Azure container service + File Share](media/container-service-dcos-fileshare/newFileShare.png)  
 
@@ -64,7 +64,7 @@ We will do that with the following command line : ```mount -t cifs```
 
 Here, one example for a  :
 * Storage account name **'anystorageaccountname'**
-* The account key **'P/GuWEUuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqQADF1w=='** mounted on the following mount point **'/mnt/share/demoshare'**
+* With the following account key **'P/GuWEUuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqQADF1w=='** mounted on the following mount point **'/mnt/share/demoshare'**
 
 ```bash
 sudo mount -t cifs //anystorageaccountname.file.core.windows.net/demoshare /mnt/share/demoshare -o vers=3.0,username=anystorageaccountname,password=P/GuWEUuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqQADF1w==,dir_mode=0777,file_mode=0777
@@ -72,7 +72,7 @@ sudo mount -t cifs //anystorageaccountname.file.core.windows.net/demoshare /mnt/
 
 We will run this command on each virtual machine of our cluster (Master and Nodes). In case you have a huge number of agents, it would be good to automate this process by creating scripts
 
-1. First, [connect to your DC/OS-based ACS cluster](https://docs.microsoft.com/en-us/azure/container-service/container-service-connect).
+1. First, [connect to your DC/OS-based ACS cluster](https://docs.microsoft.com/en-us/azure/container-service/container-service-connect)
 
 2. Import your private key on the master that will execute our command using the ```ssh-add yourPrivateKeyFile``` command
 
