@@ -174,4 +174,4 @@ To get started implementing your own auto-scaling logic, familiarize yourself wi
 
 - [Scaling manually or with auto-scale rules](./service-fabric-cluster-scale-up-down.md)
 - [Fluent Azure Management Libraries for .NET](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (useful for interacting with a Service Fabric cluster's underlying virtual machine scale sets)
-- [System.Fabric.FabricClient](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricclient) (useful for interacting with a Service Fabric cluster and its nodes)
+- [System.Fabric.FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) (useful for interacting with a Service Fabric cluster and its nodes)
