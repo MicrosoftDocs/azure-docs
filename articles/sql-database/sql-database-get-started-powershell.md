@@ -27,7 +27,7 @@ Before you start, make sure that the latest version of PowerShell is installed. 
 
 ## Log in to Azure
 
-Log in to your Azure subscription with the [Add-AzureRmAccount](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.profile/v2.5.0/add-azurermaccount) command and follow the on-screen directions.
+Log in to your Azure subscription with the [Add-AzureRmAccount](https://docs.microsoft.com/powershell/resourcemanager/azurerm.profile/v2.5.0/add-azurermaccount) command and follow the on-screen directions.
 
 ```powershell
 Add-AzureRmAccount
