@@ -1,6 +1,6 @@
 ---
-title: Call, trigger, or nest logic apps through HTTP endpoints - Azure Logic Apps | Microsoft Docs
-description: Add and configure HTTP endpoints to call, trigger, or nest workflows for logic apps in Azure
+title: Call, trigger, or nest workflows with HTTP endpoints - Azure Logic Apps | Microsoft Docs
+description: Add HTTP endpoints to call, trigger, or nest logic app workflows in Azure
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -18,52 +18,59 @@ ms.date: 10/18/2016
 ms.author: jehollan
 ---
 
-# Add HTTP endpoints to call, trigger, or nest logic app workflows
+# Call, trigger, or nest workflows for logic apps by adding HTTP endpoints
 
 Logic apps can natively expose synchronous HTTP endpoints as triggers 
-so that you can call your logic apps. You can also use a pattern 
-of callable endpoints to invoke logic apps as nested workflows by 
-adding the **Choose a Logic Apps workflow** action to your logic app.
+so that you can trigger or manually call your logic apps. 
+You can also nest workflows in your logic apps by using a pattern of callable endpoints 
+and adding the **Choose a Logic Apps workflow** actions to your logic apps.
 
-You can use these triggers for receiving requests:
+To receive requests, you can add these triggers to your logic apps:
 
-* Request
-* ApiConnectionWebhook
-* HttpWebhook
+* [Request](../connectors/connectors-native-reqres.md)
+* [API Connection webhook](logic-apps-workflow-actions-triggers.md#api-connection)
+* [HTTP Webhook](../connectors/connectors-native-http.md)
 
-This topic uses the **Request** trigger as examples, 
-but all principles apply identically to the other trigger types.
+We'll use the **Request** trigger in our examples, 
+but all principles identically apply to the other trigger types.
 
 ## Add a trigger to your logic app definition
 
-1. In Logic App Designer, add a trigger that can receive 
-incoming requests for your logic app definition. 
+1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal").
+
+2. Go to your logic app, and open the Logic App Designer.
+Add a trigger that can receive incoming requests for your logic app definition. 
 For example, add the **Request** trigger to your logic app.
 
-2.	Under **Request Body JSON Schema**, 
-you can enter a JSON schema for the payload that you expect to receive. 
-If you don't have a schema ready, 
-you can choose **Use sample payload to generate schema** 
-to generate a JSON schema from a sample payload.
+3.	Under **Request Body JSON Schema**, 
+enter the JSON schema for the payload that you expect to receive. 
+
+	> [!TIP]
+	> If you don't have a schema ready, you can generate the schema 
+	> for your JSON from a tool like [jsonschema.net](http://jsonschema.net/), 
+	> or from a sample JSON payload. On your **Request** trigger, 
+	> choose **Use sample payload to generate schema**, enter your JSON payload, 
+	> and choose **Done**.
 
 	The designer uses this schema for generating tokens 
 	that help you consume, parse, and pass data 
 	from the manual trigger through your workflow.
 
-	![Add the Request action][2]
+	![Add the Request action][1]
 
-2.	After you save your logic app definition, under **HTTP POST to this URL**, 
-you'll get a generated callback URL, like this example:
+2.	Save your logic app definition. Under **HTTP POST to this URL**, 
+you'll get a generated callback URL, like in this example:
 
 	``` text
-	https://prod-03.eastus.logic.azure.com:443/workflows/080cb66c52ea4e9cabe0abf4e197deff/triggers/myendpointtrigger?*signature*...
+	https://prod-00.southcentralus.logic.azure.com:443/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/myendpointtrigger?*signature*...
 	```
 
 	This URL contains a Shared Access Signature (SAS) key 
-	in the query parameters used for authentication. 
-	You can also get this endpoint from the Azure portal:
+	in the query parameters that are used for authentication. 
+	You can also get this endpoint from your logic app overview 
+	in the Azure portal:
 
-	![URL endpoint][1]
+	![URL endpoint][2]
 
 	Or by calling:
 
@@ -233,6 +240,6 @@ This functionality is available through **API Management**:
 | Reference the incoming body via `@triggerOutputs().body.Content` |Reference via `@triggerOutputs().body` |
 | **Send HTTP response** action on the HTTP Listener |Click **Respond to HTTP request** (no API App required) |
 
-[1]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
-[2]: ./media/logic-apps-http-endpoint/manualtrigger.png
+[1]: ./media/logic-apps-http-endpoint/manualtrigger.png
+[2]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
 [3]: ./media/logic-apps-http-endpoint/response.png
