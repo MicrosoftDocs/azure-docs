@@ -40,7 +40,7 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**.
 
-    <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 500px;" />
+    <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
 
 ## Connect to the server
 
@@ -55,11 +55,11 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
    - **Login**: Enter your server admin account
    - **Password**: Enter the password for your server admin account
  
-    <img src="./media/sql-database-connect-query-ssms/connect.png" alt="connect to server" style="width: 500px;" />
+    <img src="./media/sql-database-connect-query-ssms/connect.png" alt="connect to server" style="width: 780px;" />
 
 3. Click **Connect**. The Object Explorer window opens in SSMS. 
 
-    <img src="./media/sql-database-connect-query-ssms/connected.png" alt="connected to server" style="width: 500px;" />
+    <img src="./media/sql-database-connect-query-ssms/connected.png" alt="connected to server" style="width: 780px;" />
 
 4. In Object Explorer, expand **Databases** and then expand **mySampleDatabase** to view the objects in the sample database.
 
@@ -79,7 +79,7 @@ Use the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 
 
 3. On the toolbar, click **Execute** to retrieve data from the Product and ProductCategory tables.
 
-    <img src="./media/sql-database-connect-query-ssms/query.png" alt="query" style="width: 500px;" />
+    <img src="./media/sql-database-connect-query-ssms/query.png" alt="query" style="width: 780px;" />
 
 ## Insert data
 
@@ -110,7 +110,7 @@ Use the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 
 
 3. On the toolbar, click **Execute**  to insert a new row in the Product table.
 
-    <img src="./media/sql-database-connect-query-ssms/insert.png" alt="insert" style="width: 500px;" />
+    <img src="./media/sql-database-connect-query-ssms/insert.png" alt="insert" style="width: 780px;" />
 
 ## Update data
 
@@ -127,7 +127,7 @@ Use the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 
 
 3. On the toolbar, click **Execute** to update the specified row in the Product table.
 
-    <img src="./media/sql-database-connect-query-ssms/update.png" alt="update" style="width: 500px;" />
+    <img src="./media/sql-database-connect-query-ssms/update.png" alt="update" style="width: 780px;" />
 
 ## Delete data
 
@@ -143,7 +143,7 @@ Use the [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 
 
 3. On the toolbar, click **Execute** to delete the specified row in the Product table.
 
-    <img src="./media/sql-database-connect-query-ssms/delete.png" alt="delete" style="width: 500px;" />
+    <img src="./media/sql-database-connect-query-ssms/delete.png" alt="delete" style="width: 780px;" />
 
 ## Next steps
 

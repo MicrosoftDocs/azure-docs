@@ -42,7 +42,7 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name** to use later in this quick start.
 
-    <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 500px;" />
+    <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
 
 ## Set language mode to SQL
 
@@ -52,7 +52,7 @@ Set the language mode is set to **SQL** in Visual Studio Code to enable mssql co
 
 2. Press **CTRL+K,M**, type **SQL** and press **ENTER** to set the language mode to SQL. 
 
-<img src="./media/sql-database-connect-query-vscode/vscode-language-mode.png" alt="SQL language mode" style="width: 500px;" />
+<img src="./media/sql-database-connect-query-vscode/vscode-language-mode.png" alt="SQL language mode" style="width: 780px;" />
 
 ## Connect to the server
 
@@ -87,7 +87,7 @@ Use Visual Studio Code to establish a connection to your Azure SQL Database serv
 
 7. Verify your connection in the status bar.
 
-   <img src="./media/sql-database-connect-query-vscode/vscode-connection-status.png" alt="Connection status" style="width: 500px;" />
+   <img src="./media/sql-database-connect-query-vscode/vscode-connection-status.png" alt="Connection status" style="width: 780px;" />
 
 ## Query data
 
@@ -104,7 +104,7 @@ Use the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 
 
 3. Press **CTRL+SHIFT+E** to retrieve data from the Product and ProductCategory tables.
 
-    <img src="./media/sql-database-connect-query-vscode/query.png" alt="Query" style="width: 500px;" />
+    <img src="./media/sql-database-connect-query-vscode/query.png" alt="Query" style="width: 780px;" />
 
 ## Insert data
 
