@@ -34,7 +34,7 @@ Before you start, make sure you have installed the newest version of [SSMS](http
 
 ## Get connection information
 
-Get the fully qualified server name for your Azure SQL Database server in the Azure portal. You use this name to connect to your server using SQL Server Management Studio.
+Get the fully qualified server name for your Azure SQL Database server in the Azure portal. You use the fully qualified server name to connect to your server using SQL Server Management Studio.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 

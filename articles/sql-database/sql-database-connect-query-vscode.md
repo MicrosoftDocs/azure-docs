@@ -36,17 +36,17 @@ Before you start, make sure you have installed the newest version of [Visual Stu
 
 ## Get connection information
 
-Get the fully qualified server name for your Azure SQL Database server in the Azure portal. You use this name to connect to your server using Visual Studio Code.
+Get the fully qualified server name for your Azure SQL Database server in the Azure portal. You use the fully qualified server name to connect to your server using Visual Studio Code.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name** for use in the next step.
+3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name** to use later in this quick start.
 
     <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 500px;" />
 
 ## Set language mode to SQL
 
-Set the language mode is set to **SQL** in Visual Studio code to enable mssql commands and T-SQL IntelliSense.
+Set the language mode is set to **SQL** in Visual Studio Code to enable mssql commands and T-SQL IntelliSense.
 
 1. Open a new Visual Studio Code window. 
 
@@ -56,7 +56,7 @@ Set the language mode is set to **SQL** in Visual Studio code to enable mssql co
 
 ## Connect to the server
 
-Use SQL Server Management Studio to establish a connection to your Azure SQL Database server with SQL Server authentication.
+Use Visual Studio Code to establish a connection to your Azure SQL Database server.
 
 1. In VS Code, press **CTRL+SHIFT+P** (or **F1**) to open the Command Palette.
 
@@ -80,9 +80,6 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
    | **Save Password?** | Select **Yes** or **No** |
    | **[Optional] Enter a name for this profile** | Entter a connection profile name, such as **lmySampleDatabase**. 
 
-   > [!Tip] 
-   > You can create and edit connection profiles in User Settings file (settings.json). Open the settings file by selecting **Preference** and then **User Settings** in the VS Code menu. For more details, see [manage connection profiles].
-
 6. Press the **ESC** key to close the info message that informs you that the profile is created and connected.
 
    > [!TIP]
@@ -91,7 +88,6 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
 7. Verify your connection in the status bar.
 
    <img src="./media/sql-database-connect-query-vscode/vscode-connection-status.png" alt="Connection status" style="width: 500px;" />
-
 
 ## Query data
 
