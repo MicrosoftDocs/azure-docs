@@ -73,7 +73,7 @@ You can now connect to the database and its server using SQL Server Management S
 
 Follow these steps to query the database using the query editor in the Azure portal. 
 
-1. On the SQL Databse page for your database, click **Tools** on the toolbar. The **Query editor** preview page opens.
+1. On the SQL Database page for your database, click **Tools** on the toolbar. The **Query editor** preview page opens.
 
      ![tools menu](./media/sql-database-get-started/tools-menu.png) 
 
