@@ -26,11 +26,6 @@ This article shows you how to capture an Azure virtual machine running Windows s
 
 Azure stores the image under **VM images (classic)**, a **Compute** service that is listed when you view all the Azure services. This is the same place where any images you've uploaded are stored. For details about images, see [About images for virtual machines](virtual-machines-windows-classic-about-images.md?toc=%2fazure%2fvirtual-machines%2fWindows%2fclassic%2ftoc.json).
 
-<!-- deleted 3/15/2017. Links to linux article.
-[About images for virtual machines](virtual-machines-linux-classic-about-images.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
--->
-
-
 ## Before you begin
 These steps assume that you've already created an Azure virtual machine and configured the operating system, including attaching any data disks. If you need to haven't done this yet, see these instructions:
 
