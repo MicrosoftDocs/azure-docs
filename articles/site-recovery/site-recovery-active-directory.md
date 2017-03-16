@@ -46,10 +46,13 @@ The following sections explain how to enable protection for a domain controller 
 
 ## Enable protection using Site Recovery
 ### Protect the virtual machine
-Enable protection of the domain controller/DNS virtual machine in Site Recovery. Configure Site Recovery settings based on the virtual machine type (Hyper-V or VMware). We recommend a crash consistent replication frequency of 15 minutes.
+Enable protection of the domain controller/DNS virtual machine in Site Recovery. Configure Site Recovery settings based on the virtual machine type (Hyper-V or VMware). The domain controller replicated using Site Recovery will be used for [test failover](#test-failover-considerations). Make sure it meets the following requirements:
+
+1. The domain controller is a global catalog server
+2. The domain controller should be the FSMO role owner for roles that will be needed during a test failover (else these roles will need to be [seized](http://aka.ms/ad_seize_fsmo) after the failover)
 
 ### Configure virtual machine network settings
-For the domain controller/DNS virtual machine, configure network settings in Site Recovery so that the VM will be attached to the right network after failover. For example, if you're replicating Hyper-V VMs to Azure you can select the VM in the VMM cloud or in the protection group to configure the network settings as shown below
+For the domain controller/DNS virtual machine, configure network settings in Site Recovery so that the virtual machine will be attached to the right network after failover. 
 
 ![VM Network Settings](./media/site-recovery-active-directory/DNS-Target-IP.png)
 
@@ -89,13 +92,13 @@ Most applications also require the presence of a domain controller and a DNS ser
 
 
 > [!TIP]
-> The IP address allocated to a virtual machine during a test failover is same as the IP address it would get on during a planned or unplanned failover, if the IP address is available in the test failover network. If it isn't, then the virtual machine  receives a different IP address that is available in the test failover network.
-> 
-> 
+> Site Recovery attempts to create test virtual machines in a subnet of same name and using the same IP as that provided in **Compute and Network** settings of the virtual machine. If subnet of same name is not available in the Azure virtual network provided for test failover, then test virtual machine is created in the first subnet alphabetically. If the target IP is part of the chosen subnet, then site recovery tries to create the test failover virtual machine using the target IP. If the target IP is not part of the chosen subnet then test failover virtual machine gets created using any available IP in the chosen subnet. 
+>
+>
 
 
 ### Removing reference to other domain controllers
-When you are doing a test failover, you will not bring all of the domain controllers in the test network. To remove the reference of other domain controllers that exist in your production environment you will need to [seize FSMO Active Directory roles and do metadata cleanup](http://aka.ms/ad_seize_fsmo) for missing domain controllers. 
+When you are doing a test failover, you will not bring all of the domain controllers in the test network. To remove the reference of other domain controllers that exist in your production environment you will need to [seize FSMO Active Directory roles](http://aka.ms/ad_seize_fsmo) and do [metadata cleanup](https://technet.microsoft.com/en-us/library/cc816907.aspx) for missing domain controllers. 
 
 ### Troubleshooting domain controller issues during test failover
 
