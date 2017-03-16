@@ -110,8 +110,8 @@ When connecting to tenant subscriptions with PowerShell, you will notice that th
 * If you change the password of the azurestackadmin account after you deploy Azure Stack TP3, you can no longer configure multi-cloud mode. Therefore, it won't be possible to connect to the target Windows Azure Pack environment.
 * After you set up multi-cloud mode:
     * A user can see the dashboard only after they reset the portal settings. (In the user portal, click the portal settings icon (gear icon in the top-right corner). Under **Restore default settings**, click **Apply**.)
-    * The dashboard titles may not appear. If this occurs, you will need to manually add them back.
-    * Some tiles may not show correctly when you first add them to the dashboard. To fix this, refresh the browser.
+    * The dashboard titles may not appear. If this issue occurs, you must manually add them back.
+    * Some tiles may not show correctly when you first add them to the dashboard. To fix this issue, refresh the browser.
 
 ## Next steps
 [Frequently asked questions](azure-stack-faq.md)

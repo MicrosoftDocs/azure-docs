@@ -223,7 +223,7 @@ cd C:\CloudDeployment\Setup\Activation\AzurePackConnector\
      -AzureStackCloudName "Azure_Stack" `
      -EnableMultiCloud $true 
 ```
-Download the zip file from the [Microsoft Download Center](https://aka.ms/wapconnectorazurestackdlc), extract it, and copy the WAPConnector folder to a **c:\temp** folder on the Windows Azure Pack computer. Copy the file "AzurePackConnectorOutput.txt" that was generated as ouput in the previous script to the **c:\temp\WAPConnector** folder, and then run the following script:
+Download the zip file from the [Microsoft Download Center](https://aka.ms/wapconnectorazurestackdlc), extract it, and copy the WAPConnector folder to a **c:\temp** folder on the Windows Azure Pack computer. Copy the file "AzurePackConnectorOutput.txt" that was generated as output in the previous script to the **c:\temp\WAPConnector** folder, and then run the following script:
 
  ```powershell
 # Install Connector components
@@ -234,7 +234,7 @@ cd C:\temp\WAPConnector\Setup\Scripts
 .\Configure-Certificates.ps1
 
 # Configure the Connector services
-.\Configure-WapConnector.ps1 -TenantPortalFQDN wapcomputer.com `
+.\Configure-WapConnector.ps1 -TenantPortalFQDN "wapcomputer.com" `
      -TenantAPIFQDN "wapcomputer.com" `
      -AzureStackPortalFQDN "publicportal.local.azurestack.external"
 
