@@ -86,7 +86,6 @@
 #### [Manage with portal](azure-stack-kv-manage-portal.md)
 #### [Manage with PowerShell](azure-stack-kv-manage-powershell.md)
 ### How to
-#### [Deploy a VM with a password](azure-stack-kv-deploy-vm-with-secret.md)
 #### [Create a VM with a certificate](azure-stack-kv-push-secret-into-vm.md)
 #### [Key Vault sample app](azure-stack-kv-sample-app.md)
 

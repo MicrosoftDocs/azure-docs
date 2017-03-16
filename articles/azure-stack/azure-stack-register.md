@@ -46,7 +46,7 @@ If you don’t have an Azure subscription that meets these requirements, you can
 >
 
 1. Sign in to the Azure Stack POC host computer as an Azure Stack administrator.
-2. Install the Azure PowerShell cmdlets by running the 'Install-module AzureRM' cmdlet as described in the [Install PowerShell for Azure Stack article](azure-stack-powershell-install.md). 
+2. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md). 
 3. Copy the [RegisterWithAzure.ps1 script](https://go.microsoft.com/fwlink/?linkid=842959) to a folder (such as C:\Temp).
 4. Start PowerShell ISE as an administrator.
 5. Run the RegisterWithAzure.ps1 script. Make sure to change the values for *YourAccountName* (the owner of the Azure subscription), *YourGUID*, and *YourDirectory* to match your Azure subscription.
