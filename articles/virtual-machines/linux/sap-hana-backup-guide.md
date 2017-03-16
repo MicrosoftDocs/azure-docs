@@ -333,7 +333,7 @@ It provides more flexibility but does not resolve the issues explained earlier i
 
 This figure shows the possibility of restoring just the data disks of an Azure VM, which would avoid the problem with getting a new unique VM ID, and therefore the SAP license wouldn&#39;t get invalidated:
 
-- For the test, two Azure data disks were attached to a VM and a software raid was defined on top of them
+ - For the test, two Azure data disks were attached to a VM and a software raid was defined on top of them
 - It was confirmed that SAP HANA was in a consistent state by SAP HANA snapshot feature
 - File system freeze (see _SAP HANA data consistency when taking storage snapshots_ earlier in this document)
 - Blob snapshots were taken from both data disks
@@ -372,7 +372,7 @@ One could simply place dedicated VHDs for SAP HANA backups in a dedicated backup
 
 Azure backup offers the option to not only back up complete VMs, but also files and directories via the backup agent, which has to be installed on the guest OS. But as of December 2016, this agent is only supported on Windows (see [Back up a Windows Server or client to Azure using the Resource Manager deployment model](../../backup/backup-configure-vault.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)).
 
-A workaround could be to first copy SAP HANA backup files to a Windows VM on Azure (for example, via SAMBA share) and then use the Azure backup agent from there. While it is technically possible, it would add complexity and slow down the end-to-end backup or restore process quite a bit due to the copy between the Linux and the Windows VM.
+A workaround could be to first copy SAP HANA backup files to a Windows VM on Azure (for example, via SAMBA share) and then use the Azure backup agent from there. While it is technically possible, it would add complexity and slow down the end-to-end backup or restore process quite a bit due to the copy between the Linux and the Windows VM. It is not recommended to follow this approach.
 
 ### Azure blobxfer utility details
 
@@ -519,7 +519,7 @@ For the test system, the output of this SQL statement matches almost exactly the
 
 ![The HANA Studio backup console allows one to restrict the max file size of HANA backup files](./media/sap-hana-backup-guide/image010.png)
 
-The HANA Studio backup console allows one to restrict the max file size of HANA backup files. In the sample environment this gives the possibility of finally getting multiple smaller backup files instead of one large 230 GB backup file. This has a significant impact on performance, as is demonstrated later in this document.
+The HANA Studio backup console allows one to restrict the max file size of HANA backup files. In the sample environment this gives the possibility of finally getting multiple smaller backup files instead of one large 230 GB backup file. This has a significant impact on performance, as is demonstrated before in this document.
 
 
 ## Summary
@@ -533,7 +533,12 @@ Based on the test results the following tables will show pros and cons of soluti
 |Solution                                           |Pros                                 |Cons                                  |
 |---------------------------------------------------|-------------------------------------|--------------------------------------|
 |Keep HANA backups on VM disks                      |no additional management efforts     |eats up local VM disk space           |
-|Blobxfer tool to copy backup files to blob storage |parallelism to copy multiple files, choice to use cool blob storage | additional tool maintenance and custom |                                   
+|Blobxfer tool to copy backup files to blob storage |parallelism to copy multiple files, choice to use cool blob storage | additional tool maintenance and custom | 
+|Blob copy via Powershell or CLI                    |no additional tool necessary, can be accomplished via Azure Powershell or CLI |manual process, customer has to take care of scripting and management of copied blobs for restore|
+|Copy to NFS share                                  |post-processing of backup files on other VM without impact on the HANA server|slow copy process|
+|Blobxfer copy to Azure File Service                |doesn't eat up space on local VM disks|no direct write support by HANA backup, size restriction of file share currently at 5TB|
+|Azure Backup Agent                                 | would be preferred solution         | currently not available on Linux    |
+
 
 
 |Backup SAP HANA based on storage snapshots                    |
