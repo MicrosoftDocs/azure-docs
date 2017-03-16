@@ -62,7 +62,7 @@ In the single-node Azure Stack environment, Windows Azure Pack and Azure Stack h
 ## Prerequisites
 
 ### Download the Windows Azure Pack Connector
-On the [Microsoft Download Center](https://aka.ms/wapconnectorazurestackdlc), download the zip file and extract it to your local computer. Later, you copy the contents to a computer that can access your Windows Azure Pack environment.
+On the [Microsoft Download Center](https://aka.ms/wapconnectorazurestackdlc), download the .exe file and extract it to your local computer. Later, you copy the contents to a computer that can access your Windows Azure Pack environment.
 
 ### Deployment option requirement
 To integrate with Windows Azure Pack, you can deploy Azure Stack by using the AD FS option or the Azure Active Directory option.
@@ -223,7 +223,7 @@ cd C:\CloudDeployment\Setup\Activation\AzurePackConnector\
      -AzureStackCloudName "Azure_Stack" `
      -EnableMultiCloud $true 
 ```
-Download the zip file from the [Microsoft Download Center](https://aka.ms/wapconnectorazurestackdlc), extract it, and copy the WAPConnector folder to a **c:\temp** folder on the Windows Azure Pack computer. Copy the file "AzurePackConnectorOutput.txt" that was generated as output in the previous script to the **c:\temp\WAPConnector** folder, and then run the following script:
+Download the .exe file from the [Microsoft Download Center](https://aka.ms/wapconnectorazurestackdlc), extract it, and copy the WAPConnector folder to a **c:\temp** folder on the Windows Azure Pack computer. Copy the file "AzurePackConnectorOutput.txt" that was generated as output in the previous script to the **c:\temp\WAPConnector** folder, and then run the following script:
 
  ```powershell
 # Install Connector components
