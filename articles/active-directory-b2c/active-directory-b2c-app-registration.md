@@ -73,6 +73,7 @@ You can also access the blade by clicking **More services** and then searching *
 4. Toggle the **Include native client** switch to **Yes**.
 5. Enter a **Redirect URI** with a custom scheme. For example, com.onmicrosoft.contoso.appname://redirect/path. Make sure you choose a [good redirect URI](#choosing-a-redirect-uri).
 6. Click **Save** to register your application.
+7. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
 
 ### Choosing a redirect URI
 There are two important considerations when choosing a redirect URI for mobile/native applications: 
