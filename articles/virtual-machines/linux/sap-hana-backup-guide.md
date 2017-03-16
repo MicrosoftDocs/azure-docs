@@ -492,7 +492,7 @@ A SAP HANA installation in an Azure GS5 VM was used for the following backup/res
 
 ![This figure shows part of the Azure portal overview for the HANA test VM](./media/sap-hana-backup-guide/image007.png)
 
-This figure shows part of the Azure portal overview for the HANA test VM.
+ This figure shows part of the Azure portal overview for the HANA test VM.
 
 ### Test backup size
 
@@ -533,7 +533,7 @@ Based on the test results the following tables will show pros and cons of soluti
 |Solution                                           |Pros                                 |Cons                                  |
 |---------------------------------------------------|-------------------------------------|--------------------------------------|
 |Keep HANA backups on VM disks                      |no additional management efforts     |eats up local VM disk space           |
-|Blobxfer tool to copy backup files to blob storage |parallelism to copy multiple files, choice to use cool blob storage | additional tool maintenance and custom | 
+|Blobxfer tool to copy backup files to blob storage |parallelism to copy multiple files, choice to use cool blob storage | additional tool maintenance and custom scripting | 
 |Blob copy via Powershell or CLI                    |no additional tool necessary, can be accomplished via Azure Powershell or CLI |manual process, customer has to take care of scripting and management of copied blobs for restore|
 |Copy to NFS share                                  |post-processing of backup files on other VM without impact on the HANA server|slow copy process|
 |Blobxfer copy to Azure File Service                |doesn't eat up space on local VM disks|no direct write support by HANA backup, size restriction of file share currently at 5TB|
