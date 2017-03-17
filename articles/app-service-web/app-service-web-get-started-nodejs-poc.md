@@ -33,7 +33,7 @@ Before running this sample, install the following prerequisites locally:
 
 This quickstart demonstrates a simple Node.js application.
 
-## Download the Hello World app
+## Download the sample
 
 Clone the Hello World sample app repository to your local machine.
 
@@ -50,7 +50,7 @@ Change to the directory that contains the sample code.
 cd nodejs-docs-hello-world
 ```
 
-## Run Hello World on your local machine
+## Run the sample locally
 
 Run the start script using `npm`.
 
@@ -88,7 +88,7 @@ az appservice plan create --name <app_name> --resource-group myResourceGroup --s
 
 When the App Service Plan has been created, the Azure CLI shows information similar to the following example.
 
-```azurecli
+```json
 {
     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/quickStarts/providers/Microsoft.Web/serverfarms/quickStartASP",
     "kind": "linux",
@@ -112,7 +112,7 @@ az appservice web create --name <app_name> --resource-group myResourceGroup --pl
 
 When the Web App has been created, the Azure CLI shows information similar to the following example.
 
-```azurecli
+```json
 {
     "clientAffinityEnabled": true,
     "defaultHostName": "<app-name>.azurewebsites.net",
@@ -132,7 +132,10 @@ When the Web App has been created, the Azure CLI shows information similar to th
 
 ## Configure the web app
 
-Use the az appservice web config update command to configure the Web App to use Node.js version 6.9.3. Setting the node.js version this way uses a default container provided by the platform, if you would like to use your own container refer to the reference for the az appservice web config container update command.
+Use the az appservice web config update command to configure the Web App to use Node.js version `6.9.3`. 
+
+> [!TIP]
+> Setting the node.js version this way uses a default container provided by the platform, if you would like to use your own container refer to the reference for the [az appservice web config container update](https://docs.microsoft.com/en-us/cli/azure/appservice/web/config/container#update) command.
 
 ```azurecli
 az appservice web config update --node-version 6.9.3 --startup-file index.js --name <app_name> --resource-group myResourceGroup
@@ -140,7 +143,7 @@ az appservice web config update --node-version 6.9.3 --startup-file index.js --n
 
 ## Configure local git deployment
 
-
+Set the account-level deployment credentials.
 
 ```azurecli
 az appservice web deployment user set --user-name <username> --password <password>
