@@ -7,14 +7,13 @@
 
 # Get started
 ## [Export template](resource-manager-export-template.md)
-## [Template walkthrough](resource-manager-template-walkthrough.md)
+## [Create your first template](/azure/templates/?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-## [VS Code with Resource Manager](resource-manager-vs-code.md)
 
 # How to
 ## Create templates
 ### [Best practices for templates](resource-manager-template-best-practices.md)
-### [Authoring templates](resource-group-authoring-templates.md)
+### [Template sections](resource-group-authoring-templates.md)
 ### [Template functions](resource-group-template-functions.md)
 ### [Define dependency between resources](resource-group-define-dependencies.md)
 ### [Set child resource name and type](resource-manager-template-child-resource.md)
