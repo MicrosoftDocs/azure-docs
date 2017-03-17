@@ -49,7 +49,7 @@ Create a file named **AadProvider.Configuration.json** with the following conten
 ### Updating Visual Studio for Azure Government
 
 1.	Close Visual Studio
-2.	Place **AadProvider.Configuration.json** created in the previous step into **%localappdata%\.IdentityService\AadConfigurations**.  Create this folder if not present.
+2.	Place **AadProvider.Configuration.json** created in the previous step into **%localappdata%\\.IdentityService\AadConfigurations**.  Create this folder if not present.
 3.	Launch Visual Studio and begin using your Azure Government account.
 
 > [!NOTE]
