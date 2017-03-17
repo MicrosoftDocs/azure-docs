@@ -57,6 +57,14 @@ Here are some of the scenarios that are made possible with the combination of th
   * Determine whether it would be more cost-effective to run your workloads in another region, or on another configuration of the Azure resource. Azure resource costs may differ based on the Azure region in which you are running, and this allows you to get cost optimizations.
   * Also determine if another Azure offer type gives a better rate on an Azure resource.
 
+## Code samples
+
+[Invoice API code sample](https://go.microsoft.com/fwlink/?linkid=845124)
+
+[Usage API code sample](https://github.com/Azure-Samples/billing-dotnet-usage-api)
+
+[RateCard API code sample](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
+
 ## Partner solutions
 [Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM for Customers](billing-usage-rate-card-partner-solution-cloudyn.md) describes the integration experience offered by Azure Billing API partner [Cloudyn](https://www.cloudyn.com/microsoft-azure/).  This article provides detailed coverage of your experiences, including a short video that shows how an Azure customer can use Cloudyn and the Azure Billing APIs to gains insights from your Azure consumption data.
 

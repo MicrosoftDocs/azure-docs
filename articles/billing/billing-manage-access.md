@@ -20,7 +20,7 @@ ms.author: vikdesai
 ---
 # Manage access to billing information for Azure using role-based access control
 
-You can grant access to view Azure billing information to members of your team by assigning one of the following user roles: Account Administrator, Service Administrator, Co-administrator, Owner, Contributor, Reader, and Billing Reader. They would have access to billing information in the [Azure portal](https://portal.azure.com/), and they can use the Billing API to download invoices. For more information about who can grant roles, and which roles can do what, see [Roles in Azure RBAC](../active-directory/role-based-access-built-in-roles.md).
+You can grant access to view Azure billing information to members of your team by assigning one of the following user roles: Account Administrator, Service Administrator, Co-administrator, Owner, Contributor, Reader, and Billing Reader. They would have access to billing information in the [Azure portal](https://portal.azure.com/), and they can use the [Billing API](billing-usage-rate-card-overview.md) to programmatically get invoices and usage details. For more information about who can grant roles, and which roles can do what, see [Roles in Azure RBAC](../active-directory/role-based-access-built-in-roles.md).
 
 ## Adding users to the Billing Reader role
 
@@ -45,7 +45,7 @@ The Billing Reader role has read-only access to subscription billing information
     ![Screenshot that shows what the Billing Reader can see in Azure portal](./media/billing-manage-access/billing-reader-view.png)
 
 > [!NOTE]
-> The Billing Reader feature is in preview, and may not be available for Azure Germany.
+> The Billing Reader feature is in preview, and is only available for Azure global cloud.
 
 ## Adding users to other roles 
 
