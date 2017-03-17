@@ -186,6 +186,9 @@ Once the application gateway has been created, navigate to it in the portal to c
 
 These steps create a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. You can modify these settings to suit your deployment once the provisioning is successful
 
+> [!NOTE]
+> Application gateways created with the basic web application firewall configuration are configured with CRS 3.0 for protections.
+
 ## Next steps
 
 Learn how to configure diagnostic logging, to log the events that are detected or prevented with Web Application Firewall by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md)

@@ -26,7 +26,7 @@ Microsoft Azure Application Gateway provides Application Delivery Controller (AD
 
 Application Gateway is a dedicated virtual appliance for your application comprised of multiple worker instances for scalability and high availability. When you create an application gateway, an endpoint (public VIP or internal ILB IP) is associated and used for ingress network traffic. This VIP or ILB IP is provided by Azure Load Balancer working at the transport level (TCP/UDP) and having all incoming network traffic being load balanced to the Application Gateway worker instances. The Application Gateway then routes the HTTP/HTTPS traffic based on its configuration whether it's a virtual machine, cloud service, internal or an external IP address. For the SLA and pricing, refer to the [SLA](https://azure.microsoft.com/support/legal/sla/) and [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/) pages.
 
-## SKUs
+## Differences between Application Gateway SKUs
 
 Application Gateway comes in two SKUs. A Standard SKU and a Web Application Firewall (WAF) SKU.
 
