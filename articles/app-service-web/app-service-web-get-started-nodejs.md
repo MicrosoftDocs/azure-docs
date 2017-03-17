@@ -35,9 +35,9 @@ az group create --name myResourceGroup --location westeurope
 > [!TIP]
 > To see what possible values you can use for `--location`, use the `az appservice list-locations` Azure CLI command.
 
-## Create an App Service Plan
+## Create an App Service plan
 
-Create an App Service Plan on Linux Worker with the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) command.
+Create an App Service plan on Linux Worker with the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) command.
 
 The following example creates an App Service Plan on Linux Workers named `quickStartASP` using the **Standard** pricing tier.
 
@@ -65,7 +65,7 @@ When the App Service Plan has been created, the Azure CLI shows information simi
 
 ## Create a web app 
 
-Create a Web App using the [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) command.
+Create a web app using the [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) command.
 
 The following example creates the Web App in the previously created App Service Plan.
 
@@ -93,7 +93,7 @@ When the Web App has been created, the Azure CLI shows information similar to th
 }
 ```
 
-## Configure the Web App for Node.js
+## Configure the Node.js version
 
 Use the [az appservice web config update](https://docs.microsoft.com/en-us/cli/azure/appservice/web/config#update) command to configure the Web App to use Node.js version `6.9.3`. Setting the node.js version this way uses a default container provided by the platform, if you would like to use your own container refer to the reference for the [az appservice web config container update](https://docs.microsoft.com/en-us/cli/azure/appservice/web/config/container#update) command.
 
@@ -101,7 +101,7 @@ Use the [az appservice web config update](https://docs.microsoft.com/en-us/cli/a
 az appservice web config update --node-version 6.9.3 --name <app_name> --resource-group myResourceGroup
 ```
 
-## Configure continuous deployment from GitHub
+## Configure deployment from GitHub
 
 Use the [az appservice web source-control config](https://docs.microsoft.com/en-us/cli/azure/appservice/web/source-control#config) command to configure continuous integration of your application from GitHub. Using the `--manual-integration` flag is required on GitHub repositories of which you do not have administrative permissions.
 

@@ -174,10 +174,10 @@ az appservice web browse --name <app_name> --resource-group myResourceGroup
 
 This time, the page that displays the Hello World message is delivered by a web server running on App Service Web App.
 
-**Congratulations!** You've deployed your first Node.js app to App Service Web App!
+**Congratulations!** You've deployed your first Node.js app to App Service Web App.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
 
-Explore pre-created [Web apps CLI scripts](app-service-cli-samples.md).
+Explore pre-created [Web Apps CLI scripts](app-service-cli-samples.md).
