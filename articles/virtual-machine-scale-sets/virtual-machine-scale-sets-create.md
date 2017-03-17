@@ -54,7 +54,7 @@ New-AzureRmResourceGroup -Location westus2 -Name vmss-test-1
 
 ## Prep: Create a storage account
 
-If you're going to host your own custom image, you need to create a storage account. You can use the gallery images without a storage account, but anything custom needs to be stored in Azure Storage.
+If you're going to use Azure to host your own virtual machine image, you need to create a storage account. You can use the gallery images without a storage account, but anything custom needs to be stored in Azure Storage.
 
 ```azurecli
 az storage account create --location westus2 --name vmsstest1storage --resource-group vmss-test-1 --kind Storage --sku Standard_LRS
@@ -66,21 +66,25 @@ New-AzureRmStorageAccount -Location westus2 -Name vmssteststorage1 -ResourceGrou
 
 ## Create from Azure CLI
 
-With Azure CLI, you can create a virtual machine scale set with minimal effort. Default values are provided for you if you omit them. For example, if you don't specify virtual network information, one is created. Without specifying them, you get the following features by default: a load balancer, a VNET, and a public IP address.
+With Azure CLI, you can create a virtual machine scale set with minimal effort. Default values are provided for you if you omit them. For example, if you don't specify any virtual network information, one is created for you. If omitted, the following parts are created for you: a load balancer, a VNET, and a public IP address.
 
-When choosing the VHD image you want to use on the virtual machine scale set, you have a few choices:
+When choosing the virtual machine image you want to use on the virtual machine scale set, you have a few choices:
 
 1. URN  
-The identifier of a resource. For example, **Win2012R2Datacenter**.
+The identifier of a resource:  
+**Win2012R2Datacenter**.
 
 2. URN alias  
-The friendly name of a URN. For example, **MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest**.
+The friendly name of a URN:  
+**MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest**.
 
 3. Custom resource id  
-The path to an azure resource. For example, **/subscriptions/subscription-guid/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/images/MyImage**.
+The path to an azure resource:  
+**/subscriptions/subscription-guid/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/images/MyImage**.
 
 4. Web resource  
-The path to an HTTP URI. For example, **http://<span></span>contoso.blob.core.windows.net/vhds/osdiskimage.vhd**.
+The path to an HTTP URI:  
+**http://contoso.blob.core.windows.net/vhds/osdiskimage.vhd**.
 
 >[!TIP]
 >You can get a list of available images with `az vm image list`.
@@ -90,6 +94,10 @@ To create a virtual machine scale set you must specify the _resource group_, _na
 ```azurecli
 az vmss create --resource-group vmss-test-1 --name MyScaleSet --image UbuntuLTS --authentication-type password --admin-username azureuser --admin-password P@ssw0rd!
 ```
+
+### Use your own image
+
+TODO
 
 ## Create from PowerShell
 
@@ -148,6 +156,10 @@ Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmssConfig
 # Create the scale set with the config object (this step may take a few minutes)
 New-AzureRmVmss -ResourceGroupName vmss-test-1 -Name my-scale-set -VirtualMachineScaleSet $vmssConfig
 ```
+
+### Use your own image
+
+TODO
 
 ## Create from a template
 
