@@ -149,7 +149,6 @@
 ## Authenticate and authorize users
 ### [Azure AD authentication](sql-database-aad-authentication-configure.md)
 ## Connect applications
-### [.NET](sql-database-develop-dotnet-simple.md)
 ### [C and C++](sql-database-develop-cplusplus-simple.md)
 ### [Java](sql-database-develop-java-simple.md)
 ### [Node.js](sql-database-develop-nodejs-simple.md)
