@@ -50,7 +50,7 @@ Create a file named **AadProvider.Configuration.json** with the following conten
 
 1.	Close Visual Studio
 2.	Delete **%temp%\servicehub**
-3.	Place AadProvider.Configuration.json created in the previous step into **%localappdata%\.IdentityService\AadConfigurations**
+3.	Place **AadProvider.Configuration.json** created in the previous step into **%localappdata%\.IdentityService\AadConfigurations**
 4.	Launch Visual Studio and begin using [Cloud Explorer](../vs-azure-tools-resources-managing-with-cloud-explorer.md) with your Azure Government account.
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Create a file named **AadProvider.Configuration.json** with the following conten
 > 
 
 ## Visual Studio 2015
-Visual Studio 2015 requires a registry change for Visual Studio to connect to Azure Gov.  Once this registry key is set Visual Studio will connect to Azure Government instead of Azure Public.
+Visual Studio 2015 requires a registry change for Visual Studio to connect to Azure Government.  Once this registry key is set Visual Studio connects to Azure Government instead of Azure Public.
 
 ### Updating Visual Studio for Azure Government
 To enable Visual Studio to connect to Azure Government, you need to update the registry.
