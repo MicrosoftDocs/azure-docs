@@ -25,7 +25,7 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 >
 
 ## Supported authentication types
-Azure Data Lake Store connector support **service principal** authentication and **user credential** authentication. You are recommended to use the former especially for scheduled data copy, to avoid token expiration behavior with the latter. See [Azure Data Lake Store Linked Service properties](#azure-data-lake-store-linked-service-properties) section with configuration details.
+Azure Data Lake Store connector support **service principal** authentication and **user credential** authentication. You are recommended to use the former especially for a scheduled data copy, to avoid token expiration behavior with the latter. See [Azure Data Lake Store Linked Service properties](#azure-data-lake-store-linked-service-properties) section with configuration details.
 
 ## Copy data wizard
 The easiest way to create a pipeline that copies data to/from Azure Data Lake Store is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
@@ -418,13 +418,12 @@ The following table provides description for JSON elements specific to Azure Dat
 | resourceGroupName | Azure resource group name to which Data Lake Store belongs. | Required for sink |
 
 ### Using service principal authentication (recommended)
-To use service principal authentication, firstly you need register an application entity in Azure Active Directory (AAD) and grant it access in Data Lake Store. Afterwards, you can specify below properties in Azure Data Factory with corresponding application ID, application key and tenant information to copy data from/to Data Lake Store. Refer to [Service-to-service authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) on how to set it up and retrieve the required info.
+To use service principal authentication, register an application entity in Azure Active Directory (AAD) and grant it the access to Data Lake Store. See [Service-to-service authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) for detailed steps. Note down the following values: **application ID**, **application key**, and **tenant ID**. You use this information in defining the linked service. 
 
 > [!IMPORTANT]
-> When using copy wizard to author, make sure to grant the service principal at least Reader role in Access control (IAM) for the ADLS account AND at least Read+Execute permission to your ADLS root ("/") and its children, in order to successfully navigate among the folders. Otherwise you may see "The credentials provided are invalid" error.
+> If you are using Copy Wizard to author data pipelines, make sure that you grant the service principal at least Reader role in Access control (IAM) for the Data Lake Store account and at least Read+Execute permission to your Data Lake Store root ("/") and its children. Otherwise you may see "The credentials provided are invalid" error.
 >
-> If you newly create/update a service principal from AAD, it may take few minutes to actually take effect. Double check the service principal and ADLS ACL configuration first, if you still see error saying "The credentials provided are invalid", wait a while and try again.
->
+> If you have just created/updated a service principal in AAD, it may take a few minutes for the changes to actually take effect. First, double check the service principal and Data Lake Store ACL configuration. If you still see error: "The credentials provided are invalid", wait a while and try again.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
