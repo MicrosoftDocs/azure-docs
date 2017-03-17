@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/16/2017
+ms.date: 03/17/2017
 ms.author: alkohli
 
 ---
@@ -21,7 +21,7 @@ ms.author: alkohli
 
 ## Overview
 
-The StorSimple Diagnostics tool diagnoses issues related to system, performance, network, and hardware component health for a StorSimple device. The diagnostics tool can be used in various scenarios. These scenarios include planning a deployment, deploying a StorSimple device, assessing the network environment, and determining the performance of an operational device. This article provides an overview of the diagnostics tool and describes how the tool can be used with a StorSimple device.
+The StorSimple Diagnostics tool diagnoses issues related to system, performance, network, and hardware component health for a StorSimple device. The diagnostics tool can be used in various scenarios. These scenarios include workload planning, deploying a StorSimple device, assessing the network environment, and determining the performance of an operational device. This article provides an overview of the diagnostics tool and describes how the tool can be used with a StorSimple device.
 
 The diagnostics tool is primarily intended for StorSimple 8000 series on-premises devices (8100 and 8600).
 
