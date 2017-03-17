@@ -1,5 +1,5 @@
 ---
-title: How to encode an Azure asset using Media Encoder Standard | Microsoft Docs
+title: How to encode an Azure asset by using Media Encoder Standard | Microsoft Docs
 description: Learn how to use Media Encoder Standard to encode media content on Azure Media Services. Code samples use REST API.
 services: media-services
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 01/05/2017
 ms.author: juliako
 
 ---
-# How to encode an asset using Media Encoder Standard
+# How to encode an asset by using Media Encoder Standard
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 > * [REST](media-services-rest-encode-asset.md)
@@ -28,7 +28,7 @@ ms.author: juliako
 ## Overview
 To deliver digital video over the Internet, you must compress the media. Digital video files are large and may be too big to deliver over the Internet, or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media.
 
-Encoding jobs are one of the most common processing operations in Azure Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in encoder (Media Encoder Standard). You can also use an encoder provided by a Media Services partner. Third-party encoders are available through the Azure Marketplace. You can specify the details of encoding tasks by using preset strings defined for your encoder, or by using preset configuration files. To see the types of presets that are available, see [Task Presets for Media Encoder Standard](http://msdn.microsoft.com/library/mt269960).
+Encoding jobs is one of the most common processing operations in Azure Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in encoder (Media Encoder Standard). You can also use an encoder provided by a Media Services partner. Third-party encoders are available through the Azure Marketplace. You can specify the details of encoding tasks by using preset strings defined for your encoder, or by using preset configuration files. To see the types of presets that are available, see [Task Presets for Media Encoder Standard](http://msdn.microsoft.com/library/mt269960).
 
 Each job can have one or more tasks depending on the type of processing that you want to accomplish. Through the REST API, you can create jobs and their related tasks in one of two ways:
 
@@ -46,7 +46,7 @@ If your output asset is storage encrypted, you must configure the asset delivery
 
 ## Create a job with a single encoding task
 > [!NOTE]
-> When working with the Media Services REST API, the following considerations apply:
+> When you're working with the Media Services REST API, the following considerations apply:
 >
 > When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API development](media-services-rest-how-to-use.md).
 >
@@ -92,7 +92,7 @@ The following example shows how to set the assetName attribute:
 * The value parameter that you pass to JobInputAsset or JobOutputAsset represents the index value for an asset. The actual assets are defined in the InputMediaAssets and OutputMediaAssets navigation properties on the job entity definition.
 * Because Media Services is built on OData v3, the individual assets in the InputMediaAssets and OutputMediaAssets navigation property collections are referenced through a "__metadata : uri" name-value pair.
 * InputMediaAssets maps to one or more assets that you created in Media Services. OutputMediaAssets are created by the system. They don't reference an existing asset.
-* OutputMediaAssets can be named by using the assetName attribute. If this attribute is not present, then the name of the OutputMediaAsset is whatever the inner text value of the <outputAsset> element is with a suffix of either the Job Name value, or the Job Id value (in the case where the Name property isn't defined). For example, if you set a value for assetName to "Sample", then the OutputMediaAsset Name property is set to "Sample." However, if you didn't set a value for assetName, but did set the job name to "NewJob", then the OutputMediaAsset Name would be "JobOutputAsset(value)_NewJob."
+* OutputMediaAssets can be named by using the assetName attribute. If this attribute is not present, then the name of the OutputMediaAsset is whatever the inner text value of the <outputAsset> element is with a suffix of either the Job Name value, or the Job Id value (in the case where the Name property isn't defined). For example, if you set a value for assetName to "Sample," then the OutputMediaAsset Name property is set to "Sample." However, if you didn't set a value for assetName, but did set the job name to "NewJob," then the OutputMediaAsset Name would be "JobOutputAsset(value)_NewJob."
 
 ## Create a job with chained tasks
 In many application scenarios, developers want to create a series of processing tasks. In Media Services, you can create a series of chained tasks. Each task performs different processing steps and can use different media processors. The chained tasks can hand off an asset from one task to another, performing a linear sequence of tasks on the asset. However, the tasks performed in a job are not required to be in a sequence. When you create a chained task, the chained **ITask** objects are created in a single **IJob** object.
@@ -202,10 +202,10 @@ The following example shows how to use OData batch processing to create a job an
 
 
 
-## Create a job using a JobTemplate
+## Create a job by using a JobTemplate
 When you process multiple assets by using a common set of tasks, use a JobTemplate to specify the default task presets, or to set the order of tasks.
 
-The following example shows how to create a JobTemplate with a TaskTemplate that is defined inline. The TaskTemplate uses the Media Encoder Standard as the MediaProcessor to encode the asset file; however, other MediaProcessors can be used as well.
+The following example shows how to create a JobTemplate with a TaskTemplate that is defined inline. The TaskTemplate uses the Media Encoder Standard as the MediaProcessor to encode the asset file. However, other MediaProcessors can be used as well.
 
     POST https://media.windows.net/API/JobTemplates HTTP/1.1
     Content-Type: application/json;odata=verbose
