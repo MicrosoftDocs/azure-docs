@@ -22,7 +22,7 @@ ms.author: carolz
     <div class="calloutHolder">
         <div class="callout">
             <a href="https://azure.microsoft.com/en-us/community/training/courses/developing-dotnet-microsoft-azure-getting-started/">
-                <img src="media/index/pluralsight.svg"/>
+                <img src="media/index/pluralsight.svg" />
                 Free PluralSight video training Developing with .NET on Microsoft Azure
             </a>
         </div>
