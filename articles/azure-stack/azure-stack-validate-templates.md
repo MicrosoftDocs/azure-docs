@@ -19,7 +19,7 @@ ms.author: helaw
 ---
 
 # Check your templates for Azure Stack with Template Validator
-You can use the template validation tool to check if your Azure Resource Manager [templates](azure-stack-arm-templates.md) work with Azure Stack. The template validation tool, is available as a part of the Azure Stack tools. Download the Azure Stack tools by using the steps descibed in the [download tools from GitHub](azure-stack-powershell-download.md) article. 
+You can use the template validation tool to check if your Azure Resource Manager [templates](azure-stack-arm-templates.md) work with Azure Stack. The template validation tool is available as a part of the Azure Stack tools. Download the Azure Stack tools by using the steps descibed in the [download tools from GitHub](azure-stack-powershell-download.md) article. 
 
 To validate templates, you will use the following PowerShell modules and the JSON file located in **TemplateValidator** and **CloudCapabilities** folders: 
 
@@ -30,7 +30,7 @@ To validate templates, you will use the following PowerShell modules and the JSO
 In this topic, you run validation against your templates, and optionally build a cloud capabilities file.
 
 ## Validate templates
-In these steps, you validate templates bu using the AzureRM.TemplateValidator PowerShell module. You can use your own templates, or validate the [Azure Stack Quickstart templates](https://github.com/Azure/AzureStack-QuickStart-Templates).
+In these steps, you validate templates by using the AzureRM.TemplateValidator PowerShell module. You can use your own templates, or validate the [Azure Stack Quickstart templates](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
 1.  Import the AzureRM.TemplateValidator.psm1 PowerShell module:
     
