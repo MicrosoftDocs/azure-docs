@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2017
+ms.date: 03/17/2017
 ms.author: cherylmc
 
 ---
@@ -48,27 +48,25 @@ Please refer to the [ExpressRoute SLA page](https://azure.microsoft.com/support/
 ## Supported services
 ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) for various types of services.
 
-Private peering
+### Private peering
 * Virtual Networks, including all virtual machines and cloud services
 
-Public peering
-* Most of the Azure services with a few exceptions below
+### Public peering
 * Power BI
 * Dynamics 365 for Operations (formerly known as Dynamics AX Online)
+* Most of the Azure services with a few exceptions below
+  * CDN
+  * Visual Studio Team Services Load Testing
+  * Multi-factor Authentication
+  * Traffic Manager
 
-Microsoft peering
+### Microsoft peering
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
 * Most of the Dynamics 365 services (formerly known as CRM Online)
   * Dynamics 365 for Sales
   * Dynamics 365 for Customer Service
   * Dynamics 365 for Field Service
   * Dynamics 365 for Project Service
-
-The following Azure services are not supported on ExpressRoute
-* CDN
-* Visual Studio Team Services Load Testing
-* Multi-factor Authentication
-* Traffic Manager
 
 ## Data and connections
 ### Are there limits on the amount of data that I can transfer using ExpressRoute?
