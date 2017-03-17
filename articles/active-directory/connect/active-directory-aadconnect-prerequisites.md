@@ -152,8 +152,7 @@ When using Azure AD Connect to deploy Active Directory Federation Services or th
       * To validate remote PSH connectivity, in the Server Manager All Servers tab: right click WAP server and choose Windows PowerShell. A remote PSH session should open to ensure remote PowerShell sessions can be established.
 
 ### SSL Certificate Requirements
-**Important:** it’s strongly recommended to use the same SSL certificate across all nodes of your AD FS farm and all Web Application proxy servers.
-
+* It’s strongly recommended to use the same SSL certificate across all nodes of your AD FS farm and all Web Application proxy servers.
 * The certificate must be an X509 certificate.
 * You can use a self-signed certificate on federation servers in a test lab environment. However, for a production environment, we recommend that you obtain the certificate from a public CA.
   * If using a certificate that is not publicly trusted, ensure that the certificate installed on each Web Application Proxy server is trusted on both the local server and on all federation servers
