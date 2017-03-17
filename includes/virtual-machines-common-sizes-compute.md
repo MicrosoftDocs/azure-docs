@@ -4,7 +4,7 @@ F-series is based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, wh
 
 F-series VMs are an excellent choice for workloads that demand faster CPUs but do not need as much memory or local SSD per CPU core.  Workloads such as analytics, gaming servers, web servers, and batch processing will benefit from the value of the F-series.
 
-The Fs-series provides all of the advantages of the F-series, in addition to Premium storage.
+The Fs-series provides all the advantages of the F-series, in addition to Premium storage.
 
 
 ## F-series
