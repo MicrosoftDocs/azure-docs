@@ -38,7 +38,8 @@
 ### [Move resources to new group or subscription](resource-group-move-resources.md)
 ## Control Access
 ### [Create service principal with PowerShell](resource-group-authenticate-service-principal.md)
-### [Create service principal with Azure CLI](resource-group-authenticate-service-principal-cli.md)
+### [Create service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Create service principal with Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
 ### [Create service principal with portal](resource-group-create-service-principal-portal.md)
 ### [Authentication API to access subscriptions](resource-manager-api-authentication.md)
 ### [Lock resources](resource-group-lock-resources.md)

@@ -42,7 +42,7 @@ In addition to those basic resources, you should also consider these optional re
 
 ## Network interfaces
 
-A [network interface (NIC)](../virtual-network/virtual-network-network-interface-overview.md) is the interconnection between a VM and a virtual network (VNet). A VM must have at least one NIC, but can have more than one, depending on the size of the VM you create. Learn about how many NICs each VM size supports in [Sizes for virtual machines in Azure](virtual-machines-windows-sizes.md). 
+A [network interface (NIC)](../virtual-network/virtual-network-network-interface.md) is the interconnection between a VM and a virtual network (VNet). A VM must have at least one NIC, but can have more than one, depending on the size of the VM you create. Learn about how many NICs each VM size supports in [Sizes for virtual machines in Azure](virtual-machines-windows-sizes.md). 
 
 If you want to create a VM with more than one NIC, you must create the VM with at least two.  After creation you can add additional NICs up to the number supported by the VM size, but you cannot add additional NICs to a VM only created with one, regardless of how many NICs the VM size supports. 
 

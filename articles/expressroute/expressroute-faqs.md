@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2017
+ms.date: 03/13/2017
 ms.author: cherylmc
 
 ---
@@ -23,9 +23,6 @@ ExpressRoute is an Azure service that lets you create private connections betwee
 
 ### What are the benefits of using ExpressRoute and private network connections?
 ExpressRoute connections do not go over the public Internet, and offer higher security, reliability, and speeds with lower and consistent latencies than typical connections over the Internet. In some cases, using ExpressRoute connections to transfer data between on-premises devices and Azure can yield significant cost benefits.
-
-### What Microsoft cloud services are supported over ExpressRoute?
-ExpressRoute supports most Microsoft Azure services today including Office 365.  Look for updates on general availability soon.
 
 ### Where is the service available?
 See this page for service location and availability: [ExpressRoute partners and locations](expressroute-locations.md).
@@ -181,7 +178,7 @@ The following steps will help Azure recognize the activation request:
    * Have your NSP provider hair-pin the traffic back to Azure via the public peering.
 
 ### Can I change the bandwidth of an ExpressRoute circuit?
-Yes. You can increase the bandwidth of an ExpressRoute circuit without having to tear it down. You will have to follow up with your connectivity provider to ensure that they update the throttles within their networks to support the bandwidth increase. You will however not be able to reduce the bandwidth of an ExpressRoute circuit. Having to lower the bandwidth will mean a tear down and recreation of an ExpressRoute circuit.
+Yes, you can attempt to increase the bandwidth of your ExpressRoute circuit in the Azure Portal or by using PowerShell. If there is capacity available on the physical port on which your circuit was created, your change will succeed. If your change fails, it means there isn’t enough capacity left on the current port and that you need to create a new ExpressRoute circuit with the higher bandwidth OR that there is no additional capacity at that location, in which case you will not be able to increase the bandwidth. You will also have to follow up with your connectivity provider to ensure that they update the throttles within their networks to support the bandwidth increase. You cannot, however, reduce the bandwidth of your ExpressRoute circuit. You will have to create a new ExpressRoute circuit with lower bandwidth and delete the old circuit.
 
 ### How do I change the bandwidth of an ExpressRoute circuit?
 You can update the bandwidth of the ExpressRoute circuit using the update dedicated circuit API and PowerShell cmdlet.
@@ -192,7 +189,7 @@ ExpressRoute premium is a collection of features listed below.
 
 * Increased routing table limit from 4000 routes to 10,000 routes for private peering.
 * Increased number of VNets that can be connected to the ExpressRoute circuit (default is 10). See table below for more details.
-* Global connectivity over the Microsoft core network. You will now be able to link a VNet in one geopolitical region with an ExpressRoute circuit in another region. **Example:** You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley.
+* Global connectivity over the Microsoft core network. You will now be able to link a VNet in one geopolitical region with an ExpressRoute circuit in another region. **Example:** You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley. **Other example:** On the public peering, prefixes from other geopolitical regions are advertised such that you can connect to, for example, SQL Azure in Europe West from a circuit in Silicon Valley.
 * Connectivity to Office 365 services and CRM Online.
 
 ### How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
