@@ -1,7 +1,6 @@
 # Overview
 ## [What is Operations Management Suite?](operations-management-suite-overview.md)
 ## [OMS architecture](operations-management-suite-architecture.md)
-## [Management solutions](operations-management-suite-solutions.md)
 
 # Get started
 ## Insight & analytics
@@ -32,6 +31,7 @@
 ### [System update assessment](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Connect security products](oms-security-connect-products.md)
 ## Use solutions
+### [Management solutions](operations-management-suite-solutions.md)
 ### Insight & analytics
 #### [AD Assessment](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD Replication Status](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
