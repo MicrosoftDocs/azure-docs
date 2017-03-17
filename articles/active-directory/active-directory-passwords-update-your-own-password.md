@@ -18,143 +18,140 @@ ms.author: joflore
 
 ---
 # Update your own password
-If you are unsure how to manage your work or school account password, you've come to the right place. Learn how to register for password reset, change a password, or reset a password.
+If you are unsure how to manage your work or school account password, you've come to the right place. Learn how to register for password reset, change a password, or reset a password and how to unlock your account.
 
 
-## Don’t lose access to your account!
+## Register for password reset
 > [!IMPORTANT]
 > **Why am I seeing this?** If you followed a link to get here, you're probably seeing this because your administrator requires you to register for password reset to gain access to your app. You might be asked for phone or email information, or to set up security questions. Don’t worry--we only use this information to keep your account more secure. The steps presented here should help you to reach your goal.
 >
 >
-
 The fastest way to register for password reset is to go to [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).  
 
 1. Go to [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).
 2. Enter your username and password.
-3. Choose an option to register for by clicking **set it up now**. In this example, I demonstrate registering my **authentication phone**. Your administrator may require you to register for more than one option. 
+3. Click **Set it up now** to choose an option to register for. This example shows how to register using **Authentication Phone**. Your administrator may require you to register for more than one option. 
 
    ![Setup options][101]
-4. Select your country code from the drop-down list box, enter your **full phone number including area code**, and choose **text me** or **call me**. Either option provides you with a code. In this example, I chose text me.
+4. Select your country code from the drop-down list box, enter your **full phone number including area code**, and choose **text me** or **call me**. Either option provides you with a code.
 
-   ![Verification][102]
-5. After the code arrives, enter it in the input box, and then click **verify**. 
+   ![Phone verification][102]
+5. Enter the code you received, and then click **verify**. 
 
-   ![Recovery information][103]
-6. When you see **finish**, that's it! Now you can use what you registered for to reset your password at any time by going to [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
+   ![Verification code sample][103]
+6. Click **finish** to complete your password reset. Now you can use what you registered for to reset your password at any time by going to [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
 
-   ![][104]
+   ![Recovery information][104]
 
    > [!IMPORTANT]
    > If your admin lets you register for more than one option, we highly recommend you also register a backup option in case you lose your phone or access to your email.
    >
    >
 
-## Change your password from Office 365
-Follow the steps below to change your work or school account password in Office 365. If you have forgotten your password and want to reset it, follow the steps [here](#how-to-reset-your-password).
+## Change your password in Office 365
+Follow the steps below to change your work or school account password in Office 365. If you have forgotten your password and want to reset it, follow the steps to [Reset your password](#how-to-reset-your-password).
 
 1. Sign in to Office 365 with your work or school account.
-2. Go to **Settings > **Office 365 settings** > **Password** > **Change password**.
-3. Type your old password, and then type a new password and confirm it.
+2. Go to **Settings** > **Office 365 settings** > **Password** > **Change password**.
+3. Enter your old password, and then enter a new password and confirm it.
 4. Click **Save**.
 
-You can read more about this on the [Office 365 documentation center](https://support.office.com/article/Change-my-password-in-Office-365-for-business-d1efbaee-63a7-4c08-ab1d-71bf932bbb5d).
+You can read more about this at the [Office 365 documentation center](https://support.office.com/article/Change-my-password-in-Office-365-for-business-d1efbaee-63a7-4c08-ab1d-71bf932bbb5d).
 
-## Change your password from the access panel
+## Change your password from the Access Panel
 Follow the steps below to change your work or school account password from the [Access Panel](https://myapps.microsoft.com). If you have forgotten your password and want to reset it, follow the steps [here](#how-to-reset-your-password).
 
-1. Sign into https://myapps.microsoft.com with your work or school account.
-2. Click the **profile** tab.
-3. Click the **change my password** tile on the right side of the screen.
-4. Type your old password, and then type a new password and confirm it.
-5. Click **Submit**.
+1. Sign in to https://myapps.microsoft.com with your work or school account.
+2. On the **Profile** tab, click **Change my password**.
+3. Enter your old password, and then enter a new password and confirm it.
+4. Click **Submit**.
 
-   Run into a problem changing your password?  Read about [common problems and their solutions](#common-problems-and-their-solutions).
+Run into a problem changing your password? Read about [common problems and their solutions](#common-problems-and-their-solutions).
 
 ## Reset your password
-Follow the steps below to reset your work or school account password from any work or school account sign-in screen.
+Follow the steps below to reset your work or school account password from any work or school account sign-in page.
 
 > [!IMPORTANT]
-> This feature is available to you only if your admin has turned it on. If it's not turned on, you will see a message indicating your account is not enabled for this feature. You can use the "contact your administrator" link in this case to get in touch with your admin to unlock your account.
+> This feature is available to you only if your admin has turned it on. If it's not turned on, you will see a message indicating your account is not enabled for this feature. Use the "Contact your administrator" link to get in touch with your admin to unlock your account.
 >
-> If your admin has enabled you for this feature, you are required to sign up before you can use it. You can do that at http://aka.ms/ssprsetup.
+> If your admin has enabled your account for this feature, you need to sign up before you can use it. You can do that at http://aka.ms/ssprsetup.
 >
 >
 
 1. On any work or school account sign-in page, click the "Can't access your account?" link or go to https://passwordreset.microsoftonline.com.
 
    ![Account sign-in][110]
-2. On the "Who are you?" page, enter your work or school account ID and prove you aren't a robot by passing the CAPTCHA challenge.
+
+2. On the "Who are you?" page, enter your work or school account ID and prove you aren't a robot by passing the CAPTCHA challenge. Click **Next**.
 
    ![Identity confirmation][111]
-3. Click **Next**.
-4. Choose an option to reset your password. Depending on how your admin has configured the system, you might see one or more of the following choices:
 
-   * **Email my alternate email** - sends an email with a 6-digit code to either your **alternate email** or **authentication email** (you choose).
-   * **Text my mobile phone** - texts your phone with a 6-digit code to either your **mobile phone** or **authentication email** (you choose).
-   * **Call my mobile phone** - calls your **mobile phone** or **authentication phone** (you choose) - press the *#* key to verify the call.
-   * **Call my office phone** - calls your **office phone** - press the *#* key to verify the call.
-   * **Answer my security questions** - displays your pre-registered security questions for you to answer.
+3. Choose an option to reset your password. Depending on how your admin has configured the system, you might see one or more of the following choices:
+
+   * **Email my alternate email:** Sends an email with a 6-digit code to either your **alternate email** or **authentication email** (you choose).
+   * **Text my mobile phone:** Texts your phone with a 6-digit code to either your **mobile phone** or **authentication email** (you choose).
+   * **Call my mobile phone:** Calls your **mobile phone** or **authentication phone** (you choose). Press the *#* key to verify the call.
+   * **Call my office phone:** Calls your **office phone**. Press the *#* key to verify the call.
+   * **Answer my security questions:** Displays your preregistered security questions for you to answer.
 
    ![Password reset options][109]
-5. We'll use the "text my mobile phone" option as an example. If you are using a phone-based option, you must verify your phone number before a text can be sent. Enter your full phone number, and then click **Text** to verify that it's correct to send a text.
 
-6. When you receive the text, make sure you use the verification code in the message body, not the number the code was sent from. It might take several minutes to get the text.
+4. For phone-based options, enter your full phone number, and click **Text** to verify that it's correct. A text with a 6-digit code is then sent to your phone.
 
-7. Enter the code you just received on your phone into the input box on the page, and click **Next**.
+5. Enter the 6-digit code you received, and click **Next**.
 
-8. Your administrator may require an additional verification step. If so, repeat step 4 with a different option selected.
-9. On the "Choose a new password" screen, select a new password and confirm your choice, and then click **Finish**.
+6. Your administrator may require an additional verification step. If so, repeat step 3 with a different option selected.
 
-   ![][107]
+7. On the "Choose a new password" page, enter a new password and confirm your choice, and then click **Finish**.
 
-10. After your password is accepted, you can sign in with the new password.
+   ![New password confirmation][107]
 
-    ![][108]
+8. After your password is accepted, you can sign in with the new password.
+
+    ![Password reset confirmation][108]
 
 Run into a problem resetting your password? Read about [common problems and their solutions](#common-problems-and-their-solutions).
 
-## How to unlock your account
-Follow the steps below to unlock your local account from any work or school account sign-in screen. 
+## Unlock your account
+Follow the steps below to unlock your local account from any work or school account sign-in page. 
 
 > [!NOTE]
 > You are only able to unlock your account if it has been locked on-premises.
 
 > [!IMPORTANT]
-> This feature is only available to you if your admin has turned it on. If it's not turned on, you'll see a message indicating your account is not enabled for this feature. You can use the "contact your administrator" link in this case to get in touch with your admin to unlock your account.
+> This feature is available to you only if your admin has turned it on. If it's not turned on, you will see a message indicating your account is not enabled for this feature. Use the "Contact your administrator" link to get in touch with your admin to unlock your account.
 >
-> If your admin has enabled you for this feature, you'll first need to sign up before you can use it. You can do that here at http://aka.ms/ssprsetup.
+> If your admin has enabled your account for this feature, you need to sign up before you can use it. You can do that at http://aka.ms/ssprsetup.
 >
 >
 
-1. On any work or school account sign-in page, click the "can't access your account?" link, or go to https://passwordreset.microsoftonline.com directly.
+1. On any work or school account sign-in page, click the "Can't access your account?" link or go to https://passwordreset.microsoftonline.com.
 
-   ![][110]
-2. On the "who are you?" page, enter your work or school account ID and prove you aren't a robot by passing the CAPTCHA challenge.
+   ![Account sign-in][110]
+2. On the "Who are you?" page, enter your work or school account ID and prove you aren't a robot by passing the CAPTCHA challenge. Click **Next**.
 
-   ![][111]
-3. Click the "Next" button.
-4. Choose an option to unlock your account. Depending on how your administrator has configured the system, you might see one or more of the following choices:
+   ![Identity confirmation][111]
+3. Choose an option to unlock your account. Depending on how your administrator has configured the system, you might see one or more of the following choices:
 
-   * **Email my alternate email** - sends an email with a 6-digit code to either your **alternate email** or **authentication email** (you choose).
-   * **Text my mobile phone** - texts your phone with a 6-digit code to either your **mobile phone** or **authentication email** (you choose).
-   * **Call my mobile phone** - calls your **mobile phone** or **authentication phone** (you choose) - press the *#* key to verify the call.
-   * **Call my office phone** - calls your **office phone** - press the *#* key to verify the call.
-   * **Answer my security questions** - displays your pre-registered security questions for you to answer.
+   * **Email my alternate email:** Sends an email with a 6-digit code to either your **alternate email** or **authentication email** (you choose).
+   * **Text my mobile phone:** Texts your phone with a 6-digit code to either your **mobile phone** or **authentication email** (you choose).
+   * **Call my mobile phone:** Calls your **mobile phone** or **authentication phone** (you choose). Press the *#* key to verify the call.
+   * **Call my office phone:** Calls your **office phone**. Press the *#* key to verify the call.
+   * **Answer my security questions:** Displays your pre-registered security questions for you to answer.
 
-   ![][112]
-5. We'll use the "Answer my security questions" option as an example. Fill in the answers to your security questions and select **Next** to verify your identity.
+   ![Identity verification options][112]
+4. With the "Answer my security questions" option selected, fill in the answers to your security questions, and click **Next** to verify your identity.
 
-6. Your administrator may require an additional verification step, in which case you must repeat step 4 with a different option selected.
-7. Once you see the success page, you are good to go! Your on-premises account has been unlocked and you can now sign in once more.
+5. Your administrator may require an additional verification step. If so, repeat step 3 with a different option selected.
+6. When you see the success page, you're good to go! Your on-premises account has been unlocked, and you can now sign in.
 
-   ![][113]
+   ![Unlocked account sign-in][113]
 
    > [!IMPORTANT]
-   > Make sure you update all your devices to your newest password, as oftentimes a rogue app with an old password (like your phone email client) can be the culprit behind why your account got locked out in the first place.
+   > Make sure you update all your devices to your new password. Oftentimes a rogue app with an old password (like your phone email client) can be the culprit behind why your account got locked out in the first place.
    >
    >
 
-Run into a problem unlocking your account? Read about [common problems and their solutions](#common-problems-and-their-solutions).
 
 ## Common problems and their solutions
 Here are some common error cases and their solutions:
@@ -163,7 +160,7 @@ Here are some common error cases and their solutions:
           <tbody><tr>
             <td>
               <p>
-                <strong>Error Case</strong>
+                <strong>Error case</strong>
               </p>
             </td>
             <td>
@@ -179,35 +176,35 @@ Here are some common error cases and their solutions:
           </tr>
           <tr>
             <td>
-              <p>I get a "please contact your admin" page after entering my user ID</p>
+              <p>I get a "Please contact your admin" page after entering my user ID</p>
             </td>
             <td>
-              <p>Please contact your admin <br><br>We've detected that your user account password is not managed by Microsoft. As a result, we are unable to automatically reset your password. <br><br>You will need to contact your admin or helpdesk for any further assistance. </p>
+              <p>Please contact your admin. <br><br>We've detected that your user account password is not managed by Microsoft. As a result, we are unable to automatically reset your password. <br><br>You will need to contact your admin or helpdesk for any further assistance. </p>
             </td>
             <td>
-              <p>You are seeing this message because your administrator manages your password in your on-premises environment and does not allow you to reset your password from the <b>Can't access your account link</b>. <br><br> To reset your password, please contact your administrator directly for help, and let him or her know you want to reset your password from Office 365 so he or she can enable this feature for you.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>I get a "your account is not enabled for password reset" error after entering my user ID</p>
-            </td>
-            <td>
-              <p>Your account is not enabled for password reset<br><br>We're sorry, but your administrator has not set up your account for use with this service.<br><br> If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
-            </td>
-            <td>
-              <p>You are seeing this message because your administrator has not enabled password reset for your organization from the <b>Can't access your account</b> link, or hasn't licensed you to use the feature. <br><br> To reset your password, click the <b>contact an administrator</b> link to send an email to your company's admin, and let him or her know you want to reset your password from Office 365 so he or she can enable this feature for you.</p>
+              <p>You are seeing this message because your administrator manages your password in your on-premises environment and does not allow you to reset your password from the <b>Can't access your account</b> link. <br><br> To reset your password, please contact your administrator directly for help. Let your admin know you want to reset your password from Office 365 so he or she can enable this feature for you.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>I get a "we could not verify your account" error after entering my user ID</p>
+              <p>I get a "Your account is not enabled for password reset" error after entering my user ID</p>
             </td>
             <td>
-              <p>We could not verify your account<br><br>If you'd like, we can contact an administrator in your organization to reset your password for you. </p>
+              <p>Your account is not enabled for password reset.<br><br>Your administrator has not set up your account for use with this service.<br><br> If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
             </td>
             <td>
-              <p>You are seeing this message because you are enabled for password reset, but you have not registered to use the service. To register for password reset, go to http://aka.ms/ssprsetup after you have regained access to your account. <br><br> To reset your password, click the <b>contact an administrator</b> link to send an email to your company's admin.</p>
+              <p>You are seeing this message because your administrator has not enabled password reset for your organization from the <b>Can't access your account</b> link, or hasn't licensed you to use the feature. <br><br> To reset your password, click the <b>Contact an administrator</b> link to send an email to your organization's admin. Let your admin know you want to reset your password in Office 365 so that he or she can enable this feature for you.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>I get a "We could not verify your account" error after entering my user ID</p>
+            </td>
+            <td>
+              <p>We could not verify your account.<br><br>If you'd like, we can contact an administrator in your organization to reset your password for you. </p>
+            </td>
+            <td>
+              <p>You are seeing this message because you are enabled for password reset, but you have not registered to use the service. To register for password reset, go to http://aka.ms/ssprsetup after you have regained access to your account. <br><br> To reset your password, click the <b>Contact an administrator</b> link to send an email to your organization's admin.</p>
             </td>
           </tr>
         </tbody></table>
