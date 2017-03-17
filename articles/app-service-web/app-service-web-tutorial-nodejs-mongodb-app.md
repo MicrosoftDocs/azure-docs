@@ -34,13 +34,13 @@ This step helps you create an Express.js app quickly, which you will use for the
 
 2. Install the [Express.js application generator](https://expressjs.com/starter/generator.html).
 
-    ```shell
+    ```
     npm install express-generator -g
     ```
 
 3. In your working directory, create an Express.js app with the generator and run it:
 
-    ```shell
+    ```
     express expressAzureTutorial --git
     cd expressAzureTutorial
     npm install
@@ -51,7 +51,7 @@ This step helps you create an Express.js app quickly, which you will use for the
 
 4. Initialize a Git repository and commit your files. In the application root (where package.json is), run the following Git commands:
 
-    ```shell
+    ```
     git init
     git add .
     git commit -m "first commit in this Azure tutorial!"
@@ -175,13 +175,13 @@ In this step, you connect your Express.js app to a MongoDB instance. For MongoDB
 
 3. In your command-line terminal, from your Express.js app's root directory, install the [MongoDB NPM package](https://www.npmjs.com/package/mongodb).
 
-    ```shell
+    ```
     npm install mongodb --save
     ```
 
 4. In your Express.js project, open `routes/index.js` and replace the content with the following code. This code connects to the MongoDB URL, inserts a document, and outputs all the documents as JSON to the view. 
 
-    ```javascript
+    ```nodejs
     var express = require('express');
     var router = express.Router();
     var MongoClient = require('mongodb').MongoClient;
@@ -215,7 +215,7 @@ In this step, you connect your Express.js app to a MongoDB instance. For MongoDB
 
 6. Back in the terminal, push your changes to Azure.
 
-    ```shell
+    ```
     git add .
     git commit -m "added MongoDB access code."
     git push azure master
