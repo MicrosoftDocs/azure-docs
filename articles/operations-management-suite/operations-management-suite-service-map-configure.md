@@ -163,9 +163,11 @@ If you run into any problems installing or running Service Map, this section can
 #### Installer asks for a reboot
 The Dependency Agent *generally* does not require a reboot upon installation or uninstallation.  However, in certain rare cases, a Windows Server will require a reboot to continue with an installation.  This happens when a dependency, usually the Microsoft VC++ Redistributables, requires a reboot due to a locked file.
 
-#### Message "Unable to install Dependency Agent: Visual Studio Runtime libraries failed to install (code = [code_number]). "
+#### Message "Unable to install Dependency Agent: Visual Studio Runtime libraries failed to install (code = [code_number])."
 
 The Microsoft Dependency Agent is built upon the Microsoft Visual Studio Runtime Libraries. An issue was encountered while trying to install the libraries. The runtime library installers create logs in the %LOCALAPPDATA%\temp folder. The file will be dd_vcredist_arch_yyyymmddhhmmss.log, where arch will be "x86" or "amd64" and yyyymmddhhmmss will be the date and time (24 hour clock) when the log was created. The log will provide details about the issue blocking installation.
+
+It might be useful to install the [latest Runtime Libraries](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) yourself first.
 
 Below are some code_numbers and suggested resolutions.
 
