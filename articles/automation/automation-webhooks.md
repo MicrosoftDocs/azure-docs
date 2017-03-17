@@ -70,7 +70,7 @@ Then you would pass the following JSON value in the UI for the WebhookData param
 
 > [!NOTE]
 > The values of all input parameters are logged with the runbook job.  This means that any input provided by the client in the webhook request will be logged and available to anyone with access to the automation job.  For this reason, you should be cautious about including sensitive information in webhook calls.
-> 
+>
 
 ## Security
 The security of a webhook relies on the privacy of its URL which contains a security token that allows it to be invoked. Azure Automation does not perform any authentication on the request as long as it is made to the correct URL. For this reason, webhooks should not be used for runbooks that perform highly sensitive functions without using an alternate means of validating the request.
@@ -263,5 +263,3 @@ The following sample runbook is triggered when the alert rule becomes active and
 * For details on different ways to start a runbook, see [Starting a Runbook](automation-starting-a-runbook.md).
 * For information on viewing the Status of a Runbook Job, refer to [Runbook execution in Azure Automation](automation-runbook-execution.md).
 * To learn how to use Azure Automation to take action on Azure Alerts, see [Remediate Azure VM Alerts with Automation Runbooks](automation-azure-vm-alert-integration.md).
-* To learn how to invoke a runbook from an OMS Log Analytics alert, see [Runbook Actions with Log Analytics Alerts](../log-analytics/log-analytics-alerts.md#runbook-actions).
-

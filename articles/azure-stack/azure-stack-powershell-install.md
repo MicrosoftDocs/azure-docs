@@ -65,10 +65,10 @@ To install the Azure Stack PowerShell modules on a computer, which doesn’t alr
 2. In addition to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules such as AzureStackAdmin, AzureStackStorage, etc. by running the following command:
  ```powershell
     # To install the module in current user scope
-    Install-Module -Name AzureStack -Scope CurrentUser
+    Install-Module -Name AzureStack -RequiredVersion 1.2.8 -Scope CurrentUser
     
     # To install the module for all users on your computer. Run this command in an elevated PowerShell session
-    Install-Module -Name AzureStack
+    Install-Module -Name AzureStack -RequiredVersion 1.2.8
 ```
 
 3. To confirm the installation of AzureRM modules, run the following command:

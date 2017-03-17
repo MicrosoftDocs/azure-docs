@@ -15,7 +15,19 @@ ms.author: carolz
 ---
 # Azure Web Apps Documentation
 
-Learn how to use App Service Web Apps to build and host websites and web applications. Tutorials, videos, API references, and other documentation show you how to develop on this fully manage compute platform.
+<div class="introHolder">
+    <div class="intro">
+        Learn how to use App Service Web Apps to build and host websites and web applications. Tutorials, videos, API references, and other documentation show you how to develop on this fully manage compute platform.
+    </div>
+    <div class="calloutHolder">
+        <div class="callout">
+            <a href="https://azure.microsoft.com/community/training/courses/developing-dotnet-microsoft-azure-getting-started/">
+                <img src="media/index/pluralsight.svg" />
+                Free PluralSight video training - Developing with .NET on Microsoft Azure
+            </a>
+        </div>
+    </div>
+</div>
 
 <ul class="panelContent cardsFTitle">
     <li>

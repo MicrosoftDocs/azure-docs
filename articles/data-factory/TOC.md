@@ -50,6 +50,8 @@
 #### [Oracle](data-factory-onprem-oracle-connector.md)
 #### [PostgreSQL](data-factory-onprem-postgresql-connector.md)
 #### [Salesforce](data-factory-salesforce-connector.md)
+#### [SAP Business Warehouse](data-factory-sap-business-warehouse-connector.md)
+#### [SAP HANA](data-factory-sap-hana-connector.md)
 #### [SQL Server](data-factory-sqlserver-connector.md)
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
