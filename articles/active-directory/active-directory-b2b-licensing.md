@@ -31,7 +31,7 @@ Any paid Azure AD features, extended to B2B users via B2B collaboration function
 - A customer has 10 employees who are all currently licensed with Azure AD Premium P1. They now want to invite 60 B2B users, who will all require multi-factor authentication (MFA). Per the 5:1 licensing rule, the customer must have at least 12 Azure AD Premium P1 licenses to cover all 60 B2B collaboration users. Since they already have 10 Premium P1 licenses for their 10 employees, they already have rights to invite 50 B2B users with Premium P1 features like MFA. So in this example, they need to purchase 2 additional Premium P1 licenses to cover the remaining 10 B2B collaboration users.
 
 > [!NOTE]
-There is no facility or need to assign licenses to the B2B users to enable these B2B collaboration user rights.
+> There is no facility or need to assign licenses to the B2B users to enable these B2B collaboration user rights.
 
 The customer who owns the inviting tenant must be the one to determine how many B2B collaboration users need paid Azure AD capabilities and depending on whether they are Basic, Premium P1, or Premium P2 level features, customers must have the sufficient number of the appropriate Azure AD paid licenses to cover their B2B collaboration users in the 5:1 ratio. If a company needs additional B2B collaboration user rights, they must purchase the required Azure AD paid licenses.
 

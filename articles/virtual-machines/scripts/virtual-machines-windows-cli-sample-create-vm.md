@@ -20,9 +20,9 @@ ms.author: rclaus
 
 # Create a virtual machine with the Azure CLI
 
-This script creates an Azure Virtual Machine with a Windows Server 2016 operating system and related networking resources. Once the script has been successfully run, the virtual Machine can be accessed via RDP.
+This script creates an Azure Virtual Machine running Windows Server 2016. After running the script, you can access the virtual machine through a Remote Desktop connection.
 
-Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, you should change the $AdminPassword variable at the start of the script to unique and meeting password complexity requirements.
+If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure.
 
 This sample works in a Bash Shell. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
@@ -32,7 +32,7 @@ This sample works in a Bash Shell. For options on running Azure CLI scripts on W
 
 ## Clean up deployment 
 
-After the script sample has been run, the following command can be used to remove the Resource Group, VM, and all related resources.
+Run the following command to remove the Resource Group, VM, and all related resources.
 
 ```azurecli
 az group delete --name myResourceGroup --yes

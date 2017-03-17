@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 03/08/2017
 ms.author: sdanie
 
 ---
@@ -55,6 +55,7 @@ The following FAQs cover basic concepts and questions about Azure Redis Cache an
 * [How can I run Redis commands?](#how-can-i-run-redis-commands)
 * [Why doesn't Azure Redis Cache have an MSDN class library reference like some of the other Azure services?](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
 * [Can I use Azure Redis Cache as a PHP session cache?](#can-i-use-azure-redis-cache-as-a-php-session-cache)
+* [What are Redis databases?](#what-are-redis-databases)
 
 ## Security FAQs
 * [When should I enable the non-SSL port for connecting to Redis?](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
@@ -259,6 +260,16 @@ Yes, to use Azure Redis Cache as a PHP session cache, specify the connection str
 >
 
 For more information about using Redis Cache as a PHP session cache with the PhpRedis client, see [PHP Session handler](https://github.com/phpredis/phpredis#php-session-handler).
+
+### What are Redis databases?
+
+Redis Databases are just a logical separation of data within the same Redis instance. The cache memory is shared between all the databases and actual memory consumption of a given database depends on the keys/values stored in that database. For example a C6 cache has 53 GB of memory. You can choose to put all 53 GB into one database or you can split it up between multiple databases. 
+
+> [!NOTE]
+> When using a Premium Azure Redis Cache with clustering enabled, only database 0 is available. This limitation is an intrinsic Redis limitation and is not specific to Azure Redis Cache. For more information, see [Do I need to make any changes to my client application to use clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+> 
+> 
+
 
 <a name="cache-ssl"></a>
 

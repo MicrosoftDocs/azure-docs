@@ -43,7 +43,7 @@ your template should show that **Mode** set to **Webhook**
 and **Webhook type** is set to **Generic JSON**. 
 
 Webhook functions accept a request and pass it into the method via a `data` variable. 
-You can access the properties of your payload by using dot notation like `data.foo`. 
+You can access the properties of your payload by using dot notation like `data.function-name`. 
 For example, a simple JavaScript function that converts a DateTime value into a 
 date string looks like the following example:
 

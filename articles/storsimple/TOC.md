@@ -161,6 +161,7 @@
 
 ### Troubleshoot
 #### [Deployment issues](storsimple-troubleshoot-deployment.md)
+#### [Using diagnostics tool](storsimple-8000-diagnostics.md)
 #### [Operational issues](storsimple-troubleshoot-operational-device.md)
 #### [Hardware replacement](storsimple-hardware-component-replacement.md)
 ##### [Replace device controller](storsimple-controller-replacement.md)
