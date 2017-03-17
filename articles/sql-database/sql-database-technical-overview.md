@@ -26,9 +26,9 @@ This article is an introduction to SQL Database core concepts and features relat
  - [Create a SQL database with the Azure CLI](sql-database-get-started-cli.md)
  - [Create a SQL database using PowerShell](sql-database-get-started-powershell.md)
 
- For a set of samples, see:
-  - [Azure CLI samples for Azure SQL Database](sql-database-cli-samples.md)
-  - [Azure PowerShell samples for Azure SQL Database](sql-database-powershell-samples.md)
+ For a set of Azure CLI and PowerShell samples, see:
+ - [Azure CLI samples for Azure SQL Database](sql-database-cli-samples.md)
+ - [Azure PowerShell samples for Azure SQL Database](sql-database-powershell-samples.md)
 
 ## Adjust performance and scale without downtime
 The SQL Database service offers three service tiers: Basic, Standard, and Premium. Each service tier offers [different levels of performance and capabilities](sql-database-service-tiers.md) to support lightweight to heavyweight database workloads. You can build your first app on a small database for a few bucks a month and then [change its service tier](sql-database-service-tiers.md) manually or programmatically at any time to meet the needs of your solution. You can do this without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
