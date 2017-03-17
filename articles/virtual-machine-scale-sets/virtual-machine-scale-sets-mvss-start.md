@@ -23,9 +23,9 @@ ms.author: negat
 
 [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) are a great way to deploy groups of related resources. This tutorial shows how to create a minimum viable scale set template and modify it to suit various scenarios.
 
-All examples come from this [GitHub repository](https://github.com/gatneil/mvss). Each diff shown in this walkthrough is the result of doing a `git diff` between branches in this repository. These templates and diffs are not full-fledged examples. For more complete examples of scale set templates, see the [Azure Quickstart Templates GitHub repository](https://github.com/Azure/azure-quickstart-templates) and search for folders that contain the string `vmss`.
+All examples come from [this GitHub repository](https://github.com/gatneil/mvss). Each diff shown in this walkthrough is the result of doing a `git diff` between branches in this repository. These templates and diffs are not full-fledged examples. For more complete examples of scale set templates, see the [Azure Quickstart Templates GitHub repository](https://github.com/Azure/azure-quickstart-templates) and search for folders that contain the string `vmss`.
 
-If you are already familiar with creating templates, you can skip to the "Next Steps" section to see how to modify this template.
+If you are already familiar with creating templates, you can skip to the "Next steps" section to see how to modify this template.
 
 ## Review the template
 
@@ -55,7 +55,7 @@ Next, we define two parameters, `adminUsername` and `adminPassword`. Parameters 
 +  },
 ```
 ## Define variables
-Resource Manager templates also allow you to define variables to be used later in the template. Our example doesn't use any variables, so we've left the JSON object empty.
+Resource Manager templates also let you define variables to be used later in the template. Our example doesn't use any variables, so we've left the JSON object empty.
 
 ```diff
 +  "variables": {},
@@ -106,7 +106,7 @@ Each Resource Manager resource has its own `properties` section for configuratio
 +    },
 ```
 
-## dependsOn list
+## Add dependsOn list
 In addition to the required `type`, `name`, `apiVersion`, and `location` properties, each resource can have an optional `dependsOn` list of strings. This list specifies which other resources from this deployment must finish before deploying this resource.
 
 In this case, there is only one element in the list, the virtual network from the previous example. We specify this dependency because the scale set needs the network to exist before creating any VMs. This way, the scale set can give these VMs private IP addresses from the IP address range previously specified in the network properties. The format of each string in the dependsOn list is `<type>/<name>`. Use the same `type` and `name` used previously in the virtual network resource definition.
@@ -122,7 +122,7 @@ In this case, there is only one element in the list, the virtual network from th
 +      ],
 ```
 
-## VM size and capacity
+## Supply VM size and capacity
 The scale set needs to know what size of VM to create ("sku name") and how many such VMs to create ("sku capacity"). To see which VM sizes are available, see the [VM Sizes documentation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
 
 ```diff
@@ -132,7 +132,7 @@ The scale set needs to know what size of VM to create ("sku name") and how many 
 +      },
 ```
 
-## Manual and automatic updates
+## Choose type of updates
 The scale set also needs to know how to handle updates on the scale set. Currently, there are two options, `Manual` and `Automatic`. For more information on the differences between the two, see the documentation on [how to upgrade a scale set](./virtual-machine-scale-sets-upgrade-scale-set.md).
 
 ```diff
@@ -142,7 +142,7 @@ The scale set also needs to know how to handle updates on the scale set. Current
 +        },
 ```
 
-## VM operating system
+## Choose VM operating system
 The scale set needs to know what operating system to put on the VMs. Here, we create the VMs with a fully patched Ubuntu 16.04-LTS image.
 
 ```diff
@@ -171,7 +171,7 @@ In the following snippet, we use the parameters from before to set the administr
 ```
 
 ## Specify VM network configuration
-Finally, we need to specify the network configuration for the VMs in the scale set. In this case, we only need to specify the ID of the subnet  created earlier. This tells the scale set to put the network interfaces in this subnet.
+Finally, we need to specify the network configuration for the VMs in the scale set. In this case, we only need to specify the ID of the subnet created earlier. This tells the scale set to put the network interfaces in this subnet.
 
 You can get the ID of the virtual network containing the subnet by using the `resourceId` template function. This function takes in the type and name of a resource and returns the fully qualified identifier of that resource. This ID has the form: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/<resourceProviderNamespace>/<resourceType>/<resourceName>`
 
