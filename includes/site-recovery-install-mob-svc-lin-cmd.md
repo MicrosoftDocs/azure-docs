@@ -1,4 +1,4 @@
-1. Copy the installer to a local folder (for example, /tmp) on the server that you want to protect. Run the following commands from a terminal window:
+1. Copy the installer to a local folder (for example, /tmp) on the server that you want to protect. In a terminal, run the following commands:
   ```
   cd /tmp
   tar -xvzf Microsoft-ASR_UA*release.tar.gz
@@ -13,14 +13,14 @@
 
 |Parameter|Type|Description|Possible values|
 |-|-|-|-|
-|-t |Mandatory|Agent type<br>(This will be deprecated in the next release.)|*both*|
-|-a |Mandatory|Agent configuration<br>(This will be deprecated in the next release.) |*host*|
+|-t |Mandatory|Agent type<br>(deprecated in an upcoming release)|*both*|
+|-a |Mandatory|Agent configuration<br>(deprecated in an upcoming release) |*host*|
 |-R |Optional|Role of the agent|Agent<br>MasterTarget|
 |-d |Optional|Location where Mobility Service will be installed|/usr/local/ASR|
 |-i |Mandatory|IP address of the configuration server|Any valid IP address|
 |-p |Mandatory|Port on which the configuration server listens for incoming connections|443|
-|-s |Mandatory|Starts the service after a successful installation<br>(This will be deprecated in the next release.)|*y*|
-|-c |Mandatory|Communication mode between the agent and process server<br>(This will be deprecated in the next release.) |*https*|
+|-s |Mandatory|Starts the service after a successful installation<br>(deprecated in an upcoming release)|*y*|
+|-c |Mandatory|Communication mode between the agent and process server<br>(deprecated in an upcoming release) |*https*|
 |-P |Mandatory|Configuration server passphrase|Any valid UNC or local file path|
 
 

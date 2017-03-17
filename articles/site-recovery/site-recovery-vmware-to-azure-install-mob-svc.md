@@ -18,21 +18,21 @@ ms.author: anoopkv
 ---
 
 # Install Mobility Service (VMware or physical to Azure)
-Azure Site Recovery Mobility Service captures data writes on a computer, and forwards them to the process server. Deploy Mobility Service to every computer (VMware virtual machine or physical server) that you want to replicate to Azure. You can deploy Mobility Service to the servers that you want to protect by using the following methods:
+Azure Site Recovery Mobility Service captures data writes on a computer, and then forwards them to the process server. Deploy Mobility Service to every computer (VMware VM or physical server) that you want to replicate to Azure. You can deploy Mobility Service to the servers that you want to protect by using the following methods:
 
 
 * [Install Mobility Service by using software deployment tools like System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
-* [Install Mobility Service by using Azure Automation and Desired State Configuration (DSC)](site-recovery-automate-mobility-service-install.md)
+* [Install Mobility Service by using Azure Automation and Desired State Configuration (Automation DSC)](site-recovery-automate-mobility-service-install.md)
 * [Install Mobility Service manually by using the graphical user interface (GUI)](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-by-using-the-gui)
 * [Install Mobility Service manually at a command prompt](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-at-a-command-prompt)
 * [Install Mobility Service by push installation from Azure Site Recovery](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery)
 
 
 >[!IMPORTANT]
-> Beginning with version 9.7.0.0, on Windows virtual machines (VMs), the Mobility Service installer also installs the latest available [Azure VM agent](../virtual-machines/virtual-machines-windows-extensions-features.md#azure-vm-agent). This ensures that when a computer fails over to Azure, the computer meets this prerequisite for using any VM extension.
+> Beginning with version 9.7.0.0, on Windows virtual machines (VMs), the Mobility Service installer also installs the latest available [Azure VM agent](../virtual-machines/virtual-machines-windows-extensions-features.md#azure-vm-agent). When a computer fails over to Azure, the computer meets the agent installation prerequisite for using any VM extension.
 
 ## Prerequisites
-Complete these prerequisite steps before you manually install Mobility Service on your servers:
+Complete these prerequisite steps before you manually install Mobility Service on your server:
 1. Sign in to your configuration server, and then open a Command Prompt window as an administrator.
 2. Change the directory to the bin folder, and then create a passphrase file:
 
@@ -48,7 +48,7 @@ Complete these prerequisite steps before you manually install Mobility Service o
 | Installer file template name| Operating system |
 |---|--|
 |Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64-bit) </br> Windows Server 2012 (64-bit) </br> Windows Server 2012 R2 (64-bit) |
-|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8 (64-bit only) </br> CentOS 6.4, 6.5, 6.6, 6.7. 6.8 (64-bit only) |
+|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8 (64-bit only) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8 (64-bit only) |
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (64-bit only)|
 |Microsoft-ASR_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (64-bit only)|
 
@@ -70,7 +70,7 @@ Complete these prerequisite steps before you manually install Mobility Service o
 
 
 ## Install Mobility Service by push installation from Azure Site Recovery
-To do a push installation of Mobility Service by using Azure Site Recovery, you need to meet the following prerequisites on all target computers.
+To do a push installation of Mobility Service by using Site Recovery, all target computers must meet the following prerequisites.
 
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-win](../../includes/site-recovery-prepare-push-install-mob-svc-win.md)]
 
