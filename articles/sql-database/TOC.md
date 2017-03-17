@@ -9,6 +9,8 @@
 ## Manage
 ### [Connect - SSMS](sql-database-connect-query-ssms.md)
 ### [Connect - VS Code](sql-database-connect-query-vscode.md)
+## Develop
+### [Connect - C#](sql-database-connect-query-dotnet.md)
 # Samples
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
