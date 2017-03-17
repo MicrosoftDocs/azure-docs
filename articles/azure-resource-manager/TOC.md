@@ -61,7 +61,7 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
-## [Template schemas](https://github.com/Azure/azure-resource-manager-schemas)
+## [Template format](/azure/templates/)
 ## [REST](/rest/api/resources/)
 
 # Resources
