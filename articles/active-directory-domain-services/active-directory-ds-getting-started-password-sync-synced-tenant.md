@@ -36,7 +36,7 @@ The steps involved are different based on whether your organization has a cloud-
 A synced Azure AD tenant is set to synchronize with your organization's on-premises directory using Azure AD Connect. Azure AD Connect does not synchronize NTLM and Kerberos credential hashes to Azure AD by default. To use Azure AD Domain Services, you need to configure Azure AD Connect to synchronize credential hashes required for NTLM and Kerberos authentication. 
 
 > [!WARNING]
-> You MUST enable password synchronization to AAD Domain Services every single time you enable Azure AD Domain Services. Even if you had previously enabled Azure AD Domain Servcies for your Azure AD directory and then turned if off, you must enable password synchronization the next time you enable Azure AD Domain Services for the directory.
+> You MUST enable password synchronization to AAD Domain Services every time you enable Azure AD Domain Services. You may have previously enabled Azure AD Domain Services for your Azure AD directory and then turned if off. However, you must still enable password synchronization the next time you enable Azure AD Domain Services for the directory.
 >
 >
 
