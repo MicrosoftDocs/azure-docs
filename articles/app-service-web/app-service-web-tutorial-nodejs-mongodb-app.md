@@ -133,8 +133,8 @@ In this step, you create the Azure resources you need to host the Express.js app
 
 Congratulations, your app is now running in Azure. But how can you get the console output to help you debug your app in Azure? You will find out next.
 
-## Step 2 - Stream debugging messages
-In this step, you learn how to stream the console messages from Azure directly to your terminal.
+## Step 2 - Stream debug messages
+In this step, you learn how to stream the console debug messages from Azure directly to your terminal.
 
 2. Start log streaming.
 
