@@ -16,7 +16,19 @@ ms.author: carolz
 
 # SQL Database Documentation
 
-Learn how to use SQL Database, a relational database-as-a-service in the cloud built on the Microsoft SQL Server engine. Tutorials, videos, and other documentation show you how to set up, connect, and manage a SQL database.
+<div class="introHolder">
+    <div class="intro">
+        Learn how to use SQL Database, a relational database-as-a-service in the cloud built on the Microsoft SQL Server engine. Tutorials, videos, and other documentation show you how to set up, connect, and manage a SQL database.
+    </div>
+    <div class="calloutHolder">
+        <div class="callout">
+            <a href="https://azure.microsoft.com/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
+                <img src="media/images/pluralsight.svg"/>
+                Free PluralSight video training Managing Infrastructure using Microsoft Azure
+            </a>
+        </div>
+    </div>
+</div>
 
 <ul class="panelContent cardsFTitle">
      <li>
