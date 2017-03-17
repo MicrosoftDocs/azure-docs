@@ -23,7 +23,7 @@ ms.author: zakramer
 Visual Studio is used by developers to easily manage their Azure subscriptions while building solutions.  Visual Studio does not currently allow you to configure a connection to Azure Government in the user interface.  
 
 ## Visual Studio 2017
-Visual Studio 2017 requires a configuration file for Visual Studio to connect to Azure Government.  With this file is inplace Visual Studio connects to Azure Government instead of Azure Public.
+Visual Studio 2017 requires a configuration file for Visual Studio to connect to Azure Government.  With this file inplace Visual Studio connects to Azure Government instead of Azure Public.
 
 ### Create a configuration file for Azure Government
 Create a file named **AadProvider.Configuration.json** with the following content:
