@@ -1,10 +1,10 @@
 # [Overview](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
 # Quickstarts
 ## Mobile and PC apps
-### [iOS](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-applications-are-added)
-### [Android](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-applications-are-added)
-### [WP](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-applications-are-added)
-### [.NET](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-applications-are-added)
+### [iOS](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-ios)
+### [Android](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-android)
+### [WP](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-windowsphone)
+### [.NET](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-dotnet)
 ### [Windows store](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-windowsstore)
 ### [Xamarin](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-xamarin)
 ### [Cordova](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-cordova)
@@ -18,20 +18,12 @@
 ## Web API
 ### [Web API and .NET](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet)
 ### [NodeJS](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-webapi-nodejs)
-## Single-page app
-### SPA Quickstart
-## Multihop service to service
-### Service-to-service quickstart
-## Microservice
-### Microservice quickstart
 # Guides
-## [Authentication patterns](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-scenarios#basics-of-authentication-in-azure-ad)
+## [Authentication patterns](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-scenarios#basics-of-authentication-in-azure-ad)Until we actually break this article up, I am just linking to subsections in the main article
 ### [Native apps](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-scenarios#native-application-to-web-api)
 ### [Web apps](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-scenarios#web-application-to-web-api)
 ### [Web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-scenarios#web-application-to-web-api)
 ### [Single-page app](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-scenarios#single-page-application-spa)
-### [Multihop service to service](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-scenarios#daemon-or-server-application-to-web-api)
-### [Microservice](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-scenarios#daemon-or-server-application-to-web-api)
 ## [Oauth 2.0 Implicit grant](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-dev-understanding-oauth2-implicit-grant)
 ## [Sign in any Azure AD user](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)
 ## [Enable SSO on Android](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-sso-android)
@@ -40,7 +32,16 @@
 ## [List your app in the gallery](http://docs.microsoft.com/en-us/azure/active-directory/active-directory-app-gallery-listing)
 ## [Understand the manifest](http://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-manifest)
 ## Working with SAML
+### [View SAML Returned by Access Control] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-java-view-saml-returned-by-access-control)
+### [AzureAD and SAML] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-saml-protocol-reference)
+### [Customize Claims] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-saml-claims-customization)
+### [Debug SAML-based SSO] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-saml-debugging)
 ## Working with Visual Studio
+### [Getting Started with Azure Active Directory and Visual Studio connected services (MVC Projects)] (https://docs.microsoft.com/en-us/azure/active-directory/develop/vs-active-directory-dotnet-getting-started)
+### [What happened to my MVC project] (Visual Studio Azure Active Directory connected service)?] (https://docs.microsoft.com/en-us/azure/active-directory/develop/vs-active-directory-dotnet-what-happened
+### [Error during authentication detection] (https://docs.microsoft.com/en-us/azure/active-directory/develop/vs-active-directory-error)
+### [Get started with WebApi] (https://docs.microsoft.com/en-us/azure/active-directory/develop/vs-active-directory-webapi-getting-started)
+### [What happened to my Web API project] (https://docs.microsoft.com/en-us/azure/active-directory/develop/vs-active-directory-webapi-what-happened)
 # Reference
 ## [Auth libraries](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-libraries)
 ## [App and service prinicpal objects](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects)
