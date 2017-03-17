@@ -4,7 +4,7 @@ description: Learn the different user experiences for App Service Web between th
 services: app-service
 documentationcenter: ''
 author: jaime-espinosa
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: 0cc6a3cc-bd89-4a96-9177-d25f6fb737bb

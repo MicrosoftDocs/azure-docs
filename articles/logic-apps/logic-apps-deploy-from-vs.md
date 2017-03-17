@@ -1,6 +1,6 @@
 ---
-title: Build and deploy Azure logic apps in Visual Studio | Microsoft Docs
-description: Create Visual Studio projects to design, build, and deploy logic apps in Azure.
+title: Create, build, and deploy logic apps in Visual Studio - Azure Logic Apps | Microsoft Docs
+description: Create Visual Studio projects so you can design, build, and deploy Azure Logic Apps.
 author: jeffhollan
 manager: anneta
 editor: ''
@@ -13,19 +13,23 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: jehollan
-
 ---
-# Build and deploy Azure logic apps in Visual Studio
+
+# Design, build, and deploy Azure Logic Apps in Visual Studio
 
 Although the [Azure portal](https://portal.azure.com/) 
-offers a great way for you to design and manage logic apps, 
-you might want to use Visual Studio for building and deploying logic apps. 
-Visual Studio provides rich tools for you to build logic 
-apps using the Logic Apps Designer, 
+offers a great way for you to create and manage Azure Logic Apps, 
+you might want to use Visual Studio for designing, building, 
+and deploying your logic apps. Visual Studio provides rich tools 
+like the Logic App Designer for you to create logic apps, 
 configure deployment and automation templates, 
-and deploy to any environment.
+and deploy to any environment. 
+
+To get started with Azure Logic Apps, learn 
+[how to create your first logic app in the Azure portal](logic-apps-create-a-logic-app.md).
 
 ## Installation steps
 
@@ -43,7 +47,7 @@ follow these steps.
 
 After you install the prerequisites:
 
-1. Open Visual Studio 2015. On the **Tools** menu, 
+1. Open Visual Studio. On the **Tools** menu, 
 select **Extensions and Updates**.
 2. Expand the **Online** category so you can search online.
 3. Browse or search for **Logic Apps** until 
@@ -84,7 +88,7 @@ After you select your template, click **OK**.
 
 	![Deployment file](./media/logic-apps-deploy-from-vs/deployment.png)
 
-## Create your logic app in Logic App Designer
+## Create your logic app with Logic App Designer
 
 When you have an Azure Resource Group project that contains a logic app, 
 you can open the Logic App Designer in Visual Studio to create your workflow. 
@@ -200,7 +204,7 @@ go to **File** > **Save**. (`Ctrl+S`)
 If your logic app has any errors when you save your app, 
 they appear in the Visual Studio **Outputs** window.
 
-## Deploy your logic app
+## Deploy your logic app from Visual Studio
 
 After configuring your app, 
 you can deploy directly from Visual Studio in just a couple steps. 
@@ -261,8 +265,7 @@ Name your logic app, and choose **Add**.
 
 ## Next Steps
 
-* To get started with Azure Logic Apps, 
-see this tutorial: [Create your first logic app](logic-apps-create-a-logic-app.md)
+* [Manage logic apps with Visual Studio Cloud Explorer](logic-apps-manage-from-vs.md)
 * [View common examples and scenarios](logic-apps-examples-and-scenarios.md)
 * [Learn how to automate business processes with Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694)
 * [Learn how to integrate your systems with Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)

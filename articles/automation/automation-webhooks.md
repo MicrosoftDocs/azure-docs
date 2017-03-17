@@ -1,5 +1,5 @@
 ---
-title: Azure Automation webhooks | Microsoft Docs
+title: Starting an Azure Automation runbook with a webhook | Microsoft Docs
 description: A webhook that allows a client to start a runbook in Azure Automation from an HTTP call.  This article describes how to create a webhook and how to call one to start a runbook.
 services: automation
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
+ms.date: 02/22/2017
 ms.author: magoedte;bwren;sngun
 
 ---
-# Azure Automation webhooks
-A *webhook* allows you to start a particular runbook in Azure Automation through a single HTTP request. This allows external services such as Visual Studio Team Services, GitHub, or custom applications to start runbooks without implementing a full solution using the Azure Automation API.  
+# Starting an Azure Automation runbook with a webhook
+A *webhook* allows you to start a particular runbook in Azure Automation through a single HTTP request. This allows external services such as Visual Studio Team Services, GitHub, Microsoft Operations Management Suite Log Analytics, or custom applications to start runbooks without implementing a full solution using the Azure Automation API.  
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 You can compare webhooks to other methods of starting a runbook in [Starting a runbook in Azure Automation](automation-starting-a-runbook.md)
@@ -30,7 +30,7 @@ The following table describes the properties that you must configure for a webho
 |:--- |:--- |
 | Name |You can provide any name you want for a webhook since this is not exposed to the client.  It is only used for you to identify the runbook in Azure Automation. <br>  As a best practice, you should give the webhook a name related to the client that will use it. |
 | URL |The URL of the webhook is the unique address that a client calls with an HTTP POST to start the runbook linked to the webhook.  It is automatically generated when you create the webhook.  You cannot specify a custom URL. <br> <br>  The URL contains a security token that allows the runbook to be invoked by a third party system with no further authentication. For this reason, it should be treated like a password.  For security reasons, you can only view the URL in the Azure portal at the time the webhook is created. You should note the URL in a secure location for future use. |
-| Expiration date |Like a certificate, each webhook has an expiration date at which time it can no longer be used.  This expiration date cannot be changed after the webhook is created, and the webhook also cannot be enabled again after the expiration date is reached.  In this case, you must create another webhook to replace the current one and update the client to use the new webhook. |
+| Expiration date |Like a certificate, each webhook has an expiration date at which time it can no longer be used.  This expiration date can be modified after the webhook is created. |
 | Enabled |A webhook is enabled by default when it is created.  If you set it to Disabled, then no client will be able to use it.  You can set the **Enabled** property when you create the webhook or anytime once it is created. |
 
 ### Parameters
@@ -70,8 +70,7 @@ Then you would pass the following JSON value in the UI for the WebhookData param
 
 > [!NOTE]
 > The values of all input parameters are logged with the runbook job.  This means that any input provided by the client in the webhook request will be logged and available to anyone with access to the automation job.  For this reason, you should be cautious about including sensitive information in webhook calls.
-> 
-> 
+>
 
 ## Security
 The security of a webhook relies on the privacy of its URL which contains a security token that allows it to be invoked. Azure Automation does not perform any authentication on the request as long as it is made to the correct URL. For this reason, webhooks should not be used for runbooks that perform highly sensitive functions without using an alternate means of validating the request.
@@ -261,7 +260,6 @@ The following sample runbook is triggered when the alert rule becomes active and
 
 
 ## Next steps
-* For details on different ways to start a runbook, see [Starting a Runbook](automation-starting-a-runbook.md)
-* For information on viewing the Status of a Runbook Job, refer to [Runbook execution in Azure Automation](automation-runbook-execution.md)
-* To learn how to use Azure Automation to take action on Azure Alerts, see [Remediate Azure VM Alerts with Automation Runbooks](automation-azure-vm-alert-integration.md)
-
+* For details on different ways to start a runbook, see [Starting a Runbook](automation-starting-a-runbook.md).
+* For information on viewing the Status of a Runbook Job, refer to [Runbook execution in Azure Automation](automation-runbook-execution.md).
+* To learn how to use Azure Automation to take action on Azure Alerts, see [Remediate Azure VM Alerts with Automation Runbooks](automation-azure-vm-alert-integration.md).

@@ -26,7 +26,7 @@ In this tutorial, we cover how to fully automate building and deploying a multi-
 ## Get started
 You can run this walkthrough on OS X, Windows, or Linux.
 - You need an Azure subscription. If you don't have one, you can [sign up for an account](https://azure.microsoft.com/).
-- Install the [Azure Command-line tools](https://github.com/Azure/azure-cli#microsoft-azure-cli-20---preview).
+- Install the [Azure CLI 2.0](/cli/azure/install-az-cli2).
 
 ## What we'll create
 Let's touch on some key aspects of the app and its deployment flow that we are setting up:
@@ -284,6 +284,7 @@ If you open the build definition in VSTS, you'll see something like this:
 	```
 
 	* For the label value, you can either specify the URL of your ACS agent's fully qualified domain name (FQDN), or a custom domain (for example, app.contoso.com). To find your ACS agent's FQDN, run the command `az acs list`, and check the property for `agentPoolProfiles.fqdn`. For example, `myacsagents.westus.cloudapp.azure.com`.
+	* The sample app by default is listening on port 80, for those who have their docker applications listening on other ports, for instance `port 8080` or `443`, attach the port number to the FQDN. For example, `myacsagents.westus.cloudapp.azure.com:8080`. However when you try to access the application from outside, you will need to query it at port 80.
 	* By following the filename convention docker-compose.env.*environment-name*.yml, these settings only affect the named environment (in this case, the environment named *Production*). Inspect the release definition in VSTS, each environment's deployment task is set up to read from a docker-compose file named after this convention.
 
 1. Commit and push the file to your master source repository to start another build.

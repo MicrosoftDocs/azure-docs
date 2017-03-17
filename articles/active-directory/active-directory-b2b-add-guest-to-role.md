@@ -1,6 +1,7 @@
 ---
-title: Adding an Azure Active Directory B2B collaboration user to a role | Microsoft Docs
-description: Azure Active Directory B2B collaboration user properties are configurable
+
+title: Add an Azure Active Directory B2B collaboration user to a role | Microsoft Docs
+description: Add a guest user to a role in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: sasubram
@@ -14,45 +15,28 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/03/2017
+ms.date: 03/15/2017
 ms.author: sasubram
+
+ms.custom: H1Hack27Feb2017                          
 
 ---
 
-# Adding an Azure Active Directory B2B collaboration user to a role
+# Grant permissions to users from partner organizations in your Azure Active Directory tenant
 
-While Azure Active Directory (Azure AD) B2B collaboration users are added as guest users to the directory and guest permissions in the directory are restricted by default, your business may need some guest users to fill more privilege roles in your organization. To support this, guest users can be added to any roles you desire, based on your organization's needs.
+Azure Active Directory (Azure AD) B2B collaboration users are added as guest users to the directory, and guest permissions in the directory are restricted by default. Your business may need some guest users to fill higher-privilege roles in your organization. To support defining higher-privilege roles, guest users can be added to any roles you desire, based on your organization's needs.
 
-## Default Role
+## Default role
 
-![default role](media/active-directory-b2b-add-guest-to-role/default-role.png)
+![default role](./media/active-directory-b2b-add-guest-to-role/default-role.png)
 
 ## Global Administrator Role
 
-![global admin role](media/active-directory-b2b-add-guest-to-role/global-admin-role.png)
+![global admin role](./media/active-directory-b2b-add-guest-to-role/global-admin-role.png)
 
 ## Limited Administrator Role
 
-![limited admin role](media/active-directory-b2b-add-guest-to-role/limited-admin-role.png)
-
-## Auditing and reporting
-With guest users, you now get auditing capabilities on par with member users. Here's an example below of the invitation and redemption history of the just invited Sam Oogle:
-
-![audit log](media/active-directory-b2b-add-guest-to-role/audit-log.png)
-
-You can dive into each of these events to get the details. For example, let's look at the acceptance details.
-
-![activity details](media/active-directory-b2b-add-guest-to-role/activity-details.png)
-
-You can also export these logs from Azure AD and use the reporting tool of your choice in order to get customized reports.
-
-## Resending Invitations
-It is now possible to go to a B2B collaboration user's profile page and resend invitations to not-yet-redeemed guest users for any reason:
-
-![resend invitation](media/active-directory-b2b-add-guest-to-role/resend-invitation.png)
-
-> ![NOTE]
-> This will resend an invitation from the signed-in user and invite the user to the directory, even if the original invitation was to a specific app or group.
+![limited admin role](./media/active-directory-b2b-add-guest-to-role/limited-admin-role.png)
 
 ## Next steps
 

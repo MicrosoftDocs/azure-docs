@@ -4,7 +4,7 @@ description: Learn how to create a Node.js RESTful API and deploy it to an API a
 services: app-service\api
 documentationcenter: node
 author: bradygaster
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
@@ -96,7 +96,7 @@ While App Service supports many ways to deploy your code to an API app, this tut
                 res.json(repository.all())
             }
         };
-3. Replace the code in the **handlers/contacts/{id}.js** file with the fofllowing code. 
+3. Replace the code in the **handlers/contacts/{id}.js** file with the following code. 
    
         'use strict';
    

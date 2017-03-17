@@ -1,6 +1,6 @@
 ---
-title: Author Logic App definitions | Microsoft Docs
-description: Learn how to write the JSON definition for Logic apps
+title: Define workflows with JSON - Azure Logic Apps | Microsoft Docs
+description: How to write workflow definitions in JSON for logic apps
 author: jeffhollan
 manager: anneta
 editor: ''
@@ -13,18 +13,29 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
 ms.author: jehollan
 
 ---
-# Author Logic App definitions
-This topic demonstrates how to use [Azure Logic Apps](logic-apps-what-are-logic-apps.md) definitions, which is a simple, declarative JSON language. If you haven't done so yet, check out [how to Create a new Logic app](logic-apps-create-a-logic-app.md) first. You can also read the [full reference material of the definition language on MSDN](http://aka.ms/logicappsdocs).
+# Create workflow definitions for logic apps using JSON
 
-## Several steps that repeat over a list
-You can leverage the [foreach type](logic-apps-loops-and-scopes.md) to repeat over an array of up to 10k items and perform an action for each.
+You can create workflow definitions for [Azure Logic Apps](logic-apps-what-are-logic-apps.md) 
+with simple, declarative JSON language. If you haven't already, first review 
+[how to create your first logic app with Logic App Designer](logic-apps-create-a-logic-app.md). 
+Also, see the [full reference for the Workflow Definition Language](http://aka.ms/logicappsdocs).
 
-## A failure-handling step if something goes wrong
-You commonly want to be able to write a *remediation step* — some logic that executes, if , **and only if**, one or more of your calls failed. In this example, we are getting data from a variety of places, but if the call fails, I want to POST a message somewhere so I can track down that failure later:  
+## Repeat steps over a list
+
+To iterate through an array that has up to 10,000 items and perform an action for each item, 
+use the [foreach type](logic-apps-loops-and-scopes.md).
+
+## Handle failures if something goes wrong
+
+Usually, you want to include a *remediation step* — some logic that executes 
+*if and only if* one or more of your calls fail. This example gets data 
+from various places, but if the call fails, we want to POST a message 
+somewhere so we can track down that failure later:  
 
 ```
 {
@@ -57,12 +68,18 @@ You commonly want to be able to write a *remediation step* — some logic that e
 }
 ```
 
-You can make use of the `runAfter` property to specify the `postToErrorMessageQueue` should only run after `readData` is **Failed**.  This could also be a list of possible values, so `runAfter` could be `["Succeeded", "Failed"]`.
+To specify that `postToErrorMessageQueue` only runs after `readData` has `Failed`,
+use the `runAfter` property, for example, to specify a list of possible values, 
+so that `runAfter` could be `["Succeeded", "Failed"]`.
 
-Finally, because you have now handled the error, we no longer mark the run as **Failed**. As you can see here, this run is **Succeeded** even though one step Failed, because I wrote the step to handle this failure.
+Finally, because this example now handles the error, 
+we no longer mark the run as `Failed`. 
+Because we added the step for handling this failure in this example, 
+the run has `Succeeded` although one step `Failed`.
 
-## Two (or more) steps that execute in parallel
-To have multiple actions execution in parallel, the `runAfter` property must be equivalent at runtime. 
+## Execute two or more steps in parallel
+
+To run multiple actions in parallel, the `runAfter` property must be equivalent at runtime. 
 
 ```
 {
@@ -101,14 +118,15 @@ To have multiple actions execution in parallel, the `runAfter` property must be 
 }
 ```
 
-As you can see in the example above, both `branch1` and `branch2` are set to run after `readData`. As a result, both of these branches will run in parallel:
+In this example, both `branch1` and `branch2` are set to run after `readData`. 
+As a result, both branches run in parallel. The timestamp for both branches is identical.
 
 ![Parallel](media/logic-apps-author-definitions/parallel.png)
 
-You can see the timestamp for both branches is identical. 
-
 ## Join two parallel branches
-You can join two actions that were set to execute in parallel by adding items to the `runAfter` property similar to above.
+
+You can join two actions that are set to run in parallel 
+by adding items to the `runAfter` property as in the previous example.
 
 ```
 {
@@ -179,8 +197,10 @@ You can join two actions that were set to execute in parallel by adding items to
 
 ![Parallel](media/logic-apps-author-definitions/join.png)
 
-## Mapping items in a list to some different configuration
-Next, let's say that we want to get completely different content depending on a value of a property. We can create a map of values to destinations as a parameter:  
+## Map list items to a different configuration
+
+Next, let's say that we want to get different content based on the value of a property. 
+We can create a map of values to destinations as a parameter:  
 
 ```
 {
@@ -231,14 +251,27 @@ Next, let's say that we want to get completely different content depending on a 
 }
 ```
 
-In this case, we first get a list of articles, and then the second step looks up in a map, based on the category that was defined as a parameter, which URL to get the content from. 
+In this case, we first get a list of articles. 
+Based on the category that was defined as a parameter, 
+the second step uses a map to look up the URL for getting the content.
 
-Two items to pay attention here: the [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) function is used to check to see if the category matches one of the known categories defined. Second, once we get the category, we can pull the item of the map using square brackets: `parameters[...]`. 
+Some times to note here: 
 
-## Working with Strings
-There are variety of functions that can be used to manipulate string. Let's take an example where we have a string that we want to pass to a system, but we are not confident that character encoding will be handled properly. One option is to base64 encode this string. However, to avoid escaping in a URL we are going to replace a few characters. 
+*	The [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) function 
+checks whether the category matches one of the known defined categories.
 
-We also want a substring of the the order's name because the first 5 characters are not used.
+*	After we get the category, we can pull the item from the map using square brackets: `parameters[...]`
+
+## Process strings
+
+You can use various functions to manipulate strings. 
+For example, suppose we have a string that we want to pass to a system, 
+but we aren't confident about proper handling for character encoding. 
+One option is to base64 encode this string. However, 
+to avoid escaping in a URL, we are going to replace a few characters. 
+
+We also want a substring of the order's name because 
+the first five characters are not used.
 
 ```
 {
@@ -272,17 +305,27 @@ We also want a substring of the the order's name because the first 5 characters 
 }
 ```
 
-Working from the inside out:
+Working from inside to outside:
 
-1. Get the [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length)  of the orderer's name, this returns back the total number of characters
-2. Subtract 5 (because we'll want a shorter string)
-3. Actually take the [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring) . We start at index `5` and go the remainder of the string.
-4. Convert this substring to a [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64) string
-5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)  all of the `+` characters with `-`
-6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) all of the `/` characters with `_`
+1. Get the [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length) 
+for the orderer's name, so we get back the total number of characters.
 
-## Working with Date Times
-Date Times can be useful, particularly when you are trying to pull data from a data source that doesn't naturally support **Triggers**.  You can also use Date Times to figure out how long various steps are taking. 
+2. Subtract 5 because we want a shorter string.
+
+3. Actually, take the [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring). 
+We start at index `5` and go the remainder of the string.
+
+4. Convert this substring to a [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64) string.
+
+5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) all the `+` characters with `-` characters.
+
+6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) all the `/` characters with `_` characters.
+
+## Work with Date Times
+
+Date Times can be useful, particularly when you are trying to pull 
+data from a data source that doesn't naturally support *triggers*. 
+You can also use Date Times for finding how long various steps are taking.
 
 ```
 {
@@ -334,16 +377,30 @@ Date Times can be useful, particularly when you are trying to pull data from a d
 }
 ```
 
-In this example, we are extracting the `startTime` of the previous step. Then we are getting the current time and subtracting one second :[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) (you could use other units of time such as `minutes` or `hours`). Finally, we can compare these two values. If the first is less than the second, then that means more than one second has elapsed since the order was first placed. 
+In this example, we extract the `startTime` from the previous step. 
+Then we get the current time, and subtract one second:
 
-Also note that we can use string formatters to format dates: in the query string I use [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow) to get the RFC1123. All date formatting [is documented on MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). 
+[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) 
 
-## Using deployment-time parameters for different environments
-It is common to have a deployment lifecycle where you have a development environment, a staging environment, and then a production environment. In all of these you may want the same definition, but use different databases, for example. Likewise, you may want to use the same definition across many different regions for high availability, but want each Logic app instance to talk to that region's database. 
+You can use other units of time, like `minutes` or `hours`. 
+Finally, we can compare these two values. 
+If the first value is less than the second value, 
+then more than one second has passed since the order was first placed.
 
-Note that this is different from taking different parameters at *runtime*, for that you should use the `trigger()` function as called out above. 
+To format dates, we can use string formatters. For example, 
+to get the RFC1123, we use [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). 
+To learn about date formatting, see [Workflow Definition Language](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow).
 
-You can start with a very simplistic definition like this one:
+## Deployment parameters for different environments
+
+Commonly, deployment lifecycles have a development environment, a staging environment, 
+and a production environment. For example, you might use the same definition in all these environments
+but use different databases. Likewise, you might want to use the same definition across different 
+regions for high availability but want each logic app instance to talk to that region's database.
+This scenario differs from taking parameters at *runtime* 
+where instead, you should use the `trigger()` function as in the previous example.
+
+You can start with a basic definition like this example:
 
 ```
 {
@@ -372,7 +429,8 @@ You can start with a very simplistic definition like this one:
 }
 ```
 
-Then, in the actual `PUT` request for the Logic app you can provide the parameter `uri`. Note, as there is no longer a default value this parameter is required in the Logic app payload:
+In the actual `PUT` request for the logic apps, you can provide the parameter `uri`. 
+Because a default value no longer exists, the logic app payload requires this parameter:
 
 ```
 {
@@ -390,7 +448,7 @@ Then, in the actual `PUT` request for the Logic app you can provide the paramete
 }
 ``` 
 
-In each environment you can then provide a different value for the `connection` parameter. 
+In each environment, you can provide a different value for the `connection` parameter. 
 
-See the [REST API documentation](https://msdn.microsoft.com/library/azure/mt643787.aspx) for all of the options you have for creating and managing Logic apps. 
-
+For all the options that you have for creating and managing logic apps, 
+see the [REST API documentation](https://msdn.microsoft.com/library/azure/mt643787.aspx). 

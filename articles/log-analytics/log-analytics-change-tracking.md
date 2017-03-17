@@ -1,7 +1,7 @@
 ---
-title: Change Tracking solution in Log Analytics | Microsoft Docs
-description: You can use the Configuration Change Tracking solution in Log Analytics to help you easily identify software and Windows Services changes that occur in your environment — identifying these configuration changes can help you pinpoint operational issues.
-services: operations-management-suite
+title: Track changes with Azure Log Analytics | Microsoft Docs
+description: The Change Tracking solution in Log Analytics helps you identify software and Windows Services changes that occur in your environment.
+services: log-analytics
 documentationcenter: ''
 author: bandersmsft
 manager: carmonm
@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 03/13/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
-# Change Tracking solution in Log Analytics
+# Track software changes in your environment with the Change Tracking solution
+
 This article helps you use the Change Tracking solution in Log Analytics to easily identify changes in your environment. The solution tracks changes to Windows and Linux software, Windows files, Windows services, and Linux daemons. Identifying configuration changes can help you pinpoint operational issues.
 
 You install the solution to update the type of agent that you have installed. Changes to installed software, Windows services, and Linux daemons on the monitored servers are read and then the data is sent to the Log Analytics service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. By using the information on the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.
@@ -25,7 +27,7 @@ You install the solution to update the type of agent that you have installed. Ch
 Use the following information to install and configure the solution.
 
 * You must have a [Windows](log-analytics-windows-agents.md), [Operations Manager](log-analytics-om-agents.md), or [Linux](log-analytics-linux-agents.md) agent on each computer where you want to monitor changes.
-* Add the Change Tracking solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
+* Add the Change Tracking solution to your OMS workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
 
 ### Configure Windows files to track
 Use the following steps to configure files to track on Windows computers.
@@ -59,7 +61,21 @@ The following table shows data collection methods and other details about how da
 
 | platform | Direct Agent | SCOM agent | Linux agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows and Linux |![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png) | 15 minutes to 1 hour, depending on the change type |
+| Windows and Linux |![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png) | 5 minutes to 50 minutes, depending on the change type. See below for more information. |
+
+
+The following table shows the data collection frequency for the types of changes.
+
+| **change type** | **frequency** | **Does**  **agent**  **send differences when found?** |
+| --- | --- | --- |
+| Windows registry | 50 minutes | no |
+| Windows file | 30 minutes | Yes. If there is no change in 24 hours, a snapshot is sent. |
+| Linux file | 15 minutes | Yes. If there is no change in 24 hours, a snapshot is sent. |
+| Windows services | 30 minutes | Yes, every 30 minutes when changes are found. Every 24 hours a snapshot is sent, regardless of change. So, the snapshot is sent even where there are no changes. |
+| Linux daemons | 5 minutes | Yes. If there is no change in 24 hours, a snapshot is sent. |
+| Windows software | 30 minutes | Yes, every 30 minutes when changes are found. Every 24 hours a snapshot is sent, regardless of change. So, the snapshot is sent even where there are no changes. |
+| Linux software | 5 minutes | Yes. If there is no change in 24 hours, a snapshot is sent. |
+
 
 ## Use Change Tracking
 After the solution is installed, you can view the summary of changes for your monitored servers by using the **Change Tracking** tile on the **Overview** page in OMS.
