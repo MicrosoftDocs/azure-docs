@@ -53,7 +53,7 @@ You should define any queries that you think will be helpful to the user even if
 ### Alerts
 [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md) identify issues through [log searches](#log-searches) against the data in the repository.  They either notify the user or automatically run an action in response. You should identify different alert conditions for your application and include corresponding alert rules in your solution file.
 
-If the issue can potentially be corrected with an automated process, then you'll typically create a runbook in Azure Automation to perform this remediation.  Most Azure services can be managed with [cmdlets](../../powershell/azureps-cmdlets-docs.md) which the runbook would leverage to perform such functionality.
+If the issue can potentially be corrected with an automated process, then you'll typically create a runbook in Azure Automation to perform this remediation.  Most Azure services can be managed with [cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) which the runbook would leverage to perform such functionality.
 
 If your solution requires external functionality in response to an alert, then you can use a [webhook response](../log-analytics/log-analytics-alerts-actions.md).  This allows you to call an external web service sending information from the alert.
 
