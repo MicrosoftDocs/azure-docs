@@ -41,7 +41,7 @@ This topic demonstrates how to use Media Services to dynamically encrypt your HL
 
 ## Requirements and considerations
 
-The following are required when using Media Services to deliver HLS encrypted with FairPlay, and to deliver FairPlay licenses.
+The following are required when using Media Services to deliver HLS encrypted with FairPlay, and to deliver FairPlay licenses:
 
   * An Azure account. For details, see [Azure free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
   * A Media Services account. To create one, see [Create an Azure Media Services account using the Azure portal](media-services-portal-create-account.md).
@@ -51,11 +51,11 @@ The following are required when using Media Services to deliver HLS encrypted wi
 
 The following things must be set on Media Services key delivery side:
 
-  * **App Cert (AC)** - This is a .pfx file containing the private key. You create this file, and encrypt it with a password.
+  * **App Cert (AC)**: This is a .pfx file that contains the private key. You create this file and encrypt it with a password.
 
        When you configure a key delivery policy, you must provide that password and the .pfx file in Base64 format.
 
-      The following steps describe how to generate a .pfx certificate file for FairPlay.
+      The following steps describe how to generate a .pfx certificate file for FairPlay:
 
     1. Install OpenSSL from https://slproweb.com/products/Win32OpenSSL.html.
 
@@ -66,27 +66,29 @@ The following things must be set on Media Services key delivery side:
     3. Run the following command from the command line. This converts the .pem file to a .pfx file with the private key. The password for the .pfx file is then asked by OpenSSL.
 
         "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
-  * **App Cert password** - The password for creating the .pfx file.
-  * **App Cert password ID** - You must upload the password, similar to how they upload other Media Services keys. Use the **ContentKeyType.FairPlayPfxPassword** enum value to get the Media Services ID. This is what they need to use inside the key delivery policy option.
-  * **iv** -  This is a random value of 16 bytes. It must match the iv in the asset delivery policy. You generate the iv, and put it in both places: the asset delivery policy and the key delivery policy option.
-  * **ASK** - This key is received when you generate the certification by using the Apple Developer portal. Each development team will receive a unique ASK. Save a copy of the ASK, and store it in a safe place. You will need to configure ASK as FairPlayAsk to Media Services later.
-  * **ASK ID** - This ID is obtained when you upload ASK into Media Services. You must upload ASK by using the **ContentKeyType.FairPlayAsk** enum value. As the result, the Media Services ID is returned, and this is what should be used when setting the key delivery policy option.
+  * **App Cert password**: The password for creating the .pfx file.
+  * **App Cert password ID**: You must upload the password, similar to how they upload other Media Services keys. Use the **ContentKeyType.FairPlayPfxPassword** enum value to get the Media Services ID. This is what they need to use inside the key delivery policy option.
+  * **iv**: This is a random value of 16 bytes. It must match the iv in the asset delivery policy. You generate the iv, and put it in both places: the asset delivery policy and the key delivery policy option.
+  * **ASK**: This key is received when you generate the certification by using the Apple Developer portal. Each development team will receive a unique ASK. Save a copy of the ASK, and store it in a safe place. You will need to configure ASK as FairPlayAsk to Media Services later.
+  * **ASK ID**: This ID is obtained when you upload ASK into Media Services. You must upload ASK by using the **ContentKeyType.FairPlayAsk** enum value. As the result, the Media Services ID is returned, and this is what should be used when setting the key delivery policy option.
 
 The following things must be set by the FPS client side:
 
-  * **App Cert (AC)** - This is a .cer/.der file containing the public key, which the operating system uses to encrypt some payload. Media Services needs to know about it because it is required by the player. The key delivery service decrypts it using the corresponding private key.
-* To play back a FairPlay encrypted stream, get a real ASK first, and then generate a real certificate. That process creates all three parts:
+  * **App Cert (AC)**: This is a .cer/.der file that contains the public key, which the operating system uses to encrypt some payload. Media Services needs to know about it because it is required by the player. The key delivery service decrypts it using the corresponding private key.
+
+To play back a FairPlay encrypted stream, get a real ASK first, and then generate a real certificate. That process creates all three parts:
 
   * .der file
   * .pfx file
-  * the password for the .pfx.
-* The following clients support HLS with **AES-128 CBC** encryption: Safari on OS X, Apple TV, iOS.
+  * password for the .pfx
+
+The following clients support HLS with **AES-128 CBC** encryption: Safari on OS X, Apple TV, iOS.
 
 ## Configure FairPlay dynamic encryption and license delivery services
-The following are general steps for protecting your assets with FairPlay, by using the Media Services license delivery service, and also by using dynamic encryption.
+The following are general steps for protecting your assets with FairPlay by using the Media Services license delivery service, and also by using dynamic encryption.
 
 1. Create an asset, and upload files into the asset.
-2. Encode the asset containing the file to the adaptive bitrate MP4 set.
+2. Encode the asset that contains the file to the adaptive bitrate MP4 set.
 3. Create a content key, and associate it with the encoded asset.  
 4. Configure the content key’s authorization policy. Specify the following:
 
@@ -94,7 +96,7 @@ The following are general steps for protecting your assets with FairPlay, by usi
    * FairPlay policy options configuration. For details on how to configure FairPlay, see the **ConfigureFairPlayPolicyOptions()** method in the sample below.
 
      > [!NOTE]
-     > Usually, you would want to configure FairPlay policy options only once, since you will only have one set of a certification and an ASK.
+     > Usually, you would want to configure FairPlay policy options only once, because you will only have one set of a certification and an ASK.
      >
      >
    * Restrictions (open or token).
@@ -108,8 +110,8 @@ The following are general steps for protecting your assets with FairPlay, by usi
      > [!NOTE]
      > If you want to deliver a stream that is encrypted with FairPlay and another Digital Rights Management (DRM) system, you have to configure separate delivery policies:
      >
-     > * One IAssetDeliveryPolicy to configure Dynamic Adaptive Streaming over HTTP (DASH) with Common Encryption (CENC) (PlayReady + Widevine), and Smooth with PlayReady.
-     > * Another IAssetDeliveryPolicy to configure FairPlay for HLS.
+     > * One IAssetDeliveryPolicy to configure Dynamic Adaptive Streaming over HTTP (DASH) with Common Encryption (CENC) (PlayReady + Widevine), and Smooth with PlayReady
+     > * Another IAssetDeliveryPolicy to configure FairPlay for HLS
      >
      >
 6. Create an OnDemand locator to get a streaming URL.
@@ -138,7 +140,7 @@ The following considerations apply:
   * **cbc**: AES envelope encryption
 
 ## .NET example: deliver your content encrypted with FairPlay
-The following sample demonstrates the ability to use Media Services to deliver your content encrypted with FairPlay. This functionality was introduced in the Azure Media Services SDK for .NET -Version 3.6.0. The following NuGet package command was used to install the package:
+The following sample demonstrates the ability to use Media Services to deliver your content encrypted with FairPlay. This functionality was introduced in the Azure Media Services SDK for .NET version 3.6.0. The following NuGet package command was used to install the package:
 
     PM> Install-Package windowsazure.mediaservices -Version 3.6.0
 
@@ -555,7 +557,7 @@ The following sample demonstrates the ability to use Media Services to deliver y
         }
 
 
-## Next Steps: Media Services learning paths
+## Next steps: Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
