@@ -20,11 +20,15 @@ ms.author: sstein
 ---
 # Azure SQL Database: Use .NET (C#) to connect and query data
 
-This guide details using [ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) to connect to an Azure SQL database, and then execute select, insert, update, and delete statements.
+Use [C# and ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) to connect to and query an Azure SQL database. This guide details using C# to connect to an Azure SQL database, and then execute query, insert, update, and delete statements.
 
-## Configure development environment
+This quick start uses as its starting point the resources created in one of these quick starts:
 
-[Install Visual Studio Community for free](https://www.visualstudio.com/) or install the [ADO.NET driver for SQL Server](https://www.microsoft.com/net/download).
+- [Create DB - Portal](sql-database-get-started-portal.md)
+- [Create DB - CLI](sql-database-get-started-cli.md)
+- [Create DB - PowerShell](sql-database-get-started-powershell.md) 
+
+Before you start, make sure you have configured your development environment for C#. See [Install Visual Studio Community for free](https://www.visualstudio.com/) or install the [ADO.NET driver for SQL Server](https://www.microsoft.com/net/download).
 
 ## Connect to database and query data
 
@@ -38,9 +42,9 @@ Get the connection string in the Azure portal. You use the connection string to 
     <img src="./media/sql-database-connect-query-dotnet/connection-strings.png" alt="connection strings" style="width: 780px;" />
 
 5. Open Visual Studio and create a console application.
-6. Add ```using System.Data.SqlClient``` to your code file ([System.Data.SqlClient namespace](https://msdn.microsoft.com/library/system.data.sqlclient.aspx))
+6. Add ```using System.Data.SqlClient``` to your code file ([System.Data.SqlClient namespace](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
 
-    Use [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement, to query data in your Azure SQL database.
+7. Use [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement, to query data in your Azure SQL database.
 
     ```csharp
     string strConn = "<connection string>";
