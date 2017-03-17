@@ -268,5 +268,6 @@ namespace ConsoleApplication1
 
 ## Next steps
 
-- For a getting started with SQL Server authentication tutorial, see [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md).
-- For a getting started with Azure Active Directory authentication tutorial, see [Azure AD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md).
+- For .NET documentation, see [.NET documentation](https://docs.microsoft.com/en-us/dotnet/)
+- For information about querying and editing data using Visual Studio Code, see [Visual Studio Code](https://code.visualstudio.com/docs)
+
