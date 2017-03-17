@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 03/17/2017
 ms.author: maheshu
 
 ---
@@ -29,6 +29,9 @@ No. You can only create a single domain serviced by Azure AD Domain Services for
 
 #### Can I enable Azure AD Domain Services in an Azure Resource Manager virtual network?
 No. Azure AD Domain Services can only be enabled in a classic Azure virtual network. You can connect the classic virtual network to a Resource Manager virtual network using virtual network peering to use your managed domain in a Resource Manager virtual network.
+
+#### Can I enable Azure AD Domain Services in a federated Azure AD directory? I use ADFS to authenticate users for access to Office 365. Can I enable Azure AD Domain Services for this directory?
+No. Azure AD Domain Services needs access to the password hashes of user accounts in order to authenticate users via NTLM or Kerberos. In a federated directory, password hashes are not stored in the Azure AD directory. Therefore, Azure AD Domain Services does not work with such Azure AD directories.
 
 #### Can I make Azure AD Domain Services available in multiple virtual networks within my subscription?
 The service itself does not directly support this scenario. Azure AD Domain Services is available in only one virtual network at a time. However, you may configure connectivity between multiple virtual networks to expose Azure AD Domain Services to other virtual networks. This article describes how you can [connect virtual networks in Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
