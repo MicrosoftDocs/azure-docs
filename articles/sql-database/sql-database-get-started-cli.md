@@ -1,5 +1,5 @@
 ---
-title: 'Azure CLI: Create and query a single SQL database | Microsoft Docs'
+title: 'Azure CLI: Create a SQL database | Microsoft Docs'
 description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases using the Azure CLI. 
 keywords: sql database tutorial, create a sql database
 services: sql-database
@@ -19,7 +19,7 @@ ms.date: 03/13/2017
 ms.author: carlrab
 ---
 
-# Create and query a single Azure SQL database with the Azure CLI
+# Create a single Azure SQL database using the Azure CLI
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy an Azure SQL database in an [Azure resource group](../azure-resource-manager/resource-group-overview.md) in an [Azure SQL Database logical server](sql-database-features.md).
 
@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location westeurope
 ```
 ## Create a logical server
 
-Create an [Azure SQL Database logical server](sql-database-features.md) with the [az sql server create](/cli/azure/sql/server#create) command. A logical server contains a group of databases managed as a group. The following example creates a randomly-named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
+Create an [Azure SQL Database logical server](sql-database-features.md) with the [az sql server create](/cli/azure/sql/server#create) command. A logical server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
 
 ```azurecli
 servername=server-$RANDOM
@@ -70,7 +70,7 @@ az sql db create --resource-group myResourceGroup --server $servername \
 
 ## Clean up resources
 
-Some of the quick starts in this collection and in the tutorial collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following command to delete all resources created by this quick start.
+The **Connect with** quick starts in this collection and the tutorials in the tutorial collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following command to delete all resources created by this quick start.
 
 ```azurecli
 az group delete --name myResourceGroup
