@@ -413,7 +413,7 @@ The following table provides description for JSON elements specific to Azure Dat
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzureDataLakeStore** | Yes |
-| dataLakeStoreUri | Specify information about the Azure Data Lake Store account. It is in the following format: **https://[accountname].azuredatalakestore.net/webhdfs/v1** or **adl://[accountname].azuredatalakestore.net/**. | Yes |
+| dataLakeStoreUri | Specify information about the Azure Data Lake Store account. It is in the following format: `https://[accountname].azuredatalakestore.net/webhdfs/v1` or `adl://[accountname].azuredatalakestore.net/`. | Yes |
 | subscriptionId | Azure subscription Id to which Data Lake Store belongs. | Required for sink |
 | resourceGroupName | Azure resource group name to which Data Lake Store belongs. | Required for sink |
 
@@ -423,13 +423,13 @@ To use service principal authentication, register an application entity in Azure
 > [!IMPORTANT]
 > If you are using Copy Wizard to author data pipelines, make sure that you grant the service principal at least Reader role in Access control (IAM) for the Data Lake Store account and at least Read+Execute permission to your Data Lake Store root ("/") and its children. Otherwise you may see "The credentials provided are invalid" error.
 >
-> If you have just created/updated a service principal in AAD, it may take a few minutes for the changes to actually take effect. First, double check the service principal and Data Lake Store ACL configuration. If you still see error: "The credentials provided are invalid", wait a while and try again.
+> After you create/update a service principal in AAD, it may take a few minutes for the changes to actually take effect. First, double check the service principal and Data Lake Store ACL configuration. If you still see error: "The credentials provided are invalid", wait a while and try again.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | servicePrincipalId | Specify the application's client ID. | Yes |
 | servicePrincipalKey | Specify the application's key. | Yes |
-| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the top-right corner of the Azure Portal. | Yes |
+| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes |
 
 **Example: using service principal authentication**
 ```json
@@ -450,7 +450,7 @@ To use service principal authentication, register an application entity in Azure
 ```
 
 ### Using user credential authentication
-Alternatively, you can use user credential authentication to copy from/to Data Lake Store by specifying below properties.
+Alternatively, you can use user credential authentication to copy from/to Data Lake Store by specifying the following properties.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -475,7 +475,11 @@ Alternatively, you can use user credential authentication to copy from/to Data L
 ```
 
 #### Token expiration
-The authorization code you generate by using the **Authorize** button expires after sometime. See the following table for the expiration times for different types of user accounts. You may see the following error message when the authentication **token expires**: "Credential operation error: invalid_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z".
+The authorization code you generate by using the **Authorize** button expires after sometime. See the following table for the expiration times for different types of user accounts. You may see the following error message when the authentication **token expires**:
+ 
+```
+"Credential operation error: invalid_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z".
+```
 
 | User type | Expires after |
 |:--- |:--- |
@@ -525,7 +529,7 @@ The **typeProperties** section is different for each type of dataset and provide
 | fileName |Name of the file in the Azure Data Lake store. fileName is optional and case-sensitive. <br/><br/>If you specify a filename, the activity (including Copy) works on the specific file.<br/><br/>When fileName is not specified, Copy includes all files in the folderPath for input dataset.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | partitionedBy |partitionedBy is an optional property. You can use it to specify a dynamic folderPath and filename for time series data. For example, folderPath can be parameterized for every hour of data. See the [Using partitionedBy property](#using-partitionedby-property) section for details and examples. |No |
 | format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](#specifying-textformat), [Json Format](#specifying-jsonformat), [Avro Format](#specifying-avroformat), [Orc Format](#specifying-orcformat), and [Parquet Format](#specifying-parquetformat) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No |
-| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**; and supported levels are: **Optimal** and **Fastest**. For more information, see [Specifying compression](#specifying-compression) section. |No |
+| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. Supported levels are: **Optimal** and **Fastest**. For more information, see [Specifying compression](#specifying-compression) section. |No |
 
 ### Using partitionedBy property
 You can specify a dynamic folderPath and filename for time series data with the **partitionedBy** section, Data Factory macros, and the system variables: SliceStart and SliceEnd, which indicate start and end times for a given data slice.
@@ -564,7 +568,7 @@ In this example, year, month, day, and time of SliceStart are extracted into sep
 ## Azure Data Lake Copy Activity type properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
 
-Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks
+Whereas, properties available in the typeProperties section of the activity vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks
 
 **AzureDataLakeStoreSource** supports the following properties **typeProperties** section:
 
@@ -576,7 +580,7 @@ Properties available in the typeProperties section of the activity on the other 
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
-| copyBehavior |Specifies the copy behavior. |**PreserveHierarchy:** preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/>**FlattenHierarchy:** all files from the source folder are created in the first level of target folder. The target files are created with auto generated name.<br/><br/>**MergeFiles:** merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. |No |
+| copyBehavior |Specifies the copy behavior. |<b>PreserveHierarchy</b>: preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/><b>FlattenHierarchy</b>: all files from the source folder are created in the first level of target folder. The target files are created with auto generated name.<br/><br/><b>MergeFiles</b>: merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. |No |
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -585,7 +589,4 @@ Properties available in the typeProperties section of the activity on the other 
 [!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## Performance and Tuning
-
-Depending on whether initial data movement is planned with a big volume of historical data or incremental production data load, Azure Data Factory has options to improve the performance of those tasks. The concurrency parameter is a part of the **Copy Activity** and defines how many different activity windows will be processed in parallel. The **parallelCopies** parameter defines the parallelism for the single activity run. It is important to consider using these parameters when designing data movement pipelines with Azure Data Factory to achieve the best throughput.
-
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
