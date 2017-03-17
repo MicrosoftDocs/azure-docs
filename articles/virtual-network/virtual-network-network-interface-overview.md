@@ -1,3 +1,3 @@
 ---
- redirect_url: /azure/virtual-network/virtual-network-network-interface
- ---
+redirect_url: /azure/virtual-network/virtual-network-network-interface
+---
