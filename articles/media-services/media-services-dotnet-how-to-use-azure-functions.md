@@ -41,19 +41,41 @@ Create a function app as described [here](../azure-functions/functions-create-fi
 Once your function app was deployed, you can find it among **App Services** Azure Functions. 
 
 1. Select your function app and click **New Function**.
-3. Choose the **C#** language and **Webhook + API** scenario.
-3. Select **GenericWebHook-CSharp** (will be run whenever it receives a webhook request) or **HttpTrigger-CSharp** (will be run whenever it receives an HTTP request) and name your function.
+2. Choose the **C#** language and **Data Processing** scenario.
+3. Choose **BlobTrigger** template. This function will be triggered whenever a blob is uploaded into the "input" container. 
+
+	![files](./media/media-services-azure-functions/media-services-azure-functions004.png)
+
+4. Once you select **BlobTrigger**, some more controls will appear on the page.
+
+	![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
+
 4. Click **Create**. 
 
-## Get function URL
 
-To trigger execution of your functions from an HTTP testing tool or from another browser window, you will need the Function URL value. 
+## Configure function app settings
 
-![Settings](./media/media-services-azure-functions/media-services-azure-functions002.png)
+When developing Media Services functions, it is handy to add parameters that will be used throughout your functions to the **App Settings** section. 
+
+For example:
+
+![Settings](./media/media-services-azure-functions/media-services-azure-functions001.png)
+
+The function defined in this article, counts on the following parameters:
+
+AMSAccount = testoams
+
+AMSKey = IHOySnH+XX3LGPfraE5fKPl0EnzvEPKkOPKCr59aiMM=
+
+MediaServicesStorageAccountName = testamsstorage
+
+MediaServicesStorageAccountKey = kx7RN7mvpcipkuXvn5g7jwxnKh5MwYQ/awZAzkSIxQA8tmCtn93rqobjgjt41Wb0zwTZWeWQHY5kSZF0XXXXXX==
+
+StorageConnection = DefaultEndpointsProtocol=https;AccountName=testamsstorage;AccountKey=kx7RN7mvpcipkuXvn5g7jwxnKh5MwYQ/awZAzkSIxQA8tmCtn93rqobjgjt41Wb0zwTZWeWQHY5kSZF0XXXXX==
 
 ## Files
 
-Your Azure function is associated with code files and other files that are described in this section. By default, a function is associated with **function.json** and **run.csx** files. You will need to add a **project.json** file. The rest of this section shows the definitions for these files.
+Your Azure function is associated with code files and other files that are described in this section. By default, a function is associated with **function.json** and **run.csx** (C#) files. You will need to add a **project.json** file. The rest of this section shows the definitions for these files.
 
 ![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
@@ -64,27 +86,18 @@ The function.json file defines the function bindings and other configuration set
 Here is an example of **function.json** file.
 
 	{
-	  "bindings": [
-	    {
-	      "type": "httpTrigger",
-	      "name": "req",
-	      "direction": "in",
-	      "methods": [
-		"post",
-		"get",
-		"put",
-		"update",
-		"patch"
-	      ]
-	    },
-	    {
-	      "type": "http",
-	      "name": "res",
-	      "direction": "out"
-	    }
-	  ]
+	"bindings": [
+	  {
+	    "name": "myBlob",
+	    "type": "blobTrigger",
+	    "direction": "in",
+	    "path": "input/{fileName}.{fileExtension}",
+	    "connection": "StorageConnection"
+	  }
+	],
+	"disabled": false
 	}
-	
+
 ### project.json
 
 The project.json file contains dependencies. Here is an example of **function.json** file that includes AMS libraries.
@@ -102,63 +115,206 @@ The project.json file contains dependencies. Here is an example of **function.js
 	
 ### run.csx
 
-This is the C# code for your function. For an example of a webhook function, see [this](media-services-dotnet-check-job-progress-with-webhooks.md) topic. 
-
-Once you are done defining your function click **Run**.
+This is the C# code for your function.  The function defined below monitors a storage account container location folder named "input" (that is what was specified in the path) for new MP4 files. Once a file is dropped into the storage container, the blob trigger will execute the function.
 	
-	///////////////////////////////////////////////////
+The following sample shows how to ingest the asset into Media Services (by coping a blob into an AMS asset) and submit an encoding job that uses Media Encoder Standard's "Adaptive Streaming" preset .
+
+In the real life example, you most likely want to output the result of the job to another container and call another function that for example publishes your encoded files. The (Media Services Azure Functions)[https://github.com/Azure-Samples/media-services-dotnet-functions-integration] github project shows functions and webhooks that deal with various Media Services scenarios.  
+
+Once you are done defining your function click **Save and Run**.
+
+	#r "Microsoft.WindowsAzure.Storage"
 	#r "Newtonsoft.Json"
+	#r "System.Web"
 	
 	using System;
 	using Microsoft.WindowsAzure.MediaServices.Client;
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
+	using System.Net;
 	using System.Threading;
 	using System.Threading.Tasks;
 	using System.IO;
-	using System.Globalization;
-	using Newtonsoft.Json;
-	using Microsoft.Azure;
-	using System.Net;
-	using System.Security.Cryptography;
+	using Microsoft.WindowsAzure.Storage;
+	using Microsoft.WindowsAzure.Storage.Blob;
+	using Microsoft.WindowsAzure.Storage.Auth;
 	
-
-	static string _mediaServicesAccountName = Environment.GetEnvironmentVariable("AMSAccount");
-	static string _mediaServicesAccountKey = Environment.GetEnvironmentVariable("AMSKey");
+	private static readonly string _mediaServicesAccountName = Environment.GetEnvironmentVariable("AMSAccount");
+	private static readonly string _mediaServicesAccountKey = Environment.GetEnvironmentVariable("AMSKey");
 	
-	static CloudMediaContext _context = null;
+	static string _storageAccountName = Environment.GetEnvironmentVariable("MediaServicesStorageAccountName");
+	static string _storageAccountKey = Environment.GetEnvironmentVariable("MediaServicesStorageAccountKey");
 	
-	public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+	private static CloudStorageAccount _destinationStorageAccount = null;
+	
+	// Field for service context.
+	private static CloudMediaContext _context = null;
+	private static MediaServicesCredentials _cachedCredentials = null;
+	
+	public static void Run(CloudBlockBlob myBlob, string fileName, string fileExtension, TraceWriter log)
 	{
-	    log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+	    // NOTE that the variables {fileName} and {fileExtension} here come from the path setting in function.json
+	    // and are passed into the  Run method signature above. We can use this to make decisions on what type of file
+	    // was dropped into the input container for the function. 
 	
-	    Task<byte[]> taskForRequestBody = req.Content.ReadAsByteArrayAsync();
-	    byte[] requestBody = await taskForRequestBody;
+	    // No need to do any Retry strategy in this function, By default, the SDK calls a function up to 5 times for a 
+	    // given blob. If the fifth try fails, the SDK adds a message to a queue named webjobs-blobtrigger-poison.
 	
-	    string jsonContent = await req.Content.ReadAsStringAsync();
-	    log.Info($"Request Body = {jsonContent}");
+	    log.Info($"C# Blob trigger function processed: {fileName}.{fileExtension}");
+	    log.Info($"Using Azure Media Services account : {_mediaServicesAccountName}");
 	
-		// some valication code ...
-
-        _context = new CloudMediaContext(new MediaServicesCredentials(
-        _mediaServicesAccountName,
-        _mediaServicesAccountKey));
-
-		// some AMS operations ...
-  	
-	    return req.CreateResponse(HttpStatusCode.BadRequest, "Generic Error.");
+	
+	    try
+	    {
+	        // Create and cache the Media Services credentials in a static class variable.
+	        _cachedCredentials = new MediaServicesCredentials(
+	                        _mediaServicesAccountName,
+	                        _mediaServicesAccountKey);
+	
+	        // Used the chached credentials to create CloudMediaContext.
+	        _context = new CloudMediaContext(_cachedCredentials);
+	
+	        // Step 1:  Copy the Blob into a new Input Asset for the Job
+	        // ***NOTE: Ideally we would have a method to ingest a Blob directly here somehow. 
+	        // using code from this sample - https://azure.microsoft.com/en-us/documentation/articles/media-services-copying-existing-blob/
+	        
+	        StorageCredentials mediaServicesStorageCredentials =
+	            new StorageCredentials(_storageAccountName, _storageAccountKey);
+	
+	        IAsset newAsset = CreateAssetFromBlob(myBlob, fileName, log).GetAwaiter().GetResult();
+	        
+	        // Step 2: Create an Encoding Job
+	
+	        // Declare a new encoding job with the Standard encoder
+	        IJob job = _context.Jobs.Create("Azure Function - MES Job");
+	
+	        // Get a media processor reference, and pass to it the name of the 
+	        // processor to use for the specific task.
+	        IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+	        
+	        // Create a task with the encoding details, using a custom preset
+	        ITask task = job.Tasks.AddNew("Encode with Adaptive Streaming",
+	            processor,
+	            "Adaptive Streaming",
+	            TaskOptions.None); 
+	
+	        // Specify the input asset to be encoded.
+	        task.InputAssets.Add(newAsset);
+	
+	        // Add an output asset to contain the results of the job. 
+	        // This output is specified as AssetCreationOptions.None, which 
+	        // means the output asset is not encrypted. 
+	        task.OutputAssets.AddNew(fileName, AssetCreationOptions.None);
+	        
+	        job.Submit();
+	        log.Info("Job Submitted");
+	
+	    }
+	    catch (Exception ex)
+	    {
+	        log.Error("ERROR: failed.");
+	        log.Info($"StackTrace : {ex.StackTrace}");
+	        throw ex;
+	    }
 	}
-
-
-
-## Configure function app settings
-
-When developing Media Services functions, it is handy to add parameters that will be used throughout your functions to the **App Settings** section. 
-
-For example:
-
-![Settings](./media/media-services-azure-functions/media-services-azure-functions001.png)
+	
+	private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+	{
+	    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+	    ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+	
+	    if (processor == null)
+	        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+	
+	    return processor;
+	}
+	
+	
+	public static async Task<IAsset> CreateAssetFromBlob(CloudBlockBlob blob, string assetName, TraceWriter log){
+	        IAsset newAsset = null;
+	
+	        try{
+	            Task<IAsset> copyAssetTask = CreateAssetFromBlobAsync(blob, assetName, log);
+	            newAsset = await copyAssetTask;
+	            log.Info($"Asset Copied : {newAsset.Id}");
+	        }
+	        catch(Exception ex){
+	            log.Info("Copy Failed");
+	            log.Info($"ERROR : {ex.Message}");
+	            throw ex;
+	        }
+	
+	        return newAsset;
+	}
+	
+	/// <summary>
+	/// Creates a new asset and copies blobs from the specifed storage account.
+	/// </summary>
+	/// <param name="blob">The specified blob.</param>
+	/// <returns>The new asset.</returns>
+	public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, string assetName, TraceWriter log)
+	{
+	     //Get a reference to the storage account that is associated with the Media Services account. 
+	    StorageCredentials mediaServicesStorageCredentials =
+	        new StorageCredentials(_storageAccountName, _storageAccountKey);
+	    _destinationStorageAccount = new CloudStorageAccount(mediaServicesStorageCredentials, false);
+	
+	    // Create a new asset. 
+	    var asset = _context.Assets.Create(blob.Name, AssetCreationOptions.None);
+	    log.Info($"Created new asset {asset.Name}");
+	
+	    IAccessPolicy writePolicy = _context.AccessPolicies.Create("writePolicy",
+	        TimeSpan.FromHours(4), AccessPermissions.Write);
+	    ILocator destinationLocator = _context.Locators.CreateLocator(LocatorType.Sas, asset, writePolicy);
+	    CloudBlobClient destBlobStorage = _destinationStorageAccount.CreateCloudBlobClient();
+	
+	    // Get the destination asset container reference
+	    string destinationContainerName = (new Uri(destinationLocator.Path)).Segments[1];
+	    CloudBlobContainer assetContainer = destBlobStorage.GetContainerReference(destinationContainerName);
+	
+	    try{
+	        assetContainer.CreateIfNotExists();
+	    }
+	    catch (Exception ex)
+	    {
+	        log.Error ("ERROR:" + ex.Message);
+	    }
+	
+	    log.Info("Created asset.");
+	
+	    // Get hold of the destination blob
+	    CloudBlockBlob destinationBlob = assetContainer.GetBlockBlobReference(blob.Name);
+	
+	    // Copy Blob
+	    try
+	    {
+	        using (var stream = await blob.OpenReadAsync()) 
+	        {            
+	            await destinationBlob.UploadFromStreamAsync(stream);          
+	        }
+	
+	        log.Info("Copy Complete.");
+	
+	        var assetFile = asset.AssetFiles.Create(blob.Name);
+	        assetFile.ContentFileSize = blob.Properties.Length;
+	        assetFile.IsPrimary = true;
+	        assetFile.Update();
+	        asset.Update();
+	    }
+	    catch (Exception ex)
+	    {
+	        log.Error(ex.Message);
+	        log.Info (ex.StackTrace);
+	        log.Info ("Copy Failed.");
+	        throw;
+	    }
+	
+	    destinationLocator.Delete();
+	    writePolicy.Delete();
+	
+	    return asset;
+	}
 
 
 ## Next step
