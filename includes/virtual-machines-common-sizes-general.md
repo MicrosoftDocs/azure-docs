@@ -1,7 +1,18 @@
 
+<!-- A-series, Av2-series, D-series, Dv2-series, DS-series*, DSv2-series* -->
+
+The [A-series](../../includes/virtual-machines-common-sizes-general.md#a-series) and Av2-series VMs can be deployed on a variety of hardware types and processors. The size is throttled, based upon the hardware, to offer consistent processor performance for the running instance, regardless of the hardware it is deployed on. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the Virtual Machine.
+
+D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
+
+Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
+
+The basic tier sizes are primarily for development workloads and other applications that don't require load balancing, auto-scaling, or memory-intensive virtual machines. For information about VM sizes that are more appropriate for production applications, see (Sizes for virtual machines)[virtual-machines-size-specs.md] and for VM pricing information, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
+
 
 ## Dv2-series
 
+ACU: 210-250
 
 | Size              | CPU cores | Memory: GiB | Local SSD: GiB | Max local disk throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Network bandwidth |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -14,7 +25,9 @@
 <br>
 
 
-## D-series
+## D-series 
+
+ACU: 160
 
 | Size         | CPU cores | Memory: GiB | Local SSD: GiB | Max local disk throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Network bandwidth |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -27,6 +40,8 @@
 
 
 ## Av2-series
+
+ACU: 100
 
 | Size            | CPU cores | Memory: GiB | Local SSD: GiB | Max local disk throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Network bandwidth |
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -41,6 +56,8 @@
 <br>
 
 ## A-series
+
+ACU: 50-100
 
 | Size | CPU cores | Memory: GiB | Local HDD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -64,3 +81,15 @@ In the classic deployment model, some VM size names are slightly different in CL
 * Standard_A2 is Medium
 * Standard_A3 is Large
 * Standard_A4 is ExtraLarge
+
+## Basic A
+
+
+
+|Size – Size\Name |CPU cores|Memory|NICs (Max)|Max temporary disk size |Max. data disks 1023 GB each)|Max. IOPS (300 per disk)|
+|---|---|---|---|---|---|---|
+|A0\Basic_A0|1|768 MB|1| 20 GB|1|1x300|
+|A1\Basic_A1|1|1.75 GB|1| 40 GB |2|2x300|
+|A2\Basic_A2|2|3.5 GB|1| 60 GB|4|4x300|
+|A3\Basic_A3|4|7 GB|1| 120 GB |8|8x300|
+|A4\Basic_A4|8|14 GB|1| 240 GB |16|16x300|

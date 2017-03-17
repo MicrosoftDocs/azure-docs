@@ -1,32 +1,12 @@
+| Type                     | Sizes           |    Description       |
+|--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| General-purpose](../articles/virtual-machines/virtual-machines-windows-sizes-general.md)          | D, Dv2, A0-7, Av2 | Balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. |
+| [Compute optimized](../articles/virtual-machines/virtual-machines-windows-sizes-compute.md)        | F, Fs             | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, bath processes, and application servers.        |
+| [Memory optimized](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md)         | G, GS, DS, DSv2   | High memory-to-core ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
+| [Storage optimized](../articles/virtual-machines/virtual-machines-windows-sizes-storage.md)        | Ls                | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases.                                                         |
+| [GPU optimized](../articles/virtual-machines/virtual-machines-windows-sizes-gpu.md)            | NV, NC            | Specialized virtual machines targeted for heavy graphic rendering and video editing. Available with single or multiple GPUs.       |
+| [High Performance Compute](../articles/virtual-machines/virtual-machines-windows-sizes-hpc.md) | A8-11, H          | Our fastest and most powerful CPU virtual machines with optional high-throughput network interfaces (RDMA).                        |
 
-
-
-
-| Type                                 | Series | Best for....                                                                                                                                   | ACU        |
-|--------------------------------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------|------------|
-|[General-purpose](../articles/virtual-machines/virtual-machines-windows-sizes-general.md)  | D      | Applications that demand faster CPUs, better local disk performance, or higher memories. | 160        |
-|                                                                                           | Dv2    | Applications that demand more powerful CPUs, which are about 35% faster than D-series.                                                         | 210 - 250* |
-|                                                                                           | A0-7      |  | 160        |
-|                                                                                           | A1v2-A8v2 |  | 160        |
-| [High Performance Compute](../articles/virtual-machines/virtual-machines-windows-sizes-hpc.md) | A8-11  | Compute-intensive workloads like HPC.                                                                                                          | 225*       |
-|                                      | H      | Financial risk modeling, seismic and reservoir simulation, molecular modeling, and genomic research.                                           | TBD        |
-| [Compute optimized](../articles/virtual-machines/virtual-machines-windows-sizes-compute.md)                    | F      | Higher CPU to memory ratio. Good for web servers, network appliances, batch process and application servers.                                   | 210 - 250* |
-|                                      | Fs     | The power of the F-series and premium storage.                                                                                                 | 210 - 250* |
-| [GPU optimized](../articles/virtual-machines/virtual-machines-windows-sizes-gpu.md)                                 | N      | NV sizes are ideal for remote visualization, streaming, gaming, encoding and VDI scenarios.                                                    | xxx-xxx*   |
-|                                      |        | NC sizes are ideal for compute intensive and network intensive applications, algorithms, and simulations.                                      | xxx-xxx*   |
-| [Memory optimized](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md)                    | G      | high disk throughput and IO. Workloads like Big Data, MPP, SQL and NO-SQL databases.                                                           | 180-240*   |
-|                                      | GS     | Premium storage option for G-series.                                                                                                           | 180 - 240* |
-| 									   | DS     | Applications with similar demands to the D-series but require premium storage.                                                                 | 160        |
-|                                      | DSv2   | Optimized for premium storage.                                                                                                                 | 210 - 250* |
-| [Storage optimized](../articles/virtual-machines/virtual-machines-windows-sizes-storage.md)                    | Ls      | workloads that require low latency local storage, like NoSQL databases.                                                           | 180-240*   |
-| [Economy](../articles/virtual-machines/virtual-machines-windows-sizes-economy.md) | Basic_A0-4   | Development workloads, build servers, code repositories, low-traffic websites, micro services, early product experiments, and small databases. | 50-70     |
-
-ACU is currently standardized on a Small (Standard_A1) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark. 
-
-> [!IMPORTANT]
-> The ACU is only a guideline.  The results for your workload may vary. 
->
->
 
 
 

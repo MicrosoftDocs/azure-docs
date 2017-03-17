@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/23/2017
+ms.date: 03/17/2017
 ms.author: cynthn
 
 ---
@@ -33,3 +33,10 @@ This article describes the available sizes and options for the Azure virtual mac
 
 [!INCLUDE [virtual-machines-common-sizes](../../includes/virtual-machines-common-sizes.md)]
 
+## Next steps
+- [General-purpose](virtual-machines-linux-sizes-general.md)
+- [Memory optimized](virtual-machines-linux-sizes-memory.md)
+- [Compute optimized](virtual-machines-linux-sizes-compute.md)
+- [GPU optimized](virtual-machines-linux-sizes-gpu.md)
+- [High performance compute](virtual-machines-linux-sizes-hpc.md)
+- [Storage optimized](virtual-machines-linux-sizes-storage.md)

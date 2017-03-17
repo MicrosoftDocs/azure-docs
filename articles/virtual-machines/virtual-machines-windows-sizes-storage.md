@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 03/17/2017
 ms.author: cynthn
 
 ---
 
 # Storage optimized
 
-The Ls-series is optimized for workloads that require low latency local storage, like NoSQL databases (e.g. Cassandra, MongoDB, Cloudera and Redis). The Ls-series offers up to 32 CPU cores, using the [Intel® Xeon® processor E5 v3 family](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). This is the same CPU performance as the G/GS-Series and comes with 8 GiB of memory per CPU core.  
+
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../includes/virtual-machines-common-sizes-storage.md)]
 
@@ -30,8 +30,11 @@ The Ls-series is optimized for workloads that require low latency local storage,
 
 
 ## Other sizes
-
+- [General purpose](virtual-machines-windows-sizes-general.md)
 - [Memory optimized](virtual-machines-windows-sizes-memory.md)
 - [Compute optimized](virtual-machines-windows-sizes-compute.md)
 - [GPU optimized](virtual-machines-windows-sizes-gpu.md)
 - [High performance compute](virtual-machines-windows-sizes-hpc.md)
+
+## Next steps
+Learn more about how [Azure compute units (ACU)](virtual-machines-windows-acu.md) can help you compare compute performance across Azure SKUs.

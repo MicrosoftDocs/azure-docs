@@ -1,7 +1,15 @@
 
 
+* Dv2-series, D-series, G-series, and the DS/GS counterparts  are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
+
+D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
+
+Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
+
 
 ## G-series
+
+ACU: 180 - 240
 
 | Size         | CPU cores | Memory: GiB | Local SSD: GiB | Max local disk throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Network bandwidth |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -15,6 +23,9 @@
 <br>
 
 ## GS-series*
+
+ACU: 180 - 240
+
 | Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_GS1 |2 |28 |56 |4 |10,000 / 100 (264) |5,000 / 125 |1 / high |
@@ -30,11 +41,9 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 **Instance is isolated to hardware dedicated to a single customer.
 <br>
 
-
-
-
 ## Dv2-series
 
+ACU: 21--250
 
 | Size              | CPU cores | Memory: GiB | Local SSD: GiB | Max local disk throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Network bandwidth |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -51,6 +60,9 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 <br>
 
 ## DSv2-series*
+
+ACU: 210-250
+
 | Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1_v2 |1 |3.5 |7 |2 |4,000 / 32 (43) |3,200 / 48 |1 moderate |
@@ -80,6 +92,8 @@ Bps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
 ## D-series
 
+ACU: 160
+
 | Size         | CPU cores | Memory: GiB | Local SSD: GiB | Max local disk throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Network bandwidth |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 4 / 4x500                         | 2 / high                     |
@@ -90,6 +104,7 @@ Bps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
 ## DS-series*
 
+ACU: 160
 
 | Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- |
