@@ -3,12 +3,12 @@
 ## [Endpoint types](traffic-manager-endpoint-types.md)
 ## [Endpoint monitoring](traffic-manager-monitoring.md)
 ## [Routing methods](traffic-manager-routing-methods.md)
+## [Nested profiles](traffic-manager-nested-profiles.md) 
 ## [FAQs](traffic-manager-FAQs.md)
 
 # Get Started
 ## [Manage endpoints](traffic-manager-manage-endpoints.md)
 ## [Manage profiles](traffic-manager-manage-profiles.md)
-## [Point your Internet domain to Traffic Manager](traffic-manager-point-internet-domain.md)
 
 # How To
 ## [Configure a routing method](traffic-manager-configure-routing-method.md)
@@ -16,6 +16,7 @@
 ## [Combine load balancing services](traffic-manager-load-balancing-azure.md)
 ## [Measure Traffic Manager performance](traffic-manager-performance-considerations.md)
 ## [Use PowerShell to manage Traffic Manager](traffic-manager-powershell-arm.md)
+## [Point your Internet domain to Traffic Manager](traffic-manager-point-internet-domain.md)
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)
