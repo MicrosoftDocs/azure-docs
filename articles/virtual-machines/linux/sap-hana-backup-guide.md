@@ -525,7 +525,7 @@ The NFS share was a fast stripe set, like the one on the SAP HANA server. Nevert
 
 ![The alternative wasn&#39;t much quicker at 1 hour and 43 minutes](./media/sap-hana-backup-guide/image037.png)
 
-The alternative of doing a backup to a local stripe set and copying to the NFS share on OS level (a simple **cp -avr** command) wasn&#39;t much quicker. It took at 1 hour and 43 minutes.
+The alternative of doing a backup to a local stripe set and copying to the NFS share on OS level (a simple **cp -avr** command) wasn&#39;t much quicker. It took 1 hour and 43 minutes.
 
 So it works, but performance wasn&#39;t good for the 230-GB backup test. It would look even worse for multi terabytes.
 
