@@ -30,7 +30,7 @@ This tutorial shows you how to create a virtual machine scale set.
 
 If you're using the Azure CLI 2.0 or PowerShell to create a scale set, you first need to log in to your subscription.
 
-For more information on how to install, set up, and log in to Azure with Azure CLI 2.0 or PowerShell, see [Getting Started with Azure CLI 2.0](cli/azure/get-started-with-azure-cli.md) or [Get started with Azure PowerShell cmdlets](powershell/resourcemanager/).
+For more information on how to install, set up, and log in to Azure with Azure CLI 2.0 or PowerShell, see [Getting Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md) or [Get started with Azure PowerShell cmdlets](/powershell/resourcemanager/).
 
 ```azurecli
 az login
