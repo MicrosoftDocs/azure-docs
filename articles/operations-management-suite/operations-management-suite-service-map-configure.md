@@ -178,8 +178,7 @@ Below are some code_numbers and suggested resolutions.
 ### Post-Installation issues
 #### Server doesn't show in Service Map
 If your Dependency Agent installation succeeded, but you don't see your server in the Service Map solution:
-1. Is the Dependency Agent installed successfully?  You can validate this by checking to see if the service is installed and running.
-
+1. Is the Dependency Agent installed successfully?  You can validate this by checking to see if the service is installed and running.<br><br>
 **Windows**: Look for the Service named "Microsoft Dependency Agent"<br>
 **Linux**: Look for the running process "microsoft-dependency-agent"
 
