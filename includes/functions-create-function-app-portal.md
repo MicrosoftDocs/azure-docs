@@ -11,6 +11,6 @@
      
     ![Create function app in the Azure portal](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
-	You must enter a valid **App name**, which can contain only letters, numbers, and hyphens. Underscore (**_**) is not an allowed character.
+	You must enter a valid **App name**, which can contain only letters, numbers, and hyphens. Underscore (**_**) is not an allowed character. For more information, see [Create a function app from the Azure portal](functions-create-function-app-portal.md).
 
 3. Click **Create** to provision and deploy the new function app.  
