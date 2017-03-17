@@ -38,6 +38,9 @@ The script needs to be stored in Azure storage, or any other location accessible
 
 The Custom Script Extension for Windows requires that the target virtual machine is connected to the internet. 
 
+## Execution Cadence
+The Custom Script Extension is executed everytime [Insert answer here; does it happen only when the VM is built, or ran reach time it's restarted, or executed on a schedule?]
+
 ## Extension schema
 
 The following JSON shows the schema for the Custom Script Extension. The extension requires a script location (Azure Storage or other location with valid URL), and a command to execute. If using Azure Storage as the script source, an Azure storage account name and account key is required. These items should be treated as sensitive data and specified in the extensions protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine.
