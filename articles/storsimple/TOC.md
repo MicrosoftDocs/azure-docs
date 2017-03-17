@@ -209,7 +209,9 @@
 ### [Using StorSimple Data Manager](storsimple-data-manager-ui.md)
 
 ## How to
-### [Use .NET to transform data](storsimple-data-manager-dotnet-jobs.md)
+### [Use .NET to start jobs](storsimple-data-manager-dotnet-jobs.md)
+### [Use Automation to start jobs](storsimple-data-manager-job-using-automation.md)
+### [Change default blob path](storsimple-data-manager-change-default-blob-path.md)
 
 # StorSimple for partners
 ## Overview
