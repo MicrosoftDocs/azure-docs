@@ -30,33 +30,44 @@ Create a file named **AadProvider.Configuration.json** with the following conten
 
         {
           "AuthenticationQueryParameters": null,
-          "AsmEndPoint": "https://management.usgovcloudapi.net",
-          "Authority": "https://login-us.microsoftonline.com/",
+          "AsmEndPoint": "https://management.core.usgovcloudapi.net/",
+          "Authority": "https://login.microsoftonline.us/",
           "AzureResourceManagementEndpoint": "https://management.usgovcloudapi.net",
           "AzureResourceManagementAudienceEndpoints": [ "https://management.usgovcloudapi.net" ],
           "ClientIdentifier": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1",
-          "EnvironmentName": "Fairfax",
+          "EnvironmentName": "AzureUSGovernment",
           "GraphEndpoint": "https://graph.windows.net",
-          "MsaHomeTenantId": "f577cd82-810c-43f9-a1f6-0cc532871050",
+          "MsaHomeTenantId": "f8cdef31-a31e-4b4a-93e4-5f571e91255a",
           "NativeClientRedirect": "urn:ietf:wg:oauth:2.0:oob",
-          "PortalEndpoint": "https://portal.core.usgovcloudapi.net/",
+          "PortalEndpoint": "https://portal.azure.us/",
           "ResourceEndpoint": "https://management.core.usgovcloudapi.net",
           "ValidateAuthority": true,
           "VisualStudioOnlineEndpoint": "https://app.vssps.visualstudio.com/",
           "VisualStudioOnlineAudience": "499b84ac-1321-427f-aa17-267ca6975798"
         }
 
-### Update Visual Studio
+### Updating Visual Studio for Azure Government
 
 1.	Close Visual Studio
-2.	Delete **%temp%\servicehub**
-3.	Place **AadProvider.Configuration.json** created in the previous step into **%localappdata%\.IdentityService\AadConfigurations**
-4.	Launch Visual Studio and begin using [Cloud Explorer](../vs-azure-tools-resources-managing-with-cloud-explorer.md) with your Azure Government account.
+2.	Place **AadProvider.Configuration.json** created in the previous step into **%localappdata%\.IdentityService\AadConfigurations**.  Create this folder if not present.
+3.	Launch Visual Studio and begin using your Azure Government account.
 
 > [!NOTE]
 > With the configuration file, only Azure Government subscriptions are accessible.  You still see subscriptions that you configured previously but they do not work because Visual Studio is now connected to Azure Government instead of Azure Public.  Remove the file to connect to Azure Commercial.
 > 
 > 
+
+### Reverting Visual Studio Connection to Azure Government
+To enable Visual Studio to connect to Azure Public, you need to remove the configuration file settings that enables connection to Azure Government.
+
+1.	Close Visual Studio
+2.	Delete this folder: **%localappdata%\.IdentityService\AadConfigurations**
+3.	Restart Visual Studio and begin using your Azure Public account.
+
+> [!NOTE]
+> Once this configuration has been reverted, your Azure Government subscriptions no longer accessible.
+> 
+>
 
 ## Visual Studio 2015
 Visual Studio 2015 requires a registry change for Visual Studio to connect to Azure Government.  Once this registry key is set Visual Studio connects to Azure Government instead of Azure Public.
@@ -71,7 +82,7 @@ To enable Visual Studio to connect to Azure Government, you need to update the r
         Windows Registry Editor Version 5.00
    
         [HKEY_CURRENT_USER\Software\Microsoft\VSCommon\ConnectedUser]
-        "AadInstance"="https://login-us.microsoftonline.com/"
+        "AadInstance"="https://login.microsoftonline.us/"
         "adaluri"="https://management.core.usgovcloudapi.net"
         "AzureRMEndpoint"="https://management.usgovcloudapi.net"
         "AzureRMAudienceEndpoint"="https://management.core.usgovcloudapi.net"
