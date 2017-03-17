@@ -150,7 +150,7 @@ For example, if you have **User** selected as **Activity Type**, the **Activity*
 
 ![Auditing](./media/active-directory-reporting-activity-audit-logs/628.png "Auditing")
 
-If you select **Group** as **Activity Type**, you get an additional filter option that also enables you to filter based on the following **Activity Sources**:
+If you select **Group** as **Activity resource type**, you get an additional filter option that also enables you to filter based on the following **Activity Sources**:
 
 - Azure AD
 
