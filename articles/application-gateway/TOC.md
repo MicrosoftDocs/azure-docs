@@ -25,7 +25,6 @@
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
 ## Customize web application firewall rules
 ### [Portal](application-gateway-customize-waf-rules-portal.md)
-### [PowerShell](application-gateway-customize-waf-rules-powershell.md)
 ## Configure for SSL offload
 ### [Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)

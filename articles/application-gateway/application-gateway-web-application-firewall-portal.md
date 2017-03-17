@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Application Gateway with Web Application Firewall | Microsoft Docs
+title: Create or update an Azure Application Gateway with Web Application Firewall | Microsoft Docs
 description: Learn how to create an Application Gateway with web application firewall by using the portal
 services: application-gateway
 documentationcenter: na
@@ -61,14 +61,18 @@ Navigate to the Azure portal, select an existing Application Gateway.
 
 ### Step 2
 
-Click **Configuration** and update the application gateway settings. When complete click **Save**
+Click **Web application firewall** and update the application gateway settings. When complete click **Save**
 
 The settings to update an existing application gateway to support web application firewall are:
 
-* **Tier** - The tier selected must be **WAF** to support web application firewall
-* **SKU size** - This setting is the size of the application gateway with web application firewall, available options are (**Medium** and **Large**).
+* **Upgrade to WAF Tier** - This setting is required in order to configure WAF.
 * **Firewall status** - This setting either disables or enables web application firewall.
 * **Firewall mode** - This setting is how web application firewall deals with malicious traffic. **Detection** mode only logs the events, where **Prevention** mode logs the events and stops the malicious traffic.
+* **Rule set** - This setting determines the [core rule set](application-gateway-webapplicationfirewall-overview.md#core-rule-sets) that will be used to protect the backend pool members.
+* **Configure disabled rules** - This setting allows you to [disable certain rules and rule groups](application-gateway-crs-rulegroups-rules.md) to prevent possible false positives.
+
+>[!NOTE]
+> When upgrading an existing application gateway to the WAF SKU, the SKU size will change to medium. This can be reconfigured after configuration is complete.
 
 ![blade showing basic settings][2]
 

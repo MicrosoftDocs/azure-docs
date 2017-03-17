@@ -588,4 +588,8 @@ The following tables are the Rule groups and rules that are available when using
 |950921|Backdoor access|
 |950922|Backdoor access|
 
+## Next steps
+
+Learn how to disable WAF rules by visiting: [Customize WAF rules](application-gateway-crs-rulegroups-rules.md)
+
 [1]: ./media/application-gateway-integration-security-center/figure1.png
