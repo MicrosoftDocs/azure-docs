@@ -73,19 +73,66 @@ For the purpose of creating this article VMware virtual machines with Dynamics A
 
 If you are using a shared disk based cluster as the middle tier in your application then you will not be able to use site recovery replication to replicate those virtual machines. You can use native replication provided by the application and then use a [recovery plan](site-recovery-recovery-plan.md) to failover all tiers. [This section](site-recovery.md#section-link) below covers it in detail.
 
-## Replicating virtual machines
+## Enable DR of Dynamics AX application using ASR
+
+### Protect your Dynamics AX application 
+Each component of the Dynamics AX needs to be protected to enable the complete application replication and recovery. This section covers:
+
+* Protection of Active Directory
+* Protection of SQL Tier
+* Protection of App and Web Tiers
+* Networking configuration
+
+### Setup AD and DNS replication
+Active Directory is required on the DR site for Dynamics AX application to function. There are two recommended choices based on the complexity of the customer’s on-premises environment
+
+#####Option 1
+If the customer has a small number of applications and a single domain controller for his entire on-premises site and will be failing over the entire site together, then we recommend using ASR-Replication to replicate the DC machine to secondary site (applicable for both Site to Site and Site to Azure)
+
+#####Option 2
+If the customer has a large number of applications and is running an Active Directory forest and will failover few applications at a time, then we recommend setting up an additional domain controller on the DR site (secondary site or in Azure). 
+
+Please refer to companion guide  on making a domain controller available on DR site. For remainder of this document we will assume a DC is available on DR site.
+
+###Setup SQL Server replication
+Please refer to companion guide  for detailed technical guidance on the recommended option for protecting SQL tier.
+
+###Enable protection for Dynamics AX client and AOS VMs
+Enable protection of AX client and AOS VMs in ASR. Perform relevant Azure Site Recovery configuration based on whether the VMs are deployed on Hyper-V or on VMware.
 
 Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating the virtual machine to Azure. 
+
+> [!NOTE]
+> Recommended Crash consistent frequency to configure is 15minutes.
+The below snapshot shows the protection status of Dynamics component VMs in ‘VMware site to Azure’ protection scenario.
+![Protecteditems](./media/site-recovery-dynamicsax/Protecteditems.png)
+
+### Configure VM settings
+
+For the AX client and AOS VMs configure traget VM properties network settings in ASR so that the VM networks get attached to the right DR network after failover. Ensure the DR network for these tiers is routable to the SQL tier.
+You can select the VM in the replicated items to configure the network settings as shown in the snapshot below.
+
+![VMProperties](./media/site-recovery-dynamicsax/VMpropertiesAOS.png)
 
 * Once the replication is complete, make sure you go to each virtual machine of the front end and [select same availability set](site-recovery-availability-set.md) for each of the virtual machine.
 * If you are using a static IP then specify the IP that you want the virtual machine to take in the **Target IP** field 
 
 
 ## Creating a recovery plan
+You can create a recovery plan in ASR to automate the failover process. Add app tier and web tier in the Recovery Plan. Order them in different groups so that the front-end shutdown before app tier.
 
+1.	Select the ASR vault in your subscription and click on ‘Recovery Plans’ tile. 
+2.	Click on ‘+ Recovery plan and specify a name
+3.	Select the ‘Source’ and ‘Target’. The target can be Azure or secondary site. In case you choose Azure, you must specify the deployment model 
+
+![Create Recovery Plan](./media/site-recovery-dynamicsax/Recoveryplancreation1.png)
+
+4.	Select the AOS and client VMs to the recovery plan and pres OK.
+![Recovery Plan](./media/site-recovery-dynamicsax/SelectVMs.png)
+![Recovery Plan](./media/site-recovery-dynamicsax/RecoveryPlan.png)
 ### Adding virtual machines to failover groups
 
-![Recovery Plan](./media/site-recovery-iis/RecoveryPlan.png)
+
 
 
 ### Adding scripts to the recovery plan
