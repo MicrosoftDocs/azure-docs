@@ -66,7 +66,7 @@ Use the diagnostics tool to troubleshoot the network, performance, system, and h
          > `Invoke-HcsDiagnostics -Scope System`
 
 * **Persistent device issues** - You are experiencing device issues that seem to persist. For instance, registration is failing. You could also be experiencing device issues after the device is successfully registered and operational for a while.
-    * In this case, use this tool for preliminary troubleshooting prior to logging a service request with Microsoft Support. We recommend that you run this tool and capture the output of this tool. You can then provide this output to Support to expedite troubleshooting.
+    * In this case, use this tool for preliminary troubleshooting before you log a service request with Microsoft Support. We recommend that you run this tool and capture the output of this tool. You can then provide this output to Support to expedite troubleshooting.
     * If there are any hardware component or cluster failures, you should log in a Support request.
 
 * **Low device performance** - Your StorSimple device is slow.
@@ -79,7 +79,7 @@ Use the diagnostics tool to troubleshoot the network, performance, system, and h
 
 This test determines the status of the hardware components, the USM firmware, and the disk firmware running on your system.
 
-* The hardware components reported are those componentes that failed the test or are not present in the system.
+* The hardware components reported are those components that failed the test or are not present in the system.
 * The USM firmware and disk firmware versions are reported for the Controller 0, Controller 1, and shared components in your system. For a complete list of hardware components, go to:
 
     * [Components in primary enclosure](storsimple-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
@@ -328,7 +328,7 @@ Here is a sample output of the 8100 device. You can see in the output that:
 * DATA 2 - 5 are not enabled in the portal.
 * The DNS server configuration is valid and the device can connect via the DNS server.
 * The NTP server connectivity is also fine.
-* Ports 80 and 443 are open, however port 9354 is blocked. Based on the [system network requirements](storsimple-system-requirements.md), you need to open this port for the service bus communication.
+* Ports 80 and 443 are open. However, port 9354 is blocked. Based on the [system network requirements](storsimple-system-requirements.md), you need to open this port for the service bus communication.
 * The SSL certification is valid.
 * The device can connect to the storage account: _myss8000storageacct_.
 * The connectivity to Update servers is valid.
@@ -412,17 +412,17 @@ Here is a table describing what the various Windows PowerShell parameters in the
 
 | PowerShell Parameter    | Description  |
 |-------------------------|------------------|
-| Instance ID             | Every controller has a unique identifier associated with it, this is the corresponding GUID for the controller.|
+| Instance ID             | Every controller has a unique identifier or a GUID associated with it.|
 | Name                    | The friendly name of the device as configured through the Azure portal during device deployment. The default friendly name is the device serial number. |
-| Model                   | The model of your StorSimple 8000 series device. This can be 8100 or 8600.|
-| SerialNumber            | The device serial number is assigned at the factory and is 15 characters long. For instance 8600-SHX0991003G44HT, indicates the following:<br> 8600 – Indicates the device model.<br>SHX – Indicates the manufacturing site.<br> 0991003 - Indicates a specific product. <br> G44HT- The last 5 digits are incremented to create unique serial numbers. This might not be a sequential set.|
+| Model                   | The model of your StorSimple 8000 series device. The model can be 8100 or 8600.|
+| SerialNumber            | The device serial number is assigned at the factory and is 15 characters long. For instance, 8600-SHX0991003G44HT indicates:<br> 8600 – Is the device model.<br>SHX – Is the manufacturing site.<br> 0991003 - Is a specific product. <br> G44HT- the last 5 digits are incremented to create unique serial numbers. This may not be a sequential set.|
 | TimeZone                | The device time zone as configured in the Azure portal during device deployment.|
 | CurrentController       | The controller that you are connected to through the Windows PowerShell interface of your StorSimple device.|
 | ActiveController        | The controller that is active on your device and is controlling all the network and disk operations. This can be Controller 0 or Controller 1.  |
 | Controller0Status       | The status of Controller 0 on your device. The controller status can be normal, in recovery mode, or unreachable.|
 | Controller1Status       | The status of Controller 1 on your device.  The controller status can be normal, in recovery mode, or unreachable.|
-| SystemMode              | The overall status of your StorSimple device. The device status can be normal, in maintenance, or decommissioned (corresponds to deactivated in the Azure portal).|
-| FriendlySoftwareVersion | The friendly string that corresponds to the device software version. For a system running Update 4, this would be StorSimple 8000 Series Update 4.0.|
+| SystemMode              | The overall status of your StorSimple device. The device status can be normal, maintenance, or decommissioned (corresponds to deactivated in the Azure portal).|
+| FriendlySoftwareVersion | The friendly string that corresponds to the device software version. For a system running Update 4, the friendly software version would be StorSimple 8000 Series Update 4.0.|
 | HcsSoftwareVersion      | The HCS software version running on your device. For instance, the HCS software version corresponding to StorSimple 8000 Series Update 4.0 is 6.3.9600.17820. |
 | ApiVersion              | The software version of the Windows PowerShell API of the HCS device.|
 | VhdVersion              | The software version of the factory image that the device was shipped with. If you reset your device to factory defaults, then it runs this software version.|
@@ -431,8 +431,8 @@ Here is a table describing what the various Windows PowerShell parameters in the
 | MdsAgentVersion         | The version corresponding to the Mds agent running on your StorSimple device. This agent moves data to the Monitoring and Diagnostics Service (MDS).|
 | Lsisas2Version          | The version corresponding to the LSI drivers on your StorSimple device.|
 | Capacity                | The total capacity of the device in bytes.|
-| RemoteManagementMode    | Indicates whether or not the device can be remotely managed via its Windows PowerShell interface. |
-| FipsMode                | Indicates whether or not the United States Federal Information Processing Standard (FIPS) mode is enabled on your device. The FIPS 140 standard defines cryptographic algorithms approved for use by US Federal government computer systems for the protection of sensitive data. For devices running Update 4 or later, FIPS mode is enabled by default. |
+| RemoteManagementMode    | Indicates whether the device can be remotely managed via its Windows PowerShell interface. |
+| FipsMode                | Indicates whether the United States Federal Information Processing Standard (FIPS) mode is enabled on your device. The FIPS 140 standard defines cryptographic algorithms approved for use by US Federal government computer systems for the protection of sensitive data. For devices running Update 4 or later, FIPS mode is enabled by default. |
 
 ## Next steps
 
