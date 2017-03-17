@@ -20,15 +20,15 @@ ms.author: nitinme
 ---
 # Spark Streaming: Process events from Azure Event Hubs with Apache Spark cluster on HDInsight
 
-In this article, you understand some concepts related to streaming using Apache Spark and then create a streaming application that does the following:
+In this article, you understand some concepts related to streaming using Apache Spark and then create a streaming solution that involves the following steps:
 
-1. Ingest messages into an Azure Event Hub.
-2. Retrieve the messages in real-time using Spark cluster on Azure HDInsight.
-3. Route the data to different outputs such as Azure Storage Blob, Hive table, or a SQL table. 
+1. You use a standalone application to ingest messages into an Azure Event Hub.
+
+2. You retrieve the messages from Event Hub in real-time using an application running in Spark cluster on Azure HDInsight.
+
+3. You route the data to different outputs such as Azure Storage Blob, Hive table, or a SQL table. 
 
 ## Prerequisites
-
-You must have the following:
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
@@ -52,35 +52,43 @@ In this article, to create a streaming solution, you do the following steps:
 
 ## Create Azure Event Hub
 
-1. From the [Azure Portal](https://manage.windowsazure.com), select **NEW** > **Service Bus** > **Event Hub** > **Custom Create**.
-2. On the **Add a new Event Hub** screen, enter an **Event Hub Name**, select the **Region** to create the hub in, and create a new namespace or select an existing one. Click the **Arrow** to continue.
+1. Log on to the [Azure Portal](https://manage.windowsazure.com), and click **New** at the top left of the screen.
+
+2. Click **Internet of Things**, then click **Event Hubs**.
    
-    ![wizard page 1](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub.png "Create an Azure Event Hub")
+    ![Create event hub](./media/hdinsight-apache-spark-eventhub-streaming/create-event-hub9.png)
+
+3. In the **Create namespace** blade, enter a namespace name. choose the pricing tier (Basic or Standard). Also, choose an Azure subscription, resource group, and location in which to create the resource. Click **Create** to create the namespace.
    
-   > [!NOTE]
-   > You should select the same **Location** as your Apache Spark cluster in HDInsight to reduce latency and costs.
-   > 
-   > 
-3. On the **Configure Event Hub** screen, enter the **Partition count** and **Message Retention** values, and then click the check mark. For this example, use a partition count of 10 and a message retention of 1. Note the partition count because you will need this value later.
+    ![Create event hub](./media/hdinsight-apache-spark-eventhub-streaming/create-event-hub1.png)
+
+	> [!NOTE]
+   	> You should select the same **Location** as your Apache Spark cluster in HDInsight to reduce latency and costs.
+   	> 
+   	> 
+
+4. In the Event Hubs namespace list, click the newly-created namespace.      
    
-    ![wizard page 2](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub2.png "Specify partition size and retention days for Event Hub")
-4. Click the Event Hub that you created, click **Configure**, and then create two access policies for the event hub.
+    
+5. In the namespace blade, click **Event Hubs**, and then click **+ Event Hub** to create a new Event Hub.
    
-    <table>
-    <tr><th>Name</th><th>Permissions</th></tr>
-    <tr><td>mysendpolicy</td><td>Send</td></tr>
-    <tr><td>myreceivepolicy</td><td>Listen</td></tr>
-    </table>
+    ![Create event hub](./media/hdinsight-apache-spark-eventhub-streaming/create-event-hub3.png)
+
+6. Type a name for your Event Hub, set the partition count to 10, and message retention to 1. We are not archiving the messages in this solution so you can leave the rest as default, and then click **Create**.
    
-    After You create the permissions, select the **Save** icon at the bottom of the page. This creates the shared access policies that will be used to send (**mysendpolicy**) and listen (**myreceivepolicy**) to this Event Hub.
-   
-    ![policies](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policies.png "Create Event Hub policies")
-5. On the same page, take a note of the policy keys generated for the two policies. Save these keys because they will be used later.
-   
-    ![policy keys](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policy.keys.png "Save policy keys")
-6. On the **Dashboard** page, click **Connection Information** from the bottom to retrieve and save the connection strings for the Event Hub using the two policies.
-   
-    ![policy keys](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policy.connection.strings.png "Save policy connection strings")
+    ![Create event hub](./media/hdinsight-apache-spark-eventhub-streaming/create-event-hub5.png)
+
+7. The newly created Event Hub is listed in the Event Hub blade.
+    
+     ![](./media/hdinsight-apache-spark-eventhub-streaming/create-event-hub6.png)
+
+8. Back in the namespace blade (not the specific Event Hub blade), click **Shared access policies**, and then click **RootManageSharedAccessKey**.
+    
+     ![](./media/hdinsight-apache-spark-eventhub-streaming/create-event-hub7.png)
+
+9. Click the copy button to copy the **RootManageSharedAccessKey** primary key and connection string to the clipboard. Save these to use later in the tutorial.
+    
+     ![](./media/hdinsight-apache-spark-eventhub-streaming/create-event-hub8.png)
 
 ## Send messages to an Azure Event Hub using a Scala application
 
@@ -91,15 +99,16 @@ In this section you use a standalone local Scala application that generates a st
 	* Oracle Java Development kit. You can install it from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 	* A Java IDE. This article uses IntelliJ IDEA 15.0.1. You can install it from [here](https://www.jetbrains.com/idea/download/).
 
+
 2. Open the application, **EventhubsSampleEventProducer**, in IntelliJ IDEA.
 
-3. Build the project. From the **Build** menu, click **Make Project**. The output jar is created under **\out\artifacts**.
+3. Build the project. From the **Build** menu, click **Make Project**. Depending on your IntelliJ IDEA configuration, the output jar is created under **\classes\artifacts** or **\out\artifacts**
 
 	> [!TIP]
 	> You can also use an option available in IntelliJ IDEA to directly create the project from a GitHub repository. To understand how to use that approach, use the instructions in the next section for guidance. Note that a lot of steps that are described in the next section will not be applicable for the Scala application that you create in this step. For example:
 	> 
-	> * You will not have to update the POM to include the Spark version. That's because there is no dependency on Spark for creating this application
-	> * You will not have to add some dependency jars to the project library. That's because those jars are not required for this project.
+	> * You do not have to update the POM to include the Spark version. That's because there is no dependency on Spark for creating this application
+	> * You do not have to add some dependency jars to the project library. Those jars are not required for this project.
 	> 
 	> 
 
