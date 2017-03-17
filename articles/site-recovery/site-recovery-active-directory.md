@@ -102,7 +102,7 @@ When you are doing a test failover, you will not bring all of the domain control
 
 
 
-> [!IMPOTANT]
+> [!IMPORTANT]
 > Some of the configurations described below are not the standard/default domain controller configurations. If you don't want to make these changes to a production domain controller, then you can create a domain controller dedicated to be used for site recovery test failover and make these changes to that.  
 >
 >
@@ -144,7 +144,7 @@ Any DFSR databases are deleted
 
 
 
-> [!IMPOTANT]
+> [!IMPORTANT]
 > Some of the configurations described below are not the standard/default domain controller configurations. If you don't want to make these changes to a production domain controller, then you can create a domain controller dedicated to be used for site recovery test failover and make these changes to that.  
 >
 >
