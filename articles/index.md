@@ -50,7 +50,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="/media/logos/logo_pluralsight.svg" src="/media/logos/logo_pluralsight.svg" alt="" />
+                                        <img data-hoverimage="/media/logos/logo_pluralsight.svg" src="/media/logos/logo_pluralsight.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
