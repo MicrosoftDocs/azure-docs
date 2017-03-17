@@ -1,12 +1,8 @@
 # Overview
 ## [What is Traffic Manager?](traffic-manager-overview.md)
-## [How Traffic Manager works](traffic-manager-how-traffic-manager-works.md)
-## [Traffic Manager endpoints](traffic-manager-endpoint-types.md)
-## [Traffic Manager endpoint monitoring and failover](traffic-manager-monitoring.md)
-## [Traffic routing methods](traffic-manager-routing-methods.md)
-## [Nested profiles](traffic-manager-nested-profiles.md)
-## [Performance considerations for Traffic Manager](traffic-manager-performance-considerations.md)
-## [Azure Resource Manager support](traffic-manager-powershell-arm.md)
+## [Endpoint typess](traffic-manager-endpoint-types.md)
+## [Endpoint monitoring](traffic-manager-monitoring.md)
+## [Routing methods](traffic-manager-routing-methods.md)
 ## [FAQs](traffic-manager-FAQs.md)
 
 # Get Started
@@ -16,11 +12,10 @@
 
 # How To
 ## [Configure a routing method](traffic-manager-configure-routing-method.md)
-## [Test your settings](traffic-manager-testing-settings.md)
+## [Verify Traffic Manager settings](traffic-manager-testing-settings.md)
 ## [Combine load balancing services](traffic-manager-load-balancing-azure.md)
-## [Use network resources](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
-## Troubleshoot
-### [Troubleshoot a degraded endpoint](traffic-manager-troubleshooting-degraded.md)
+## [Measure Traffic Manager performance](traffic-manager-performance-considerations.md)
+## [Use PowerShell to manage Traffic Manager](traffic-manager-powershell-arm.md)
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)

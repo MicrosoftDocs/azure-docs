@@ -1,5 +1,5 @@
 ---
-title: Traffic Manager - traffic routing methods | Microsoft Docs
+title: Azure Traffic Manager - traffic routing methods | Microsoft Docs
 description: This articles will help you understand the different traffic routing methods used by Traffic Manager
 services: traffic-manager
 documentationcenter: ''
@@ -21,17 +21,6 @@ ms.author: kumud
 
 Azure Traffic Manager supports three traffic-routing methods to determine how to route network traffic to the various service endpoints. Traffic Manager applies the traffic-routing method to each DNS query it receives. The traffic-routing method determines which endpoint returned in the DNS response.
 
-The Azure Resource Manager support for Traffic Manager uses different terminology than the classic deployment model. The following table shows the differences between the Resource Manager and Classic terms:
-
-| Resource Manager term | Classic term |
-| --- | --- |
-| Traffic-routing method |Load-balancing method |
-| Priority method |Failover method |
-| Weighted method |Round-robin method |
-| Performance method |Performance method |
-
-Based on customer feedback, we changed the terminology to improve clarity and reduce common misunderstandings. There is no difference in functionality.
-
 There are three traffic routing methods available in Traffic Manager:
 
 * **Priority:** Select 'Priority' when you want to use a primary service endpoint for all traffic, and provide backups in case the primary or the backup endpoints are unavailable.
@@ -52,8 +41,6 @@ The Traffic Manager profile contains a prioritized list of service endpoints. By
 
 With Azure Resource Manager, you configure the endpoint priority explicitly using the 'priority' property for each endpoint. This property is a value between 1 and 1000. Lower values represent a higher priority. Endpoints cannot share priority values. Setting the property is optional. When omitted, a default priority based on the endpoint order is used.
 
-With the Classic interface, the endpoint priority is configured implicitly. The priority is based on the order in which the endpoints are listed in the profile definition.
-
 ## Weighted traffic-routing method
 The 'Weighted' traffic-routing method allows you to distribute traffic evenly or to use a pre-defined weighting.
 
@@ -69,7 +56,7 @@ The weighted method enables some useful scenarios:
 * Application migration to Azure: Create a profile with both Azure and external endpoints. Adjust the weight of the endpoints to prefer the new endpoints.
 * Cloud-bursting for additional capacity: Quickly expand an on-premises deployment into the cloud by putting it behind a Traffic Manager profile. When you need extra capacity in the cloud, you can add or enable more endpoints and specify what portion of traffic goes to each endpoint.
 
-The new Azure portal supports the configuration of weighted traffic routing. Weights cannot be configured in the Classic portal. You can also configure weights using the Resource Manager and classic versions of Azure PowerShell, CLI, and the REST APIs.
+The Resource Manager Azure portal supports the configuration of weighted traffic routing.  You can configure weights using the Resource Manager versions of Azure PowerShell, CLI, and the REST APIs.
 
 It is important to understand that DNS responses are cached by clients and by the recursive DNS servers that the clients use to resolve DNS names. This caching can have an impact on weighted traffic distributions. When the number of clients and recursive DNS servers is large, traffic distribution works as expected. However, when the number of clients or recursive DNS servers is small, caching can significantly skew the traffic distribution.
 
