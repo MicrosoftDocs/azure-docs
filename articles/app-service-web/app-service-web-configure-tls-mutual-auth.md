@@ -36,15 +36,12 @@ You can use the [ARMClient tool](https://github.com/projectkudu/ARMClient) to ma
 
 replacing everything in {} with information for your web app and creating a file called enableclientcert.json with the following JSON content:
 
-> {
-> "location": "My Web App Location",   
-> "properties": 
-> {  
-> "clientCertEnabled": true
-> }
-> }  
-> 
-> 
+    {
+        "location": "My Web App Location",
+        "properties": {
+            "clientCertEnabled": true
+        }
+    }
 
 Make sure to change the value of "location" to wherever your web app is located e.g. North Central US or West US etc.
 
