@@ -56,7 +56,7 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 | Application roles | [Supported](https://msdn.microsoft.com/library/ms190998.aspx) | [Supported](https://msdn.microsoft.com/library/ms190998.aspx) |
 | Auto scale | Not supported | [Supported](sql-database-service-tiers.md) |
 | Azure Active Directory | Not supported | [Supported](sql-database-aad-authentication.md) |
-| Azure Data Factory | Not supported - see [SQL Server Integration Services (SSIS)](https://msdn.microsoft.com/library/ms141026.aspx) | [Supported](https://azure.microsoft.com/services/data-factory/) |
+| Azure Data Factory | [Supported](../data-factory/data-factory-introduction.md) | [Supported](../data-factory/data-factory-introduction.md) |
 | Auditing | [Supported](https://msdn.microsoft.com/library/cc280386.aspx) | [Supported](sql-database-auditing.md) |
 | BACPAC file (export) | [Supported](https://msdn.microsoft.com/library/hh213241.aspx) | [Supported](sql-database-export.md) |
 | BACPAC file (import) | [Supported](https://msdn.microsoft.com/library/hh710052.aspx) | [Supported](sql-database-import-portal.md) |

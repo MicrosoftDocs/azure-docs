@@ -1,5 +1,5 @@
 ---
-title: Configure Always On availability group in Azure VM - Classic
+title: Configure Always On availability group in Azure VM (Classic) | Microsoft Docs
 description: Create an Always On Availability Group with Azure Virtual Machines. This tutorial primarily uses the user interface and tools rather than scripting.
 services: virtual-machines-windows
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.date: 09/22/2016
 ms.author: mikeray
 
 ---
-# Configure Always On availability group in Azure VM - Classic
+# Configure Always On availability group in Azure VM (Classic)
 > [!div class="op_single_selector"]
 > * [Resource Manager: Template](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 > * [Resource Manager: Manual](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)

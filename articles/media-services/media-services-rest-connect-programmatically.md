@@ -47,6 +47,9 @@ The following steps describe the most common workflow when using the Media Servi
    
     You should post your subsequent API calls to https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
+	>[!NOTE]
+	>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
+
 ## Access control address
 Media Services access control address is https://wamsprodglobal001acs.accesscontrol.windows.net, 
 except for North China region, where it is https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn.

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2017
+ms.date: 03/06/2017
 ms.author: terrylan
 
 ---
@@ -88,7 +88,7 @@ You can configure security policies for your Azure subscriptions and resource gr
    ![Security alerts in Azure Security Center][7]
 
    > [!NOTE]
-   > Security alerts are only available if the Standard tier of Security Center is enabled. A 90 day free trial of the Standard tier is available. See [Next steps](#next-steps) for information on how to get the Standard tier.
+   > Security alerts are only available if the Standard tier of Security Center is enabled. A 60 day free trial of the Standard tier is available. See [Next steps](#next-steps) for information on how to get the Standard tier.
    >
    >
 2. Select an alert to view additional information. In this example, let's select **Modified system binary discovered**. This opens blades that provide additional details about the alert.
