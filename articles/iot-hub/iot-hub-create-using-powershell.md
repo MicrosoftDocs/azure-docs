@@ -79,7 +79,7 @@ You can list all the IoT hubs in your subscription using the following command:
 Get-AzureRmIotHub
 ```
 
-This example application adds an S1 Standard IoT Hub for which you are billed. You can delete the IoT hub using the following command:
+The previous example adds an S1 Standard IoT Hub for which you are billed. You can delete the IoT hub using the following command:
 
 ```powershell
 Remove-AzureRmIotHub `
