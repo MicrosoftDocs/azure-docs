@@ -20,9 +20,9 @@ ms.author: rclaus
 
 # Create a VM with IIS using DSC
 
-This script creates a virtual machine, and then uses the Azure Virtual Machine DSC custom script extension to install and configure IIS. 
+This script creates a virtual machine, and uses the Azure Virtual Machine DSC custom script extension to install and configure IIS. 
 
-Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, you should change the $AdminPassword variable at the start of the script to unique and meeting password complexity requirements.
+If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure.
 
 This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
@@ -32,7 +32,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Clean up deployment 
 
-After the script sample has been run, the following command can be used to remove the Resource Group, VM, and all related resources.
+Run the following command to remove the Resource Group, VM, and all related resources.
 
 ```azurecli
 az group delete --name myResourceGroup --yes

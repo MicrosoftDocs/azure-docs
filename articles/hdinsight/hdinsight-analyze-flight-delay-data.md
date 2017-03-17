@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 
 ---
 # Analyze flight delay data by using Hive in HDInsight
@@ -713,7 +714,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
 ## <a id="nextsteps"></a> Next steps
 Now you understand how to upload a file to Azure Blob storage, how to populate a Hive table by using the data from Azure Blob storage, how to run Hive queries, and how to use Sqoop to export data from HDFS to an Azure SQL database. To learn more, see the following articles:
 
-* [Getting started with HDInsight][hdinsight-get-started]
+* [Get started with HDInsight][hdinsight-get-started]
 * [Use Hive with HDInsight][hdinsight-use-hive]
 * [Use Oozie with HDInsight][hdinsight-use-oozie]
 * [Use Sqoop with HDInsight][hdinsight-use-sqoop]
