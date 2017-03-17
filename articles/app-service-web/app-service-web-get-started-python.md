@@ -22,7 +22,7 @@ ms.author: cephalin
 
 This Quickstart helps you deploy your first Python web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md) in just a few minutes.
 
-Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## Log in to Azure
 Log in to Azure by running `az login` and following the on-screen directions.
