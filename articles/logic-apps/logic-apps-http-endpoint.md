@@ -18,12 +18,11 @@ ms.date: 10/18/2016
 ms.author: jehollan
 ---
 
-# Call, trigger, or nest workflows for logic apps by adding HTTP endpoints
+# Call, trigger, or nest workflows with HTTP endpoints for logic apps
 
 Logic apps can natively expose synchronous HTTP endpoints as triggers 
-so that you can trigger or manually call your logic apps. 
-You can also nest workflows in your logic apps by using a pattern of callable endpoints 
-and adding the **Choose a Logic Apps workflow** actions to your logic apps.
+so that you can trigger or manually call your logic apps through a URL. 
+You can also nest workflows in your logic apps by using a pattern of callable endpoints.
 
 To receive requests, you can add these triggers to your logic apps:
 
@@ -36,27 +35,61 @@ but all principles identically apply to the other trigger types.
 
 ## Add a trigger to your logic app definition
 
-1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal").
+1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
+Go to your logic app, and open Logic App Designer.
 
-2. Go to your logic app, and open the Logic App Designer.
-Add a trigger that can receive incoming requests for your logic app definition. 
+2.  Add a trigger that lets your logic app receive incoming requests. 
 For example, add the **Request** trigger to your logic app.
 
 3.	Under **Request Body JSON Schema**, 
-enter the JSON schema for the payload that you expect to receive. 
+enter the JSON schema for the payload that you expect the trigger to receive.
 
-	> [!TIP]
-	> If you don't have a schema ready, you can generate the schema 
-	> for your JSON from a tool like [jsonschema.net](http://jsonschema.net/), 
-	> or from a sample JSON payload. On your **Request** trigger, 
-	> choose **Use sample payload to generate schema**, enter your JSON payload, 
-	> and choose **Done**.
+	The designer uses this schema for generating 
+	tokens that let your logic app consume, parse, 
+	and pass data from the trigger throughout your workflow.
 
-	The designer uses this schema for generating tokens 
-	that help you consume, parse, and pass data 
-	from the manual trigger through your workflow.
+	For now, enter the example schema shown in the designer:
+
+	```json
+	{
+		"properties": {
+			"address": {
+				"type": "string"
+			},
+		},
+		"required": [
+			"address",
+		],
+		"type": "object"
+	}
+	```
 
 	![Add the Request action][1]
+
+  > [!TIP]
+  > You can generate a schema for a sample JSON payload 
+  > from a tool like [jsonschema.net](http://jsonschema.net/), 
+  > or from the **Request** trigger by choosing **Use sample payload to generate schema**. 
+  > Enter your sample payload, and choose **Done**.
+  > 
+  > For example, this sample payload:
+  > 
+  > ```json
+  > {
+  >    "address": "21 2nd Street, New York, New York"
+  > }
+  > ```    
+  > generates this schema:
+  > 
+  > ```json
+  > {
+  >    "type": "object",
+  >    "properties": {
+  >       "address": {
+  >          "type": "string" 
+  >       }
+  >    }
+  > }
 
 2.	Save your logic app. Under **HTTP POST to this URL**, 
 you'll get a generated callback URL, like in this example:
@@ -83,28 +116,43 @@ you'll get a generated callback URL, like in this example:
 When you specify a JSON schema in the **Request** trigger, 
 the Logic App Designer uses that schema to generate tokens 
 that you can later pass into steps for your logic app. 
-For example, the following snippet makes the `title` and `name` tokens 
-available for you to select in the designer:
+For example, adding the following elements make the `title` 
+and `name` tokens available for you to select in the designer:
 
 ```json
 {
-	"properties": {
-		"name": {
-			"type": "object",
-			"properties": {
-				"title": {
-            "type": "string"
-        },
-		}
-
-        "name": {
-            "type": "string"
-        }
+  "properties": {
+    "title": {
+      "type": "string"
     },
-    "required": [
-        "title",
-        "name"
-    ],
+    "name": {
+      "type": "string"
+    },
+  }
+}
+```
+
+Here's the complete schema:
+
+```json
+{
+   "properties": {
+      "address": {
+         "type": "string"
+      },
+      "title": {
+         "type": "string"
+      },
+      "name": {
+         "type": "string"
+      }
+   },
+   "required": [
+	   "address",
+	   "title",
+	   "name"
+	],
+	"type": "object"
 }
 ```
 
@@ -132,16 +180,17 @@ customize your trigger URL's relative path.
 
 1. On your **Request** trigger, choose **Show advanced options**. 
 
-2. Under **Method**, specify the HTTP method that your request uses. For this example, 
-select the **GET** method so you can test your request URL in a later step. 
-Then under **Relative path**, add the parameter to use in your URL, 
+2. Under **Method**, specify the HTTP method for your request to use. 
+For this example, select the **GET** method so you can test your request URL later. 
+Under **Relative path**, add the parameter that you want your URL to use, 
 for example: `customer/{customerID}`
 
 	![Specify the HTTP method and relative path for parameter](./media/logic-apps-http-endpoint/relativeurl.png)
 
 3.	To use the parameter in this example, add a **Response** action to your logic app. 
-In the Logic App Designer, choose **New step** > **New action** > **Request / Response - Response**. 
-In the response's **Body**, include your trigger's relative path.
+(Under your trigger, choose **New step** > **Add an action** > **Request / Response - Response**) 
+
+4.	In the response's **Body**, specify a relative path to include in your trigger's URL.
 
 	For example, to return `Hello {customerID}`, 	update your 
 	response's **Body** with `Hello {customerID token}`. 
@@ -154,23 +203,23 @@ In the response's **Body**, include your trigger's relative path.
 
 3. Save your logic app. 
 
-	The relative path now appears in your trigger's request URL, for example:
+	The relative path now appears in your trigger's URL, for example:
 
 	``` text
 	https://prod-00.southcentralus.logic.azure.com:443/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customer/{customerID}?...
 	```
 
-4. To test your request URL, copy and paste the URL into a new browser window. 
+4. To test your HTTP endpoint, copy and paste the trigger's URL into a new browser window. 
 Substitute `{customerID}` with `123456`, and press Enter.
 
 	Your browser should show this text: 
 
 	`Hello 123456`
 
-### Security for your trigger URL
+### Security for HTTP endpoints
 
 Azure securely generates logic app callback URLs using a Shared Access Signature (SAS). 
-The signature passes through as a query parameter 
+This signature passes through as a query parameter 
 and must be validated before your logic app can fire. 
 Azure generates the signature using a unique 
 combination of a secret key per logic app, 
@@ -178,24 +227,36 @@ the trigger name, and the operation that's performed.
 So unless someone has access to the secret logic app key, 
 they cannot generate a valid signature.
 
-## Call or trigger your logic app through the endpoint
+## Nest workflows in logic apps
 
-After you create an HTTP endpoint for your trigger, you can trigger 
-your logic app through a `POST` to the full URL. 
-You can include more headers and any content in the body. 
+You can reuse existing workflows in your logic app by adding 
+logic apps that can also receive incoming requests. 
+To include these logic apps, add the 
+**Azure Logic Apps - Choose a Logic Apps workflow** action 
+to your trigger. You can then select from logic apps 
+that are available for you to add.
 
+![Add another logic app](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
+
+## Call or trigger logic apps through HTTP endpoints
+
+After you create the HTTP endpoint for your logic app, 
+you can trigger your logic app through a `POST` to the full URL.
+
+### How do I reference content from an incoming request?
+
+Requests can include more than one header and any type of content. 
 If the content's type is `application/json`, 
 you can reference properties from inside the request. 
-Otherwise, the content is treated as a single binary unit that can be passed to other APIs, 
+Otherwise, the content is treated as a single binary unit that you can pass to other APIs, 
 but can't be referenced inside the workflow unless the content is converted. 
 For example, if you pass `application/xml` content, you can use `@xpath()` 
 for an XPath extraction, or `@json()` for converting XML to JSON. 
 Learn about [working with content types](../logic-apps/logic-apps-content-type.md).
 
-## Reference the content from the incoming request
-
-The `@triggerOutputs()` function outputs the contents of the incoming request. 
-The output looks like this example:
+To get the output from an incoming request, 
+you can use the `@triggerOutputs()` function. 
+Output might look like this example:
 
 ```
 {
@@ -203,48 +264,50 @@ The output looks like this example:
         "content-type" : "application/json"
     },
     "body" : {
-        "myprop" : "a value"
+        "myProperty" : "property value"
     }
 }
 ```
 
-To access the `body` property specifically, 
+To access the request's `body` property specifically, 
 you can use the `@triggerBody()` shortcut. 
 
-## Respond to the request
+## Respond to requests
 
 For some requests that start a logic app, 
 you might want to respond with some content to the caller. 
 To construct the status code, body, and headers for your response, 
-you can use the **Response** action. However, if you don't include a **Response**, 
-the logic app's endpoint *immediately* responds with **202 Accepted**.
+you can use the **Response** action. If you don't include a **Response**, 
+the logic app endpoint *immediately* responds with **202 Accepted**.
 
 ![HTTP Response Action][3]
-
-``` json
-"Response": {
-		"conditions": [],
-		"inputs": {
-			"body": {
-				"name": "@{triggerBody()['name']}", 
-					"title": "@{triggerBody()['title']}"
-			},
-			"headers": {
-				"content-type": "application/json"
-			},
-			"statusCode": 200
-		},
-		"type": "Response"
-}
-```
 
 Responses have these properties:
 
 | Property | Description |
 | --- | --- |
 | statusCode |Specifies the HTTP status code for responding to the incoming request. This code can be any valid status code that starts with 2xx, 4xx, or 5xx. However, 3xx status codes are not permitted. |
+| headers |Defines any number of headers to include in the response. |
 | body |Specifies a body object that can be a string, a JSON object, or even binary content referenced from a previous step. |
-| headers |You can define any number of headers to include in the response. |
+
+Here's what the JSON looks like:
+
+``` json
+"Response": {
+	"inputs": {
+		"body": {
+			"name": "@{triggerBody()?['name']}",
+			"title": "@{triggerBody()?['title']}"
+		},
+		"headers": {
+			"content-type": "application/json"
+		},
+		"statusCode": 200
+	},
+	"runAfter": {},
+	"type": "Response"
+}
+```
 
 In your logic app, all steps required for the response must finish 
 within *60 seconds* for the original request to get the response, 
@@ -254,7 +317,9 @@ the incoming request times out and receives a **408 Client timeout** HTTP respon
 For nested logic apps, the parent logic app continues to wait for a 
 response until completed, regardless of how much time is required.
 
-## Advanced endpoint configuration
+## Q & A
+
+#### Q: What if I need more advanced endpoint configuration?
 
 Logic apps have built-in support for the direct-access endpoint 
 and always use the `POST` method to start running the logic app. 
@@ -270,9 +335,12 @@ You can find this functionality through **API Management**:
 * Set up your API Management domains in the [Azure portal](https://portal.azure.com/ "Azure portal")
 * Set up policy to check for Basic authentication
 
-## Summary of migration from 2014-12-01-preview
 
-| 2014-12-01-preview | 2016-06-01 |
+#### Q: What changed in the schema migration from Dec 1, 2014 preview?
+
+A: Here's a summary about these changes:
+
+| Dec 1, 2014 preview | June 1, 2016 |
 | --- | --- |
 | Click **HTTP Listener** API App |Click **Manual trigger** (no API App required) |
 | HTTP Listener setting "*Sends response automatically*" |Either include a **Response** action or not in the workflow definition. |
