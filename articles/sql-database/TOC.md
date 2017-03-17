@@ -1,18 +1,19 @@
 # Overview
 ## [About SQL DB](sql-database-technical-overview.md)
-## Compare
-### [SQL DB features](sql-database-features.md)
-# QuickStart
+## [Compare SQL DB](sql-database-features.md)
+# Quickstart
 ## [Create DB - Portal](sql-database-get-started.md)
 ## [Create DB - Azure CLI](sql-database-get-started-cli.md)
 ## [Create DB - PowerShell](sql-database-get-started-powershell.md)
+## Manage
+### [Connect - SSMS](sql-database-connect-query-ssms.md)
+### [Connect - VS Code](sql-database-connect-query-vscode.md)
+## Develop
+### [Connect - C#](sql-database-connect-query-dotnet.md)
 # Samples
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
 # Tutorials
-## Databases, servers, and firewalls
-### [PowerShell](sql-database-get-started-powershell.md)
-### [C#](sql-database-get-started-csharp.md)
 ## Authentication and access
 ### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
 ### [Azure Active Directory](sql-database-control-access-aad-authentication-get-started.md)
@@ -104,25 +105,11 @@
 ### [Extended events](sql-database-xevent-db-diff-from-svr.md)
 ### [Compatibility levels](sql-database-compatibility-level-query-performance-130.md)
 # How-to guides
-## Create and configure a single database
-### [Azure CLI](scripts/sql-database-create-and-configure-database-cli.md)
-### [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
-### [T-SQL](sql-database-manage-single-databases-tsql.md)
-## Create and move pooled databases
-### [Create an elastic pool in the Azure portal](sql-database-get-started-elastic-pool.md)
-### [Azure CLI](scripts/sql-database-move-database-between-pools-cli.md)
-### [PowerShell](scripts/sql-database-move-database-between-pools-powershell.md)
 ## Create and manage firewall rules
 ### [Azure portal](sql-database-configure-firewall-settings.md)
 ### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 ### [REST API](sql-database-configure-firewall-settings-rest.md)
 ### [Transact-SQL](sql-database-configure-firewall-settings-tsql.md)
-## Scale a single database
-### [Azure CLI](scripts/sql-database-monitor-and-scale-database-cli.md)
-### [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md)
-## Scale an elastic pool
-### [Azure CLI](scripts/sql-database-scale-pool-cli.md)
-### [PowerShell](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 ## Manage elastic pools
 ### [Azure portal](sql-database-elastic-pool-manage-portal.md)
 ### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
@@ -131,29 +118,23 @@
 ## Configure auditing and threat-detection
 ### [Azure portal: Auditing](sql-database-auditing-portal.md)
 ### [Azure portal: Threat detection](sql-database-threat-detection-portal.md)
-### [PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md)
 ## Restore a database
 ### [Azure portal](sql-database-restore-database-portal.md)
-### [PowerShell](scripts/sql-database-restore-database-powershell.md)
 ## Manage long-term backup retention
 ### [Azure portal](sql-database-manage-long-term-backup-retention-portal.md)
 ### [PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
 ## [Recover a single table](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
 ## Configure geo-replication
 ### [Azure portal](sql-database-geo-replication-portal.md)
-### [PowerShell: Single database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-### [PowerShell: Pooled database](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
 ### [Transact-SQL: Configure](sql-database-geo-replication-transact-sql.md)
 ### [Transact-SQL: Failover](sql-database-geo-replication-failover-transact-sql.md)
 ## [Recover from a data center outage](sql-database-disaster-recovery.md)
 ## [Perform disaster recovery drills](sql-database-disaster-recovery-drills.md)
 ## Copy a database
 ### [Azure portal](sql-database-copy-portal.md)
-### [PowerShell](scripts/sql-database-copy-database-to-new-server-powershell.md)
 ### [Transact-SQL](sql-database-copy-transact-sql.md)
 ## Import a database
 ### [Azure portal](sql-database-import-portal.md)
-### [PowerShell](scripts/sql-database-import-from-bacpac-powershell.md)
 ### [SQLPackage](sql-database-import-sqlpackage.md)
 ## Export a database
 ### [Azure portal](sql-database-export-portal.md)
@@ -167,19 +148,18 @@
 ## Authenticate and authorize users
 ### [Azure AD authentication](sql-database-aad-authentication-configure.md)
 ## Connect applications
-### [.NET](sql-database-develop-dotnet-simple.md)
 ### [C and C++](sql-database-develop-cplusplus-simple.md)
 ### [Java](sql-database-develop-java-simple.md)
 ### [Node.js](sql-database-develop-nodejs-simple.md)
 ### [PHP](sql-database-develop-php-simple.md)
 ### [Python](sql-database-develop-python-simple.md)
 ### [Ruby](sql-database-develop-ruby-simple.md)
-### [Visual Studio](sql-database-connect-query.md)
 ### [SSMS using Azure RemoteApp](sql-database-ssms-remoteapp.md)
 ### [SSMS using multi-factor authentication](sql-database-ssms-mfa-authentication-configure.md)
 ### [Excel](sql-database-connect-excel.md)
 ### [Connectivity guidance](sql-database-connectivity-issues.md)
 ### [Resolve connection issues](sql-database-troubleshoot-common-connection-issues.md)
+## [Create DB with C#](sql-database-get-started-csharp.md)
 ## Configure encryption
 ### [Encrypt data using Windows certificate](sql-database-always-encrypted.md)
 ### [Encrypt data using Azure key vault](sql-database-always-encrypted-azure-key-vault.md)
@@ -207,8 +187,7 @@
 ### [PowerShell](sql-database-elastic-jobs-powershell.md) 
 ### [Cross-database jobs](sql-database-elastic-jobs-getting-started.md)
 ### [Uninstall](sql-database-elastic-jobs-uninstall.md)
-## Query data
-### [SSMS](sql-database-connect-query-ssms.md)
+## Elastic query
 ### [Horizontally partitioned data](sql-database-elastic-query-getting-started.md)
 ### [Vertically partitioned data](sql-database-elastic-query-getting-started-vertical.md)
 ## Monitor and tune
