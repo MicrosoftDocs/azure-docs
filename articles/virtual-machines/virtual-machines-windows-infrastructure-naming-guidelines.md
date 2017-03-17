@@ -41,7 +41,7 @@ You should have a good naming convention in place before creating anything in Az
 
 You might choose to follow a specific set of naming conventions defined for your entire organization or for a specific Azure subscription or account. Although it is easy for individuals within organizations to establish implicit rules when working with Azure resources, when a team needs to work on a project on Azure, that model does not scale well.
 
-Agree on a set of naming conventions up front. There are some considerations regarding naming conventions that cut across this sets of rules.
+Agree on a set of naming conventions up front. There are some considerations regarding naming conventions that cut across this set of rules.
 
 ## Affixes
 As you look to define a naming convention, one decision comes whether the affix is at:
