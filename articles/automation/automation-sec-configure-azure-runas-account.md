@@ -34,7 +34,7 @@ Using a Run As and Classic Run As account, you can:
 * Automate the use of global runbooks configured in Azure Alerts.
 
 > [!NOTE]
-> The Azure [Alert integration feature](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) with Automation Global Runbooks requires an Automation account that is configured with a Run As and Classic Run As account. You can either select an Automation account that already has a Run As and Classic Run As account defined or choose to create a new one.
+> The Azure [Alert integration feature](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) with Automation Global Runbooks requires an Automation account that is configured with a Run As account and a Classic Run As account. You can either select an Automation account that already has a Run As and Classic Run As account defined or choose to create a new one.
 >  
 
 We will show you how to create the Automation account from the Azure portal, update an Automation account using PowerShell, manage the account configuration, and demonstrate how to authenticate in your runbooks.
