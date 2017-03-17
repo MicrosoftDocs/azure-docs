@@ -56,11 +56,14 @@ Use these Azure templates to deploy Linux HPC clusters.
 * [Spin up a SLURM cluster](https://azure.microsoft.com/documentation/templates/slurm/)
   and [blog post](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
 * [Spin up a Torque cluster](https://azure.microsoft.com/documentation/templates/torque-cluster/)
+* [Compute grid templates with PBS Professional](https://github.com/xpillons/azure-hpc/tree/master/Compute-Grid-Infra)
 
 ## HPC storage
 * [Parallel file systems for HPC storage on Azure](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
 * [Intel Cloud Edition for Lustre Software - Eval](https://azure.microsoft.com/marketplace/partners/intel/lustre-cloud-edition-evaleval-lustre-2-7/)
 * [BeeGFS on CentOS 7.2 template](https://github.com/smith1511/hpc/tree/master/beegfs-shared-on-centos7.2)
+
+
 
 
 ## Microsoft MPI
