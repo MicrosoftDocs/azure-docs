@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/16/2017
+ms.date: 03/17/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -249,8 +249,8 @@ The **plan** entity of the solution resource has the properties in the following
 ## Sample
 You can view samples of solution files with a solution resource at the following locations.
 
-- [Automation resources](operations-management-solutions-resources-automation.md#sample)
-- [Search and alert resources](operations-management-solutions-resources-searches-alerts.md#sample)
+- [Automation resources](operations-management-suite-solutions-resources-automation.md#sample)
+- [Search and alert resources](operations-management-suite-solutions-resources-searches-alerts.md#sample)
 
 
 ## Next steps
