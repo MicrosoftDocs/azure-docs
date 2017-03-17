@@ -58,7 +58,7 @@ For the domain controller/DNS virtual machine, configure network settings in Sit
 
 ## Protect Active Directory with Active Directory replication
 ### Site-to-site protection
-Create a domain controller on the secondary site. When you promote the server to a domain controller role, specify the name of the same domain that is being used on the primary site. You can use the **Active Directory Sites and Services** snap-in to configure settings on the site link object to which the sites are added. By configuring settings on a site link, you can control when replication occurs between two or more sites, and how often. See [Scheduling Replication Between Sites](https://technet.microsoft.com/library/cc731862.aspx) for more details.
+Create a domain controller on the secondary site. When you promote the server to a domain controller role, specify the name of the same domain that is being used on the primary site. You can use the **Active Directory Sites and Services** snap-in to configure settings on the site link object to which the sites are added. By configuring settings on a site link, you can control when replication occurs between two or more sites, and how often. For more information, see [Scheduling Replication Between Sites](https://technet.microsoft.com/library/cc731862.aspx).
 
 ### Site-to-Azure protection
 Follow the instructions to [create a domain controller in an Azure virtual network](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). When you promote the server to a domain controller role, specify the same domain name that's used on the primary site.
@@ -72,7 +72,7 @@ Then [reconfigure the DNS server for the virtual network](../active-directory/ac
 ## Test failover considerations
 Test failover occurs in a network that's isolated from production network so that there's no impact on production workloads.
 
-Most applications also require the presence of a domain controller and a DNS server to function. Therefore,  before the application is failed over, a domain controller needs to be created in the isolated network to be used for test failover. The easiest way to do this is to replicate a domain controller/DNS virtual machine with Site Recovery. Then run a test failover of the domain controller virtual machine before running a test failover of the recovery plan for the application. Here's how you do that:
+Most applications also require the presence of a domain controller and a DNS server to function. Therefore, before the application is failed over, a domain controller needs to be created in the isolated network to be used for test failover. The easiest way to do this is to replicate a domain controller/DNS virtual machine with Site Recovery. Then run a test failover of the domain controller virtual machine before running a test failover of the recovery plan for the application. Here's how you do that:
 
 1. [Replicate](site-recovery-replicate-vmware-to-azure.md) the domain controller/DNS virtual machine using Site Recovery.
 1. Create an isolated network. Any virtual network created in Azure by default is isolated from other networks. We recommend that the IP address range for this network is same as that of your production network. Don't enable site-to-site connectivity on this network.
@@ -122,7 +122,7 @@ Failing over to Azure may cause resetting of VM-GenerationID and that kicks in t
 
 #### Symptoms of virtualization safeguards
  
-You may see one or more of following symptoms if virtualization safeguards have kicked in after a test failover. 
+If virtualization safeguards have kicked in after a test failover, you may see one or more of following symptoms:  
 
 Generation ID change
 
