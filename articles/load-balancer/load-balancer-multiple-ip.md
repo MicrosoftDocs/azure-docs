@@ -74,10 +74,9 @@ For each VM in your virtual network, add set IP configuration for the secondary 
 1. From a browser navigate to the Azure portal: http://portal.azure.com and login with your Azure account.
 2. On the top left-hand side of the screen, click the Resource Group icon, and then click the resource group the VMs are located in (for example, *contosofabrikam*). The **Resource groups** blade that lists all the resources along with the network interfaces for the VMs is now displayed.
 3. To the secondary NIC of each VM, add an IP configuration as follows:
-    1. In the portal, click More services > type network interfaces in the filter box, and then click **Network Interfaces**.
-    2. Select the network interface you want to add the IP configuration to.
-    3. In the blade that appears for the NIC that you selected, click **IP configurations**. Then click **Add** towards the top of the blade that shows up.
-    4. In the **Add IP configurations** blade, add a second IP configuration to the NIC as follows: 
+    1. Select the network interface you want to add the IP configuration to.
+    2. In the blade that appears for the NIC that you selected, click **IP configurations**. Then click **Add** towards the top of the blade that shows up.
+    3. In the **Add IP configurations** blade, add a second IP configuration to the NIC as follows: 
         1. Type a name for your secondary IP configuration (for example, for VM1 and VM2 name the IP configurations as *VM1NIC2-ipconfig2* and *VM2NIC2-ipconfig2* respectively).
         2. For **Private IP address**, for **Allocation**, select **Static**.
         3. Click **OK**.

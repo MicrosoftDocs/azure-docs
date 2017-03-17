@@ -57,7 +57,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 
 ## Create a server-level firewall rule
 
-The SQL Database service creates a firewall preventing external applications and tools from connecting to your new server and database. Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your IP address to enable external connectivity through the SQL Database firewall. 
+The SQL Database service creates a firewall preventing external applications and tools from connecting to your server and database. Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your IP address to enable external connectivity through the SQL Database firewall. 
 
 1. Click **Set server firewall** on the toolbar for your database. The **Firewall settings** page for the SQL Database server opens. 
 
@@ -99,7 +99,7 @@ Follow these steps to query the database using the query editor in the Azure por
 
 ## Clean up resources
 
-Some of the quick starts in this collection and in the tutorial collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following steps to delete all resources created by this quick start in the Azure portal.
+The **Connect with** quick starts in this collection and the tutorials in the tutorial collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following steps to delete all resources created by this quick start in the Azure portal.
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**. 
 2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.
