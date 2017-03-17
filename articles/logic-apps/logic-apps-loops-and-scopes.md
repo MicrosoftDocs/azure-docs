@@ -1,6 +1,6 @@
 ---
-title: Logic App Loops and Scopes | Microsoft Docs
-description: Overview of different ways to handle loops and scopes in a logic app
+title: Create loops and scopes, or debatch data in workflows - Azure Logic Apps | Microsoft Docs
+description: Create loops to iterate through data, group actions into scopes, or debatch data to start more workflows in Azure Logic Apps.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan

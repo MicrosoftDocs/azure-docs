@@ -9,13 +9,13 @@ editor: ''
 tags: azure-service-management
 
 ms.assetid: 291288a0-740b-4cfa-af62-053218beba77
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 11/28/2016
-ms.author: MikeRayMSFT
+ms.workload: iaas-sql-server
+ms.date: 03/01/2017
+ms.author: mikeray
 
 ---
 # Configure an ILB listener for Always On Availability Groups in Azure

@@ -1,5 +1,5 @@
 ---
-title: Use custom libraries with an HDInsight Spark cluster to analyze website logs | Microsoft Docs
+title: Use Python libraries to analyze website logs in Azure Spark cluster | Microsoft Docs
 description: Use custom libraries with an HDInsight Spark cluster to analyze website logs
 services: hdinsight
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 
 ---
@@ -198,7 +198,7 @@ Once your data is saved as a Hive table, in the next section we will connect to 
 
    ![SQL query output](./media/hdinsight-apache-spark-custom-library-website-log-analysis/sql.output.png "SQL query output")
 
-   For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
+   For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 7. You can now use Matplotlib, a library used to construct visualization of data, to create a plot. Because the plot must be created from the locally persisted **averagetime** dataframe, the code snippet must begin with the `%%local` magic. This ensures that the code is run locally on the Jupyter server.
 
        %%local

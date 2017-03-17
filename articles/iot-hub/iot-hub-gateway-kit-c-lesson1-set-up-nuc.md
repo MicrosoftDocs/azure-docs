@@ -1,5 +1,5 @@
 ---
-title: Set up Intel NUC as Azure IoT gateway | Microsoft Docs
+title: 'SensorTag device & Azure IoT Gateway - Lesson 1: Set up NUC | Microsoft Docs'
 description: Set up Intel NUC to work as an IoT gateway between a sensor and Azure IoT Hub to collect sensor information and send it to IoT Hub.
 services: iot-hub
 documentationcenter: ''

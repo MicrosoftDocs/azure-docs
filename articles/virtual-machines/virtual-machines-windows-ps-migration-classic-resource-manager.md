@@ -1,9 +1,9 @@
 ---
 title: Migrate to Resource Manager with PowerShell | Microsoft Docs
-description: This article walks through the platform-supported migration of IaaS resources from classic to Azure Resource Manager by using Azure PowerShell commands
+description: This article walks through the platform-supported migration of IaaS resources such as virtual machines (VMs), virtual networks (VNETs), and storage accounts from classic to Azure Resource Manager (ARM) by using Azure PowerShell commands
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: singhkays
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
-ms.author: cynthn
+ms.date: 03/14/2017
+ms.author: kasing
 
 ---
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell
@@ -34,7 +34,7 @@ Here are a few best practices that we recommend as you evaluate migrating IaaS r
 * If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal.
 
 > [!IMPORTANT]
-> ExpressRoute gateways and Application Gateways are not currently supported for migration from classic to Resource Manager. To migrate a classic virtual network with a ExpressRoute or Application gateway, remove the gateway before running a Commit operation to move the network (you can run the Prepare step without deleting the ExpressRoute or Application gateway). After you complete the migration, reconnect the gateway in Azure Resource Manager.
+> Application Gateways are not currently supported for migration from classic to Resource Manager. To migrate a classic virtual network with an Application gateway, remove the gateway before running a Commit operation to move the network (you can run the Prepare step without deleting the Application gateway). After you complete the migration, reconnect the gateway in Azure Resource Manager. You must contact support if you want to migrate ExpressRoute gateways in cases where the gateway and the ExpressRoute circuit are in the same subscription. ExpressRoute gateways connecting to ExpressRoute circuits in another subscription cannot be migrated. In such cases, remove the ExpressRoute gateway, migrate the virtual network and recreate the gateway.
 > 
 > 
 
@@ -45,7 +45,10 @@ For installation instructions, see [How to install and configure Azure PowerShel
 
 <br>
 
-## Step 3: Set your subscription and sign up for migration
+## Step 3: Ensure that you are co-administrator for the subscription in Azure Classic portal
+To perform this migration, you must be added as co-administrator for the subscription in the [Azure Classic portal](https://manage.windowsazure.com/). This is required even if you are already added as owner in the [Azure portal](https://portal.azure.com). Try to [add a co-administrator for the subscription in Azure Classic portal](../billing/billing-add-change-azure-subscription-administrator.md) to find out if you are co-administrator for the subscription. If you are not able to add a co-administrator then please contact a service administrator or co-administrator for the subscription to get yourself added.   
+
+## Step 4: Set your subscription and sign up for migration
 First, start a PowerShell prompt. For migration, you need to set up your environment for both classic and Resource Manager.
 
 Sign in to your account for the Resource Manager model.
@@ -107,7 +110,7 @@ Set your Azure subscription for the current session. This example sets the defau
 
 <br>
 
-## Step 4: Make sure you have enough Azure Resource Manager Virtual Machine cores in the Azure region of your current deployment or VNET
+## Step 5: Make sure you have enough Azure Resource Manager Virtual Machine cores in the Azure region of your current deployment or VNET
 You can use the following PowerShell command to check the current number of cores you have in Azure Resource Manager. To learn more about core quotas, see [Limits and the Azure Resource Manager](../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager). 
 
 This example checks the availability in the **West US** region. Replace the example region name with your own. 
@@ -116,7 +119,7 @@ This example checks the availability in the **West US** region. Replace the exam
 Get-AzureRmVMUsage -Location "West US"
 ```
 
-## Step 5: Run commands to migrate your IaaS resources
+## Step 6: Run commands to migrate your IaaS resources
 > [!NOTE]
 > All the operations described here are idempotent. If you have a problem other than an unsupported feature or a configuration error, we recommend that you retry the prepare, abort, or commit operation. The platform then tries the action again.
 > 
@@ -204,7 +207,9 @@ If the prepared configuration looks good, you can move forward and commit the re
 ```
 
 ### Migrate virtual machines in a virtual network
-To migrate virtual machines in a virtual network, you migrate the network. The virtual machines automatically migrate with the network. Pick the virtual network that you want to migrate. 
+To migrate virtual machines in a virtual network, you migrate the virtual network. The virtual machines automatically migrate with the virtual network. Pick the virtual network that you want to migrate. 
+> [!NOTE]
+> [Migrate single classic virtual machine](./virtual-machines-windows-migrate-single-classic-to-resource-manager.md) by creating a new Resource Manager virtual machine with Managed Disks using the VHD (OS and data) files of the virtual machine. 
 
 This example sets the virtual network name to **myVnet**. Replace the example virtual network name with your own. 
 
@@ -244,6 +249,50 @@ If the prepared configuration looks good, you can move forward and commit the re
 ### Migrate a storage account
 Once you're done migrating the virtual machines, we recommend you migrate the storage accounts.
 
+Before you migrate the storage account, please perform preceding prerequisite checks:
+
+* **Migrate classic virtual machines whose disks are stored in the storage account**
+
+    Preceding command returns RoleName and DiskName properties of all the classic VM disks in the storage account. RoleName is the name of the virtual machine to which a disk is attached. If preceding command returns disks then ensure that virtual machines to which these disks are attached are migrated before migrating the storage account.
+    ```powershell
+     $storageAccountName = 'yourStorageAccountName'
+      Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Select-Object -ExpandProperty AttachedTo -Property `
+      DiskName | Format-List -Property RoleName, DiskName 
+
+    ```
+* **Delete unattached classic VM disks stored in the storage account**
+ 
+    Find unattached classic VM disks in the storage account using following command: 
+
+    ```powershell
+        $storageAccountName = 'yourStorageAccountName'
+        Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Format-List -Property DiskName  
+
+    ```
+    If above command returns disks then delete these disks using following command:
+
+    ```powershell
+       Remove-AzureDisk -DiskName 'yourDiskName'
+    ```
+* **Delete VM images stored in the storage account**
+
+    Preceding command returns all the VM images with OS disk stored in the storage account.
+     ```powershell
+        Get-AzureVmImage | Where-Object { $_.OSDiskConfiguration.MediaLink -ne $null -and $_.OSDiskConfiguration.MediaLink.Host.Contains($storageAccountName)`
+                                } | Select-Object -Property ImageName, ImageLabel
+     ```
+     Preceding command returns all the VM images with data disks stored in the storage account.
+     ```powershell
+
+        Get-AzureVmImage | Where-Object {$_.DataDiskConfigurations -ne $null `
+                                         -and ($_.DataDiskConfigurations | Where-Object {$_.MediaLink -ne $null -and $_.MediaLink.Host.Contains($storageAccountName)}).Count -gt 0 `
+                                        } | Select-Object -Property ImageName, ImageLabel
+     ```
+    Delete all the VM images returned by above commands using preceding command:
+    ```powershell
+    Remove-AzureVMImage -ImageName 'yourImageName'
+    ```
+    
 Prepare each storage account for migration by using the following command. In this example, the storage account name is **myStorageAccount**. Replace the example name with the name of your own storage account. 
 
 ```powershell

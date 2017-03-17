@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Groups Guidelines | Microsoft Docs
+title: Resource groups for Linux VMs in Azure | Microsoft Docs
 description: Learn about the key design and implementation guidelines for deploying Resource Groups in Azure infrastructure services.
 documentationcenter: ''
 services: virtual-machines-linux
@@ -16,9 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 
 ---
-# Azure resource group guidelines
+# Azure resource group guidelines for Linux VMs 
+
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 This article focuses on understanding how to logically build out your environment and group all the components in Resource Groups.

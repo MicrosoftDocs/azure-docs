@@ -1,5 +1,5 @@
 ---
-title: Create service principal in portal | Microsoft Docs
+title: Create identity for Azure app in portal | Microsoft Docs
 description: Describes how to create a new Active Directory application and service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
 services: azure-resource-manager
 documentationcenter: na

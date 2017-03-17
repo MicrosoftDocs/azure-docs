@@ -1,5 +1,5 @@
 ---
-title: Build an HBase application using Maven, and deploy to Windows-based HDInsight | Microsoft Docs
+title: Build a Java HBase application for Windows-based Azure HDInsight | Microsoft Docs
 description: Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to a Windows-based Azure HDInsight cluster.
 services: hdinsight
 documentationcenter: ''
@@ -14,8 +14,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 02/05/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 
 ---
 # Use Maven to build Java applications that use HBase with Windows-based HDInsight (Hadoop)
@@ -29,7 +30,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 ## Requirements
 * [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 or later
 * [Maven](http://maven.apache.org/)
-* [A Windows-based HDInsight cluster with HBase](hdinsight-hbase-tutorial-get-started.md#create-hbase-cluster)
+* A Windows-based HDInsight cluster with HBase
 
     > [!NOTE] 
     > The steps in this document have been tested with HDInsight cluster versions 3.2 and 3.3. The default values provided in examples are for a HDInsight 3.3 cluster.
@@ -416,7 +417,7 @@ There are many ways to upload a file to your HDInsight cluster, as described in 
         FindAzure
    
         # Get the login for the HDInsight cluster
-        $creds = Get-Credential
+        $creds=Get-Credential -Message "Enter the login for the cluster" -UserName "admin"
    
         # The JAR
         $jarFile = "wasbs:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"

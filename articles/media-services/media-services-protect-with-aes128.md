@@ -237,7 +237,10 @@ The following code shows how to send a request to the Media Services key deliver
         </configuration>
 
 1. Overwrite the code in your Program.cs file with the code shown in this section.
-   
+ 
+	>[!NOTE]
+	>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
+
     Make sure to update variables to point to folders where your input files are located.
 
         using System;
@@ -368,20 +371,11 @@ The following code shows how to send a request to the Media Services key deliver
 
                     Console.WriteLine("Created assetFile {0}", assetFile.Name);
 
-                    var policy = _context.AccessPolicies.Create(
-                                            assetName,
-                                            TimeSpan.FromDays(30),
-                                            AccessPermissions.Write | AccessPermissions.List);
-
-                    var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
 
                     Console.WriteLine("Upload {0}", assetFile.Name);
 
                     assetFile.Upload(singleFilePath);
                     Console.WriteLine("Done uploading {0}", assetFile.Name);
-
-                    locator.Delete();
-                    policy.Delete();
 
                     return inputAsset;
                 }
@@ -395,10 +389,10 @@ The following code shows how to send a request to the Media Services key deliver
                     IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
                     // Create a task with the encoding details, using a string preset.
-                    // In this case "H264 Multiple Bitrate 720p" preset is used.
+                    // In this case "Adaptive Streaming" preset is used.
                     ITask task = job.Tasks.AddNew("My encoding task",
                         processor,
-                        "H264 Multiple Bitrate 720p",
+                        "Adaptive Streaming",
                         TaskOptions.None);
 
                     // Specify the input asset to be encoded.

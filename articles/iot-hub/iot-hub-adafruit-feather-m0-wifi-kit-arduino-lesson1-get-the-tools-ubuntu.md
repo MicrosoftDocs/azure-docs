@@ -1,5 +1,5 @@
 ---
-title: Get the tools for your Azure IoT Starter Kit (Ubuntu 16.04) | Microsoft Docs
+title: 'Connect Arduino to Azure IoT - Lesson 1: Get tools (Ubuntu) | Microsoft Docs'
 description: Download and install the necessary tools and software for the first sample application for Adafruit Feather M0 WiFi on Ubuntu.
 services: iot-hub
 documentationcenter: ''

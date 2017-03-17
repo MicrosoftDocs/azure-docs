@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 
 ---
@@ -42,28 +42,28 @@ The first task is to provision a Windows Server virtual machine that is joined t
 Perform the following steps to install the DNS Administration tools on the domain joined virtual machine. For more information on [installing and using Remote Server Administration Tools](https://technet.microsoft.com/library/hh831501.aspx), see Technet.
 
 1. Navigate to **Virtual Machines** node in the Azure classic portal. Select the virtual machine you created in Task 1 and click **Connect** on the command bar at the bottom of the window.
-   
+
     ![Connect to Windows virtual machine](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 2. The classic portal prompts you to open or save a file with a '.rdp' extension, which is used to connect to the virtual machine. Click the file when it has finished downloading.
 3. At the login prompt, use the credentials of a user belonging to the 'AAD DC Administrators' group. For example, we use 'bob@domainservicespreview.onmicrosoft.com' in our case.
 4. From the Start screen, open **Server Manager**. Click **Add Roles and Features** in the central pane of the Server Manager window.
-   
+
     ![Launch Server Manager on virtual machine](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
 5. On the **Before You Begin** page of the **Add Roles and Features Wizard**, click **Next**.
-   
+
     ![Before You Begin page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-begin.png)
 6. On the **Installation Type** page, leave the **Role-based or feature-based installation** option checked and click **Next**.
-   
+
     ![Installation Type page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-type.png)
 7. On the **Server Selection** page, select the current virtual machine from the server pool, and click **Next**.
-   
+
     ![Server Selection page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-server.png)
 8. On the **Server Roles** page, click **Next**. We skip this page since we are not installing any roles on the server.
 9. On the **Features** page, click to expand the **Remote Server Administration Tools** node and then click to expand the **Role Administration Tools** node. Select **DNS Server Tools** feature from the list of role administration tools.
-   
+
     ![Features page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-tools.png)
 10. On the **Confirmation** page, click **Install** to install the DNS Server tools feature on the virtual machine. When feature installation completes successfully, click **Close** to exit the **Add Roles and Features** wizard.
-    
+
     ![Confirmation page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-confirmation.png)
 
 ## Task 3 - Launch the DNS management console to administer DNS
@@ -71,25 +71,25 @@ Now that the DNS Server Tools feature is installed on the domain joined virtual 
 
 > [!NOTE]
 > You need to be a member of the 'AAD DC Administrators' group, to administer DNS on the managed domain.
-> 
-> 
+>
+>
 
 1. From the Start screen, click **Administrative Tools**. You should see the **DNS** console installed on the virtual machine.
-   
+
     ![Administrative tools - DNS Console](./media/active-directory-domain-services-admin-guide/install-rsat-dns-tools-installed.png)
 2. Click **DNS** to launch the DNS Management console.
 3. In the **Connect to DNS Server** dialog, click the option titled **The following computer**, and enter the DNS domain name of the managed domain (for example, 'contoso100.com').
-   
+
     ![DNS Console - connect to domain](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
 4. The DNS Console connects to the managed domain.
-   
+
     ![DNS Console - administer domain](./media/active-directory-domain-services-admin-guide/dns-console-managed-domain.png)
 5. You can now use the DNS console to add DNS entries for computers within the virtual network in which you've enabled AAD Domain Services.
 
 > [!WARNING]
 > Be careful when administering DNS for the managed domain using DNS administration tools. Ensure that you **do not delete or modify the built-in DNS records that are used by Domain Services in the domain**. Built-in DNS records include domain DNS records, name server records, and other records used for DC location. If you modify these records, domain services are disrupted on the virtual network.
-> 
-> 
+>
+>
 
 See the [DNS tools article on Technet](https://technet.microsoft.com/library/cc753579.aspx) for more information about managing DNS.
 
@@ -98,4 +98,3 @@ See the [DNS tools article on Technet](https://technet.microsoft.com/library/cc7
 * [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
 * [DNS administration tools](https://technet.microsoft.com/library/cc753579.aspx)
-

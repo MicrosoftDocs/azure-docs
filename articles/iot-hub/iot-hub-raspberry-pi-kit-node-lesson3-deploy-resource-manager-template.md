@@ -1,5 +1,5 @@
 ---
-title: Create an Azure function app and Azure Storage account | Microsoft Docs
+title: 'Connect Raspberry Pi (Node) to Azure IoT - Lesson 3: Template deployment | Microsoft Docs'
 description: The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure Table storage.
 services: iot-hub
 documentationcenter: ''

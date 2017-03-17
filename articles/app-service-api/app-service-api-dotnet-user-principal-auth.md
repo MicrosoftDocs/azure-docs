@@ -4,7 +4,7 @@ description: Learn how to protect an API app in Azure App Service by allowing ac
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 3896760d-46ff-4b67-b98a-edd233f24758

@@ -1,10 +1,10 @@
 ---
-title: Prerequisites for ExpressRoute adoption | Microsoft Docs
+title: Prerequisites for Azure ExpressRoute adoption | Microsoft Docs
 description: This page provides a list of requirements to be met before you can order an Azure ExpressRoute circuit.
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: f872d25e-acfd-405d-9d1b-dcb9f323a2ff
@@ -27,7 +27,7 @@ To connect to Microsoft cloud services using ExpressRoute, you need to verify th
 * An active Office 365 subscription (if using Office 365 services). For more information, see the [Office 365 specific requirements](#office-365-specific-requirements) section of this article.
 
 ## Connectivity provider
-* You can work with an [ExpressRoute connectivity partner](expressroute-locations.md#partners) to connect to the Microsoft cloud. You can set up a connection between your on-premises network and Microsoft in [three ways](expressroute-introduction.md#howtoconnect). 
+* You can work with an [ExpressRoute connectivity partner](expressroute-locations.md#partners) to connect to the Microsoft cloud. You can set up a connection between your on-premises network and Microsoft in [three ways](expressroute-introduction.md). 
 * If your provider is not an ExpressRoute connectivity partner, you can still connect to the Microsoft cloud through a [cloud exchange provider](expressroute-locations.md#nonpartners).
 
 ## Network requirements

@@ -27,7 +27,7 @@ With the release of Microsoft Azure Cross-platform Command-Line Tools version 0.
 To learn about managing Resource Groups, see [Use the Azure CLI to manage Azure resources and resource groups](../azure-resource-manager/xplat-cli-azure-resource-manager.md). 
 
 > [!NOTE] 
-> Also, try out [Azure CLI 2.0 (Preview)](https://github.com/Azure/azure-cli), a next-generation CLI written in Python for the resource management deployment model.
+> Also, try out [Azure CLI 2.0](https://github.com/Azure/azure-cli), a next-generation CLI written in Python for the resource management deployment model.
 >
 >
 

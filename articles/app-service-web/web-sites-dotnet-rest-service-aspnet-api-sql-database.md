@@ -1,11 +1,11 @@
 ---
-title: Create a REST service using ASP.NET Web API and SQL Database in Azure App Service
+title: Create a REST API in Azure with ASP.NET and SQL DB | Microsoft Docs
 description: A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to an Azure web app by using Visual Studio.
 services: app-service\web
 documentationcenter: .net
 author: Rick-Anderson
 writer: Rick-Anderson
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: f4916fc0-ea08-41f7-846b-73e41bc88149

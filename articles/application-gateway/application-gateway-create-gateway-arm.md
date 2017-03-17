@@ -1,5 +1,5 @@
 ---
-title: Create, start, or delete an application gateway by using Azure Resource Manager | Microsoft Docs
+title: Create and manage an Azure Application Gateway - PowerShell | Microsoft Docs
 description: This page provides instructions to create, configure, start, and delete an Azure application gateway by using Azure Resource Manager
 documentationcenter: na
 services: application-gateway
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 
 ---

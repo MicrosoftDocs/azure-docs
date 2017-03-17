@@ -1,5 +1,5 @@
 ---
-title: App Service on Azure Stack Technical Preview 2 Before You Get Started | Microsoft Docs
+title: Before you deploy App Services on Azure Stack | Microsoft Docs
 description: Steps to complete before deploying App Service on Azure Stack
 services: azure-stack
 documentationcenter: ''
@@ -13,11 +13,15 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 3/1/2017
 ms.author: anwestg
 
 ---
 # Before you get started with App Service on Azure Stack
+
+> [!IMPORTANT] 
+> This topic applies only to Azure Stack Technical Preview 2.
+>
 
 You need a few items to install App Service on Azure Stack:
 

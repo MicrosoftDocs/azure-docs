@@ -1,6 +1,6 @@
 ---
-title: Run Spark jobs on data stored in Azure Data Lake Store | Microsoft Docs
-description: Run Spark jobs on data stored in Azure Data Lake Store
+title: Use Apache Spark to analyze data in Azure Data Lake Store | Microsoft Docs
+description: Run Spark jobs to analyze data stored in Azure Data Lake Store
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 02/23/2017
 ms.author: nitinme
 
 ---
@@ -29,6 +29,11 @@ In this tutorial, you use Jupyter notebook available with HDInsight Spark cluste
 * Azure Data Lake Store account. Follow the instructions at [Get started with Azure Data Lake Store using the Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md).
 
 * Azure HDInsight Spark cluster with Data Lake Store as storage. Follow the instructions at [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+
+	> [!IMPORTANT]
+   	> If you are using Data Lake Store as the primary storage for the cluster, make sure you create a Spark 1.6 cluster.
+  	>
+   	>
 
 ## Prepare the data
 
@@ -78,7 +83,7 @@ if you created an HDInsight cluster with Data Lake Store as additional storage a
 
 4. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types required for this scenario. To do so, paste the following code snippet in a cell and press **SHIFT + ENTER**.
 
-        from pyspark.sql.types import *
+		from pyspark.sql.types import *
 
     Every time you run a job in Jupyter, your web browser window title will show a **(Busy)** status along with the notebook title. You will also see a solid circle next to the **PySpark** text in the top-right corner. After the job is completed, this will change to a hollow circle.
 
@@ -86,35 +91,39 @@ if you created an HDInsight cluster with Data Lake Store as additional storage a
 
 5. Load sample data into a temporary table using the **HVAC.csv** file you copied to the Data Lake Store account. You can access the data in the Data Lake Store account using the following URL pattern.
 
-	If you have Data Lake Store as default storage, HVAC.csv will be at the path similar to the following URL:
+	* If you have Data Lake Store as default storage, HVAC.csv will be at the path similar to the following URL:
 
-         adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
+			adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
+	
+		Or, you could also use a shortened format such as the following:
 
-	If you have Data Lake Store as additional storage, HVAC.csv will be at the location where you copied it, such as:
+			adl:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
 
-		adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
+	* If you have Data Lake Store as additional storage, HVAC.csv will be at the location where you copied it, such as:
+
+			adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
 
      In an empty cell, paste the following code example, replace **MYDATALAKESTORE** with your Data Lake Store account name, and press **SHIFT + ENTER**. This code example registers the data into a temporary table called **hvac**.
 
-         # Load the data. The path below assumes Data Lake Store is default storage for the Spark cluster
-         hvacText = sc.textFile("adl://MYDATALAKESTORE.azuredatalakestore.net/cluster/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+			# Load the data. The path below assumes Data Lake Store is default storage for the Spark cluster
+			hvacText = sc.textFile("adl://MYDATALAKESTORE.azuredatalakestore.net/cluster/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+			
+			# Create the schema
+			hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
+			
+			# Parse the data in hvacText
+			hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
+			
+			# Create a data frame
+			hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
+			
+			# Register the data fram as a table to run queries against
+			hvacdf.registerTempTable("hvac")
 
-         # Create the schema
-         hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
+6. Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you just created by using the `%%sql` magic. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 
-         # Parse the data in hvacText
-         hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
-
-         # Create a data frame
-         hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
-
-         # Register the data fram as a table to run queries against
-         hvacdf.registerTempTable("hvac")
-
-6. Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you just created by using the `%%sql` magic. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
-
-         %%sql
-         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
+		%%sql
+		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 
 7. Once the job is completed successfully, the following tabular output is displayed by default.
 

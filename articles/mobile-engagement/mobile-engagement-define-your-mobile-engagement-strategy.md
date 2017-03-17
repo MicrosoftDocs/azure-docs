@@ -4,7 +4,7 @@ description: Learn how to onboard and optimize your Mobile Engagement with analy
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 7533e318-81b9-4360-aace-b7be8225985b

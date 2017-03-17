@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync: Running the installation wizard a second time | Microsoft Docs'
+title: 'Re-running the Azure AD Connect install wizard | Microsoft Docs'
 description: Explains how the installation wizard works the second time you run it.
 keywords: The Azure AD Connect installation wizard lets you configure maintenance settings the second time you run it
 services: active-directory
@@ -7,14 +7,13 @@ documentationcenter: ''
 author: andkjell
 manager: femila
 editor: ''
-
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 02/08/2017
 ms.author: billmath
 
 ---
@@ -35,8 +34,8 @@ Select one of the tasks and click **Next** to continue.
 
 > [!IMPORTANT]
 > While you have the installation wizard open, all operations in the sync engine are suspended. Make sure you close the installation wizard as soon as you have completed your configuration changes.
-> 
-> 
+>
+>
 
 ## View current configuration
 This option gives you a quick view of your currently configured options.
@@ -78,7 +77,7 @@ To change the state, select this option and select or unselect the checkbox.
 ## Change user sign-in
 This option allows you to change from password sync to federation or the other way around. You cannot change to **do not configure**.
 
-For more information on this option, see [user sign-in](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method).
+For more information on this option, see [user sign-in](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method).
 
 ## Next steps
 * Learn more about the configuration model used by Azure AD Connect sync in [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
@@ -87,4 +86,3 @@ For more information on this option, see [user sign-in](active-directory-aadconn
 
 * [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-

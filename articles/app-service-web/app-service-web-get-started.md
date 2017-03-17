@@ -4,7 +4,7 @@ description: Learn how easy it is to run web apps in App Service by deploying a 
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 65c9bdd9-8763-4c56-8e15-f790992e951e
@@ -36,7 +36,7 @@ You will:
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](app-service-web-get-started-cli-nodejs.md) – our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0 (Preview)](app-service-web-get-started.md) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](app-service-web-get-started.md) - our next generation CLI for the resource management deployment model
 
 ## Prerequisites
 * [Git](http://www.git-scm.com/downloads).
@@ -54,7 +54,7 @@ You can complete the task using one of the following CLI versions:
 ## Deploy a web app
 Let's deploy a web app to Azure App Service.
 
-1. Open a new Windows command prompt, PowerShell window, Linux shell, or OS X terminal. Run `git --version` and `azure --version` to verify that Git and Azure CLI
+1. Open a new Windows command prompt, PowerShell window, Linux shell, or OS X terminal. Run `git --version` and `az --version` to verify that Git and Azure CLI
    are installed on your machine.
    
     ![Test installation of CLI tools for your first web app in Azure](./media/app-service-web-get-started/1-test-tools-2.0.png)

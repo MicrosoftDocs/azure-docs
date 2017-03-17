@@ -4,7 +4,7 @@ description: Learn how to choose between Azure App Service, Virtual Machines, Se
 services: app-service\web, virtual-machines, cloud-services
 documentationcenter: ''
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: 7d346a23-532a-42a9-98a8-23b7286d32a8

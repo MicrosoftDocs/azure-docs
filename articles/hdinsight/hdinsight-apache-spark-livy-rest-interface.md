@@ -1,5 +1,5 @@
 ---
-title: Submit Spark jobs remotely using Livy | Microsoft Docs
+title: Use Livy to submit jobs remotely to Spark on Azure HDInsight | Microsoft Docs
 description: Learn how to use Livy with HDInsight clusters to submit Spark jobs remotely.
 services: hdinsight
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 03/07/2017
 ms.author: nitinme
 
 ---

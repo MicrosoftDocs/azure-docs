@@ -1,5 +1,5 @@
 ---
-title: Get Azure tools (macOS 10.10) | Microsoft Docs
+title: 'Connect Raspberry Pi (Node) to Azure IoT - Lesson 2: Get tools (Ubuntu) | Microsoft Docs'
 description: Install Python and the Azure command-line interface (Azure CLI) on macOS.
 services: iot-hub
 documentationcenter: ''

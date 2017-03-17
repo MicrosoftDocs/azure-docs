@@ -1,10 +1,10 @@
 ---
-title: Dashboards and navigation in the Application Insights portal | Microsoft Docs
+title: Dashboards and navigation in the Azure Application Insights | Microsoft Docs
 description: Create views of your key APM charts and queries.
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 39b0701b-2fec-4683-842a-8a19424f67bd
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 03/14/2017
 ms.author: awills
 
 ---
@@ -117,7 +117,7 @@ INVESTIGATE
 
 * [**Application map**](app-insights-app-map.md) - Active map showing the components of your application, derived from the dependency information.
 * [**Smart Detection**](app-insights-proactive-diagnostics.md) - Review recent performance alerts.
-* [**Live Stream**](app-insights-metrics-explorer.md#live-metrics-stream) - A fixed set of near-instant metrics, useful when deploying a new build or debugging.
+* [**Live Stream**](app-insights-live-stream.md) - A fixed set of near-instant metrics, useful when deploying a new build or debugging.
 * [**Availability / Web tests**](app-insights-monitor-web-app-availability.md) - Send regular requests to your web app from around the world.*
 * [**Failures, Performance**](app-insights-web-monitor-performance.md) - Exceptions, failure rates and response times for requests to your app and for requests from your app to [dependencies](app-insights-asp-net-dependencies.md).
 * [**Performance**](app-insights-web-monitor-performance.md) - Response time, dependency response times.
@@ -145,7 +145,12 @@ SUPPORT
 
 * **Support request** - requires a paid subscription. See also [Getting help](app-insights-get-dev-support.md).
 
-## What's next?
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
+## Next steps
+
 |  |  |
 | --- | --- |
 | [Metrics explorer](app-insights-metrics-explorer.md)<br/>Filter and segment metrics |![Search example](./media/app-insights-dashboards/64.png) |

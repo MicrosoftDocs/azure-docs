@@ -1,5 +1,5 @@
 ---
-title: Use external packages with Jupyter notebooks in Apache Spark clusters on HDInsight | Microsoft Docs
+title: Use custom Maven packages with Jupyter notebooks in Spark on Azure | Microsoft Docs
 description: Step-by-step instructions on how to configure Jupyter notebooks available with HDInsight Spark clusters to use external Spark packages.
 services: hdinsight
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 
 ---

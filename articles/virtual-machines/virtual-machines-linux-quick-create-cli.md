@@ -1,123 +1,90 @@
 ---
-title: Create a Linux VM using the Azure CLI 2.0 (Preview) | Microsoft Azure
-description: Create a Linux VM using the Azure CLI 2.0 (Preview).
+title: Azure Quick Start - Create VM CLI | Microsoft Docs
+description: Quickly learn to create virtual machines with the Azure CLI.
 services: virtual-machines-linux
-documentationcenter: 
-author: squillace
+documentationcenter: virtual-machines
+author: neilpeterson
 manager: timlt
-editor: 
+editor: tysonn
+tags: azure-resource-manager
 
-ms.assetid: 82005a05-053d-4f52-b0c2-9ae2e51f7a7e
+ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: NA
-ms.topic: hero-article
+ms.devlang: na
+ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/26/2016
-ms.author: rasquill
-
+ms.date: 03/10/2017
+ms.author: nepeters
 ---
 
-# Create a Linux VM using the Azure CLI 2.0 Preview (az.py)
-This article shows how to quickly deploy a Linux virtual machine (VM) on Azure by using the [az vm create](/cli/azure/vm#create) command using the Azure CLI 2.0 (Preview). 
+# Create a Linux virtual machine with the Azure CLI 2.0
 
-> [!NOTE] 
-> The Azure CLI 2.0 Preview is our next generation multi-platform CLI. [Try it out.](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)
->
-> The rest of our docs use the existing Azure CLI. To create a VM using the existing Azure CLI 1.0 and not the CLI 2.0 Preview, see [Create a VM with the Azure CLI](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+The Azure CLI 2.0 is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a virtual machine running Ubuntu 14.04 LTS.
 
-To create a VM, you need: 
+Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-* an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/))
-* the [Azure CLI v. 2.0 (Preview)](/cli/azure/install-az-cli2) installed
-* to be logged in to your Azure account (type [az login](/cli/azure/#login))
+## Log in to Azure 
 
-(You can also quickly deploy a Linux VM by using the [Azure portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
+Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
 
-The following example shows how to deploy a Debian VM and attach your Secure Shell (SSH) key (your arguments might be different; if you want a different image, you [can search for one](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)).
+```azurecli
+az login
+```
 
 ## Create a resource group
 
-First, type [az group create](/cli/azure/group#create) to create your resource group that contains all deployed resources:
+Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+
+The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
 
 ```azurecli
-az group create -n myResourceGroup -l westus
+az group create --name myResourceGroup --location westeurope
 ```
 
-The output looks like the following (you can choose a different `--output` option if you wish):
+## Create virtual machine
 
-```json
-{
-  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup",
-  "location": "westus",
-  "name": "myResourceGroup",
-  "properties": {
-    "provisioningState": "Succeeded"
-  },
-  "tags": null
-}
-```
+Create a VM with the [az vm create](/cli/azure/vm#create) command. 
 
-## Create your VM using the latest Debian image
-
-Now you can create your VM and its environment. Remember to replace the `----public-ip-address-dns-name` value with a unique one; the one below may already be taken.
+The following example creates a VM named `myVM` and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
 ```azurecli
-az vm create \
---image credativ:Debian:8:latest \
---admin-username ops \
---ssh-key-value ~/.ssh/id_rsa.pub \
---public-ip-address-dns-name mydns \
---resource-group myResourceGroup \
---location westus \
---name myVM
+az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
+When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the public IP address. This address is used to access the VM.
 
-The output looks like the following. Note either the `publicIpAddress` or the `fqdn` value to **ssh** into your VM.
-
-
-```json
+```azurecli
 {
-  "fqdn": "mydns.westus.cloudapp.azure.com",
-  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
-  "macAddress": "00-0D-3A-32-05-07",
+  "fqdns": "",
+  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+  "location": "westeurope",
+  "macAddress": "00-0D-3A-23-9A-49",
+  "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
-  "publicIpAddress": "40.112.217.29",
+  "publicIpAddress": "52.174.34.95",
   "resourceGroup": "myResourceGroup"
 }
 ```
 
-Log in to your VM by using the public IP address listed in the output. You can also use the fully qualified domain name (FQDN) that's listed.
+## Connect to virtual machine
 
-```bash
-ssh ops@mydns.westus.cloudapp.azure.com
+Use the following command to create an SSH session with the virtual machine. Replace the IP address with the public IP address of your virtual machine.
+
+```bash 
+ssh <Public IP Address>
 ```
 
-You should expect to see something like the following output, depending on the distribution you chose:
+## Delete virtual machine
 
-```
-The authenticity of host 'mydns.westus.cloudapp.azure.com (40.112.217.29)' can't be established.
-RSA key fingerprint is SHA256:xbVC//lciRvKild64lvup2qIRimr/GB8C43j0tSHWnY.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'mydns.westus.cloudapp.azure.com,40.112.217.29' (RSA) to the list of known hosts.
+When no longer needed, the following command can be used to remove the Resource Group, VM, and all related resources.
 
-The programs included with the Debian GNU/Linux system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
-
-Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-permitted by applicable law.
-ops@mynewvm:~$ ls /
-bin  boot  dev  etc  home  initrd.img  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var  vmlinuz
+```azurecli
+az group delete --name myResourceGroup
 ```
 
 ## Next steps
-The `az vm create` command is the way to quickly deploy a VM so you can log in to a bash shell and get working. However, using `az vm create` does not give you extensive control nor does it enable you to create a more complex environment.  To deploy a Linux VM that's customized for your infrastructure, you can follow any of these articles:
 
-* [Use an Azure Resource Manager template to create a specific deployment](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Create an SSH Secured Linux VM on Azure using templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Create highly available virtual machines tutorial](./virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-You can also [use the `docker-machine` Azure driver with various commands to quickly create a Linux VM as a docker host](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) as well, and if you're using Java, try the [create()](/java/api/com.microsoft.azure.management.compute._virtual_machine) method.
-
+[Explore VM deployment CLI samples](./virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
