@@ -4,7 +4,7 @@ description: Learn how to enable diagnostic logging and add instrumentation to y
 services: app-service
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b

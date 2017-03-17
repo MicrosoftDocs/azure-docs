@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/10/2017
+ms.date: 03/14/2017
 ms.author: sasubram
 
 ---
@@ -37,9 +37,6 @@ You can customize almost anything about the inviter process using the B2B invita
 
 ### Can the invited external user leave the organization to which he was invited?
 This is currently not available in this public preview refresh.
-
-### Can I use my Microsoft account (John@contosomicrosoftacct.com) to sign in to resources?
-It is not possible during this public preview refresh to use your Microsoft account. If you have a non-standard Microsoft account suffix (possibly for corporate mail such as @contoso.com), an Azure Active Directory tenant will be created for your use.
 
 ### Now that multi-factor authentication (MFA) is available for guest users, can they also reset their MFA method?
 Yes, the same way that regular users can.
@@ -71,9 +68,7 @@ You can block access to the [Azure portal](https://portal.azure.com) by guest us
   ![](media/active-directory-b2b-faq/group-with-guest-users.png)
 3. Set up a conditional access policy to block guest users from accessing the portal, as shown in the following video.
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user]
-
-  If this video does not appear embedded, you can reach it [here](https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user).
+  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player]
 
 ### What is the timeline by which Azure AD B2B collaboration will start support for MFA and consumer email accounts?
 Both MFA and consumer email accounts are supported now in this public preview refresh.
@@ -90,8 +85,17 @@ Not currently.
 ### Does Microsoft CRM provide online support to Azure AD B2B collaboration?
 CRM will provide support to Azure AD B2B collaboration after it is generally available.
 
+### Are B2B collaboration guest users visible in SharePoint Online/OneDrive people picker?
+ 
+Yes! However, the ability to search for existing guest users in the SharePoint Online people picker is OFF by default to match legacy behavior. 
+You can enable this using the setting 'ShowPeoplePickerSuggestionsForGuestUsers' at the tenant and site collection level. This can be set using the Set-SPOTenant and Set-SPOSite cmdlets, which allow members to search all existing guest users in the directory. Changes in the tenant scope do not affect already provisioned SharePoint Online sites.
+
 ### What is the lifetime of an initial password for a newly created B2B collaboration user?
 Azure AD has a fixed set of character, password strength, and account lockout requirements that apply equally to all Azure AD cloud user accounts. Cloud user accounts are the accounts that are not federated with another identity provider such as Microsoft Account, Facebook, ADFS, or even another cloud tenant (in the case of B2B collaboration). For federated accounts, the password policy depends on the policy in the on-premises tenancy and the user's Microsoft account settings.
+
+### Applications want to differentiate their experience between a tenant user and a guest user. Is there standard guidance for this? Is the presence of the identity provider claim the right model for this?
+ 
+A guest user can use any identity provider to authenticate as we discuss in [Properties of a B2B collaboration user](active-directory-b2b-user-properties.md). Hence, the UserType is the right property to determine this. The UserType claim is not currently included in the token. Applications should use Graph API to query the directory for the user and getting their UserType.
 
 ### Next steps
 

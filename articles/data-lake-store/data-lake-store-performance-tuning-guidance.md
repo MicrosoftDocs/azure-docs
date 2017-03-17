@@ -3,8 +3,8 @@ title: Azure Data Lake Store Performance Tuning Guidelines | Microsoft Docs
 description: Azure Data Lake Store Performance Tuning Guidelines
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: stewu
+manager: amitkul
 editor: cgronlun
 
 ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/02/2016
-ms.author: nitinme
+ms.date: 03/06/2017
+ms.author: stewu
 
 ---
 # Performance tuning guidance for Azure Data Lake Store

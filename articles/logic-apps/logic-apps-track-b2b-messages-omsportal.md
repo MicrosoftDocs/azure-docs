@@ -76,8 +76,8 @@ B2B communication involves the exchange of messages between two running business
 | Sender | The guest partner that is configured in the receive settings, or the host partner that is configured in the send settings for an AS2 agreement. |
 | Receiver | The host partner that is configured in the receive settings, or the guest partner that is configured in the send settings for an AS2 agreement. |
 | Logic App | Logic app where the AS2 actions are configured. |
-| Status | AS2 message status. Success = Received or sent a good AS2 message, no MDN is configured; Success = Received or sent a good AS2 message, MDN is configured and received or MDN is sent; Failed = Received a bad AS2 message, no MDN is configured; Pending = Received or sent a good AS2 message, MDN is configured and a functional ack is expected. |
-| Ack | MDN message status. |
+| Status | AS2 message status <br>Success = Received or sent a good AS2 message, no MDN is configured <br>Success = Received or sent a good AS2 message, MDN is configured and received or MDN is sent <br>Failed = Received a bad AS2 message, no MDN is configured <br>Pending = Received or sent a good AS2 message, MDN is configured and a functional ack is expected |
+| Ack | MDN message status <br>Accepted = Received or sent a positive MDN <br>Pending = Waiting to receive or send an MDN <br>Rejected = Received or sent a negative MDN <br>Not Required = MDN is not configured in the agreement |
 | Direction | AS2 message direction. |
 | Correlation ID | ID to correlate all the triggers and actions within a Logic app. |
 | Message ID |  AS2 message ID, from the headers of the AS2 message. |
@@ -90,8 +90,8 @@ B2B communication involves the exchange of messages between two running business
 | Sender | The guest partner that is configured in the receive settings, or the host partner that is configured in the send settings for an AS2 agreement. |
 | Receiver | The host partner that is configured in the receive settings, or the guest partner that is configured in the send settings for an AS2 agreement. |
 | Logic App | Logic app where the AS2 actions are configured. |
-| Status | X12 message status. Success = Received or sent a good X12 message, no functional ack is configured; Success = Received or sent a good X12 message, functional ack is configured and received or a functional ack is sent; Failed = Received or sent a bad X12 message; Pending: Received or sent a good X12 message, functional ack is configured and a functional ack is expected. |
-| Ack | Functional Ack (997) status.  Accepted = Received or sent a positive functional ack; Rejected = Received or sent a negative functional ack; Pending = Expecting a functional ack but didn't receive it; Pending = Generated a functional ack but couldn't send it to partner. |
+| Status | X12 message status <br>Success = Received or sent a good X12 message, no functional ack is configured <br>Success = Received or sent a good X12 message, functional ack is configured and received or a functional ack is sent <br>Failed = Received or sent a bad X12 message <br>Pending = Received or sent a good X12 message, functional ack is configured and a functional ack is expected. |
+| Ack | Functional Ack (997) status <br>Accepted = Received or sent a positive functional ack <br>Rejected = Received or sent a negative functional ack <br>Pending = Expecting a functional ack but didn't receive it <br>Pending = Generated a functional ack but couldn't send it to partner <br>Not Required = Functional Ack is not configured |
 | Direction | X12 message direction. |
 | Correlation ID | ID to correlate all of the triggers and actions within a Logic app. |
 | Msg type |  EDI X12 message type. |

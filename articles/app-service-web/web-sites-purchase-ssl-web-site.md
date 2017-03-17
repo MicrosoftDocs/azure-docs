@@ -106,18 +106,8 @@ In this Step, you will learn how to place an Store an SSL Certificate that you p
 ## <a name="bkmk_VerifyOwnership"></a>Step 2: Verify the Domain Ownership
 In this Step, you will learn how to perform Domain Ownership Verification for an SSL Certificate that you just placed an order for. 
 
-1. Click on **“Step 2: Verify”** Step from the **“Certificate Configuration”** Blade. There are 4 types of domain Verification supported by App Service Certificates.
+1. Click on **“Step 2: Verify”** Step from the **“Certificate Configuration”** Blade. There are 3 types of domain Verification supported by App Service Certificates.
    
-   * **App Service Verification** 
-     
-     * This is the most convenient process if you already have **your custom domain assigned to the App Service Apps.** This method will list out all the App Service Apps that meet this criteria. 
-        For example, in this case, **contosocertdemo.com** is a custom domain assigned to App Service App called **“ContosoCertDemo”** and hence that’s the only App Service App listed here. If there were multi-region deployment, then it would list them all across the regions.
-       
-        The verification method is ONLY available for Standard (Basic) certificate purchases. For Wild Card Certificates, please skip and move to option B, C or D below.
-     * Click on **“Verify”** button to complete this step.
-     * Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
-     
-     ![insert image of App Service Verification](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)     
    * **Domain Verification** 
      
      * This is the most convenient process **ONLY IF** you have **[purchased your custom domain from Azure App Service.](custom-dns-web-site-buydomains-web-app.md)**
@@ -130,20 +120,21 @@ In this Step, you will learn how to perform Domain Ownership Verification for an
      * If you need to resend the verification email, Click on the **"Resend Email"** button.
    * **Manual Verification**    
      
-     1. **HTML Web Page Verification**
-        
-        * Create an HTML file named **{Domain Verification Token}**.html (You can copy the token from he Domain Verification Status Blade)
-        * Content of this file should be the exact same name of **Domain Verification Token**.
-        * Upload this file at the root of the web server hosting your domain.
+      **HTML Web Page Verification (only works with Standard Certificate SKU)**
+
+        * Create an HTML file named **"starfield.html"**
+        * Content of this file should be the exact same name of Domain Verification Token. (You can copy the token from he Domain Verification Status Blade)
+        * Upload this file at the root of the web server hosting your domain **/.well-known/pki-validation/starfield.html**
         * Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
           
-          For example, if you are buying a standard certificate for contosocertdemo.com with Domain Verification Token **‘cAGgQrKc’** then a web request made to **‘http://contosocertdemo.com/cAGgQrKc.html’** should return **cAGgQrKc.**
-     2. **DNS TXT Record Verification**
+          For example, if you are buying a standard certificate for **contosocertdemo.com** with Domain Verification Token **tgjgthq8d11ttaeah97s3fr2sh** then a web request made to **http://contosocertdemo.com/.well-known/pki-validation/starfield.html** should return **tgjgthq8d11ttaeah97s3fr2sh**.
+
+      **DNS TXT Record Verification**
         
-        * Using your DNS manager, Create a TXT record on the **‘DZC’** subdomain with value equal to the **Domain Verification Token.**
+        * Using your DNS manager, Create a TXT record on the **‘@’** subdomain with value equal to the **Domain Verification Token.**
         * Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
           
-          For example, in order to perform validation for a wildcard certificate with hostname **\*.contosocertdemo.com** or **\*.subdomain.contosocertdemo.com** and Domain Verification Token **cAGgQrKc**, you need to create a TXT record on dzc.contosocertdemo.com with value **cAGgQrKc.**     
+          For example, in order to perform validation for a wildcard certificate with hostname **\*.contosocertdemo.com** or **\*.subdomain.contosocertdemo.com** and Domain Verification Token **tgjgthq8d11ttaeah97s3fr2sh** you need to create a TXT record on **contosocertdemo.com** with value **tgjgthq8d11ttaeah97s3fr2sh**     
 
 ## <a name="bkmk_AssignCertificate"></a>Step 3: Assign Certificate to App Service App
 In this Step, you will learn how to assign this newly purchased certificate to your App Service Apps. 
@@ -177,8 +168,11 @@ If you selected **IP based SSL** and your custom domain is configured using an A
   
     Note that this IP address will be different than the virtual IP address used previously to configure the A record for your domain. If you are configured to use SNI based SSL, or are not configured to use SSL, no address will be listed for this entry.
 
-1. Using the tools provided by your domain name registrar, modify the A record for your custom domain name to point to the IP address from the previous step.
+* Using the tools provided by your domain name registrar, modify the A record for your custom domain name to point to the IP address from the previous step.
    At this point, you should be able to visit your app using HTTPS:// instead of HTTP:// to verify that the certificate has been configured correctly.
+
+## <a name="bkmk_Rekey"></a>Export App Service Certificate
+You can create a local PFX copy of an App Service certificate so that you can use it with other Azure Services. For more information, **[read our blog post](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/)**
 
 ## <a name="bkmk_Rekey"></a>Rekey and Sync the Certificate
 1. For security reasons, if you ever need to Rekey your certificate then simply select **"Rekey and Sync"** option from **"Certificate Properties"** Blade. 

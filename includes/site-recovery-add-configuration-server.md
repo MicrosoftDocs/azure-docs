@@ -3,7 +3,7 @@
 	![Before you start](./media/site-recovery-add-configuration-server/combined-wiz1.png)
 3. In **Third Party Software License**, click **I Accept** to download and install MySQL.
 
-    ![Third=party software](./media/site-recovery-add-configuration-server/combined-wiz105.PNG)
+    ![Third-party software](./media/site-recovery-add-configuration-server/combined-wiz2.png)
 4. In **Registration**, select the registration key you downloaded from the vault.
 
     ![Registration](./media/site-recovery-add-configuration-server/combined-wiz3.png)
@@ -14,7 +14,7 @@
    * If the existing proxy requires authentication, or if you want to use a custom proxy for the Provider connection, select **Connect with custom proxy settings**.
 
      * If you use a custom proxy, you need to specify the address, port, and credentials.
-     * If you're using a proxy, you should have already allowed the URLs described in [prerequisites](#configuration-server-prerequisites).
+     * If you're using a proxy, you should have already allowed the URLs described in [prerequisites](#prerequisites).
 
      ![Firewall](./media/site-recovery-add-configuration-server/combined-wiz4.png)
 6. In **Prerequisites Check**, Setup runs a check to make sure that installation can run. If a warning appears about the **Global time sync check**, verify that the time on the system clock (**Date and Time** settings) is the same as the time zone.

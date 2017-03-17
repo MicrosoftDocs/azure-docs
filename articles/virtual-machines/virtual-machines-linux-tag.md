@@ -1,6 +1,6 @@
 ---
-title: How to tag a Linux virtual machine | Microsoft Docs
-description: Learn about tagging a Linux virtual machine created in Azure using the Resource Manager deployment model.
+title: How to tag an Azure Linux virtual machine | Microsoft Docs
+description: Learn about tagging an Azure Linux virtual machine created in Azure using the Resource Manager deployment model.
 services: virtual-machines-linux
 documentationcenter: ''
 author: mmccrory
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/05/2016
+ms.date: 02/28/2017
 ms.author: memccror
 
 ---
@@ -24,19 +24,21 @@ This article describes different ways to tag a Linux virtual machine in Azure th
 [!INCLUDE [virtual-machines-common-tag](../../includes/virtual-machines-common-tag.md)]
 
 ## Tagging with Azure CLI
-To begin, [install and configure the Azure CLI](../xplat-cli-azure-resource-manager.md) and make sure you are in Resource Manager mode (`azure config mode arm`).
+To begin, you need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
+
+You can also perform these steps with the [Azure CLI 1.0](virtual-machines-linux-tag-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 You can view all properties for a given Virtual Machine, including the tags, using this command:
 
-        azure vm show -g MyResourceGroup -n MyTestVM
+        az vm show --resource-group MyResourceGroup --name MyTestVM
 
-To add a new VM tag through the Azure CLI, you can use the `azure vm set` command along with the tag parameter **-t**:
+To add a new VM tag through the Azure CLI, you can use the `azure vm update` command along with the tag parameter **--set**:
 
-        azure vm set -g MyResourceGroup -n MyTestVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
+        az vm update --resource-group MyResourceGroup --name MyTestVM –-set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
 
-To remove all tags, you can use the **–T** parameter in the `azure vm set` command.
+To remove tags, you can use the **--remove** parameter in the `azure vm update` command.
 
-        azure vm set – g MyResourceGroup –n MyTestVM -T
+        az vm update –-resource-group MyResourceGroup –-name MyTestVM --remove tags.myNewTagName1
 
 
 Now that we have applied tags to our resources Azure CLI and the Portal, let’s take a look at the usage details to see the tags in the billing portal.

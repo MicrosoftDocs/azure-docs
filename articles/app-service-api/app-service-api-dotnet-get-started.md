@@ -4,7 +4,7 @@ description: Learn how to create, deploy, and consume an ASP.NET API app in Azur
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: ddc028b2-cde0-4567-a6ee-32cb264a830a

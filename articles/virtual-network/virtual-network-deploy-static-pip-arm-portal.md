@@ -1,10 +1,10 @@
 ---
-title: Create a VM with a static public IP using the Azure portal | Microsoft Docs
-description: Learn how to create a VM with a static public IP address through Azure Resource Manager using the Azure portal.
+title: Create a VM with a static public IP address - Azure portal | Microsoft Docs
+description: Learn how to create a VM with a static public IP address using the Azure portal.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -16,9 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
-# Create a VM with a static public IP using the Azure portal
+# Create a VM with a static public IP address using the Azure portal
 
 > [!div class="op_single_selector"]
 - [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)

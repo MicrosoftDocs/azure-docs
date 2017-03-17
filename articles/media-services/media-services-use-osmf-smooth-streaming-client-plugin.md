@@ -4,7 +4,7 @@ description: Learn how to use the Azure Media Services Smooth Streaming plugin f
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 6068151f-b6b0-4507-9346-f03416d3d572
