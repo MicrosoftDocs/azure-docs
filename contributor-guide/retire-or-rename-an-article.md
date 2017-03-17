@@ -9,12 +9,14 @@ When authors want to retire, rename, or move articles, they need to follow speci
 If you have to move a large number of files, or all files in one directory to another, [this tool](https://github.com/squillace/gitwork/tree/master/dotnet/move) may allow you to automate most of this work.
 
 ## Manual steps
-### Step 1: Set the article to no-index/no-follow and republish it (as appropriate)
+### Step 1: Set the article to NOINDEX and republish it (as appropriate)
 Do this step if you are preparing to deprecate content and do not want it to be discoverable, but you want it to remain published to support inbound links. To do this, add the following line as the last entry in the metadata section of the article:
   ```
-  ROBOTS: NOINDEX, NOFOLLOW
+  ROBOTS: NOINDEX
   ``` 
-    
+By using NOINDEX alone, you allow cross-links to current content that are embedded in the article to be crawled, and you avoid creating a dead-end for search crawlers.
+
+
 ### Step 2: Turn the original article into a redirect, and create the new file if you are renaming or moving a file. 
 In our publishing workflow, the article you want to retire, rename, or move must remain in place so you can create a redirect to the new article or to the replacement content. You turn an article into a redirect by deleting the article metadata and content and adding just the redirect metadata. Make the changes that match what you want to do:
 
