@@ -95,7 +95,6 @@ VALUES
             @ListPrice,
             @SellStartDate)";
 
-
 insertCommand.Parameters.Add("@Name", SqlDbType.Text);
 insertCommand.Parameters.Add("@ProductNumber", SqlDbType.Int);
 insertCommand.Parameters.Add("@Color", SqlDbType.Text);
@@ -211,7 +210,6 @@ namespace ConsoleApplication1
                             @ListPrice,
                             @SellStartDate)";
 
-
                 insertCommand.Parameters.Add("@Name", SqlDbType.Text);
                 insertCommand.Parameters.Add("@ProductNumber", SqlDbType.Int);
                 insertCommand.Parameters.Add("@Color", SqlDbType.Text);
@@ -264,10 +262,7 @@ namespace ConsoleApplication1
 }
 ```
 
-
-
 ## Next steps
 
-- For .NET documentation, see [.NET documentation](https://docs.microsoft.com/en-us/dotnet/)
-- For information about querying and editing data using Visual Studio Code, see [Visual Studio Code](https://code.visualstudio.com/docs)
-
+- For .NET documentation, see [.NET documentation](https://docs.microsoft.com/dotnet/).
+- For information about querying and editing data using Visual Studio Code, see [Visual Studio Code](https://code.visualstudio.com/docs).
