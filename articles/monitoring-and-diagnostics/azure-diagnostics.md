@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/21/2016
+ms.date: 03/18/2016
 ms.author: robb
 
 ---
@@ -59,12 +59,12 @@ For more advanced topics, see
 
 ## Virtual Machines using Azure Diagnostics
 * If using Visual Studio, see [Use Visual Studio to trace Azure Virtual Machines](../vs-azure-tools-debug-cloud-services-virtual-machines.md) to get started. Otherwise, see
-* [Set up Azure Diagnostics on an Azure Virtual Machine](../virtual-machines/virtual-machines-dotnet-diagnostics.md)
+* [Set up Azure Diagnostics on an Azure Virtual Machine](../virtual-machines-dotnet-diagnostics.md)
 
 For more advanced topics, see
 
 * [Use PowerShell to set up diagnostics on Azure Virtual Machines](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Service Fabric using Azure Diagnostics
 Get started at [Monitor a Service Fabric application](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Many other Service Fabric diagnostics articles are available in the navigation tree on the left once you get to this article.
