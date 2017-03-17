@@ -17,9 +17,11 @@ ms.date: 03/15/2017
 ms.author: cfowler
 ---
 
-# Quickstart for Node.js in Azure Web App
+# Create a Node.js Application on Web App with the Azure CLI 2.0
 
-This quickstart shows you how to create a small Web App application that displays a short message.
+The Azure CLI 2.0 is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a Node.js Application on Web App.
+
+If needed, install the Azure CLI using the instruction found in the Azure CLI installation guide, and then run az login to create a connection with Azure.
 
 ## Before you begin
 
@@ -33,98 +35,142 @@ This quickstart demonstrates a simple Node.js application.
 
 ## Download the Hello World app
 
-We've created a simple Hello World app for Node.js so you can quicklyget a feel for deploying an app to Web App. Follow these steps from a command line to download the Hello World to your local machine.
+Clone the Hello World sample app repository to your local machine.
 
-Download the sample app and navigate into the app directory:
+```cli
+git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
+```
 
-1. Clone the Hello World sample app repository to your local machine:
+> [!TIP]
+> Alternatively, you can [download the sample](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) as a zip file and extract it.
 
-    ```cli
-    git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
-    ```
+Change to the directory that contains the sample code.
 
-    Alternatively, you can [download the sample](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) as a zip file and extract it.
-
-1. Change to the directory that contains the sample code:
-
-    ```cli
-    cd nodejs-docs-hello-world
-    ```
+```cli
+cd nodejs-docs-hello-world
+```
 
 ## Run Hello World on your local machine
 
-1. Run the start script.
+Run the start script using `npm`.
 
-    ```cli
-    npm start
-    ```
+```cli
+npm start
+```
 
-1. In your web browser, enter the following address:
+Open a web browser, and navigate to the sample.
 
-   ```cli
-   http://localhost:1337
-   ```
+```cli
+http://localhost:1337
+```
 
 You can see the **Hello World** message from the sample app displayed in the page.
 
 In your terminal window, press **Ctrl+C** to exit the web server.
 
-## Deploy and run Hello World on Web App
+## Create a resource group
 
-To deploy your app to Web App:
+Create a resource group with the az group create. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-1. Create a resource group:
+```azurecli
+az group create --location westeurope --name myResourceGroup
+```
 
-    ```azurecli
-    az group create --location westeurope --name myResourceGroup
-    ```
+## Create an App Service plan
 
-1. Create an app service plan in Standard tier:
+Create an App Service Plan on Linux Worker with the az appservice plan create command.
 
-    ```azurecli
-    az appservice plan create --name <app_name> --resource-group myResourceGroup --sku S1 --is-linux
-    ```
-1. Create a Web App:
+The following example creates an App Service Plan on Linux Workers named quickStartASP using the Standard pricing tier.
 
-    ```azurecli
-    az appservice web create --name <app_name> --resource-group myResourceGroup --plan <app_name>
-    ```
+```azurecli
+az appservice plan create --name <app_name> --resource-group myResourceGroup --sku S1 --is-linux
+```
 
-1. Configure the web app for Node.js `6.9.3`:
+When the App Service Plan has been created, the Azure CLI shows information similar to the following example.
 
-    ```azurecli
-    az appservice web config update --node-version 6.9.3 --startup-file index.js --name <app_name> --resource-group myResourceGroup
-    ```
+```azurecli
+{
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/quickStarts/providers/Microsoft.Web/serverfarms/quickStartASP",
+    "kind": "linux",
+    "location": "West Europe",
+    "sku": {
+    "capacity": 1,
+    "family": "S",
+    "name": "S1",
+    "tier": "Standard"
+    },
+    "status": "Ready",
+    "type": "Microsoft.Web/serverfarms"
+}
+```
 
-1. Set the account-level deployment credentials:
+## Create a Web App
 
-    ```azurecli
-    az appservice web deployment user set --user-name <username> --password <password>
-    ```
+```azurecli
+az appservice web create --name <app_name> --resource-group myResourceGroup --plan <app_name>
+```
 
-1. Configure local Git and copy the deployment url:
+When the Web App has been created, the Azure CLI shows information similar to the following example.
 
-    ```azurecli
-    az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv
-    ```
+```azurecli
+{
+    "clientAffinityEnabled": true,
+    "defaultHostName": "<app-name>.azurewebsites.net",
+    "id": "/subscriptions/5d6c94cd-6781-43e3-8a94-ceef4c28850e/resourceGroups/quickStarts/providers/Microsoft.Web/sites/<app-name>",
+    "isDefaultContainer": null,
+    "kind": "app",
+    "location": "West Europe",
+    "name": "<app-name>",
+    "repositorySiteName": "<app-name>",
+    "reserved": true,
+    "resourceGroup": "quickStarts",
+    "serverFarmId": "/subscriptions/5d6c94cd-6781-43e3-8a94-ceef4c28850e/resourceGroups/quickStarts/providers/Microsoft.Web/serverfarms/quickStartASP",
+    "state": "Running",
+    "type": "Microsoft.Web/sites",
+}
+```
 
-1. Add an Azure remote to your local Git repository:
+## Configure the web app
 
-    ```cli
-    git remote add azure <paste-previous-command-output-here>
-    ```
+Use the az appservice web config update command to configure the Web App to use Node.js version 6.9.3. Setting the node.js version this way uses a default container provided by the platform, if you would like to use your own container refer to the reference for the az appservice web config container update command.
 
-1. Push your code:
+```azurecli
+az appservice web config update --node-version 6.9.3 --startup-file index.js --name <app_name> --resource-group myResourceGroup
+```
 
-    ```azurecli
-    git push azure master
-    ```
+## Configure local git deployment
 
-1. Browse to the deployed web app:
 
-    ```azurecli
-    az appservice web browse --name <app_name> --resource-group myResourceGroup
-    ```
+
+```azurecli
+az appservice web deployment user set --user-name <username> --password <password>
+```
+
+Use the [az appservice web source-control config-local-git](https://docs.microsoft.com/en-us/cli/azure/appservice/web/source-control#config-local-git) command to configure local git access to the Web App.
+
+```azurecli
+az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv
+```
+
+## Push to Azure from Git
+
+Add an Azure remote to your local Git repository.
+
+```cli
+git remote add azure <paste-previous-command-output-here>
+```
+
+Push to the Azure remote to deploy your application.
+
+```azurecli
+git push azure master
+```
+
+## Browse to the app
+
+```azurecli
+az appservice web browse --name <app_name> --resource-group myResourceGroup
+```
 
 This time, the page that displays the Hello World message is delivered by a web server running on App Service Web App.
 
