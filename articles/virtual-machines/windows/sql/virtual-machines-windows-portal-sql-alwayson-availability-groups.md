@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 1/23/2017
+ms.date: 03/17/2017
 ms.author: mikeray
 
 ---
@@ -36,7 +36,7 @@ At the end of the tutorial, your SQL Server availability group solution in Azure
 * A virtual network containing multiple subnets, including a front-end and a back-end subnet
 * Two domain controller with an Active Directory (AD) domain
 * Two SQL Server VMs deployed to the back-end subnet and joined to the AD domain
-* A 3-node WSFC cluster with the Node Majority quorum model
+* A 3-node failover cluster with the Node Majority quorum model
 * An availability group with two synchronous-commit replicas of an availability database
 
 The figure below is a graphical representation of the solution.
