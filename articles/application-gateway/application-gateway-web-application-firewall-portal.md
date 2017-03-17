@@ -65,14 +65,14 @@ Click **Web application firewall** and update the application gateway settings. 
 
 The settings to update an existing application gateway to support web application firewall are:
 
-* **Upgrade to WAF Tier** - This setting is required in order to configure WAF.
+* **Upgrade to WAF Tier** - This setting is required to configure WAF.
 * **Firewall status** - This setting either disables or enables web application firewall.
 * **Firewall mode** - This setting is how web application firewall deals with malicious traffic. **Detection** mode only logs the events, where **Prevention** mode logs the events and stops the malicious traffic.
-* **Rule set** - This setting determines the [core rule set](application-gateway-webapplicationfirewall-overview.md#core-rule-sets) that will be used to protect the backend pool members.
-* **Configure disabled rules** - This setting allows you to [disable certain rules and rule groups](application-gateway-crs-rulegroups-rules.md) to prevent possible false positives.
+* **Rule set** - This setting determines the [core rule set](application-gateway-webapplicationfirewall-overview.md#core-rule-sets) that is used to protect the backend pool members.
+* **Configure disabled rules** - To prevent possible false positives, this setting allows you to [disable certain rules and rule groups](application-gateway-crs-rulegroups-rules.md).
 
 >[!NOTE]
-> When upgrading an existing application gateway to the WAF SKU, the SKU size will change to medium. This can be reconfigured after configuration is complete.
+> When upgrading an existing application gateway to the WAF SKU, the SKU size changes to **medium**. This can be reconfigured after configuration is complete.
 
 ![blade showing basic settings][2]
 
@@ -101,8 +101,8 @@ Next fill out the basic information about the application gateway. Be sure to ch
 The information needed for the basic settings is:
 
 * **Name** - The name for the application gateway.
-* **Tier** - The tier of the application gateway, available options are (**Standard** and **WAF**). Web application firewall is only available in the WAF Tier.
-* **SKU size** - This setting is the size of the application gateway, available options are (**Medium** and **Large**).
+* **Tier** - The tier of the application gateway, available options are ( **Standard** and **WAF** ). Web application firewall is only available in the WAF Tier.
+* **SKU size** - This setting is the size of the application gateway, available options are ( **Medium** and **Large** ).
 * **Instance count** - The number of instances, this value should be a number between **2** and **10**.
 * **Resource group** - The resource group to hold the application gateway, it can be an existing resource group or a new one.
 * **Location** - The region for the application gateway, it is the same location at the resource group. *The location is important as the virtual network and public IP must be in the same location as the gateway*.
@@ -153,7 +153,7 @@ Next give the public IP address a friendly name and click **OK**
 
 ### Step 8
 
-Next, you setup the listener configuration.  If **http** is used, nothing is left to configure and **OK** can be clicked. To use **https**
+Next, you set p the listener configuration.  If **http** is used, nothing is left to configure and **OK** can be clicked. To use **https**
 further configuration is required.
 
 To use **https**, a certificate is required. The private key of the certificate is needed so a .pfx export of the certificate needs to be provided and the password for the file.

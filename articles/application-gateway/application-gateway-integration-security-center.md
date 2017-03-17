@@ -25,15 +25,15 @@ Application Gateway provides application delivery control (ADC) features on laye
 
 ## Overview
 
-Application Gateway WAF is a recommendation in Security Center for a web application firewall. Web enabled resources show in the security center as high severity recommendations if they are not protected by a WAF. Recommendations for web application firewalls is shown on the **Overview** page, under **Applications**.  
+Application Gateway WAF is a recommendation in Security Center for a web application firewall. Web enabled resources show in the security center as high severity recommendations if they are not protected by a WAF. Recommendations for web application firewalls are shown on the **Overview** page, under **Applications**.  
 
 ![integration with security center][1]
 
-Clicking on any recommendations in regards to web appliaction firewall will open a new blade showing the details of the recommendation.
+Clicking any recommendations regarding web application firewall opens a new blade showing the details of the recommendation.
 
 ![web resources not protected][2]
 
-If the resources is behind an application gateway, at this point you need to enable the web application firewall on the application gateway. This action closes the recommendation.
+If the resources are behind an application gateway, at this point you need to [enable the web application firewall on the application gateway](application-gateway-web-application-firewall-portal.md#add-web-application-firewall-to-an-existing-application-gateway). This action closes the recommendation.
 
 ## Next steps 
 

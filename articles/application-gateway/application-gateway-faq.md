@@ -32,7 +32,7 @@ Application Gateway supports SSL offloading and end to end SSL, Web Application 
 
 **Q. What is the difference between Application Gateway and Azure Load Balancer?**
 
-Application Gateway is a layer 7 load balancer. This means that Application Gateway deals with web traffic only (HTTP/HTTPS/WebSocket). It supports application load balancing capabilities such as SSL termination, cookie based session affinity, and round robin for load balancing traffic. Load Balancer, load balances traffic at layer 4 (TCP/UDP).
+Application Gateway is a layer 7 load balancer. This means that Application Gateway deals with web traffic only (HTTP/HTTPS/WebSocket). It supports application load balancing capabilities such as SSL termination, cookie-based session affinity, and round robin for load balancing traffic. Load Balancer, load balances traffic at layer 4 (TCP/UDP).
 
 **Q. What protocols does Application Gateway support?**
 
@@ -40,7 +40,7 @@ Application Gateway supports HTTP, HTTPS, and WebSocket.
 
 **Q. What resources are supported today as part of backend pool?**
 
-Backend pools can be comprised of NICs, virtual machine scale sets (VMSS), public IPs, internal IPs, and fully qualified domain names (FQDN). Support for Azure Web Apps is not available today. Application Gateway backend pool members are not tied to an availability set. Members of backend pools can be across clusters, data centers, or outside of Azure as long as they have IP connectivity.
+Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, and fully qualified domain names (FQDN). Support for Azure Web Apps is not available today. Application Gateway backend pool members are not tied to an availability set. Members of backend pools can be across clusters, data centers, or outside of Azure as long as they have IP connectivity.
 
 **Q. What regions is the service available in?**
 
@@ -72,7 +72,7 @@ Only one public IP address is supported on an Application Gateway.
 
 **Q. Does Application Gateway support x-forwarded-for headers?**
 
-Yes, Application Gateway inserts x-forwarded-for, x-forwarded-proto, and x-forwarded-port headers into the request forwarded to the backend. The format for x-forwarded-for header is a comma separated list of IP:Port. The valid values for x-forwarded-proto are http or https. X-forwarded-port specifies the port at which the request reached at the Application Gateway.
+Yes, Application Gateway inserts x-forwarded-for, x-forwarded-proto, and x-forwarded-port headers into the request forwarded to the backend. The format for x-forwarded-for header is a comma-separated list of IP:Port. The valid values for x-forwarded-proto are http or https. X-forwarded-port specifies the port at which the request reached at the Application Gateway.
 
 ## Configuration
 

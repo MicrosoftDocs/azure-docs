@@ -323,8 +323,8 @@ The following tables are the Rule groups and rules that are available when using
 |943011|Rule 943011|
 |943012|Rule 943012|
 |943100|Possible Session Fixation Attack = Setting Cookie Values in HTML|
-|943110|Possible Session Fixation Attack = SessionID Parameter Name with Off-Domain Referer|
-|943120|Possible Session Fixation Attack = SessionID Parameter Name with No Referer|
+|943110|Possible Session Fixation Attack = SessionID Parameter Name with Off-Domain Referrer|
+|943120|Possible Session Fixation Attack = SessionID Parameter Name with No Referrer|
 |943013|Rule 943013|
 |943014|Rule 943014|
 |943015|Rule 943015|
@@ -407,7 +407,7 @@ The following tables are the Rule groups and rules that are available when using
 
 |RuleId|Description|
 |---|---|
-|960024|Meta-Character Anomaly Detection Alert - Repetative Non-Word Characters|
+|960024|Meta-Character Anomaly Detection Alert - Repetitive Non-Word Characters|
 |950008|Injection of Undocumented ColdFusion Tags|
 |950010|LDAP Injection Attack|
 |950011|SSI injection Attack|

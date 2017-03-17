@@ -70,7 +70,7 @@ The information needed for the basic settings is:
 
 * **Name** - The name for the application gateway.
 * **Tier** - This setting is the tier of the application gateway. Two tiers are available, **WAF** and **Standard**. WAF enables the web application firewall feature.
-* **SKU size** - This setting is the size of the application gateway, available options are (**Small**, **Medium**, and **Large**). Small is not available when WAF tier is chosen.
+* **SKU size** - This setting is the size of the application gateway, available options are ( **Small**, **Medium**, and **Large** ). Small is not available when WAF tier is chosen.
 * **Instance count** - The number of instances, this value should be a number between 2 and 10.
 * **Resource group** - The resource group to hold the application gateway, it can be an existing resource group or a new one.
 * **Location** - The region for the application gateway, it is the same location at the resource group. The location is important as the virtual network and public IP must be in the same location as the gateway.
@@ -153,7 +153,7 @@ These steps create a basic application gateway with default settings for the lis
 
 ## Add servers to backend pools
 
-Once the application gateway is created, the systems that hosts the application to be load balanced still need to be added to the application gateway. The IP addresses or FQDN values of these servers are added to the backend address pools.
+Once the application gateway is created, the systems that host the application to be load balanced still need to be added to the application gateway. The IP addresses or FQDN values of these servers are added to the backend address pools.
 
 ### IP Address or FQDN
 
@@ -189,7 +189,7 @@ Click the application gateway you created, click **Backend pools**, and select t
 
 #### Step 2
 
-Click **Add Target** to add a new backend pool member. Choose a virtual machine and a NIC from the drop down boxes.
+Click **Add Target** to add a new backend pool member. Choose a virtual machine and a NIC from the dropdown boxes.
 
 ![add nics to application gateway backend pools][13]
 

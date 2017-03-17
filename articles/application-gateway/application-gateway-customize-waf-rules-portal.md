@@ -21,28 +21,28 @@ ms.author: gwallace
 
 # Customize Web Application Firewall rules through the portal
 
-Application Gateway Web Application Firewall provides protection for web applications. These protections are provided by OWASP CRS rulesets. Some rules can cause false positives and block unnecessary traffic.  For this reason application gateway provides the capability to disable rulegroups and rules on a web application firewall enabled application gateway. For more information on the specific rule groups and rules visit [Web Application Firewall CRS Rule groups and rules](application-gateway-crs-rulegroups-rules.md)
+Application Gateway Web Application Firewall provides protection for web applications. These protections are provided by OWASP CRS rulesets. Some rules can cause false positives and block unnecessary traffic.  For this reason application gateway provides the capability to disable rulegroups and rules on a web application firewall enabled application gateway. For more information on the specific rule groups and rules, visit [Web Application Firewall CRS Rule groups and rules](application-gateway-crs-rulegroups-rules.md)
 
 >[!NOTE]
-> If your application gateway is not using the WAF tier, you are presented the option to upgrade the application gateway at this time to the WAF tier as shown in the following image.
+> If your application gateway is not using the WAF tier, you are presented the option to upgrade the application gateway to the WAF tier as shown in the following image:
 
 ![enable waf][fig1]
 
 ## View rule groups and rules
 
-Navigate to an application gateway and select **Web application firewall**.  Click **Configure disabled rules**.  This will shown a table on the page of all the rule groups provided with the rule set chosen.
+Navigate to an application gateway and select **Web application firewall**.  Click **Configure disabled rules**.  This shows a table on the page of all the rule groups provided with the rule set chosen.
 
 ![configure disabled rules][1]
 
 ## Search for rules to disable
 
-The web application firewall settings blade provides the capability to filter the rules by a text search. The results will display only rule groups and rules that contain the text that is being searched for.
+The web application firewall settings blade provides the capability to filter the rules by a text search. The result displays only rule groups and rules that contain the text that is being searched for.
 
 ![search for rules][2]
 
 ## Disable rulegroups and rules
 
-When disabling rules you can disable an entire rule group, or specific rules under one or more rule groups.  Once the rules that you want to disable are selected, click **Save**.  This will save the changes to the application gateway.
+When disabling rules you can disable an entire rule group, or specific rules under one or more rule groups.  Once the rules that you want to disable are selected, click **Save**.  This saves the changes to the application gateway.
 
 ![save changes][3]
 
