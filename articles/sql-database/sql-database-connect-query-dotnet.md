@@ -148,7 +148,7 @@ Console.WriteLine($"Deleted {deletedrows.ToString()} row(s).");
 
 ## Complete script
 
-
+The following script contains all of the previous steps in a single code block.
 
 ```csharp
 using System;
