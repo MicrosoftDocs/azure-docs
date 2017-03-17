@@ -4,7 +4,7 @@ description: How Application Insights fits into the devOps cycle
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 03/14/2017
 ms.author: awills
 
 ---
@@ -153,13 +153,17 @@ If you use Visual Studio Team Services to build and deploy your app, deployment 
 ![Build annotations](./media/app-insights-devops/070.png)
 
 ### Work items
-When an alert is raised, Application Insights can automatically create a work item in your work tracking system (Visual Studio Team Services only at present).
+When an alert is raised, Application Insights can automatically create a work item in your work tracking system.
 
 ## But what about...?
 * [Privacy and storage](app-insights-data-retention-privacy.md) - Your telemetry is kept on Azure secure servers.
 * Performance - the impact is very low. Telemetry is batched.
 * [Support](app-insights-get-dev-support.md) - You can take advantage of the Azure support program. There are lively forums where you can get answers from our developers. And in the last resort, we can give you individual help.
 * [Pricing](app-insights-pricing.md) - You can get started for free, and that continues while you're in low volume.
+
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## Next steps
 Getting started with Application Insights is easy. The main options are:

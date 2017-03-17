@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 03/14/2017
 ms.author: dariagrigoriu, glenga
 
 ms.custom: H1Hack27Feb2017
@@ -55,7 +55,7 @@ To learn more about storage account types, see [Introducing the Azure Storage Se
 
 ### Runtime scaling
 
-Functions uses a central listener to evaluate compute needs based on the configured triggers and to decide when to scale out or scale in. The central listener continuously processes hints for memory requirements and trigger-specific data points. For example, in the case of an Azure Queue Storage trigger, the data points include the queue length and queue time of the oldest entry.
+Functions uses a scale controller to evaluate compute needs based on the configured triggers and to decide when to scale out or scale in. The scale controller continuously processes hints for memory requirements and trigger-specific data points. For example, in the case of an Azure Queue Storage trigger, the data points include the queue length and queue time of the oldest entry.
 
 ![](./media/functions-scale/central-listener.png)
 

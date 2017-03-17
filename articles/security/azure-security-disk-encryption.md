@@ -537,7 +537,7 @@ To enable encryption on existing or running IaaS Windows VM in Azure using CLI c
  ```
 
 ### Enable encryption on an existing or running IaaS Linux VM in Azure
-You can enable disk encryption on an existing or running IaaS Linux VM in Azure by using the [Resource Manager template](https://github.com/Azure/azure-quick-start-templates/tree/master/201-encrypt-running-linux-vm).
+You can enable disk encryption on an existing or running IaaS Linux VM in Azure by using the [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm).
 
 1. Click **Deploy to Azure** on the Azure quick-start template, enter the encryption configuration on the **Parameters** blade, and then click **OK**.
 

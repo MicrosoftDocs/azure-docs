@@ -26,13 +26,13 @@ Azure VMs are now available using [Azure Managed Disks](../storage/storage-manag
 
 - Automatic scalability support. Azure creates the disks and manages the underlying storage to support up to 10,000 disks per subscription.
 - Increased reliability with Availability Sets. Azure ensures that VM disks are isolated from each other within Availability Sets automatically.
-- Increased access control. Managed Disks expose a variety of operations controlled by [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md). 
+- Increased access control. Managed Disks expose a variety of operations controlled by [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md).
 
-Pricing for Managed Disks is different than for that of unmanaged disks. For that information, see [Pricing and Billing for Managed Disks](../storage/storage-managed-disks-overview.md#pricing-and-billing). 
+Pricing for Managed Disks is different than for that of unmanaged disks. For that information, see [Pricing and Billing for Managed Disks](../storage/storage-managed-disks-overview.md#pricing-and-billing).
 
 You can convert existing VMs that use unmanaged disks to use managed disks with [az vm convert](/cli/azure/vm#convert). For more information, see [How to convert a Linux VM from unmanaged disks to Azure Managed Disks](virtual-machines-linux-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). You cannot convert an unmanaged disk into a managed disk if the unmanaged disk is in a storage account that is, or at any time has been, encrypted using [Azure Storage Service Encryption (SSE)](../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The following steps detail how to to convert unmanaged disks that are, or have been, in an encrypted storage account:
 
-- [Copy the virtual hard disk (VHD)](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unmanaged-disks) with [az storage blob copy start](/cli/azure/storage/blob/copy#start) to a storage account that has never been enabled for Azure Storage Service Encryption.
+- Copy the virtual hard disk (VHD) with [az storage blob copy start](/cli/azure/storage/blob/copy#start) to a storage account that has never been enabled for Azure Storage Service Encryption.
 - Create a VM that uses managed disks and specify that VHD file during creation with [az vm create](/cli/azure/vm#create), or
 - Attach the copied VHD with [az vm disk attach](/cli/azure/vm/disk#attach) to a running VM with managed disks.
 
@@ -58,7 +58,7 @@ Then create the VM with the `az vm create` command, as in the following example;
 az vm create \
 --image credativ:Debian:8:latest \
 --admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub 
+--ssh-key-value ~/.ssh/id_rsa.pub
 --public-ip-address-dns-name manageddisks \
 --resource-group myResourceGroup \
 --location westus \
@@ -72,7 +72,7 @@ az vm create \
 --storage-sku Premium_LRS
 --image credativ:Debian:8:latest \
 --admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub 
+--ssh-key-value ~/.ssh/id_rsa.pub
 --public-ip-address-dns-name manageddisks \
 --resource-group myResourceGroup \
 --location westus \
@@ -242,4 +242,3 @@ For more information on how Azure uses the temporary disk, see [Understanding th
 
 ## Storage limits
 * [Storage Service limits](../azure-subscription-service-limits.md#storage-limits)
-
