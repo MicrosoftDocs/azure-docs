@@ -167,7 +167,7 @@ For this preview release, use the Windows Azure Pack Connector only in test envi
     | -------- | ------------- | ------- |  
     | TenantPortalFQDN | The Windows Azure Pack tenant portal FQDN. | tenant.contoso.com | 
     | TenantAPIFQDN | The Windows Azure Pack Tenant API FQDN. | tenantapi.contoso.com  |
-    | AzureStackPortalFQDN | The Azure Stack portal FQDN | publicportal.local.azurestack.external |
+    | AzureStackPortalFQDN | The Azure Stack user portal FQDN | publicportal.local.azurestack.external |
     | | |
     
      ```powershell
