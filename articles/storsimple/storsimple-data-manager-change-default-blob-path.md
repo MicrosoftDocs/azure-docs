@@ -17,7 +17,7 @@ ms.date: 03/16/2017
 ms.author: vidarmsft
 ---
 
-# Change blob path from the default (private preview)
+# Change blob path from the default (Private Preview)
 
 This article describes how to set up an Azure function to rename a default Blob file path. 
 
