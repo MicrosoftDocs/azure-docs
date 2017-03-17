@@ -19,7 +19,7 @@ ms.author: vidarmsft
 
 # Change blob path from the default (private preview)
 
-This article descirbes how to set up an Azure function to rename a default Blob file path. 
+This article describes how to set up an Azure function to rename a default Blob file path. 
 
 ## Prerequisites
 
@@ -69,11 +69,11 @@ Perform the following steps to create an Azure function.
    2. Queue name - Enter your **Data Transformation Job Definition name**.
    3. Storage account connection - Click **new** option. Select the account corresponding to Data Transformation job.
       
-      Make a note of the `Connection name`, this is required later in the Azure function.
+      Make a note of the `Connection name`. This name is required later in the Azure function.
 
    4. Click **Create** button.
 
-       ![Create new CSharp function >](./media/storsimple-data-manager-change-default-blob-path/create-new-csharp-function.png)
+       ![Create new C Sharp function >](./media/storsimple-data-manager-change-default-blob-path/create-new-csharp-function.png)
 
 9. In the **Function** window, run _.csx_ file. Copy and paste the following code:
 

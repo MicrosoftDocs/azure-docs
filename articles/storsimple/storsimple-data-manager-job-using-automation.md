@@ -1,6 +1,6 @@
 ---
 title: Use Azure Automation to trigger a job | Microsoft Docs
-description: Learn how to use Azure Automation for Triggering StorSimple Data Manager Jobs (private preview)
+description: Learn how to use Azure Automation for triggering StorSimple Data Manager Jobs (private preview)
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -19,7 +19,7 @@ ms.author: vidarmsft
 
 # Use Azure Automation to trigger a job (Private Preview)
 
-This articles describes how to use Azure Automation to trigger StorSimple Data Manager jobs.
+This articles describes how to use Azure Automation to trigger a StorSimple Data Manager job.
 
 ## Prerequisites
 
@@ -45,9 +45,9 @@ Before you begin, ensure that you have:
         .\Get-ConfigurationParams.ps1 -SubscriptionName "AzureSubscriptionName" -ActiveDirectoryKey "AnyRandomPassword" -AppName "ApplicationName"
          ```
 
-        The ActiveDirectoryKey is a password that you will use later. Enter a password of your choice. AppName can be any string.
+        The ActiveDirectoryKey is a password that you use later. Enter a password of your choice. AppName can be any string.
 
-2. This script will output the following values that should be used while trigging the automation runbook. Make a note of these values.
+2. This script outputs the following values that should be used while triggering the automation runbook. Make a note of these values.
 
     - Client ID
     - Tenant ID
@@ -65,7 +65,7 @@ Before you begin, ensure that you have:
 
 5. After you have selected the `DataTransformationApp.zip` file from your local computer, click **OK** to import the module.
 
-   When Azure Automation imports a module to your account, it extracts metadata about the module. This may take a couple of minutes.
+   When Azure Automation imports a module to your account, it extracts metadata about the module. This operation may take a couple of minutes.
 
    ![Automation account settings](./media/storsimple-data-manager-job-using-automation/add-module2m.png)
 
@@ -73,7 +73,7 @@ Before you begin, ensure that you have:
 
 6. You receive a notification that the module is being deployed and another notification when the process is complete.  You can also check the status in **Modules** tile.
 
-### To import the runbook that will trigger the job definition
+### To import the runbook that triggers the job definition
 
 1. In the Azure portal, open your Automation account.
 2. Click **Runbooks** tile to open the list of runbooks.
