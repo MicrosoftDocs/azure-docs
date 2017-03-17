@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 1/9/2017
+ms.date: 3/17/2017
 ms.author: pratshar
 
 ---
@@ -34,7 +34,7 @@ You need to setup [Site Recovery replication](#enable-protection-using-site-reco
 If you have a few applications and only a single domain controller, and you want to fail over the entire site together, then we recommend using Site Recovery to replicate the domain controller to the secondary site (whether you're failing over to Azure or to a secondary site). The same replicated domain controller/DNS virtual machine can be used for [test failover](#test-failover-considerations) as well.
 
 ### Environment with multiple domain controllers
-If you have many applications and there's more than one domain controller in the environment, or if you plan to fail over a few applications at a time, we recommend that in addition to replicating the domain controller virtual machine with Site Recovery you also set up an [additional domain controller](#protect-active-directory-with-active-directory-replication) on the target site (Azure or a secondary on-premises datacenter). In this scenario, for [test failover](#test-failover-considerations), you use domain controller replicated by Site Recovery and for failover, the additional domain controller the on target site. 
+If you have many applications and there's more than one domain controller in the environment, or if you plan to fail over a few applications at a time, we recommend that in addition to replicating the domain controller virtual machine with Site Recovery you also set up an [additional domain controller](#protect-active-directory-with-active-directory-replication) on the target site (Azure or a secondary on-premises datacenter). For [test failover](#test-failover-considerations), you use domain controller replicated by Site Recovery and for failover, the additional domain controller the on target site. 
 
 
 The following sections explain how to enable protection for a domain controller in Site Recovery, and how to set up a domain controller in Azure.
@@ -72,7 +72,7 @@ Then [reconfigure the DNS server for the virtual network](../active-directory/ac
 ## Test failover considerations
 Test failover occurs in a network that's isolated from production network so that there's no impact on production workloads.
 
-Most applications also require the presence of a domain controller and a DNS server to function, so before the application's failed over, a domain controller needs to be created in the isolated network to be used for test failover. The easiest way to do this is to replicate a domain controller/DNS virtual machine with Site Recovery, and run a test failover of that virtual machine, before running a test failover of the recovery plan for the application. Here's how you do that:
+Most applications also require the presence of a domain controller and a DNS server to function. Therefore,  before the application is failed over, a domain controller needs to be created in the isolated network to be used for test failover. The easiest way to do this is to replicate a domain controller/DNS virtual machine with Site Recovery. Then run a test failover of the domain controller virtual machine before running a test failover of the recovery plan for the application. Here's how you do that:
 
 1. [Replicate](site-recovery-replicate-vmware-to-azure.md) the domain controller/DNS virtual machine using Site Recovery.
 1. Create an isolated network. Any virtual network created in Azure by default is isolated from other networks. We recommend that the IP address range for this network is same as that of your production network. Don't enable site-to-site connectivity on this network.
@@ -98,7 +98,7 @@ Most applications also require the presence of a domain controller and a DNS ser
 
 
 ### Removing reference to other domain controllers
-When you are doing a test failover, you don't bring all the domain controllers in the test network. To remove the reference of other domain controllers that exist in your production environment, you might need to [seize FSMO Active Directory roles](http://aka.ms/ad_seize_fsmo) and do [metadata cleanup](https://technet.microsoft.com/en-us/library/cc816907.aspx) for missing domain controllers. 
+When you are doing a test failover, you don't bring all the domain controllers in the test network. To remove the reference of other domain controllers that exist in your production environment, you might need to [seize FSMO Active Directory roles](http://aka.ms/ad_seize_fsmo) and do [metadata cleanup](https://technet.microsoft.com/library/cc816907.aspx) for missing domain controllers. 
 
 
 
@@ -109,10 +109,10 @@ When you are doing a test failover, you don't bring all the domain controllers i
 
 ### Issues because of virtualization safeguards 
 
-Beginning with Windows Server 2012, [additional safeguards have been built into Active Directory Domain Services](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). These safeguards help protect virtualized domain controllers against USN Rollbacks, as long as the underlying hypervisor platform supports VM-GenerationID. Azure supports VM-GenerationID, which means that domain controllers that run Windows Server 2012 or later on Azure virtual machines have the additional safeguards. 
+Beginning with Windows Server 2012, [additional safeguards have been built into Active Directory Domain Services](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). These safeguards help protect virtualized domain controllers against USN Rollbacks, as long as the underlying hypervisor platform supports VM-GenerationID. Azure supports VM-GenerationID, which means that domain controllers that run Windows Server 2012 or later on Azure virtual machines have the additional safeguards. 
 
 
-When the VM-GenerationID is reset, the invocationID of the AD DS database is also reset, the RID pool is discarded, and SYSVOL is marked as non-authoritative. For more information, see [Introduction to Active Directory Domain Services Virtualization](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) and [Safely Virtualizing DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/)
+When the VM-GenerationID is reset, the invocationID of the AD DS database is also reset, the RID pool is discarded, and SYSVOL is marked as non-authoritative. For more information, see [Introduction to Active Directory Domain Services Virtualization](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) and [Safely Virtualizing DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/)
 
 Failing over to Azure may cause resetting of VM-GenerationID and that kicks in the additional safeguards when the domain controller virtual machine starts in Azure. This may result in a **significant delay** in user being able to login to the domain controller virtual machine. Since this domain controller would be used only in a test failover, virtualization safeguards are not necessary. To ensure that VM-GenerationID for the domain controller virtual machine doesn't change, then you can change the value of following DWORD to 4 in the on-premises domain controller.
 
@@ -170,14 +170,14 @@ If the preceding conditions are satisfied, it is likely that the domain controll
 
 
 * Do an authoritative restore of the domain controller.
-	* Although it is [not recommended to use FRS replication](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), but if you are still using it then follow the steps provided [here](https://support.microsoft.com/en-in/kb/290762) to do an authoritative restore. You can read more about Burflags talked about in the previous link [here](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
-	* If you are using DFSR replication, then follow the steps available [here](https://support.microsoft.com/en-us/kb/2218556) to do an authoritative restore. You can also use Powershell functions available on this [link](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/) for this purpose. 
+	* Although it is [not recommended to use FRS replication](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), but if you are still using it then follow the steps provided [here](https://support.microsoft.com/kb/290762) to do an authoritative restore. You can read more about Burflags talked about in the previous link [here](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
+	* If you are using DFSR replication, then follow the steps available [here](https://support.microsoft.com/kb/2218556) to do an authoritative restore. You can also use Powershell functions available on this [link](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/) for this purpose. 
 	
-* Bypass initial synchronization requirement by setting following registry key to 0 in the on-premises domain controller. If this DWORD doesn't exist, then you can create it under node 'Parameters'. You can read more about it [here](https://support.microsoft.com/en-us/kb/2001093)
+* Bypass initial synchronization requirement by setting following registry key to 0 in the on-premises domain controller. If this DWORD doesn't exist, then you can create it under node 'Parameters'. You can read more about it [here](https://support.microsoft.com/kb/2001093)
 
 	    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations
 
-* Disable the requirement that a global catalog server is available to validate user logon by setting following registry key to 1 in the on-premises domain controller. If this DWORD doesn't exist, then you can create it under node 'Lsa'. You can read more about it [here](http://support.microsoft.com/kb/241789/EN-US)
+* Disable the requirement that a global catalog server is available to validate user logon by setting following registry key to 1 in the on-premises domain controller. If this DWORD doesn't exist, then you can create it under node 'Lsa'. You can read more about it [here](http://support.microsoft.com/kb/241789)
 
     	HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures
 
