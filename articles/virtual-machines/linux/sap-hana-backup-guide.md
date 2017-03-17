@@ -548,3 +548,73 @@ This figure shows that it took about 929 seconds to copy 19 SAP HANA backup file
 In this screenshot, one can see that the source directory structure on the SAP HANA VM was copied to the Azure file share: one directory (hana\_backup\_fsl\_15gb) and 19 individual backup files.
 
 Storing SAP HANA backup files on Azure files could be an interesting option in the future when SAP HANA file backups support it directly. Or when it becomes possible to mount Azure files via NFS and the maximum quota limit is considerably higher than 5 TB.
+
+Storing SAP HANA backup files on Azure files could become an interesting option in the future, if and when SAP HANA file backups support it directly, or it becomes possible to mount Azure files via NFS and the maximum quota limit becomes considerably higher than 5 TB.
+
+
+## Test setup
+
+
+### Test Virtual Machine on Azure
+
+A SAP HANA installation in an Azure GS5 VM was used for the following backup/restore tests.
+
+![This figure shows part of the Azure portal overview for the HANA test VM](./media/sap-hana-backup-guide/image007.png)
+
+ This figure shows part of the Azure portal overview for the HANA test VM.
+
+### Test backup size
+
+ ![This figure was taken from the backup console in HANA Studio and shows the backup file size of 229 GB for the HANA index server](./media/sap-hana-backup-guide/image008.png)
+
+A dummy table was filled up with data to get a total data backup size of over 200 GB in order to derive realistic performance data. The figure was taken from the backup console in HANA Studio and shows the backup file size of 229 GB for the HANA index server. For the tests, the default backup prefix &quot;COMPLETE\_DATA\_BACKUP&quot; in SAP HANA Studio was used. In real production systems, a more useful prefix should be defined. SAP HANA Cockpit suggests date/time.
+
+### Test tool to copy files directly to Azure storage
+
+To transfer SAP HANA backup files directly to Azure blob storage, or Azure file shares, the blobxfer tool was used because it supports both targets and it can be easily integrated into automation scripts due to its command-line interface. The blobxfer tool is available on [GitHub](https://github.com/Azure/blobxfer).
+
+### Test backup size estimation
+
+It can be important to estimate the backup size of SAP HANA. For example, this helps to define the max backup file size in order to achieve a certain number of backup files for better performance due to parallelism during a file copy. (Those details are explained later in this document.) Another aspect is the decision as to whether a full backup would be preferable compared to a delta backup
+(incremental or differential).
+
+Fortunately, there is a simple SQL statement which returns how large the backup files will become: **select \* from M\_BACKUP\_SIZE\_ESTIMATIONS** (see [Estimate the Space Needed in the File System for a Data Backup](https://help.sap.com/saphelp_hanaplatform/helpdata/en/7d/46337b7a9c4c708d965b65bc0f343c/content.htm)).
+
+![The output of this SQL statement matches almost exactly the real size of the full data backup on disk](./media/sap-hana-backup-guide/image009.png)
+
+For the test system, the output of this SQL statement matches almost exactly the real size of the full data backup on disk.
+
+### Test HANA backup file size
+
+![The HANA Studio backup console allows one to restrict the max file size of HANA backup files](./media/sap-hana-backup-guide/image010.png)
+
+The HANA Studio backup console allows one to restrict the max file size of HANA backup files. In the sample environment this gives the possibility of finally getting multiple smaller backup files instead of one large 230 GB backup file. This has a significant impact on performance, as is demonstrated before in this document.
+
+
+## Summary
+
+Based on the test results the following tables will show pros and cons of solutions to backup a SAP HANA database running on Azure virtual machines.
+
+
+|Backup SAP HANA to the file system and copy backup files afterwards to the final backup destination|
+|---------------------------------------------------------------------------------------------------|
+
+|Solution                                           |Pros                                 |Cons                                  |
+|---------------------------------------------------|-------------------------------------|--------------------------------------|
+|Keep HANA backups on VM disks                      |no additional management efforts     |eats up local VM disk space           |
+|Blobxfer tool to copy backup files to blob storage |parallelism to copy multiple files, choice to use cool blob storage | additional tool maintenance and custom scripting | 
+|Blob copy via Powershell or CLI                    |no additional tool necessary, can be accomplished via Azure Powershell or CLI |manual process, customer has to take care of scripting and management of copied blobs for restore|
+|Copy to NFS share                                  |post-processing of backup files on other VM without impact on the HANA server|slow copy process|
+|Blobxfer copy to Azure File Service                |doesn't eat up space on local VM disks|no direct write support by HANA backup, size restriction of file share currently at 5TB|
+|Azure Backup Agent                                 | would be preferred solution         | currently not available on Linux    |
+
+
+
+|Backup SAP HANA based on storage snapshots                    |
+|--------------------------------------------------------------|
+
+
+|Solution                                           |Pros                                 |Cons                                  |
+|---------------------------------------------------|-------------------------------------|--------------------------------------|
+|Azure Backup Service                               | allows VM backup based on blob snapshots | when not using file level restore it requires the creation of a new VM for the restore process which then implies the need of a new SAP HANA license key|
+|Manual blob snapshots                              | flexibility to create and restore specific VM disks without changing the unique VM ID|all manual work which has to be done by the customer|
