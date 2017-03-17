@@ -42,7 +42,7 @@ It is possible to combine the technologies together to implement a SQL Server so
 
 ## Azure-only: High availability solutions
 
-You can have a high availability solution for SQL Server at a database level with Always On Availability Groups, or at an instance level with Always On Failover Cluster Instances. You can also create redundancy at both levels by creating Always On Availability Groups on a SQL Server Failover CLuster Instance. 
+You can have a high availability solution for SQL Server at a database level with Always On Availability Groups, or at an instance level with Always On Failover Cluster Instances. You can also create redundancy at both levels by creating Always On Availability Groups on a SQL Server Failover Cluster Instance. 
 
 | Technology | Example Architectures |
 | --- | --- |
