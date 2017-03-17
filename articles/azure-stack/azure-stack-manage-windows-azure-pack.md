@@ -132,7 +132,7 @@ For this preview release only, Windows Azure Pack requires manual configuration.
 >[!IMPORTANT]
 For this preview release, use the Windows Azure Pack Connector only in test environments, and not in production deployments.
 
-1.	Install Connector MSI files on the tenant portal virtual machine, and install certificates. (If you have multiple tenant portal virtual machines, you must complete this step on each virtual machine.)
+1.	Install Connector MSI files on the Windows Azure Pack tenant portal virtual machine, and install certificates. (If you have multiple tenant portal virtual machines, you must complete this step on each virtual machine.)
 
     a. In File Explorer, copy the **WAPConnector** folder (what you downloaded earlier) to a folder named **c:\temp** in the tenant portal virtual machine.
 
@@ -177,15 +177,17 @@ For this preview release, use the Windows Azure Pack Connector only in test envi
     ```
     g. If you have multiple tenant portal virtual machines, repeat step 1 for each of these virtual machines.
 
-2. Install the new Tenant API MSI on each Tenant API virtual machine.
+2. Install the new Tenant API MSI on each Windows Azure Pack Tenant API virtual machine.
 
     a. If a load balancer is in use, you may want to mark the virtual machine as offline.
 
-    b. Copy the **WAPConnector** folder to a folder named **c:\temp** on each Tenant API machine.
+    b. In File Explorer, copy the **WAPConnector** folder to a folder named **c:\temp** on each Tenant API machine.
 
     c. Copy the AzurePackConnectorOutput.txt file that you saved earlier, to **c:\temp\WAPConnector**.
 
-    d. Open a Console or RDP connection to the Tenant API VM you copied the files to. Change directories to **c:\temp\wapconnector\setup\scripts**, and run **Update-TenantAPI.ps1**. This new version of the WAP Tenant API contains a change to enable a trust relationship not only with the current STS, but also with the instance of AD FS in Azure Stack.
+    d. Open a Console or RDP connection to the Tenant API VM you copied the files to.
+    
+    e. Change directories to **c:\temp\wapconnector\setup\scripts**, and run **Update-TenantAPI.ps1**. This new version of the WAP Tenant API contains a change to enable a trust relationship not only with the current STS, but also with the instance of AD FS in Azure Stack.
 
      ```powershell
     cd C:\temp\wapconnector\setup\packages\
@@ -193,7 +195,7 @@ For this preview release, use the Windows Azure Pack Connector only in test envi
     .\Update-TenantAPI.ps1
     ```
 
-    e.	Repeat step 2 on any other virtual machine running the Tenant API.
+    f.	Repeat step 2 on any other virtual machine running the Tenant API.
 3. From **only one** of the Tenant API VMs, run the Configure-TrustAzureStack.ps1 script to add a trust relationship between the Tenant API and the AD FS instance on Azure Stack. You must use an account with sysadmin access to the Microsoft.MgmtSvc.Store database. This script has the following parameters:
 
     | Parameter | Description | Example |
