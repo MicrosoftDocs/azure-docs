@@ -493,7 +493,7 @@ This result is due to the limit of 60 MB/sec for writing an Azure blob. Parallel
 
 ### Blob copy of dedicated Azure data disks in a backup software raid
 
-Unlike the manual VM data disk backup, this approach is not about the backup of all data disks which belong to a VM, in order to save the whole SAP installation, including HANA data and HANA log files as well as config files. Instead, the idea is to have dedicated software RAID with striping across multiple Azure data VHDs for storing a full SAP HANA file backup. One copies only these disks, which have the SAP HANA backup. They could easily be kept in a dedicated HANA backup storage account, or attached to a dedicated &quot;backup management VM&quot; for further processing.
+Unlike the manual VM data disk backup, in this approach one does not backup all of the data disks on a VM in order to save the whole SAP installation, including HANA data, HANA log files, and config files. Instead, the idea is to have dedicated software RAID with striping across multiple Azure data VHDs for storing a full SAP HANA file backup. One copies only these disks, which have the SAP HANA backup. They could easily be kept in a dedicated HANA backup storage account, or attached to a dedicated &quot;backup management VM&quot; for further processing.
 
 ![All VHDs involved were copied using the **start-azurestorageblobcopy** PowerShell command](./media/sap-hana-backup-guide/image031.png)
 
