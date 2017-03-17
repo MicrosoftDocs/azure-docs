@@ -1,6 +1,6 @@
 # Overview
 ## [What is Traffic Manager?](traffic-manager-overview.md)
-## [Endpoint typess](traffic-manager-endpoint-types.md)
+## [Endpoint types](traffic-manager-endpoint-types.md)
 ## [Endpoint monitoring](traffic-manager-monitoring.md)
 ## [Routing methods](traffic-manager-routing-methods.md)
 ## [FAQs](traffic-manager-FAQs.md)
