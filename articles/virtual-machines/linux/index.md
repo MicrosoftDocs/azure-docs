@@ -22,7 +22,7 @@ ms.author: carolz
     <div class="calloutHolder">
         <div class="callout">
             <a href="https://azure.microsoft.com/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
-                <img src="media/index/pluralsight.svg"/>
+                <img src="media/index/pluralsight.svg" />
                 Free PluralSight video training Managing Infrastructure using Microsoft Azure
             </a>
         </div>
