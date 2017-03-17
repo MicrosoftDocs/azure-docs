@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/17/2017
 ms.author: billmath
 
 ---
@@ -62,7 +62,8 @@ This logic for proxyAddresses is referred to as **ProxyCalc**. ProxyCalc is invo
 
 ProxyCalc might take some time to process a change on a user and is not synchronous with the Azure AD Connect export process.
 
-The ProxyCalc logic has some additional behaviors for advanced scenarios not documented in this topic.
+> [!NOTE]
+> The ProxyCalc logic has some additional behaviors for advanced scenarios not documented in this topic. This topic is provided for you to understand the behavior and not document all internal logic.
 
 ### Quarantined attribute values
 Shadow attributes are also used when there are duplicate attribute values. For more information, see [duplicate attribute resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
