@@ -29,7 +29,7 @@ Before running this sample, install the following prerequisites locally:
 
 1. [Download and install git](https://git-scm.com/)
 1. [Download and install Node.js and NPM](https://nodejs.org/)
-1. Download, install and initialize the [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+1. Download, install and initialize the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 This quickstart demonstrates a simple Node.js application.
 
@@ -135,7 +135,7 @@ When the Web App has been created, the Azure CLI shows information similar to th
 Use the az appservice web config update command to configure the Web App to use Node.js version `6.9.3`. 
 
 > [!TIP]
-> Setting the node.js version this way uses a default container provided by the platform, if you would like to use your own container refer to the reference for the [az appservice web config container update](https://docs.microsoft.com/en-us/cli/azure/appservice/web/config/container#update) command.
+> Setting the node.js version this way uses a default container provided by the platform, if you would like to use your own container refer to the reference for the [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) command.
 
 ```azurecli
 az appservice web config update --node-version 6.9.3 --startup-file index.js --name <app_name> --resource-group myResourceGroup
@@ -149,7 +149,7 @@ Set the account-level deployment credentials.
 az appservice web deployment user set --user-name <username> --password <password>
 ```
 
-Use the [az appservice web source-control config-local-git](https://docs.microsoft.com/en-us/cli/azure/appservice/web/source-control#config-local-git) command to configure local git access to the Web App.
+Use the [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config-local-git) command to configure local git access to the Web App.
 
 ```azurecli
 az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv
