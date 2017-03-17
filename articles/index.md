@@ -44,17 +44,17 @@ description: Learn how to build and manage powerful applications using Microsoft
                 </a>
             </li>
             <li>
-                <a href="https://azure.microsoft.com/get-started/">
+                <a href="https://azure.microsoft.com/en-us/community/training/">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/video.svg" src="media/index/video.png" alt="" />
+                                        <img data-hoverimage="media/index/getstarted_pluralsight.svg" src="media/index/getstarted_pluralsight.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <h3>5-Minute Getting Started Videos</h3>
+                                    <h3>Free PluralSight Video Training for Dev and IT</h3>
                                 </div>
                             </div>
                         </div>
