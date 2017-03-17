@@ -185,11 +185,17 @@ using Microsoft.Azure.Batch.Auth;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-Reference the Batch service endpoints for Azure AD in your code, for example:  
+Reference the Azure AD common endpoint and the Azure AD endpoint for the Batch service in your code:  
 
 ```csharp
-private const string BatchAuthorityUrl = "https://login.microsoftonline.com/common";
-private const string BatchResourceUrl = "https://batch.core.windows.net/";
+private const string AuthorityUri = "https://login.microsoftonline.com/common";
+private const string BatchResourceUri = "https://batch.core.windows.net/";
+```
+
+Reference your Batch account endpoint:
+
+```csharp
+private const string BatchAccountEndpoint = "https://myaccount.westcentralus.batch.azure.com";
 ```
 
 Specify the application ID (client ID) for your application. The application ID is available from your app registration in the Azure portal; see the section titled [Grant the Batch service API access to your application](#grant-the-batch-service-api-access-to-your-application) to retrieve it. 
@@ -212,7 +218,7 @@ public static async Task<string> GetAuthenticationTokenAsync()
     var authContext = new AuthenticationContext(AuthorityUri);
 
     // Acquire the authentication token from Azure AD.
-    var authResult = await authContext.AcquireTokenAsync(BatchResourceUrl, 
+    var authResult = await authContext.AcquireTokenAsync(BatchResourceUri, 
                                                         ClientId, 
                                                         new Uri(RedirectUri), 
                                                         new PlatformParameters(PromptBehavior.Auto));
@@ -228,7 +234,7 @@ public static async Task PerformBatchOperations()
 {
     Func<Task<string>> tokenProvider = () => GetAuthenticationTokenAsync();
 
-    using (var client = await BatchClient.OpenAsync(new BatchTokenCredentials(BatchResourceUrl, tokenProvider)))
+    using (var client = await BatchClient.OpenAsync(new BatchTokenCredentials(BatchAccountEndpoint, tokenProvider)))
     {
         await client.JobOperations.ListJobs().ToListAsync();
     }
@@ -251,5 +257,4 @@ To learn more about Azure AD, see the [Azure Active Directory Documentation](htt
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrating Applications with Azure Active Directory"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [azure_portal]: http://portal.azure.com
-[resman_api]: https://msdn.microsoft.com/library/azure/mt418626.aspx
 [resman_overview]: ../azure-resource-manager/resource-group-overview.md
