@@ -13,9 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 03/17/2017
 ms.author: sdanie
-
+ROBOTS: NOINDEX
 ---
 # How to Use In-Role Cache for Azure Cache
 > [!IMPORTANT]
