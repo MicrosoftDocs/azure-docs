@@ -1,5 +1,5 @@
 ---
-title: 'Azure CLI: Create and query a single SQL database | Microsoft Docs'
+title: 'Azure CLI: Create a SQL database | Microsoft Docs'
 description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases using the Azure CLI. 
 keywords: sql database tutorial, create a sql database
 services: sql-database
