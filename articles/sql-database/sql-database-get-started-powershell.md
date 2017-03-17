@@ -23,11 +23,11 @@ ms.author: carlrab
 
 PowerShell is used to create and manage Azure resources from the command line or in scripts. This guide details using PowerShell to deploy an Azure SQL database in an [Azure resource group](../azure-resource-manager/resource-group-overview.md) in an [Azure SQL Database logical server](sql-database-features.md).
 
-Before you start, make sure that the latest version of PowerShell is installed. Azure CLI has been installed. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+Before you start, make sure that the latest version of PowerShell is installed. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). 
 
 ## Log in to Azure
 
-Log in to your Azure subscription with the [Add-AzureRmAccount](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.profile/v2.5.0/add-azurermaccount) command and follow the on-screen directions.
+Log in to your Azure subscription with the [Add-AzureRmAccount](https://docs.microsoft.com/powershell/resourcemanager/azurerm.profile/v2.5.0/add-azurermaccount) command and follow the on-screen directions.
 
 ```powershell
 Add-AzureRmAccount
@@ -42,7 +42,7 @@ New-AzureRmResourceGroup -Name "myResourceGroup" -Location "westeurope"
 ```
 ## Create a logical server
 
-Create an [Azure SQL Database logical server](sql-database-features.md) with the [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver) command. A logical server contains a group of databases managed as a group. The following example creates a randomly-named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
+Create an [Azure SQL Database logical server](sql-database-features.md) with the [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver) command. A logical server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
 
 ```powershell
 $servername = "server-$(Get-Random)"
@@ -75,7 +75,7 @@ New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
 
 ## Clean up resources
 
-Some of the quick starts in this collection and in the tutorial collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following command to delete all resources created by this quick start.
+The **Connect with** quick starts in this collection and the tutorials in the tutorial collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following command to delete all resources created by this quick start.
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
