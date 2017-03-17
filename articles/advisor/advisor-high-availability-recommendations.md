@@ -47,6 +47,22 @@ Azure Premium Storage delivers high-performance, low-latency disk support for vi
 
 ![](./media/advisor-high-availability-recommendations/advisor-high-availability-upgrade-to-premium-disks.png) 
 
+## Your application gateway is not configured for fault tolerance
+To ensure the business continuity of your mission critical applications powered by application gateways, Advisor identifies application gateway instances that are not configured for fault tolerance, and suggests actions you can take to fix this. Advisor identifies medium or large single instance application gateways, and recommends adding at least one more instance. It also identifies single or multi-instance small application gateways and recommends migrating to a medium or large SKU size. We recommend these actions to ensure your application gateway instances are configured to satisfy the current SLA requirements for these resources.
+
+
+## Improve the reliability of your availability set disks
+Advisor identifies availability sets where virtual machines disks are placed in a single storage account, and recommends migrating to Managed Disks. Virtual machine disks placed in the same storage account are located on same storage scale unit, and are impacted by single storage scale unit failure. Managed Disks ensure disks of virtual machines in an availability set are sufficiently isolated from each other, by automatically placing disks in different storage scale units. This ensures data redundancy by avoiding a single point of failure during an outage.
+
+
+## Your virtual machine disks susceptible to I/O throttling
+Advisor identifies virtual machines susceptible to disk performance degradation due to I/O throttling, and recommends migrating to Managed Disks. Placing multiple virtual machine disks running I/O intensive workloads in the same storage account will cause the storage account to reach its scalability limits, which can lead to throttling. Throttling can degrade the overall performance of virtual machines, and also cause other potential issues.  Managed Disks handle storage account placement for disks behind the scenes, so you are no longer limited by storage account scalability limits.
+
+
+## Your virtual machine is not configured for backup
+Advisor identifies virtual machines where backup is not enabled, and recommends enabling backup. Setting up virtual machine backup ensures availability of your business critical data and offers protection against accidental deletion or corruption.
+
+
 ## How to access High Availability recommendations in Advisor
 
 1. Sign in into the [Azure portal](https://portal.azure.com).
