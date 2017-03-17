@@ -29,12 +29,12 @@ If you are already familiar with creating templates, you can skip to the "Next S
 
 ## Review the template
 
-Use GitHub to review our minimum viable scale set template,  [azuredeploy.json](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json).
+Use GitHub to review our minimum viable scale set template, [azuredeploy.json](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json).
 
 In this tutorial, we examine the diff (`git diff master minimum-viable-scale-set`) to create the minimum viable scale set template piece by piece.
 
 ## Define $schema and contentVersion
-First, we define `$schema` and `contentVersion` in the template. The `$schema` element defines the version of the template language and is used for Visual Studio syntax highlighting and similar validation features. The `contentVersion `element is actually not used by Azure. Instead, it helps you keep track of which version of the template this is.
+First, we define `$schema` and `contentVersion` in the template. The `$schema` element defines the version of the template language and is used for Visual Studio syntax highlighting and similar validation features. The `contentVersion `element is not used by Azure. Instead, it helps you keep track of the template version.
 
 ```diff
 +{
@@ -42,7 +42,7 @@ First, we define `$schema` and `contentVersion` in the template. The `$schema` e
 +  "contentVersion": "1.0.0.0",
 ```
 ## Define adminUsername and adminPassword
-Next, we define two parameters, `adminUsername` and `adminPassword`. Parameters are values specified by the user at the time of deployment. The `adminUsername` parameter is simply a `string` type, but because `adminPassword` is a secret, we give it type `securestring`. Later, these parameters are passed into the scale set configuration.
+Next, we define two parameters, `adminUsername` and `adminPassword`. Parameters are values you specify at the time of deployment. The `adminUsername` parameter is simply a `string` type, but because `adminPassword` is a secret, we give it type `securestring`. Later, these parameters are passed into the scale set configuration.
 
 ```diff
 +  "parameters": {
@@ -173,7 +173,7 @@ In the following snippet, we use the parameters from before to set the administr
 ## Specify VM network configuration
 Finally, we need to specify the network configuration for the VMs in the scale set. In this case, we only need to specify the ID of the subnet  created earlier. This tells the scale set to put the network interfaces in this subnet.
 
-You can get the ID of the virtual network containing the subnet by using the `resourceId` template function. This function takes in the type and name of a resource and returns the fully qualified identifier of that resource. This ID has the form: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/<resourceProviderNamespace>/<resourceType>/<resourceName>`.
+You can get the ID of the virtual network containing the subnet by using the `resourceId` template function. This function takes in the type and name of a resource and returns the fully qualified identifier of that resource. This ID has the form: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/<resourceProviderNamespace>/<resourceType>/<resourceName>`
 
 However, the identifier of the virtual network is not enough. You must specify the specific subnet that the scale set VMs should be in. To do this, concatenate `/subnets/mySubnet` to the ID of the virtual network. The result is the fully qualified ID of the subnet. Do this concatenation with the `concat` function, which takes in a series of strings and returns their concatenation.
 
