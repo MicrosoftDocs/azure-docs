@@ -99,7 +99,7 @@ You can upload data to Data Lake Store directly at the root level or to a folder
 
 If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Download the file and store it in a local directory on your computer, such as  C:\sampledata\.
 
-    az datalake store file upload --account <dataLakeStoreAccountName> "<source path>" "<destination path>"
+    az datalake store file upload --account <dataLakeStoreAccountName> --source-path "<source path>" --destination-path "<destination path>"
 
 For example:
     
