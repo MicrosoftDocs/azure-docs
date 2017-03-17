@@ -650,21 +650,6 @@ Returns the first document found for every unique value of the given field.
 
 The above example returns one event (the latest since we use DESC on TimeGenerated) per EventID
 
-### Join
-Joins the results of two queries to form a single result set.  Supports multiple join types described in the follow table.
-
-| Join type | Description |
-|:--|:--|
-| inner | Return only records with a matching value in both queries. |
-| outer | Return all records from both queries.  |
-| left  | Return all records from left query and matching records from right query. |
-| right | Return all records from right query and matching records from left query. |
-
-**Syntax**
-<left-query> | JOIN <join-type> <left-query-field-name> (<right-query>) <right-query-field-name>
-
-**Example**
-
 
 
 ### Extend
