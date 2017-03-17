@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/07/2017
+ms.date: 03/16/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -89,7 +89,7 @@ The following table lists the standard parameters for all management solutions. 
 | accountName |string |Azure Automation account name. |
 | pricingTier |string |Pricing tier of both Log Analytics workspace and Azure Automation account. |
 | regionId |string |Region of the Azure Automation account. |
-| solutionName |string |Name of the solution. |
+| solutionName |string |Name of the solution.  If you are deploying your solution through Quickstart templates, then you should define solutionName as a parameter so you can define a string instead requiring the user to specify one. |
 | workspaceName |string |Log Analytics workspace name. |
 | workspaceRegionId |string |Region of the Log Analytics workspace. |
 
