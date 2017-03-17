@@ -43,7 +43,7 @@ ms.author: rclaus
   - SAP HANA snapshots
   - HANA VM backup via Azure Backup service
   - HANA VM backup automation via Azure Backup service
-- HANA license key and VM restore via Azure Backup service
+  - HANA license key and VM restore via Azure Backup service
   - SAP HANA VM backup via manual disk snapshot
 - SAP HANA Azure Backup on file level
   - Introduction
