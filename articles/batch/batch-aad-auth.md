@@ -26,7 +26,7 @@ In this article, we explore using Azure AD to authenticate from applications tha
 
 It's also possible to use Azure AD to authenticate access to an application running unattended. Here we focus on using Azure AD integrated authentication, and refer you to other resources to learn about authenticating unattended applications.
 
-## Authenticate from Batch management applications with Azure AD
+## Use Azure AD with Batch management solutions
 
 The Batch Management .NET library exposes types for working with Batch accounts, account keys, applications, and application packages. The Batch Management .NET library is an Azure resource provider client, and is used together with [Azure Resource Manager][resman_overview] to manage these resources programmatically. 
 
@@ -116,7 +116,7 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
 
 After you provide your credentials, the sample application can proceed to issue authenticated requests to the Batch management service. 
 
-## Authenticate from Batch service applications with Azure AD
+## Use Azure AD with Batch service solutions
 
 The Batch .NET library provides types for building parallel processing workflows with the Batch service. The Batch service supports both [Shared Key](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service) authentication and authentication through Azure AD. In this section, we discuss authentication via Azure AD.
 
