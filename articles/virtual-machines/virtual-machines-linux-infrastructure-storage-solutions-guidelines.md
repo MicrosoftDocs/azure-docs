@@ -28,7 +28,7 @@ This article focuses on understanding storage needs and design considerations fo
 ## Implementation guidelines for storage
 Decisions:
 
-* Are you going to use Azure Managed Disks or unmanaged disks
+* Are you going to use Azure Managed Disks or unmanaged disks?
 * Do you need to use Standard or Premium storage for your workload?
 * Do you need disk striping to create disks larger than 1023 GB?
 * Do you need disk striping to achieve optimal I/O performance for your workload?
