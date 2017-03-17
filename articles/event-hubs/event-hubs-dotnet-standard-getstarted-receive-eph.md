@@ -22,7 +22,7 @@ ms.author: jotaub;sethm
 > [!NOTE]
 > This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver).
 
-This tutorial shows how to write a .NET Core console application that receives messages from an event hub by using the **EventProcessorHost**. You can run the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) solution as-is, replacing the strings with your event hub and storage account values, or you can follow the steps in this tutorial to create your own.
+This tutorial shows how to write a .NET Core console application that receives messages from an Event Hub by using the **EventProcessorHost**. You can run the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) solution as-is, replacing the strings with your Event Hub and storage account values, or you can follow the steps in this tutorial to create your own.
 
 ## Prerequisites
 
@@ -32,9 +32,9 @@ This tutorial shows how to write a .NET Core console application that receives m
 4. An Azure Event Hubs namespace.
 5. An Azure Storage account.
 
-## Create an Event Hubs namespace and an event hub  
+## Create an Event Hubs namespace and an Event Hub  
 
-The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace for the Event Hubs type, and obtain the management credentials that your application needs to communicate with the event hub. To create a namespace and event hub, follow the procedure in [this article](event-hubs-create.md), then proceed with the following steps.  
+The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace for the Event Hubs type, and obtain the management credentials that your application needs to communicate with the Event Hub. To create a namespace and Event Hub, follow the procedure in [this article](event-hubs-create.md), then proceed with the following steps.  
 
 ## Create an Azure Storage account  
 
@@ -139,11 +139,11 @@ Note that this tutorial shows how to write a .NET Core application, but if you w
     using Microsoft.Azure.EventHubs.Processor;
     ```
 
-2. Add constants to the `Program` class for the Event Hubs connection string, event hub name, storage account container name, storage account name, and storage account key. Add the following code, replacing the placeholders with their corresponding values.
+2. Add constants to the `Program` class for the Event Hubs connection string, Event Hub name, storage account container name, storage account name, and storage account key. Add the following code, replacing the placeholders with their corresponding values.
 
     ```csharp
     private const string EhConnectionString = "{Event Hubs connection string}";
-    private const string EhEntityPath = "{Event hub path/name}";
+    private const string EhEntityPath = "{Event Hub path/name}";
     private const string StorageContainerName = "{Storage account container name}";
     private const string StorageAccountName = "{Storage account name}";
     private const string StorageAccountKey = "{Storage account key}";
@@ -191,7 +191,7 @@ Note that this tutorial shows how to write a .NET Core application, but if you w
         public class Program
         {
             private const string EhConnectionString = "{Event Hubs connection string}";
-            private const string EhEntityPath = "{Event hub path/name}";
+            private const string EhEntityPath = "{Event Hub path/name}";
             private const string StorageContainerName = "{Storage account container name}";
             private const string StorageAccountName = "{Storage account name}";
             private const string StorageAccountKey = "{Storage account key}";
@@ -229,13 +229,13 @@ Note that this tutorial shows how to write a .NET Core application, but if you w
 
 4. Run the program, and ensure that there are no errors.
 
-Congratulations! You have now received messages from an event hub using the Event Processor Host.
+Congratulations! You have now received messages from an Event Hub using the Event Processor Host.
 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
 * [Event Hubs overview](event-hubs-what-is-event-hubs.md)
-* [Create an event hub](event-hubs-create.md)
+* [Create an Event Hub](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
