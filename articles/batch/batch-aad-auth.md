@@ -1,6 +1,6 @@
 ---
-title: Use Azure Active Directory to authenticate Batch solutions | Microsoft Docs
-description: Use Azure Active Directory to authenticate Batch solutions
+title: Use Azure Active Directory to authenticate from Azure Batch | Microsoft Docs
+description: Batch supports Azure AD for authentication from the Batch service and Batch resource provider.
 services: batch
 documentationcenter: .net
 author: tamram
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 03/13/2017
+ms.date: 03/16/2017
 ms.author: tamram
 ---
 
-# Use Azure Active Directory to authenticate Batch solutions
+# Authenticate from Batch solutions with Active Directory
 
 Azure Batch supports authentication with [Azure Active Directory][aad_about] (Azure AD) for the Batch service and the Batch management service. Azure AD is Microsoft’s multi-tenant cloud based directory and identity management service. Azure itself uses Azure AD for the authentication of its customers, service administrators, and organizational users.
 
@@ -26,7 +26,7 @@ In this article, we explore using Azure AD to authenticate from applications tha
 
 It's also possible to use Azure AD to authenticate access to an application running unattended. Here we focus on using Azure AD integrated authentication, and refer you to other resources to learn about authenticating unattended applications.
 
-## Authenticate Batch management applications with Azure AD
+## Authenticate from Batch management applications with Azure AD
 
 The Batch Management .NET library exposes types for working with Batch accounts, account keys, applications, and application packages. The Batch Management .NET library is an Azure resource provider client, and is used together with [Azure Resource Manager][resman_overview] to manage these resources programmatically. 
 
@@ -114,9 +114,9 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
                                                         PromptBehavior.Auto);
 ```
 
-After you provide your service administrator or coadministrator credentials, the sample application can proceed to issue authenticated requests to the Batch management service. 
+After you provide your credentials, the sample application can proceed to issue authenticated requests to the Batch management service. 
 
-## Authenticate Batch service applications with Azure AD
+## Authenticate from Batch service applications with Azure AD
 
 The Batch .NET library provides types for building parallel processing workflows with the Batch service. The Batch service supports both [Shared Key](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service) authentication and authentication through Azure AD. In this section, we discuss authentication via Azure AD.
 
@@ -133,7 +133,7 @@ The Batch service endpoints differ from those that you use with Batch Management
 
 The Azure AD endpoint for the Batch service is:
 
-`https://login.microsoftonline.com/microsoft.onmicrosoft.com`
+`https://login.microsoftonline.com/common`
 
 The resource endpoint for the Batch service is:
 
@@ -145,7 +145,7 @@ Before you can authenticate via Azure AD from your Batch application, you need t
 
 1. To register your Batch application, follow the steps in the [Adding an Application](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) section in [Integrating applications with Azure Active Directory][aad_integrate]. For the **Redirect URI**, you can specify any valid URI. It does not need to be a real endpoint.
 
-    After you've registered your application, you'll see the application ID and object (service principal) ID:
+    After you've registered your application, you'll see the application ID and object ID:
 
     ![Register your Batch application with Azure AD](./media/batch-aad-auth/app-registration-data-plane.png)
 
@@ -171,9 +171,7 @@ You can also specify that Batch pools are allocated in a specified user subscrip
 
 An Azure AD authentication token expires after one hour. When using a long-lived **BatchClient** object, we recommend that you retrieve a token from ADAL on every request to ensure you always have a valid token. 
 
-To achieve this in .NET, write a method that retrieves the token from Azure AD and pass that method to a **BatchTokenCredentials** object as a delegate. The delegate method is called on every request to the Batch service to ensure that a valid token is provided. By default ADAL caches tokens, so a new token is retrieved from Azure AD only when necessary. For an example, see [Code example: Using Azure AD with Batch .NET](#code-example-using-azure-ad-with-batch-net).
-
-The token is cached for one hour by default. When the token is within five minutes of expiry, ADAL retrieves a new token. For more information about tokens in Azure AD, see [Authentication Scenarios for Azure AD][aad_auth_scenarios].
+To achieve this in .NET, write a method that retrieves the token from Azure AD and pass that method to a **BatchTokenCredentials** object as a delegate. The delegate method is called on every request to the Batch service to ensure that a valid token is provided. By default ADAL caches tokens, so a new token is retrieved from Azure AD only when necessary. For an example, see [Code example: Using Azure AD with Batch .NET](#code-example-using-azure-ad-with-batch-net) in the next section. For more information about tokens in Azure AD, see [Authentication Scenarios for Azure AD][aad_auth_scenarios].
 
 ### Code example: Using Azure AD with Batch .NET
 
@@ -190,14 +188,14 @@ using Microsoft.IdentityModel.Clients.ActiveDirectory;
 Reference the Batch service endpoints for Azure AD in your code, for example:  
 
 ```csharp
-private const string BatchAuthorityUrl = "https://login.microsoftonline.com/microsoft.onmicrosoft.com";
+private const string BatchAuthorityUrl = "https://login.microsoftonline.com/common";
 private const string BatchResourceUrl = "https://batch.core.windows.net/";
 ```
 
-Specify the application ID for your application. The application ID is available from your app registration in the Azure portal; see the section titled [Grant the Batch service API access to your application](#grant-the-batch-service-api-access-to-your-application) to retrieve it. 
+Specify the application ID (client ID) for your application. The application ID is available from your app registration in the Azure portal; see the section titled [Grant the Batch service API access to your application](#grant-the-batch-service-api-access-to-your-application) to retrieve it. 
 
 ```csharp
-private const string ClientId = "<client-id>";
+private const string ClientId = "<application-id>";
 ```
 
 Also specify a redirect URI, which can be any valid URI.
@@ -209,12 +207,12 @@ private const string RedirectUri = "http://mybatchdatasample";
 Write a callback method to acquire the authentication token from Azure AD. The **AcquireTokenAsync** method prompts the user for their credentials and uses those credentials to acquire a new token.
 
 ```csharp
-public static async Task<string> GetAuthenticationTokenAsync(string resource)
+public static async Task<string> GetAuthenticationTokenAsync()
 {
-    var authContext = new AuthenticationContext(BatchAuthorityUrl);
+    var authContext = new AuthenticationContext(AuthorityUri);
 
     // Acquire the authentication token from Azure AD.
-    var authResult = await authContext.AcquireTokenAsync(BatchAuthorityUrl, 
+    var authResult = await authContext.AcquireTokenAsync(BatchResourceUrl, 
                                                         ClientId, 
                                                         new Uri(RedirectUri), 
                                                         new PlatformParameters(PromptBehavior.Auto));
@@ -228,9 +226,9 @@ Construct a **BatchTokenCredentials** object that takes the delegate as a parame
 ```csharp
 public static async Task PerformBatchOperations()
 {
-    Func<Task<string>> tokenProvider = () => GetAuthenticationTokenAsync(BatchResourceUrl);
+    Func<Task<string>> tokenProvider = () => GetAuthenticationTokenAsync();
 
-    using (var client = await BatchClient.OpenAsync(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
+    using (var client = await BatchClient.OpenAsync(new BatchTokenCredentials(BatchResourceUrl, tokenProvider)))
     {
         await client.JobOperations.ListJobs().ToListAsync();
     }
@@ -252,26 +250,6 @@ To learn more about Azure AD, see the [Azure Active Directory Documentation](htt
 [aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Authentication Scenarios for Azure AD"
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrating Applications with Azure Active Directory"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
-[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
-[api_mgmt_net]: https://msdn.microsoft.com/library/azure/mt463120.aspx
 [azure_portal]: http://portal.azure.com
-[azure_storage]: https://azure.microsoft.com/services/storage/
-[azure_tokencreds]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.tokencloudcredentials.aspx
-[batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[net_batch_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.###
-[net_list_keys]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.accountoperationsextensions.listkeysasync.aspx
-[net_create]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.accountoperationsextensions.createasync.aspx
-[net_delete]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.accountoperationsextensions.deleteasync.aspx
-[net_regenerate_keys]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.accountoperationsextensions.regeneratekeyasync.aspx
-[net_sharedkeycred]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.auth.batchsharedkeycredentials.aspx
-[net_mgmt_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.batchmanagementclient.aspx
-[net_mgmt_subscriptions]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.batchmanagementclient.subscriptions.aspx
-[net_mgmt_listaccounts]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.iaccountoperations.listasync.aspx
 [resman_api]: https://msdn.microsoft.com/library/azure/mt418626.aspx
-[resman_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspxs
-[resman_subclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.subscriptions.subscriptionclient.aspx
 [resman_overview]: ../azure-resource-manager/resource-group-overview.md
-
-[4]: ./media/batch-aad-auth/app-registration-01.png
-
-[1]: ./media/batch-aad-auth/portal-01.png
