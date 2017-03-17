@@ -30,7 +30,7 @@ You can use PowerShell to connect to an Azure Stack environment. After connectin
 
 After downloading the tools, navigate to the downloaded folder and import the **Connect** PowerShell module by using the following command:  
 ```PowerShell
-Import-Module .\AzureStack.Connect.psm1
+Import-Module .\Connect\AzureStack.Connect.psm1
 ```
 
 > [!NOTE]

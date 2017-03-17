@@ -54,3 +54,4 @@
 ## [PowerShell Samples](../monitoring-and-diagnostics/insights-powershell-samples.md)
 ## [Azure CLI 1.0 Samples](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [List of supported metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
+## [Sources of monitoring data](../monitoring-and-diagnostics/monitoring-data-sources.md)
