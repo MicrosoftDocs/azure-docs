@@ -26,7 +26,7 @@ This article is an introduction to SQL Database core concepts and features relat
  - [Create a SQL database with the Azure CLI](sql-database-get-started-cli.md)
  - [Create a SQL database using PowerShell](sql-database-get-started-powershell.md)
 
- For a set of Azure CLI and PowerShell samples, see:
+For a set of Azure CLI and PowerShell samples, see:
  - [Azure CLI samples for Azure SQL Database](sql-database-cli-samples.md)
  - [Azure PowerShell samples for Azure SQL Database](sql-database-powershell-samples.md)
 
