@@ -27,39 +27,47 @@ You should have working knowledge of Node.js. This tutorial is not intended to h
 * [Git](http://www.git-scm.com/downloads)
 * [Azure CLI 2.0](/cli/azure/install-az-cli2)
 
-## Step 0: Create a local Node.js app
+## Step 0 - Create local Node.js app
 This step helps you create an Express.js app quickly, which you will use for the entire tutorial.
 
 1. Open the command-line terminal of your choice and `CD` to a working directory.
 
 2. Install the [Express.js application generator](https://expressjs.com/starter/generator.html).
 
-        npm install express-generator -g
+    ```shell
+    npm install express-generator -g
+    ```
 
 3. In your working directory, create an Express.js app with the generator and run it:
 
-        express expressAzureTutorial --git
-        cd expressAzureTutorial
-        npm install
-        npm start
+    ```shell
+    express expressAzureTutorial --git
+    cd expressAzureTutorial
+    npm install
+    npm start
+    ```
 
     Make sure you can navigate to the default home page at http://localhost:3000, then type `Ctrl-C` (or `⌘-C` in MacOS) to stop the app.
 
 4. Initialize a Git repository and commit your files. In the application root (where package.json is), run the following Git commands:
 
-        git init
-        git add .
-        git commit -m "first commit in this Azure tutorial!"
+    ```shell
+    git init
+    git add .
+    git commit -m "first commit in this Azure tutorial!"
+    ```
 
 You now have a working Node.js app. You're ready to deploy it to Azure.
 
 <a name="step1"></a>
-## Step 1: Deploy to Azure App Service
+## Step 1 - Deploy to Azure
 In this step, you create the Azure resources you need to host the Express.js app, then deploy your app code to Azure.
 
 1. Log in to Azure like so:
 
-        az login
+    ```azurecli
+    az login
+    ```
 
     Follow the prompt to continue the login in a browser with a Microsoft account that has your Azure subscription.
 
@@ -125,8 +133,8 @@ In this step, you create the Azure resources you need to host the Express.js app
 
 Congratulations, your app is now running in Azure. But how can you get the console output to help you debug your app in Azure? You will find out next.
 
-## Step 2: Stream diagnostic logs
-In this step, you learn how to stream the console logs from Azure directly to your terminal.
+## Step 2 - Stream debugging messages
+In this step, you learn how to stream the console messages from Azure directly to your terminal.
 
 2. Start log streaming.
 
@@ -140,7 +148,7 @@ In this step, you learn how to stream the console logs from Azure directly to yo
 
 Now, you can write `console.log()` to help you with app development.
 
-## Step 3: Connect web app to MongoDB
+## Step 3 - Connect to MongoDB
 In this step, you connect your Express.js app to a MongoDB instance. For MongoDB, you will use [Azure DocumentDB](https://docs.microsoft.com/en-us/azure/documentdb/), which can support MongoDB client connections.
 
 1. Create a DocumentDB account with MongoDB support, and retrieve the connection password.
@@ -149,14 +157,6 @@ In this step, you connect your Express.js app to a MongoDB instance. For MongoDB
     accountname="<documentdb_account_name>"
     az documentdb create --name $accountname --resource-group myResourceGroup --kind MongoDB
     password=$(az documentdb list-keys --name $accountname --resource-group myResourceGroup --query primaryMasterKey --output tsv)
-    ```
-
-    For PowerShell use the following instead
-
-    ```ps
-    $accountname="<documentdb_account_name>"
-    az documentdb create --name $accountname --resource-group myResourceGroup --kind MongoDB
-    $password=$(az documentdb list-keys --name $accountname --resource-group myResourceGroup --query primaryMasterKey --output tsv)
     ```
 
     Putting your settings in Azure app settings keeps sensitive data out of your source control (Git). Next, you will
@@ -175,7 +175,9 @@ In this step, you connect your Express.js app to a MongoDB instance. For MongoDB
 
 3. In your command-line terminal, from your Express.js app's root directory, install the [MongoDB NPM package](https://www.npmjs.com/package/mongodb).
 
-        npm install mongodb --save
+    ```shell
+    npm install mongodb --save
+    ```
 
 4. In your Express.js project, open `routes/index.js` and replace the content with the following code. This code connects to the MongoDB URL, inserts a document, and outputs all the documents as JSON to the view. 
 
@@ -211,9 +213,9 @@ In this step, you connect your Express.js app to a MongoDB instance. For MongoDB
     p Database documents: #{data}
     ```
 
-6. Push your changes to Azure.
+6. Back in the terminal, push your changes to Azure.
 
-    ```
+    ```shell
     git add .
     git commit -m "added MongoDB access code."
     git push azure master
@@ -227,7 +229,7 @@ In this step, you connect your Express.js app to a MongoDB instance. For MongoDB
 
 The app's homepage now should show some JSON documents, which are autogenerated in the `tutorial` collection of your DocumentDB database by your Node.js code.
 
-## Step 4: Monitor with web server logs
+## Step 4 - Download server logs
 In this step, you learn how to quickly turn on monitoring with web server logs, and then download these logs. 
 
 1. Enable all logging options for your web app.
@@ -244,7 +246,7 @@ In this step, you learn how to quickly turn on monitoring with web server logs, 
     az appservice web log download --name <app_name> --resource-group myResourceGroup
     ```
 
-## Step 5: Scale web app to another region
+## Step 5 - Scale to another region
 In this step, you scale your Node.js app to serve your customers in a new region. That way, you can tailor your web app to customers in different regions, and also put your web app closer to them to improve performance. When you're done with this step, you will have a [Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/) profile with two endpoints, which route traffic to two web apps which reside in different geographical regions.
 
 1. Create a Traffic Manager profile with a unique name and add it to your resource group.
@@ -270,7 +272,9 @@ In this step, you scale your Node.js app to serve your customers in a new region
 
 4. Your Traffic Manager profile now has an endpoint that points to your web app. Query for its URL to try it out.
 
+    ```azurecli
     az network traffic-manager profile show --name cephalin-express --resource-group myResourceGroup --query dnsConfig.fqdn --output tsv
+    ```
 
     Copy the output into your browser. You should get the default Express page again, with data from your database.
 
@@ -305,7 +309,6 @@ In this step, you scale your Node.js app to serve your customers in a new region
     ```azurecli
     az appservice plan create --name my-expressjs-appservice-plan-asia --resource-group myResourceGroup --location "Southeast Asia" --sku FREE
     az appservice web create --name <app_name>-asia --plan my-expressjs-appservice-plan-asia --resource-group myResourceGroup
-    // In PowerShell, add $ to the beginning of the next command
     url=$(az appservice web source-control config-local-git --name <app_name>-asia --resource-group myResourceGroup --query url --output tsv)
     git remote add azureasia $url
     git push azureasia master
