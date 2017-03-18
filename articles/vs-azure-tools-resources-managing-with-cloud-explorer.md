@@ -20,7 +20,7 @@ ms.author: tarcher
 # Manage the resources associated with your Azure accounts in Visual Studio Cloud Explorer
 Cloud Explorer enables you to view your Azure resources and resource groups, inspect their properties, and perform key developer diagnostics actions from within Visual Studio. 
 
-Like the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), Cloud Explorer is built on the Azure resource manager stack. Therefore, Cloud Explorer understands resources such as Azure resource groups and Azure services such as Logic apps and API apps, and it supports [role-based access control](active-directory/role-based-access-control-configure.md) (RBAC). 
+Like the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), Cloud Explorer is built on the Azure Resource Manager stack. Therefore, Cloud Explorer understands resources such as Azure resource groups and Azure services such as Logic apps and API apps, and it supports [role-based access control](active-directory/role-based-access-control-configure.md) (RBAC). 
 
 ## Prerequisites
 - [Visual Studio](https://www.visualstudio.com/downloads/) 
@@ -40,13 +40,13 @@ To view the resources associated with an Azure account, you must first add the a
 
 1. Select **Add new account**. 
 
-	![Cloud Explorer add account link](media/vs-azure-tools-resources-managing-with-cloud-explorer/add-account-link.png)
+	![Cloud Explorer add-account link](media/vs-azure-tools-resources-managing-with-cloud-explorer/add-account-link.png)
 
-1. Log into the Azure account whose resources you want to browse. 
+1. Log in to the Azure account whose resources you want to browse. 
 
-1. Once logged into an Azure account, the subscriptions associated with that account display. Select the check boxes for the account subscriptions you want to browse and then select **Apply**. 
+1. Once logged in to an Azure account, the subscriptions associated with that account display. Select the check boxes for the account subscriptions you want to browse and then select **Apply**. 
  
-	![Cloud Explorer select Azure subscriptions to display](media/vs-azure-tools-resources-managing-with-cloud-explorer/select-subscriptions.png)
+	![Cloud Explorer: select Azure subscriptions to display](media/vs-azure-tools-resources-managing-with-cloud-explorer/select-subscriptions.png)
 
 1. After selecting the subscriptions whose resources you want to browse, those subscriptions and resources display in the Cloud Explorer.
 
@@ -71,7 +71,7 @@ To view your Azure resources, you can choose either **Resource Types** or **Reso
 
 1. From the context menu, select the desired view: 
 
-	- **Resource Types** view - The common view used on the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), shows your Azure resources categorized by their type, such as web apps, storage accounts and virtual machines. This is similar to how Azure resources appear in Server Explorer.
+	- **Resource Types** view - The common view used on the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), shows your Azure resources categorized by their type, such as web apps, storage accounts, and virtual machines. This is similar to how Azure resources appear in Server Explorer.
 	- **Resource Groups** view - Categorizes Azure resources by the Azure resource group with which they're associated. A resource group is a bundle of Azure resources, typically used by a specific application. To learn more about Azure resource groups, see [Azure Resource Manager Overview](./azure-resource-manager/resource-group-overview.md).
 
 	The following image shows a comparison of the two resource views:
@@ -89,7 +89,7 @@ The following image shows an example comparison of what you see on each tab for 
 
 ![](./media/vs-azure-tools-resources-managing-with-cloud-explorer/actions-and-properties.png)
 
-Every resource has the action **Open in portal**. When you choose this action, Cloud Explorer displays the selected resource in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). The **Open in portal** feature is particularly handy for navigating to deeply-nested resources.
+Every resource has the action **Open in portal**. When you choose this action, Cloud Explorer displays the selected resource in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). The **Open in portal** feature is handy for navigating to deeply nested resources.
 
 Additional actions and property values may also appear based on the Azure resource. For example, web apps and logic apps also have the actions **Open in browser** and **Attach debugger** in addition to **Open in portal**. Actions to open editors appear when you choose a storage account blob, queue, or table. Azure apps have **URL** and **Status** properties, while storage resources have key and connection string properties.
 
