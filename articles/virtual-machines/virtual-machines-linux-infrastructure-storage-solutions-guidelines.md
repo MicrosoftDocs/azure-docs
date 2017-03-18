@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 
@@ -28,6 +28,7 @@ This article focuses on understanding storage needs and design considerations fo
 ## Implementation guidelines for storage
 Decisions:
 
+* Are you going to use Azure Managed Disks or unmanaged disks?
 * Do you need to use Standard or Premium storage for your workload?
 * Do you need disk striping to create disks larger than 1023 GB?
 * Do you need disk striping to achieve optimal I/O performance for your workload?
@@ -40,6 +41,8 @@ Tasks:
 
 ## Storage
 Azure Storage is a key part of deploying and managing virtual machines (VMs) and applications. Azure Storage provides services for storing file data, unstructured data, and messages, and it is also part of the infrastructure supporting VMs.
+
+[Azure Managed Disks](../storage/storage-managed-disks-overview.md) handles storage for you behind the scenes. With unmanaged disks, you create storage accounts to hold the disks (VHD files) for your Azure VMs. When scaling up, you must make sure you created additional storage accounts so you don’t exceed the IOPS limit for storage with any of your disks. With Managed Disks handling storage, you are no longer limited by the storage account limits (such as 20,000 IOPS / account). You also no longer have to copy your custom images (VHD files) to multiple storage accounts. You can manage them in a central location – one storage account per Azure region – and use them to create hundreds of VMs in a subscription. We recommend you use Managed Disks for new deployments.
 
 There are two types of storage accounts available for supporting VMs:
 
@@ -77,7 +80,9 @@ If you are using disk striping for Azure data disks, consider the following guid
 For more information, see [Configuring LVM on a Linux VM](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Multiple storage accounts
-When designing your Azure Storage environment, you can use multiple storage accounts as the number of VMs you deploy increases. This approach helps distribute out the I/O across the underlying Azure Storage infrastructure to maintain optimum performance for your VMs and applications. As you design the applications that you are deploying, consider the I/O requirements each VM has and balance out those VMs across Azure Storage accounts. Try to avoid grouping all the high I/O demanding VMs in to just one or two storage accounts.
+This section does not apply to [Azure Managed Disks](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), as you do not create separate storage accounts. 
+
+When designing your Azure Storage environment for unmanaged disks, you can use multiple storage accounts as the number of VMs you deploy increases. This approach helps distribute out the I/O across the underlying Azure Storage infrastructure to maintain optimum performance for your VMs and applications. As you design the applications that you are deploying, consider the I/O requirements each VM has and balance out those VMs across Azure Storage accounts. Try to avoid grouping all the high I/O demanding VMs in to just one or two storage accounts.
 
 For more information about the I/O capabilities of the different Azure Storage options and some recommend maximums, see [Azure storage scalability and performance targets](../storage/storage-scalability-targets.md).
 
