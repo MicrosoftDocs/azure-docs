@@ -29,7 +29,7 @@ ms.custom: H1Hack27Feb2017
 
 Management solutions contain OMS and Azure resources that work together to achieve a particular monitoring scenario.  They are implemented as [Resource Management templates](../azure-resource-manager/resource-manager-template-walkthrough.md) that contain details of how to install and configure their contained resources when the solution is installed.
 
-The basic strategy is to start your management solution by building the individual components in your Azure environment.  Once you have the functionality working properly, then you can start packaging them into a [management solution file](operations-management-suite-solutions-solution-file.md).  Follow the links in this article to guidance and best practices to assist you in this process.
+The basic strategy is to start your management solution by building the individual components in your Azure environment.  Once you have the functionality working properly, then you can start packaging them into a [management solution file](operations-management-suite-solutions-solution-file.md). 
 
 
 ## Design your solution
@@ -66,8 +66,6 @@ You [create custom views using  the View Designer](../log-analytics/log-analytic
 ## Create solution file
 Once you've configured and tested the components that will be part of your solution, you can [create your solution file](operations-management-suite-solutions-solution-file.md).  You will implement the solution components in a [Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) that includes a [solution resource](operations-management-suite-solutions-solution-file.md#solution-resource) with relationships to the other resources in the file.  
 
-See [Best practices in Operations Management Suite (OMS) management solutions](operations-management-suite-solutions-best-practices.md) for best practices that you should follow in translating the logic of your management solution into a solution file.
-
 
 ## Test your solution
 While you are developing your solution, you will need to install and test it in your workspace.  You can do this using any of the available methods to [test and install Resource Manager templates](../azure-resource-manager/resource-group-template-deploy.md).
@@ -82,6 +80,5 @@ Once you have completed and tested your solution, you can make it available to c
 
 ## Next steps
 * Learn how to [create a solution file](operations-management-suite-solutions-solution-file.md) for your management solution.
-* Read [best practices](operations-management-suite-solutions-best-practices.md) for implementing different solution resources.
 * Learn the details of [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 * Search [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates) for samples of different Resource Manager templates.

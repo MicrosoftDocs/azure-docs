@@ -33,9 +33,7 @@ You can use any text editor to work with solution files, but we recommend levera
 - [Creating and deploying Azure resource groups through Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 - [Working with Azure Resource Manager Templates in Visual Studio Code](../azure-resource-manager/resource-manager-vs-code.md)
 
-## Best practices
 
-See [Best practices in Operations Management Suite (OMS) management solutions](operations-management-suite-solutions-best-practices.md) for best practices that you should follow in translating the logic of your management solution into a solution file.
 
 
 ## Structure
