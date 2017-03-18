@@ -20,11 +20,16 @@ ms.author: xujing
 # Azure Virtual Machine Error Messages
 This article describes the common error codes and messages you encounter when managing an Azure Virtual Machine(VM).  
 
+>[!NOTE]
+>Please leave comments on this page for error message feedback!
+>
+>
+
 ## Error Response Format 
 Azure VM uses the following JSON format for error response.
 ```json
 {
-  "status": "statuscode",
+  "status": "status code",
   "error": {
     "code":"Top level error code",
     "message":"Top level error message",
@@ -38,12 +43,27 @@ Azure VM uses the following JSON format for error response.
 }
 ```
 
-|  State   | Abrev. |   Capital   | Capital since | Population | Largest Population? |
-| :------- | :----: | :---------- | :-----------: | ---------: | :-----------------: |
-| Alabama  |   AL   | Montgomery  |     1846      |     205764 |         No          |
-| Alaska   |   AK   | Juneau      |     1906      |      31275 |         No          |
-| Arizona  |   AZ   | Phoenix     |     1889      |    1445632 |         Yes         |
-| Arkansas |   AR   | Little Rock |     1821      |     193524 |         Yes         |
+An error response always includes an status code, an error object. each error object always contains an error code, message. if the VM deployment is created through a template, then the error object also contains a details section, which contains an inner level of error codes and message. Normally, the most innner level of error message is the root failure. 
+
+
+## Common Virtual Machine Management Error
+
+This section lists the common error messages for managing your virtual machine
+
+### AllocationFailed
+
+| Message(s) |  
+| :------- |
+| Allocation failed. Please try reducing the VM size or number of VMs, retry later, or try deploying to a different Availability Set or different Azure location. |
+
+### Invalid Parameter
+| Message(s) |  
+| :------- |
+| Allocation failed. Please try reducing the VM size or number of VMs, retry later, or try deploying to a different Availability Set or different Azure location. |
+| Allocation failed. Please try reducing the VM size or number of VMs, retry later, or try deploying to a different Availability Set or different Azure location. |
+| Allocation failed. Please try reducing the VM size or number of VMs, retry later, or try deploying to a different Availability Set or different Azure location. |
+| Allocation failed. Please try reducing the VM size or number of VMs, retry later, or try deploying to a different Availability Set or different Azure location. |
+
 
 1. If you have an Enterprise Agreement subscription, you can [deploy VMs from specific Marketplace images](#deploy-a-vm-using-the-azure-marketplace) that are pre-configured with Azure Hybrid Use Benefit.
 2. Without an Enterprise Agreement, you can [upload a custom VM](#upload-a-windows-vhd) and [deploy using a Resource Manager template](#deploy-a-vm-via-resource-manager) or [Azure PowerShell](#detailed-powershell-deployment-walkthrough).
