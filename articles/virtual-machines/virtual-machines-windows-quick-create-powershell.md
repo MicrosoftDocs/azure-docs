@@ -75,7 +75,7 @@ Create a network card for the virtual machine. The network card connects the vir
 
 ```powershell
 # Get subnet object
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -VirtualNetwork $vnet
+$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -VirtualNetwork $vnet
 
 # Create a virtual network card and associate with public IP address and NSG
 $nic = New-AzureRmNetworkInterface -ResourceGroupName myResourceGroup -Location westeurope -Name myNic `
