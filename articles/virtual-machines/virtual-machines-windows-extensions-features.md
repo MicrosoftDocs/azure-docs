@@ -1,5 +1,5 @@
 ---
-title: Virtual machine extensions and features for Windows | Microsoft Docs
+title: Virtual machine extensions and features for Windows in Azure | Microsoft Docs
 description: Learn what extensions are available for Azure virtual machines, grouped by what they provide or improve.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/08/2016
+ms.date: 03/06/2017
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 
 ---
 # Virtual machine extensions and features for Windows
@@ -116,7 +117,7 @@ A VM extension can be applied to an existing virtual machine through the Azure p
 
 The following image shows the installation of the Microsoft Antimalware extension from the Azure portal.
 
-![Antimalware extension](./media/virtual-machines-windows-extensions-features/anti-virus-extension.png)
+![Install antimalware extension](./media/virtual-machines-windows-extensions-features/installantimalwareextension.png)
 
 ### Azure Resource Manager templates
 

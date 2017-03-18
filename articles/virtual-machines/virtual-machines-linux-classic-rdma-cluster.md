@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/21/2016
+ms.date: 03/14/2017
 ms.author: danlep
 
 ---
@@ -35,7 +35,7 @@ Following are methods you can use to create a Linux RDMA cluster with or without
 The following steps show how to use the Azure CLI to deploy a SUSE Linux Enterprise Server (SLES) 12 SP1 HPC VM from the Azure Marketplace, customize it, and create a custom VM image. Then you can use the image to script the deployment of a cluster of RDMA-capable VMs.
 
 > [!TIP]
-> Use similar steps to deploy a cluster of RDMA-capable VMs based on other supported HPC images in the Azure Marketplace. Some steps might differ slightly, as noted. For example, Intel MPI is included and configured in only some of these images. And if you deploy an SLES 12 HPC VM instead of an SLES 12 SP1 HPC VM, you need to update the RDMA drivers. For more information, see [About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-linux-a8-a9-a10-a11-specs.md#rdma-driver-updates-for-sles-12).
+> Use similar steps to deploy a cluster of RDMA-capable VMs based on CentOS-based HPC images in the Azure Marketplace. Some steps differ slightly, as noted. 
 >
 >
 

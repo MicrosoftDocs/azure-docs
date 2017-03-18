@@ -13,13 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 03/01/2017
 ms.author: juliako
 
 ---
 # Get started with delivering content on demand using REST
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
-
 
 This quickstart walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application using Azure Media Services (AMS) REST APIs.
 
@@ -47,6 +46,9 @@ The following tasks are shown in this quickstart.
 4. Encode the source file into a set of adaptive bitrate MP4 files with REST API.
 5. Publish the asset and get streaming and progressive download URLs with REST API.
 6. Play your content.
+
+>[!NOTE]
+>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
 
 
 For details about AMS REST entities used in this topic, see [Azure Media Services REST API Reference](/rest/api/media/services/azure-media-services-rest-api-reference). Also, see [Azure Media Services concepts](media-services-concepts.md).
@@ -619,7 +621,7 @@ The following example shows you how to create and post a Job with one Task set t
        ],
        "Tasks":[  
           {  
-             "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
+             "Configuration":"Adaptive Streaming",
              "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
              "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset>
                 <outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"

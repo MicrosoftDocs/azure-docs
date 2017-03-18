@@ -31,7 +31,7 @@ This article discusses exporting either your Azure SQL database or a SQL Server 
 When you need to export a database for archiving or for moving to another platform, you can export the database schema and data to a BACPAC file. A BACPAC file is simply a ZIP file with an extension of BACPAC. A BACPAC file can later be stored in Azure blob storage or in local storage in an on-premises location and later imported back into Azure SQL Database or into a SQL Server on-premises installation. 
 
 * You can export your Azure SQL database using the [Azure portal](sql-database-export-portal.md), [PowerShell](sql-database-export-powershell.md), [SQLPackage](sql-database-export-sqlpackage.md), or [SQL Server Management Studio](sql-database-export-ssms.md).
-* YOu can export a SQL Server databvse using [PowerShell](sql-database-export-powershell.md), [SQLPackage](sql-database-export-sqlpackage.md), or [SQL Server Management Studio](sql-database-export-ssms.md).
+* You can export a SQL Server database using [PowerShell](sql-database-export-powershell.md), [SQLPackage](sql-database-export-sqlpackage.md), or [SQL Server Management Studio](sql-database-export-ssms.md).
 
 > [!IMPORTANT]
 > If you are exporting from SQL Server as a prelude to migration to Azure SQL Database, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
@@ -41,7 +41,7 @@ When you need to export a database for archiving or for moving to another platfo
 
 * For an export to be transactionally consistent, you must ensure either that no write activity is occurring during the export, or that you are exporting from a [transactionally consistent copy](sql-database-copy.md) of your Azure SQL database.
 * If you are exporting to blob storage, the maximum size of a BACPAC file is 200 GB. To archive a larger BACPAC file, export to local storage.
-* Exporting a BACPAC file to in Azure premium storage using the methods discussed in this article is not supported.
+* Exporting a BACPAC file to Azure premium storage using the methods discussed in this article is not supported.
 * If the export operation from Azure SQL Database exceeds 20 hours, it may be canceled. To increase performance during export, you can:
   * Temporarily increase your service level.
   * Cease all read and write activity during the export.

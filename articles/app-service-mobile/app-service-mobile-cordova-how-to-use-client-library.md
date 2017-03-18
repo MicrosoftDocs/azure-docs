@@ -4,7 +4,7 @@ description: How to Use Apache Cordova Plugin for Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: javascript
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: ''
 
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59

@@ -1,6 +1,6 @@
 ---
 title: Deploy a Docker container cluster - Azure CLI | Microsoft Docs
-description: Deploy an Azure Container Service cluster using Azure CLI 2.0 Preview
+description: Deploy a Kubernetes, DC/OS, or Docker Swarm solution in Azure Container Service by using Azure CLI 2.0
 services: container-service
 documentationcenter: ''
 author: sauryadas
@@ -15,22 +15,23 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 03/01/2017
 ms.author: saudas
+ms.custom: H1Hack27Feb2017
 
 ---
-# Using the Azure CLI 2.0 (Preview) to create an Azure Container Service cluster
+# Deploy a Docker container hosting solution using the Azure CLI 2.0
 
-Use the `az acs` commands in the Azure CLI 2.0 (Preview) to create and manage clusters in Azure Container Service. You can also deploy an Azure Container Service cluster by using the [Azure portal](container-service-deployment.md) or the Azure Container Service APIs.
+Use the `az acs` commands in the Azure CLI 2.0 to create and manage clusters in Azure Container Service. You can also deploy an Azure Container Service cluster by using the [Azure portal](container-service-deployment.md) or the Azure Container Service APIs.
 
 For help on `az acs` commands, pass the `-h` parameter to any command. For example: `az acs create -h`.
 
 
 
 ## Prerequisites
-To create an Azure Container Service cluster using the Azure CLI 2.0 (Preview), you must:
+To create an Azure Container Service cluster using the Azure CLI 2.0, you must:
 * have an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/))
-* have installed and set up the [Azure CLI v. 2.0 (Preview)](/cli/azure/install-az-cli2)
+* have installed and set up the [Azure CLI 2.0](/cli/azure/install-az-cli2)
 
 ## Get started 
 ### Log in to your account
@@ -38,7 +39,7 @@ To create an Azure Container Service cluster using the Azure CLI 2.0 (Preview), 
 az login 
 ```
 
-Follow the prompts to log in interactively. For other methods to log in, see [Get started with Azure CLI 2.0 (Preview)](/cli/azure/get-started-with-az-cli2).
+Follow the prompts to log in interactively. For other methods to log in, see [Get started with Azure CLI 2.0](/cli/azure/get-started-with-az-cli2).
 
 ### Set your Azure subscription
 
@@ -71,7 +72,7 @@ Other inputs are set to default values (see the following screen) unless overwri
 
 
 ### Quick `acs create` using defaults
-If you have an SSH public key file `id_rsa.pub` in the default location (or created one for [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), use a command like the following:
+If you have an SSH RSA public key file `id_rsa.pub` in the default location (or created one for [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), use a command like the following:
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789

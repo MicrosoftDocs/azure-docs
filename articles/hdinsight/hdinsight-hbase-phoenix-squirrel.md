@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 
 ---
 # Use Apache Phoenix and SQuirreL with Windows-based HBase clusters in HDInsight

@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 03/07/2017
 ms.author: davidmu
 
 ---
@@ -27,10 +27,10 @@ There are many [templates in the gallery](https://azure.microsoft.com/documentat
 
 This example shows a typical resource section of a template for creating a specified number of VMs:
 
-```
+```json
 "resources": [
   { 
-    "apiVersion": "2016-03-30", 
+    "apiVersion": "2016-04-30-preview", 
     "type": "Microsoft.Compute/virtualMachines", 
     "name": "[concat('myVM', copyindex())]", 
     "location": "[resourceGroup().location]",
@@ -59,10 +59,6 @@ This example shows a typical resource section of a template for creating a speci
         }, 
         "osDisk": { 
           "name": "[concat('myOSDisk', copyindex())]" 
-          "vhd": { 
-            "uri": "[concat('https://', variables('storageName'), 
-              '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
-          }, 
           "caching": "ReadWrite", 
           "createOption": "FromImage" 
         }
@@ -71,10 +67,6 @@ This example shows a typical resource section of a template for creating a speci
             "name": "[concat('myDataDisk', copyindex())]",
             "diskSizeGB": "100",
             "lun": 0,
-            "vhd": {
-              "uri": "[concat('https://', variables('storageName'), 
-                '.blob.core.windows.net/vhds/myDataDisk', copyindex(),'.vhd')]"
-            },  
             "createOption": "Empty"
           }
         ] 
@@ -161,7 +153,7 @@ This example shows a typical resource section of a template for creating a speci
 When you deploy resources using a template, you have to specify a version of the API to use. The example shows the virtual machine resource using this apiVersion element:
 
 ```
-"apiVersion": "2016-03-30",
+"apiVersion": "2016-04-30-preview",
 ```
 
 The version of the API you specify in your template affects which properties you can define in the template. In general, you should select the most recent API version when creating templates. For existing templates, you can decide whether you want to continue using an earlier API version, or update your template for the latest version to take advantage of new features.
@@ -170,7 +162,7 @@ Use these opportunities for getting the latest API versions:
 
 - REST API - [List all resource providers](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell - [Get-AzureRmResourceProvider](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.Resources/v3.1.0/Get-AzureRmResourceProvider?redirectedfrom=msdn)
-- Azure CLI 2.0 (Preview) - [az provider show](https://docs.microsoft.com/cli/azure/provider#show)
+- Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#show)
 
 ## Parameters and variables
 
@@ -232,15 +224,20 @@ When you need more than one virtual machine for your application, you can use a 
 },
 ```
 
-Also, notice in the example that the loop index is used when specifying some of the values for the resource. For example, if you entered an instance count of three, the definition for vhd results in disks named myOSDisk1, myOSDisk2, and myOSDisk3:
+Also, notice in the example that the loop index is used when specifying some of the values for the resource. For example, if you entered an instance count of three, the names of the operating system disks are myOSDisk1, myOSDisk2, and myOSDisk3:
 
 ```
-"vhd": { 
-  "uri": "[concat('https://', variables('storageName'), 
-    '.blob.core.windows.net/vhds/myOSDisk', 
-    copyindex(),'.vhd')]" 
-},
+"osDisk": { 
+  "name": "[concat('myOSDisk', copyindex())]" 
+  "caching": "ReadWrite", 
+  "createOption": "FromImage" 
+}
 ```
+
+> [!NOTE] 
+>This example uses managed disks for the virtual machines.
+>
+>
 
 Keep in mind that creating a loop for one resource in the template may require you to use the loop when creating or accessing other resources. For example, multiple VMs can’t use the same network interface, so if your template loops through creating three VMs it must also loop through creating three network interfaces. When assigning a network interface to a VM, the loop index is used to identify it:
 
@@ -274,23 +271,7 @@ How do you know if a dependency is required? Look at the values you set in the t
 }
 ```
 
-To set this property, the network interface must exist. Therefore, you need a dependency. You also need to set a dependency when one resource (a child) is defined within another resource (a parent). For example, the diagnostic settings and custom script extensions are both defined as child resources of the virtual machine. They cannot be created until the virtual machine exists. Therefore, both resources are marked as dependent on the virtual machine. 
-
-You may be wondering why the virtual machine resource does not have a dependency on the storage account. The virtual machine contains elements that point to the storage account.
-
-```
-"osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]" 
-  "vhd": { 
-    "uri": "[concat('https://', variables('storageName'), 
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
-  }, 
-  "caching": "ReadWrite", 
-  "createOption": "FromImage" 
-}
-```
-
-In this case, we are assuming the storage account already exists. If the storage account is deployed in the same template, you need to set a dependency on the storage account.
+To set this property, the network interface must exist. Therefore, you need a dependency. You also need to set a dependency when one resource (a child) is defined within another resource (a parent). For example, the diagnostic settings and custom script extensions are both defined as child resources of the virtual machine. They cannot be created until the virtual machine exists. Therefore, both resources are marked as dependent on the virtual machine.
 
 ## Profiles
 
@@ -330,83 +311,64 @@ If you want to create a Linux operating system, you might use this definition:
 },
 ```
 
-Configuration settings for the disk are assigned with the osDisk element. The example defines the location in storage of the disks, the caching mode of the disks, and that the disks are being created from a [platform image](virtual-machines-windows-cli-ps-findimage.md):
+Configuration settings for the operating system disk are assigned with the osDisk element. The example defines a new managed disk with the caching mode set to **ReadWrite** and that the disk is being created from a [platform image](virtual-machines-windows-cli-ps-findimage.md):
 
 ```
 "osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]" 
-  "vhd": { 
-    "uri": "[concat('https://', variables('storageName'), 
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
-  }, 
+  "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
   "createOption": "FromImage" 
 }
 ```
 
-### Create new virtual machines from existing disks
+### Create new virtual machines from existing managed disks
 
 If you want to create virtual machines from existing disks, remove the imageReference and the osProfile elements and define these disk settings:
 
 ```
 "osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]", 
   "osType": "Windows",
-  "vhd": { 
-    "[concat('https://', variables('storageName'),
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
+  "managedDisk": { 
+    "id": "[resourceId('Microsoft.Compute/disks', [concat('myOSDisk', copyindex())])]" 
   }, 
   "caching": "ReadWrite",
   "createOption": "Attach" 
 }
 ```
 
-In this example, the uri points to existing vhd files instead of a location for new files. The createOption is set to attach the existing disks.
+### Create new virtual machines from a managed image
 
-### Create new virtual machines from a custom image
-
-If you want to create a virtual machine from a [custom image](virtual-machines-windows-upload-image.md), remove the imageReference element and define these disk settings:
+If you want to create a virtual machine from a managed image, change the imageReference element and define these disk settings:
 
 ```
-"osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]",
-  "osType": "Windows", 
-  "vhd": { 
-    "uri": "[concat('https://', variables('storageName'), 
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]"
+"storageProfile": { 
+  "imageReference": {
+    "id": "[resourceId('Microsoft.Compute/images', 'myImage')]"
   },
-  "image": {
-    "uri": "[concat('https://', variables('storageName'), 
-      'blob.core.windows.net/images/myImage.vhd"
-  },
-  "caching": "ReadWrite", 
-  "createOption": "FromImage" 
+  "osDisk": { 
+    "name": "[concat('myOSDisk', copyindex())]",
+    "osType": "Windows",
+    "caching": "ReadWrite", 
+    "createOption": "FromImage" 
+  }
 }
 ```
 
-In this example, the vhd uri points to a location where the new disks are stored, and the image uri points to the custom image to use.
-
 ### Attach data disks
 
-You can optionally add data disks to the VMs. The [number of disks](virtual-machines-windows-sizes.md) depends on the size of operating system disk that you use. With the size of the VMs set to Standard_DS1_v2, the maximum number of data disks that could be added to the them is two. In the example, one data disk is being added to each VM:
+You can optionally add data disks to the VMs. The [number of disks](virtual-machines-windows-sizes.md) depends on the size of operating system disk that you use. With the size of the VMs set to Standard_DS1_v2, the maximum number of data disks that could be added to the them is two. In the example, one managed data disk is being added to each VM:
 
 ```
 "dataDisks": [
   {
     "name": "[concat('myDataDisk', copyindex())]",
     "diskSizeGB": "100",
-    "lun": 0,
-    "vhd": {
-      "uri": "[concat('https://', variables('storageName'), 
-        '.blob.core.windows.net/vhds/myDataDisk', copyindex(),'.vhd')]"
-    },  
+    "lun": 0, 
     "caching": "ReadWrite",
     "createOption": "Empty"
   }
 ]
 ```
-
-The vhd in this example is a new file that is created for the disk. You could set the uri to an existing vhd and set the createOption to **Attach**.
 
 ## Extensions
 
@@ -478,7 +440,7 @@ You can see the status of the installed extensions from the Extensions settings 
 
 ![Get extension status](./media/virtual-machines-windows-template-description/virtual-machines-show-extensions.png)
 
-You can also get extension information by using the **Get-AzureRmVMExtension** PowerShell command, the **vm extension get** Azure CLI 2.0 (Preview) command, or the **Get extension information** REST API.
+You can also get extension information by using the **Get-AzureRmVMExtension** PowerShell command, the **vm extension get** Azure CLI 2.0 command, or the **Get extension information** REST API.
 
 ## Deployments
 

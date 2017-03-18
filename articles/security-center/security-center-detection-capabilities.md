@@ -21,7 +21,7 @@ ms.author: yurid
 This document discusses Azure Security Center’s advanced detection capabilities, which helps identify active threats targeting your Microsoft Azure resources and provides you with the insights needed to respond quickly.
 
 > [!NOTE]
-> Advanced detections are available in the Standard Tier of Azure Security Center. A free 90-day trial is available. You can upgrade from the Pricing Tier selection in the [Security Policy](security-center-policies.md). Visit [Security Center page](https://azure.microsoft.com/pricing/details/security-center/) to learn more about pricing. 
+> Advanced detections are available in the Standard Tier of Azure Security Center. A free 60-day trial is available. You can upgrade from the Pricing Tier selection in the [Security Policy](security-center-policies.md). Visit [Security Center page](https://azure.microsoft.com/pricing/details/security-center/) to learn more about pricing. 
 > 
 > 
 

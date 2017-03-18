@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/14/2016
-ms.author: dhanyahk
+ms.author: dhanyahk;markvi
 
 ---
 # Azure Active Directory audit report events

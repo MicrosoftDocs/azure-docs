@@ -26,7 +26,7 @@ If your Linux virtual machine (VM) encounters a boot or disk error, you may need
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#recovery-process-overview) – our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0 (Preview)](virtual-machines-linux-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](virtual-machines-linux-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 
 ## Recovery process overview

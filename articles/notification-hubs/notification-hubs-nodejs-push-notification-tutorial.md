@@ -5,7 +5,7 @@ keywords: push notification,push notifications,node.js push,ios push
 services: notification-hubs
 documentationcenter: nodejs
 author: ysxu
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93

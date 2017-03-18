@@ -24,7 +24,7 @@ ms.author: rajanaki
 > * [Replicate to customer-owned secondary site](site-recovery-support-matrix-to-sec-site.md)
 
 
-This article summarizes supported configurations and components for Azure Site Recovery when replicating and recovering to Azure. For more about prerequisites for Azure Site Recovery, see [Site Recovery best practices](site-recovery-best-practices.md).
+This article summarizes supported configurations and components for Azure Site Recovery when replicating and recovering to Azure. For more about Azure Site Recovery requirements, see the [prerequisites](site-recovery-prereq.md).
 
 
 ## Support for deployment options
@@ -46,7 +46,7 @@ This article summarizes supported configurations and components for Azure Site R
 **Hyper-V (with Virtual Machine Manager)** | System Center Virtual Machine Manager 2016 and System Center Virtual Machine Manager 2012 R2
 
   >[!Note]
-  > A System Center Virtual Machine Manager 2016 cloud with a mixture of Windows Server 2016 and 2012 R2 hosts isn't currently supported.
+  > A System Center Virtual Machine Manager 2016 cloud with a mixture of Windows Server 2016 and 2012 R2 hosts isn't currently supported. 
 
 ### Host servers
 
@@ -57,11 +57,11 @@ This article summarizes supported configurations and components for Azure Site R
 **Hyper-V (with Virtual Machine Manager)** | Windows Server 2016, Windows Server 2012 R2 with latest updates.<br/><br/> Windows Server 2016 hosts should be managed by System Center Virtual Machine Manager 2016.
 
   >[!Note]
-  >A Hyper-V site that mixes hosts running Windows Server 2016 and 2012 R2 isn't currently supported.
+  >A Hyper-V site that mixes hosts running Windows Server 2016 and 2012 R2 isn't currently supported. Recovery to an alternate location for VMs on a Windows Server 2016 host isn't currently supported.
 
 ## Support for replicated machine OS versions
 
-Virtual machines that are protected must meet [Azure requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements) when replicating to Azure.
+Virtual machines that are protected must meet [Azure requirements](#failed-over-azure-vm-requirements) when replicating to Azure.
 The following table summarizes replicated operating system support in various deployment scenarios while using Azure Site Recovery. This support is applicable for any workload running on the mentioned OS.
 
  **VMware/physical server** | **Hyper-V (no Virtual Machine Manager)** | **Hyper-V (with Virtual Machine Manager)**
@@ -148,7 +148,7 @@ Multi-path (MPIO) | N/A | Yes | Yes
 
 **Azure storage** | **VMware/physical server** | **Hyper-V (no Virtual Machine Manager)** | **Hyper-V (with Virtual Machine Manager)**
 --- | --- | --- | ---
-LRS | Yes | Yes | Yes 
+LRS | Yes | Yes | Yes
 GRS | Yes | Yes | Yes
 Cool storage | No | No | No
 Hot storage| No | No | No
@@ -207,4 +207,4 @@ Move storage, network, Azure VMs across resource groups<br/><br/> Within and acr
 
 
 ## Next steps
-[Prepare for deployment](site-recovery-best-practices.md)
+[Check prerequisites](site-recovery-prereq.md)

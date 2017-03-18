@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/17/2017
 ms.author: jingwang
 
 ---
@@ -28,8 +28,7 @@ This article outlines how you can use the Copy Activity in Azure Data Factory to
 The easiest way to create a pipeline that copies data to/from Azure SQL Data Warehouse is to use the Copy data wizard. See [Tutorial: Load data into SQL Data Warehouse with Data Factory](../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
 > [!TIP]
-> When copying data from SQL Server or Azure SQL Database into Azure SQL Data Warehouse, if the table does not exist in the destination store, Data Factory support auto table creation using source's schema. Try it out using copy wizard and learn more from [Auto table creation](#auto-table-creation).
->
+> When copying data from SQL Server or Azure SQL Database to Azure SQL Data Warehouse, if the table does not exist in the destination store, Data Factory can automatically create the table in SQL Data Warehouse by using the schema of the table in the source data store. See [Auto table creation](#auto-table-creation) for details. 
 
 The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure SQL Data Warehouse and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
@@ -413,7 +412,7 @@ The following table provides description for JSON elements specific to Azure SQL
 ## Dataset type properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
-The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The **typeProperties** section for the dataset of type **AzureSqlDWTable** has the following properties.
+The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The **typeProperties** section for the dataset of type **AzureSqlDWTable** has the following properties:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -503,7 +502,7 @@ GO
 Using **PolyBase** is an efficient way of loading large amount of data into Azure SQL Data Warehouse with high throughput. You can see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism. See [copy performance reference number](data-factory-copy-activity-performance.md#performance-reference) with detailed comparison.
 
 * If your source data format is compatible with PolyBase, you can directly copy from source data store to Azure SQL Data Warehouse using PolyBase. See **[Direct copy using PolyBase](#direct-copy-using-polybase)** with details. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
-* If your source data format is not originally supported by PolyBase, you can leverage **[Staged Copy using PolyBase](#staged-copy-using-polybase)** instead, which will also provide you better throughput by automatically firstly converting the data into PolyBase-compatible format and storing in Azure Blob storage, then loading into SQL Data Warehouse.
+* If your source data format is not originally supported by PolyBase, you can use the **[Staged Copy using PolyBase](#staged-copy-using-polybase)** feature instead. It also provides you better throughput by automatically converting the data into PolyBase-compatible format and storing the data in Azure Blob storage. It then loads data into SQL Data Warehouse.
 
 Set the `allowPolyBase` property to **true** as shown in the following example for Azure Data Factory to use PolyBase to copy data into Azure SQL Data Warehouse. When you set allowPolyBase to true, you can specify PolyBase specific properties using the `polyBaseSettings` property group. see the [SqlDWSink](#SqlDWSink) section for details about properties that you can use with polyBaseSettings.
 
@@ -531,8 +530,8 @@ If the requirements are not met, Azure Data Factory checks the settings and auto
    1. `rowDelimiter` must be **\n**.
    2. `nullValue` is set to **empty string** (""), or `treatEmptyAsNull` is set to **true**.
    3. `encodingName` is set to **utf-8**, which is **default** value.
-   4. `escapeChar`, `quoteChar`, `firstRowAsHeader` and `skipLineCount` are not specified.
-   5. `compression` can be **no compression**, **GZip** or **Deflate**.
+   4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, and `skipLineCount` are not specified.
+   5. `compression` can be **no compression**, **GZip**, or **Deflate**.
 
 	```JSON
 	"typeProperties": {
@@ -556,10 +555,10 @@ If the requirements are not met, Azure Data Factory checks the settings and auto
 5. There is no `columnMapping` being used in the associated in Copy activity.
 
 ### Staged Copy using PolyBase
-When your source data doesn’t meet the criteria introduced in the previous section, you can enable copying data via an interim staging Azure blob storage. In this case, Azure Data Factory performs transformations on the data to meet data format requirements of PolyBase, and then use PolyBase to load data into SQL Data Warehouse. See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details on how copying data via a staging Azure Blob works in general.
+When your source data doesn’t meet the criteria introduced in the previous section, you can enable copying data via an interim staging Azure Blob Storage (cannot be Premium Storage). In this case, Azure Data Factory performs transformations on the data to meet data format requirements of PolyBase, and then use PolyBase to load data into SQL Data Warehouse. See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details on how copying data via a staging Azure Blob works in general.
 
 > [!NOTE]
-> When copying data from an on-prem data store into Azure SQL Data Warehouse using PolyBase and staging, if your Data Management Gateway version is below 2.4, JRE (Java Runtime Environment) is required on your gateway machine which is used to transform your source data into proper format. Suggest you upgrade your gateway to the latest to avoid such dependency.
+> When copying data from an on-prem data store into Azure SQL Data Warehouse using PolyBase and staging, if your Data Management Gateway version is below 2.4, JRE (Java Runtime Environment) is required on your gateway machine that is used to transform your source data into proper format. Suggest you upgrade your gateway to the latest to avoid such dependency.
 >
 >
 
@@ -593,25 +592,21 @@ To use this feature, create an [Azure Storage linked service](data-factory-azure
 ### Required database permission
 To use PolyBase, it requires the user being used to load data into SQL Data Warehouse has the ["CONTROL" permission](https://msdn.microsoft.com/library/ms191291.aspx) on the target database. One way to achieve that is to add that user as a member of "db_owner" role. Learn how to do that by following [this section](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
 
-### Row size limitation
-Polybase does not support size of rows greater than 32 KB. Attempting to load a table with rows larger than 32 KB would result in the following error:
+### Row size and data type limitation
+Polybase loads are limited to loading rows both smaller than **1 MB** and cannot load to VARCHR(MAX), NVARCHAR(MAX) or VARBINARY(MAX). Refer to [here](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
 
-```
-Type=System.Data.SqlClient.SqlException,Message=107093;Row size exceeds the defined Maximum DMS row size: [35328 bytes] is larger than the limit of [32768 bytes],Source=.Net SqlClient
-```
-
-If you have source data with rows of size greater than 32 KB, you may want to split the source tables vertically into several small ones where the largest row size of each of them does not exceed the limit. The smaller tables can then be loaded using PolyBase and merged together in Azure SQL Data Warehouse.
+If you have source data with rows of size greater than 1 MB, you may want to split the source tables vertically into several small ones where the largest row size of each of them does not exceed the limit. The smaller tables can then be loaded using PolyBase and merged together in Azure SQL Data Warehouse.
 
 ### SQL Data Warehouse resource class
-To achieve best possible throughput, consider to assign larger resource class to the user being used to load data into SQL Data Warehouse via PolyBase. Learn how to do that by following [Change a user resource class example](https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/sql-data-warehouse-develop-concurrency/#change-a-user-resource-class-example).
+To achieve best possible throughput, consider to assign larger resource class to the user being used to load data into SQL Data Warehouse via PolyBase. Learn how to do that by following [Change a user resource class example](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example).
 
 ### tableName in Azure SQL Data Warehouse
 The following table provides examples on how to specify the **tableName** property in dataset JSON for various combinations of schema and table name.
 
 | DB Schema | Table name | tableName JSON property |
 | --- | --- | --- |
-| dbo |MyTable |MyTable  or  dbo.MyTable  or  [dbo].[MyTable] |
-| dbo1 |MyTable |dbo1.MyTable  or  [dbo1].[MyTable] |
+| dbo |MyTable |MyTable or dbo.MyTable or [dbo].[MyTable] |
+| dbo1 |MyTable |dbo1.MyTable or [dbo1].[MyTable] |
 | dbo |My.Table |[My.Table] or [dbo].[My.Table] |
 | dbo1 |My.Table |[dbo1].[My.Table] |
 
@@ -630,9 +625,9 @@ All columns of the table must be specified in the INSERT BULK statement.
 NULL value is a special form of default value. If the column is nullable, the input data (in blob) for that column could be empty (cannot be missing from the input dataset). PolyBase inserts NULL for them in the Azure SQL Data Warehouse.  
 
 ## Auto table creation
-When copying data from SQL Server or Azure SQL Database into Azure SQL Data Warehouse, if the table does not exist in the destination store, Data Factory support auto table creation using source's schema when you use copy wizard to author.
+If you are using Copy Wizard to copy data from SQL Server or Azure SQL Database to Azure SQL Data Warehouse and the table that corresponds to the source table does not exist in the destination store, Data Factory can automatically create the table in the data warehouse by using the source table schema. 
 
-Data Factory will create the table in destination using the same name as source, create the column data types with below mapping, and use Round Robin table distribution. Note proper data type conversion may happen if needed to fix the incompatibility between source and destination stores.
+Data Factory creates the table in the destination store with the same table name in the source data store. The data types for columns are chosen based on the following type mapping. If needed, it performs type conversions to fix any incompatibilities between source and destination stores. It also uses Round Robin table distribution. 
 
 | Source SQL Database column type | Destination SQL DW column type (size limitation) |
 | --- | --- |

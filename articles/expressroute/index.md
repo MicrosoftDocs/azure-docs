@@ -85,7 +85,7 @@ Learn how to use ExpressRoute to set up a fast, private connection to Microsoft 
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network">PowerShell</a></p>
                     </div>
                 </div>
             </div>
