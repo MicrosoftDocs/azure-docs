@@ -28,7 +28,7 @@ Get answers to frequently asked questions about virtual machine scale sets in Az
 
 ### What are best practices for Azure Autoscale?
 
-For best practices for Azure Autoscale, see [Best practices for autoscaling virtual machines](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-best-practices).
+For best practices for Autoscale, see [Best practices for autoscaling virtual machines](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-best-practices).
 
 ### Where do I find metric names for autoscaling that uses host-based metrics?
 
@@ -54,10 +54,10 @@ For storage queues:
 "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
 ```
 
-Replace sample values with your resource Uniform Resource Identifiers (URIs).
+Replace example values with your resource Uniform Resource Identifiers (URIs).
 
 
-### Should I autoscale with host-based metrics or use a diagnostics extension?
+### Should I autoscale by using host-based metrics or a diagnostics extension?
 
 You can create an autoscale setting on a VM to use host-level metrics or guest OS-based metrics.
 
@@ -69,7 +69,7 @@ The sample uses the host-level CPU metric and a message count metric.
 
 
 
-### How can I set alert rules on a virtual machine scale set?
+### How do I set alert rules on a virtual machine scale set?
 
 You can create alerts on metrics for virtual machine scale sets via PowerShell or Azure CLI. For more information, see [Azure Monitor PowerShell quick start samples](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) and [Azure Monitor cross-platform CLI quick start samples](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
 
@@ -77,9 +77,9 @@ The TargetResourceId of the virtual machine scale set looks like this:
 
 /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
-You can choose any VM performance counter as the metric to alert on. For more information, see [Guest OS metrics for Resource Manager-based Windows VMs](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) and [Guest OS metrics for Linux VMs](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms) in the [Azure Monitor autoscaling common metrics](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/) article.
+You can choose any VM performance counter as the metric to set an alert for. For more information, see [Guest OS metrics for Resource Manager-based Windows VMs](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) and [Guest OS metrics for Linux VMs](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms) in the [Azure Monitor autoscaling common metrics](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/) article.
 
-### How can I set up autoscale on a virtual machine scale set by using PowerShell?
+### How do I set up autoscale on a virtual machine scale set by using PowerShell?
 
 To set up autoscale on a virtual machine scale set by using PowerShell, see the blog post [How to add autoscale to an Azure virtual machine scale set](https://msftstack.wordpress.com/2017/03/05/how-to-add-autoscale-to-an-azure-vm-scale-set/).
 
@@ -90,7 +90,7 @@ To set up autoscale on a virtual machine scale set by using PowerShell, see the 
 
 ### How do I securely ship a certificate to the VM? How do I provision a virtual machine scale set to run a website where the Secure Sockets Layer (SSL) for the website is shipped securely from a certificate configuration? (The common certificate rotation operation would be almost the same as a configuration update operation.) Do you have an example of how to do this? 
 
-To securely ship a certificate to the VM, you can install a customer certificate directly in a Windows certificate store from the customer's key vault.
+To securely ship a certificate to the VM, you can install a customer certificate directly into a Windows certificate store from the customer's key vault.
 
 Use the following code:
 
@@ -111,13 +111,11 @@ The code supports Windows and Linux.
 For more information, see [Create or update a virtual machine scale set](https://msdn.microsoft.com/library/mt589035.aspx).
 
 
-### Self-signed certificate example
+### Example: Self-signed certificate
 
-1.  Create a self-signed certificate in a key vault
+1.  Create a self-signed certificate in a key vault.
 
-  For an example of how to create a self-signed certificate in a key vault, see [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
-
-  Use the following PowerShell commands:
+    Use the following PowerShell commands:
 
   ```powershell
   Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
@@ -129,7 +127,9 @@ For more information, see [Create or update a virtual machine scale set](https:/
 
   This command gives you the input for the Resource Manager template.
 
-2.  Change the Resource Manager template
+  For an example of how to create a self-signed certificate in a key vault, see [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
+
+2.  Change the Resource Manager template.
 
   Add this property to **virtualMachineProfile**, as part of the virtual machine scale set resource:
 
@@ -155,12 +155,10 @@ For more information, see [Create or update a virtual machine scale set](https:/
   ```
   
 
-### Can I specify a Secure Shell (SSH) key pair to use for SSH authentication with a Linux virtual machine scale set from a Resource Manager template?  
+### Can I specify an SSH key pair to use for SSH authentication with a Linux virtual machine scale set from a Resource Manager template?  
 
-Yes. The REST API for **osProfile** looks similar to the standard VM REST API. 
+Yes. The REST API for **osProfile** is similar to the standard VM REST API. 
 
-For more information, see [Create or update a virtual machine scale set](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
-  
 Include **osProfile** in your template:
 
 ```json 
@@ -182,19 +180,22 @@ Include **osProfile** in your template:
 ```
  
 This JavaScript Object Notation (JSON) block is used in 
- [a GitHub quick start template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+ [the azuredeploy.json GitHub quick start template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
  
-The OS profile also is used in [another GitHub quick start template](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
+The OS profile also is used in [the grelayhost.json GitHub quick start template](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
+
+For more information, see [Create or update a virtual machine scale set](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
+  
 
 ### How do I remove deprecated certificates? 
 
-To remove deprecated certificates, remove the old certificate from the vault certificates list. Leave all the certificates that you want to remain on your computer. This does not remove the certificate from all your VMs. It also does not add the certificate to new VMs that are created in the virtual machine scale set. 
+To remove deprecated certificates, remove the old certificate from the vault certificates list. Leave all the certificates that you want to remain on your computer in the list. This does not remove the certificate from all your VMs. It also does not add the certificate to new VMs that are created in the virtual machine scale set. 
 
 To remove the certificate from existing VMs, write a custom script extension to manually remove the certificates from your certificate store.
  
 ### How do I inject an existing SSH public key into the virtual machine scale set SSH layer during provisioning? I want to store the SSH public key values in Azure Key Vault, and then use them in my Resource Manager template.
 
-If you are providing the VMs only with a public SSH key, you don't need to put the public keys in Key Vault. The public keys are not secret.
+If you are providing the VMs only with a public Secure Shell (SSH) key, you don't need to put the public keys in Key Vault. Public keys are not secret.
  
 You can provide SSH public keys in plain text when you create a Linux VM:
 
@@ -214,14 +215,14 @@ ssh | No | Collection | Specifies the SSH key configuration for a Linux OS
 path | Yes | String | Specifies the Linux file path where the SSH keys or certificate should be located
 keyData | Yes | String | Specifies a base64-encoded SSH public key
 
-For an example, see [this GitHub quick start template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+For an example, see [the azuredeploy.json GitHub quick start template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
  
 ### When I run `Update-AzureRmVmss` after adding more than one certificate from the same key vault, I see the following message:
  
   Update-AzureRmVmss: List secret contains repeated instances of /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, which is disallowed.
  
-This can happen if you're trying to add the same vault twice instead of using a new vault certificate for the existing source vault. The `Add-AzureRmVmssSecret` command does not work correctly if you are adding additional secrets.
+This can happen if you try to re-add the same vault instead of using a new vault certificate for the existing source vault. The `Add-AzureRmVmssSecret` command does not work correctly if you are adding additional secrets.
  
 To add more secrets from the same key vault, update the $vmss.properties.osProfile.secrets[0].vaultCertificates list.
  
@@ -233,27 +234,27 @@ Find the secret in the virtual machine scale set object that is in the key vault
 > Currently,  you cannot remove certificates from VMs by using the virtual machine scale set API.
 >
 
-New VMs will not have the old certificate. However, VMs that have the certificate and are already deployed will have the old certificate.
+New VMs will not have the old certificate. However, VMs that have the certificate and which are already deployed will have the old certificate.
  
 ### Can I push certificates to the virtual machine scale set without providing the password, when the certificate is in the secret store?
 
-You do not need to hardcode passwords in scripts. You can dynamically retrieve passwords with whatever permissions you use to run the deployment script. If you have a script that moves a certificate from the secret store key vault, the secret store `get certificate` command also outputs the password of the .pfx file.
+You do not need to hard-code passwords in scripts. You can dynamically retrieve passwords with the permissions you use to run the deployment script. If you have a script that moves a certificate from the secret store key vault, the secret store `get certificate` command also outputs the password of the .pfx file.
  
 ### How does the Secrets property of virtualMachineProfile.osProfile for a virtual machine scale set work? Why do I need the sourceVault value when I have to specify the absolute URI for a certificate by using the certificateUrl property? 
 
 A Windows Remote Management (WinRM) certificate reference must be present in the Secrets property of the OS profile. 
 
-The purpose of indicating the source vault is to enforce access control list (ACL) policies that exist in the Azure Cloud Service model. If the source vault isn't specified, users who do not have permissions to deploy or access secrets to a key vault would be able to through a Certificate Registration Point. ACLs exist even for resources that do not exist.
+The purpose of indicating the source vault is to enforce access control list (ACL) policies that exist in a user's Azure Cloud Service model. If the source vault isn't specified, users who do not have permissions to deploy or access secrets to a key vault would be able to through a Certificate Registration Point. ACLs exist even for resources that do not exist.
 
 If you provide an incorrect source vault ID but a valid key vault URL, an error is reported when you poll the operation.
  
-### If I add secrets to an existing virtual machine scale set, are they injected into existing instances, or only into new ones? 
+### If I add secrets to an existing virtual machine scale set, are the secrets injected into existing VMs, or only into new ones? 
 
 Certificates are added to all your VMs, even preexisting ones. If your virtual machine scale set upgradePolicy property is set to **Manual**, the certificate is added to the VM when you perform a manual update on the VM.
  
 ### Where do I put certificates for Linux VMs?
 
-To learn where to put certificates for Linux VMs, see [Deploy Certificates to VMs from customer-managed Key Vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/).
+To learn how to deploy certificates for Linux VMs, see [Deploy certificates to VMs from a customer-managed key vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/).
   
 ### How do I add a new vault certificate to a new certificate object?
 
@@ -273,13 +274,13 @@ If you reimage a VM, certificates are deleted. Reimaging deletes the entire OS d
  
 ### What happens if you delete a certificate from the key vault?
 
-If the secret is deleted from the key vault, you run `stop deallocate` for all your VMs, and then start the VMs again, you will encounter a failure. The failure occurs because the CRP is making unsuccessful attempts to retrieve the secrets from the key vault. In this scenario, you can delete the certificates from the virtual machine scale set model. 
+If the secret is deleted from the key vault, and then you run `stop deallocate` for all your VMs and then start them again, you will encounter a failure. The failure occurs because the Compute Resource Provider (CRP) needs to retrieve the secrets from the key vault, but it cannot. In this scenario, you can delete the certificates from the virtual machine scale set model. 
 
 The CRP component does not persist customer secrets. If you run `stop deallocate` for all VMs in the virtual machine scale set, the cache is deleted. In this scenario, secrets are retrieved from the key vault.
 
 You don't encounter this problem when scaling out because there is a cached copy of the secret in Azure Service Fabric (in the single-fabric tenant model).
  
-### Why do I have to specify the exact location for the certificate URL, as referenced in [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/) (that is, https://<name of the vault>.vault.azure.net:443/secrets/<exact location>)?
+### Why do I have to specify the exact location for the certificate URL (https://<name of the vault>.vault.azure.net:443/secrets/<exact location>), as indicated in [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)?
  
 The Azure Key Vault documentation states that the Get Secret REST API should return the latest version of the secret if the version is not specified.
  
@@ -287,19 +288,19 @@ Method | URL
 --- | ---
 GET | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
 
-Replace {secret-name} with the name, and replace {secret-version} with the version of the secret you want to retrieve. The secret version might be excluded. In that case, the current version is retrieved.
+Replace {*secret-name*} with the name, and replace {*secret-version*} with the version of the secret you want to retrieve. The secret version might be excluded. In that case, the current version is retrieved.
   
 ### Why do I have to specify the certificate version when I use Key Vault?
 
-The Key Vault requirement to specify the certificate version is to make it clear to the user what certificate is deployed on their VMs.
+The purpose of the Key Vault requirement to specify the certificate version is to make it clear to the user what certificate is deployed on their VMs.
 
-If you create a VM and then update your secret in the key vault, the new certificate is not downloaded to your VMs. But, your VMs appear to reference it, and new VMs get the new secret. To avoid this, you are required to reference a secret version.
+If you create a VM and then update your secret in the key vault, the new certificate is not downloaded to your VMs. But your VMs appear to reference it, and new VMs get the new secret. To avoid this, you are required to reference a secret version.
 
 ### My team works with several certificates that are distributed to us as .cer public keys. What is the recommended approach for deploying these certificates to a virtual machine scale set?
 
 To deploy .cer public keys to a virtual machine scale set, you can generate a .pfx file that contains only .cer files. To do this, use `X509ContentType = Pfx`. For example, load the .cer file as an x509Certificate2 object in C# or PowerShell, and then call the method. 
 
-For more information, see [X509Certificate.Export Method (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx).
+For more information, see [X509Certificate.Export Method (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
 
 ### I do not see an option for users to pass in certificates as base64 strings. Most other resource providers have this option.
 
@@ -321,13 +322,13 @@ We currently do not support .cer files. To use .cer files, export them into .pfx
 
 ## Compliance
 
-### Are scale sets PCI-compliant?
+### Are virtual machine scale sets PCI-compliant?
 
 Virtual machine scale sets are a thin API layer on top of the CRP. Both components are part of the compute platform in the Azure service tree.
 
 From a compliance perspective, virtual machine scale sets are a fundamental part of the Azure compute platform. They share a team, tools, processes, deployment methodology, security controls, just-in-time (JIT) compilation, monitoring, alerting, and so on, with the CRP itself. Virtual machine scale sets are Payment Card Industry (PCI)-compliant because the CRP is part of the current PCI Data Security Standard (DSS) attestation.
 
-For more information, see [https://www.microsoft.com/TrustCenter/Compliance/PCI](https://www.microsoft.com/TrustCenter/Compliance/PCI).
+For more information, see [the Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
 
 
@@ -394,7 +395,9 @@ If an existing VM is service-healed, it appears as a reboot, and the extensions 
  
 ### How do I join a virtual machine scale set to an Azure Active Directory (Azure AD) domain?
 
-To join a virtual machine scale set to an Azure AD domain, you can define an extension by using the JsonADDomainExtension property:
+To join a virtual machine scale set to an Azure AD domain, you can define an extension. 
+
+To define an extension, use the JsonADDomainExtension property:
 
 ```json
                     "extensionProfile": {
@@ -425,7 +428,7 @@ To join a virtual machine scale set to an Azure AD domain, you can define an ext
 
 If your virtual machine scale set extension is trying to install something that requires a reboot, you can use the Azure Automation Desired State Configuration (Automation DSC) extension. If the operating system is Windows Server 2012 R2, Azure pulls in the Windows Management Framework (WMF) 5.0 setup, reboots, and then continues with the configuration. 
  
-### How can I turn on antimalware on my virtual machine scale set?
+### How do I turn on antimalware in my virtual machine scale set?
 
 To turn on antimalware on your virtual machine scale set, use the following PowerShell example:
 
@@ -444,7 +447,7 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -
 Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS 
 ```
 
-### I need to execute a custom script that's hosted in a private storage account. The script runs successfully when the storage is public, but when I try to use a Shared Access Signature (SAS), it fails. This message is displayed: “Missing mandatory parameters for valid Shared Access Signature”. I know that `LINK SAS` works fine from my local browser.
+### I need to execute a custom script that's hosted in a private storage account. The script runs successfully when the storage is public, but when I try to use a Shared Access Signature (SAS), it fails. This message is displayed: “Missing mandatory parameters for valid Shared Access Signature”. Link+SAS works fine from my local browser.
 
 To execute a custom script that's hosted in a private storage account, set up protected settings with the storage account key and name. For more information, see [Custom Script Extension for Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
 
@@ -475,9 +478,9 @@ The allocation method of virtual machine scale set IP addresses is always “dyn
 
 To deploy a virtual machine scale set to an existing Azure virtual network, see [Deploy a virtual machine scale set to an existing virtual network](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet). 
 
-### How do I add a scale set’s first VM's IP address to the output of a template?
+### How do I add the IP address of the first VM in a virtual machine scale set to the output of a template?
 
-See: http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips
+To add the IP address of the first VM in a virtual machine scale set to the output of a template, see [ARM - get VMSS's private IPs](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
 
 
@@ -487,7 +490,7 @@ See: http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips
 
 One reason to create a virtual machine scale set with fewer than two VMs would be to use the elastic properties of a virtual machine scale set. For example, you could deploy a virtual machine scale set with zero VMs to define your infrastructure without paying VM running costs. Then, when you are ready to deploy VMs, increase the “capacity” of the virtual machine scale set to the production instance count.
 
-Another reason you might create a virtual machine scale set with fewer than two VMs is if you're concerned less with availability than in using an availability set with discrete VMs. Virtual machine scale sets give you a way to work with undifferentiated compute units that are fungible. This uniformity is a key differentiator for virtual machine scale sets versus availability sets. Many stateless workloads do not consider individual units. If the workload drops, you can scale them down to one compute unit, and then scale up to many when the workload increases.
+Another reason you might create a virtual machine scale set with fewer than two VMs is if you're concerned less with availability than in using an availability set with discrete VMs. Virtual machine scale sets give you a way to work with undifferentiated compute units that are fungible. This uniformity is a key differentiator for virtual machine scale sets versus availability sets. Many stateless workloads do not track individual units. If the workload drops, you can scale down to one compute unit, and then scale up to many when the workload increases.
 
 ### How do I change the number of VMs in a virtual machine scale set?
 
@@ -495,7 +498,7 @@ To change the number of VMs in a virtual machine scale set, see [Change the inst
 
 ### How do I define custom alerts for when certain thresholds are reached?
 
-You have some flexibility in how you handle alerts for specified thresholds. For example, you can define customized webhooks. The following example is from a Resource Manager template:
+You have some flexibility in how you handle alerts for specified thresholds. For example, you can define customized webhooks. The following webhook example is from a Resource Manager template:
 
 ```json
    {
@@ -572,11 +575,11 @@ For more information, see [Manage all VMs in a set](https://docs.microsoft.com/r
 
 
 
-## VM properties
+## Virtual machine properties
 
 ### How do I get property information for each VM without making multiple calls? For example, how would I get the fault domain for each of the 100 VMs in my virtual machine scale set?
 
-To get property information for each VM without making multiple calls, you can call ListVMInstanceViews by doing a REST API `GET` on the following resource URI:
+To get property information for each VM without making multiple calls, you can call `ListVMInstanceViews` by doing a REST API `GET` on the following resource URI:
 
 /subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView
 
@@ -596,7 +599,7 @@ The main difference between deleting a VM in a virtual machine scale set and dea
 
 - You want to stop paying compute costs, but you want to keep the disk state of the VMs.
 - You want to start a set of VMs more quickly than you could scale out a virtual machine scale set.
-  - Related to this scenario, you created your own autoscale engine and want a faster end-to-end scale.
+  - Related to this scenario, you might have created your own autoscale engine and want a faster end-to-end scale.
 - You have a virtual machine scale set that is unevenly distributed across fault domains or update domains. This might be because you selectively deleted VMs, or because VMs were deleted after overprovisioning. Running `stop deallocate` followed by `start` on the virtual machine scale set evenly distributes the VMs across fault domains or update domains.
 
 
