@@ -34,3 +34,4 @@ ms.author: cynthn
 
 ## Next steps
 Learn more about how [Azure compute units (ACU)](virtual-machines-windows-acu.md) can help you compare compute performance across Azure SKUs.
+

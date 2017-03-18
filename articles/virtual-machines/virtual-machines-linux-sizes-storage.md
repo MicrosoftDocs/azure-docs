@@ -19,7 +19,7 @@ ms.author: cynthn
 
 ---
 
-# Storage optimized
+# Storage optimized Linux VM sizes
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../includes/virtual-machines-common-sizes-storage.md)]
 
@@ -31,8 +31,8 @@ ms.author: cynthn
 - [General purpose](virtual-machines-linux-sizes-general.md)
 - [Memory optimized](virtual-machines-linux-sizes-memory.md)
 - [Compute optimized](virtual-machines-linux-sizes-compute.md)
-- [GPU optimized](virtual-machines-linux-sizes-gpu.md)
+- [GPU](virtual-machines-linux-sizes-gpu.md)
 - [High performance compute](virtual-machines-linux-sizes-hpc.md)
 
 ## Next steps
-Learn more about how [Azure compute units (ACU)](virtual-machines-windows-acu.md) can help you compare compute performance across Azure SKUs.
+Learn more about how [Azure compute units (ACU)](virtual-machines-linux-acu.md) can help you compare compute performance across Azure SKUs.

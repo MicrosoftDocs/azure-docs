@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 03/17/2017
 ms.author: cynthn
 
 ---
 
-# Compute optimized
+# Compute optimized Linux VM sizes
 
 [!INCLUDE [virtual-machines-common-sizes-compute](../../includes/virtual-machines-common-sizes-compute.md)]
 
@@ -29,7 +29,7 @@ ms.author: cynthn
 ## Other sizes
 
 - [General purpose](virtual-machines-linux-sizes-general.md)
-- [GPU optimized](virtual-machines-linux-sizes-gpu.md)
+- [GPU](virtual-machines-linux-sizes-gpu.md)
 - [High performance compute](virtual-machines-linux-sizes-hpc.md)
 - [Memory optimized](virtual-machines-linux-sizes-memory.md)
 - [Storage optimized](virtual-machines-linux-sizes-storage.md)

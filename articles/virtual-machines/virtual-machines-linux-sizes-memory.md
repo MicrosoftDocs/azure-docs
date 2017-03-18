@@ -19,7 +19,7 @@ ms.author: cynthn
 
 ---
 
-# Memory
+# Memory optimized Linux VM sizes
 
 
 [!INCLUDE [virtual-machines-common-sizes-memory](../../includes/virtual-machines-common-sizes-memory.md)]
@@ -29,7 +29,7 @@ ms.author: cynthn
 ## Other sizes
 - [General purpose](virtual-machines-linux-sizes-general.md)
 - [Compute optimized](virtual-machines-linux-sizes-compute.md)
-- [GPU optimized](virtual-machines-linux-sizes-gpu.md)
+- [GPU](virtual-machines-linux-sizes-gpu.md)
 - [High performance compute](virtual-machines-linux-sizes-hpc.md)
 - [Storage optimized](virtual-machines-linux-sizes-storage.md)
 

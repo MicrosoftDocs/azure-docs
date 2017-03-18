@@ -19,7 +19,7 @@ ms.author: cynthn
 
 ---
 
-# High performance compute VM sizes
+# High performance compute Linux VM sizes
 
 [!INCLUDE [virtual-machines-common-sizes-hpc](../../includes/virtual-machines-common-sizes-hpc.md)]
 
@@ -30,7 +30,7 @@ ms.author: cynthn
 
 - [General purpose](virtual-machines-linux-sizes-general.md)
 - [Compute optimized](virtual-machines-linux-sizes-compute.md)
-- [GPU optimized](virtual-machines-linux-sizes-gpu.md)
+- [GPU](virtual-machines-linux-sizes-gpu.md)
 - [Memory optimized](virtual-machines-linux-sizes-memory.md)
 - [Storage optimized](virtual-machines-linux-sizes-storage.md)
 

@@ -19,7 +19,7 @@ ms.author: cynthn
 
 ---
 
-# High performance computing (HPC) VM sizes
+# High performance compute VM sizes
 
 [!INCLUDE [virtual-machines-common-sizes-hpc](../../includes/virtual-machines-common-sizes-hpc.md)]
 
@@ -30,7 +30,7 @@ ms.author: cynthn
 
 - [General purpose](virtual-machines-windows-sizes-general.md)
 - [Compute optimized](virtual-machines-windows-sizes-compute.md)
-- [GPU optimized](virtual-machines-windows-sizes-gpu.md)
+- [GPU ](virtual-machines-windows-sizes-gpu.md)
 - [Memory optimized](virtual-machines-windows-sizes-memory.md)
 - [Storage optimized](virtual-machines-windows-sizes-storage.md)
 

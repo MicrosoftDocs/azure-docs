@@ -19,7 +19,7 @@ ms.author: cynthn
 
 ---
 
-# General-purpose
+# General purpose Linux VM sizes
 
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../includes/virtual-machines-common-sizes-general.md)]

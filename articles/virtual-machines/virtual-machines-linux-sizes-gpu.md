@@ -19,7 +19,7 @@ ms.author: cynthn
 
 ---
 
-# GPU 
+# GPU Linux VM sizes
 
 [!INCLUDE [virtual-machines-common-sizes-gpu](../../includes/virtual-machines-common-sizes-gpu.md)]
 
