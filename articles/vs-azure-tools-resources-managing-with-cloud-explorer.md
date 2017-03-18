@@ -71,7 +71,7 @@ To view your Azure resources, you can choose either **Resource Types** or **Reso
 
 1. From the context menu, select the desired view: 
 
-	- **Resource Types** view - The common view used on the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), shows your Azure resources categorized by their type, such as web apps, storage accounts, and virtual machines. This is similar to how Azure resources appear in Server Explorer.
+	- **Resource Types** view - The common view used on the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), shows your Azure resources categorized by their type, such as web apps, storage accounts, and virtual machines. 
 	- **Resource Groups** view - Categorizes Azure resources by the Azure resource group with which they're associated. A resource group is a bundle of Azure resources, typically used by a specific application. To learn more about Azure resource groups, see [Azure Resource Manager Overview](./azure-resource-manager/resource-group-overview.md).
 
 	The following image shows a comparison of the two resource views:
@@ -83,7 +83,7 @@ To navigate to an Azure resource and view its information in Cloud Explorer, exp
 
 - **Actions** tab - Lists the actions you can take in Cloud Explorer for the selected resource. You can also view these options by right-clicking the resource to view its context menu.
 
-- **Properties** tab - Shows the properties of the resource, such as its type, locale and resource group it's associated with.
+- **Properties** tab - Shows the properties of the resource, such as its type, locale, and resource group with which it is associated.
 
 The following image shows an example comparison of what you see on each tab for an App Service:
 
