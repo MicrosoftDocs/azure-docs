@@ -69,7 +69,7 @@ enter the JSON schema for the payload that you expect the trigger to receive.
   > [!TIP]
   > You can generate a schema for a sample JSON payload 
   > from a tool like [jsonschema.net](http://jsonschema.net/), 
-  > or from the **Request** trigger by choosing **Use sample payload to generate schema**. 
+  > or in the **Request** trigger by choosing **Use sample payload to generate schema**. 
   > Enter your sample payload, and choose **Done**.
   > 
   > For example, this sample payload:
@@ -90,9 +90,12 @@ enter the JSON schema for the payload that you expect the trigger to receive.
   >       }
   >    }
   > }
+  > ```
 
 2.	Save your logic app. Under **HTTP POST to this URL**, 
 you should now get a generated callback URL, like this example:
+
+	![Generated callback URL for endpoint](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
 
 	``` text
 	https://prod-00.southcentralus.logic.azure.com:443/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke?api-version...
