@@ -30,7 +30,7 @@ To receive requests, you can add these triggers to your logic apps:
 * [API Connection webhook](logic-apps-workflow-actions-triggers.md#api-connection)
 * [HTTP Webhook](../connectors/connectors-native-http.md)
 
-We'll use the **Request** trigger in our examples, 
+Our examples use the **Request** trigger, 
 but all principles identically apply to the other trigger types.
 
 ## Add a trigger to your logic app
@@ -92,7 +92,7 @@ enter the JSON schema for the payload that you expect the trigger to receive.
   > }
 
 2.	Save your logic app. Under **HTTP POST to this URL**, 
-you'll get a generated callback URL, like this example:
+you should now get a generated callback URL, like this example:
 
 	``` text
 	https://prod-00.southcentralus.logic.azure.com:443/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke?api-version...
@@ -181,9 +181,9 @@ Substitute `{customerID}` with `123456`, and press Enter.
 
 ### Tokens generated from JSON schemas for your logic app
 
-When you specify a JSON schema in the **Request** trigger, 
-the Logic App Designer uses that schema to generate tokens 
-that you can then pass into workflow steps for your logic app to use.
+When you specify a JSON schema in your **Request** trigger, 
+the Logic App Designer uses that schema to generate tokens, 
+which you can use in your logic app workflow steps.
 
 For example, when we add the `title` and `name` 
 properties to the JSON schema, their tokens are 
@@ -231,8 +231,8 @@ and always use the `POST` method to start running the logic app.
 You can include more than one header and any type of content in the body. 
 If the content's type is `application/json`, 
 you can reference properties from inside your request. 
-Otherwise, the content is treated as a single binary unit that you can pass to other APIs, 
-but can't be referenced inside the workflow unless the content is converted. 
+Otherwise, content is treated as a single binary unit that you can pass to other APIs. 
+You can't reference this content inside the workflow without converting that content. 
 For example, if you pass `application/xml` content, you can use `@xpath()` 
 for an XPath extraction, or `@json()` for converting XML to JSON. 
 Learn about [working with content types](../logic-apps/logic-apps-content-type.md).
@@ -270,7 +270,7 @@ you can use the **Response** action.
 
 ### Construct the response
 
-For our example response, the specifies 
+For our example response, the header specifies 
 that the response has content type `application/json`, 
 and the body contains `title` and `name`.
 
@@ -303,9 +303,9 @@ Here's what the JSON schema now looks like:
 }
 ```
 
-In your logic app, all steps required for the response must finish 
-within *60 seconds* for the original request to get the response, 
-*unless you call the workflow as a nested logic app*. 
+For the original request to get the response, 
+all steps required for the response must finish 
+within *60 seconds* unless you call the workflow as a nested logic app. 
 If no response happens within 60 seconds, 
 the incoming request times out and receives the HTTP response **408 Client timeout**. 
 For nested logic apps, the parent logic app continues to wait for a 
@@ -338,11 +338,11 @@ through the **API Management** service:
 * Set up your API Management domains in the [Azure portal](https://portal.azure.com/ "Azure portal")
 * Set up policy to check for Basic authentication
 
-#### Q: What changed in the schema migration from Dec 1, 2014 preview?
+#### Q: What changed in the schema migration from December 1, 2014 preview?
 
 A: Here's a summary about these changes:
 
-| Dec 1, 2014 preview | June 1, 2016 |
+| December 1, 2014 preview | June 1, 2016 |
 | --- | --- |
 | Click **HTTP Listener** API App |Click **Manual trigger** (no API App required) |
 | HTTP Listener setting "*Sends response automatically*" |Either include a **Response** action or not in the workflow definition. |
