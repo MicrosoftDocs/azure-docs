@@ -80,7 +80,7 @@ For Windows Server:
    "licenseType": "Windows_Server",
    "hardwareProfile": {
         "vmSize": "[variables('vmSize')]"
-   },
+   }
 ```
 
 For Windows Client:
@@ -89,7 +89,7 @@ For Windows Client:
    "licenseType": "Windows_Client",
    "hardwareProfile": {
         "vmSize": "[variables('vmSize')]"
-   },
+   }
 ```
 
 ## Deploy an uploaded VM via PowerShell quickstart
