@@ -71,26 +71,27 @@ enter the JSON schema for the payload that you expect the trigger to receive.
   > from a tool like [jsonschema.net](http://jsonschema.net/), 
   > or in the **Request** trigger by choosing **Use sample payload to generate schema**. 
   > Enter your sample payload, and choose **Done**.
-  > 
-  > For example, this sample payload:
-  > 
-  > ```json
-  > {
-  >    "address": "21 2nd Street, New York, New York"
-  > }
-  > ```    
-  > generates this schema:
-  > 
-  > ```json
-  > {
-  >    "type": "object",
-  >    "properties": {
-  >       "address": {
-  >          "type": "string" 
-  >       }
-  >    }
-  > }
-  > ```
+  
+  For example, this sample payload:
+  
+  ```json
+  {
+      "address": "21 2nd Street, New York, New York"
+  }
+  ```    
+
+  generates this schema:
+
+  ```json
+  }
+      "type": "object",
+      "properties": {
+         "address": {
+            "type": "string" 
+         }
+      }
+   }
+  ```
 
 2.	Save your logic app. Under **HTTP POST to this URL**, 
 you should now get a generated callback URL, like this example:
@@ -135,14 +136,14 @@ or specify a custom method.
 When you want your trigger's URL to accept parameters, 
 customize the relative path for your trigger's URL.
 
-  > [!NOTE]
-  > When you specify a relative path for your trigger, 
-  > you must also explicitly specify an HTTP method for your trigger. 
-
 1. On your **Request** trigger, choose **Show advanced options**. 
 
 2. Under **Method**, specify the HTTP method for your request to use. 
 Select the **GET** method so you can later test your trigger's URL.
+
+  > [!NOTE]
+  > When you specify a relative path for your trigger, 
+  > you must also explicitly specify an HTTP method for your trigger.
 
 3.	Under **Relative path**, specify the relative path for the parameter 
 	that your URL should accept, for example, `customer/{customerID}`.
@@ -174,7 +175,7 @@ that you specified in your trigger.
 	https://prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customer/{customerID}?api-version...
 	```
 
-4. To test the URL for your HTTP endpoint, 
+4. To test your HTTP endpoint, 
 copy and paste your trigger's URL into another browser window. 
 Substitute `{customerID}` with `123456`, and press Enter.
 
@@ -226,7 +227,7 @@ to your trigger. You can then select from eligible logic apps.
 
 ## Call or trigger logic apps through HTTP endpoints
 
-After you create the HTTP endpoint for your logic app, 
+After you create your logic app's HTTP endpoint, 
 you can trigger your logic app through a `POST` method to the full URL. 
 Logic apps have built-in support for direct-access endpoints 
 and always use the `POST` method to start running the logic app.
@@ -246,7 +247,7 @@ To get the output from an incoming request,
 you can use the `@triggerOutputs()` function. 
 The output might look like this example:
 
-```
+```json
 {
     "headers" : {
         "content-type" : "application/json"
@@ -341,18 +342,18 @@ through the **API Management** service:
 * Set up your API Management domains in the [Azure portal](https://portal.azure.com/ "Azure portal")
 * Set up policy to check for Basic authentication
 
-#### Q: What changed in the schema migration from December 1, 2014 preview?
+#### Q: What changed when the schema migrated from the December 1, 2014 preview?
 
 A: Here's a summary about these changes:
 
 | December 1, 2014 preview | June 1, 2016 |
 | --- | --- |
 | Click **HTTP Listener** API App |Click **Manual trigger** (no API App required) |
-| HTTP Listener setting "*Sends response automatically*" |Either include a **Response** action or not in the workflow definition. |
-| Configure basic or OAuth authentication |via API Management |
+| HTTP Listener setting "*Sends response automatically*" |Either include a **Response** action or not in the workflow definition |
+| Configure Basic or OAuth authentication |via API Management |
 | Configure HTTP method |via API Management |
 | Configure relative path |via API Management |
-| Reference the incoming body via `@triggerOutputs().body.Content` |Reference via `@triggerOutputs().body` |
+| Reference the incoming body through `@triggerOutputs().body.Content` |Reference through `@triggerOutputs().body` |
 | **Send HTTP response** action on the HTTP Listener |Click **Respond to HTTP request** (no API App required) |
 
 [1]: ./media/logic-apps-http-endpoint/manualtrigger.png
