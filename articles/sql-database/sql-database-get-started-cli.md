@@ -1,5 +1,5 @@
 ---
-title: 'Azure CLI: Create and query a single SQL database | Microsoft Docs'
+title: 'Azure CLI: Create a SQL database | Microsoft Docs'
 description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases using the Azure CLI. 
 keywords: sql database tutorial, create a sql database
 services: sql-database
@@ -19,7 +19,7 @@ ms.date: 03/13/2017
 ms.author: carlrab
 ---
 
-# Create and query a single Azure SQL database with the Azure CLI
+# Create a single Azure SQL database using the Azure CLI
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy an Azure SQL database in an [Azure resource group](../azure-resource-manager/resource-group-overview.md) in an [Azure SQL Database logical server](sql-database-features.md).
 

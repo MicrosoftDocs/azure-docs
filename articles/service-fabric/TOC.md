@@ -109,6 +109,7 @@
 #### [Cluster networking patterns](service-fabric-patterns-networking.md)
 #### [Node types and VM Scale Sets](service-fabric-cluster-nodetypes.md)
 #### [Scale a cluster](service-fabric-cluster-scale-up-down.md)
+#### [Scale a cluster programmatically](service-fabric-cluster-programmatic-scaling.md)
 #### [Upgrade a cluster](service-fabric-cluster-upgrade.md)
 #### [Delete a cluster](service-fabric-cluster-delete.md)
 #### [Access control](service-fabric-cluster-security-roles.md)
