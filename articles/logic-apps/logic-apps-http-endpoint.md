@@ -311,25 +311,11 @@ the incoming request times out and receives the HTTP response **408 Client timeo
 For nested logic apps, the parent logic app continues to wait for a 
 response until completed, regardless of how much time is required.
 
-## Advanced endpoint configuration
-
-Previously, the **HTTP Listener** API App supported changing 
-the URL segments and the HTTP method. You can set up additional 
-security or a custom domain by adding these items to the API App host 
-(the web app that hosts the API App). 
-
-You can find this functionality in the **API Management** service:
-
-* [Change the request method](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
-* [Change the URL segments of the request](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
-* Set up your API Management domains in the [Azure portal](https://portal.azure.com/ "Azure portal")
-* Set up policy to check for Basic authentication
-
 ## Q & A
 
-#### Q: What about security for the trigger URL?
+#### Q: What about URL security?
 
-Azure securely generates logic app callback URLs using a Shared Access Signature (SAS). 
+A: Azure securely generates logic app callback URLs using a Shared Access Signature (SAS). 
 This signature passes through as a query parameter 
 and must be validated before your logic app can fire. 
 Azure generates the signature using a unique 
@@ -337,6 +323,20 @@ combination of a secret key per logic app,
 the trigger name, and the operation that's performed. 
 So unless someone has access to the secret logic app key, 
 they cannot generate a valid signature.
+
+#### Q: Can I configure endpoints further?
+
+A: Yes, HTTP endpoints support more advanced configuration. 
+The **HTTP Listener** API App previously supported changing 
+the URL segments and the HTTP method. You can set also up additional 
+security or a custom domain by adding these items to the API App host 
+(the web app that hosts the API App). You can find this functionality 
+through the **API Management** service:
+
+* [Change the request method](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
+* [Change the URL segments of the request](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
+* Set up your API Management domains in the [Azure portal](https://portal.azure.com/ "Azure portal")
+* Set up policy to check for Basic authentication
 
 #### Q: What changed in the schema migration from Dec 1, 2014 preview?
 
