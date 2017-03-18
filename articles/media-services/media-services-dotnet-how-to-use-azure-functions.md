@@ -22,7 +22,7 @@ ms.author: juliako
 
 This topic discusses how to start developing Azure Functions with Media Services using the Azure portal. 
 
-You can also deploy existing Media Services Azure Functions from [here](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) by pressing the **Deploy to Azure** button. This repository contains Azure Functions examples that use Azure Media Services to show workflows related to ingesting content directly from blob storage, encoding, and writing content back to blob storage. It also includes examples of how to monitor job notifications via WebHooks and Azure Queues. You can also develop your Functions based on the examples in [this](https://github.com/Azure-Samples/media-services-dotnet-Functions-integration) repository. 
+You can also deploy existing [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) by pressing the **Deploy to Azure** button. This repository contains Azure Functions examples that use Azure Media Services to show workflows related to ingesting content directly from blob storage, encoding, and writing content back to blob storage. It also includes examples of how to monitor job notifications via WebHooks and Azure Queues. You can also develop your Functions based on the examples in the [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) repository. 
 
 This topic shows you how to get started with creating Azure Functions that use Media Services. The Azure Function defined in this topic monitors a storage account container named **input** for new MP4 files. Once a file is dropped into the storage container, the blob trigger will execute the function.
 
@@ -38,13 +38,33 @@ This topic shows you how to get started with creating Azure Functions that use M
 
 Create a function app as described [here](../azure-functions/functions-create-first-azure-function-azure-portal.md#create-a-function-app).
 
+## Configure function app settings
+
+When developing Media Services functions, it is handy to add parameters that will be used throughout your functions to the **App Settings** section. For more information, see  [How to configure Azure Function app settings](../azure-functions/functions-how-to-use-azure-function-app-settings). 
+
+For example:
+
+![Settings](./media/media-services-azure-functions/media-services-azure-functions001.png)
+
+The function, defined in this article, assumes you have the following parameters in your app settings:
+
+AMSAccount : *AMS account name* (e.g. testams)
+
+AMSKey : *AMS account key* (e.g. IHOySnH+XX3LGPfraE5fKPl0EnzvEPKkOPKCr59aiMM=)
+
+MediaServicesStorageAccountName : *storage account name* (e.g., testamsstorage)
+
+MediaServicesStorageAccountKey : *storage account key* (e.g., xx7RN7mvpcipkuXvn5g7jwxnKh5MwYQ/awZAzkSIxQA8tmCtn93rqobjgjt41Wb0zwTZWeWQHY5kSZF0XXXXXX==)
+
+StorageConnection : *storage connection* (e.g., DefaultEndpointsProtocol=https;AccountName=testamsstorage;AccountKey=xx7RN7mvpcipkuXvn5g7jwxnKh5MwYQ/awZAzkSIxQA8tmCtn93rqobjgjt41Wb0zwTZWeWQHY5kSZF0XXXXX==)
+
 ## Create a function
 
 Once your function app was deployed, you can find it among **App Services** Azure Functions.
 
 1. Select your function app and click **New Function**.
 2. Choose the **C#** language and **Data Processing** scenario.
-3. Choose **BlobTrigger** template. This function will be triggered whenever a blob is uploaded into the "input" container. 
+3. Choose **BlobTrigger** template. This function will be triggered whenever a blob is uploaded into the **input** container. The **input** name is specified in the **Path**, in the next step.
 
 	![files](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
@@ -55,26 +75,6 @@ Once your function app was deployed, you can find it among **App Services** Azur
 4. Click **Create**. 
 
 
-## Configure function app settings
-
-When developing Media Services functions, it is handy to add parameters that will be used throughout your functions to the **App Settings** section. 
-
-For example:
-
-![Settings](./media/media-services-azure-functions/media-services-azure-functions001.png)
-
-The function, defined in this article, assumes you have the following parameters in your app settings:
-
-AMSAccount = testoams
-
-AMSKey = IHOySnH+XX3LGPfraE5fKPl0EnzvEPKkOPKCr59aiMM=
-
-MediaServicesStorageAccountName = testamsstorage
-
-MediaServicesStorageAccountKey = kx7RN7mvpcipkuXvn5g7jwxnKh5MwYQ/awZAzkSIxQA8tmCtn93rqobjgjt41Wb0zwTZWeWQHY5kSZF0XXXXXX==
-
-StorageConnection = DefaultEndpointsProtocol=https;AccountName=testamsstorage;AccountKey=kx7RN7mvpcipkuXvn5g7jwxnKh5MwYQ/awZAzkSIxQA8tmCtn93rqobjgjt41Wb0zwTZWeWQHY5kSZF0XXXXX==
-
 ## Files
 
 Your Azure function is associated with code files and other files that are described in this section. By default, a function is associated with **function.json** and **run.csx** (C#) files. You will need to add a **project.json** file. The rest of this section shows the definitions for these files.
@@ -83,7 +83,7 @@ Your Azure function is associated with code files and other files that are descr
 
 ### function.json
 
-The function.json file defines the function bindings and other configuration settings. The runtime uses this file to determine the events to monitor and how to pass data into and return data from function execution. 
+The function.json file defines the function bindings and other configuration settings. The runtime uses this file to determine the events to monitor and how to pass data into and return data from function execution. For more information, see [Azure functions HTTP and webhook bindings](../azure-functions/functions-triggers-bindings.md).
 
 Here is an example of **function.json** file.
 
@@ -117,11 +117,11 @@ The project.json file contains dependencies. Here is an example of **function.js
 	
 ### run.csx
 
-This is the C# code for your function.  The function defined below monitors a storage account container named "input" (that is what was specified in the path) for new MP4 files. Once a file is dropped into the storage container, the blob trigger will execute the function.
+This is the C# code for your function.  The function defined below monitors a storage account container named **input** (that is what was specified in the path) for new MP4 files. Once a file is dropped into the storage container, the blob trigger will execute the function.
 	
 The following sample shows how to ingest the asset into Media Services (by coping a blob into an AMS asset) and submit an encoding job that uses Media Encoder Standard's "Adaptive Streaming" preset .
 
-In the real life example, you most likely want to output the result of the job to another container and call another function that for example publishes your encoded files. The (Media Services Azure Functions)[https://github.com/Azure-Samples/media-services-dotnet-functions-integration] github project shows functions and webhooks that deal with various Media Services scenarios.  
+In the real life scenario, you most likely want to track job progress and then publish your encoded asset. For more information, see (Use Azure WebHooks to monitor Media Services job notifications)[media-services-dotnet-check-job-progress-with-webhooks.md). For more examples, see (Media Services Azure Functions)[https://github.com/Azure-Samples/media-services-dotnet-functions-integration].  
 
 Once you are done defining your function click **Save and Run**.
 
