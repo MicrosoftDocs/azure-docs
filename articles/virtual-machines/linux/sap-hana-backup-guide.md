@@ -6,18 +6,17 @@ documentationcenter:
 author: v-derekg
 manager: timlt
 editor:
-
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 
 ---
 
-# Backup guide for SAP HANA on Azure Virtual Machines 
+# Backup guide for SAP HANA on Azure Virtual Machines
 
 ## Contents
 
@@ -39,7 +38,7 @@ ms.author: rclaus
   - HANA VM backup automation via Azure Backup service
   - HANA license key and VM restore via Azure Backup service
   - SAP HANA backup via manual disk snapshot
-- SAP HANA Azure Backup on file level
+- SAP HANA backup into the file system
   - Introduction
   - Azure backup agent
   - Azure blobxfer utility details
@@ -58,12 +57,12 @@ ms.author: rclaus
 
 ## Overview
 
-backup guide for SAP HANA running on Azure irtual Machines will only describe Azure-specific topics. For general SAP HANA backup related items, check the SAP HANA documentation. See _SAP HANA backup documentation_ later in this document.
+The backup guide for SAP HANA running on Azure virtual Machines will only describe Azure-specific topics. For general SAP HANA backup related items, check the SAP HANA documentation. See _SAP HANA backup documentation_ later in this document.
 
 The focus of this document is on two major backup possibilities for SAP HANA on Azure virtual machines:
 
 - HANA backup to the file system in an Azure Linux Virtual Machine
-- HANA backup based on storage snapshots using the Azure storage blob snapshot feature manually or Azure Backup Service 
+- HANA backup based on storage snapshots using the Azure storage blob snapshot feature manually or Azure Backup Service
 
 SAP HANA offers a backup API, which allows third-party backup tools to integrate directly with SAP HANA. (That is not within the scope of this guide.) There is no direct integration of SAP HANA with Azure Backup service available right now based on this API.
 
@@ -338,6 +337,7 @@ It provides more flexibility but does not resolve the issues explained earlier i
 
 It is possible to restore only the data disks of an Azure VM, avoiding the problem of getting a new unique VM ID and, therefore, invalidated the SAP license:
 
+
 - For the test, two Azure data disks were attached to a VM and a software RAID was defined on top of them 
 - It was confirmed that SAP HANA was in a consistent state by SAP HANA snapshot feature
 - File system freeze (see _SAP HANA data consistency when taking storage snapshots_ earlier in this document)
@@ -490,6 +490,7 @@ Storing SAP HANA backup files on Azure files could be an interesting option in t
 ## Test setup
 
 ### Test Virtual Machine on Azure
+
 A SAP HANA installation in an Azure GS5 VM was used for the following backup/restore tests.
 
 ![This figure shows part of the Azure portal overview for the HANA test VM](./media/sap-hana-backup-guide/image007.png)
