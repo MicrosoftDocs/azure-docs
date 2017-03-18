@@ -21,7 +21,7 @@ ms.author: vturecek
 # ASP.NET Core in Service Fabric Reliable Services
 
 ## Introduction to ASP.NET Core in Service Fabric
-ASP.NET Core is a new open-source and cross-platform framework for building modern cloud-based Internet-connected applications, such as web apps, IoT apps and mobile backends. While ASP.NET Core apps can run on .NET Core or on the full .NET Framework, Service Fabric services currently can only run on the full .NET Framework. This means when you build an ASP.NET Core Service Fabric service, you must still target the full .NET Framework.
+ASP.NET Core is a new open-source and cross-platform framework for building modern cloud-based Internet-connected applications, such as web apps, IoT apps, and mobile backends. While ASP.NET Core apps can run on .NET Core or on the full .NET Framework, Service Fabric services currently can only run on the full .NET Framework. This means when you build an ASP.NET Core Service Fabric service, you must still target the full .NET Framework.
 
 ASP.NET Core can be used in two different ways in Service Fabric:
  - **Hosted as a guest executable**. This is primarily used to run existing ASP.NET Core applications on Service Fabric with no code changes.
@@ -80,7 +80,7 @@ To prevent service mistaken identity, services can post an endpoint to the Namin
 
 In a trusted environment, the middleware that's added by the `UseServiceFabricIntegration` method automatically appends a unique identifier to the address that is posted to the Naming Service and validates that identifier on each request. If the identifier does not match, the middleware immediately returns an HTTP 410 Gone response.
 
-Services that use a dynmically-assigned port should make use of this middleware.
+Services that use a dynamically-assigned port should make use of this middleware.
 
 Services that use a fixed unique port do not have this problem in a cooperative environment. A fixed unique port is typically used for Internet-facing services that need a well-known port for client applications to connect to. For example, most Internet-facing web applications will use port 80 or 443 for web browser connections. In this case, the unique identifier should not be enabled.
 
@@ -129,7 +129,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### Endpoint configuration
 
-An `Endpoint` configuration is required for web servers that use the Windows HTTP Server API, including WebListener. Web servers that use the Windows HTTP Server API must first reserve their URL with *http.sys* (this is normally accomplished with the [netsh](https://msdn.microsoft.com/library/windows/desktop/cc307236(v=vs.85).aspx) tool). This action requires elevated priveleges that your services by default do not have. The "http" or "https" options for the `Protocol` property of the `Endpoint` configuration in *ServiceManifest.xml* are used specifically to instruct the Service Fabric runtime to register a URL with *http.sys* on your behalf using the [*strong wildcard*](https://msdn.microsoft.com/library/windows/desktop/aa364698(v=vs.85).aspx) URL prefix.
+An `Endpoint` configuration is required for web servers that use the Windows HTTP Server API, including WebListener. Web servers that use the Windows HTTP Server API must first reserve their URL with *http.sys* (this is normally accomplished with the [netsh](https://msdn.microsoft.com/library/windows/desktop/cc307236(v=vs.85).aspx) tool). This action requires elevated privileges that your services by default do not have. The "http" or "https" options for the `Protocol` property of the `Endpoint` configuration in *ServiceManifest.xml* are used specifically to instruct the Service Fabric runtime to register a URL with *http.sys* on your behalf using the [*strong wildcard*](https://msdn.microsoft.com/library/windows/desktop/aa364698(v=vs.85).aspx) URL prefix.
 
 For example, to reserve `http://+:80` for a service, the following configuration should be used in ServiceManifest.xml:
 
@@ -301,7 +301,7 @@ When exposed to the Internet, a stateless service should use a well-known and st
 | --- | --- | --- |
 | Web server | WebListener | If the service is only exposed to a trusted network, such an intranet, Kestrel may be used. Otherwise, WebListener is the preferred option. |
 | Port configuration | static | A well-known static port should be configured in the `Endpoints` configuration of ServiceManifest.xml, such as 80 for HTTP or 443 for HTTPS. |
-| ServiceFabricIntegrationOptions | None | The `ServiceFabricIntegrationOptions.None` option should be used when configuring Service Fabric integration middleware so that the service does not validate incoming requests for a unique identifier. External wsers of your application will not know the unique identifying information used by the middleware. |
+| ServiceFabricIntegrationOptions | None | The `ServiceFabricIntegrationOptions.None` option should be used when configuring Service Fabric integration middleware so that the service does not validate incoming requests for a unique identifier. External users of your application will not know the unique identifying information used by the middleware. |
 | Instance Count | -1 | The instance count setting should be set to "-1" so that an instance is available on all nodes that receive traffic from a load balancer. |
 
 If multiple externally exposed services share the same set of nodes, a unique but stable URL path should be used. This can be accomplished by modifying the URL provided when configuring IWebHost. Note this applies to WebListener only.
