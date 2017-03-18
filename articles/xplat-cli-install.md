@@ -119,6 +119,29 @@ azure --completion >> ~/azure.completion.sh
 echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 ```
 
+## Bonus: PowerShell Core and AzureRM Modules on macOS
+#### This guidance works best with powershell core version 6.0.0-alpha.9
+
+First, follow [this tutorial](https://blogs.technet.microsoft.com/jessicadeen/azure/getting-started-with-powershell-core-and-azurerm-modules-on-ubuntu-and-os-x/), but at the step where it says to configure your user profile (~/.config/powershell/profile.ps1) "To add a permanent one, you will want to add the command to your user profile (~/.config/powershell/profile.ps1) or default profile ($PSHOME/profile.ps1)." do not follow the guidance on how to strucuture your profile.ps1 file. It looks like this in the guidance given there:
+
+```powershell
+$env:PSModulePath = $env:PSModulePath + ":path-goes-here"
+```
+
+Instead replace it with the following:
+
+```powershell
+$env:PSModulePath = ":/usr/local/microsoft/powershell/6.0.0-alpha.9/Modules"
+
+Install-Package -Name AzureRM.NetCore.Preview -Source https://www.powershellgallery.com/api/v2/ -ProviderName NuGet -ExcludeVersion -Destination $home/powershell/modules
+Import-Module $home/powershell/modules/AzureRM.Profile.NetCore.Preview
+Import-Module $home/powershell/modules/AzureRM.Resources.NetCore.Preview
+Import-Module $home/powershell/modules/AzureRM.NetCore.Preview
+
+Add-AzureRmAccount
+```
+
+Great, now you should be able to run the "powershell" command in the macOS terminal and be prompeted to log into your Azure account via a link and download code given to you. Please provide feedback on this process as it is very much still in beta and we are working hard to provide the best user experience for mac users!
 
 ## Next steps
 * [Connect from the CLI to your Azure subscription](xplat-cli-connect.md) to create and manage Azure resources.
