@@ -303,13 +303,14 @@ Here's what the JSON schema now looks like:
 }
 ```
 
-For the original request to get the response, 
-all steps required for the response must finish 
-within *60 seconds* unless you call the workflow as a nested logic app. 
-If no response happens within 60 seconds, 
-the incoming request times out and receives the HTTP response **408 Client timeout**. 
-For nested logic apps, the parent logic app continues to wait for a 
-response until completed, regardless of how much time is required.
+> [!NOTE]
+> For the original request to get the response, 
+> all steps required for the response must finish 
+> within *60 seconds* unless you call the workflow as a nested logic app. 
+> If no response happens within 60 seconds, 
+> the incoming request times out and receives the HTTP response **408 Client timeout**. 
+> For nested logic apps, the parent logic app continues to wait for a 
+> response until completed, regardless of how much time is required.
 
 ## Q & A
 
