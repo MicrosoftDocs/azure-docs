@@ -35,6 +35,8 @@ The steps that follow explain how to create an example VM with multiple IP addre
 1. Open a PowerShell command prompt and complete the remaining steps in this section within a single PowerShell session. If you don't already have PowerShell installed and configured, complete the steps in the [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) article.
 2. Register for the preview by running the following commands in PowerShell after you login and select the appropriate subscription:
 	```
+	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+	
 	Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
 
 	Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
