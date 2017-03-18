@@ -21,7 +21,7 @@ ms.author: xujing
 This article describes the common error codes and messages you encounter when managing an Azure Virtual Machine(VM).  
 
 >[!NOTE]
->Please leave comments on this page for error message feedback!
+>Leave comments on this page for error message feedback!
 >
 >
 
@@ -43,7 +43,7 @@ Azure VM uses the following JSON format for error response.
 }
 ```
 
-An error response always includes an status code, an error object. each error object always contains an error code, message. if the VM deployment is created through a template, then the error object also contains a details section, which contains an inner level of error codes and message. Normally, the most innner level of error message is the root failure. 
+An error response always includes a status code, an error object. each error object always contains an error code, message. if the VM deployment is created through a template, then the error object also contains a details section, which contains an inner level of error codes and message. Normally, the most inner level of error message is the root failure. 
 
 
 ## Common Virtual Machine Management Error
