@@ -2,6 +2,7 @@
 ## [What is Application Gateway?](application-gateway-introduction.md)
 ## [Application Gateway FAQ](application-gateway-faq.md)
 ## [Web application firewall](application-gateway-webapplicationfirewall-overview.md)
+### [Core rule sets and rules](application-gateway-crs-rulegroups-rules.md)
 ## [Health monitoring](application-gateway-probe-overview.md)
 ## [URL routing](application-gateway-url-route-overview.md)
 ## [Multi-site](application-gateway-multi-site-overview.md)

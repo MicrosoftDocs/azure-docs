@@ -21,7 +21,7 @@ ms.author: gwallace
 
 # Customize Web Application Firewall rules through the portal
 
-Application Gateway Web Application Firewall provides protection for web applications. These protections are provided by OWASP CRS rulesets. Some rules can cause false positives and block unnecessary traffic.  For this reason application gateway provides the capability to disable rulegroups and rules on a web application firewall enabled application gateway. For more information on the specific rule groups and rules, visit [Web Application Firewall CRS Rule groups and rules](application-gateway-crs-rulegroups-rules.md)
+Application Gateway Web Application Firewall provides protection for web applications. These protections are provided by OWASP CRS rulesets. Some rules can cause false positives and block real traffic.  For this reason application gateway provides the capability to customize rulegroups and rules on a web application firewall enabled application gateway. For more information on the specific rule groups and rules, visit [Web Application Firewall CRS Rule groups and rules](application-gateway-crs-rulegroups-rules.md)
 
 >[!NOTE]
 > If your application gateway is not using the WAF tier, you are presented the option to upgrade the application gateway to the WAF tier as shown in the following image:

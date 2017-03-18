@@ -210,7 +210,7 @@ Yes, WAF supports all the features in the Standard SKU.
 
 **Q. What is the CRS version Application Gateway supports?**
 
-Application Gateway supports CRS 2.2.9 and CRS 3.0.0
+Application Gateway supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) and CRS [3.0](application-gateway-crs-rulegroups-rules.md@owasp30).
 
 **Q. How do I monitor WAF?**
 
@@ -222,11 +222,11 @@ No, detection mode only logs traffic, which triggered a WAF rule.
 
 **Q. How do I customize WAF rules?**
 
-Currently WAF rules are not customizable.
+Yes, WAF rules are customizable, for more information on how to customize them visit [Customize WAF rule groups and rules](application-gateway-customize-waf-rules-portal.md)
 
 **Q. What rules are currently available?**
 
-WAF currently supports CRS 2.2.9, which provides baseline security against most of the top 10 vulnerabilities identified by the Open Web Application Security Project (OWASP) found here [OWASP top 10 Vulnerabilities](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)
+WAF currently supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) and [3.0](application-gateway-crs-rulegroups-rules.md@owasp30), which provide baseline security against most of the top 10 vulnerabilities identified by the Open Web Application Security Project (OWASP) found here [OWASP top 10 Vulnerabilities](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)
 
 * SQL injection protection
 
@@ -242,13 +242,9 @@ WAF currently supports CRS 2.2.9, which provides baseline security against most 
 
 * Detection of common application misconfigurations (i.e. Apache, IIS, etc.)
 
-**Q. Does WAF also support DDos prevention?**
+**Q. Does WAF also support DDos=S prevention?**
 
-No, WAF does not provide DDos prevention.
-
-**Q. Can I customize the rules?**
-
-Yes, rule customization is supported.  
+No, WAF does not provide DDoS prevention.
 
 ## Diagnostics and Logging
 

@@ -1,5 +1,5 @@
 ---
-title: Application Gateway Web Application Firewall CRS Rule groups and rules | Microsoft Docs
+title: Azure Application Gateway Web Application Firewall CRS rule groups and rules | Microsoft Docs
 description: This page provides information on Web Application Firewall CRS rule groups and rules.
 documentationcenter: na
 services: application-gateway
@@ -25,7 +25,7 @@ Application Gateway web application firewall (WAF) protects web applications fro
 
 The following tables are the Rule groups and rules that are available when using Application Gateway with Web Application Firewall.  Each table represents the rules found in a rule group for a specific CRS version.
 
-## OWASP_3.0
+##<a name="owasp30"></a> OWASP_3.0
 
 ### <a name="crs910"></a>REQUEST-910-IP-REPUTATION
 
@@ -332,7 +332,7 @@ The following tables are the Rule groups and rules that are available when using
 |943017|Rule 943017|
 |943018|Rule 943018|
 
-## OWASP_2.2.9
+##<a name="owasp229"></a> OWASP_2.2.9
 
 ### <a name="crs20"></a>crs_20_protocol_violations
 
