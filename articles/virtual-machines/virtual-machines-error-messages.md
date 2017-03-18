@@ -38,8 +38,12 @@ Azure VM uses the following JSON format for error response.
 }
 ```
 
-
-
+|  State   | Abrev. |   Capital   | Capital since | Population | Largest Population? |
+| :------- | :----: | :---------- | :-----------: | ---------: | :-----------------: |
+| Alabama  |   AL   | Montgomery  |     1846      |     205764 |         No          |
+| Alaska   |   AK   | Juneau      |     1906      |      31275 |         No          |
+| Arizona  |   AZ   | Phoenix     |     1889      |    1445632 |         Yes         |
+| Arkansas |   AR   | Little Rock |     1821      |     193524 |         Yes         |
 
 1. If you have an Enterprise Agreement subscription, you can [deploy VMs from specific Marketplace images](#deploy-a-vm-using-the-azure-marketplace) that are pre-configured with Azure Hybrid Use Benefit.
 2. Without an Enterprise Agreement, you can [upload a custom VM](#upload-a-windows-vhd) and [deploy using a Resource Manager template](#deploy-a-vm-via-resource-manager) or [Azure PowerShell](#detailed-powershell-deployment-walkthrough).
