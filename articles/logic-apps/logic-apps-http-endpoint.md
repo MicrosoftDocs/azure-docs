@@ -33,7 +33,7 @@ To receive requests, you can add these triggers to your logic apps:
 We'll use the **Request** trigger in our examples, 
 but all principles identically apply to the other trigger types.
 
-## Add a trigger to your logic app definition
+## Add a trigger to your logic app
 
 1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
 Go to your logic app, and open Logic App Designer.
@@ -52,15 +52,15 @@ enter the JSON schema for the payload that you expect the trigger to receive.
 
 	```json
 	{
+		"type": "object",
 		"properties": {
 			"address": {
 				"type": "string"
-			},
+			}
 		},
 		"required": [
-			"address",
-		],
-		"type": "object"
+			"address"
+		]
 	}
 	```
 
@@ -92,50 +92,106 @@ enter the JSON schema for the payload that you expect the trigger to receive.
   > }
 
 2.	Save your logic app. Under **HTTP POST to this URL**, 
-you'll get a generated callback URL, like in this example:
+you'll get a generated callback URL, like this example:
 
 	``` text
-	https://prod-00.southcentralus.logic.azure.com:443/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/myendpointtrigger?*signature*...
+	https://prod-00.southcentralus.logic.azure.com:443/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke?api-version...
 	```
 
 	This URL contains a Shared Access Signature (SAS) key 
 	in the query parameters that are used for authentication. 
-	You can also get this endpoint from your logic app overview 
-	in the Azure portal under your **manual** trigger history:
+	You can also get the endpoint URL from your logic app overview 
+	in the Azure portal. Under **Trigger History**, 
+	select your trigger:
 
-	![Get URL endpoint][2]
+	![Get endpoint URL from Azure portal][2]
 
-	Or by calling:
+	Or you can get the URL by making this call:
 
 	``` text
-	POST https://management.azure.com/{resourceID-for-your-logic-app}/triggers/myendpointtrigger/listCallbackURL?api-version=2015-08-01-preview
+	POST https://management.azure.com/{resourceID-for-your-logic-app}/triggers/{myendpointtrigger}/listCallbackURL?api-version=2016-06-01
 	```
 
-### Generate tokens from JSON schemas for use in your logic app definition
+## Change your trigger's HTTP method
+
+By default, the **Request** trigger expects an HTTP POST request, 
+but you can specify a different HTTP method. 
+
+> [!NOTE]
+> You can specify only one method type.
+
+1.	On your **Request** trigger, choose **Show advanced options**.
+
+2. Open the **Method** list. Select another HTTP method, 
+or specify a custom method.
+
+	![Change HTTP method](./media/logic-apps-http-endpoint/change-method.png)
+
+## Accept parameters through your trigger's URL
+
+When you want your trigger's URL to accept parameters, 
+customize the relative path for your trigger's URL.
+
+  > [!NOTE]
+  > When you specify a relative path for your trigger, 
+  > you must also explicitly specify an HTTP method for your trigger. 
+
+1. On your **Request** trigger, choose **Show advanced options**. 
+
+2. Under **Method**, specify the HTTP method for your request to use. 
+Select the **GET** method so you can later test your trigger's URL.
+
+3.	Under **Relative path**, specify the relative path for the parameter 
+	that your URL should accept, for example, `customer/{customerID}`.
+
+	![Specify the HTTP method and relative path for parameter](./media/logic-apps-http-endpoint/relativeurl.png)
+
+3.	To use the parameter, add a **Response** action to your logic app. 
+(Under your trigger, choose **New step** > **Add an action** > **Response**) 
+
+4.	In your response's **Body**, include the token for the parameter 
+that you specified in your trigger.
+
+	For example, to return `Hello {customerID}`, 
+	update your response's **Body** with `Hello {customerID token}`. 
+	The dynamic content list should appear and show the `customerID` 
+	token for you to select.
+
+	![Add parameter to response body](./media/logic-apps-http-endpoint/relativeurlresponse.png)
+
+	Your **Body** should look like this example:
+
+	![Response body with parameter](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
+
+3. Save your logic app. 
+
+	Your trigger's URL now includes the relative path, for example:
+
+	``` text
+	https://prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customer/{customerID}?api-version...
+	```
+
+4. To test the URL for your HTTP endpoint, 
+copy and paste your trigger's URL into another browser window. 
+Substitute `{customerID}` with `123456`, and press Enter.
+
+	Your browser should show this text: 
+
+	`Hello 123456`
+
+### Tokens generated from JSON schemas for your logic app
 
 When you specify a JSON schema in the **Request** trigger, 
 the Logic App Designer uses that schema to generate tokens 
-that you can later pass into steps for your logic app. 
-For example, adding the following elements make the `title` 
-and `name` tokens available for you to select in the designer:
+that you can then pass into workflow steps for your logic app to use.
+
+For example, when we add the `title` and `name` 
+properties to the JSON schema, their tokens are 
+now available to use in later workflow steps.
 
 ```json
 {
-  "properties": {
-    "title": {
-      "type": "string"
-    },
-    "name": {
-      "type": "string"
-    },
-  }
-}
-```
-
-Here's the complete schema:
-
-```json
-{
+   "type": "object",
    "properties": {
       "address": {
          "type": "string"
@@ -151,112 +207,41 @@ Here's the complete schema:
 	   "address",
 	   "title",
 	   "name"
-	],
-	"type": "object"
+	]
 }
 ```
 
-## Change your trigger's HTTP method
+## Create nested workflows for logic apps
 
-By default, the **Request** trigger expects an HTTP POST request, 
-but you can specify a different HTTP method. 
-
-> [!NOTE]
-> You can specify only one method type.
-
-1.	On the **Request** trigger, choose **Show advanced options**.
-2.  Open the **Method** list, and select another HTTP method or specify a custom method.
-
-	![Change HTTP method](./media/logic-apps-http-endpoint/change-method.png)
-
-## Accept parameters through your trigger's URL
-
-When you want your **Request** trigger's URL to accept parameters, 
-customize your trigger URL's relative path.
-
-  > [!NOTE]
-  > When you specify a relative path for your trigger, 
-  > you must also explicitly specify an HTTP method for your trigger. 
-
-1. On your **Request** trigger, choose **Show advanced options**. 
-
-2. Under **Method**, specify the HTTP method for your request to use. 
-For this example, select the **GET** method so you can test your request URL later. 
-Under **Relative path**, add the parameter that you want your URL to use, 
-for example: `customer/{customerID}`
-
-	![Specify the HTTP method and relative path for parameter](./media/logic-apps-http-endpoint/relativeurl.png)
-
-3.	To use the parameter in this example, add a **Response** action to your logic app. 
-(Under your trigger, choose **New step** > **Add an action** > **Request / Response - Response**) 
-
-4.	In the response's **Body**, specify a relative path to include in your trigger's URL.
-
-	For example, to return `Hello {customerID}`, 	update your 
-	response's **Body** with `Hello {customerID token}`. 
-	The `customerID` token should appear in the 
-	dynamic content list for you to select.
-
-	![Add parameter to response body](./media/logic-apps-http-endpoint/relativeurlresponse.png)
-
-	![Response body with parameter](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
-
-3. Save your logic app. 
-
-	The relative path now appears in your trigger's URL, for example:
-
-	``` text
-	https://prod-00.southcentralus.logic.azure.com:443/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customer/{customerID}?...
-	```
-
-4. To test your HTTP endpoint, copy and paste the trigger's URL into a new browser window. 
-Substitute `{customerID}` with `123456`, and press Enter.
-
-	Your browser should show this text: 
-
-	`Hello 123456`
-
-### Security for HTTP endpoints
-
-Azure securely generates logic app callback URLs using a Shared Access Signature (SAS). 
-This signature passes through as a query parameter 
-and must be validated before your logic app can fire. 
-Azure generates the signature using a unique 
-combination of a secret key per logic app, 
-the trigger name, and the operation that's performed. 
-So unless someone has access to the secret logic app key, 
-they cannot generate a valid signature.
-
-## Nest workflows in logic apps
-
-You can reuse existing workflows in your logic app by adding 
-logic apps that can also receive incoming requests. 
+You can reuse workflows in your logic app by adding 
+other existing logic apps that can receive requests. 
 To include these logic apps, add the 
 **Azure Logic Apps - Choose a Logic Apps workflow** action 
-to your trigger. You can then select from logic apps 
-that are available for you to add.
+to your trigger. You can then select from eligible logic apps.
 
 ![Add another logic app](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 
 ## Call or trigger logic apps through HTTP endpoints
 
 After you create the HTTP endpoint for your logic app, 
-you can trigger your logic app through a `POST` to the full URL.
+you can trigger your logic app through a `POST` method to the full URL. 
+Logic apps have built-in support for direct-access endpoints 
+and always use the `POST` method to start running the logic app.
 
-### How do I reference content from an incoming request?
-
-Requests can include more than one header and any type of content. 
+You can include more than one header and any type of content in the body. 
 If the content's type is `application/json`, 
-you can reference properties from inside the request. 
+you can reference properties from inside your request. 
 Otherwise, the content is treated as a single binary unit that you can pass to other APIs, 
 but can't be referenced inside the workflow unless the content is converted. 
 For example, if you pass `application/xml` content, you can use `@xpath()` 
 for an XPath extraction, or `@json()` for converting XML to JSON. 
 Learn about [working with content types](../logic-apps/logic-apps-content-type.md).
 
+## Reference content from an incoming request
+
 To get the output from an incoming request, 
 you can use the `@triggerOutputs()` function. 
-Output might look like this example:
+The output might look like this example:
 
 ```
 {
@@ -269,18 +254,27 @@ Output might look like this example:
 }
 ```
 
-To access the request's `body` property specifically, 
+To access the `body` property specifically, 
 you can use the `@triggerBody()` shortcut. 
 
 ## Respond to requests
 
 For some requests that start a logic app, 
-you might want to respond with some content to the caller. 
-To construct the status code, body, and headers for your response, 
-you can use the **Response** action. If you don't include a **Response**, 
-the logic app endpoint *immediately* responds with **202 Accepted**.
+you might want to respond by returning some content to the caller. 
+To construct the status code, header, and body for your response, 
+you can use the **Response** action.
 
-![HTTP Response Action][3]
+> [!NOTE] 
+> If your logic app doesn't include a **Response**, 
+> the endpoint responds *immediately* with a **202 Accepted** status.
+
+### Construct the response
+
+For our example response, the specifies 
+that the response has content type `application/json`, 
+and the body contains `title` and `name`.
+
+![HTTP Response action][3]
 
 Responses have these properties:
 
@@ -290,14 +284,14 @@ Responses have these properties:
 | headers |Defines any number of headers to include in the response. |
 | body |Specifies a body object that can be a string, a JSON object, or even binary content referenced from a previous step. |
 
-Here's what the JSON looks like:
+Here's what the JSON schema now looks like:
 
 ``` json
 "Response": {
 	"inputs": {
 		"body": {
-			"name": "@{triggerBody()?['name']}",
-			"title": "@{triggerBody()?['title']}"
+			"title": "@{triggerBody()?['title']}",
+			"name": "@{triggerBody()?['name']}"
 		},
 		"headers": {
 			"content-type": "application/json"
@@ -313,28 +307,36 @@ In your logic app, all steps required for the response must finish
 within *60 seconds* for the original request to get the response, 
 *unless you call the workflow as a nested logic app*. 
 If no response happens within 60 seconds, 
-the incoming request times out and receives a **408 Client timeout** HTTP response. 
+the incoming request times out and receives the HTTP response **408 Client timeout**. 
 For nested logic apps, the parent logic app continues to wait for a 
 response until completed, regardless of how much time is required.
 
-## Q & A
+## Advanced endpoint configuration
 
-#### Q: What if I need more advanced endpoint configuration?
+Previously, the **HTTP Listener** API App supported changing 
+the URL segments and the HTTP method. You can set up additional 
+security or a custom domain by adding these items to the API App host 
+(the web app that hosts the API App). 
 
-Logic apps have built-in support for the direct-access endpoint 
-and always use the `POST` method to start running the logic app. 
-Previously, the **HTTP Listener** API App also supported changing 
-the URL segments and the HTTP method. You can also set up additional security 
-or a custom domain by adding these items to the API App host 
-(the web app that hosted the API App). 
-
-You can find this functionality through **API Management**:
+You can find this functionality in the **API Management** service:
 
 * [Change the request method](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
 * [Change the URL segments of the request](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
 * Set up your API Management domains in the [Azure portal](https://portal.azure.com/ "Azure portal")
 * Set up policy to check for Basic authentication
 
+## Q & A
+
+#### Q: What about security for the trigger URL?
+
+Azure securely generates logic app callback URLs using a Shared Access Signature (SAS). 
+This signature passes through as a query parameter 
+and must be validated before your logic app can fire. 
+Azure generates the signature using a unique 
+combination of a secret key per logic app, 
+the trigger name, and the operation that's performed. 
+So unless someone has access to the secret logic app key, 
+they cannot generate a valid signature.
 
 #### Q: What changed in the schema migration from Dec 1, 2014 preview?
 
