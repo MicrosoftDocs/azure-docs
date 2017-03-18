@@ -65,7 +65,9 @@ In the Code Lens line above each handler method, you'll see a count of the reque
 
 ![Exception stack trace](./media/app-insights-visual-studio/21.png)
 
-> [!NOTE] Code Lens shows Application Insights data only if you have [configured your app to send telemetry to the Application Insights portal](app-insights-asp-net.md).
+> [!NOTE] 
+> Code Lens shows Application Insights data only if you have [configured your app to send telemetry to the Application Insights portal](app-insights-asp-net.md).
+>
 
 [More about Application Insights in Code Lens](app-insights-visual-studio-codelens.md)
 
