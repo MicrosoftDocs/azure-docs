@@ -37,7 +37,9 @@ The Application Insights Search window shows events that have been logged. (If y
 
 ![Right-click the project and choose Application Insights, Search](./media/app-insights-visual-studio/34.png)
 
-> [!NOTE] After you select or deselect filters, click the Search button at the end of the text search field.
+> [!NOTE] 
+> After you select or deselect filters, click the Search button at the end of the text search field.
+>
 
 The free text search works on any fields in the events. For example, search for part of the URL of a page; or the value of a property such as client city; or specific words in a trace log.
 
