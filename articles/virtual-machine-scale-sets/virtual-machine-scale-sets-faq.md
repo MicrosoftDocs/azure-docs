@@ -38,7 +38,7 @@ For metric names for autoscaling that uses host-based metrics, see [Supported me
 
 Yes. For examples of autoscaling based on an Azure Service Bus topic and queue length, see [Azure Monitor autoscaling common metrics](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/).
 
-For a Service Bus queue:
+For a Service Bus queue, use the following code:
 
 ```json
 "metricName": "MessageCount",
@@ -46,7 +46,7 @@ For a Service Bus queue:
 "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ServiceBus/namespaces/mySB/queues/myqueue"
 ```
 
-For storage queues:
+For a storage queue, use the following code:
 
 ```json
 "metricName": "ApproximateMessageCount",
@@ -244,13 +244,13 @@ You do not need to hard-code passwords in scripts. You can dynamically retrieve 
 
 A Windows Remote Management (WinRM) certificate reference must be present in the Secrets property of the OS profile. 
 
-The purpose of indicating the source vault is to enforce access control list (ACL) policies that exist in a user's Azure Cloud Service model. If the source vault isn't specified, users who do not have permissions to deploy or access secrets to a key vault would be able to through a Certificate Registration Point. ACLs exist even for resources that do not exist.
+The purpose of indicating the source vault is to enforce access control list (ACL) policies that exist in a user's Azure Cloud Service model. If the source vault isn't specified, users who do not have permissions to deploy or access secrets to a key vault would be able to through a certificate registration point. ACLs exist even for resources that do not exist.
 
 If you provide an incorrect source vault ID but a valid key vault URL, an error is reported when you poll the operation.
  
 ### If I add secrets to an existing virtual machine scale set, are the secrets injected into existing VMs, or only into new ones? 
 
-Certificates are added to all your VMs, even preexisting ones. If your virtual machine scale set upgradePolicy property is set to **Manual**, the certificate is added to the VM when you perform a manual update on the VM.
+Certificates are added to all your VMs, even preexisting ones. If your virtual machine scale set upgradePolicy property is set to **manual**, the certificate is added to the VM when you perform a manual update on the VM.
  
 ### Where do I put certificates for Linux VMs?
 
@@ -461,7 +461,7 @@ To execute a custom script that's hosted in a private storage account, set up pr
  
 ### How do I do a VIP swap for virtual machine scale sets in the same subscription and same region?
 
-To do a VIP swap for virtual machine scale sets in the same subscription and same region, see [VIP Swap - blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/).
+To do a VIP swap for virtual machine scale sets in the same subscription and same region, see [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/).
  
   
 ### What is the resourceGuid property on a NIC used for?
@@ -480,7 +480,7 @@ To deploy a virtual machine scale set to an existing Azure virtual network, see 
 
 ### How do I add the IP address of the first VM in a virtual machine scale set to the output of a template?
 
-To add the IP address of the first VM in a virtual machine scale set to the output of a template, see [ARM - get VMSS's private IPs](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
+To add the IP address of the first VM in a virtual machine scale set to the output of a template, see [ARM: Get VMSS's private IPs](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
 
 
@@ -571,7 +571,7 @@ To update your virtual machine scale set to a new image, and to manage patching,
 
 Yes, you can use the reimage operation to reset a VM without changing the image. However, if your virtual machine scale set references a platform image with `version = latest`, your VM can update to a later OS image when you call `reimage`.
 
-For more information, see [Manage all VMs in a set](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
+For more information, see [Manage all VMs in a virtual machine scale set](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
 
 
