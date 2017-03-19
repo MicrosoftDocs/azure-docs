@@ -125,7 +125,7 @@ This is the C# code for your function.  The function defined below monitors a st
 	
 The following sample shows how to ingest the asset into Media Services (by coping a blob into an AMS asset) and submit an encoding job that uses Media Encoder Standard's "Adaptive Streaming" preset .
 
-In the real life scenario, you most likely want to track job progress and then publish your encoded asset. For more information, see (Use Azure WebHooks to monitor Media Services job notifications)[media-services-dotnet-check-job-progress-with-webhooks.md). For more examples, see (Media Services Azure Functions)[https://github.com/Azure-Samples/media-services-dotnet-functions-integration].  
+In the real life scenario, you most likely want to track job progress and then publish your encoded asset. For more information, see [Use Azure WebHooks to monitor Media Services job notifications](media-services-dotnet-check-job-progress-with-webhooks.md). For more examples, see [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).  
 
 Once you are done defining your function click **Save and Run**.
 
