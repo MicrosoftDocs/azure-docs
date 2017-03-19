@@ -119,7 +119,7 @@ Additional references have been added.
 Two files were added to support token caching: **Models\ADALTokenCache.cs** and **Models\ApplicationDbContext.cs**.  An additional controller and view were added to illustrate accessing user profile information using Azure graph APIs.  These files are **Controllers\UserProfileController.cs** and **Views\UserProfile\Index.cshtml**.
 
 ### Additional Startup code was added to your project
-In the **startup.auth.cs** file, a new **OpenIdConnectAuthenticationNotifications** object was added to the **Notifications** member of the **OpenIdConnectAuthenticationOptions**.  This is to enable receiving the OAuth code and exchange it for an access token.
+In the **startup.auth.cs** file, a new **OpenIdConnectAuthenticationNotifications** object was added to the **Notifications** member of the **OpenIdConnectAuthenticationOptions**.  This is to enable receiving the OAuth code and exchanging it for an access token.
 
 ### Additional changes were made to your app.config or web.config
 The following additional configuration entries have been added.
