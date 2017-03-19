@@ -1,5 +1,5 @@
 ---
-title: Error During Authentication Detection
+title: How to diagnose errors with the Azure Active Directory Connection Wizard
 description: The active directory connection wizard detected an incompatible authentication type
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 03/05/2017
 ms.author: tarcher
 
 ---
-# Error During Authentication Detection
+# Diagnosing errors with the Azure Active Directory Connection Wizard
 While detecting previous authentication code, the wizard detected an incompatible authentication type.   
 
 ## What is being checked?
@@ -91,3 +91,5 @@ To change the authentication type, remove the incompatible authentication type a
 
 For more information, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
 
+#Next steps
+- [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md)
