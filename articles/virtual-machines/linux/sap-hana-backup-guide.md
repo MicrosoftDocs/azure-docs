@@ -142,7 +142,7 @@ Assuming there is an XFS file system spanning four Azure virtual disks, the foll
 
 - HANA snapshot prepare
 - Freeze the file system (for example, use **xfs\_freeze**)
-- Create all necessary blob snapshots on Azure
+p- Create all necessary blob snapshots on Azure
 - Unfreeze the file system
 - Confirm the HANA snapshot
 
@@ -193,7 +193,7 @@ This figure shows the SAP HANA Cockpit Database Administration Screen, and the b
 
 Backups can be monitored in SAP HANA Cockpit while they are ongoing and, once it is finished, all the backup details are available.
 
-![An example using Firefox on an Azure SLES 12 VM with Gnome deskto](./media/sap-hana-backup-guide/image006.png)
+![An example using Firefox on an Azure SLES 12 VM with Gnome desktop](./media/sap-hana-backup-guide/image006.png)
 
 The previous screenshots were made from an Azure Windows VM. This one is an example using Firefox on an Azure SLES 12 VM with Gnome desktop. It shows the option to define SAP HANA backup schedules in SAP HANA Cockpit. As one can also see, it suggests date/time as a prefix for the backup files. In SAP HANA Studio, the default prefix is &quot;COMPLETE\_DATA\_BACKUP&quot; when doing a full file backup. Using a unique prefix is recommended.
 
