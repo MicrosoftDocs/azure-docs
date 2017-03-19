@@ -21,13 +21,13 @@ ms.author: tarcher
 While detecting previous authentication code, the wizard detected an incompatible authentication type.   
 
 ## What is being checked?
-**Note:** In order to correctly detect previous authentication code in a project, the project must be built.  If you encountered this error and you don't have a previous authentication code in your project, rebuild and try again.
+**Note:** To correctly detect previous authentication code in a project, the project must be built.  If you encountered this error and you don't have a previous authentication code in your project, rebuild and try again.
 
 ### Project Types
-The wizard checks which type of project you’re developing so it can inject the right authentication logic into the project.  If there is any controller that derives from `ApiController` in the project, the project will be considered a WebAPI project.  If there are only controllers that derive from `MVC.Controller` in the project, the project will be considered an MVC project.  Anything else is not supported by the wizard.  WebForms projects are not currently supported.
+The wizard checks the type of project you’re developing so it can inject the right authentication logic into the project.  If there is any controller that derives from `ApiController` in the project, the project is considered a WebAPI project.  If there are only controllers that derive from `MVC.Controller` in the project, the project is considered an MVC project.  Anything else is not supported by the wizard.
 
 ### Compatible Authentication Code
-The wizard also checks for authentication settings that have been previously configured with the wizard or are compatible with the wizard.  If all of the settings are present, it is considered a re-entrant case and the wizard will open and display the settings.  If only some of the settings are present, it is considered an error case.
+The wizard also checks for authentication settings that have been previously configured with the wizard or are compatible with the wizard.  If all settings are present, it is considered a re-entrant case, and the wizard opens display the settings.  If only some of the settings are present, it is considered an error case.
 
 In an MVC project, the wizard checks for any of the following settings, which result from previous use of the wizard:
 
