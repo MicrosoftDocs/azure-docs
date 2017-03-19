@@ -36,17 +36,18 @@ This topic shows you how to get started with creating Azure Functions that use M
 
 ## Create a function app
 
-Create a function app as described [here](../azure-functions/functions-create-first-azure-function-azure-portal.md#create-a-function-app).
+1. Go to the [Azure portal](http://portal.azure.com) and sign-in with your Azure account.
+2. Create a function app as described [here](../azure-functions/functions-create-first-azure-function-azure-portal.md#create-a-function-app).
 
 ## Configure function app settings
 
-When developing Media Services functions, it is handy to add parameters that will be used throughout your functions to the **App Settings** section. For more information, see  [How to configure Azure Function app settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
+When developing Media Services functions, it is handy to add environment variables that will be used throughout your functions. To configure app settings, click the Configure App Settings link. For more information, see  [How to configure Azure Function app settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
 
 For example:
 
 ![Settings](./media/media-services-azure-functions/media-services-azure-functions001.png)
 
-The function, defined in this article, assumes you have the following parameters in your app settings:
+The function, defined in this article, assumes you have the following environment variables in your app settings:
 
 **AMSAccount** : *AMS account name* (e.g. testams)
 
