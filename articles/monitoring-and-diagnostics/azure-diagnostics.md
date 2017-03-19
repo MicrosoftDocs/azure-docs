@@ -40,7 +40,7 @@ The Azure diagnostics extension can transfer this data to an Azure storage accou
 ## Versioning
 See [Azure Diagnostics Versioning History](azure-diagnostics-versioning-history.md).
 
-## Next Steps
+## Next steps
 Choose which service you are trying to collect diagnostics on and use the following articles to get started. Use the general Azure diagnostics links for reference for specific tasks.
 
 ## Web Apps

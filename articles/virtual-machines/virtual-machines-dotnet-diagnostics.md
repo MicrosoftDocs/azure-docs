@@ -176,8 +176,8 @@ The Diagnostics configuration file defines values that are used to initialize di
 ## Troubleshooting
 See [Troubleshooting Azure Diagnostics](azure-diagnostics-troubleshooting.md) for more information.
 
-## Next Steps
-[See a list of virtual machine related Azure Diagnostics articles](azure-diagnostics.md#Virtual-Machines-using-Azure-Diagnostics) to change the data you are collecting, troubleshoot problems or learn more about diagnostics in general.
+## Next steps
+[See a list of virtual machine related Azure Diagnostics articles](azure-diagnostics.md#virtual-machines-using-azure-diagnostics) to change the data you are collecting, troubleshoot problems or learn more about diagnostics in general.
 
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 
