@@ -479,7 +479,7 @@ This figure shows an error in the backup dialog in SAP HANA Studio, when trying 
 ![This figure shows that it took about 929 seconds to copy 19 SAP HANA backup files](./media/sap-hana-backup-guide/image039.png)
 
 This figure shows that it took about 929 seconds to copy 19 SAP HANA backup files with a total size of roughly 230 GB to the Azure file share.
-n
+
 ![The source directory structure on the SAP HANA VM was copied to the Azure file share](./media/sap-hana-backup-guide/image040.png)
 
 In this screenshot, one can see that the source directory structure on the SAP HANA VM was copied to the Azure file share: one directory (hana\_backup\_fsl\_15gb) and 19 individual backup files.
@@ -494,11 +494,11 @@ An SAP HANA installation in an Azure GS5 VM was used for the following backup/re
 
 ![This figure shows part of the Azure portal overview for the HANA test VM](./media/sap-hana-backup-guide/image007.png)
 
- This figure shows part of the Azure portal overview for the HANA test VM.
+This figure shows part of the Azure portal overview for the HANA test VM.
 
 ### Test backup size
 
- ![This figure was taken from the backup console in HANA Studio and shows the backup file size of 229 GB for the HANA index server](./media/sap-hana-backup-guide/image008.png)
+![This figure was taken from the backup console in HANA Studio and shows the backup file size of 229 GB for the HANA index server](./media/sap-hana-backup-guide/image008.png)
 
 A dummy table was filled up with data to get a total data backup size of over 200 GB to derive realistic performance data. The figure was taken from the backup console in HANA Studio and shows the backup file size of 229 GB for the HANA index server. For the tests, the default backup prefix "COMPLETE_DATA_BACKUP" in SAP HANA Studio was used. In real production systems, a more useful prefix should be defined. SAP HANA Cockpit suggests date/time.
 
@@ -526,8 +526,7 @@ The HANA Studio backup console allows one to restrict the max file size of HANA 
 
 Based on the test results the following tables will show pros and cons of solutions to back up an SAP HANA database running on Azure virtual machines.
 
-|Back up SAP HANA to the file system and copy backup files afterwards to the final backup destination|
-|----|----|----|
+**Back up SAP HANA to the file system and copy backup files afterwards to the final backup destination**
 |Solution                                           |Pros                                 |Cons                                  |
 |---------------------------------------------------|-------------------------------------|--------------------------------------|
 |Keep HANA backups on VM disks                      |No additional management efforts     |Eats up local VM disk space           |
@@ -539,8 +538,7 @@ Based on the test results the following tables will show pros and cons of soluti
 
 
 
-|Backup SAP HANA based on storage snapshots                    |
-|----|----|----|
+**Backup SAP HANA based on storage snapshots**
 |Solution                                           |Pros                                 |Cons                                  |
 |---------------------------------------------------|-------------------------------------|--------------------------------------|
 |Azure Backup Service                               | Allows VM backup based on blob snapshots | When not using file level restore it requires the creation of a new VM for the restore process which then implies the need of a new SAP HANA license key|
