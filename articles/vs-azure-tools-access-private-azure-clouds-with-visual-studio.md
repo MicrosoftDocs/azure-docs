@@ -18,10 +18,10 @@ ms.author: tarcher
 
 ---
 # Accessing private Azure clouds with Visual Studio
-By default, Visual Studio supports public Azure cloud REST endpoints. This can be a problem, though, if you're using Visual Studio with a private Azure cloud. You can use certificates to configure Visual Studio to access private Azure cloud REST endpoints. You can get these certificates through your Azure publish settings file.
+By default, Visual Studio supports public Azure cloud REST endpoints. In this topic, you learn how to use your private cloud's certificate to access - and interact with - the private cloud from Visual Studio.
 
 ## To access a private Azure cloud in Visual Studio
-1. In the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885) for the private cloud, download your publish settings file, or contact your administrator for a publish settings file. On the public version of Azure, the link to download this is [https://manage.windowsazure.com/publishsettings/](https://manage.windowsazure.com/publishsettings/). (The file you download should have a `.publishsettings` extension.)
+1. In the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885) for the private cloud, download your publish-settings file, or contact your administrator for a publish-settings file. On the public version of Azure, the link to download this is [https://manage.windowsazure.com/publishsettings/](https://manage.windowsazure.com/publishsettings/). (The downloaded file should have an extension of `.publishsettings`)
 
 1. Open Visual Studio
 
