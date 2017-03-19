@@ -83,7 +83,7 @@ Your Azure function is associated with code files and other files that are descr
 
 ### function.json
 
-The function.json file defines the function bindings and other configuration settings. The runtime uses this file to determine the events to monitor and how to pass data into and return data from function execution. For more information, see [Azure functions HTTP and webhook bindings](../azure-functions.md#functions-reference#function-code).
+The function.json file defines the function bindings and other configuration settings. The runtime uses this file to determine the events to monitor and how to pass data into and return data from function execution. For more information, see [Azure functions HTTP and webhook bindings](../azure-functions/functions-reference.md#function-code).
 
 >[!NOTE]
 >Set the **disabled** property to **true** to prevent the function from being executed. 
