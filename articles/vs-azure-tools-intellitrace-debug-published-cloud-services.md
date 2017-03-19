@@ -29,7 +29,7 @@ As an alternative, you can use [remote debugging](http://go.microsoft.com/fwlink
 > 
 
 ## Configure an Azure application for IntelliTrace
-To enable IntelliTrace for an Azure application, you must create and publish the application from a Visual Studio Azure project. You must configure IntelliTrace for your Azure application before you publish it to Azure. If you publish your application without configuring IntelliTrace, you will need to republish the project from Visual Studio. For more information, see [Publishing an Azure Cloud Service using Visual Studio](http://go.microsoft.com/fwlink/p/?LinkId=623012).
+To enable IntelliTrace for an Azure application, you must create and publish the application from a Visual Studio Azure project. You must configure IntelliTrace for your Azure application before you publish it to Azure. If you publish your application without configuring IntelliTrace, you need to republish the project. For more information, see [Publishing an Azure Cloud Service using Visual Studio](http://go.microsoft.com/fwlink/p/?LinkId=623012).
 
 1. When you are ready to deploy your Azure application, verify that your project build targets are set to **Debug**.
 
@@ -68,10 +68,10 @@ Using Visual Studio, you can download IntelliTrace logs for a role instance by f
 
 ![VST_IntelliTraceDownloadProgress](./media/vs-azure-tools-intellitrace-debug-published-cloud-services/IC745551.png)
 
-You can continue to work in Visual Studio while the IntelliTrace logs are downloading. When the log has finished downloading, it will automatically open in Visual Studio.
+You can continue to work in Visual Studio while the IntelliTrace logs are downloading. When the log has finished downloading, it opens in Visual Studio.
 
 > [!NOTE]
-> The IntelliTrace logs might contain exceptions that the framework generates and subsequently handles. Internal framework code generates these exceptions as a normal part of starting up a role, so you may safely ignore them.
+> The IntelliTrace logs might contain exceptions that the framework generates and handles afterwards. Internal framework code generates these exceptions as a normal part of starting up a role, so you may safely ignore them.
 > 
 > 
 
