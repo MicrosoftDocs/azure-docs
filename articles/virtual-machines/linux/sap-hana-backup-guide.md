@@ -44,7 +44,7 @@ ms.author: rclaus
   - Azure blobxfer utility details
   - SAP HANA backup performance
   - Copy SAP HANA backup files to Azure blob storage
-  - Blob copy of dedicated Azure data disks in a backup software RAID
+  - Blob copy of dedicated Azure data disks in backup software RAID
   - Copy SAP HANA backup files to NFS share
   - Copy SAP HANA backup files to Azure file service
 - Test setup
@@ -337,8 +337,7 @@ It provides more flexibility but does not resolve the issues explained earlier i
 
 It is possible to restore only the data disks of an Azure VM, avoiding the problem of getting a new unique VM ID and, therefore, invalidated the SAP license:
 
-
-- For the test, two Azure data disks were attached to a VM and a software RAID was defined on top of them 
+- For the test, two Azure data disks were attached to a VM and software RAID was defined on top of them 
 - It was confirmed that SAP HANA was in a consistent state by SAP HANA snapshot feature
 - File system freeze (see _SAP HANA data consistency when taking storage snapshots_ earlier in this document)
 - Blob snapshots were taken from both data disks
@@ -347,7 +346,7 @@ It is possible to restore only the data disks of an Azure VM, avoiding the probl
 - To restore the data disks, the VM was shut down and both disks detached
 - After detaching the disks, they were overwritten with the former blob snapshots
 - Then the restored virtual disks were attached again to the VM
-- After starting the VM, everything on the software raid worked fine and was set back to the blob snapshot time
+- After starting the VM, everything on the software RAID worked fine and was set back to the blob snapshot time
 - HANA was set back to the HANA snapshot
 
 
@@ -393,7 +392,7 @@ This screenshot is of the SAP HANA backup console in SAP HANA Studio. It took ab
 
 ![This screenshot is of YaST on the SAP HANA test VM](./media/sap-hana-backup-guide/image024.png)
 
-This screenshot is of YaST on the SAP HANA test VM. One can see the 1-TB single disk for SAP HANA backup as mentioned before. It took about 42 minutes to backup 230 GB. In addition, five 200-GB disks were attached and a software raid md0 created, with striping on top of these five Azure data disks.
+This screenshot is of YaST on the SAP HANA test VM. One can see the 1-TB single disk for SAP HANA backup as mentioned before. It took about 42 minutes to backup 230 GB. In addition, five 200-GB disks were attached and software RAID md0 created, with striping on top of these five Azure data disks.
 
 ![Repeating the same backup on software RAID with striping across five attached Azure standard storage data disks](./media/sap-hana-backup-guide/image025.png)
 
@@ -429,9 +428,9 @@ To test parallelism of the blobxfer tool, the max file size for HANA backups was
 
 This result is due to the limit of 60 MB/sec for writing an Azure blob. Parallelism via multiple blobs solves the bottleneck, but there is a downside: increasing performance of the blobxfer tool to copy all these HANA backup files to Azure blob storage puts load on both the HANA VM and the network. Operation of HANA system becomes impacted.
 
-### Blob copy of dedicated Azure data disks in a backup software RAID
+### Blob copy of dedicated Azure data disks in backup software RAID
 
-Unlike the manual VM data disk backup, in this approach one does not backup all of the data disks on a VM in order to save the whole SAP installation, including HANA data, HANA log files, and config files. Instead, the idea is to have dedicated software RAID with striping across multiple Azure data VHDs for storing a full SAP HANA file backup. One copies only these disks, which have the SAP HANA backup. They could easily be kept in a dedicated HANA backup storage account, or attached to a dedicated &quot;backup management VM&quot; for further processing.
+Unlike the manual VM data disk backup, in this approach one does not back up all of the data disks on a VM in order to save the whole SAP installation, including HANA data, HANA log files, and config files. Instead, the idea is to have dedicated software RAID with striping across multiple Azure data VHDs for storing a full SAP HANA file backup. One copies only these disks, which have the SAP HANA backup. They could easily be kept in a dedicated HANA backup storage account, or attached to a dedicated &quot;backup management VM&quot; for further processing.
 
 ![All VHDs involved were copied using the **start-azurestorageblobcopy** PowerShell command](./media/sap-hana-backup-guide/image031.png)
 
@@ -439,7 +438,7 @@ After the backup to the local software RAID was completed, all VHDs involved wer
 
 ![This screenshot shows the list of blobs in the vhds container on the Azure portal](./media/sap-hana-backup-guide/image032.png)
 
-This screenshot shows the list of blobs in the &quot;vhds&quot; container on the Azure portal. The screenshot shows the five VHDs, which were attached to the SAP HANA server VM to serve as the software raid to keep SAP HANA backup files. It also shows the five copies, which were taken via the blob copy command.
+This screenshot shows the list of blobs in the &quot;vhds&quot; container on the Azure portal. The screenshot shows the five VHDs, which were attached to the SAP HANA server VM to serve as the software RAID to keep SAP HANA backup files. It also shows the five copies, which were taken via the blob copy command.
 
 ![For testing purposes, the copies of the SAP HANA backup software RAID disks were attached to the app server VM](./media/sap-hana-backup-guide/image033.png)
 
@@ -447,7 +446,7 @@ For testing purposes, the copies of the SAP HANA backup software RAID disks were
 
 ![The app server VM was shut down to attach the disk copies](./media/sap-hana-backup-guide/image034.png)
 
-The app server VM was shut down to attach the disk copies. After starting the VM, the disks and the raid were discovered correctly (mounted via UUID). Only the mount point was missing, which was created via the YaST partitioner. Afterwards the SAP HANA backup file copies became visible on OS level.
+The app server VM was shut down to attach the disk copies. After starting the VM, the disks and the RAID were discovered correctly (mounted via UUID). Only the mount point was missing, which was created via the YaST partitioner. Afterwards the SAP HANA backup file copies became visible on OS level.
 
 ### Copy SAP HANA backup files to NFS share
 
@@ -491,7 +490,7 @@ Storing SAP HANA backup files on Azure files could be an interesting option in t
 
 ### Test Virtual Machine on Azure
 
-A SAP HANA installation in an Azure GS5 VM was used for the following backup/restore tests.
+An SAP HANA installation in an Azure GS5 VM was used for the following backup/restore tests.
 
 ![This figure shows part of the Azure portal overview for the HANA test VM](./media/sap-hana-backup-guide/image007.png)
 
@@ -501,7 +500,7 @@ A SAP HANA installation in an Azure GS5 VM was used for the following backup/res
 
  ![This figure was taken from the backup console in HANA Studio and shows the backup file size of 229 GB for the HANA index server](./media/sap-hana-backup-guide/image008.png)
 
-A dummy table was filled up with data to get a total data backup size of over 200 GB in order to derive realistic performance data. The figure was taken from the backup console in HANA Studio and shows the backup file size of 229 GB for the HANA index server. For the tests, the default backup prefix &quot;COMPLETE\_DATA\_BACKUP&quot; in SAP HANA Studio was used. In real production systems, a more useful prefix should be defined. SAP HANA Cockpit suggests date/time.
+A dummy table was filled up with data to get a total data backup size of over 200 GB to derive realistic performance data. The figure was taken from the backup console in HANA Studio and shows the backup file size of 229 GB for the HANA index server. For the tests, the default backup prefix "COMPLETE_DATA_BACKUP" in SAP HANA Studio was used. In real production systems, a more useful prefix should be defined. SAP HANA Cockpit suggests date/time.
 
 ### Test tool to copy files directly to Azure storage
 
@@ -509,10 +508,9 @@ To transfer SAP HANA backup files directly to Azure blob storage, or Azure file 
 
 ### Test backup size estimation
 
-It can be important to estimate the backup size of SAP HANA. For example, this helps to define the max backup file size in order to achieve a certain number of backup files for better performance due to parallelism during a file copy. (Those details are explained later in this document.) Another aspect is the decision as to whether a full backup would be preferable compared to a delta backup
-(incremental or differential).
+It is important to estimate the backup size of SAP HANA. This estimate helps to improve performance by defining the max backup file size for a number of backup files, due to parallelism during a file copy. (Those details are explained later in this document.) One must also decide whether to do a full backup or a delta backup (incremental or differential).
 
-Fortunately, there is a simple SQL statement which returns how large the backup files will become: **select \* from M\_BACKUP\_SIZE\_ESTIMATIONS** (see [Estimate the Space Needed in the File System for a Data Backup](https://help.sap.com/saphelp_hanaplatform/helpdata/en/7d/46337b7a9c4c708d965b65bc0f343c/content.htm)).
+Fortunately, there is a simple SQL statement that estimates the size of the backup files: **select \* from M\_BACKUP\_SIZE\_ESTIMATIONS** (see [Estimate the Space Needed in the File System for a Data Backup](https://help.sap.com/saphelp_hanaplatform/helpdata/en/7d/46337b7a9c4c708d965b65bc0f343c/content.htm)).
 
 ![The output of this SQL statement matches almost exactly the real size of the full data backup on disk](./media/sap-hana-backup-guide/image009.png)
 
@@ -522,7 +520,7 @@ For the test system, the output of this SQL statement matches almost exactly the
 
 ![The HANA Studio backup console allows one to restrict the max file size of HANA backup files](./media/sap-hana-backup-guide/image010.png)
 
-The HANA Studio backup console allows one to restrict the max file size of HANA backup files. In the sample environment this gives the possibility of finally getting multiple smaller backup files instead of one large 230 GB backup file. This has a significant impact on performance, as is demonstrated before in this document.
+The HANA Studio backup console allows one to restrict the max file size of HANA backup files. In the sample environment, that feature makes it possible to get multiple smaller backup files instead of one 230-GB backup file. Smaller file size has a significant impact on performance (see SAP HANA Azure Backup on file level earlier in this document).
 
 
 ## Summary
@@ -539,7 +537,7 @@ Based on the test results the following tables will show pros and cons of soluti
 |Blobxfer tool to copy backup files to blob storage |parallelism to copy multiple files, choice to use cool blob storage | additional tool maintenance and custom scripting | 
 |Blob copy via Powershell or CLI                    |no additional tool necessary, can be accomplished via Azure Powershell or CLI |manual process, customer has to take care of scripting and management of copied blobs for restore|
 |Copy to NFS share                                  |post-processing of backup files on other VM without impact on the HANA server|slow copy process|
-|Blobxfer copy to Azure File Service                |doesn't eat up space on local VM disks|no direct write support by HANA backup, size restriction of file share currently at 5TB|
+|Blobxfer copy to Azure File Service                |doesn't eat up space on local VM disks|no direct write support by HANA backup, size restriction of file share currently at 5 TB|
 |Azure Backup Agent                                 | would be preferred solution         | currently not available on Linux    |
 
 
