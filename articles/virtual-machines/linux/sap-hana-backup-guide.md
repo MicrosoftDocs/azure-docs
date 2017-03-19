@@ -273,9 +273,9 @@ So one could confirm the SAP HANA snapshot once the Azure Backup service phase o
 
 This figure shows part of the backup job list of an Azure Backup service, which was used to back up the HANA test VM.
 
-![Click on the backup job in the Azure portal to show the job details](./media/sap-hana-backup-guide/image015.png)
+![To show the job details, click the backup job in the Azure portal](./media/sap-hana-backup-guide/image015.png)
 
-Click on the backup job in the Azure portal to show the job details. Here, one can see the two phases. It might take a few minutes until it shows the snapshot phase as completed. Most of the time is spent in the data transfer phase.
+To show the job details, click the backup job in the Azure portal. Here, one can see the two phases. It might take a few minutes until it shows the snapshot phase as completed. Most of the time is spent in the data transfer phase.
 
 ### HANA VM backup automation via Azure Backup service
 
@@ -430,7 +430,7 @@ This result is due to the limit of 60 MB/sec for writing an Azure blob. Parallel
 
 ### Blob copy of dedicated Azure data disks in backup software RAID
 
-Unlike the manual VM data disk backup, in this approach one does not back up all of the data disks on a VM in order to save the whole SAP installation, including HANA data, HANA log files, and config files. Instead, the idea is to have dedicated software RAID with striping across multiple Azure data VHDs for storing a full SAP HANA file backup. One copies only these disks, which have the SAP HANA backup. They could easily be kept in a dedicated HANA backup storage account, or attached to a dedicated &quot;backup management VM&quot; for further processing.
+Unlike the manual VM data disk backup, in this approach one does not back up all the data disks on a VM to save the whole SAP installation, including HANA data, HANA log files, and config files. Instead, the idea is to have dedicated software RAID with striping across multiple Azure data VHDs for storing a full SAP HANA file backup. One copies only these disks, which have the SAP HANA backup. They could easily be kept in a dedicated HANA backup storage account, or attached to a dedicated &quot;backup management VM&quot; for further processing.
 
 ![All VHDs involved were copied using the **start-azurestorageblobcopy** PowerShell command](./media/sap-hana-backup-guide/image031.png)
 
@@ -525,7 +525,7 @@ The HANA Studio backup console allows one to restrict the max file size of HANA 
 
 ## Summary
 
-Based on the test results the following tables will show pros and cons of solutions to back up an SAP HANA database running on Azure virtual machines.
+Based on the test results the following tables show pros and cons of solutions to back up an SAP HANA database running on Azure virtual machines.
 
 **Back up SAP HANA to the file system and copy backup files afterwards to the final backup destination**
 
@@ -544,5 +544,5 @@ Based on the test results the following tables will show pros and cons of soluti
 
 |Solution                                           |Pros                                 |Cons                                  |
 |---------------------------------------------------|-------------------------------------|--------------------------------------|
-|Azure Backup Service                               | Allows VM backup based on blob snapshots | When not using file level restore it requires the creation of a new VM for the restore process which then implies the need of a new SAP HANA license key|
-|Manual blob snapshots                              | Flexibility to create and restore specific VM disks without changing the unique VM ID|All manual work which has to be done by the customer|
+|Azure Backup Service                               | Allows VM backup based on blob snapshots | When not using file level restore, it requires the creation of a new VM for the restore process, which then implies the need of a new SAP HANA license key|
+|Manual blob snapshots                              | Flexibility to create and restore specific VM disks without changing the unique VM ID|All manual work, which has to be done by the customer|
