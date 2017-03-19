@@ -522,14 +522,12 @@ For the test system, the output of this SQL statement matches almost exactly the
 
 The HANA Studio backup console allows one to restrict the max file size of HANA backup files. In the sample environment, that feature makes it possible to get multiple smaller backup files instead of one 230-GB backup file. Smaller file size has a significant impact on performance (see SAP HANA Azure Backup on file level earlier in this document).
 
-
 ## Summary
 
 Based on the test results the following tables will show pros and cons of solutions to back up an SAP HANA database running on Azure virtual machines.
 
-
 |Back up SAP HANA to the file system and copy backup files afterwards to the final backup destination|
-|---------------------------------------------------------------------------------------------------|
+|----|----|----|
 |Solution                                           |Pros                                 |Cons                                  |
 |---------------------------------------------------|-------------------------------------|--------------------------------------|
 |Keep HANA backups on VM disks                      |No additional management efforts     |Eats up local VM disk space           |
@@ -542,7 +540,7 @@ Based on the test results the following tables will show pros and cons of soluti
 
 
 |Backup SAP HANA based on storage snapshots                    |
-|--------------------------------------------------------------|
+|----|----|----|
 |Solution                                           |Pros                                 |Cons                                  |
 |---------------------------------------------------|-------------------------------------|--------------------------------------|
 |Azure Backup Service                               | Allows VM backup based on blob snapshots | When not using file level restore it requires the creation of a new VM for the restore process which then implies the need of a new SAP HANA license key|
