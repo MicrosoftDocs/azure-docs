@@ -32,7 +32,7 @@ This topic shows you how to get started with creating Azure Functions that use M
 - If you are going to create Azure Functions that perform actions on your Azure Media Services (AMS) account or listen to events sent by Media Services, you should create an AMS account, as described [here](media-services-portal-create-account.md).
 - Understanding of [how to use Azure functions](../azure-functions/functions-overview.md). Also, review:
 	- [Azure functions HTTP and webhook bindings](../azure-functions/functions-triggers-bindings.md)
-	- [How to configure Azure Function app settings](../azure-functions/functions-how-to-use-azure-function-app-settings)
+	- [How to configure Azure Function app settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md)
 
 ## Create a function app
 
@@ -40,7 +40,7 @@ Create a function app as described [here](../azure-functions/functions-create-fi
 
 ## Configure function app settings
 
-When developing Media Services functions, it is handy to add parameters that will be used throughout your functions to the **App Settings** section. For more information, see  [How to configure Azure Function app settings](../azure-functions/functions-how-to-use-azure-function-app-settings). 
+When developing Media Services functions, it is handy to add parameters that will be used throughout your functions to the **App Settings** section. For more information, see  [How to configure Azure Function app settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
 
 For example:
 
@@ -83,7 +83,11 @@ Your Azure function is associated with code files and other files that are descr
 
 ### function.json
 
-The function.json file defines the function bindings and other configuration settings. The runtime uses this file to determine the events to monitor and how to pass data into and return data from function execution. For more information, see [Azure functions HTTP and webhook bindings](../azure-functions/functions-triggers-bindings.md).
+The function.json file defines the function bindings and other configuration settings. The runtime uses this file to determine the events to monitor and how to pass data into and return data from function execution. For more information, see [Azure functions HTTP and webhook bindings](../azure-functions.md#functions-reference#function-code).
+
+>[!NOTE]
+>Set the **disabled** property to **true** to prevent the function from being executed. 
+
 
 Here is an example of **function.json** file.
 
