@@ -33,7 +33,10 @@ A common traffic routing method pattern is to provide a set of identical endpoin
         1. Select the appropriate **Protocol**, and specify the **Port** number. 
         2. For **Path** type a forward slash */*. To monitor endpoints, you must specify a path and filename. A forward slash "/" is a valid entry for the relative path and implies that the file is in the root directory (default).
         3. At the top of the page, click **Save** .
-5. Test the changes in your configuration.
+5. Test the changes in your configuration as follows:
+    1.	In the portal’s search bar, search for the Traffic Manager profile name and click the Traffic Manager profile in the results that the displayed.
+    2.	In the **Traffic Manager** profile blade, click **Overview**.
+    3.	The **Traffic Manager profile** blade displays the DNS name of your newly created Traffic Manager profile. This can be used by any clients (e.g. by navigating to it using a web browser) to get routed to the right endpoint as determined by the routing type – in this case all requests are routed each endpoint in a round-robin fashion.
 6. Once your Traffic Manager profile is working, edit the DNS record on your authoritative DNS server to point your company domain name to the Traffic Manager domain name.
 
 ![Configuring weighted traffic routing method using Traffic Manager][1]
