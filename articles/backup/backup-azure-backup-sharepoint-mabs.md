@@ -3,7 +3,7 @@ title: Azure Backup server protection of a SharePoint farm to Azure | Microsoft 
 description: This article provides an overview of protection of a SharePoint farm to Azure using Azure Backup server
 services: backup
 documentationcenter: ''
-author: pullabhk
+author: pvrk
 manager: shivamg
 editor: ''
 
