@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 03/20/2017
 ms.author: juliako
 
 ---
@@ -136,7 +136,7 @@ Once you are done defining your function click **Save and Run**.
 	#r "Microsoft.WindowsAzure.Storage"
 	#r "Newtonsoft.Json"
 	#r "System.Web"
-	
+
 	using System;
 	using Microsoft.WindowsAzure.MediaServices.Client;
 	using System.Collections.Generic;
@@ -149,115 +149,115 @@ Once you are done defining your function click **Save and Run**.
 	using Microsoft.WindowsAzure.Storage;
 	using Microsoft.WindowsAzure.Storage.Blob;
 	using Microsoft.WindowsAzure.Storage.Auth;
-	
+
 	private static readonly string _mediaServicesAccountName = Environment.GetEnvironmentVariable("AMSAccount");
 	private static readonly string _mediaServicesAccountKey = Environment.GetEnvironmentVariable("AMSKey");
-	
+
 	static string _storageAccountName = Environment.GetEnvironmentVariable("MediaServicesStorageAccountName");
 	static string _storageAccountKey = Environment.GetEnvironmentVariable("MediaServicesStorageAccountKey");
-	
+
 	private static CloudStorageAccount _destinationStorageAccount = null;
-	
+
 	// Field for service context.
 	private static CloudMediaContext _context = null;
 	private static MediaServicesCredentials _cachedCredentials = null;
-	
-	public static void Run(CloudBlockBlob myBlob, string fileName, string fileExtension, TraceWriter log)
+
+	public static void Run(CloudBlockBlob myBlob, string fileName, TraceWriter log)
 	{
-	    // NOTE that the variables {fileName} and {fileExtension} here come from the path setting in function.json
+	    // NOTE that the variables {fileName} here come from the path setting in function.json
 	    // and are passed into the  Run method signature above. We can use this to make decisions on what type of file
 	    // was dropped into the input container for the function. 
-	
+
 	    // No need to do any Retry strategy in this function, By default, the SDK calls a function up to 5 times for a 
 	    // given blob. If the fifth try fails, the SDK adds a message to a queue named webjobs-blobtrigger-poison.
-	
-	    log.Info($"C# Blob trigger function processed: {fileName}.{fileExtension}");
+
+	    log.Info($"C# Blob trigger function processed: {fileName}.mp4");
 	    log.Info($"Using Azure Media Services account : {_mediaServicesAccountName}");
-	
-	
+
+
 	    try
 	    {
-	        // Create and cache the Media Services credentials in a static class variable.
-	        _cachedCredentials = new MediaServicesCredentials(
-	                        _mediaServicesAccountName,
-	                        _mediaServicesAccountKey);
-	
-	        // Used the chached credentials to create CloudMediaContext.
-	        _context = new CloudMediaContext(_cachedCredentials);
-	
-	        // Step 1:  Copy the Blob into a new Input Asset for the Job
-	        // ***NOTE: Ideally we would have a method to ingest a Blob directly here somehow. 
-	        // using code from this sample - https://azure.microsoft.com/en-us/documentation/articles/media-services-copying-existing-blob/
-	        
-	        StorageCredentials mediaServicesStorageCredentials =
-	            new StorageCredentials(_storageAccountName, _storageAccountKey);
-	
-	        IAsset newAsset = CreateAssetFromBlob(myBlob, fileName, log).GetAwaiter().GetResult();
-	        
-	        // Step 2: Create an Encoding Job
-	
-	        // Declare a new encoding job with the Standard encoder
-	        IJob job = _context.Jobs.Create("Azure Function - MES Job");
-	
-	        // Get a media processor reference, and pass to it the name of the 
-	        // processor to use for the specific task.
-	        IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
-	        
-	        // Create a task with the encoding details, using a custom preset
-	        ITask task = job.Tasks.AddNew("Encode with Adaptive Streaming",
-	            processor,
-	            "Adaptive Streaming",
-	            TaskOptions.None); 
-	
-	        // Specify the input asset to be encoded.
-	        task.InputAssets.Add(newAsset);
-	
-	        // Add an output asset to contain the results of the job. 
-	        // This output is specified as AssetCreationOptions.None, which 
-	        // means the output asset is not encrypted. 
-	        task.OutputAssets.AddNew(fileName, AssetCreationOptions.None);
-	        
-	        job.Submit();
-	        log.Info("Job Submitted");
-	
+		// Create and cache the Media Services credentials in a static class variable.
+		_cachedCredentials = new MediaServicesCredentials(
+				_mediaServicesAccountName,
+				_mediaServicesAccountKey);
+
+		// Used the chached credentials to create CloudMediaContext.
+		_context = new CloudMediaContext(_cachedCredentials);
+
+		// Step 1:  Copy the Blob into a new Input Asset for the Job
+		// ***NOTE: Ideally we would have a method to ingest a Blob directly here somehow. 
+		// using code from this sample - https://azure.microsoft.com/en-us/documentation/articles/media-services-copying-existing-blob/
+
+		StorageCredentials mediaServicesStorageCredentials =
+		    new StorageCredentials(_storageAccountName, _storageAccountKey);
+
+		IAsset newAsset = CreateAssetFromBlob(myBlob, fileName, log).GetAwaiter().GetResult();
+
+		// Step 2: Create an Encoding Job
+
+		// Declare a new encoding job with the Standard encoder
+		IJob job = _context.Jobs.Create("Azure Function - MES Job");
+
+		// Get a media processor reference, and pass to it the name of the 
+		// processor to use for the specific task.
+		IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+
+		// Create a task with the encoding details, using a custom preset
+		ITask task = job.Tasks.AddNew("Encode with Adaptive Streaming",
+		    processor,
+		    "Adaptive Streaming",
+		    TaskOptions.None); 
+
+		// Specify the input asset to be encoded.
+		task.InputAssets.Add(newAsset);
+
+		// Add an output asset to contain the results of the job. 
+		// This output is specified as AssetCreationOptions.None, which 
+		// means the output asset is not encrypted. 
+		task.OutputAssets.AddNew(fileName, AssetCreationOptions.None);
+
+		job.Submit();
+		log.Info("Job Submitted");
+
 	    }
 	    catch (Exception ex)
 	    {
-	        log.Error("ERROR: failed.");
-	        log.Info($"StackTrace : {ex.StackTrace}");
-	        throw ex;
+		log.Error("ERROR: failed.");
+		log.Info($"StackTrace : {ex.StackTrace}");
+		throw ex;
 	    }
 	}
-	
+
 	private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
 	{
 	    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
 	    ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-	
+
 	    if (processor == null)
-	        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-	
+		throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+
 	    return processor;
 	}
-	
-	
+
+
 	public static async Task<IAsset> CreateAssetFromBlob(CloudBlockBlob blob, string assetName, TraceWriter log){
-	        IAsset newAsset = null;
-	
-	        try{
-	            Task<IAsset> copyAssetTask = CreateAssetFromBlobAsync(blob, assetName, log);
-	            newAsset = await copyAssetTask;
-	            log.Info($"Asset Copied : {newAsset.Id}");
-	        }
-	        catch(Exception ex){
-	            log.Info("Copy Failed");
-	            log.Info($"ERROR : {ex.Message}");
-	            throw ex;
-	        }
-	
-	        return newAsset;
+		IAsset newAsset = null;
+
+		try{
+		    Task<IAsset> copyAssetTask = CreateAssetFromBlobAsync(blob, assetName, log);
+		    newAsset = await copyAssetTask;
+		    log.Info($"Asset Copied : {newAsset.Id}");
+		}
+		catch(Exception ex){
+		    log.Info("Copy Failed");
+		    log.Info($"ERROR : {ex.Message}");
+		    throw ex;
+		}
+
+		return newAsset;
 	}
-	
+
 	/// <summary>
 	/// Creates a new asset and copies blobs from the specifed storage account.
 	/// </summary>
@@ -267,65 +267,64 @@ Once you are done defining your function click **Save and Run**.
 	{
 	     //Get a reference to the storage account that is associated with the Media Services account. 
 	    StorageCredentials mediaServicesStorageCredentials =
-	        new StorageCredentials(_storageAccountName, _storageAccountKey);
+		new StorageCredentials(_storageAccountName, _storageAccountKey);
 	    _destinationStorageAccount = new CloudStorageAccount(mediaServicesStorageCredentials, false);
-	
+
 	    // Create a new asset. 
 	    var asset = _context.Assets.Create(blob.Name, AssetCreationOptions.None);
 	    log.Info($"Created new asset {asset.Name}");
-	
+
 	    IAccessPolicy writePolicy = _context.AccessPolicies.Create("writePolicy",
-	        TimeSpan.FromHours(4), AccessPermissions.Write);
+		TimeSpan.FromHours(4), AccessPermissions.Write);
 	    ILocator destinationLocator = _context.Locators.CreateLocator(LocatorType.Sas, asset, writePolicy);
 	    CloudBlobClient destBlobStorage = _destinationStorageAccount.CreateCloudBlobClient();
-	
+
 	    // Get the destination asset container reference
 	    string destinationContainerName = (new Uri(destinationLocator.Path)).Segments[1];
 	    CloudBlobContainer assetContainer = destBlobStorage.GetContainerReference(destinationContainerName);
-	
+
 	    try{
-	        assetContainer.CreateIfNotExists();
+		assetContainer.CreateIfNotExists();
 	    }
 	    catch (Exception ex)
 	    {
-	        log.Error ("ERROR:" + ex.Message);
+		log.Error ("ERROR:" + ex.Message);
 	    }
-	
+
 	    log.Info("Created asset.");
-	
+
 	    // Get hold of the destination blob
 	    CloudBlockBlob destinationBlob = assetContainer.GetBlockBlobReference(blob.Name);
-	
+
 	    // Copy Blob
 	    try
 	    {
-	        using (var stream = await blob.OpenReadAsync()) 
-	        {            
-	            await destinationBlob.UploadFromStreamAsync(stream);          
-	        }
-	
-	        log.Info("Copy Complete.");
-	
-	        var assetFile = asset.AssetFiles.Create(blob.Name);
-	        assetFile.ContentFileSize = blob.Properties.Length;
-	        assetFile.IsPrimary = true;
-	        assetFile.Update();
-	        asset.Update();
+		using (var stream = await blob.OpenReadAsync()) 
+		{            
+		    await destinationBlob.UploadFromStreamAsync(stream);          
+		}
+
+		log.Info("Copy Complete.");
+
+		var assetFile = asset.AssetFiles.Create(blob.Name);
+		assetFile.ContentFileSize = blob.Properties.Length;
+		assetFile.IsPrimary = true;
+		assetFile.Update();
+		asset.Update();
 	    }
 	    catch (Exception ex)
 	    {
-	        log.Error(ex.Message);
-	        log.Info (ex.StackTrace);
-	        log.Info ("Copy Failed.");
-	        throw;
+		log.Error(ex.Message);
+		log.Info (ex.StackTrace);
+		log.Info ("Copy Failed.");
+		throw;
 	    }
-	
+
 	    destinationLocator.Delete();
 	    writePolicy.Delete();
-	
+
 	    return asset;
 	}
-
 ##Test your function
 
 To test your function, you need to upload an MP4 file into the **input** container of the storage account that you specified in the connection string.  
