@@ -98,7 +98,7 @@ Here is an example of **function.json** file.
 	    "name": "myBlob",
 	    "type": "blobTrigger",
 	    "direction": "in",
-	    "path": "input/{fileName}.{fileExtension}",
+	    "path": "input/{fileName}.mp4",
 	    "connection": "StorageConnection"
 	  }
 	],
@@ -323,6 +323,9 @@ Once you are done defining your function click **Save and Run**.
 	    return asset;
 	}
 
+##Test your function
+
+To test your function, you need to upload an MP4 file into the **input** container of the storage account that you specified in the connection string.  
 
 ## Next step
 
