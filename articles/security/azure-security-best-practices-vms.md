@@ -69,10 +69,6 @@ When VMs are exposed to the Internet, it is important that you [control network 
 
 You can also use the just-in-time (JIT) VM-access feature from Azure Security Center to control who has remote access to a specific VM, and for how long.
 
-<!--- For more information about JIT VM-access capability, watch the following video:
-
-<iframe src="https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-Just-in-Time-VM-Access/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe> -->
-
 Organizations that don't enforce network-access restrictions to Internet-facing VMs are exposed to security risks, such as a Remote Desktop Protocol (RDP) Brute Force attack.
 
 ## Protect data at rest in your VMs by enforcing encryption
