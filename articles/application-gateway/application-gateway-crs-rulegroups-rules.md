@@ -19,7 +19,7 @@ ms.author: gwallace
 
 ---
 
-# Application Gateway Web Application Firewall CRS Rulegroups and Rules
+# List of web application firewall CRS rule groups and rules offered
 
 Application Gateway web application firewall (WAF) protects web applications from common vulnerabilities and exploits. This is done through rules that are defined based on the OWASP core rule sets 2.2.9 or 3.0. These rules can be disabled on a rule by rule basis. This article contains the current rules and rulesets offered.
 

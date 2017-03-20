@@ -48,12 +48,6 @@ The following are the core benefits that Application Gateway and web application
 
 ## Features
 
-* Web application firewall is offered as part of a new WAF SKU under Application Gateway. When you choose WAF SKU you get all the features available under Appliction Gateway in addition to the web appliction firewall capability. 
-
-* Web application firewall utilizies OWASP core rule set 3.0 or 2.2.9, which offer protection against many of the OWASP common web vulnerabilities.
-
-### Protection
-
 Web application firewall comes preconfigured with CRS 3.0 by default or you can choose to use 2.2.9. CRS 3.0 offers better performance and reduced false positives over 2.2.9. The ability to [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md) is provided. Some of the common web vulnerabilities which web application firewall protects against includes:
 
 * SQL injection protection
@@ -66,11 +60,11 @@ Web application firewall comes preconfigured with CRS 3.0 by default or you can 
 
 For a more detailed list of rules and their protections see the following [Core rule sets](#core-rule-sets).
 
-#### Core rule sets
+### Core rule sets
 
 Application Gateway supports two rule sets, CRS 3.0, and CRS 2.2.9. These core rules sets are collections of rules that protect your web applications for malicious activity.
 
-##### OWASP_3.0
+#### OWASP_3.0
 
 The 3.0 core rule set provided has 13 rule groups as shown in the following table. Each of these rule groups contains multiple rules, which can be disabled.
 
@@ -90,7 +84,7 @@ The 3.0 core rule set provided has 13 rule groups as shown in the following tabl
 |**[REQUEST-942-APPLICATION-ATTACK-SQLI](application-gateway-crs-rulegroups-rules.md#crs942)**|Contains rules for protecting against SQL injection attacks.|
 |**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](application-gateway-crs-rulegroups-rules.md#crs943)**|Contains rules to protect against Session Fixation Attacks.|
 
-##### OWASP_2.2.9
+#### OWASP_2.2.9
 
 The 2.2.9 core rule set provided has 10 rule groups as shown in the following table. Each of these rule groups contains multiple rules, which can be disabled.
 
@@ -107,30 +101,30 @@ The 2.2.9 core rule set provided has 10 rule groups as shown in the following ta
 |**[crs_42_tight_security](application-gateway-crs-rulegroups-rules.md#crs42)**|Contains a rule to protect against path traversal attacks|
 |**[crs_45_trojans](application-gateway-crs-rulegroups-rules.md#crs45)**|Contains rules to protect against backdoor Trojans.|
 
-#### WAF Modes
+### WAF Modes
 
 Application Gateway WAF can be configured to run in the following two modes:
 
 * **Detection mode** – When configured to run in detection mode, Application Gateway WAF monitors and logs all threat alerts in to a log file. Logging diagnostics for Application Gateway should be turned on using the **Diagnostics** section. You also need to ensure that the WAF log is selected and turned on. When running in detection mode web application firewall does not block incoming requests.
 * **Prevention mode** – When configured to run in prevention mode, Application Gateway actively blocks intrusions and attacks detected by its rules. The attacker receives a 403 unauthorized access exception and the connection is terminated. Prevention mode continues to log such attacks in the WAF logs.
 
-#### <a name="application-gateway-waf-reports"></a>WAF Monitoring
+### <a name="application-gateway-waf-reports"></a>WAF Monitoring
 
 Monitoring the health of your application gateway is important. Monitoring the health of your web application firewall and the applications that it protects are provided through logging and integration with Azure Monitor, Azure Security Center, and Log Analaytics.
 
 ![diagnostics](./media/application-gateway-webapplicationfirewall-overview/diagnostics.png)
 
-##### Azure Monitor
+#### Azure Monitor
 
 Each application gateway log is integrated with [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).  This allows you to track diagnostic information including WAF alerts and logs.  This capability is provided within the Application Gateway resource in the portal under the **Diagnostics** tab or through the Azure Monitor service directly. To learn more about enabling diagnostic logs for application gateway visit [Application Gateway diagnostics](application-gateway-diagnostics.md)
 
-##### Azure Security Center
+#### Azure Security Center
 
 [Azure Security Center](../security-center/security-center-intro.md) provides insights into your Azure services and gives guidance on the best ways to protect your resources. Application gateway integrates into Azure Security Center. One capability this integration provides the ability to show web applications that are behind an application gateway that are not protected by web application firewall. Another capability is the ability to send alerts and the health of the application gateway to Security Center. These alerts are shown in security center and action can be taken to resolve the alerts.
 
 ![figure 1](./media/application-gateway-webapplicationfirewall-overview/figure1.png)
 
-##### Logging
+#### Logging
 
 Application Gateway WAF provides detailed reporting on each threat it detects. Logging is integrated with Azure Diagnostics logs and alerts are recorded in a json format. These logs can be integrated with [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md).
 
