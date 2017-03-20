@@ -18,7 +18,7 @@ ms.author: tarcher
 
 ---
 # Configure Azure Cloud Service roles with Visual Studio
-An Azure cloud service can have one or more worker or web roles. For each role you need to define how that role is set up and also configure how that role runs. To learn more about roles in cloud services, see the video [Introduction to Azure Cloud Services](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services). 
+An Azure cloud service can have one or more worker or web roles. For each role, you need to define how that role is set up and also configure how that role runs. To learn more about roles in cloud services, see the video [Introduction to Azure Cloud Services](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services). 
 
 The information for your cloud service is stored in the following files:
 
@@ -27,13 +27,13 @@ The information for your cloud service is stored in the following files:
 
 To store different values for the settings that control how a role runs, you can define multiple service configurations. You can use a different service configuration for each deployment environment. For example, you can set your storage account connection string to use the local Azure storage emulator in a local service configuration and create another service configuration to use Azure storage in the cloud.
 
-When you create a new Azure cloud service in Visual Studio, two service configurations are automatically created and added to your Azure project:
+When you create an Azure Cloud Service in Visual Studio, two service configurations are automatically created and added to your Azure project:
 
 - `ServiceConfiguration.Cloud.cscfg`
 - `ServiceConfiguration.Local.cscfg`
 
 ## Configure an Azure cloud service
-You can configure an Azure cloud service from Solution Explorer in Visual Studio, as shown in the following illustration.
+You can configure an Azure cloud service from Solution Explorer in Visual Studio, as shown in the following steps:
 
 1. Open an Azure cloud service project in Visual Studio.
 
@@ -45,7 +45,7 @@ You can configure an Azure cloud service from Solution Explorer in Visual Studio
 
 	![Project properties page - development tab](./media/vs-azure-tools-configure-roles-for-cloud-service/project-properties-development-tab.png)
 
-1. In the **Service Configuration** list, select the name of the service configuration that you want to edit. (If you want to make changes to all of the service configurations for this role, select **All Configurations**.)
+1. In the **Service Configuration** list, select the name of the service configuration that you want to edit. (If you want to make changes to all the service configurations for this role, select **All Configurations**.)
    
 	> [!IMPORTANT]
 	> If you choose a specific service configuration, some properties are disabled because they can only be set for all configurations. To edit these properties, you must select **All Configurations**.
@@ -55,7 +55,7 @@ You can configure an Azure cloud service from Solution Explorer in Visual Studio
 	![Service Configuration list for an Azure Cloud Service](./media/vs-azure-tools-configure-roles-for-cloud-service/cloud-service-service-configuration-property.png)
 
 ## Change the number of role instances
-To improve the performance of your cloud service, you can change the number of instances of a role that are running, based on the number of users or the load expected for a particular role. A separate virtual machine is created for each instance of a role when the cloud service runs in Azure. This will affect the billing for the deployment of this cloud service. For more information about billing, see [Understand your bill for Microsoft Azure](billing/billing-understand-your-bill.md).
+To improve the performance of your cloud service, you can change the number of instances of a role that are running, based on the number of users or the load expected for a particular role. A separate virtual machine is created for each instance of a role when the cloud service runs in Azure. This affects the billing for the deployment of this cloud service. For more information about billing, see [Understand your bill for Microsoft Azure](billing/billing-understand-your-bill.md).
 
 1. Open an Azure cloud service project in Visual Studio.
 
@@ -85,7 +85,7 @@ You can add, remove, or modify connection strings for your service configuration
 > 
 > 
 
-By using a different value for each service configuration, you do not have to use different connection strings in your cloud service or modify your code when you publish your cloud service to Azure. You can use the same name for the connection string in your code and the value will be different, based on the service configuration that you select when you build your cloud service or when you publish it.
+By using a different value for each service configuration, you do not have to use different connection strings in your cloud service or modify your code when you publish your cloud service to Azure. You can use the same name for the connection string in your code and the value is different, based on the service configuration that you select when you build your cloud service or when you publish it.
 
 1. Open an Azure cloud service project in Visual Studio.
 
@@ -145,9 +145,9 @@ The following steps show how to programmatically access a connection string usin
 ## Add custom settings to use in your Azure cloud service
 Custom settings in the service configuration file let you add a name and value for a string for a specific service configuration. You might choose to use this setting to configure a feature in your cloud service by reading the value of the setting and using this value to control the logic in your code. You can change these service configuration values without having to rebuild your service package or when your cloud service is running. Your code can check for notifications of when a setting changes. See [RoleEnvironment.Changing Event](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx).
 
-You can add, remove or modify custom settings for your service configurations. You might want different values for these strings for different service configurations.
+You can add, remove, or modify custom settings for your service configurations. You might want different values for these strings for different service configurations.
 
-By using a different value for each service configuration, you do not have to use different strings in your cloud service or modify your code when you publish your cloud service to Azure. You can use the same name for the string in your code and the value will be different, based on the service configuration that you select when you build your cloud service or when you publish it.
+By using a different value for each service configuration, you do not have to use different strings in your cloud service or modify your code when you publish your cloud service to Azure. You can use the same name for the string in your code and the value is different, based on the service configuration that you select when you build your cloud service or when you publish it.
 
 1. Open an Azure cloud service project in Visual Studio.
 
@@ -210,7 +210,7 @@ You can add local file system storage for each instance of a role. The data stor
 
 	![Local storage tab](./media/vs-azure-tools-configure-roles-for-cloud-service/role-local-storage-tab.png)
 
-1. In the **Service Configuration** list, ensure that **All Configurations** is select as local storage settings apply to all service configurations. Any other value will result in all the input fields on the page being disabled. 
+1. In the **Service Configuration** list, ensure that **All Configurations** is select as local storage settings apply to all service configurations. Any other value results in all the input fields on the page being disabled. 
 
 	![Service Configuration list](./media/vs-azure-tools-configure-roles-for-cloud-service/role-local-storage-tab-service-configuration.png)
 
