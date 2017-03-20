@@ -95,7 +95,7 @@ class Program
 > 
 
 ## Other methods
-* [Azure Command-Line Interface](../xplat-cli-install.md)
+* [Azure Command-Line Interface](../cli-install-nodejs.md)
   
     When uploading the blob, set the *cacheControl* property using the `-p` switch.  This example sets the TTL to one hour (3600 seconds).
   

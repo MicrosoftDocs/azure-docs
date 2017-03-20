@@ -64,7 +64,7 @@ To get started using Storm, see [Get started with Storm on HDInsight][gettingsta
 You can provision a new Storm on HDInsight cluster in minutes. Specify the cluster name, size, administrator account, and the storage account. Azure creates the cluster, including sample topologies and a web-management dashboard.
 
 > [!NOTE]
-> You can also provision Storm clusters by using the [Azure CLI](../xplat-cli-install.md) or [Azure PowerShell](/powershell/azureps-cmdlets-docs).
+> You can also provision Storm clusters by using the [Azure CLI](../cli-install-nodejs.md) or [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Within 15 minutes of submitting the request, you have a new Storm cluster running and ready for your first real-time analytics pipeline.
 
