@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/17/2017
+ms.date: 03/20/2017
 ms.author: bryanla
 
 ---
@@ -172,7 +172,7 @@ A type of [client application](#client-application) that executes all code on a 
 ## Next steps
 The [Azure AD Developer's Guide][AAD-Dev-Guide] is the portal to use for all Azure AD development related topics, including an overview of [application integration][AAD-How-To-Integrate] and the basics of [Azure AD authentication and supported authentication scenarios][AAD-Auth-Scenarios].
 
-Please use the following Disqus comments section to provide feedback and help us refine and shape our content.
+Please use the following comments section to provide feedback and help us refine and shape our content, including requests for new definitions or updating existing ones!
 
 <!--Image references-->
 
