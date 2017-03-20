@@ -124,7 +124,7 @@ In this step, you create a user account to access your data warehouse. We also s
 
 - SQL Data Warehouse uses pre-defined database roles, called resource classes, to allocate different amounts of memory, CPU resources, and concurrency slots to users. Each user can belong to a small, medium, large, or extra-large resource class. The user's resource class determines the resources the user has to run queries and load operations.
 
-- For optimize data compression, the user usually needs load with large or extra large resource allocations. Read more about resource classes [here](./sql-data-warehouse-develop-concurrency.md#resource-classes):
+- For optimal data compression, the user may need to load with large or extra large resource allocations. Read more about resource classes [here](./sql-data-warehouse-develop-concurrency.md#resource-classes):
 
 ### Create an account that can control a database
 
