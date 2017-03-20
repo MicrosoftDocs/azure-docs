@@ -50,7 +50,7 @@ A Reliable Service instance is represented by your service class deriving from `
 
 ![Hosting ASP.NET Core in a Reliable Service][1]
 
-## ASP.NET Core ICommunicationListener implementations
+## ASP.NET Core ICommunicationListeners
 The `ICommunicationListener` implementations for Kestrel and WebListener in the  `Microsoft.ServiceFabric.Services.AspNetCore.*` NuGet packages have similar use patterns but perform slightly different actions specific to each web server. 
 
 Both communication listeners provide a constructor that takes the following arguments:
@@ -180,14 +180,14 @@ To use a dynamically assigned port with WebListener, omit the `Port` property in
 
 Note that a dynamic port allocated by an `Endpoint` configuration only provides one port *per host process*. The current Service Fabric hosting model allows multiple service instances and/or replicas to be hosted in the same process, meaning that each one will share the same port when allocated through the `Endpoint` configuration. Multiple WebListener instances can share a port using the underlying *http.sys* port sharing feature, but that is not supported by `WebListenerCommunicationListener` due to the complications it introduces for client requests. For dynamic port usage, Kestrel is the recommended web server.
 
-## Kestrel in a Reliable Service
+## Kestrel in Reliable Services
 Kestrel can be used in a Reliable Service by importing the **Microsoft.ServiceFabric.AspNetCore.Kestrel** NuGet package. This package contains `KestrelCommunicationListener`, an implementation of `ICommunicationListener`, that allows you to create an ASP.NET Core WebHost inside a Reliable Service using Kestrel as the web server.
 
 Kestrel is a cross-platform web server for ASP.NET Core based on libuv, a cross-platform asynchronous I/O library. Unlike WebListener, Kestrel does not use a centralized endpoint manager such as *http.sys*. And unlike WebListener, Kestrel does not support port sharing between multiple processes. Each instance of Kestrel must use a unique port.
 
 ![kestrel][4]
 
-### Kestrel in stateless services
+### Kestrel in a stateless service
 To use `Kestrel` in a stateless service, override the `CreateServiceInstanceListeners` method and return a `KestrelCommunicationListener` instance:
 
 ```csharp
@@ -212,7 +212,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-### Kestrel in stateful services
+### Kestrel in a stateful service
 To use `Kestrel` in a stateful service, override the `CreateServiceReplicaListeners` method and return a `KestrelCommunicationListener` instance:
 
 ```csharp
