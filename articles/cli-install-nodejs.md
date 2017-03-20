@@ -24,6 +24,9 @@ ms.author: rasquill
 > * [Azure CLI 1.0](cli-install-nodejs.md)
 > * [Azure CLI 2.0](/cli/azure/install-azure-cli)
 
+> [!IMPORTANT]
+> This topic describes how to install the Azure CLI 1.0, which is built on nodeJs and supports all classic deployment API calls as well as a large number of Resource Manager deployment activities. You should use the [Azure CLI 2.0](/cli/azure/overview) for new or forward-looking CLI deployments and management.
+
 Quickly install the Azure Command-Line Interface (Azure CLI 1.0) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure. You have several options to install these cross-platform tools on your computer:
 
 * **npm package** - Run npm (the package manager for JavaScript) to install the latest Azure CLI 1.0 package on your Linux distribution or OS. Requires node.js and npm on your computer.
