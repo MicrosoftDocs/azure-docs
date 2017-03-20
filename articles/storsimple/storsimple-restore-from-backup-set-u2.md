@@ -51,7 +51,9 @@ Heatmap-based tracking is enabled only for tiered volumes and locally pinned vol
 * `Get-HcsRehydrationJob` - This cmdlet gets the status of the rehydration job. A single rehydration job is triggered for one volume.
 * `Set-HcsRehydrationJob` - This cmdlet allows you to pause, stop, resume the rehydration job, when the rehydration is in progress.	
 
-With automatic rehdyration, typically higher transient read performance is expected. The actual maginutde of improvements depends on various factors such as access pattern, data churn, and data type. If you want to disable automatic rehydration after restore, contact Microsoft Support. 
+For more information on rehydration cmdlets, go to [Windows PowerShell cmdlet reference for StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
+
+With automatic rehdyration, typically higher transient read performance is expected. The actual maginutde of improvements depends on various factors such as access pattern, data churn, and data type. If you wish to disable automatic rehydration after restore, contact Microsoft Support. 
 
 ## How to use the backup catalog
 The **Backup Catalog** page provides a query that helps you to narrow your backup set selection. You can filter the backup sets that are retrieved based on the following parameters:
