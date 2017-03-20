@@ -181,10 +181,7 @@ You can use the same VPN client configuration package on each client computer, p
     ![VPN client download 1](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/downloadvpnclient1.png)
 2. Select the correct package for your client, then click **Download**. Save the configuration package file. You will install this on each client computer that will connect to the virtual network.
 
-	![VPN client download 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/client.png)
-
-   * For 64-bit clients, select **AMD64**.
-   * For 32-bit clients, select **x86**.
+	![VPN client download 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpnclient.png)
 
 ### Step 2 - Install the client configuration package
 

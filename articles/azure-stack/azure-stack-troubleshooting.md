@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/3/2017
+ms.date: 3/16/2017
 ms.author: helaw
 
 ---
@@ -27,7 +27,8 @@ The recommendations for troubleshooting issues that are described in this sectio
 Code examples are provided as is and expected results cannot be guaranteed. This section is subject to frequent edits and updates as improvements to the product are implemented.
 
 ## Known Issues
-* You may notice deployment taking longer than previous releases.   
+* You may notice deployment taking longer than previous releases.
+* You may experience a deployment failure, with an error indicating date or time problems.  If you receive this, wait one minute and use the *-rerun* option to start your deployment again.   
 * You will see an error when signing in to a deployment with ADFS.  The text will read "Sorry, we had some trouble signing you in.  Click 'Try again' to try again."  This is a known error, and clicking Try Again will take you to the portal.  You can also add *https://*.local.azurestack.external* to the "Local Intranet" trusted sites in Internet Explorer. 
 * Logging out of portal in AD FS deployment will result in an error message.
 * You may see incorrect cores/minute usage information for Windows and Linux VMs.
@@ -104,6 +105,13 @@ It may take up to two hours for reclaimed capacity to show up in the portal. Spa
 When connecting to tenant subscriptions with PowerShell, you will notice that the resource providers are not automatically registered. Use the [Connect module](https://github.com/Azure/AzureStack-Tools/tree/master/Connect), or run the following command from PowerShell (after you [install and connect](azure-stack-connect-powershell.md) as a tenant): 
   
        Get-AzureRMResourceProvider | Register-AzureRmResourceProvider
+
+## Windows Azure Pack Connector
+* If you change the password of the azurestackadmin account after you deploy Azure Stack TP3, you can no longer configure multi-cloud mode. Therefore, it won't be possible to connect to the target Windows Azure Pack environment.
+* After you set up multi-cloud mode:
+    * A user can see the dashboard only after they reset the portal settings. (In the user portal, click the portal settings icon (gear icon in the top-right corner). Under **Restore default settings**, click **Apply**.)
+    * The dashboard titles may not appear. If this issue occurs, you must manually add them back.
+    * Some tiles may not show correctly when you first add them to the dashboard. To fix this issue, refresh the browser.
 
 ## Next steps
 [Frequently asked questions](azure-stack-faq.md)
