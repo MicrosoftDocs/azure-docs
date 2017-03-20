@@ -93,7 +93,6 @@ In order to use Network Watcher PowerShell cmdlets, the latest PowerShell module
 
     * AzureRM.Resources
 
-
     ![functions kudu][functions3]
 
 1. Right click the **AzureRM.Network** sub folder and click **Upload Files**. Navigate to where your Azure modules are installed, and in the local AzureRM.Network folder select all the files in the folder and click **Ok**.  Repeat these steps for AzureRM.Profile and AzureRM.Resources.
@@ -107,6 +106,9 @@ In order to use Network Watcher PowerShell cmdlets, the latest PowerShell module
 ## Authentication
 
 To to use the PowerShell cmdlets you must authenticate. Authentication needs to be configured in the Function app. To do this, environment variables are configured and a encrypted key file needs to be uploaded to the Function app.
+
+> [!note]
+> This scenario provides just one example of how to implement authentication with Azure Functions, there are other ways to do this.
 
 ### Encrypted Credentials
 
@@ -173,12 +175,12 @@ The client ID is the Application ID of an application in Azure Active Directory.
 The tenant ID is obtained by running the following PowerShell sample:
 
 ```powershell
-(Get-AzureRmSubscription -SubscriptionName "<subscriptionName>").TenantId 
+(Get-AzureRmSubscription -SubscriptionName "<subscriptionName>").TenantId
 ```
 
 #### AzureCredPassword
 
-The value of the AzureCredPassword environment variable is the value from running the following PowerShell sample. This is the same example as shown in the preceding **Encrypted Credentials** section. The value needed is the output of the `$Encryptedpassword` variable.
+The value of the AzureCredPassword environment variable is the value from running the following PowerShell sample. This is the same example as shown in the preceding **Encrypted Credentials** section. The value needed is the output of the `$Encryptedpassword` variable.  This is the service principal password that we encrypted using the PowerShell script.
 
 ```powershell
 #variables
