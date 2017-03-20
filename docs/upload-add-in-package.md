@@ -1,4 +1,4 @@
-# Upload your add-in package
+# Upload your submission package
 
 On the Overview page in the Seller Dashboard, under **App package**, you upload your manifest. The upload process varies based on your submission type.
 
