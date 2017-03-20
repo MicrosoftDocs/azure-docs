@@ -140,19 +140,18 @@ The steps in this document demonstrate how to set these environment variables.
   ```bash
   ADMIN='admin' #replace with the name of the admin account for the cluster
   PASSWORD='password' #replace with the password for the admin account
-
   ```
 
-3. Use the following commands to install the 'jq' utility, retrieve the cluster name, and set the `KAFKAZKHOSTS` variable:
+3. Use the following commands to install the `jq` utility, retrieve the cluster name, and set the `KAFKAZKHOSTS` variable:
 
-  ```bash
-  # Install JQ to make working with JSON easier
-  sudo apt -y install jq
-  # Query Ambari for the cluster name
-  CLUSTERNAME=`curl -u $ADMIN:$PASSWORD -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name'`
-  # Query Ambari for 
-  KAFKAZKHOSTS=`curl -u $ADMIN:$PASSWORD -G "http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
-  ```
+   ```bash
+   # Install JQ to make working with JSON easier
+   sudo apt -y install jq
+   # Query Ambari for the cluster name
+   CLUSTERNAME=`curl -u $ADMIN:$PASSWORD -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name'`
+   # Query Ambari for 
+   KAFKAZKHOSTS=`curl -u $ADMIN:$PASSWORD -G "http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
+   ```
 
     Use the following command to retrieve the cluster name:
 
