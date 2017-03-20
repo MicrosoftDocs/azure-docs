@@ -138,12 +138,12 @@ During the preview period of an Azure AD release, PowerShell cannot be used to f
               # GroupsAssigningLicense contains a collection of IDs of objects assigning the license
               # This could be a group object or a user object (contrary to what the name suggests)
               # If the collection is empty, this means the license is assigned directly. This is the case for users who have never been licensed via groups in the past
-
+  
               if ($license.GroupsAssigningLicense.Count -eq 0)
               {
                   return $true
               }
-
+  
               # If the collection contains the ID of the user object, this means the license is assigned directly
               # Note: the license may also be assigned through one or more groups in addition to being assigned directly
               foreach ($assignmentSource in $license.GroupsAssigningLicense)
