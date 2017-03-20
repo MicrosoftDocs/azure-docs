@@ -24,7 +24,8 @@ Logic apps can natively expose synchronous HTTP endpoints as triggers
 so that you can trigger or call your logic apps through a URL. 
 You can also nest workflows in your logic apps by using a pattern of callable endpoints.
 
-To create HTTP endpoints, add these triggers so that your logic apps can receive requests:
+To create HTTP endpoints, you can add these triggers 
+so that your logic apps can receive incoming requests:
 
 * [Request](../connectors/connectors-native-reqres.md)
 * [API Connection webhook](logic-apps-workflow-actions-triggers.md#api-connection)
@@ -46,9 +47,10 @@ For example, add the **Request** trigger to your logic app.
 3.	Under **Request Body JSON Schema**, 
 enter the JSON schema for the payload (data) that you expect the trigger to receive.
 
-	The designer uses this schema for generating 
-	tokens that let your logic app consume, parse, 
-	and pass data from the trigger throughout your workflow.
+	The designer uses this schema for generating tokens 
+	that your logic app can use to consume, parse, 
+	and pass data from the trigger through your workflow. 
+	More about [tokens generated from JSON schemas](#generated-tokens).
 
 	For this example, enter the schema shown in the designer:
 
@@ -187,15 +189,18 @@ but replace `{customerID}` with `123456`, and press Enter.
 
 	`Hello 123456`
 
+<a name="generated-tokens"></a>
 ### Tokens generated from JSON schemas for your logic app
 
 When you specify a JSON schema in your **Request** trigger, 
 the Logic App Designer uses that schema to generate tokens, 
 which you can use in your logic app workflow steps.
 
-For example, if you add `title` and `name` 
+For this example, if you add the `title` and `name` 
 properties to your JSON schema, their tokens are 
-now available to use in later workflow steps.
+now available to use in later workflow steps. 
+
+Here is the complete JSON schema:
 
 ```json
 {
@@ -287,7 +292,8 @@ header, and body for your response, you can use the **Response** action.
 
 For our example response, the header specifies 
 that the response has content type `application/json`, 
-and the body contains `title` and `name`.
+and the body contains `title` and `name`, 
+based on the JSON schema used for the **Request** trigger in this example.
 
 ![HTTP Response action][3]
 
@@ -299,7 +305,7 @@ Responses have these properties:
 | headers |Defines any number of headers to include in the response. |
 | body |Specifies a body object that can be a string, a JSON object, or even binary content referenced from a previous step. |
 
-Here's what the JSON schema now looks like:
+Here's what the JSON schema looks like now for the **Response** action:
 
 ``` json
 "Response": {
@@ -317,6 +323,10 @@ Here's what the JSON schema now looks like:
    "type": "Response"
 }
 ```
+
+> [!TIP]
+> To view the complete JSON definition for your logic app, 
+> on the Logic App Designer, choose **Code view**.
 
 ## Q & A
 
