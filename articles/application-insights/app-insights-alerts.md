@@ -23,7 +23,7 @@ Application Insights monitors your live app on a [wide variety of platforms][pla
 
 There are three kinds of alerts:
 
-* **Metric alerts** tell you when any metric crosses a threshold value for some period - such as response times, exception counts, CPU usage, or page views. 
+* **Metric alerts** tell you when a metric crosses a threshold value for some period - such as response times, exception counts, CPU usage, or page views. 
 * [**Web tests**][availability] tell you when your site is unavailable on the internet, or responding slowly. [Learn more][availability].
 * [**Proactive diagnostics**](app-insights-proactive-diagnostics.md) are configured automatically to notify you about unusual performance patterns.
 
