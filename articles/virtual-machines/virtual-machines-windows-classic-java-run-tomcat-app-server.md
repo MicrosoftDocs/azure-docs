@@ -40,9 +40,6 @@ The completed installation results in Tomcat running on a virtual machine.
 
 ## To create a virtual machine
 1. Sign in to the [Azure portal](https://portal.azure.com).  
-   Test coming soon.  
-   <a href="https://portal.azure.com" target=target="\_blank">Azure portal</a>  
-   Test end
 2. Click **New**, click **Compute**, then click **See all** in the **Featured apps**.
 3. Click **JDK**, click **JDK 8** in the **JDK** pane.  
    Virtual machine images that support **JDK 6** and **JDK 7** are available if you have legacy applications that are not ready to run in JDK 8.
