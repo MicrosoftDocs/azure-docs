@@ -29,6 +29,7 @@ This tutorial explains how to use the **Backup Catalog** page to restore your de
 
 You can restore a volume from a local or cloud backup. In either case, the restore operation brings the volume online immediately while data is downloaded in the background. 
 
+## Before you restore
 Before you initiate a restore operation, you should be aware of the following:
 
 * **You must take the volume offline** – Take the volume offline on both the host and the device before you initiate the restore operation. Although the restore operation automatically brings the volume online on the device, you must manually bring the device online on the host. You can bring the volume online on the host as soon as the volume is online on the device. (You do not need to wait until the restore operation is finished.) For procedures, go to [Take a volume offline](storsimple-manage-volumes-u2.md#take-a-volume-offline).
@@ -41,6 +42,16 @@ Before you initiate a restore operation, you should be aware of the following:
 * **You cannot expand a volume while it is being restored** – Wait until the restore operation is finished before you attempt to expand the volume. For information about expanding a volume, go to [Modify a volume](storsimple-manage-volumes-u2.md#modify-a-volume).
 * **You can perform a backup while you are restoring a local volume** – For procedures go to [Use the StorSimple Manager service to manage backup policies](storsimple-manage-backup-policies.md).
 * **You can cancel a restore operation** – If you cancel the restore job, then the volume will be rolled back to the state that it was in before you initiated the restore operation. For procedures, go to [Cancel a job](storsimple-manage-jobs-u2.md#cancel-a-job).
+
+## How does restore work
+For devices running Update 4 or later, a heatmap-based restore is implemented. As the host requests for data reach the device, these requests are tracked and a heatmap is created. High request rate results in data chunks with higher heat whereas lower request rate translates to chunks with lower heat. You have to access the data atleast twice, then it is marked as hot. A file that is modified is also marked as hot. Once you initiate the restore, then proactive hydration of data occurs based on the heatmap. For versions earlier than Update 4, the data was downloaded during restore based on access only. 
+
+Heatmap-based tracking is enabled only for tiered volumes and locally pinned volvumes are not supported. Heatmap-based restore is also not supported when cloning a volume to another device. If there is an in-place restore and a local snapshot for the volume to be restored exists on the device, then we do not rehydrate (as data is already available locally). By default, when you restore, the rehydration jobs are initiated that proactively rehydrate data based on the heatmap. In Update 4, Windows PowerShell cmdlets are also available to manually trigger the rehydration job and get the status of the reydration job.
+
+* `Get-HcsRehydrationJob` - This cmdlet gets the status of the rehydration job. A single rehydration job is triggered for one volume.
+* `Set-HcsRehydrationJob` - This cmdlet allows you to pause, stop, resume the rehydration job, when the rehydration is in progress.	
+
+With automatic rehdyration, typically higher transient read performance is expected. The actual maginutde of improvements depends on various factors such as access pattern, data churn, and data type. If you want to disable automatic rehydration after restore, contact Microsoft Support. 
 
 ## How to use the backup catalog
 The **Backup Catalog** page provides a query that helps you to narrow your backup set selection. You can filter the backup sets that are retrieved based on the following parameters:
