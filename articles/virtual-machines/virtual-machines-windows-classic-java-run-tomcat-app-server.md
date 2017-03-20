@@ -39,7 +39,10 @@ The completed installation results in Tomcat running on a virtual machine.
 [!INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
 
 ## To create a virtual machine
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).  
+   Test coming soon.  
+   <a href="https://portal.azure.com" target=target="\_blank">Azure portal</a>  
+   Test end
 2. Click **New**, click **Compute**, then click **See all** in the **Featured apps**.
 3. Click **JDK**, click **JDK 8** in the **JDK** pane.  
    Virtual machine images that support **JDK 6** and **JDK 7** are available if you have legacy applications that are not ready to run in JDK 8.
@@ -55,14 +58,14 @@ The completed installation results in Tomcat running on a virtual machine.
 7. In the **Virtual machine image size** blade, select **A1 Standard** or another appropriate image.
 8. Click **Select**.
 
-9. In the **Settings** blade, click **OK**. You use the default values provided by Azure.  
+9. In the **Settings** blade, click **OK**. You can use the default values provided by Azure.  
 10. In the **Summary** blade, click **OK**.
 
 ## To remotely sign in to your virtual machine
 1. Log on to the [Azure portal](https://portal.azure.com).
 2. Click **Virtual machines (classic)**. If needed, click **More services** at the bottom left corner under the service categories. The **Virtual machines (classic)** entry is listed in the **Compute** group.
 3. Click the name of the virtual machine that you want to sign in to.
-4. After the virtual machine has started, a menu at the top of the page allows connections.
+4. After the virtual machine has started, a menu at the top of the pane allows connections.
 5. Click **Connect**.
 6. Respond to the prompts as needed to connect to the virtual machine. Typically, you save or open the .rdp file that contains the connection details. You might have to copy the url:port as the last part of the first line of the .rdp file and paste it in a remote sign-in application.
 
@@ -78,7 +81,7 @@ This tutorial uses Tomcat as the Java application server to install.
 
 ## To start Tomcat
 
-You can manually start Tomcat by opening a command prompt on your virtual machine and running the command **net start Tomcat8**.
+You can manually start Tomcat by opening a command prompt on your virtual machine and running the command **net&nbsp;start&nbsp;Tomcat8**.
 
 Once Tomcat is running, you can access Tomcat by entering the URL <http://localhost:8080> in the virtual machine's browser.
 
