@@ -1,26 +1,26 @@
 ---
-title: NoSQL C++ tutorial for DocumentDB | Microsoft Docs
-description: A NoSQL C++ tutorial that creates a C++ database and console application using a DocumentDB endorsed SDK for C++. DocumentDB is a planet-scale NoSQL database service.
+title: Build mobile applications with Xamarin and Azure DocumentDB | Microsoft Docs
+description: A tutorial that creates a Xamarin iOS, Android, or Forms application using Azure DocumentDB. DocumentDB is a blazing fast, planet scale, cloud database for mobile apps.
 services: documentdb
-documentationcenter: cpp
-author: asthana86
-manager: jhubbard
+documentationcenter: .net
+author: arramac
+manager: monicar
 editor: ''
 
-ms.assetid: b8756b60-8d41-4231-ba4f-6cfcfe3b4bab
+ms.assetid: ff97881a-b41a-499d-b7ab-4f394df0e153
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: cpp
-ms.topic: hero-article
-ms.date: 12/25/2016
-ms.author: aasthan
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 03/20/2017
+ms.author: arramac
 
 ---
-# How to build mobile applications with Xamarin and Azure DocumentDB
+# Build mobile applications with Xamarin and Azure DocumentDB
 Most mobile apps need to store data in the cloud, and Azure DocumentDB is an cloud database for mobile apps. It has everything a mobile developer needs, a fully managed NoSQL database as a service that scales on demand, and can bring your data where your users go around the globe -- completely transparently to your application. Using the [Azure DocumentDB .NET Core SDK](documentdb-sdk-dotnet-core.md), you can enabling Xamarin mobile apps to interact directly with DocumentDB, without a middle-tier.
 
-In this article, we provide a tutorial for building mobile apps with Xamarin and DocumentDB. You can find the complete source code for the tutorial at [Xamarin and DocumentDB on Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
+In this article, we provide a tutorial for building mobile apps with Xamarin and DocumentDB. You can find the complete source code for the tutorial at [Xamarin and DocumentDB on Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin), including how to manage users and permissions.
 
 ## DocumentDB capabilities for mobile apps
 DocumentDB provides the following capabilities out of the box for mobile app developers:
@@ -34,6 +34,7 @@ DocumentDB provides the following capabilities out of the box for mobile app dev
 * Binary attachments. Your app data often includes binary blobs. Native support for attachments makes it easier to use DocumentDB as one-stop shop for your app data.
 
 ## DocumentDB and Xamarin tutorial
+The following tutorial shows how to build a mobile application using Xamarin and DocumentDB in five easy steps. You can find the complete source code for the tutorial at [Xamarin and DocumentDB on Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
 
 ### Get strarted
 It's easy to get started with DocumentDB, just go to Azure portal, create a new DocumentDB account, go to the Quickstart tab, and download a Xamarin Forms todo list sample, already connected to your DocumentDB account. 
