@@ -22,17 +22,17 @@ ms.author: robmcm
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For a Resource Manager template to deploy a webapp with Java 8 and Tomcat, see [here](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/).
 
-With Azure, you can use a virtual machine to provide server capabilities. As an example, a virtual machine running on Azure can be configured to host a Java application server, such as Apache Tomcat. After you complete this guide, you will have an understanding of how to create a virtual machine running on Azure and configure it to run a Java application server.
+With Azure, you can use a virtual machine to provide server capabilities. As an example, a virtual machine running on Azure can be configured to host a Java application server, such as Apache Tomcat.
 
-You will learn:
+After completing this guide, you will have an understanding of how to create a virtual machine running on Azure and configure it to run a Java application server. You will learn and perform the following tasks:
 
 * How to create a virtual machine that has a Java Development Kit (JDK) already installed.
 * How to remotely sign in to your virtual machine.
-* How to install a Java application server on your virtual machine.
+* How to install a Java application server--Apache Tomcat--on your virtual machine.
 * How to create an endpoint for your virtual machine.
 * How to open a port in the firewall for your application server.
 
-For the purposes of this tutorial, an Apache Tomcat application server will be installed on a virtual machine. The completed installation will result in a Tomcat installation such as the following.
+The completed installation results in Tomcat running on a virtual machine.
 
 ![Virtual machine running Apache Tomcat][virtual_machine_tomcat]
 
@@ -42,12 +42,12 @@ For the purposes of this tutorial, an Apache Tomcat application server will be i
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **New**, click **Compute**, then click **See all** in the **Featured apps**.
 3. Click **JDK**, click **JDK 8** in the **JDK** pane.  
-   Note that **JDK 6** and **JDK 7** are available if you have legacy applications that are not ready to run in JDK 8.
+   Virtual machine images that support **JDK 6** and **JDK 7** are available if you have legacy applications that are not ready to run in JDK 8.
 4. In the JDK 8 pane, select **Classic**, then click **Create**.
 5. In the **Basics** blade:
    1. Specify a name for the virtual machine.
    2. Enter a name for the administrator in the **User Name** field. Remember this name and the password you will enter next, you will use them when you remotely sign in to the virtual machine.
-   3. Enter a password in the **New password** field, and re-enter it in the **Confirm password** field. This is the Administrator account password.
+   3. Enter a password in the **New password** field, and reenter it in the **Confirm password** field. This password is for the Administrator account.
    4. Select the appropriate **Subscription**.
    5. For the **Resource group**, click **Create new** and enter the name of a new resource group. Or, click **Use existing** and select one of the available resource groups.
    6. Select a location where the virtual machine resides, such as **South Central US**.
@@ -64,22 +64,23 @@ For the purposes of this tutorial, an Apache Tomcat application server will be i
 3. Click the name of the virtual machine that you want to sign in to.
 4. After the virtual machine has started, a menu at the top of the page allows connections.
 5. Click **Connect**.
-6. Respond to the prompts as needed to connect to the virtual machine. This should entail saving or opening the .rdp file that contains the connection details. You might have to copy the url:port as the last part of the first line of the .rdp file and paste it in a remote sign-in application.
+6. Respond to the prompts as needed to connect to the virtual machine. Typically, you save or open the .rdp file that contains the connection details. You might have to copy the url:port as the last part of the first line of the .rdp file and paste it in a remote sign-in application.
 
 ## To install a Java application server on your virtual machine
 You can copy a Java application server to your virtual machine, or you can install a Java application server through an installer.
 
-For the purposes of this tutorial, Tomcat will be installed.
+This tutorial uses Tomcat as the Java application server to install.
 
 1. When you are signed in to your virtual machine, open a browser session to [Apache Tomcat](http://tomcat.apache.org/download-80.cgi).
-2. Double-click the link for **32-bit/64-bit Windows Service Installer**. By using this technique, Tomcat will be installed as a Windows service.
+2. Double-click the link for **32-bit/64-bit Windows Service Installer**. By using this technique, Tomcat installs as a Windows service.
 3. When prompted, choose to run the installer.
 4. Within the **Apache Tomcat Setup** wizard, follow the prompts to install Tomcat. For the purposes of this tutorial, accepting the defaults is fine. When you reach the **Completing the Apache Tomcat Setup Wizard** dialog box, you can optionally check **Run Apache Tomcat** to have Tomcat start now. Click **Finish** to complete the Tomcat setup process.
 
 ## To start Tomcat
-If you did not choose to run Tomcat in the **Completing the Apache Tomcat Setup Wizard** dialog box, start it by opening a command prompt on your virtual machine and running **net start Tomcat8**.
 
-You should now see Tomcat running if you run the virtual machine's browser and open <http://localhost:8080>.
+You can manually start Tomcat by opening a command prompt on your virtual machine and running the command **net start Tomcat8**.
+
+Once Tomcat is running, you can access Tomcat by entering the URL <http://localhost:8080> in the virtual machine's browser.
 
 To see Tomcat running from external machines, you need to create an endpoint and open a port.
 
@@ -116,18 +117,18 @@ To see Tomcat running from external machines, you need to create an endpoint and
 10. On the **Name** screen, specify a name for the rule, such as **HttpIn** (the rule name is not required to match the endpoint name, however), and then click **Finish**.  
     ![New inbound rule name][NewRuleName]
 
-At this point, your Tomcat website should be viewable from an external browser by using a URL of the form **http://*your\_DNS\_name*.cloudapp.net**, where ***your\_DNS\_name*** is the DNS name you specified when you created the virtual machine.
+At this point, your Tomcat website should be viewable from an external browser. In the browser's address window, type a URL of the form **http://*your\_DNS\_name*.cloudapp.net**, where ***your\_DNS\_name*** is the DNS name you specified when you created the virtual machine.
 
 ## Application lifecycle considerations
-* You could create your own web application archive (WAR) and add it to the **webapps** folder. For example, create a basic Java Service Page (JSP) dynamic web project and export it as a WAR file, copy the WAR to the Apache Tomcat **webapps** folder on the virtual machine, then run it in a browser.
-* By default when the Tomcat service is installed, it is set to start manually. You can switch it to start automatically by using the Services snap-in. Start the Services snap-in by clicking **Windows Start**, **Administrative Tools**, and then **Services**. Double-click the **Apache Tomcat** service  and set **Startup type** to **Automatic**.
+* You could create your own web application archive (WAR) and add it to the **webapps** folder. For example, create a basic Java Service Page (JSP) dynamic web project and export it as a WAR file. Next, copy the WAR to the Apache Tomcat **webapps** folder on the virtual machine, then run it in a browser.
+* By default when the Tomcat service is installed, it is set to start manually. You can switch it to start automatically by using the Services snap-in. Start the Services snap-in by clicking **Windows Start**, **Administrative Tools**, and then **Services**. Double-click the **Apache Tomcat** service and set **Startup type** to **Automatic**.
 
     ![Setting a service to start automatically][service_automatic_startup]
 
-    The benefit of having Tomcat start automatically is that it will start if the virtual machine is rebooted (for example, after software updates that require a reboot are installed).
+    The benefit of having Tomcat start automatically is that it will start when the virtual machine is rebooted (for example, after software updates that require a reboot are installed).
 
 ## Next steps
-Learn about other services (such as Azure Storage, service bus, and SQL Database) that you may want to include with your Java applications by viewing the information available at the [Java Developer Center](https://azure.microsoft.com/develop/java/).
+You can learn about other services (such as Azure Storage, service bus, and SQL Database) that you may want to include with your Java applications. View the information available at the [Java Developer Center](https://azure.microsoft.com/develop/java/).
 
 [virtual_machine_tomcat]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png
 
