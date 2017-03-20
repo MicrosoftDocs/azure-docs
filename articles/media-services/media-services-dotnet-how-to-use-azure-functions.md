@@ -40,7 +40,7 @@ This topic shows you how to get started with creating Azure Functions that use M
 2. Create a function app as described [here](../azure-functions/functions-create-first-azure-function-azure-portal.md#create-a-function-app).
 
 >[!NOTE]
-> A storage account that you specify in the **StorageConnection** environment variable should be in the same region as your app.
+> A storage account that you specify in the **StorageConnection** environment variable (see the next step) should be in the same region as your app.
 
 ## Configure function app settings
 
