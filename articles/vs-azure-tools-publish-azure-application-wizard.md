@@ -95,7 +95,7 @@ The Azure storage account stores the package for the application deployment. Aft
 
 ![Diagnostics settings](./media/vs-azure-tools-publish-azure-application-wizard/diagnostic-settings.png)
 
-Diagnostics enables you to troubleshoot an Azure cloud service (or Azure virtual machine). For information about diagnostics, see [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](./vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). For information about Application Insights, see [What is Application Insights?](./app-insights-overview.md).
+Diagnostics enables you to troubleshoot an Azure cloud service (or Azure virtual machine). For information about diagnostics, see [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](./vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). For information about Application Insights, see [What is Application Insights?](./application-insights/app-insights-overview.md).
 
 ## Summary page
 
@@ -118,4 +118,4 @@ Once you configure all the settings for your project's deployment, select **Publ
 - [Debugging a published Azure Cloud Service with Visual Studio and IntelliTrace](./vs-azure-tools-intellitrace-debug-published-cloud-services.md)
 - [Test the performance of an Azure Cloud Service](./vs-azure-tools-performance-profiling-cloud-services.md)
 - [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](./vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). 
-- [What is Application Insights?](./app-insights-overview.md)
+- [What is Application Insights?](./application-insights/app-insights-overview.md)
