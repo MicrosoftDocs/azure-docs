@@ -4,7 +4,7 @@ description: The latest updates for Visual Studio tools for Developer Analytics.
 services: application-insights
 documentationcenter: ''
 author: acearun
-manager: douge
+manager: carmonm
 
 ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
@@ -12,12 +12,21 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 06/09/2016
+ms.date: 03/18/2017
 ms.author: aruna
 
 ---
 # Release Notes for Developer Analytics Tools
-What's new: Application Insights and HockeyApp analytics in Visual Studio.
+What's new: Visual Studio 2017
+
+## Version 8.6 - Visual Studio 2017
+
+* New projects automatically get Application Insights assemblies. To configure to send telemetry to portal, right-click project.
+* Support for ASP.NET Core.
+* Publish annotations.
+* CodeLens improvements.
+
+[See the detailed notes here](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes#devanalytics)
 
 ## Version 7.0
 ### Azure Application Insights Trends
