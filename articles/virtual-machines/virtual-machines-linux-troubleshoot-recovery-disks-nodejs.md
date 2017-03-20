@@ -38,7 +38,7 @@ The troubleshooting process is as follows:
 4. Unmount and detach the virtual hard disk from the troubleshooting VM.
 5. Create a VM using the original virtual hard disk.
 
-Make sure that you have [the latest Azure CLI 1.0](../xplat-cli-install.md) installed and logged in and using Resource Manager mode:
+Make sure that you have [the latest Azure CLI 1.0](../cli-install-nodejs.md) installed and logged in and using Resource Manager mode:
 
 ```azurecli
 azure config mode arm
