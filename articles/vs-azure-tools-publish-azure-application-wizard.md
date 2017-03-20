@@ -55,7 +55,7 @@ You can access the Publish Azure Application wizard in two ways depending on the
 
 ![Common Settings](./media/vs-azure-tools-publish-azure-application-wizard/settings-common-settings.png)
 
-** Cloud service** - Using the dropdown, either select an existing cloud service, or select **&lt;Create New>**, and create a cloud service. The data center displays in parenthesis for each cloud service. It is recommended that the data center location for the cloud service be the same as the data center location for the storage account (Advanced Settings).  
+** Cloud service** - Using the dropdown, either select an existing cloud service, or select **&lt;Create New>**, and create a cloud service. The data center displays in parentheses for each cloud service. It is recommended that the data center location for the cloud service be the same as the data center location for the storage account (Advanced Settings).  
 
 ** Environment** - Select either **Production** or **Staging**. Choose the staging environment if you want to deploy your application in a test environment. 
 
@@ -73,7 +73,7 @@ You can access the Publish Azure Application wizard in two ways depending on the
 
 **Deployment label** - Either accept the default name, or enter a name of your choosing. To append the date to the deployment label, leave the check box selected. 
    
-**Storage account** - Select the storage account to use for this deployment, **&lt;Create New> to create a storage account. The data center displays in parenthesis for each storage account. It is recommended that the data center location for the storage account be the same as the data center location for the cloud service (Common Settings).  
+**Storage account** - Select the storage account to use for this deployment, **&lt;Create New> to create a storage account. The data center displays in parentheses for each storage account. It is recommended that the data center location for the storage account be the same as the data center location for the cloud service (Common Settings).  
    
 The Azure storage account stores the package for the application deployment. After the application is deployed, the package is removed from the storage account.
 
@@ -85,7 +85,7 @@ The Azure storage account stores the package for the application deployment. Aft
 
 ![Deployment settings](./media/vs-azure-tools-publish-azure-application-wizard/deployment-settings.png)
 
-**Enable IntelliTrace** - Specify if you want to enable IntelliTrace. With IntelliTrace, you can log extensive debugging information for a role instance when it runs in Azure. If you need to find the cause of a problem, you can use the IntelliTrace logs to step through your code from Visual Studio as if it were running in Azure. For more information about using IntelliTrace see [Debugging a published Azure Cloud Service with Visual Studio and IntelliTrace](./vs-azure-tools-intellitrace-debug-published-cloud-services.md). 
+**Enable IntelliTrace** - Specify if you want to enable IntelliTrace. With IntelliTrace, you can log extensive debugging information for a role instance when it runs in Azure. If you need to find the cause of a problem, you can use the IntelliTrace logs to step through your code from Visual Studio as if it were running in Azure. For more information about using IntelliTrace, see [Debugging a published Azure Cloud Service with Visual Studio and IntelliTrace](./vs-azure-tools-intellitrace-debug-published-cloud-services.md). 
 
 **Enable profiling** - Specify if you want to enable performance profiling. The Visual Studio profiler enables you to get an in-depth analysis of the computational aspects of how your cloud service runs. For more information on using the Visual Studio profiler, see [Test the performance of an Azure Cloud Service](./vs-azure-tools-performance-profiling-cloud-services.md).
 
@@ -110,7 +110,7 @@ Diagnostics enables you to troubleshoot an Azure cloud service (or Azure virtual
 
 ## Publishing your application
 
-Once you have configure all of the settings for your project's deployment, select **Publish** at the bottom of the dialog. You can monitor the process status in the **Output** window in Visual Studio.
+Once you configure all the settings for your project's deployment, select **Publish** at the bottom of the dialog. You can monitor the process status in the **Output** window in Visual Studio.
 
 ## Next steps
 - [Migrate and publish a Web Application to an Azure Cloud Service from Visual Studio](./vs-azure-tools-migrate-publish-web-app-to-cloud-service.md)
