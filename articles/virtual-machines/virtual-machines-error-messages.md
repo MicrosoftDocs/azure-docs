@@ -26,7 +26,7 @@ This article describes the common error codes and messages you encounter when ma
 >
 
 ## Error Response Format 
-Azure VM uses the following JSON format for error response.
+Azure VM uses the following JSON format for error response. The error response consists of a status code, error code, and error message. If the VM deployment is created through a template, then the error is split between a top level error code and inner level error code. The most inner level of error message is often the root cause of failure. 
 ```json
 {
   "status": "status code",
@@ -42,9 +42,6 @@ Azure VM uses the following JSON format for error response.
    }
 }
 ```
-
-An error response always includes a status code, an error object. each error object always contains an error code, message. if the VM deployment is created through a template, then the error object also contains a details section, which contains an inner level of error codes and message. Normally, the most inner level of error message is the root failure. 
-
 
 ## Common Virtual Machine Management Error
 
