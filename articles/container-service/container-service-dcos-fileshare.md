@@ -91,6 +91,7 @@ We will run this command on each virtual machine of our cluster (master and agen
     * Another one to initiate all the ssh connections that will call the first script, called **mountShares.sh**
 
     **cifsMount.sh**
+    
     ```bash
     # Install the cifs utils, should be already installed
     sudo apt-get update && sudo apt-get -y install cifs-utils
@@ -99,8 +100,10 @@ We will run this command on each virtual machine of our cluster (master and agen
     # Mount the share under the previous local folder created
     sudo mount -t cifs //anystorageaccountname.file.core.windows.net/demoshare /mnt/share/demoshare -o vers=3.0,username=anystorageaccountname,password=P/GuXXXuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqXXXX1w==,dir_mode=0777,file_mode=0777
     ```
+    
 
     **mountShares.sh**
+    
     ```bash
     # Install jq used for the next command
     sudo apt-get install jq
