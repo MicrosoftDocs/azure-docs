@@ -61,7 +61,7 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
     ```csharp
     private static EventHubClient eventHubClient;
     private const string EhConnectionString = "{Event Hubs connection string}";
-    private const string EhEntityPath = "{Event hub path/name}";
+    private const string EhEntityPath = "{Event Hub path/name}";
     ```
 
 3. Add a new method named `MainAsync` to the `Program` class, as follows:
@@ -134,7 +134,7 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
 	    {
 	        private static EventHubClient eventHubClient;
 	        private const string EhConnectionString = "{Event Hubs connection string}";
-	        private const string EhEntityPath = "{Event hub path/name}";
+	        private const string EhEntityPath = "{Event Hub path/name}";
 
 	        public static void Main(string[] args)
 	        {
