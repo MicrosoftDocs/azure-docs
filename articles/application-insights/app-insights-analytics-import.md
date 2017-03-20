@@ -64,6 +64,7 @@ You need:
 ## Define your schema
 
 Before you can import data, you must define a *data source,* which specifies the schema of your data.
+You can have up to 50 data sources in a single Application Insights resource
 
 1. Start the data source wizard.
 
@@ -138,6 +139,9 @@ You can perform the following process manually, or set up an automated system to
 
  * Blobs can be any size up to 1GB uncompressed. Large blobs of hundreds of MB are ideal from a performance perspective.
  * You can compress it with Gzip to improve upload time and latency for the data to be available for query. Use the `.gz` filename extension.
+ * It's best to use a separate storage account for this purpose, to avoid calls from different services slowing performance.
+ * When sending data in high frequency, every few seconds, it is recommended to use more than one storage account, for performance reasons.
+
  
 2. [Create a Shared Access Signature key for the blob](../storage/storage-dotnet-shared-access-signature-part-2.md). The key should have an expiration period of one day and provide read access.
 3. Make a REST call to notify Application Insights that data is waiting.
@@ -186,6 +190,7 @@ The data is available in Analytics after a few minutes.
  * The data source name is wrong.
 
 More detailed information is available in the response error message.
+
 
 ## Sample code
 
