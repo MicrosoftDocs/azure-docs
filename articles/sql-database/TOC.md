@@ -33,8 +33,8 @@
 ### [Limits](sql-database-resource-limits.md)
 ## [Tools](sql-database-manage-overview.md)
 ## Partitioned data
-### [Sharded databases](sql-database-elastic-scale-introduction.md)	
-###	[Elastic client library](sql-database-elastic-database-client-library.md)
+### [Sharded databases](sql-database-elastic-scale-introduction.md)
+### [Elastic client library](sql-database-elastic-database-client-library.md)
 ### [Shard maps](sql-database-elastic-scale-shard-map-management.md)
 ### [Query routing](sql-database-elastic-scale-data-dependent-routing.md)
 ### [Manage credentials](sql-database-elastic-scale-manage-credentials.md)
