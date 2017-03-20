@@ -1,6 +1,6 @@
 ---
 title: Call, trigger, or nest workflows with HTTP endpoints - Azure Logic Apps | Microsoft Docs
-description: Add HTTP endpoints to call, trigger, or nest logic app workflows in Azure
+description: Set up HTTP endpoints to call, trigger, or nest workflows for Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -18,10 +18,10 @@ ms.date: 03/21/2017
 ms.author: jehollan
 ---
 
-# Call, trigger, or nest workflows with HTTP endpoints for logic apps
+# Call, trigger, or nest workflows with HTTP endpoints in logic apps
 
 Logic apps can natively expose synchronous HTTP endpoints as triggers 
-so that you can trigger or manually call your logic apps through a URL. 
+so that you can trigger or call your logic apps through a URL. 
 You can also nest workflows in your logic apps by using a pattern of callable endpoints.
 
 To create HTTP endpoints, add these triggers so that your logic apps can receive requests:
@@ -50,7 +50,7 @@ enter the JSON schema for the payload (data) that you expect the trigger to rece
 	tokens that let your logic app consume, parse, 
 	and pass data from the trigger throughout your workflow.
 
-	For now, enter the example schema shown in the designer:
+	For this example, enter the schema shown in the designer:
 
 	```json
 	{
@@ -98,7 +98,7 @@ enter the JSON schema for the payload (data) that you expect the trigger to rece
       ```
 
 4.	Save your logic app. Under **HTTP POST to this URL**, 
-you should now get a generated callback URL, like this example:
+you should now find a generated callback URL, like this example:
 
 	![Generated callback URL for endpoint](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
 
@@ -123,7 +123,7 @@ you should now get a generated callback URL, like this example:
 ## Change the HTTP method for your trigger
 
 By default, the **Request** trigger expects an HTTP POST request, 
-but you can specify a different HTTP method. 
+but you can use a different HTTP method. 
 
 > [!NOTE]
 > You can specify only one method type.
@@ -138,7 +138,7 @@ or specify a custom method.
 ## Accept parameters through your HTTP endpoint URL
 
 When you want your HTTP endpoint URL to accept parameters, 
-customize the relative path for your trigger's URL.
+customize your trigger's relative path.
 
 1. On your **Request** trigger, choose **Show advanced options**. 
 
@@ -180,8 +180,8 @@ that you specified in your trigger.
 	```
 
 7. To test your HTTP endpoint, 
-copy and paste the updated URL into another browser window. 
-Substitute `{customerID}` with `123456`, and press Enter.
+copy and paste the updated URL into another browser window, 
+but replace `{customerID}` with `123456`, and press Enter.
 
 	Your browser should show this text: 
 
@@ -231,7 +231,7 @@ to your trigger. You can then select from eligible logic apps.
 
 ## Call or trigger logic apps through HTTP endpoints
 
-After you create your logic app's HTTP endpoint, 
+After you create your HTTP endpoint, 
 you can trigger your logic app through a `POST` method to the full URL. 
 Logic apps have built-in support for direct-access endpoints 
 and always use the `POST` method to start running the logic app.
@@ -267,10 +267,9 @@ you can use the `@triggerBody()` shortcut.
 
 ## Respond to requests
 
-For some requests that start a logic app, 
-you might want to respond by returning some content to the caller. 
-To construct the status code, header, and body for your response, 
-you can use the **Response** action.
+You might want to respond to certain requests that start a logic app 
+by returning content to the caller. To construct the status code, 
+header, and body for your response, you can use the **Response** action.
 
 > [!NOTE] 
 > If your logic app doesn't include a **Response**, 
