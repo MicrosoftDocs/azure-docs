@@ -64,8 +64,8 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 6. Move (or remove) the udev rules to avoid generating static rules for the Ethernet interface. These rules cause problems when you clone a virtual machine in Microsoft Azure or Hyper-V:
 
-		# sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
-		# sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
+        # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+        # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 
 7. Ensure that the network service will start at boot time by running the following command:
 
@@ -100,8 +100,8 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 12. Install the Azure Linux Agent by running the following command:
 
-		# sudo yum install WALinuxAgent
-		# sudo chkconfig waagent on
+        # sudo yum install WALinuxAgent
+        # sudo chkconfig waagent on
 
 	Installing the WALinuxAgent package removes the NetworkManager and NetworkManager-gnome packages if they were not already removed in step 3.
 
@@ -121,9 +121,9 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 15. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-		# sudo waagent -force -deprovision
-		# export HISTSIZE=0
-		# logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 
 16. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
@@ -182,8 +182,8 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 11. Install the Azure Linux Agent by running the following command:
 
-		# sudo yum install WALinuxAgent
-		# sudo systemctl enable waagent.service
+        # sudo yum install WALinuxAgent
+        # sudo systemctl enable waagent.service
 
 12. Do not create swap space on the operating system disk.
 
@@ -201,9 +201,9 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 14. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-		# sudo waagent -force -deprovision
-		# export HISTSIZE=0
-		# logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 
 15. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
@@ -249,8 +249,8 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 6. Move (or remove) the udev rules to avoid generating static rules for the Ethernet interface. These rules cause problems when you clone a virtual machine in Azure or Hyper-V:
 
-		# sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
-		# sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
+        # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+        # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 
 7. Ensure that the network service will start at boot time by running the following command:
 
@@ -304,8 +304,8 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 14. Install the Azure Linux Agent by running the following command:
 
-		# yum install WALinuxAgent
-		# chkconfig waagent on
+        # yum install WALinuxAgent
+        # chkconfig waagent on
 
 15. The Azure Linux Agent can automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. Note that the local resource disk is a temporary disk, and it might be emptied when the virtual machine is deprovisioned. After you install the Azure Linux Agent in the previous step, modify the following parameters in **/etc/waagent.conf** appropriately:
 
@@ -321,9 +321,9 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 17. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-		# waagent -force -deprovision
-		# export HISTSIZE=0
-		# logout
+        # waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 
 18. Shut down the virtual machine in KVM.
 
@@ -335,11 +335,11 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 	Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
-		# MB=$((1024*1024))
-		# size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
 			gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-		# rounded_size=$((($size/$MB + 1)*$MB))
-		# qemu-img resize rhel-6.8.raw $rounded_size
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-6.8.raw $rounded_size
 
 	Convert the raw disk to a fixed-sized VHD:
 
@@ -458,9 +458,9 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 17. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-		# sudo waagent -force -deprovision
-		# export HISTSIZE=0
-		# logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 
 18. Shut down the virtual machine in KVM.
 
@@ -472,11 +472,11 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 	Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
-		# MB=$((1024*1024))
-		# size=$(qemu-img info -f raw --output json "rhel-7.3.raw" | \
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-7.3.raw" | \
 			gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-		# rounded_size=$((($size/$MB + 1)*$MB))
-		# qemu-img resize rhel-7.3.raw $rounded_size
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-7.3.raw $rounded_size
 
 	Convert the raw disk to a fixed-sized VHD:
 
@@ -553,8 +553,8 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 11. Install the Azure Linux Agent by running the following command:
 
-		# sudo yum install WALinuxAgent
-		# sudo chkconfig waagent on
+        # sudo yum install WALinuxAgent
+        # sudo chkconfig waagent on
 
 12. Do not create swap space on the operating system disk.
 
@@ -572,9 +572,9 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 14. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-		# sudo waagent -force -deprovision
-		# export HISTSIZE=0
-		# logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 
 15. Shut down the virtual machine, and convert the VMDK file to a .vhd file.
 
@@ -584,11 +584,11 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 	Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
-		# MB=$((1024*1024))
-		# size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
 			gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-		# rounded_size=$((($size/$MB + 1)*$MB))
-		# qemu-img resize rhel-6.8.raw $rounded_size
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-6.8.raw $rounded_size
 
 	Convert the raw disk to a fixed-sized VHD:
 
@@ -653,8 +653,8 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 10. Install the Azure Linux Agent by running the following command:
 
-		# sudo yum install WALinuxAgent
-		# sudo systemctl enable waagent.service
+        # sudo yum install WALinuxAgent
+        # sudo systemctl enable waagent.service
 
 11. Do not create swap space on the operating system disk.
 
@@ -672,9 +672,9 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 13. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-		# sudo waagent -force -deprovision
-		# export HISTSIZE=0
-		# logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 
 14. Shut down the virtual machine, and convert the VMDK file to the VHD format.
 
@@ -684,11 +684,11 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 	Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
-		# MB=$((1024*1024))
-		# size=$(qemu-img info -f raw --output json "rhel-7.3.raw" | \
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-7.3.raw" | \
 			gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-		# rounded_size=$((($size/$MB + 1)*$MB))
-		# qemu-img resize rhel-7.3.raw $rounded_size
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-7.3.raw $rounded_size
 
 	Convert the raw disk to a fixed-sized VHD:
 
