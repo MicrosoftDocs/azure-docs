@@ -1,6 +1,6 @@
 ---
-title: Configure performance traffic routing method using Azure Traffic Manager | Microsoft Docs
-description: This article explains how to configure the performance traffic-routing method in Traffic Manager
+title: Configure weighted round-robin traffic routing method using Azure Traffic Manager | Microsoft Docs
+description: This article explains how to configure the weighted traffic-routing method using Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
@@ -17,16 +17,18 @@ ms.date: 03/20/2017
 ms.author: kumud
 ---
 
-# Configure the performance traffic routing method using Traffic Manager
+# Configure the weighted traffic routing method in Traffic Manager
 
-The Performance traffic routing method allows you to direct traffic to the endpoint with the lowest latency from the client's network. Typically, the datacenter with the lowest latency is the closest in geographic distance. This traffic routing method cannot account for real-time changes in network configuration or load.
+A common traffic routing method pattern is to provide a set of identical endpoints, which include cloud services and websites, and send traffic to each in a round-robin fashion. The following steps outline how to configure this type of traffic routing method.
 
+> [!NOTE]
+> Azure Websites already provide round-robin load balancing functionality for websites within a datacenter (also known as a region). Traffic Manager allows you to specify round-robin traffic routing method for websites in different datacenters.
 
 1. From a browser, sign in to the [Azure portal](http://portal.azure.com). If you don’t already have an account, you can sign-up for a [free one-month trial](https://azure.microsoft.com/free/). 
 2. In the portal’s search bar, search for the **Traffic Manager profiles** and then click the profile name that you want to configure the routing method for.
 3. In the **Traffic Manager profile** blade, verify that both the cloud services and websites that you want to include in your configuration are present.
 4. In the **Settings** section, click **Configuration**, and in the **Configuration** blade, complete as follows:
-    1. For **traffic routing method settings**, for **Routing method** select **Performance**.
+    1. For **traffic routing method settings**, verify that the traffic routing method is **Failover**. If it is not, click **Failover** from the dropdown list.
     2. Set the **Endpoint monitor settings** identical for all every endpoint within this profile as follows:
         1. Select the appropriate **Protocol**, and specify the **Port** number. 
         2. For **Path** type a forward slash */*. To monitor endpoints, you must specify a path and filename. A forward slash "/" is a valid entry for the relative path and implies that the file is in the root directory (default).
@@ -34,13 +36,13 @@ The Performance traffic routing method allows you to direct traffic to the endpo
 5. Test the changes in your configuration.
 6. Once your Traffic Manager profile is working, edit the DNS record on your authoritative DNS server to point your company domain name to the Traffic Manager domain name.
 
-![Configuring performance traffic routing method using Traffic Manager][1]
+![Configuring weighted traffic routing method using Traffic Manager][1]
 
 ## Next steps
 
-- Learn about [weighted traffic routing method](traffic-manager-configure-weighted-routing-method.md).
-- Learn more about [priority routing method](traffic-manager-configure-priority-routing-method.md).
+- Learn about [priority traffic routing method](traffic-manager-configure-priority-routing-method.md).
+- Learn more about [performance traffic routing method](traffic-manager-configure-performance-routing-method.md).
 - Learn how to [test Traffic Manager settings](traffic-manager-testing-settings.md).
 
 <!--Image references-->
-[1]: ./media/traffic-manager-performance-routing-method/traffic-manager-performance-routing-method.png
+[1]: ./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-routing-method.png
