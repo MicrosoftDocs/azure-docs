@@ -51,5 +51,5 @@ The VIP of a cloud service is allocated when you first deploy it to Azure in a p
 	![Publish Azure application - summary](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-summary.png)
 
 ## Next steps
-- [Publish Azure application wizard](vs-azure-tools-publish-azure-application-wizard.md).
+- [Using the Visual Studio Publish Azure Application Wizard](vs-azure-tools-publish-azure-application-wizard.md)
 
