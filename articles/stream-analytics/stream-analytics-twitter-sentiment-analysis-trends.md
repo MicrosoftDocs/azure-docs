@@ -49,7 +49,7 @@ Take the following steps to create an event hub:
 
 1. In the [Azure portal](https://portal.azure.com), select **NEW**, type **Event Hubs**, and then select **Event Hubs** from the resulting search. Then select **Create**.
 
-2. Provide a name for the event hub, and then create a resource group. We've specified `socialtwitter-eh` and `socialtwitter-rg` respectively. Check the box to pin the account to the dashboard, and then select the **Create** button.
+2. Provide a name for the event hub, and then create a resource group. We've specified `socialtwitter-eh` and `socialtwitter-rg` respectively. Select the option to pin the account to the dashboard, and then select the **Create** button.
 
 3. After the deployment is complete, select the event hub. Then, under **Entities**, select **Event Hubs**.
 
@@ -80,9 +80,6 @@ Follow these steps to set up the application:
 1. [Download the TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip), and then unzip it.
 
 2. Run the `TwitterWPFClient.exe` application. Then enter your data for the Twitter API Key and Secret, Twitter Access Token and Secret, and also the event hub information. Finally, define which keywords you want to determine sentiment for.
-
-> [!NOTE]
-If you specify more than one word (by using commas to define multiple values), and you want ANY, you must flip the control to **Match ANY**.
 
 ### Generate an OAuth access token
 For more information, see [Steps to generate an OAuth access token](https://dev.twitter.com/oauth/overview/application-owner-access-tokens).  
