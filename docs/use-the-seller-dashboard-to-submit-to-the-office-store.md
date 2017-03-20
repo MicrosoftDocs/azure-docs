@@ -115,8 +115,9 @@ After your account in the Seller Dashboard is approved, you can submit your solu
 
 
 -  [Register as an app developer](https://dev.windows.com/en-us/programs/join)
--  [Create effective Office Store apps and add-ins](create-effective-office-store-listings.md)
+-  [Create effective Office Store listings](create-effective-office-store-listings.md)
 -  [Have your app appear in the Office 365 App launcher](https://msdn.microsoft.com/en-us/office/office365/howto/connect-your-app-to-o365-app-launcher)
+-  [Publish Power BI custom visuals to the Office store](https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-office-store/)
     
  
 
