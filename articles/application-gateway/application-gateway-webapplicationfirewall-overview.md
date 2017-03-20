@@ -28,14 +28,18 @@ Application Gateway operates as an application delivery controller and offers SS
 
 ## Benefits
 
+The following are the core benefits that Application Gateway and web application firewall provide:
+
 ### Protection
 
 * Protect your web application from web vulnerabilities and attacks without modification to backend code.
+
 * Protect multiple web applications at the same time behind an application gateway. Application gateway supports hosting up to 20 websites behind a single gateway that could all be protected against web attacks.
 
 ### Monitoring
 
 * Monitor your web application against attacks using a real-time WAF log. This log is integrated with [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) to track WAF alerts and logs and easily monitor trends.
+
 * WAF is integrated with [Azure Security Center](application-gateway-integration-security-center.md) which allows for a central view of the security state of all your Azure resources.
 
 ### Customization
@@ -44,11 +48,13 @@ Application Gateway operates as an application delivery controller and offers SS
 
 ## Features
 
-Web application firewall is offered as part of a new WAF SKU under Application Gateway. When you choose WAF SKU you get all the features available under Appliction Gateway in addition to the web appliction firewall capability. Web application firewall utilizies OWASP core rule set 3.0 or 2.2.9, which offer protection against many of the OWASP common web vulnerabilities.
+* Web application firewall is offered as part of a new WAF SKU under Application Gateway. When you choose WAF SKU you get all the features available under Appliction Gateway in addition to the web appliction firewall capability. 
+
+* Web application firewall utilizies OWASP core rule set 3.0 or 2.2.9, which offer protection against many of the OWASP common web vulnerabilities.
 
 ### Protection
 
-Web application firewall comes preconfigured with CRS 3.0 by default or you choose 2.2.9. CRS 3.0 offers better performance and reduced false positives over 2.2.9. The ability to [customize rules to suit your needs](application-gateway-customize-waf-rules-portal) is provided. Some of the common web vulnerabilities which web application firewall protects against includes:
+Web application firewall comes preconfigured with CRS 3.0 by default or you can choose to use 2.2.9. CRS 3.0 offers better performance and reduced false positives over 2.2.9. The ability to [customize rules to suit your needs](application-gateway-customize-waf-rules-portal) is provided. Some of the common web vulnerabilities which web application firewall protects against includes:
 
 * SQL injection protection
 * Cross site scripting protection
