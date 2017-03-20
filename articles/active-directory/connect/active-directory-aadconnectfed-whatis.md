@@ -18,7 +18,7 @@ ms.author: anandy
 
 ---
 # Azure AD Connect and federation
-Azure Active Directory (Azure AD) Connect lets you configure federation with on-premises Active Directory Federation Services (AD FS) and Azure AD. With federation sign-in, you can enable users to sign in to Azure AD-based services with their on-premises passwords--and, while on the corporate network, without having to enter their passwords again. By using the federation option with AD FS, you can deploy a new installation or can specify an existing AD FS installation in a Windows Server 2012 R2 farm.
+Azure Active Directory (Azure AD) Connect lets you configure federation with on-premises Active Directory Federation Services (AD FS) and Azure AD. With federation sign-in, you can enable users to sign in to Azure AD-based services with their on-premises passwords--and, while on the corporate network, without having to enter their passwords again. By using the federation option with AD FS, you can deploy a new installation of AD FS, or you can specify an existing installation in a Windows Server 2012 R2 farm.
 
 This topic is the home for information on federation-related functionalities for Azure AD Connect. It lists links to all related topics. For links to Azure AD Connect, see [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
@@ -29,7 +29,7 @@ This topic is the home for information on federation-related functionalities for
 | [Understand user sign-in options](active-directory-aadconnect-user-signin.md) |Learn about various user sign-in options and how they affect the Azure sign-in user experience. |
 | **Install AD FS by using Azure AD Connect** | |
 | [Prerequisites](active-directory-aadconnect-get-started-custom.md#ad-fs-configuration-pre-requisites) |See the prerequisites for a successful AD FS installation via Azure AD Connect. |
-| [Configure AD FS farm](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs) |Install a new AD FS farm by using Azure AD Connect. |
+| [Configure an AD FS farm](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs) |Install a new AD FS farm by using Azure AD Connect. |
 | **Modify the AD FS configuration** | |
 | [Repair the trust](active-directory-aadconnect-federation-management.md#repairthetrust) |Repair the current trust between on-premises AD FS and Office 365/Azure. |
 | [Add a new AD FS server](active-directory-aadconnect-federation-management.md#addadfsserver) |Expand an AD FS farm with an additional AD FS server after initial installation. |
