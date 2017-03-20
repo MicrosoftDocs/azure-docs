@@ -148,7 +148,7 @@ Azure Active Directory works with Resource Manager to enable role-based access c
 | Feature | Resource Manager Enabled | REST API | Template format |
 | --- | --- | --- | --- | --- |
 | Authorization |Yes |[Authorization REST](/rest/api/authorization) |[Authorization resources](/azure/templates/microsoft.authorization/locks) |
-| Resources |Yes |[Resources REST](/rest/api/resources) |[Deployment resources](azure/templates/microsoft.resources/deployments) |
+| Resources |Yes |[Resources REST](/rest/api/resources) |[Deployment resources](/azure/templates/microsoft.resources/deployments) |
 
 ## Resource providers and types
 When deploying resources, you frequently need to retrieve information about the resource providers and types. You can retrieve this information through REST API, Azure PowerShell, or Azure CLI.
