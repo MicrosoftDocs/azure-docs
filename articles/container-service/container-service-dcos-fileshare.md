@@ -140,3 +140,6 @@ You can optimize the scripts, but this example is straightforward and its purpos
 > This method is not recommended for scenarios that require high IOPS, but it is very useful to share documents and information across the cluster.
 >
 
+## Next steps
+* Read more about [managing your DC/OS containers](container-service-mesos-marathon-ui.md).
+* DC/OS container management through the [Marathon REST API](container-service-mesos-marathon-rest.md).
