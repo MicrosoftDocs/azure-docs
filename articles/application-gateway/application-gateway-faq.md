@@ -242,7 +242,7 @@ WAF currently supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#o
 
 * Detection of common application misconfigurations (i.e. Apache, IIS, etc.)
 
-**Q. Does WAF also support DDos=S prevention?**
+**Q. Does WAF also support DDoS prevention?**
 
 No, WAF does not provide DDoS prevention.
 
