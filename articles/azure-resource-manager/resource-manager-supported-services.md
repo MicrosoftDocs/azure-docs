@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/17/2017
+ms.date: 03/20/2017
 ms.author: tomfitz
 
 ---
 # Resource Manager providers, regions, API versions and schemas
-Azure Resource Manager provides a new way for you to deploy and manage the services that make up your applications. Most, but not all, services support Resource Manager, and some services support Resource Manager only partially. This topic provides a list of supported resource providers for Azure Resource Manager.
+This topic provides a list of resource providers that support Azure Resource Manager.
 
 When deploying your resources, you also need to know which regions support those resources and which API versions are available for the resources. The section [Supported regions](#supported-regions) shows you how to find out which regions work for your subscription and resources. The section [Supported API versions](#supported-api-versions) shows you how to determine which API versions you can use.
 
@@ -59,6 +59,7 @@ Cloud Services (classic) can be used with other classic resources. However, clas
 ## Storage
 | Service | Resource Manager Enabled | REST API | Template format |
 | --- | --- | --- | --- | --- |
+| Import Export | Yes | [Import Export REST](/rest/api/storageimportexport/) | [Import Export resources](/azure/templates/microsoft.importexport/jobs) |
 | Storage |Yes |[Storage REST](/rest/api/storagerp) |[Storage resources](/azure/templates/microsoft.storage/storageaccounts) |
 | StorSimple |Yes | | |
 
@@ -75,7 +76,9 @@ Cloud Services (classic) can be used with other classic resources. However, clas
 | --- | --- | --- | --- |
 | API Apps |Yes | [App Service REST](/rest/api/appservice) |[Web resources](/azure/templates/microsoft.web/sites) |
 | API Management |Yes |[API Management REST](/rest/api/apimanagement) |[API Management resources](/azure/templates/microsoft.apimanagement/service) |
+| Certificate Registration | Yes | [Certificate Registration REST](/rest/api/appservice/appservicecertificateorders) | [Certificate Registration resources](/azure/templates/microsoft.certificateregistration/certificateorders)  |
 | Content Moderator |Yes | | | |
+| Domain Registration | Yes | [Domain Registration](/rest/api/appservice/domains) | [Domain Registration resources](/azure/templates/microsoft.domainregistration/domains)  |
 | Function App |Yes | [Function App REST](/rest/api/appservice) | [Web resources](/azure/templates/microsoft.web/sites) |
 | Logic Apps |Yes |[Logic Apps REST](/rest/api/logic) |[Logic App resources](/azure/templates/microsoft.logic/workflows) |
 | Mobile Apps |Yes | [App Service REST](/rest/api/appservice) | [Web resources](/azure/templates/microsoft.web/sites) |
@@ -132,11 +135,14 @@ Azure Active Directory works with Resource Manager to enable role-based access c
 ## Management and Security
 | Service | Resource Manager Enabled | REST API | Template format |
 | --- | --- | --- | --- |
+| Advisor | Yes | [Advisor REST](/rest/api/advisor/) | - |
 | Automation |Yes |[Automation REST](https://msdn.microsoft.com/library/azure/mt662285.aspx) |[Automation schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-31/Microsoft.Automation.json) |
+| Billing | Yes | [Billing REST](/rest/api/billing/) | - |
 | Key Vault |Yes |[Key Vault REST](/rest/api/keyvault) |[Key vault resources](/azure/templates/microsoft.keyvault/vaults) |
 | Operational Insights |Yes | | |
 | Scheduler |Yes |[Scheduler REST](/rest/api/scheduler) |[Scheduler resources](/azure/templates/microsoft.scheduler/jobcollections) |
 | Security |Yes |[Security REST](https://msdn.microsoft.com/library/azure/mt704034.aspx) | |
+| Server Management | Yes | [Server Management REST](/rest/api/servermanagement/) | [Server Management resources](/azure/templates/microsoft.servermanagement/gateways) |
 
 ## Resource Manager
 | Feature | Resource Manager Enabled | REST API | Template format |
