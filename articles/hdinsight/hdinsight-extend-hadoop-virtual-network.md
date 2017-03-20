@@ -151,6 +151,12 @@ These steps assume that you have already created a Virtual Network and subnet th
 > 
 > For more information on Network Security Group rules, see [What is a Network Security Group?](../virtual-network/virtual-networks-nsg.md).
 
+**Using Azure Resource Management template**
+
+Using the following Resource Management template from the [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/) to create an HDInsight cluster in a VNet with the secure network configurations:
+
+[Deploy a secured Azure VNet and an HDInsight Hadoop cluster within the VNet](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
+
 **Using Azure PowerShell**
 
     $vnetName = "Replace with your virtual network name"

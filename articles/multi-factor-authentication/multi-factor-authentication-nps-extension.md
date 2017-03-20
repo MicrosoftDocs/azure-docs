@@ -85,7 +85,7 @@ This section includes design considerations and suggestions for successful NPS e
 
 ### Configurations limitations
 
-- The NPS extension is meant to work with your existing deployment, and is not for new deployments. For this reason, the NPS extension for Azure MFA does not include tools to migrate users and settings from MFA Server to the cloud.
+- The NPS extension is for new deployments, and is not meant to work with your existing deployment. For this reason, the NPS extension for Azure MFA does not include tools to migrate users and settings from MFA Server to the cloud.
 
 - The NPS extension uses the UPN from the on-premises Active directory to identify the user on Azure MFA for performing the Secondary Auth. The extension cannot be configured to use a different identifier like alternate login ID or custom AD field other than UPN.  
 
