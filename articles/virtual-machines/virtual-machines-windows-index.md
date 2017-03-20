@@ -38,7 +38,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Install Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
-[Install Azure CLI](../xplat-cli-install.md)
+[Install Azure CLI](../cli-install-nodejs.md)
 
 ## Get started
 [Learning path for Windows VMs](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
