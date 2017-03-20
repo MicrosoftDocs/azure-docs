@@ -87,13 +87,13 @@ In order to use Network Watcher PowerShell cmdlets, the latest PowerShell module
 
 1. Right click the AlertPacketCapturePowershell folder and create a folder called **azuremodules**. Continue creating sub folders for each module needed.
 
+    ![functions kudu][functions3]
+
     * AzureRM.Network
 
     * AzureRM.Profile
 
     * AzureRM.Resources
-
-    ![functions kudu][functions3]
 
 1. Right click the **AzureRM.Network** sub folder and click **Upload Files**. Navigate to where your Azure modules are installed, and in the local AzureRM.Network folder select all the files in the folder and click **Ok**.  Repeat these steps for AzureRM.Profile and AzureRM.Resources.
 
