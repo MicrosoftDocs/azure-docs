@@ -40,6 +40,7 @@ The following limits apply only for networking resources managed through Azure R
 | Private front end IP per load balancer |10 |contact support |
 | VNets peerings per Virtual Network |10 |50 |
 | Point-to-Site Root Certificates per VPN Gateway |20 |20 |
+| Private IP Addresses per network interface (NIC) |50 |contact support |
 
 Contact support in case you need to increase limits from default.
 
