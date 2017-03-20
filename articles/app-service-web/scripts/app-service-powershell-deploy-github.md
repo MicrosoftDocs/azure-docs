@@ -29,7 +29,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Clean up deployment 
 
-After the script sample has been run, the following command can be used to remove the Resource Group, web app, and all related resources.
+After the script sample has been run, the following command can be used to remove the resource group, web app, and all related resources.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
