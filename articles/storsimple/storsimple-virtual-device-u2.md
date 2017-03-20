@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 03/20/2017
 ms.author: alkohli
 
 ---
@@ -29,34 +29,13 @@ The StorSimple virtual device is available in two models, a standard 8010 (forme
 | **Maximum capacity** |30 TB |64 TB |
 | **Azure VM** |Standard_A3 (4 cores, 7 GB memory) |Standard_DS3 (4 cores, 14 GB memory) |
 | **Version compatibility** |Versions running pre-Update 2 or later |Versions running Update 2 or later |
-| **Region availability** |All Azure regions |Azure regions that support Premium Storage<br></br>For a list of regions, see [supported regions for 8020](#supported-regions-for-8020) |
+| **Region availability** |All Azure regions |All Azure regions that support Premium Storage<br></br>You can find the list of available regions in Azure Services by Region by looking at the regions in which the size-series VMs (DS, DSV2, Fs, and GS) are supported.(https://azure.microsoft.com/en-us/regions/services)|
 | **Storage type** |Uses Azure Standard Storage for local disks<br></br> Learn how to [create a Standard Storage account](../storage/storage-create-storage-account.md) |Uses Azure Premium Storage for local disks<sup>2</sup> <br></br>Learn how to [create a Premium Storage account](../storage/storage-premium-storage.md) |
 | **Workload guidance** |Item level retrieval of files from backups |Cloud dev and test scenarios, low latency, higher performance workloads <br></br>Secondary device for disaster recovery |
 
 <sup>1</sup> *Formerly known as the 1100*.
 
 <sup>2</sup> *Both the 8010 and 8020 use Azure Standard Storage for the cloud tier. The difference only exists in the local tier within the device*.
-
-#### Supported regions for 8020
-The Premium Storage regions that are currently supported for 8020 are tabulated below. This list will be continuously updated as Premium Storage becomes available in more regions.
-
-| S. no. | Currently supported in regions |
-| --- | --- |
-| 1 |Central US |
-| 2 |East US |
-| 3 |East US 2 |
-| 4 |West US |
-| 5 |North Europe |
-| 6 |West Europe |
-| 7 |Southeast Asia |
-| 8 |Japan East |
-| 9 |Japan West |
-| 10 |Australia East |
-| 11 |Australia Southeast* |
-| 12 |East Asia* |
-| 13 |South Central US* |
-
-*Premium Storage was launched recently in these geos.
 
 This article describes the step-by-step process of deploying a StorSimple virtual device in Azure. After reading this article, you will:
 
