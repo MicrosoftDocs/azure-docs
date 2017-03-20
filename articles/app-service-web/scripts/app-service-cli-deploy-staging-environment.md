@@ -13,7 +13,7 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 ---
 
@@ -21,7 +21,7 @@ ms.author: cephalin
 
 This sample script creates a web app in App Service with an additional deployment slot called "staging", and then deploys a sample app to the "staging" slot.
 
-Before running this script, ensure that a connection with Azure has been created using the `az login` command. 
+If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure.
 
 This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
@@ -29,13 +29,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 [!code-azurecli[main](../../../cli_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.sh "Create a web app and deploy code to a staging environment")]
 
-## Clean up deployment 
-
-After the script sample has been run, the follow command can be used to remove the Resource Group, App Service app, and all related resources.
-
-```azurecli
-az group delete --name myResourceGroup
-```
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 

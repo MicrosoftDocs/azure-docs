@@ -13,7 +13,7 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 ---
 
@@ -21,7 +21,7 @@ ms.author: cephalin
 
 This sample script creates a web app in App Service with its related resources, then binds the SSL certificate of a custom domain name to it. 
 
-Before running this script, ensure that:
+If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli). Also, ensure that:
 
 - A connection with Azure has been created using the `az login` command.
 - You have access to your domain registrar's DNS configuration page.
@@ -33,13 +33,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 [!code-azurecli[main](../../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")]
 
-## Clean up deployment 
-
-After the script sample has been run, the follow command can be used to remove the Resource Group, App Service app, and all related resources.
-
-```azurecli
-az group delete --name myResourceGroup
-```
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 
