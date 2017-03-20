@@ -57,7 +57,7 @@ After reading this article, post any comments at the bottom, or on the [Azure Re
 
 
 ## Prepare for deployment
-To prepare for deployment you need to:
+To prepare for deployment, you need to:
 
 1. [Set up an Azure network](#set-up-an-azure-network) in which Azure VMs will be located after failover.
 2. [Set up an Azure storage account](#set-up-an-azure-storage-account) for replicated data.
@@ -70,7 +70,7 @@ You need an Azure network to which Azure VMs created after failover will connect
 * The network should be in the same region as the Recovery Services vault.
 * Depending on the resource model you want to use for failed over Azure VMs, you set up the Azure network in [Resource Manager mode](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) or [classic mode](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 * We recommend you set up a network before you begin. If you don't, you need to do it during Site Recovery deployment.
-Note that Azure networks used by Site Recovery can't be [moved](../azure-resource-manager/resource-group-move-resources.md) within the same, or across different, subscriptions.
+Azure networks used by Site Recovery can't be [moved](../azure-resource-manager/resource-group-move-resources.md) within the same, or across different, subscriptions.
 
 ### Set up an Azure storage account
 * You need a standard Azure storage account to hold data replicated to Azure. The account must be in the same region as the Recovery Services vault.
@@ -83,7 +83,7 @@ Note that Azure networks used by Site Recovery can't be [moved](../azure-resourc
 * During Site Recovery deployment, you can specify that all clouds on a VMM server should be available in the Azure portal. If you only want specific clouds to appear in the portal, you can enable that setting on the cloud in the VMM admin console.
 
 ### Prepare for network mapping
-You need to set up network mapping during Site Recovery deployment. Network mapping maps between source VMM VM networks and target Azure networks, to enable the following:
+You must set up network mapping during Site Recovery deployment. Network mapping maps between source VMM VM networks and target Azure networks, to enable the following:
 
 * Machines that fail over on the same network can connect to each other, even if they're not failed over in the same way or in the same recovery plan.
 * If a network gateway is set up on the target Azure network, Azure virtual machines can connect to on-premises virtual machines.
@@ -165,7 +165,7 @@ Install the Azure Site Recovery Provider on the VMM server, and register the ser
 9. Enable **Sync cloud metadata**, if you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked and synchronize each cloud individually in the cloud properties in the VMM console. Click **Register** to complete the process.
 
     ![Server registration](./media/site-recovery-vmm-to-azure/provider16.PNG)
-10. Registration starts. After registration finishes, the server is displayed in **Site Recovery Infrastructure** >  **VMM Servers**.
+10. Registration starts. After registration finishes, the server is displayed in **Site Recovery Infrastructure** > **VMM Servers**.
 
 #### Command-line installation for the Azure Site Recovery Provider
 The Azure Site Recovery Provider can be installed from the command-line. This method can be used to install the Provider on Server Core for Windows Server 2012 R2.
@@ -287,7 +287,7 @@ Here's what happens when network mapping begins:
 ## Step 5: Capacity planning
 Now that you have your basic infrastructure set up, think about capacity planning, and figure out whether you need additional resources.
 
-Site Recovery provides a capacity planner to help you allocate the right resources for your source environment, the site recovery components, networking, and storage. You can run the planner in quick mode for estimations based on an average number of VMs, disks, and storage, or in detailed mode in which you’ll input figures at the workload level. Before you start:
+Site Recovery provides a capacity planner to help you allocate the right resources for your source environment, Site Recovery components, networking, and storage. You can run the planner in quick mode for estimations based on an average number of VMs, disks, and storage, or in detailed mode in which you input figures at the workload level. Before you start:
 
 * Gather information about your replication environment, including VMs, disks per VMs, and storage per disk.
 * Estimate the daily change (churn) rate you’ll have for replicated data. You can use the [Capacity planner for Hyper-V Replica](https://www.microsoft.com/download/details.aspx?id=39057) to help you do this.
@@ -346,7 +346,7 @@ Now enable replication as follows:
 
     ![Enable replication](./media/site-recovery-vmm-to-azure/enable-replication5.png)
 
-7. In **Properties** > **Configure properties**,  select the operating system for the selected VMs, and the OS disk. By default all the disks of the VM are selected for replication. You might want to exclude disk(s) from replication to reduce the bandwidth consumption of replicating unnecessary data to Azure. For example you might not want to replicate disks with temporary data, or data that's refreshed each time a machine or application restarts (for example pagefile.sys or Microsoft SQL Server tempdb). You can exclude the disk from replication by unselecting the disk. Verify that the Azure VM name (Target Name) complies with [Azure virtual machine requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) and modify it if you need to. Then click **OK**. You can set additional properties later.
+7. In **Properties** > **Configure properties**, select the operating system for the selected VMs, and the OS disk. By default all the disks of the VM are selected for replication. You might want to exclude disk(s) from replication to reduce the bandwidth consumption of replicating unnecessary data to Azure. For example you might not want to replicate disks with temporary data, or data that's refreshed each time a machine or application restarts (for example pagefile.sys or Microsoft SQL Server tempdb). You can exclude the disk from replication by unselecting the disk. Verify that the Azure VM name (Target Name) complies with [Azure virtual machine requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) and modify it if you need to. Then click **OK**. You can set additional properties later.
 
 	![Enable replication](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
@@ -364,7 +364,7 @@ Now enable replication as follows:
 
    ![Enable replication](./media/site-recovery-vmm-to-azure/enable-replication7.png)
 
-You can track progress of the **Enable Protection** job in  **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
+You can track progress of the **Enable Protection** job in **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
 
 ### View and manage VM properties
 We recommend that you verify the properties of the source machine. Remember that the Azure VM name should conform with [Azure virtual machine requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
@@ -424,7 +424,7 @@ If you want to access an Azure VM running Linux after failover using a Secure Sh
 To test the deployment you can run a test failover for a single virtual machine or a recovery plan that contains one or more virtual machines.
 
 1. To fail over a single VM, in **Replicated Items**, click the VM > **+Test Failover**.
-1. To fail over a recovery plan, in  **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).
+1. To fail over a recovery plan, in **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).
 1. In **Test Failover**, select the Azure network to which Azure VMs connect after failover occurs.
 1. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its properties, or on the **Test Failover** job in **Site Recovery jobs**.
 1. After the failover completes, you should also be able to see the replica Azure machine appear in the Azure portal > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and is running.
