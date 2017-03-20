@@ -55,8 +55,8 @@ Create a web app with a unique name in `<app_name>`.
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
 ```
 
-## Configure the Linux container
-Configure the Linux container to use the default Node.js 6.9.3 image.
+## Configure the Node version
+Configure the site to use Node.js 6.9.3.
 
 ```azurecli
 az appservice web config update --node-version 6.9.3 --name <app_name> --resource-group myResourceGroup
