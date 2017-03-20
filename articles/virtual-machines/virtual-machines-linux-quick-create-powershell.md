@@ -74,12 +74,9 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Locat
 Create a network card for the virtual machine. The network card connects the virtual machine to a subnet, network security group, and public IP address.
 
 ```powershell
-# Get subnet object
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -VirtualNetwork $vnet
-
 # Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -ResourceGroupName myResourceGroup -Location westeurope -Name myNic `
--Subnet $subnet -NetworkSecurityGroup $nsg -PublicIpAddress $pip
+$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location westeurope `
+-SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
 ## Create virtual machine
