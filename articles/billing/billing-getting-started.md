@@ -75,7 +75,7 @@ You might want to use the cost estimate from the pricing calculator as a guideli
 
 ### Understand limits and quotas for your subscription
 
-There are default limits to each subscription for things like the number of CPU cores, IP address, etc. Be mindful of these limits. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). You can request an increase to your limit or quota by [contacting support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+There are default limits to each subscription for things like the number of CPU cores and IP addresses. Be mindful of these limits. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). You can request an increase to your limit or quota by [contacting support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## Day 1: As you add services
 
@@ -103,7 +103,7 @@ Depending on your scenario, you could configure auto-shutdown for your VMs in th
 
 Auto-shutdown isn't the same as when you shut down within the VM with power options. Auto-shutdown stops and deallocates your VMs to stop additional usage charges. For more information, see pricing FAQ for [Linux VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) about VM states.
 
-For more cost-cutting features for your dev-test environments, check out [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/).
+For more cost-cutting features for your development and test environments, check out [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/).
 
 ## <a name="cost-reporting"></a> Day 2+: After using services, view usage
 
@@ -137,7 +137,7 @@ We recommend that you check the costs you see with the estimates you saw when yo
 
 #### View costs for all your subscriptions in the Billing blade
 
-If you manage multiple subscriptions as the Account admin, you can see the aggregate bill amount and breakdown for all of your subscriptions in the [Billing blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade). 
+If you manage multiple subscriptions as the Account admin, you can see the aggregate bill amount and breakdown for all your subscriptions in the [Billing blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade). 
 
 <!-- Add screenshots of multiple subs each with billed usage -->
 
