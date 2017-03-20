@@ -17,7 +17,7 @@ ms.date: 03/12/2017
 ms.author: raynew
 
 ---
-# Replicate VMware virtual machines to Azure with  Site Recovery
+# Replicate VMware virtual machines to Azure with Site Recovery
 
 > [!div class="op_single_selector"]
 > * [Azure portal](site-recovery-vmware-to-azure.md)
