@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/cli-install-nodejs
+redirect_url: /cli/azure/install-azure-cli
 ---
