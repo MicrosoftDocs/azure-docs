@@ -1,6 +1,6 @@
 ---
-title: Azure Application Gateway Web Application Firewall CRS rule groups and rules | Microsoft Docs
-description: This page provides information on Web Application Firewall CRS rule groups and rules.
+title: Azure Application Gateway web application firewall CRS rule groups and rules | Microsoft Docs
+description: This page provides information on web application firewall CRS rule groups and rules.
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -23,7 +23,7 @@ ms.author: gwallace
 
 Application Gateway web application firewall (WAF) protects web applications from common vulnerabilities and exploits. This is done through rules that are defined based on the OWASP core rule sets 2.2.9 or 3.0. These rules can be disabled on a rule by rule basis. This article contains the current rules and rulesets offered.
 
-The following tables are the Rule groups and rules that are available when using Application Gateway with Web Application Firewall.  Each table represents the rules found in a rule group for a specific CRS version.
+The following tables are the Rule groups and rules that are available when using Application Gateway with web application firewall.  Each table represents the rules found in a rule group for a specific CRS version.
 
 ##<a name="owasp30"></a> OWASP_3.0
 
@@ -590,6 +590,6 @@ The following tables are the Rule groups and rules that are available when using
 
 ## Next steps
 
-Learn how to disable WAF rules by visiting: [Customize WAF rules](application-gateway-crs-rulegroups-rules.md)
+Learn how to disable WAF rules by visiting: [Customize WAF rules](application-gateway-customize-waf-rules-portal.md)
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png

@@ -1,5 +1,5 @@
 ---
-title: Create or update an Azure Application Gateway with Web Application Firewall | Microsoft Docs
+title: Create or update an Azure Application Gateway with web application firewall | Microsoft Docs
 description: Learn how to create an Application Gateway with web application firewall by using the portal
 services: application-gateway
 documentationcenter: na
@@ -49,7 +49,7 @@ In the second scenario, you learn to [create an application gateway with web app
 Azure Application Gateway requires its own subnet. When creating a virtual network, ensure that you leave enough address space to have multiple subnets. Once you deploy an application gateway to a subnet,
 only additional application gateways are able to be added to the subnet.
 
-## Add web application firewall to an existing application gateway
+##<a name="add-web-application-firewall-to-an-existing-application-gateway"></a> Add web application firewall to an existing application gateway
 
 This scenario updates an existing application gateway to support web application firewall in prevention mode.
 
@@ -69,7 +69,7 @@ The settings to update an existing application gateway to support web applicatio
 * **Firewall status** - This setting either disables or enables web application firewall.
 * **Firewall mode** - This setting is how web application firewall deals with malicious traffic. **Detection** mode only logs the events, where **Prevention** mode logs the events and stops the malicious traffic.
 * **Rule set** - This setting determines the [core rule set](application-gateway-webapplicationfirewall-overview.md#core-rule-sets) that is used to protect the backend pool members.
-* **Configure disabled rules** - To prevent possible false positives, this setting allows you to [disable certain rules and rule groups](application-gateway-crs-rulegroups-rules.md).
+* **Configure disabled rules** - To prevent possible false positives, this setting allows you to disable certain [rules and rule groups](application-gateway-crs-rulegroups-rules.md).
 
 >[!NOTE]
 > When upgrading an existing application gateway to the WAF SKU, the SKU size changes to **medium**. This can be reconfigured after configuration is complete.
@@ -136,10 +136,7 @@ Fill out the network information in the **Create Virtual Network** blade as desc
 
 ### Step 6
 
-Once the virtual network is created, the next step is to define the front-end IP for the application gateway. At this point, the choice is between a public 
-or a private IP address for the front-end. The choice depends on whether the application is internet facing or internal only. This scenario assumes 
-using a public IP address. To choose a private IP address, the **Private** button can be clicked. An automatically assigned IP address is chosen or you 
-can click the **Choose a specific private IP address** checkbox to enter one manually.
+Once the virtual network is created, the next step is to define the front-end IP for the application gateway. At this point, the choice is between a public or a private IP address for the front-end. The choice depends on whether the application is internet facing or internal only. This scenario assumes using a public IP address. To choose a private IP address, the **Private** button can be clicked. An automatically assigned IP address is chosen or you can click the **Choose a specific private IP address** checkbox to enter one manually.
 
 Click **Choose a public IP address**. If an existing public IP address is available it can be chosen at this point, in this scenario you create a new public IP address. Click **Create new**
 
@@ -170,7 +167,7 @@ Once complete click **OK** to review the settings for the Application Gateway.
 Configure the **WAF** specific settings.
 
 * **Firewall status** - This setting turns WAF on or off.
-* **Firewall mode** - This setting determines the actions WAF takes on malicious traffic. If **Detection** is chosen, traffic is only logged.  If **Prevention** is chosen, traffic is logged and stopped with a 403 Unauthorized.
+* **Firewall mode** - This setting determines the actions WAF takes on malicious traffic. If **Detection** is chosen, traffic is only logged.  If **Prevention** is chosen, traffic is logged and stopped with a 403 Unauthorized response.
 
 ![web application firewall settings][9]
 
@@ -191,7 +188,7 @@ These steps create a basic application gateway with default settings for the lis
 
 ## Next steps
 
-Learn how to configure diagnostic logging, to log the events that are detected or prevented with Web Application Firewall by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md)
+Learn how to configure diagnostic logging, to log the events that are detected or prevented with web application firewall by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md)
 
 Learn how to create custom health probes by visiting [Create a custom health probe](application-gateway-create-probe-portal.md)
 

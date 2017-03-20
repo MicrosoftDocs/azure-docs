@@ -1,6 +1,6 @@
 ---
-title: Introduction to Web Application Firewall (WAF) for Azure Application Gateway | Microsoft Docs
-description: This page provides an overview of Web Application Firewall (WAF) for Application Gateway
+title: Introduction to web application firewall (WAF) for Azure Application Gateway | Microsoft Docs
+description: This page provides an overview of web application firewall (WAF) for Application Gateway
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -18,7 +18,7 @@ ms.author: amsriva
 
 ---
 
-# Application Gateway Web Application Firewall (WAF)
+# Application Gateway web application firewall (WAF)
 
 Web application firewall (WAF) available in the WAF SKU of Application Gateway provides protection to web applications from common web vulnerabilities and exploits. Web application firewall does this based on rules from the [OWASP core rule sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 or 2.2.9. Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks, cross site scripting attacks to name a few. Preventing such attacks in application code can be challenging and may require rigorous maintenance, patching and monitoring at multiple layers of the application topology. A centralized web application firewall to protect against web attacks makes security management much simpler and gives better assurance to application administrators against threats or intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications. Existing application gateways can be converted to an application gateway with web application firewall easily.
 
@@ -163,5 +163,5 @@ Billing effectivly starts from 5/8/2017, until then the WAF SKU gateways will co
 
 ## Next steps
 
-After learning more about the capabilities of WAF, visit [How to configure Web Application Firewall on Application Gateway](application-gateway-web-application-firewall-portal.md).
+After learning more about the capabilities of WAF, visit [How to configure web application firewall on Application Gateway](application-gateway-web-application-firewall-portal.md).
 
