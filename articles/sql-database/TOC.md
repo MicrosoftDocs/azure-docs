@@ -126,8 +126,8 @@
 ### [Recover a single table](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
 ## Geo-replicate data
 ### [Portal](sql-database-geo-replication-portal.md)
-### [Transact-SQL: Configure](sql-database-geo-replication-transact-sql.md)
-### [Transact-SQL: Failover](sql-database-geo-replication-failover-transact-sql.md)
+### [T-SQL - Configure](sql-database-geo-replication-transact-sql.md)
+### [T-SQL - Failover](sql-database-geo-replication-failover-transact-sql.md)
 ### [Recover from outage](sql-database-disaster-recovery.md)
 ### [Perform drills](sql-database-disaster-recovery-drills.md)
 ## Move data
