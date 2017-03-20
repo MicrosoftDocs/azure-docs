@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 
 ---
@@ -31,7 +31,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 3. [Configuring account provisioning](#configuring-account-provisioning) 
 4. [Assigning users](#assigning-users) 
    
-    ![Configuring single sign-on][0]
+![Configuring single sign-on][0]
 
 ## Enabling the application integration for DocuSign
 The objective of this section is to outline how to enable the application integration for DocuSign.
@@ -77,7 +77,8 @@ The objective of this section is to outline how to enable users to authenticate 
    
     c. Click **Next**. 
 
-    > [AZURE.TIP] The Sign On URL and the Identifier values are only placeholders. Instructions for how to retrieve the actual values for your environment are covered later in this topic.
+    > [!TIP] 
+    > The Sign On URL and the Identifier values are only placeholders. Instructions for how to retrieve the actual values for your environment are covered later in this topic.
 
 
 1. On the **Configure single sign-on at DocuSign** page, click **Download certificate**, and then save the certificate file locally on your computer.
@@ -98,10 +99,10 @@ The objective of this section is to outline how to enable users to authenticate 
     ![Configuring single sign-on][54]
 7. In the right pane, click **Add Identity Provider**. 
    
-   ![Configuring single sign-on][55]
+	![Configuring single sign-on][55]
 8. On the **Identity Provider Settings** page, perform the following steps:
    
-   ![Configuring single sign-on][56]
+	![Configuring single sign-on][56]
 
     a. In the **Name** textbox, type a unique name for your configuration. Please do not use spaces.
 
@@ -120,36 +121,36 @@ The objective of this section is to outline how to enable users to authenticate 
 
 1. In the **Custom Attribute Mapping** section, choose the field you want to map with Azure AD Claim. In this example, the **emailaddress** claim is mapped with the value of **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. This is the default claim name from Azure AD for email claim. 
    
-   > [!NOTE]
-   > Use the appropriate **User identifier** to map the user from Azure AD to Docusign user mapping. Select the proper Field and enter the appropriate value based on your organization settings.
-   > 
-   > 
+	> [!NOTE]
+	> Use the appropriate **User identifier** to map the user from Azure AD to Docusign user mapping. Select the proper Field and enter the appropriate value based on your organization settings.
+	> 
+	> 
    
-   ![Configuring single sign-on][57]
+	![Configuring single sign-on][57]
 2. In the **Identity Provider Certificate** section, click **Add Certificate**, and then upload the certificate you have downloaded from Azure AD classic portal.   
    
-   ![Configuring single sign-on][58]
+	![Configuring single sign-on][58]
 3. Click **Save**.
 4. In the **Identity Providers** section, click **Actions**, and then click **Endpoints**.   
    
-   ![Configuring single sign-on][59]
+	![Configuring single sign-on][59]
 5. On the Azure classic portal, go back to the **Configure App Settings** page. 
 6. On **DocuSign admin portal**, in the **View SAML 2.0 Endpoints** section perform, the following steps:
    
-   ![Configuring single sign-on][60]
+	![Configuring single sign-on][60]
    
-   a. Copy the **Service Provider Issuer URL**, and then paste it into the **Identifier** textbox on the Azure classic portal.
+	a. Copy the **Service Provider Issuer URL**, and then paste it into the **Identifier** textbox on the Azure classic portal.
    
-   b. Copy the **Service Provider Login URL**, and then paste into the **Sign On URL** textbox on the Azure classic portal.
+	b. Copy the **Service Provider Login URL**, and then paste into the **Sign On URL** textbox on the Azure classic portal.
    
-   c.  Click **Close**  
+	c.  Click **Close**  
 7. On the Azure classic portal, click **Next**. 
 8. On the Azure classic portal, select the **Single sign-on configuration confirmation**, and then click **Next**.
    
-   ![Applications][14]
+	![Applications][14]
 9. On the **Single sign-on confirmation** page, click **Complete**.
    
-   ![Applications][15]
+	![Applications][15]
 
 ## Configuring account provisioning
 The objective of this section is to outline how to enable user provisioning of Active Directory user accounts to DocuSign.

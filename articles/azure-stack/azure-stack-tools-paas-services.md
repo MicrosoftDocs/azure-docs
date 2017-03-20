@@ -1,4 +1,4 @@
-﻿---
+---
 title: Tools and PaaS services for Azure Stack | Microsoft Docs
 description: Learn how to get started with PaaS services in Azure Stack.
 services: azure-stack
@@ -13,12 +13,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/16/2016
 ms.author: erikje
 
 ---
-# Tools for Azure Stack
-You can download the tools described below. If you want to be notified of new services and tools, follow #AzureStack on Twitter.
+# Tools and PaaS services for Azure Stack
+
+You can deploy [Platform as a Service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) services for Azure Stack from Microsoft and other 3rd party providers. You can also download the tools described below. If you want to be notified of new services and tools, follow #AzureStack on Twitter.
+
+## PaaS services
+
+[Add an App Service resource provider to Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-overview)
+
+[Add a SQL Server resource provider to Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-sql-resource-provider-deploy)
+
+[Add a MySQL Server resource provider to Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-mysql-resource-provider-deploy)
+
 
 ## Template tools
 ### Azure Stack Github templates
@@ -55,7 +65,7 @@ Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of ope
 [Download the Linux CLI](http://aka.ms/azstack-mac-cli)
 
 > [!NOTE]
-> * If you’re on a Mac or Linux machine, you can also get the CLI by using the command `npm install -g azure-cli@0.9.11`</br>
+> * If you’re on a Mac or Linux machine, you can also get the CLI by using the command `npm install -g azure-cli@0.10.4`</br>
 > * If you're getting certificate validation issues, run the command `set NODE_TLS_REJECT_UNAUTHORIZED=0`
 > 
 > 

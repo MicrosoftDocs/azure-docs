@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2016
-ms.author: jolevy
+ms.author: timlt
 
 ---
 # Managing Azure Virtual Machines using Azure Automation

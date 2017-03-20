@@ -1,10 +1,10 @@
 ---
-title: Deploy an Internet-facing load-balanced solution with IPv6 using a template | Microsoft Docs
+title: Deploy an Internet-facing load-balancer with IPv6 - Azure template | Microsoft Docs
 description: How to deploy IPv6 support for Azure Load Balancer and load-balanced VMs.
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
-ms.author: sewhee
+ms.date: 01/23/2016
+ms.author: kumud
 ---
 
 # Deploy an Internet-facing load-balancer solution with IPv6 using a template

@@ -1,5 +1,5 @@
 ---
-title: Platform-supported migration of IaaS resources from classic to Azure Resource Manager | Microsoft Docs
+title: Migrate classic resources to Azure Resource Manager - Overview  | Microsoft Docs 
 description: This article walks through the platform-supported migration of resources from classic to Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 01/23/2017
 ms.author: kasing
 
 ---
@@ -135,6 +135,8 @@ You select the virtual network or the hosted service (if it’s not a virtual ne
 
 * If the resource is not capable of migration, the Azure platform lists all the reasons for why it’s not supported for migration.
 
+When validating storage services you will find the migrated account in a resource group named the same as your storage account with "-Migrated" appended.  For example if your storage account is named "mystorage" you will find the ARM enabled resource in a resource group named "mystorage-Migrated" and it will contain a storage account named "mystorage".
+
 ### Prepare
 The prepare operation is the second step in the migration process. The goal of this step is to simulate the transformation of the IaaS resources from classic to Resource Manager resources and present this side by side for you to visualize.
 
@@ -186,7 +188,7 @@ No. The VMs (classic) are fully supported services in general availability. You 
 
 **What happens to my VMs if I don’t plan on migrating in the near future?**
 
-We are not deprecating the existing classic APIs and resource model. We want to make migration easy, considering the advanced features that are available in the Resource Manager deployment model. We highly recommend that you review [some of the advancements](../resource-manager-deployment-model.md) that are part of IaaS under Resource Manager.
+We are not deprecating the existing classic APIs and resource model. We want to make migration easy, considering the advanced features that are available in the Resource Manager deployment model. We highly recommend that you review [some of the advancements](../azure-resource-manager/resource-manager-deployment-model.md) that are part of IaaS under Resource Manager.
 
 **What does this migration plan mean for my existing tooling?**
 

@@ -1,10 +1,10 @@
-﻿---
+---
 title: Using Axinom to deliver Widevine licenses to Azure Media Services | Microsoft Docs
 description: This article describes how you can use Azure Media Services (AMS) to deliver a stream that is dynamically encrypted by AMS with both PlayReady and Widevine DRMs. The PlayReady license comes from Media Services PlayReady license server and Widevine license is delivered by Axinom license server.
 services: media-services
 documentationcenter: ''
 author: willzhan
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 9c93fa4e-b4da-4774-ab6d-8b12b371631d

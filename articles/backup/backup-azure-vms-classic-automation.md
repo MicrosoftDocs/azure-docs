@@ -1,10 +1,10 @@
-﻿---
+---
 title: Deploy and manage backup for Azure VMs using PowerShell | Microsoft Docs
-description: Learn how to deploy and manage Azure Backup using PowerShell
+description: Learn how to deploy and manage Azure Backup using PowerShell.
 services: backup
 documentationcenter: ''
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: ''
 
 ms.assetid: 2e24b1d9-4375-4049-a28d-e3bc01152f32
@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 11/28/2016
 ms.author: markgal;trinadhk;jimpark
+ms.custom: H1Hack27Feb2017
 
 ---
-# Deploy and manage backup for Azure VMs using PowerShell
+# Use AzureRM.Backup cmdlets to back up virtual machines
 > [!div class="op_single_selector"]
 > * [Resource Manager](backup-azure-vms-automation.md)
 > * [Classic](backup-azure-vms-classic-automation.md)
@@ -239,40 +240,40 @@ PS C:\> $details = Get-AzureRmBackupJobDetails -Job $restorejob
 Building the VM out of the restored disks can be done using the older Azure Service Management PowerShell cmdlets, the new Azure Resource Manager templates, or even using the Azure portal. In a quick example, we will show how to get there using the Azure Service Management cmdlets.
 
 ```
- $properties  = $details.Properties
+$properties  = $details.Properties
 
- $storageAccountName = $properties["Target Storage Account Name"]
- $containerName = $properties["Config Blob Container Name"]
- $blobName = $properties["Config Blob Name"]
+$storageAccountName = $properties["Target Storage Account Name"]
+$containerName = $properties["Config Blob Container Name"]
+$blobName = $properties["Config Blob Name"]
 
- $keys = Get-AzureStorageKey -StorageAccountName $storageAccountName
- $storageAccountKey = $keys.Primary
- $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+$keys = Get-AzureStorageKey -StorageAccountName $storageAccountName
+$storageAccountKey = $keys.Primary
+$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
 
- $destination_path = "C:\Users\admin\Desktop\vmconfig.xml"
- Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination $destination_path -Context $storageContext
+$destination_path = "C:\Users\admin\Desktop\vmconfig.xml"
+Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination $destination_path -Context $storageContext
 
 
 $obj = [xml](((Get-Content -Path $destination_path -Encoding UniCode)).TrimEnd([char]0x00))
- $pvr = $obj.PersistentVMRole
- $os = $pvr.OSVirtualHardDisk
- $dds = $pvr.DataVirtualHardDisks
- $osDisk = Add-AzureDisk -MediaLocation $os.MediaLink -OS $os.OS -DiskName "panbhaosdisk"
- $vm = New-AzureVMConfig -Name $pvr.RoleName -InstanceSize $pvr.RoleSize -DiskName $osDisk.DiskName
+$pvr = $obj.PersistentVMRole
+$os = $pvr.OSVirtualHardDisk
+$dds = $pvr.DataVirtualHardDisks
+$osDisk = Add-AzureDisk -MediaLocation $os.MediaLink -OS $os.OS -DiskName "panbhaosdisk"
+$vm = New-AzureVMConfig -Name $pvr.RoleName -InstanceSize $pvr.RoleSize -DiskName $osDisk.DiskName
 
- if (!($dds -eq $null))
- {
-     foreach($d in $dds.DataVirtualHardDisk)
-      {
-         $lun = 0
-         if(!($d.Lun -eq $null))
-         {
-              $lun = $d.Lun
-         }
-         $name = "panbhadataDisk" + $lun
-     Add-AzureDisk -DiskName $name -MediaLocation $d.MediaLink
-     $vm | Add-AzureDataDisk -Import -DiskName $name -LUN $lun
+if (!($dds -eq $null))
+{
+    foreach($d in $dds.DataVirtualHardDisk)
+    {
+        $lun = 0
+        if(!($d.Lun -eq $null))
+        {
+            $lun = $d.Lun
+        }
+        $name = "panbhadataDisk" + $lun
+        Add-AzureDisk -DiskName $name -MediaLocation $d.MediaLink
+        $vm | Add-AzureDataDisk -Import -DiskName $name -LUN $lun
     }
 }
 

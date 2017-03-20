@@ -14,11 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/21/2016
+ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 
 ---
-# Availability and scale in Azure Resource Manager templates
+# Availability and scale in Azure Resource Manager templates for Linux VMs
+
 Availability and scale refer to uptime and the ability to meet demand. If an application must be up 99.9% of the time, it needs to have an architecture that allows for multiple concurrent compute resources. For instance, rather than having a single website, a configuration with a higher level of availability includes multiple instances of the same site, with balancing technology in front of them. In this configuration, one instance of the application can be taken down for maintenance, while the remaining continue to function. Scale on the other hand refers to an applications ability to serve demand. With a load balanced application, adding or removing instances from the pool allows an application to scale to meet demand.
 
 This document details how the Music Store sample deployment is configured for availability and scale. All dependencies and unique configurations are highlighted. For the best experience, pre-deploy an instance of the solution to your Azure subscription and work along with the Azure Resource Manager template. The complete template can be found here – [Music Store Deployment on Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
@@ -28,7 +30,7 @@ An Availability Set logically spans Azure Virtual Machines across physical hosts
 
 Follow this link to see the JSON sample within the Resource Manager template – [Availability Set](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L387).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Compute/availabilitySets",
@@ -49,7 +51,7 @@ An Availability Set is declared as a property of a Virtual Machine resource.
 
 Follow this link to see the JSON sample within the Resource Manager template – [Availability Set association with Virtual Machine](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L313).
 
-```none
+```json
 "properties": {
   "availabilitySet": {
     "id": "[resourceId('Microsoft.Compute/availabilitySets', variables('availabilitySetName'))]"
@@ -66,7 +68,7 @@ Whereas an availability set provides application fault tolerance, a load balance
 
 Follow this link to see the JSON sample within the Resource Manager template – [Network Load Balancer](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L208).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/loadBalancers",
@@ -83,7 +85,7 @@ Because the sample application is exposed to the internet with a public IP addre
 
 Follow this link to see the JSON sample within the Resource Manager template – [Network Load Balancer association with Public IP Address](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L221).
 
-```none
+```json
 "frontendIPConfigurations": [
   {
     "properties": {
@@ -105,7 +107,7 @@ When using a load balancer, rules are configured that control how traffic is bal
 
 Follow this link to see the JSON sample within the Resource Manager template – [Load Balancer Rule](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L270).
 
-```none
+```json
 "loadBalancingRules": [
   {
     "name": "[variables('loadBalencerRule')]",
@@ -138,7 +140,7 @@ The load balancer also needs to monitor each virtual machine so that requests ar
 
 Follow this link to see the JSON sample within the Resource Manager template – [Load Balancer Probe](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L257).
 
-```none
+```json
 "probes": [
   {
     "properties": {
@@ -163,7 +165,7 @@ With the Music Store application, a port starting at 5000 is mapped to port 22 o
 
 Follow this link to see the JSON sample within the Resource Manager template – [Inbound NAT Rules](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L270). 
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/loadBalancers/inboundNatRules",
@@ -202,7 +204,7 @@ Finally, for an Availability Set or Load Balancer to effectively function, multi
 
 In the Music Store Sample template, a parameter is defined that takes in an instance count. This number is used throughout the template when creating virtual machines and related resources.
 
-```none
+```json
 "numberOfInstances": {
   "type": "int",
   "minValue": 1,
@@ -217,7 +219,7 @@ On the Virtual Machine resource, the copy loop is given a name and the number of
 
 Follow this link to see the JSON sample within the Resource Manager template – [Virtual Machine Copy Function](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L300). 
 
-```none
+```json
 "apiVersion": "2015-06-15",
 "type": "Microsoft.Compute/virtualMachines",
 "name": "[concat(variables('vmName'),copyindex())]",
@@ -232,7 +234,7 @@ The current iteration of the copy function can be accessed with the `copyIndex()
 
 Follow this link to see the JSON sample within the Resource Manager template – [Copy Index Function](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L319). 
 
-```none
+```json
 "osProfile": {
   "computerName": "[concat(parameters('vmName'),copyindex())]",
   "adminUsername": "[parameters('adminUsername')]",
@@ -252,7 +254,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
 
 The `copyIndex` function is used several times in the Music Store sample template. Resources and functions utilizing `copyIndex` include anything specific to a single instance of the virtual machine such as network interface, load balancer rules, and any depends on functions. 
 
-For more information on the copy function, see [Create multiple instances of resources in Azure Resource Manager](../resource-group-create-multiple.md).
+For more information on the copy function, see [Create multiple instances of resources in Azure Resource Manager](../azure-resource-manager/resource-group-create-multiple.md).
 
 ## Next step
 <hr>

@@ -1,10 +1,10 @@
 ---
-title: Create an internal load balancer using the Azure CLI in the classic deployment model | Microsoft Docs
+title: Create an Internal load balancer - Azure CLI classic | Microsoft Docs
 description: Learn how to create an internal load balancer using the Azure CLI in the classic deployment model
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: ''
 tags: azure-service-management
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2016
-ms.author: sewhee
+ms.date: 01/23/2017
+ms.author: kumud
 ---
 
 # Get started creating an internal load balancer (classic) using the Azure CLI
@@ -28,7 +28,7 @@ ms.author: sewhee
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md).  This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](load-balancer-get-started-ilb-arm-cli.md).
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](load-balancer-get-started-ilb-arm-cli.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -48,7 +48,7 @@ This guide shows how to create an internal load balancer based on the scenario a
 2. Run the **azure config mode** command to switch to classic mode, as shown below.
 
     ```azurecli
-        azure config mode asm
+    azure config mode asm
     ```
 
     Expected output:
@@ -68,7 +68,7 @@ This is a common scenario where you have SQL virtual machines on the back end us
 Create an internal load balancer set using `azure network service internal-load-balancer add`.
 
 ```azurecli
-    azure service internal-load-balancer add --serviceName mytestcloud --internalLBName ilbset --subnet-name subnet-1 --static-virtualnetwork-ipaddress 192.168.2.7
+azure service internal-load-balancer add --serviceName mytestcloud --internalLBName ilbset --subnet-name subnet-1 --static-virtualnetwork-ipaddress 192.168.2.7
 ```
 
 Check out `azure service internal-load-balancer --help` for more information.
@@ -86,20 +86,20 @@ Here follows an example of the output:
     info:    service internal-load-balancer list command OK
 
 
-## Step 2
+### Step 2
 
 You configure the internal load balancer set when you add the first endpoint. You will associate the endpoint, virtual machine and probe port to the internal load balancer set in this step.
 
 ```azurecli
-    azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
+azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
 ```
 
-## Step 3
+### Step 3
 
 Verify the load balancer configuration using `azure vm show` *virtual machine name*
 
 ```azurecli
-    azure vm show DB1
+azure vm show DB1
 ```
 
 The output will be:
@@ -156,7 +156,7 @@ The output will be:
 You can create a remote desktop endpoint to forward network traffic from a public port to a local port for a specific virtual machine using `azure vm endpoint create`.
 
 ```azurecli
-    azure vm endpoint create web1 54580 -k 3389
+azure vm endpoint create web1 54580 -k 3389
 ```
 
 ## Remove virtual machine from load balancer
@@ -166,7 +166,7 @@ You can remove a virtual machine from an internal load balancer set by deleting 
 Using the example above, you can remove the endpoint created for virtual machine "DB1" from internal load balancer "ilbset" by using the command `azure vm endpoint delete`.
 
 ```azurecli
-    azure vm endpoint delete DB1 tcp-1433-1433
+azure vm endpoint delete DB1 tcp-1433-1433
 ```
 
 Check out `azure vm endpoint --help` for more information.

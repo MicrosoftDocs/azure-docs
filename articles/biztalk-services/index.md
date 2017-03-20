@@ -1,11 +1,21 @@
 ---
+title: Azure Biztalk Services Documentation - Tutorials | Microsoft Docs
+description: Learn how to use BizTalk services to provide cloud to on-premises and line-of-business application integration for SAP, Oracle EBS, SQL Server, and PeopleSoft.
+services: biztalk-services
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: biztalk-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Biztalk Services Documentation
 
-BizTalk Services provides out-of-the box, cloud to on-premises and line-of-business application integration for SAP, Oracle EBS, SQL Server, and PeopleSoft. It lets you connect with any HTTP, FTP, SFTP, or REST data source. You can route messages by using various Azure artifacts such as Service Bus queues, Topics, SQL Database, and Blob storage.
-
-Thousands of customers trust BizTalk Services for solutions such as payment processing, supply chain management, business-to-business interactions, real-time decision making, and reporting. 
+Learn how to use BizTalk services to provide cloud to on-premises and line-of-business application integration for SAP, Oracle EBS, SQL Server, and PeopleSoft. Tutorials and other documentation show you how to integrate the enterprise and the cloud.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -27,7 +37,7 @@ Thousands of customers trust BizTalk Services for solutions such as payment proc
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=biztalk-services">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -51,11 +61,11 @@ Thousands of customers trust BizTalk Services for solutions such as payment proc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create BizTalk Services using the Azure Portal</h3>
+                        <h3>Get Started with BizTalk Services using the Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -64,13 +74,4 @@ Thousands of customers trust BizTalk Services for solutions such as payment proc
     </li>
 </ul>
 
----
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/biztalk-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Biztalk Services Documentation
-        </div>
-    </a>
-</div>

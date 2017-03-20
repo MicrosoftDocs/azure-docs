@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Mobile Engagement User Interface - Reach Content
 description: Learn how to manage the unique content of the different types of push notification campaigns in Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: ''
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: add64f06-43c9-475c-8722-51cd00bb844b

@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory Integration with Canvas LMS | Microsoft Docs'
 description: Learn how to use Canvas LMS with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 
 ---
@@ -27,17 +27,18 @@ After completing this tutorial, the Azure AD users you have assigned to Canvas w
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
-1. Enabling the application integration for Canvas
-2. Configuring single sign-on
-3. Configuring user provisioning
-4. Assigning users
+* Enabling the application integration for Canvas
+* Configuring single sign-on (SSO)
+* Configuring user provisioning
+* Assigning users
 
 ![Scenario](./media/active-directory-saas-canvas-lms-tutorial/IC775984.png "Scenario")
 
-## Enabling the application integration for Canvas
+## Enable the application integration for Canvas
 The objective of this section is to outline how to enable the application integration for Canvas.
 
-### To enable the application integration for Canvas, perform the following steps:
+**To enable the application integration for Canvas, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-canvas-lms-tutorial/IC700993.png "Active Directory")
@@ -58,13 +59,14 @@ The objective of this section is to outline how to enable the application integr
    
    ![Canvas](./media/active-directory-saas-canvas-lms-tutorial/IC775986.png "Canvas")
    
-   ## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Canvas with their account in Azure AD using federation based on the SAML protocol.  
-Configuring single sign-on for Canvas requires you to retrieve a thumbprint value from a certificate.  
-If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
 
-### To configure single sign-on, perform the following steps:
+Configuring SSO for Canvas requires you to retrieve a thumbprint value from a certificate. If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
+
+**To configure single sign-on, perform the following steps:**
+
 1. In the Azure classic portal, on the **Canvas** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
    
    ![Configure single sign-on](./media/active-directory-saas-canvas-lms-tutorial/IC771709.png "Configure single sign-on")
@@ -87,16 +89,14 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 8. On the Current Integration page, perform the following steps:
    
    ![Current Integration](./media/active-directory-saas-canvas-lms-tutorial/IC775992.png "Current Integration")
-   
-   1. In the Azure classic portal, on the **Configure single sign-on at Canvas** dialog page, copy the **Entity ID** value, and then paste it into the **IdP Entity ID** textbox.
+
+  1. In the Azure classic portal, on the **Configure single sign-on at Canvas** dialog page, copy the **Entity ID** value, and then paste it into the **IdP Entity ID** textbox.
    2. In the Azure classic portal, on the **Configure single sign-on at Canvas** dialog page, copy the **Remote Login URL** value, and then paste it into the **Log On URL** textbox.
    3. In the Azure classic portal, on the **Configure single sign-on at Canvas** dialog page, copy the **Remote Login URL** value, and then paste it into the **Log Out URL** textbox.
    4. In the Azure classic portal, on the **Configure single sign-on at Canvas** dialog page, copy the **Change Password URL** value, and then paste it into the **Change Password Link** textbox.
-   5. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Certificate Fingerprint** textbox.  
-      
-      > [!TIP]
-      > For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
-      > 
+   5. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Certificate Fingerprint** textbox.      
+      >[!TIP]
+      >For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI) 
       > 
    6. From the **Login Attribute** list, select **NameID**.
    7. From the **Identifier Format** list, select **emailAddress**.
@@ -105,12 +105,14 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
    
    ![Configure Single Sign-On](./media/active-directory-saas-canvas-lms-tutorial/IC775993.png "Configure Single Sign-On")
    
-   ## Configuring user provisioning
+## Configure user provisioning
 
-In order to enable Azure AD users to log into Canvas, they must be provisioned into Canvas.  
-In the case of Canvas, provisioning is a manual task.
+In order to enable Azure AD users to log into Canvas, they must be provisioned into Canvas.
 
-### To provision a user accounts, perform the following steps:
+* In the case of Canvas, provisioning is a manual task.
+
+**To provision a user accounts, perform the following steps:**
+
 1. Log in to your **Canvas** tenant.
 2. Go to **Courses \> Managed Accounts \> Microsoft**.
    
@@ -131,15 +133,15 @@ In the case of Canvas, provisioning is a manual task.
    4. Select **Email the user about this account creation**.
    5. Click **Add User**.
 
-> [!NOTE]
-> You can use any other Canvas user account creation tools or APIs provided by Canvas to provision AAD user accounts.
-> 
-> 
+>[!NOTE]
+>You can use any other Canvas user account creation tools or APIs provided by Canvas to provision AAD user accounts.
+>  
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to Canvas, perform the following steps:
+**To assign users to Canvas, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
 2. On the **Canvas **application integration page, click **Assign users**.
    

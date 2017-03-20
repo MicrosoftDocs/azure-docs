@@ -1,9 +1,21 @@
 ---
+title: Azure Scheduler Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to use Scheduler to schedule and invoke jobs such as recurring application actions and routine maintenance. Tutorials, API references, and more.
+services: scheduler
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: scheduler
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Scheduler Documentation
 
-Scheduler is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Scheduler represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+Learn how to use Scheduler to schedule and automatically invoke recurring jobs in the cloud. Tutorials, API references, and other documentation show you how to schedule and monitor jobs such as recurring application actions and routine maintenance.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -25,7 +37,7 @@ Scheduler is a distributed systems platform that makes it easy to package, deplo
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=scheduler">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=scheduler">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -49,29 +61,11 @@ Scheduler is a distributed systems platform that makes it easy to package, deplo
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create and manage jobs with Azure Scheduler</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/scheduler/scheduler-advanced-complexity">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Create complex schedules and Advanced Recurrence with Azure Scheduler</h3>
+                        <h3>Get Started with Azure Scheduler</h3>
                     </div>
                 </div>
             </div>
@@ -82,22 +76,32 @@ Scheduler is a distributed systems platform that makes it easy to package, deplo
 
 ---
 
-## Reference
-
-### PowerShell
-[Azure Scheduler PowerShell Cmdlets](https://msdn.microsoft.com/en-us/library/mt490138(v=azure.200).aspx)
-
-### .NET
-[Scheduler Managed Reference](/dotnet/api)
-
-### REST
-[Scheduler REST API Reference](/rest/api/scheduler/)
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/scheduler.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Scheduler Documentation
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler">PowerShell</a></p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </a>
-</div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/scheduler">REST API Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+

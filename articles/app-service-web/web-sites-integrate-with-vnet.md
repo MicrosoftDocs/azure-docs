@@ -1,10 +1,10 @@
-﻿---
+---
 title: Integrate an app with an Azure Virtual Network
 description: Shows you how to connect an app in Azure App Service to a new or existing Azure virtual network
 services: app-service
 documentationcenter: ''
 author: ccompy
-manager: wpickett
+manager: erikre
 editor: cephalin
 
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a

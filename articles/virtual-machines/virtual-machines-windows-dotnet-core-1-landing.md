@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machine DotNet Core Tutorial 1 | Microsoft Docs
+title: Azure Windows Virtual Machine DotNet Core Tutorial 1 | Microsoft Docs
 description: Azure Virtual Machine DotNet Core Tutorial
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -14,12 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/21/2016
+ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 
 ---
-# Automating application deployments to Azure Virtual Machines
-This four-part series details deploying and configuring Azure resource and applications using Azure Resource Manage templates. In this series, a sample template is deployed and the deployment template examined. The goal of this series is to educate on the relationship between Azure resources, and to provide hands on experience deploying fully integrated Azure Resource Manager templates. This document assumes a basic level of knowledge with Azure Resource Manager, before starting this tutorial familiarize yourself with basic Azure Resource Manager concepts.
+# Automating application deployments to Windows Virtual Machines
+
+This four-part series details deploying and configuring Azure resource and applications using Azure Resource Manager templates. In this series, a sample template is deployed and the deployment template examined. The goal of this series is to educate on the relationship between Azure resources, and to provide hands on experience deploying fully integrated Azure Resource Manager templates. This document assumes a basic level of knowledge with Azure Resource Manager, before starting this tutorial familiarize yourself with basic Azure Resource Manager concepts.
 
 ## Music store application
 The sample used in this series is a .Net Core application simulating a Music Store shopping experience. This application can be deployed to either a Linux or Windows virtual system, sample deployments have been created for both. The application includes a web application and a SQL database. Before reading the articles in this series, deploy the application using the deployment button found on this page. When fully deployed, the application / Azure architecture looks like the following diagram. 

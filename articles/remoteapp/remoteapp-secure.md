@@ -1,10 +1,9 @@
-
 ---
 title: Secure apps and resources in Azure RemoteApp | Microsoft Docs
 description: Learn how to lock down apps and resources in Azure RemoteApp
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: 7fbade87-a453-426d-bfa5-c72227ea83cd
@@ -13,8 +12,8 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 
 ---
 # Secure apps and resources in Azure RemoteApp

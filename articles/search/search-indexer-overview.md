@@ -14,16 +14,17 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2016
+ms.date: 10/27/2016
 ms.author: heidist
-
 ---
+
 # Indexers in Azure Search
 > [!div class="op_single_selector"]
+>
 > * [Overview](search-indexer-overview.md)
 > * [Portal](search-import-data-portal.md)
 > * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-> * [DocumentDB](../documentdb/documentdb-search-indexer.md)
+> * [DocumentDB](search-howto-index-documentdb.md)
 > * [Blob Storage (preview)](search-howto-indexing-azure-blob-storage.md)
 > * [Table Storage (preview)](search-howto-indexing-azure-tables.md)
 >
@@ -42,8 +43,6 @@ For generally available indexers like Azure SQL or DocumentDB, you can create an
 * [Service REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx)
 * [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx)
 
-Preview indexers, such as Azure Blob or Table storage, require code and preview APIs such [Azure Search Preview REST API for indexers](search-api-indexers-2015-02-28-preview.md). Portal tooling is typically not available for preview features.
-
 ## Basic configuration steps
 Indexers can offer features that are unique to the data source. In this respect, some aspects of indexer or data source configuration will vary by indexer type. However, all indexers share the same basic composition and requirements. Steps that are common to all indexers are covered below.
 
@@ -54,9 +53,9 @@ An indexer will automate some tasks related to data ingestion, but creating an i
 An indexer pulls data from a **data source** which holds information such as a connection string. Currently the following data sources are supported:
 
 * [Azure SQL Database or SQL Server on an Azure virtual machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](../documentdb/documentdb-search-indexer.md)
-* [Azure Blob storage (Preview)](search-howto-indexing-azure-blob-storage.md), used to extract text from PDF, Office documents, HTML, or XML
-* [Azure Table Storage (Preview)](search-howto-indexing-azure-tables.md)
+* [DocumentDB](search-howto-index-documentdb.md)
+* [Azure Blob storage](search-howto-indexing-azure-blob-storage.md), used to extract text from PDF, Office documents, HTML, or XML
+* [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
 Data sources are configured and managed independently of the indexers that use them, which means a data source can be used by multiple indexers to load more than one index at a time.
 
@@ -67,8 +66,8 @@ The indexer definition is a construct specifying the index, data source, and a s
 Now that you have the basic idea, the next step is to review requirements and tasks specific to each data source type.
 
 * [Azure SQL Database or SQL Server on an Azure virtual machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](../documentdb/documentdb-search-indexer.md)
-* [Azure Blob storage (Preview)](search-howto-indexing-azure-blob-storage.md), used to extract text from PDF, Office documents, HTML, or XML
-* [Azure Table Storage (Preview)](search-howto-indexing-azure-tables.md)
+* [DocumentDB](search-howto-index-documentdb.md)
+* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md), used to extract text from PDF, Office documents, HTML, or XML
+* [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Indexing CSV blobs using the Azure Search Blob indexer (Preview)](search-howto-index-csv-blobs.md)
 * [Indexing JSON blobs with Azure Search Blob indexer (Preview)](search-howto-index-json-blobs.md)

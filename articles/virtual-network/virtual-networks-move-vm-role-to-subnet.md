@@ -1,10 +1,10 @@
-﻿---
-title: How to move a VM or role instance to a different subnet
-description: Learn how to move VMs and role instances to a different subnet
+---
+title: Move a VM (Classic) or Cloud Services role instance to a different subnet - Azure PowerShell | Microsoft Docs
+description: Learn how to move VMs (Classic) and Cloud Services role instances to a different subnet using PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: de4135c7-dc5b-4ffa-84cc-1b8364b7b427
@@ -15,13 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
-# How to move a VM or role instance to a different subnet
-You can use PowerShell to move your VMs from one subnet to another in the same virtual network (VNet). Role instances can be moved by editing the CSCFG, rather than using PowerShell.
+# Move a VM (Classic) or Cloud Services role instance to a different subnet using PowerShell
+You can use PowerShell to move your VMs (Classic) from one subnet to another in the same virtual network (VNet). Role instances can be moved by editing the CSCFG file, rather than using PowerShell.
 
 > [!NOTE]
-> This article contains information that is relative to Azure classic deployments only.
+> This article explains how to move VMs deployed through the classic deployment model only.
 > 
 > 
 

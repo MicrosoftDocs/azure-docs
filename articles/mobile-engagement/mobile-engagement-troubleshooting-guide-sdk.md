@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Mobile Engagement Troubleshooting Guide - SDK
 description: Troubleshooting SDK integration issues in Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: ''
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: de265cf1-2f88-43ef-8616-156ada5be7b6

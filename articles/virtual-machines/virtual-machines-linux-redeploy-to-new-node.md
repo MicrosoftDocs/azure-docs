@@ -1,6 +1,6 @@
 ---
-title: Redeploy Linux Virtual Machines | Microsoft Docs
-description: Describes how to redeploy Linux virtual machines to mitigate SSH connection issues.
+title: Redeploy Linux Virtual Machines in Azure | Microsoft Docs
+description: How to redeploy Linux virtual machines in Azure to mitigate SSH connection issues.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -13,33 +13,39 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/19/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 
 ---
-# Redeploy virtual machine to new Azure node
-If you have been facing difficulties troubleshooting SSH or application access to an Azure virtual machine (VM), redeploying the VM may help. When you redeploy a VM, it moves the VM to a new node within the Azure infrastructure and then powers it back on, retaining all your configuration options and associated resources. This article shows you how to redeploy a VM using Azure CLI or the Azure portal.
+# Redeploy Linux virtual machine to new Azure node
+If you have been facing difficulties troubleshooting SSH or application access to a Linux virtual machine (VM) in Azure, redeploying the VM may help. When you redeploy a VM, it moves the VM to a new node within the Azure infrastructure and then powers it back on, retaining all your configuration options and associated resources. This article shows you how to redeploy a VM using Azure CLI or the Azure portal.
 
 > [!NOTE]
 > After you redeploy a VM, the temporary disk is lost and dynamic IP addresses associated with virtual network interface are updated. 
-> 
-> 
 
-## Using Azure CLI
-Make sure you have the [latest Azure CLI installed](../xplat-cli-install.md) on your machine and you are in Resource Manager mode (`azure config mode arm`).
+You can redeploy a VM using one of the following options. You only need to choose one option to redeploy your VM:
 
-Use the following Azure CLI command to redeploy your virtual machine:
+- [Azure CLI 2.0](#azure-cli-20)
+- [Azure CLI 1.0](#azure-cli-10)
+- [Azure portal](#using-azure-portal)
 
-```bash
-azure vm redeploy --resourcegroup <resourcegroup> --vm-name <vmname> 
+## Azure CLI 2.0
+Install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login).
+
+Redeploy your VM with [az vm redeploy](/cli/azure/vm#redeploy). The following example redeploys the VM named `myVM` in the resource group named `myResourceGroup`:
+
+```azurecli
+az vm redeploy --resource-group myResourceGroup --name myVM 
 ```
 
-You can see the status of the VM change as it goes through the redeploy process. The `PowerState` of the VM goes from 'Running' to 'Updating', then 'Starting', and finally 'Running' as it goes through the process of redeploying to a new host. Check the status of the VMs within a resource group with:
+## Azure CLI 1.0
+Install the [latest Azure CLI 1.0](../xplat-cli-install.md), log in to an Azure account, and make sure that you are in Resource Manager mode (`azure config mode arm`).
 
-```bash
-azure vm list -g <resourcegroup>
+The following example redeploys the VM named `myVM` in the resource group named `myResourceGroup`:
+
+```azurecli
+azure vm redeploy --resource-group myResourceGroup --vm-name myVM 
 ```
-
 
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 

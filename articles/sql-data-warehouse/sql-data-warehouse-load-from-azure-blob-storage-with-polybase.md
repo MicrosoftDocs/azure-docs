@@ -1,5 +1,5 @@
 ---
-title: Load data from Azure blob storage into SQL Data Warehouse (PolyBase) | Microsoft Docs
+title: Load from Azure blob to Azure data warehouse | Microsoft Docs
 description: Learn how to use PolyBase to load data from Azure blob storage into SQL Data Warehouse. Load a few tables from public data into the Contoso Retail Data Warehouse schema.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -245,7 +245,7 @@ You can track the progress of your load using dynamic management views (DMVs).
 SELECT * FROM sys.dm_pdw_exec_requests;
 
 -- To see a particular request identified by its label
-SELECT * FROM sys.dm_pdw_exec_requests as r;
+SELECT * FROM sys.dm_pdw_exec_requests as r
 WHERE r.[label] = 'CTAS : Load [cso].[DimProduct]             '
       OR r.[label] = 'CTAS : Load [cso].[FactOnlineSales]        '
 ;

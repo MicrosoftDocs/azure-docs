@@ -4,7 +4,7 @@ description: Learn how to use the Azure Cache Service to support ASP.NET session
 services: app-service\web
 documentationcenter: .net
 author: Rick-Anderson
-manager: wpickett
+manager: erikre
 editor: none
 
 ms.assetid: 4f98d289-2698-464d-85cd-99ec40fad1f2
@@ -86,7 +86,7 @@ You can also use the Redis Cache to cache objects in your web app. For more info
 For more details about how to use ASP.NET session state, see [ASP.NET Session State Overview][ASP.NET Session State Overview].
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 > 
 > 
 

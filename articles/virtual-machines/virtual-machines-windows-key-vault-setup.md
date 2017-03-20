@@ -1,5 +1,5 @@
-﻿---
-title: Set up Key Vault for virtual machines in Azure Resource Manager | Microsoft Docs
+---
+title: Set up Key Vault for Windows VMs in Azure Resource Manager | Microsoft Docs
 description: How to set up Key Vault for use with an Azure Resource Manager virtual machine.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,14 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2016
-ms.author: singhkay
+ms.date: 01/24/2017
+ms.author: kasing
 
 ---
 # Set up Key Vault for virtual machines in Azure Resource Manager
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-classic deployment model
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
 In Azure Resource Manager stack, secrets/certificates are modeled as resources that are provided by the resource provider of Key Vault. To learn more about Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-whatis.md)
 

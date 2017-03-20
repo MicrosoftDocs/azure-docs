@@ -1,10 +1,10 @@
-﻿---
-title: Connect a web app in Azure App Service to Redis Cache via the Memcache protocol | Microsoft Docs
+---
+title: Connect an App Service web app to Redis via the Memcache protocol - Azure | Microsoft Docs
 description: Connect a web app in Azure App service to Redis Cache using the Memcache protocol
 services: app-service\web
 documentationcenter: php
 author: SyntaxC4
-manager: wpickett
+manager: erikre
 editor: riande
 
 ms.assetid: 0fcdf9fa-2995-4839-ba4d-cfa389c4ba06
@@ -177,7 +177,7 @@ The call to list the keys should return a value. If not, try navigating to the w
 Congratulations! The WordPress app now has a centralized in-memory cache to aid in increasing throughput. Remember, the Web Apps Memcache Shim can be used with any Memcache client regardless of programming language or application framework. To provide feedback or to ask questions about the Web Apps Memcache shim, post to [MSDN Forums][10] or [Stackoverflow][11].
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 > 
 > 
 
@@ -188,7 +188,7 @@ Congratulations! The WordPress app now has a centralized in-memory cache to aid 
 [1]: http://bit.ly/1t0KxBQ
 [2]: http://manage.windowsazure.com
 [3]: http://portal.azure.com
-[4]: ../powershell-install-configure.md
+[4]: /powershell/azureps-cmdlets-docs
 [5]: /downloads
 [6]: http://pecl.php.net
 [7]: http://pecl.php.net/package/memcache

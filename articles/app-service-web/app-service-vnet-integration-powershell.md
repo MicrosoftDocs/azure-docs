@@ -1,10 +1,10 @@
-﻿---
+---
 title: Connect your app to your virtual network by using PowerShell
 description: Instructions about how to connect to and work with virtual networks by using PowerShell
 services: app-service
 documentationcenter: ''
 author: ccompy
-manager: wpickett
+manager: erikre
 editor: cephalin
 
 ms.assetid: a5c76e77-972a-431c-b14b-3611dae1631b

@@ -47,6 +47,10 @@ To create the OnDemand streaming locator and get URLs you need to do the followi
    If you plan to progressively download, get the names of MP4 files in the asset.  
 4. Build URLs to the manifest file or MP4 files. 
 
+
+>[!NOTE]
+>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
+
 ### Use Media Services .NET SDK
 Build Streaming URLs 
 
@@ -98,7 +102,7 @@ The code  outputs:
 
 
 > [!NOTE]
-> You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS. 
+> You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS. Note that, currently, AMS doesn’t support SSL with custom domains.  
 > 
 > 
 

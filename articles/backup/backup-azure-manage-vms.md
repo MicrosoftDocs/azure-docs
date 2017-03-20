@@ -1,4 +1,3 @@
-
 ---
 title: Manage Resource Manager-deployed virtual machine backups | Microsoft Docs
 description: Learn how to manage and monitor Resource Manager-deployed virtual machine backups
@@ -14,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2016
-ms.author: jimpark; markgal; trinadhk
+ms.date: 11/28/2016
+ms.author: trinadhk;markgal
 
 ---
 # Manage Azure virtual machine backups
@@ -93,7 +92,7 @@ In the previous procedure you opened the vault dashboard. To open the vault item
    * stop protecting virtual machines <br\>
    * resume protection of a virtual machine <br\>
    * delete a backup data (or recovery point) <br\>
-   * [restore a backup (or recovery point)](backup-azure-arm-restore-vms.md#restore-a-recovery-point)  <br\>
+   * [restore backup disks](backup-azure-arm-restore-vms.md#restore-backed-up-disks)  <br\>
 
 For the following procedures, the starting point is the vault item dashboard.
 

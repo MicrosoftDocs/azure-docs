@@ -1,4 +1,4 @@
-**Virtual machine disks: per account limits**
+**Premium unmanaged virtual machine disks: per account limits**
 
 | Resource | Default Limit |
 | --- | --- |
@@ -8,16 +8,16 @@
 
 <sup>1</sup>*Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.
 
-**Virtual machine disks: per disk limits**
+**Premium unmanaged virtual machine disks: per disk limits**
 
 | Premium Storage Disk Type | P10 | P20 | P30 |
 | --- | --- | --- | --- |
 | Disk size |128 GiB |512 GiB |1024 GiB (1 TB) |
 | Max IOPS per disk |500 |2300 |5000 |
-| Max throughput per disk |100 MB per second |150 MB per second |200 MB per second |
+| Max throughput per disk |100 MB/s | 150 MB/s |200 MB/s |
 | Max number of disks per storage account |280 |70 |35 |
 
-**Virtual machine disks: per VM limits**
+**Premium unmanaged virtual machine disks: per VM limits**
 
 | Resource | Default Limit |
 | --- | --- |

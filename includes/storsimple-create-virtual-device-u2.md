@@ -3,7 +3,7 @@
 2. Go to the **Devices** page. Click **Create virtual device** at the bottom of the **Devices** page.
 3. In the **Create Virtual Device dialog box**, specify the following details.
    
-     ![StorSimple create virtual device](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
+    ![StorSimple create virtual device](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
    
    1. **Name** – A unique name for your virtual device.
    2. **Model** - Choose the model of the virtual device. This field is presented only if you are running Update 2 or later. An 8010 device model offers 30 TB of Standard Storage whereas 8020 has 64 TB of Premium Storage. Specify 8010

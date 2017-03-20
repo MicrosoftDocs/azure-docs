@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machine DotNet Core Tutorial 1 | Microsoft Docs
+title: Azure Linux Virtual Machine DotNet Core Tutorial 1 | Microsoft Docs
 description: Azure Virtual Machine DotNet Core Tutorial
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,11 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/21/2016
+ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 
 ---
-# Automating application deployments to Azure Virtual Machines
+# Automating application deployments to Linux Virtual Machines 
+
 This four-part series details deploying and configuring Azure resource and applications using Azure Resource Manage templates. In this series, a sample template is deployed and the deployment template examined. The goal of this series is to educate on the relationship between Azure resources, and to provide hands on experience deploying fully integrated Azure Resource Manager templates. This document assumes a basic level of knowledge with Azure Resource Manager, before starting this tutorial familiarize yourself with basic Azure Resource Manager concepts. 
 
 ## Music store application

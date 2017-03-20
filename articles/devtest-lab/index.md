@@ -1,9 +1,21 @@
 ---
+title: Azure Devtest Labs Documentation - Tutorials | Microsoft Docs
+description: Learn how to quickly create application test environments using reusable artifacts. Tutorials, videos, and more show you how to create, manage, and secure labs.
+services: devtest-lab
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: devtest-lab
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
-#Devtest Lab Documentation
+#Devtest Labs Documentation
 
-Devtest Lab is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Devtest Lab represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+Learn how to use Devtest Labs to quickly create application test environments using reusable artifacts. Tutorials, videos, and other documentation show you how to create, manage, and secure labs, and add and manage artifacts.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -25,7 +37,7 @@ Devtest Lab is a distributed systems platform that makes it easy to package, dep
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=devtest-lab">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -53,7 +65,7 @@ Devtest Lab is a distributed systems platform that makes it easy to package, dep
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a lab in Azure DevTest Labs</h3>
+                        <h3>Get Started with Azure DevTest Labs using the Azure portal</h3>
                     </div>
                 </div>
             </div>
@@ -67,11 +79,11 @@ Devtest Lab is a distributed systems platform that makes it easy to package, dep
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a VM artifacts with Azure DevTest labs</h3>
+                        <h3>Get Started creating VM artifacts with Azure DevTest labs</h3>
                     </div>
                 </div>
             </div>
@@ -85,11 +97,11 @@ Devtest Lab is a distributed systems platform that makes it easy to package, dep
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a lab for training using Azure DevTest Labs</h3>
+                        <h3>Get Started by creating a lab for training using Azure DevTest Labs</h3>
                     </div>
                 </div>
             </div>
@@ -98,13 +110,4 @@ Devtest Lab is a distributed systems platform that makes it easy to package, dep
     </li>
 </ul>
 
----
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/devtest-lab.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Devtest Lab Documentation
-        </div>
-    </a>
-</div>

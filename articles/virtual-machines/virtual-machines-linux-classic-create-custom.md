@@ -1,6 +1,6 @@
 ---
-title: Create a Linux VM | Microsoft Docs
-description: Learn how to create a custom virtual machine with the classic deployment model running the Linux operating system.
+title: Create a Classic Linux VM using the Azure CLI 1.0 | Microsoft Docs
+description: Learn how to create a Linux virtual machine with the Azure CLI 1.0 using the Classic deployment model
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
@@ -14,16 +14,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 
 ---
-# How to Create a Custom Linux VM
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+# How to Create a Classic Linux VM with the Azure CLI 1.0
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For the Resource Manager version, see [here](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-For the Resource Manager version, see [here](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-This topic describes how to create a custom virtual machine (VM) with the Azure CLI using the classic deployment model. We use a Linux image from the available **IMAGES** on Azure. The Azure CLI commands give the following configuration choices, among others:
+This topic describes how to create a Linux virtual machine (VM) with the Azure CLI 1.0 using the Classic deployment model. We use a Linux image from the available **IMAGES** on Azure. The Azure CLI 1.0 commands give the following configuration choices, among others:
 
 * Connecting the VM to a virtual network
 * Adding the VM to an existing cloud service
@@ -31,10 +30,10 @@ This topic describes how to create a custom virtual machine (VM) with the Azure 
 * Adding the VM to an availability set or location
 
 > [!IMPORTANT]
-> If you want your virtual machine to use a virtual network so you can connect to it directly by hostname or set up cross-premises connections, make sure you specify the virtual network when you create the virtual machine. A virtual machine can be configured to join a virtual network only when you create the virtual machine. For details on virtual networks, see [Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+> If you want your VM to use a virtual network so you can connect to it directly by hostname or set up cross-premises connections, make sure you specify the virtual network when you create the VM. A VM can be configured to join a virtual network only when you create the VM. For details on virtual networks, see [Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 > 
 > 
 
-## How to create a Linux virtual machine using the classic deployment model
+## How to create a Linux VM using the Classic deployment model
 [!INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
 

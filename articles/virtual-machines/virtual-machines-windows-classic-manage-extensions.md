@@ -1,5 +1,5 @@
 ---
-title: Manage virtual machine extensions | Microsoft Docs
+title: Manage Windows-based virtual machine extensions | Microsoft Docs
 description: Describes how to add, find, update, and remove extensions for Azure virtual machines, in the classic deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -21,9 +21,8 @@ ms.author: rasquill
 # Manage virtual machine extensions
 Describes how to find, add, modify, or remove VM Extensions with either Windows or Linux Virtual Machines on Azure.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-For information about VM extensions using the Resource Manager model, see [here](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For information about VM extensions using the Resource Manager model, see [here](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-manage-extensions](../../includes/virtual-machines-common-classic-manage-extensions.md)]
 

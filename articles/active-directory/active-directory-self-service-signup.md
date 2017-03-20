@@ -1,4 +1,4 @@
-﻿---
+---
 title: What is Self-Service Signup for Azure? | Microsoft Docs
 description: An overview self-service signup for Azure, how to manage the signup process, and how to take over a DNS domain name.
 services: active-directory
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/09/2016
+ms.date: 02/13/2017
 ms.author: curtand
 
 ---
@@ -193,7 +193,7 @@ The following flowchart explains all the different combinations for these parame
 For more information and examples of how to use these parameters, see [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx).
 
 ## See Also
-* [How to install and configure Azure PowerShell](../powershell-install-configure.md)
+* [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 * [Azure Cmdlet Reference](https://msdn.microsoft.com/library/azure/jj554330.aspx)
 * [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx)

@@ -1,9 +1,22 @@
 ---
+title: Azure SQL Server Stretch Database Documentation - Tutorials | Microsoft Docs
+description: Learn how to use SQL Server Stretch Database to migrate cold data securely to Azure without changing queries or applications. Tutorials and other documentation.
+services: sql-server-stretch-database
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: sql-server-stretch-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #SQL Server Stretch Database Documentation
 
-SQL Server Stretch Database migrates your cold data transparently and securely to the Microsoft Azure cloud. SQL Server Stretch Database provides cost-effective availability for data you do not use regularly, doesn't require changes to your queries or applications, and keeps your data secure even during migration. Stretch Database targets transactional databases with large amounts of infrequently used data, which are typically stored in a small number of tables.
+Learn how to use SQL Server Stretch Database to migrate cold data transparently and securely to the Azure cloud. Tutorials and other documentation help you set up cost-effective availability for databases with infrequently used data without requiring changes to existing queries or applications.
+
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -43,7 +56,7 @@ SQL Server Stretch Database migrates your cold data transparently and securely t
         </a>
     </li>
     <li>
-        <a href="/azure/sql-server-stretch-database/sql-server-stretch-database-identify-databases/">
+        <a href="/azure/sql-server-stretch-database/sql-server-stretch-database-identify-databases">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -67,11 +80,11 @@ SQL Server Stretch Database migrates your cold data transparently and securely t
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create and enable a SQL Server Stretch Database</h3>
+                        <h3>Get started using the SQL Server Stretch Database wizard</h3>
                     </div>
                 </div>
             </div>
@@ -83,11 +96,3 @@ SQL Server Stretch Database migrates your cold data transparently and securely t
 ---
 
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-server-stretch-database.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download SQL Server Stretch Database Documentation
-        </div>
-    </a>
-</div>

@@ -1,6 +1,6 @@
 ---
-title: IoT Security Architecture | Microsoft Docs
-description: IoT security architecture guidelines and considerations
+title: Azure IoT security architecture | Microsoft Docs
+description: IoT security architecture guidelines and considerations including threat modeling.
 services: iot-hub
 documentationcenter: ''
 author: YuriDio
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2016
+ms.date: 02/16/2017
 ms.author: yurid
 
 ---

@@ -1,10 +1,10 @@
 ---
-title: Create a VM with multiple NICs using a template | Microsoft Docs
-description: Create a VM with multiple NICs using a template through Azure Resource Manager.
+title: Create a VM with multiple NICs - Azure Resource Manager template | Microsoft Docs
+description: Create a VM with multiple NICs using an Azure Resource Manager template.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
 # Create a VM with multiple NICs using a template
@@ -242,7 +243,7 @@ The figure below shows the contents of the new resource group, after deployment.
 ![Back end resource group](./media/virtual-network-deploy-multinic-arm-template/Figure2.png)
 
 ## Deploy the template by using PowerShell
-To deploy the template you downloaded by using PowerShell, install and configure PowerShell by completing the steps in the [Install and configure PowerShell](../powershell-install-configure.md) article and then complete the following steps:
+To deploy the template you downloaded by using PowerShell, install and configure PowerShell by completing the steps in the [Install and configure PowerShell](/powershell/azureps-cmdlets-docs) article and then complete the following steps:
 
 Run the **`New-AzureRmResourceGroup`** cmdlet to create a resource group using the template.
 

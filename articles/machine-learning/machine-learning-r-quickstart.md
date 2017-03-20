@@ -14,12 +14,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 01/06/2017
 ms.author: garye
 
 ---
 # Quickstart tutorial for the R programming language for Azure Machine Learning
-Stephen F Elston, Ph.D.
+
+<!-- Stephen F Elston, Ph.D. -->
 
 ## Introduction
 This quickstart tutorial helps you quickly start extending Azure Machine Learning by using the R programming language. Follow this R programming tutorial to create, test and execute R code within Azure Machine Learning. As you work through tutorial, you will create a complete forecasting solution by using the R language in Azure Machine Learning.  
@@ -1241,7 +1242,8 @@ The book Introductory Time Series with R by Paul Cowpertwait and Andrew Metcalfe
 
 Some great internet resources:
 
-* DataCamp: DataCamp teaches R in the comfort of your browser with video lessons and coding exercises. There are interactive tutorials on the latest R techniques and packages. Take the free interactive R tutorial at https://www.datacamp.com/courses/introduction-to-r  
+* DataCamp: DataCamp teaches R in the comfort of your browser with video lessons and coding exercises. There are interactive tutorials on the latest R techniques and packages. Take the free interactive R tutorial at https://www.datacamp.com/courses/introduction-to-r
+* A guide on Getting started with R from Programiz https://www.programiz.com/r-programming
 * A quick R tutorial by Kelly Black from Clarkson University http://www.cyclismo.org/tutorial/R/
 * 60+ R resources listed at http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 

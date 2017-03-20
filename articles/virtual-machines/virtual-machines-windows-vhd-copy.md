@@ -28,7 +28,7 @@ This article shows you how to use the AZCopy tool to create a copy of the VHD fr
 Make sure that you:
 
 * Have information about the **source and destination storage accounts**. For the source VM, you need to storage account and container names. Usually, the container name will be **vhds**. You also need to have a destination storage account. If you don't already have one, you can create one using either the portal (**More Services** > Storage accounts > Add) or using the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet. 
-* Have Azure [PowerShell 1.0](../powershell-install-configure.md) (or later) installed.
+* Have Azure [PowerShell 1.0](/powershell/azureps-cmdlets-docs) (or later) installed.
 * Have downloaded and installed the [AzCopy tool](../storage/storage-use-azcopy.md). 
 
 ## Deallocate the VM
@@ -90,7 +90,7 @@ Elapsed time:            00.00:13:07
 ```
 
 ## Troubleshooting
-* When you use AZCopy, if you see the error "Server failed to authenticate the request. Make sure the value of Authorization header is formed correctly including the signature." and you are using Key 2 or the secondary storage key, try using the primary or 1st storage key.
+* When you use AZCopy, if you see the error "Server failed to authenticate the request", make sure the value of the Authorization header is formed correctly including the signature. If you are using Key 2 or the secondary storage key, try using the primary or 1st storage key.
 
 ## Next steps
 * You can create a new VM by [attaching the copy of the VHD to a VM as an OS disk](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

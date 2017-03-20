@@ -1,10 +1,21 @@
 ---
+title: Azure App Service - API Apps Documentation - Tutorials | Microsoft Docs
+description: Learn how to use API Apps in Azure App Service to develop, host, and consume APIs in the cloud and on-premises. Tutorials, videos, and other documentation.
+services: app-service\api
+author: carolz
+manager: carolz
 layout: LandingPage
-
+ms.assetid:
+ms.service: app-service\api
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # App Service - API Apps Documentation
 
-Azure App Service is a cloud service that's designed to solve the practical problems that engineers face today. API apps in Azure App Service offer features that make it easier to develop, host, and consume APIs in the cloud and on-premises. With API apps, you get enterprise grade security, simple access control, hybrid connectivity, automatic SDK generation, and seamless integration with Logic Apps. Azure App Service is a fully managed platform for web, mobile, and integration scenarios. API Apps is one of four app types offered by Azure App Service.
+Learn how to use API Apps in Azure App Service to develop, host, and consume APIs in the cloud and on-premises. Tutorials, videos, and other documentation show you how create and deploy API apps.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -54,7 +65,7 @@ Azure App Service is a cloud service that's designed to solve the practical prob
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with API Apps, ASP.NET adn Swagger in Azure App Service</h3>
+                        <h3>Get started with API Apps, ASP.NET and Swagger in Azure App Service</h3>
                     </div>
                 </div>
             </div>
@@ -72,7 +83,7 @@ Azure App Service is a cloud service that's designed to solve the practical prob
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Java API app in Azure App Service</h3>
+                        <h3>Get started creating a Java API app in Azure App Service</h3>
                     </div>
                 </div>
             </div>
@@ -90,7 +101,7 @@ Azure App Service is a cloud service that's designed to solve the practical prob
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Node.js API</h3>
+                        <h3>Get started creating a Node.js API</h3>
                     </div>
                 </div>
             </div>
@@ -108,7 +119,7 @@ Azure App Service is a cloud service that's designed to solve the practical prob
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an API app from JavaScript using CORS</h3>
+                        <h3>Get started creating an API app from JavaScript using CORS</h3>
                     </div>
                 </div>
             </div>
@@ -117,13 +128,4 @@ Azure App Service is a cloud service that's designed to solve the practical prob
     </li>     
 </ul>
 
----
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-api.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Mobile Apps Documentation
-        </div>
-    </a>
-</div>

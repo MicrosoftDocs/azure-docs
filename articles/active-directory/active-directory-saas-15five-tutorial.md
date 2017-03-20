@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 
 ---
@@ -57,7 +57,7 @@ The objective of this section is to outline how to enable the application integr
    
    ![15Five](./media/active-directory-saas-15five-tutorial/IC784669.png "15Five")
    
-   ## Configuring single sign-on
+## Configuring single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to 15Five with their account in Azure AD using federation based on the SAML protocol.
 
@@ -83,7 +83,8 @@ The objective of this section is to outline how to enable users to authenticate 
    
    ![Configure single sign-on](./media/active-directory-saas-15five-tutorial/IC784674.png "Configure single sign-on")
    
-   ## Configuring user provisioning
+
+## Configuring user provisioning
 
 In order to enable Azure AD users to log into 15Five, they must be provisioned into 15Five.  
 In the case of 15Five, provisioning is a manual task.
@@ -108,10 +109,7 @@ In the case of 15Five, provisioning is a manual task.
    > 
    > 
 
-> [!NOTE]
-> You can use any other 15Five user account creation tools or APIs provided by 15Five to provision AAD user accounts.
-> 
-> 
+
 
 ## Assigning users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.

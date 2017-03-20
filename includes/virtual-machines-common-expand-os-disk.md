@@ -10,7 +10,7 @@ When you create a new virtual machine (VM) in a Resource Group by deploying an i
 > 
 
 ## Resize the OS drive
-In this article we’ll accomplish the task of resizing the OS drive using resource manager modules of [Azure Powershell](../articles/powershell-install-configure.md). Open your Powershell ISE or Powershell window in administrative mode and follow the steps below:
+In this article we’ll accomplish the task of resizing the OS drive using resource manager modules of [Azure Powershell](/powershell/azureps-cmdlets-docs). Open your Powershell ISE or Powershell window in administrative mode and follow the steps below:
 
 1. Sign-in to your Microsoft Azure account in resource management mode and select your subscription as follows:
    

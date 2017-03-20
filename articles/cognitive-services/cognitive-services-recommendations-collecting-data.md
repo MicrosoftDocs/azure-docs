@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Collecting Data to Train your Model: Machine Learning Recommendations API | Microsoft Docs'
 description: Azure Machine Learning Recommendations - Collecting Data to Train your Model
 services: cognitive-services

@@ -33,18 +33,21 @@ Your profile should resemble this profile:
  ![GitHub profile example](./media/tools-and-setup/githubprofile.png)
 
 ## Sign up for Livefyre
-Every published Azure technical article has a comment stream provided by the Livefyre service.
 
-If you are a Microsoft employee, and if you are the author of or a contributor to an article, you need to sign up for Livefyre so you can participate in the comment stream for the article.
+Every published technical article supports a comment stream provided by the [Livefyre](http://web.livefyre.com/) service. 
 
-1. Visit https://www.livefyre.com/auth/register/.
-2. Create a Livefyre account (do not comment using your social media account - you need to create an actual Livefyre account).
+As a Microsoft employee and article author or contributor, you need to sign up for Livefyre so you can participate in the comment stream for the article. 
 
-  - **Username:** type your Microsoft alias plus _MSFT.
-  - **Email:** enter your Microsoft email address.
+1. Your Livefyre account needs to be created within docs.microsoft.com. Pick an article in docs.microsoft.com. E.g.  [https://docs.microsoft.com/en-us/active-directory/active-directory-developers-guide](https://docs.microsoft.com/en-us/active-directory/active-directory-developers-guide).
 
-  ![livefyre signup](./media/tools-and-setup/livefyre.png)
-
+2. At the bottom of the article, click the *Sign in* link in the comments section.
+ 
+3. In the authentication dialog, click *Create New Account*.
+  
+4. Enter your profile information and click *Sign up*.
+   - **Username**: your Microsoft email alias plus @MSFT, ie: *alias@MSFT*
+   - **Email**: Your Microsoft.com email address.
+  
 ## Modify articles using the GitHub UI
 You might not need to follow all the steps in this article. It depends on the sort of content contribution you want or need to make.
 
@@ -138,7 +141,7 @@ If you use Atom, you'll need to set a few things up.
 ## Fork the repository and copy it to your computer
 1. Create a fork of the repository in GitHub - go to the top-right of the page and click the Fork button. If prompted, select your account as the location where the fork should be created. This creates a copy of the repository within your Git Hub account. Generally speaking, technical writers and program managers need to fork azure-docs-pr, the private repo. Community contributors need to fork azure-docs, the public repo. You only need to fork one time; after your first setup, if you want to copy your fork to another computer, you only have to run the commands that follow in this section to copy the repo to your computer.  If you choose to create forks of both repositories, you will need to create a fork for each repository.
 2. Copy the Personal Access Token that you got from [https://github.com/settings/tokens](https://github.com/settings/tokens). You can accept the default permissions for the token.  Save the Personal Access Token in a text file for later reuse.
-3. Next, copy the repository to your computer with your credentials embedded in the command string.  To do this, open Git Bash and run it as an administrator. At the command prompt, enter the following command.  This command creates a azure-content(-pr) directory on your computer.  If you're using the default location, it will be at c:\users<your Windows user name>\azure-content(-pr).
+3. Next, copy the repository to your computer with your credentials embedded in the command string.  To do this, open Git Bash and run it as an administrator. At the command prompt, enter the following command.  This command creates a azure-docs(-pr) directory on your computer.  If you're using the default location, it will be at c:\users<your Windows user name>\azure-docs(-pr).
 
 Public repo:
 

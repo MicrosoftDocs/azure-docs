@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: juliako;anilmur
 
 ---
@@ -21,10 +21,10 @@ ms.author: juliako;anilmur
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+> * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > [!NOTE]
-> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F).
+> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 > 
 > 
 
@@ -43,31 +43,32 @@ The following steps describe tasks involved in creating common live streaming ap
 
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-This step could also be performed after you create your Channel.
+	This step could also be performed after you create your Channel.
 
-1. Create and start a Channel.
-2. Retrieve the Channel ingest URL.
+2. Create and start a Channel.
+3. Retrieve the Channel ingest URL.
 
-The ingest URL is used by the live encoder to send the stream to the Channel.
+	The ingest URL is used by the live encoder to send the stream to the Channel.
 
-1. Retrieve the Channel preview URL.
+4. Retrieve the Channel preview URL.
 
-Use this URL to verify that your channel is properly receiving the live stream.
+	Use this URL to verify that your channel is properly receiving the live stream.
 
-1. Create an asset.
-2. If you want for the asset to be dynamically encrypted during playback, do the following:
-3. Create a content key.
-4. Configure the content key's authorization policy.
-5. Configure asset delivery policy (used by dynamic packaging and dynamic encryption).
-6. Create a program and specify to use the asset that you created.
-7. Publish the asset associated with the program by creating an OnDemand locator.
+5. Create an asset.
+6. If you want for the asset to be dynamically encrypted during playback, do the following:
+7. Create a content key.
+8. Configure the content key's authorization policy.
+9. Configure asset delivery policy (used by dynamic packaging and dynamic encryption).
+10. Create a program and specify to use the asset that you created.
+11. Publish the asset associated with the program by creating an OnDemand locator.
 
-Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+	>[!NOTE]
+	>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. The streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
-1. Start the program when you are ready to start streaming and archiving.
-2. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
-3. Stop the program whenever you want to stop streaming and archiving the event.
-4. Delete the Program (and optionally delete the asset).
+12. Start the program when you are ready to start streaming and archiving.
+13. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
+14. Stop the program whenever you want to stop streaming and archiving the event.
+15. Delete the Program (and optionally delete the asset).
 
 ## What you'll learn
 This topic shows you how to execute different operations on channels and programs using Media Services .NET SDK. Because many operations are long-running .NET APIs that manage long running operations are used.
@@ -88,7 +89,7 @@ The following are required to complete the tutorial.
 
 * To complete this tutorial, you need an Azure account.
 
-If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features, such as the Web Apps feature in Azure App Service.
+If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features, such as the Web Apps feature in Azure App Service.
 
 * A Media Services account. To create a Media Services account, see [Create Account](media-services-portal-create-account.md).
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later versions.
@@ -97,7 +98,8 @@ If you don't have an account, you can create a free trial account in just a coup
 
 ## Considerations
 * Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft.com if you need to run a Channel for longer periods of time.
-* Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+* There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
+
 
 ## Download sample
 Get and run a sample from [here](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
@@ -126,6 +128,7 @@ Add the appSettings section to the app.config file, and set the values for your 
 
 
 ## Code example
+
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -521,6 +524,4 @@ Review Media Services learning paths.
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### Looking for something else?
-If this topic didn't contain what you were expecting, is missing something, or in some other way didn't meet your needs, please provide us with you feedback using the Disqus thread below.
 

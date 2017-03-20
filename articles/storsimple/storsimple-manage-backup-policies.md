@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage your StorSimple backup policies | Microsoft Docs
 description: Explains how you can use the StorSimple Manager service to create and manage manual backups, backup schedules, and backup retention.
 services: storsimple

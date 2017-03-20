@@ -3,8 +3,8 @@ title: Azure Load Balancer overview | Microsoft Docs
 description: Overview of Azure Load Balancer features, architecture, and implementation. Learn how the load balancer works and leverage it in the cloud.
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: ''
 
 ms.assetid: 0f313dc0-f007-4cee-b2b9-f542357925a3
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 ---
 
 # Azure Load Balancer overview
@@ -31,7 +31,7 @@ All resources in the cloud need a public IP address to be reachable from the Int
 
 ## Azure deployment models
 
-It's important to understand the differences between the Azure classic and Resource Manager [deployment models](../resource-manager-deployment-model.md). Azure Load Balancer is configured differently in each model.
+It's important to understand the differences between the Azure classic and Resource Manager [deployment models](../azure-resource-manager/resource-manager-deployment-model.md). Azure Load Balancer is configured differently in each model.
 
 ### Azure classic deployment model
 

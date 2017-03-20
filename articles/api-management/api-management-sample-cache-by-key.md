@@ -1,4 +1,4 @@
-﻿---
+---
 title: Custom caching in Azure API Management
 description: Learn how to cache items by key in Azure API Management
 services: api-management
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
-ms.author: darrmi
+ms.date: 12/15/2016
+ms.author: apimpm
 
 ---
 # Custom caching in Azure API Management
@@ -28,66 +28,81 @@ There are certain cases where responses being returned contain some portion of d
 
 Consider the following JSON response from a backend API.
 
-    {
-      "airline" : "Air Canada",
-      "flightno" : "871",
-      "status" : "ontime",
-      "gate" : "B40",
-      "terminal" : "2A",
-      "userprofile" : "$userprofile$"
-    }  
+```json
+{
+  "airline" : "Air Canada",
+  "flightno" : "871",
+  "status" : "ontime",
+  "gate" : "B40",
+  "terminal" : "2A",
+  "userprofile" : "$userprofile$"
+}  
+```
 
 And secondary resource at `/userprofile/{userid}` that looks like,
 
-     { "username" : "Bob Smith", "Status" : "Gold" }
+```json
+{ "username" : "Bob Smith", "Status" : "Gold" }
+```
 
 In order to determine the appropriate user information to include, we need to identify who the end user is. This mechanism is implementation dependent. As an example, I am using the `Subject` claim of a `JWT` token. 
 
-    <set-variable
-      name="enduserid"
-      value="@(context.Request.Headers.GetValueOrDefault("Authorization","").Split(' ')[1].AsJwt()?.Subject)" />
+```xml
+<set-variable
+  name="enduserid"
+  value="@(context.Request.Headers.GetValueOrDefault("Authorization","").Split(' ')[1].AsJwt()?.Subject)" />
+```
 
 We store this `enduserid` value in a context variable for later use. The next step is to determine if a previous request has already retrieved the user information and stored it in the cache. For this we use the `cache-lookup-value` policy.
 
-      <cache-lookup-value
-      key="@("userprofile-" + context.Variables["enduserid"])"
-      variable-name="userprofile" />
+```xml
+<cache-lookup-value
+key="@("userprofile-" + context.Variables["enduserid"])"
+variable-name="userprofile" />
+```
 
 If there is no entry in the cache that corresponds to the key value, then no `userprofile` context variable will be created. We check the success of the lookup using the `choose` control flow policy.
 
-    <choose>
-        <when condition="@(!context.Variables.ContainsKey("userprofile"))">
-            <!— If the userprofile context variable doesn’t exist, make an HTTP request to retrieve it.  -->
-        </when>
-    </choose>
-
+```xml
+<choose>
+    <when condition="@(!context.Variables.ContainsKey("userprofile"))">
+        <!-- If the userprofile context variable doesn’t exist, make an HTTP request to retrieve it.  -->
+    </when>
+</choose>
+```
 
 If the `userprofile` context variable doesn’t exist, then we are going to have to make an HTTP request to retrieve it.
 
-    <send-request
-      mode="new"
-      response-variable-name="userprofileresponse"
-      timeout="10"
-      ignore-error="true">
+```xml
+<send-request
+  mode="new"
+  response-variable-name="userprofileresponse"
+  timeout="10"
+  ignore-error="true">
 
-      <!-- Build a URL that points to the profile for the current end-user -->
-      <set-url>@(new Uri(new Uri("https://apimairlineapi.azurewebsites.net/UserProfile/"),
-          (string)context.Variables["enduserid"]).AbsoluteUri)
-      </set-url>
-      <set-method>GET</set-method>
-    </send-request>
+  <!-- Build a URL that points to the profile for the current end-user -->
+  <set-url>@(new Uri(new Uri("https://apimairlineapi.azurewebsites.net/UserProfile/"),
+      (string)context.Variables["enduserid"]).AbsoluteUri)
+  </set-url>
+  <set-method>GET</set-method>
+</send-request>
+```
 
 We use the `enduserid` to construct the URL to the user profile resource. Once we have the response, we can pull the body text out of the response and store it back into a context variable.
 
-    <set-variable
-        name="userprofile"
-        value="@(((IResponse)context.Variables["userprofileresponse"]).Body.As<string>())" />
+```xml
+<set-variable
+    name="userprofile"
+    value="@(((IResponse)context.Variables["userprofileresponse"]).Body.As<string>())" />
+```
 
 To avoid us having to make this HTTP request again, when the same user makes another request, we can store the user profile in the cache.
 
-    <cache-store-value
-        key="@("userprofile-" + context.Variables["enduserid"])"
-        value="@((string)context.Variables["userprofile"])" duration="100000" />
+```xml
+<cache-store-value
+    key="@("userprofile-" + context.Variables["enduserid"])"
+    value="@((string)context.Variables["userprofile"])" duration="100000" />
+```
 
 We store the value in the cache using the exact same key that we originally attempted to retrieve it with. The duration that we choose to store the value should be based on how often the information changes and how tolerant users are to out of date information. 
 
@@ -95,64 +110,68 @@ It is important to realize that retrieving from the cache is still an out-of-pro
 
 The final step in the process is to update the returned response with our user profile information.
 
-    <!—Update response body with user profile-->
-    <find-and-replace
-        from='"$userprofile$"'
-        to="@((string)context.Variables["userprofile"])" />
+```xml
+<!-- Update response body with user profile-->
+<find-and-replace
+    from='"$userprofile$"'
+    to="@((string)context.Variables["userprofile"])" />
+```
 
 I chose to include the quotation marks as part of the token so that even when the replace doesn’t occur, the response was still valid JSON. This was primarily to make debugging easier.
 
 Once you combine all these steps together, the end result is a policy that looks like the following one.
 
-     <policies>
-        <inbound>
-            <!-- How you determine user identity is application dependent -->
-            <set-variable
-              name="enduserid"
-              value="@(context.Request.Headers.GetValueOrDefault("Authorization","").Split(' ')[1].AsJwt()?.Subject)" />
+```xml
+<policies>
+    <inbound>
+        <!-- How you determine user identity is application dependent -->
+        <set-variable
+          name="enduserid"
+          value="@(context.Request.Headers.GetValueOrDefault("Authorization","").Split(' ')[1].AsJwt()?.Subject)" />
 
-            <!--Look for userprofile for this user in the cache -->
-            <cache-lookup-value
-              key="@("userprofile-" + context.Variables["enduserid"])"
-              variable-name="userprofile" />
+        <!--Look for userprofile for this user in the cache -->
+        <cache-lookup-value
+          key="@("userprofile-" + context.Variables["enduserid"])"
+          variable-name="userprofile" />
 
-            <!-- If we don’t find it in the cache, make a request for it and store it -->
-            <choose>
-                <when condition="@(!context.Variables.ContainsKey("userprofile"))">
-                    <!—Make HTTP request to get user profile -->
-                    <send-request
-                      mode="new"
-                      response-variable-name="userprofileresponse"
-                      timeout="10"
-                      ignore-error="true">
+        <!-- If we don’t find it in the cache, make a request for it and store it -->
+        <choose>
+            <when condition="@(!context.Variables.ContainsKey("userprofile"))">
+                <!-- Make HTTP request to get user profile -->
+                <send-request
+                  mode="new"
+                  response-variable-name="userprofileresponse"
+                  timeout="10"
+                  ignore-error="true">
 
-                       <!-- Build a URL that points to the profile for the current end-user -->
-                        <set-url>@(new Uri(new Uri("https://apimairlineapi.azurewebsites.net/UserProfile/"),(string)context.Variables["enduserid"]).AbsoluteUri)</set-url>
-                        <set-method>GET</set-method>
-                    </send-request>
+                   <!-- Build a URL that points to the profile for the current end-user -->
+                    <set-url>@(new Uri(new Uri("https://apimairlineapi.azurewebsites.net/UserProfile/"),(string)context.Variables["enduserid"]).AbsoluteUri)</set-url>
+                    <set-method>GET</set-method>
+                </send-request>
 
-                    <!—Store response body in context variable -->
-                    <set-variable
-                      name="userprofile"
-                      value="@(((IResponse)context.Variables["userprofileresponse"]).Body.As<string>())" />
+                <!-- Store response body in context variable -->
+                <set-variable
+                  name="userprofile"
+                  value="@(((IResponse)context.Variables["userprofileresponse"]).Body.As<string>())" />
 
-                    <!—Store result in cache -->
-                    <cache-store-value
-                      key="@("userprofile-" + context.Variables["enduserid"])"
-                      value="@((string)context.Variables["userprofile"])"
-                      duration="100000" />
-                </when>
-            </choose>
-            <base />
-        </inbound>
-        <outbound>
-            <!—Update response body with user profile-->
-            <find-and-replace
-                  from='"$userprofile$"'
-                  to="@((string)context.Variables["userprofile"])" />
-            <base />
-        </outbound>
-     </policies>
+                <!-- Store result in cache -->
+                <cache-store-value
+                  key="@("userprofile-" + context.Variables["enduserid"])"
+                  value="@((string)context.Variables["userprofile"])"
+                  duration="100000" />
+            </when>
+        </choose>
+        <base />
+    </inbound>
+    <outbound>
+        <!-- Update response body with user profile-->
+        <find-and-replace
+              from='"$userprofile$"'
+              to="@((string)context.Variables["userprofile"])" />
+        <base />
+    </outbound>
+</policies>
+```
 
 This caching approach is primarily used in web sites where HTML is composed on the server side so that it can be rendered as a single page. However, it can also be useful in APIs where clients cannot do client side HTTP caching or it is desirable not to put that responsibility on the client.
 
@@ -165,71 +184,86 @@ One approach to handling this instead of requiring client developers to change t
 
 The first step is to determine the identifier used to configure the desired version. In this example, I chose to associate the version to the product subscription key. 
 
-        <set-variable name="clientid" value="@(context.Subscription.Key)" />
+```xml
+<set-variable name="clientid" value="@(context.Subscription.Key)" />
+```
 
 We then do a cache lookup to see if we already have retrieved the desired client version.
 
-        <cache-lookup-value
-        key="@("clientversion-" + context.Variables["clientid"])"
-        variable-name="clientversion" />
+```xml
+<cache-lookup-value
+key="@("clientversion-" + context.Variables["clientid"])"
+variable-name="clientversion" />
+```
 
 Then we check to see if we did not find it in the cache.
 
-    <choose>
-        <when condition="@(!context.Variables.ContainsKey("clientversion"))">
+```xml
+<choose>
+    <when condition="@(!context.Variables.ContainsKey("clientversion"))">
+```
 
 If we didn’t then we go and retrieve it.
 
-    <send-request
-        mode="new"
-        response-variable-name="clientconfiguresponse"
-        timeout="10"
-        ignore-error="true">
-                <set-url>@(new Uri(new Uri(context.Api.ServiceUrl.ToString() + "api/ClientConfig/"),(string)context.Variables["clientid"]).AbsoluteUri)</set-url>
-                <set-method>GET</set-method>
-    </send-request>
+```xml
+<send-request
+    mode="new"
+    response-variable-name="clientconfiguresponse"
+    timeout="10"
+    ignore-error="true">
+            <set-url>@(new Uri(new Uri(context.Api.ServiceUrl.ToString() + "api/ClientConfig/"),(string)context.Variables["clientid"]).AbsoluteUri)</set-url>
+            <set-method>GET</set-method>
+</send-request>
+```
 
 Extract the response body text from the response.
 
-    <set-variable
-          name="clientversion"
-          value="@(((IResponse)context.Variables["clientconfiguresponse"]).Body.As<string>())" />
+```xml
+<set-variable
+      name="clientversion"
+      value="@(((IResponse)context.Variables["clientconfiguresponse"]).Body.As<string>())" />
+```
 
 Store it back in the cache for future use.
 
-    <cache-store-value
-          key="@("clientversion-" + context.Variables["clientid"])"
-          value="@((string)context.Variables["clientversion"])"
-          duration="100000" />
+```xml
+<cache-store-value
+      key="@("clientversion-" + context.Variables["clientid"])"
+      value="@((string)context.Variables["clientversion"])"
+      duration="100000" />
+```
 
 And finally update the back-end URL to select the version of the service desired by the client.
 
-    <set-backend-service
-          base-url="@(context.Api.ServiceUrl.ToString() + "api/" + (string)context.Variables["clientversion"] + "/")" />
+```xml
+<set-backend-service
+      base-url="@(context.Api.ServiceUrl.ToString() + "api/" + (string)context.Variables["clientversion"] + "/")" />
+```
 
 The completely policy is as follows.
 
-     <inbound>
-        <base />
-        <set-variable name="clientid" value="@(context.Subscription.Key)" />
-        <cache-lookup-value key="@("clientversion-" + context.Variables["clientid"])" variable-name="clientversion" />
+```xml
+<inbound>
+    <base />
+    <set-variable name="clientid" value="@(context.Subscription.Key)" />
+    <cache-lookup-value key="@("clientversion-" + context.Variables["clientid"])" variable-name="clientversion" />
 
-        <!-- If we don’t find it in the cache, make a request for it and store it -->
-        <choose>
-            <when condition="@(!context.Variables.ContainsKey("clientversion"))">
-                <send-request mode="new" response-variable-name="clientconfiguresponse" timeout="10" ignore-error="true">
-                    <set-url>@(new Uri(new Uri(context.Api.ServiceUrl.ToString() + "api/ClientConfig/"),(string)context.Variables["clientid"]).AbsoluteUri)</set-url>
-                    <set-method>GET</set-method>
-                </send-request>
-                <!-- Store response body in context variable -->
-                <set-variable name="clientversion" value="@(((IResponse)context.Variables["clientconfiguresponse"]).Body.As<string>())" />
-                <!-- Store result in cache -->
-                <cache-store-value key="@("clientversion-" + context.Variables["clientid"])" value="@((string)context.Variables["clientversion"])" duration="100000" />
-            </when>
-        </choose>
-        <set-backend-service base-url="@(context.Api.ServiceUrl.ToString() + "api/" + (string)context.Variables["clientversion"] + "/")" />
-    </inbound>
-
+    <!-- If we don’t find it in the cache, make a request for it and store it -->
+    <choose>
+        <when condition="@(!context.Variables.ContainsKey("clientversion"))">
+            <send-request mode="new" response-variable-name="clientconfiguresponse" timeout="10" ignore-error="true">
+                <set-url>@(new Uri(new Uri(context.Api.ServiceUrl.ToString() + "api/ClientConfig/"),(string)context.Variables["clientid"]).AbsoluteUri)</set-url>
+                <set-method>GET</set-method>
+            </send-request>
+            <!-- Store response body in context variable -->
+            <set-variable name="clientversion" value="@(((IResponse)context.Variables["clientconfiguresponse"]).Body.As<string>())" />
+            <!-- Store result in cache -->
+            <cache-store-value key="@("clientversion-" + context.Variables["clientid"])" value="@((string)context.Variables["clientversion"])" duration="100000" />
+        </when>
+    </choose>
+    <set-backend-service base-url="@(context.Api.ServiceUrl.ToString() + "api/" + (string)context.Variables["clientversion"] + "/")" />
+</inbound>
+```
 
 Enabling API consumers to transparently control which backend version is being accessed by clients without having to update and redeploy clients is a elegant solution that addresses many API versioning concerns.
 

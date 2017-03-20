@@ -4,7 +4,7 @@ description: How to implement triggers in an API App in Azure App Service
 services: logic-apps
 documentationcenter: .net
 author: guangyang
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: 493c3703-786d-4434-9dca-8f77744b2f5d
@@ -20,29 +20,29 @@ ms.author: rachelap
 # Azure App Service API app triggers
 > [!NOTE]
 > This version of the article applies to API apps 2014-12-01-preview schema version.
-> 
-> 
+>
+>
 
 ## Overview
 This article explains how to implement API app triggers and consume them from a Logic app.
 
-All of the code snippets in this topic are copied from the [FileWatcher API App code sample](http://go.microsoft.com/fwlink/?LinkId=534802). 
+All of the code snippets in this topic are copied from the [FileWatcher API App code sample](http://go.microsoft.com/fwlink/?LinkId=534802).
 
 Note that you'll need to download the following nuget package for the code in this article to build and run: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
 
 ## What are API app triggers?
-It's a common scenario for an API app to fire an event so that clients of the API app can take the appropriate action in response to the event. The REST API based mechanism that supports this scenario is called an API app trigger. 
+It's a common scenario for an API app to fire an event so that clients of the API app can take the appropriate action in response to the event. The REST API based mechanism that supports this scenario is called an API app trigger.
 
-For example, let's say your client code is using the [Twitter Connector API app](../app-service-logic/app-service-logic-connector-twitter.md) and your code needs to perform an action based on new tweets that contain specific words. In this case, you might set up a poll or push trigger to facilitate this need.
+For example, let's say your client code is using the [Twitter Connector API app](../connectors/connectors-create-api-twitter.md) and your code needs to perform an action based on new tweets that contain specific words. In this case, you might set up a poll or push trigger to facilitate this need.
 
 ## Poll trigger versus push trigger
 Currently, two types of triggers are supported:
 
-* Poll trigger - Client polls the API app for notification of an event having been fired 
-* Push trigger - Client is notified by the API app when an event fires 
+* Poll trigger - Client polls the API app for notification of an event having been fired
+* Push trigger - Client is notified by the API app when an event fires
 
 ### Poll trigger
-A poll trigger is implemented as a regular REST API and expects its clients (such as a Logic app) to poll it in order to get notification. While the client may maintain state, the poll trigger itself is stateless. 
+A poll trigger is implemented as a regular REST API and expects its clients (such as a Logic app) to poll it in order to get notification. While the client may maintain state, the poll trigger itself is stateless.
 
 The following information regarding the request and response packets illustrate some key aspects of the poll trigger contract:
 
@@ -299,7 +299,7 @@ For static metadata, you can directly edit the */metadata/apiDefinition.swagger.
 
 For API apps using dynamic metadata, you can edit the SwaggerConfig.cs file to add an operation filter which can add these extensions.
 
-    GlobalConfiguration.Configuration 
+    GlobalConfiguration.Configuration
         .EnableSwagger(c =>
             {
                 ...
@@ -337,4 +337,3 @@ The following is an example of how this class can be implemented to facilitate t
             }
         }
     }
-

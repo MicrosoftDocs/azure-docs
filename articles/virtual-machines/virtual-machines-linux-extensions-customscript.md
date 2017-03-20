@@ -1,5 +1,5 @@
 ---
-title: Custom scripts on Linux VMs | Microsoft Docs
+title: Run custom scripts on Linux VMs in Azure | Microsoft Docs
 description: Automate Linux VM configuration tasks by using the Custom Script Extension
 services: virtual-machines-linux
 documentationcenter: ''
@@ -60,7 +60,7 @@ When using the Azure CLI to run the Custom Script Extension, create a configurat
 
 ```azurecli
 azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version --public-config-path /scirpt-config.json
+  --auto-upgrade-minor-version --public-config-path /script-config.json
 ```
 
 Optionally, the command can be run using the `--public-config` and `--private-config` option, which allows the configuration to be specified during execution and without a separate configuration file.
@@ -182,7 +182,7 @@ The Azure Custom Script Extension can be run at Virtual Machine deployment time 
     "autoUpgradeMinorVersion": true,
     "settings": {
       "fileUris": [
-        "https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh
+        "https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"
       ]              
     },
     "protectedSettings": {
@@ -198,13 +198,13 @@ See the .Net Core Music Store Demo for a complete example - [Music Store Demo](h
 When the Custom Script Extension runs, the script is created or downloaded into a directory similar to the following example. The command output is also saved into this directory in `stdout` and `stderr` file.
 
 ```bash
-/var/lib/azure/custom-script/download/0/
+/var/lib/waagent/custom-script/download/0/
 ```
 
 The Azure Script Extension produces a log, which can be found here.
 
 ```bash
-/var/log/azure/customscript/handler.log
+/var/log/azure/custom-script/handler.log
 ```
 
 The execution state of the Custom Script Extension can also be retrieved with the Azure CLI.

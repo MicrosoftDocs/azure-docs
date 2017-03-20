@@ -1,10 +1,10 @@
-﻿---
+---
 title: Release notes for Visual Studio Extension for Developer Analytics
 description: The latest updates for Visual Studio tools for Developer Analytics.
 services: application-insights
 documentationcenter: ''
 author: acearun
-manager: douge
+manager: carmonm
 
 ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
@@ -12,16 +12,25 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 06/09/2016
-ms.author: acearun
+ms.date: 03/18/2017
+ms.author: aruna
 
 ---
 # Release Notes for Developer Analytics Tools
-What's new: Application Insights and HockeyApp analytics in Visual Studio.
+What's new: Visual Studio 2017
+
+## Version 8.6 - Visual Studio 2017
+
+* New projects automatically get Application Insights assemblies. To configure to send telemetry to portal, right-click project.
+* Support for ASP.NET Core.
+* Publish annotations.
+* CodeLens improvements.
+
+[See the detailed notes here](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes#devanalytics)
 
 ## Version 7.0
-### Visual Studio Application Insights Trends
-Visual Studio Application Insights is a new tool in Visual Studio that you can use to help you analyze how your app operates over time. To get started, on the **Application Insights** toolbar button or in the Application Insights Search window, choose **Explore Telemetry Trends**. Or, on the **View** menu, click **Other Windows**, and then click **Application Insights Trends**. Choose one of five common queries to get started. You can analyze different data sets based on telemetry types, time ranges, and other properties. To find anomalies in your data, choose one of the anomaly options in the **View Type** drop-down list. The filtering options at the bottom of the window make it easy to hone in on specific subsets of your telemetry.
+### Azure Application Insights Trends
+Azure Application Insights is a new tool in Visual Studio that you can use to help you analyze how your app operates over time. To get started, on the **Application Insights** toolbar button or in the Application Insights Search window, choose **Explore Telemetry Trends**. Or, on the **View** menu, click **Other Windows**, and then click **Application Insights Trends**. Choose one of five common queries to get started. You can analyze different data sets based on telemetry types, time ranges, and other properties. To find anomalies in your data, choose one of the anomaly options in the **View Type** drop-down list. The filtering options at the bottom of the window make it easy to hone in on specific subsets of your telemetry.
 
 ![Application Insights Trends](./media/app-insights-release-notes-vsix/Trends.png)
 

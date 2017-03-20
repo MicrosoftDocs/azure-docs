@@ -36,7 +36,7 @@ Collection of AssetFile entries for the encoding job.
 ### Child elements
 | Name | Description |
 | --- | --- |
-| **AssetFile**<br /><br /> minOccurs="0" maxOccurs="1" |An [AssetFile element](media-services-output-metadata-schema.md) that is part of the AssetFiles collection. |
+| **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |An [AssetFile element](media-services-output-metadata-schema.md) that is part of the AssetFiles collection. |
 
 ## <a name="AssetFile "></a> AssetFile element
 You can find an XML example [XML example](media-services-output-metadata-schema.md#xml).  
@@ -44,16 +44,16 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 ### Attributes
 | Name | Type | Description |
 | --- | --- | --- |
-| **Name**<br /><br /> Required |**xs:string** |The media asset file name. |
-| **Size**<br /><br /> minInclusive ="0"<br /><br /> Required |**xs:long** |Size of the asset file in bytes. |
-| **Duration**<br /><br /> Required |**xs:duration** |Content play back duration. |
+| **Name**<br/><br/> Required |**xs:string** |The media asset file name. |
+| **Size**<br/><br/> minInclusive ="0"<br/><br/> Required |**xs:long** |Size of the asset file in bytes. |
+| **Duration**<br/><br/> Required |**xs:duration** |Content play back duration. |
 
 ### Child elements
 | Name | Description |
 | --- | --- |
 | **Sources** |Collection of input/source media files, that was processed in order to produce this AssetFile. For more information, see [Source element](media-services-output-metadata-schema.md). |
-| **VideoTracks**<br /><br /> minOccurs="0" maxOccurs="1" |Each physical AssetFile can contain in it zero or more video tracks interleaved into an appropriate container format. This is the collection of all those video tracks. For more information, see [VideoTracks element](media-services-output-metadata-schema.md). |
-| **AudioTracks**<br /><br /> minOccurs="0" maxOccurs="1" |Each physical AssetFile can contain in it zero or more audio tracks interleaved into an appropriate container format. This is the collection of all those audio tracks. For more information, see [AudioTracks element](media-services-output-metadata-schema.md). |
+| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Each physical AssetFile can contain in it zero or more video tracks interleaved into an appropriate container format. This is the collection of all those video tracks. For more information, see [VideoTracks element](media-services-output-metadata-schema.md). |
+| **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Each physical AssetFile can contain in it zero or more audio tracks interleaved into an appropriate container format. This is the collection of all those audio tracks. For more information, see [AudioTracks element](media-services-output-metadata-schema.md). |
 
 ## <a name="Sources "></a> Sources element
 Collection of input/source media files, that was processed in order to produce this AssetFile.  
@@ -63,7 +63,7 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 ### Child elements
 | Name | Description |
 | --- | --- |
-| **Source**<br /><br /> minOccurs="1" maxOccurs="unbounded" |An input/source file used when generating this asset. For more information see [Source element](media-services-output-metadata-schema.md). |
+| **Source**<br/><br/> minOccurs="1" maxOccurs="unbounded" |An input/source file used when generating this asset. For more information see [Source element](media-services-output-metadata-schema.md). |
 
 ## <a name="Source "></a> Source element
 An input/source file used when generating this asset.  
@@ -73,7 +73,7 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 ### Attributes
 | Name | Type | Description |
 | --- | --- | --- |
-| **Name**<br /><br /> Required |**xs:string** |Input source file name. |
+| **Name**<br/><br/> Required |**xs:string** |Input source file name. |
 
 ## <a name="VideoTracks "></a> VideoTracks element
 Each physical AssetFile can contain in it zero or more video tracks interleaved into an appropriate container format. This is the collection of all those video tracks.  
@@ -83,7 +83,7 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 ### Child elements
 | Name | Description |
 | --- | --- |
-| **VideoTrack**<br /><br /> minOccurs="1" maxOccurs="unbounded" |A specific video track in the parent AssetFile. For more information, see [VideoTrack element](media-services-output-metadata-schema.md#VideoTrack). |
+| **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |A specific video track in the parent AssetFile. For more information, see [VideoTrack element](media-services-output-metadata-schema.md#VideoTrack). |
 
 ## <a name="VideoTrack"></a> VideoTrack element
 A specific video track in the parent AssetFile.  
@@ -93,19 +93,19 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 ### Attributes
 | Name | Type | Description |
 | --- | --- | --- |
-| **Id**<br /><br /> minInclusive ="0"<br /><br /> Required |**xs:int** |Zero-based index of this video track. **Note:**  This is not necessarily the TrackID as used in an MP4 file. |
-| **FourCC**<br /><br /> Required |**xs:string** |Video codec FourCC code. |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> Required |**xs:int** |Zero-based index of this video track. **Note:**  This is not necessarily the TrackID as used in an MP4 file. |
+| **FourCC**<br/><br/> Required |**xs:string** |Video codec FourCC code. |
 | **Profile** |**xs:string** |H264 profile (only applicable to H264 codec). |
 | **Level** |**xs:string** |H264 level (only applicable to H264 codec). |
-| **Width**<br /><br /> minInclusive ="0"<br /><br /> Required |**xs:int** |Encoded video width in pixels. |
-| **Height**<br /><br /> minInclusive ="0"<br /><br /> Required |**xs:int** |Encoded video height in pixels. |
-| **DisplayAspectRatioNumerator**<br /><br /> minInclusive ="0"<br /><br /> Required |**xs:double** |Video display aspect ratio numerator. |
-| **DisplayAspectRatioDenominator**<br /><br /> minInclusive ="0"<br /><br /> Required |**xs:double** |Video display aspect ratio denominator. |
-| **Framerate**<br /><br /> minInclusive ="0"<br /><br /> Required |**xs:decimal** |Measured video frame rate in .3f format. |
-| **TargetFramerate**<br /><br /> minInclusive ="0"<br /><br /> Required |**xs:decimal** |Preset target video frame rate in .3f format. |
-| **Bitrate**<br /><br /> minInclusive ="0"<br /><br /> Required |**xs:int** |Average video bit rate in kilobits per second, as calculated from the AssetFile. Counts only the elementary stream payload, and does not include the packaging overhead. |
-| **TargetBitrate**<br /><br /> minInclusive ="0"<br /><br /> Required |**xs:int** |Target average bitrate for this video track, as requested via the encoding preset, in kilobits per second. |
-| **MaxGOPBitrate**<br /><br /> minInclusive ="0" |**xs:int** |Max GOP average bitrate for this video track, in kilobits per second. |
+| **Width**<br/><br/> minInclusive ="0"<br/><br/> Required |**xs:int** |Encoded video width in pixels. |
+| **Height**<br/><br/> minInclusive ="0"<br/><br/> Required |**xs:int** |Encoded video height in pixels. |
+| **DisplayAspectRatioNumerator**<br/><br/> minInclusive ="0"<br/><br/> Required |**xs:double** |Video display aspect ratio numerator. |
+| **DisplayAspectRatioDenominator**<br/><br/> minInclusive ="0"<br/><br/> Required |**xs:double** |Video display aspect ratio denominator. |
+| **Framerate**<br/><br/> minInclusive ="0"<br/><br/> Required |**xs:decimal** |Measured video frame rate in .3f format. |
+| **TargetFramerate**<br/><br/> minInclusive ="0"<br/><br/> Required |**xs:decimal** |Preset target video frame rate in .3f format. |
+| **Bitrate**<br/><br/> minInclusive ="0"<br/><br/> Required |**xs:int** |Average video bit rate in kilobits per second, as calculated from the AssetFile. Counts only the elementary stream payload, and does not include the packaging overhead. |
+| **TargetBitrate**<br/><br/> minInclusive ="0"<br/><br/> Required |**xs:int** |Target average bitrate for this video track, as requested via the encoding preset, in kilobits per second. |
+| **MaxGOPBitrate**<br/><br/> minInclusive ="0" |**xs:int** |Max GOP average bitrate for this video track, in kilobits per second. |
 
 ## <a name="AudioTracks "></a> AudioTracks element
 Each physical AssetFile can contain in it zero or more audio tracks interleaved into an appropriate container format. This is the collection of all those audio tracks.  
@@ -115,7 +115,7 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 ### Child elements
 | Name | Description |
 | --- | --- |
-| **AudioTrack**<br /><br /> minOccurs="1" maxOccurs="unbounded" |A specific audio track in the parent AssetFile. For more information, see [AudioTrack element](media-services-output-metadata-schema.md). |
+| **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |A specific audio track in the parent AssetFile. For more information, see [AudioTrack element](media-services-output-metadata-schema.md). |
 
 ## <a name="AudioTrack "></a> AudioTrack element
 A specific audio track in the parent AssetFile.  
@@ -125,18 +125,18 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 ### Attributes
 | Name | Type | Description |
 | --- | --- | --- |
-| **Id**<br /><br /> minInclusive ="0"<br /><br /> Required |**xs:int** |Zero-based index of this audio track. **Note:**  This is not necessarily the TrackID as used in an MP4 file. |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> Required |**xs:int** |Zero-based index of this audio track. **Note:**  This is not necessarily the TrackID as used in an MP4 file. |
 | **Codec** |**xs:string** |Audio track codec string. |
 | **EncoderVersion** |**xs:string** |Optional encoder version string, required for EAC3. |
-| **Channels**<br /><br /> minInclusive ="0"<br /><br /> Required |**xs:int** |Number of audio channels. |
-| **SamplingRate**<br /><br /> minInclusive ="0"<br /><br /> Required |**xs:int** |Audio sampling rate in samples/sec or Hz. |
-| **Bitrate**<br /><br /> minInclusive ="0"<br /><br /> Required |**xs:int** |Average audio bit rate in bits per second, as calculated from the AssetFile. Counts only the elementary stream payload, and does not include the packaging overhead. |
-| **BitsPerSample**<br /><br /> minInclusive ="0"<br /><br /> Required |**xs:int** |Bits per sample for the wFormatTag format type. |
+| **Channels**<br/><br/> minInclusive ="0"<br/><br/> Required |**xs:int** |Number of audio channels. |
+| **SamplingRate**<br/><br/> minInclusive ="0"<br/><br/> Required |**xs:int** |Audio sampling rate in samples/sec or Hz. |
+| **Bitrate**<br/><br/> minInclusive ="0"<br/><br/> Required |**xs:int** |Average audio bit rate in bits per second, as calculated from the AssetFile. Counts only the elementary stream payload, and does not include the packaging overhead. |
+| **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> Required |**xs:int** |Bits per sample for the wFormatTag format type. |
 
 ### Child elements
 | Name | Description |
 | --- | --- |
-| **LoudnessMeteringResultParameters**<br /><br /> minOccurs="0" maxOccurs="1" |Loudness metering result parameters. For more information, see [LoudnessMeteringResultParameters element](media-services-output-metadata-schema.md). |
+| **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Loudness metering result parameters. For more information, see [LoudnessMeteringResultParameters element](media-services-output-metadata-schema.md). |
 
 ## <a name="LoudnessMeteringResultParameters "></a> LoudnessMeteringResultParameters element
 Loudness metering result parameters.  
@@ -147,15 +147,15 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 | Name | Type | Description |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:string** |**Dolby** professional loudness metering development kit version. |
-| **DialogNormalization**<br /><br /> minInclusive="-31" maxInclusive="-1"<br /><br /> Required |**xs:int** |DialogNormalization generated through DPLM, required when LoudnessMetering is set |
-| **IntegratedLoudness**<br /><br /> minInclusive="-70" maxInclusive="10"<br /><br /> Required |**xs:float** |Integrated loudness |
-| **IntegratedLoudnessUnit**<br /><br /> Required |**xs:string** |Integrated loudness unit. |
-| **IntegratedLoudnessGatingMethod**<br /><br /> Required |**xs:string** |Gating identifier |
-| **IntegratedLoudnessSpeechPercentage**<br /><br /> minInclusive ="0" maxInclusive="100" |**xs:float** |Speech content over the program, as a percentage. |
-| **SamplePeak**<br /><br /> Required |**xs:float** |Peak absolute sample value, since reset or since it was last cleared, per channel.  Units are dBFS. |
-| **SamplePeakUnit**<br /><br /> fixed="dBFS"<br /><br /> Required |**xs:anySimpleType** |Sample peak unit. |
-| **TruePeak**<br /><br /> Required |**xs:float** |Maximum true peak value, as per ITU-R BS.1770-2, since reset or since it was last cleared, per channel. Units are dBTP. |
-| **TruePeakUnit**<br /><br /> fixed="dBTP"<br /><br /> Required |**xs:anySimpleType** |True peak unit. |
+| **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Required |**xs:int** |DialogNormalization generated through DPLM, required when LoudnessMetering is set |
+| **IntegratedLoudness**<br/><br/> minInclusive="-70" maxInclusive="10"<br/><br/> Required |**xs:float** |Integrated loudness |
+| **IntegratedLoudnessUnit**<br/><br/> Required |**xs:string** |Integrated loudness unit. |
+| **IntegratedLoudnessGatingMethod**<br/><br/> Required |**xs:string** |Gating identifier |
+| **IntegratedLoudnessSpeechPercentage**<br/><br/> minInclusive ="0" maxInclusive="100" |**xs:float** |Speech content over the program, as a percentage. |
+| **SamplePeak**<br/><br/> Required |**xs:float** |Peak absolute sample value, since reset or since it was last cleared, per channel.  Units are dBFS. |
+| **SamplePeakUnit**<br/><br/> fixed="dBFS"<br/><br/> Required |**xs:anySimpleType** |Sample peak unit. |
+| **TruePeak**<br/><br/> Required |**xs:float** |Maximum true peak value, as per ITU-R BS.1770-2, since reset or since it was last cleared, per channel. Units are dBTP. |
+| **TruePeakUnit**<br/><br/> fixed="dBTP"<br/><br/> Required |**xs:anySimpleType** |True peak unit. |
 
 ## Schema Code
     <?xml version="1.0" encoding="utf-8"?>  

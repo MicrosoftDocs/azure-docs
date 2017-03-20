@@ -1,10 +1,10 @@
-﻿---
+---
 title: Create a web app from the Azure Marketplace | Microsoft Docs
 description: Learn how to create a new WordPress web app from the Azure Marketplace by using the Azure Portal.
 services: app-service\web
 documentationcenter: ''
 author: rmcmurray
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 972a296d-f927-470b-8534-0f2cb9eac223
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/20/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 
 ---
@@ -135,7 +135,7 @@ For more information about developing WordPress web apps on Azure, see [Developi
 [Python]: https://azure.microsoft.com/develop/python/
 [activate]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [free trial]: https://azure.microsoft.com/pricing/free-trial/
-[Try App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Try App Service]: https://azure.microsoft.com/try/app-service/
 [ResourceGroups]: ../azure-resource-manager/resource-group-overview.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [ApplicationInsights]: https://azure.microsoft.com/services/application-insights/

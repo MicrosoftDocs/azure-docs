@@ -1,4 +1,4 @@
-﻿---
+---
 title: Specifying Service Fabric service endpoints | Microsoft Docs
 description: How to describe endpoint resources in a service manifest, including how to set up HTTPS endpoints
 services: service-fabric
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/14/2016
+ms.date: 03/02/2017
 ms.author: subramar
 
 ---

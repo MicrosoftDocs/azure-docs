@@ -1,5 +1,5 @@
-﻿---
-title: Networking Infrastructure Guidelines | Microsoft Docs
+---
+title: Azure networking infrastructure guidelines - Linux | Microsoft Docs
 description: Learn about the key design and implementation guidelines for deploying virtual networking in Azure infrastructure services.
 documentationcenter: ''
 services: virtual-machines-linux
@@ -14,11 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 03/17/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 
 ---
-# Networking infrastructure guidelines
+# Azure networking infrastructure guidelines for Linux VMs
+
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 This article focuses on understanding the required planning steps for virtual networking within Azure and connectivity between existing on-prem environments.

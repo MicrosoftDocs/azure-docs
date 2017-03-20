@@ -2,6 +2,7 @@
 # Overview
 ## [What is Cognitive Services?](https://azure.microsoft.com/services/cognitive-services/)
 # Get Started
+## [Create an account](cognitive-services-apis-create-account.md)
 ## [Text Analytics quick start](cognitive-services-text-analytics-quick-start.md)
 ## [Recommendations quick start](cognitive-services-recommendations-quick-start.md)
 
@@ -45,7 +46,7 @@
 ## [Develop with Language Understanding Intelligent Service](https://www.luis.ai/Help/)
 
 # Reference
-## [PowerShell cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/resourcemanager/azurerm.cognitiveservices/v0.4.1/azurerm.cognitiveservices)
 ## [REST](https://docs.microsoft.com/rest/api/cognitiveservices/)
 
 # Resources 

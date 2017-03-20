@@ -1,5 +1,5 @@
 ---
-title: Reserved IP (Classic) using PowerShell | Microsoft Docs
+title: Manage reserved IP addresses (Classic) using PowerShell | Microsoft Docs
 description: Understand reserved IP addresses (Classic) and how to manage them using PowerShell.
 services: virtual-network
 documentationcenter: na
@@ -18,12 +18,20 @@ ms.author: jdial
 
 ---
 # Reserved IP addresses (Classic)
+
+> [!div class="op_single_selector"]
+- [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
+- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+- [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
+- [Template](virtual-network-deploy-static-pip-arm-template.md)
+- [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
+
 IP addresses in Azure fall into two categories: dynamic and reserved. Public IP addresses managed by Azure are dynamic by default. That means that the IP address used for a given cloud service (VIP) or to access a VM or role instance directly (ILPIP) can change from time to time, when resources are shutdown or deallocated.
 
 To prevent IP addresses from changing, you can reserve an IP address. Reserved IPs can be used only as a VIP, ensuring that the IP address for the cloud service will be the same even as resources are shutdown or deallocated. Furthermore, you can convert existing dynamic IPs used as a VIP to a reserved IP address.
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. Learn how to reserve a static public IP address using the [Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. Learn how to reserve a static public IP address using the [Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
 
 To learn more about IP addresses in Azure, read the [IP addresses](virtual-network-ip-addresses-overview-classic.md) article.
 
@@ -46,7 +54,7 @@ To learn more about IP addresses in Azure, read the [IP addresses](virtual-netwo
 
 ## Manage reserved VIPs
 
-Ensure you have installed and configured PowerShell by completing the steps in the [Install and configure PowerShell](../powershell-install-configure.md) article. 
+Ensure you have installed and configured PowerShell by completing the steps in the [Install and configure PowerShell](/powershell/azureps-cmdlets-docs) article. 
 
 Before you can use reserved IPs, you must add it to your subscription. To create a reserved IP from the pool of public IP addresses available in the *Central US* location, run the following command:
 

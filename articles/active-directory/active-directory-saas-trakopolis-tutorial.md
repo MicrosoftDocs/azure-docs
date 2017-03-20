@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Trakopolis | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Trakopolis.
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 
 ---
@@ -58,19 +58,25 @@ To configure the integration of Trakopolis into Azure AD, you need to add Trakop
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
    
     ![Active Directory][1]
+
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
    
     ![Applications][2]
+
 4. Click **Add** at the bottom of the page.
    
     ![Applications][3]
+
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
    
     ![Applications][4]
+
 6. In the search box, type **Trakopolis**.
    
     ![Applications](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_01.png)
+
 7. In the results pane, select **Trakopolis**, and then click **Complete** to add the application.
    
     ![Applications](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_02.png)
@@ -97,16 +103,18 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 1. In the Azure classic portal, on the **Trakopolis** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
    
     ![Configure Single Sign-On][6] 
+
 2. On the **How would you like users to sign on to Trakopolis** page, select **Azure AD Single Sign-On**, and then click **Next**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_03.png) 
+
 3. On the **Configure App Settings** dialog page, perform the following steps:
    
     ![Configure Single Sign-On](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_04.png) 
 
     a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Trakopolis application using the following pattern: **“https://\<company name\>.trakopolis.com”**.
 
-     b. Click **Next**.
+    b. Click **Next**.
 
 1. On the **Configure single sign-on at Trakopolis** page, perform the following steps:
    
@@ -115,10 +123,13 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     a. Click **Download certificate**, and then save the file on your computer.
    
     b. Click **Next**.
+
 2. To get SSO configured for your application, contact your Trakopolis support team at [support@cantelematics.com](mailto:support@cantelematics.com), attach the downloaded certificate and provide them with the **Issuer URL**, the **SAML SSO URL** and the **Sign Out URL**.
+
 3. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
    
     ![Azure AD Single Sign-On][10]
+
 4. On the **Single sign-on confirmation** page, click **Complete**.  
    
     ![Azure AD Single Sign-On][11]
@@ -133,13 +144,17 @@ The objective of this section is to create a test user in the Azure classic port
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-trakopolis-tutorial/create_aaduser_09.png) 
+
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
 3. To display the list of users, in the menu on the top, click **Users**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-trakopolis-tutorial/create_aaduser_03.png) 
+
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-trakopolis-tutorial/create_aaduser_04.png) 
+
 5. On the **Tell us about this user** dialog page, perform the following steps:
    
     ![Creating an Azure AD test user](./media/active-directory-saas-trakopolis-tutorial/create_aaduser_05.png) 
@@ -149,22 +164,25 @@ The objective of this section is to create a test user in the Azure classic port
     b. In the User Name **textbox**, type **BrittaSimon**.
    
     c. Click **Next**.
+
 6. On the **User Profile** dialog page, perform the following steps:
    
-   ![Creating an Azure AD test user](./media/active-directory-saas-trakopolis-tutorial/create_aaduser_06.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-trakopolis-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+    a. In the **First Name** textbox, type **Britta**.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
+    d. In the **Role** list, select **User**.
    
-   e. Click **Next**.
+    e. Click **Next**.
+
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-trakopolis-tutorial/create_aaduser_07.png) 
+
 8. On the **Get temporary password** dialog page, perform the following steps:
    
     ![Creating an Azure AD test user](./media/active-directory-saas-trakopolis-tutorial/create_aaduser_08.png) 
@@ -187,13 +205,17 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
    
     ![Assign User][201] 
+
 2. In the applications list, select **Trakopolis**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_50.png) 
+
 3. In the menu on the top, click **Users**.
    
     ![Assign User][203] 
+
 4. In the Users list, select **Britta Simon**.
+
 5. In the toolbar on the bottom, click **Assign**.
    
     ![Assign User][205]

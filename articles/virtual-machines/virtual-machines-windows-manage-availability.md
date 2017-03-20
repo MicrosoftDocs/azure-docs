@@ -1,5 +1,5 @@
 ---
-title: Manage the availability of Windows VMs | Microsoft Docs
+title: Manage the availability of Windows VMs in Azure | Microsoft Docs
 description: Learn how to use multiple virtual machines to ensure high availability for your Windows application in Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,11 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 03/06/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 
 ---
-# Manage the availability of virtual machines
+# Manage the availability of Windows virtual machines in Azure 
+
 Learn ways to set up and manage multiple virtual machines to ensure high availability for your Windows application in Azure. You can also [manage the availability of Linux virtual machines](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]

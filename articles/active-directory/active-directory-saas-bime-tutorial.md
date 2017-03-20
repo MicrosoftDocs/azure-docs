@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory Integration with Bime | Microsoft Docs'
 description: Learn how to use Bime with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 
 ---
@@ -27,17 +27,18 @@ After completing this tutorial, the Azure AD users you have assigned to Bime wil
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
-1. Enabling the application integration for Bime
-2. Configuring single sign-on
-3. Configuring user provisioning
-4. Assigning users
+* Enabling the application integration for Bime
+* Configuring single sign-on (SSO)
+* Configuring user provisioning
+* Assigning users
 
 ![Scenario](./media/active-directory-saas-bime-tutorial/IC775552.png "Scenario")
 
-## Enabling the application integration for Bime
+## Enable the application integration for Bime
 The objective of this section is to outline how to enable the application integration for Bime.
 
-### To enable the application integration for Bime, perform the following steps:
+**To enable the application integration for Bime, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-bime-tutorial/IC700993.png "Active Directory")
@@ -58,14 +59,15 @@ The objective of this section is to outline how to enable the application integr
    
    ![Bime](./media/active-directory-saas-bime-tutorial/IC775554.png "Bime")
    
-   ## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Bime with their account in Azure AD using federation based on the SAML protocol.  
-Configuring single sign-on for Bime requires you to retrieve a thumbprint value from a certificate.  
-If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
-### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **Bime** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+Configuring SSO for Bime requires you to retrieve a thumbprint value from a certificate. If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
+
+**To configure single sign-on, perform the following steps:**
+
+1. In the Azure classic portal, on the **Bime** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure single sign-on](./media/active-directory-saas-bime-tutorial/IC771709.png "Configure single sign-on")
 2. On the **How would you like users to sign on to Bime** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -87,23 +89,24 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
    
    1. Select **Enable SAML authentication**.
    2. In the Azure classic portal, on the **Configure single sign-on at Bime** dialog page, copy the **Remote Login URL** value, and then paste it into the **Remote Login URL** textbox.
-   3. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Certificate Fingerprint** textbox.  
+   3. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Certificate Fingerprint** textbox.       
       
-      > [!TIP]
-      > For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
-      > 
+      >[!TIP]
+      >For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI). 
       > 
    4. Click **Save**.
 8. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-bime-tutorial/IC775560.png "Configure Single Sign-On")
    
-   ## Configuring user provisioning
+## Configure user provisioning
 
 In order to enable Azure AD users to log into Bime, they must be provisioned into Bime.  
-In the case of Bime, provisioning is a manual task.
 
-### To configure user provisioning, perform the following steps:
+* In the case of Bime, provisioning is a manual task.
+
+**To configure user provisioning, perform the following steps:**
+
 1. Log in to your **Bime** tenant.
 2. In the toolbar, click **Admin**, and then **Users**.
    
@@ -113,20 +116,19 @@ In the case of Bime, provisioning is a manual task.
    ![Users](./media/active-directory-saas-bime-tutorial/IC775562.png "Users")
 4. On the **User Details** dialog page, perform the following steps:
    
-   ![User Details](./media/active-directory-saas-bime-tutorial/IC775563.png "User Details")
-   
-   1. Enter the First Name, Last Name, Login, Email of a valid AAD account you want to provision.
-   2. Click Save.
+   ![User Details](./media/active-directory-saas-bime-tutorial/IC775563.png "User Details")   
+  1. Enter the First Name, Last Name, Login, Email of a valid AAD account you want to provision.
+  2. Click Save.
 
-> [!NOTE]
-> You can use any other Bime user account creation tools or APIs provided by Bime to provision AAD user accounts.
-> 
-> 
+>[!NOTE]
+>You can use any other Bime user account creation tools or APIs provided by Bime to provision AAD user accounts.
+>  
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to Bime, perform the following steps:
+**To assign users to Bime, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
 2. On the **Bime **application integration page, click **Assign users**.
    

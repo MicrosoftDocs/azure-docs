@@ -1,6 +1,6 @@
 ---
-title: Frequently asked questions for classic VMs | Microsoft Docs
-description: Answers to some of the common questions about Azure Linux virtual machines created with the classic deployment model.
+title: Frequently asked questions for classic Linux VMs | Microsoft Docs
+description: Answers to some common questions about Azure Linux virtual machines created with the classic deployment model.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -19,9 +19,8 @@ ms.author: cynthn
 
 ---
 # Frequently asked question about Azure Linux Virtual Machines created with the classic deployment model
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-For the FAQ when using the Resource Manager model, see [here](virtual-machines-linux-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For the FAQ when using the Resource Manager model, see [here](virtual-machines-linux-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-faq](../../includes/virtual-machines-common-classic-faq.md)]
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure AD Domain Services: Compare Azure AD Domain Services to DIY domain controllers | Microsoft Docs'
 description: Comparing Azure Active Directory Domain Services to DIY domain controllers
 services: active-directory-ds
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 
 ---
@@ -37,6 +37,7 @@ The following table helps you decide between using Azure AD Domain Services and 
 | [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
 | [**Domain join**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**Domain authentication using NTLM and Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
+| [**Kerberos constrained delegation**](active-directory-ds-comparison.md#kerberos-constrained-delegation)|resource-based|resource-based & account-based|
 | [**Custom OU structure**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
 | [**Schema extensions**](active-directory-ds-comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
 | [**AD domain/forest trusts**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
@@ -54,6 +55,7 @@ The managed domain is securely locked down as per Microsoft’s security best pr
 
 #### DNS server
 An Azure AD Domain Services managed domain includes managed DNS services. Members of the 'AAD DC Administrators' group can manage DNS on the managed domain. Members of this group are given full DNS Administration privileges for the managed domain. DNS management can be performed using the 'DNS Administration console' included in the Remote Server Administration Tools (RSAT) package.
+[More information](active-directory-ds-admin-guide-administer-dns.md)
 
 #### Domain or Enterprise Administrator privileges
 These elevated privileges are not offered on an AAD-DS managed domain. Applications that require these elevated privileges to be installed/run cannot be run against managed domains. A smaller subset of administrative privileges is available to members of the delegated administration group called ‘AAD DC Administrators’. These privileges include privileges to configure DNS, configure group policy, gain administrator privileges on domain-joined machines etc.
@@ -64,8 +66,13 @@ You can join virtual machines to the managed domain similar to how you join comp
 #### Domain authentication using NTLM and Kerberos
 With Azure AD Domain Services, you can use your corporate credentials to authenticate with the managed domain. Credentials are kept in sync with your Azure AD tenant. For synced tenants, Azure AD Connect ensures that changes to credentials made on-premises are synchronized to Azure AD. With a DIY domain setup, you may need to set up a domain trust relationship with an on-premises account forest for users to authenticate with their corporate credentials. Alternately, you may need to set up AD replication to ensure that user passwords synchronize to your Azure domain controller virtual machines.
 
+#### Kerberos constrained delegation
+You do not have 'Domain Administrator' privileges on an Active Directory Domain Services managed domain. Therefore, you cannot configure account-based (traditional) kerberos constrained delegation. However, you can configure the more secure resource-based constrained delegation.
+[More information](active-directory-ds-enable-kcd.md)
+
 #### Custom OU structure
-Members of the 'AAD DC Administrators' group can create custom OUs within the managed domain.
+Members of the 'AAD DC Administrators' group can create custom OUs within the managed domain. Users who create custom OUs are granted full administrative privileges over the OU. 
+[More information](active-directory-ds-admin-guide-create-ou.md)
 
 #### Schema extensions
 You cannot extend the base schema of an Azure AD Domain Services managed domain. Therefore, applications that rely on extensions to AD schema (for example, new attributes under the user object) cannot be lifted and shifted to AAD-DS domains.
@@ -78,12 +85,14 @@ The managed domain supports LDAP read workloads. Therefore you can deploy applic
 
 #### Secure LDAP
 You can configure Azure AD Domain Services to provide secure LDAP access to your managed domain, including over the internet.
+[More information](active-directory-ds-admin-guide-configure-secure-ldap.md)
 
 #### LDAP Write
 The managed domain is read-only for user objects. Therefore, applications that perform LDAP write operations against attributes of the user object do not work in a managed domain. Additionally, user passwords cannot be changed from within the managed domain. Another example would be modification of group memberships or group attributes within the managed domain, which is not permitted. However, any changes to user attributes or passwords made in Azure AD (via PowerShell/Azure portal) or on-premises AD are synchronized to the AAD-DS managed domain.
 
 #### Group policy
-Sophisticated group policy constructs aren’t supported on the AAD-DS managed domain. For example, you cannot create and deploy separate GPOs for each custom OU in the domain or use WMI filtering for GP targeting. There is a built-in GPO each for the ‘AADDC Computers’ and ‘AADDC Users’ containers, which can be customized to configure group policy.
+There is a built-in GPO each for the ‘AADDC Computers’ and ‘AADDC Users’ containers, which can be customized to configure group policy. Members of the 'AAD DC Administrators' group can also create custom GPOs and link them to existing OUs (including custom OUs).
+[More information](active-directory-ds-admin-guide-administer-group-policy.md)
 
 #### Geo-dispersed deployments
 Azure AD Domain Services managed domains are available in a single virtual network in Azure. For scenarios that require domain controllers to be available in multiple Azure regions across the world, setting up domain controllers in Azure IaaS VMs might be the better alternative.
@@ -97,8 +106,8 @@ You may have deployment use-cases where you need some of the capabilities offere
 
 > [!NOTE]
 > You may determine that a DIY option is better suited for your deployment use-cases. Consider [sharing feedback](active-directory-ds-contact-us.md) to help us understand what features would help you chose Azure AD Domain Services in the future. This feedback helps us evolve the service to better suit your deployment needs and use-cases.
-> 
-> 
+>
+>
 
 We have published [guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx) to help make DIY installations easier.
 
@@ -106,4 +115,3 @@ We have published [guidelines for Deploying Windows Server Active Directory on A
 * [Features - Azure AD Domain Services](active-directory-ds-features.md)
 * [Deployment scenarios - Azure AD Domain Services](active-directory-ds-scenarios.md)
 * [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-

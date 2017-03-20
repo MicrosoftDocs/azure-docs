@@ -1,4 +1,4 @@
-﻿---
+---
 title: Usage analysis for web applications with Application Insights
 description: Overview of usage analytics for web apps with Application Insights
 services: application-insights
@@ -19,7 +19,7 @@ ms.author: awills
 # Usage analysis for web applications with Application Insights
 Knowing how people use your application lets you focus your development work on the scenarios that are most important to them, and gain insights into the goals that they find easier or more difficult to achieve. 
 
-Visual Studio Application Insights provides two levels of usage tracking:
+Azure Application Insights provides two levels of usage tracking:
 
 * **User, session and page view data** - provided out of the box.  
 * **Custom telemetry** - You [write code][api] to trace your users through your app's user experience. 
@@ -72,6 +72,7 @@ You can alter these defaults by editing the code snippet:
             sessionRenewalMs: 3600000,
             sessionExpirationMs: 172800000
         });
+    </script>
 
 * `sessionRenewalMs` : The time, in milliseconds, to expire the session due to user’s inactivity. Default: 30 minutes.
 * `sessionExpirationMs` : The maximum session length, in milliseconds. If the user remains active after this time, another session is counted. Default: 24 hours.

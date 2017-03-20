@@ -1,5 +1,5 @@
 ---
-title: Access and Security in Azure Resource Manager Templates | Microsoft Docs
+title: Access and security in Azure templates for Windows VMs | Microsoft Docs
 description: Azure Virtual Machine DotNet Core Tutorial
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/21/2016
+ms.date: 11/21/2016
 ms.author: nepeters
-
+ms.custom: H1Hack27Feb2017
 ---
-# Access and security in Azure Resource Manager templates
+# Access and security in Azure Resource Manager templates for Windows VMs
+
 Applications hosted in Azure likely need to be access over the internet or a VPN / Express Route connection with Azure. With the Music Store application sample, the web site is made available on the internet with a public IP address. With access established, connections to the application and access to the virtual machine resources themselves should be secured. This access security is provided with a Network Security Group. 
 
 This document details how the Music Store application is secured in the sample Azure Resource Manager template. All dependencies and unique configurations are highlighted. For the best experience, pre-deploy an instance of the solution to your Azure subscription and work along with the Azure Resource Manager template. The complete template can be found here – [Music Store Deployment on Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
@@ -30,7 +31,7 @@ A Public IP Address can be added to an Azure Resource Manager template using the
 
 Follow this link to see the JSON sample within the Resource Manager template – [Public IP Address](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L110).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/publicIPAddresses",
@@ -53,7 +54,7 @@ A Public IP Address can be associated with a Virtual Network Adapter, or a Load 
 
 Follow this link to see the JSON sample within the Resource Manager template – [Public IP Address association with Load Balancer](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L211).
 
-```none
+```json
 "frontendIPConfigurations": [
   {
     "properties": {
@@ -77,7 +78,7 @@ Once access has been established to Azure resources, this access should be limit
 
 Follow this link to see the JSON sample within the Resource Manager template – [Network Security Group](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L57).
 
-```none
+```json
 {
   "apiVersion": "2016-03-30",
   "type": "Microsoft.Network/networkSecurityGroups",
@@ -112,7 +113,7 @@ In this example, the network security group is associate with the subnet object 
 
 Follow this link to see the JSON sample within the Resource Manager template – [Network Security Group association with Virtual Network](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L143).
 
-```none
+```json
 "subnets": [
   {
     "name": "[variables('subnetName')]",

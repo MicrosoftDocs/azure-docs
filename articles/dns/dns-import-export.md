@@ -1,11 +1,10 @@
-﻿---
+---
 title: Import and export a domain zone file to Azure DNS using CLI| Microsoft Docs
 description: Learn how to import and export a DNS zone file to Azure DNS by using Azure CLI
 services: dns
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: ''
+author: georgewallace
+manager: timlt
 
 ms.assetid: f5797782-3005-4663-a488-ac0089809010
 ms.service: dns
@@ -14,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: sewhee
+ms.author: gwallace
 ---
 
 # Import and export a DNS zone file using the Azure CLI
@@ -25,7 +24,10 @@ This article will walk you through how to import and export DNS zone files for A
 
 A DNS zone file is a text file that contains details of every Domain Name System (DNS) record in the zone. It follows a standard format, making it suitable for transferring DNS records between DNS systems. Using a zone file is a quick, reliable, and convenient way to transfer a DNS zone into or out of Azure DNS.
 
-Azure DNS supports importing and exporting zone files by using the Azure command-line interface (CLI). The Azure CLI is a cross-platform command-line tool used for managing Azure services. It is available for the Windows, Mac, and Linux platforms from the [Azure downloads page](https://azure.microsoft.com/downloads/). Cross-platform support is particularly important for importing and exporting zone files, because the most common name server software, [BIND](https://www.isc.org/downloads/bind/), typically runs on Linux.
+Azure DNS supports importing and exporting zone files by using the Azure command-line interface (CLI). Zone file import is **not** currently supported via Azure PowerShell or the Azure portal.
+
+The Azure CLI is a cross-platform command-line tool used for managing Azure services. It is available for the Windows, Mac, and Linux platforms from the [Azure downloads page](https://azure.microsoft.com/downloads/). Cross-platform support is particularly important for importing and exporting zone files, because the most common name server software, [BIND](https://www.isc.org/downloads/bind/), typically runs on Linux.
+
 
 ## Obtain your existing DNS zone file
 
@@ -68,9 +70,9 @@ The following notes provide additional technical details about the zone import p
 
 The format of the Azure CLI command to import a DNS zone is:
 
-    ```azurecli
-    azure network dns zone import [options] <resource group> <zone name> <zone file name>
-    ```
+```azurecli
+azure network dns zone import [options] <resource group> <zone name> <zone file name>
+```
 
 Values:
 
@@ -169,7 +171,7 @@ After you have verified that the zone has been imported correctly, you will need
 The format of the Azure CLI command to import a DNS zone is:
 
     ```azurecli
-        azure network dns zone export [options] <resource group> <zone name> <zone file name>
+    azure network dns zone export [options] <resource group> <zone name> <zone file name>
     ```
 
 Values:

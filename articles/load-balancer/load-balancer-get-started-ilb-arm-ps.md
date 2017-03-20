@@ -1,11 +1,10 @@
 ---
-title: Create an internal load balancer using PowerShell in Resource Manager | Microsoft Docs
+title: Create an Azure Internal load balancer - PowerShell | Microsoft Docs
 description: Learn how to create an internal load balancer using PowerShell in Resource Manager
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: ''
+author: kumudd
+manager: timlt
 tags: azure-resource-manager
 
 ms.assetid: c6c98981-df9d-4dd7-a94b-cc7d1dc99369
@@ -14,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
-ms.author: sewhee
+ms.date: 01/23/2017
+ms.author: kumud
 ---
 
 # Create an internal load balancer using PowerShell
@@ -29,7 +28,7 @@ ms.author: sewhee
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -56,7 +55,7 @@ Make sure you have the latest production version of the Azure module for PowerSh
 ### Step 1
 
 ```powershell
-    Login-AzureRmAccount
+Login-AzureRmAccount
 ```
 
 ### Step 2
@@ -64,7 +63,7 @@ Make sure you have the latest production version of the Azure module for PowerSh
 Check the subscriptions for the account
 
 ```powershell
-    Get-AzureRmSubscription
+Get-AzureRmSubscription
 ```
 
 You will be prompted to Authenticate with your credentials.
@@ -74,7 +73,7 @@ You will be prompted to Authenticate with your credentials.
 Choose which of your Azure subscriptions to use.
 
 ```powershell
-    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 ```
 
 ### Create Resource Group for load balancer
@@ -82,7 +81,7 @@ Choose which of your Azure subscriptions to use.
 Create a new resource group (skip this step if using an existing resource group)
 
 ```powershell
-    New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 ```
 
 Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure all commands to create a load balancer will use the same resource group.
@@ -183,7 +182,7 @@ Create a second network interface called LB-Nic2-BE:
 This step creates a second network interface, assigning to the same load balancer back end pool and associating the second NAT rule created for RDP:
 
 ```powershell
-    $backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
+$backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 ```
 
 The end result will show the following:
@@ -240,7 +239,7 @@ Expected output:
 
 Use the command Add-AzureRmVMNetworkInterface to assign the NIC to a virtual Machine.
 
-You can find the step by step instructions to create a virtual machine and assign to a NIC following the documentation: [Create an Azure VM using PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+You can find the step by step instructions to create a virtual machine and assign to a NIC following the documentation: [Create an Azure VM using PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
 ## Add the network interface
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure the upgrade of a Service Fabric application | Microsoft Docs
 description: Learn how to configure the settings for upgrading a Service Fabric application by using Microsoft Visual Studio.
 services: service-fabric
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/29/2016
+ms.date: 11/18/2016
 ms.author: cawa
 
 ---
@@ -42,21 +42,21 @@ If you’re using the Visual Studio Service Fabric tools to upgrade a Service Fa
 ### To configure the upgrade parameters
 1. Click the **Settings** button next to the check box. The **Edit Upgrade Parameters** dialog box appears. The **Edit Upgrade Parameters** dialog box supports the Monitored, UnmonitoredAuto, and UnmonitoredManual upgrade modes.
 2. Select the upgrade mode that you want to use and then fill out the parameter grid.
-   
+
     Each parameter has default values. The optional parameter *DefaultServiceTypeHealthPolicy* takes a hash table input. Here’s an example of the hash table input format for *DefaultServiceTypeHealthPolicy*:
-   
+
     ```
     @{ ConsiderWarningAsError = "false"; MaxPercentUnhealthyDeployedApplications = 0; MaxPercentUnhealthyServices = 0; MaxPercentUnhealthyPartitionsPerService = 0; MaxPercentUnhealthyReplicasPerPartition = 0 }
     ```
-   
+
     *ServiceTypeHealthPolicyMap* is another optional parameter that takes a hash table input in the following format:
-   
+
     ```    
     @ {"ServiceTypeName" : "MaxPercentUnhealthyPartitionsPerService,MaxPercentUnhealthyReplicasPerPartition,MaxPercentUnhealthyServices"}
     ```
-   
+
     Here's a real-life example:
-   
+
     ```
     @{ "ServiceTypeName01" = "5,10,5"; "ServiceTypeName02" = "5,5,5" }
     ```
@@ -70,7 +70,7 @@ Every service in a Service Fabric application can have its own health policy par
 
 The following example shows how to apply a unique health check policy for each service in the application manifest.
 
-```
+```xml
 <Policies>
     <HealthPolicy ConsiderWarningAsError="false" MaxPercentUnhealthyDeployedApplications="20">
         <DefaultServiceTypeHealthPolicy MaxPercentUnhealthyServices="20"               
@@ -85,4 +85,3 @@ The following example shows how to apply a unique health check policy for each s
 ```
 ## Next steps
 For more information about deploying an application, see [Deploy an existing application in Azure Service Fabric](service-fabric-deploy-existing-app.md).
-

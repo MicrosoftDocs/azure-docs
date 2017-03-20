@@ -1,19 +1,18 @@
-﻿---
+---
 title: Analyze data usage in Log Analytics | Microsoft Docs
 description: You can use the Usage dashboard in Log Analytics to view how much data is being sent to the OMS service.
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: ''
-
 ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/10/2016
+ms.date: 01/02/2017
 ms.author: banders
 
 ---
@@ -44,6 +43,12 @@ The **Log Analytics usage** dashboard displays the following information:
     - Time taken to collect and index data
 - List of queries
 
+## Understanding nodes for OMS offers
+
+If you are on the *per node (OMS)* pricing tier, then you are charged based on the number of nodes and solutions you have enabled. You can see how many nodes of each offer are being used in the *offerings* section of the usage dashboard.
+
+![usage dashboard](./media/log-analytics-usage/log-analytics-usage-offerings.png)
+
 ## To work with usage data
 1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com) using your Azure subscription.
 2. On the **Hub** menu, click **More services** and in the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Click **Log Analytics**.  
@@ -52,7 +57,7 @@ The **Log Analytics usage** dashboard displays the following information:
 4. In the *workspace* dashboard, click **Log Analytics usage**.
 5. On the **Log Analytics Usage** dashboard, click **Time: Last 24 hours** to change the time interval.  
     ![time interval](./media/log-analytics-usage/time.png)
-6. View the usage category blades that show areas you’re interested. Choose a blade and then click an item in it to view more details in [Log Search](log-analytics-log-searches.md).  
+6. View the usage category blades that show areas you’re interested in. Choose a blade and then click an item in it to view more details in [Log Search](log-analytics-log-searches.md).  
     ![example data usage blade](./media/log-analytics-usage/blade.png)
 7. On the Log Search dashboard, review the results that are returned from the search.  
     ![example usage log search](./media/log-analytics-usage/usage-log-search.png)
