@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
-ms.date: 03/17/2017
+ms.date: 03/21/2017
 ms.author: jehollan
 ---
 
@@ -72,28 +72,28 @@ enter the JSON schema for the payload that you expect the trigger to receive.
   > or in the **Request** trigger by choosing **Use sample payload to generate schema**. 
   > Enter your sample payload, and choose **Done**.
   
-  For example, this sample payload:
-  
-  ```json
-  {
-      "address": "21 2nd Street, New York, New York"
-  }
-  ```    
+	For example, this sample payload:
 
-  generates this schema:
+	```json
+	{
+	   "address": "21 2nd Street, New York, New York"
+	}
+	```
 
-  ```json
-  }
-      "type": "object",
-      "properties": {
+	generates this schema:
+
+	```json
+	}
+		"type": "object",
+		"properties": {
          "address": {
             "type": "string" 
          }
       }
-   }
-  ```
+	}
+	```
 
-2.	Save your logic app. Under **HTTP POST to this URL**, 
+4.	Save your logic app. Under **HTTP POST to this URL**, 
 you should now get a generated callback URL, like this example:
 
 	![Generated callback URL for endpoint](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
@@ -150,10 +150,10 @@ Select the **GET** method so you can later test your trigger's URL.
 
 	![Specify the HTTP method and relative path for parameter](./media/logic-apps-http-endpoint/relativeurl.png)
 
-3.	To use the parameter, add a **Response** action to your logic app. 
+4.	To use the parameter, add a **Response** action to your logic app. 
 (Under your trigger, choose **New step** > **Add an action** > **Response**) 
 
-4.	In your response's **Body**, include the token for the parameter 
+5.	In your response's **Body**, include the token for the parameter 
 that you specified in your trigger.
 
 	For example, to return `Hello {customerID}`, 
@@ -167,7 +167,7 @@ that you specified in your trigger.
 
 	![Response body with parameter](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
 
-3. Save your logic app. 
+6. Save your logic app. 
 
 	Your trigger's URL now includes the relative path, for example:
 
@@ -175,7 +175,7 @@ that you specified in your trigger.
 	https://prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customer/{customerID}?api-version...
 	```
 
-4. To test your HTTP endpoint, 
+7. To test your HTTP endpoint, 
 copy and paste your trigger's URL into another browser window. 
 Substitute `{customerID}` with `123456`, and press Enter.
 
