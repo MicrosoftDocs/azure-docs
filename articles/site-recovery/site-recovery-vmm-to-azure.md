@@ -12,8 +12,8 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 03/05/2017
+ms.topic: hero-=article
+ms.date: 03/20/2017
 ms.author: raynew
 
 ---
@@ -30,40 +30,31 @@ This article describes how to replicate on-premises Hyper-V virtual machines man
 After reading this article, post any comments at the bottom, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
+## Deployment steps
 
 
-## Scenario architecture
-These are the scenario components:
+1. [Learn more](site-recovery-componentsmd#hyper-v-to-azure) about the architecture for this deployment. In addition, [learn about](site-recovery-hyper-v-azure-architecture) how Hyper-V replication works in Site Recovery.
+2. Verify prerequisites and limitations.
+3. Set up Azure network and storage accounts.
+4. Prepare the on-premises VMM server and Hyper-V hosts.
+5. Create a Recovery Services vault. The vault contains configuration settings, and orchestrates replication.
+6. Specify source settings. Register the VMM server in the vault. Install the Azure Site Recovery Provider on the VMM server Install the Microsoft Recovery Services agent on Hyper-V hosts.
+7. Set up target and replication settings.
+8. Enable replication for the VMs.
+9. Run a test failover to make sure everything's working as expected.
 
-* **VMM server**: An on-premises VMM server with one or more clouds.
-* **Hyper-V host or cluster**: Hyper-V host servers or clusters managed in VMM clouds.
-* **Azure Site Recovery Provider and Recovery services agent**: During deployment, you install the Azure Site Recovery Provider on the VMM server, and the Microsoft Azure Recovery Services agent on Hyper-V host servers. The Provider on the VMM server communicates with Site Recovery over HTTPS 443 to replicate orchestration. The agent on the Hyper-V host server replicates data to Azure storage over HTTPS 443 by default.
-* **Azure**: You need an Azure subscription, an Azure storage account to store replicated data, and an Azure virtual network so that Azure VMs are connected to a network after failover.
 
-![E2A Topology](./media/site-recovery-vmm-to-azure/architecture.png)
 
-## Azure prerequisites
-Here's what you need in Azure.
+## Prerequisites
 
-| **Prerequisite** | **Details** |
-| --- | --- |
-| **Azure account** |You need a [Microsoft Azure](http://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about Site Recovery pricing. |
-| **Azure storage** |You need a standard Azure storage account to store replicated data. You can use an LRS or GRS storage account. We recommend GRS so that data is resilient if a regional outage occurs, or if the primary region can't be recovered. [Learn more](../storage/storage-redundancy.md). The account must be in the same region as the Recovery Services vault.<br/><br/>Premium storage isn't supported.<br/><br/> Replicated data is stored in Azure storage and Azure VMs are created when failover occurs. <br/><br/> [Read about](../storage/storage-introduction.md) Azure storage. |
-| **Azure network** |You need an Azure virtual network that Azure VMs connect to when failover occurs. The network must be in the same region as the Recovery Services vault. |
 
-## On-premises prerequisites
-Here's what you need on-premises
+**Support requirement** | **Details**
+--- | ---
+**Azure** | Learn about [Azure requirements](site-recovery-prereq.md#azure-requirements).
+**On-premises servers** | [Learn more](site-recovery-prereq.md#disaster-recovery-of-hyper-v-virtual-machines-in-virtual-machine-manager-clouds-to-azure) about requirements for the on-premises VMM server and Hyper-V hosts.
+**On-premises Hyper-V VMs** | VMs you want to replicate should be running a [supported operating system](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), and conform with [Azure prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+**Azure URLs** | The VMM server needs access to these URLs:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> If you have IP address-based firewall rules, ensure they allow communication to Azure.<br/></br> Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.<br/></br> Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).
 
-| **Prerequisite** | **Details** |
-| --- | --- |
-| **VMM** |One or more VMM servers running on System Center 2012 R2. Each VMM server should have one or more clouds configured. A cloud should contain:<br/><br/> One or more VMM host groups.<br/><br/> One or more Hyper-V host servers or clusters in each host group.<br/><br/>[Learn more](http://social.technet.microsoft.com/wiki/contents/articles/2729.how-to-create-a-cloud-in-vmm-2012.aspx) about setting up VMM clouds. |
-| **Hyper-V** |Hyper-V host servers must be running at least **Windows Server 2012 R2** with Hyper-V role or **Microsoft Hyper-V Server 2012 R2** and have the latest updates installed.<br/><br/> A Hyper-V server should contain one or more VMs.<br/><br/> A Hyper-V host server or cluster that includes VMs you want to replicate must be managed in a VMM cloud.<br/><br/>Hyper-V servers should be connected to the Internet, either directly or via a proxy.<br/><br/>Hyper-V servers should have fixes mentioned in article [2961977](https://support.microsoft.com/kb/2961977) installed.<br/><br/>Hyper-V host servers need internet access for data replication to Azure. |
-| **Provider and agent** |During Azure Site Recovery deployment, you install the Azure Site Recovery Provider on the VMM server, and the Recovery Services agent on Hyper-V hosts. The Provider and agent need to connect to Azure over the internet directly, or through a proxy. An HTTPS-based proxy isn't supported. The proxy server on the VMM server and Hyper-V hosts should allow access to: <br/><br/> ``*.accesscontrol.windows.net``<br/><br/> ``*.backup.windowsazure.com``<br/><br/> ``*.hypervrecoverymanager.windowsazure.com``<br/><br/> ``*.store.core.windows.net``<br/><br/> ``*.blob.core.windows.net``<br/><br/> ``https://www.msftncsi.com/ncsi.txt``<br/><br/> ``time.windows.com``<br/><br/> ``time.nist.gov``<br/><br/> If you have IP address-based firewall rules on the VMM server, check that the rules allow communication to Azure.<br/><br/> Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and the HTTPS (443) port.<br/><br/> Allow IP address ranges for the Azure region of your subscription, and for West US.<br/><br/> |
-
-## Protected machine prerequisites
-| **Prerequisite** | **Details** |
-| --- | --- |
-| **Protected VMs** |Before you fail over a VM, make sure that the name that is assigned to the Azure VM complies with [Azure prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements). You can modify the name after you've enabled replication for the VM. <br/><br/> Individual disk capacity on protected machines shouldn’t be more than 1023 GB. A VM can have up to 64 disks (thus up to 64 TB).<br/><br/> Shared disk guest clusters aren't supported.<br/><br/> Unified Extensible Firmware Interface (UEFI)/Extensible Firmware Interface(EFI) boot isn't supported.<br/><br/> If the source VM has NIC teaming it’s converted to a single NIC after failover to Azure.<br/><br/>Protecting Hyper-V VMs running Linux with a static IP address isn't supported. |
 
 ## Prepare for deployment
 To prepare for deployment you need to:
@@ -130,8 +121,6 @@ Select what you want to replicate and where you want to replicate to.
 
     ![Choose goals](./media/site-recovery-vmm-to-azure/choose-goals.png)
 3. In **Protection goal** select **To Azure**, and select **Yes, with Hyper-V**. Select **Yes** to confirm you're using VMM to manage Hyper-V hosts and the recovery site. Then click **OK**.
-
-    ![Choose goals](./media/site-recovery-vmm-to-azure/choose-goals2.png)
 
 ## Step 2: Set up the source environment
 Install the Azure Site Recovery Provider on the VMM server, and register the server in the vault. Install the Azure Recovery Services agent on Hyper-V hosts.
