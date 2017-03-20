@@ -20,7 +20,7 @@
 
 Synonyms in search engines associate equivalent terms that implicitly expand the scope of a query, without the user having to actually provide the term. For example, given the term "dog" and synonym associations of "canine" and "puppy", any documents containing "dog", "canine" or "puppy" will fall within the scope of the query.
 
-In Azure Search, synonym expansion is done at query time. You can use it on existing indexes without having to rebuild them.
+In Azure Search, synonym expansion is done at query time. You can add synonym maps to a service with no disruption to existing operations. You can add a SynonymMaps property to a field definition without having to rebuild the index. For more information, see [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
 ## Feature availability
 
@@ -50,7 +50,7 @@ You can create a new synonym map using HTTP POST, as in the following example:
 
 	POST https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
 	api-key: [admin key]
-	
+
 	{  
 	   "name":"mysynonymmap",
 	   "format":"solr",
@@ -59,11 +59,11 @@ You can create a new synonym map using HTTP POST, as in the following example:
 	      Washington, Wash., WA => WA\n"
 	}
 
-Alternatively, you can use PUT and specify the synonym map name on the URI. If the synonym map does not exist, it will be created. 
+Alternatively, you can use PUT and specify the synonym map name on the URI. If the synonym map does not exist, it will be created.
 
 	PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
 	api-key: [admin key]
-	
+
     {  
        "format":"solr",
        "synonyms": "
@@ -73,7 +73,7 @@ Alternatively, you can use PUT and specify the synonym map name on the URI. If t
 
 #### Apache Solr synonym format
 
-The Solr format supports equivalent and explicit synonym mappings. Below is a sample rule for equivalent synonyms.
+The Solr format supports equivalent and explicit synonym mappings. Mapping rules adhere to the open source synonym filter specification of Apache Solr, described in this document: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Below is a sample rule for equivalent synonyms.
 ```
               USA, United States, United States of America
 ```
@@ -82,7 +82,7 @@ With the rule above, a search query "USA" will expand to "USA OR \"United States
 
 Explicit mapping is denoted by an arrow "=>". When specified, a term sequence of a search query that matches the left hand side of "=>" will be replaced with the alternatives on the right hand side. Given the rule below, search queries "Washington", "Wash." or "WA" will all be rewritten to "WA". Explicit mapping only applies in the direction specified and does not rewrite the query "WA" to "Washington" in this case.
 ```
-              Washington, Wash., WA => WA 
+              Washington, Wash., WA => WA
 ```
 
 #### List synonym maps under your service.
@@ -91,7 +91,7 @@ Explicit mapping is denoted by an arrow "=>". When specified, a term sequence of
 	api-key: [admin key]
 
 #### Get a synonym map under your service.
-		
+
 	GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
 	api-key: [admin key]
 
@@ -106,7 +106,7 @@ A new field property **synonymMaps** can be used to specify a synonym map to use
 
 	POST https://[servicename].search.windows.net/indexes?api-version=2016-09-01-Preview
 	api-key: [admin key]
-	
+
 	{
 	   "name":"myindex",
 	   "fields":[
@@ -147,7 +147,7 @@ Synonym feature rewrites the original query with synonyms with the OR operator. 
 
 Synonym feature applies to search queries and does not apply to filters or facets. Similarly, suggestions are based only on the original term; synonym matches do not appear in the response.
 
-Synonym expansions do not apply to wildcard search terms; prefix, fuzzy, and regex terms aren't expanded. 
+Synonym expansions do not apply to wildcard search terms; prefix, fuzzy, and regex terms aren't expanded.
 
 ## Tips for building a synonym map
 
