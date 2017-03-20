@@ -42,10 +42,10 @@ az group create --location "West Europe" --name myResourceGroup
 To see what possible values you can use for `---location`, use the `az appservice list-locations` Azure CLI command.
 
 ## Create an App Service plan
-Create a "FREE" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+Create a "Standard" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) that runs a Linux container. 
 
 ```azurecli
-az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku FREE
+az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --is-linux --sku S1
 ```
 
 ## Create a web app

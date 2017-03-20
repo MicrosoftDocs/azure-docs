@@ -61,7 +61,7 @@ az vm show --resource-group myResourceGroup --name myDockerVM \
 When this command returns `Succeeded`, the deployment has finished and you can SSH to the VM in the following step.
 
 ### Azure CLI 1.0
-Install the latest [Azure CLI 1.0](../xplat-cli-install.md) and log in to an Azure account. Make sure that you are in Resource Manager mode to create the VM (`azure config mode arm`).
+Install the latest [Azure CLI 1.0](../cli-install-nodejs.md) and log in to an Azure account. Make sure that you are in Resource Manager mode to create the VM (`azure config mode arm`).
 
 The following example creates a resource group named `myResourceGroup` in the `West US` location and deploys a VM with the Azure Docker VM extension. An [Azure Resource Manager template from Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) is used to deploy the environment:
 
