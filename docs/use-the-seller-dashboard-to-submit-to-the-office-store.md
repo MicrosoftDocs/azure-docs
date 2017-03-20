@@ -29,7 +29,7 @@ Choose **Add a new app**. On the **Listing type** page, choose the type of solut
 
 |**Field name**|**Notes**|
 |:-------------|:-------|
-|Manifest|Required (except for web apps using Azure AD)<br/><br/>For more information, see [Upload your add-in package](upload-add-in-package.md).|
+|Manifest|Required (except for web apps using Azure AD)<br/><br/>For more information, see [Upload your submission package](upload-package.md).|
 |Submission title|Required|
 |Version|Required (autopopulated)|
 |Release date (UTC)|Required|

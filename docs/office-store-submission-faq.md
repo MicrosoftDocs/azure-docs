@@ -81,7 +81,7 @@ The following is the update process for Office Add-ins:
 - You submit your revised add-in and add-in manifest to the Office Store via the  [Seller Dashboard](https://sellerdashboard.microsoft.com/Application/Summary). The revised add-in goes through the validation process, and when approved, is made available in the store.
     
  
-- You can choose to continue to offer the previous version of your add-in in the store, or you can unpublish the previous version via the Seller Dashboard. For details, see  [Update, unpublish, and view app and add-in metrics in the Seller Dashboard](update-unpublish-and-view-app-and-add-in-metrics.md).
+- You can choose to continue to offer the previous version of your add-in in the store, or you can unpublish the previous version via the Seller Dashboard. For details, see  [Update, unpublish, and view metrics in the Seller Dashboard](update-unpublish-and-view-metrics.md).
     
  
 - When an existing customer launches the updated add-in for the first time, a notification appears either in the task pane or the body of the document that prompts the user to update their add-in. When the user chooses  **Update**, the latest version of the add-in launches.

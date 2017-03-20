@@ -56,7 +56,7 @@ You can associate only one client ID with your add-in, but you can associate mul
 
  
 
- > **Important:**   To submit a SharePoint Add-in that uses OAuth, and distribute it to China, you must use a separate client ID and client secret for China. You also must: Add a separate add-in package specifically for China. Block access for all countries except China. Create a separate add-in listing for China. For more information about submitting apps or add-ins and blocking access, see [Use the Seller Dashboard to submit Office and SharePoint Add-ins and Office 365 apps to the Office Store](use-the-seller-dashboard-to-submit-apps-and-add-ins-to-the-office-store.md). For more information about distributing add-ins for China, see  [Submit apps for Office 365 operated by 21Vianet in China](submit-apps-for-office-365-operated-by-21vianet-in-china.md). 
+ > **Important:**   To submit a SharePoint Add-in that uses OAuth, and distribute it to China, you must use a separate client ID and client secret for China. You also must: Add a separate add-in package specifically for China. Block access for all countries except China. Create a separate add-in listing for China. For more information about submitting apps or add-ins and blocking access, see [Use the Seller Dashboard to submit solutions to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md). For more information about distributing add-ins for China, see  [Submit apps for Office 365 operated by 21Vianet in China](submit-apps-for-office-365-operated-by-21vianet-in-china.md). 
  
 
 Inbound data to your add-in will be signed using only one signing client secret. In the Seller Dashboard, this is the client secret with a green check mark next to it. If you delete the signing client secret that your add-in uses, the next valid client secret will be used instead.
@@ -125,7 +125,7 @@ After you create your client ID and client secret, you can add them to the code 
      >**Important:**   If you are submitting a SharePoint Add-in that uses OAuth, and you want to distribute it to China, you must use a separate client ID and client secret for China:
 2. Select the friendly name of the OAuth client ID that you want your add-in to use. 
     
-    For more information, see  [Use the Seller Dashboard to submit apps and add-ins to the Office Store](use-the-seller-dashboard-to-submit-apps-and-add-ins-to-the-office-store.md).
+    For more information, see  [Use the Seller Dashboard to submit solutions to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md).
     
  
 
@@ -245,7 +245,7 @@ You might want to delete a client ID in certain situations, for example:
 4. Add the new client ID and client secret to your code.
     
  
-5.  [Submit your updated add-in for approval](use-the-seller-dashboard-to-submit-apps-and-add-ins-to-the-office-store.md) in the Seller Dashboard.
+5.  [Submit your updated add-in for approval](use-the-seller-dashboard-to-submit-to-the-office-store.md) in the Seller Dashboard.
     
      >**Note:**  Customers using your add-in will experience downtime during the update to your code and the Seller Dashboard approval process.
 
@@ -253,7 +253,7 @@ You might want to delete a client ID in certain situations, for example:
 <a name="bk_addresources"> </a>
 
 
--  [Submit apps and add-ins to the Office Store](submit-office-and-sharepoint-add-ins-and-office-365-web-apps-to-the-office-store.md)  
+-  [Submit to the Office Store](submit-to-the-office-store.md)  
  
 -  [Validation policies for apps and add-ins submitted to the Office Store](validation-policies.md)
     
