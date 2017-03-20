@@ -1,5 +1,5 @@
 ---
-title: 'How to delete a virtual network gateway: PowerShell: Azure Resource Manager | Microsoft Docs'
+title: 'Delete a virtual network gateway: PowerShell: Azure Resource Manager | Microsoft Docs'
 description: Delete a virtual network gateway using PowerShell in the Resource Manager deployment model. 
 services: vpn-gateway
 documentationcenter: na
@@ -14,11 +14,16 @@ ms.devlang: na
 ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
+ms.date: 03/20/2017
 ms.author: cherylmc
 
 ---
 # Delete a virtual network gateway using PowerShell
+> [!div class="op_single_selector"]
+> * [Resource Manager - PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+> * [Classic - PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+>
+>
 
 There are a couple of different approaches you can take when you want to delete a virtual network gateway for a VPN gateway configuration.
 
