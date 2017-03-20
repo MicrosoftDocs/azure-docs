@@ -56,9 +56,9 @@ To install the Azure Stack PowerShell modules on a computer, which doesn’t alr
     Install-Module -Name AzureRM -RequiredVersion 1.2.8
     ```  
     
-    The **Scope** parameter is optional and can be set to the following values:  
-    * **CurrentUser**-  installs the module only in the current user account.  
-    * **All Users** or not specified- installs the module to a location that all users can access.  
+The **Scope** parameter is optional and can be set to the following values:  
+* **CurrentUser**-  installs the module only in the current user account.  
+* **All Users** or not specified- installs the module to a location that all users can access.  
 
     When prompted, type **yes** to trust the PSGallery repository.
 
