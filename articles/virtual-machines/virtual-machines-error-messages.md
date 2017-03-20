@@ -50,7 +50,7 @@ An error response always includes a status code, an error object. each error obj
 
 This section lists the common error messages for managing your virtual machine
 
-|  Code  |  Message  |  
+|  Error Code  |  Error Message  |  
 |  :------| :-------------|  
 |  AcquireDiskLeaseFailed  |  Failed to acquire lease while creating disk '{0}' using blob with URI {1}. Blob is already in use.  |  
 |  AllocationFailed  |  Allocation failed. Please try reducing the VM size or number of VMs, retry later, or try deploying to a different Availability Set or different Azure location.  |  
