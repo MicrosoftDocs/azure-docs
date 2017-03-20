@@ -1,7 +1,7 @@
 
-To register the app for push notifications through Apple Push Notification Service (APNS), you must create a new push certificate, App ID, and provisioning profile for the project on Apple's developer portal.
+To register the app for push notifications through Apple Push Notification Service (APNS), you must create a push certificate, App ID, and provisioning profile for the project on Apple's developer portal.
 
-The App ID contains the configuration settings that enable your app to send and receive push notifications. These settings includes the push notification certificate that's needed to authenticate with Apple Push Notification Service (APNS) when the app is sending and receiving push notifications.
+The App ID contains the configuration settings that enable your app to send and receive push notifications. These settings include the push notification certificate that's needed to authenticate with Apple Push Notification Service (APNS) when the app is sending and receiving push notifications.
 
 For more information about these concepts, see the official [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584) documentation.
 
@@ -52,7 +52,7 @@ Create a new Explicit App ID for your application with Apple, and then configure
 
 6. After submitting the new App ID, you see the **Registration complete** screen. Select **Done**.
 
-7. In the Developer Center, under **App IDs**, locate the app ID that you just created, and select its row. Selecting the app ID row displays the app details. Then select the **Edit** button at the bottom.
+7. In the Developer Center, under **App IDs**, locate the app ID that you created, and select its row. Selecting the app ID row displays the app details. Then select the **Edit** button at the bottom.
 
 8. Scroll to the bottom of the screen, and then select the **Create Certificate...** button under the section **Development SSL Certificate**.
 
@@ -61,7 +61,7 @@ Create a new Explicit App ID for your application with Apple, and then configure
  This displays the "Add iOS Certificate" assistant.
 
    > [!NOTE]
-   > This tutorial uses a development certificate. You use the same process when you register a production certificate. Just make sure that you use the same certificate type when sending notifications.
+   > This tutorial uses a development certificate. You use the same process when you register a production certificate. Make sure that you use the same certificate type when sending notifications.
    >
 
 9. Select **Choose File**, and then browse to the location where you saved the CSR for your push certificate. Then select **Generate**.
@@ -88,22 +88,22 @@ Create a new Explicit App ID for your application with Apple, and then configure
    > The name in your certificate might be different, but it is prefixed with **Apple Development iOS Push Services**.
    >
    >
-12. In **Keychain Access**, control-click the new push certificate that you just created in the **Certificates** category. Select **Export**, name the file, select the **.p12** format, and then select **Save**.
+12. In **Keychain Access**, control-click the new push certificate that you created in the **Certificates** category. Select **Export**, name the file, select the **.p12** format, and then select **Save**.
 
     Remember the file name and location of the exported .p12 push certificate. You use it to enable authentication with APNS by uploading it on the Azure classic portal. If the **.p12** format option is not available, you might need to restart Keychain Access.
 
 #### Create a provisioning profile for the app
-1. Back in the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>, select **Provisioning Profiles**, select **All**, and then select the **+** button to create a new profile. This launches the **Add iOS Provisioning Profile Wizard**.
+1. Back in the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>, select **Provisioning Profiles**, select **All**, and then select the **+** button to create a profile. This launches the **Add iOS Provisioning Profile Wizard**.
 
       ![Provisioning profiles](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 
 2. Under **Development**, select **iOS App Development** as the provisioning profile type, and then select **Continue**.
 
-3. Next, in the **App ID** drop-down list, select the app ID you just created, and then select **Continue**.
+3. Next, in the **App ID** drop-down list, select the app ID you created, and then select **Continue**.
 
       ![Select app ID](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-select-appid-for-provisioning.png)
 
-4. In the **Select certificates** screen, select the development certificate that you use for code signing, and then select **Continue**. This is a signing certificate, not the push certificate you just created.
+4. In the **Select certificates** screen, select the development certificate that you use for code signing, and then select **Continue**. This is a signing certificate, not the push certificate you created.
 
        ![Signing certificate](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-provisioning-select-cert.png)
 
