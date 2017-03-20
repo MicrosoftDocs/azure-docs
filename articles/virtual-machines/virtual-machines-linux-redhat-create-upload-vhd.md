@@ -65,6 +65,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 6. Move (or remove) the udev rules to avoid generating static rules for the Ethernet interface. These rules cause problems when you clone a virtual machine in Microsoft Azure or Hyper-V:
 
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+        
         # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 
 7. Ensure that the network service will start at boot time by running the following command:
