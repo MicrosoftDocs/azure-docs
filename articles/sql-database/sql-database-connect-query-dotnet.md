@@ -13,7 +13,7 @@ ms.custom: development
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: hero-article
 ms.date: 03/16/2017
 ms.author: sstein
 

@@ -37,7 +37,7 @@ You can complete the task using one of the following CLI versions:
 
 To create a virtual network using the Azure CLI, complete the following steps:
 
-1. Install and configure the Azure CLI by following the steps in the [Install and Configure the Azure CLI](../xplat-cli-install.md) article.
+1. Install and configure the Azure CLI by following the steps in the [Install and Configure the Azure CLI](../cli-install-nodejs.md) article.
 
 2. Create a VNet and a subnet:
 
