@@ -44,7 +44,7 @@ Go to your logic app, and open Logic App Designer.
 For example, add the **Request** trigger to your logic app.
 
 3.	Under **Request Body JSON Schema**, 
-enter the JSON schema for the payload that you expect the trigger to receive.
+enter the JSON schema for the payload (data) that you expect the trigger to receive.
 
 	The designer uses this schema for generating 
 	tokens that let your logic app consume, parse, 
