@@ -159,8 +159,8 @@ The client ID is the Application ID of an application in Azure Active Directory.
     New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $app.ApplicationId
     ```
 
-    > ![NOTE]
-    > The password used when creating the application should be the same password that was created earlier when saving the key file.
+   > ![NOTE]
+   > The password used when creating the application should be the same password that was created earlier when saving the key file.
 
 1. In the Azure portal, navigate to **Subscriptions** > Choose the subscription to use > **Access control (IAM)**.
 
