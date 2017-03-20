@@ -539,7 +539,7 @@ Before proceeding, make sure you have installed and configured Azure PowerShell.
 
 ### Apply a Script Action to a running cluster from the Azure CLI
 
-Before proceeding, make sure you have installed and configured the Azure CLI. For more information, see [Install the Azure CLI](../xplat-cli-install.md).
+Before proceeding, make sure you have installed and configured the Azure CLI. For more information, see [Install the Azure CLI](../cli-install-nodejs.md).
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
