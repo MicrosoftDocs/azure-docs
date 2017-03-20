@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 03/05/2017
+ms.date: 03/19/2017
 ms.author: tarcher
 
 ---
@@ -23,11 +23,21 @@ After you have created your Azure cloud service project, you can add new roles t
 ## Adding or removing roles
 **To add a role**
 
-In **Solution Explorer**, open the shortcut menu for the **Roles** node in your cloud service project and choose **Add**. You can select an existing web role or worker role from the current solution or create a web or worker role project. Or you can select an appropriate project, such as an ASP.NET web application project, and associate it with a role project.
+1. Create or open an Azure Cloud Service project in Visual Studio.
+
+1. In **Solution Explorer**, expand the project node
+
+1. Right-click the **Nodes** node to display the context menu. From the context menu, you can select an existing web role or worker role from the current solution or create a web or worker role project. You can also select an appropriate project, such as an ASP.NET web application project, and associate it with a role project.
 
 **To remove a role association**
 
-In the **Roles** node of the cloud service project in Solution Explorer, open the shortcut menu for the role to remove and choose **Remove**.
+1. Create or open an Azure Cloud Service project in Visual Studio.
+
+1. In **Solution Explorer**, expand the project node
+
+1. Expand the **Nodes** node.
+
+1. Right-click the node you want to remove, and, from the context menu, select **Remove**. 
 
 ## Removing and adding roles in your cloud service
 If you remove a role from your cloud service project but later decide to add the role back to the project, only the role declaration and basic attributes, such as endpoints and diagnostics information, are added. No additional resources or references are added to the `ServiceDefinition.csdef` file or to the `ServiceConfiguration.cscfg` file. If you want to add this information, you need to manually add it back into these files.
