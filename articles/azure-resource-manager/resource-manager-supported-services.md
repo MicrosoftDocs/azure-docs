@@ -53,7 +53,7 @@ Cloud Services (classic) can be used with other classic resources. However, clas
 | ExpressRoute |Yes |[ExpressRoute REST](https://msdn.microsoft.com/library/azure/mt586720.aspx) | [ExpressRoute resources](/azure/templates/microsoft.network/expressroutecircuits) |
 | Load Balancer |Yes |[Load Balancer REST](https://msdn.microsoft.com/library/azure/mt163651.aspx) |[Load Balancer resources](/azure/templates/microsoft.network/loadbalancers) |
 | Traffic Manager |Yes |[Traffic Manager REST](https://msdn.microsoft.com/library/azure/mt163667.aspx) |[Traffic Manager resources](/azure/templates/microsoft.network/trafficmanagerprofiles) |
-| Virtual Networks |Yes |[Virtual Network REST](https://msdn.microsoft.com/en-us/library/azure/mt163650.aspx) |[Virtual Network resources](/azure/templates/microsoft.network/virtualnetworks) |
+| Virtual Networks |Yes |[Virtual Network REST](https://msdn.microsoft.com/library/azure/mt163650.aspx) |[Virtual Network resources](/azure/templates/microsoft.network/virtualnetworks) |
 | Network Gateway |Yes |[Network Gateway REST](https://msdn.microsoft.com/library/azure/mt163859.aspx) | [Connection resources](/azure/templates/microsoft.network/connections) <br /> [Local Network Gateway resources](/azure/templates/microsoft.network/localnetworkgateways) <br /> [Virtual Network Gateway resources](/azure/templates/microsoft.network/virtualnetworkgateways) |
 
 ## Storage
