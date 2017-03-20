@@ -29,7 +29,7 @@ The StorSimple virtual device is available in two models, a standard 8010 (forme
 | **Maximum capacity** |30 TB |64 TB |
 | **Azure VM** |Standard_A3 (4 cores, 7 GB memory) |Standard_DS3 (4 cores, 14 GB memory) |
 | **Version compatibility** |Versions running pre-Update 2 or later |Versions running Update 2 or later |
-| **Region availability** |All Azure regions |All Azure regions that support Premium Storage<br></br>You can find the Premium storage regions in the list of Azure Services by Region. Identify the regions where the VM series DS, DSV2, Fs, and GS are supported.(https://azure.microsoft.com/en-us/regions/services)|
+| **Region availability** |All Azure regions |All Azure regions that support Premium Storage<br></br>You can find the Premium storage regions in the list of Azure Services by Region. Identify the regions where the VM series DS, DSV2, Fs, and GS are supported.(https://azure.microsoft.com/en-us/regions/services) |
 | **Storage type** |Uses Azure Standard Storage for local disks<br></br> Learn how to [create a Standard Storage account](../storage/storage-create-storage-account.md) |Uses Azure Premium Storage for local disks<sup>2</sup> <br></br>Learn how to [create a Premium Storage account](../storage/storage-premium-storage.md) |
 | **Workload guidance** |Item level retrieval of files from backups |Cloud dev and test scenarios, low latency, higher performance workloads <br></br>Secondary device for disaster recovery |
 
