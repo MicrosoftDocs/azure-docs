@@ -38,21 +38,23 @@ Log in to the Azure portal at http://portal.azure.com.
 
 ## Create virtual machine
 
-2. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
-3. Select **Compute** from the **New** blade, select **Ubuntu Server 16.04 LTS** from the **Compute** blade, and then click the **Create** button.
+2. Select **Compute** from the **New** blade, select **Ubuntu Server 16.04 LTS** from the **Compute** blade, and then click the **Create** button.
 
-4. Fill out the virtual machine **Basics** form. For **Authentication type**, select **SSH**. When pasting in your **SSH public key**, take care to remove any leading or trailing white space. For **Resource group**, create a new one. A resource group is a logical container into which Azure resources are created and collectively managed. When complete, click **OK**.
+3. Fill out the virtual machine **Basics** form. For **Authentication type**, select **SSH**. When pasting in your **SSH public key**, take care to remove any leading or trailing white space. For **Resource group**, create a new one. A resource group is a logical container into which Azure resources are created and collectively managed. When complete, click **OK**.
 
     ![Enter basic information about your VM in the portal blade](./media/virtual-machine-quick-start/create-vm-portal-basic-blade.png)  
 
-5. Choose a size for the VM and click **Select**. 
+4. Choose a size for the VM and click **Select**. 
 
     ![Select a size for your VM in the portal blade](./media/virtual-machine-quick-start/create-vm-portal-size-blade.png)
 
-6. On the settings blade, select **Yes** under **Use managed disks**, keep the defaults for the rest of the settings, and click **OK**.
+5. On the settings blade, select **Yes** under **Use managed disks**, keep the defaults for the rest of the settings, and click **OK**.
 
-7. On the summary page, click **Ok** to start the virtual machine deployment.
+6. On the summary page, click **Ok** to start the virtual machine deployment.
+
+7. To monitor deployment status, click the virtual machine. The VM can be found on the Azure portal dashboard, or by selecting **Virtual Machines** from the left-hand menu. When the VM has been created, the status changes from **Deploying** to **Running**.
 
 ## Connect to virtual machine
 

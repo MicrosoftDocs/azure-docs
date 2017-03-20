@@ -30,7 +30,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Clean up deployment 
 
-Run the following command to remove the Resource Group, VM, and all related resources.
+Run the following command to remove the resource group, VM, and all related resources.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
