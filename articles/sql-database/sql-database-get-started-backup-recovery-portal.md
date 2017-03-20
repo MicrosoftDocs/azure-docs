@@ -14,7 +14,7 @@ ms.custom: business continuity
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 12/08/2016
 ms.author: carlrab
 
