@@ -54,7 +54,7 @@ The following are the core benefits that Application Gateway and web application
 
 ### Protection
 
-Web application firewall comes preconfigured with CRS 3.0 by default or you can choose to use 2.2.9. CRS 3.0 offers better performance and reduced false positives over 2.2.9. The ability to [customize rules to suit your needs](application-gateway-customize-waf-rules-portal) is provided. Some of the common web vulnerabilities which web application firewall protects against includes:
+Web application firewall comes preconfigured with CRS 3.0 by default or you can choose to use 2.2.9. CRS 3.0 offers better performance and reduced false positives over 2.2.9. The ability to [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md) is provided. Some of the common web vulnerabilities which web application firewall protects against includes:
 
 * SQL injection protection
 * Cross site scripting protection
@@ -136,26 +136,28 @@ Application Gateway WAF provides detailed reporting on each threat it detects. L
 
 ![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/waf2.png)
 
-
-amit to update the log json.
-
 ```json
 {
-    "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
-    "operationName": "ApplicationGatewayFirewall",
-    "time": "2016-09-20T00:40:04.9138513Z",
-    "category": "ApplicationGatewayFirewallLog",
-    "properties":     {
-        "instanceId":"ApplicationGatewayRole_IN_0",
-        "clientIp":"108.41.16.164",
-        "clientPort":1815,
-        "requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
-        "ruleId":"OWASP_973336",
-        "message":"XSS Filter - Category 1: Script Tag Vector",
-        "action":"Logged",
-        "site":"Global",
-        "message":"XSS Filter - Category 1: Script Tag Vector",
-        "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
+        "resourceId": "/SUBSCRIPTIONS/147A22E9-2356-4E56-B3DE-1F5842AE4A3B/RESOURCEGROUPS/CONTOSOAPPGATEWAYRG/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/APPLICATIONGATEWAY1",
+        "operationName": "ApplicationGatewayFirewall",
+        "time": "2017-03-20T15:52:09.1494499Z",
+        "category": "ApplicationGatewayFirewallLog",
+        "properties": {
+            "instanceId":"ApplicationGatewayRole_IN_1",
+            "clientIp":"167.220.1.100",
+            "clientPort":65142,
+            "requestUri":"/",
+            "ruleId":"980130",
+            "message":"Inbound Anomaly Score Exceeded (Total Inbound Score: 5 - SQLI=0,XSS=0,RFI=0,LFI=0,RCE=0,PHPI=0,HTTP=0,SESS=0): Request Missing an Accept Header",
+            "action":"Blocked",
+            "site":"Global",
+            "message":"Inbound Anomaly Score Exceeded (Total Inbound Score: 5 - SQLI=0,XSS=0,RFI=0,LFI=0,RCE=0,PHPI=0,HTTP=0,SESS=0): Request Missing an Accept Header",
+            "details":{
+                "message":" Warning. Operator GE matched 5 at TX:inbound_anomaly_score.",
+                "file":"",
+                "line":""
+                }
+        }
 }
 ```
 
