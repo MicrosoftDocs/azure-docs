@@ -205,24 +205,17 @@ Monitor the deployment progress from the Azure portal. An icon representing the 
 ![Azure Dashboard](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/11-deploydashboard.png)
 
 ## Connect to SQL Server
-The new instances of SQL Server are running on virtual machines that do not have connections to the internet. However, the domain controllers do have an internet facing connection. In order to connect to the SQL servers with remote desktop, first RDP to one of the domain controllers. From the domain controller open a second RDP to the SQL Server.
+The new instances of SQL Server are running on virtual machines have internet connected IP addresses. You can RDP directly to each SQL Server.
 
-To RDP to the primary domain controller, follow these steps:
+To RDP to a SQL Server, follow these steps:
 
 1. From the Azure portal dashboard very that the deployment has succeeded.
 2. Click **Resources**.
-3. In the **Resources** blade, click **ad-primary-dc** which is the computer name of the virtual machine for the primary domain controller.
-4. On the blade for **ad-primary-dc** click **Connect**. Your browser will ask if you want to open or save the remote connection object. Click **Open**.
-   ![Connect to DC](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/13-ad-primary-dc-connect.png)
+3. In the **Resources** blade, click **sqlserver-0** which is the computer name of the virtual machine for one of the SQL Servers.
+4. On the blade for **sqlserver-0** click **Connect**. Your browser will ask if you want to open or save the remote connection object. Click **Open**.
 5. **Remote desktop connection** may warn you that the publisher of this remote connection can’t be identified. Click **Connect**.
 6. Windows security prompts you to enter your credentials to connect to the IP address of the primary domain controller. Click **Use another account**. For **User name** type **contoso\DomainAdmin**. This is the account you chose for administrator user name. Use the complex password that you chose when you configured the template.
-7. **Remote desktop** may warn you that the remote computer could not be authenticated due to problems with its security certificate. It will show you the security certificate name. If you followed the tutorial the name will be **ad-primary-dc.contoso.com**. Click **Yes**.
-
-You are now connected to the primary domain controller. To RDP to the SQL Server, follow these steps:
-
-1. On the domain controller, open **Remote Desktop Connection**.
-2. For **Computer**, type the name of one of the SQL Servers. For this tutorial, type **sqlserver-0**.
-3. Use the same user account and password that you used to RDP to the domain controller.
+7. **Remote desktop** may warn you that the remote computer could not be authenticated due to problems with its security certificate. It will show you the security certificate name. If you followed the tutorial the name will be **sqlserver-0.contoso.com**. Click **Yes**.
 
 You are now connected with RDP to the SQL Server. You can open SQL Server management studio, connect to the default instance of SQL Server and verify the availabilty group is configured.
 
