@@ -14,11 +14,11 @@
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
 # Tutorials
-## Authentication and access
+## Access
 ### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
-### [Azure Active Directory](sql-database-control-access-aad-authentication-get-started.md)
-## Back up and restore
-### [Azure portal](sql-database-get-started-backup-recovery-portal.md)
+### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
+## Recovery
+### [Portal](sql-database-get-started-backup-recovery-portal.md)
 ### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
 # Concepts
 ## DBs and servers
@@ -103,12 +103,12 @@
 ### [Compatibility levels](sql-database-compatibility-level-query-performance-130.md)
 # How-to guides
 ## Manage firewall
-### [Azure portal](sql-database-configure-firewall-settings.md)
+### [Portal](sql-database-configure-firewall-settings.md)
 ### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 ### [REST API](sql-database-configure-firewall-settings-rest.md)
 ### [Transact-SQL](sql-database-configure-firewall-settings-tsql.md)
 ## Manage elastic pools
-### [Azure portal](sql-database-elastic-pool-manage-portal.md)
+### [Portal](sql-database-elastic-pool-manage-portal.md)
 ### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 ### [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)
 ### [C#](sql-database-elastic-pool-manage-csharp.md)
@@ -119,23 +119,23 @@
 ### [Encrypt - Windows cert](sql-database-always-encrypted.md)
 ### [Encrypt - Azure key vault](sql-database-always-encrypted-azure-key-vault.md)
 ### [Configure masking](sql-database-dynamic-data-masking-get-started-portal.md)
-## Backup and restore
-### [Restore - Azure portal](sql-database-restore-database-portal.md)
-### [Retention - Azure portal](sql-database-manage-long-term-backup-retention-portal.md)
-### [Rentention - PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
+## Back up and restore
+### [Restore - Portal](sql-database-restore-database-portal.md)
+### [Retention - Portal](sql-database-manage-long-term-backup-retention-portal.md)
+### [Retention - PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
 ### [Recover a single table](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
 ## Geo-replicate data
-### [Azure portal](sql-database-geo-replication-portal.md)
+### [Portal](sql-database-geo-replication-portal.md)
 ### [Transact-SQL: Configure](sql-database-geo-replication-transact-sql.md)
 ### [Transact-SQL: Failover](sql-database-geo-replication-failover-transact-sql.md)
-### [Recover from a outage](sql-database-disaster-recovery.md)
+### [Recover from outage](sql-database-disaster-recovery.md)
 ### [Perform drills](sql-database-disaster-recovery-drills.md)
 ## Move data
-### [Copy - Azure portal](sql-database-copy-portal.md)
+### [Copy - Portal](sql-database-copy-portal.md)
 ### [Copy - T-SQL](sql-database-copy-transact-sql.md)
-### [Import - Azure portal](sql-database-import-portal.md)
+### [Import - Portal](sql-database-import-portal.md)
 ### [Import - SQLPackage](sql-database-import-sqlpackage.md)
-### [Expore - Azure portal](sql-database-export-portal.md)
+### [Export - Portal](sql-database-export-portal.md)
 ### [Export - PowerShell](sql-database-export-powershell.md)
 ### [Export - SSMS](sql-database-export-ssms.md)
 ### [Export - SQLPackage](sql-database-export-sqlpackage.md)
@@ -167,7 +167,7 @@
 ### [Use entity framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
 ### [Upgrade clients](sql-database-elastic-scale-upgrade-client-library.md)
 ### [Install elastic job](sql-database-elastic-jobs-service-installation.md)
-### [Create job - Azure portal](sql-database-elastic-jobs-create-and-manage.md)
+### [Create job - Portal](sql-database-elastic-jobs-create-and-manage.md)
 ### [Create job - PowerShell](sql-database-elastic-jobs-powershell.md) 
 ### [Create job - Sample app](sql-database-elastic-jobs-getting-started.md)
 ### [Uninstall elastic job](sql-database-elastic-jobs-uninstall.md)
