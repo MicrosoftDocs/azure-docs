@@ -1,14 +1,15 @@
 # Overview
 ## [About SQL DB](sql-database-technical-overview.md)
-## Compare
-### [SQL DB features](sql-database-features.md)
+## [Compare SQL DB](sql-database-features.md)
 # Quickstart
-## [Create DB - Portal](sql-database-get-started.md)
+## [Create DB - Portal](sql-database-get-started-portal.md)
 ## [Create DB - Azure CLI](sql-database-get-started-cli.md)
 ## [Create DB - PowerShell](sql-database-get-started-powershell.md)
 ## Manage
 ### [Connect - SSMS](sql-database-connect-query-ssms.md)
 ### [Connect - VS Code](sql-database-connect-query-vscode.md)
+## Develop
+### [Connect - C#](sql-database-connect-query-dotnet.md)
 # Samples
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
@@ -147,7 +148,6 @@
 ## Authenticate and authorize users
 ### [Azure AD authentication](sql-database-aad-authentication-configure.md)
 ## Connect applications
-### [.NET](sql-database-develop-dotnet-simple.md)
 ### [C and C++](sql-database-develop-cplusplus-simple.md)
 ### [Java](sql-database-develop-java-simple.md)
 ### [Node.js](sql-database-develop-nodejs-simple.md)
