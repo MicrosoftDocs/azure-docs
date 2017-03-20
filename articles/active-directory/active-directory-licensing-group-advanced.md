@@ -125,11 +125,11 @@ During the preview period of an Azure AD release, PowerShell cannot be used to f
   
   ```
   # Returns TRUE if the user has the license assigned directly
-
+  
   function UserHasLicenseAssignedDirectly
   {
       Param([Microsoft.Online.Administration.User]$user, [string]$skuId)
-
+  
       foreach($license in $user.Licenses)
       {
           # we look for the specific license SKU in all licenses assigned to the user
@@ -147,13 +147,13 @@ During the preview period of an Azure AD release, PowerShell cannot be used to f
               # If the collection contains the ID of the user object, this means the license is assigned directly
               # Note: the license may also be assigned through one or more groups in addition to being assigned directly
               foreach ($assignmentSource in $license.GroupsAssigningLicense)
-
+  
               {
                   if ($assignmentSource -ieq $user.ObjectId)
                   {
                       return $true
                   }
-
+  
               }
               return $false
           }
@@ -173,7 +173,7 @@ During the preview period of an Azure AD release, PowerShell cannot be used to f
               # This could be a group object or a user object (contrary to what the name suggests)
               foreach ($assignmentSource in $license.GroupsAssigningLicense)
               {
-
+  
                   # If the collection contains at least one ID not matching the user ID this means that the license is inherited from a group.
                   # Note: the license may also be assigned directly in addition to being inherited
                   if ($assignmentSource -ine $user.ObjectId)
