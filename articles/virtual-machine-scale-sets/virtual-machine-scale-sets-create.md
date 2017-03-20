@@ -21,7 +21,7 @@ ms.author: adegeo
 # Create and deploy a Virtual Machine Scale Set
 Virtual machine scale sets make it easy for you to deploy and manage identical virtual machines as a set. Scale sets provide a highly scalable and customizable compute layer for hyperscale applications, and they support Windows platform images, Linux platform images, custom images, and extensions. For more information about scale sets, see [Virtual Machine Scale Sets](virtual-machine-scale-sets-overview.md).
 
-This tutorial shows you how to create a virtual machine scale set.
+This tutorial shows you how to create a virtual machine scale set **without** using the Azure portal. For information on how to use the Azure portal, see [How to create a Virtual Machine Scale Set with the Azure portal](virtual-machine-scale-sets-portal-create.md).
 
 >[!NOTE]
 >For more information about Azure Resource Manager resources, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
@@ -96,6 +96,7 @@ The cmdlets work can be piped in sequence. Here is an example of how to get all 
 ```powershell
 Get-AzureRMVMImagePublisher -Location WestUS2 | Where-Object PublisherName -Like *microsoft* | Get-AzureRMVMImageOffer | Get-AzureRmVMImageSku | Select-Object PublisherName, Offer, Skus
 ```
+
 ```
 PublisherName              Offer                    Skus
 -------------              -----                    ----
@@ -143,7 +144,7 @@ New-AzureRmVmss -ResourceGroupName vmss-test-1 -Name my-scale-set -VirtualMachin
 
 ## Create from a template
 
-You can deploy a virtual machine scale set by using an Azure Resource Manager Template. You can create your own template or use one from the template repository at [blah]. These templates can be deployed directly to your azure subscription.
+You can deploy a virtual machine scale set by using an Azure Resource Manager Template. You can create your own template or use one from the [template repository](https://azure.microsoft.com/resources/templates/?term=vmss). These templates can be deployed directly to your azure subscription.
 
 >[!NOTE]
 >To create your own template you create a _.json_ text file. For general information about how to create and customize a template, see [Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md).
@@ -154,6 +155,6 @@ A sample template is available [on GitHub](https://github.com/gatneil/mvss/tree/
 
 With Visual Studio, you can create an Azure Resource Group project and add a Virtual Machine Scale Set template to it. You can choose which template you want to import, like from GitHub or the Azure Gallery. A deployment PowerShell script is also generated for you. For more information, see [How to create a Virtual Machine Scale Set with Visual Studio](virtual-machine-scale-sets-vs-create.md).
 
-## Create from the Azure Portal
+## Create from the Azure portal
 
-The Azure Portal provides a convenient way to quickly create a scale set. For more information, see [How to create a Virtual Machine Scale Set with the Azure portal](virtual-machine-scale-sets-portal-create.md).
+The Azure portal provides a convenient way to quickly create a scale set. For more information, see [How to create a Virtual Machine Scale Set with the Azure portal](virtual-machine-scale-sets-portal-create.md).
