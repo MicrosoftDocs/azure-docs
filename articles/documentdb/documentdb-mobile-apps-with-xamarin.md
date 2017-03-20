@@ -25,6 +25,8 @@ In this article, we provide a tutorial for building mobile apps with Xamarin and
 ## DocumentDB capabilities for mobile apps
 DocumentDB provides the following capabilities out of the box for mobile app developers:
 
+![DocumentDB capabilities for mobile apps](media/documentdb-mobile-apps-with-xamarin/documentdb-for-mobile.png)
+
 * Rich queries over schemaless data. DocumentDB stores data as schemaless JSON documents in heterogeneous collections, and offers [rich and fast queries](documentdb-sql-query.md) without the need to worry about schema or indexes.
 * Fast. Guaranteed. It takes only few milliseconds to read and write documents with DocumentDB. Developers can specify the throughput they need and DocumentDB will honor it with 99.99% SLA.
 * Limitless Scale. Your DocumentDB collections [will grow as your app grows](documentdb-partition-data.md). You can start with small data size and 100s requests per second and grow to arbitrarily large, 10s and 100s of millions requests per second throughput, and petabytes of data.
@@ -36,8 +38,10 @@ DocumentDB provides the following capabilities out of the box for mobile app dev
 ## DocumentDB and Xamarin tutorial
 The following tutorial shows how to build a mobile application using Xamarin and DocumentDB in five easy steps. You can find the complete source code for the tutorial at [Xamarin and DocumentDB on Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
 
-### Get strarted
+### Get started
 It's easy to get started with DocumentDB, just go to Azure portal, create a new DocumentDB account, go to the Quickstart tab, and download a Xamarin Forms todo list sample, already connected to your DocumentDB account. 
+
+![DocumentDB quickstart for mobile apps](media/documentdb-mobile-apps-with-xamarin/documentdb-quickstart.png)
 
 Or if you have an existing Xamarin app, you can just add this [DocumentDB NuGet package](documentdb-sdk-dotnet-core.md). Today we support Xamarin.IOS, Xamarin.Android, as well as Xamarin Forms shared libraries.
 
@@ -72,13 +76,19 @@ Here is for example, how to modify our todo list app into a multi-user todolist 
 
 You can find a complete code sample of this pattern at [Resource Token Broker on Github](http://aka.ms/documentdb-xamarin-todouser). This diagram illustrates the solution:
 
+![DocumentDB users and permissions broker](media/documentdb-mobile-apps-with-xamarin/documentdb-resource-token-broker.png)
+
 Now if we want two users get access to the same todolist, we just add additional permissions to the access token in Resource Token Broker.
 
 ### Scale on demand
 DocumentDB is a managed database as a service. As your user base grows, you don't need to worry about provisioning VMs or increasing cores. All you need to tell DocumentDB is how many operations per second (throughput) your app needs. You can specify the throughput via portal Scale tab using a measure of throughput called Request Units per second (RUs). For example, a read operation on a 1KB document requires 1 RU. You can also add alerts for "Throughput" metric to monitor the traffic growth and programmatically change the throughput as alerts fire.
 
+![DocumentDB scale throughput on demand](media/documentdb-mobile-apps-with-xamarin/documentdb-scale.png)
+
 ### Go planet scale
 As your app gains popularity, you may acquire users accross the globe. Or may be you just don't want to be caught of guard if a meteorite strkes the Azure data centers where you created your DocumentDB collection. Go to Azure portal, your DocumentDB account, and with a click on a map, make your data continuously replicate to any number of regions accross the world. This ensures your data is available whereever your users are, and you can add failover policies to be prepared for the rainy day.
+
+![DocumentDB scale across geographic regions](media/documentdb-mobile-apps-with-xamarin/documentdb-replicate-globally.png)
 
 Congratulations! You have completed the solution and have a mobile app with Xamarin and DocumentDB. A similar pattern can be used in Cordova apps using the DocumentDB JavaScript SDK, as well as native iOS / Android apps using DocumentDB REST APIs.
 
