@@ -32,7 +32,7 @@ To update your submission:
     
  
 
-## Unpublish your solution from Office Store listings
+## Unpublish your submission from Office Store listings
 <a name="BKMK_delist"> </a>
 
 When you unpublish a submission, the system removes it from Office Store listings within a few days.
