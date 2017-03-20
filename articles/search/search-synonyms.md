@@ -20,7 +20,7 @@
 
 Synonyms in search engines associate equivalent terms that implicitly expand the scope of a query, without the user having to actually provide the term. For example, given the term "dog" and synonym associations of "canine" and "puppy", any documents containing "dog", "canine" or "puppy" will fall within the scope of the query.
 
-In Azure Search, synonym expansion is done at query time. You can add synonym maps to a service with no disruption to existing operations. You can add a SynonymMaps property to a field definition without having to rebuild the index. For more information, see [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index).
+In Azure Search, synonym expansion is done at query time. You can add synonym maps to a service with no disruption to existing operations. You can add a  **synonymMaps** property to a field definition without having to rebuild the index. For more information, see [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
 ## Feature availability
 
