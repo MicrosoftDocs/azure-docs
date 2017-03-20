@@ -334,12 +334,11 @@ they cannot generate a valid signature.
 
 #### Q: Can I configure HTTP endpoints further?
 
-A: Yes, HTTP endpoints support more advanced configuration. 
-The **HTTP Listener** API App previously supported changing 
-the URL segments and the HTTP method. You can set also up additional 
-security or a custom domain by adding these items to the API App host 
-(the web app that hosts the API App). You can find this functionality 
-through the **API Management** service:
+A: Yes, HTTP endpoints support more advanced configuration 
+through the **API Management**. This service also offers the 
+capability for you to consistently manage all your APIs, 
+including logic apps, set up custom domain names, 
+use more authentication methods, and more, for example:
 
 * [Change the request method](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
 * [Change the URL segments of the request](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
@@ -355,8 +354,8 @@ A: Here's a summary about these changes:
 | Click **HTTP Listener** API App |Click **Manual trigger** (no API App required) |
 | HTTP Listener setting "*Sends response automatically*" |Either include a **Response** action or not in the workflow definition |
 | Configure Basic or OAuth authentication |via API Management |
-| Configure HTTP method |via API Management |
-| Configure relative path |via API Management |
+| Configure HTTP method |Under **Show advanced options**, choose an HTTP method |
+| Configure relative path |Under **Show advanced options**, add a relative path |
 | Reference the incoming body through `@triggerOutputs().body.Content` |Reference through `@triggerOutputs().body` |
 | **Send HTTP response** action on the HTTP Listener |Click **Respond to HTTP request** (no API App required) |
 
