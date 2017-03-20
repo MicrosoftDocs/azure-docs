@@ -78,24 +78,24 @@ enter the JSON schema for the payload that you expect the trigger to receive.
 
 	For example, this sample payload:
 
-	```json
-	{
-	   "address": "21 2nd Street, New York, New York"
-	}
-	```
+      ```json
+      {
+         "address": "21 2nd Street, New York, New York"
+      }
+      ```
 
 	generates this schema:
 
-	```json
-	}
-	   "type": "object",
-	   "properties": {
-         "address": {
-            "type": "string" 
+      ```json
+      }
+         "type": "object",
+         "properties": {
+            "address": {
+               "type": "string" 
+            }
          }
       }
-	}
-	```
+      ```
 
 4.	Save your logic app. Under **HTTP POST to this URL**, 
 you should now get a generated callback URL, like this example:
