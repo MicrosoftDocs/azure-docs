@@ -185,6 +185,10 @@ The combined limits for cache and local SSD for a DS series are 4000 IOPS per co
 
 The local SSD is temporary storage that is included with a managed disks VM. There is no extra cost for this temporary storage. It is recommended that you do not use this local SSD for storing your application data as it is not persisted in Azure Blob storage.
 
+**Is there any repercurssions on using TRIM on Premium Disks?**
+
+There is no downside of using TRIM on Azure Disks on either Premium or Standard Disks.
+
 ## What if my question isn't answered here?
 
 If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments or in the MSDN [Azure Storage forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata) to engage with the Azure Storage team and other community members about this article.
