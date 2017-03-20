@@ -15,7 +15,7 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 03/03/2017
+  ms.date: 03/20/2017
   ms.author: curtand
 
   ms.custom: H1Hack27Feb2017
@@ -122,6 +122,7 @@ During the preview period of an Azure AD release, PowerShell cannot be used to f
   ![Screenshot of the Get-Msolaccountsku cmdlet](media/active-directory-licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
 3. In this example, you want to find out which users have the Enterprise Mobility + Security license assigned directly, from a group, or both. You can use the following PowerShell script.
+  
   ```
   # Returns TRUE if the user has the license assigned directly
 
