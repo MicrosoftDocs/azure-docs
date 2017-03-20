@@ -21,17 +21,17 @@
 ### [Azure portal](sql-database-get-started-backup-recovery-portal.md)
 ### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
 # Concepts
-## Databases and servers
+## DBs and servers
 ### [Databases](sql-database-overview.md)
 ### [Servers](sql-database-server-overview.md)
 ### [Elastic pools](sql-database-elastic-pool.md)
 ### [When to use an elastic pool](sql-database-elastic-pool-guidance.md)
-## Compute and storage
+## Resources
 ### [Service tiers](sql-database-service-tiers.md)
 ### [DTUs and eDTUs](sql-database-what-is-a-dtu.md)
-### [DTU benchmark overview](sql-database-benchmark-overview.md)
-### [Resource limits](sql-database-resource-limits.md)
-## [Development and management tools](sql-database-manage-overview.md)
+### [DTU benchmark](sql-database-benchmark-overview.md)
+### [Limits](sql-database-resource-limits.md)
+## [Tools](sql-database-manage-overview.md)
 ## Data partitioning
 ### [Sharded databases](sql-database-elastic-scale-introduction.md)	
 ###	[Elastic client library](sql-database-elastic-database-client-library.md)
