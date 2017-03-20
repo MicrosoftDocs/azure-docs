@@ -68,13 +68,13 @@ enter the JSON schema for the payload that you expect the trigger to receive.
 
 	![Add the Request action][1]
 
-    > [!TIP]
-    > 
-    > You can generate a schema for a sample JSON payload 
-    > from a tool like [jsonschema.net](http://jsonschema.net/), 
-    > or in the **Request** trigger by choosing **Use sample payload to generate schema**. 
-    > Enter your sample payload, and choose **Done**.
-    > 
+      > [!TIP]
+      > 
+      > You can generate a schema for a sample JSON payload 
+      > from a tool like [jsonschema.net](http://jsonschema.net/), 
+      > or in the **Request** trigger by choosing **Use sample payload to generate schema**. 
+      > Enter your sample payload, and choose **Done**.
+      > 
 
 	For example, this sample payload:
 
@@ -145,9 +145,9 @@ customize the relative path for your trigger's URL.
 2. Under **Method**, specify the HTTP method that you want your request to use. 
 Select the **GET** method so you can later test your endpoint's URL.
 
-    > [!NOTE]
-    > When you specify a relative path for your trigger, 
-    > you must also explicitly specify an HTTP method for your trigger.
+      > [!NOTE]
+      > When you specify a relative path for your trigger, 
+      > you must also explicitly specify an HTTP method for your trigger.
 
 3.	Under **Relative path**, specify the relative path for the parameter 
 	that your URL should accept, for example, `customer/{customerID}`.
@@ -253,10 +253,10 @@ The output might look like this example:
 
 ```json
 {
-    "headers" : {
+    "headers": {
         "content-type" : "application/json"
     },
-    "body" : {
+    "body": {
         "myProperty" : "property value"
     }
 }
