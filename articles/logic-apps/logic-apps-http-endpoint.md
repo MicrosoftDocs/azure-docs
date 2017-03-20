@@ -24,7 +24,7 @@ Logic apps can natively expose synchronous HTTP endpoints as triggers
 so that you can trigger or manually call your logic apps through a URL. 
 You can also nest workflows in your logic apps by using a pattern of callable endpoints.
 
-To receive requests, you can add these triggers to your logic apps:
+To create HTTP endpoints, add these triggers so that your logic apps can receive requests:
 
 * [Request](../connectors/connectors-native-reqres.md)
 * [API Connection webhook](logic-apps-workflow-actions-triggers.md#api-connection)
@@ -108,11 +108,11 @@ you should now get a generated callback URL, like this example:
 
 	This URL contains a Shared Access Signature (SAS) key 
 	in the query parameters that are used for authentication. 
-	You can also get the endpoint URL from your logic app overview 
+	You can also get the HTTP endpoint URL from your logic app overview 
 	in the Azure portal. Under **Trigger History**, 
 	select your trigger:
 
-	![Get endpoint URL from Azure portal][2]
+	![Get HTTP endpoint URL from Azure portal][2]
 
 	Or you can get the URL by making this call:
 
@@ -143,7 +143,7 @@ customize the relative path for your trigger's URL.
 1. On your **Request** trigger, choose **Show advanced options**. 
 
 2. Under **Method**, specify the HTTP method that you want your request to use. 
-Select the **GET** method so you can later test your endpoint's URL.
+For this example, select the **GET** method so you can later test your HTTP endpoint's URL.
 
       > [!NOTE]
       > When you specify a relative path for your trigger, 
@@ -173,7 +173,7 @@ that you specified in your trigger.
 
 6. Save your logic app. 
 
-	Your trigger's URL now includes the relative path, for example:
+	Your HTTP endpoint URL now includes the relative path, for example:
 
 	``` text
 	https://prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customer/{customerID}?api-version...
@@ -193,8 +193,8 @@ When you specify a JSON schema in your **Request** trigger,
 the Logic App Designer uses that schema to generate tokens, 
 which you can use in your logic app workflow steps.
 
-For example, when we add the `title` and `name` 
-properties to the JSON schema, their tokens are 
+For example, if you add `title` and `name` 
+properties to your JSON schema, their tokens are 
 now available to use in later workflow steps.
 
 ```json
@@ -274,7 +274,7 @@ you can use the **Response** action.
 
 > [!NOTE] 
 > If your logic app doesn't include a **Response**, 
-> the endpoint responds *immediately* with a **202 Accepted** status. 
+> the HTTP endpoint responds *immediately* with a **202 Accepted** status. 
 > 
 > Also, for the original request to get the response, 
 > all steps required for the response must finish 
@@ -335,8 +335,8 @@ they cannot generate a valid signature.
 #### Q: Can I configure HTTP endpoints further?
 
 A: Yes, HTTP endpoints support more advanced configuration 
-through the **API Management**. This service also offers the 
-capability for you to consistently manage all your APIs, 
+through [**API Management**](../api-management/api-management-key-concepts.md). 
+This service also offers the capability for you to consistently manage all your APIs, 
 including logic apps, set up custom domain names, 
 use more authentication methods, and more, for example:
 
