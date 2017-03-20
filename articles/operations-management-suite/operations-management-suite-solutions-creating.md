@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
+ms.date: 03/20/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -60,7 +60,7 @@ If your solution requires external functionality in response to an alert, then y
 ### Views
 Views in Log Analytics are used to visualize data from the Log Analytics repository.  Each solution will typically contain a single view with a [tile](../log-analytics/log-analytics-view-designer-tiles.md) that is displayed on the user's main dashboard.  The view can contain any number of [visualization parts](../log-analytics/log-analytics-view-designer-parts.md) to provide different visualizations of the collected data to the user.
 
-You [create custom views using  the View Designer](../log-analytics/log-analytics-view-designer.md) which you can later export for inclusion in your solution file.  
+You [create custom views using the View Designer](../log-analytics/log-analytics-view-designer.md) which you can later export for inclusion in your solution file.  
 
 
 ## Create solution file
@@ -73,7 +73,7 @@ While you are developing your solution, you will need to install and test it in 
 ## Publish your solution
 Once you have completed and tested your solution, you can make it available to customers through either the following sources.
 
-- **Azure Quickstart templates**.  [Azure Quickstart templates](https://azure.microsoft.com/en-us/resources/templates/) is a set of Resource Manager templates contributed by the community through GitHub.  You can make your solution available by following information in the [contribution guide](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE).
+- **Azure Quickstart templates**.  [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/) is a set of Resource Manager templates contributed by the community through GitHub.  You can make your solution available by following information in the [contribution guide](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE).
 - **Azure Marketplace**.  The [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) allows you to distribute and sell your solution to other developers, ISVs, and IT professionals.  You can learn how to publish your solution to Azure Marketplace at [How to publish and manage an offer in the Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
 
 
