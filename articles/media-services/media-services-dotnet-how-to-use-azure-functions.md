@@ -39,6 +39,9 @@ This topic shows you how to get started with creating Azure Functions that use M
 1. Go to the [Azure portal](http://portal.azure.com) and sign-in with your Azure account.
 2. Create a function app as described [here](../azure-functions/functions-create-first-azure-function-azure-portal.md#create-a-function-app).
 
+>[!NOTE]
+> A storage account that you specify in the **StorageConnection** environment variable should be in the same region as your app.
+
 ## Configure function app settings
 
 When developing Media Services functions, it is handy to add environment variables that will be used throughout your functions. To configure app settings, click the Configure App Settings link. For more information, see  [How to configure Azure Function app settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
