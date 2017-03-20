@@ -19,11 +19,11 @@ ms.author: larryfr
 ---
 # Migrate .NET solutions for Windows-based HDInsight to Linux-based HDInsight
 
-Linux-based HDInsight clusters use [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. This allows you to use .NET components such as MapReduce applications with Linux-based HDInsight. In this document, learn how to migrate .NET solutions created for Windows-based HDInsight clusters to work with Mono on Linux-based HDInsight.
+Linux-based HDInsight clusters use [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono allows you to use .NET components such as MapReduce applications with Linux-based HDInsight. In this document, learn how to migrate .NET solutions created for Windows-based HDInsight clusters to work with Mono on Linux-based HDInsight.
 
 ## Mono compatibility with .NET
 
-Mono is generally compatible with .NET Framework 4.5. For detailed information on compatibility between Mono and .NET, see the [Mono compatibility (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) document.
+For detailed information on compatibility between Mono and .NET, see the [Mono compatibility (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) document.
 
 > [!IMPORTANT]
 > The SCP.NET framework is compatible with Mono. For more information on using SCP.NET with Mono, see [Use Visual Studio to develop C# topologies for Apache Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
@@ -49,9 +49,12 @@ If you have an existing .NET solution that works with Windows-based HDInsight, u
         ![Portability analyzer results dialog](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 
     > [!IMPORTANT]
-    > The analyzer cannot catch every potentical problem with your solution. For example, a file path of `c:\temp\file.txt` is considered OK because Mono runs on Windows and the path is valid in that context. However, the path is not valid on a Linux platform.
+    > The analyzer cannot catch every problem with your solution. For example, a file path of `c:\temp\file.txt` is considered OK because Mono runs on Windows and the path is valid in that context. However, the path is not valid on a Linux platform.
 
-2. Perform a manual audit of your code using the information in the [Application Portability (http://www.mono-project.com/docs/getting-started/application-portability/)](http://www.mono-project.com/docs/getting-started/application-portability/) document. This may require rewriting portions of your solution. For example, using [IO Mapping](http://www.mono-project.com/docs/advanced/iomap/) to address differences between Windows and Linux file paths.
+2. Perform a manual audit of your code using the information in the [Application Portability (http://www.mono-project.com/docs/getting-started/application-portability/)](http://www.mono-project.com/docs/getting-started/application-portability/) document.
 
 3. Create a Linux-based HDInsight cluster, copy data, and test your solution to identify any failures.
 
+## Next steps
+
+[tbd]
