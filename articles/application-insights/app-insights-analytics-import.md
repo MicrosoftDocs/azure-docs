@@ -11,7 +11,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 03/20/2017
 ms.author: awills
 
 ---
@@ -65,23 +65,32 @@ You need:
 
 Before you can import data, you must define a *data source,* which specifies the schema of your data.
 
-1. Start the data source wizard
+1. Start the data source wizard.
 
     ![Add new data source](./media/app-insights-analytics-import/add-new-data-source.png)
 
-2. Upload a sample data file. (Optional if you upload a schema definition.)
+    Provide a name for your new data source.
 
-    The first row of the sample can be column headers. (You can change the field names in the next step.)
+2. Define format of the files that you will upload.
 
-    The sample should include at least 10 rows of data.
+    You can either define the format manually, or upload a sample file.
 
-3. Review the schema that the wizard has got. If it inferred the types from a sample, you will probably need to adjust the inferred types of the columns.
+    If the data is in CSV format, the first row of the sample can be column headers. You can change the field names in the next step.
 
-   (Optional.) Upload a schema definition. See the format below.
+    The sample should include at least 10 rows or records of data.
 
-4. Select a Timestamp. All data in Analytics must have a timestamp field. It must have type `datetime`, but it doesn't have to be named 'timestamp'. If your data has a column containing a date and time in ISO format, choose this as the timestamp column. Otherwise, choose "as data arrived", and the import process will add a timestamp field.
+    Column or field names should have alphanumeric names (without spaces or punctuation).
 
-    ![Review the schema](./media/app-insights-analytics-import/data-source-review-schema.png)
+    ![Upload a sample file](./media/app-insights-analytics-import/sample-data-file.png)
+
+
+3. Review the schema that the wizard has got. If it inferred the types from a sample, you might need to adjust the inferred types of the columns.
+
+    ![Review the inferred schema](./media/app-insights-analytics-import/data-source-review-schema.png)
+
+ * (Optional.) Upload a schema definition. See the format below.
+
+ * Select a Timestamp. All data in Analytics must have a timestamp field. It must have type `datetime`, but it doesn't have to be named 'timestamp'. If your data has a column containing a date and time in ISO format, choose this as the timestamp column. Otherwise, choose "as data arrived", and the import process will add a timestamp field.
 
 5. Create the data source.
 
