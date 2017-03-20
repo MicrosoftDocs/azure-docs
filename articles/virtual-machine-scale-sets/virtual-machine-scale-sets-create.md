@@ -52,18 +52,6 @@ az group create --location westus2 --name vmss-test-1
 New-AzureRmResourceGroup -Location westus2 -Name vmss-test-1
 ```
 
-## Prep: Create a storage account
-
-If you're going to use Azure to host your own virtual machine image, you need to create a storage account. You can use the gallery images without a storage account, but anything custom needs to be stored in Azure Storage.
-
-```azurecli
-az storage account create --location westus2 --name vmsstest1storage --resource-group vmss-test-1 --kind Storage --sku Standard_LRS
-```
-
-```powershell
-New-AzureRmStorageAccount -Location westus2 -Name vmssteststorage1 -ResourceGroupName vmss-test-1 -Kind Storage -SkuName Standard_LRS
-```
-
 ## Create from Azure CLI
 
 With Azure CLI, you can create a virtual machine scale set with minimal effort. Default values are provided for you if you omit them. For example, if you don't specify any virtual network information, one is created for you. If omitted, the following parts are created for you: a load balancer, a VNET, and a public IP address.
@@ -94,10 +82,6 @@ To create a virtual machine scale set you must specify the _resource group_, _na
 ```azurecli
 az vmss create --resource-group vmss-test-1 --name MyScaleSet --image UbuntuLTS --authentication-type password --admin-username azureuser --admin-password P@ssw0rd!
 ```
-
-### Use your own image
-
-TODO
 
 ## Create from PowerShell
 
@@ -157,16 +141,12 @@ Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmssConfig
 New-AzureRmVmss -ResourceGroupName vmss-test-1 -Name my-scale-set -VirtualMachineScaleSet $vmssConfig
 ```
 
-### Use your own image
-
-TODO
-
 ## Create from a template
 
 You can deploy a virtual machine scale set by using an Azure Resource Manager Template. You can create your own template or use one from the template repository at [blah]. These templates can be deployed directly to your azure subscription.
 
 >[!NOTE]
->To create your own template you create a _.json_ text file. For general information about how to create and customize a template, see [Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md). 
+>To create your own template you create a _.json_ text file. For general information about how to create and customize a template, see [Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
 A sample template is available [on GitHub](https://github.com/gatneil/mvss/tree/minimum-viable-scale-set). For more information on how to create and use that sample, see [Minimum Viable Scale Set](.\virtual-machine-scale-sets-mvss-start.md).
 
@@ -174,10 +154,6 @@ A sample template is available [on GitHub](https://github.com/gatneil/mvss/tree/
 
 With Visual Studio, you can create an Azure Resource Group project and add a Virtual Machine Scale Set template to it. You can choose which template you want to import, like from GitHub or the Azure Gallery. A deployment PowerShell script is also generated for you. For more information, see [How to create a Virtual Machine Scale Set with Visual Studio](virtual-machine-scale-sets-vs-create.md).
 
-## Next steps
+## Create from the Azure Portal
 
-TODO
-1. Attach data disks
-2. Configure diagnostic telemetry
-3. Configure scale
-4. Monitor
+The Azure Portal provides a convenient way to quickly create a scale set. For more information, see [How to create a Virtual Machine Scale Set with the Azure portal](virtual-machine-scale-sets-portal-create.md).
