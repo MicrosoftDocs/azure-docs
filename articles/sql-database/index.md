@@ -135,6 +135,7 @@ ms.author: carolz
                         <h3>Command-Line</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">PowerShell</a></p>
                         <p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">PowerShell (Elastic DB)</a></p>
+                        <p><a href="/cli/azure/sql">Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>

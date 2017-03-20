@@ -32,7 +32,7 @@ You can complete the task using one of the following CLI versions:
 
 
 ## Create supporting resources
-Make sure that you have the [Azure CLI](../xplat-cli-install.md) logged in and using Resource Manager mode:
+Make sure that you have the [Azure CLI](../cli-install-nodejs.md) logged in and using Resource Manager mode:
 
 ```azurecli
 azure config mode arm
