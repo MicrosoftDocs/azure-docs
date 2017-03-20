@@ -33,12 +33,14 @@ To receive requests, you can add these triggers to your logic apps:
 Our examples use the **Request** trigger, 
 but all principles identically apply to the other trigger types.
 
-## Add a trigger to your logic app
+## Set up an HTTP endpoint for your logic app
+
+To create an HTTP endpoint, add a trigger that can receive incoming requests.
 
 1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
 Go to your logic app, and open Logic App Designer.
 
-2.  Add a trigger that lets your logic app receive incoming requests. 
+2. Add a trigger that lets your logic app receive incoming requests. 
 For example, add the **Request** trigger to your logic app.
 
 3.	Under **Request Body JSON Schema**, 
@@ -66,12 +68,14 @@ enter the JSON schema for the payload that you expect the trigger to receive.
 
 	![Add the Request action][1]
 
-  > [!TIP]
-  > You can generate a schema for a sample JSON payload 
-  > from a tool like [jsonschema.net](http://jsonschema.net/), 
-  > or in the **Request** trigger by choosing **Use sample payload to generate schema**. 
-  > Enter your sample payload, and choose **Done**.
-  
+    > [!TIP]
+    > 
+    > You can generate a schema for a sample JSON payload 
+    > from a tool like [jsonschema.net](http://jsonschema.net/), 
+    > or in the **Request** trigger by choosing **Use sample payload to generate schema**. 
+    > Enter your sample payload, and choose **Done**.
+    > 
+
 	For example, this sample payload:
 
 	```json
@@ -84,8 +88,8 @@ enter the JSON schema for the payload that you expect the trigger to receive.
 
 	```json
 	}
-		"type": "object",
-		"properties": {
+	   "type": "object",
+	   "properties": {
          "address": {
             "type": "string" 
          }
@@ -116,7 +120,7 @@ you should now get a generated callback URL, like this example:
 	POST https://management.azure.com/{resourceID-for-your-logic-app}/triggers/{myendpointtrigger}/listCallbackURL?api-version=2016-06-01
 	```
 
-## Change your trigger's HTTP method
+## Change the HTTP method for your trigger
 
 By default, the **Request** trigger expects an HTTP POST request, 
 but you can specify a different HTTP method. 
@@ -131,19 +135,19 @@ or specify a custom method.
 
 	![Change HTTP method](./media/logic-apps-http-endpoint/change-method.png)
 
-## Accept parameters through your trigger's URL
+## Accept parameters through your HTTP endpoint URL
 
-When you want your trigger's URL to accept parameters, 
+When you want your HTTP endpoint URL to accept parameters, 
 customize the relative path for your trigger's URL.
 
 1. On your **Request** trigger, choose **Show advanced options**. 
 
-2. Under **Method**, specify the HTTP method for your request to use. 
-Select the **GET** method so you can later test your trigger's URL.
+2. Under **Method**, specify the HTTP method that you want your request to use. 
+Select the **GET** method so you can later test your endpoint's URL.
 
-  > [!NOTE]
-  > When you specify a relative path for your trigger, 
-  > you must also explicitly specify an HTTP method for your trigger.
+    > [!NOTE]
+    > When you specify a relative path for your trigger, 
+    > you must also explicitly specify an HTTP method for your trigger.
 
 3.	Under **Relative path**, specify the relative path for the parameter 
 	that your URL should accept, for example, `customer/{customerID}`.
@@ -176,7 +180,7 @@ that you specified in your trigger.
 	```
 
 7. To test your HTTP endpoint, 
-copy and paste your trigger's URL into another browser window. 
+copy and paste the updated URL into another browser window. 
 Substitute `{customerID}` with `123456`, and press Enter.
 
 	Your browser should show this text: 
@@ -208,17 +212,17 @@ now available to use in later workflow steps.
       }
    },
    "required": [
-	   "address",
-	   "title",
-	   "name"
-	]
+      "address",
+      "title",
+      "name"
+   ]
 }
 ```
 
 ## Create nested workflows for logic apps
 
-You can reuse workflows in your logic app by adding 
-other existing logic apps that can receive requests. 
+You can nest workflows in your logic app by adding 
+other logic apps that can receive requests. 
 To include these logic apps, add the 
 **Azure Logic Apps - Choose a Logic Apps workflow** action 
 to your trigger. You can then select from eligible logic apps.
@@ -300,18 +304,18 @@ Here's what the JSON schema now looks like:
 
 ``` json
 "Response": {
-	"inputs": {
-		"body": {
-			"title": "@{triggerBody()?['title']}",
-			"name": "@{triggerBody()?['name']}"
-		},
-		"headers": {
-			"content-type": "application/json"
-		},
-		"statusCode": 200
-	},
-	"runAfter": {},
-	"type": "Response"
+   "inputs": {
+      "body": {
+         "title": "@{triggerBody()?['title']}",
+         "name": "@{triggerBody()?['name']}"
+      },
+      "headers": {
+		   "content-type": "application/json"
+      },
+      "statusCode": 200
+   },
+   "runAfter": {},
+   "type": "Response"
 }
 ```
 
@@ -328,7 +332,7 @@ the trigger name, and the operation that's performed.
 So unless someone has access to the secret logic app key, 
 they cannot generate a valid signature.
 
-#### Q: Can I configure endpoints further?
+#### Q: Can I configure HTTP endpoints further?
 
 A: Yes, HTTP endpoints support more advanced configuration. 
 The **HTTP Listener** API App previously supported changing 
