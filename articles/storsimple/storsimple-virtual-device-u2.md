@@ -29,7 +29,7 @@ The StorSimple virtual device is available in two models, a standard 8010 (forme
 | **Maximum capacity** |30 TB |64 TB |
 | **Azure VM** |Standard_A3 (4 cores, 7 GB memory) |Standard_DS3 (4 cores, 14 GB memory) |
 | **Version compatibility** |Versions running pre-Update 2 or later |Versions running Update 2 or later |
-| **Region availability** |All Azure regions |All Azure regions that support Premium Storage<br></br>You can find the Premium storage regions in the list of Azure Services by Region. Identify the regions where the VM series DS, DSV2, Fs, and GS are supported.(https://azure.microsoft.com/en-us/regions/services) |
+| **Region availability** |All Azure regions |All Azure regions that support Premium Storage<br></br>You can find the Premium storage regions in the list of [Azure Services by Region](https://azure.microsoft.com/en-us/regions/services). Identify the regions where the VM series DS, DSV2, Fs, and GS are supported. |
 | **Storage type** |Uses Azure Standard Storage for local disks<br></br> Learn how to [create a Standard Storage account](../storage/storage-create-storage-account.md) |Uses Azure Premium Storage for local disks<sup>2</sup> <br></br>Learn how to [create a Premium Storage account](../storage/storage-premium-storage.md) |
 | **Workload guidance** |Item level retrieval of files from backups |Cloud dev and test scenarios, low latency, higher performance workloads <br></br>Secondary device for disaster recovery |
 
@@ -65,7 +65,7 @@ The following sections explain the configuration prerequisites for your StorSimp
 #### Azure requirements
 Before you provision the virtual device, you need to make the following preparations in your Azure environment:
 
-* For the virtual device, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). If using Premium Storage, you must create a virtual network in an Azure region that supports Premium Storage. More information on [regions that are currently supported for 8020](#supported-regions-for-8020).
+* For the virtual device, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). If using Premium Storage, you must create a virtual network in an Azure region that supports Premium Storage. You can find the Premium storage regions in the list of [Azure Services by Region](https://azure.microsoft.com/en-us/regions/services). Identify the regions where the VM series DS, DSV2, Fs, and GS are supported.
 * It is advisable to use the default DNS server provided by Azure instead of specifying your own DNS server name. If your DNS server name is not valid or if the DNS server is not able to resolve IP addresses correctly, the creation of the virtual device will fail.
 * Point-to-site and site-to-site are optional, but not required. If you wish, you can configure these options for more advanced scenarios.
 * You can create [Azure Virtual Machines](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (host servers) in the virtual network that can use the volumes exposed by the virtual device. These servers must meet the following requirements:                             
