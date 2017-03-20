@@ -32,7 +32,7 @@ This article explains how to create a virtual machine (VM) through the Azure Res
 
 You can complete this task using the Azure CLI 1.0 (this article) or the [Azure CLI 2.0](virtual-network-multiple-ip-addresses-cli.md). The steps that follow explain how to create an example VM with multiple IP addresses, as described in the scenario. Change variable names and IP address types as required for your implementation.
 
-1. Install and configure the Azure CLI 1.0 by following the steps in the [Install and Configure the Azure CLI](../xplat-cli-install.md) article and log into your Azure account with the `azure-login` command.
+1. Install and configure the Azure CLI 1.0 by following the steps in the [Install and Configure the Azure CLI](../cli-install-nodejs.md) article and log into your Azure account with the `azure-login` command.
 
 2. Register for the preview by running the following commands in PowerShell (you cannot register using the CLI) after you login and select the appropriate subscription:
 	
@@ -124,7 +124,7 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
 
 You can add additional private and public IP addresses to an existing NIC by completing the steps that follow. The examples build upon the [scenario](#Scenario) described in this article.
 
-1. Open Azure CLI and complete the remaining steps in this section within a single CLI session. If you don't already have Azure CLI installed and configured, complete the steps in the [Install and Configure the Azure CLI](../xplat-cli-install.md) article and log into your Azure account.
+1. Open Azure CLI and complete the remaining steps in this section within a single CLI session. If you don't already have Azure CLI installed and configured, complete the steps in the [Install and Configure the Azure CLI](../cli-install-nodejs.md) article and log into your Azure account.
 
 2. Register for the public preview by following step 2 in the **Create a VM with multiple IP addresses** section.
 
