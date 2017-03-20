@@ -28,32 +28,43 @@ For detailed information on compatibility between Mono and .NET, see the [Mono c
 > [!IMPORTANT]
 > The SCP.NET framework is compatible with Mono. For more information on using SCP.NET with Mono, see [Use Visual Studio to develop C# topologies for Apache Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
-## Migrate existing .NET solutions
+## Automated portability analysis
 
-If you have an existing .NET solution that works with Windows-based HDInsight, use the steps in this section to migrate the solution to Linux-based HDInsight.
+The [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer) can be used to generate a report of incompatibilities between your application and Mono. Use the following steps to configure the analyzer to check your application for Mono portability:
 
-1. The [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer) can be used to generate a report of incompatibilities between your application and Mono. Use the following steps to configure the analyzer to check your application for Mono portability:
+1. Install the [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer). During installation, select the version of Visual Studio to use.
 
-    1. Install the [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer). During installation, select the version of Visual Studio to use.
+2. From Visual Studio 2015, select __Analyze__ > __Portability Analyzer Settings__, and make sure that __4.5__ is checked in the __Mono__ section.
 
-    2. From Visual Studio 2015, select __Analyze__ > __Portability Analyzer Settings__, and make sure that __4.5__ is checked in the __Mono__ section.
+    ![4.5 checked in Mono section for the analyzer settings](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png)
 
-        ![4.5 checked in Mono section for the analyzer settings](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png)
+    Select __OK__ to save the configuration.
 
-        Select __OK__ to save the configuration.
+3. Select __Analyze__ > __Analyze Assembly Portability__. Select the assembly that contains your solution, and then select __Open__ to begin analysis.
 
-    3. Select __Analyze__ > __Analyze Assembly Portability__. Select the assembly that contains your solution, and then select __Open__ to begin analysis.
+4. Once analysis is complete, select __Analyze__ > __View analysis reports__. In __Portability Analysis Results__, select __Open report__ to open a report.
 
-    4. Once analysis is complete, select __Analyze__ > __View analysis reports__. In __Portability Analysis Results__, select __Open report__ to open a report.
+    ![Portability analyzer results dialog](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 
-        ![Portability analyzer results dialog](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
+> [!IMPORTANT]
+> The analyzer cannot catch every problem with your solution. For example, a file path of `c:\temp\file.txt` is considered OK because Mono runs on Windows and the path is valid in that context. However, the path is not valid on a Linux platform.
 
-    > [!IMPORTANT]
-    > The analyzer cannot catch every problem with your solution. For example, a file path of `c:\temp\file.txt` is considered OK because Mono runs on Windows and the path is valid in that context. However, the path is not valid on a Linux platform.
+## Manual portability analysis
 
-2. Perform a manual audit of your code using the information in the [Application Portability (http://www.mono-project.com/docs/getting-started/application-portability/)](http://www.mono-project.com/docs/getting-started/application-portability/) document.
+Perform a manual audit of your code using the information in the [Application Portability (http://www.mono-project.com/docs/getting-started/application-portability/)](http://www.mono-project.com/docs/getting-started/application-portability/) document.
 
-3. Create a Linux-based HDInsight cluster, copy data, and test your solution to identify any failures.
+## Modify and build
+
+You can continue to use Visual Studio to build your .NET solutions for HDInsight. However, you must ensure that the project is configured to use .NET Framework 4.5.
+
+## Deploy and test
+
+Once you have modified your solution using the recommendations from the .NET Portability Analyzer or from a manual analysis, you must test it with HDInsight. Testing the solution on a Linux-based HDInsight cluster may reveal subtle problems that need to be corrected. We recommend that you enable additional logging in your application while testing it.
+
+For more information on accessing logs, see the following documents:
+
+* [Analyze HDInsight logs](hdinsight-debug-jobs.md)
+* [Access YARN application logs on Linux-based HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
 ## Next steps
 
