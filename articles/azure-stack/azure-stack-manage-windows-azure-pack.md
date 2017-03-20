@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 03/20/2017
 ms.author: walterov
 
 ---
@@ -255,4 +255,4 @@ cd C:\temp\WAPConnector\Setup\Scripts
 4. For known issues, see [Microsoft Azure Stack troubleshooting](azure-stack-troubleshooting.md).
 
   ## Next steps
-[Using the administrator and user portals in Azure Stack](/azure-stack-manage-portals.md)
+[Using the administrator and user portals in Azure Stack](azure-stack-manage-portals.md)
