@@ -82,6 +82,8 @@
 ### [Dapper](sql-database-elastic-scale-working-with-dapper.md)
 ### [JSON data](sql-database-json-features.md)
 ### [In-memory](sql-database-in-memory.md)
+### [Temporal tables ](sql-database-temporal-tables.md)
+### [Retention policies](sql-database-temporal-tables-retention-policy.md)
 ## Database migration
 ### [SQL Server DB](sql-database-cloud-migrate.md)
 ### [T-SQL changes](sql-database-transact-sql-information.md)
@@ -93,14 +95,14 @@
 ### [Database advisor](sql-database-advisor.md)
 ### [Query insight](sql-database-query-performance.md)
 ### [Query store](https://msdn.microsoft.com/library/dn817826.aspx)
-### [Query store usage scenarios](https://msdn.microsoft.com/library/mt614796.aspx)
+### [Query store usage](https://msdn.microsoft.com/library/mt614796.aspx)
 ### [DMVs](sql-database-monitoring-with-dmvs.md)
-### [Single database guidance](sql-database-performance-guidance.md)
-### [Use batching](sql-database-use-batching-to-improve-performance.md)
+### [Perf guidance](sql-database-performance-guidance.md)
+### [Batching](sql-database-use-batching-to-improve-performance.md)
 ### [Extended events](sql-database-xevent-db-diff-from-svr.md)
 ### [Compatibility levels](sql-database-compatibility-level-query-performance-130.md)
 # How-to guides
-## Create and manage firewall rules
+## Manage firewall
 ### [Azure portal](sql-database-configure-firewall-settings.md)
 ### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 ### [REST API](sql-database-configure-firewall-settings-rest.md)
@@ -110,38 +112,37 @@
 ### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 ### [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)
 ### [C#](sql-database-elastic-pool-manage-csharp.md)
-## Configure auditing and threat-detection
-### [Azure portal: Auditing](sql-database-auditing-portal.md)
-### [Azure portal: Threat detection](sql-database-threat-detection-portal.md)
-## Restore a database
-### [Azure portal](sql-database-restore-database-portal.md)
+## Secure data
+### [Azure AD authentication](sql-database-aad-authentication-configure.md)
+### [Configure auditing](sql-database-auditing-portal.md)
+### [Configure threat detection](sql-database-threat-detection-portal.md)
+### [Encrypt - Windows cert](sql-database-always-encrypted.md)
+### [Encrypt - Azure key vault](sql-database-always-encrypted-azure-key-vault.md)
+### [Configure masking](sql-database-dynamic-data-masking-get-started-portal.md)
+## Backup and restore
+### [Restore - Azure portal](sql-database-restore-database-portal.md)
 ## Manage long-term backup retention
-### [Azure portal](sql-database-manage-long-term-backup-retention-portal.md)
-### [PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
-## [Recover a single table](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
-## Configure geo-replication
+### [Retention - Azure portal](sql-database-manage-long-term-backup-retention-portal.md)
+### [Rentention - PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
+### [Recover a single table](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
+## Geo-replicate data
 ### [Azure portal](sql-database-geo-replication-portal.md)
 ### [Transact-SQL: Configure](sql-database-geo-replication-transact-sql.md)
 ### [Transact-SQL: Failover](sql-database-geo-replication-failover-transact-sql.md)
-## [Recover from a data center outage](sql-database-disaster-recovery.md)
-## [Perform disaster recovery drills](sql-database-disaster-recovery-drills.md)
-## Copy a database
-### [Azure portal](sql-database-copy-portal.md)
-### [Transact-SQL](sql-database-copy-transact-sql.md)
-## Import a database
-### [Azure portal](sql-database-import-portal.md)
-### [SQLPackage](sql-database-import-sqlpackage.md)
-## Export a database
-### [Azure portal](sql-database-export-portal.md)
-### [PowerShell](sql-database-export-powershell.md)
-### [SSMS](sql-database-export-ssms.md)
-### [SQLPackage](sql-database-export-sqlpackage.md)
-## Load data
-### [BCP](sql-database-load-from-csv-with-bcp.md)
-### [Azure data factory](../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-## [Configure data sync](sql-database-get-started-sql-data-sync.md)
-## Authenticate and authorize users
-### [Azure AD authentication](sql-database-aad-authentication-configure.md)
+### [Recover from a outage](sql-database-disaster-recovery.md)
+### [Perform drills](sql-database-disaster-recovery-drills.md)
+## Move data
+### [Copy - Azure portal](sql-database-copy-portal.md)
+### [Copy - T-SQL](sql-database-copy-transact-sql.md)
+### [Import - Azure portal](sql-database-import-portal.md)
+### [Import - SQLPackage](sql-database-import-sqlpackage.md)
+### [Expore - Azure portal](sql-database-export-portal.md)
+### [Export - PowerShell](sql-database-export-powershell.md)
+### [Export - SSMS](sql-database-export-ssms.md)
+### [Export - SQLPackage](sql-database-export-sqlpackage.md)
+### [Load data with BCP](sql-database-load-from-csv-with-bcp.md)
+### [Load data with ADF](../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+### [Sync data](sql-database-get-started-sql-data-sync.md)
 ## Connect applications
 ### [C and C++](sql-database-develop-cplusplus-simple.md)
 ### [Java](sql-database-develop-java-simple.md)
@@ -152,21 +153,11 @@
 ### [SSMS using Azure RemoteApp](sql-database-ssms-remoteapp.md)
 ### [SSMS using multi-factor authentication](sql-database-ssms-mfa-authentication-configure.md)
 ### [Excel](sql-database-connect-excel.md)
-### [Connectivity guidance](sql-database-connectivity-issues.md)
-### [Resolve connection issues](sql-database-troubleshoot-common-connection-issues.md)
-## [Create DB with C#](sql-database-get-started-csharp.md)
-## Configure encryption
-### [Encrypt data using Windows certificate](sql-database-always-encrypted.md)
-### [Encrypt data using Azure key vault](sql-database-always-encrypted-azure-key-vault.md)
-### [Transparent data encryption](https://msdn.microsoft.com/library/azure/dn948096)
-### [Column encryption](https://msdn.microsoft.com/library/azure/ms179331)
-## Configure dynamic data masking
-### [Azure portal](sql-database-dynamic-data-masking-get-started-portal.md)
-## Create and manage temporal tables
-### [Overview](sql-database-temporal-tables.md)
-### [Retention policies](sql-database-temporal-tables-retention-policy.md)
+### [Guidance](sql-database-connectivity-issues.md)
+### [Issues](sql-database-troubleshoot-common-connection-issues.md)
+### [Create DB with C#](sql-database-get-started-csharp.md)
 ## [Configure In-Memory OLTP](sql-database-in-memory-oltp-migration.md)
-## Create and manage sharded databases
+## Manage sharded DBs
 ### [Create a sharded application](sql-database-elastic-scale-get-started.md)
 ### [Move data between shards](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 ### [Security configuration](sql-database-elastic-scale-split-merge-security-configuration.md)
