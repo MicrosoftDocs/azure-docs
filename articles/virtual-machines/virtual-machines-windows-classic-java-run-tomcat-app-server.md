@@ -46,7 +46,7 @@ The completed installation results in Tomcat running on a virtual machine.
 4. In the JDK 8 pane, select **Classic**, then click **Create**.
 5. In the **Basics** blade:
    1. Specify a name for the virtual machine.
-   2. Enter a name for the administrator in the **User Name** field. Remember this name and the password you will enter next, you will use them when you remotely sign in to the virtual machine.
+   2. Enter a name for the administrator in the **User Name** field. Remember this name and the associated password that follows in the next field. You need them when you remotely sign in to the virtual machine.
    3. Enter a password in the **New password** field, and reenter it in the **Confirm password** field. This password is for the Administrator account.
    4. Select the appropriate **Subscription**.
    5. For the **Resource group**, click **Create new** and enter the name of a new resource group. Or, click **Use existing** and select one of the available resource groups.
@@ -125,7 +125,7 @@ At this point, your Tomcat website should be viewable from an external browser. 
 
     ![Setting a service to start automatically][service_automatic_startup]
 
-    The benefit of having Tomcat start automatically is that it will start when the virtual machine is rebooted (for example, after software updates that require a reboot are installed).
+    The benefit of having Tomcat start automatically is that it starts running when the virtual machine is rebooted (for example, after software updates that require a reboot are installed).
 
 ## Next steps
 You can learn about other services (such as Azure Storage, service bus, and SQL Database) that you may want to include with your Java applications. View the information available at the [Java Developer Center](https://azure.microsoft.com/develop/java/).
