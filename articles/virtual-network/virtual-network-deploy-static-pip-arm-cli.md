@@ -31,8 +31,7 @@ ms.custom: H1Hack27Feb2017
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-> [!NOTE]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the classic deployment model.
+Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the classic deployment model.
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
@@ -139,12 +138,11 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 
 ## <a name= "clean-up"></a>Remove the VM and associated resources
 
-If you created a resource group solely for the purposes of completing the steps in this article, you can remove all the resources by deleting the resource group with the `az group delete -n IaaSStory` command.
+It's recommended that you delete the resources created in this exercise if you won't use them in production. VM, public IP address, and disk resources incur charges, as long as they're provisioned. To remove the resources created during this exercise, complete the following steps:
 
->[!WARNING]
->Confirm there are no other resources in the resource group, other than the resources created by the script in this article, before deleting the resource group. Run the `az resource list --resouce-group IaaSStory` command to view the resources in the resource group.
-
-It's recommended that you delete the resources if you won't use the VM in production. The VM, public IP address, and disk resources incur charges, as long as they're provisioned. 
+1. To view the resources in the resource group, run the `az resource list --resource-group IaaSStory` command.
+2. Confirm there are no resources in the resource group, other than the resources created by the script in this article. 
+3. To delete all resources created in this exercise, run the `az group delete -n IaaSStory` command. The command deletes the resource group and all the resources it contains.
 
 ## Next steps
 

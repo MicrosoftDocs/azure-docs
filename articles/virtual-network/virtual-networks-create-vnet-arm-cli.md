@@ -118,7 +118,7 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
     Which produces the following output:
 
 		Where      Name      Group
-		---------  --------  -------
+
 		centralus  TestVNet  TestRG
 
 4. Create a subnet:
@@ -168,7 +168,7 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
 	Expected output:
 
 		Name      Where      Group    Status       SubnetCount
-		--------  ---------  -------  ---------  -------------
+
 		TestVNet  centralus  TestRG   Succeeded              2
 
 6. Query the properties of the subnets:
@@ -184,7 +184,7 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
 	Expected output:
 
 		Name      CIDR            Status
-		--------  --------------  ---------
+
 		FrontEnd  192.168.1.0/24  Succeeded
 		BackEnd   192.168.2.0/24  Succeeded
 

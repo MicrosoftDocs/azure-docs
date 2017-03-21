@@ -168,12 +168,10 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 
 ## <a name= "clean-up"></a>Remove the VM and associated resources
 
-If you created a resource group solely for the purposes of completing the steps in this article, you can remove all the resources by deleting the resource group with the `az group delete --name Multi-NIC-VM` command.
-
->[!WARNING]
->Confirm there are no other resources in the resource group, other than the resources created by the script in this article, before deleting the resource group. Run the `az resource list --resource-group Multi-NIC-VM` command to view the resources in the resource group.
-
-It's recommended that you delete the resources if you won't use the VM in production. VM, public IP address, and disk resources incur charges, as long as they're provisioned.
+It's recommended that you delete the resources created in this exercise if you won't use them in production. VM, public IP address, and disk resources incur charges, as long as they're provisioned. To remove the resources created during this exercise, complete the following steps:
+1. To view the resources in the resource group, run the `az resource list --resource-group Multi-NIC-VM` command.
+2. Confirm there are no resources in the resource group, other than the resources created by the script in this article. 
+3. To delete all resources created in this exercise, run the `az group delete --name Multi-NIC-VM` command. The command deletes the resource group and all the resources it contains.
 
 ## Next steps
 
