@@ -28,10 +28,6 @@ of the user's subscription.
 If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), 
 and then run `az login` to create a connection with Azure.
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, 
-see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
-
-
 Accounts that allocate VMs outside of the user's subscription will be subject to a separate core
 quota and can be authenticated either via Shared Key credentials or an Azure Active Dirctory token.
 An account will be created in this mode by default.
@@ -46,7 +42,7 @@ an account in this mode, one must specify a Key Vault reference when creating th
 
 ## Batch Account with User Subscription Pool Allocation Sample script
 
-[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account-user-subsciption.sh "Create Account using User Subscription")]
+[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account-user-subscription.sh  "Create Account using User Subscription")]
 
 ## Clean up deployment
 
