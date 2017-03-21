@@ -39,7 +39,7 @@ Post comments or questions at the end of this article or on the [Azure Recovery 
 
 ### Install CentOS 6.6 minimal
 
-Use the following steps to install the 64-bit CentOS 6.6 operating system.
+Use the following steps to install the 64-bit CentOS 6.6 operating system:
 
 1. From following links, choose the nearest mirror to download a CentOS 6.6 minimal 64-bit ISO.
 
@@ -81,7 +81,7 @@ Use the following steps to install the 64-bit CentOS 6.6 operating system.
 
 	![Warning about deletion of data if you proceed](./media/site-recovery-how-to-install-linux-master-target/media/image7.png)
 
-8. Enter the hostname for your server in the **Hostname** box, and then Click **Configure Network**. In the **Network Connection** dialog box, select your network interface, and then click the **Edit** button to configure IPV4Settings.
+8. Enter the hostname for your server in the **Hostname** box, and then click **Configure Network**. In the **Network Connection** dialog box, select your network interface, and then click the **Edit** button to configure IPV4Settings.
 
 	![Select a hostname and configure IPV4](./media/site-recovery-how-to-install-linux-master-target/media/image8.png)
 
@@ -154,7 +154,7 @@ To enable this parameter, use the following steps:
 
 4. Select **Advanced &gt; General** in the left pane, and then click the **Configuration Parameters** button on the right.
 
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image20.png)
+	![Options tab](./media/site-recovery-how-to-install-linux-master-target/media/image20.png)
 
 	The **Configuration Parameters** option is not available when the
 machine is running. To make this tab active, shut down the virtual machine.
@@ -169,9 +169,7 @@ machine is running. To make this tab active, shut down the virtual machine.
 
 	- Add **disk.EnableUUID** in the **Name** column and set its value as **TRUE**.
 
-
-
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image21.png)
+	![Checking whether disk.EnableUUID already exists](./media/site-recovery-how-to-install-linux-master-target/media/image21.png)
 
 #### Download and install additional packages
 
@@ -182,7 +180,7 @@ machine is running. To make this tab active, shut down the virtual machine.
 yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 ```
 
-The previous command will download the following 15 packages from the CentOS 6.6 repository and install them. If you do not have Internet access, you will need to download the following RPM packages.
+The previous command will download the following 15 packages from the CentOS 6.6 repository and install them. If you do not have Internet access, you will need to download the following RPM packages:
 
 
 bc-1.06.95-1.el6.x86\_64.rpm
@@ -237,7 +235,7 @@ rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm
 reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 ```
 
-***XFS (RHEL, CentOS 7 onwards)***
+***XFS (RHEL, CentOS 7 onward)***
 
 ```
 cd /usr/local
@@ -284,7 +282,6 @@ To apply custom configuration changes, use the following steps:
 	```
 	tar -zxvf latestlinuxmobsvc.tar.gz
 	```
-
 	![Screenshot of the executed command](./media/site-recovery-how-to-install-linux-master-target/image16.png)
 
 2. Run the following command to give permission.
@@ -301,12 +298,12 @@ To apply custom configuration changes, use the following steps:
 
 ### Add a retention disk to the Linux master target virtual machine
 
-Use the following steps to create a retention disk.
+Use the following steps to create a retention disk:
 
 1. Attach a new **1-TB** disk to the Linux master target virtual machine, and **boot** the machine.
 
 2. Use the **multipath -ll** command to learn the retention disk's
-multipath id.
+multipath ID.
 
 	```
 	multipath -ll
@@ -367,7 +364,7 @@ multipath id.
 
 	Wait until the script finishes. If the master target is successfully registered, the master target is listed on the Site Recovery Infrastructure page of the portal.
 
-#### Install the master target using interactive install
+#### Install the master target by using interactive install
 
 1. Run the following command to install the master target. Choose agent role as **Master Target**.
 
@@ -394,22 +391,21 @@ multipath id.
 
 7. Go to **Quit** in the menu.
 
-8. Let the installation and registration complete.
+8. Let the installation and registration finish.
 
 ### Install VMware tools on the master target server
 
 You need to install VMware tools on the master target so that it can discover the datastores. If the tools are not installed, the reprotect screen will not list the datastores. You will need to reboot after installation of the VMware tools.
 
 ## Next steps
-After the Master target has completed installation and registration, you can see the master target appear on the **Master Target** section in **Site Recovery Infrastructure**, under the configuration server overview.
+After the master target has completed installation and registration, you can see the master target appear on the **Master Target** section in **Site Recovery Infrastructure**, under the configuration server overview.
 
-You can now proceed with [Reprotection](site-recovery-how-to-reprotect.md), followed by failback.
+You can now proceed with [reprotection](site-recovery-how-to-reprotect.md), followed by failback.
 
 ## Common issues
 
 * Make sure you do not turn on Storage vMotion on any management components such as a master target. If the master target moves after a successful reprotect, the virtual machine disks (VMDKs) cannot be detached, and failback will fail.
 * The master target should not have any snapshots on the virtual machine. If there are snapshots, failback will fail.
-* Due to some custom NIC configurations at some customers, the network interface is disabled during boot up, and the master target agent cannot initialize. Make sure that the following properties are correctly set.
-	* Check the two properties in the Ethernet card file's /etc/sysconfig/network-scripts/ifcfg-eth*
+* Due to some custom NIC configurations at some customers, the network interface is disabled during startup, and the master target agent cannot initialize. Make sure that the following properties are correctly set. Check these properties in the Ethernet card file's /etc/sysconfig/network-scripts/ifcfg-eth*.
 		* BOOTPROTO=dhcp
 		* ONBOOT=yes
