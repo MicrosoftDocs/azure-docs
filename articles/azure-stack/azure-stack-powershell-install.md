@@ -27,7 +27,7 @@ Azure Stack compatible Azure PowerShell modules are required to work with Azure 
    > 
    >
 
-Azure Stack supports the 1.2.8 version of Azure PowerShell. Azure Stack compatible AzureRM commands are installed from the PowerShell Gallery. To verify if PowerShell Gallery is available, open a PowerShell Console on the MAS-CON01 computer or on your local computer if you are connected through VPN and run the following command:  
+Azure Stack supports the 1.2.9 version of Azure PowerShell. Azure Stack compatible AzureRM commands are installed from the PowerShell Gallery. To verify if PowerShell Gallery is available, open a PowerShell Console on the MAS-CON01 computer or on your local computer if you are connected through VPN and run the following command:  
 
 ```powershell
 
@@ -51,10 +51,10 @@ To install the Azure Stack PowerShell modules on a computer, which doesn’t alr
 
   ```powershell
     # To install the module in current user scope
-    Install-Module -Name AzureRM -RequiredVersion 1.2.8 -Scope CurrentUser
+    Install-Module -Name AzureRM -RequiredVersion 1.2.9 -Scope CurrentUser
     
     # To install the module for all users on your computer. Run this command in an elevated PowerShell session
-    Install-Module -Name AzureRM -RequiredVersion 1.2.8
+    Install-Module -Name AzureRM -RequiredVersion 1.2.9
     ```  
     The **Scope** parameter is optional and can be set to the following values:  
     * **CurrentUser**-  installs the module only in the current user account.  
@@ -66,10 +66,10 @@ To install the Azure Stack PowerShell modules on a computer, which doesn’t alr
 
   ```powershell
     # To install the module in current user scope
-    Install-Module -Name AzureStack -RequiredVersion 1.2.8 -Scope CurrentUser
+    Install-Module -Name AzureStack -RequiredVersion 1.2.9 -Scope CurrentUser
     
     # To install the module for all users on your computer. Run this command in an elevated PowerShell session
-    Install-Module -Name AzureStack -RequiredVersion 1.2.8
+    Install-Module -Name AzureStack -RequiredVersion 1.2.9
     ```
 
 3. To confirm the installation of AzureRM modules, run the following command:
