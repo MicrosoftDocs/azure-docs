@@ -32,7 +32,7 @@
 ### [DTU benchmark](sql-database-benchmark-overview.md)
 ### [Limits](sql-database-resource-limits.md)
 ## [Tools](sql-database-manage-overview.md)
-## Partitioned data
+## Partition data
 ### [Sharded databases](sql-database-elastic-scale-introduction.md)
 ### [Elastic client library](sql-database-elastic-database-client-library.md)
 ### [Shard maps](sql-database-elastic-scale-shard-map-management.md)
