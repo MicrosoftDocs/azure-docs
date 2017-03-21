@@ -1,3 +1,4 @@
+```
 	#!/bin/sh
 
 	rm -rf /tmp/MobSvc
@@ -66,3 +67,4 @@
 	cd /tmp
 	rm -rf /tm/MobSvc
 	exit ${Error}
+```
