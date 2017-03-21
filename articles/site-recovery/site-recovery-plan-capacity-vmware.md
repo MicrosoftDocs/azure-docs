@@ -75,21 +75,21 @@ The way in which you scale your servers depends on your preference for a scale u
 
 ## Control network bandwidth
 
-You can use [the deployment planner tool](https://aka.ms/asr-deployment-planner-doc) to calculate the bandwidth you need for replication (initial replication and then delta). To control the amount of bandwidth used for replication, you have a few options:
+You can use [the deployment planner tool](https://aka.ms/asr-deployment-planner-doc) to calculate the bandwidth you need for replication (including the initial replication, and then the delta). To control the amount of bandwidth used for replication, you have a few options:
 
 * **Throttle bandwidth**: VMware traffic that replicates to Azure goes through a specific process server. You can throttle bandwidth on the machines running as process servers.
-* **Influence bandwidth**: You can influence the bandwidth used for replication using a couple of registry keys:
+* **Influence bandwidth**: You can influence the bandwidth used for replication by using a couple of registry keys:
   * The **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\UploadThreadsPerVM** registry value specifies the number of threads that are used for data transfer (initial or delta replication) of a disk. A higher value increases the network bandwidth used for replication.
   * The **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DownloadThreadsPerVM** specifies the number of threads used for data transfer during failback.
 
 ### Throttle bandwidth
-1. Open the Microsoft Azure Backup MMC snap-in on the machine acting as the process server. By default, a shortcut for Microsoft Azure Backup is available on the desktop or in C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
-2. In the snap-in click **Change Properties**.
+1. Open the Azure Backup MMC snap-in on the machine acting as the process server. By default, a shortcut for Backup is available on the desktop, or in the following folder: C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
+2. In the snap-in, click **Change Properties**.
 
-    ![Throttle bandwidth](./media/site-recovery-vmware-to-azure/throttle1.png)
-3. On the **Throttling** tab, select **Enable internet bandwidth usage throttling for backup operations**, and set the limits for work and non-work hours. Valid ranges are from 512 Kbps to 102 Mbps per second.
+    ![Screenshot of Azure Backup MMC snap-in option to change properties](./media/site-recovery-vmware-to-azure/throttle1.png)
+3. On the **Throttling** tab, select **Enable internet bandwidth usage throttling for backup operations**. Set the limits for work and non-work hours. Valid ranges are from 512 Kbps to 102 Mbps per second.
 
-    ![Throttle bandwidth](./media/site-recovery-vmware-to-azure/throttle2.png)
+    ![Screenshot of Azure Backup Properties dialog box](./media/site-recovery-vmware-to-azure/throttle2.png)
 
 You can also use the [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) cmdlet to set throttling. Here's a sample:
 
@@ -99,41 +99,41 @@ You can also use the [Set-OBMachineSetting](https://technet.microsoft.com/librar
 
 **Set-OBMachineSetting -NoThrottle** indicates that no throttling is required.
 
-#### Influence network bandwidth for a VM
+### Influence network bandwidth for a VM
 
 1. In the VM's registry, navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**.
-   * To influence the bandwidth traffic on a replicating disk, modify the value the **UploadThreadsPerVM**, or create the key if it doesn't exist.
-   * To influence the bandwidth for failback traffic from Azure, modify the value **DownloadThreadsPerVM**.
+   * To influence the bandwidth traffic on a replicating disk, modify the value of **UploadThreadsPerVM**, or create the key if it doesn't exist.
+   * To influence the bandwidth for failback traffic from Azure, modify the value of **DownloadThreadsPerVM**.
 2. The default value is 4. In an “overprovisioned” network, these registry keys should be changed from the default values. The maximum is 32. Monitor traffic to optimize the value.
 
 
 ## Deploy additional process servers
 
-If you have to scale out your deployment beyond 200 source machines, or a total daily churn rate of more than 2 TB, you’ll need additional process servers to handle the traffic volume. Gollow these instructions to set up the process server. After setting up the server, you migrate source machines to use it.
+If you have to scale out your deployment beyond 200 source machines, or you have a total daily churn rate of more than 2 TB, you need additional process servers to handle the traffic volume. Follow these instructions to set up the process server. After setting up the server, you migrate source machines to use it.
 
-1. In **Site Recovery servers**, click the configuration server > **Process server**.
+1. In **Site Recovery servers**, click the configuration server, and then click **Process Server**.
 
-    ![Add process server](./media/site-recovery-vmware-to-azure/migrate-ps1.png)
-2. In **Server Type**, click **Process server (on-premises)**.
+    ![Screenshot of Site Recovery servers option to add a process server](./media/site-recovery-vmware-to-azure/migrate-ps1.png)
+2. In **Server type**, click **Process server (on-premises)**.
 
-    ![Add process server](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
-3. Download the Site Recovery Unified Setup file, and run it to install the process server and register it in the vault.
+    ![Screenshot of Process Server dialog box](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
+3. Download the Site Recovery Unified Setup file, and run it to install the process server. This also registers it in the vault.
 4. In **Before you begin**, select **Add additional process servers to scale out deployment**.
 5. Complete the wizard in the same way you did when you [set up](#step-2-set-up-the-source-environment) the configuration server.
 
-    ![Add process server](./media/site-recovery-vmware-to-azure/add-ps1.png)
-6. In **Configuration Server Details**, specify the IP address of the configuration server, and the passphrase. To obtain the passphrase, run **<SiteRecoveryInstallationFolder>\home\sysystems\bin\genpassphrase.exe –n** on the configuration server.
+    ![Screenshot of Azure Site Recovery Unified Setup wizard](./media/site-recovery-vmware-to-azure/add-ps1.png)
+6. In **Configuration Server Details**, specify the IP address of the configuration server, and the passphrase. To obtain the passphrase, run **[SiteRecoveryInstallationFolder]\home\sysystems\bin\genpassphrase.exe –n** on the configuration server.
 
-    ![Add process server](./media/site-recovery-vmware-to-azure/add-ps2.png)
+    ![Screenshot of Configuration Server Details page](./media/site-recovery-vmware-to-azure/add-ps2.png)
 
 ### Migrate machines to use the new process server
 1. In **Settings** > **Site Recovery servers**, click the configuration server, and then expand **Process servers**.
 
-    ![Update process server](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
+    ![Screenshot of Process Server dialog box](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 2. Right-click the process server currently in use, and click **Switch**.
 
-    ![Update process server](./media/site-recovery-vmware-to-azure/migrate-ps3.png)
-3. In **Select target process server**, select the new process server you want to use, and then select the virtual machines that the new process server will handle. Click the information icon to get information about the server. To help you make load decisions, the average space that's needed to replicate each selected virtual machine to the new process server is displayed. Click the check mark to start replicating to the new process server.
+    ![Screenshot of Configuration server dialog box](./media/site-recovery-vmware-to-azure/migrate-ps3.png)
+3. In **Select target process server**, select the new process server you want to use, and then select the virtual machines that the server will handle. Click the information icon to get information about the server. To help you make load decisions, the average space that's needed to replicate each selected virtual machine to the new process server is displayed. Click the check mark to start replicating to the new process server.
 
 
 
