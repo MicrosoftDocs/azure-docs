@@ -34,7 +34,6 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 2. Create an SSH public and private key pair for Linux VMs by completing the steps in the [Create an SSH public and private key pair for Linux VMs](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 3. From a command shell, login with the command `az login` and select the subscription you're using.
 4. Create the VM by executing the script that follows on a Linux or Mac computer. The script creates a resource group, one virtual network (VNet), one NIC with three IP configurations, and a VM with the two NICs attached to it. The NIC, public IP address, virtual network, and VM resources must all exist in the same location and subscription. Though the resources don't all have to exist in the same resource group, in the following script they do.
-
 	```azurecli
 	#!/bin/sh
 
@@ -148,7 +147,6 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 	--admin-username $Username \
 	--ssh-key-value $SshKeyValue
 	```
-
 	In addition to creating a VM with a NIC with 3 IP configurations, the script creates:
 
 	- A single premium managed disk by default, but you have other options for the disk type you can create. Read the [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article for details.
@@ -209,7 +207,6 @@ You can add additional private and public IP addresses to an existing NIC by com
 		```
 
 		Returned output:
-
 		```azurecli
 		Name        PublicIpAddressId
 		--------    ------------------------------------------------------------------------------------------------------------

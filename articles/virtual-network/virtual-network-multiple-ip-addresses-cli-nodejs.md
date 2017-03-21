@@ -148,7 +148,6 @@ You can add additional private and public IP addresses to an existing NIC by com
 			```
 
 			Look for a line similar to the one that follows for IPConfig-3 in the returned output:
-
 			```azurecli
 			Name               Provisioning state  Primary  Private IP allocation  Private IP version  Private IP address  Subnet    Public IP
 			-----------------  ------------------  -------  ---------------------  ------------------  ------------------  --------  -----------
