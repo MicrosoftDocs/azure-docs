@@ -21,7 +21,7 @@ ms.author: larryfr
 
 Learn how to use Apache Storm on HDInsight to process sensor data from Azure Event Hub. The data is then stored into Apache HBase on HDInsight, and visualized using D3.js.
 
-The Azure Resource Manager template used in this document demonstrates how to create multiple Azure resources in a resource group. The template creates an Azure Virtual Network, two HDInsight clusters (Storm and HBase,) and an Azure Web App. A node.js implementation of a real-time web dashboard is automatically deployed to the web app.
+The Azure Resource Manager template used in this document demonstrates how to create multiple Azure resources in a resource group. The template creates a Azure Virtual Network, two HDInsight clusters (Storm and HBase) and an Azure Web App. A node.js implementation of a real-time web dashboard is automatically deployed to the web app.
 
 > [!NOTE]
 > The information in this document and example in this document require HDInsight version 3.5.
@@ -35,7 +35,7 @@ The Azure Resource Manager template used in this document demonstrates how to cr
   > [!IMPORTANT]
   > You do not need an existing HDInsight cluster. The steps in this document create the following resources:
   > 
-  > * An Azure Virtual Network
+  > * A Azure Virtual Network
   > * A Storm on HDInsight cluster (Linux-based, two worker nodes)
   > * An HBase on HDInsight cluster (Linux-based, two worker nodes)
   > * An Azure Web App that hosts the web dashboard
@@ -60,7 +60,7 @@ The Azure Resource Manager template used in this document demonstrates how to cr
 This example consists of the following components:
 
 * **Azure Event Hubs**: Contains data that is collected from sensors.
-* **Storm on HDInsight**: Provides real time processing of data from Event Hub.
+* **Storm on HDInsight**: Provides real-time processing of data from Event Hub.
 * **HBase on HDInsight**: Provides a persistent NoSQL data store for data after it has been processed by Storm.
 * **Azure Virtual Network service**: Enables secure communications between the Storm on HDInsight and HBase on HDInsight clusters.
   
@@ -70,7 +70,7 @@ This example consists of the following components:
 * **Dashboard website**: An example dashboard that charts data in real time.
   
   * The website is implemented in Node.js, so it can run on any client operating system for testing, or it can be deployed to Azure Websites.
-  * [Socket.io](http://socket.io/) is used for real time communication between the Storm topology and the website.
+  * [Socket.io](http://socket.io/) is used for real-time communication between the Storm topology and the website.
     
     > [!NOTE]
     > Using Socket.io for communication is an implementation detail. You can use any communications framework, such as raw WebSockets or SignalR.
@@ -82,7 +82,7 @@ This example consists of the following components:
 
 The topology reads data from Event Hub by using the [org.apache.storm.eventhubs.spout.EventHubSpout](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/eventhubs/spout/class-use/EventHubSpout.html) class, and writes data into HBase using the [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/javadoc/apidocs/org/apache/storm/hbase/bolt/class-use/HBaseBolt.html) class. Communication with the website is accomplished by using [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java).
 
-The following is a diagram of the topology.
+The following diagram explains the layout of the topology:
 
 ![topology diagram](./media/hdinsight-storm-sensor-data-analysis/sensoranalysis.png)
 
@@ -100,7 +100,7 @@ The following is a diagram of the topology.
   > The Event Hub spout used in this example requires a Storm on HDInsight cluster version 3.3 or 3.4. For information on how to use Event Hubs with an older version of Storm on HDInsight, see [Process events from Azure Event Hubs with Storm on HDInsight](hdinsight-storm-develop-java-event-hub-topology.md).
 
 * **ParserBolt.java**: The data that is emitted by the spout is raw JSON, and occasionally more than one event is emitted at a time. This bolt demonstrates how to read the data emitted by the spout, and emit it to a new stream as a tuple that contains multiple fields.
-* **DashboardBolt.java**: This component demonstrates how to use the Socket.io client library for Java to send data in real-time to the web dashboard.
+* **DashboardBolt.java**: This component demonstrates how to use the Socket.io client library for Java to send data in real time to the web dashboard.
 * **Temperature.java**: This defines the topology and loads configuration data from the **Config.properties** file.
 
 ## Prepare your environment
@@ -168,8 +168,7 @@ Save the file after you add this information.
 Before testing, you must start the dashboard to view the output of the topology and generate data to store in Event Hub.
 
 > [!IMPORTANT]
-> The HBase component of this topology is not active when testing locally, as the Java API for the HBase cluster cannot be accessed from outside the Azure Virtual Network that contains the clusters.
-
+> The HBase component of this topology is not active when testing locally. This is because the Java API for the HBase cluster cannot be accessed from outside the Azure Virtual Network that contains the clusters.
 
 ### Start the web application
 
@@ -181,11 +180,11 @@ Before testing, you must start the dashboard to view the output of the topology 
    
         node server.js
    
-    You see a message similar to the following:
+    You see a message similar to the following text:
    
         Server listening at port 3000
 
-3. Open a web browser and enter **http://localhost:3000/** as the address. You should see a page similar to the following:
+3. Open a web browser and enter **http://localhost:3000/** as the address. You should see a page similar to the following image:
    
     ![web dashboard](./media/hdinsight-storm-sensor-data-analysis/emptydashboard.png)
    
@@ -196,7 +195,7 @@ Before testing, you must start the dashboard to view the output of the topology 
 > [!NOTE]
 > The steps in this section use Node.js so that they can be used on any platform. For other language examples, see the **SendEvents** directory.
 
-1. Open a new command prompt, shell, or terminal, and change directories to **hdinsight-eventhub-example/SendEvents/nodejs**, then use the following command to install the dependencies needed by the application:
+1. Open a new prompt, shell, or terminal, and change directories to **hdinsight-eventhub-example/SendEvents/nodejs**. To install the dependencies needed by the application, use the following command:
    
         npm install
 
@@ -283,7 +282,7 @@ Once the resources have been created, you are redirected to a blade for the reso
 ![Resource group blade for the vnet and clusters](./media/hdinsight-storm-sensor-data-analysis/groupblade.png)
 
 > [!IMPORTANT]
-> Notice that the names of the HDInsight clusters are **storm-BASENAME** and **hbase-BASENAME**, where BASENAME is the name you provided to the template. You use these names in a later step when connecting to the clusters. Also note that the name of the dashboard site is **basename-dashboard**. You use this when viewing the dashboard.
+> Notice that the names of the HDInsight clusters are **storm-BASENAME** and **hbase-BASENAME**, where BASENAME is the name you provided to the template. You use these names in a later step when connecting to the clusters. Also note that the name of the dashboard site is **basename-dashboard**. This value is used later in this document.
 
 ## Configure the Dashboard bolt
 
