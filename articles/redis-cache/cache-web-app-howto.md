@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/27/2017
+ms.date: 03/21/2017
 ms.author: sdanie
 
 ---
@@ -742,7 +742,7 @@ In this step of the tutorial, you'll publish the application to Azure and run it
 1. Right-click the **ContosoTeamStats** project in Visual Studio and choose **Publish**.
    
     ![Publish][cache-publish-app]
-2. Click **Microsoft Azure App Service**.
+2. Click **Microsoft Azure App Service**, choose **Select Existing**, and click **Publish**.
    
     ![Publish][cache-publish-to-app-service]
 3. Select the subscription used when creating the Azure resources, expand the resource group containing the resources, and select the desired Web App. If you used the **Deploy to Azure** button your Web App name starts with **webSite** followed by some additional characters.
