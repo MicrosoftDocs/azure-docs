@@ -1,14 +1,14 @@
 ---
-title: Azure Diagnostics Version History
+title: Azure Diagnostics version history | Microsoft Docs
 description: Explanation of changes in the different versions of Azure diagnostics as shipped with different Microsoft Azure SDKs versions.
 services: multiple
 documentationcenter: .net
 author: rboucher
-manager: jwhit
+manager: carmonm
 editor: ''
 
 ms.assetid: 0ae6738e-d3bf-4774-86bf-6e30a9d16c79
-ms.service: multiple
+ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -71,4 +71,3 @@ If you're upgrading your project from Azure SDK 2.4 to Azure SDK 2.5 or later, y
 * **Diagnostics for cloud service applications can only be configured at the role level, not at the instance level.**
 * **Every time you deploy your app, the diagnostics configuration is updated** – This can cause parity issues if you change your diagnostics configuration from Server Explorer and then redeploy your app.
 * **In Azure SDK 2.5 and later, crash dumps are configured in the diagnostics configuration file, not in code** – If you have crash dumps configured in code, you'll have to manually transfer the configuration from code to the configuration file, because the crash dumps aren't transferred during the migration to Azure SDK 2.6.
-

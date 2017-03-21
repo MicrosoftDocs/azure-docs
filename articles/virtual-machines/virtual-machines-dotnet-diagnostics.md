@@ -41,6 +41,7 @@ This walk through assumes you have an Azure subscription and are using Visual St
    ![CloudServices_diag_new_project](./media/virtual-machines-dotnet-diagnostics/NewProject.png)
 3. Replace the contents of Program.cs with the following code. The class **SampleEventSourceWriter** implements four logging methods: **SendEnums**, **MessageMethod**, **SetOther** and **HighFreq**. The first parameter to the WriteEvent method defines the ID for the respective event. The Run method implements an infinite loop that calls each of the logging methods implemented in the **SampleEventSourceWriter** class every 10 seconds.
 
+    ```csharp
      using System;
      using System.Diagnostics;
      using System.Diagnostics.Tracing;
@@ -48,56 +49,44 @@ This walk through assumes you have an Azure subscription and are using Visual St
 
      namespace WadExampleVM
      {
-     sealed class SampleEventSourceWriter : EventSource
-     {
-
+       sealed class SampleEventSourceWriter : EventSource {
          public static SampleEventSourceWriter Log = new SampleEventSourceWriter();
-         public void SendEnums(MyColor color, MyFlags flags) { if (IsEnabled())  WriteEvent(1, (int)color, (int)flags); }// Cast enums to int for efficient logging.
+         public void SendEnums(MyColor color, MyFlags flags) { if (IsEnabled())  WriteEvent(1, (int)color, (int)flags); } // Cast enums to int for efficient logging.
          public void MessageMethod(string Message) { if (IsEnabled())  WriteEvent(2, Message); }
          public void SetOther(bool flag, int myInt) { if (IsEnabled())  WriteEvent(3, flag, myInt); }
          public void HighFreq(int value) { if (IsEnabled()) WriteEvent(4, value); }
+       }
 
-     }
-
-     enum MyColor
-     {
-
+       enum MyColor {
          Red,
          Blue,
          Green
-     }
+       }
 
-     [Flags]
-     enum MyFlags
-     {
-
+       [Flags]
+       enum MyFlags {
          Flag1 = 1,
          Flag2 = 2,
          Flag3 = 4
-     }
+       }
 
-     class Program
-     {
-     static void Main(string[] args)
-     {
-
+       class Program
+       {
+         static void Main(string[] args) {
          Trace.TraceInformation("My application entry point called");
 
          int value = 0;
 
-         while (true)
-         {
+         while (true) {
              Thread.Sleep(10000);
              Trace.TraceInformation("Working");
 
              // Emit several events every time we go through the loop
-             for (int i = 0; i < 6; i++)
-             {
+             for (int i = 0; i < 6; i++) {
                  SampleEventSourceWriter.Log.SendEnums(MyColor.Blue, MyFlags.Flag2 | MyFlags.Flag3);
              }
 
-             for (int i = 0; i < 3; i++)
-             {
+             for (int i = 0; i < 3; i++) {
                  SampleEventSourceWriter.Log.MessageMethod("This is a message.");
                  SampleEventSourceWriter.Log.SetOther(true, 123456789);
              }
@@ -106,9 +95,10 @@ This walk through assumes you have an Azure subscription and are using Visual St
              SampleEventSourceWriter.Log.HighFreq(value++);
          }
 
+        }
+      }
      }
-     }
-     }
+     ```
 4. Save the file and select **Build Solution** from the **Build** menu to build your code.
 
 ### Step 3: Deploy your Application

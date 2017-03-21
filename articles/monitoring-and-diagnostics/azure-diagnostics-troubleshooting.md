@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 03/28/2017
 ms.author: robb
 
 ---
@@ -72,13 +72,13 @@ The most common cause of missing event data is incorrectly defined storage accou
 
 Solution: Correct your Diagnostics configuration file and reinstall Diagnostics.
 If the issue persists after reinstalling the diagnostics extension, then you may have to debug further by looking through any monitoring agent errors. Before event data is uploaded to your storage account, it is stored in the LocalResourceDirectory.
-This directory path varies. 
+This directory path varies.
 
 For Cloud Service Roles:
 
     C:\Resources\Directory\<CloudServiceDeploymentID>.<RoleName>.DiagnosticStore\WAD<DiagnosticsMajorandMinorVersion>\Tables
 
-For Virtual Machines: 
+For Virtual Machines:
 
     C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD<DiagnosticsMajorandMinorVersion>\Tables
 
