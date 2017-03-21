@@ -3,7 +3,7 @@ title: File share for Azure DC/OS cluster | Microsoft Docs
 description: Create and mount a file share to a DC/OS cluster in Azure Container Service
 services: container-service
 documentationcenter: ''
-author: juliens
+author: julienstroheker
 manager: dcaro
 editor: ''
 tags: acs, azure-container-service
@@ -30,15 +30,15 @@ Before working through this example, you need a DC/OS cluster that is configured
 1. Log in to the portal.
 2. Create a storage account.
    
-    ![Azure container service create Storage Account](media/container-service-dcos-fileshare/createSA.png)
+  ![Azure container service create Storage Account](media/container-service-dcos-fileshare/createSA.png)
 
 3. When it's created, click **Files** in the **Services** section.
    
-    ![Azure container service Files section](media/container-service-dcos-fileshare/filesServices.png)
+  ![Azure container service Files section](media/container-service-dcos-fileshare/filesServices.png)
 
 4. Click **+ File share** and enter a name for this new share (**Quota** is not mandatory).
    
-    ![Azure container service + File Share](media/container-service-dcos-fileshare/newFileShare.png)  
+  ![Azure container service + File Share](media/container-service-dcos-fileshare/newFileShare.png)  
 
 ### Using Azure CLI 2.0
 
@@ -65,7 +65,7 @@ az storage share create -n $DCOS_PERS_SHARE_NAME
 ## Mount the share in your cluster
 
 Next, we need to mount this share on every virtual machine inside your cluster using the cifs tool/protocol. 
-We do that with the following command line: ```mount -t cifs```.
+We do that with the following command line: `mount -t cifs`.
 
 Here is an example that uses:
 * Storage account name **`anystorageaccountname`**
@@ -76,61 +76,71 @@ Here is an example that uses:
 sudo mount -t cifs //anystorageaccountname.file.core.windows.net/demoshare /mnt/share/demoshare -o vers=3.0,username=anystorageaccountname,password=P/GuXXXuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqXXXX1w==,dir_mode=0777,file_mode=0777
 ```
 
-We will run this command on each virtual machine of our cluster (master and agent nodes). If you have a large number of agents, we recommend automating this process by creating scripts.
+We will run this command on each virtual machine of our cluster (master and agent nodes). If you have a large number of agents, we recommend automating this process by creating scripts.  
+
+### Set up scripts
 
 1. First, SSH to the master (or the first master) of your DC/OS-based cluster. For example, `ssh userName@masterFQDN –A –p 22`, where the masterFQDN is the fully qualified domain name of the master VM.
 
 2. Copy your private key to the working directory (~) on master.
 
-3. Change the permissions on it with the following command: ```chmod 600 yourPrivateKeyFile```.
+3. Change the permissions on it with the following command: `chmod 600 yourPrivateKeyFile`.
 
-4. Import your private key using the ```ssh-add yourPrivateKeyFile``` command. You may have to run ```eval ssh-agent -s``` if it doesn't work the first time.
+4. Import your private key using the `ssh-add yourPrivateKeyFile` command. You may have to run `eval ssh-agent -s` if it doesn't work the first time.
 
-5. From the master, create two files, using your favorite editor such as vi, nano or vim: 
-    * One with the script to execute on each VM, called **cifsMount.sh**  
-    * Another one to initiate all the ssh connections that will call the first script, called **mountShares.sh**
+5. From the master, create two files, using your favorite editor such as vi, nano, or vim: 
+  
+  * One with the script to execute on each VM, called **cifsMount.sh** 
+  * Another one to initiate all the ssh connections that will call the first script, called **mountShares.sh**
 
-    **cifsMount.sh**
-    ```bash
-    # Install the cifs utils, should be already installed
-    sudo apt-get update && sudo apt-get -y install cifs-utils
-    # Create the local folder that will contain our share
-    if [ ! -d "/mnt/share/demoshare" ]; then sudo mkdir -p "/mnt/share/demoshare" ; fi
-    # Mount the share under the previous local folder created
-    sudo mount -t cifs //anystorageaccountname.file.core.windows.net/demoshare /mnt/share/demoshare -o vers=3.0,username=anystorageaccountname,password=P/GuXXXuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqXXXX1w==,dir_mode=0777,file_mode=0777
-    ```
 
-    **mountShares.sh**
-    ```bash
-    # Install jq used for the next command
-    sudo apt-get install jq
+```bash
+# cifsMount.sh
 
-    # Create the local folder that will contain our share
-    if [ ! -d "/mnt/share/demoshare" ]; then sudo mkdir -p "/mnt/share/demoshare" ; fi
+# Install the cifs utils, should be already installed
+sudo apt-get update && sudo apt-get -y install cifs-utils
 
-    # Mount the share on the current vm (master)
-    sudo mount -t cifs //anystorageaccountname.file.core.windows.net/demoshare /mnt/share/demoshare -o vers=3.0,username=anystorageaccountname,password=P/GuXXXuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqXXXX1w==,dir_mode=0777,file_mode=0777
+# Create the local folder that will contain our share
+if [ ! -d "/mnt/share/demoshare" ]; then sudo mkdir -p "/mnt/share/demoshare" ; fi
 
-    # Get the IP address of each node using the mesos API and store it inside a file called nodes
-    curl http://leader.mesos:1050/system/health/v1/nodes | jq '.nodes[].host_ip' | sed 's/\"//g' | sed '/172/d' > nodes
+# Mount the share under the previous local folder created
+sudo mount -t cifs //anystorageaccountname.file.core.windows.net/demoshare /mnt/share/demoshare -o vers=3.0,username=anystorageaccountname,password=P/GuXXXuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqXXXX1w==,dir_mode=0777,file_mode=0777
+```
+  
+```bash
+# mountShares.sh
 
-    # From the previous file created, run our script to mount our share on each node
-    cat nodes | while read line
-    do
+# Install jq used for the next command
+sudo apt-get install jq
+
+# Create the local folder that will contain our share
+if [ ! -d "/mnt/share/demoshare" ]; then sudo mkdir -p "/mnt/share/demoshare" ; fi
+
+# Mount the share on the current vm (master)
+sudo mount -t cifs //anystorageaccountname.file.core.windows.net/demoshare /mnt/share/demoshare -o vers=3.0,username=anystorageaccountname,password=P/GuXXXuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqXXXX1w==,dir_mode=0777,file_mode=0777
+
+# Get the IP address of each node using the mesos API and store it inside a file called nodes
+curl http://leader.mesos:1050/system/health/v1/nodes | jq '.nodes[].host_ip' | sed 's/\"//g' | sed '/172/d' > nodes
+  
+# From the previous file created, run our script to mount our share on each node
+cat nodes | while read line
+  do
     ssh `whoami`@$line -o StrictHostKeyChecking=no -i yourPrivateKeyFile < ./cifsMount.sh
     done
-    ```
+```  
+> [!IMPORTANT]
+> You have to change the **'mount'** command with your own settings such as the name of your storage account and the password.
+>  
 
-    > [!IMPORTANT]
-    > You have to change the **'mount'** command with your own settings such as the name of your storage account and the password.
+The folder where you created the previous scripts should now have 3 files:  
 
-6. The folder where you created the previous scripts should now have 3 files:
+* **cifsMount.sh**
+* **mountShares.sh**
+* **yourPrivateKeyFile** 
 
-    * **cifsMount.sh**
-    * **mountShares.sh**
-    * **yourPrivateKeyFile**
+### Run the scripts
 
-7. Execute the **mountShares.sh** file with the following command: ```sh mountShares.sh```.
+Execute the **mountShares.sh** file with the following command: `sh mountShares.sh`.
 
 You should see the result printing in the terminal. After the scripts complete, you can use the file share in your cluster.
 

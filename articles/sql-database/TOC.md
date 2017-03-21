@@ -5,11 +5,10 @@
 ## [Create DB - Portal](sql-database-get-started-portal.md)
 ## [Create DB - Azure CLI](sql-database-get-started-cli.md)
 ## [Create DB - PowerShell](sql-database-get-started-powershell.md)
-## Manage
-### [Connect - SSMS](sql-database-connect-query-ssms.md)
-### [Connect - VS Code](sql-database-connect-query-vscode.md)
-## Develop
-### [Connect - C#](sql-database-connect-query-dotnet.md)
+## Connect
+### [SSMS](sql-database-connect-query-ssms.md)
+### [VS Code](sql-database-connect-query-vscode.md)
+### [C#](sql-database-connect-query-dotnet.md)
 # Samples
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
