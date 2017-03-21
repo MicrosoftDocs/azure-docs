@@ -1,11 +1,11 @@
-# Create effective Office Store apps and add-ins
+# Create effective Office Store listings
 
-The information and images you submit to the Seller Dashboard with your app or add-in becomes the Office Store listing for it. This information is the first thing prospective users see, and creates their first impression. Make sure that the information you submit — including your title, description, logos, and screenshots — clearly communicates the benefits and functionality that your solution provides.
+The information and images you submit to the Seller Dashboard becomes the Office Store listing for your solution. This information is the first thing prospective users see, and creates their first impression. Make sure that the information you submit — including your title, description, logos, and screenshots — clearly communicates the benefits and functionality that your solution provides.
 
 Apply the following when you create your title, description, and images:
 
-- Describe what your solution can do for customers. Answer the question:  *What problem does this app solve?* 
-- Use unique logos for each app or add-in.
+- Describe what your solution can do for customers. Answer the question:  *What problem does this solution solve?* 
+- Use unique logos for each submission.
 - Include screenshots that show off your UI. Be sure to remove any personal information from your screenshots.
 - If you update your functionality, update your description too.
 - Use a customer-friendly voice. Be concise and use natural language.
@@ -15,15 +15,15 @@ Apply the following when you create your title, description, and images:
 ## Use a succinct and descriptive title
 <a name="bk_name"> </a>
 
-Create a simple and direct add-in title. The shorter the title the better. Remember, the length of the title that is displayed can depend on how the user sizes the window. Include your brand or company name if users are likely to use it to search for your add-in.
+Create a simple and direct title. The shorter the title the better. Remember, the length of the title that is displayed can depend on how the user sizes the window. Include your brand or company name if users are likely to use it to search for your solution.
 
 In your title:
 
 
-- Make the purpose or benefits of your add-in clear. Don't rely on your brand to communicate what your add-in does. 
+- Make the purpose or benefits of your solution clear. Don't rely on your brand to communicate what your solution does. 
 - Use the following naming pattern: Function + for + brand or company name (optional). For example, Small Business Invoicing for Contoso.
 - Use title case. Capitalize the first letter of each word, except articles and prepositions. For example, Apartment Search for Contoso.
-- Don't include the Microsoft product name your app or add-in works with. This will appear on your landing page in the Office Store, and in Office Store search results.
+- Don't include the Microsoft product name. This will appear on your landing page in the Office Store, and in Office Store search results.
 - Avoid acronyms that might be unfamiliar to potential users. 
 - Don't use all uppercase letters, unless your brand name is all uppercase.
 - Don't use the words "free" or "sale" or include exclamation points.
@@ -40,11 +40,11 @@ You specify your add-in name in two places - be sure to use the same name in bot
 ## Write compelling descriptions
 <a name="bk_describe"> </a>
 
-A good description makes your app or add-in stand out. Your short description should entice potential users to learn more. Your long description, which appears on the Office Store landing page, should provide more detail about your app or add-in and its value.
+A good description makes your solution stand out. Your short description should entice potential users to learn more. Your long description, which appears on the Office Store landing page, should provide more detail about your solution and its value.
 
 ### Effective short descriptions
 
-The short description you supply with your submission is the text that is shown to users in Office Store search results. You want it to be original, engaging, and directed at your target audience. Describe your app or add-in and its value to your target customer, in one or two sentences:
+The short description you supply with your submission is the text that is shown to users in Office Store search results. You want it to be original, engaging, and directed at your target audience. Describe your solution and its value to your target customer, in one or two sentences:
 
 - Put the most important information first.
 - Do not repeat the title.
@@ -55,24 +55,24 @@ The short description you supply with your submission is the text that is shown 
 
 ### Effective long descriptions
 
-The long description is displayed on your landing page in the Office Store. It should match the description in your add-in manifest as closely as possible. You have room for a more detailed description, including the main features, the problems it solves, and the target audience for your app or add-in. Be sure to include popular search keywords. The Office.com search engine will pick these up in search query return sets.
+The long description is displayed on your landing page in the Office Store. It should match the description in your manifest as closely as possible. You have room for a more detailed description, including the main features, the problems it solves, and the target audience for your solution. Be sure to include popular search keywords. The Office.com search engine will pick these up in search query return sets.
 
 In your long description, answer the following questions:
 
 
-- How does your app or add-in benefit its user?
-- What is special about your app or add-in?
-- What are different ways someone could use your app or add-in?
-- What industries or specialists would use your app or add-in?
+- How does your solution benefit its user?
+- What is special about it?
+- What are different ways someone could use your it?
+- What industries or specialists would use it?
 Most users will read between 300 and 500 words. The maximum length for long descriptions is 4,000 characters.
 
 You might want to list features to aid readers scanning your description. To create a bulleted list in the Seller Dashboard, use the following formatting: 
 
-Add-in Features:
+Features:
 
-[#LI] First add-in feature[/#LI]
+[#LI] First feature[/#LI]
 
-[#LI] Second add-in feature[/#LI]
+[#LI] Second feature[/#LI]
 
 
 ## Apply guidelines for title and description length
@@ -85,17 +85,17 @@ Add-in Features:
 |Short description|100 characters|70 characters|First 30 characters|
 |Long description|4,000 characters|300-500 characters|First 300 characters|
 
-## Create a consistent visual identity for your app or add-in
+## Create a consistent visual identity 
 <a name="bk_images"> </a>
 
-Your name and description can be powerful tools to draw in potential customers. You also want to present a unified visual identity for your app or add-in. The logo you use is important. Two files represent your logo. To present a consistent logo, both images should be of the same logo or icon. This way, the user sees the same logo in the Office Store and when the add-in is displayed in Office or SharePoint. The two images have different formatting requirements.
+Your name and description can be powerful tools to draw in potential customers. You also want to present a unified visual identity for your solution. The logo you use is important. Two files represent your logo. To present a consistent logo, both images should be of the same logo or icon. This way, the user sees the same logo in the Office Store and when the solution is displayed in Office or SharePoint. The two images have different formatting requirements.
 
 Your logo should:
 
 
-- Convey how your add-in helps the customer get work done.
+- Convey how your solution helps the customer get work done.
 - Use simple imagery. Don't clutter or complicate your image.
-- Communicate the problem that the add-in solves. Don't rely on your company logo for your image.
+- Communicate the problem that the solution solves. Don't rely on your company logo for your image.
 
 ![An image that shows a clear logo with an Excel chart next to an unclear Fabrikam logo](../images/d8de904b-0047-41fb-b83c-4e116a486a76.PNG)
 
@@ -125,10 +125,10 @@ For SharePoint Add-ins, you have to include an icon in the add-in's package. The
 ## Use screenshots effectively
 <a name="bk_screenshots"> </a>
 
-Make your screenshots rich and informative. Help customers understand how your add-in solves problems and helps them get work done more effectively. In your screenshots:
+Make your screenshots rich and informative. Help customers understand how your solution solves problems and helps them get work done more effectively. In your screenshots:
 
 
-- Focus on your add-in. Don't show large areas of empty screen.
+- Focus on your solution. Don't show large areas of empty screen.
 - Show real content rather than an empty document.
 - Use captions and callouts to clarify features.
 
@@ -149,7 +149,7 @@ Good ratings and reviews lead to better store placement and improved customer pe
 ## Respond to customer reviews in the Office Store
 <a name="bk_ratings"> </a>
 
-You can use the comment feature in the Office Store to respond to customer reviews of your app or add-in - for example, customer reviews that indicate that a user had trouble with installation, was confused about features or functionality, or had compatibility issues. If you're signed in to the Office Store with the same account that you used to submit your app or add-in via the Seller Dashboard, your response to the customer review will be tagged with an "App provider" label.
+You can use the comment feature in the Office Store to respond to customer reviews of your solution - for example, customer reviews that indicate that a user had trouble with installation, was confused about features or functionality, or had compatibility issues. If you're signed in to the Office Store with the same account that you used to submit your app or add-in via the Seller Dashboard, your response to the customer review will be tagged with an "App provider" label.
 
 ![Screenshot that shows a developer response to a comment with the App provider label under the name](../images/7f710930-4ecd-4b28-b55d-8507a928995b.PNG)
  
@@ -183,5 +183,5 @@ If you're creating ad-supported apps or add-ins, apply the following guidelines:
 ## Additional resources
 <a name="bk_addresources"> </a>
 
--  [Use the Seller Dashboard to submit apps and add-ins to the Office Store](use-the-seller-dashboard-to-submit-apps-and-add-ins-to-the-office-store.md)
+-  [Use the Seller Dashboard to submit your solution to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md)
 -  [Validation policies](validation-policies.md)

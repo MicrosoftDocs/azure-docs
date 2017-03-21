@@ -1,17 +1,17 @@
-# Update, unpublish, and view app and add-in metrics in the Seller Dashboard
+# Update, unpublish, and view metrics in the Seller Dashboard
 
-After you submit your apps or add-ins to the Seller Dashboard, you might want to update them or remove (unpublish) them from Office Store listings. You can also delete your apps or add-ins from the Seller Dashboard. You can use metrics in the Seller Dashboard to evaluate how your apps and add-ins are performing.
+After you submit your solution to the Seller Dashboard, you might want to update them or remove (unpublish) them from Office Store listings. You can also delete your submissions from the Seller Dashboard. You can use metrics in the Seller Dashboard to evaluate how your solutions are performing.
  
 
 
-## Update your app or add-in
+## Update your submission
 <a name="BKMK_Edit"> </a>
 
-You can edit your saved draft and approved apps or add-ins in the Seller Dashboard. You cannot edit an item that has a  **pending approval** status. Approved items that you edit will go through the approval process again.
+You can edit your saved draft and approved submissions in the Seller Dashboard. You cannot edit an item that has a  **pending approval** status. Approved items that you edit will go through the approval process again.
  
 
  
-To update your app or add-in:
+To update your submission:
  
 
  
@@ -22,9 +22,9 @@ To update your app or add-in:
 2. On the  **Manage** tab, choose the item you want to edit.
     
  
-3. On the summary page, if you want to edit a draft item, choose  **EDIT DRAFT**. If you're editing an approved app or add-in, choose  **EDIT LISTING**.
+3. On the summary page, if you want to edit a draft item, choose  **EDIT DRAFT**. If you're editing an approved item, choose  **EDIT LISTING**.
     
-     >**Note:**  If you edit an approved app or add-in and submit it, it will go through the approval process again. 
+     >**Note:**  If you edit an approved item and submit it, it will go through the approval process again. 
 4. In the  **EDIT APP** wizard, make the changes that you want.
     
  
@@ -32,10 +32,10 @@ To update your app or add-in:
     
  
 
-## Unpublish your app or add-in from Office Store listings
+## Unpublish your submission from Office Store listings
 <a name="BKMK_delist"> </a>
 
-When you unpublish an app or add-in, the system removes it from Office Store listings within a few days.
+When you unpublish a submission, the system removes it from Office Store listings within a few days.
  
 
  
@@ -50,10 +50,10 @@ When you unpublish an app or add-in, the system removes it from Office Store lis
     
  
 
-## Delete your app or add-in from the Seller Dashboard
+## Delete your submission from the Seller Dashboard
 <a name="BKMK_delete"> </a>
 
-You can delete draft submissions or items that you have unpublished. You cannot delete apps or add-ins that are published in a store or that are  **pending approval**. 
+You can delete draft submissions or items that you have unpublished. You cannot delete submissions that are published in a store or that are  **pending approval**. 
  
 
  
@@ -74,7 +74,7 @@ You can delete draft submissions or items that you have unpublished. You cannot 
 ## View metrics
 <a name="BKMK_Metrics"> </a>
 
-After your app or add-in is approved and listed in the Office Store, you can view up to four weeks of data for it on the  **Metrics** page in the Seller Dashboard, including:
+After your submission approved and listed in the Office Store, you can view up to four weeks of data for it on the  **Metrics** page in the Seller Dashboard, including:
  
 
  
@@ -82,19 +82,19 @@ After your app or add-in is approved and listed in the Office Store, you can vie
 -  **Browser hits** - The number of times you listing has been viewed in the Office Store.
     
  
--  **Downloads** - The number of times the app or add-in has been downloaded from the Office Store.
+-  **Downloads** - The number of times the solution has been downloaded from the Office Store.
     
  
--  **Trial downloads** - The number of times the app or add-in has been acquired for free from the Office Store.
+-  **Trial downloads** - The number of times the solution has been acquired for free from the Office Store.
     
  
 -  **Trial conversions** - The number of times a customer who acquired a trial made a purchase.
     
  
--  **Purchased seats** - The number of seats that have been purchased for your app or add-in.
+-  **Purchased seats** - The number of seats that have been purchased.
     
  
--  **Purchased site licenses** - The number of site licenses that have been purchased for your app or add-in.
+-  **Purchased site licenses** - The number of site licenses that have been purchased.
     
  
 For SharePoint Add-ins installed on SharePoint 2013, the metrics page also shows the following usage information:
@@ -141,7 +141,7 @@ To view metrics:
 3. Choose an item to view the metrics for that item.
     
  
-To view the sales that your apps and add-ins generated on a per country (or region) per currency basis:
+To view the sales that your solutions generated on a per country (or region) per currency basis:
  
 
  

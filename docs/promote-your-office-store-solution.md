@@ -1,7 +1,7 @@
-# Promote your Office or SharePoint Add-in or Office 365 web app
+# Promote your Office Store solution
 
 
-After you submit your app or add-in to the Seller Dashboard and it is approved for addition to the Office Store, you might want to brand it as an Office Store app or add-in on your webpage. You can use the Office Store badges to promote your app or add-in and drive traffic from your site to the store. To do so:
+After you submit your solution to the Seller Dashboard and it is approved for addition to the Office Store, you might want to brand it as an Office Store solution on your webpage. You can use the Office Store badges to promote your solution and drive traffic from your site to the store. To do so:
  
 
 
@@ -45,7 +45,7 @@ If you need a localized version of the badge, [contact us](http://officespdev.us
 
 ## Link to the Office Store from your site
 
-When you link from the Office Store badge on your site to your app or add-in in the Office Store, include the following query parameters at the end of the URL:
+When you link from the Office Store badge on your site to your listing in the Office Store, include the following query parameters at the end of the URL:
  
 
  
@@ -120,7 +120,7 @@ The value that is sent to the document is the value of the  _mktcmpid_ parameter
 <a name="bk_addresources"> </a>
 
 
--  [Submit Office and SharePoint Add-ins and Office 365 web apps to the Office Store](ssubmit-add-ins-and-web-apps-to-the-office-store.md) 
+-  [Submit solutions to the Office Store](ssubmit-to-the-office-store.md) 
 -  [Office Add-ins](https://dev.office.com/docs/add-ins/overview/office-add-ins)  
 -  [SharePoint Add-ins](http://msdn.microsoft.com/library/sharepoint-add-ins%28Office.15%29.aspx)
     

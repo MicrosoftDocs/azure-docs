@@ -1,4 +1,4 @@
-# Office Store app and add-in submission FAQ
+# Office Store submission FAQ
 
 
 For the most current version of the validation policies, see  [Validation policies for apps and add-ins submitted to the Office Store](validation-policies.md).
@@ -62,10 +62,10 @@ To avoid common submission errors:
     
  
 
-## If I make updates to my app or add-in, when do I have to resubmit it to the Office Store?
+## If I make updates to my submission, when do I have to resubmit it to the Office Store?
 <a name="bk_q3"> </a>
 
-If you make updates to the web service for your add-in, you do not have to resubmit it to the Office Store. However, if you make changes to any items or data you submitted for your app or add-in via the Seller Dashboard, such as the manifest, screenshots, icons, or submission form data, you'll need to resubmit so that the Office Store can implement those changes. You must resubmit add-ins with an updated manifest that includes a new version number. You must also make sure to update the version number in the submission form to match the version number of the new manifest.
+If you make updates to the web service for your add-in, you do not have to resubmit it to the Office Store. However, if you make changes to any items or data you submitted via the Seller Dashboard, such as the manifest, screenshots, icons, or submission form data, you'll need to resubmit so that the Office Store can implement those changes. You must resubmit add-ins with an updated manifest that includes a new version number. You must also make sure to update the version number in the submission form to match the version number of the new manifest.
  
 
  
@@ -81,7 +81,7 @@ The following is the update process for Office Add-ins:
 - You submit your revised add-in and add-in manifest to the Office Store via the  [Seller Dashboard](https://sellerdashboard.microsoft.com/Application/Summary). The revised add-in goes through the validation process, and when approved, is made available in the store.
     
  
-- You can choose to continue to offer the previous version of your add-in in the store, or you can unpublish the previous version via the Seller Dashboard. For details, see  [Update, unpublish, and view app and add-in metrics in the Seller Dashboard](update-unpublish-and-view-app-and-add-in-metrics.md).
+- You can choose to continue to offer the previous version of your add-in in the store, or you can unpublish the previous version via the Seller Dashboard. For details, see  [Update, unpublish, and view metrics in the Seller Dashboard](update-unpublish-and-view-metrics.md).
     
  
 - When an existing customer launches the updated add-in for the first time, a notification appears either in the task pane or the body of the document that prompts the user to update their add-in. When the user chooses  **Update**, the latest version of the add-in launches.

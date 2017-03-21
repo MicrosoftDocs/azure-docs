@@ -1,4 +1,4 @@
-# Upload your add-in package
+# Upload your submission package
 
 On the Overview page in the Seller Dashboard, under **App package**, you upload your manifest. The upload process varies based on your submission type.
 
@@ -38,3 +38,16 @@ Under **App registration**:
     - Azure Active Directory China - Use for web apps created with Office 365 in China.
     - Microsoft account - Not currently available.
     - Microsoft account + Azure Active Directory Global – Use for web apps that support MSA and OrgID accounts 
+
+## Upload a Power BI custom visual    
+
+To submit a Power BI custom visual, send an email to the Power BI custom visuals submission team at [pbivizsubmit@microsoft.com](mailto:pbivizsubmit@microsoft.com). Attach the following to your email:
+
+- The .pbiviz file 
+- The sample report .pbix file
+
+The Power BI team will reply back with instructions and a manifest XML file to upload. This XML manifest is required in order to submit your custom visual to the Office Store.
+
+>**Note:** To help ensure quality and make sure that existing reports do not break, updates to existing custom visuals will take approximately two weeks to reach the general public after approval. 
+
+For more details about submitting Power BI custom visuals, see [Publish custom visuals to the Office store](https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-office-store/).

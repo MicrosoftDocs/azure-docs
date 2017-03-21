@@ -2,11 +2,11 @@
 
 You enter the Store listing information for your app or add-in on the Details page in the Seller Dashboard. Your Store listing is where you communicate to customers what your app or add-in does and how it can provide value to them. The details are specified per language. You can add multiple languages and localize the following information for each language. 
 
->**Note:** We recommend that you follow the guidelines in [Create effective Office Store apps and add-ins](create-effective-office-store-apps-and-add-ins.md) when you create your Office Store listing.
+>**Note:** We recommend that you follow the guidelines in [Create effective Office Store listings](create-effective-office-store-listings.md) when you create your Office Store listing.
 
 
 ## App name
-In the **App name** field, specify the app or add-in title that will be displayed in the Store. For guidance for titles, see [Use a succinct and descriptive title](create-effective-office-store-apps-and-add-ins#use-a-succinct-and-descriptive-title).
+In the **App name** field, specify the app or add-in title that will be displayed in the Store. For guidance for titles, see [Use a succinct and descriptive title](create-effective-office-store-listings#use-a-succinct-and-descriptive-title).
 
 ## Short description and long description
 
@@ -20,7 +20,7 @@ Both the short description and long description appear in the Office Store listi
 |Short description|100 characters|70 characters|First 30 characters|
 |Long description|4,000 characters|300-500 characters|First 300 characters|
 
-For additional guidance for descriptions, see [Write compelling descriptions](create-effective-office-store-apps-and-add-ins#write-compelling-descriptions).
+For additional guidance for descriptions, see [Write compelling descriptions](create-effective-office-store-listings#write-compelling-descriptions).
 
 ## Screenshots
 
@@ -28,7 +28,7 @@ Your screenshots appear on the Store app or add-in details page and can help dra
 
 Choose **Primary** to upload at least one screenshot. You can upload up to five images. Each screenshot must have the file extension .png, .jpg, .jpeg, or .gif, must be exactly 512 pixels wide and 384 pixels high, and be no larger than 300 KB.
 
-For guidance for creating compelling screenshots, see [Use screenshots effectively](create-effective-office-store-apps-and-add-ins#use-screenshots-effectively).
+For guidance for creating compelling screenshots, see [Use screenshots effectively](create-effective-office-store-listings#use-screenshots-effectively).
  
 ## Regional availability
 

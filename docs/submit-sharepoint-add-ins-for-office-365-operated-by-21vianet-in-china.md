@@ -29,7 +29,7 @@ If you only wish to distribute your add-in to Chinese users of Office 365 operat
 <a name="bk_addresources"> </a>
 
 
--  [Use the Seller Dashboard to submit apps and add-ins to the Office Store](use-the-seller-dashboard-to-submit-apps-and-add-ins-to-the-office-store.md)
+-  [Submit to the Seller Dashboard](use-the-seller-dashboard-to-submit-to-the-office-store.md)
 -  [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md)
 -  [Validation policies](validation-policies.md)
     

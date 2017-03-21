@@ -23,7 +23,7 @@ When you submit an app or add-in to the Office Store via the Seller Dashboard, o
 |Subscription|The user can download and use for a recurring monthly fee. Subscription apps or add-ins are offered on a monthly automatic renewal basis only. Users have to manually cancel their subscriptions|
 For details about requirements for advertising and offering features or content for purchase within your add-in or add-in, see sections 2 and 3 of the  [Validation policies](validation-policies.md).
  
-
+>**Note:** Power BI custom visuals in the Office Store can only be free.
  
 
 ## Setting the price
@@ -83,7 +83,7 @@ The following table lists the options that are available for monetizing for your
 
 |**Free**|**One-time charge or monthly subscription**|
 |:-----|:-----|
-| Include custom licensing behavior?<ul><li>Implement custom code to perform [licensing checks](http://msdn.microsoft.com/en-us/library/office/apps/jj163257.aspx).</li></ul>Include ads?<ul><li>Implement custom code to [Create effective ad-supported apps and add-ins](create-effective-office-store-apps-and-add-ins.md#bk_ads).</li></ul>Include purchases?<ul><li>Implement custom code to support those features. Be sure to comply with the [Validation policies for apps and add-ins submitted to the Office Store](validation-policies.md).</li></ul> | Set price per user.<br></br>Offer site license? (SharePoint Add-ins only)<ul><li>Set price threshold.</li></ul>Offer add-in as a trial?<ul><li>Set trial duration.</li><li>Set user limit (SharePoint Add-ins only).</li></ul>Include custom licensing behavior?<ul><li>Implement custom code to perform [licensing checks](http://msdn.microsoft.com/en-us/library/office/apps/jj163257.aspx).</li></ul>Include ads?<ul><li>Implement custom code to [create effective ad-supported apps and add-ins](create-effective-office-store-apps-and-add-ins.md#bk_ads).</li></ul>Include purchases?<ul><li>Implement custom code to support those features. Be sure to comply with the [validation policies](validation-policies.md).</li></ul>|
+| Include custom licensing behavior?<ul><li>Implement custom code to perform [licensing checks](http://msdn.microsoft.com/en-us/library/office/apps/jj163257.aspx).</li></ul>Include ads?<ul><li>Implement custom code to [Create effective ad-supported apps and add-ins](create-effective-office-store-listings.md#bk_ads).</li></ul>Include purchases?<ul><li>Implement custom code to support those features. Be sure to comply with the [Validation policies for apps and add-ins submitted to the Office Store](validation-policies.md).</li></ul> | Set price per user.<br></br>Offer site license? (SharePoint Add-ins only)<ul><li>Set price threshold.</li></ul>Offer add-in as a trial?<ul><li>Set trial duration.</li><li>Set user limit (SharePoint Add-ins only).</li></ul>Include custom licensing behavior?<ul><li>Implement custom code to perform [licensing checks](http://msdn.microsoft.com/en-us/library/office/apps/jj163257.aspx).</li></ul>Include ads?<ul><li>Implement custom code to [create effective ad-supported apps and add-ins](create-effective-office-store-listings.md#bk_ads).</li></ul>Include purchases?<ul><li>Implement custom code to support those features. Be sure to comply with the [validation policies](validation-policies.md).</li></ul>|
 
 ## Hosting your apps or add-ins on Microsoft Azure
 
