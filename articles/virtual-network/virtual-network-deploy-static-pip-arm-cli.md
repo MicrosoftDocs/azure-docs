@@ -105,11 +105,10 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
     # https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes article.
     VmSize="Standard_DS1"
     
-    # Replace the value for the OsImage variable value with a value for *urn* from the output returned by entering the
-    # `az vm image list` command. 
+    # Replace the value for the OsImage variable with a value for *urn* from the output returned by entering
+    # the `az vm image list` command. 
     
     OsImage="credativ:Debian:8:latest"
-    
     Username='adminuser'
     
     # Replace the following value with the path to your public key file.
@@ -123,9 +122,8 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
     --size $VmSize \
     --nics $NicName \
     --admin-username $Username
-    
-    # If creating a Windows VM, remove the next line and you'll be prompted for the password you want to configure for the VM.
     --ssh-key-value $SshKeyValue
+    # If creating a Windows VM, remove the previous line and you'll be prompted for the password you want to configure for the VM.
     ```
 
 In addition to creating a VM, the script creates:
