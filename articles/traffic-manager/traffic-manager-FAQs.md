@@ -63,6 +63,31 @@ To work around this issue, we recommend using an HTTP redirect to direct traffic
 
 Full support for naked domains in Traffic Manager is tracked in our feature backlog. You can register your support for this feature request by [voting for it on our community feedback site](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
 
+
+## Traffic Manager Geographic traffic routing method
+
+### What are some use cases where geographic routing is useful? 
+Geographic routing type can used in any scenario where an Azure customer needs to distinguish their users based on geographic regions. An example of this is to give users from specific regions a different user experience than those from other regions. Another example is complying with local data sovereignty mandates that require that users from a specific region be served only by endpoints in that region.
+
+### What are the regions that are supported by Traffic Manager for geographic routing? 
+The region classification and hierarchy that is used by Traffic Manager can be found [here](traffic-manager-geographic-regions.md) . While this page will be kept up to date with any changes, you can also programmatically retrieve the same information by using the ARM API. 
+
+### How does traffic manager determine where a user is querying from? 
+Traffic Manager looks at the source IP of the query (this most likely will be a local DNS resolver doing the querying on behalf of the user) and uses an internal IP to region map to determine the location. This map is updated on an ongoing basis to account for changes in the internet. 
+
+###  Does an endpoint need to be physically located in the same region as the one it is configured with for geographic routing? 
+No, the location of the endpoint imposes no restrictions on which regions can be mapped to it. For example, an endpoint in US-Central Azure region can have all users from India directed to it.
+
+### Can I assign geographic regions to endpoints in a profile that is not configured to do geographic routing? 
+Yes, you can assign geographic regions to endpoints in any Traffic Manager profile. In the case of non-geographic routing type profiles, this configuration will be ignored. If you change such a profile to geographic routing type at a later time, Traffic Manager will use those mappings.
+
+###  Why is it strongly recommended that customers create nested profiles instead of endpoints under a profile with geographic routing enabled? 
+A region can be assigned to only one endpoint within a profile if its using geographic routing type. If that endpoint is not a nested type with a child profile attached to it, in the event of that endpoint going unhealthy, Traffic Manager will continue to send traffic to it since the alternative of not sending any traffic isn’t any better. Traffic Manager does not failover to another endpoint, even when the region assigned is a “parent” of the region assigned to the endpoint that went unhealthy (e.g. if an endpoint that has region Spain goes unhealthy, we will not failover to another endpoint that has the region Europe assigned to it). This is done to ensure that Traffic Manager respects the geographic boundaries that a customer has setup in their profile. In order to get the benefit of failing over to another endpoint when an endpoint goes unhealthy, it is recommended that geographic regions be assigned to nested profiles with multiple endpoints within it instead of individual endpoints. In this way, if an endpoint in the nested child profile fails, traffic can failover to another endpoint inside the same nested child profile.
+
+### Are there any restrictions on the API version that supports this routing type?
+
+Yes, only API version 2017-03-01 and newer supports geographic routing type. Any older API versions cannot be used to created profiles of geographic routing type or assign geographic regions to endpoints. If an older API version is used to retrieve profiles from an Azure subscription, any profiles of geographic routing type will not be returned. In addition, when using older API versions, any profiles returned that has endpoints with a geographic region assignment will not have its geographic region assignment shown.
+
 ## Traffic Manager endpoints
 
 ### Can I use Traffic Manager with endpoints from multiple subscriptions?

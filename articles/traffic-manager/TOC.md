@@ -3,12 +3,15 @@
 ## [Endpoint types](traffic-manager-endpoint-types.md)
 ## [Endpoint monitoring](traffic-manager-monitoring.md)
 ## [Routing methods](traffic-manager-routing-methods.md)
+###[Geographic regions used by Traffic Manager](traffic-manager-geographic-regions.md)
 ## [FAQs](traffic-manager-FAQs.md)
 
 # Get Started
 ## [Create a Traffic Manager profile](traffic-manager-create-profile.md)
 
 # How To
+## [Create a Traffic Manager profile](traffic-manager-create-profile.md)
+## [Configure geographic routing method](traffic-manager-configure-geographic-routing-method.md)
 ## [Configure priority routing method](traffic-manager-configure-priority-routing-method.md)
 ## [Configure weighted routing method](traffic-manager-configure-weighted-routing-method.md)
 ## [Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
