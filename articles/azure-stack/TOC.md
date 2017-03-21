@@ -3,6 +3,7 @@
 ## [What's new](azure-stack-whats-new.md)
 ## [Key features and concepts](azure-stack-key-features.md)
 ## [POC architecture](azure-stack-architecture.md)
+## [Version Profiles](azure-stack-version-profiles.md)
 
 # Evaluate & deploy
 ## Get started
