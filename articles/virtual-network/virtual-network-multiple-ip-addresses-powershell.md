@@ -187,7 +187,7 @@ You can add private and public IP addresses to a NIC by completing the steps tha
 		$myNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
 		```
 
-		You see output similar to the following:
+		You see output similar to the following:<br>
 
 			Name       PrivateIpAddress PublicIpAddress                                           Primary
 			----       ---------------- ---------------                                           -------
