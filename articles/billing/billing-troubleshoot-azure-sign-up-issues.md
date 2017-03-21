@@ -19,7 +19,7 @@ ms.author: cjiang
 ms.custom: H1Hack27Feb2017
 ---
 # Troubleshoot sign-up issues for Azure
-If you can't sign up for Azure, use the tips in this article to troubleshoot common issues.
+If you can't sign up for Azure, use the tips in this article to troubleshoot common issues. If you have an issue with your credit card during sign-up, see [your debit card or credit card is declined at Azure sign-up](billing-credit-card-fails-during-azure-sign-up.md). If you have an Azure account but can't sign in, see [I can't sign in to manage my Azure subscription](billing-cannot-login-subscription.md).
 
 ## Progress bar hangs in "Identity verification by card" section
 
