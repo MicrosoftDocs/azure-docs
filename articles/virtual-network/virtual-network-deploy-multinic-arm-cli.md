@@ -38,7 +38,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 3. From a command shell, login with the command `az login`.
 4. Create the VM by executing the script that follows on a Linux or Mac computer. The script creates a resource group, one virtual network (VNet) with two subnets, two NICs, and a VM with the two NICs attached to it. One of the NICs is connected to one subnet and is assigned a static public and private IP address. The other NIC is connected to the other subnet and is assigned a static private IP address and no public IP address. The NIC, public IP address, virtual network, and VM resources must all exist in the same location and subscription. Though the resources don't all have to exist in the same resource group, in the following script they do.
 
-	```azurecli
+	```bash
 	#!/bin/sh
 
 	RgName="Multi-NIC-VM"

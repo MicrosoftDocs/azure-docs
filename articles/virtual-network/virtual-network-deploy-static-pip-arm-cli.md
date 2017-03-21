@@ -45,7 +45,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 3. From a command shell, login with the command `az login`.
 4. Create the VM by executing the script that follows on a Linux or Mac computer. The Azure public IP address, virtual network, network interface, and VM resources must all exist in the same location. Though the resources don't all have to exist in the same resource group, in the following script they do.
 
-	```azurecli
+	```bash
 	#!/bin/sh
 
 	RgName="IaaSStory"
@@ -54,7 +54,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 
 	# Create a public IP address resource with a static IP address
 	PipName="PIPWEB1"
-	# Note: The value below must be unique within the azure location it's created in.
+	# The value below must be unique within the azure location it's created in.
 	DnsName="iaasstoryws1"
 
 	az network public-ip create \

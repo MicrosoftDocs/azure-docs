@@ -53,84 +53,84 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
 
 2. Create a resource group for your VNet using the [az group create](/cli/azure/group#create) command with the `--name` and `--location` arguments:
 
-    ```azurecli
-    az group create --name TestRG --location centralus
-    ```
+	```azurecli
+	az group create --name TestRG --location centralus
+	```
 
 3. Create a VNet and a subnet:
 
-    ```azurecli
-    az network vnet create \
-        --name TestVNet \
-        --resource-group TestRG \
-        --location centralus \
-        --address-prefix 192.168.0.0/16 \
-        --subnet-name FrontEnd \
-        --subnet-prefix 192.168.1.0/24
-    ```
+	```azurecli
+	az network vnet create \
+	--name TestVNet \
+	--resource-group TestRG \
+	--location centralus \
+	--address-prefix 192.168.0.0/16 \
+	--subnet-name FrontEnd \
+	--subnet-prefix 192.168.1.0/24
+	```
 
-    Expected output:
-   
-    ```json
-    {
-        "newVNet": {
-            "addressSpace": {
-            "addressPrefixes": [
-                "192.168.0.0/16"
-            ]
-            },
-            "dhcpOptions": {
-            "dnsServers": []
-            },
-            "provisioningState": "Succeeded",
-            "resourceGuid": "<guid>",
-            "subnets": [
-            {
-                "etag": "W/\"<guid>\"",
-                "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-                "name": "FrontEnd",
-                "properties": {
-                "addressPrefix": "192.168.1.0/24",
-                "provisioningState": "Succeeded"
-                },
-                "resourceGroup": "TestRG"
-            }
-            ]
-        }
-    }
-    ```
+	Expected output:
+	
+	```json
+	{
+		"newVNet": {
+			"addressSpace": {
+			"addressPrefixes": [
+			"192.168.0.0/16"
+			]
+			},
+			"dhcpOptions": {
+			"dnsServers": []
+			},
+			"provisioningState": "Succeeded",
+			"resourceGuid": "<guid>",
+			"subnets": [
+			{
+				"etag": "W/\"<guid>\"",
+				"id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+				"name": "FrontEnd",
+				"properties": {
+				"addressPrefix": "192.168.1.0/24",
+				"provisioningState": "Succeeded"
+				},
+				"resourceGroup": "TestRG"
+			}
+			]
+			}
+	}
+	```
 
 	Parameters used:
 
-    - `--name TestVNet`: Name of the VNet to be created.
-    - `--resource-group TestRG`: # The resource group name that controls the resource. 
-    - `--location centralus`: The location into which to deploy.
-    - `--address-prefix 192.168.0.0/16`: The address prefix and block.  
-    - `--subnet-name FrontEnd`: The name of the subnet.
-    - `--subnet-prefix 192.168.1.0/24`: The address prefix and block.
+	- `--name TestVNet`: Name of the VNet to be created.
+	- `--resource-group TestRG`: # The resource group name that controls the resource. 
+	- `--location centralus`: The location into which to deploy.
+	- `--address-prefix 192.168.0.0/16`: The address prefix and block.  
+	- `--subnet-name FrontEnd`: The name of the subnet.
+	- `--subnet-prefix 192.168.1.0/24`: The address prefix and block.
 
-    To list the basic information to use in the next command, you can query the VNet using a [query filter](/cli/azure/query-az-cli2):
+	To list the basic information to use in the next command, you can query the VNet using a [query filter](/cli/azure/query-az-cli2):
 
-    ```azurecli
-    az network vnet list --query '[?name==`TestVNet`].{Where:location,Name:name,Group:resourceGroup}' -o table
-    ```
+	```azurecli
+	az network vnet list --query '[?name==`TestVNet`].{Where:location,Name:name,Group:resourceGroup}' -o table
+	```
 
     Which produces the following output:
 
-            Where      Name      Group
-            ---------  --------  -------
-            centralus  TestVNet  TestRG
+		Where      Name      Group
+		---------  --------  -------
+		centralus  TestVNet  TestRG
 
 4. Create a subnet:
 
-    ```azurecli
-    az network vnet subnet create \
-        --address-prefix 192.168.2.0/24 \
-        --name BackEnd \
-        --resource-group TestRG \
-        --vnet-name TestVNet
-    ```
-   
+	```azurecli
+	az network vnet subnet create \
+	--address-prefix 192.168.2.0/24 \
+	--name BackEnd \
+	--resource-group TestRG \
+	--vnet-name TestVNet
+	```
+
 	Expected output:
 
     ```json
@@ -164,12 +164,12 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
     --query '{Name:name,Where:location,Group:resourceGroup,Status:provisioningState,SubnetCount:subnets | length(@)}' \
     -o table
 	```
-   
+
 	Expected output:
-   
-        Name      Where      Group    Status       SubnetCount
-        --------  ---------  -------  ---------  -------------
-        TestVNet  centralus  TestRG   Succeeded              2
+
+		Name      Where      Group    Status       SubnetCount
+		--------  ---------  -------  ---------  -------------
+		TestVNet  centralus  TestRG   Succeeded              2
 
 6. Query the properties of the subnets:
 
@@ -181,12 +181,12 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
     -o table
     ```
 
-    Expected output:
+	Expected output:
 
-        Name      CIDR            Status
-        --------  --------------  ---------
-        FrontEnd  192.168.1.0/24  Succeeded
-        BackEnd   192.168.2.0/24  Succeeded
+		Name      CIDR            Status
+		--------  --------------  ---------
+		FrontEnd  192.168.1.0/24  Succeeded
+		BackEnd   192.168.2.0/24  Succeeded
 
 ## Next steps
 

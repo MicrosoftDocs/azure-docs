@@ -94,9 +94,9 @@ To add a static private IP address to the VM created using the steps above, foll
 > 
 
 ## How to remove a static private IP address from a VM
-To remove the static private IP address from the VM created above, follow the step below.
+To remove the static private IP address from the VM created above, complete the following step:
 
-1. From the **IP addresses** blade shown above, click **Dynamic** under **Assignment**, and then click **Save**.
+From the **IP addresses** blade shown above, click **Dynamic** under **Assignment**, and then click **Save**.
 
 ## Next steps
 * Learn about [reserved public IP](virtual-networks-reserved-public-ip.md) addresses.
