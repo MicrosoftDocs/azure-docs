@@ -44,11 +44,8 @@ When using this script requires the following information:
 1. The script location: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.
  	HDInsight uses this URI to find and run the script on all the virtual machines in the cluster.
   
-2. The cluster node types that the script is applied to: headnode, workernode, zookeeper.
+2. The cluster node types that the script is applied to: headnode, workernode, zookeeper. This script must be applied to all node types in the cluster. If it is not applied to a node type, then the virtual machines for that node type will continue to use the previous patching schedule.
 
-> [!NOTE]
-> This script must be applied to all node types in the cluster. If it is not applied to a node type, then the virtual machines for that node type will continue to use the previous patching schedule.
->
 
 3.  Parameter: This script accepts three numeric parameters:
 
