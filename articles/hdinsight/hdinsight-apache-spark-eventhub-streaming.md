@@ -31,9 +31,9 @@ In this article, you understand some concepts related to streaming using Apache 
 ## Prerequisites
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-* Microsoft JDBC driver for SQL Server, v4.1 or later. This is required to write the event data into a SQL Server database. You can install it from [here](https://msdn.microsoft.com/sqlserver/aa937724.aspx).
 * An Azure SQL database. For instructions, see [Create a SQL database in minutes](../sql-database/sql-database-get-started.md).
 
 ## Spark streaming concepts
@@ -102,7 +102,7 @@ In this section you use a standalone local Scala application that generates a st
 
 2. Open the application, **EventhubsSampleEventProducer**, in IntelliJ IDEA.
 
-3. Build the project. From the **Build** menu, click **Make Project**. Depending on your IntelliJ IDEA configuration, the output jar is created under **\classes\artifacts** or **\out\artifacts**
+3. Build the project. From the **Build** menu, click **Make Project**. Depending on your IntelliJ IDEA configuration, the output jar is created under **\classes\artifacts**.
 
 	> [!TIP]
 	> You can also use an option available in IntelliJ IDEA to directly create the project from a GitHub repository. To understand how to use that approach, use the instructions in the next section for guidance. Note that a lot of steps that are described in the next section will not be applicable for the Scala application that you create in this step. For example:
@@ -128,22 +128,14 @@ A sample Scala application to receive the event and route it to different destin
 4. Make sure the application code is compiled with Java8. To ensure this, click **File**, click **Project Structure**, and on the **Project** tab, make sure Project language level is set to **8 - Lambdas, type annotations, etc.**.
    
     ![Project structure](./media/hdinsight-apache-spark-eventhub-streaming/java-8-compiler.png)
-5. Open the **pom.xml** and make sure the Spark version is correct. Under <properties> node, look for the following snippet and verify the Spark version.
+5. Open the **pom.xml** and make sure the Spark version is correct. Under `<properties>` node, look for the following snippet and verify the Spark version.
    
-        <scala.version>2.10.4</scala.version>
-        <scala.compat.version>2.10.4</scala.compat.version>
-        <scala.binary.version>2.10</scala.binary.version>
-        <spark.version>1.6.2</spark.version>
-6. The application requires two dependency jars:
-   
-   * **EventHub receiver jar**. This is required for Spark to receive the messages from Event Hub. To use this jar, update the **pom.xml** to add the following under `<dependencies>`.
-     
-           <dependency>
-             <groupId>com.microsoft.azure</groupId>
-             <artifactId>spark-streaming-eventhubs_2.10</artifactId>
-             <version>1.6.0</version>
-           </dependency> 
-   * **JDBC driver jar**. This is required to write the messages received from Event Hub into an Azure SQL database. You can download v4.1 or later of this jar file from [here](https://msdn.microsoft.com/sqlserver/aa937724.aspx). Add reference to this jar in the project library. Perform the following steps:
+        <scala.version>2.11.8</scala.version>
+        <scala.compat.version>2.11.8</scala.compat.version>
+        <scala.binary.version>2.11</scala.binary.version>
+        <spark.version>2.0.0</spark.version>
+
+6. The application requires a dependency jar called **JDBC driver jar**. This is required to write the messages received from Event Hub into an Azure SQL database. You can download v4.1 or later of this jar file from [here](https://msdn.microsoft.com/sqlserver/aa937724.aspx). Add reference to this jar in the project library. Perform the following steps:
      
      1. From IntelliJ IDEA window where you have the application open, click **File**, click **Project Structure**, and then click **Libraries**. 
      2. Click the add icon (![add icon](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png)), click **Java**, and then navigate to the location where you downloaded the JDBC driver jar. Follow the prompts to add the jar file to the project library.
@@ -166,7 +158,7 @@ A sample Scala application to receive the event and route it to different destin
       
        ![Create JAR](./media/hdinsight-apache-spark-eventhub-streaming/delete-output-jars.png)
       
-       Make sure **Build on make** box is selected, which ensures that the jar is created every time the project is built or updated. Click **Apply** and then **OK**.
+       Make sure **Build on make** box is selected, which ensures that the jar is created every time the project is built or updated. Click **Apply**.
    6. In the **Output Layout** tab, right at the bottom of the **Available Elements** box, you have the SQL JDBC jar that you added earlier to the project library. You must add this to the **Output Layout** tab. Right-click the jar file, and then click **Extract Into Output Root**.
       
        ![Extract dependency jar](./media/hdinsight-apache-spark-eventhub-streaming/extract-dependency-jar.png)  
@@ -176,7 +168,7 @@ A sample Scala application to receive the event and route it to different destin
        ![Final output tab](./media/hdinsight-apache-spark-eventhub-streaming/final-output-tab.png)        
       
        In the **Project Structure** dialog box, click **Apply** and then click **OK**.    
-   7. From the menu bar, click **Build**, and then click **Make Project**. You can also click **Build Artifacts** to create the jar. The output jar is created under **\out\artifacts**.
+   7. From the menu bar, click **Build**, and then click **Make Project**. You can also click **Build Artifacts** to create the jar. The output jar is created under **\classes\artifacts**.
       
        ![Create JAR](./media/hdinsight-apache-spark-eventhub-streaming/output.png)
 
