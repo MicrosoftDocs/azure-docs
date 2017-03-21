@@ -147,7 +147,7 @@ You can add additional private and public IP addresses to an existing NIC by com
 		```
 
 		Look for a line similar to the one that follows for IPConfig-3 in the returned output:
-	
+
 		```azurecli
 		Name               Provisioning state  Primary  Private IP allocation  Private IP version  Private IP address  Subnet    Public IP
 		-----------------  ------------------  -------  ---------------------  ------------------  ------------------  --------  -----------
@@ -173,14 +173,17 @@ You can add additional private and public IP addresses to an existing NIC by com
 	```azurecli
 	azure network nic ip-config list --resource-group myResourceGroup --nic-name myNic1
 	```
-	You should see output similar to the following: 
-	
+
+	You will see output similar to the following: 
+
+	```azurecli
 		Name               Provisioning state  Primary  Private IP allocation  Private IP version  Private IP address  Subnet    Public IP
 		-----------------  ------------------  -------  ---------------------  ------------------  ------------------  --------  -----------
 		default-ip-config  Succeeded           true     Dynamic                IPv4                10.0.0.4            mySubnet  myPublicIP
 		IPConfig-2         Succeeded           false    Static                 IPv4                10.0.0.5            mySubnet  myPublicIP2
 		IPConfig-3         Succeeded           false    Dynamic                IPv4                10.0.0.6            mySubnet  myPublicIP3
-	 
+	```
+
 4. Add the private IP addresses you added to the NIC to the VM operating system by following the instructions in the [Add IP addresses to a VM operating system](#os-config) section of this article. Do not add the public IP addresses to the operating system.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

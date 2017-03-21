@@ -165,50 +165,50 @@ You can add private and public IP addresses to a NIC by completing the steps tha
 	> Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
 	>
 
-	**Associate the public IP address resource to a new IP configuration**
+	- **Associate the public IP address resource to a new IP configuration**
 	
-	Whenever you add a public IP address in a new IP configuration, you must also add a private IP address, because all IP configurations must have a private IP address. You can either add an existing public IP address resource, or create a new one. To create a new one, enter the following command:
+		Whenever you add a public IP address in a new IP configuration, you must also add a private IP address, because all IP configurations must have a private IP address. You can either add an existing public IP address resource, or create a new one. To create a new one, enter the following command:
 	
-	```powershell
-	$myPublicIp3   = New-AzureRmPublicIpAddress -Name "myPublicIp3" -ResourceGroupName $myResourceGroup `
-	-Location $location -AllocationMethod Static
-	```
+		```powershell
+		$myPublicIp3   = New-AzureRmPublicIpAddress -Name "myPublicIp3" -ResourceGroupName $myResourceGroup `
+		-Location $location -AllocationMethod Static
+		```
 
- 	To create a new IP configuration with a dynamic private IP address and the associated *myPublicIp3* public IP address resource, enter the following command:
+ 		To create a new IP configuration with a dynamic private IP address and the associated *myPublicIp3* public IP address resource, enter the following command:
 
-	```powershell
-	Add-AzureRmNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `
-	 $myNIC -Subnet $Subnet -PublicIpAddress $myPublicIp3
-	```
+		```powershell
+		Add-AzureRmNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `
+		 $myNIC -Subnet $Subnet -PublicIpAddress $myPublicIp3
+		```
 
-	**Associate the public IP address resource to an existing IP configuration**
+	- **Associate the public IP address resource to an existing IP configuration**
 
-	A public IP address resource can only be associated to an IP configuration that doesn't already have one associated. You can determine whether an IP configuration has an associated public IP address by entering the following command:
+		A public IP address resource can only be associated to an IP configuration that doesn't already have one associated. You can determine whether an IP configuration has an associated public IP address by entering the following command:
 
-	```powershell
-	$myNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
-	```
+		```powershell
+		$myNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
+		```
 
-	Look for a line similar to the one that follows in the returned output:
+		Look for a line similar to the one that follows in the returned output:
 
-		Name       PrivateIpAddress PublicIpAddress                                           Primary
-		----       ---------------- ---------------                                           -------
-		IPConfig-1 10.0.0.4         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress    True
-		IPConfig-2 10.0.0.5         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress   False
-		IpConfig-3 10.0.0.6                                                                     False
+			Name       PrivateIpAddress PublicIpAddress                                           Primary
+			----       ---------------- ---------------                                           -------
+			IPConfig-1 10.0.0.4         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress    True
+			IPConfig-2 10.0.0.5         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress   False
+			IpConfig-3 10.0.0.6                                                                     False
 
-	Since the **PublicIpAddress** column for *IpConfig-3* is blank, no public IP address resource is currently associated to it. You can add an existing public IP address resource to IpConfig-3, or enter the following command to create one:
+		Since the **PublicIpAddress** column for *IpConfig-3* is blank, no public IP address resource is currently associated to it. You can add an existing public IP address resource to IpConfig-3, or enter the following command to create one:
 
-	```powershell
-	$myPublicIp3   = New-AzureRmPublicIpAddress -Name "myPublicIp3" -ResourceGroupName $myResourceGroup `
-	-Location $location -AllocationMethod Static
-	```
+		```powershell
+		$myPublicIp3   = New-AzureRmPublicIpAddress -Name "myPublicIp3" -ResourceGroupName $myResourceGroup `
+		-Location $location -AllocationMethod Static
+		```
 
-	Enter the following command to associate the public IP address resource to the existing IP configuration named *IpConfig-3*:
+		Enter the following command to associate the public IP address resource to the existing IP configuration named *IpConfig-3*:
 	
-	```powershell
-	Set-AzureRmNetworkInterfaceIpConfig -Name IpConfig-3 -NetworkInterface $mynic -Subnet $Subnet -PublicIpAddress $myPublicIp3
-	```
+		```powershell
+		Set-AzureRmNetworkInterfaceIpConfig -Name IpConfig-3 -NetworkInterface $mynic -Subnet $Subnet -PublicIpAddress $myPublicIp3
+		```
 
 6. Set the NIC with the new IP configuration by entering the following command:
 

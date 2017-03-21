@@ -137,6 +137,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 	```
 
 	In addition to creating a VM with a NIC with 3 IP configurations, the script creates:
+
 	- A single premium managed disk by default, but you have other options for the disk type you can create. Read the [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article for details.
 	- A virtual network with one subnet and two public IP addresses. Alternatively, you can use *existing* virtual network, subnet, NIC, or public IP address resources. To learn how to use existing network resources rather than creating additional resources, enter `az vm create -h`.
 
@@ -221,6 +222,7 @@ You can add additional private and public IP addresses to an existing NIC by com
 	```azurecli
 	az network nic ip-config list --resource-group myResourceGroup --nic-name myNic1 --query "[?provisioningState=='Succeeded'].{ Name: name, PrivateIpAddress: privateIpAddress, PrivateIpAllocationMethod: privateIpAllocationMethod, PublicIpAddressId: publicIpAddress.id }" --output table
 	```
+
 	Returned output: 
 	
 	```azurecli
