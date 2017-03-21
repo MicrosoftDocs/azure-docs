@@ -13,12 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 03/21/2017
 ms.author: juliako
 
 ---
 #Develop Azure Functions with Media Services
-[!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 This topic discusses how to start developing Azure Functions with Media Services using the Azure portal. 
 
@@ -64,7 +63,7 @@ The function, defined in this article, assumes you have the following environmen
 
 ## Create a function
 
-Once your function app was deployed, you can find it among **App Services** Azure Functions.
+Once your function app is deployed, you can find it among **App Services** Azure Functions.
 
 1. Select your function app and click **New Function**.
 2. Choose the **C#** language and **Data Processing** scenario.
@@ -110,7 +109,7 @@ Here is an example of **function.json** file.
 
 ### project.json
 
-The project.json file contains dependencies. Here is an example of **function.json** file that includes AMS libraries.
+The project.json file contains dependencies. Here is an example of **project.json** file that includes the required .NET Azure Media Services packages from Nuget. Note that the version numbers will change with latest updates to the packages, so you should confirm the most recent versions. 
 
 	{
 	  "frameworks": {
@@ -334,7 +333,11 @@ To test your function, you need to upload an MP4 file into the **input** contain
 
 ## Next step
 
-At this point, you are ready to start developing a Media Services application. For more information, see [Use Azure WebHooks to monitor Media Services job notifications with .NET](media-services-dotnet-check-job-progress-with-webhooks.md);   
+At this point, you are ready to start developing a Media Services application. 
+ 
+For more details and complete samples/solutions of using Azure Functions and Logic Apps with Azure Media Services to create custom content creation workflows, see the [Media Services .NET Functions Integraiton Sample on Github](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
+
+Also, see [Use Azure WebHooks to monitor Media Services job notifications with .NET](media-services-dotnet-check-job-progress-with-webhooks.md). 
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
