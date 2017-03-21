@@ -22,12 +22,12 @@ ms.custom: H1Hack27Feb2017
 # Configure private IP addresses for a virtual machine using the Azure portal
 
 > [!div class="op_single_selector"]
-- [Azure portal](virtual-networks-static-private-ip-arm-pportal.md)
-- [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
-- [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
-- [Azure portal (Classic)](virtual-networks-static-private-ip-classic-pportal.md)
-- [PowerShell (Classic)](virtual-networks-static-private-ip-classic-ps.md)
-- [Azure CLI (Classic)](virtual-networks-static-private-ip-classic-cli.md)
+> * [Azure portal](virtual-networks-static-private-ip-arm-pportal.md)
+> * [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
+> * [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
+> * [Azure portal (Classic)](virtual-networks-static-private-ip-classic-pportal.md)
+> * [PowerShell (Classic)](virtual-networks-static-private-ip-classic-ps.md)
+> * [Azure CLI (Classic)](virtual-networks-static-private-ip-classic-cli.md)
 
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
