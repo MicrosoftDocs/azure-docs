@@ -10,7 +10,7 @@ There are 2 common symptoms:
 
 ## Short term recovery steps
 This section provides the steps to reclaim DB space required for Azure AD Connect Synchronization Service to resume operation. The steps include:
-1. [Determine the Synchronization Service status](#determine-the-synchronization-service-status)
+01. [Determine the Synchronization Service status](#determine-the-synchronization-service-status)
 2. [Shrink the database](#shrink-the-database)
 3. [Delete run history data](#delete-run-history-data)
 4. [Shorten retention period for run history data](#shorten-retention-period-for-run-history-data)
