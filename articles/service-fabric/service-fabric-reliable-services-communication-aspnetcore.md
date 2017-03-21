@@ -32,6 +32,9 @@ The rest of this article explains how to use ASP.NET Core inside a Reliable Serv
 > [!NOTE]
 >The rest of this article assumes you are familiar with hosting in ASP.NET Core. To learn more about hosting in ASP.NET Core, see: [Introduction to hosting in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/hosting).
 
+> [!NOTE]
+> To develop Reliable Services with ASP.NET Core in Visual Studio 2015, you will need to have [.NET Core VS 2015 Tooling Preview 2](https://www.microsoft.com/net/download/core) installed.
+
 ## Service Fabric service hosting
 In Service Fabric, one or more instances and/or replicas of your service run in a *service host process*, an executable file that runs your service code. You, as a service author, own the service host process and Service Fabric activates and monitors it for you.
 
