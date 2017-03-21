@@ -18,7 +18,7 @@ ms.author: sethm
 
 ---
 # Azure Relay authentication and authorization
-Applications can authenticate to Azure Relay using either Shared Access Signature (SAS) authentication, or through Azure Active Directory Access Control (also known as Access Control Service or ACS). Similar to [Service Bus messaging](service-bus-authentication-and-authorization.md), Shared Access Signature authentication enables applications to authenticate to the Azure Relay service using an access key configured on the Relay namespace. You can then use this key to generate a Shared Access Signature token that clients can use to authenticate to the relay service.
+Applications can authenticate to Azure Relay using either Shared Access Signature (SAS) authentication, or through Azure Active Directory Access Control (also known as Access Control Service or ACS). Similar to [Service Bus messaging](../service-bus-messaging/service-bus-authentication-and-authorization.md), Shared Access Signature authentication enables applications to authenticate to the Azure Relay service using an access key configured on the Relay namespace. You can then use this key to generate a Shared Access Signature token that clients can use to authenticate to the relay service.
 
 > [!IMPORTANT]
 > SAS is recommended over ACS, as it provides a simple, flexible, and easy-to-use authentication scheme for Service Bus. Applications can use SAS in scenarios in which they do not need to manage the notion of an authorized "user." 
@@ -42,6 +42,6 @@ To access an entity, the client requires a SAS token generated using a specific 
 SAS authentication support for Azure Relay is included in the Azure .NET SDK versions 2.0 and later. SAS includes support for a [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). All APIs that accept a connection string as a parameter include support for SAS connection strings.
 
 ## Next steps
-Continue reading [Service Bus authentication with Shared Access Signatures](service-bus-sas.md) for more details about SAS.
+Continue reading [Service Bus authentication with Shared Access Signatures](../service-bus-messaging/service-bus-sas.md) for more details about SAS.
 
 For corresponding information about Service Bus Messaging authentication and authorization, see [Service Bus authentication and authorization](../service-bus-messaging/service-bus-authentication-and-authorization.md). 
