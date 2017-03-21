@@ -258,7 +258,6 @@ A compute context allows you to control whether computation will be performed lo
 
 1. From RStudio Server or the R console (in an SSH session), use the following to load example data into the default storage for HDInsight.
 
-        ```
         # Set the HDFS (WASB) location of example data
         bigDataDirRoot <- "/example/data"
         # create a local folder for storaging data temporarily
@@ -284,11 +283,9 @@ A compute context allows you to control whether computation will be performed lo
         rxHadoopMakeDir(inputDir)
         # Copy the data from source to input
         rxHadoopCopyFromLocal(source, bigDataDirRoot)
-        ```
 
 2. Next, let's create some data info and define two data sources so that we can work with the data.
 
-        ```
         # Define the HDFS (WASB) file system
         hdfsFS <- RxHdfsFileSystem()
         # Create info list for the airline data
@@ -309,11 +306,9 @@ A compute context allows you to control whether computation will be performed lo
 
         # formula to use
         formula = "ARR_DEL15 ~ ORIGIN + DAY_OF_WEEK + DEP_TIME + DEST"
-        ```
 
 3. Let's run a logistic regression over the data using the local compute context.
 
-        ```
         # Set a local compute context
         rxSetComputeContext("local")
         # Run a logistic regression
@@ -322,9 +317,8 @@ A compute context allows you to control whether computation will be performed lo
         )
         # Display a summary
         summary(modelLocal)
-        ```
 
-   You should see output that ends with lines similar to the following.
+    You should see output that ends with lines similar to the following.
 
         ```
         Data: airOnTimeDataLocal (RxTextData Data Source)
@@ -354,7 +348,6 @@ A compute context allows you to control whether computation will be performed lo
 
 4. Next, let's run the same logistic regression using the Spark context. The Spark context will distribute the processing over all the worker nodes in the HDInsight cluster.
 
-        ```
         # Define the Spark compute context
         mySparkCluster <- RxSpark()
         # Set the compute context
@@ -365,7 +358,6 @@ A compute context allows you to control whether computation will be performed lo
         )
         # Display a summary
         summary(modelSpark)
-        ```
 
 
    > [!NOTE]
