@@ -47,7 +47,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 	- An IP configuration with the public IP address resource and a dynamic private IP address
 
 	```powershell
-	$myPublicIp1     = New-AzureRmPublicIpAddress -Name "myPublicIp1" -ResourceGroupName $myResourceGroup -Location $location -AllocationMethod Static
+	$myPublicIp1    = New-AzureRmPublicIpAddress -Name "myPublicIp1" -ResourceGroupName $myResourceGroup -Location $location -AllocationMethod Static
 	$IpConfigName1  = "IPConfig-1"
 	$IpConfig1      = New-AzureRmNetworkInterfaceIpConfig -Name $IpConfigName1 -Subnet $Subnet -PublicIpAddress $myPublicIp1 -Primary
 	```
@@ -191,11 +191,13 @@ You can add private and public IP addresses to a NIC by completing the steps tha
 
 		Look for a line similar to the one that follows in the returned output:
 
+			```powershell
 			Name       PrivateIpAddress PublicIpAddress                                           Primary
 			----       ---------------- ---------------                                           -------
 			IPConfig-1 10.0.0.4         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress    True
 			IPConfig-2 10.0.0.5         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress   False
 			IpConfig-3 10.0.0.6                                                                     False
+			```powershell
 
 		Since the **PublicIpAddress** column for *IpConfig-3* is blank, no public IP address resource is currently associated to it. You can add an existing public IP address resource to IpConfig-3, or enter the following command to create one:
 
