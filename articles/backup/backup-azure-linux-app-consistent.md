@@ -50,7 +50,7 @@ An important scenario for this framework is to ensure application consistent VM 
    > If in case the above requirements are not met, script will not be executed, resulting in file system/crash consistent backup.
    >
    
- 5. Configure VMSnapshotPluginConfig.json as per below details
+5. Configure VMSnapshotPluginConfig.json as per below details
     - **pluginName**- Leave this field as it is otherwise your scripts may not work as expected.
     - **preScriptLocation**- Provide full path of the pre-script on the VM to be backed up.
     - **postScriptLocation**- Provide full path of the post-script on the VM to be backed up.
