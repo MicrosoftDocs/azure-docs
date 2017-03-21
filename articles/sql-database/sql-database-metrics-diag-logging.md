@@ -29,7 +29,11 @@ Azure SQL Database resources can emit metrics and diagnostic logs for easier mon
 
 ## Enable metrics and diagnostics logging
 
-Metrics and diagnostics logging is not enabled by default. To enable Azure SQL Database metrics and diagnostic logging, you first create a resource where Azure will store or send the data. You specify then this resource when you enable diagnostic logging for your Azure SQL DB resource. To enable metrics and diagnostic logs collection, see [Enable collection of metrics and diagnostic logs for Azure SQL Database](sql-database-enable-metrics-diag-collection.md)
+Metrics and diagnostics logging is not enabled by default. To enable Azure SQL Database metrics and diagnostic logging:
+- Create a resource where Azure will store or send the data. 
+- Specify then this resource when you enable diagnostic logging for your Azure SQL DB resource. 
+
+To enable metrics and diagnostic logs collection, see [Enable collection of metrics and diagnostic logs for Azure SQL Database](sql-database-enable-metrics-diag-collection.md)
 
 We recommend that you read the both [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) and [Overview of Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) articles to gain an understanding of not only how to enable logging, but the metrics and log categories supported by the various Azure services. For example, Azure SQL Database currently supports two log categories: Activity log and Query Store.
 
