@@ -1,6 +1,6 @@
 ---
-title: Create workflows with your first Azure Logic App | Microsoft Docs
-description: Get started connecting apps and SaaS services with your first Logic App
+title: Create your first workflow with Azure Logic Apps | Microsoft Docs
+description: Get started automating processes between cloud-based SaaS apps and services with Azure Logic Apps
 author: jeffhollan
 manager: anneta
 editor: ''
@@ -17,38 +17,55 @@ ms.date: 01/25/2017
 ms.author: jehollan
 
 ---
-# Create your first logic app to connect cloud services
+# Create your first workflow to automate processes for cloud apps and services
 
-In just a few minutes, you can create and get started with [Azure Logic Apps](logic-apps-what-are-logic-apps.md). 
-We'll walk through a basic workflow that lets you send interesting tweets to your email.
+In just a few minutes, you can create a basic workflow 
+that automates a process between cloud services with 
+[Azure Logic Apps](logic-apps-what-are-logic-apps.md). 
+This example logic app sends you email about new 
+content from an RSS feed to your Outlook account.
 
 Before you start, you need these items:
 
-* An Azure subscription
-* A Twitter account
+* An Azure subscription for 
+[billing logic app actions](./logic-apps-pricing.md). 
+Learn more about [pricing for Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
+
+	If you don't have a subscription, 
+	you can [start with a free Azure account](https://azure.microsoft.com/free/). 
+	Otherwise, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
+
 * A Outlook.com or hosted Office 365 mailbox
 
-## Create a new logic app to email you tweets
+* A link to the RSS feed for a website. This example uses 
+the RSS feed for MSDN Channel 9:`https://s.ch9.ms/Feeds/RSS`
+
+## Create a logic app workflow to email you new website content
 
 1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal").
 
-2. From the left menu, choose **New** > **Enterprise Integration** > **Logic App**.
+2. From the left menu, choose **New (+)** > **Enterprise Integration** > **Logic App**.
+
+	![Azure portal, New, Enterprise Integration, Logic App](media/logic-apps-create-a-logic-app/azure-portal-create-logic-app.png)
 
    > [!TIP]
    > You can also choose **New** to show the search box, 
    > and enter "logic app" for your filter. 
    > Then choose **Logic App** > **Logic App** > **Create**.
 
-3. Name your logic app, select your Azure subscription for billing, 
-a datacenter location for hosting your logic app, and the Azure resource group. 
-When you're ready, choose **Create**. 
+3. Name your logic app, select your Azure subscription, 
+the location for hosting your logic app, 
+and an Azure resource group for organizing and 
+managing resources related to an Azure solution.
+When you're ready, choose **Create**.
 
    > [!NOTE]
    > If you select **Pin to Dashboard**,
    > your logic app appears on the Azure dashboard, 
    > and opens automatically after deployment. 
    > If your logic app doesn't appear on the dashboard, 
-   > choose **Logic Apps** on the left menu, and select your logic app.
+   > on the left menu, choose **More services** > **Logic Apps**, 
+   > and select your logic app.
 
 4. When you open your logic app for the first time, 
 the Logic Apps Designer shows templates that 
@@ -56,37 +73,50 @@ you can select to get started.
 For now, choose **Blank Logic App** so you can 
 build your logic app from scratch.
 
-	The Logic Apps Designer opens and shows a list of 
-	services and *triggers* that you can select. 
+	The Logic App Designer appears and shows a 
+	list of services and *triggers* that you can select. 
 	You must first select a trigger as the first item 
 	that your logic app needs. The trigger is the event 
 	that starts your logic app.
 
-5. In the search box, find and select **twitter**. 
-Sign in with your Twitter credentials.
+5. In the search box for services and triggers, 
+find and select this trigger: **RSS - When a feed item is published** 
 
-6. Now type a search term to trigger your logic app.
+	![RSS trigger](media/logic-apps-create-a-logic-app/rss-trigger.png)
 
-	The **Frequency** and **Interval** determines 
-	how often your logic app checks for new tweets 
-	and return all tweets during that time span.
+6. Enter the link for the website's RSS feed that you want to track. 
 
-	![Twitter search](media/logic-apps-create-a-logic-app/twittersearch.png)
+	If you want, change the **Frequency** and **Interval** 
+	that determine how often your logic app checks for 
+	new items and returns all items during that time span.
 
-7. Choose **New step**, and then either **Add an action** or **Add a condition**.
+	For this example, we want to check every 7 days for new 
+	items posted to the MSDN Channel 9 website.
+
+	![Set up trigger with RSS feed, frequency, and interval](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
+
+7. Now we add an action to perform when new items appear in the RSS feed. 
+Choose **New step** > **Add an action**.
 
 	When you select **Add an Action**, you can browse, search, and 
-	select from [available connectors](../connectors/apis-list.md) 
-	to add an action. 	For this example, to send mail from an outlook.com address, 
-	select **Outlook.com - Send Email**:
+	select actions from [available connectors](../connectors/apis-list.md). 
+
+8. In the search box, enter **outlook**. 
+To send mail to your Outlook inbox, 
+select **Outlook.com** or **Office 365 Outlook**. 
+Then select the **Send an email** action.
 
 	![Actions](media/logic-apps-create-a-logic-app/actions.png)
 
-9. Enter the parameters for the email you want:
+9. When you're prompted for Outlook credentials, 
+sign in with your Outlook username and password. 
 
-	![Parameters](media/logic-apps-create-a-logic-app/parameters.png)
+10. Choose the parameters for outputs to include in your email.
 
-10. Choose **Save** to make your logic app live.
+	![Select outputs to include in email](media/logic-apps-create-a-logic-app/rss-action-setup.png)
+
+11. Choose **Save**, and then to manually test your logic app, 
+choose **Run**.
 
 Your logic app is now up and running, 
 periodically checking for tweets with your specified search term. 
