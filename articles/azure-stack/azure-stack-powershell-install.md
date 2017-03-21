@@ -45,38 +45,38 @@ b. [Uninstall the existing version and install the required version.](#uninstall
 
 ## Install the required version
 
+The **Scope** parameter in the following command is optional and can be set to:  
+        * **CurrentUser**-  installs the module only in the current user account.  
+        * **All Users** or not specified- installs the module to a location that all users can access. 
+   When prompted, type **yes** to trust the PSGallery repository.
+
 To install the Azure Stack PowerShell modules on a computer, which doesn’t already contain any installed PowerShell modules, use the following steps:  
 
-1. Run the following command to install the required version of the AzureRM modules for Compute, Storage, Network, Key Vault etc.  
-     
-   ```
+1.	Run the following command to install the required version of the AzureRM modules for Compute, Storage, Network, Key Vault etc.  
+
+    ```PowerShell
     # To install the module in current user scope
     Install-Module -Name AzureRM -RequiredVersion 1.2.9 -Scope CurrentUser
     
     # To install the module for all users on your computer. Run this command in an elevated PowerShell session
     Install-Module -Name AzureRM -RequiredVersion 1.2.9
-    ``` 
-   The **Scope** parameter in the following command is optional and can be set to:  
-        * **CurrentUser**-  installs the module only in the current user account.  
-        * **All Users** or not specified- installs the module to a location that all users can access. 
-   When prompted, type **yes** to trust the PSGallery repository.
+    ```
 
-2. In addition to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules such as AzureStackAdmin, AzureStackStorage, etc. by running the following command:
-    
-   ```
+2.	In addition to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules such as AzureStackAdmin, AzureStackStorage, etc. by running the following command:  
+
+    ```PowerShell
     # To install the module in current user scope
     Install-Module -Name AzureStack -RequiredVersion 1.2.9 -Scope CurrentUser
     
     # To install the module for all users on your computer. Run this command in an elevated PowerShell session
     Install-Module -Name AzureStack -RequiredVersion 1.2.9
     ```
-3. To confirm the installation of AzureRM modules, run the following command:
 
-  ```powershell
+3.	To confirm the installation of AzureRM modules, run the following command:  
+
+    ```PowerShell
     Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”}
     ```
-    If the installation is successful, this command lists the AzureRM and AzureStack modules.
-
 
 ## Uninstall the existing version and install the required version
 
