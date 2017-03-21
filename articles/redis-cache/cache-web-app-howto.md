@@ -535,7 +535,7 @@ In this sample, team statistics can be retrieved from the database or from the c
     }
     ```
 
-    The `GetFromSortedSetTop5` method reads the top 5 teams from the cached sorted set. It starts by checking the cache for the existence of the `teamsSortedSet` key. If this key is not present, the `GetFromSortedSet` method is called to read the team statistics and store them in the cache. Next the cached sorted set is queried for the top 5 teams which are returned.
+    The `GetFromSortedSetTop5` method reads the top 5 teams from the cached sorted set. It starts by checking the cache for the existence of the `teamsSortedSet` key. If this key is not present, the `GetFromSortedSet` method is called to read the team statistics and store them in the cache. Next, the cached sorted set is queried for the top 5 teams which are returned.
 
     ```c#
     List<Team> GetFromSortedSetTop5()
@@ -684,7 +684,7 @@ The scaffolding code that was generated as part of this sample includes methods 
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
     ```
    
-    This row displays the value of `ViewBag.Msg` which contains a status report about the current operation which is set when you click one of the action links from the previous step.   
+    This row displays the value of `ViewBag.Msg` which contains a status report about the current operation. The `ViewBag.Msg` is set when you click any of the action links from the previous step.   
    
     ![Status message][cache-status-message]
 2. Press **F6** to build the project.
@@ -712,7 +712,7 @@ Clicking the **Deploy to Azure** button takes you to the Azure portal and initia
 ![Deploy to Azure][cache-deploy-to-azure-step-1]
 
 1. In the **Basics** section, select the Azure subscription to use, and select an existing resource group or create a new one, and specify the resource group location.
-2. In the **Settings** section, specify an **Administrator Login** (don't use **admin**), **Administrator Login Password**, and **Database Name**. The other parameters are configured for a free App Service hosting plan, and lower cost options for the SQL Database and Azure Redis Cache, which don't come with a free tier.
+2. In the **Settings** section, specify an **Administrator Login** (don't use **admin**), **Administrator Login Password**, and **Database Name**. The other parameters are configured for a free App Service hosting plan, and lower-cost options for the SQL Database and Azure Redis Cache, which don't come with a free tier.
 
     ![Deploy to Azure][cache-deploy-to-azure-step-2]
 
@@ -808,7 +808,7 @@ Once you have selected or created the cache to use, browse to the cache in the A
 1. Press **Ctrl+F5** to run the application.
 
 > [!NOTE]
-> Note that because the application, including the database, is running locally and the Redis Cache is hosted in Azure, the cache may appear to under perform the database. For best performance, the client application and Azure Redis Cache instance should be in the same location. 
+> Note that because the application, including the database, is running locally and the Redis Cache is hosted in Azure, the cache may appear to under-perform the database. For best performance, the client application and Azure Redis Cache instance should be in the same location. 
 > 
 > 
 
