@@ -62,13 +62,11 @@ Log in to the Azure portal at http://portal.azure.com.
 
 After the deployment has completed, create an SSH connection with the virtual machine.
 
-1. Click the virtual machine. The VM can be found on the home screen of the Azure portal, or by selecting **Virtual Machines** from the left-hand menu.
-
-2. Click the **Connect** button. The connect button displays an SSH connection string that can be used to connect to the virtual machine.
+1. Click the **Connect** button on the virtual machine blade. The connect button displays an SSH connection string that can be used to connect to the virtual machine.
 
     ![Portal 9](./media/virtual-machine-quick-start/portal-quick-start-9.png) 
 
-3. Run the following command to create an SSH session. Replace the connection string with the one you copied from the Azure portal.
+2. Run the following command to create an SSH session. Replace the connection string with the one you copied from the Azure portal.
 
 ```bash 
 ssh <replace with IP address>
