@@ -1,13 +1,13 @@
 ---
-title: Azure SQL database metrics & diagnostics logging | Microsoft Docs
-description: Learn about configuring Azure SQL Database resource to store resource usage, connectivity, and query execution statistics.
+title: Azure SQL database monitoring-log analytics | Microsoft Docs
+description: Learn about streaming Azure SQL Database metrtics and diagnostic logs into log analytics
 services: sql-database
 documentationcenter: ''
 author: CarlRabeler
 manager: jhubbard
 editor: 
 
-ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
+ms.assetid: 
 ms.service: sql-database
 ms.custom: secure and protect
 ms.workload: data-management
@@ -19,13 +19,9 @@ ms.author: carlrab
 
 ---
 # Azure SQL Database metrics and diagnostics logging 
-Azure SQL Database resources can emit metrics and diagnostic logs for easier monitoring. You can configure Azure SQL Database   resource to store resource usage, connectivity, and query execution statistics (Query Store ) into one of these Azure resources:
-- **Azure Storage** – for archiving vast amounts of telemetry for a small price
-- **Azure Event Hub** – for integrating Azure SQL Database telemetry with your custom monitoring solution or hot pipelines
-- **Azure Log Analytics** – for out of the box monitoring solution with reporting, alerting, and mitigating capabilities 
+Azure SQL Database metrics and diagnostic logs can be streamed into Log Analytics using the built-in “Export to Log Analytics” option in the portal, or by enabling Log Analytics in a diagnostic setting via Azure PowerShell cmdlets, Azure CLI or Azure Monitor REST API.
 
-
-    <img src="./media/sql-database-metrics-diag-logging/architecture.png" alt="architecture" style="width: 780px;" />
+To enable metrics and diagnostic logs collection, see [Enable metrics and diagnostic logging](sql-database-metrics-diag-logging.md#enable-metrics-and-diagnostics-logging)
 
 ## Enable metrics and diagnostics logging
 
@@ -56,36 +52,36 @@ To  enable metrics and diagnostic logs collection in the Azure Portal, go to the
 
    <img src="./media/sql-database-metrics-diag-logging/enable-portal.png" alt="enable in the Azure portal" style="width: 780px;" />
 
-### PowerShell
+## PowerShell
 
 To enable metrics and diagnostics logging using PowerShell, use the following commands:
 
 - To enable storage of Diagnostic Logs in a Storage Account, use this command:
 
-    ```Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true```
+   ```Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true``
 
    The Storage Account ID is the resource id for the storage account to which you want to send the logs.
 
 - To enable streaming of Diagnostic Logs to an Event Hub, use this command:
 
-    ```Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true```
+   ```Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true```
 
    The Service Bus Rule ID is a string with this format:
 
-    ```{service bus resource ID}/authorizationrules/{key name}``` 
+   ```{service bus resource ID}/authorizationrules/{key name}``` 
 
 - To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
 
-     ```Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true```
+   ```Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true```
 
 - You can obtain the resource id of your Log Analytics workspace using the following command:
 
-    ```(Get-AzureRmOperationalInsightsWorkspace).ResourceId```
+   ```(Get-AzureRmOperationalInsightsWorkspace).ResourceId```
 
    You can combine these parameters to enable multiple output options.
 
 
-### CLI
+## CLI
 
 To enable metrics and diagnostics logging using the Azure CLI, use the following commands:
 
