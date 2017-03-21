@@ -57,9 +57,9 @@ Azure requires at least 2048-bit, **ssh-rsa** formatted public and private keys.
 
 Here are the deployment scenarios, and the types of files you use in each:
 
-1. **ssh-rsa** keys are required for any deployment using the [Azure portal](https://portal.azure.com), and Resource Manager deployments using the [Azure CLI](../xplat-cli-install.md).
+1. **ssh-rsa** keys are required for any deployment using the [Azure portal](https://portal.azure.com), and Resource Manager deployments using the [Azure CLI](../cli-install-nodejs.md).
    * These keys are usually all most people need.
-2. A `.pem` file is required to create VMs using the Classic deployment. These keys are supported in Classic deployments when using the [Azure portal](https://portal.azure.com) or [Azure CLI](../xplat-cli-install.md).
+2. A `.pem` file is required to create VMs using the Classic deployment. These keys are supported in Classic deployments when using the [Azure portal](https://portal.azure.com) or [Azure CLI](../cli-install-nodejs.md).
    * You only need to create these additional keys and certificates if you are managing resources created using the Classic deployment model.
 
 ## Install Git for Windows

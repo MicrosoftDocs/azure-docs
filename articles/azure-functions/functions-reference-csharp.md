@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/13/2016
+ms.date: 03/20/2017
 ms.author: chrande
 
 ---
@@ -168,6 +168,8 @@ To use NuGet packages in a C# function, upload a *project.json* file to the the 
 Only the .NET Framework 4.6 is supported, so make sure that your *project.json* file specifies `net46` as shown here.
 
 When you upload a *project.json* file, the runtime gets the packages and automatically adds references to the package assemblies. You don't need to add `#r "AssemblyName"` directives. Just add the required `using` statements to your *run.csx* file to use the types defined in the NuGet packages.
+
+In the Functions runtime, NuGet restore works by comparing `project.json` and `project.lock.json`. If the date and time stamps of the files do not match, a NuGet restore runs and NuGet downloads updated packages. However, if the date and time stamps of the files match, NuGet does not perform a restore. Therefore, `project.lock.json` should not be deployed as this causes NuGet to skip the restore, and the function will not have the required packages. To avoid deploying the lock file, add the `project.lock.json` to the `.gitignore` file.
 
 ### How to upload a project.json file
 1. Begin by making sure your function app is running, which you can do by opening your function in the Azure portal. 
