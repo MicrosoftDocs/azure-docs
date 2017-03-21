@@ -88,7 +88,7 @@ select **Assign a user for testing**, and add at least one user to the applicati
 3. Create a key by entering a key description and choosing an expiration date from the drop-down menu. 
 4. Select **Save**. A GUID appears in the **Value** field. 
 
-  > [!TIP] Save this value now, as you won’t be able to see it again after you close this window. 
+  Save this value now, as you won’t be able to see it again after you close this window. 
 
 5. Close the App registrations blade or scroll all the way to the left to return to the Azure Active Directory menu.
 6. Select **Properties**.
