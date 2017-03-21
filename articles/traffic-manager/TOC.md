@@ -3,7 +3,6 @@
 ## [Endpoint types](traffic-manager-endpoint-types.md)
 ## [Endpoint monitoring](traffic-manager-monitoring.md)
 ## [Routing methods](traffic-manager-routing-methods.md)
-## [Nested profiles](traffic-manager-nested-profiles.md) 
 ## [FAQs](traffic-manager-FAQs.md)
 
 # Get Started

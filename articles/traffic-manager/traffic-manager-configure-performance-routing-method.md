@@ -1,6 +1,6 @@
 ---
 title: Configure performance traffic routing method using Azure Traffic Manager | Microsoft Docs
-description: This article explains how to configure the performance traffic-routing method in Traffic Manager
+description: This article explains how to configure Traffic Manager to route traffic to the endpoint with lowest latency 
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
@@ -17,10 +17,11 @@ ms.date: 03/20/2017
 ms.author: kumud
 ---
 
-# Configure the performance traffic routing method using Traffic Manager
+# Configure the performance traffic routing method
 
 The Performance traffic routing method allows you to direct traffic to the endpoint with the lowest latency from the client's network. Typically, the datacenter with the lowest latency is the closest in geographic distance. This traffic routing method cannot account for real-time changes in network configuration or load.
 
+##  To configure performance routing method
 
 1. From a browser, sign in to the [Azure portal](http://portal.azure.com). If you don’t already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free/). 
 2. In the portal’s search bar, search for the **Traffic Manager profiles** and then click the profile name that you want to configure the routing method for.

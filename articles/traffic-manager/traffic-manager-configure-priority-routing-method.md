@@ -1,6 +1,6 @@
 ---
 title: Configure priority traffic routing method using Azure Traffic Manager | Microsoft Docs
-description: This article explains how to configure the priority traffic routing method using Azure Traffic Manager
+description: This article explains how to configure the priority traffic routing method in Traffic Manager
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
@@ -17,11 +17,13 @@ ms.date: 03/20/2017
 ms.author: kumud
 ---
 
-# Configure the priority traffic routing method using Traffic Manager
+# Configure priority traffic routing method in Traffic Manager
 
 Regardless of the website mode, Azure Websites already provide failover functionality for websites within a datacenter (also known as a region). Traffic Manager provides failover for websites in different datacenters.
 
 A common pattern for service failover is to send traffic to a primary service and provide a set of identical backup services for failover. The following steps explain how to configure this prioritized failover with Azure cloud services and websites:
+
+# To configure the priority traffic routing method
 
 1. From a browser, sign in to the [Azure portal](http://portal.azure.com). If you don’t already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free/). 
 2. In the portal’s search bar, search for the **Traffic Manager profiles** and then click the profile name that you want to configure the routing method for.
