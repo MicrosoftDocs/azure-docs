@@ -63,6 +63,8 @@ The password synchronization feature automatically retries failed synchronizatio
 The synchronization of a password has no impact on the currently logged on user.
 Your current cloud service session is not immediately affected by a synchronized password change that occurs while you are signed in to a cloud service. However, when the cloud service requires you to authenticate again, you need to provide your new password.
 
+One caveat is that a user must enter their corporate credentials a second time to authenticate to Azure AD regardless of whether they're logged in to their corporate network. These pattern can be minimized, however, if the user checks the "Keep me signed in" (KMSI) checkbox at login. Checking this sets a session cookie that bypasses authentication for a short period. KMSI behavior can be enabled or disabled by the Azure Active Directory administrator.
+
 > [!NOTE]
 > Password sync is only supported for the object type user in Active Directory. It is not supported for the iNetOrgPerson object type.
 
@@ -82,7 +84,7 @@ Azure AD
 7.	The password synchronization agent takes the resulting 32-byte hash, concatenates both the salt and the number of SHA256 iterations to it (for use by Azure AD), then transmits the string from AD Connect to Azure AD over SSL.</br> 
 8.	When a user attempts to login to Azure AD and enters their password, the password is run through the same MD4+salt+PBKDF2+HMAC-SHA256 process. If the resulting hash matches the hash stored in Azure AD, the user has entered the correct password and is authenticated. 
 
->![Note] 
+>[!Note] 
 >The original MD4 hash is not transmitted to Azure AD; rather, the SHA256 hash of the original MD4 hash is transmitted. As a result, if the hash stored in Azure AD is obtained it cannot be used in an on-premises pass-the-hash attack.
 
 ### How password synchronization works with Azure AD Domain Services
@@ -92,6 +94,7 @@ You can also use the password synchronization feature to synchronize your on-pre
 When synchronizing passwords, the plain-text version of your password is not exposed to the password synchronization feature, to Azure AD, or any of the associated services.
 
 User authentication takes place against Azure AD rather than against the organization's own Active Directory. If your organization has concerns about password data in any form leaving the premises, consider the fact that the SHA256 password data stored in Azure AD - a hash of the original MD4 hash - is significantly more secure than what is stored in Active Directory. Further, because this SHA256 hash cannot be decrypted, it cannot be brought back to the organization's Active Directory environment and presented as a valid user password in a pass-the-hash attack.
+
 
 
 
@@ -125,11 +128,12 @@ If you change your on-premises password again, the new password is synchronized 
 
 The synchronization of a password has no impact on the currently logged on Azure user. Your current cloud service session is not immediately affected by a synchronized password change that occurs while you are signed in to a cloud service. KMSI will extend the duration of this difference. When the cloud service requires you to authenticate again, you need to provide your new password.
 
-### Additional Considerations
+### Additional Advantages
 
 - Generally, password synchronization is simpler to implement than a federation service. It does not require any additional servers, and eliminates dependence on a highly available federation service to authenticate users. 
 - Password synchronization can also be enabled in addition to federation so it may be used as a fallback if your federation service experiences an outage.
-- A user must enter their corporate credentials a second time to authenticate to Azure AD regardless of whether they're logged in to their corporate network. These pattern can be minimized, however, if the user checks the "Keep me signed in" (KMSI) checkbox at login. Checking this sets a session cookie that bypasses authentication for a short period. KMSI behavior can be enabled or disabled by the Azure Active Directory administrator.
+
+
 
 
 
