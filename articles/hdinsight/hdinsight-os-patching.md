@@ -18,10 +18,10 @@ ms.author: bhanupr
 
 ---
 
-# OS Patching for HDInsight 
+# OS patching for HDInsight 
 As a managed Hadoop service, HDInsight takes care of patching the OS of the underlying VMs used by HDInsight clusters. As of August 1, 2016, we have changed the guest OS patching policy for Linux-based HDInsight clusters (version 3.4 or greater). The goal of the new policy is to significantly reduce the number of reboots due to patching. The new policy will continue to patch virtual machines (VMs) on Linux clusters every Monday or Thursday starting at 12AM UTC in a staggered fashion across nodes in any given cluster. However, any given VM will only reboot at most once every 30 days due to guest OS patching. In addition, the first reboot for a newly created cluster will not happen sooner than 30 days from the cluster creation date. Patches will be effective once the VMs are rebooted.
 
-# How to configure the OS patching schedule for Linux-based HDInsight clusters
+## How to configure the OS patching schedule for Linux-based HDInsight clusters
 The virtual machines in an HDInsight cluster need to be rebooted occasionally so that important security patches can be installed. As of August 1, 2016, new Linux-based HDInsight clusters (version 3.4 or greater,) are rebooted using the following schedule:
 
 1. A virtual machine in the cluster can only reboot for patches at most, once within a 30-day period.
