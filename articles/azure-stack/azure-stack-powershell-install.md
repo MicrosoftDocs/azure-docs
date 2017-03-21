@@ -48,10 +48,10 @@ b. [Uninstall the existing version and install the required version.](#uninstall
 To install the Azure Stack PowerShell modules on a computer, which doesn’t already contain any installed PowerShell modules, use the following steps:  
 
 1. Run the following command to install the required version of the AzureRM modules for Compute, Storage, Network, Key Vault etc.  
-    The **Scope** parameter is optional and can be set to the following values:  
+    The **Scope** parameter in the following command is optional and can be set to:  
         * **CurrentUser**-  installs the module only in the current user account.  
         * **All Users** or not specified- installs the module to a location that all users can access.  
-    ```powershell
+```powershell
     # To install the module in current user scope
     Install-Module -Name AzureRM -RequiredVersion 1.2.9 -Scope CurrentUser
     
@@ -61,7 +61,7 @@ To install the Azure Stack PowerShell modules on a computer, which doesn’t alr
     When prompted, type **yes** to trust the PSGallery repository.
 
 2. In addition to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules such as AzureStackAdmin, AzureStackStorage, etc. by running the following command:
-    ```powershell
+```powershell
     # To install the module in current user scope
     Install-Module -Name AzureStack -RequiredVersion 1.2.9 -Scope CurrentUser
     
