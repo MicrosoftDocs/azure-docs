@@ -46,7 +46,7 @@ The PAW approach is an extension of the well-established and recommended practic
 
 For more information and implementation guidance, see [Privileged Access Workstations](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations).
 
-## Use two-factor authentication
+## Use Multi-Factor Authentication
 
 In the past, your network perimeter was used to control access to corporate data. In a cloud-first, mobile-first world, identity is the control plane: You use it to control access to IaaS services from any device. You also use it to get visibility and insight into where and how your data is being used. Protecting the digital identity of your Azure users is the cornerstone of protecting your subscriptions from identity theft and other cybercrimes.
 
@@ -161,7 +161,7 @@ Your servers need to be monitored for patching, configuration, events, and activ
 
 In an IaaS deployment, you are still responsible for the management of the systems that you deploy, just like any other server or workstation in your environment. Patching, hardening, rights assignments, and any other activity related to the maintenance of your system are still your responsibility. For systems that are tightly integrated with your on-premises resources, you might want to use the same tools and procedures that you're using on-premises for things like antivirus, antimalware, patching, and backup.
 
-### Harden virtual machines
+### Harden systems
 All virtual machines in Azure IaaS should be hardened so that they expose only service endpoints that are required for the applications that are installed. For Windows virtual machines, follow the recommendations that Microsoft publishes as baselines for the [Security Compliance Manager](https://technet.microsoft.com/solutionaccelerators/cc835245.aspx) solution.
 
 Security Compliance Manager is a free tool. You can use it to quickly configure and manage your desktops, traditional datacenter, and private and public cloud by using Group Policy and System Center Configuration Manager.
