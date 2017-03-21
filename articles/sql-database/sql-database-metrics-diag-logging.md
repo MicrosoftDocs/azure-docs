@@ -29,13 +29,94 @@ Azure SQL Database resources can emit metrics and diagnostic logs for easier mon
 
 ## Enable metrics and diagnostics logging
 
-Metrics and diagnostics logging is not enabled by default. To enable Azure SQL Database metrics and diagnostic logging:
-- Create a resource where Azure will store or send the data. 
-- Specify then this resource when you enable diagnostic logging for your Azure SQL DB resource. 
+Metrics and diagnostics logging is not enabled by default. You can enable and manage metrics and diagnostics logging using one of the following methods:
+- Azure portal
+- PowerShell
+- Azure CLI
+- REST API 
+- Resource Manager template
 
-To enable metrics and diagnostic logs collection, see [Enable collection of metrics and diagnostic logs for Azure SQL Database](sql-database-enable-metrics-diag-collection.md)
+When you enable metrics and diagnostics logging, you need to specify the Azure resource where selected data will be collected. Options available:
+- Log analytics
+- Event Hub
+- Azure Storage 
+
+You can provision a new Azure resource or select an existing resource. After selecting the storage resource, you need to specify which data to collect. Options available include:
+
+- **[1-minute metrics](sql-database-metrics-diag-logging.md#1-minute-metrics)** - contains DTU percentage, DTU limit, CPU percentage, Physical data read percentage, Log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, XTP storage percentage
+- **[Query Store logs](sql-database-metrics-diag-logging.md#query-store-logs)** - contains query execution statistics in one-hour granularity
+
+If you specify Event Hub or an AzureStorage account, you can specify the retention policy. This policy will delete the data that is older than a selected time period. If you specify Log Analytics, the retention policy depends on the selected pricing tier. Read more about [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
 We recommend that you read the both [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) and [Overview of Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) articles to gain an understanding of not only how to enable logging, but the metrics and log categories supported by the various Azure services. For example, Azure SQL Database currently supports two log categories: Activity log and Query Store.
+
+### Azure portal
+
+To  enable metrics and diagnostic logs collection in the Azure Portal, go to the blade for your Azure SQL Database or Elastic Pool and then click Diagnostic configuration.
+
+   <img src="./media/sql-database-metrics-diag-logging/enable-portal.png" alt="enable in the Azure portal" style="width: 780px;" />
+
+## PowerShell
+
+To enable metrics and diagnostics logging using PowerShell, use the following commands:
+
+- To enable storage of Diagnostic Logs in a Storage Account, use this command:
+
+   ```Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true``
+
+   The Storage Account ID is the resource id for the storage account to which you want to send the logs.
+
+- To enable streaming of Diagnostic Logs to an Event Hub, use this command:
+
+   ```Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true```
+
+   The Service Bus Rule ID is a string with this format:
+
+   ```{service bus resource ID}/authorizationrules/{key name}``` 
+
+- To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
+
+   ```Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true```
+
+- You can obtain the resource id of your Log Analytics workspace using the following command:
+
+   ```(Get-AzureRmOperationalInsightsWorkspace).ResourceId```
+
+   You can combine these parameters to enable multiple output options.
+
+
+## CLI
+
+To enable metrics and diagnostics logging using the Azure CLI, use the following commands:
+
+- To enable storage of Diagnostic Logs in a Storage Account, use this command:
+
+   ```azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true```
+
+   The Storage Account ID is the resource id for the storage account to which you want to send the logs.
+
+- To enable streaming of Diagnostic Logs to an Event Hub, use this command:
+
+   ```azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true```
+
+   The Service Bus Rule ID is a string with this format:
+
+   ```{service bus resource ID}/authorizationrules/{key name}```
+
+- To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
+
+   ```azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true```
+
+   You can combine these parameters to enable multiple output options.
+
+### REST API
+
+Read about how to [change Diagnostic settings using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx). 
+
+### Resource Manager template
+
+Read about how to [enable Diagnostic settings at resource creation using Resource Manager template](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md). 
+
 
 ## 1-minute metrics
 
