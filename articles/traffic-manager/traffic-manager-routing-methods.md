@@ -93,6 +93,30 @@ Points to note:
 * The algorithm that chooses the endpoint is deterministic. Repeated DNS queries from the same client are directed to the same endpoint. Typically, clients use different recursive DNS servers when traveling. The client may be routed to a different endpoint. Routing can also be affected by updates to the Internet Latency Table. Therefore, the Performance traffic-routing method does not guarantee that a client is always routed to the same endpoint.
 * When the Internet Latency Table changes, you may notice that some clients are directed to a different endpoint. This routing change is more accurate based on current latency data. These updates are essential to maintain the accuracy of Performance traffic-routing as the Internet continually evolves.
 
+## Geographic traffic routing method
+
+Traffic Manager profiles can be configured to use the Geographic routing method so that users are directed to specific endpoints (Azure, External or Nested) based on which geographic location their DNS query originates from. This empowers Traffic Manager customers to enable scenarios where knowing a user’s geographic region and routing them based on that is important. Examples include complying with data sovereignty mandates, localization of content & user experience and measuring traffic from different regions.
+When a profile is configured for geographic routing, each endpoint associated with that profile needs to have a set of geographic regions assigned to it. A geographic region can be at following levels of granularity 
+- World– any region
+- Regional Grouping – e.g. Africa, Middle East, Australia/Pacific etc. 
+- Country/Region – e.g. Ireland, Peru, Hong Kong SAR etc. 
+- State/Province – e.g. USA-California, Australia-Queensland, Canada-Alberta etc. (note: this granularity level is supported only for states / provinces in Australia, Canada, UK and USA).
+
+When a region or a set of regions is assigned to an endpoint, any requests from those regions will get routed only to that endpoint. Traffic Manager uses the source IP address of the DNS query to determine the region from which a user is querying from – in most cases this will be the IP address of the local DNS resolver doing the query on behalf of the user.  
+
+![Azure Traffic Manager 'Geographic' traffic-routing method](./media/traffic-manager-routing-methods/geographic.png)
+
+Traffic Manager reads the source IP address of the DNS query and decides which geographic region it is originating from. It will then look to see if there is an endpoint that has this geographic region mapped to it. This lookup starts at the lowest granularity level (State/Province where it is supported, else at the Country/Region level) and goes all the way up to the highest level which is World. The first match found using this traversal will be designated as the endpoint to return in the query response. In the case of matching with a Nested type endpoint, an endpoint within that child profile will be returned, based on its routing method. The following points are applicable to this behavior:
+
+1. A geographic region can be mapped only to one endpoint in a Traffic Manager profile when the routing type is Geographic Routing. This ensures that routing of users is deterministic, and customers can enable scenarios which require unambiguous geographic boundaries.
+2. If a user’s region comes under two different endpoints’ geographic mapping Traffic Manager will select the endpoint with the lowest granularity and will not consider routing requests from that region to the other endpoint. Example: consider a Geographic Routing type profile with two endpoints - Endpoint 1 and Endpoint 2. Endpoint1 is configured to receive traffic from Ireland and Endpoint2 is configured to receive traffic from Europe. If a request originates from Ireland, it will always be routed to Endpoint1.
+3. Since a region can be mapped only to one endpoint, Traffic Manager will return it regardless of whether the endpoint is healthy or not. Therefore, it is strongly suggested that customers should using the geographic routing method associate it with Nested type endpoints that has child profiles containing at least two endpoints within each.
+4. If an endpoint match is found and that endpoint is in the **Stopped** state, Traffic Manager will return a NODATA response. In this case, no further lookups will be made higher up in the geographic region hierarchy. This behavior is also applicable for nested endpoint types when the child profile is in the **Stopped** or **Disabled** state.
+5. If an endpoint is in the **Disabled** status, it won’t be included in the region matching process. This behavior is also applicable for nested endpoint types when the endpoint is in the **Disabled** state.
+6. If a query is coming from a geographic region which has no mapping in that profile, Traffic Manager will return a NODATA response. Therefore, it is strongly recommended that customers should use geographic routing with one endpoint, ideally of type Nested with at least two endpoints within the child profile, with the region **World** assigned to it. This will also ensure that any IP addresses which do not map to a region will be handled.
+
+As explained in [How Traffic Manager Works](traffic-manager-how-traffic-manager-works.md), Traffic Manager does not receive DNS queries directly from clients. Rather, DNS queries come from the recursive DNS service that the clients are configured to use. Therefore, the IP address used to determine the region is not the client's IP address, but it is the IP address of the recursive DNS service. In practice, this IP address is a good proxy for the client.
+
 ## Nested Traffic Manager profiles
 
 Traffic Manager includes a range of traffic-routing methods that allow you to control how Traffic Manager chooses which endpoint should receive traffic from each end user. For more information, see [Traffic Manager traffic-routing methods](traffic-manager-routing-methods.md).
@@ -170,28 +194,7 @@ The monitoring settings in a Traffic Manager profile apply to all endpoints with
 
 ![Traffic Manager endpoint monitoring with per-endpoint settings][13]
 
-## Geographic traffic routing method
 
-Traffic Manager profiles can be configured to use the Geographic routing method so that users are directed to specific endpoints (Azure, External or Nested) based on which geographic location their DNS query originates from. This empowers Traffic Manager customers to enable scenarios where knowing a user’s geographic region and routing them based on that is important. Examples include complying with data sovereignty mandates, localization of content & user experience and measuring traffic from different regions.
-When a profile is configured for geographic routing, each endpoint associated with that profile needs to have a set of geographic regions assigned to it. A geographic region can be at following levels of granularity 
-1. World– any region
-2. Regional Grouping – e.g. Africa, Middle East, Australia/Pacific etc. 
-3. Country/Region – e.g. Ireland, Peru, Hong Kong SAR etc. 
-4. State/Province – e.g. USA-California, Australia-Queensland, Canada-Alberta etc. (note: this granularity level is supported only for states / provinces in Australia, Canada, UK and USA).
-When a region or a set of regions is assigned to an endpoint, any requests from those regions will get routed only to that endpoint. Traffic Manager uses the source IP address of the DNS query to determine the region from which a user is querying from – in most cases this will be the IP address of the local DNS resolver doing the query on behalf of the user.  
-
-![Azure Traffic Manager 'Geographic' traffic-routing method](./media/traffic-manager-routing-methods/geographic.png)
-
-Traffic Manager reads the source IP address of the DNS query and decides which geographic region it is originating from. It will then look to see if there is an endpoint that has this geographic region mapped to it. This lookup starts at the lowest granularity level (State/Province where it is supported, else at the Country/Region level) and goes all the way up to the highest level which is ‘World. The first match found using this traversal will be designated as the endpoint to return in the query response. In the case of matching with a Nested type endpoint, an endpoint within that child profile will be returned, based on its routing method. The following points are applicable to this behavior:
-
-1. A geographic region can be mapped only to one endpoint in a Traffic Manager profile when the routing type is Geographic Routing. This ensures that routing of users is deterministic, and customers can enable scenarios which require unambiguous geographic boundaries.
-2. If a user’s region comes under two different endpoints’ geographic mapping Traffic Manager will select the endpoint with the lowest granularity and will not consider routing requests from that region to the other endpoint. Example: consider a Geographic Routing type profile with two endpoints - Endpoint 1 and Endpoint 2. Endpoint1 is configured to receive traffic from Ireland and Endpoint2 is configured to receive traffic from Europe. If a request originates from Ireland, it will always be routed to Endpoint1.
-3. Since a region can be mapped only to one endpoint, Traffic Manager will return it regardless of whether the endpoint is healthy or not. Therefore, it is strongly suggested that customers should using the geographic routing method associate it with Nested type endpoints that has child profiles containing at least two endpoints within each.
-4. If an endpoint match is found and that endpoint is in the **Stopped** state, Traffic Manager will return a NODATA response. In this case, no further lookups will be made higher up in the geographic region hierarchy. This behavior is also applicable for nested endpoint types when the child profile is in the **Stopped** or **Disabled** state.
-5. If an endpoint is in the **Disabled** status, it won’t be included in the region matching process. This behavior is also applicable for nested endpoint types when the endpoint is in the **Disabled** state.
-6. If a query is coming from a geographic region which has no mapping in that profile, Traffic Manager will return a NODATA response. Therefore, it is strongly recommended that customers should use geographic routing with one endpoint, ideally of type Nested with at least two endpoints within the child profile, with the region **World** assigned to it. This will also ensure that any IP addresses which do not map to a region will be handled.
-
-As explained in [How Traffic Manager Works](traffic-manager-how-traffic-manager-works.md), Traffic Manager does not receive DNS queries directly from clients. Rather, DNS queries come from the recursive DNS service that the clients are configured to use. Therefore, the IP address used to determine the region is not the client's IP address, but it is the IP address of the recursive DNS service. In practice, this IP address is a good proxy for the client.
 
 ## Next steps
 

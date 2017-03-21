@@ -19,7 +19,7 @@ ms.author: kumud
 
 # List of regions used for geographic traffic routing by Azure Traffic Manager
 
-This article lists the geographic regions used by the **Geographic**  traffic routing method in Azure Traffic Manager. For more information, see 
+This article lists the geographic regions used by the **Geographic**  traffic routing method in Azure Traffic Manager. You can also obtain this information programmatically by calling the [Azure Traffic Manager’s REST API](https://docs.microsoft.com/rest/api/trafficmanager/).  
 
 - WORLD(World)
 
@@ -697,7 +697,7 @@ This article lists the geographic regions used by the **Geographic**  traffic ro
 
 ## Next steps
 
-- Learn more about [Geographic traffic routing method in Azure Traffic Manager](traffic-manager-geographic-routing-method.md).
+- Learn more about [Geographic traffic routing method in Azure Traffic Manager](traffic-manager-routing-methods.md#geographic-traffic-routing-method).
 
 
 
