@@ -41,8 +41,8 @@ To access an entity, the client requires a SAS token generated using a specific 
 SAS authentication support for Azure Relay is included in the Azure .NET SDK versions 2.0 and later. SAS includes support for a [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). All APIs that accept a connection string as a parameter include support for SAS connection strings.
 
 ## Next steps
-Continue reading [Service Bus authentication with Shared Access Signatures](../service-bus-messaging/service-bus-sas.md) for more details about SAS.
-
-For corresponding information about Service Bus Messaging authentication and authorization, see [Service Bus authentication and authorization](../service-bus-messaging/service-bus-authentication-and-authorization.md). 
+- Continue reading [Service Bus authentication with Shared Access Signatures](../service-bus-messaging/service-bus-sas.md) for more details about SAS.
+- See the [Azure Relay Hybrid Connections protocol guide](relay-hybrid-connections-protocol.md) for detailed information about the Hybrid Connections capability.
+- For corresponding information about Service Bus Messaging authentication and authorization, see [Service Bus authentication and authorization](../service-bus-messaging/service-bus-authentication-and-authorization.md). 
 
 [0]: ./media/relay-authentication-and-authorization/hcanon.png
