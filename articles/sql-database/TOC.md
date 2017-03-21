@@ -32,7 +32,7 @@
 ### [DTU benchmark](sql-database-benchmark-overview.md)
 ### [Limits](sql-database-resource-limits.md)
 ## [Tools](sql-database-manage-overview.md)
-## Partitioned data
+## Partition data
 ### [Sharded databases](sql-database-elastic-scale-introduction.md)
 ### [Elastic client library](sql-database-elastic-database-client-library.md)
 ### [Shard maps](sql-database-elastic-scale-shard-map-management.md)
@@ -42,11 +42,12 @@
 ### [Elastic tools](sql-database-elastic-scale-glossary.md)
 ### [Move sharded data](sql-database-elastic-scale-overview-split-and-merge.md)
 ### [Elastic tools FAQ](sql-database-elastic-scale-faq.md)
+## Manage multiple DBs
 ### [Elastic queries](sql-database-elastic-query-overview.md)
 ### [Horizontal data](sql-database-elastic-query-horizontal-partitioning.md)
 ### [Vertical data](sql-database-elastic-query-vertical-partitioning.md)
 ### [Transactions](sql-database-elastic-transactions-overview.md)
-### [Elastic Jobs](sql-database-elastic-jobs-overview.md)
+### [Elastic jobs](sql-database-elastic-jobs-overview.md)
 ## Security
 ### [Overview](sql-database-security-overview.md)
 ### [Access control](sql-database-control-access.md)
