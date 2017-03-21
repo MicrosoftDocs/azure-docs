@@ -1,4 +1,4 @@
---
+---
 title: Authentication to Azure SQL Data Warehouse | Microsoft Docs
 description: Azure Active Directory (AAD) and SQL Server authentication to Azure SQL Data Warehouse.
 services: sql-data-warehouse
