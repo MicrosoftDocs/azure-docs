@@ -1,13 +1,13 @@
 ---
-title: Create a scalable Node.js+MongoDB app in Azure | Microsoft Docs 
-description: Learn how to create a scalable Node.js+MongoDB app in Azure. This tutorial shows you how to deploy an Express.js web app.
+title:Create a MEAN.js app in Azure | Microsoft Docs 
+description: Create a MEAN.js app in Azure. Learn how to get a MEAN.js app working in Azure, with connection to a DocumentDB database with a MongoDB connection string.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
 editor: ''
 
-ms.assetid: 8877ddc8-1476-45ae-9e7f-3c75917b4564
+ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -17,235 +17,197 @@ ms.date: 03/16/2017
 ms.author: cephalin
 
 ---
-# Create a scalable Node.js+MongoDB app in Azure
-This tutorial shows you how to deploy a scalable Node.js app to Azure App Service. In the process, you can glean useful skills to get going with Azure app development, such as accessing console logs, connect to MongoDB, download web server log files, and scaling out globally.
+# Create a MEAN.js app in Azure
+This tutorial shows you how to deploy a [MEAN.js](http://meanjs.org/) app to Azure App Service, complete with MongoDB access. MEAN.js is a popular MEAN (MongoDB, Express, AngularJS, and Node.js) framework.
 
 You should have working knowledge of Node.js. This tutorial is not intended to help you with issues related to developing Node.js apps in general.
 
-## Prerequisites
-* [Node.js](https://nodejs.org/)
-* [Git](http://www.git-scm.com/downloads)
-* [Azure CLI 2.0](/cli/azure/install-az-cli2)
+Before starting this tutorial, ensure that [the Azure CLI is installed](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) on your machine. In addition, you need [Node.js](https://nodejs.org/) and [Git](http://www.git-scm.com/downloads). You will be running `az`, `npm`, and `git` commands.
 
-## Step 0 - Create local Node.js app
-This step helps you create an Express.js app quickly, which you will use for the entire tutorial.
+## Step 1 - Create local MEAN.js app
+In this step, you set up the local Node.js project.
 
-1. Open the command-line terminal of your choice and `CD` to a working directory.
+### Clone MEAN.js code
 
-2. Install the [Express.js application generator](https://expressjs.com/starter/generator.html).
+Open the command-line terminal of your choice and `CD` to a working directory. Then, run the following commands to clone the official MEAN.js repository. You will be using the 0.5.0 release of MEAN.js.
 
-    ```
-    npm install express-generator -g
-    ```
+```bash
+git clone https://github.com/meanjs/mean.git
+cd mean
+git checkout tags/0.5.0 -b 0.5.0
+```
 
-3. In your working directory, create an Express.js app with the generator and run it:
+### Run the app
 
-    ```
-    express expressAzureTutorial --git
-    cd expressAzureTutorial
-    npm install
-    npm start
-    ```
+Install the required packages and start the app.
 
-    Make sure you can navigate to the default home page at http://localhost:3000, then type `Ctrl-C` (or `⌘-C` in MacOS) to stop the app.
+```bash
+npm install
+npm start
+```
 
-4. Initialize a Git repository and commit your files. In the application root (where package.json is), run the following Git commands:
+Unless you already have a local MongoDB instance, `npm start` should terminate with the following error message.
 
-    ```
-    git init
-    git add .
-    git commit -m "first commit in this Azure tutorial!"
-    ```
+```bash
+{ [MongoError: failed to connect to server [localhost:27017] on first connect]
+  name: 'MongoError',
+  message: 'failed to connect to server [localhost:27017] on first connect' }
+```
 
-You now have a working Node.js app. You're ready to deploy it to Azure.
+Instead of setting up a local MongoDB instance, you create one in Azure.
 
-<a name="step1"></a>
-## Step 1 - Deploy to Azure
-In this step, you create the Azure resources you need to host the Express.js app, then deploy your app code to Azure.
+## Step 2 - Connect to MongoDB
 
-1. Log in to Azure like so:
+In this step, you connect your app to a MongoDB database. For MongoDB, you will use [Azure DocumentDB](https://docs.microsoft.com/en-us/azure/documentdb/), which can support MongoDB client connections.
 
-    ```azurecli
-    az login
-    ```
+### Create resource group
 
-    Follow the prompt to continue the login in a browser with a Microsoft account that has your Azure subscription.
+Create a [resource group](../azure-resource-manager/resource-group-overview.md). This is where you put all the Azure resources that you want to manage together, such as 
+the web app and the DocumentDB database back end.
 
-3. Create a [resource group](../azure-resource-manager/resource-group-overview.md) with a name. 
+```azurecli
+az group create --location "West Europe" --name myResourceGroup
+```
 
-    ```azurecli
-    az group create --location "West Europe" --name myResourceGroup
-    ```
+To see what possible values you can use for `---location`, use the `az appservice list-locations` Azure CLI command.
 
-    To see what possible values you can use for `--location`, use the `az appservice list-locations` CLI command.
+### Create a DocumentDB account
 
-3. Create a "FREE" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) with a name. 
+Use the `az documentdb create` command to create a DocumentDB account with MongoDB support.
 
-    ```azurecli
-    az appservice plan create --name my-expressjs-appservice-plan --resource-group myResourceGroup --sku FREE
-    ```
+```azurecli
+accountname="<replace-with-a-unique-name>"
+az documentdb create --name $accountname --resource-group myResourceGroup --kind MongoDB
+```
 
-    This plan is created in West Europe in the same region as the resource group, since `--location` is not specified.
+The `--kind MongoDB` parameter specifies that the database should support MongoDB client connections.
 
-4. Create a new web app with a unique name in `<app_name>`.
+### Retrieve connection key
 
-    ```azurecli
-    az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-expressjs-appservice-plan
-    ```
+Use the `az documentdb list-keys` to retrieve the primary key.
 
-3. Set the deployment user for App Service. You will deploy code using these credentials later.
-   
-    ```azurecli
-    az appservice web deployment user set --user-name <username> --password <minimu-8-chars-letters-and-numbers>
-    ```
+```azurecli
+password=$(az documentdb list-keys --name $accountname --resource-group myResourceGroup --query primaryMasterKey --output tsv)
+```
 
-1. Configure local Git deployment for your new web app with the following command:
+The `--query primaryMasterKey --output tsv` portion helps filter the JSON output to only the value you need, in the format you want.
 
-    ```azurecli
-    az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup
-    ```
+### Set the MEAN.js environment variable
 
-    You get a JSON output like this, which means that the remote Git repository is configured:
+MEAN.js lets you use several environment variables to set the connection URI for MongoDB, and `MONGODB_URI` is one of them (take a look at `config/env/development.js`). Set this environment variable using the connection information of your DocumentDB database.
 
-    ```json
-    {
-    "url": "https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git"
-    }
-    ```
+```bash
+export MONGODB_URI="mongodb://$accountname:$password@$accountname.documents.azure.com:10250/mean-dev?ssl=true&sslverifycertificate=false"
+```
 
-6. Add the URL in the JSON as a Git remote for your local repository (called `azure` for simplicity).
+> [!NOTE] 
+> The `ssl=true` option is important because [Azure DocumentDB requires it](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+>
+>
 
-    ```
-    git remote add azure https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git
-    ```
-   
-7. Deploy your sample code to the `azure` Git remote. When prompted, use the deployment credentials you configured earlier.
+### Run the app again.
 
-    ```
-    git push azure master
-    ```
+Run `npm start` again. When the development environment is up and running, navigate to http://localhost:3000 in a browser.
 
-7. Launch your live Azure app in the browser:
+## Step 3 - Deploy app to Azure
 
-    ```azurecli
-    az appservice web browse --name <app_name> --resource-group myResourceGroup
-    ```
+### Create App Service plan
+Create a "Standard" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Standard tier is required to run Linux containers.
 
-Congratulations, your app is now running in Azure. But how can you get the console output to help you debug your app in Azure? You will find out next.
+```azurecli
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux 
+```
 
-## Step 2 - Stream debug messages
-In this step, you learn how to stream the console debug messages from Azure directly to your terminal.
+### Create web app
 
-2. Start log streaming.
+Create a web app with a unique name in `<app_name>`.
 
-    ```azurecli
-    az appservice web log tail --name <app_name> --resource-group myResourceGroup
-    ```
+```azurecli
+az appservice web create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
+```
 
-2. Refresh your web app in the browser to get some web traffic.
+### Configure Linux container
+Configure the Linux container to use the default Node.js 6.9.3 image.
 
-3. When you're ready to stop, type `Ctrl-C` (or `⌘-C` in MacOS).
+```azurecli
+az appservice web config update --node-version 6.9.3 --name <app_name> --resource-group myResourceGroup
+```
 
-Now, you can write `console.log()` to help you with app development.
+### Configure MongoDB connection string
 
-## Step 3 - Connect to MongoDB
-In this step, you connect your Express.js app to a MongoDB instance. For MongoDB, you will use [Azure DocumentDB](https://docs.microsoft.com/en-us/azure/documentdb/), which can support MongoDB client connections.
+Remember that you created a local environment variable for `MONGODB_URI`. You need to do the same for your app in Azure. You do this by setting an application setting for your app.
 
-1. Create a DocumentDB account with MongoDB support, and retrieve the connection password.
+```azurecli
+az appservice web config appsettings update --settings dbconnstring="mongodb://$accountname:$password@$accountname.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false" --name <app_name> --resource-group myResourceGroup    
+```
 
-    ```azurecli
-    accountname="<documentdb_account_name>"
-    az documentdb create --name $accountname --resource-group myResourceGroup --kind MongoDB
-    password=$(az documentdb list-keys --name $accountname --resource-group myResourceGroup --query primaryMasterKey --output tsv)
-    ```
+Putting your settings in Azure app settings keeps sensitive data like username and password out of your source control (Git). 
 
-    Putting your settings in Azure app settings keeps sensitive data out of your source control (Git). Next, you will
-    configure your development environment to use the same connection information.
+### Set deployment credentials
+Set your account-level deployment credentials for App Service.
 
-2. Configure the MongoDB-formatted connection string as an application setting for your web app.
+```azurecli
+az appservice web deployment user set --user-name <specify-a-username> --password <mininum-8-char-captital-lowercase-number>
+```
 
-    ```azurecli
-    az appservice web config appsettings update --settings dbconnstring="mongodb://$accountname:$password@$accountname.documents.azure.com:10250/tutorial?ssl=true&sslverifycertificate=false" --name <app_name> --resource-group myResourceGroup    
-    ```
+### Configure Git deployment
+Configure local Git deployment.
 
-    > [!NOTE] 
-    > The `ssl=true` option is important because [Azure DocumentDB requires it](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
-    >
-    >
+```azurecli
+az appservice web source-control config-local-git --name $webappname --resource-group myResourceGroup
+```
 
-3. In your command-line terminal, from your Express.js app's root directory, install the [MongoDB NPM package](https://www.npmjs.com/package/mongodb).
+This command gives you an output that looks like the following:
 
-    ```
-    npm install mongodb --save
-    ```
+```json
+{
+  "url": "https://user123@myuniqueappname.scm.azurewebsites.net/myuniqueappname.git"
+}
+```
+Use the returned URL to configure your Git remote. Below is a command that uses the preceding output example.
 
-4. In your Express.js project, open `routes/index.js` and replace the content with the following code. This code connects to the MongoDB URL, inserts a document, and outputs all the documents as JSON to the view. 
+```bash
+git remote add azure https://user123@myuniqueappname.scm.azurewebsites.net/myuniqueappname.git
+```
 
-    ```nodejs
-    var express = require('express');
-    var router = express.Router();
-    var MongoClient = require('mongodb').MongoClient;
-    var output = null;
+### Deploy sample application
+You are now ready to deploy your MEAN.js sample application. Simply run `git push`.
 
-    MongoClient.connect(process.env.dbconnstring, function(err, db) {
-      var collection = db.collection('documents')
-      collection.insert({value: Math.random()}, function(err, result) {
-        collection.find({}).toArray(function(err, docs) {
-          output = JSON.stringify(docs);
-          db.close()
-        })
-      })
-    })
+```bash
+git push azure master
+```
 
-    /* GET home page. */
-    router.get('/', function(req, res, next) {
-      res.render('index', { title: 'Express', data: output });
-    });
+When prompted for password, use the password that you specified when you ran `az appservice web deployment user set`.
 
-    module.exports = router;
-    ```
+### Browse to Azure web app
+To see your app running live in Azure, run this command.
 
-    This code opens and closes a MongoDB connection at every request to `/index`, which is not very performant. However, it does demonstrate database connectivity, as well as the use of application settings as environment variables (`process.env.xxx`). Using application settings enables to you keep sensitive connection information out of source control.
-
-5. Open `views/index.jade` and add the following code to the end to make the `index` view display the data from the MongoDB connection.
-
-    ```
-    p Database documents: #{data}
-    ```
-
-6. Back in the terminal, push your changes to Azure.
-
-    ```
-    git add .
-    git commit -m "added MongoDB access code."
-    git push azure master
-    ```
-
-7. Launch your live Azure app in the browser:
-
-    ```azurecli
-    az appservice web browse --name <app_name> --resource-group myResourceGroup
-    ```
-
-The app's homepage now should show some JSON documents, which are autogenerated in the `tutorial` collection of your DocumentDB database by your Node.js code.
+```azurecli
+az appservice web browse --name <app_name> --resource-group myResourceGroup
+```
 
 ## Step 4 - Download server logs
-In this step, you learn how to quickly turn on monitoring with web server logs, and then download these logs. 
+In this step, you turn on monitoring of your web app with web server logs, and then download these logs. 
 
-1. Enable all logging options for your web app.
+### Enable logging
+Enable all logging options for your web app.
 
-    ```azurecli
-    az appservice web log config --name <app_name> --resource-group myResourceGroup --application-logging true --detailed-error-messages true --failed-request-tracing true --web-server-logging filesystem
-    ```
+```azurecli
+az appservice web log config --name <app_name> --resource-group myResourceGroup --application-logging true --detailed-error-messages true --failed-request-tracing true --web-server-logging filesystem
+```
 
-2. Navigate to a nonexistent page at your web app to generate some error entries. For example: `http://<app_name>.azurewebsites.net/404` 
+### Generate errors
 
-3. Download the log files for review.
+Navigate to a nonexistent page at your web app to generate some error entries. For example: `http://<app_name>.azurewebsites.net/404`. 
 
-    ```azurecli
-    az appservice web log download --name <app_name> --resource-group myResourceGroup
-    ```
+### Download log files
+Download the log files for review.
 
+```azurecli
+az appservice web log download --name <app_name> --resource-group myResourceGroup
+```
+
+<!--
 ## Step 5 - Scale to another region
 In this step, you scale your Node.js app to serve your customers in a new region. That way, you can tailor your web app to customers in different regions, and also put your web app closer to them to improve performance. When you're done with this step, you will have a [Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/) profile with two endpoints, which route traffic to two web apps which reside in different geographical regions.
 
@@ -338,4 +300,5 @@ In this step, you scale your Node.js app to serve your customers in a new region
   
 Now, try to access the URL of your Traffic Manager profile. If you access the URL from the Europe region, you should see "Express Europe", but from the Asia region, you should see "Express Asia".
 
+-->
 ## More resources
