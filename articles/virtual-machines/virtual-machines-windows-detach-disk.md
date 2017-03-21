@@ -33,7 +33,7 @@ If you want to use the existing data on the disk again, you can reattach it to t
 2. Select the virtual machine that has the data disk you want to detach and click **Stop** to deallocate the VM.
 3. In the virtual machine blade, select **Disks**.
 4. At the top of the **Disks** blade, select **Edit**.
-5. In the **Disks** blade, to the far right of the data disk that you would like to detach, click the [Detach icon](./media/virtual-machines-common-detach-disk/detach.png) detach button.
+5. In the **Disks** blade, to the far right of the data disk that you would like to detach, click the ![Detach button image](./media/virtual-machines-common-detach-disk/detach.png) detach button.
 5. After the disk has been removed, click Save on the top of the blade.
 6. In the virtual machine blade, click **Overview** and then click the **Start** button at the top of the blade to restart the VM.
 
