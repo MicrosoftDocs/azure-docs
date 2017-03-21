@@ -68,7 +68,7 @@ The settings to update an existing application gateway to support web applicatio
 * **Upgrade to WAF Tier** - This setting is required to configure WAF.
 * **Firewall status** - This setting either disables or enables web application firewall.
 * **Firewall mode** - This setting is how web application firewall deals with malicious traffic. **Detection** mode only logs the events, where **Prevention** mode logs the events and stops the malicious traffic.
-* **Rule set** - This setting determines the [core rule set](application-gateway-webapplicationfirewall-overview.md#core-rule-sets) that is used to protect the backend pool members.
+* **Rule set** - This setting determines the [core rule set](application-gateway-web-application-firewall-overview.md#core-rule-sets) that is used to protect the backend pool members.
 * **Configure disabled rules** - To prevent possible false positives, this setting allows you to disable certain [rules and rule groups](application-gateway-crs-rulegroups-rules.md).
 
 >[!NOTE]
