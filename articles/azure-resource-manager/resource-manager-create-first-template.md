@@ -37,7 +37,7 @@ To create and revise templates, you need a JSON editor. [Visual Studio Code](htt
 
 Let's start with a blank template that includes only the basic sections of a template.
 
-1. Create a new file. 
+1. Create a file. 
 
 2. Copy and paste the following JSON syntax into your file:
 
@@ -129,7 +129,7 @@ Now, you are ready to set values for your storage account.
 
   ![show VS Code suggested values](./media/resource-manager-create-first-template/vs-code-show-values.png)
 
-  Delete the characters between the double-quotes, and select **Ctrl+Space** to see the available values. Select **Storage** from the available options.
+  To see the available values, delete the characters between the double-quotes and select **Ctrl+Space**. Select **Storage** from the available options.
   
   ![show intellisense](./media/resource-manager-create-first-template/intellisense.png)
 
@@ -247,7 +247,7 @@ Storage account names have several restrictions that make them difficult to set.
   "name": "[variables('storageName')]",
   ```
 
-3. To enable passing in different SKUs for the storage account, go to the **parameters** section. After the parameter for storage name prefix, add a parameter that specifies the allowed SKU values and a default value. You can find the allowed values from either the template reference page or VS Code. In the following example, you include all valid values for SKU, but you could limit the allowed values to only those types of SKUs that you want to deploy through this template.
+3. To enable passing in different SKUs for the storage account, go to the **parameters** section. After the parameter for storage name prefix, add a parameter that specifies the allowed SKU values and a default value. You can find the allowed values from either the template reference page or VS Code. In the following example, you include all valid values for SKU. However, you could limit the allowed values to only those types of SKUs that you want to deploy through this template.
 
   ```json
   "parameters": {
