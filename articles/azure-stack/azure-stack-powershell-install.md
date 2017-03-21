@@ -74,7 +74,7 @@ The **Scope** parameter is optional and can be set to the following values:
 3. To confirm the installation of AzureRM modules, run the following command:
 
   ```powershell
-    Get-Module -ListAvailable
+    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”}
     ```
     If the installation is successful, this command lists the AzureRM and AzureStack modules.
 
