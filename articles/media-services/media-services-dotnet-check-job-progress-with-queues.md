@@ -18,7 +18,7 @@ ms.author: juliako
 
 ---
 # Use Azure Queue storage to monitor Media Services job notifications with .NET
-When you run jobs, you often require a way to track job progress. You can check the progress by using Azure Queue storage to monitor Azure Media Services job notifications (as described in this topic). You can also define a **StateChanged** event handler, as described in [Monitor job progress using .NET](media-services-check-job-progress.md).  
+When you run jobs, you often require a way to track job progress. You can check the progress by using Azure Queue storage to monitor Azure Media Services job notifications (as described in this article). You can also define a **StateChanged** event handler, as described in [Monitor job progress using .NET](media-services-check-job-progress.md).  
 
 ## Use Queue storage to monitor Media Services job notifications
 When processing media jobs, Media Services can deliver notifications to [Queue storage](../storage/storage-dotnet-how-to-use-queues.md). This topic shows how to get these notification messages from Queue storage.
@@ -28,10 +28,10 @@ Messages delivered to Queue storage can be accessed from anywhere in the world. 
 One common scenario for listening to Media Services notifications is if you are developing a content management system that needs to perform some additional task after an encoding job completes (for example, to trigger the next step in a workflow, or to publish content).
 
 ### Considerations
-Consider the following when developing Media Services applications that use Queue storage.
+Consider the following when developing Media Services applications that use Queue storage:
 
 * Queue storage does not provide a guarantee of first-in-first-out (FIFO) ordered delivery. For more information, see [Azure Queues and Azure Service Bus Queues Compared and Contrasted](https://msdn.microsoft.com/library/azure/hh767287.aspx).
-* Queue storage is not a push service; you have to poll the queue.
+* Queue storage is not a push service. You have to poll the queue.
 * You can have any number of queues. For more information, see [Queue Service REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/Queue-Service-REST-API).
 * Queue storage has some limitations and specifics to be aware of. These are described in [Azure Queues and Azure Service Bus Queues Compared and Contrasted](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
