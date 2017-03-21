@@ -42,6 +42,13 @@ DoQmentDB is a Node.js promise-based client, that provides a MongoDB-like layer 
 
 Check it out on [Github](https://github.com/a8m/doqmentdb) and [npm](https://www.npmjs.com/package/doqmentdb).
 
+### TypeScript API
+*by Jelmer Cormont*
+
+A wrapper around the Node.js client written in TypeScript (works in plain JavaScript too). Supports `async/await` and a simplified API.
+
+Check it out on [Github](https://github.com/jcormont/documentdb-typescript) and [npm](https://www.npmjs.com/package/documentdb-typescript).
+
 ### Swagger REST API for DocumentDB
 *by Howard Edidin*
 

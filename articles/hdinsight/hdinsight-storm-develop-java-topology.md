@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/13/2017
+ms.date: 03/21/2017
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017
@@ -562,6 +562,9 @@ Flux is a new framework available with Storm 0.10.0 and higher, which allows you
 
 The YAML file defines the components to use for the topology, how data flows between them, and what values to use when initializing the components. You can include a YAML file as part of the jar file or you can use an external YAML file.
 
+> [!WARNING]
+> Due to a [bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) with Storm 1.0.1, you may need to install a [Storm development environment](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) to run Flux topologies locally.
+
 1. Move the `WordCountTopology.java` file out of the project. Previously, this file defined the topology, but isn't needed with Flux.
 
 2. In the `resources` directory, create a file named `topology.yaml`. Use the following text as the contents of this file.
@@ -690,8 +693,11 @@ The YAML file defines the components to use for the topology, how data flows bet
     If you are using PowerShell, use the following command:
    
         mvn compile exec:java "-Dexec.args=--local -R /topology.yaml"
+
+    > [!WARNING]
+    > This command fails if your topology uses Storm 1.0.1 bits. This is caused by [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). Instead, [install Storm in your development environment](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) and use the following information.
    
-    If you are on a Linux/Unix/OS X system, and have [installed Storm in your development environment](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), you can use the following commands instead:
+    If you have [installed Storm in your development environment](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), you can use the following commands instead:
    
         mvn compile package
         storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /topology.yaml
@@ -721,7 +727,7 @@ The YAML file defines the components to use for the topology, how data flows bet
    
         mvn exec:java -Dexec.args="--local /path/to/newtopology.yaml"
    
-    Or, if you have Storm on your Linux/Unix/OS X development environment:
+    Or, if you have Storm on your development environment:
    
         storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local /path/to/newtopology.yaml
    

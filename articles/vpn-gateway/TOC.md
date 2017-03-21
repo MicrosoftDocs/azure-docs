@@ -20,7 +20,6 @@
 ### [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 ### [Azure portal (classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-### [Classic portal (classic)](vpn-gateway-point-to-site-create.md)
 ## Configure a VNet-to-VNet connection
 ### [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
