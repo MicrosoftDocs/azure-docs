@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2017
+ms.date: 03/16/2017
 ms.author: kgremban
 
 ms.custom: H1Hack27Feb2017
@@ -46,9 +46,13 @@ The verification result (success or denial), and the reason if it was denied, is
 ## Billing
 Most billing questions can be answered by referring to the [Multi-Factor Authentication Pricing page](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
 
-**Q: Is my organization charged for phone calls or text messages used to authenticate my users?**
+Most questions about the available versions of Azure MFA, or how consumption is calculated for Azure Multi-Factor Authentication Providers can be answered by referring to [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).
 
-Organizations are not charged for individual phone calls placed or text messages sent to users through Azure Multi-Factor Authentication. Phone owners might be charged for the phone calls or text messages they receive, according to their personal phone service.
+**Q: Is my organization charged for the phone calls and text messages that are used for authentication?**
+
+No, organizations are not charged for individual phone calls placed or text messages sent to users through Azure Multi-Factor Authentication. If you use a per-authentication MFA provider, you are billed for each authentication but not for the method used.
+
+Phone owners might be charged for the phone calls or text messages they receive, according to their personal phone service.
 
 **Q: Does the per-user billing model charge based on the number of users who are configured to use Multi-Factor Authentication or the number of users who perform verifications?**
 
@@ -56,40 +60,48 @@ Billing is based on the number of users configured to use Multi-Factor Authentic
 
 **Q: How does Multi-Factor Authentication billing work?**
 
-When you use the "per user" or "per authentication" model, Azure MFA is a consumption-based resource. Any charges are billed to the organization’s Azure subscription just like virtual machines, websites, etc.
+When you purchase Azure Multi-Factor Authentication as a standalone service by creating a per-user or per-authentication MFA provider, your organization's Azure subscription is billed monthly for the actual usage for Azure MFA. This billing model works like virtual machines, websites, etc.
 
-When you use the license model, Azure Multi-Factor Authentication licenses are purchased and then assigned to users, just like for Office 365 and other subscription products.
+When you purchase a subscription for Azure Multi-Factor Authentication (as a per-user annual license, or as part of a bundle such as Office 365, Azure AD Premium, or Enterprise Mobility + Security), your organization is only charged for the annual license fee for each user.
 
-Learn more about your options in [How Azure Multi-Factor Authentication works](multi-factor-authentication-how-it-works.md)
+Learn more about your options in [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).
 
-**Q: Is there a free version of Azure Multi-Factor Authentication for administrators?**
+**Q: Is there a free version of Azure Multi-Factor Authentication?**
 
-In some instances, yes. Multi-Factor Authentication for Azure Administrators offers a subset of Azure MFA features at no cost. This offer applies to members of the Azure Global Administrators group in Azure Active Directory instances that aren't linked to a consumption-based Azure Multi-Factor Authentication provider. Using a Multi-Factor Authentication provider upgrades all admins and users in the directory who are configured to use Multi-Factor Authentication to the full version of Azure Multi-Factor Authentication.
+In some instances, yes. 
 
-**Q: Is there a free version of Azure Multi-Factor Authentication for Office 365 users?**
+Multi-Factor Authentication for Azure Administrators offers a subset of Azure MFA features at no cost for access to Microsoft online services, including the Azure and Office 365 administrator portals. This offer applies to the Azure Administrators in Azure Active Directory instances that don't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider. 
 
-In some instances, yes. Multi-Factor Authentication for Office 365 offers a subset of Azure MFA features at no cost. This offer applies to users who have an Office 365 license assigned, when a consumption-based Azure Multi-Factor Authentication provider has not been linked to the corresponding instance of Azure Active Directory. Using the Multi-Factor Authentication provider upgrades all admins and users in the directory who are configured to use Multi-Factor Authentication to the full version of Azure Multi-Factor Authentication.
+Using a Multi-Factor Authentication provider upgrades all admins and users in the directory who are configured to use Multi-Factor Authentication to the full version of Azure Multi-Factor Authentication.
+
+Multi-Factor Authentication for Office 365 offers a subset of Azure MFA features at no cost for access to Microsoft online services, including Exchange Online, SharePoint Online, and other Office 365 services. This offer applies to users who have an Office 365 license assigned, when the corresponding instance of Azure Active Directory doesn't have the full version of Azure MFA throuh an MFA license, a bundle, or a standalone consumption-based provider. Using the Multi-Factor Authentication provider upgrades all admins and users in the directory who are configured to use Multi-Factor Authentication to the full version of Azure Multi-Factor Authentication.
 
 **Q: Can my organization switch between per-user and per-authentication consumption billing models at any time?**
 
-Your organization chooses a billing model when it creates a resource. You cannot change a billing model after the resource is provisioned. You can, however, create another Multi-Factor Authentication resource to replace the original. User settings and configuration options cannot be transferred to the new resource.
+Your organization chooses a billing model when it creates a resource. You cannot change a billing model after the resource is provisioned. You can, however, create another Multi-Factor Authentication resource to replace the original. User settings and configuration options cannot be transferred to the new resource unless both the original provider was linked to an Azure AD tenant and the new provider is linked to the same tenant during creation. An Azure AD tenant can not be linked to two Multi-Factor Authentication providers at the same time. You need to delete the original one before creating a new one.
 
-**Q: Can my organization switch between the consumption billing and license model at any time?**
+**Q: Can my organization switch between consumption-based billing and subscriptions (a license-based model) at any time?**
 
-When licenses are added to a directory that already has a per-user Azure Multi-Factor Authentication provider, consumption-based billing is decremented by the number of licenses owned. If all users configured to use Multi-Factor Authentication have licenses assigned, the administrator can delete the Azure Multi-Factor Authentication provider.
+In some instances, yes. 
 
-You cannot mix per-authentication consumption billing with a license model. When a per-authentication Multi-Factor Authentication provider is linked to a directory, the organization is billed for all Multi-Factor Authentication verification requests, regardless of any licenses owned.
+If your directory has a *per-user* Azure Multi-Factor Authentication provider, you can add MFA licenses. Users with licenses aren't be counted in the per-user consumption-based billing. Users without licenses can still be enabled for MFA through the MFA provider. If you purchase and assign licenses for all of your users configured to use Multi-Factor Authentication, you can delete the Azure Multi-Factor Authentication provider. You can always create another per-user MFA provider if you have more users than licenses in the future. 
+
+If your directory has a *per-authentication* Azure Multi-Factor Authentication, you cannot combine that with MFA licenses. Technically you can, but you don't want to because you'll be billed for every two-step verification request, whether it comes from someone with an MFA licenses assigned or not. 
 
 **Q: Does my organization have to use and synchronize identities to use Azure Multi-Factor Authentication?**
 
-When an organization uses a consumption-based billing model, Azure Active Directory is not required. Linking a Multi-Factor Authentication provider to a directory is optional. If your organization is not linked to a directory, it can deploy Azure Multi-Factor Authentication Server or the Azure Multi-Factor Authentication SDK on-premises.
+When an organization uses a consumption-based billing model, Azure Active Directory is optional, but not required. If your MFA provider is not linked to an Azure AD tenant, you can only deploy Azure Multi-Factor Authentication Server or the Azure Multi-Factor Authentication SDK on-premises.
 
-Azure Active Directory is required for the license model because licenses are added to the directory when you purchase and assign them to users in the directory.
+Azure Active Directory is required for the license model because licenses are added to the Azure AD tenant when you purchase and assign them to users in the directory.
 
-## Usability
-**Q: What does a user do if they don’t receive a response on their phone, or if the phone is not available to the user?**
+## Troubleshooting the end-user experience
+**Q: What should I tell my users to do if they don’t receive a response on their phone, or don't have their phone with them?**
 
-If the user has configured a backup phone, they should try again and select that phone when prompted on the sign-in page. If the user doesn’t have another method configured, the organization's administrator can update the number assigned to the user's primary phone.
+Hopefully all of your users configured more than one verification method. Tell them to try signing in again, but select a different verification methon on the sign-in page. If the user doesn’t have another method configured, you can update the number assigned to be the user's primary phone.
+
+You can point your users to the [End-user troubleshooting guide](./end-user/multi-factor-authentication-end-user-troubleshoot.md).
+
+
 
 **Q: What does the administrator do if a user contacts the administrator about an account that the user can no longer access?**
 
@@ -109,8 +121,6 @@ Get more information about creating app passwords and other [help with app passw
 > Modern authentication for Office 2013 clients
 > 
 > Office 2013 clients (including Outlook) support new authentication protocols. You can configure Office 2013 to support Multi-Factor Authentication. After you configure Office 2013, app passwords are not required for Office 2013 clients. For more information, see the [Office 2013 modern authentication public preview announcement](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
-> 
-> 
 
 **Q: What does a user do if the user does not receive a text message, or if the user replies to a two-way text message but the verification times out?**
 
@@ -119,6 +129,16 @@ Deliver of text messages, and receipt of replies in two-way SMS is not guarantee
 Users who experience difficulty reliably receiving text messages should select the mobile app or phone call method instead. The mobile app can receive notifications both over cellular and Wi-Fi connections. In addition, the mobile app can generate verification codes even when the device has no signal at all. The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 If you must use text messages, we recommend using one-way SMS rather than two-way SMS when possible. One-way SMS is more reliable and it prevents users from incurring global SMS charges from replying to a text message that was sent from another country.
+
+**Q: Can I change the amount of time my users have to enter the verification code from a text message before the system times out?**
+
+It depends. This setting is configurable in Azure MFA Server 7.0 and higher, but not in earlier versions or Azure MFA in the cloud.
+
+Azure MFA Server stores one-time passcodes for 300 seconds (5 minutes) by default. If the user enters their code after the 300 seconds have passed, their authentication is denied. You can adjust the timeout by setting a registry key. 
+
+1. Go to HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor.
+2. Create a DWORD registry key called **pfsvc_pendingSmsTimeoutSeconds** and set the time in seconds that you want the Azure MFA Server to store one-time passcodes.
+
 
 **Q: Can I use hardware tokens with Azure Multi-Factor Authentication Server?**
 
