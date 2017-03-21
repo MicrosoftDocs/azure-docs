@@ -156,15 +156,9 @@ First we add a module that removes the **normalized-losses** column completely, 
 	<br/>
 	***The properties pane shows that the "normalized-losses" column is excluded***
 
-	> [!TIP]
-	> (Is this working now?) You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case double-click the [Select Columns in Dataset][select-columns] module and type the comment "Exclude normalized losses."
+	> [!TIP] (Is this any better?) You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case double-click the [Select Columns in Dataset][select-columns] module and type the comment "Exclude normalized losses."
 	>
 	>
-
-
-	<br/>
-
-	<!-- -->
 
 
 	![Double-click a module to add a comment][add-comment]
