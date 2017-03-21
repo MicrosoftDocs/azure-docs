@@ -168,7 +168,7 @@ Multi-path (MPIO) | NA | Yes | Yes
 LRS | Yes | Yes | Yes
 GRS (only for standard storage) | Yes | Yes | Yes
 Cool storage | No | No | No
-Hot storage| No | No | No
+Hot storage| Yes | Yes | Yes
 Encryption at rest | Yes | Yes | Yes
 Premium storage | Yes | Yes | Yes
 Import/export service | No | No | No
