@@ -31,13 +31,13 @@ Advisor identifies virtual machines that are not part of an availability set and
 > [!NOTE]
 > If you choose to create an availability set, you must add at least one additional virtual machine to it. We recommend that you group two or more virtual machines in an availability set to ensure that at least one machine is available during an outage.
 
-![](./media/advisor-high-availability-recommendations/advisor-high-availability-create-availability-set.png)
+![Advisor recommendation: For virtual machine redundancy, use availability sets](./media/advisor-high-availability-recommendations/advisor-high-availability-create-availability-set.png)
 
 ## Availability sets with a single virtual machine 
 
 Advisor identifies availability sets that contain a single virtual machine and recommends adding one or more virtual machines to it. To provide redundancy to your application, we recommend that you group two or more virtual machines in an availability set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose either to create a virtual machine or to use an existing virtual machine, and to add it to the availability set.  
 
-![](./media/advisor-high-availability-recommendations/advisor-high-availability-add-vm-to-availability-set.png)
+![Advisor recommendation: For high availability, add one or more VMs to this availability set](./media/advisor-high-availability-recommendations/advisor-high-availability-add-vm-to-availability-set.png)
 
 ## Virtual machines with Standard Disks
 
@@ -45,7 +45,7 @@ Advisor identifies virtual machines that have Standard Disks and recommends upgr
 
 Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines that run I/O-intensive workloads. virtual machine disks in premium storage accounts store data on solid-state drives (SSDs). For the best performance for your application, we recommend that you migrate any virtual machine disks that require high I/O operations per second (IOPS) to premium storage. If a disk does not require high IOPS, you can limit costs by maintaining it in a standard storage account. Standard storage stores virtual machine disk data on hard-disk drives (HDDs) instead of SSDs. You can choose to migrate your virtual machine disks to Premium Disks, which are supported on most virtual machine SKUs. In some cases, however, if you want to use Premium Disks, you might need to upgrade your virtual machine SKUs as well.   
 
-![Advisor "Upgrade to Premium Disks" recommendation](./media/advisor-high-availability-recommendations/advisor-high-availability-upgrade-to-premium-disks.png) 
+![Advisor recommendation: Upgrade to Premium Disks](./media/advisor-high-availability-recommendations/advisor-high-availability-upgrade-to-premium-disks.png) 
 
 ## Your application gateway is not configured for fault tolerance
 To ensure the business continuity of mission-critical applications that are powered by application gateways, Advisor identifies application-gateway instances that are not configured for fault tolerance, and suggests remediation actions that you can take. Advisor identifies medium or large single-instance application gateways, and it recommends adding at least one more instance. It also identifies single- or multi-instance small application gateways and recommends migrating to a medium or large SKU. Advisor recommends these actions to ensure that your application-gateway instances are configured to satisfy the current SLA requirements for these resources.
@@ -66,14 +66,16 @@ Advisor identifies virtual machines where backup is not enabled, and it recommen
 ## Access high availability recommendations in Advisor
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 2. In the left pane, click **More services**.
+
 3. In the service menu pane, under **Monitoring and Management**, click **Azure Advisor**.  
- The Advisor dashboard is displayed. 
+ The Advisor dashboard is displayed.
 
 4. On the Advisor dashboard, click the **High Availability** tab, and then select the subscription for which you want to receive recommendations.
 
 > [!NOTE]
-> To access Advisor recommendations, you must first *register your subscription* with Advisor. A subscription is registered when a *subscription Owner* launches the Advisor dashboard and clicks the **Get recommendations** button. This is a *one-time operation*. After the subscription is registered, you can access Advisor recommendations by *Owner*, *Contributor*, or *Reader* for a subscription, a resource group, or a specific resource.
+> To access Advisor recommendations, you must first *register your subscription* with Advisor. A subscription is registered when a *subscription Owner* launches the Advisor dashboard and clicks the **Get recommendations** button. This is a *one-time operation*. After the subscription is registered, you can access Advisor recommendations as *Owner*, *Contributor*, or *Reader* for a subscription, a resource group, or a specific resource.
 
 ## Next steps
 
