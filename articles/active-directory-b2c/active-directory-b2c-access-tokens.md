@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 03/16/2017
 ms.author: parakhj
 
 ---
@@ -22,48 +22,48 @@ ms.author: parakhj
 # Azure AD B2C: Requesting Access Tokens
 
 
-An access token (denoted as **access\_token**) is a form of security token that a client can use to access resources that are secured by an [authorization server](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics), such as a web API. Access tokens are represented as [JWTs](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens) and contain information about the intended resource server and the granted permissions to the server. When calling the resource server, the **access\_token** must be present in the HTTP request.
+An access token (denoted as **access\_token**) is a form of security token that a client can use to access resources that are secured by an [authorization server](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics), such as a web API. Access tokens are represented as [JWTs](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens) and contain information about the intended resource server and the granted permissions to the server. When calling the resource server, the access token must be present in the HTTP request.
 
 This article discusses how to configure a client application and have it make a request to acquire an **access\_token** from the /authorize and /token endpoints.
 
 ## Prerequisite
 
-Before requesting an **access\_token**, you first need to register a web API and publish permissions that can be granted to the client application. Get started by following the steps under the Register a web API application section.
+Before requesting an access token, you first need to register a web API and publish permissions that can be granted to the client application. Get started by following the steps under the [Register a web API](active-directory-b2c-app-registration.md) section.
 
 ## Granting Permissions to a Web API
 
-In order for a client application to get specific permissions to an API, the client application needs to be approved for those permissions via the Azure portal. To register access to a client application:
+In order for a client application to get specific permissions to an API, the client application needs to be granted those permissions via the Azure portal. To grant permissions to a client application:
 
-1. Navigate to the “Applications” menu in the B2C features blade.
-2. Click on your client application ([Register an application](active-directory-b2c-app-registration.md) if you don’t have one]).
-3. Select “Api access”.
-4. Click on “Add”.
-5. Select your Web API application and the scopes (permissions) you would like to grant.
-6. Click OK.
+1. Navigate to the **Applications** menu in the B2C features blade.
+2. Click on your client application ([Register an application](active-directory-b2c-app-registration.md) if you don’t have one).
+3. Select **Api access**.
+4. Click on **Add**.
+5. Select your web API and the scopes (permissions) you would like to grant.
+6. Click **OK**.
 
 > [!NOTE]
 > Azure AD B2C does not ask your client application users for their consent. Instead, all consent is provided by the admin, based on the permissions configured between the applications described above. If a permission grant for an application is revoked, all users who were previously able to acquire that permission will no longer be able to do so.
 
 ## Requesting a Token
 
-To get an **access\_token** for a resource application, the client application needs to specify the requested permissions in the “scope” parameter of the request. For example, to acquire the “read” permission for the resource application that has the App ID URI of `https://contoso.onmicrosoft.com/notes`, the scope would be `https://contoso.onmicrosoft.com/notes/read`. Below is an example of an authorization code request to the /authorize endpoint.
+To get an access token for a resource application, the client application needs to specify the permissions wanted in the **scope** parameter of the request. For example, to acquire the “read” permission for the resource application that has the App ID URI of `https://contoso.onmicrosoft.com/notes`, the scope would be `https://contoso.onmicrosoft.com/notes/read`. Below is an example of an authorization code request to the /authorize endpoint.
 
 ```
-https://login.microsoftonline.com/%3cyourTenantId%3e.onmicrosoft.com/oauth2/v2.0/authorize?p=%3cyourPolicyId%3e&client_id=%3cappID_of_your_client_application%3e&nonce=anyRandomValue&redirect_uri=%3credirect_uri_of_your_client_application%3e&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+https://login.microsoftonline.com/<yourTenantId>.onmicrosoft.com/oauth2/v2.0/authorize?p=<yourPolicyId>&client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
-To acquire multiple permissions in the same request, you can add multiple entries in the single “scope” parameter, separated by spaces. For example:
+To acquire multiple permissions in the same request, you can add multiple entries in the single **scope** parameter, separated by spaces. For example:
 
 URL decoded:
 
 ```
-scope=https://contoso.onmicrosoft.com/notes/read openid offline\_access
+scope=https://contoso.onmicrosoft.com/notes/read openid offline_access
 ```
 
 URL encoded:
 
 ```
-scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread%20openid%20offline\_access
+scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread%20openid%20offline_access
 ```
 
 You may request more scopes/permissions for a resource than what is granted for your client application. When this is the case, the call will succeed if at least one permission is granted. The resulting **access\_token** will have its “scp” claim populated with only the permissions that were successfully granted.
@@ -87,5 +87,9 @@ In a successfully minted **access\_token** (from either the /authorize or /token
 * **aud** (audience): The \*application ID\* of the single resource that the token grants access to.
 * **scp** (scope): The permissions granted to the resource. Multiple granted permissions will be separated by space.
 * **azp** (authorized party): The client/application ID that initiated the request.
+
+When your API receives the **access\_token**, it must [validate the token](active-directory-b2c-reference-tokens.md) to prove that the token is authentic and has the correct claims.
+
+
 
 We are always open to feedback and suggestions! If you have any difficulties with this topic, or have recommendations for improving this content, we would appreciate your feedback at the bottom of the page. For feature requests, add them to [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
