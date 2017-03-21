@@ -64,8 +64,8 @@ There are two parts to this section. First, you need to publish the app to Azure
 2. Select **Azure Active Directory** > **Enterprise applications**. 
 3. Select **Add** at the top of the blade. 
 4. Select **On-premises application**.
-5. Fill out the required fields with information about your new app.
-  - **Internal URL**: You usually provide the URL that takes you to the app’s sign in page when you’re on the corporate network. Instead, to communicate with PingAccess, you need to provide the PingAccess host. If you haven't used PingAccess before, you can come back and change this setting later when you know your host address. It should be in the format `https://pa.yourdomain.com:300/AppName/`
+5. Fill out the required fields with information about your new app. Use the following guidance for the settings:
+  - **Internal URL**: Provide the URL that takes you to the app’s sign in page when you’re on the corporate network.
   - **Pre-authentication method**: Azure Active Directory
   - **Translate URL in Headers**: No
 6. Select **Add** at the bottom of the blade. Your application is added, and the quick start menu opens. 
@@ -76,13 +76,10 @@ select **Assign a user for testing**, and add at least one user to the applicati
 10. Choose **Header-based sign-on** from the drop-down menu. Select **Save**. 
 11. Close the Enterprise applications blade or scroll all the way to the left to return to the Azure Active Directory menu. 
 12. Select **App registrations**.
-13. Select the app you just added. Two blades open, one titled with your app name and one called Setting.
-14. On the blade with your app name, select **Manifest**.
-15. Scroll down to find the **requiredResourceAccess** property. Give it the value *"00000002-0000-0000-c000-000000000000"*, then click **Save**.
-16. Back on the blade with your app name, select **All settings**, then **Reply URLs**. 
-17. Check to see if the external URL that you assigned to your app in step 5 is in the Reply URLs list. If it’s not, add it now. 
-18. On the app settings blade, select **Required permissions**. 
-19. Select **Add**. For the API, choose **Windows Azure Active Directory**, then **Select**. For the permissions, choose **Read and write all applications**, then **Select** and **Done**.   
+13. Select the app you just added, then **Reply URLs**. 
+14. Check to see if the external URL that you assigned to your app in step 5 is in the Reply URLs list. If it’s not, add it now. 
+15. On the app settings blade, select **Required permissions**. 
+16. Select **Add**. For the API, choose **Windows Azure Active Directory**, then **Select**. For the permissions, choose **Read and write all applications**, then **Select** and **Done**.   
 
 #### Collect information for the PingAccess steps
 
