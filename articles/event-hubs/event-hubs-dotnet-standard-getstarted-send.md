@@ -27,9 +27,9 @@ This tutorial shows how to write a .NET Core console application that sends a se
 ## Prerequisites
 
 * [Microsoft Visual Studio 2015 or 2017](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2015, but Visual Studio 2017 is also supported.
-2. [.NET Core Visual Studio 2015 or 2017 tools](http://www.microsoft.com/net/core).
-3. An Azure subscription.
-4. An Event Hubs namespace.
+* [.NET Core Visual Studio 2015 or 2017 tools](http://www.microsoft.com/net/core).
+* An Azure subscription.
+* An Event Hubs namespace.
 
 To send messages to an Event Hub, we will use Visual Studio to write a C# console application.
 
