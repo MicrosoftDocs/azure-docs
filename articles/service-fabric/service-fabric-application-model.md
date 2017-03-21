@@ -269,7 +269,8 @@ The compression replaces the valid Service Fabric package with the compressed ve
 You can compress a package by running the Powershell command [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) 
 with `CompressPackage` switch. You can uncompress the package with the same command, using `UncompressPackage` switch.
 
-The following command compresses the package without copying it to the image store.
+The following command compresses the package without copying it to the image store. You can copy a compressed package to one or more Service Fabric clusters, as needed, using [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage)
+without the `SkipCopy` flag. 
 The package now includes zipped files for the `code`, `config` and `data` packages. The application manifest and the service manifests are not zipped,
 because they are needed for many internal operations (like package sharing, application type name and version extraction for certain validations).
 Zipping the manifests would make these operations inefficient.
@@ -307,18 +308,15 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ```
 
-You can copy a compressed package to one or more Service Fabric clusters, as needed, using [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage)
-without the `SkipCopy` flag. 
-
 Alternatively, you can compress and copy the package with [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) in one step.
-Since the package is large, provide a high enough timeout to allow time for both the package compression and the upload to the cluster.
+If the package is large, provide a high enough timeout to allow time for both the package compression and the upload to the cluster.
 ```
 PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -ApplicationPackagePathInImageStore MyApplicationType -ImageStoreConnectionString fabric:ImageStore -CompressPackage -TimeoutSec 5400
 ```
 
 Internally, Service Fabric computes checksums for the application packages for validation. When using compression, the checksums are computed on the zipped versions of each package.
-If you want to switch between compressed and uncompressed packages for the same application type, you must avoid checksum mismatch. One way to avoid the checksum mismatch is to change the application manifest version.
-Another way is to omit the unchanged package(s) and take advantage of differential packaging.
+If you copied an uncompressed version of your application package, and you want to use compression for the same package, you must change the application manifest version to avoid checksum mismatch.
+Similarly, if you uploaded a compressed version of the package, you must update the application manifest version to use an uncompressed package.
 
 The package is now packaged correctly, validated, and compressed (if needed), so it is ready for [deployment](service-fabric-deploy-remove-applications.md) to one or more Service Fabric clusters.
 
