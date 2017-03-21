@@ -42,7 +42,7 @@ Before you can protect or back up a Resource Manager-deployed virtual machine (V
 * Select a scenario, define the backup policy, and define items to protect.
 * Check the installation of VM Agent on virtual machine.
 * Check network connectivity
-* For Linux VMs, in case you want to customize your backup environment for application consistent backups please follow the [steps to configure pre-snapshot and post-snapshot scripts](backup-azure-linux-app-consistent.md)
+* For Linux VMs, in case you want to customize your backup environment for application consistent backups please follow the [steps to configure pre-snapshot and post-snapshot scripts](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
 
 If you know these conditions already exist in your environment then proceed to the [Back up your VMs article](backup-azure-vms.md). If you need to set up, or check, any of these prerequisites, this article leads you through the steps to prepare that prerequisite.
 
@@ -147,14 +147,14 @@ Before registering a VM with a vault, run the discovery process to ensure that a
 
 3. On the Backup Goal blade, set **Where is your workload running** to Azure and **What do you want to backup** to Virtual machine, then click **OK**.
 
-     This registers the VM extension with the vault. The Backup Goal blade closes and the **Backup policy** blade opens.
+    This registers the VM extension with the vault. The Backup Goal blade closes and the **Backup policy** blade opens.
 
     ![Open Scenario blade](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
 4. On the Backup policy blade, select the backup policy you want to apply to the vault.
 
     ![Select backup policy](./media/backup-azure-arm-vms-prepare/setting-rs-backup-policy-new.png)
 
-     The details of the default policy are listed under the drop-down menu. If you want to create a new policy, select **Create New** from the drop-down menu. For instructions on defining a backup policy, see [Defining a backup policy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy).
+    The details of the default policy are listed under the drop-down menu. If you want to create a new policy, select **Create New** from the drop-down menu. For instructions on defining a backup policy, see [Defining a backup policy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy).
     Click **OK** to associate the backup policy with the vault.
 
     The Backup policy blade closes and the **Select virtual machines** blade opens.
