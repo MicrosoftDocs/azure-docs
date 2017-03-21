@@ -126,7 +126,7 @@ curl http://leader.mesos:1050/system/health/v1/nodes | jq '.nodes[].host_ip' | s
 cat nodes | while read line
   do
     ssh `whoami`@$line -o StrictHostKeyChecking=no -i yourPrivateKeyFile < ./cifsMount.sh
-  done
+    done
 ```  
 > [!IMPORTANT]
 > You have to change the **'mount'** command with your own settings such as the name of your storage account and the password.
