@@ -88,6 +88,8 @@ In this section of the tutorial, you'll create the basic application that reads 
     Install-Package EntityFramework
     ```
 
+For more information about this package, see the [EntityFramework](https://www.nuget.org/packages/EntityFramework/) NuGet page.
+
 ### Add the model
 1. Right-click **Models** in **Solution Explorer**, and choose **Add**, **Class**. 
    
