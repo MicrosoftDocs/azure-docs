@@ -85,7 +85,7 @@ If you are creating additional client certificates, or are not using the same Po
 2. Locate the subject name from the returned list, then copy the thumbprint that is located next to it to a text file. In the following example, there are two certificates. The CN name is the name of the self-signed root certificate from which you want to generate a child certificate. In this case, 'P2SRootCert'.
 
 		Thumbprint                                Subject
-		----------                                -------
+
 		AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
 		7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
 
