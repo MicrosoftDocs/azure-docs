@@ -49,7 +49,7 @@ Use the **Install-AzureRmProfile** command to install the modules associates wit
 # Installs the specified Version Profile in the current user scope. 
 Install-AzureRMProfile -Profile 2017-03-09-profile -Scope CurrentUser
 ```
-## Install and import modules in a Profile
+### Install and import modules in a Profile
 
 Use the **Use-AzureRmProfile** command to install and import modules in a profile. By using this command, you can also install and import selected Azure modules. This command runs the following tasks:
 
@@ -83,7 +83,7 @@ Get-AzureRmProfile -ListAvailable
 # lists the Version Profiles that are currently installed on your machine
 Get-AzureRmProfile
 ```
-## Update profiles
+### Update profiles
 
 Use the **Update-AzureRmProfile** command to update the modules in a Profile to the latest version that is available in the PSGallery.  
 
