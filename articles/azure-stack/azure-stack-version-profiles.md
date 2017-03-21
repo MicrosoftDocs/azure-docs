@@ -20,7 +20,7 @@ ms.author: sngun
 
 # Using Version Profiles in Azure Stack
 
-Different Azure cloud instances such as Azure Public, Azure Stack, Azure China, Azure Germany, and Azure Government may have different versions of Azure services installed with different capabilities. Version Profiles provide a mechanism to manage these version differences. Version Profile also referred as Azure Resource Manager Version Profile is a set of Azure PowerShell modules with specific API versions. To learn more about Resource Manager Version Profiles, refer to [this]() blog post. 
+Different Azure cloud instances such as Azure Public, Azure Stack, Azure China, Azure Germany, and Azure Government may have different versions of Azure services installed with different capabilities. Version Profiles provide a mechanism to manage these version differences. Version Profile also referred as Azure Resource Manager Version Profile is a set of Azure PowerShell modules with specific API versions. To learn more about Resource Manager Version Profiles, refer to [this] blog post. 
 
 Each Azure cloud instance has a set of supported profile versions. The Azure Public cloud always supports the latest version of resources across all services whereas other Azure cloud instances may support specific Version Profiles. Resource Manager Version Profiles are available in the Azure .Net SDK as well as in the Azure PowerShell modules. In this document, we walk you through using Resource Manager Profile Versions in Azure Stack PowerShell.
 
