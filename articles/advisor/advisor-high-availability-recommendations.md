@@ -41,15 +41,15 @@ Advisor identifies availability sets that contain a single virtual machine and r
 
 
 ## Ensure application gateway fault tolerance
-To ensure the business continuity of mission-critical applications that are powered by application gateways, Advisor identifies application-gateway instances that are not configured for fault tolerance, and suggests remediation actions that you can take. Advisor identifies medium or large single-instance application gateways, and it recommends adding at least one more instance. It also identifies single- or multi-instance small application gateways and recommends migrating to a medium or large SKU. Advisor recommends these actions to ensure that your application-gateway instances are configured to satisfy the current SLA requirements for these resources.
+To ensure the business continuity of mission-critical applications that are powered by application gateways, Advisor identifies application gateway instances that are not configured for fault tolerance, and it suggests remediation actions that you can take. Advisor identifies medium or large single-instance application gateways, and it recommends adding at least one more instance. It also identifies single- or multi-instance small application gateways and recommends migrating to medium or large SKUs. Advisor recommends these actions to ensure that your application gateway instances are configured to satisfy the current SLA requirements for these resources.
 
 
 ## Improve the reliability of your availability set disks
-Advisor identifies availability sets where virtual machine disks are placed in a single storage account, and it recommends migrating to Managed Disks. Virtual machine disks that are placed in the same storage account are located on the same storage-scale unit, and they are affected by the failure of a single storage-scale unit. By automatically placing disks in different storage scale units, Managed Disks ensure that virtual machine disks in an availability set are sufficiently isolated from each other. This structure ensures data redundancy by avoiding a single point of failure during an outage.
+Advisor identifies availability sets where virtual machine disks are placed in a single storage account, and it recommends migrating to Managed Disks. Virtual machine disks that are placed in the same storage account are located on the same storage-scale unit, and they are affected by the failure of a single storage-scale unit. By automatically placing disks in different storage-scale units, Managed Disks ensure that virtual machine disks in an availability set are sufficiently isolated from each other. This structure ensures data redundancy by avoiding a single point of failure during an outage.
 
 
 ## Improve the performance and reliability of virtual machine disks
-Advisor identifies virtual machines that are susceptible to disk performance degradation resulting from I/O throttling, and it recommends migrating to Managed Disks. Placing multiple virtual machine disks that run I/O intensive workloads in the same storage account causes the storage account to reach its scalability limits, which can lead to throttling. Throttling can degrade the overall performance of virtual machines and cause other potential issues. Managed Disks handle storage-account placement for disks behind the scenes, so you are no longer limited by storage-account scalability limits.
+Advisor identifies virtual machines that are susceptible to disk performance degradation resulting from I/O throttling, and it recommends migrating to Managed Disks. Placing multiple virtual machine disks that run I/O-intensive workloads in the same storage account causes the storage account to reach its scalability limits, which can lead to throttling. Throttling can degrade the overall performance of virtual machines and cause other potential issues. Managed Disks handle storage-account placement for disks behind the scenes, so you are no longer limited by storage-account scalability limits.
 
 
 ## Improve the availability of business data by enabling virtual machine backup
@@ -73,8 +73,9 @@ Advisor identifies virtual machines where backup is not enabled, and it recommen
 ## Next steps
 
 For more information about Advisor recommendations, see:
-*  [Introduction to Azure Advisor](advisor-overview.md)
-*  [Get started with Advisor](advisor-get-started.md)
-*  [Advisor Security recommendations](advisor-security-recommendations.md)
-*  [Advisor Performance recommendations](advisor-performance-recommendations.md)
-*  [Advisor Cost recommendations](advisor-performance-recommendations.md)
+* [Introduction to Azure Advisor](advisor-overview.md)
+* [Get started with Advisor](advisor-get-started.md)
+* [Advisor Cost recommendations](advisor-performance-recommendations.md)
+* [Advisor Performance recommendations](advisor-performance-recommendations.md)
+* [Advisor Security recommendations](advisor-security-recommendations.md)
+
