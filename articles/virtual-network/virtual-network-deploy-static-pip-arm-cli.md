@@ -45,8 +45,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 4. Create the VM by executing the script that follows on a Linux or Mac computer. The Azure public IP address, virtual network, network interface, and VM resources must all exist in the same location. Though the resources don't all have to exist in the same resource group, in the following script they do.
 
 	```bash
-	#!/bin/sh
-
+	
 	RgName="IaaSStory"
 	Location="westus"
 
