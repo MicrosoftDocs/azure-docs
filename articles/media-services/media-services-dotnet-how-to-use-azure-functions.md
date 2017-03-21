@@ -18,7 +18,6 @@ ms.author: juliako
 
 ---
 #Develop Azure Functions with Media Services
-[!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 This topic discusses how to start developing Azure Functions with Media Services using the Azure portal. 
 
