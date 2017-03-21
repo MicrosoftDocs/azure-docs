@@ -3,7 +3,6 @@
 ## [What's new](azure-stack-whats-new.md)
 ## [Key features and concepts](azure-stack-key-features.md)
 ## [POC architecture](azure-stack-architecture.md)
-## [Version Profiles](azure-stack-version-profiles.md)
 
 # Evaluate & deploy
 ## Get started
@@ -94,6 +93,7 @@
 # Build apps
 ## Overview
 ### [Develop for Azure Stack](azure-stack-developer.md)
+### [Version Profiles](azure-stack-version-profiles.md)
 ## Get started
 ### [Connect to Azure Stack](azure-stack-connect-azure-stack.md)
 ### Set up development environment
