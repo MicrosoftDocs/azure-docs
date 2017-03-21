@@ -59,7 +59,7 @@ Functions uses a scale controller to evaluate compute needs based on the configu
 
 ![](./media/functions-scale/central-listener.png)
 
-The unit of scaling is the function app. Scaling out in this case means adding more instances of a function app. Inversely, as compute demand is reduced, function app instances are removed. The number of instances is eventually scaled-down to zero when none are running. 
+The unit of scaling is the function app. Scaling out in this case means adding more instances of a function app. Inversely, as compute demand is reduced, function app instances are removed. The number of instances is eventually scaled-down to zero when no functions are running. 
 
 ### Billing model
 
