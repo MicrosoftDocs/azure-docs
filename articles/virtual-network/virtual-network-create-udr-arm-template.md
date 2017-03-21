@@ -172,7 +172,7 @@ The sample template available in the public repository uses a parameter file con
 
 To deploy the ARM template by using the Azure CLI, complete the following steps:
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the following command to switch to Resource Manager mode:
 
 	```azurecli

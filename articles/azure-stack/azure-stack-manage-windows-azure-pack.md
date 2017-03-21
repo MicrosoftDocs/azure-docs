@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 03/21/2017
 ms.author: walterov
 
 ---
@@ -167,7 +167,7 @@ For this preview release, use the Windows Azure Pack Connector only in test envi
     | -------- | ------------- | ------- |  
     | TenantPortalFQDN | The Windows Azure Pack tenant portal FQDN. | tenant.contoso.com | 
     | TenantAPIFQDN | The Windows Azure Pack Tenant API FQDN. | tenantapi.contoso.com  |
-    | AzureStackPortalFQDN | The Azure Stack user portal FQDN | publicportal.local.azurestack.external |
+    | AzureStackPortalFQDN | The Azure Stack user portal FQDN. | publicportal.local.azurestack.external |
     | | |
     
      ```powershell
@@ -255,4 +255,4 @@ cd C:\temp\WAPConnector\Setup\Scripts
 4. For known issues, see [Microsoft Azure Stack troubleshooting](azure-stack-troubleshooting.md).
 
   ## Next steps
-[Using the administrator and user portals in Azure Stack](/azure-stack-manage-portals.md)
+[Using the administrator and user portals in Azure Stack](azure-stack-manage-portals.md)

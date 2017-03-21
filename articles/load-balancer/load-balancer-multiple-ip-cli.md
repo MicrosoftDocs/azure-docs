@@ -61,7 +61,7 @@ AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered
 
 Follow the steps below to achieve the scenario outlined in this article:
 
-1. [Install and Configure the Azure CLI](../xplat-cli-install.md) the Azure CLI by following the steps in the linked article and log into your Azure account.
+1. [Install and Configure the Azure CLI](../cli-install-nodejs.md) the Azure CLI by following the steps in the linked article and log into your Azure account.
 2. [Create a resource group](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-groups-and-choose-deployment-locations) called *contosofabrikam* as described above.
 
     ```azurecli
