@@ -24,7 +24,7 @@ ms.author: parakhj
 
 An access token (denoted as **access\_token**) is a form of security token that a client can use to access resources that are secured by an [authorization server](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics), such as a web API. Access tokens are represented as [JWTs](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens) and contain information about the intended resource server and the granted permissions to the server. When calling the resource server, the access token must be present in the HTTP request.
 
-This article discusses how to configure a client application and have it make a request to acquire an **access\_token** from the /authorize and /token endpoints.
+This article discusses how to configure a client application and have it make a request to acquire an **access\_token** from the `authorize` and `token` endpoints.
 
 ## Prerequisite
 
@@ -46,7 +46,7 @@ In order for a client application to get specific permissions to an API, the cli
 
 ## Requesting a Token
 
-To get an access token for a resource application, the client application needs to specify the permissions wanted in the **scope** parameter of the request. For example, to acquire the “read” permission for the resource application that has the App ID URI of `https://contoso.onmicrosoft.com/notes`, the scope would be `https://contoso.onmicrosoft.com/notes/read`. Below is an example of an authorization code request to the /authorize endpoint.
+To get an access token for a resource application, the client application needs to specify the permissions wanted in the **scope** parameter of the request. For example, to acquire the “read” permission for the resource application that has the App ID URI of `https://contoso.onmicrosoft.com/notes`, the scope would be `https://contoso.onmicrosoft.com/notes/read`. Below is an example of an authorization code request to the `authorize` endpoint.
 
 ```
 https://login.microsoftonline.com/<yourTenantId>.onmicrosoft.com/oauth2/v2.0/authorize?p=<yourPolicyId>&client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
@@ -78,15 +78,17 @@ The OpenID Connect standard specifies several special “scope” values. The fo
 * **openid**: This requests an ID token
 * **offline\_access**: This requests a refresh token (using Auth Code flows).
 
-If the “response\_type” parameter in a /authorize request includes “token”, the “scope” parameter must include at least one resource permission (other than “openid” and “offline\_access”) that will be granted. Otherwise, the /authorize request will terminate with a failure.
+If the “response\_type” parameter in a `authorize` request includes “token”, the “scope” parameter must include at least one resource permission (other than “openid” and “offline\_access”) that will be granted. Otherwise, the `authorize` request will terminate with a failure.
 
 ## The Returned Token
 
-In a successfully minted **access\_token** (from either the /authorize or /token endpoint), the following claims will be present:
+In a successfully minted **access\_token** (from either the `authorize` or `token` endpoint), the following claims will be present:
 
-* **aud** (audience): The \*application ID\* of the single resource that the token grants access to.
-* **scp** (scope): The permissions granted to the resource. Multiple granted permissions will be separated by space.
-* **azp** (authorized party): The client/application ID that initiated the request.
+| Name | Claim | Description |
+| --- | --- | --- |
+|Audience |`aud` |The \*application ID\* of the single resource that the token grants access to. |
+|Scope |`scp` |The permissions granted to the resource. Multiple granted permissions will be separated by space. |
+|Authorized Party |`azp` |The \*application ID\* of the client application that initiated the request. |
 
 When your API receives the **access\_token**, it must [validate the token](active-directory-b2c-reference-tokens.md) to prove that the token is authentic and has the correct claims.
 
