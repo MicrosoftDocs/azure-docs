@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/24/2017
+ms.date: 03/21/2017
 ms.author: renash
 ---
 # Introduction to Azure Files
@@ -48,7 +48,9 @@ Managing Azure File shares is a lot simpler than managing file shares on-premise
 * **File**: A file in the share. A file may be up to 1 TB in size.
 * URL format: Files are addressable using the following URL format:  
 
-    ```https://<storage account>.file.core.windows.net/<share>/<directory/directories>/<file>```
+    ```
+    https://<storage account>.file.core.windows.net/<share>/<directory/directories>/<file>
+    ```
 
 ## See Also
 * **[Azure Blob](../storage/storage-dotnet-how-to-use-blobs.md)**: Massively-scalable object storage for unstructured data
