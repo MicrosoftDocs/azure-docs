@@ -43,16 +43,19 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 
 	RgName="Multi-NIC-VM"
 	Location="westus"
-	az group create --name $RgName --location $Location
 
-	# Create a public IP address resource with a static IP address using the `--allocation-method Static` option.
+	# Create a resource group.
+	az group create \
+	--name $RgName \
+	--location $Location
+
+	# Create a public IP address resource with a static IP address using the --allocation-method Static option.
 	# If you do not specify this option, the address is allocated dynamically. The address is assigned to the
 	# resource from a pool of IP adresses unique to each Azure region. 
 	# Download and view the file from https://www.microsoft.com/en-us/download/details.aspx?id=41653 that lists
 	# the ranges for each region.
 
 	PipName="PIP-WEB"
-
 	az network public-ip create \
 	--name $PipName \
 	--resource-group $RgName \
@@ -65,7 +68,6 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 	VnetPrefix="10.0.0.0/16"
 	VnetSubnet1Name="Front-End"
 	VnetSubnet1Prefix="10.0.0.0/24"
-
 	az network vnet create \
 	--name $VnetName \
 	--resource-group $RgName \
@@ -78,7 +80,6 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 
 	VnetSubnet2Name="Back-end"
 	VnetSubnet2Prefix="10.0.1.0/24"
-
 	az network vnet subnet create \
 	--vnet-name $VnetName \
 	--resource-group $RgName \
@@ -88,7 +89,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 	# Create a network interface connected to one of the subnets. The NIC is assigned a single dynamic private and
 	# public IP address by default, but you can instead, assign static addresses, or no public IP address at all.
 	# You can also assign multiple private or public IP addresses to each NIC. To learn more about IP addressing
-	# options for NICs, enter the `az network nic create -h` command.
+	# options for NICs, enter the az network nic create -h command.
 
 	Nic1Name="NIC-FE"
 	PrivateIpAddress1="10.0.0.5"
@@ -114,7 +115,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 	--location $Location \
 	--subnet $VnetSubnet2Name \
 	--vnet-name $VnetName \
-	--private-ip-address $PrivateIpAddress2 \
+	--private-ip-address $PrivateIpAddress2
 
 	# Create a VM and attach the two NICs.
 
@@ -130,7 +131,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 	VmSize="Standard_DS2"
 
 	# Replace the value for the OsImage variable value with a value for *urn* from the output returned by entering the
-	# `az vm image list` command.
+	# az vm image list command.
 
 	OsImage="credativ:Debian:8:latest"
 

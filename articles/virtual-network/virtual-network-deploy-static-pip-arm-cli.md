@@ -49,32 +49,31 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 
 	RgName="IaaSStory"
 	Location="westus"
-	az group create --name $RgName --location $Location
 
-	# Create a public IP address resource with a static IP address
+	# Create a resource group.
+	az group create \
+	--name $RgName \
+	--location $Location
+
+	# Create a public IP address resource with a static IP address using the --allocation-method Static option.
+	# If you do not specify this option, the address is allocated dynamically. The address is assigned to the
+	# resource from a pool of IP adresses unique to each Azure region. The DnsName must be unique within the
+	# Azure location it's created in. Download and view the file from https://www.microsoft.com/en-us/download/details.aspx?id=41653#
+	# that lists the ranges for each region.
 	PipName="PIPWEB1"
-	# The value below must be unique within the azure location it's created in.
 	DnsName="iaasstoryws1"
-
 	az network public-ip create \
 	--name $PipName \
 	--resource-group $RgName \
-	--location $Location \
-
-	# The following option allocates a static public IP address to the resource. If you do not specify it, the address is
-	# allocated dynamically. The address is assigigned to the resource from a pool of IP adresses unique to each Azure regions.
-	# Download and view the file from https://www.microsoft.com/en-us/download/details.aspx?id=41653 to see the ranges for each region.
+	--location $Location
 	--allocation-method Static \
-
-	--dns-name $DnsName \
+	--dns-name $DnsName
 
 	# Create a virtual network with one subnet
-
 	VnetName="TestVNet"
 	VnetPrefix="192.168.0.0/16"
 	SubnetName="FrontEnd"
 	SubnetPrefix="192.168.1.0/24"
-
 	az network vnet create \
 	--name $VnetName \
 	--resource-group $RgName \
@@ -87,7 +86,6 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 	# resource to the NIC.
 	NicName="NICWEB1"
 	PrivateIpAddress="192.168.1.101"
-
 	az network nic create \
 	--name $NicName \
 	--resource-group $RgName \
@@ -120,7 +118,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 	--location $Location \
 	--size $VmSize \
 	--nics $NicName \
-	--admin-username $Username \
+	--admin-username $Username
 
 	# If creating a Windows VM, remove the next line and you'll be prompted for the password you want to configure for the VM.
 	--ssh-key-value $SshKeyValue
