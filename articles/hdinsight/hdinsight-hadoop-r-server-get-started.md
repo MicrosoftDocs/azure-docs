@@ -260,9 +260,11 @@ A compute context allows you to control whether computation will be performed lo
 
         # Set the HDFS (WASB) location of example data
         bigDataDirRoot <- "/example/data"
+
         # create a local folder for storaging data temporarily
         source <- "/tmp/AirOnTimeCSV2012"
         dir.create(source)
+
         # Download data to the tmp folder
         remoteDir <- "http://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012"
         download.file(file.path(remoteDir, "airOT201201.csv"), file.path(source, "airOT201201.csv"))
@@ -277,10 +279,13 @@ A compute context allows you to control whether computation will be performed lo
         download.file(file.path(remoteDir, "airOT201210.csv"), file.path(source, "airOT201210.csv"))
         download.file(file.path(remoteDir, "airOT201211.csv"), file.path(source, "airOT201211.csv"))
         download.file(file.path(remoteDir, "airOT201212.csv"), file.path(source, "airOT201212.csv"))
+
         # Set directory in bigDataDirRoot to load the data into
         inputDir <- file.path(bigDataDirRoot,"AirOnTimeCSV2012")
+
         # Make the directory
         rxHadoopMakeDir(inputDir)
+
         # Copy the data from source to input
         rxHadoopCopyFromLocal(source, bigDataDirRoot)
 
@@ -288,6 +293,7 @@ A compute context allows you to control whether computation will be performed lo
 
         # Define the HDFS (WASB) file system
         hdfsFS <- RxHdfsFileSystem()
+
         # Create info list for the airline data
         airlineColInfo <- list(
              DAY_OF_WEEK = list(type = "factor"),
@@ -311,16 +317,17 @@ A compute context allows you to control whether computation will be performed lo
 
         # Set a local compute context
         rxSetComputeContext("local")
+
         # Run a logistic regression
         system.time(
            modelLocal <- rxLogit(formula, data = airOnTimeDataLocal)
         )
+
         # Display a summary
         summary(modelLocal)
 
     You should see output that ends with lines similar to the following.
 
-        ```
         Data: airOnTimeDataLocal (RxTextData Data Source)
         File name: /tmp/AirOnTimeCSV2012
         Dependent variable(s): ARR_DEL15
@@ -344,14 +351,15 @@ A compute context allows you to control whether computation will be performed lo
 
          Condition number of final variance-covariance matrix: 11904202
          Number of iterations: 7
-        ```
 
 4. Next, let's run the same logistic regression using the Spark context. The Spark context will distribute the processing over all the worker nodes in the HDInsight cluster.
 
         # Define the Spark compute context
         mySparkCluster <- RxSpark()
+
         # Set the compute context
         rxSetComputeContext(mySparkCluster)
+        
         # Run a logistic regression
         system.time(  
            modelSpark <- rxLogit(formula, data = airOnTimeData)
