@@ -188,13 +188,13 @@ You can add private and public IP addresses to a NIC by completing the steps tha
 		```
 
 		You see output similar to the following:
-		```powershell
-		Name       PrivateIpAddress PublicIpAddress                                           Primary
-		----       ---------------- ---------------                                           -------
-		IPConfig-1 10.0.0.4         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress    True
-		IPConfig-2 10.0.0.5         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress   False
-		IpConfig-3 10.0.0.6                                                                     False
-		```
+
+			Name       PrivateIpAddress PublicIpAddress                                           Primary
+			----       ---------------- ---------------                                           -------
+			IPConfig-1 10.0.0.4         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress    True
+			IPConfig-2 10.0.0.5         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress   False
+			IpConfig-3 10.0.0.6                                                                     False
+
 		Since the **PublicIpAddress** column for *IpConfig-3* is blank, no public IP address resource is currently associated to it. You can add an existing public IP address resource to IpConfig-3, or enter the following command to create one:
 
 		```powershell
