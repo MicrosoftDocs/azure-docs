@@ -408,7 +408,7 @@ myWeather->DeviceId = "myFirstDevice";
 myWeather->WindSpeed = avgWindSpeed + (rand() % 4 + 2);
 ```
 
-The model you defined earlier enables you to set the values by setting members of a **struct**. Next, serialize the message you want to send:
+The model you defined earlier enables you to set the values by setting members of a **struct**. Next, serialize the message you want to send and it:
 
 ```c
 unsigned char* destination;
@@ -418,35 +418,41 @@ if (SERIALIZE(&destination, &destinationSize, myWeather->DeviceId, myWeather->Wi
     (void)printf("Failed to serialize\r\n");
 }
 else
-...
+{
+    sendMessage(iotHubClientHandle, destination, destinationSize);
+    free(destination);
+}
 ```
 
-This code serializes the device-to-cloud to a buffer (referenced by **destination**). Finally, send the message to IoT hub with this code:
+This code serializes the device-to-cloud to a buffer (referenced by **destination**). The code then invokes the **sendMessage** function to send the message to IoT Hub:
 
 ```c
-IOTHUB_MESSAGE_HANDLE messageHandle = IoTHubMessage_CreateFromByteArray(destination, destinationSize);
-if (messageHandle == NULL)
+static void sendMessage(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
 {
-    printf("unable to create a new IoTHubMessage\r\n");
-}
-else
-{
-    if (IoTHubClient_LL_SendEventAsync(iotHubClientHandle, messageHandle, sendCallback, (void*)1) != IOTHUB_CLIENT_OK)
+    static unsigned int messageTrackingId;
+    IOTHUB_MESSAGE_HANDLE messageHandle = IoTHubMessage_CreateFromByteArray(buffer, size);
+    if (messageHandle == NULL)
     {
-        printf("failed to hand over the message to IoTHubClient");
+        printf("unable to create a new IoTHubMessage\r\n");
     }
     else
     {
-        printf("IoTHubClient accepted the message for delivery\r\n");
+        if (IoTHubClient_LL_SendEventAsync(iotHubClientHandle, messageHandle, sendCallback, (void*)(uintptr_t)messageTrackingId) != IOTHUB_CLIENT_OK)
+        {
+            printf("failed to hand over the message to IoTHubClient");
+        }
+        else
+        {
+            printf("IoTHubClient accepted the message for delivery\r\n");
+        }
+        IoTHubMessage_Destroy(messageHandle);
     }
-
-    IoTHubMessage_Destroy(messageHandle);
+    messageTrackingId++;
 }
-free(destination);
 ```
 
 
-The second to last parameter of **IoTHubClient\_SendEventAsync** is a reference to a callback function that's called when the data is successfully sent. Here's the callback function in the sample:
+The second to last parameter of **IoTHubClient\_LL\_SendEventAsync** is a reference to a callback function that's called when the data is successfully sent. Here's the callback function in the sample:
 
 ```c
 void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCallback)
@@ -459,7 +465,7 @@ void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCal
 }
 ```
 
-The second parameter is a pointer to user context; the same pointer passed to **IoTHubClient\_SendEventAsync**. In this case, the context is a simple counter, but it can be anything you want.
+The second parameter is a pointer to user context; the same pointer passed to **IoTHubClient\_LL\_SendEventAsync**. In this case, the context is a simple counter, but it can be anything you want.
 
 That's all there is to sending device-to-cloud messages. The only thing left to cover is how to receive messages.
 
