@@ -307,6 +307,7 @@ A compute context allows you to control whether computation will be performed lo
 
         # Define the text data source in hdfs
         airOnTimeData <- RxTextData(inputDir, colInfo = airlineColInfo, varsToKeep = varNames, fileSystem = hdfsFS)
+
         # Define the text data source in local system
         airOnTimeDataLocal <- RxTextData(source, colInfo = airlineColInfo, varsToKeep = varNames)
 
@@ -346,7 +347,9 @@ A compute context allows you to control whether computation will be performed lo
          DEST=TTN       4.563e-01  9.520e-01   0.479  0.63172
          DEST=LAR      -1.270e+00  7.575e-01  -1.676  0.09364 .
          DEST=BPT         Dropped    Dropped Dropped  Dropped
+
          ---
+
          Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
          Condition number of final variance-covariance matrix: 11904202
@@ -359,11 +362,12 @@ A compute context allows you to control whether computation will be performed lo
 
         # Set the compute context
         rxSetComputeContext(mySparkCluster)
-        
+
         # Run a logistic regression
         system.time(  
            modelSpark <- rxLogit(formula, data = airOnTimeData)
         )
+        
         # Display a summary
         summary(modelSpark)
 
