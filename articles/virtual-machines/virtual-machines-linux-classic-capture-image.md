@@ -53,7 +53,7 @@ These steps assume that you've already created an Azure VM using the Classic dep
 4. Type **Exit** to close the SSH client.
 
    > [!NOTE]
-   > The remaining steps assume you have already [installed the Azure CLI](../xplat-cli-install.md) on your client computer. All the following steps can also be done in the [Azure classic portal][Azure classic portal].
+   > The remaining steps assume you have already [installed the Azure CLI](../cli-install-nodejs.md) on your client computer. All the following steps can also be done in the [Azure classic portal][Azure classic portal].
 
 5. From your client computer, open Azure CLI and login to your Azure subscription. For details, read [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md).
 6. Make sure you are in Service Management mode:

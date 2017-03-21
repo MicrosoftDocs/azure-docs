@@ -54,7 +54,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <h3>Free PluralSight Video Training for Dev and IT</h3>
+                                    <h3>Free PluralSight Video Training for Azure</h3>
                                 </div>
                             </div>
                         </div>

@@ -13,7 +13,7 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 ---
 
@@ -21,9 +21,9 @@ ms.author: cephalin
 
 This sample script creates a web app in App Service with its related resources, and then sets up continuous deployment from a GitHub repository. For GitHub deployment without continuous deployment, see [Create a web app and deploy code from GitHub](app-service-powershell-deploy-github.md).
 
-Before running this script, ensure the following:
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/). Also, ensure that:
 
-- A connection with Azure has been created using the `Login-AzureRmAccount` cmdlet.
+- A connection with Azure has been created using the `az login` command.
 - The application code is in a public or private GitHub repository that you own.
 - You have [created an access token in your GitHub account](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
 
@@ -33,7 +33,7 @@ Before running this script, ensure the following:
 
 ## Clean up deployment 
 
-After the script sample has been run, the following command can be used to remove the Resource Group, web app, and all related resources.
+After the script sample has been run, the following command can be used to remove the resource group, web app, and all related resources.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
