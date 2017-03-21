@@ -65,7 +65,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
     az network public-ip create \
     --name $PipName \
     --resource-group $RgName \
-    --location $Location
+    --location $Location \
     --allocation-method Static \
     --dns-name $DnsName
     
@@ -121,7 +121,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
     --location $Location \
     --size $VmSize \
     --nics $NicName \
-    --admin-username $Username
+    --admin-username $Username \
     --ssh-key-value $SshKeyValue
     # If creating a Windows VM, remove the previous line and you'll be prompted for the password you want to configure for the VM.
     ```
