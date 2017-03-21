@@ -18,7 +18,6 @@ ms.author: juliako
 
 ---
 #Develop Azure Functions with Media Services
-[!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 This topic discusses how to start developing Azure Functions with Media Services using the Azure portal. 
 
@@ -127,7 +126,10 @@ The project.json file contains dependencies. Here is an example of **function.js
 
 This is the C# code for your function.  The function defined below monitors a storage account container named **input** (that is what was specified in the path) for new MP4 files. Once a file is dropped into the storage container, the blob trigger will execute the function.
 	
-The following sample shows how to ingest the asset into Media Services (by coping a blob into an AMS asset) and submit an encoding job that uses Media Encoder Standard's "Adaptive Streaming" preset .
+The example defined in this section demonstrates 
+
+1. how to ingest an asset into a Media Services account (by coping a blob into an AMS asset) and 
+2. how to submit an encoding job that uses Media Encoder Standard's "Adaptive Streaming" preset .
 
 In the real life scenario, you most likely want to track job progress and then publish your encoded asset. For more information, see [Use Azure WebHooks to monitor Media Services job notifications](media-services-dotnet-check-job-progress-with-webhooks.md). For more examples, see [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).  
 

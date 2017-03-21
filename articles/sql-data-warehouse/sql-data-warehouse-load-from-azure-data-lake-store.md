@@ -15,6 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 01/25/2017
 ms.author: cakarst;barbkess
+ms.custom: loading
 
 ---
 # Load data from Azure Data Lake Store into SQL Data Warehouse
