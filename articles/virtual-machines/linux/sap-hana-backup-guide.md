@@ -5,7 +5,7 @@ services: virtual-machines-linux
 documentationcenter: 
 author: v-derekg
 manager: timlt
-editor:
+editor: v-derekg
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
