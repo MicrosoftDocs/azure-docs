@@ -74,7 +74,7 @@ Before you initiate failback, ensure that you have completed reprotection of the
 
 1. In the replicated items page, select the virtual machine, and right-click it to select **Unplanned Failover**.
 2. In **Confirm Failover**, verify the failover direction (from Azure), and then select the recovery point (latest, or the latest app consistent) that you want to use for the failover. The app consistent point is behind the latest point in time and causes some data loss.
-3. During failover Site Recovery shuts down the virtual machines on Azure. After you check that failback has completed as expected, you can check that the virtual machines on Azure have been shut down.
+3. During failover, Site Recovery shuts down the virtual machines on Azure. After you check that failback has completed as expected, you can check that the virtual machines on Azure have been shut down.
 
 ### To what recovery point can I fail back the virtual machines?
 
@@ -112,4 +112,4 @@ After commit finishes, your virtual machine is back on the on-premises site, but
 After the reprotect job finishes, the virtual machine is replicating back to Azure, and you can do a failover.
 
 ## Common issues
-* Make sure that the vCenter is in a connected state before you do a failback. Otherwise, disconnecting disks and attaching them back to the virtual machine will fail.
+Make sure that the vCenter is in a connected state before you do a failback. Otherwise, disconnecting disks and attaching them back to the virtual machine will fail.
