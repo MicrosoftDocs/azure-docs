@@ -13,12 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 03/21/2017
 ms.author: juliako
 
 ---
 #Develop Azure Functions with Media Services
-[!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 This topic discusses how to start developing Azure Functions with Media Services using the Azure portal. 
 
@@ -64,7 +63,7 @@ The function, defined in this article, assumes you have the following environmen
 
 ## Create a function
 
-Once your function app was deployed, you can find it among **App Services** Azure Functions.
+Once your function app is deployed, you can find it among **App Services** Azure Functions.
 
 1. Select your function app and click **New Function**.
 2. Choose the **C#** language and **Data Processing** scenario.
@@ -110,7 +109,7 @@ Here is an example of **function.json** file.
 
 ### project.json
 
-The project.json file contains dependencies. Here is an example of **function.json** file that includes AMS libraries.
+The project.json file contains dependencies. Here is an example of **project.json** file that includes the required .NET Azure Media Services packages from Nuget. Note that the version numbers will change with latest updates to the packages, so you should confirm the most recent versions. 
 
 	{
 	  "frameworks": {
@@ -127,7 +126,10 @@ The project.json file contains dependencies. Here is an example of **function.js
 
 This is the C# code for your function.  The function defined below monitors a storage account container named **input** (that is what was specified in the path) for new MP4 files. Once a file is dropped into the storage container, the blob trigger will execute the function.
 	
-The following sample shows how to ingest the asset into Media Services (by coping a blob into an AMS asset) and submit an encoding job that uses Media Encoder Standard's "Adaptive Streaming" preset .
+The example defined in this section demonstrates 
+
+1. how to ingest an asset into a Media Services account (by coping a blob into an AMS asset) and 
+2. how to submit an encoding job that uses Media Encoder Standard's "Adaptive Streaming" preset .
 
 In the real life scenario, you most likely want to track job progress and then publish your encoded asset. For more information, see [Use Azure WebHooks to monitor Media Services job notifications](media-services-dotnet-check-job-progress-with-webhooks.md). For more examples, see [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).  
 
@@ -331,7 +333,11 @@ To test your function, you need to upload an MP4 file into the **input** contain
 
 ## Next step
 
-At this point, you are ready to start developing a Media Services application. For more information, see [Use Azure WebHooks to monitor Media Services job notifications with .NET](media-services-dotnet-check-job-progress-with-webhooks.md);   
+At this point, you are ready to start developing a Media Services application. 
+ 
+For more details and complete samples/solutions of using Azure Functions and Logic Apps with Azure Media Services to create custom content creation workflows, see the [Media Services .NET Functions Integraiton Sample on Github](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
+
+Also, see [Use Azure WebHooks to monitor Media Services job notifications with .NET](media-services-dotnet-check-job-progress-with-webhooks.md). 
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
