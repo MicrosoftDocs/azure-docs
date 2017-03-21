@@ -51,7 +51,7 @@ To install the Azure Stack PowerShell modules on a computer, which doesn’t alr
     The **Scope** parameter in the following command is optional and can be set to:  
         * **CurrentUser**-  installs the module only in the current user account.  
         * **All Users** or not specified- installs the module to a location that all users can access.  
-```powershell
+    ```
     # To install the module in current user scope
     Install-Module -Name AzureRM -RequiredVersion 1.2.9 -Scope CurrentUser
     
@@ -61,7 +61,7 @@ To install the Azure Stack PowerShell modules on a computer, which doesn’t alr
     When prompted, type **yes** to trust the PSGallery repository.
 
 2. In addition to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules such as AzureStackAdmin, AzureStackStorage, etc. by running the following command:
-```powershell
+    ```
     # To install the module in current user scope
     Install-Module -Name AzureStack -RequiredVersion 1.2.9 -Scope CurrentUser
     
