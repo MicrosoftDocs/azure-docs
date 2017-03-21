@@ -109,8 +109,8 @@ To add an ILPIP to the VM created using the script above, run the following comm
 Get-AzureVM -ServiceName FTPService -Name FTPInstance | Set-AzurePublicIP -PublicIPName ftpip2 | Update-AzureVM
 ```
 
-## How to associate an ILPIP to a VM by using a service configuration file
-You can also associate an ILPIP to a VM by using a service configuration (CSCFG) file. The sample xml below shows how to configure a cloud service to use an ILPIP named *MyPublicIP* for a role instance: 
+## How to associate an ILPIP to a Cloud Service by using a service configuration file
+You can also associate an ILPIP to a Cloud Service VM by using a service configuration (CSCFG) file. The sample xml below shows how to configure a cloud service to use an ILPIP named *MyPublicIP* for a role instance: 
 
     <?xml version="1.0" encoding="utf-8"?>
     <ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
