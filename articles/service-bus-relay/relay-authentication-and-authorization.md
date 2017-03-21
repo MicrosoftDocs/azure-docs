@@ -24,7 +24,7 @@ Applications can authenticate to Azure Relay using either Shared Access Signatur
 > SAS is recommended over ACS, as it provides a simple, flexible, and easy-to-use authentication scheme for Service Bus. Applications can use SAS in scenarios in which they do not need to manage the notion of an authorized "user." 
 
 ## Shared Access Signature authentication
-[SAS authentication](../service-bus-messaging/service-bus-sas.md) enables you to grant a user access to Service Bus relay resources with specific rights. SAS authentication involves the configuration of a cryptographic key with associated rights on a resource. Clients can then gain access to that resource by presenting a SAS token which consists of the resource URI being accessed and an expiry signed with the configured key.
+[SAS authentication](../service-bus-messaging/service-bus-sas.md) enables you to grant a user access to Service Bus relay resources with specific rights. SAS authentication involves the configuration of a cryptographic key with associated rights on a resource. Clients can then gain access to that resource by presenting a SAS token, which consists of the resource URI being accessed and an expiry signed with the configured key.
 
 You can configure keys for SAS on a Relay namespace. You can also authenticate anonymously to [Hybrid Connections](relay-hybrid-connections-protocol.md), which is part of Azure Relay. 
 
