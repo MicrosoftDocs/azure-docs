@@ -3,7 +3,6 @@
 ## [Endpoint types](traffic-manager-endpoint-types.md)
 ## [Endpoint monitoring](traffic-manager-monitoring.md)
 ## [Routing methods](traffic-manager-routing-methods.md)
-## [Nested profiles](traffic-manager-nested-profiles.md) 
 ## [FAQs](traffic-manager-FAQs.md)
 
 # Get Started
@@ -11,7 +10,9 @@
 ## [Manage profiles](traffic-manager-manage-profiles.md)
 
 # How To
-## [Configure a routing method](traffic-manager-configure-routing-method.md)
+## [Configure priority routing method](traffic-manager-configure-priority-routing-method.md)
+## [Configure weighted routing method](traffic-manager-configure-weighted-routing-method.md)
+## [Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
 ## [Verify Traffic Manager settings](traffic-manager-testing-settings.md)
 ## [Combine load balancing services](traffic-manager-load-balancing-azure.md)
 ## [Measure Traffic Manager performance](traffic-manager-performance-considerations.md)
