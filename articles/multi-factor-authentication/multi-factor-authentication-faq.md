@@ -95,6 +95,7 @@ When an organization uses a consumption-based billing model, Azure Active Direct
 Azure Active Directory is required for the license model because licenses are added to the Azure AD tenant when you purchase and assign them to users in the directory.
 
 ## Troubleshooting the end-user experience
+
 **Q: What should I tell my users to do if they don’t receive a response on their phone, or don't have their phone with them?**
 
 Hopefully all of your users configured more than one verification method. Tell them to try signing in again, but select a different verification methon on the sign-in page. If the user doesn’t have another method configured, you can update the number assigned to be the user's primary phone.
@@ -102,31 +103,30 @@ Hopefully all of your users configured more than one verification method. Tell t
 You can point your users to the [End-user troubleshooting guide](./end-user/multi-factor-authentication-end-user-troubleshoot.md).
 
 
+**Q: What should I do if one of my users can't get in to their account?**
 
-**Q: What does the administrator do if a user contacts the administrator about an account that the user can no longer access?**
+You can reset the user's account by making them to go through the registration process again. Learn more about [managing user and device settings with Azure Multi-Factor Authentication in the cloud](multi-factor-authentication-manage-users-and-devices.md).
 
-The administrator can reset the user's account by asking them to go through the registration process again. Learn more about [managing user and device settings with Azure Multi-Factor Authentication in the cloud](multi-factor-authentication-manage-users-and-devices.md).
+**Q: What should I do if one of my users loses a phone that is using app passwords?**
 
-**Q: What does an administrator do if a user's phone that is using app passwords is lost or stolen?**
+Delete all of the user's app passwords to prevent unauthorized access. After the user has a replacement device, they can recreate the passwords. Learn more about [managing user and device settings with Azure Multi-Factor Authentication in the cloud](multi-factor-authentication-manage-users-and-devices.md).
 
-The administrator can delete all the user's app passwords to prevent unauthorized access. After the user has a replacement device, the user can recreate the passwords. Learn more about [managing user and device settings with Azure Multi-Factor Authentication in the cloud](multi-factor-authentication-manage-users-and-devices.md).
+**Q: What if a user can't sign in to non-browser apps?**
 
-**Q: What if the user can't sign in to non-browser apps?**
+If your organization still uses legacy clients, and you [allowed the use of app passwords](multi-factor-authentication-whats-next.md#app-passwords), then your users can't sign in to these legacy clients with their username and password. Instead, they need to [set up app passwords](./end-user/multi-factor-authentication-end-user-app-passwords.md). Your users will clear (delete) their sign-in information, restart the app, and then sign in with their username and *app password* instead of their regular password. 
 
-A user who is configured to use Multi-Factor Authentication requires an app password to sign in to some non-browser apps. A user needs to clear (delete) sign-in information, restart the app, and sign in by using their user name and app password.
-
-Get more information about creating app passwords and other [help with app passwords](multi-factor-authentication-end-user-app-passwords.md).
+If your organization doesn't have legacy clients, you should not allow your users to create app passwords. 
 
 > [!NOTE]
 > Modern authentication for Office 2013 clients
 > 
-> Office 2013 clients (including Outlook) support new authentication protocols. You can configure Office 2013 to support Multi-Factor Authentication. After you configure Office 2013, app passwords are not required for Office 2013 clients. For more information, see the [Office 2013 modern authentication public preview announcement](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> App passwords are only necessary for apps that don't support modern authentication. Office 2013 clients support modern authentication protocols, but need to be configured. Newer Office clients automatically support modern authentication protocols. For more information, see the [Office 2013 modern authentication public preview announcement](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
-**Q: What does a user do if the user does not receive a text message, or if the user replies to a two-way text message but the verification times out?**
+**Q: My users say that sometimes they don't receive the text message, or they reply to two-way text messages but the verification times out.**
 
-Deliver of text messages, and receipt of replies in two-way SMS is not guaranteed because there are uncontrollable factors that might affect the reliability of the service. These factors include the destination country, the mobile phone carrier, and the signal strength.
+Delivery of text messages, and receipt of replies in two-way SMS, is not guaranteed because there are uncontrollable factors that might affect the reliability of the service. These factors include the destination country, the mobile phone carrier, and the signal strength.
 
-Users who experience difficulty reliably receiving text messages should select the mobile app or phone call method instead. The mobile app can receive notifications both over cellular and Wi-Fi connections. In addition, the mobile app can generate verification codes even when the device has no signal at all. The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+If your users often have problems with reliably receiving text messages, tell them to use the mobile app or phone call method instead. The mobile app can receive notifications both over cellular and Wi-Fi connections. In addition, the mobile app can generate verification codes even when the device has no signal at all. The Microsoft Authenticator app is available for [Android](http://go.microsoft.com/fwlink/?Linkid=825072), [IOS](http://go.microsoft.com/fwlink/?Linkid=825073), and [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 If you must use text messages, we recommend using one-way SMS rather than two-way SMS when possible. One-way SMS is more reliable and it prevents users from incurring global SMS charges from replying to a text message that was sent from another country.
 
