@@ -3,9 +3,9 @@ To register the app for push notifications through Apple Push Notification Servi
 
 The App ID contains the configuration settings that enable your app to send and receive push notifications. These settings include the push notification certificate that's needed to authenticate with Apple Push Notification Service (APNS) when the app is sending and receiving push notifications.
 
-For more information about these concepts, see the official [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584) documentation.
+For more information about these concepts, see the official [Apple Push Notification Service](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1) documentation.
 
-#### Generate the certificate signing request file for the push certificate
+## Generate the certificate signing request file for the push certificate
 These steps walk you through the process of creating the certificate signing request, which generates a push certificate that's used with APNS.
 
 1. On your Mac, run the Keychain Access tool. It can be opened from the **Utilities** folder or the **Other** folder on the launch pad.
@@ -27,7 +27,7 @@ These steps walk you through the process of creating the certificate signing req
 
       This saves the CSR file in the selected location. (The default location is your desktop). Remember the location that you choose for this file.
 
-#### Register your app for push notifications
+## Register your app for push notifications
 Create a new Explicit App ID for your application with Apple, and then configure it for push notifications.  
 
 1. Navigate to the [iOS Provisioning Portal](http://go.microsoft.com/fwlink/p/?LinkId=272456) at the Apple Developer Center, and then sign in with your Apple ID.
@@ -88,12 +88,12 @@ Create a new Explicit App ID for your application with Apple, and then configure
    > The name in your certificate might be different, but it is prefixed with **Apple Development iOS Push Services**.
    >
    >
-12. In **Keychain Access**, control-click the new push certificate that you created in the **Certificates** category. Select **Export**, name the file, select the **.p12** format, and then select **Save**.
+12. In **Keychain Access**, select the new push certificate that you created in the **Certificates** category. Select **Export**, name the file, select the **.p12** format, and then select **Save**.
 
     Remember the file name and location of the exported .p12 push certificate. You use it to enable authentication with APNS by uploading it on the Azure classic portal. If the **.p12** format option is not available, you might need to restart Keychain Access.
 
-#### Create a provisioning profile for the app
-1. Back in the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>, select **Provisioning Profiles**, select **All**, and then select the **+** button to create a profile. This launches the **Add iOS Provisioning Profile Wizard**.
+## Create a provisioning profile for the app
+1. Back in the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>, select **Provisioning Profiles**, select **All**, and then select the **+** button to create a profile. This launches the **Add iOS Provisioning** profile tool.
 
       ![Provisioning profiles](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 
