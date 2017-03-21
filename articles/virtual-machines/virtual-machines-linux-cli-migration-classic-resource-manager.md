@@ -19,7 +19,7 @@ ms.author: kasing
 
 ---
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI
-These steps show you how to use Azure command-line interface (CLI) commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model. The article requires the [Azure CLI](../xplat-cli-install.md).
+These steps show you how to use Azure command-line interface (CLI) commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model. The article requires the [Azure CLI](../cli-install-nodejs.md).
 
 > [!NOTE]
 > All the operations described here are idempotent. If you have a problem other than an unsupported feature or a configuration error, we recommend that you retry the prepare, abort, or commit operation. The platform will then try the action again.
@@ -33,7 +33,7 @@ Here are a few best practices that we recommend as you evaluate migrating IaaS r
 * If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal.
 
 ## Step 2: Set your subscription and register the provider
-For migration scenarios, you need to set up your environment for both classic and Resource Manager. [Install Azure CLI](../xplat-cli-install.md) and [select your subscription](../xplat-cli-connect.md).
+For migration scenarios, you need to set up your environment for both classic and Resource Manager. [Install Azure CLI](../cli-install-nodejs.md) and [select your subscription](../xplat-cli-connect.md).
 
 Sign-in to your account.
 
