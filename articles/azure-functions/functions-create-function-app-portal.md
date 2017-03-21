@@ -26,6 +26,8 @@ Azure Function Apps uses the Azure App Service infrastructure. This topic shows 
 
 [!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
 
+For more information, see [Create a function app from the Azure portal](../articles/azure-functions/functions-create-function-app-portal.md).
+
 After the function app is created, you can create individual functions in one or more different languages. Create new functions [by using the portal](functions-create-first-azure-function-azure-portal.md#create-a-function), [continuous deployment](functions-continuous-deployment.md), or by [uploading with FTP](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp).  
 
 ## Service plans
