@@ -3,9 +3,9 @@ title: Securing PaaS web and mobile applications using Azure App Services | Micr
 description: " Learn about Azure App Services security best practices for securing your PaaS web and mobile applications. "
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: techlake
 manager: MBaldwin
-editor: techlake
+editor: ''
 
 ms.assetid:
 ms.service: security

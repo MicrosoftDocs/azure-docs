@@ -3,9 +3,9 @@ title: Securing PaaS web and mobile applications using SQL Database and SQL Data
 description: " Learn about Azure SQL Database and SQL Data Warehouse security best practices for securing your PaaS web and mobile applications. "
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: techlake
 manager: MBaldwin
-editor: techlake
+editor: ''
 
 ms.assetid:
 ms.service: security
