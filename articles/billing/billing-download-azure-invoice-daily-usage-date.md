@@ -58,7 +58,7 @@ If you don't get an email after following the steps, make sure your email addres
 
 5. You can view your daily usage by clicking the billing period. 
 
-For more information about your invoice, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
+For more information about your invoice, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md). For help managing costs, see [Prevent unexpected costs with Azure billing and cost management](billing-getting-started.md).
 
 ## Download usage from the Account Center (.csv)
 1. Sign into the [Azure Account Center](https://account.windowsazure.com/subscriptions) as the Account Administrator.
@@ -81,7 +81,7 @@ For more information about your invoice, see [Understand your bill for Microsoft
 
     ![Screenshot that shows the Download Usage option](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
 
-For more information about your daily usage, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
+For more information about your daily usage, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md). For help managing costs, see [Prevent unexpected costs with Azure billing and cost management](billing-getting-started.md).
 
 ## <a name="noinvoice"></a> Why don't I see an invoice for the last billing period?
 There could be several reasons that you don't see an invoice:
