@@ -46,8 +46,8 @@ When using this script requires the following information:
   
 2. The cluster node types that the script is applied to: headnode, workernode, zookeeper.
 
- > [!NOTE]
- > This script must be applied to all node types in the cluster. If it is not applied to a node type, then the virtual machines for that node type will continue to use the previous patching schedule.
+> [!NOTE]
+> This script must be applied to all node types in the cluster. If it is not applied to a node type, then the virtual machines for that node type will continue to use the previous patching schedule.
 >
 
 3.  Parameter: This script accepts three numeric parameters:
