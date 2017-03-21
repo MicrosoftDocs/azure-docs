@@ -1,5 +1,5 @@
 ---
-title: Send events to Azure Event Hubs using .NET Standard | Microsoft Docs
+title: Send events to Azure Event Hubs by using .NET Standard | Microsoft Docs
 description: Get started sending events to Event Hubs in .NET Standard
 services: event-hubs
 documentationcenter: na
@@ -22,7 +22,7 @@ ms.author: jotaub
 > [!NOTE]
 > This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender).
 
-This tutorial shows how to write a .NET Core console application that sends a set of messages to an Event Hub. You can run the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender) solution as-is, replacing the `EhConnectionString` and `EhEntityPath` strings with your Event Hub values, or you can follow the steps in this tutorial to create your own.
+This tutorial shows how to write a .NET Core console application that sends a set of messages to an Event Hub. You can run the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender) solution as-is, replacing the `EhConnectionString` and `EhEntityPath` strings with your Event Hub values. Or you can follow the steps in this tutorial to create your own.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ To send messages to an Event Hub, we will use Visual Studio to write a C# consol
 
 ## Create an Event Hubs namespace and an Event Hub
 
-The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace for the Event Hubs type, and obtain the management credentials that your application needs to communicate with the Event Hub. To create a namespace and an Event Hub, follow the procedure in [this article](event-hubs-create.md), then proceed with the following steps.
+The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace for the Event Hubs type, and obtain the management credentials that your application needs to communicate with the Event Hub. To create a namespace and an Event Hub, follow the procedure in [this article](event-hubs-create.md), and then proceed with the following steps.
 
 ## Create a console application
 
