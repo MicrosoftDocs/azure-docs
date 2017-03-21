@@ -31,10 +31,6 @@ The framework provides an option to run custom pre and post scripts while taking
 
 An important scenario for this framework is to ensure application consistent VM backup. The pre-script can invoke application native APIs to quiesce the IOs and flush in memory content to the disk, this will ensure that the snapshot is application consistent i.e. application will come up when the VM is booted post restore. Post-script can be used to thaw the IOs using application native APIs so the application can resume normal operations post VM snapshot.
 
-Azure Backup does a sequence of steps for taking fast and efficient Azure Linux VM backup as explained in the image below: 
-
-![Linux VM backup workflow](./media/backup-azure-linux-app-consistent/workflow.png)
-
 ## Steps to configure pre-script and post-script
 
 1. Login to the Linux VM to be backed up as the root user.
