@@ -12,7 +12,7 @@
 # How To
 ## [Configure priority routing method](traffic-manager-configure-priority-routing-method.md)
 ## [Configure weighted routing method](traffic-manager-configure-weighted-routing-method.md)
-## [Configure performance routing method](traffic-manager-configure-priority-routing-method.md)
+## [Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
 ## [Verify Traffic Manager settings](traffic-manager-testing-settings.md)
 ## [Combine load balancing services](traffic-manager-load-balancing-azure.md)
 ## [Measure Traffic Manager performance](traffic-manager-performance-considerations.md)
