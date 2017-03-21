@@ -44,6 +44,7 @@ An important scenario for this framework is to ensure application consistent VM 
    - VMSnapshotPluginConfig.json- Permission “600” i.e. only “root” user should have “read” and “write” permissions to this file, no user should have “execute” permissions.
    - Pre-script file- Permission “700” i.e. only “root” user should have “read”, “write”, and “execute” permissions to this file.
    - Post-script- Permission “700” i.e. only “root” user should have “read”, “write”, and “execute” permissions to this file.
+   
    > [!Note]
    > The framework provides a lot of power to the users, so it’s very important it is completely secure and only “root” user should have access to critical json and script files.
    > If in case the above requirements are not met, script will not be executed, resulting in file system/crash consistent backup.
