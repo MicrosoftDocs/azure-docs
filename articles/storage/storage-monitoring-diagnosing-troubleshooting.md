@@ -310,15 +310,22 @@ Does your issue relate to the performance of one of the storage services?
 * [Metrics show high AverageServerLatency]
 * [You are experiencing unexpected delays in message delivery on a queue]
 
-- - -
-Does your issue relate to the availability of one of the storage services?
+***
+aterisk Does your issue relate to the availability of one of the storage services?
 
 * [Metrics show an increase in PercentThrottlingError]
 * [Metrics show an increase in PercentTimeoutError]
 * [Metrics show an increase in PercentNetworkError]
 
-- - -
-Is your client application receiving an HTTP 4XX (such as 404) response from a storage service?
+___
+underscore Is your client application receiving an HTTP 4XX (such as 404) response from a storage service?
+
+* [The client is receiving HTTP 403 (Forbidden) messages]
+* [The client is receiving HTTP 404 (Not found) messages]
+* [The client is receiving HTTP 409 (Conflict) messages]
+
+---
+hyphen-no-space Is your client application receiving an HTTP 4XX (such as 404) response from a storage service?
 
 * [The client is receiving HTTP 403 (Forbidden) messages]
 * [The client is receiving HTTP 404 (Not found) messages]
