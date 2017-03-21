@@ -22,7 +22,7 @@ ms.author: kumud
 This article provides step-by-step instructions to create a Traffic Manager profile using the Azure Portal. While customers can choose multiple routing methods, endpoint types and monitoring options, this article describes how a profile with **Priority** routing type can be created to route users to two Azure Web Apps endpoints. By using the **Priority** routing type, all traffic is routed to the first endpoint while the second is kept as a backup. As a result, users can be routed to the second endpoint if the first endpoint becomes unhealthy.
 In this article, two previously created Azure Web App endpoints are associated to this newly created Traffic Manager profile. To learn more about how to create Azure Web App endpoints, visit the [Azure Web Apps documentation page](https://docs.microsoft.com/azure/app-service-web/). Note that you can add any endpoint that has a DNS name and is reachable over the public internet and that we are using Azure Web Apps endpoints as an example.
 
-### Create the Traffic Manager Profile
+### Create a Traffic Manager profile
 1. From a browser, sign in to the [Azure portal](http://portal.azure.com). If you don’t already have an account, you can sign-up for a [free one-month trial](https://azure.microsoft.com/free/). 
 2. On the **Hub** menu, click **New** > **Networking** > **See all**, click **Traffic Manager** profile to open the **Create Traffic Manager profile** blade, then click **Create**.
 3. On the **Create Traffic Manager profile** blade, complete the following:
@@ -48,15 +48,15 @@ In this article, two previously created Azure Web App endpoints are associated t
     5. For **Priority**, select as **1**. This results in all traffic going to this endpoint if it is healthy.
     6. Keep **Add as disabled** unchecked.
     7. Click **OK**
-5.	Repeat steps 3 and 4 for the next Azure Web Apps endpoint. Make sure to add it with its **Priority** set at **2**.
+5.	Repeat steps 3 and 4 for the next Azure Web Apps endpoint. Make sure to add it with its **Priority** value set at **2**.
 6.	When the addition of both endpoints is complete, they are displayed in the **Traffic Manager profile** blade along with their monitoring status as **Online**.
 
 ![Add a Traffic Manager endpoint](./media/traffic-manager-create-profile/add-traffic-manager-endpoint.png)
 
 ## Use the Traffic Manager profile
-1.	In the portal’s search bar, search for the **Traffic Manager profile** name that you created in the preceding section and click on the traffic manager profile in the results that the displayed.
+1.	In the portal’s search bar, search for the **Traffic Manager profile** name that you created in the preceding section and in the results that are  displayed, click the traffic manager profile.
 2. In the **Traffic Manager profile** blade, click **Overview**.
-3. The **Traffic Manager profile** blade displays the DNS name of your newly created Traffic Manager profile. This can be used by any clients (e.g. by navigating to it using a web browser) to get routed to the right endpoint as determined by the routing type – in this case all requests are routed to the first endpoint and if Traffic Manager detects it be unhealthy, the traffic automatically fails over to the next endpoint.
+3. The **Traffic Manager profile** blade displays the DNS name of your newly created Traffic Manager profile. This can be used by any clients (for example, by navigating to it using a web browser) to get routed to the right endpoint as determined by the routing type. In this case all requests are routed to the first endpoint and if Traffic Manager detects it be unhealthy, the traffic automatically fails over to the next endpoint.
 
 ## Delete the Traffic Manager profile
 When no longer needed, delete the resource group and the Traffic Manager profile that you have created. To do so, select the resource group from the **Traffic Manager profile** blade and click **Delete**.
