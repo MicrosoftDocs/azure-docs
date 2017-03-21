@@ -294,6 +294,8 @@ The properties of a Webhook are as follows:
 |-----------------|--------|---------------|  
 |headers|Object|The headers of the http request.|  
 |body|Object|The body of the http request.|  
+
+Limits on a webhook action can be specified in the same manner as [HTTP Asynchronous Limits](#asynchronous-limits).
   
 
 ## Conditions  
@@ -494,7 +496,8 @@ if there are intermittent failures, for a total of three executions, with a 30-s
     }
 }
 ```
-  
+### Asynchronous patterns
+
 By default, all HTTP-based actions support the standard asynchronous operation pattern. 
 So if the remote server indicates that the request is accepted for processing 
 with a 202 \(Accepted\) response, the Logic Apps engine keeps polling the URL specified 
@@ -512,6 +515,20 @@ the output of the action is based on the initial 202 response from the server.
         "uri": "https://host.example.com/resources"
     },
     "operationOptions": "DisableAsyncPattern"
+}
+```
+
+#### Asynchronous Limits
+
+An asynchronous pattern can be limited in its duration to a specific time interval.  If the time interval elapses without reaching a terminal state, the status of the action will be marked `Cancelled` with a code of `ActionTimedOut`.  The limit timeout is specified in ISO 8601 format.  Limits can be specified with the following syntax:
+
+``` json
+"<action-name>": {
+    "type": "workflow|webhook|http|apiconnectionwebhook|apiconnection",
+    "inputs": { },
+    "limit": {
+        "timeout": "PT10S"
+    }
 }
 ```
   
@@ -583,6 +600,8 @@ This action requires a reference to a valid connection, and information on the A
     "runAfter": {}
 }
 ```
+
+Limits on a webhook action can be specified in the same manner as [HTTP Asynchronous Limits](#asynchronous-limits).
   
 ## Response action  
 

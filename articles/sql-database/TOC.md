@@ -5,11 +5,10 @@
 ## [Create DB - Portal](sql-database-get-started-portal.md)
 ## [Create DB - Azure CLI](sql-database-get-started-cli.md)
 ## [Create DB - PowerShell](sql-database-get-started-powershell.md)
-## Manage
-### [Connect - SSMS](sql-database-connect-query-ssms.md)
-### [Connect - VS Code](sql-database-connect-query-vscode.md)
-## Develop
-### [Connect - C#](sql-database-connect-query-dotnet.md)
+## Connect
+### [SSMS](sql-database-connect-query-ssms.md)
+### [VS Code](sql-database-connect-query-vscode.md)
+### [C#](sql-database-connect-query-dotnet.md)
 # Samples
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
@@ -32,7 +31,7 @@
 ### [DTU benchmark](sql-database-benchmark-overview.md)
 ### [Limits](sql-database-resource-limits.md)
 ## [Tools](sql-database-manage-overview.md)
-## Partitioned data
+## Partition data
 ### [Sharded databases](sql-database-elastic-scale-introduction.md)
 ### [Elastic client library](sql-database-elastic-database-client-library.md)
 ### [Shard maps](sql-database-elastic-scale-shard-map-management.md)
@@ -42,11 +41,12 @@
 ### [Elastic tools](sql-database-elastic-scale-glossary.md)
 ### [Move sharded data](sql-database-elastic-scale-overview-split-and-merge.md)
 ### [Elastic tools FAQ](sql-database-elastic-scale-faq.md)
+## Manage multiple DBs
 ### [Elastic queries](sql-database-elastic-query-overview.md)
 ### [Horizontal data](sql-database-elastic-query-horizontal-partitioning.md)
 ### [Vertical data](sql-database-elastic-query-vertical-partitioning.md)
 ### [Transactions](sql-database-elastic-transactions-overview.md)
-### [Elastic Jobs](sql-database-elastic-jobs-overview.md)
+### [Elastic jobs](sql-database-elastic-jobs-overview.md)
 ## Security
 ### [Overview](sql-database-security-overview.md)
 ### [Access control](sql-database-control-access.md)

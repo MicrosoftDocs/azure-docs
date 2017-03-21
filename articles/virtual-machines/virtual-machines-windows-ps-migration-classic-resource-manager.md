@@ -27,6 +27,11 @@ If you want, you can also migrate resources by using the [Azure Command Line Int
 * For detailed guidance and a migration walkthrough, see [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md).
 * [Review most common migration errors](virtual-machines-migration-errors.md)
 
+<br>
+Here is a flowchart to identify the order in which steps need to be executed during a migration process
+
+![Screenshot that shows the migration steps](./media/virtual-machines-windows-migration-classic-resource-manager/migration-flow.png)
+
 ## Step 1: Plan for migration
 Here are a few best practices that we recommend as you evaluate migrating IaaS resources from classic to Resource Manager:
 
