@@ -110,7 +110,7 @@ Application Gateway WAF can be configured to run in the following two modes:
 
 ### <a name="application-gateway-waf-reports"></a>WAF Monitoring
 
-Monitoring the health of your application gateway is important. Monitoring the health of your web application firewall and the applications that it protects are provided through logging and integration with Azure Monitor, Azure Security Center, and Log Analaytics.
+Monitoring the health of your application gateway is important. Monitoring the health of your web application firewall and the applications that it protects are provided through logging and integration with Azure Monitor, Azure Security Center, and Log Analytics.
 
 ![diagnostics](./media/application-gateway-webapplicationfirewall-overview/diagnostics.png)
 
@@ -157,9 +157,9 @@ Application Gateway WAF provides detailed reporting on each threat it detects. L
 
 ## Application Gateway WAF SKU pricing
 
-Web application firewall is available under a new a WAF SKU. This SKU is available only in Azure resource manager provisioning model and not under Azure service management model. Additionally WAF SKU comes only in medium and large application gateway instance sizes. All the limits for application gateway also apply to the WAF SKU. Pricing is based on per hour gateway instance charge and data processing charge. Per hour gateway pricing for WAF SKU is different from Standard SKU charges and can be found at [Application Gateway pricing details](https://azure.microsoft.com/pricing/details/application-gateway/). Data processing charges remain the same. There is no per rule or rule group charges. You can protect multiple web applications behind the same web application firewall and there are no additional charges for supporting multiple applications. 
+Web application firewall is available under a new a WAF SKU. This SKU is available only in Azure Resource Manager provisioning model and not under the classic deployment model. Additionally WAF SKU comes only in medium and large application gateway instance sizes. All the limits for application gateway also apply to the WAF SKU. Pricing is based on per hour gateway instance charge and data processing charge. Per hour gateway pricing for WAF SKU is different from Standard SKU charges and can be found at [Application Gateway pricing details](https://azure.microsoft.com/pricing/details/application-gateway/). Data processing charges remain the same. There is no per rule or rule group charges. You can protect multiple web applications behind the same web application firewall and there are no additional charges for supporting multiple applications. 
 
-Billing effectivly starts from 5/8/2017, until then the WAF SKU gateways will continue to be charged at standard rates.
+Billing effectively starts from 5/8/2017, until then the WAF SKU gateways continues to be charged at standard rates.
 
 ## Next steps
 
