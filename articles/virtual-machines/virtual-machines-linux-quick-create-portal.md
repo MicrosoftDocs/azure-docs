@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/15/2017
+ms.date: 03/21/2017
 ms.author: nepeters
 ---
 
 # Create a Linux virtual machine with the Azure portal
 
-Azure virtual machines can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring VMs, and all related Azure resources.
+Azure virtual machines can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring VMs, and all related Azure resources. This Quickstart steps through creating a virtual machine using the Azure portal. 
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Create SSH key pair
 
