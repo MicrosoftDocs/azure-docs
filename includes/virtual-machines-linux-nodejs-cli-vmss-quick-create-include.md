@@ -1,6 +1,6 @@
 ## Prerequisites
 
-If you haven't already, you can get an [Azure subscription free trial](https://azure.microsoft.com/pricing/free-trial/) and the [Azure CLI 1.0](../articles/xplat-cli-install.md) [connected to your Azure account](../articles/xplat-cli-connect.md). Make sure the Azure CLI is in Resource Manager mode as follows:
+If you haven't already, you can get an [Azure subscription free trial](https://azure.microsoft.com/pricing/free-trial/) and the [Azure CLI 1.0](../articles/cli-install-nodejs.md) [connected to your Azure account](../articles/xplat-cli-connect.md). Make sure the Azure CLI is in Resource Manager mode as follows:
 
 ```azurecli
 azure config mode arm

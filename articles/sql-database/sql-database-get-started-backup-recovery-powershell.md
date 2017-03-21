@@ -14,7 +14,7 @@ ms.custom: tutorial
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
-ms.topic: hero-article
+ms.topic: article
 ms.date: 12/19/2016
 ms.author: sstein
 
