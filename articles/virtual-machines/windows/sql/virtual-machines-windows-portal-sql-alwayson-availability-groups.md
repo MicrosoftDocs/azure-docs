@@ -72,18 +72,18 @@ Azure provides a gallery image for the entire solution. In order to locate the t
 2. On the Azure portal click **+New.** The portal opens the New blade.
 3. On the New blade search for **AlwaysOn**.
    ![Find AlwaysOn Template](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
-4. In the search results locate **SQL Server AlwaysOn Cluster**.
+4. In the search results, locate **SQL Server AlwaysOn Cluster**.
    ![AlwaysOn Template](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
-5. On **Select a deployment model** choose **Resource Manager**.
+5. On **Select a deployment model**, choose **Resource Manager**.
 
 ### Basics
-Click on **Basics** and configure the following:
+Click **Basics** and configure the following settings:
 
 * **Administrator user name** is a user account with domain administrator permissions and a member of the SQL Server sysadmin fixed server role on both instances of SQL Server. For this tutorial use **DomainAdmin**.
 * **Password** is the password for the domain administrator account. Use a complex password. Confirm the password.
-* **Subscription** is the subscription that Azure bills to run all resources deployed for the availability group. You can specify a different subscription if your account has multiple subscriptions.
+* **Subscription** is the subscription that Azure bills to run all resources deployed for the availability group. If your account has multiple subscriptions, you can specify a different subscription.
 * **Resource group** is the name for the group that all the Azure resources created by this template belong to. For this tutorial use **SQL-HA-RG**. For more information, see (Azure Resource Manager overview)[resource-group-overview.md/#resource-groups].
-* **Location** is the Azure region where the tutorial creates the resources. Select an Azure region to host the infrastructure.
+* **Location** is the Azure region where the tutorial creates the resources. Select an Azure region.
 
 The following picture is a completed **Basics** blade:
 
@@ -92,27 +92,27 @@ The following picture is a completed **Basics** blade:
 * Click **OK**.
 
 ### Domain and network settings
-This Azure gallery template creates a new domain with new domain controllers. It also creates a new network and two subnets. The template does not enable creating the servers in an existing domain or virtual network. The next step is to configure the domain and network settings.
+This Azure gallery template creates a domain and domain controllers. It also creates a network and two subnets. The template does not enable creating the servers in an existing domain or virtual network. The next step is to configure the domain and network settings.
 
-On **Domain and network settings** blade review the preset values for the domain and network settings:
+On **Domain and network settings** blade, review the preset values for the domain and network settings:
 
 * **Forest root domain name** is the domain name that for the AD domain that hosts the cluster. For the tutorial use **contoso.com**.
-* **Virtual Network name** is the network name for the Azure virtual network. For this tutorial use **autohaVNET**.
-* **Domain Controller subnet name** is the name of a portion of the virtual network that hosts the domain controller. For this tutorial use **subnet-1**. This subnet uses address prefix **10.0.0.0/24**.
-* **SQL Server subnet name** is the name of a portion of the virtual network that hosts the SQL Servers and the file share witness. For this tutorial use **subnet-2**. This subnet uses address prefix **10.0.1.0/26**.
+* **Virtual Network name** is the network name for the Azure virtual network. FUse **autohaVNET**.
+* **Domain Controller subnet name** is the name of a portion of the virtual network that hosts the domain controller. Use **subnet-1**. This subnet uses address prefix **10.0.0.0/24**.
+* **SQL Server subnet name** is the name of a portion of the virtual network that hosts the SQL Servers and the file share witness. Use **subnet-2**. This subnet uses address prefix **10.0.1.0/26**.
 
-To learn more about virtual networks in [Azure see Virtual Network Overview](../../../virtual-network/virtual-networks-overview.md).  
+Learn more about virtual networks in [Azure see Virtual Network Overview](../../../virtual-network/virtual-networks-overview.md).  
 
-The **Domain and network settings** should look like this:
+The **Domain and network settings** should look like the following image:
 
 ![Domain and network settings](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/2-domain.png)
 
-If necessary, you may change these values. For this tutorial we use the preset values.
+If necessary, you may change these values. For this tutorial, use the preset values.
 
 * Review the settings and click **OK**.
 
-### availability group settings
-On **availability group settings** review the preset values for the availability group and the listener.
+### Availability group settings
+On **Availability group settings**, review the preset values for the availability group and the listener.
 
 * **Availability group name** is the clustered resource name for the availability group. For this tutorial use **Contoso-ag**.
 * **availability group listener name** is used by the cluster and the internal load balancer. Clients connecting to SQL Server can use this name to connect to the appropriate replica of the database. For this tutorial use **Contoso-listener**.
@@ -127,7 +127,7 @@ If necessary, you may change these values. For this tutorial use the preset valu
 ### VM size, storage settings
 On **VM size, storage settings** choose a SQL Server virtual machine size and review the other settings.
 
-* **SQL Server virtual machine size** is the Azure virtual machine size for both SQL Servers. Choose a virtual machine size appropriate for your workload. If you are building this environment for the tutorial use **DS2**. For production workloads choose a virtual machine size that can support the workload. Many production workloads require **DS4** or larger. The template builds two virtual machines of this size and installs SQL Server on each one. For more information, see [Sizes for virtual machines](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* **SQL Server virtual machine size** is the Azure virtual machine size for both SQL Servers. Choose a virtual machine size appropriate for your workload. If you are building this environment for the tutorial use **DS2**. For production workloads, choose a virtual machine size that can support the workload. Many production workloads require **DS4** or larger. The template builds two virtual machines of this size and installs SQL Server on each one. For more information, see [Sizes for virtual machines](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!NOTE]
 > Azure installs Enterprise Edition of SQL Server. The cost depends on the edition and the virtual machine size. For detailed information about current costs, see [virtual machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
@@ -138,7 +138,7 @@ On **VM size, storage settings** choose a SQL Server virtual machine size and re
 * **File Share Witness virtual machine size** is the virtual machine size for the file share witness. For this tutorial use **A1**.
 * **SQL Storage account** is the name of the storage account to hold the SQL Server data and operating system disks. For this tutorial use **alwaysonsql01**.
 * **DC Storage account** is the name of the storage account for the domain controllers. For this tutorial use **alwaysondc01**.
-* **SQL Server data disk size** in TB is the size of the SQL Server data disk in TB. Specify a number from 1 through 4. This is the size of the data disk for each SQL Server. For this tutorial use **1**.
+* **SQL Server data disk size** in TB is the size of the SQL Server data disk in TB. Specify a number from 1 through 4. For this tutorial use **1**.
 * **Storage optimization** sets specific storage configuration settings for the SQL Server virtual machines based on the workload type. All SQL Servers in this scenario use premium storage with Azure disk host cache set to read only. In addition, you can optimize SQL Server settings for the workload by choosing one of these three settings:
   
   * **General workload** sets no specific configuration settings
@@ -152,9 +152,9 @@ For this tutorial use **General workload**.
 * Review the settings and click **OK**.
 
 #### A note about storage
-Additional optimizations depend on the size of the SQL Server data disks. For each terabyte of data disk, Azure adds an additional 1 TB premium storage (SSD). When a server requires 2 TB or more, the template creates a storage pool on each SQL Server. A storage pool is a form of storage virtualization where multiple discs are configured to provide higher capacity, resiliency, and performance.  The template then creates a storage space on the storage pool and presents this as a single data to the operating system. The template designates this disk as the data disk for SQL Server. The template tunes the storage pool for SQL Server with the following settings:
+Additional optimizations depend on the size of the SQL Server data disks. For each terabyte of data disk, Azure adds an additional 1 TB premium storage (SSD). When a server requires 2 TB or more, the template creates a storage pool on each SQL Server. A storage pool is a form of storage virtualization where multiple discs are configured to provide higher capacity, resiliency, and performance.  The template then creates a storage space on the storage pool and presents a single data disk to the operating system. The template designates this disk as the data disk for SQL Server. The template tunes the storage pool for SQL Server with the following settings:
 
-* Stripe size is the interleave setting for the virtual disk. For transactional workloads this is set to 64 KB. For data warehousing workloads the setting is 256 KB.
+* Stripe size is the interleave setting for the virtual disk. Transactional workloads use 64 KB. Data warehousing workloads use 256 KB.
 * Resiliency is simple (no resiliency).
 
 > [!NOTE]
@@ -164,7 +164,7 @@ Additional optimizations depend on the size of the SQL Server data disks. For ea
 
 * Column count equals the number of disks in the storage pool.
 
-For additional information about storage space and storage pools see:
+For additional information, about storage space and storage pools see:
 
 * [Storage Spaces Overview](http://technet.microsoft.com/library/hh831739.aspx).
 * [Windows Server Backup and Storage Pools](http://technet.microsoft.com/library/dn390929.aspx)
@@ -214,7 +214,7 @@ To RDP to a SQL Server, follow these steps:
 3. In the **Resources** blade, click **sqlserver-0** which is the computer name of the virtual machine for one of the SQL Servers.
 4. On the blade for **sqlserver-0** click **Connect**. Your browser asks if you want to open or save the remote connection object. Click **Open**.
 5. **Remote desktop connection** may warn you that the publisher of this remote connection can’t be identified. Click **Connect**.
-6. Windows security prompts you to enter your credentials to connect to the IP address of the primary domain controller. Click **Use another account**. For **User name** type **contoso\DomainAdmin**. This is the account you chose for administrator user name. Use the complex password that you chose when you configured the template.
+6. Windows security prompts you to enter your credentials to connect to the IP address of the primary domain controller. Click **Use another account**. For **User name** type **contoso\DomainAdmin**. You configured this account when you set the administrator user name in the template. Use the complex password that you chose when you configured the template.
 7. **Remote desktop** may warn you that the remote computer could not be authenticated due to problems with its security certificate. It shows you the security certificate name. If you followed the tutorial the name is **sqlserver-0.contoso.com**. Click **Yes**.
 
 You are now connected with RDP to the SQL Server. You can open SQL Server management studio, connect to the default instance of SQL Server and verify the availability group is configured.
