@@ -52,6 +52,8 @@ The Application Proxy connector is a Windows Server service that directs the tra
 3. Select **Enable** if Application Proxy is currently disabled. 
 4. Select **Connector** to start the Application Proxy connector download. Follow the installation instructions. 
 
+![Enable Application Proxy and download the connector](./media/application-proxy-ping-access/install-connector.png)
+
 ### Add your app to Azure AD with Application Proxy
 
 There are two parts to this section. First, you need to publish the app to Azure AD. Then, you need to collect some information about that app that you can use during the PingAccess steps. 
@@ -70,15 +72,17 @@ There are two parts to this section. First, you need to publish the app to Azure
 7. In the quick start menu, 
 select **Assign a user for testing**, and add at least one user to the application. Make sure this test account has access to the on-premises application. 
 8. Select **Assign** to save the test user assignment. 
-9. Close the Enterprise applications blade or scroll all the way to the left to return to the Azure Active Directory menu. 
-10. Select **App registrations**.
-11. Select the app you just added. Two blades open, one titled with your app name and one called Setting.
-12. On the blade with your app name, select **Manifest**.
-13. Scroll down to find the **requiredResourceAccess** property. Give it the value *"00000002-0000-0000-c000-000000000000"*, then click **Save**.
-14. Back on the blade with your app name, select **All settings**, then **Reply URLs**. 
-15. Check to see if the external URL that you assigned to your app in step 5 is in the Reply URLs list. If it’s not, add it now. 
-16. On the app settings blade, select **Required permissions**. 
-17. Select **Add**. For the API, choose **Windows Azure Active Directory**, then **Select**. For the permissions, choose **Read and write all applications**, then **Select** and **Done**.   
+9. On the app management blade, select **Single sign-on**. 
+10. Choose **Header-based sign-on** from the drop-down menu. Select **Save**. 
+11. Close the Enterprise applications blade or scroll all the way to the left to return to the Azure Active Directory menu. 
+12. Select **App registrations**.
+13. Select the app you just added. Two blades open, one titled with your app name and one called Setting.
+14. On the blade with your app name, select **Manifest**.
+15. Scroll down to find the **requiredResourceAccess** property. Give it the value *"00000002-0000-0000-c000-000000000000"*, then click **Save**.
+16. Back on the blade with your app name, select **All settings**, then **Reply URLs**. 
+17. Check to see if the external URL that you assigned to your app in step 5 is in the Reply URLs list. If it’s not, add it now. 
+18. On the app settings blade, select **Required permissions**. 
+19. Select **Add**. For the API, choose **Windows Azure Active Directory**, then **Select**. For the permissions, choose **Read and write all applications**, then **Select** and **Done**.   
 
 #### Collect information for the PingAccess steps
 
@@ -87,7 +91,8 @@ select **Assign a user for testing**, and add at least one user to the applicati
 3. Create a key by entering a key description and choosing an expiration date from the drop-down menu. 
 4. Select **Save**. A GUID appears in the **Value** field. 
 
-  Save this value now, as you won’t be able to see it again after you close this window. 
+  > [!TIP] 
+  > Save this value now, as you won’t be able to see it again after you close this window. 
 
 5. Close the App registrations blade or scroll all the way to the left to return to the Azure Active Directory menu.
 6. Select **Properties**.
