@@ -17,7 +17,7 @@ ms.date: 03/22/2017
 ms.author: kumud
 ---
 
-# List of regions used for geographic traffic routing by Azure Traffic Manager
+# Geographic regions used by Azure Traffic Manager for geographic traffic routing method
 
 This article lists the geographic regions used by the **Geographic**  traffic routing method in Azure Traffic Manager. You can also obtain this information programmatically by calling the [Azure Traffic Manager’s REST API](https://docs.microsoft.com/rest/api/trafficmanager/).  
 

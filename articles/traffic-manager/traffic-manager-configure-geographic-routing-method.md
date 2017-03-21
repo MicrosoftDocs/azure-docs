@@ -41,6 +41,7 @@ The Geographic traffic routing method allows you to direct traffic to specific e
 3. Click **Add** to show the **Add Endpoint** blade. 
 3. In the **Endpoints** blade, click **Add** and in the **Add endpoint** blade that is displayed, complete as follows:
 4. Select **Type** depending upon the type of endpoint you are adding. 
+    
     > [!NOTE] For geographic routing profiles used in production, we strongly recommend using nested endpoint types containing a child profile with more than one endpoint. For more details, see [FAQs about geographic traffic routing methods](traffic-manager-FAQs.md#geographic-traffic-routing-method).
 
 5. Provide a **Name** by which you want to recognize this endpoint.
