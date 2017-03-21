@@ -116,6 +116,8 @@ For now, the services that enable moving to both a new resource group and subscr
 > [!NOTE] 
 > Currently a Virtual Network containing a VPN Gateway cannot be moved until the Gateway has been removed temporarily. Once removed, the Virtual Network can be moved successfully and the Gateway can be created.
 >
+> Currently a peered Virtual Network cannot be moved until VNet peering has been disabled. Once disabled, the Virtual Network can be moved successfully and the VNet peering can be enabled.
+>
  
 ## Services that do not enable move
 The services that currently do not enable moving a resource are:
