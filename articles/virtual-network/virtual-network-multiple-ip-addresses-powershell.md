@@ -136,10 +136,10 @@ You can add private and public IP addresses to a NIC by completing the steps tha
 	$mynic.IpConfigurations
 	```
 	Look for text similar to the following text in the returned output:
-
-		Subnet   : {
-					 "Id": "/subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"
-
+	```powershell
+	Subnet   : {
+				 "Id": "/subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"
+	```
 	In this output, *myVnet* is the VNet and *mySubnet* is the subnet the NIC is connected to.
 
 5. Complete the steps in one of the following sections, based on your requirements:
@@ -150,9 +150,8 @@ You can add private and public IP addresses to a NIC by completing the steps tha
 
 	```powershell
 	Add-AzureRmNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `
-	 $myNIC -Subnet $Subnet -PrivateIpAddress 10.0.0.7
+	$myNIC -Subnet $Subnet -PrivateIpAddress 10.0.0.7
 	```
-
 	Create as many configurations as you require, using unique configuration names and private IP addresses (for configurations with static IP addresses).
 
 	Add the private IP address to the VM operating system by completing the steps for your operating system in the [Add IP addresses to a VM operating system](#os-config) section of this article.
@@ -191,13 +190,13 @@ You can add private and public IP addresses to a NIC by completing the steps tha
 
 		Look for a line similar to the one that follows in the returned output:
 
-			```powershell
-			Name       PrivateIpAddress PublicIpAddress                                           Primary
-			----       ---------------- ---------------                                           -------
-			IPConfig-1 10.0.0.4         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress    True
-			IPConfig-2 10.0.0.5         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress   False
-			IpConfig-3 10.0.0.6                                                                     False
-			```powershell
+		```powershell
+		Name       PrivateIpAddress PublicIpAddress                                           Primary
+		----       ---------------- ---------------                                           -------
+		IPConfig-1 10.0.0.4         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress    True
+		IPConfig-2 10.0.0.5         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress   False
+		IpConfig-3 10.0.0.6                                                                     False
+		```
 
 		Since the **PublicIpAddress** column for *IpConfig-3* is blank, no public IP address resource is currently associated to it. You can add an existing public IP address resource to IpConfig-3, or enter the following command to create one:
 

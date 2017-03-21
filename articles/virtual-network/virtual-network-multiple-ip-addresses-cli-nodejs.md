@@ -55,6 +55,7 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
 	```azurecli
 	azure network public-ip create --resource-group myResourceGroup --location westcentralus --name myPublicIP --domain-name-label mypublicdns --allocation-method Static
 	```
+
 	> [!NOTE]
 	> Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
 
@@ -174,7 +175,7 @@ You can add additional private and public IP addresses to an existing NIC by com
 	azure network nic ip-config list --resource-group myResourceGroup --nic-name myNic1
 	```
 
-	You will see output similar to the following: 
+	The returned output is similar to the following:
 
 	```azurecli
 	Name               Provisioning state  Primary  Private IP allocation  Private IP version  Private IP address  Subnet    Public IP
