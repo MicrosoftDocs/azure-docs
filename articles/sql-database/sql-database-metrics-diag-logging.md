@@ -52,7 +52,7 @@ We recommend that you read the both [Overview of metrics in Microsoft Azure](../
 
 ### Azure portal
 
-To  enable metrics and diagnostic logs collection in the Azure Portal, go to the blade for your Azure SQL Database or Elastic Pool and then click Diagnostic configuration.
+To  enable metrics and diagnostic logs collection in the Azure Portal, go to the Azure portal page for your Azure SQL database or elastic pool and then click Diagnostic configuration.
 
    <img src="./media/sql-database-metrics-diag-logging/enable-portal.png" alt="enable in the Azure portal" style="width: 780px;" />
 

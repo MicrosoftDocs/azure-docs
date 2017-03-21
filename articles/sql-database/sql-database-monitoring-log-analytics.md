@@ -42,7 +42,7 @@ Monitoring Azure SQL Database fleet is very simple with Log Analytics. Three ste
 
 ## Configure databases to record metrics and diagnostic logs
 
-The easiest way to configure where databases will record their metrics is through the Azure ortal. Navigate to your Azure SQL Database resource and find **Diagnostic configuration**. For more information, please read how to [Enable metrics and diagnostic logging](sql-database-metrics-diag-logging.md#enable-metrics-and-diagnostics-logging).
+In the Azure portal, navigate to your Azure SQL Database resource and click **Diagnostics**. For more information, please read how to [Enable metrics and diagnostic logging](sql-database-metrics-diag-logging.md#enable-metrics-and-diagnostics-logging).
 
 Install the Azure SQL DB Monitoring solution from gallery  
 
