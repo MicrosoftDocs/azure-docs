@@ -1,15 +1,15 @@
 ---
-title: Detach a data disk from a Windows VM | Microsoft Docs
-description: Learn to detach a data disk from a virtual machine in Azure using the Resource Manager deployment model.
-services: virtual-machines-windows
+title: Detach a data disk from a Linux VM | Microsoft Docs
+description: Learn to detach a data disk from a virtual machine in Azure using CLI 2.0 or the Azure portal.
+services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
 manager: timlt
 editor: ''
 tags: azure-service-management
 
-ms.assetid: 13180343-ac49-4a3a-85d8-0ead95e2028c
-ms.service: virtual-machines-windows
+ms.assetid: 
+ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
@@ -18,7 +18,8 @@ ms.date: 03/21/2017
 ms.author: cynthn
 
 ---
-# How to detach a data disk from a Windows virtual machine
+# How to detach a data disk from a Linux virtual machine
+
 When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage. 
 
 > [!WARNING]
@@ -27,6 +28,15 @@ When you no longer need a data disk that's attached to a virtual machine, you ca
 > 
 
 If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.  
+
+## Detach a data disk using CLI 2.0
+
+```azurecli
+az vm disk detach -g myResourceGroup --vm-name myVm -n myDataDisk
+```
+
+The disk remains in storage but is no longer attached to a virtual machine.
+
 
 ## Detach a data disk using the portal
 1. In the portal hub, select **Virtual Machines**.
@@ -37,25 +47,15 @@ If you want to use the existing data on the disk again, you can reattach it to t
 5. After the disk has been removed, click Save on the top of the blade.
 6. In the virtual machine blade, click **Overview** and then click the **Start** button at the top of the blade to restart the VM.
 
-
-
 The disk remains in storage but is no longer attached to a virtual machine.
 
-## Detach a data disk using PowerShell
-In this example, the first command gets the virtual machine named **MyVM07** in the **RG11** resource group using the Get-AzureRmVM cmdlet. The command stores the virtual machine in the **$VirtualMachine** variable. 
 
-The second command removes the data disk named DataDisk3 from the virtual machine. 
 
-The final command updates the state of the virtual machine to complete the process of removing the data disk.
 
-```powershell
-$VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" 
-Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
-Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
-```
 
-For more information, see [Remove-AzureRmVMDataDisk](/powershell/remove-azurermvmdatadisk).
+
+
 
 ## Next steps
-If you want to reuse the data disk, you can just [attach it to another VM](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+If you want to reuse the data disk, you can just [attach it to another VM](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
