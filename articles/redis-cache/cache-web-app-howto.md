@@ -42,7 +42,7 @@ You'll learn:
 To complete the tutorial, you must have the following prerequisites.
 
 * [Azure account](#azure-account)
-* [Visual Studio 2015 with the Azure SDK for .NET](#visual-studio-2015-with-the-azure-sdk-for-net)
+* [Visual Studio 2017 with the Azure SDK for .NET](#visual-studio-2017-with-the-azure-sdk-for-net)
 
 ### Azure account
 You need an Azure account to complete the tutorial. You can:
@@ -50,22 +50,23 @@ You need an Azure account to complete the tutorial. You can:
 * [Open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features.
 * [Activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Your MSDN subscription gives you credits every month that you can use for paid Azure services.
 
-### Visual Studio 2015 with the Azure SDK for .NET
-The tutorial is written for Visual Studio 2015 with the [Azure SDK for .NET](../dotnet-sdk.md) 2.8.2 or later. [Download the latest Azure SDK for Visual Studio 2015 here](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio is automatically installed with the SDK if you don't already have it.
+### Visual Studio 2017 with the Azure SDK for .NET
+The tutorial is written for Visual Studio 2017 with the [Azure SDK for .NET](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes#azuretools). The Azure SDK 2.9.5 is included with the Visual Studio installer.
+
+If you have Visual Studio 2015, you can follow the tutorial with the [Azure SDK for .NET](../dotnet-sdk.md) 2.8.2 or later. [Download the latest Azure SDK for Visual Studio 2015 here](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio is automatically installed with the SDK if you don't already have it. Some screens may look different from the illustrations shown in this tutorial.
 
 If you have Visual Studio 2013, you can [download the latest Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Some screens may look different from the illustrations shown in this tutorial.
-
-> [!NOTE]
-> Depending on how many of the SDK dependencies you already have on your machine, installing the SDK could take a long time, from several minutes to a half hour or more.
-> 
-> 
 
 ## Create the Visual Studio project
 1. Open Visual Studio and click **File**, **New**, **Project**.
 2. Expand the **Visual C#** node in the **Templates** list, select **Cloud**, and click **ASP.NET Web Application**. Ensure that **.NET Framework 4.5.2** or higher is selected.  Type **ContosoTeamStats** into the **Name** textbox and click **OK**.
    
     ![Create project][cache-create-project]
-3. Select **MVC** as the project type. Clear the **Host in the cloud** checkbox. You'll [provision the Azure resources](#provision-the-azure-resources) and [publish the application to Azure](#publish-the-application-to-azure) in subsequent steps in the tutorial. For an example of provisioning an App Service web app from Visual Studio by leaving **Host in the cloud** checked, see [Get started with Web Apps in Azure App Service, using ASP.NET and Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
+3. Select **MVC** as the project type. 
+
+    Ensure that **No Authentication** is specified for the **Authentication** settings. Depending on your version of Visual Studio, the default may be set to something else. To change it, click **Change Authentication** and select **No Authentication**.
+
+    If you are following along with Visual Studio 2015, clear the **Host in the cloud** checkbox. You'll [provision the Azure resources](#provision-the-azure-resources) and [publish the application to Azure](#publish-the-application-to-azure) in subsequent steps in the tutorial. For an example of provisioning an App Service web app from Visual Studio by leaving **Host in the cloud** checked, see [Get started with Web Apps in Azure App Service, using ASP.NET and Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
    
     ![Select project template][cache-select-template]
 4. Click **OK** to create the project.
@@ -73,9 +74,19 @@ If you have Visual Studio 2013, you can [download the latest Azure SDK for Visua
 ## Create the ASP.NET MVC application
 In this section of the tutorial, you'll create the basic application that reads and displays team statistics from a database.
 
+* [Add the Entity Framework NuGet package](#add-the-entity-framework-nuget-package)
 * [Add the model](#add-the-model)
 * [Add the controller](#add-the-controller)
 * [Configure the views](#configure-the-views)
+
+### Add the Entity Framework NuGet package
+
+1. Click **NuGet Package Manager**, **Package Manager Console** from the **Tools** menu.
+2. Run the following command from the `Package Manager Console` window.
+    
+    ```
+    Install-Package EntityFramework
+    ```
 
 ### Add the model
 1. Right-click **Models** in **Solution Explorer**, and choose **Add**, **Class**. 
@@ -169,21 +180,27 @@ In this section of the tutorial, you'll create the basic application that reads 
 1. In **Solution Explorer**, double-click **web.config** to open it.
    
     ![Web.config][cache-web-config]
-2. Add the following connection string to the `connectionStrings` section. The name of the connection string must match the name of the Entity Framework database context class which is `TeamContext`.
-
-	```xml   
-	<add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
-	```
-
-    After adding this, the `connectionStrings` section should look like the following example.
+2. Add the following `connectionStrings` section. The name of the connection string must match the name of the Entity Framework database context class which is `TeamContext`.
 
 	```xml
 	<connectionStrings>
-	    <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ContosoTeamStats-20160216120918.mdf;Initial Catalog=aspnet-ContosoTeamStats-20160216120918;Integrated Security=True"
-	        providerName="System.Data.SqlClient" />
 	    <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
 	</connectionStrings>
 	```
+
+    You can add the new `connectionStrings` section so that it follows `configSections`, as shown in the following example.
+
+    ```xml
+	<configuration>
+	  <configSections>
+	    <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+	    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+	  </configSections>
+	  <connectionStrings>
+	    <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+	  </connectionStrings>
+      ...
+      ```
 
 ### Add the controller
 1. Press **F6** to build the project. 
@@ -258,14 +275,14 @@ In this section of the tutorial, you'll configure the sample application to stor
 * [Update the Teams Index view to work with the cache](#update-the-teams-index-view-to-work-with-the-cache)
 
 ### Configure the application to use StackExchange.Redis
-1. To configure a client application in Visual Studio using the StackExchange.Redis NuGet package, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. 
+1. To configure a client application in Visual Studio using the StackExchange.Redis NuGet package, click **NuGet Package Manager**, **Package Manager Console** from the **Tools** menu.
+2. Run the following command from the `Package Manager Console` window.
+    
+    ```
+    Install-Package StackExchange.Redis
+    ```
    
-    ![Manage NuGet packages][redis-cache-manage-nuget-menu]
-2. Type **StackExchange.Redis** into the search text box, select the desired version from the results, and click **Install**.
-   
-    ![StackExchange.Redis NuGet package][redis-cache-stack-exchange-nuget]
-   
-    The NuGet package downloads and adds the required assembly references for your client application to access Azure Redis Cache with the StackExchange.Redis cache client. If you prefer to use a strong-named version of the **StackExchange.Redis** client library, choose **StackExchange.Redis.StrongName**; otherwise choose **StackExchange.Redis**.
+    The NuGet package downloads and adds the required assembly references for your client application to access Azure Redis Cache with the StackExchange.Redis cache client. If you prefer to use a strong-named version of the `StackExchange.Redis` client library, install the `StackExchange.Redis.StrongName` package.
 3. In **Solution Explorer**, expand the **Controllers** folder and double-click **TeamsController.cs** to open it.
    
     ![Teams controller][cache-teamscontroller]
@@ -695,7 +712,7 @@ Clicking the **Deploy to Azure** button takes you to the Azure portal and initia
 ![Deploy to Azure][cache-deploy-to-azure-step-1]
 
 1. In the **Basics** section, select the Azure subscription to use, and select an existing resource group or create a new one, and specify the resource group location.
-2. In the **Settings** section, specify an administrator account name (**ADMINISTRATORLOGIN** - don't use **admin**), administrator login password (**ADMINISTRATORLOGINPASSWORD**), and database name (**DATABASENAME**). The other parameters are configured for a free App Service hosting plan, and lower cost options for the SQL Database and Azure Redis Cache, which don't come with a free tier.
+2. In the **Settings** section, specify an **Administrator Login** (don't use **admin**), **Administrator Login Password**, and **Database Name**. The other parameters are configured for a free App Service hosting plan, and lower cost options for the SQL Database and Azure Redis Cache, which don't come with a free tier.
 
     ![Deploy to Azure][cache-deploy-to-azure-step-2]
 
@@ -726,14 +743,10 @@ In this step of the tutorial, you'll publish the application to Azure and run it
 2. Click **Microsoft Azure App Service**.
    
     ![Publish][cache-publish-to-app-service]
-3. Select the subscription used when creating the Azure resources, expand the resource group containing the resources, select the desired Web App, and click **OK**. If you used the **Deploy to Azure** button your Web App name starts with **webSite** followed by some additional characters.
+3. Select the subscription used when creating the Azure resources, expand the resource group containing the resources, and select the desired Web App. If you used the **Deploy to Azure** button your Web App name starts with **webSite** followed by some additional characters.
    
     ![Select Web App][cache-select-web-app]
-4. Click **Validate Connection** to verify your settings, and then click **Publish**.
-   
-    ![Publish][cache-publish]
-   
-    After a few moments the publishing process will complete and a browser will be launched with the running sample application. If you get a DNS error when validating or publishing, and the provisioning process for the Azure resources for the application has just recently completed, wait a moment and try again.
+4. Click **OK** to begin the publishing process. After a few moments the publishing process completes and a browser is launched with the running sample application. If you get a DNS error when validating or publishing, and the provisioning process for the Azure resources for the application has just recently completed, wait a moment and try again.
    
     ![Cache added][cache-added-to-application]
 
