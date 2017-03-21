@@ -35,7 +35,7 @@ Use the following steps to update your browser's cookie settings.
 4. If the refresh didn't solve the issue, quit and restart your browser then try again.
 
 ## No text messages or calls during sign-up account verification
-If you selected **Send text message**, it may take up to four minutes for your text code to be delivered to your phone. Obviously, for identity verification, you want to enter a phone number that can receive SMS messages or, if you select the **Call me** option, that the phone can receive calls. The phone number you enter is only used for identity verification and isn't stored as a contact number for the account.
+If you selected **Send text message**, it may take up to four minutes for your text code to be delivered to your phone. Obviously, for identity verification, enter a phone number that can receive SMS messages or, for the **Call me** option, that the phone can receive calls. The phone number you enter is only used for identity verification and isn't stored as a contact number for the account.
 
 Here are some tips:
 * A VOIP phone number can't be used for the phone verification process.
@@ -43,7 +43,7 @@ Here are some tips:
 * If your phone doesn't receive text messages (SMS), use the **Call me** option.
 * If the phone verification step fails when you try both **Send text message** and **Call me** options, use another phone number.
 
-When you get the text message or phone call, enter code that you received in the text box. Click the verification button to continue with sign-up.
+When you get the text message or phone call, enter code that you received in the text box.
 
 ## Credit card declined or not accepted
 Virtual or prepaid credit or debit cards aren't accepted as payment for Azure subscriptions. To see what else may cause your card to be declined, see [your debit card or credit card is declined at Azure sign-up](billing-credit-card-fails-during-azure-sign-up.md).
@@ -65,7 +65,7 @@ Make sure that you're using the right sign-in credentials. Then check the benefi
   * If you can't verify your status, contact [MPN support](https://mspartner.microsoft.com/en/us/Pages/Support/Premium/contact-support.aspx).
 
 ## Can’t activate new Azure In Open subscription
-To create a new Azure In Open subscription, you must have a valid Online Service Activation (OSA) key with at least one Azure In Open token associated to it. If you don't have an OSA key, contact one of Microsoft Partners listed in [Microsoft Pinpoint](http://pinpoint.microsoft.com/).
+To create an Azure In Open subscription, you must have a valid Online Service Activation (OSA) key with at least one Azure In Open token associated to it. If you don't have an OSA key, contact one of Microsoft Partners listed in [Microsoft Pinpoint](http://pinpoint.microsoft.com/).
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
