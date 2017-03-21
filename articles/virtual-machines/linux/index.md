@@ -29,7 +29,7 @@ Learn how to run Virtual Machines on Azure using the Linux distribution of your 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Linux VM using the Azure CLI 2.0</h3>
+                        <h3>Create a Linux VM using the Azure CLI</h3>
                     </div>
                 </div>
             </div>
