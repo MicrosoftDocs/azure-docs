@@ -62,7 +62,7 @@ An important scenario for this framework is to ensure application consistent VM 
     - **continueBackupOnFailure**- Set this value to true if you want Azure Backup to fall back to a file system consistent/crash consistent backup in case pre-script or post-script fails. Setting this to false will fail the backup in case of script failure (except in case of single disk VM where it will fall back to crash consistent backup irrespective of this setting).
     - **fsFreezeEnabled**- This specifies if Linux fsfreeze should be called while taking VM snapshot to ensure file system consistency. We recommend keeping this as true unless your application has dependency on disabling fsfreeze.
     
-6. The script framework is now configured, if the VM backup is already configured next backup will invoke the scripts and trigger application consistent backup. If the VM backup is not configured, please configure using [Back up Azure virtual machines to Recovery Services vaults.](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-first-look-arm)
+6. The script framework is now configured, if the VM backup is already configured next backup will invoke the scripts and trigger application consistent backup. If the VM backup is not configured, please configure using [Back up Azure virtual machines to Recovery Services vaults.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
 
 ## Troubleshooting
 
@@ -80,3 +80,6 @@ Please make sure you add appropriate logging while writing your pre-script and p
 | InsufficientPermissionforPost-Script | For executing scripts, root user should be the owner of the file and file should have “700” permissions i.e. only owner should have “read”, “write”, and “execute” permissions | Make sure “root” user is the “owner” of the script file and only owner have “read”, “write” and “execute” permissions. |
 | Pre-ScriptTimeout | Execution of Application Consistent Backup Pre-Script timed-out. | Please check the script and increase the timeout in the VMSnapshotPluginConfig.json file located at /etc/azure. |
 | Post-ScriptTimeout | Execution of Application Consistent Backup Post-Script timed-out. | Please check the script and increase the timeout in the VMSnapshotPluginConfig.json file located at /etc/azure. |
+
+## Next Steps
+[Configure VM backup to a Recovery Services Vault](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)
