@@ -76,24 +76,24 @@ The HDInsight Tools can be used to submit C# or hybrid topologies to your Storm 
 
 ## Submit a topology: SSH and the Storm command
 
-1. Use SSH to connect to the HDInsight cluster. Replace **USERNAME** the the name of your SSH login. Replace **CLUSTERNAME** with your HDInsight cluster name:
+1. Use SSH to connect to the HDInsight cluster. Replace **USERNAME** the name of your SSH login. Replace **CLUSTERNAME** with your HDInsight cluster name:
    
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
    
     For more information on using SSH to connect to your HDInsight cluster, see the following documents:
    
-   * **Linux, Unix or OS X clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X or Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
+   * [Use SSH with Linux-based Hadoop on HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-   * **Windows clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+   * [Use SSH with Linux-based Hadoop on HDInsight from PuTTY on Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. Use the following command to start an example topology:
    
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm.starter.WordCountTopology WordCount
    
-    This will start the example WordCount topology on the cluster. It will randomly generate sentences and count the occurrance of each word in the sentences.
+    This command starts the example WordCount topology on the cluster. This topology randomly generate sentences and count the occurrence of each word in the sentences.
    
    > [!NOTE]
-   > When submitting topology to the cluster, you must first copy the jar file containing the cluster before using the `storm` command. This can be accomplished using the `scp` command from the client where the file exists. For example, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
+   > When submitting topology to the cluster, you must first copy the jar file containing the cluster before using the `storm` command. To copy the file to the cluster, you can use the `scp` command. For example, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
    > 
    > The WordCount example, and other storm starter examples, are already included on your cluster at `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
@@ -103,7 +103,7 @@ You can programmatically deploy a topology to Storm on HDInsight by communicatin
 
 ## Monitor and manage: Visual Studio
 
-When a topology has been successfully submitted using Visual Studio, the **Storm Topologies** for the cluster appears. Select the topology from the list to view information about the running topology.
+When a topology has been successfully submitted using Visual Studio, the **Storm Topologies** view for the cluster appears. Select the topology from the list to view information about the running topology.
 
 ![visual studio monitor](./media/hdinsight-storm-deploy-monitor-topology/vsmonitor.png)
 
@@ -118,58 +118,65 @@ Deactivating a topology pauses it until it is killed or reactivated. To perform 
 
 ### Rebalance
 
-Rebalancing a topology allows the system to revise the parallelism of the topology. For example, if you have resized the cluster to add more notes, rebalancing will allow a running topology to make use of the new nodes.
+Rebalancing a topology allows the system to revise the parallelism of the topology. For example, if you have resized the cluster to add more notes, rebalancing allows a topology to see the new nodes.
 
 To rebalance a topology, use the __Rebalance__ button at the top of the __Topology Summary__.
 
 > [!WARNING]
-> Rebalancing a topology first deactivates the topology, then redistributes workers evenly across the cluster, then finally returns the topology to the state it was in before rebalancing occurred. So if the topology was active, it will become active again. If it was deactivated, it will remain deactivated.
+> Rebalancing a topology first deactivates the topology, then redistributes workers evenly across the cluster, then finally returns the topology to the state it was in before rebalancing occurred. So if the topology was active, it becomes active again. If it was deactivated, it remains deactivated.
 
 ### Kill a topology
 
 Storm topologies continue running until they are stopped or the cluster is deleted. To stop a topology, use the __Kill__ button at the top of the __Topology Summary__.
 
 ## Monitor and manage: SSH and the Storm command
-The `storm` utility allows you to work with running topologies from the command line. The following is a list of commonly used commands. Use `storm -h` for a full list of commands.
+
+The `storm` utility allows you to work with running topologies from the command line. Use `storm -h` for a full list of commands.
 
 ### List topologies
+
 Use the following command to list all running topologies:
 
     storm list
 
-This will return information similar to the following:
+This command returns information similar to the following text:
 
     Topology_name        Status     Num_tasks  Num_workers  Uptime_secs
     -------------------------------------------------------------------
     WordCount            ACTIVE     29         2            263
 
 ### Deactivate and reactivate
-Deactivating a topology pauses it until it is killed or reactivated. Use the following to deactivate and reactivate:
+
+Deactivating a topology pauses it until it is killed or reactivated. Use the following command to deactivate and reactivate:
 
     storm Deactivate TOPOLOGYNAME
 
     storm Activate TOPOLOGYNAME
 
 ### Kill a running topology
-Storm topologies, once started, will continue running until stopped. To stop a topology, use the following command:
+
+Storm topologies, once started, continue running until stopped. To stop a topology, use the following command:
 
     storm stop TOPOLOGYNAME
 
 ### Rebalance
-Rebalancing a topology allows the system to revise the parallelism of the topology. For example, if you have resized the cluster to add more notes, rebalancing will allow a running topology to make use of the new nodes.
+
+Rebalancing a topology allows the system to revise the parallelism of the topology. For example, if you have resized the cluster to add more notes, rebalancing allows a topology to see the new nodes.
 
 > [!WARNING]
-> Rebalancing a topology first deactivates the topology, then redistributes workers evenly across the cluster, then finally returns the topology to the state it was in before rebalancing occurred. So if the topology was active, it will become active again. If it was deactivated, it will remain deactivated.
+> Rebalancing a topology first deactivates the topology, then redistributes workers evenly across the cluster, then finally returns the topology to the state it was in before rebalancing occurred. So if the topology was active, it becomes active again. If it was deactivated, it remains deactivated.
 
     storm rebalance TOPOLOGYNAME
 
 ## Monitor and manage: Storm UI
+
 The Storm UI provides a web interface for working with running topologies, and is included on your HDInsight cluster. To view the Storm UI, use a web browser to open **https://CLUSTERNAME.azurehdinsight.net/stormui**, where **CLUSTERNAME** is the name of your cluster.
 
 > [!NOTE]
 > If asked to provide a user name and password, enter the cluster administrator (admin) and password that you used when creating the cluster.
 
 ### Main page
+
 The main page of the Storm UI provides the following information:
 
 * **Cluster summary**: Basic information about the Storm cluster.
@@ -178,6 +185,7 @@ The main page of the Storm UI provides the following information:
 * **Nimbus configuration**: Nimbus configuration for the cluster.
 
 ### Topology summary
+
 Selecting a link from the **Topology summary** section displays the following information about the topology:
 
 * **Topology summary**: Basic information about the topology.
@@ -185,20 +193,21 @@ Selecting a link from the **Topology summary** section displays the following in
   
   * **Activate**: Resumes processing of a deactivated topology.
   * **Deactivate**: Pauses a running topology.
-  * **Rebalance**: Adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. This allows the topology to adjust parallelism to compensate for the increased or decreased number of nodes in the cluster.
+  * **Rebalance**: Adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. This operation allows the topology to adjust parallelism to compensate for the increased or decreased number of nodes in the cluster.
     
     For more information, see <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of a Storm topology</a>.
   * **Kill**: Terminates a Storm topology after the specified timeout.
-* **Topology stats**: Statistics about the topology. Use the links in the **Window** column to set the timeframe for the remaining entries on the page.
+* **Topology stats**: Statistics about the topology. To set the timeframe for the remaining entries on the page, use the links in the **Window** column.
 * **Spouts**: The spouts used by the topology. Use the links in this section to view more information about specific spouts.
 * **Bolts**: The bolts used by the topology. Use the links in this section to view more information about specific bolts.
 * **Topology configuration**: The configuration of the selected topology.
 
 ### Spout and Bolt summary
+
 Selecting a spout from the **Spouts** or **Bolts** sections displays the following information about the selected item:
 
 * **Component summary**: Basic information about the spout or bolt.
-* **Spout/Bolt stats**: Statistics about the spout or bolt. Use the links in the **Window** column to set the timeframe for the remaining entries on the page.
+* **Spout/Bolt stats**: Statistics about the spout or bolt. To set the timeframe for the remaining entries on the page, use the links in the **Window** column.
 * **Input stats** (bolt only): Information about the input streams consumed by the bolt.
 * **Output stats**: Information about the streams emitted by this spout or bolt.
 * **Executors**: Information about the instances of the spout or bolt. Select the **Port** entry for a specific executor to view a log of diagnostic information produced for this instance.
@@ -211,27 +220,31 @@ The Storm UI is built on top of the REST API, so you can perform similar managem
 For more information, see [Storm UI REST API](http://storm.apache.org/releases/0.9.6/STORM-UI-REST-API.html). The following information is specific to using the REST API with Apache Storm on HDInsight.
 
 > [!IMPORTANT]
-> The Storm REST API is not publicly available over the internet, and must be accessed using an SSH tunnel to the HDInsight cluster head node. For information on creating and using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md).
+> The Storm REST API is not publicly available over the internet, and must be accessed using an SSH tunnel to the HDInsight cluster head node. For information on creating and using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UIs](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ### Base URI
-The base URI for the REST API on Linux-based HDInsight clusters is available on the head node at **https://HEADNODEFQDN:8744/api/v1/**; however, the domain name of the head node is generated during cluster creation and is not static.
+
+The base URI for the REST API on Linux-based HDInsight clusters is available on the head node at **https://HEADNODEFQDN:8744/api/v1/**. The domain name of the head node is generated during cluster creation and is not static.
 
 You can find the fully qualified domain name (FQDN) for the cluster head node in several different ways:
 
 * **From an SSH session**: Use the command `headnode -f` from an SSH session to the cluster.
-* **From Ambari Web**: Select **Services** from the top of the page, then select **Storm**. From the **Summary** tab, select **Storm UI Server**. The FQDN of the node that the Storm UI and REST API is running on will be at the top of the page.
+* **From Ambari Web**: Select **Services** from the top of the page, then select **Storm**. From the **Summary** tab, select **Storm UI Server**. The FQDN of the node that the Storm UI and REST API is running is at the top of the page.
 * **From Ambari REST API**: Use the command `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` to retrieve information about the node that the Storm UI and REST API are running on. Replace **PASSWORD** with the admin password for the cluster. Replace **CLUSTERNAME** with the cluster name. In the response, the "host_name" entry contains the FQDN of the node.
 
 ### Authentication
+
 Requests to the REST API must use **basic authentication**, so you use the HDInsight cluster administrator name and password.
 
 > [!NOTE]
 > Because basic authentication is sent by using clear text, you should **always** use HTTPS to secure communications with the cluster.
 
 ### Return values
-Information that is returned from the REST API may only be usable from within the cluster or virtual machines on the same Azure Virtual Network as the cluster. For example, the fully qualified domain name (FQDN) returned for Zookeeper servers will not be accessible from the Internet.
+
+Information that is returned from the REST API may only be usable from within the cluster or virtual machines on the same Azure Virtual Network as the cluster. For example, the fully qualified domain name (FQDN) returned for Zookeeper servers is not be accessible from the Internet.
 
 ## Next Steps
+
 Now that you've learned how to deploy and monitor topologies by using the Storm Dashboard, learn how to [Develop Java-based topologies using Maven](hdinsight-storm-develop-java-topology.md).
 
 For a list of more example topologies, see [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md).
