@@ -42,6 +42,21 @@ This command returns a list of PowerShell module repositories that are registere
 
 Use the following steps to install PowerShell for Azure Stack:
 
+5. On the POC machine, run the following PowerShell script to download the Azure Stack support files:
+   
+    ```powershell
+    # Variables
+    $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/'
+    $LocalPath = 'c:\AzureStack_SupportFiles'
+   
+    # Create folder
+    New-Item $LocalPath -type directory
+   
+    # Download files
+    ( 'BootMenuNoKVM.ps1', 'PrepareBootFromVHD.ps1', 'Unattend.xml', 'unattend_NoKVM.xml') | foreach { Invoke-WebRequest ($uri + $_) -OutFile ($LocalPath + '\' + $_) } 
+    ```
+   
+
 1. Azure Stack compatible AzureRM modules are installed through Version Profiles. To learn about Version Profiles and the commands provided by Version Profiles refer to [Using Version Profiles in Azure Stack](azure-stack-version-profiles.md) article. The AzureRM.Bootstrapper module provides PowerShell commands that are required to work with Resource Manager Version Profiles. Use the following command to install the AzureRM.Bootstrapper module:
 ```PowerShell
     # Install the bootstrapper module in the current user scope. To install the module for all users, replace the value of “Scope” parameter with “AllUsers”
