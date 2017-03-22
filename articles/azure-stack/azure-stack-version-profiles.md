@@ -22,10 +22,10 @@ ms.author: sngun
 
 Different Azure cloud instances such as Azure Public, Azure Stack, Azure China, Azure Germany, and Azure Government have different versions of Azure services installed with different capabilities. Version Profiles provide a mechanism to manage these version differences. Version Profile also referred as Azure Resource Manager Version Profile is a set of Azure PowerShell modules with specific API versions. 
 
-Each Azure cloud instance has a set of supported profile versions. The Azure Public cloud always supports the latest version of resources across all services whereas other Azure cloud instances may support specific Version Profiles. Curently, Version Profiles are available in Azure PowerShell and they will be supported across the entire Azure development chain which includes the Azure .Net SDK, CLI and other Azure development tools. In this document, we walk you through using Version Profiles in Azure Stack PowerShell.
+Each Azure cloud instance has a set of supported profile versions. The Azure Public cloud always supports the latest version of resources across all services whereas other Azure cloud instances may support specific Version Profiles. Currently, Version Profiles are available in Azure PowerShell and they will be supported across the entire Azure development chain which includes the Azure .Net SDK, CLI and other Azure development tools. In this document, we walk you through using Version Profiles in Azure Stack PowerShell.
 
 > [!NOTE]
-> Azure Stack supports the **2017-03-09-profile** Version Profile, when a user installs this profile, the AzureRM PowerShell modules that correspond to the specified profile are installed. The Azure Stack administrator modules are not part of this Version Profile, and they should be installed separately as specified in the Step 3 of [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) article.
+> Azure Stack supports the **2017-03-09-profile** Version Profile, when a user installs this profile, the AzureRM PowerShell modules that correspond to the specified profile are installed. The Azure Stack administrator modules are not available with this Version Profile, and they should be installed separately as specified in the Step 3 of [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) article.
  
 ## Install the PowerShell module required to use Version Profiles
 
