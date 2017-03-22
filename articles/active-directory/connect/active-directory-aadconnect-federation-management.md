@@ -19,16 +19,16 @@ ms.author: anandy
 
 ---
 # Manage and customize Active Directory Federation Services by using Azure AD Connect
-This article describes how to manage and customize Active Directory Federation Services (AD FS) by using Azure Active Directory Connect. It also includes other common AD FS tasks that you might need to do for a complete configuration of an AD FS farm.
+This article describes how to manage and customize Active Directory Federation Services (AD FS) by using Azure Active Directory (Azure AD) Connect. It also includes other common AD FS tasks that you might need to do for a complete configuration of an AD FS farm.
 
 | Topic | What it covers |
 |:--- |:--- |
 | **Manage AD FS** | |
 | [Repair the trust](#repairthetrust) |How to repair the federation trust with Office 365. |
 | [Add an AD FS server](#addadfsserver) |How to expand an AD FS farm with an additional AD FS server. |
-| [Add an AD FS web application proxy server](#addwapserver) |How to expand an AD FS farm with an additional Web Application Proxy (WAP) server |
+| [Add an AD FS Web Application Proxy server](#addwapserver) |How to expand an AD FS farm with an additional Web Application Proxy (WAP) server. |
 | [Add a federated domain](#addfeddomain) |How to add a federated domain. |
-| [Update the SSL certificate](active-directory-aadconnectfed-ssl-update.md)| How to update the SSL certificate for an Active Directory Federation Services (AD FS) farm.|
+| [Update the SSL certificate](active-directory-aadconnectfed-ssl-update.md)| How to update the SSL certificate for an AD FS farm. |
 | **Customize AD FS** | |
 | [Add a custom company logo or illustration](#customlogo) |How to customize an AD FS sign-in page with a company logo and illustration. |
 | [Add a sign-in description](#addsignindescription) |How to add a sign-in page description. |
@@ -38,7 +38,7 @@ This article describes how to manage and customize Active Directory Federation S
 You can perform various AD FS-related tasks in Azure AD Connect with minimal user intervention by using the Azure AD Connect wizard. After you've finished installing Azure AD Connect by running the wizard, you can run the wizard again to perform additional tasks.
 
 ## Repair the trust <a name=repairthetrust></a>
-You can use Azure AD Connect to check the current health of the AD FS and Azure Active Directory trust and take appropriate actions to repair the trust. Follow these steps to repair your Azure AD and AD FS trust.
+You can use Azure AD Connect to check the current health of the AD FS and Azure AD trust and take appropriate actions to repair the trust. Follow these steps to repair your Azure AD and AD FS trust.
 
 1. Select **Repair AAD and ADFS Trust** from the list of additional tasks.
    ![Repair AAD and ADFS Trust](media/active-directory-aadconnect-federation-management/RepairADTrust1.PNG)
@@ -72,7 +72,7 @@ You can use Azure AD Connect to check the current health of the AD FS and Azure 
 
    ![Additional federation server](media/active-directory-aadconnect-federation-management/AddNewADFSServer1.PNG)
 
-2. On the **Connect to Azure AD** page, enter your global administrator credentials for Azure AD and click **Next**.
+2. On the **Connect to Azure AD** page, enter your global administrator credentials for Azure AD, and click **Next**.
 
    ![Connect to Azure AD](media/active-directory-aadconnect-federation-management/AddNewADFSServer2.PNG)
 
@@ -96,14 +96,14 @@ You can use Azure AD Connect to check the current health of the AD FS and Azure 
 
     ![Installation complete](media/active-directory-aadconnect-federation-management/AddNewADFSServer8.PNG)
 
-## Add an AD FS web application proxy server <a name=addwapserver></a>
+## Add an AD FS WAP server <a name=addwapserver></a>
 
 > [!NOTE]
 > To add a WAP server, Azure AD Connect requires the PFX certificate. Therefore, you can only perform this operation if you configured the AD FS farm by using Azure AD Connect.
 
 1. Select **Deploy Web Application Proxy** from the list of available tasks.
 
-   ![Deploy web application proxy](media/active-directory-aadconnect-federation-management/WapServer1.PNG)
+   ![Deploy Web Application Proxy](media/active-directory-aadconnect-federation-management/WapServer1.PNG)
 
 2. Provide the Azure global administrator credentials.
 
@@ -114,7 +114,7 @@ You can use Azure AD Connect to check the current health of the AD FS and Azure 
 
     ![Specify SSL certificate](media/active-directory-aadconnect-federation-management/WapServer4.PNG)
 
-4. Add the server to be added as a web application proxy. Because the WAP server might not be joined to the domain, the wizard asks for administrative credentials to the server being added.
+4. Add the server to be added as a WAP server. Because the WAP server might not be joined to the domain, the wizard asks for administrative credentials to the server being added.
 
    ![Administrative server credentials](media/active-directory-aadconnect-federation-management/WapServer5.PNG)
 
@@ -168,7 +168,7 @@ To change the logo of the company that's displayed on the **Sign-in** page, use 
     Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 
 > [!NOTE]
-> The *TargetName* parameter is required. The default theme that is released with AD FS is named Default.
+> The *TargetName* parameter is required. The default theme that's released with AD FS is named Default.
 
 ## Add a sign-in description <a name=addsignindescription></a>
 To add a sign-in page description to the **Sign-in page**, use the following Windows PowerShell cmdlet and syntax.
@@ -188,7 +188,7 @@ For example, you might select **ms-ds-consistencyguid** as the attribute for the
 **Rule 1: Query attributes**
 
     c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]
-    => add(store = "Active Directory", types = ("http://contoso.com/ws/2016/02/identity/claims/objectguid", "http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid"), query = "; objectGuid,ms-ds-consistencyguid;{0}", param = c.Value);
+    => add(store = "Active Directory", types = ("http://contoso.com/ws/2016/02/identity/claims/objectguid", "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"), query = "; objectGuid,ms-ds-consistencyguid;{0}", param = c.Value);
 
 In this rule, you're querying the values of **ms-ds-consistencyguid** and **objectGuid** for the user from Active Directory. Change the store name to an appropriate store name in your AD FS deployment. Also change the claims type to a proper claims type for your federation, as defined for **objectGuid** and **ms-ds-consistencyguid**.
 
@@ -196,17 +196,17 @@ Also, by using **add** and not **issue**, you avoid adding an outgoing issue for
 
 **Rule 2: Check if ms-ds-consistencyguid exists for the user**
 
-    NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid"])
+    NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-This rule defines a temporary flag called **idflag** that is set to **useguid** if there's no **ms-ds-concistencyguid** populated for the user. The logic behind this is the fact that AD FS doesn't allow empty claims. So when you add claims http://contoso.com/ws/2016/02/identity/claims/objectguid and http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid in Rule 1, you end up with an **msdsconsistencyguid** claim only if the value is populated for the user. If it isn't populated, AD FS sees that it will have an empty value and drops it immediately. All objects will have **objectGuid**, so that claim will always be there after Rule 1 is executed.
+This rule defines a temporary flag called **idflag** that is set to **useguid** if there's no **ms-ds-consistencyguid** populated for the user. The logic behind this is the fact that AD FS doesn't allow empty claims. So when you add claims http://contoso.com/ws/2016/02/identity/claims/objectguid and http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid in Rule 1, you end up with an **msdsconsistencyguid** claim only if the value is populated for the user. If it isn't populated, AD FS sees that it will have an empty value and drops it immediately. All objects will have **objectGuid**, so that claim will always be there after Rule 1 is executed.
 
 **Rule 3: Issue ms-ds-consistencyguid as immutable ID if it's present**
 
-    c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid"]
+    c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"]
     => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
 
-This is an implicit **Exist** check. If the value for the claim exists, then issue that as the immutable ID. The previous example uses the **nameidentifier** claim. You'll have to change this to the appropriate claim type for immutable ID in your environment.
+This is an implicit **Exist** check. If the value for the claim exists, then issue that as the immutable ID. The previous example uses the **nameidentifier** claim. You'll have to change this to the appropriate claim type for the immutable ID in your environment.
 
 **Rule 4: Issue objectGuid as immutable ID if ms-ds-consistencyGuid is not present**
 
