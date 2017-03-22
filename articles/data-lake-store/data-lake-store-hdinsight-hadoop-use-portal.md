@@ -77,7 +77,7 @@ In this section, you create an HDInsight Hadoop cluster that uses the Data Lake 
 	
 	In the screenshot above, the root folder path is /clusters/myhdiadlcluster, where *myhdiadlcluster* is the name of the cluster being created. In such a case, make sure that the */clusters* folder exists in the Data Lake Store account. The *myhdiadlcluster* folder is created during cluster creation. Similarly, if the root path was set to */hdinsight/clusters/data/myhdiadlcluster*, ensure that */hdinsight/clusters/data/* exists in the Data Lake Store account.
 
-5. Click **Data Lake Store access** to configure access between the Data Lake Store account and HDInsight cluster. For instructions see [Configure access between HDInsight cluster and Data Lake Store](configure-access-between-hDInsight-cluster-and-data-lake-store). 
+5. Click **Data Lake Store access** to configure access between the Data Lake Store account and HDInsight cluster. For instructions see [Configure access between HDInsight cluster and Data Lake Store](#configure-access-between-hdinsight-cluster-and-data-lake-store). 
 
 
 ### Create a cluster with Data Lake Store as additional storage 
@@ -98,7 +98,7 @@ In this section, you create an HDInsight Hadoop cluster that uses the Data Lake 
 
 	![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "Add service principal to HDInsight cluster")
 
-6. When you use Blob storage as default storage, you can still use Data Lake Store as additional storage for the cluster. To do so, click **Data Lake Store access** to configure access between the Data Lake Store account and HDInsight cluster. For instructions see [Configure access between HDInsight cluster and Data Lake Store](configure-access-between-hDInsight-cluster-and-data-lake-store).
+6. When you use Blob storage as default storage, you can still use Data Lake Store as additional storage for the cluster. To do so, click **Data Lake Store access** to configure access between the Data Lake Store account and HDInsight cluster. For instructions see [Configure access between HDInsight cluster and Data Lake Store](#configure-access-between-hdinsight-cluster-and-data-lake-store).
 
 ## Configure access between HDInsight cluster and Data Lake Store
 
