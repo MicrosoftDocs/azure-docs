@@ -95,6 +95,13 @@
             }
         }
 
-7. From the **Run** menu, click **Run app** to start the app and sign in with your chosen identity provider.
+7. Add com.android.support:customtabs:23.0.1 to the dependencies in your build.gradle:
+
+      dependencies {
+          // ...
+          compile 'com.android.support:customtabs:23.0.1'
+      }
+
+8. From the **Run** menu, click **Run app** to start the app and sign in with your chosen identity provider.
 
 When you are successfully signed in, the app should run without errors, and you should be able to query the back-end service and make updates to data.
