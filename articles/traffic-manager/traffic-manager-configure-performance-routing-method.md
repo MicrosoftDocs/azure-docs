@@ -43,7 +43,8 @@ The Performance traffic routing method allows you to direct traffic to the endpo
 ## Next steps
 
 - Learn about [weighted traffic routing method](traffic-manager-configure-weighted-routing-method.md).
-- Learn more about [priority routing method](traffic-manager-configure-priority-routing-method.md).
+- Learn about [priority routing method](traffic-manager-configure-priority-routing-method.md).
+- Learn about [geographic routing method](traffic-manager-configure-geographic-routing-method.md).
 - Learn how to [test Traffic Manager settings](traffic-manager-testing-settings.md).
 
 <!--Image references-->
