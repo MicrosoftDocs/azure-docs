@@ -17,7 +17,7 @@ ms.date: 03/20/2017
 ms.author: antisch
 ---
 
-# Managing Azure Batch Pools with Azure CLI
+# Managing Azure Batch pools with Azure CLI
 
 These script demonstrates some of the tools available in the Azure CLI to create and
 manage pools of compute nodes in the Azure Batch service.
@@ -26,8 +26,8 @@ Running these scripts assumes that a Batch account has already been set up and a
 configured. For more information, please see the [sample scripts](../batch-cli-samples.md) covering
 each of these topics.
 
-[!NOTE]
-The commands in this sample create Azure virtual machines. Running VMs will accrue charges to your account. To minimize these charges, delete the VMs once you're done running the sample. See [Clean up pools](#clean-up-pools).
+> [!NOTE]
+> The commands in this sample create Azure virtual machines. Running VMs will accrue charges to your account. To minimize these charges, delete the VMs once you're done running the sample. See [Clean up pools](#clean-up-pools).
 
 If needed, install the Azure CLI using the instructions found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), 
 and then run `az login` to log into Azure.
@@ -35,11 +35,11 @@ and then run `az login` to log into Azure.
 Batch pools can be configured in two ways, either with a Cloud Services configuration (Windows only),
 or a Virtual Machine configuration (Windows and Linux).
 
-## Pool with Cloud Service Configuration Sample script
+## Pool with cloud service configuration sample script
 
 [!code-azurecli[main](../../../cli_scripts/batch/manage-pool/manage-pool-windows.sh "Manage Cloud Services Pools")]
 
-## Pool with Virtual Machine Configuration Sample script
+## Pool with virtual machine configuration sample script
 
 [!code-azurecli[main](../../../cli_scripts/batch/manage-pool/manage-pool-linux.sh "Manage Virtual Machine Pools")]
 

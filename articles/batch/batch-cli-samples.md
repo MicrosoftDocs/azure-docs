@@ -19,6 +19,8 @@ ms.author: antisch
 
 # Azure Batch CLI Samples
 
+## Tutorials with sample shell scripts
+
 The following table includes links to bash scripts built using the Azure CLI that demonstrate using the Batch service.
 
 | Script | Notes |
@@ -27,3 +29,7 @@ The following table includes links to bash scripts built using the Azure CLI tha
 | [Add an application](./scripts/batch-cli-sample-add-application.md) | Adds an application and uploads packaged binaries.|
 | [Manage Batch pools](./scripts/batch-cli-sample-manage-pool.md) | Demonstrates creating, resizing and managing pools. |
 | [Run a job and tasks with Batch](./scripts/batch-cli-sample-run-job.md) | Demonstrates running a job and adding tasks. |
+
+## Next steps
+
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).

@@ -17,7 +17,7 @@ ms.date: 03/20/2017
 ms.author: antisch
 ---
 
-# Running Jobs on Azure Batch with Azure CLI
+# Running jobs on Azure Batch with Azure CLI
 
 This script creates a Batch job and adds a series of tasks to the job. It also demonstrates
 how to monitor a job and its tasks.

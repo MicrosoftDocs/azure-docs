@@ -17,7 +17,7 @@ ms.date: 03/20/2017
 ms.author: antisch
 ---
 
-# Create a Batch Account with the Azure CLI
+# Create a Batch account with the Azure CLI
 
 This script creates an Azure Batch account and shows how various properties of the account 
 can be queried and updated.
@@ -25,7 +25,7 @@ can be queried and updated.
 If needed, install the Azure CLI using the instructions found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), 
 and then run `az login` to log into Azure.
 
-## Batch Account Sample script
+## Batch account sample script
 
 When you create a Batch account, by default its compute nodes are assigned internally by the Batch
 service. Allocated compute nodes will be subject to a separate core quota and the account can be 
@@ -33,7 +33,7 @@ authenticated either via Shared Key credentials or an Azure Active Dirctory toke
 
 [!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
 
-## Batch Account with User Subscription Pool Allocation Sample script
+## Batch account using user subscription sample script
 
 You can also opt to have Batch create its compute nodes in your own Azure subscription.
 Accounts that allocate compute nodes into your subscription must be authenticated via an Azure Active

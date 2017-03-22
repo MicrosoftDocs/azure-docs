@@ -17,7 +17,7 @@ ms.date: 03/20/2017
 ms.author: antisch
 ---
 
-# Adding Applications to Azure Batch with Azure CLI
+# Adding applications to Azure Batch with Azure CLI
 
 This script demonstrates how to set up an application for use with an Azure Batch
 pool or task. To set up an application, package your executable, together with any dependencies,
