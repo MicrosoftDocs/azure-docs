@@ -57,7 +57,7 @@ the RSS feed for MSDN Channel 9:`https://s.ch9.ms/Feeds/RSS`
    > enter "logic app" for your filter. 
    > Choose **Logic App** > **Logic App** > **Create**.
 
-3. Name your logic app and select your Azure subscription to use for billing. 
+3. Name your logic app and select your Azure subscription. 
 Now select or create an Azure resource group, which helps you organize and 
 manage related Azure resources. Finally, select the datacenter location 
 for hosting your logic app. When you're done, choose **Create**.
@@ -94,7 +94,7 @@ trigger: **RSS - When a feed item is published**
 	which determine how often your logic app checks for 
 	new items and returns all items during that time span.
 
-	For this example, we want to check every 7 days for new 
+	For this example, we want to check every seven days for new 
 	items posted to the MSDN Channel 9 website.
 
 	![Set up trigger with RSS feed, frequency, and interval](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
@@ -119,15 +119,15 @@ and select an action to perform when your trigger fires.
 Based on the mail account that you have, follow the steps for Outlook or Gmail.
 
 	*	To send mail to your Outlook inbox, 
-	in the search box, enter **outlook**. 
+	in the search box, enter "outlook". 
 	Under **Services**, select either **Outlook.com** 
 	or **Office 365 Outlook**. Under **Actions**, 
 	select **Send an email**.
 
-		![Choose Outlook action to send email](media/logic-apps-create-a-logic-app/actions.png)
+		![Select Outlook "Send an email" action](media/logic-apps-create-a-logic-app/actions.png)
 
 	*	To send mail to your Gmail inbox, 
-	in the search box, enter **gmail**. 
+	in the search box, enter "gmail". 
 	Under **Actions**, select **Gmail - Send email**.
 
 		![Choose "Gmail - Send email"](media/logic-apps-create-a-logic-app/actions-gmail.png)
@@ -175,7 +175,7 @@ follow these steps.
 2. On the left menu, choose **More services**. Under **Enterprise Integration**,  
 choose **Logic Apps**. Select your logic app.
 
-	*	To check your app's current status and general information, 
+	*	To check your app's status and general information, 
 	choose **Overview**.
 
 	*	To edit your app, choose **Logic App Designer**.
