@@ -189,7 +189,7 @@ You can add additional private and public IP addresses to an existing NIC by com
 			Look for a line similar to the one that follows for IPConfig-3 in the returned output: <br>
 			
 				Name               Provisioning state  Primary  Private IP allocation  Private IP version  Private IP address  Subnet    Public IP
-				-----------------  ------------------  -------  ---------------------  ------------------  ------------------  --------  -----------
+			
 				default-ip-config  Succeeded           true     Dynamic                IPv4                10.0.0.4            mySubnet  myPublicIP
 				IPConfig-2         Succeeded           false    Static                 IPv4                10.0.0.5            mySubnet  myPublicIP2
 				IPConfig-3         Succeeded           false    Dynamic                IPv4                10.0.0.6            mySubnet
@@ -226,7 +226,7 @@ You can add additional private and public IP addresses to an existing NIC by com
 	The returned output is similar to the following: <br>
 
 		Name               Provisioning state  Primary  Private IP allocation  Private IP version  Private IP address  Subnet    Public IP
-		-----------------  ------------------  -------  ---------------------  ------------------  ------------------  --------  -----------
+		
 		default-ip-config  Succeeded           true     Dynamic                IPv4                10.0.0.4            mySubnet  myPublicIP
 		IPConfig-2         Succeeded           false    Static                 IPv4                10.0.0.5            mySubnet  myPublicIP2
 		IPConfig-3         Succeeded           false    Dynamic                IPv4                10.0.0.6            mySubnet  myPublicIP3

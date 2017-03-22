@@ -190,7 +190,7 @@ You can add private and public IP addresses to a NIC by completing the steps tha
 		You see output similar to the following:<br>
 
 			Name       PrivateIpAddress PublicIpAddress                                           Primary
-			----       ---------------- ---------------                                           -------
+			
 			IPConfig-1 10.0.0.4         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress    True
 			IPConfig-2 10.0.0.5         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress   False
 			IpConfig-3 10.0.0.6                                                                     False
