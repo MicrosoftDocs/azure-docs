@@ -65,7 +65,7 @@ for hosting your logic app. When you're done, choose **Create**.
 	![Logic app details](media/logic-apps-create-a-logic-app/logic-app-settings.png)
 
    > [!NOTE]
-   > If you select **Pin to Dashboard**,
+   > If you select **Pin to dashboard**,
    > your logic app appears on the Azure dashboard, 
    > and opens automatically after deployment. 
    > If your logic app doesn't appear on the dashboard, 
@@ -79,9 +79,10 @@ For now, choose **Blank Logic App** so you can
 build your logic app from scratch.
 
 	The Logic App Designer opens and shows 
-	available services and *triggers* so you can select 
-	a trigger as the first item that your logic app needs. 
-	The trigger is the event that starts your logic app.
+	available services and *triggers*. 
+	The trigger is the event that starts your logic app. 
+	You have to select a trigger as the first item 
+	that your logic app needs. 
 
 5. In the search box, find and select this 
 trigger: **RSS - When a feed item is published** 
@@ -90,8 +91,8 @@ trigger: **RSS - When a feed item is published**
 
 6. Enter the link for the website's RSS feed that you want to track. 
 
-	You can also change **Frequency** and **Interval**, 
-	which determine how often your logic app checks for 
+	You can also change **Frequency** and **Interval**. 
+	These settings determine how often your logic app checks for 
 	new items and returns all items during that time span.
 
 	For this example, let's check every seven days for new 
@@ -142,7 +143,7 @@ sign in with the username and password for your email account.
 	![Select outputs to include in email](media/logic-apps-create-a-logic-app/rss-action-setup.png)
 
 	For example, if you chose Outlook, 
-	your logic app looks similar to this example:
+	your logic app might look like this example:
 
 	![Completed logic app](media/logic-apps-create-a-logic-app/save-run-complete-logic-app.png)
 
