@@ -24,6 +24,8 @@ For information about securing access to the back-end service of an API using cl
 
 ## Checking the expiration date
 
+Below policies can be configured to check if the certificate is expired:
+
 ```
 <choose>
     <when condition="@(context.Request.Certificate == null || context.Request.Certificate.NotAfter > DateTime.Now)" >
@@ -32,21 +34,6 @@ For information about securing access to the back-end service of an API using cl
         </return-response>
     </when>
 </choose>
-```
-
-## Checking a thumbprint against a desired value
-
-Below policies can be configured to check the thumbprint of a client certificate:
-
-```
-<choose>
-    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Thumbprint != "desired-thumbprint-to-validate")" >
-        <return-response>
-            <set-status code="401" reason="Invalid client certificate" />
-        </return-response>
-    </when>
-</choose>
-
 ```
 
 ## Checking the issuer and subject
