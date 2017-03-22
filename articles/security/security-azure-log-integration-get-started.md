@@ -18,15 +18,15 @@ ms.author: TomSh
 
 ---
 # Azure log integration and Windows Diagnostic logging
-Azure log integration (AZLog) enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems. This integration makes it possible to have a unified security dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events associated with your applications. For more information on Azure Log Integration you can review the [Azure Log integration overview](https://docs.microsoft.com/en-us/azure/security/security-azure-log-integration-overview)
+Azure log integration (AZLog) enables you to integrate raw logs from your Azure resources in to your on-premises Security Information and Event Management (SIEM) systems. This integration makes it possible to have a unified security dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events associated with your applications. For more information on Azure Log Integration, you can review the [Azure Log integration overview](https://docs.microsoft.com/en-us/azure/security/security-azure-log-integration-overview).
 To help you get started with Azure Log integration in this document we will focus on the installation of Azlog with Windows Azure Diagnostics (WAD)
 
 >[!NOTE]
-The ability to bring the output of Azure log integration into the SIEM is provided by the SIEM itself. Please see the article “Integrating Azure Log Integration with your On-premises SIEM” for more information.
+The ability to bring the output of Azure log integration in to the SIEM is provided by the SIEM itself. Please see the article “Integrating Azure Log Integration with your On-premises SIEM” for more information.
 
 
 ## Prerequisites
-At a minimum the installation of AZLog requires the following:
+At a minimum the installation of AZLog requires the following items:
 * An Azure subscription. If you do not have one, you can sign up for a free account.
 * A storage account that can be used for Windows Azure diagnostic logging
 * Two systems running either 2008 R2 SP1, 2012, 2012R2 or 2016
@@ -63,7 +63,7 @@ The Azure log integration service collects telemetry data from the machine on wh
 
 * Exceptions that occur during execution of Azure log integration
 * Metrics about the number of queries and events processed
-* Statistics about which Azlog.exe command line options are being used
+* Statistics about which Azlog.exe command-line options are being used
 
 
 ## Post installation and validation steps
@@ -85,7 +85,7 @@ If you want to use the US Government Azure cloud, you would use AzureUSGovernmen
   1. You can download Azure Storage Explorer here.
   2. Run through the setup routine
   3. Once that the installation completes click next and leave the check box **Launch Microsoft Azure Storage Explorer** checked.  
-  4. Log into Azure.
+  4. Log in to Azure.
   5. Verify that you can see the storage account that you configured for Azure Diagnostics.  
 ![Storage accounts](./media/security-azure-log-integration-get-started/storage-account.jpg) </br></br>
    6. Notice that there are a few options under storage accounts. One of them is Tables. Under tables you should see one called WADWindowsEventLogsTable. </br></br>
@@ -98,11 +98,11 @@ To complete this step wew will need a few things up front.
 **StorageKey:** You can get the storage key from the properties of the storage account.  
 
 To obtain your storage account key. You can follow the steps below:
- 1. Browse to the [Azure portal](http://portal.azure.com),  
- 2. navigate to your storage account that you selected for Azure Diagnostic logging,  
- 3. click All settings
- 4. click Access keys to view,
- 5. Copy one of the access keys
+ 1. Browse to the [Azure portal](http://portal.azure.com).
+ 2. Navigate to your storage account that you selected for Azure Diagnostic logging.
+ 3. click **'All settings'**.
+ 4. click Access keys to view.
+ 5. Copy one of the access keys.
  6. Then, on the server that you installed Azure Log Integration open an elevated PowerShell Window or elevated command prompt.
 Navigate to ``c:\Program Files\Microsoft Azure Log Integration``
 >[!NOTE]
@@ -132,7 +132,7 @@ If after an hour data is not showing up in the **Forwarded Events** folder, then
 If you still don’t see the events, then:
 
 ## Next steps
-In this tutorial, you learned how to install Azure log integration and integrate logs from Azure storage. To learn more, see the following:
+To learn more about Azure Log Integration, see the following documents:
 
 * [Microsoft Azure Log Integration for Azure logs (Preview)](https://www.microsoft.com/download/details.aspx?id=53324) – Download Center for details, system requirements, and install instructions on Azure log integration.
 * [Introduction to Azure log integration](security-azure-log-integration-overview.md) – This document introduces you to Azure log integration, its key capabilities, and how it works.
