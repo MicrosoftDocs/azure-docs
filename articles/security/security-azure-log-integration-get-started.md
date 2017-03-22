@@ -108,7 +108,6 @@ Navigate to ``c:\Program Files\Microsoft Azure Log Integration``
 >[!NOTE]
 If you are using the command prompt you can use the command as it is written below. If you are using powershell you will need to add ".\" before the executable name.
  7. Run ``azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey> `` </br> For example ``azlog source add azlogtest WAD azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==``
->[!NOTE]
 If you would like the subscription id to show up in the event XML, append the subscription ID to the friendly name:
 ``azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`` or for example, ``azlog source add azlogtest.YourSubscriptionID WAD azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==``
 
