@@ -22,8 +22,8 @@ ms.author: jehollan
 In just a few minutes, you can create a basic workflow 
 that automates a process between cloud services with 
 [Azure Logic Apps](logic-apps-what-are-logic-apps.md). 
-This example logic app sends you email about new 
-content from an RSS feed to your Outlook account.
+For example, this sample logic app sends email to your Outlook account 
+when new content appears in a website's RSS feed.
 
 Before you start, you need these items:
 
@@ -37,10 +37,10 @@ Learn more about [pricing for Azure Logic Apps](https://azure.microsoft.com/pric
 
 * A Outlook.com or hosted Office 365 mailbox
 
-* A link to the RSS feed for a website. This example uses 
+* The link to the RSS feed for a website. This example uses 
 the RSS feed for MSDN Channel 9:`https://s.ch9.ms/Feeds/RSS`
 
-## Create a logic app workflow to email you new website content
+## Add a trigger that starts your workflow
 
 1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal").
 
@@ -58,6 +58,8 @@ the location for hosting your logic app,
 and an Azure resource group for organizing and 
 managing resources related to an Azure solution.
 When you're ready, choose **Create**.
+
+	![Logic app details](media/logic-apps-create-a-logic-app/logic-app-settings.png)
 
    > [!NOTE]
    > If you select **Pin to Dashboard**,
@@ -95,32 +97,47 @@ find and select this trigger: **RSS - When a feed item is published**
 
 	![Set up trigger with RSS feed, frequency, and interval](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 
-7. Now we add an action to perform when new items appear in the RSS feed. 
-Choose **New step** > **Add an action**.
+7. Save your changes. On the designer toolbar, choose **Save**.
+
+	![Save your logic app](media/logic-apps-create-a-logic-app/save-logic-app.png)
+
+	Your logic app is now live and periodically checks 
+	for new items in the specified RSS feed. However, 
+	to make this scenario more interesting, we add an action.
+
+## Add an action that responds to your trigger
+
+1. To perform an action when new items appear in the RSS feed, 
+choose **New step** > **Add an action**.
 
 	When you select **Add an Action**, you can browse, search, and 
 	select actions from [available connectors](../connectors/apis-list.md). 
 
-8. In the search box, enter **outlook**. 
+2. In the search box, enter **outlook**. 
 To send mail to your Outlook inbox, 
 select **Outlook.com** or **Office 365 Outlook**. 
 Then select the **Send an email** action.
 
-	![Actions](media/logic-apps-create-a-logic-app/actions.png)
+	![Chooses Outlook action to send email](media/logic-apps-create-a-logic-app/actions.png)
 
-9. When you're prompted for Outlook credentials, 
+3. When you're prompted for Outlook credentials, 
 sign in with your Outlook username and password. 
 
-10. Choose the parameters for outputs to include in your email.
+4. Choose the parameters for outputs to include in your email.
 
 	![Select outputs to include in email](media/logic-apps-create-a-logic-app/rss-action-setup.png)
 
-11. Choose **Save**, and then to manually test your logic app, 
-choose **Run**.
+	Your logic app should look similar to this example:
 
-Your logic app is now up and running, 
-periodically checking for tweets with your specified search term. 
-If your logic app finds a matching tweet, your logic app sends you an email.
+	![Completed logic app](media/logic-apps-create-a-logic-app/save-run-complete-logic-app.png)
+
+5. Save your changes. On the designer toolbar, choose **Save**. 
+
+	Now when your logic app finds new items in the specified RSS feed, 
+	you get emails in your Outlook account from your logic app.
+
+6. To manually start or trigger your logic app, 
+choose **Run** on the designer toolbar.
 
 ## Manage your logic app after creation
 
