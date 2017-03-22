@@ -183,11 +183,11 @@ During the preview period of an Azure AD release, PowerShell cannot be used to f
   ```
 
 4. The rest of the script gets all users, and runs these functions on each user. Then it formats the output into a table.
-
+    
   ```
-  # the license SKU we are interested in
+  \# the license SKU we are interested in
   $skuId = "reseller-account:EMS"
-  # find all users that have the SKU license assigned
+  \# find all users that have the SKU license assigned
   Get-MsolUser -All | where {$_.isLicensed -eq $true -and $_.Licenses.AccountSKUID -eq $skuId} | select `
       ObjectId, `
       @{Name="SkuId";Expression={$skuId}}, `
