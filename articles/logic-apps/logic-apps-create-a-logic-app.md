@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/24/2017
-ms.author: jehollan
+ms.author: jeffhollan; estfan
 
 ---
 # Create your first logic app workflow to automate processes between cloud apps and services
