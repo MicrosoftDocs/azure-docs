@@ -103,11 +103,9 @@ To obtain your storage account key. You can follow the steps below:
  3. click **'All settings'**.
  4. click Access keys to view.
  5. Copy one of the access keys.
- 6. Then, on the server that you installed Azure Log Integration open an elevated PowerShell Window or elevated command prompt.
-Navigate to ``c:\Program Files\Microsoft Azure Log Integration``
->[!NOTE]
-If you are using the command prompt you can use the command as it is written below. If you are using powershell you will need to add ".\" before the executable name.
- 7. Run ``azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey> `` </br> For example ``azlog source add azlogtest WAD azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==``
+ 6. Then, on the server that you installed Azure Log Integration open an elevated command prompt.
+ 7. Navigate to ``c:\Program Files\Microsoft Azure Log Integration``
+ 8. Run ``azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey> `` </br> For example ``azlog source add azlogtest WAD azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==``
 If you would like the subscription id to show up in the event XML, append the subscription ID to the friendly name:
 ``azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`` or for example, ``azlog source add azlogtest.YourSubscriptionID WAD azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==``
 
@@ -119,13 +117,13 @@ If after an hour data is not showing up in the **Forwarded Events** folder, then
 
 1. Check the machine and confirm that it can access Azure. To test connectivity, try to open the [Azure portal](http://portal.azure.com) from the browser.
 2. Make sure the user account **azlog** has write permission on the folder **users\azlog**.
-   1. Open explorer,
-   2. navigate to c:\users
-   3. Right click on c:\users\azlog
-   4. Click on security  
-   5. Click on 'NT Service\AZLog'
-   6. And check the permissions for the account. If the account is missing from this tab or if the appropriate permissions are not currently showing you can grant the account rights in this tab.
-
+  <ol type="a">
+   <li>Open explorer </li>
+  <li> navigate to c:\users </li>
+  <li> Right click on c:\users\azlog </li>
+  <li> Click on security  </li>
+  <li> Click on 'NT Service\AZLog' And check the permissions for the account. If the account is missing from this tab or if the appropriate permissions are not currently showing you can grant the account rights in this tab.</li>
+  </ol>
 3. Make sure the storage account added in the command **azlog source add** is listed when you run the command **azlog source list**.
 4. Go to **Event Viewer > Windows Logs > Application** to see if there are any errors reported from the Azure log integration.
 
