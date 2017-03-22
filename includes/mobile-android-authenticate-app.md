@@ -22,7 +22,7 @@
          
         @Override
         protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-            // When request is successful
+            // When request completes
             if (resultCode == RESULT_OK) {
                 // Check the request code matches the one we send in the login request
                 if (requestCode == GOOGLE_LOGIN_REQUEST_CODE) {
@@ -70,30 +70,30 @@
 
 5. Add the following snippet of _RedirectUrlActivity_ to _AndroidManifest.xml_ to ensure redirect works.
  
-    <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.VIEW" />
-            <category android:name="android.intent.category.DEFAULT" />
-            <category android:name="android.intent.category.BROWSABLE" />
-            <data android:scheme="{url_scheme_of_your_app}"
-                android:host="easyauth.callback"/>
-        </intent-filter>
-    </activity>
+        <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="{url_scheme_of_your_app}"
+                    android:host="easyauth.callback"/>
+            </intent-filter>
+        </activity>
 
 6.  Add redirectUriScheme to _build.gradle_ of your Android application.
  
-    android {
-        buildTypes {
-            release {
-                           // … …
-                manifestPlaceholders = ['redirectUriScheme': 'ZumoE2ETestApp://easyauth.callback']
-            }
-            debug {
-                            // … …
-                manifestPlaceholders = ['redirectUriScheme': 'ZumoE2ETestApp://easyauth.callback']
+        android {
+            buildTypes {
+                release {
+                    // … …
+                    manifestPlaceholders = ['redirectUriScheme': '{url_scheme_of_your_app}://easyauth.callback']
+                }
+                debug {
+                    // … …
+                    manifestPlaceholders = ['redirectUriScheme': '{url_scheme_of_your_app}://easyauth.callback']
+                }
             }
         }
-    }
 
 7. From the **Run** menu, click **Run app** to start the app and sign in with your chosen identity provider.
 
