@@ -17,7 +17,7 @@ ms.date: 03/24/2017
 ms.author: jehollan
 
 ---
-# Create your first workflow to automate processes between cloud apps and services
+# Create your first logic app workflow to automate processes between cloud apps and services
 
 In just a few minutes and without writing any code, 
 you can create a basic workflow that automates a process 
@@ -54,7 +54,7 @@ the RSS feed for MSDN Channel 9:`https://s.ch9.ms/Feeds/RSS`
 
    > [!TIP]
    > You can also choose **New**, and then in the search box, 
-   > enter "logic app" for your filter. 
+   > enter `logic app` for your filter. 
    > Choose **Logic App** > **Logic App** > **Create**.
 
 3. Name your logic app and select your Azure subscription. 
@@ -78,8 +78,8 @@ you can select to get started.
 For now, choose **Blank Logic App** so you can 
 build your logic app from scratch.
 
-	The Logic App Designer opens and shows the 
-	services and *triggers* so you can select 
+	The Logic App Designer opens and shows 
+	available services and *triggers* so you can select 
 	a trigger as the first item that your logic app needs. 
 	The trigger is the event that starts your logic app.
 
@@ -90,11 +90,11 @@ trigger: **RSS - When a feed item is published**
 
 6. Enter the link for the website's RSS feed that you want to track. 
 
-	You can also change the **Frequency** and **Interval**, 
+	You can also change **Frequency** and **Interval**, 
 	which determine how often your logic app checks for 
 	new items and returns all items during that time span.
 
-	For this example, we want to check every seven days for new 
+	For this example, let's check every seven days for new 
 	items posted to the MSDN Channel 9 website.
 
 	![Set up trigger with RSS feed, frequency, and interval](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
@@ -132,8 +132,8 @@ Based on the mail account that you have, follow the steps for Outlook or Gmail.
 
 		![Choose "Gmail - Send email"](media/logic-apps-create-a-logic-app/actions-gmail.png)
 
-3. When you're prompted for your credentials, 
-sign in with your username and password. 
+3. When you're prompted for credentials, 
+sign in with the username and password for your email account. 
 
 4. Choose the parameters for the data outputs to include in your email.
 
@@ -157,9 +157,14 @@ choose **Run** on the designer command bar.
 on your logic app menu, choose **Overview**. To update the data, 
 choose **Refresh**. 
 
-	For more information about your logic app's run and trigger 
-	status or to diagnose your logic app, see 
+	To view your logic app's status or run and trigger 
+	history, or to diagnose your logic app, see 
 	[Troubleshoot your logic app](logic-apps-diagnosing-failures.md).
+
+    > [!NOTE]
+	  > Your logic app continues running until you turn off your app. 
+	  > To turn off your app for now, on your logic app menu, 
+	  > choose **Overview**. On the command bar, choose **Disable**.
 
 Congratulations, you just set up and run your first basic logic app. 
 You also learned how easily you can create workflows that automate 
