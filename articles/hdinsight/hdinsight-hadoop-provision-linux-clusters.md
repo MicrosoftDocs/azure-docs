@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/17/2017
+ms.date: 03/22/2017
 ms.author: jgao
 
 ---
@@ -27,7 +27,7 @@ A Hadoop cluster consists of several virtual machines (nodes) that are used for 
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Cluster types
-Currently, Azure HDInsight provides five different types of clusters, each with a set of components to provide certain functionalities.
+Currently, Azure HDInsight provides the following types of clusters, each with a set of components to provide certain functionalities:
 
 | Cluster type | Functionality |
 | --- | --- |
@@ -36,8 +36,8 @@ Currently, Azure HDInsight provides five different types of clusters, each with 
 | [Storm](hdinsight-storm-overview.md) |Real-time event processing |
 | [Spark](hdinsight-apache-spark-overview.md) |In-memory processing, interactive queries, micro-batch stream processing |
 | [Interactive Hive (Preview)](hdinsight-hadoop-use-interactive-hive.md) |In-memory caching for interactive and faster Hive queries |
-| [R Server on Spark (Preview)](hdinsight-hadoop-r-server-overview.md) |A variety of big data statistics, predictive modeling, and machine learning capabilities |
 | [Kafka (Preview)](hdinsight-apache-kafka-introduction.md) | A distributed streaming platform that can be used to build real-time streaming data pipelines and applications |
+| [R Server](hdinsight-hadoop-r-server-overview.md) |A variety of big data statistics, predictive modeling, and machine learning capabilities |
 
 Each cluster type has its own number of nodes within the cluster, terminology for nodes within the cluster, and default VM size for each node type. In the following table, the number of nodes for each node type is in parentheses.
 
@@ -97,19 +97,9 @@ For more information on using an Azure virtual network with HDInsight, see [Exte
 For an example of using two cluster types within an Azure virtual network, see [Analyze sensor data with Storm and HBase](hdinsight-storm-sensor-data-analysis.md).
 
 ## Cluster tiers
-Azure HDInsight provides the big data cloud offerings in two categories: Standard and [Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium). HDInsight Premium includes R and other additional components. HDInsight Premium is supported only on HDInsight version 3.5.
+Azure HDInsight provides the big data cloud offerings in two categories: Standard and Premium.  For more information, see [HDInsight Standard and HDInsight Premium]](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).
 
-The following table lists the HDInsight cluster type and HDInsight Premium support matrix.
-
-| Cluster type | Standard | Premium |
-| --- | --- | --- |
-| Hadoop |Yes |Yes |
-| Spark |Yes |Yes |
-| HBase |Yes |No |
-| Storm |Yes |No |
-| R Server on Spark |No |Yes |
-
-This table will be updated as more cluster types are included in HDInsight Premium. The following screenshot shows the Azure portal information for choosing cluster types.
+The following screenshot shows the Azure portal information for choosing cluster types.
 
 ![HDInsight premium configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
 
@@ -128,8 +118,10 @@ See [Cluster types](#cluster-types) and [Cluster tiers](#cluster-tiers).
 ### Operating system
 You can create HDInsight clusters on one of the following two operating systems:
 
-* HDInsight on Linux.  HDInsight provides the option of configuring Linux clusters on Azure. Configure a Linux cluster if you're familiar with Linux or Unix, you're migrating from an existing Linux-based Hadoop solution, or you want easy integration with Hadoop ecosystem components built for Linux. For more information, see [Get started with Hadoop on Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+* HDInsight on Linux.
 * HDInsight on Windows (Windows Server 2012 R2 Datacenter).
+
+For the supported HDInsight versions on each type, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
 ### HDInsight version
 This option is used to determine the version of HDInsight needed for this cluster. For more information, see [Hadoop cluster versions and components in HDInsight](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409).
