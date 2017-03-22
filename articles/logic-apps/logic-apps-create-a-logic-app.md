@@ -33,8 +33,8 @@ Before you start, you need these items:
 	[start with a free Azure account](https://azure.microsoft.com/free/). 
 	Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
-	Your Azure subscription is used for billing 
-	actions that your logic app takes while active and running. 
+	Your Azure subscription is used for billing certain steps 
+	or tasks that your logic app performs while active and running. 
 	Learn how [billing](./logic-apps-pricing.md) and 
 	[pricing](https://azure.microsoft.com/pricing/details/logic-apps/) 
 	work for Azure Logic Apps.
