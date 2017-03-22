@@ -79,7 +79,7 @@ Traffic Manager looks at the source IP of the query (this most likely will be a 
 No, the location of the endpoint imposes no restrictions on which regions can be mapped to it. For example, an endpoint in US-Central Azure region can have all users from India directed to it.
 
 ### Can I assign geographic regions to endpoints in a profile that is not configured to do geographic routing? 
-YYes, if the routing method of a profile is not geographic, you can use the [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/) to assign geographic regions to endpoints in that profile . In the case of non-geographic routing type profiles, this configuration will be ignored. If you change such a profile to geographic routing type at a later time, Traffic Manager will use those mappings.
+Yes, if the routing method of a profile is not geographic, you can use the [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/) to assign geographic regions to endpoints in that profile . In the case of non-geographic routing type profiles, this configuration will be ignored. If you change such a profile to geographic routing type at a later time, Traffic Manager will use those mappings.
 
 
 ### When I try to change the routing method of an existing profile to geographic I am getting an error?
