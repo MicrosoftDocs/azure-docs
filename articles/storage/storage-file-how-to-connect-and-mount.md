@@ -16,7 +16,7 @@ ms.topic: get-started-article
 ms.date: 03/21/2017
 ms.author: renash
 ---
-# Mount the file share
+# About mounting Azure File Share
 
 With support for SMB 3.0, File storage now supports encryption and persistent
 handles from SMB 3.0 clients. Support for encryption means that SMB 3.0 clients
