@@ -20,6 +20,7 @@ ms.author: asgang
 ## Troubleshoot on-premises Hyper-V replication  issues
 
 This article catalogs the most common errors and mitigation during the Hyper-v replication failures.
+
 To start troubleshooting, connect to the on-premises Hyper-V manager console, select the virtual
 machine, and see the replication health.
 
@@ -63,12 +64,12 @@ under **Data Collector Sets.**
 To view the collected information, first stop the tracing session by disabling the log. Save the log, and open it again in Event Viewer or use other tools to convert it as desired.
 
 ### Hyper-V Replica issues, fixed for Azure Site Recovery in the July 2016 update for Windows Server 2012 R2
-Following improvements are made in [Hyper-v replica update](https://support.microsoft.com/help/3184854/hyper-v-replica-issues-are-fixed-for-azure-site-recovery-in-the-july-2016-update-for-windows-server-2012-r2) to fix issues related  re synchronization (resync) or paused state during replication, or time-outs during initial replication or delta replication.
-
+Following improvements are made in [Hyper-v replica update](https://support.microsoft.com/help/3184854/hyper-v-replica-issues-are-fixed-for-azure-site-recovery-in-the-july-2016-update-for-windows-server-2012-r2) to fix issues related to  resynchronization (resync) or time-outs during initial replication or delta replication.
+It is highly recommended to install the above update to avoid following issues. 
 
 **Issue 1**
 
-A virtual machine goes into resynchronization because of high churn on one of the disks. The previous logic was that the virtual machine goes into resynchronization if the accumulated logs for a virtual machine go beyond 50 percent of a replicating virtual hard disk that's attached to the virtual machine. This was calculated based on the size of the lowest disk.
+A virtual machine can go into resynchronization because of high churn on one of the disks. The previous logic was that the virtual machine goes into resynchronization if the accumulated logs for a virtual machine go beyond 50 percent of a replicating virtual hard disk that's attached to the virtual machine. This was calculated based on the size of the lowest disk.
 
 With this fix, the calculation for the 50 percent is based on the total of all the replicating virtual hard disks that are attached to the virtual machine, not to one of its virtual hard disks.
 
