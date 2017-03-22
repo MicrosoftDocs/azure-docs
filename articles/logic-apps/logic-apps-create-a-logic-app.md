@@ -35,7 +35,7 @@ Before you start, you need these items:
 
 	Your Azure subscription is used for billing certain steps 
 	or tasks that your logic app performs while active and running. 
-	Learn how [billing](./logic-apps-pricing.md) and 
+	Learn how [billing](../logic-apps/logic-apps-pricing.md) and 
 	[pricing](https://azure.microsoft.com/pricing/details/logic-apps/) 
 	work for Azure Logic Apps.
 
