@@ -63,7 +63,7 @@ under **Data Collector Sets.**
 To view the collected information, first stop the tracing session by disabling the log. Save the log, and open it again in Event Viewer or use other tools to convert it as desired.
 
 ### Hyper-V Replica issues, fixed for Azure Site Recovery in the July 2016 update for Windows Server 2012 R2
-Following improvements are made in [Hyper-v replica update](https://support.microsoft.com/en-in/help/3184854/hyper-v-replica-issues-are-fixed-for-azure-site-recovery-in-the-july-2016-update-for-windows-server-2012-r2) to fix issues related  re synchronization (resync) or paused state during replication, or time-outs during initial replication or delta replication.
+Following improvements are made in [Hyper-v replica update](https://support.microsoft.com/help/3184854/hyper-v-replica-issues-are-fixed-for-azure-site-recovery-in-the-july-2016-update-for-windows-server-2012-r2) to fix issues related  re synchronization (resync) or paused state during replication, or time-outs during initial replication or delta replication.
 
 
 **Issue 1**
