@@ -17,7 +17,7 @@ ms.date: 03/21/2017
 ms.author: renash
 ---
 # Introduction to Azure File Storage
-Azure File Storage is Microsoft's easy to use cloud file system. Azure File Storage offers network file shares in the cloud using the industry standard [Server Message Block (SMB) Protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) and [Common Internet File System (CIFS)](https://technet.microsoft.com/en-us/library/cc939973.aspx). Azure File shares can be mounted simultaneously by clients such as on-premises deployments of Windows, macOS, or Linux, or by Azure Virtual Machines. 
+Azure File Storage is Microsoft's easy to use cloud file system. Azure File Storage offers network file shares in the cloud using the industry standard [Server Message Block (SMB) Protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) and [Common Internet File System (CIFS)](https://technet.microsoft.com/en-us/library/cc939973.aspx). Azure File shares can be mounted concurrently by clients such as on-premises deployments of Windows, macOS, or Linux, or by Azure Virtual Machines. 
 
 Azure File shares can be used to:
 
@@ -48,11 +48,15 @@ Managing Azure File shares is a lot simpler than managing file shares on-premise
 * **Share**: A File storage share is an SMB file share in Azure. All directories and files must be created in a parent share. An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the 5 TB total capacity of the file share.
 * **Directory**: An optional hierarchy of directories.
 * **File**: A file in the share. A file may be up to 1 TB in size.
-* URL format: Files are addressable using the following URL format:  
+* **URL format**: Files are addressable using the following URL format:  
 
     ```
     https://<storage account>.file.core.windows.net/<share>/<directory/directories>/<file>
     ```
+## Next Steps if you are a first-time user of Azure File Storage
+* [Create File Share](storage-file-how-to-create-file-share)
+* [Connect and Mount File Share](storage-file-how-to-connect-and-mount)
+* [Manage Azure File Share using tools and scripts](storage-file-how-to-tooling-and-scripting)
 
 ## See Also
 * **[Azure Blob](../storage/storage-dotnet-how-to-use-blobs.md)**: Massively-scalable object storage for unstructured data
