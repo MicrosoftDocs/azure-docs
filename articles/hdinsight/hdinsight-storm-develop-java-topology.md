@@ -569,25 +569,17 @@ The YAML file defines the components to use for the topology, how data flows bet
 
 2. In the `resources` directory, create a file named `topology.yaml`. Use the following text as the contents of this file.
 
-    ```yaml
-        # topology definition
-        # friendly name for the topology
-        name: "wordcount"
+        name: "wordcount"       # friendly name for the topology
         
-        # Topology configuration
-        config:
-        # Hint for the number of workers to create
-        topology.workers: 1
+        config:                 # Topology configuration
+        topology.workers: 1     # Hint for the number of workers to create
         
-        # Spout definitions
-        spouts:
+        spouts:                 # Spout definitions
         - id: "sentence-spout"
             className: "com.microsoft.example.RandomSentenceSpout"
-            # parallelism hint
-            parallelism: 1
+            parallelism: 1      # parallelism hint
         
-        # Bolt definitions
-        bolts:
+        bolts:                  # Bolt definitions
         - id: "splitter-bolt"
             className: "com.microsoft.example.SplitSentence"
             parallelism: 1
@@ -595,28 +587,22 @@ The YAML file defines the components to use for the topology, how data flows bet
         - id: "counter-bolt"
             className: "com.microsoft.example.WordCount"
             constructorArgs:
-            - 10
+                - 10
             parallelism: 1
         
-        # Stream definitions
-        streams:
-        - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
-            # The stream emitter
-            from: "sentence-spout"
-            # The stream consumer
-            to: "splitter-bolt"
-            # Grouping type
-            grouping:
-            type: SHUFFLE
+        streams:                # Stream definitions
+            - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
+            from: "sentence-spout"       # The stream emitter
+            to: "splitter-bolt"          # The stream consumer
+            grouping:                    # Grouping type
+                type: SHUFFLE
           
-        - name: "Splitter -> Counter"
+            - name: "Splitter -> Counter"
             from: "splitter-bolt"
             to: "counter-bolt"
             grouping:
             type: FIELDS
-            # field(s) to group on
-        args: ["word"]
-    ```
+                args: ["word"]           # field(s) to group on
 
 3. Make the following changes to the `pom.xml` file.
    
