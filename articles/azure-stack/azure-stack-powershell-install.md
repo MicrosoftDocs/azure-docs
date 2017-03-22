@@ -49,14 +49,14 @@ Use the following steps to install PowerShell for Azure Stack:
 2. Run the following command to install the required version of the AzureRM modules for Compute, Storage, Network, Key Vault etc.
 
     ```powershell
-    # Installs and imports the Version Profile required by Azure Stack into the current PowerShell session. This command installs the AzureRM modules in the current user scope, to install the module for all users, replace the value of “Scope” parameter with “AllUsers”
+    # Installs and imports the Version Profile required by Azure Stack into the current PowerShell session. This command installs the       AzureRM modules in the current user scope, to install the module for all users, replace the value of “Scope” parameter with             “AllUsers”
     Use-AzureRmProfile -Profile 2017-03-09-profile -Scope CurrentUser
     ```
 
 3. In addition to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules such as AzureStackAdmin, and AzureStackStorage by running the following command:
 
     ```powershell
-    # To install the AzureStack module in current user scope. To install the module for all users, replace the value of “Scope” parameter with “AllUsers”
+    # To install the AzureStack module in current user scope. To install the module for all users, replace the value of “Scope”             parameter with “AllUsers”
     Install-Module -Name AzureStack -RequiredVersion 1.2.9 -Scope CurrentUser
     ```
 
