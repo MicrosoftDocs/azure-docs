@@ -1,5 +1,5 @@
 ---
-title: How to use Azure Files with Linux | Microsoft Docs
+title: How to use Azure File Storage with Linux | Microsoft Docs
 description: Create an Azure file share in the cloud with this step-by-step tutorial. Manage your file share content, and mount a file share from an Azure virtual machine (VM) running Linux or an on-premises application that supports SMB 3.0.
 services: storage
 documentationcenter: na
@@ -19,7 +19,7 @@ ms.author: renash
 ---
 # How to use Azure File Storage with Linux
 ## Overview
-Azure File storage offers file shares in the cloud using the standard SMB protocol. With Azure Files, you can migrate enterprise applications that rely on file servers to Azure. Applications running in Azure can easily mount file shares from Azure virtual machines running Linux. And with the latest release of File storage, you can also mount a file share from an on-premises application that supports SMB 3.0.
+Azure File storage offers file shares in the cloud using the standard SMB protocol. With Azure File Storage, you can migrate enterprise applications that rely on file servers to Azure. Applications running in Azure can easily mount file shares from Azure virtual machines running Linux. And with the latest release of File storage, you can also mount a file share from an on-premises application that supports SMB 3.0.
 
 You can create Azure file shares using the [Azure Portal](https://portal.azure.com), the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API. Additionally, because file shares are SMB shares, you can access them via standard file system APIs.
 
@@ -140,7 +140,7 @@ The Azure File storage for Linux users' group provides a forum for you to share 
 See these links for more information about Azure File storage.
 
 ### Conceptual articles and videos
-* [Azure Files Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Azure File Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 * [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
 
 ### Tooling support for File storage
@@ -149,10 +149,10 @@ See these links for more information about Azure File storage.
 
 ### Reference
 * [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
-* [Azure Files Troubleshooting Article](storage-troubleshoot-file-connection-problems.md)
+* [Azure File Storage Troubleshooting Article](storage-troubleshoot-file-connection-problems.md)
 
 ### Blog posts
 * [Azure File storage is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
 * [Inside Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+* [Persisting connections to Microsoft Azure File Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)

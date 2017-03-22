@@ -1,3 +1,22 @@
+---
+title: Introduction to Azure File Storage | Microsoft Docs
+description: An overview of Azure File Storage, Microsoft's cloud file system. Learn how to mount Azure File shares over SMB and lift classic on-premises workloads to the cloud without rewriting any code.
+services: storage
+documentationcenter: ''
+author: RenaShahMSFT
+manager: aungoo
+editor: tysonn
+
+ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 03/21/2017
+ms.author: renash
+---
+
 Create file share
 
 1.  Sign in to the Azure portal.
@@ -25,7 +44,7 @@ Create file share
     could click on **Quota** on the file share to change the size of the file up
     to 5120 GB. Please refer to [Azure Pricing
     Calculator](https://azure.microsoft.com/en-us/pricing/calculator/) to
-    estimate the storage costing of using Azure Files.
+    estimate the storage costing of using Azure File Storage.
 
 ![Screenshot that shows how to create file share in the portal](media/d47b111f5045ce1f59d25434530c43f1.png)
 
