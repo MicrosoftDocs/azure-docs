@@ -8,7 +8,7 @@
 
 # Samples
 ## Hybrid Connections (NEEDED)
-## WCF Relay (service-bus-relay-samples.md)
+## WCF Relay(service-bus-relay-samples.md)
 
 # Tutorials
 ## Hybrid connections
