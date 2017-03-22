@@ -59,7 +59,7 @@ To deploy the Azure Stack POC, you first need to [download the deployment packag
    > 
 5. On the POC machine, run the following PowerShell script to download the Azure Stack support files:
    
-  ```powershell
+  ```
   # Variables
   $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/'
   $LocalPath = 'c:\AzureStack_SupportFiles'
