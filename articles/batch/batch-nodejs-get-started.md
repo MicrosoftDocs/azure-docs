@@ -1,6 +1,6 @@
 # Get started with Azure Batch Node.js client
 
-Through this article we will run through the steps to setting up an Azure Batch job, deploy tasks and monitor them using the [Node.js SDK](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/). This article assumes that you have a base understanding of Node.js and have Node.js set up and installed on your dev machine.
+In this article we will run through the steps for setting up an Azure Batch job, deploy tasks and monitor them using the [Node.js SDK](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/). This article assumes that you have a base understanding of Node.js and have Node.js set up and installed on your dev machine.
 
 You can install azure-batch SDK for node through npm:
 
@@ -11,7 +11,7 @@ This installs the latest version of azure-batch node SDK.
 Now, let's understand the batch scenario we want to work with in more detail and we get into mapping it into Azure batch components right after that.
 
 ## The scenario
-I was working with a customer, helping them process large number of csv files into JSON. I have a csv to JSON processor Python console app that takes in the storage account details, container name and a blob pattern. It iterates through the blobs in the container that match the pattern downloads them and converts them into JSON, and re-uploads them with a /json pattern. Following figure explains the flow of the processor.
+I was working with a customer, helping them process large number of csv files into JSON. I have a csv to JSON processor Python console app that takes in the storage account details, container name and a blob pattern. It iterates through the blobs in the container that match the pattern downloads them and converts them into JSON, and re-uploads them with a suffix /json pattern. Following figure explains the flow of the processor.
 
 ![processcsv.py flow](./media/batch-nodejs-get-started/processcsvflow.png)
 
@@ -21,7 +21,7 @@ Clearly, Azure Batch was a pretty good fit.
 
 However, I also needed a trigger that would deploy this batch job, and after completion of all tasks delete the pools.
 
-I was thinking of using a timmer trigger function. That could deploy a batch job with the python console app and pass the relevant parameters.
+I was thinking of using a timer trigger function app. That could deploy a batch job with the python console app and pass the relevant parameters.
 
 ## Azure Batch with Node.js client
 
