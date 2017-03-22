@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2017
+ms.date: 03/22/2017
 ms.author: bwren
 
 ---
@@ -23,7 +23,11 @@ This is a self paced demo that walks through using the [Service Map solution](op
 
 
 ## Scenario description
-You've just received a notification that the ACME Customer Portal application is having performance issues.  The only information that you have is that these issues started about 3:00 am PST today.  You aren't entirely sure of all the components that the portal is dependent on other than a set of web servers.
+You've just received a notification that the ACME Customer Portal application is having performance issues.  The only information that you have is that these issues started about 3:00 am PST today.  You aren't entirely sure of all the components that the portal is dependent on other than a set of web servers.  
+
+## Components and features used
+- [Service Map solution](operations-management-suite-service-map.md)
+- [Log Analytics log searches](../log-analytics/log-analytics-log-search.md)
 
 
 ## Walk through
@@ -101,7 +105,7 @@ In this case, we can see that the backup process is consistently consuming about
 
 
 ## Summary points
-- Service Map provides you with a view of your entire application even if you don't know all of its servers and dependencies.
+- [Service Map](operations-management-suite-service-map.md) provides you with a view of your entire application even if you don't know all of its servers and dependencies.
 - Service Map surfaces data collected by other OMS solutions to help you identify issues with your application and its underlying infrastructure.
-- Log searches allow you to drill down into specific data collected in the Log Analytics repository.    
+- [Log searches](../log-analytics/log-analytics-log-searches.md) allow you to drill down into specific data collected in the Log Analytics repository.    
 
