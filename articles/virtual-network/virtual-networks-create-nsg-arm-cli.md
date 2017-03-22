@@ -179,10 +179,10 @@ To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow th
         
     ```azurecli
     az network vnet subnet update \
-    > --vnet-name TestVNET \
-    > --name FrontEnd \
-    > --resource-group testrg \
-    > --network-security-group NSG-FrontEnd
+    --vnet-name TestVNET \
+    --name FrontEnd \
+    --resource-group testrg \
+    --network-security-group NSG-FrontEnd
     ```
    
     Expected output:
