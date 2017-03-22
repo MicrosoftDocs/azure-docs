@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 
@@ -41,7 +41,7 @@ You should have a good naming convention in place before creating anything in Az
 
 You might choose to follow a specific set of naming conventions defined for your entire organization or for a specific Azure subscription or account. Although it is easy for individuals within organizations to establish implicit rules when working with Azure resources, when a team needs to work on a project on Azure, that model does not scale well.
 
-Agree on a set of naming conventions up front. There are some considerations regarding naming conventions that cut across this sets of rules.
+Agree on a set of naming conventions up front. There are some considerations regarding naming conventions that cut across this set of rules.
 
 ## Affixes
 As you look to define a naming convention, one decision comes whether the affix is at:
@@ -94,7 +94,7 @@ In case a VM is created from a .vhd image file that already contains an operatin
 We recommend that the Azure VM name is the same as the underlying operating system computer name.
 
 ## Storage account names
-Storage accounts have special rules governing their names. You can only use lowercase letters and numbers. For more information, see [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account). Additionally, the storage account name, along with core.windows.net, should be a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting DNS names should be unique:
+This section does not apply to [Azure Managed Disks](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), as you do not create a separate storage account. For unmanaged disks, storage accounts have special rules governing their names. You can only use lowercase letters and numbers. For more information, see [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account). Additionally, the storage account name, along with core.windows.net, should be a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting DNS names should be unique:
 
 * mystorageaccount.blob.core.windows.net
 * mystorageaccount.table.core.windows.net

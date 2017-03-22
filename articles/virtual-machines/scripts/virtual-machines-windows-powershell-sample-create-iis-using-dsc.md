@@ -58,12 +58,9 @@ $nsgRuleSSH = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupR
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
   -Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH
 
-# Get subnet object
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -VirtualNetwork $vnet
-
 # Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -ResourceGroupName $resourceGroup -Location $location -Name myNic `
-  -Subnet $subnet -NetworkSecurityGroup $nsg -PublicIpAddress $pip
+$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
+  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
 # Create a virtual machine configuration
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
@@ -73,11 +70,19 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 # Create a virtual machine
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+
+# Install IIS
+$PublicSettings = '{"ModulesURL":"https://github.com/Azure/azure-quickstart-templates/raw/master/dsc-extension-iis-server-windows-vm/ContosoWebsite.ps1.zip", "configurationFunction": "ContosoWebsite.ps1\\ContosoWebsite", "Properties": {"MachineName": "myVM"} }'
+
+Set-AzureRmVMExtension -ExtensionName "DSC" -ResourceGroupName $resourceGroup -VMName $vmName `
+  -Publisher "Microsoft.Powershell" -ExtensionType "DSC" -TypeHandlerVersion 2.19 `
+  -SettingString $PublicSettings -Location $location
+
 ```
 
 ## Clean up deployment 
 
-Run the following command to remove the Resource Group, VM, and all related resources.
+Run the following command to remove the resource group, VM, and all related resources.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
