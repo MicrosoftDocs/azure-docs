@@ -1,6 +1,6 @@
 ---
-title: 'Azure Virtual Machine Scale Sets: Existing Virtual Network Template | Microsoft Docs'
-description: Learn to create a scale set template with existing virtual network
+title: 'Reference a virtul network in a scale set template | Microsoft Docs'
+description: Learn how to add a virtual network to an existing Azure Virtual Machine Scale Set template
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gatneil
@@ -16,14 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/06/2017
 ms.author: negat
-
 ---
 
 # About this article
 
 This article shows how to modify the [minimum viable scale set template](./virtual-machine-scale-sets-mvss-start.md) to deploy into an existing virtual network instead of creating a new one.
 
-## Modifying the minimum viable scale set to deploy into an existing virtual network
+## Add reference to a virtual network
 
 Our minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), and our template for deploying the scale set into an existing virtual network can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Let's examine the diff used to create this template (`git diff master minimum-viable-scale-set`) piece by piece:
 
