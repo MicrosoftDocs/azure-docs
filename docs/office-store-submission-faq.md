@@ -1,7 +1,7 @@
 # Office Store submission FAQ
 
 
-For the most current version of the validation policies, see  [Validation policies for apps and add-ins submitted to the Office Store](validation-policies.md).
+For the most current version of the validation policies, see  [Validation policies](validation-policies.md).
  
 
 

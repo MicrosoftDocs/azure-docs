@@ -1,16 +1,16 @@
 # Create your Office Store listing
 
-You enter the Store listing information for your app or add-in on the Details page in the Seller Dashboard. Your Store listing is where you communicate to customers what your app or add-in does and how it can provide value to them. The details are specified per language. You can add multiple languages and localize the following information for each language. 
+You enter the Store listing information on the Details page in the Seller Dashboard. Your Store listing is where you communicate to customers what your solution does and how it can provide value to them. The details are specified per language. You can add multiple languages and localize the following information for each language. 
 
 >**Note:** We recommend that you follow the guidelines in [Create effective Office Store listings](create-effective-office-store-listings.md) when you create your Office Store listing.
 
 
 ## App name
-In the **App name** field, specify the app or add-in title that will be displayed in the Store. For guidance for titles, see [Use a succinct and descriptive title](create-effective-office-store-listings#use-a-succinct-and-descriptive-title).
+In the **App name** field, specify the title that will be displayed in the Store. For guidance for titles, see [Use a succinct and descriptive title](create-effective-office-store-listings#use-a-succinct-and-descriptive-title).
 
 ## Short description and long description
 
-Both the short description and long description appear in the Office Store listing. The short description appears when a user browses or searches within the Store. The long description appears on the app or add-in details page.
+Both the short description and long description appear in the Office Store listing. The short description appears when a user browses or searches within the Store. The long description appears on the details page.
 
 **Guidelines for title and description length**
 
@@ -24,7 +24,7 @@ For additional guidance for descriptions, see [Write compelling descriptions](cr
 
 ## Screenshots
 
-Your screenshots appear on the Store app or add-in details page and can help draw in potential customers.
+Your screenshots appear on the Store details page and can help draw in potential customers.
 
 Choose **Primary** to upload at least one screenshot. You can upload up to five images. Each screenshot must have the file extension .png, .jpg, .jpeg, or .gif, must be exactly 512 pixels wide and 384 pixels high, and be no larger than 300 KB.
 
@@ -32,7 +32,7 @@ For guidance for creating compelling screenshots, see [Use screenshots effective
  
 ## Regional availability
 
-By default, your app or add-in is listed in all possible markets, including any markets that we might add in the future. You can block an app or add-in from being made available in specific countries/regions.
+By default, your solution is listed in all possible markets, including any markets that we might add in the future. You can block an app or add-in from being made available in specific countries/regions.
 
 On the **Block access** page, if you don't want your app or add-in to be listed and sold in some countries/regions:
 
