@@ -1,6 +1,6 @@
 ---
-title: List of countries and regions used by Azure Traffic Manager Geographic routing type| Microsoft Docs
-description: This article lists countries and regions used by Azure Traffic Manager Geographic routing type
+title: Country/Region hierarchy used by Azure Traffic Manager Geographic routing type| Microsoft Docs
+description: This article lists Country/Region hierarchy used by Azure Traffic Manager Geographic routing type
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
@@ -17,7 +17,7 @@ ms.date: 03/22/2017
 ms.author: kumud
 ---
 
-# Countries and regions used by Azure Traffic Manager for geographic traffic routing method
+# Country/Region hierarchy used by Azure Traffic Manager for geographic traffic routing method
 
 This article lists the countries and regions used by the **Geographic**  traffic routing method in Azure Traffic Manager. You can also obtain this information programmatically by calling the [Azure Traffic Manager’s REST API](https://docs.microsoft.com/rest/api/trafficmanager/).  
 
