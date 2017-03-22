@@ -31,7 +31,7 @@ To create and run a logic app, you need these items:
 [start with a free Azure account](https://azure.microsoft.com/free/). 
 Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
-	Your Azure subscription is used for billing usage for your logic app 
+	Your Azure subscription is used for billing logic app usage 
 	when active and running. Learn how 
 	[usage metering and billing](../logic-apps/logic-apps-pricing.md) 
 	and [pricing](https://azure.microsoft.com/pricing/details/logic-apps/) 
@@ -109,7 +109,7 @@ trigger: **RSS - When a feed item is published**
 
 ## Add an action that responds to your trigger
 
-Now we set up the logic app to send email when new items appear in an RSS feed.
+Now we set up the logic app to send email when new items appear in the RSS feed.
 
 1. Under your trigger in the designer, choose **New step** > **Add an action**. 
 
@@ -138,8 +138,8 @@ Now we set up the logic app to send email when new items appear in an RSS feed.
 sign in with the username and password for your email account. 
 
 4. Provide the details for this action and 
-choose any parameters for the data output 
-that you want included in your email. For example:
+choose any parameters for the data that you 
+want included in your email. For example:
 
 	![Select data to include in email](media/logic-apps-create-a-logic-app/rss-action-setup.png)
 
@@ -158,9 +158,11 @@ that you want included in your email. For example:
 6. To manually trigger your logic app at any time, 
 choose **Run** on the designer command bar.
 
-7. To monitor your logic app and view run and trigger histories, 
+7. To monitor and view your logic app's run and trigger history, 
 on your logic app menu, choose **Overview**. To update the data, 
 choose **Refresh**. 
+
+	![Monitor and view logic app run and trigger history](media/logic-apps-create-a-logic-app/logic-app-run-trigger-history.png)
 
 	To learn more about your logic app's status or run and trigger 
 	history, or to diagnose your logic app, see 
