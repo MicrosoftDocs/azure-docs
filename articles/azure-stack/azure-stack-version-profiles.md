@@ -22,10 +22,10 @@ ms.author: sngun
 
 Different Azure cloud instances such as Azure Public, Azure Stack, Azure China, Azure Germany, and Azure Government have different versions of Azure services installed with different capabilities. Version Profiles provide a mechanism to manage these version differences. Version Profile also referred as Azure Resource Manager Version Profile is a set of Azure PowerShell modules with specific API versions. 
 
-Each Azure cloud instance has a set of supported profile versions. The Azure Public cloud always supports the latest version of resources across all services whereas other Azure cloud instances may support specific Version Profiles. Currently, Version Profiles are available in Azure PowerShell and they will be supported across the entire Azure development chain which includes the Azure .Net SDK, CLI and other Azure development tools. In this document, we walk you through using Version Profiles in Azure Stack PowerShell.
+Each Azure cloud instance has a set of supported profile versions. The Azure Public cloud always supports the latest version of resources across all services whereas other Azure cloud instances may support specific Version Profiles. Currently, Version Profiles are available in Azure PowerShell and they will be supported across the entire Azure development chain, which includes the Azure .Net SDK, CLI, and other Azure development tools. In this document, we walk you through using Version Profiles in Azure Stack PowerShell.
 
 > [!NOTE]
-> Azure Stack supports the **2017-03-09-profile** Version Profile, when a user installs this profile, the AzureRM PowerShell modules that correspond to the specified profile are installed. The Azure Stack administrator modules are not available with this Version Profile, and they should be installed separately as specified in the Step 3 of [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) article.
+> Azure Stack supports the **2017-03-09-profile** Version Profile, when a you install this profile, the AzureRM PowerShell modules that correspond to the specified profile are installed. The Azure Stack administrator modules are not available with this Version Profile, and they should be installed separately as specified in the Step 3 of [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) article.
  
 ## Install the PowerShell module required to use Version Profiles
 
@@ -70,7 +70,7 @@ Use-AzureRmProfile -Profile 2017-03-09-profile -Module AzureRM.Compute, AzureRM.
 ```
 
 > [!NOTE]
-> In a PowerShell session, you can import only one Version Profile. To import a different Version Profile, you must open a new PowerShell session. If you try to import more than one Version Profile into a PowerShell session, it will result an error.
+> In a PowerShell session, you can import only one Version Profile. To import a different Version Profile, you must open a new PowerShell session. If you try to import more than one Version Profile into a PowerShell session,it results an error.
 
 ### Get the installed profiles
 
@@ -95,7 +95,7 @@ Update-AzureRmProfile -Profile 2017-03-09-profile
 When you run this command, it does the following tasks:
 
 * Checks if the latest versions of modules in the given Version Profile are installed in the current scope.  
-* Prompts the user to install the latest version of PowerShell modules in the given Version Profile.  
+* Prompts you to install the latest version of PowerShell modules in the given Version Profile.  
 * Installs the updated version.  
 * Imports the updated modules into the current PowerShell session.  
 
@@ -110,12 +110,12 @@ When you run this command, it does the following tasks:
 * Checks if the latest versions of modules are installed in the given Version Profile for the current scope.  
 * Removes older versions of modules from the current Version Profile for a given scope.  
 * Removes older versions of modules from the current PowerShell session.  
-* prompts the user to install the latest version.  
+* prompts you to install the latest version.  
 * Installs the updated version.  
 * Imports the updated modules into the current PowerShell session.  
  
 > [!NOTE]
-> Its recommended to always run the **Update-AzureRmProfile** command in a new PowerShell session to avoid conflicts when importing modules. 
+> It's recommended to always run the **Update-AzureRmProfile** command in a new PowerShell session to avoid conflicts when importing modules. 
 
 ### Uninstall profiles
 
@@ -126,3 +126,6 @@ Use the **Uninstall-AzureRmProfile** command to uninstall a Version Profile.
 Uninstall-AzureRmProfile -Profile 2017-03-09-profile
 ```
 
+## Next steps
+* [Install PowerShell for Azure Stack](azure-stack-powershell-install.md)
+* [Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure.md)  
