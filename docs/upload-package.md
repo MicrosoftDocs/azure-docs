@@ -1,4 +1,4 @@
-# Upload your submission package
+# Upload your package to the Office Store
 
 On the Overview page in the Seller Dashboard, under **App package**, you upload your manifest. The upload process varies based on your submission type.
 

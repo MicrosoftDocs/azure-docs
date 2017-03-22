@@ -10,10 +10,10 @@ If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and c
 If you're submitting Office 365 web apps to the Seller Dashboard, make sure that you have registered your web app with  [Azure Active Directory](https://msdn.microsoft.com/office/office365/HowTo/add-common-consent-manually). The Office Store currently accepts only Azure AD apps that use OAuth 2.0 and OpenID Connect as their authentication method.
  
 
-For information about the Office Store approval process, see  [Submit apps and add-ins to the Office Store](submit-to-the-office-store.md).
+For information about the Office Store approval process, see  [Submit to the Office Store](submit-to-the-office-store.md).
  
 
-## App and add-in submission checklist
+## Submission checklist
 
 This section lists the information that you need to provide when you submit your solution in the Seller Dashboard. 
 
