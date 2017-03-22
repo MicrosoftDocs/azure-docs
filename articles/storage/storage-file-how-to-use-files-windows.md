@@ -1,3 +1,22 @@
+---
+title: Introduction to Azure File Storage | Microsoft Docs
+description: An overview of Azure File Storage, Microsoft's cloud file system. Learn how to mount Azure File shares over SMB and lift classic on-premises workloads to the cloud without rewriting any code.
+services: storage
+documentationcenter: ''
+author: RenaShahMSFT
+manager: aungoo
+editor: tysonn
+
+ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 03/21/2017
+ms.author: renash
+---
+
 Mount the file share from an Azure virtual machine running Windows
 ==================================================================
 
@@ -12,7 +31,7 @@ Prerequisites
 | Windows Server 2012 R2 | SMB 3.0 |
 | Windows 10             | SMB 3.0 |
 
-Once the Azure files hare is mounted, you can see it in the explorer
+Once the Azure File Storage hare is mounted, you can see it in the explorer
 
 ![](media/ffcdbd339e4f902ca042d2e1fda164ed.png)
 

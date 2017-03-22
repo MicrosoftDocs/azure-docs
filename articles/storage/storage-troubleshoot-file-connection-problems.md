@@ -34,14 +34,14 @@ This article lists common problems that are related to Microsoft Azure File stor
 * [Error 87 The parameter is incorrect while attempting to mount an Azure File Share](#error87)
 * [Net use was successful but I don’t see the Azure file share mounted or drive letter in Windows Explorer UI](#netuse)
 * [My storage account contains "/" and the net use command fails](#slashfails)
-* [My application/service cannot access mounted Azure Files drive.](#accessfiledrive)
+* [My application/service cannot access mounted Azure File Storage drive.](#accessfiledrive)
 * [Additional recommendations to optimize performance](#additional)
-* [Error "You are copying a file to a destination that does not support encryption" when uploading/copying files to Azure Files](#encryption)
+* [Error "You are copying a file to a destination that does not support encryption" when uploading/copying files to Azure File Storage](#encryption)
 
 **Linux client problems**
 
 * [Intermittent IO Error - "Host is down (Error 112)" on existing file shares, or the shell hangs when doing list commands on the mount point](#errorhold)
-* [Mount error 115 when attempting to mount Azure Files on the Linux VM](#error15)
+* [Mount error 115 when attempting to mount Azure File Storage on the Linux VM](#error15)
 * [Azure file share mounted on Linux VM experiencing slow performance](#delayproblem)
 * [Mount error(11): Resource temporarily unavailable when mounting to Ubuntu 4.8+ kernel](#ubuntumounterror)
 
@@ -112,13 +112,13 @@ Never create or open a file for cached I/O that is requesting write access but n
 This problem can be caused by following conditions:
 
 ### Cause 1
-"System error 53 has occurred. Access is denied." For security reasons, connections to Azure Files shares are blocked if the communication channel isn’t encrypted and the connection attempt is not made from the same data center on which Azure File shares reside. Communication channel encryption is not provided if the user’s client OS doesn’t support SMB encryption. This is indicated by a "System error 53 has occurred. Access is denied" Error message when a user tries to mount a file share from on-premises or from a different data center. Windows 8, Windows Server 2012, and later versions of each negotiate request that includes SMB 3.0, which supports encryption.
+"System error 53 has occurred. Access is denied." For security reasons, connections to Azure File Storage shares are blocked if the communication channel isn’t encrypted and the connection attempt is not made from the same data center on which Azure File shares reside. Communication channel encryption is not provided if the user’s client OS doesn’t support SMB encryption. This is indicated by a "System error 53 has occurred. Access is denied" Error message when a user tries to mount a file share from on-premises or from a different data center. Windows 8, Windows Server 2012, and later versions of each negotiate request that includes SMB 3.0, which supports encryption.
 
 ### Solution for Cause 1
 Connect from a client that meets the requirements of Windows 8, Windows Server 2012 or later versions, or that connect from a virtual machine that is on the same data center as the Azure Storage account that is used for the Azure File share.
 
 ### Cause 2
-"System Error 53" or "System Error 67" when you mount an Azure file share can occur if Port 445 outbound communication to Azure Files data center is blocked. Click [here](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) to see the summary of ISPs that allow or disallow access from port 445.
+"System Error 53" or "System Error 67" when you mount an Azure file share can occur if Port 445 outbound communication to Azure File Storage data center is blocked. Click [here](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) to see the summary of ISPs that allow or disallow access from port 445.
 
 Comcast and some IT organizations block this port. To understand whether this is the reason behind the "System Error 53" message, you can use Portqry to query the TCP:445 endpoint. If the TCP:445 endpoint is displayed as filtered, the TCP port is blocked. Here is an example query:
 
@@ -135,7 +135,7 @@ Work with your IT organization to open Port 445 outbound to [Azure IP ranges](ht
 
 <a id="error87"></a>
 ### Cause 3
-"System Error 53 or System error 87" can also be received if NTLMv1 communication is enabled on the client. Having NTLMv1 enabled creates a less-secure client. Therefore, communication will be blocked for Azure Files. To verify whether this is the cause of the error, verify that the following registry subkey is set to a value of 3:
+"System Error 53 or System error 87" can also be received if NTLMv1 communication is enabled on the client. Having NTLMv1 enabled creates a less-secure client. Therefore, communication will be blocked for Azure File Storage. To verify whether this is the cause of the error, verify that the following registry subkey is set to a value of 3:
 
 HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel.
 
@@ -144,7 +144,7 @@ For more information, see the [LmCompatibilityLevel](https://technet.microsoft.c
 ### Solution for Cause 3
 To resolve this issue, revert the LmCompatibilityLevel value in the HKLM\SYSTEM\CurrentControlSet\Control\Lsa registry key to the default value of 3.
 
-Azure Files supports only NTLMv2 authentication. Make sure that Group Policy is applied to the clients. This will prevent this error from occurring. This is also considered to be a security best practice. For more information, see [how to configure clients to use NTLMv2 using Group Policy](https://technet.microsoft.com/library/jj852207\(v=ws.11\).aspx)
+Azure File Storage supports only NTLMv2 authentication. Make sure that Group Policy is applied to the clients. This will prevent this error from occurring. This is also considered to be a security best practice. For more information, see [how to configure clients to use NTLMv2 using Group Policy](https://technet.microsoft.com/library/jj852207\(v=ws.11\).aspx)
 
 The recommended policy setting is **Send NTLMv2 response only**. This corresponds to a registry value of 3. Clients use only NTLMv2 authentication, and they use NTLMv2 session security if the server supports it. Domain controllers accept LM, NTLM, and NTLMv2 authentication.
 
@@ -178,7 +178,7 @@ From a batch file this can be done as
 
 <a id="accessfiledrive"></a>
 
-## My application/service cannot access mounted Azure Files drive
+## My application/service cannot access mounted Azure File Storage drive
 ### Cause
 Drives are mounted per user. If your application or service is running under a different user account, users won’t see the drive.
 
@@ -193,7 +193,7 @@ After you follow these instructions, you may receive the following error message
 
 ## Error "You are copying a file to a destination that does not support encryption"
 ### Cause
-Bitlocker-encrypted files can be copied to Azure Files. However, the File storage does not support NTFS EFS. Therefore, you are likely using EFS in this case. If you have files that are encrypted through EFS, a copy operation to the File storage can fail unless the copy command is decrypting a copied file.
+Bitlocker-encrypted files can be copied to Azure File Storage. However, the File storage does not support NTFS EFS. Therefore, you are likely using EFS in this case. If you have files that are encrypted through EFS, a copy operation to the File storage can fail unless the copy command is decrypting a copied file.
 
 ### Workaround
 To copy a file to the File storage, you must first decrypt it. You can do this by using one of the following methods:
@@ -245,12 +245,12 @@ If you are unable to move to latest kernel versions, you can workaround this iss
 
 <a id="error15"></a>
 
-## "Mount error 115" when you try to mount Azure Files on the Linux VM
+## "Mount error 115" when you try to mount Azure File Storage on the Linux VM
 ### Cause
-Linux distributions do not yet support encryption feature in SMB 3.0. In some distributions, user may receive a "115" error message if they try to mount Azure Files by using SMB 3.0 because of a missing feature.
+Linux distributions do not yet support encryption feature in SMB 3.0. In some distributions, user may receive a "115" error message if they try to mount Azure File Storage by using SMB 3.0 because of a missing feature.
 
 ### Solution
-If the Linux SMB client that is used does not support encryption, mount Azure Files by using SMB 2.1 from a Linux VM on the same data center as the File storage account.
+If the Linux SMB client that is used does not support encryption, mount Azure File Storage by using SMB 2.1 from a Linux VM on the same data center as the File storage account.
 
 <a id="delayproblem"></a>
 
@@ -268,7 +268,7 @@ You can also check if correct options are being used by just running the command
 (rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,
 dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
-If the cache=strict or serverino options are not present, unmount and mount Azure Files again by running the mount command from the [documentation](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share) and re-check that "/etc/fstab" entry has the correct options.
+If the cache=strict or serverino options are not present, unmount and mount Azure File Storage again by running the mount command from the [documentation](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share) and re-check that "/etc/fstab" entry has the correct options.
 
 <a id="ubuntumounterror"></a>
 ## mount error(11): Resource temporarily unavailable when mounting to Ubuntu 4.8+ kernel
