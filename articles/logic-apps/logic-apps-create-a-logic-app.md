@@ -42,7 +42,7 @@ Also, this example requires these items:
 * A mail account for Outlook.com, Office 365, or Gmail
 
 * A link to a website's RSS feed. This example uses 
-the RSS feed for MSDN Channel 9:```https://s.ch9.ms/Feeds/RSS```
+the RSS feed for MSDN Channel 9: `https://s.ch9.ms/Feeds/RSS`
 
 ## Add a trigger that starts your workflow
 
@@ -54,7 +54,7 @@ the RSS feed for MSDN Channel 9:```https://s.ch9.ms/Feeds/RSS```
 
    > [!TIP]
    > You can also choose **New**, and then in the search box, 
-   > type ```logic app``` for your filter, and then press Enter. 
+   > type `logic app` for your filter, and then press Enter. 
    > Choose **Logic App** > **Create**.
 
 3. Name your logic app and select your Azure subscription. 
@@ -73,7 +73,7 @@ for hosting your logic app. When you're done, choose **Create**.
    > choose **Logic Apps**, then select your logic app.
 
 4. When you open your logic app for the first time, 
-the Logic Apps Designer shows templates that 
+the Logic App Designer shows templates that 
 you can use to get started. 
 For now, choose **Blank Logic App** so you can 
 build your logic app from scratch.
@@ -83,7 +83,7 @@ build your logic app from scratch.
 	The trigger is the event that starts your 
 	logic app and is the first item that your logic app needs. 
 
-5. In the search box, type ```RSS`` so you can find and select this 
+5. In the search box, type `RSS` so you can find and select this 
 trigger: **RSS - When a feed item is published** 
 
 	![RSS trigger](media/logic-apps-create-a-logic-app/rss-trigger.png)
@@ -121,7 +121,7 @@ Now we set up the logic app to send email when new items appear in an RSS feed.
 2. Based on the mail account that you have, follow the steps for Outlook or Gmail.
 
 	*	To send mail to your Outlook account, 
-	in the search box, enter ```outlook```. 
+	in the search box, enter `outlook`. 
 	Under **Services**, select either **Outlook.com** 
 	or **Office 365 Outlook**. Under **Actions**, 
 	select **Send an email**.
@@ -129,7 +129,7 @@ Now we set up the logic app to send email when new items appear in an RSS feed.
 		![Select Outlook "Send an email" action](media/logic-apps-create-a-logic-app/actions.png)
 
 	*	To send mail to your Gmail account, 
-	in the search box, enter ```gmail```. 
+	in the search box, enter `gmail`. 
 	Under **Actions**, select **Gmail - Send email**.
 
 		![Choose "Gmail - Send email"](media/logic-apps-create-a-logic-app/actions-gmail.png)
@@ -137,12 +137,13 @@ Now we set up the logic app to send email when new items appear in an RSS feed.
 3. When you're prompted for credentials, 
 sign in with the username and password for your email account. 
 
-4. Choose the parameters for the data output 
-that you want included in your email.
+4. Provide the details for this action and 
+choose any parameters for the data output 
+that you want included in your email. For example:
 
 	![Select data to include in email](media/logic-apps-create-a-logic-app/rss-action-setup.png)
 
-	For example, if you chose Outlook, 
+	So if you chose Outlook, 
 	your logic app might look like this example:
 
 	![Completed logic app](media/logic-apps-create-a-logic-app/save-run-complete-logic-app.png)
