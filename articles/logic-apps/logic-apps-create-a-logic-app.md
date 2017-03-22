@@ -39,10 +39,10 @@ Before you start, you need these items:
 	[pricing](https://azure.microsoft.com/pricing/details/logic-apps/) 
 	work for Azure Logic Apps.
 
-* A mail account at either Outlook.com, Office 365, or Gmail
+* A mail account for Outlook.com, Office 365, or Gmail
 
-* The link to the RSS feed for a website. This example uses 
-the RSS feed for MSDN Channel 9:`https://s.ch9.ms/Feeds/RSS`
+* A link to a website's RSS feed. This example uses 
+the RSS feed for MSDN Channel 9:```https://s.ch9.ms/Feeds/RSS```
 
 ## Add a trigger that starts your workflow
 
@@ -54,7 +54,7 @@ the RSS feed for MSDN Channel 9:`https://s.ch9.ms/Feeds/RSS`
 
    > [!TIP]
    > You can also choose **New**, and then in the search box, 
-   > enter `logic app` for your filter. 
+   > enter ```logic app``` for your filter. 
    > Choose **Logic App** > **Logic App** > **Create**.
 
 3. Name your logic app and select your Azure subscription. 
@@ -110,7 +110,7 @@ trigger: **RSS - When a feed item is published**
 
 ## Add an action that responds to your trigger
 
-Now we set up the logic app to send email when new items appear in the RSS feed.
+Now we set up the logic app to send email when new items appear in an RSS feed.
 
 1. Under your trigger in the designer, choose **New step** > **Add an action**. 
 
@@ -122,7 +122,7 @@ Now we set up the logic app to send email when new items appear in the RSS feed.
 2. Based on the mail account that you have, follow the steps for Outlook or Gmail.
 
 	*	To send mail to your Outlook inbox, 
-	in the search box, enter `outlook`. 
+	in the search box, enter ```outlook```. 
 	Under **Services**, select either **Outlook.com** 
 	or **Office 365 Outlook**. Under **Actions**, 
 	select **Send an email**.
@@ -130,7 +130,7 @@ Now we set up the logic app to send email when new items appear in the RSS feed.
 		![Select Outlook "Send an email" action](media/logic-apps-create-a-logic-app/actions.png)
 
 	*	To send mail to your Gmail inbox, 
-	in the search box, enter `gmail`. 
+	in the search box, enter ```gmail```. 
 	Under **Actions**, select **Gmail - Send email**.
 
 		![Choose "Gmail - Send email"](media/logic-apps-create-a-logic-app/actions-gmail.png)
