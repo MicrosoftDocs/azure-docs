@@ -1,5 +1,5 @@
 ---
-title: 'Reference a virtul network in a scale set template | Microsoft Docs'
+title: 'Reference a virtual network in a scale set template | Microsoft Docs'
 description: Learn how to add a virtual network to an existing Azure Virtual Machine Scale Set template
 services: virtual-machine-scale-sets
 documentationcenter: ''
