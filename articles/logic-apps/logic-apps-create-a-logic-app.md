@@ -158,12 +158,12 @@ on your logic app menu, choose **Overview**. To update the data,
 choose **Refresh**. 
 
 	For more information about your logic app's run and trigger 
-	status or to troubleshoot your logic app, see 
+	status or to diagnose your logic app, see 
 	[Troubleshoot your logic app](logic-apps-diagnosing-failures.md).
 
 Congratulations, you just set up and run your first basic logic app. 
-You also learned how easily you can create workflows that automates 
-processes and integrates cloud apps and cloud services - all without code.
+You also learned how easily you can create workflows that automate 
+processes and integrate cloud apps and cloud services - all without code.
 
 ## Manage your logic app
 
