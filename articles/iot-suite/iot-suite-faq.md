@@ -72,6 +72,9 @@ Two. You can create only two Internal Transactions Level 1 Bing Maps for Enterpr
 ### Can I create a preconfigured solution if I have Microsoft Azure for DreamSpark?
 Currently, you cannot create a preconfigured solution with a [Microsoft Azure for DreamSpark][lnk-dreamspark] account. However, you can create a [free trial account for Azure][lnk-30daytrial] in just a couple of minutes that enables you create a preconfigured solution.
 
+### Can I create a preconfigured solution if I have Cloud Solution Provider (CSP) subscription?
+Currently, you cannot create a preconfigured solution with a Cloud Solution Provider (CSP) subscription. However, you can create a [free trial account for Azure][lnk-30daytrial] in just a couple of minutes that enables you create a preconfigured solution.
+
 ### How do I delete an AAD tenant?
 See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant].
 
