@@ -42,34 +42,15 @@ This command returns a list of PowerShell module repositories that are registere
 
 Use the following steps to install PowerShell for Azure Stack:
 
-1.	Azure Stack compatible AzureRM modules are installed through Version Profiles. To learn about Version Profiles and the commands provided by Version Profiles refer to [Using Version Profiles in Azure Stack](azure-stack-version-profiles.md) article. The AzureRM.Bootstrapper module provides PowerShell commands that are required to work with Resource Manager Version Profiles. Use the following command to install the AzureRM.Bootstrapper module:
-
+1. Azure Stack compatible AzureRM modules are installed through Version Profiles. To learn about Version Profiles and the commands provided by Version Profiles refer to [Using Version Profiles in Azure Stack](azure-stack-version-profiles.md) article. The AzureRM.Bootstrapper module provides PowerShell commands that are required to work with Resource Manager Version Profiles. Use the following command to install the AzureRM.Bootstrapper module:
     ```PowerShell
     # Install the bootstrapper module in the current user scope. To install the module for all users, replace the value of “Scope” parameter with “AllUsers”
     Install-Module -Name AzureRm.BootStrapper -Scope CurrentUser
-
+    
     # Import the bootstrapper module into the current PowerShell session
     Import-Module -Name AzureRm.Bootstrapper
     ```
-2. Run the following command to install the required version of the AzureRM modules for Compute, Storage, Network, Key Vault etc.  
 
-    ```PowerShell
-    # Installs and imports the Version Profile required by Azure Stack into the current PowerShell session. This command installs the AzureRM modules in the current user scope, to install the module for all users, replace the value of “Scope” parameter with “AllUsers”
-    Use-AzureRmProfile -Profile 2017-03-09-profile -Scope CurrentUser
-    ```
-2.	In addition to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules such as AzureStackAdmin, AzureStackStorage, etc. by running the following command:  
-
-    ```PowerShell
-    # To install the AzureStack module in current user scope. To install the module for all users, replace the value of “Scope” parameter with “AllUsers”
-
-    Install-Module -Name AzureStack -RequiredVersion 1.2.9 -Scope CurrentUser   
-    ```
-
-3.	To confirm the installation of AzureRM modules, run the following command:  
-
-    ```PowerShell
-    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”}
-    ```
 ## Next steps
 * [Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure.md)  
 * [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md)
