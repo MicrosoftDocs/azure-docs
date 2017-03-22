@@ -108,10 +108,12 @@ find and select this trigger: **RSS - When a feed item is published**
 ## Add an action that responds to your trigger
 
 1. To perform an action when new items appear in the RSS feed, 
-choose **New step** > **Add an action**.
+under your trigger Logic App Designer, choose **New step** > **Add an action**.
 
 	When you select **Add an Action**, you can browse, search, and 
 	select actions from [available connectors](../connectors/apis-list.md). 
+
+	![Add an action](media/logic-apps-create-a-logic-app/add-new-action.png)
 
 2. In the search box, enter **outlook**. 
 To send mail to your Outlook inbox, 
