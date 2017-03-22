@@ -22,7 +22,7 @@ ms.author: saysa
 Eclipse is one of the most widely used integrated development environments (IDEs) for Java developers. In this article, we describe how to set up your Eclipse development environment to work with Azure Service Fabric. Learn how to install the Service Fabric plug-in, create a Service Fabric application, and deploy your Service Fabric application to a local or remote Service Fabric cluster in Eclipse Neon.
 
 ## Install or update the Service Fabric plug-in in Eclipse Neon
-You can install a Service Fabric plug-in in Eclipse. The plug-in can help simplify the process of building and deploying Java services. To install the Service Fabric plug-in, you need the latest version of Eclipse Neon, and the latest version of Buildship.
+You can install a Service Fabric plug-in in Eclipse. The plug-in can help simplify the process of building and deploying Java services.
 
 1.  Ensure that you have the latest version of Eclipse Neon and the latest version of Buildship (1.0.17 or a later version) installed:
     -   To check the versions of installed components, in Eclipse Neon, go to **Help** > **Installation Details**.
