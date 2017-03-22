@@ -162,7 +162,7 @@ choose **Run** on the designer command bar.
 on your logic app menu, choose **Overview**. To update the data, 
 choose **Refresh**. 
 
-	To view your logic app's status or run and trigger 
+	To learn more about your logic app's status or run and trigger 
 	history, or to diagnose your logic app, see 
 	[Troubleshoot your logic app](logic-apps-diagnosing-failures.md).
 
