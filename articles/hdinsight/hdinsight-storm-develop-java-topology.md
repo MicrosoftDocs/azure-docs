@@ -569,57 +569,55 @@ The YAML file defines the components to use for the topology, how data flows bet
 
 2. In the `resources` directory, create a file named `topology.yaml`. Use the following text as the contents of this file.
 
-   ```yaml
-   # topology definition
+        # topology definition
 
-   # name to be used when submitting. This is what shows up...
-   # in the Storm UI/storm command line tool as the topology name
-   # when submitted to Storm
-   name: "wordcount"
+        # name to be used when submitting. This is what shows up...
+        # in the Storm UI/storm command line tool as the topology name
+        # when submitted to Storm
+        name: "wordcount"
 
-   # Topology configuration
-   config:
-   # Hint for the number of workers to create
-   topology.workers: 1
+        # Topology configuration
+        config:
+        # Hint for the number of workers to create
+        topology.workers: 1
 
-   # Spout definitions
-   spouts:
-   - id: "sentence-spout"
-       className: "com.microsoft.example.RandomSentenceSpout"
-       # parallelism hint
-       parallelism: 1
+        # Spout definitions
+        spouts:
+        - id: "sentence-spout"
+            className: "com.microsoft.example.RandomSentenceSpout"
+            # parallelism hint
+            parallelism: 1
 
-   # Bolt definitions
-   bolts:
-   - id: "splitter-bolt"
-       className: "com.microsoft.example.SplitSentence"
-       parallelism: 1
+        # Bolt definitions
+        bolts:
+        - id: "splitter-bolt"
+            className: "com.microsoft.example.SplitSentence"
+            parallelism: 1
 
-   - id: "counter-bolt"
-       className: "com.microsoft.example.WordCount"
-       constructorArgs:
-       - 10
-       parallelism: 1
+        - id: "counter-bolt"
+            className: "com.microsoft.example.WordCount"
+            constructorArgs:
+            - 10
+            parallelism: 1
 
-   # Stream definitions
-   streams:
-   - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
-       # The stream emitter
-       from: "sentence-spout"
-       # The stream consumer
-       to: "splitter-bolt"
-       # Grouping type
-       grouping:
-       type: SHUFFLE
+        # Stream definitions
+        streams:
+        - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
+            # The stream emitter
+            from: "sentence-spout"
+            # The stream consumer
+            to: "splitter-bolt"
+            # Grouping type
+            grouping:
+            type: SHUFFLE
 
-   - name: "Splitter -> Counter"
-       from: "splitter-bolt"
-       to: "counter-bolt"
-       grouping:
-       type: FIELDS
-       # field(s) to group on
-       args: ["word"]
-   ```
+        - name: "Splitter -> Counter"
+            from: "splitter-bolt"
+            to: "counter-bolt"
+            grouping:
+            type: FIELDS
+            # field(s) to group on
+        args: ["word"]
 
     Take a moment to read through and understand what each section does and how it relates to the Java-based definition in the **WordCountTopology.java** file.
 
