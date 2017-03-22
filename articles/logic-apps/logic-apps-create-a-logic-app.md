@@ -1,6 +1,6 @@
 ---
-title: Create your first workflow with Azure Logic Apps | Microsoft Docs
-description: Get started automating processes between cloud-based SaaS apps and services with Azure Logic Apps
+title: Create your first workflow between cloud apps & services - Azure Logic Apps | Microsoft Docs
+description: Automate processes between for software-as-a-service (SaaS) apps and services with Azure Logic Apps
 author: jeffhollan
 manager: anneta
 editor: ''
@@ -17,7 +17,7 @@ ms.date: 03/24/2017
 ms.author: jehollan
 
 ---
-# Create your first workflow to automate processes for cloud apps and services
+# Create your first workflow to automate processes between cloud apps and services
 
 In just a few minutes and without writing any code, 
 you can create a basic workflow that automates a process 
