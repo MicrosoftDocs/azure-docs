@@ -18,13 +18,13 @@
 
 # Concepts
 ## Feature overview (NEEDED)
-## [Authentication and security](../service-bus-messaging/service-bus-sas.md)
+## [Authentication and security](relay-authentication-and-authorization.md)
 
 # How-to guides
 ## Develop
 ### [Available APIs](relay-api-overview.md)
 #### .NET
-##### [.NET Standard](relay-hybrid-connections-dotnet-api-overview)
+##### [.NET Standard](relay-hybrid-connections-dotnet-api-overview.md)
 ##### .NET Framework (NEEDED)
 #### Node
 ##### hyco-ws (NEEDED)
