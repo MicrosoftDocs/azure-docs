@@ -70,7 +70,7 @@ Full support for naked domains in Traffic Manager is tracked in our feature back
 Geographic routing type can used in any scenario where an Azure customer needs to distinguish their users based on geographic regions. An example of this is to give users from specific regions a different user experience than those from other regions. Another example is complying with local data sovereignty mandates that require that users from a specific region be served only by endpoints in that region.
 
 ### What are the regions that are supported by Traffic Manager for geographic routing? 
-The region classification and hierarchy that is used by Traffic Manager can be found [here](traffic-manager-geographic-regions.md). While this page will be kept up to date with any changes, you can also programmatically retrieve the same information by using the [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
+The country/region hierarchy that is used by Traffic Manager can be found [here](traffic-manager-geographic-regions.md). While this page will be kept up to date with any changes, you can also programmatically retrieve the same information by using the [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
 ### How does traffic manager determine where a user is querying from? 
 Traffic Manager looks at the source IP of the query (this most likely will be a local DNS resolver doing the querying on behalf of the user) and uses an internal IP to region map to determine the location. This map is updated on an ongoing basis to account for changes in the internet. 
