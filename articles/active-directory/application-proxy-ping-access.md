@@ -49,8 +49,8 @@ The Application Proxy connector is a Windows Server service that directs the tra
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator. 
 2. Select **Azure Active Directory** > **Application proxy**.
-3. Select **Enable** if Application Proxy is currently disabled. 
-4. Select **Connector** to start the Application Proxy connector download. Follow the installation instructions. 
+3. Select **Download Connector** to start the Application Proxy connector download. Follow the installation instructions. 
+4. Downloading the connector should automatically enable Application Proxy for your directory, but if not you can select **Enable Application Proxy**. 
 
 ![Enable Application Proxy and download the connector](./media/application-proxy-ping-access/install-connector.png)
 
