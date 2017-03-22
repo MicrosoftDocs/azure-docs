@@ -83,7 +83,7 @@ build your logic app from scratch.
 	The trigger is the event that starts your 
 	logic app and is the first item that your logic app needs. 
 
-5. In the search box, find and select this 
+5. In the search box, type ```RSS`` so you can find and select this 
 trigger: **RSS - When a feed item is published** 
 
 	![RSS trigger](media/logic-apps-create-a-logic-app/rss-trigger.png)
@@ -94,7 +94,7 @@ trigger: **RSS - When a feed item is published**
 	These settings determine how often your logic app checks for 
 	new items and returns all items during that time span.
 
-	For this example, let's check every seven days for new 
+	For this example, let's check every day for new 
 	items posted to the MSDN Channel 9 website.
 
 	![Set up trigger with RSS feed, frequency, and interval](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
