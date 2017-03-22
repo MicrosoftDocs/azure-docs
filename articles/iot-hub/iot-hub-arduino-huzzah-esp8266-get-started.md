@@ -22,21 +22,21 @@ ms.author: xshi
 
 ![Connection between DHT22, Feather HUZZAH ESP8266, and IoT Hub](media/iot-hub-arduino-huzzah-esp8266-get-started/1_connection-hdt22-feather-huzzah-iot-hub.png)
 
-## What you'll do
+## What you do
 
 Connect Adafruit Feather HUZZAH ESP8266 to an Azure IoT Hub you will create. Then run a sample application on ESP8266 to collect temperature and humidity data from a DHT22 sensor. Finally, send the sensor data to your IoT Hub.
 
 > [!NOTE]
 > If you're using other ESP8266 boards, you can still follow these steps to connect it to your IoT Hub. Depending on the ESP8266 board you are using, you may need to reconfigure the `LED_PIN`. For example, if you are using ESP8266 from AI-Thinker, you may change it from `0` to `2`. Don't have a kit yet?: Click [here](http://azure.com/iotstarterkits).
 
-## What you'll learn
+## What you learn
 
 * How to create an IoT Hub and register a device for Feather HUZZAH ESP8266.
 * How to connect Feather HUZZAH ESP8266 with the sensor and your computer.
 * How to collect sensor data by running a sample application on Feather HUZZAH ESP8266.
 * How to send the sensor data to your IoT Hub.
 
-## What you'll need
+## What you need
 
 ![Parts needed for the tutorial](media/iot-hub-arduino-huzzah-esp8266-get-started/2_parts-needed-for-the-tutorial.png)
 
@@ -50,7 +50,7 @@ You also need the following for your development environment:
 * Mac or PC that is running Windows or Ubuntu.
 * Wireless network for Feather HUZZAH ESP8266 to connect to.
 * Internet connection to download the configuration tool.
-* [Arduino IDE](https://www.arduino.cc/en/main/software) version 1.6.8 (or later), earlier versions will not work with the AzureIoT library).
+* [Arduino IDE](https://www.arduino.cc/en/main/software) version 1.6.8 (or later), earlier versions don't work with the AzureIoT library).
 
 The following items are optional in case you don’t have a sensor. You also have the option of using simulated sensor data.
 
@@ -80,11 +80,11 @@ The following items are optional in case you don’t have a sensor. You also hav
 
    ![Monitor the IoT Hub creation progress in the notification pane](media/iot-hub-arduino-huzzah-esp8266-get-started/5_iot-hub-monitor-creation-progress-notification-pane.png)
 
-1. After your IoT Hub is created, click it from the dashboard. Make a note of the **Hostname** that you'll use later, and then click **Shared access policies**.
+1. After your IoT Hub is created, click it from the dashboard. Make a note of the **Hostname** that you use later, and then click **Shared access policies**.
 
    ![Get hostname of your IoT Hub](media/iot-hub-arduino-huzzah-esp8266-get-started/6_iot-hub-get-hostname.png)
 
-1. In the **Shared access policies** pane, click the **iothubowner** policy, and then copy and make a note of the **Connection string** of your IoT Hub that you'll use later. For more information, see [Control access to IoT Hub](iot-hub-devguide-security.md).
+1. In the **Shared access policies** pane, click the **iothubowner** policy, and then copy and make a note of the **Connection string** of your IoT Hub that you use later. For more information, see [Control access to IoT Hub](iot-hub-devguide-security.md).
 
    ![Get IoT Hub connection string](media/iot-hub-arduino-huzzah-esp8266-get-started/7_iot-hub-get-connection-string.png)
 
@@ -94,7 +94,7 @@ You have now created your IoT Hub. The host name and connection string that you 
 
 Every IoT Hub has an identity registry that stores information about the devices that are permitted to connect to the IoT Hub. Before a device can connect to an IoT Hub, there must be an entry for that device in the identity registry for that IoT Hub.
 
-In this section, you will use a CLI tool called *iothub explorer*. Use this tool to register a device for Feather HUZZAH ESP8266 in the identity registry of your IoT Hub.
+In this section, you use a CLI tool called *iothub explorer*. Use this tool to register a device for Feather HUZZAH ESP8266 in the identity registry of your IoT Hub.
 
 > [!NOTE]
 > iothub explorer requires Node.js 4.x or later to work properly.
@@ -127,13 +127,13 @@ To register a device for Feather HUZZAH ESP8266, follow these steps:
    ```bash
    iothub-explorer login [your IoT Hub connection string]
    ```
-1. Register a new device. In the next example,  `deviceID` is `new-device`. Get its connection string by running the following command.
+1. Register a new device. In the next example, `deviceID` is `new-device`. Get its connection string by running the following command.
 
    ```bash
    iothub-explorer create new-device --connection-string
    ```
 
-Make a note of the connection string of the registered device, it will be used later.
+Make a note of the connection string of the registered device, it is used later.
 
 ## Connect Feather HUZZAH ESP8266 with the sensor and your computer
 
@@ -143,7 +143,7 @@ Use the breadboard and jumper wires to make the connection as follows. If you do
 
 ![connections reference](media/iot-hub-arduino-huzzah-esp8266-get-started/15_connections_on_breadboard.png)
 
-For sensor pins, we will use the following wiring:
+For sensor pins, we use the following wiring:
 
 | Start (Sensor)           | End (Board)           | Cable Color   |
 | -----------------------  | ---------------------- | ------------: |
