@@ -80,8 +80,8 @@ build your logic app from scratch.
 
 	The Logic App Designer opens and shows 
 	available services and *triggers*. 
-	The trigger is the event that starts your logic app. 
-	You have to select a trigger as the first item 
+	The trigger is the event that starts your 
+	logic app and required as the first item 
 	that your logic app needs. 
 
 5. In the search box, find and select this 
