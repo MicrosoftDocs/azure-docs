@@ -2,18 +2,17 @@
 title: Azure CLI Script Sample - Managing Pools in Batch | Microsoft Docs
 description: Azure CLI Script Sample - Managing Pools in Batch
 services: batch
-documentationcenter: batch
+documentationcenter: ''
 author: annatisch
 manager: daryls
-editor: tamram
-tags: azure-batch
+editor: tysonn
 
 ms.assetid:
 ms.service: batch
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: batch
-ms.workload: infrastructure
+ms.tgt_pltfrm: multiple
+ms.workload: na
 ms.date: 03/20/2017
 ms.author: antisch
 ---
@@ -21,15 +20,17 @@ ms.author: antisch
 # Managing Azure Batch Pools with Azure CLI
 
 These script demonstrates some of the tools available in the Azure CLI to create and
-manage pools of VMs in the Azure Batch service.
+manage pools of compute nodes in the Azure Batch service.
 
 Running these scripts assumes that a Batch account has already been set up and an application
-configured. For more information, please see the sample scripts covering
+configured. For more information, please see the [sample scripts](../batch-cli-samples.md) covering
 each of these topics.
 
-Note that the commands in this sample include running Azure VMs which will accrue charges.
-If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), 
-and then run `az login` to create a connection with Azure.
+[!NOTE]
+The commands in this sample create Azure virtual machines. Running VMs will accrue charges to your account. To minimize these charges, delete the VMs once you're done running the sample. See [Clean up pools](#clean-up-pools).
+
+If needed, install the Azure CLI using the instructions found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), 
+and then run `az login` to log into Azure.
 
 Batch pools can be configured in two ways, either with a Cloud Services configuration (Windows only),
 or a Virtual Machine configuration (Windows and Linux).
@@ -44,8 +45,7 @@ or a Virtual Machine configuration (Windows and Linux).
 
 ## Clean up pools
 
-After the above sample script has been run, the following command can be used to delete the
-pools.
+After you run the above sample script, run the following command to delete the pools.
 ```azurecli
 az batch pool delete --pool-id mypool-windows
 az batch pool delete --pool-id mypool-linux
@@ -54,7 +54,7 @@ az batch pool delete --pool-id mypool-linux
 ## Script explanation
 
 This script uses the following commands to create and manipulate Batch pools.
-Each command in the table links to command specific documentation.
+Each command in the table links to command-specific documentation.
 
 | Command | Notes |
 |---|---|

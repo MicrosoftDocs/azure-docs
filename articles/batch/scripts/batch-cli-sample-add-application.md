@@ -2,18 +2,17 @@
 title: Azure CLI Script Sample - Add an Application in Batch | Microsoft Docs
 description: Azure CLI Script Sample - Add an Application in Batch
 services: batch
-documentationcenter: batch
+documentationcenter: ''
 author: annatisch
 manager: daryls
-editor: tamram
-tags: azure-batch
+editor: tysonn
 
 ms.assetid:
 ms.service: batch
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: batch
-ms.workload: infrastructure
+ms.tgt_pltfrm: multiple
+ms.workload: na
 ms.date: 03/20/2017
 ms.author: antisch
 ---
@@ -21,14 +20,13 @@ ms.author: antisch
 # Adding Applications to Azure Batch with Azure CLI
 
 This script demonstrates how to set up an application for use with an Azure Batch
-pool or task. In order to set up an application - the executable will need to be packaged
-up with any dependencies into a zip file. In this example the executable zip file is
-called 'my-application-exe.zip'.
+pool or task. To set up an application, package your executable, together with any dependencies,
+into a .zip file. In this example the executable zip file is called 'my-application-exe.zip'.
 Running this script assumes that a Batch account has already been set up. For more information,
-please see the same script for creating a Batch account.
+please see the [sample script for creating a Batch account](./batch-cli-sample-create-account.md).
 
-If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), 
-and then run `az login` to create a connection with Azure.
+If needed, install the Azure CLI using the instructions found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), 
+and then run `az login` to log into Azure.
 
 ## Sample script
 
@@ -36,17 +34,18 @@ and then run `az login` to create a connection with Azure.
 
 ## Clean up application
 
-After the above sample script has been run, the following command can be used to remove the
-application and all of it's uploaded application packages.
+After you run the above sample script, run the following commands to remove the
+application and all of its uploaded application packages.
 
 ```azurecli
-az batch application delete -g myresourcegroup -n mybatchaccount --application-id myapp
+az batch application package delete -g myresourcegroup -n mybatchaccount --application-id myapp --version 1.0 --yes
+az batch application delete -g myresourcegroup -n mybatchaccount --application-id myapp --yes
 ```
 
 ## Script explanation
 
 This script uses the following commands to create an application and upload an application package.
-Each command in the table links to command specific documentation.
+Each command in the table links to command-specific documentation.
 
 | Command | Notes |
 |---|---|
