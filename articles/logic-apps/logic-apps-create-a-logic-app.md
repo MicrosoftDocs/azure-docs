@@ -53,9 +53,9 @@ the RSS feed for MSDN Channel 9: `https://s.ch9.ms/Feeds/RSS`
 	![Azure portal, New, Enterprise Integration, Logic App](media/logic-apps-create-a-logic-app/azure-portal-create-logic-app.png)
 
    > [!TIP]
-   > You can also choose **New**, and then in the search box, 
-   > type `logic app` for your filter, and then press Enter. 
-   > Choose **Logic App** > **Create**.
+   > You can also choose **New**, then in the search box, 
+   > type `logic app`, and press Enter. 
+   > Then choose **Logic App** > **Create**.
 
 3. Name your logic app and select your Azure subscription. 
 Now select or create an Azure resource group, which helps you organize and 
