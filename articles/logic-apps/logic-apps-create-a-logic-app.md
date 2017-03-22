@@ -22,7 +22,7 @@ ms.author: jehollan
 Without writing any code, you can quickly create a basic workflow 
 that automates a process between cloud services with 
 [Azure Logic Apps](logic-apps-what-are-logic-apps.md). 
-This example logic app sends email to an Outlook or 
+For your first logic app, this example sends email to an Outlook or 
 Gmail account when new content appears in a website's RSS feed.
 
 To create and run a logic app, you need these items:
