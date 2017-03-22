@@ -570,7 +570,6 @@ The YAML file defines the components to use for the topology, how data flows bet
 2. In the `resources` directory, create a file named `topology.yaml`. Use the following text as the contents of this file.
 
         # topology definition
-        # friendly name for the topology
         name: "wordcount"
         
         # Topology configuration
