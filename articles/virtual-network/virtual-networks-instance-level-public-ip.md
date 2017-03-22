@@ -1,5 +1,5 @@
 ---
-title: Instance level Public IP (Classic) using PowerShell | Microsoft Docs
+title: Azure Instance level Public IP (Classic) addresses | Microsoft Docs
 description: Understand instance level public IP (ILPIP) addresses and how to manage them using PowerShell.
 services: virtual-network
 documentationcenter: na
