@@ -29,8 +29,8 @@ DocumentDB provides the following key capabilities for mobile app developers:
 
 * Rich queries over schemaless data. DocumentDB stores data as schemaless JSON documents in heterogeneous collections. It offers [rich and fast queries](documentdb-sql-query.md) without the need to worry about schemas or indexes.
 * Fast. Guaranteed. It takes only a few milliseconds to read and write documents with DocumentDB. Developers can specify the throughput they need, and DocumentDB honors it with 99.99 percent SLAs.
-* Limitless scale. Your DocumentDB collections [grow as your app grows](documentdb-partition-data.md). You can start with small data size and throughput of hundreds of requests per second and grow to petabytes of data and arbitrarily large throughput with hundreds of millions of requests per second.
-* Globally distributed. Mobile app users are on the go, often around the world. DocumentDB is a [globally distributed database](documentdb-distribute-data-globally.md). With just one click on a map, it makes the data accessible to your users.
+* Limitless scale. Your DocumentDB collections [grow as your app grows](documentdb-partition-data.md). You can start with small data size and throughput of hundreds of requests per second. Your collections can grow to petabytes of data and arbitrarily large throughput with hundreds of millions of requests per second.
+* Globally distributed. Mobile app users are on the go, often around the world. DocumentDB is a [globally distributed database](documentdb-distribute-data-globally.md). Click the map to make your data accessible to your users.
 * Built-in rich authorization. With DocumentDB, you can easily implement popular patterns like [per-user data](https://aka.ms/documentdb-xamarin-todouser) or multiuser shared data, without complex custom authorization code.
 * Geospatial queries. Many mobile apps offer geo-contextual experiences today. With first-class support for [geospatial types](documentdb-geospatial.md), DocumentDB makes creating these experiences easy to accomplish.
 * Binary attachments. Your app data often includes binary blobs. Native support for attachments makes it easier to use DocumentDB as a one-stop shop for your app data.
@@ -39,11 +39,11 @@ DocumentDB provides the following key capabilities for mobile app developers:
 The following tutorial shows how to build a mobile application using Xamarin and DocumentDB. You can find the complete source code for the tutorial at [Xamarin and DocumentDB on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
 
 ### Get started
-It's easy to get started with DocumentDB. Just go to the Azure portal, and create a new DocumentDB account. Click the **Quick start** tab, and download a Xamarin Forms to-do list sample, which is already connected to your DocumentDB account. 
+It's easy to get started with DocumentDB. Go to the Azure portal, and create a new DocumentDB account. Click the **Quick start** tab, and download a Xamarin Forms to-do list sample, which is already connected to your DocumentDB account. 
 
 ![DocumentDB Quick start for mobile apps](media/documentdb-mobile-apps-with-xamarin/documentdb-quickstart.png)
 
-Or if you have an existing Xamarin app, you can just add this [DocumentDB NuGet package](documentdb-sdk-dotnet-core.md). DocumentDB supports Xamarin.IOS, Xamarin.Android, and Xamarin Forms shared libraries.
+Or if you have an existing Xamarin app, you can add this [DocumentDB NuGet package](documentdb-sdk-dotnet-core.md). DocumentDB supports Xamarin.IOS, Xamarin.Android, and Xamarin Forms shared libraries.
 
 ### Work with data
 Your data records are stored in DocumentDB as schemaless JSON documents in heterogeneous collections. You can store documents with different structures in the same collection:
@@ -52,7 +52,7 @@ Your data records are stored in DocumentDB as schemaless JSON documents in heter
     var result = await client.CreateDocumentAsync(collectionLink, todoItem);
 ```
 
-In your Xamarin projects, you can use language integrated queries over schemaless data:
+In your Xamarin projects, you can use language-integrated queries over schemaless data:
 
 ```cs
     var query = await client.CreateDocumentQuery<ToDoItem>(collectionLink)
@@ -65,17 +65,17 @@ In your Xamarin projects, you can use language integrated queries over schemales
     }
 ```
 ### Add users
-Like many get started samples, the DocumentDB sample you downloaded authenticates to the service using a master key hardcoded in the app's code. This is not a good practice for an app you intend to run anywhere except on your local emulator. If an unauthorized user obtained the master key, all the data across your DocumentDB account could be compromised. Instead, you want your app to have access only to the records for the signed-in user. DocumentDB allows developers to grant application read or read/write permission to a collection, a set of documents grouped by a partition key, or a specific document. 
+Like many get started samples, the DocumentDB sample you downloaded authenticates to the service using a master key hardcoded in the app's code. This default is not a good practice for an app you intend to run anywhere except on your local emulator. If an unauthorized user obtained the master key, all the data across your DocumentDB account could be compromised. Instead, you want your app to access only the records for the signed-in user. DocumentDB allows developers to grant application read or read/write permission to a collection, a set of documents grouped by a partition key, or a specific document. 
 
 Follow these steps to modify the to-do list app to a multiuser to-do list app: 
 
-1. Add Login to your app using Facebook, Active Directory, or any other provider.
+  1. Add Login to your app using Facebook, Active Directory, or any other provider.
 
-2. Create a DocumentDB UserItems collection with **/userId** as the partition key. Specifying the partition key for your collection allows DocumentDB to scale infinitely as the number of your app users grows, while continuing to offer fast queries.
+  2. Create a DocumentDB UserItems collection with **/userId** as the partition key. Specifying the partition key for your collection allows DocumentDB to scale infinitely as the number of your app users grows, while continuing to offer fast queries.
 
-3. Add DocumentDB Resource Token Broker. This simple Web API authenticates users and issues short-lived tokens to signed-in users with access only to the documents within their partition. In this example, Resource Token Broker is hosted in App Service.
+  3. Add DocumentDB Resource Token Broker. This simple Web API authenticates users and issues short-lived tokens to signed-in users with access only to the documents within their partition. In this example, Resource Token Broker is hosted in App Service.
 
-4. Modify the app to authenticate to Resource Token Broker with Facebook, and request the resource tokens for the signed-in Facebook users. You can then access the users' data in the UserItems collection.  
+  4. Modify the app to authenticate to Resource Token Broker with Facebook, and request the resource tokens for the signed-in Facebook users. You can then access their data in the UserItems collection.  
 
 You can find a complete code sample of this pattern at [Resource Token Broker on GitHub](http://aka.ms/documentdb-xamarin-todouser). This diagram illustrates the solution:
 
@@ -89,7 +89,7 @@ DocumentDB is a managed database as a service. As your user base grows, you don'
 ![DocumentDB scale throughput on demand](media/documentdb-mobile-apps-with-xamarin/documentdb-scale.png)
 
 ### Go planet scale
-As your app grows in popularity, you might gain users around the globe. Or maybe you just don't want to be caught off guard if a meteorite strikes the Azure datacenters where you created your DocumentDB collection. Go to the Azure portal, and open your DocumentDB account. Click the map to make your data continuously replicate to any number of regions around the world. This capability makes your data available wherever your users are. You can also add failover policies to be prepared for contingencies.
+As your app grows in popularity, you might gain users around the globe. Or maybe you want to be prepared for unforeseen events. Go to the Azure portal, and open your DocumentDB account. Click the map to make your data continuously replicate to any number of regions around the world. This capability makes your data available wherever your users are. You can also add failover policies to be prepared for contingencies.
 
 ![DocumentDB scale across geographic regions](media/documentdb-mobile-apps-with-xamarin/documentdb-replicate-globally.png)
 
