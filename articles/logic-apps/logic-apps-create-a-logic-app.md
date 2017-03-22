@@ -54,8 +54,8 @@ the RSS feed for MSDN Channel 9:```https://s.ch9.ms/Feeds/RSS```
 
    > [!TIP]
    > You can also choose **New**, and then in the search box, 
-   > enter ```logic app``` for your filter. 
-   > Choose **Logic App** > **Logic App** > **Create**.
+   > type ```logic app``` for your filter, and then press Enter. 
+   > Choose **Logic App** > **Create**.
 
 3. Name your logic app and select your Azure subscription. 
 Now select or create an Azure resource group, which helps you organize and 
@@ -65,24 +65,23 @@ for hosting your logic app. When you're done, choose **Create**.
 	![Logic app details](media/logic-apps-create-a-logic-app/logic-app-settings.png)
 
    > [!NOTE]
-   > If you select **Pin to dashboard**,
-   > your logic app appears on the Azure dashboard, 
-   > and opens automatically after deployment. 
-   > If your logic app doesn't appear on the dashboard, 
-   > on the left menu, choose **More services** > **Logic Apps**, 
-   > and select your logic app.
+   > If you select **Pin to dashboard**, 
+   > your logic app appears on the Azure dashboard after deployment, 
+   > and opens automatically. But if your logic app doesn't appear on the dashboard, 
+   > on the **All resources** tile, choose **See More**, and select your logic app. 
+   > Or on the left menu, choose **More services**, and under **Enterprise Integration**, 
+   > choose **Logic Apps**, then select your logic app.
 
 4. When you open your logic app for the first time, 
 the Logic Apps Designer shows templates that 
-you can select to get started. 
+you can use to get started. 
 For now, choose **Blank Logic App** so you can 
 build your logic app from scratch.
 
 	The Logic App Designer opens and shows 
 	available services and *triggers*. 
 	The trigger is the event that starts your 
-	logic app and required as the first item 
-	that your logic app needs. 
+	logic app and is the first item that your logic app needs. 
 
 5. In the search box, find and select this 
 trigger: **RSS - When a feed item is published** 
@@ -121,7 +120,7 @@ Now we set up the logic app to send email when new items appear in an RSS feed.
 
 2. Based on the mail account that you have, follow the steps for Outlook or Gmail.
 
-	*	To send mail to your Outlook inbox, 
+	*	To send mail to your Outlook account, 
 	in the search box, enter ```outlook```. 
 	Under **Services**, select either **Outlook.com** 
 	or **Office 365 Outlook**. Under **Actions**, 
@@ -129,7 +128,7 @@ Now we set up the logic app to send email when new items appear in an RSS feed.
 
 		![Select Outlook "Send an email" action](media/logic-apps-create-a-logic-app/actions.png)
 
-	*	To send mail to your Gmail inbox, 
+	*	To send mail to your Gmail account, 
 	in the search box, enter ```gmail```. 
 	Under **Actions**, select **Gmail - Send email**.
 
@@ -138,9 +137,10 @@ Now we set up the logic app to send email when new items appear in an RSS feed.
 3. When you're prompted for credentials, 
 sign in with the username and password for your email account. 
 
-4. Choose the parameters for the data outputs to include in your email.
+4. Choose the parameters for the data output 
+that you want included in your email.
 
-	![Select outputs to include in email](media/logic-apps-create-a-logic-app/rss-action-setup.png)
+	![Select data to include in email](media/logic-apps-create-a-logic-app/rss-action-setup.png)
 
 	For example, if you chose Outlook, 
 	your logic app might look like this example:
@@ -191,6 +191,10 @@ choose **Logic Apps**. Select your logic app.
 
 	*	To turn off your app for now, choose **Overview**. 
 	On the command bar, choose **Disable**.
+
+	*	To delete your logic app, choose **Overview**. 
+	On the command bar, choose **Delete**. Enter your 
+	logic app's name, then choose **Delete**.
 
 ## Next steps
 
