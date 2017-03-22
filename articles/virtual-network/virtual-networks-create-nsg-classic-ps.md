@@ -41,10 +41,11 @@ To create an NSG named named **NSG-FrontEnd** based on the scenario above, follo
             -Label "Front end subnet NSG"
    
     Expected output:
-   
+
         Name         Location   Label               
-        ----         --------   -----               
+        
         NSG-FrontEnd West US     Front end subnet NSG
+
 3. Create a security rule allowing access from the Internet to port 3389.
    
         Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `

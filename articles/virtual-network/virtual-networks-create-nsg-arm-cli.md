@@ -70,7 +70,7 @@ To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow th
    Output:
 
         Access    Desc                                                    DestPortRange    Direction      Priority
-        --------  ------------------------------------------------------  ---------------  -----------  ----------
+        
         Allow     Allow inbound traffic from all VMs in VNET              *                Inbound           65000
         Allow     Allow inbound traffic from azure load balancer          *                Inbound           65001
         Deny      Deny all inbound traffic                                *                Inbound           65500
