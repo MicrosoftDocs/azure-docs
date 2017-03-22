@@ -167,7 +167,7 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 ## Deploy the template by using the Azure CLI
 To deploy the template by using the Azure CLI, complete the following steps:
 
-1. If you have never used Azure CLI, follow the steps in the [Install and Configure the Azure CLI](../xplat-cli-install.md) article to install and configure it.
+1. If you have never used Azure CLI, follow the steps in the [Install and Configure the Azure CLI](../cli-install-nodejs.md) article to install and configure it.
 2. Run the `azure config mode` command to switch to Resource Manager mode, as shown below.
 
 	```azurecli

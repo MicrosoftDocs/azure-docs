@@ -87,6 +87,10 @@ Application Insights can provide more detailed telemetry by installing an SDK in
 
 For more powerful searches over your telemetry, use the [Analytics query language](app-insights-analytics-tour.md).
 
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 ## Next steps
 * [Enable Azure diagnostics](app-insights-azure-diagnostics.md) to be sent to Application Insights.
 * [Monitor service health metrics](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.

@@ -1,5 +1,5 @@
 ---
-title: Traffic Manager - traffic routing methods | Microsoft Docs
+title: Azure Traffic Manager - traffic routing methods | Microsoft Docs
 description: This articles will help you understand the different traffic routing methods used by Traffic Manager
 services: traffic-manager
 documentationcenter: ''
@@ -13,24 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/20/2017
 ms.author: kumud
 ---
 
-# Traffic Manager traffic-routing methods
+# Traffic Manager routing methods
 
 Azure Traffic Manager supports three traffic-routing methods to determine how to route network traffic to the various service endpoints. Traffic Manager applies the traffic-routing method to each DNS query it receives. The traffic-routing method determines which endpoint returned in the DNS response.
-
-The Azure Resource Manager support for Traffic Manager uses different terminology than the classic deployment model. The following table shows the differences between the Resource Manager and Classic terms:
-
-| Resource Manager term | Classic term |
-| --- | --- |
-| Traffic-routing method |Load-balancing method |
-| Priority method |Failover method |
-| Weighted method |Round-robin method |
-| Performance method |Performance method |
-
-Based on customer feedback, we changed the terminology to improve clarity and reduce common misunderstandings. There is no difference in functionality.
 
 There are three traffic routing methods available in Traffic Manager:
 
@@ -43,6 +32,7 @@ All Traffic Manager profiles include monitoring of endpoint health and automatic
 ## Priority traffic-routing method
 
 Often an organization wants to provide reliability for its services by deploying one or more backup services in case their primary service goes down. The 'Priority' traffic-routing method allows Azure customers to easily implement this failover pattern.
+
 ![Azure Traffic Manager 'Priority' traffic-routing method][1]
 
 The Traffic Manager profile contains a prioritized list of service endpoints. By default, Traffic Manager sends all traffic to the primary (highest-priority) endpoint. If the primary endpoint is not available, Traffic Manager routes the traffic to the second endpoint. If both the primary and secondary endpoints are not available, the traffic goes to the third, and so on. Availability of the endpoint is based on the configured status (enabled or disabled) and the ongoing endpoint monitoring.
@@ -50,8 +40,6 @@ The Traffic Manager profile contains a prioritized list of service endpoints. By
 ### Configuring endpoints
 
 With Azure Resource Manager, you configure the endpoint priority explicitly using the 'priority' property for each endpoint. This property is a value between 1 and 1000. Lower values represent a higher priority. Endpoints cannot share priority values. Setting the property is optional. When omitted, a default priority based on the endpoint order is used.
-
-With the Classic interface, the endpoint priority is configured implicitly. The priority is based on the order in which the endpoints are listed in the profile definition.
 
 ## Weighted traffic-routing method
 The 'Weighted' traffic-routing method allows you to distribute traffic evenly or to use a pre-defined weighting.
@@ -68,7 +56,7 @@ The weighted method enables some useful scenarios:
 * Application migration to Azure: Create a profile with both Azure and external endpoints. Adjust the weight of the endpoints to prefer the new endpoints.
 * Cloud-bursting for additional capacity: Quickly expand an on-premises deployment into the cloud by putting it behind a Traffic Manager profile. When you need extra capacity in the cloud, you can add or enable more endpoints and specify what portion of traffic goes to each endpoint.
 
-The new Azure portal supports the configuration of weighted traffic routing. Weights cannot be configured in the Classic portal. You can also configure weights using the Resource Manager and classic versions of Azure PowerShell, CLI, and the REST APIs.
+The Resource Manager Azure portal supports the configuration of weighted traffic routing.  You can configure weights using the Resource Manager versions of Azure PowerShell, CLI, and the REST APIs.
 
 It is important to understand that DNS responses are cached by clients and by the recursive DNS servers that the clients use to resolve DNS names. This caching can have an impact on weighted traffic distributions. When the number of clients and recursive DNS servers is large, traffic distribution works as expected. However, when the number of clients or recursive DNS servers is small, caching can significantly skew the traffic distribution.
 
@@ -104,6 +92,83 @@ Points to note:
 * The algorithm that chooses the endpoint is deterministic. Repeated DNS queries from the same client are directed to the same endpoint. Typically, clients use different recursive DNS servers when traveling. The client may be routed to a different endpoint. Routing can also be affected by updates to the Internet Latency Table. Therefore, the Performance traffic-routing method does not guarantee that a client is always routed to the same endpoint.
 * When the Internet Latency Table changes, you may notice that some clients are directed to a different endpoint. This routing change is more accurate based on current latency data. These updates are essential to maintain the accuracy of Performance traffic-routing as the Internet continually evolves.
 
+## Nested Traffic Manager profiles
+
+Traffic Manager includes a range of traffic-routing methods that allow you to control how Traffic Manager chooses which endpoint should receive traffic from each end user. For more information, see [Traffic Manager traffic-routing methods](traffic-manager-routing-methods.md).
+
+Each Traffic Manager profile specifies a single traffic-routing method. However, there are scenarios that require more sophisticated traffic routing than the routing provided by a single Traffic Manager profile. You can nest Traffic Manager profiles to combine the benefits of more than one traffic-routing method. Nested profiles allow you to override the default Traffic Manager behavior to support larger and more complex application deployments.
+
+The following examples illustrate how to use nested Traffic Manager profiles in various scenarios.
+
+### Example 1: Combining 'Performance' and 'Weighted' traffic routing
+
+Suppose that you deployed an application in the following Azure regions: West US, West Europe, and East Asia. You use Traffic Manager's 'Performance' traffic-routing method to distribute traffic to the region closest to the user.
+
+![Single Traffic Manager profile][4]
+
+Now, suppose you wish to test an update to your service before rolling it out more widely. You want to use the 'weighted' traffic-routing method to direct a small percentage of traffic to your test deployment. You set up the test deployment alongside the existing production deployment in West Europe.
+
+You cannot combine both 'Weighted' and 'Performance traffic-routing in a single profile. To support this scenario, you create a Traffic Manager profile using the two West Europe endpoints and the 'Weighted' traffic-routing method. Next, you add this 'child' profile as an endpoint to the 'parent' profile. The parent profile still uses the Performance traffic-routing method and contains the other global deployments as endpoints.
+
+The following diagram illustrates this example:
+
+![Nested Traffic Manager profiles][5]
+
+In this configuration, traffic directed via the parent profile distributes traffic across regions normally. Within West Europe, the nested profile distributes traffic to the production and test endpoints according to the weights assigned.
+
+When the parent profile uses the 'Performance' traffic-routing method, each endpoint must be assigned a location. The location is assigned when you configure the endpoint. Choose the Azure region closest to your deployment. The Azure regions are the location values supported by the Internet Latency Table. For more information, see [Traffic Manager 'Performance' traffic-routing method](traffic-manager-routing-methods.md#performance-traffic-routing-method).
+
+### Example 2: Endpoint monitoring in Nested Profiles
+
+Traffic Manager actively monitors the health of each service endpoint. If an endpoint is unhealthy, Traffic Manager directs users to alternative endpoints to preserve the availability of your service. This endpoint monitoring and failover behavior applies to all traffic-routing methods. For more information, see [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md). Endpoint monitoring works differently for nested profiles. With nested profiles, the parent profile doesn't perform health checks on the child directly. Instead, the health of the child profile's endpoints is used to calculate the overall health of the child profile. This health information is propagated up the nested profile hierarchy. The parent profile uses this aggregated health to determine whether to direct traffic to the child profile. See the [FAQ](#faq) section of this article for full details on health monitoring of nested profiles.
+
+Returning to the previous example, suppose the production deployment in West Europe fails. By default, the 'child' profile directs all traffic to the test deployment. If the test deployment also fails, the parent profile determines that the child profile should not receive traffic since all child endpoints are unhealthy. Then, the parent profile distributes traffic to the other regions.
+
+![Nested Profile failover (default behavior)][6]
+
+You might be happy with this arrangement. Or you might be concerned that all traffic for West Europe is now going to the test deployment instead of a limited subset traffic. Regardless of the health of the test deployment, you want to fail over to the other regions when the production deployment in West Europe fails. To enable this failover, you can specify the 'MinChildEndpoints' parameter when configuring the child profile as an endpoint in the parent profile. The parameter determines the minimum number of available endpoints in the child profile. The default value is '1'. For this scenario, you set the MinChildEndpoints value to 2. Below this threshold, the parent profile considers the entire child profile to be unavailable and directs traffic to the other endpoints.
+
+The following figure illustrates this configuration:
+
+![Nested Profile failover with 'MinChildEndpoints' = 2][7]
+
+> [!NOTE]
+> The 'Priority' traffic-routing method distributes all traffic to a single endpoint. Thus there is little purpose in a MinChildEndpoints setting other than '1' for a child profile.
+
+### Example 3: Prioritized failover regions in 'Performance' traffic routing
+
+The default behavior for the 'Performance' traffic-routing method is designed to avoid over-loading the next nearest endpoint and causing a cascading series of failures. When an endpoint fails, all traffic that would have been directed to that endpoint is evenly distributed to the other endpoints across all regions.
+
+!['Performance' traffic routing with default failover][8]
+
+However, suppose you prefer the West Europe traffic failover to West US, and only direct traffic to other regions when both endpoints are unavailable. You can create this solution using a child profile with the 'Priority' traffic-routing method.
+
+!['Performance' traffic routing with preferential failover][9]
+
+Since the West Europe endpoint has higher priority than the West US endpoint, all traffic is sent to the West Europe endpoint when both endpoints are online. If West Europe fails, its traffic is directed to West US. With the nested profile, traffic is directed to East Asia only when both West Europe and West US fail.
+
+You can repeat this pattern for all regions. Replace all three endpoints in the parent profile with three child profiles, each providing a prioritized failover sequence.
+
+### Example 4: Controlling 'Performance' traffic routing between multiple endpoints in the same region
+
+Suppose the 'Performance' traffic-routing method is used in a profile that has more than one endpoint in a particular region. By default, traffic directed to that region is distributed evenly across all available endpoints in that region.
+
+!['Performance' traffic routing in-region traffic distribution (default behavior)][10]
+
+Instead of adding multiple endpoints in West Europe, those endpoints are enclosed in a separate child profile. The child profile is added to the parent as the only endpoint in West Europe. The settings on the child profile can control the traffic distribution with West Europe by enabling priority-based or weighted traffic routing within that region.
+
+!['Performance' traffic routing with custom in-region traffic distribution][11]
+
+### Example 5: Per-endpoint monitoring settings
+
+Suppose you are using Traffic Manager to smoothly migrate traffic from a legacy on-premises web site to a new Cloud-based version hosted in Azure. For the legacy site, you want to use the home page URI to monitor site health. But for the new Cloud-based version, you are implementing a custom monitoring page (path '/monitor.aspx') that includes additional checks.
+
+![Traffic Manager endpoint monitoring (default behavior)][12]
+
+The monitoring settings in a Traffic Manager profile apply to all endpoints within a single profile. With nested profiles, you use a different child profile per site to define different monitoring settings.
+
+![Traffic Manager endpoint monitoring with per-endpoint settings][13]
+
 ## Next steps
 
 Learn how to develop high-availability applications using [Traffic Manager endpoint monitoring](traffic-manager-monitoring.md)
@@ -114,3 +179,14 @@ Learn how to [create a Traffic Manager profile](traffic-manager-manage-profiles.
 [1]: ./media/traffic-manager-routing-methods/priority.png
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
+[4]: ./media/traffic-manager-nested-profiles/figure-1.png
+[5]: ./media/traffic-manager-nested-profiles/figure-2.png
+[6]: ./media/traffic-manager-nested-profiles/figure-3.png
+[7]: ./media/traffic-manager-nested-profiles/figure-4.png
+[8]: ./media/traffic-manager-nested-profiles/figure-5.png
+[9]: ./media/traffic-manager-nested-profiles/figure-6.png
+[10]: ./media/traffic-manager-nested-profiles/figure-7.png
+[11]: ./media/traffic-manager-nested-profiles/figure-8.png
+[12]: ./media/traffic-manager-nested-profiles/figure-9.png
+[13]: ./media/traffic-manager-nested-profiles/figure-10.png
+
