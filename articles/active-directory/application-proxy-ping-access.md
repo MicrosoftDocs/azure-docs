@@ -75,7 +75,7 @@ select **Assign a user for testing**, and add at least one user to the applicati
 9. On the app management blade, select **Single sign-on**. 
 10. Choose **Header-based sign-on** from the drop-down menu. Select **Save**.
 
-  ![Select header-based sign-on](./media/application-proxy-ping-access/sso-header.png)
+  ![Select header-based sign-on](./media/application-proxy-ping-access/sso-header.PNG)
 
 11. Close the Enterprise applications blade or scroll all the way to the left to return to the Azure Active Directory menu. 
 12. Select **App registrations**.
