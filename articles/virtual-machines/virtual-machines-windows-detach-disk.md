@@ -1,5 +1,5 @@
 ---
-title: Detach a data disk from a Windows VM | Microsoft Docs
+title: Detach a data disk from a Windows VM - Azure| Microsoft Docs
 description: Learn to detach a data disk from a virtual machine in Azure using the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
