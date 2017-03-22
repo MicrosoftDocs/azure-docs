@@ -27,9 +27,9 @@ To configure a client application in Visual Studio using the Redis Cache Session
 
 Run the following command from the `Package Manager Console` window.
     
-    ```
-    Install-Package Microsoft.Web.RedisOutputCacheProvider
-    ```
+```
+Install-Package Microsoft.Web.RedisOutputCacheProvider
+```
 
 The Redis Output Cache Provider NuGet package has a dependency on the StackExchange.Redis.StrongName package. If the StackExchange.Redis.StrongName package is not present in your project, it is installed. For more information about the  Redis Output Cache Provider NuGet package, see the [RedisOutputCacheProvider](https://www.nuget.org/packages/Microsoft.Web.RedisOutputCacheProvider/) NuGet page.
 

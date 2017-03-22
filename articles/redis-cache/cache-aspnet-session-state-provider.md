@@ -27,9 +27,9 @@ To configure a client application in Visual Studio using the Redis Cache Session
 
 Run the following command from the `Package Manager Console` window.
     
-    ```
-    Install-Package Microsoft.Web.RedisSessionStateProvider
-    ```
+```
+Install-Package Microsoft.Web.RedisSessionStateProvider
+```
 
 > [!IMPORTANT]
 > If you are using the clustering feature from the premium tier, you must use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 or higher or an exception is thrown. Moving to 2.0.1 or higher is a breaking change; for more information, see [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details). At the time of this article update, the current version of this package is 2.2.3.
