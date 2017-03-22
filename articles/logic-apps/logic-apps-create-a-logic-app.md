@@ -48,7 +48,7 @@ the RSS feed for MSDN Channel 9: `https://s.ch9.ms/Feeds/RSS`
 
 1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal").
 
-2. From the left menu, choose **New (+)** > **Enterprise Integration** > **Logic App**.
+2. From the left menu, choose **New** > **Enterprise Integration** > **Logic App**.
 
 	![Azure portal, New, Enterprise Integration, Logic App](media/logic-apps-create-a-logic-app/azure-portal-create-logic-app.png)
 
