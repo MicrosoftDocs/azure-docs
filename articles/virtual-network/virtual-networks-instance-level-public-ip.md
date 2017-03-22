@@ -40,7 +40,7 @@ When you create a cloud service in Azure, corresponding DNS A records are create
 ## Why would I request an ILPIP?
 If you want to be able to connect to your VM or role instance by an IP address assigned directly to it, rather than using the cloud service VIP:&lt;port number&gt;, request an ILPIP for your VM or your role instance.
 
-* **Passive FTP** - By assigning an ILPIP to a VM, it can receive traffic on just about any port. Endpoints do not have to be opened for the VM to receive traffic. ILPIPs enable scenarios like passive FTP, where the ports are chosen dynamically.
+* **Passive FTP** - By assigning an ILPIP to a VM, it can receive traffic on just about any port. Endpoints are not required for the VM to receive traffic. ILPIPs enable scenarios like passive FTP, where the ports are chosen dynamically.
 * **Outbound IP** - Outbound traffic originating from the VM goes out with the ILPIP, as the source and the ILPIP uniquely identifies the VM to external entities.
 
 > [!NOTE]
@@ -51,7 +51,7 @@ If you want to be able to connect to your VM or role instance by an IP address a
 The following tasks enable you to create, assign, and remove ILPIPs from VMs:
 
 ### How to request an ILPIP during VM creation using PowerShell
-The following PowerShell script creates a new cloud service named *FTPService*, retrieves an image from Azure, creates a VM named *FTPInstance* using the retrieved image, sets the VM to use an ILPIP, and adds the VM to the new service:
+The following PowerShell script creates a cloud service named *FTPService*, retrieves an image from Azure, creates a VM named *FTPInstance* using the retrieved image, sets the VM to use an ILPIP, and adds the VM to the new service:
 
 ```powershell
 New-AzureService -ServiceName FTPService -Location "Central US"
