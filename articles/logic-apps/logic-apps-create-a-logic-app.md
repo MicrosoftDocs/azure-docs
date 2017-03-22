@@ -161,10 +161,10 @@ choose **Refresh**.
 	history, or to diagnose your logic app, see 
 	[Troubleshoot your logic app](logic-apps-diagnosing-failures.md).
 
-    > [!NOTE]
-	  > Your logic app continues running until you turn off your app. 
-	  > To turn off your app for now, on your logic app menu, 
-	  > choose **Overview**. On the command bar, choose **Disable**.
+      > [!NOTE]
+      > Your logic app continues running until you turn off your app. 
+      > To turn off your app for now, on your logic app menu, 
+      > choose **Overview**. On the command bar, choose **Disable**.
 
 Congratulations, you just set up and run your first basic logic app. 
 You also learned how easily you can create workflows that automate 
