@@ -67,7 +67,7 @@ The following table describes a scenario in which:
 8 vCPUs (2 sockets * 4 cores @ 2.5 GHz), 16 GB memory | 8 vCPUs (2 sockets * 4 cores @ 2.5 GHz), 12 GB memory | 600 GB | 250 GB to 1 TB | Replicate between 85-150 machines.
 12 vCPUs (2 sockets * 6 cores @ 2.5 GHz), 18 GB memory | 12 vCPUs (2 sockets * 6 cores @ 2.5 GHz) 24 GB memory | 1 TB | 1 TB to 2 TB | Replicate between 150-225 machines.
 
-The way in which you scale your servers depends on your preference for a scale up or scale out model.  You scale up by deploying a few high-end configuration and process servers, or scale out by deploying more servers with fewer resources. For example, if you need to protect 220 machines, you could do either of the following:
+The way in which you scale your servers depends on your preference for a scale-up or scale-out model.  You scale up by deploying a few high-end configuration and process servers, or scale out by deploying more servers with fewer resources. For example, if you need to protect 220 machines, you could do either of the following:
 
 * Set up the configuration server with 12 vCPU, 18 GB of memory, and an additional process server with 12 vCPU, 24 GB of memory. Configure protected machines to use the additional process server only.
 * Set up two configuration servers (2 x 8 vCPU, 16 GB RAM) and two additional process servers (1 x 8 vCPU and 4 vCPU x 1 to handle 135 + 85 [220] machines). Configure protected machines to use the additional process servers only.
