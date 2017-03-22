@@ -12,6 +12,8 @@ Specific guidance exists for certain types of content, such as customer stories 
 
 * **Service limits**: Every service where subscription and service limits, quotas, and constraints apply must have an include file that documents the most important limits, quotas, or constraints. The include must be added to the all-up ["Azure subscription and service limits, quotas, and constraints"](https://docs.microsoft.com/azure/azure-subscription-service-limits) article. Optionally, a service-specific limits article may also be published to the service-specific content; the include must be reused in that article. 
 
+* **Top issue troubleshooting content**: Most technical troubleshooting content should be published as KB articles at https://support.microsoft.com/. Per agreement with CSS and Apex management, each Azure service may also publish a limited set of two types of troubleshooting content with their technical documentation on http://docs.microsoft.com:   up to 10 top issue troubleshooting articles per service, and up to 10 troubleshooting index articles that summarize the symptoms, causes, quick steps, and links to other content (KB articles or documentation) for top call drivers.
+
 ## Technical content that does not belong in the azure-docs-pr repository
 The following types of content are delivered in other Azure or Microsoft content channels; in some cases, certain types of content are not part of our content strategy.
 
@@ -55,6 +57,8 @@ The following types of content are delivered in other Azure or Microsoft content
 * **Release notes**: Unless it's an SDK article or a StorSimple article for a hardware update, this sort of information should just be embedded in the relevant technical content or included in the [service updates channel](http://acomdocs.azurewebsites.net/articles/service-updates-overview/).
 
 * **SLA**: Do not mention any specifics about SLAs in the technical documents. Always point to the SLA page for the service. The SLA index page is here: https://azure.microsoft.com/support/legal/sla/. Example: "For information about the SLA, see the [Azure service level agreements](https://azure.microsoft.com/support/legal/sla/) page."
+
+* **Troubleshooting content of most types**: Although each service may include up to 10 troubleshooting articles and index files as described above, most formal troubleshooting and support content should be published as KB articles on http://support.microsoft.com.
 
 * **What's new in a release or service**:  Lists or descriptions of what is new in a release or service go to the [Service Updates channel](http://acomdocs.azurewebsites.net/articles/service-updates-overview/).
 

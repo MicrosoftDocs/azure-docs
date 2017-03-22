@@ -59,7 +59,7 @@ vCenter 5.5 or 6.0 (support for 5.5 features only) <br/><br/> vSphere 6.0, 5.5, 
 
 ### Machines (replicate to Azure)
 
-Virtual machines must meet [Azure requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+Virtual machines must meet [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 **Requirement** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
 --- | --- | --- | ---
@@ -160,17 +160,17 @@ Disk > 1 TB | No | No | No
 Volume with striped disk > 1 TB<br/><br/> LVM | Yes | Yes | Yes
 Storage Spaces | No | Yes | Yes
 Hot add/remove disk | No | No | No
-Exclude disk | Yes | No | No
+Exclude disk | Yes | Yes | Yes
 Multi-path (MPIO) | NA | Yes | Yes
 
 **Azure storage** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
 --- | --- | --- | ---
 LRS | Yes | Yes | Yes
-GRS | Yes | Yes | Yes
+GRS (only for standard storage) | Yes | Yes | Yes
 Cool storage | No | No | No
 Hot storage| No | No | No
 Encryption at rest | Yes | Yes | Yes
-Premium storage | Yes | No | No
+Premium storage | Yes | Yes | Yes
 Import/export service | No | No | No
 
 
@@ -258,4 +258,4 @@ You can deploy Site Recovery to replicate virtual machines and physical servers,
 
 
 ## Next steps
-[Prepare for deployment](site-recovery-best-practices.md)
+Check [prerequisites](site-recovery-prereq.md)

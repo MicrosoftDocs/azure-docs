@@ -1,8 +1,8 @@
 ---
-title: Connect to SQL Database with a C# query | Microsoft Docs
-description: Write a program in C# to query and connect to SQL database. Info about IP addresses, connection strings, secure login, and free Visual Studio.
+title: Connect to Azure SQL Database with Visual Studio | Microsoft Docs
+description: Learn how to connect to an Azure SQL database in Visual Studio.
 services: sql-database
-keywords: c# database query, c# query, connect to database, SQL C#
+keywords: connect to database
 documentationcenter: ''
 author: stevestein
 manager: jhubbard
@@ -15,17 +15,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 03/03/2017
 ms.author: sstein
 
 ---
 # Connect to a SQL Database with Visual Studio
-> [!div class="op_single_selector"]
-> * [Visual Studio](sql-database-connect-query.md)
-> * [SSMS](sql-database-connect-query-ssms.md)
-> * [Excel](sql-database-connect-excel.md)
-> 
-> 
 
 Learn how to connect to an Azure SQL database in Visual Studio. 
 

@@ -1,6 +1,6 @@
 ---
-title: Connect Windows computers to Log Analytics | Microsoft Docs
-description: This article shows the steps to connect the Windows computers in your on-premises infrastructure directly to OMS by using a customized version of the Microsoft Monitoring Agent (MMA).
+title: Connect Windows computers to Azure Log Analytics | Microsoft Docs
+description: This article shows the steps to connect the Windows computers in your on-premises infrastructure to the Log Analytics service by using a customized version of the Microsoft Monitoring Agent (MMA).
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 03/06/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
-# Connect Windows computers to Log Analytics
+# Connect Windows computers to the Log Analytics service in Azure
 
-This article shows the steps to connect the Windows computers in your on-premises infrastructure directly to OMS workspaces by using a customized version of the Microsoft Monitoring Agent (MMA). You need to install and connect agents for all of the computers that you want to onboard to OMS in order for them to send data to OMS and to view and act on that data in the OMS portal. Each agent can report to multiple workspaces.
+This article shows the steps to connect Windows computers in your on-premises infrastructure to OMS workspaces by using a customized version of the Microsoft Monitoring Agent (MMA). You need to install and connect agents for all of the computers that you want to onboard in order for them to send data to the Log Analytics service and to view and act on that data. Each agent can report to multiple workspaces.
 
 You can install agents using Setup, command line, or with Desired State Configuration (DSC) in Azure Automation.  
 
@@ -70,7 +71,7 @@ Before you install or deploy agents, review the following details to ensure you 
 8. When complete, the **Microsoft Monitoring Agent** appears in **Control Panel**. You can review your configuration there and verify that the agent is connected to Operational Insights (OMS). When connected to OMS, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service.**
 
 ## Install the agent using the command line
-- Modify and then use the following example to install the agent using the command line.
+- Modify and then use the following example to install the agent using the command line. The example performs a fully silent installation.
 
     >[!NOTE]
     If you want to upgrade an agent, you need to use the Log Analytics scripting API. See the next section to upgrade an agent.
@@ -78,6 +79,8 @@ Before you install or deploy agents, review the following details to ensure you 
     ```
     MMASetup-AMD64.exe /Q:A /R:N /C:"setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1"
     ```
+
+The agent uses IExpress as its self-extractor using the `/c` command. You can the command line switches at [Command-line switches for IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) and then update the example to suit your needs.
 
 ## Upgrade the agent and add a workspace using a script
 You can upgrade an agent and add a workspace using the Log Analytics scripting API with the following PowerShell example.

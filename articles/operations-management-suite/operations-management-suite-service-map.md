@@ -51,10 +51,26 @@ Machines can be expanded in the map to show the running processes with active ne
 
 By default, Service Map maps show the last 10 minutes of dependency information.  Using the time controls in the upper left, maps can be queried for historical time ranges, up to one-hour wide, to show how dependencies looked in the past, e.g. during an incident or before a change occurred.    Service Map data is stored for 30 days in paid workspaces, and for 7 days in free workspaces.
 
-## Status badges
+## Status badges and border coloring
 At the bottom of each server in the map can be a list of status badges conveying status information about the server.  The badges indicate that there is some relevant information for the server from one of the OMS solution integrations.  Clicking on a badge will take you directly to the details of the status in in the right panel.  The currently availably status badges include Alerts, Changes, Security, and Updates.
 
-![Failed connections](media/oms-service-map/status-badges.png)
+Based on the severity of the status badges, machine node borders can be colored red (Critical), yellow (Warning), or blue (Informational).  The color represents the most severe status of any of the status badges.  A grey border indicates a node with no current status indicators.
+
+![Status badges](media/oms-service-map/status-badges.png)
+
+## Role icons
+Certain processes serve particular roles on machines: web servers, application servers, database, etc.  Service Map will annotate process and machine boxes with role icons to help identify at a glance the role a process or server plays.
+
+| Role Icon | Description |
+|:--|:--|
+| ![Web server](media/oms-service-map/role-web-server.png) | Web Server |
+| ![App server](media/oms-service-map/role-application-server.png) | Application Server |
+| ![Database server](media/oms-service-map/role-database.png) | Database Server |
+| ![LDAP server](media/oms-service-map/role-ldap.png) | LDAP Server |
+| ![SMB server](media/oms-service-map/role-smb.png) | SMB Server |
+
+![Role icons](media/oms-service-map/role-icons.png)
+
 
 ## Failed connections
 Failed Connections are shown in Service Map maps for processes and computers, with a dashed red line showing if a client system is failing to reach a process or port.  Failed connections are reported from any system with a deployed Service Map agent if that system is the one attempting the failed connection.  Service Map measures this by observing TCP sockets that fail to establish a connection.  This could be due to a firewall, a misconfiguration in the client or server, or a remote service being unavailable.
@@ -88,7 +104,10 @@ Load Server Map will navigate to a new map with the selected server as the new F
 ### Show/Hide Self Links
 Show Self Links will redraw the server node including any self links, which are TCP connections that start and end on processes within the server.  If self links are shown, the menu will change to Hide Self Links, allowing users to toggle the drawing of self links.
 
+## Computer summary
+The Machine Summary panel includes an overview of a server's Operating System and dependency counts along with a variety of data from other OMS solutions, including Performance Metrics, Change Tracking, Security, Updates, etc.
 
+![Machine summary](media/oms-service-map/machine-summary.png)
 
 ## Computer and process properties
 When navigating a Service Map map, you can select machines and processes to gain additional context about their properties.  Machines provide information about DNS name, IPv4 addresses, CPU and Memory capacity, VM Type, Operating System version, Last Reboot time, and the IDs of their OMS and Service Map agents.
@@ -103,10 +122,22 @@ The Process Summary panel provides additional information about that process’s
 
 ![Process summary](media/oms-service-map/process-summary.png)
 
-## Computer summary
-The Machine Summary panel includes an overview of a server's Operating System and dependency counts along with a variety of data from other OMS solutions, including Performance Metrics, Change Tracking, Security, Updates, etc.
+## OMS Alerts integration
+Service Map integrates with OMS Alerts to show fired alerts for the selected server in the selected time range.  The server will show an icon if there are current alerts and the Machine Alerts Panel will list the alerts
 
-![Machine summary](media/oms-service-map/machine-summary.png)
+![Machine Alerts Panel](media/oms-service-map/machine-alerts.png)
+
+Note that for Service Map to be able to display relevant alerts, the alert rule must be created so that it fires for a specific computer.  To create proper alerts:
+- Include a clause to group by computer: "by Computer interval 1minute"
+- Choose to alert based on Metric measurement
+
+![Alert configuration](media/oms-service-map/alert-configuration.png)
+
+
+## OMS Log Events integration
+Service Map integrates with Log Search to show a count of all available log events for the selected server during the selected time range.  You can click on any row in the list of event counts to jump to Log Search and see the individual log events.
+
+![Log events](media/oms-service-map/log-events.png)
 
 ## OMS Change Tracking integration
 Service Map's integration with Change Tracking is automatic when both solutions are enabled and configured in your OMS workspace.
@@ -119,7 +150,7 @@ Following is a drill-down view of Configuration Change event after selecting **S
 
 
 ## OMS Performance integration
-The Machine Performance Panel shows standard performance metrics for the selected server.  The metrics include CPU Utilization, Memory Utilization, Network Bytes Sent and Received, and a list of the top processes by Network Bytes sent and received.
+The Machine Performance Panel shows standard performance metrics for the selected server.  The metrics include CPU Utilization, Memory Utilization, Network Bytes Sent and Received, and a list of the top processes by Network Bytes sent and received.  Note that to get the network performance data, you must also have enabled the Wire Data 2.0 solution in OMS.
 ![Machine Change Tracking Panel](media/oms-service-map/machine-performance.png)
 
 
@@ -135,19 +166,6 @@ Service Map's integration with Update Management is automatic when both solution
 
 The Machine Updates Panel shows data from the OMS Update Management solution for the selected server.  The panel will list a summary of any missing updates for the server during the selected time range.
 ![Machine Change Tracking Panel](media/oms-service-map/machine-updates.png)
-
-
-## OMS Alerts integration
-Service Map's integrates with OMS Alerts to show fired alerts for the selected server in the selected time range.  The server will show an icon if there are current alerts and the Machine Alerts Panel will list the alerts
-
-![Machine Alerts Panel](media/oms-service-map/machine-alerts.png)
-
-Note that for Service Map to be able to display relevant alerts, the alert rule must be created so that it fires for a specific computer.  To create proper alerts:
-- Include a clause to group by computer: "by Computer interval 1minute"
-- Choose to alert based on Metric measurement
-
-![Alert configuration](media/oms-service-map/alert-configuration.png)
-
 
 ## Log Analytics records
 Service Map's computer and process inventory data is available for [search](../log-analytics/log-analytics-log-searches.md) in Log Analytics.  This can be applied to scenarios including migration planning, capacity analysis, discovery, and ad hoc performance troubleshooting.
@@ -248,10 +266,14 @@ Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
 Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
 
 
+## REST API
+All of the server, process, and dependency data in Service Map is available via the [Service Map REST API](https://docs.microsoft.com/en-us/rest/api/servicemap/).
+
+
 ## Diagnostic and usage data
 Microsoft automatically collects usage and performance data through your use of the Service Map service. Microsoft uses this Data to provide and improve the quality, security, and integrity of the Service Map service. Data includes information about the configuration of your software like operating system and version and also includes IP address, DNS name, and Workstation name in order to provide accurate and efficient troubleshooting capabilities. We do not collect names, addresses, or other contact information.
 
-For more information on data collection and usage, please see the [Microsoft Online Services Privacy Statement](hhttps://go.microsoft.com/fwlink/?LinkId=512132).
+For more information on data collection and usage, please see the [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
 ## Next steps

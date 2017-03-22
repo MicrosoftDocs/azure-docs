@@ -4,7 +4,7 @@ description: Gaming app scenario to implement Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 2cafc044-4902-4058-8037-49399bf6bf7f

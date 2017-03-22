@@ -413,7 +413,7 @@ You are now ready to load data into your data warehouse. This step shows you how
         REJECT_VALUE = 0
     )
     ;
-    ```
+```
 
 ### Import the data from Azure blob storage.
 
@@ -607,7 +607,7 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
         tr.[TaxAmount],
         tr.[TipAmount],
         tr.[TollsAmount],
-        tr.[TotalAmount],
+        tr.[TotalAmount]
     FROM [dbo].[Trip] as tr
         JOIN dbo.[Date] as dt
         ON  tr.DateID = dt.DateID

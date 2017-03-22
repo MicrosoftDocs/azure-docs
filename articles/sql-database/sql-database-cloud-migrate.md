@@ -12,7 +12,7 @@ ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
 ms.custom: migrate and move
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 02/08/2017
@@ -47,7 +47,7 @@ The following list contains the general workflow for a SQL Server database migra
 
 The following list contains recommendations for best performance during the import process.
 
-* Choose the highest service level and performance tier that your budget allows to maximize the transfer performance. You can scale down after the migration completes to save money. See [Change the service tier and performance level of a single database using the Azure portal](sql-database-manage-single-databases-portal.md#change-the-service-tier-and-performance-level-of-a-single-database), [Change the service tier and performance level of a single database using PowerShell](sql-database-manage-single-databases-powershell.md#change-the-service-tier-and-performance-level-of-a-single-database), [Change the service tier and performance level of a single database using Transact-SQL](sql-database-manage-single-databases-tsql.md#change-the-service-tier-and-performance-level-of-a-single-database)
+* Choose the highest service level and performance tier that your budget allows to maximize the transfer performance. You can scale down after the migration completes to save money. 
 * Minimize the distance between your .BACPAC file and the destination data center.
 * Disable auto-statistics during migration
 * Partition tables and indexes

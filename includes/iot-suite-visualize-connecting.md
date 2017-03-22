@@ -1,31 +1,30 @@
 ## View device telemetry in the dashboard
-The dashboard in the remote monitoring solution enables you to view the telemetry that your devices send to IoT Hub.
+The dashboard in the remote monitoring solution enables you to view the telemetry your devices send to IoT Hub.
 
 1. In your browser, return to the remote monitoring solution dashboard, click **Devices** in the left-hand panel to navigate to the **Devices list**.
-2. In the **Devices list**, you should see that the status of your device is now **Running**.
+2. In the **Devices list**, you should see that the status of your device is **Running**. If not, click **Enable Device** in the **Device Details** panel.
    
-    ![][18]
-3. Click **Dashboard** to return to the dashboard, select your device in the **Device to View** drop-down to view its telemetry. The telemetry from the sample application is 50 units for internal temperature, 55 units for external temperature, and 50 units for humidity. Note that by default the dashboard displays only temperature and humidity values.
+    ![View device status][18]
+3. Click **Dashboard** to return to the dashboard, select your device in the **Device to View** drop-down to view its telemetry. The telemetry from the sample application is 50 units for internal temperature, 55 units for external temperature, and 50 units for humidity.
    
-    ![][img-telemetry]
+    ![View device telemetry][img-telemetry]
 
-## Send a command to your device
-The dashboard in the remote monitoring solution enables you to send commands to your devices through IoT Hub. For example, in the remote monitoring solution you can send a command to set the internal temperature of a device.
+## Invoke a method on your device
+The dashboard in the remote monitoring solution enables you to invoke methods on your devices through IoT Hub. For example, in the remote monitoring solution you can invoke a method to simulate rebooting a device.
 
 1. In the remote monitoring solution dashboard, click **Devices** in the left-hand panel to navigate to the **Devices list**.
 2. Click **Device ID** for your device in the **Devices list**.
-3. In the **Device details** panel, click **Commands**.
+3. In the **Device details** panel, click **Methods**.
    
-    ![][13]
-4. In the **Command** drop-down, select **SetTemperature**, and then in **Temperature** enter a new temperature value. Click **Send command** to send the command to the device.
+    ![Device methods][13]
+4. In the **Method** drop-down, select **InitiateFirmwareUpdate**, and then in **FWPACKAGEURI** enter a dummy URL. Click **Invoke Method** to call the method on the device.
    
-    ![][14]
+    ![Invoke a device method][14]
    
-   > [!NOTE]
-   > The command history initially shows the command status as **Pending**. When the device acknowledges the command, the status changes to **Success**.
-   > 
-   > 
-5. On the dashboard, verify that the device is now sending 75 as the new temperature value.
+
+5. You see a message in the console running your device code when the device handles the method. The results of the method are added to the history in the solution portal:
+
+    ![View method history][img-method-history]
 
 ## Next steps
 The article [Customizing preconfigured solutions][lnk-customize] describes some ways you can extend this sample. Possible extensions include using real sensors and implementing additional commands.
@@ -36,5 +35,6 @@ You can learn more about the [permissions on the azureiotsuite.com site][lnk-per
 [14]: ./media/iot-suite-visualize-connecting/suite7-1.png
 [18]: ./media/iot-suite-visualize-connecting/suite10.png
 [img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
+[img-method-history]: ./media/iot-suite-visualize-connecting/history.png
 [lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md

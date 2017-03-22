@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 
 ---
@@ -305,6 +305,11 @@ The objective of this section is to create a test user in the Azure classic port
 
 ### Creating a Amazon Web Services (AWS) test user
 The objective of this section is to create a user called Britta Simon in Amazon Web Services (AWS).
+
+> [!NOTE]
+> AWS support just in time user provisioning with SAML. This is by default enabled and so you do not have to provision the users in AWS.
+> 
+> 
 
 ### To create a user called Britta Simon in Amazon Web Services (AWS), perform the following steps:
 1. Log in to your **Amazon Web Services (AWS)** company site as administrator.

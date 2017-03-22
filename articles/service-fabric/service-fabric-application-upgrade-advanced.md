@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
-ms.author: subramar
+ms.date: 03/02/2017
+ms.author: subramar;chackdan
 
 ---
 # Service Fabric application upgrade: advanced topics
@@ -31,7 +31,7 @@ Services can also be removed from an application as part of an upgrade. However,
 
 Azure Service Fabric provides multiple upgrade modes to support development and production clusters. Deployment options chosen may be different for different environments.
 
-The monitored rolling application upgrade is the most typical upgrade to use in production. When the upgrade policy is specified, Service Fabric ensures that the application is healthy before the upgrade proceeds.
+The monitored rolling application upgrade is the most typical upgrade to use in the production environment. When the upgrade policy is specified, Service Fabric ensures that the application is healthy before the upgrade proceeds.
 
  The application administrator can use the manual rolling application upgrade mode to have total control over the upgrade progress through the various upgrade domains. This mode is useful when a customized or complex health evaluation policy is required, or a non-conventional upgrade is happening (for example, the application is already in data loss).
 

@@ -15,11 +15,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2017
+ms.date: 02/28/2017
 ms.author: larryfr
 
+ms.custom: H1Hack27Feb2017
 ---
-# Apache Storm tutorial: Get started with the Storm Starter samples for big data analytics on HDInsight
+# Get started with the Storm Starter samples for big data analytics on HDInsight
+
 Apache Storm is a scalable, fault-tolerant, distributed, real-time computation system for processing streams of data. With Storm on Microsoft Azure HDInsight, you can create a cloud-based Storm cluster that performs big data analytics in real time. 
 
 > [!IMPORTANT]
@@ -38,55 +40,53 @@ You must have the following to successfully complete this Apache Storm tutorial:
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Create a Storm cluster
-Storm on HDInsight uses Azure Blob storage for storing log files and topologies submitted to the cluster. Use the following steps to create an Azure storage account for use with your cluster:
 
-1. Sign in to the [Azure Portal][preview-portal].
-2. Select **NEW**, select **Data Analytics**, and then select **HDInsight**.
+Use the following steps to create a Storm on HDInsight cluster:
+
+1. From the [Azure portal](https://portal.azure.com), select **+ NEW**, **Intelligence + Analytics**, and then select **HDInsight**.
    
-    ![Create a new cluster in the Azure Portal](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
-3. Enter a **Cluster Name**. A green check appears beside the **Cluster Name** if it is available.
-4. If you have more than one subscription, select the **Subscription** entry to select the Azure subscription that will be used for the cluster.
-5. Use **Select Cluster Type** to select a **Storm** cluster. For the **Operating System**, select Windows. For **Cluster Tier**, select STANDARD. Finally, use the select button to save these settings.
+    ![Create a HDInsight cluster](./media/hdinsight-apache-storm-tutorial-get-started/create-hdinsight.png)
+
+2. From the **Basics** blade, enter the following information:
+
+    * **Cluster Name**: The name of the HDInsight cluster.
+    * **Subscription**: Select the subscription to use.
+    * **Cluster login username** and **Cluster login password**: The login when accessing the cluster over HTTPS. You use these credentials to access services such as the Ambari Web UI or REST API.
+    * **Secure Shell (SSH) username**: Leave these fields as default. They are not used for Windows-based HDInsight clusters.
+    * **Resource Group**: The resource group to create the cluster in.
+    * **Location**: The Azure region to create the cluster in.
    
-   ![Cluster name, cluster type, and OS Type](./media/hdinsight-apache-storm-tutorial-get-started/clustertype.png)
-6. For **Resource Group**, you can us the drop down list to see a list of existing resource groups and then select the one to create the cluster in. Or you can select **New** and then enter the name of the new resource group. A green check appears to indicate if the new group name is available.
-7. Select **Credentials**, and then enter a **Cluster Login Username** and **Cluster Login Password**. Finally, use  **Select** to set the credentials. Remote desktop will not be used in this document, so you can leave it disabled.
+    ![Select subscription](./media/hdinsight-apache-storm-tutorial-get-started/hdinsight-basic-configuration.png)
+
+3. Select **Cluster type**, and then set the following values on the **Cluster configuration** blade:
    
-    ![Cluster credentials blade](./media/hdinsight-apache-storm-tutorial-get-started/clustercredentials.png)
-8. For **Data Source**, you can select the entry to choose an existing data source, or create a new one.
-   
-    ![Data source blade](./media/hdinsight-apache-storm-tutorial-get-started/datasource.png)
-   
-    Currently you can select an Azure storage account as the data source for an HDInsight cluster. Use the following to understand the entries on the **Data Source** blade.
-   
-   * **Selection Method**: Set this to **From all subscriptions** to enable browsing of storage accounts on your subscriptions. Set to **Access Key** if you want to enter the **Storage Name** and **Access Key** of an existing storage account.
-   * **Create New**: Use this to create a new storage account. Use the field that appears to enter the name of the storage account. A green check appears if the name is available.
-   * **Choose Default Container**: Use this to enter the name of the default container to use for the cluster. While you can enter any name here, we recommend using the same name as the cluster so that you can easily recognize that the container is used for this specific cluster.
-   * **Location**: The geographic region that the storage account will be is in, or will be created in.
+    * **Cluster Type**: Storm
+
+    * **Operating system**: Windows
+
+    * **Version**: Storm 0.10.0 (HDI 3.3)
+
+        > [!NOTE]
+        > HDInsight version 3.4 and higher are only available with the Linux operating system.
+
+    * **Cluster Tier**: Standard
      
-     > [!IMPORTANT]
-     > Selecting the location for the default data source also sets the location of the HDInsight cluster. The cluster and default data source must be located in the same region.
-     > 
-     > 
-   * **Select**: Use this to save the data source configuration.
-9. Select **Node Pricing Tiers** to display information about the nodes that will be created for this cluster. By default, the number of worker nodes is set to **4**. Set this to **1**, as this is sufficient for this tutorial and reduces the cost of the cluster. The estimated cost of the cluster is shown at the bottom of this blade.
+    Finally, use the **Select** button to save settings.
+     
+    ![Select cluster type](./media/hdinsight-apache-storm-tutorial-get-started/set-hdinsight-cluster-type.png)
+
+4. After selecting the cluster type, use the __Select__ button to set the cluster type. Next, use the __Next__ button to finish basic configuration.
+
+5. From the **Storage** blade, select or create a Storage account. For the steps in this document, leave the other fields on this blade at the default values. Use the __Next__ button to save storage configuration.
+
+    ![Set the storage account settings for HDInsight](./media/hdinsight-apache-storm-tutorial-get-started/set-hdinsight-storage-account.png)
+
+6. From the **Summary** blade, review the configuration for the cluster. Use the __Edit__ links to change any settings that are incorrect. Finally, use the__Create__ button to create the cluster.
    
-    ![Node pricing tiers blade](./media/hdinsight-apache-storm-tutorial-get-started/nodepricingtiers.png)
+    ![Cluster configuration summary](./media/hdinsight-apache-storm-tutorial-get-started/hdinsight-configuration-summary.png)
    
-    Use  **Select** to save the **Node Pricing Tiers** information.
-10. Select **Optional Configuration**. This blade allows you to select the cluster version, as well as configure other optional settings such as joining a **Virtual Network**.
-    
-     ![Optional configuration blade](./media/hdinsight-apache-storm-tutorial-get-started/optionalconfiguration.png)
-11. Ensure that **Pin to Startboard** is selected, and then select **Create**. This creates the cluster and adds a tile for it to the Startboard of your Azure portal. The icon indicates that the cluster is provisioning, and changes to display the HDInsight icon once provisioning has completed.
-    
-    | While provisioning | Provisioning complete |
-    | --- | --- |
-    | ![Provisioning indicator on Startboard](./media/hdinsight-apache-storm-tutorial-get-started/provisioning.png) |![Provisioned cluster tile](./media/hdinsight-apache-storm-tutorial-get-started/provisioned.png) |
-    
     > [!NOTE]
-    > It takes some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page, to check on the provisioning process.
-    > 
-    > 
+    > It can take up to 20 minutes to create the cluster.
 
 ## Run a Storm Starter sample on HDInsight
 This Apache Storm tutorial introduces you to big data analytics using the Storm Starter samples on GitHub.

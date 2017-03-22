@@ -30,6 +30,7 @@ For more general information on Azure Key Vault, see [What is Key Vault](key-vau
 ## Videos
 This video shows you how to create your own key vault and how to use it from the 'Hello Key Vault' sample application.
 
+
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Key-Vault-Developer-Quick-Start/player]
 
 

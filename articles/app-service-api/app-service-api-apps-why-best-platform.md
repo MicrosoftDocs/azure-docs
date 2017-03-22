@@ -4,7 +4,7 @@ description: Learn how Azure App Service helps you develop, host, and consume RE
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 60049a16-8159-47aa-a34b-110be0d8dab6

@@ -1,6 +1,6 @@
 ---
-title: Docker images in Azure container registry | Microsoft Docs
-description: Push and pull Docker images to an Azure container registry using the Docker CLI
+title: Push Docker image to private Azure registry | Microsoft Docs
+description: Push and pull Docker images to a private container registry in Azure using the Docker CLI
 services: container-registry
 documentationcenter: ''
 author: stevelas
@@ -17,11 +17,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 ---
-# Push your first image to a container registry using the Docker CLI
+# Push your first image to a private Docker container registry using the Docker CLI
 An Azure container registry stores and manages private [Docker](http://hub.docker.com) container images, similar to the way [Docker Hub](https://hub.docker.com/) stores public Docker images. You use the [Docker Command-Line Interface](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) for [login](https://docs.docker.com/engine/reference/commandline/login/), [push](https://docs.docker.com/engine/reference/commandline/push/), [pull](https://docs.docker.com/engine/reference/commandline/pull/), and other operations on your container registry. 
 
-For more background and concepts, see [What is Azure Container Registry?](container-registry-intro.md)
+For more background and concepts, see [the overview](container-registry-intro.md)
 
 
 > [!NOTE]
@@ -30,7 +31,7 @@ For more background and concepts, see [What is Azure Container Registry?](contai
 > 
 
 ## Prerequisites
-* **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI 2.0 Preview](container-registry-get-started-azure-cli.md).
+* **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI 2.0](container-registry-get-started-azure-cli.md).
 * **Docker CLI** - To set up your local computer as a Docker host and access the Docker CLI commands, install [Docker Engine](https://docs.docker.com/engine/installation/).
 
 ## Log in to a registry

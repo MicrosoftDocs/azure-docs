@@ -37,7 +37,7 @@ With a Secure Shell (SSH) tunnel [established](container-service-connect.md), br
 ![DC/OS UI](./media/dcos/dcos2.png)
 
 ## Explore the Marathon UI
-To see the Marathon UI, browse to http://localhost/Marathon. From this screen, you can start a new container or another application on the Azure Container Service DC/OS cluster. You can also see information about running containers and applications.  
+To see the Marathon UI, browse to http://localhost/marathon. From this screen, you can start a new container or another application on the Azure Container Service DC/OS cluster. You can also see information about running containers and applications.  
 
 ![Marathon UI](./media/dcos/dcos3.png)
 

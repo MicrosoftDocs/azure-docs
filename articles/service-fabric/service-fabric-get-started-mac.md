@@ -2,19 +2,19 @@
 title: Set up your development environment on Mac OS X | Microsoft Docs
 description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you will be ready to build applications on Mac OS X.
 services: service-fabric
-documentationcenter: .net
-author: seanmck
-manager: timlt
+documentationcenter: java
+author: saysa
+manager: raunakp
 editor: ''
 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
-ms.devlang: dotNet
+ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/27/2016
-ms.author: seanmck
+ms.author: saysa
 
 ---
 # Set up your development environment on Mac OS X
@@ -33,11 +33,15 @@ Service Fabric does not run natively on OS X. To run a local Service Fabric clus
 * [Vagrant (v1.8.4 or later)](http://www.vagrantup.com/downloads.html)
 * [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
+>[!NOTE]
+>  You need to use mutually supported versions of Vagrant and VirtualBox. Vagrant might behave erratically on an unsupported VirtualBox version.
+>
+
 ## Create the local VM
 To create the local VM containing a 5-node Service Fabric cluster, perform the following steps:
 
 1. Clone the **Vagrantfile** repo
-   
+
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
@@ -59,31 +63,29 @@ To create the local VM containing a 5-node Service Fabric cluster, perform the f
     ```bash
     vagrant up
     ```
-  
+
    This step downloads the preconfigured VM image, boot it locally, and then set up a local Service Fabric cluster in it. You should expect it to take a few minutes. If setup completes successfully, you see a message in the output indicating that the cluster is starting up.
-   
+
     ![Cluster setup starting following VM provisioning][cluster-setup-script]
-    
+
 5. Test that the cluster has been set up correctly by navigating to Service Fabric Explorer at http://192.168.50.50:19080/Explorer (assuming you kept the default private network IP).
 
     ![Service Fabric Explorer viewed from the host Mac][sfx-mac]
 
-## Install the Service Fabric plugin for Eclipse Neon (optional)
-Service Fabric provides a plugin for the Eclipse Neon IDE that can simplify the process of building and deploying Java services.
+## Install the Service Fabric plugin for Eclipse Neon
 
-1. In Eclipse, ensure that you have Buildship version 1.0.17 or later installed. You can check the versions of installed components by choosing **Help > Installation Details**. You can update Buildship using the instructions [here][buildship-update].
-2. To install the Service Fabric plugin, choose **Help > Install New Software...**
-3. In the "Work with" textbox, enter: http://dl.windowsazure.com/eclipse/servicefabric.
-4. Click Add.
+Service Fabric provides a plugin for the **Eclipse Neon for Java IDE** that can simplify the process of creating, building and deploying Java services. You can follow the installation steps mentioned in this general  [documentation](service-fabric-get-started-eclipse.md#install-or-update-service-fabric-plugin-on-eclipse-neon) about installing or updating Service Fabric Eclipse plugin.
 
-    ![Eclipse Neon plugin for Service Fabric][sf-eclipse-plugin-install]
-5. Choose the Service Fabric plugin and click next.
-6. Proceed through the installation and accept the end-user license agreement.
+## Using Service Fabric Eclipse plugin on Mac
+
+Ensure you have gone through the steps mentioned in the [Service Fabric Eclipse plugin documentation](service-fabric-get-started-eclipse.md). The steps for creating, building and deploying Service Fabric Java application using vagrant-guest container on a Mac host, is mostly same as the general documentation, apart from few points, you need to keep in mind, as mentioned below -
+* Since the Service Fabric libraries will be required by your Service Fabric Java application to be built successfully, the eclipse project needs to be created in a shared path. By default, the contents at the path on your host where the ``Vagrantfile`` exists, is shared with the ``/vagrant`` path on the guest.
+* So to put it simply, if you have the ``Vagrantfile`` in a path, say, ``~/home/john/allprojects/``, then you need to create the your service-fabric project ``MyActor`` in location ``~/home/john/allprojects/MyActor`` and the path to your eclipse workspace would be ``~/home/john/allprojects``.
 
 ## Next steps
 <!-- Links -->
-
-* [Create your first Service Fabric application for Linux](service-fabric-create-your-first-linux-application-with-java.md)
+* [Create and deploy your first Service Fabric Java application on Linux using Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
+* [Create and deploy your first Service Fabric Java application on Linux using Service Fabric Plugin for Eclipse](service-fabric-get-started-eclipse.md)
 * [Create a Service Fabric cluster in the Azure portal](service-fabric-cluster-creation-via-portal.md)
 * [Create a Service Fabric cluster using the Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 * [Understand the Service Fabric application model](service-fabric-application-model.md)
