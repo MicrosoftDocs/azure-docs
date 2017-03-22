@@ -122,7 +122,7 @@ As explained in [How Traffic Manager Works](traffic-manager-how-traffic-manager-
 
 Learn how to develop high-availability applications using [Traffic Manager endpoint monitoring](traffic-manager-monitoring.md)
 
-Learn how to [create a Traffic Manager profile](traffic-manager-manage-profiles.md)
+Learn how to [create a Traffic Manager profile](traffic-manager-create-profile.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-routing-methods/priority.png
