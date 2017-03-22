@@ -55,7 +55,7 @@ Id                                   DisplayName         Description
     `$setting["UsageGuidelinesUrl"] = "<https://guideline.com>"`
 5. Finally, apply the settings:
 
-    `New-AzureADDirectorySetting -DirectorySetting $settings'
+    `New-AzureADDirectorySetting -DirectorySetting $setting'
 
 Upon successful completion, the cmdlet returns the Id of the new settings object:
 
