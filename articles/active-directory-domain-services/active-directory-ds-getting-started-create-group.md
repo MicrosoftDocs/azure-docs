@@ -57,4 +57,4 @@ In this configuration task, you create the administrative group and add one or m
 
 ## Next steps
 Task 2: [Create or select an Azure virtual network](active-directory-ds-getting-started-vnet.md)
- 
+  
