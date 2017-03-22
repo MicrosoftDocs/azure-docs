@@ -1,5 +1,5 @@
 ---
-title: Control routing and virtual appliances using a template | Microsoft Docs
+title: Control routing and virtual appliances in Azure - template | Microsoft Docs
 description: Learn how to control routing and virtual appliances using an Azure Resource Manager template.
 services: virtual-network
 documentationcenter: na
