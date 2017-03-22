@@ -119,7 +119,7 @@ and select an action to perform when your trigger fires.
 Based on the mail account that you have, follow the steps for Outlook or Gmail.
 
 	*	To send mail to your Outlook inbox, 
-	in the search box, enter "outlook". 
+	in the search box, enter `outlook`. 
 	Under **Services**, select either **Outlook.com** 
 	or **Office 365 Outlook**. Under **Actions**, 
 	select **Send an email**.
@@ -127,7 +127,7 @@ Based on the mail account that you have, follow the steps for Outlook or Gmail.
 		![Select Outlook "Send an email" action](media/logic-apps-create-a-logic-app/actions.png)
 
 	*	To send mail to your Gmail inbox, 
-	in the search box, enter "gmail". 
+	in the search box, enter `gmail`. 
 	Under **Actions**, select **Gmail - Send email**.
 
 		![Choose "Gmail - Send email"](media/logic-apps-create-a-logic-app/actions-gmail.png)
