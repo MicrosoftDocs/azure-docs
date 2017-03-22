@@ -19,21 +19,25 @@ ms.author: jehollan
 ---
 # Create your first workflow to automate processes for cloud apps and services
 
-In just a few minutes, you can create a basic workflow 
-that automates a process between cloud services with 
-[Azure Logic Apps](logic-apps-what-are-logic-apps.md). 
-For example, this sample logic app sends email to your Outlook account 
+In just a few minutes and without writing any code, 
+you can create a basic workflow that automates a process 
+between cloud services with [Azure Logic Apps](logic-apps-what-are-logic-apps.md). 
+This example logic app sends email to your Outlook or Gmail account 
 when new content appears in a website's RSS feed.
 
 Before you start, you need these items:
 
-* An Azure subscription for 
-[billing logic app actions](./logic-apps-pricing.md). 
-Learn more about [pricing for Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
+* An Azure subscription 
 
 	If you don't have a subscription, 
-	you can [start with a free Azure account](https://azure.microsoft.com/free/). 
-	Otherwise, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
+	[start with a free Azure account](https://azure.microsoft.com/free/). 
+	Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
+
+	Your Azure subscription is used for billing 
+	actions that your logic app takes while active and running. 
+	Learn how [billing](./logic-apps-pricing.md) and 
+	[pricing](https://azure.microsoft.com/pricing/details/logic-apps/) 
+	work for Azure Logic Apps.
 
 * A mail account at either Outlook.com, Office 365, or Gmail
 
@@ -49,15 +53,14 @@ the RSS feed for MSDN Channel 9:`https://s.ch9.ms/Feeds/RSS`
 	![Azure portal, New, Enterprise Integration, Logic App](media/logic-apps-create-a-logic-app/azure-portal-create-logic-app.png)
 
    > [!TIP]
-   > You can also choose **New** to show the search box, 
-   > and enter "logic app" for your filter. 
-   > Then choose **Logic App** > **Logic App** > **Create**.
+   > You can also choose **New**, and then in the search box, 
+   > enter "logic app" for your filter. 
+   > Choose **Logic App** > **Logic App** > **Create**.
 
-3. Name your logic app, select your Azure subscription, 
-the location for hosting your logic app, 
-and an Azure resource group for organizing and 
-managing resources related to an Azure solution.
-When you're ready, choose **Create**.
+3. Name your logic app and select your Azure subscription to use for billing. 
+Now select or create an Azure resource group, which helps you organize and 
+manage related Azure resources. Finally, select the datacenter location 
+for hosting your logic app. When you're done, choose **Create**.
 
 	![Logic app details](media/logic-apps-create-a-logic-app/logic-app-settings.png)
 
@@ -75,21 +78,20 @@ you can select to get started.
 For now, choose **Blank Logic App** so you can 
 build your logic app from scratch.
 
-	The Logic App Designer appears and shows a 
-	list of services and *triggers* that you can select. 
-	You must first select a trigger as the first item 
-	that your logic app needs. The trigger is the event 
-	that starts your logic app.
+	The Logic App Designer opens and shows the 
+	services and *triggers* so you can select 
+	a trigger as the first item that your logic app needs. 
+	The trigger is the event that starts your logic app.
 
-5. In the search box for services and triggers, 
-find and select this trigger: **RSS - When a feed item is published** 
+5. In the search box, find and select this 
+trigger: **RSS - When a feed item is published** 
 
 	![RSS trigger](media/logic-apps-create-a-logic-app/rss-trigger.png)
 
 6. Enter the link for the website's RSS feed that you want to track. 
 
-	If you want, change the **Frequency** and **Interval** 
-	that determine how often your logic app checks for 
+	You can also change the **Frequency** and **Interval**, 
+	which determine how often your logic app checks for 
 	new items and returns all items during that time span.
 
 	For this example, we want to check every 7 days for new 
@@ -97,7 +99,7 @@ find and select this trigger: **RSS - When a feed item is published**
 
 	![Set up trigger with RSS feed, frequency, and interval](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 
-7. Save your changes. On the designer toolbar, choose **Save**.
+7. Save your changes. On the designer command bar, choose **Save**.
 
 	![Save your logic app](media/logic-apps-create-a-logic-app/save-logic-app.png)
 
@@ -131,50 +133,58 @@ Based on the mail account that you have, follow the steps for Outlook or Gmail.
 		![Choose "Gmail - Send email"](media/logic-apps-create-a-logic-app/actions-gmail.png)
 
 3. When you're prompted for your credentials, 
-sign in with your mail account's username and password. 
+sign in with your username and password. 
 
 4. Choose the parameters for the data outputs to include in your email.
 
 	![Select outputs to include in email](media/logic-apps-create-a-logic-app/rss-action-setup.png)
 
-	When you're done, if you chose Outlook, 
-	your logic app should look similar to this example:
+	For example, if you chose Outlook, 
+	your logic app looks similar to this example:
 
 	![Completed logic app](media/logic-apps-create-a-logic-app/save-run-complete-logic-app.png)
 
-5. Save your changes. (On the designer toolbar, choose **Save**)
+5. Save your changes. (On the designer command bar, choose **Save**)
 
 	Now when your logic app checks your specified RSS feed and 
 	finds new items, your logic app sends an email with the 
 	selected outputs to your mail account.
 
 6. To manually start or trigger your logic app at any time, 
-choose **Run** on the designer toolbar.
+choose **Run** on the designer command bar.
 
-## Manage your logic app after creation
+7. To monitor your logic app and view run and trigger histories, 
+on your logic app menu, choose **Overview**. To update the data, 
+choose **Refresh**. 
 
-Follow these steps to check on your logic app, 
-or turn off your logic app.
+	For more information about your logic app's run and trigger 
+	status or to troubleshoot your logic app, see 
+	[Troubleshoot your logic app](logic-apps-diagnosing-failures.md).
+
+Congratulations, you just set up and run your first basic logic app. 
+You also learned how easily you can create workflows that automates 
+processes and integrates cloud apps and cloud services - all without code.
+
+## Manage your logic app
+
+To check on, edit, or turn off your logic app, 
+follow these steps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal").
 
-2. On the left menu, choose **More services** > **Logic Apps**.
+2. On the left menu, choose **More services**. Under **Enterprise Integration**,  
+choose **Logic Apps**. Select your logic app.
 
-3. To check your logic app's current status and general information, 
-select your logic app.
+	*	To check your app's current status and general information, 
+	choose **Overview**.
 
-4. To edit your new logic app, choose **Edit**.
+	*	To edit your app, choose **Logic App Designer**.
 
-5. To turn off the app, choose **Disable** in the command bar.
+	*	To turn off your app for now, choose **Overview**. 
+	On the command bar, choose **Disable**.
 
-6. View run and trigger histories to monitor when your logic app is running. 
-You can click **Refresh** to see the latest data.
+## Next steps
 
-In less than 5 minutes, you set up a basic logic app running in the cloud. 
-To learn more about using Logic Apps features, see [Use logic app features]. 
-To learn about the Logic App definitions themselves, see 
-[author Logic App definitions](../logic-apps/logic-apps-author-definitions.md).
-
-<!-- Shared links -->
-[Azure portal]: https://portal.azure.com
-[Use logic app features]: logic-apps-create-a-logic-app.md
+*  [Add conditions and run workflows](../logic-apps/logic-apps-use-logic-app-features.md)
+*	[Logic app templates](../logic-apps/logic-apps-use-logic-app-templates.md)
+*  [Create logic apps from Azure Resource Manager templates](../logic-apps/logic-apps-arm-provision.md)
