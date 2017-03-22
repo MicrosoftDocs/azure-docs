@@ -20,7 +20,7 @@ You can use NuGet to obtain both packages. Follow these steps:
 
 1. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.
 2. Search online for "WindowsAzure.Storage" and click **Install** to install the Storage Client Library and its dependencies.
-3. Search online for "ConfigurationManager" and click **Install** to install the Azure Configuration Manager.
+3. Search online for "WindowsAzure.ConfigurationManager" and click **Install** to install the Azure Configuration Manager.
 
 > [!NOTE]
 > The Storage Client Library package is also included in the [Azure SDK for .NET](https://azure.microsoft.com/downloads/). However, we recommend that you also install the Storage Client Library from NuGet to ensure that you always have the latest version of the client library.
