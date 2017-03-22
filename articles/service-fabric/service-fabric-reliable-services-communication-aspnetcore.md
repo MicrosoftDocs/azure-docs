@@ -13,14 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 03/20/2017
+ms.date: 03/22/2017
 ms.author: vturecek
 
 ---
 
 # ASP.NET Core in Service Fabric Reliable Services
 
-## Introduction to ASP.NET Core in Service Fabric
 ASP.NET Core is a new open-source and cross-platform framework for building modern cloud-based Internet-connected applications, such as web apps, IoT apps, and mobile backends. While ASP.NET Core apps can run on .NET Core or on the full .NET Framework, Service Fabric services currently can only run on the full .NET Framework. This means when you build an ASP.NET Core Service Fabric service, you must still target the full .NET Framework.
 
 ASP.NET Core can be used in two different ways in Service Fabric:
