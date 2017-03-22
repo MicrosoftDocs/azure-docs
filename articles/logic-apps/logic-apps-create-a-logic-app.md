@@ -109,14 +109,16 @@ trigger: **RSS - When a feed item is published**
 
 ## Add an action that responds to your trigger
 
+Now we set up the logic app to send email when new items appear in the RSS feed.
+
 1. Under your trigger in the designer, choose **New step** > **Add an action**. 
-You can now browse or search for [available connectors](../connectors/apis-list.md), 
-and select an action to perform when your trigger fires.
 
 	![Add an action](media/logic-apps-create-a-logic-app/add-new-action.png)
 
-2. We want to send mail when new items appear in the RSS feed. 
-Based on the mail account that you have, follow the steps for Outlook or Gmail.
+	The designer shows [available connectors](../connectors/apis-list.md) so 
+	that you can select an action to perform when your trigger fires.
+
+2. Based on the mail account that you have, follow the steps for Outlook or Gmail.
 
 	*	To send mail to your Outlook inbox, 
 	in the search box, enter `outlook`. 
@@ -146,11 +148,12 @@ sign in with the username and password for your email account.
 
 5. Save your changes. (On the designer command bar, choose **Save**)
 
-	Now when your logic app checks your specified RSS feed and 
-	finds new items, your logic app sends an email with the 
-	selected outputs to your mail account.
+	Now when your logic app checks the specified RSS feed and 
+	finds new items, you get an email that includes your selected data. 
+	If no new items are found, your logic app "skips" the action 
+	that sends you mail.
 
-6. To manually start or trigger your logic app at any time, 
+6. To manually trigger your logic app at any time, 
 choose **Run** on the designer command bar.
 
 7. To monitor your logic app and view run and trigger histories, 
