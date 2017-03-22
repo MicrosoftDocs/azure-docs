@@ -46,15 +46,15 @@ The verification result (success or denial), and the reason if it was denied, is
 ## Billing
 Most billing questions can be answered by referring to either the [Multi-Factor Authentication Pricing page](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) or the documentation about [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).
 
-**Q: Is my organization charged for the phone calls and text messages that are used for authentication?**
+**Q: Is my organization charged for sending the phone calls and text messages that are used for authentication?**
 
-No, organizations are not charged for individual phone calls placed or text messages sent to users through Azure Multi-Factor Authentication. If you use a per-authentication MFA provider, you are billed for each authentication but not for the method used.
+No, you are not charged for individual phone calls placed or text messages sent to users through Azure Multi-Factor Authentication. If you use a per-authentication MFA provider, you are billed for each authentication but not for the method used.
 
-Phone owners might be charged for the phone calls or text messages they receive, according to their personal phone service.
+Your users might be charged for the phone calls or text messages they receive, according to their personal phone service.
 
-**Q: How does the per-user billing model charge?**
+**Q: Does the per-user billing model charge me for all enabled users, or just the ones that performed two-step verification?**
 
-Billing is based on the number of users configured to use Multi-Factor Authentication. It doesn't matter whether all of them perform verification in a month or if none of them do. 
+Billing is based on the number of users configured to use Multi-Factor Authentication, whether or not they kicked off a verification that month. 
 
 **Q: How does Multi-Factor Authentication billing work?**
 
@@ -68,9 +68,7 @@ Learn more about your options in [How to get Azure Multi-Factor Authentication](
 
 In some instances, yes. 
 
-Multi-Factor Authentication for Azure Administrators offers a subset of Azure MFA features at no cost for access to Microsoft online services, including the Azure and Office 365 administrator portals. This offer applies to the Azure Administrators in Azure Active Directory instances that don't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider. 
-
-Using a Multi-Factor Authentication provider upgrades all admins and users in the directory who are configured to use Multi-Factor Authentication to the full version of Azure Multi-Factor Authentication.
+Multi-Factor Authentication for Azure Administrators offers a subset of Azure MFA features at no cost for access to Microsoft online services, including the Azure and Office 365 administrator portals. This offer applies to the Azure Administrators in Azure Active Directory instances that don't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider. If your admins use the free version, and then you create a Multi-Factor Authentication provider, all admins and users in the directory who are configured to use Multi-Factor Authentication get the full version of Azure Multi-Factor Authentication.
 
 Multi-Factor Authentication for Office 365 users offers a subset of Azure MFA features at no cost for access to Microsoft online services, including Exchange Online, SharePoint Online, and other Office 365 services. This offer applies to users who have an Office 365 license assigned, when the corresponding instance of Azure Active Directory doesn't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider. Using the Multi-Factor Authentication provider upgrades all admins and users in the directory who are configured to use Multi-Factor Authentication to the full version of Azure Multi-Factor Authentication.
 
@@ -88,11 +86,11 @@ If your directory has a *per-authentication* Azure Multi-Factor Authentication, 
 
 **Q: Does my organization have to use and synchronize identities to use Azure Multi-Factor Authentication?**
 
-When an organization uses a consumption-based billing model, Azure Active Directory is optional, but not required. If your MFA provider is not linked to an Azure AD tenant, you can only deploy Azure Multi-Factor Authentication Server or the Azure Multi-Factor Authentication SDK on-premises.
+If your organization uses a consumption-based billing model, Azure Active Directory is optional, but not required. If your MFA provider is not linked to an Azure AD tenant, you can only deploy Azure Multi-Factor Authentication Server or the Azure Multi-Factor Authentication SDK on-premises.
 
 Azure Active Directory is required for the license model because licenses are added to the Azure AD tenant when you purchase and assign them to users in the directory.
 
-## Troubleshooting the end-user experience
+## Manage and support user accounts
 
 **Q: What should I tell my users to do if they don’t receive a response on their phone, or don't have their phone with them?**
 
