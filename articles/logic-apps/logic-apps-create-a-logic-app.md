@@ -177,12 +177,12 @@ processes and integrate cloud apps and cloud services - all without code.
 
 ## Manage your logic app
 
-To check on, edit, or turn off your logic app, 
+To check on, edit, turn off, or delete your logic app, 
 follow these steps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal").
 
-2. On the left menu, choose **More services**. Under **Enterprise Integration**,  
+2. On the left menu, choose **More services**. Under **Enterprise Integration**, 
 choose **Logic Apps**. Select your logic app.
 
 	*	To check your app's status and general information, 
