@@ -19,25 +19,25 @@ ms.author: jehollan
 ---
 # Create your first logic app workflow to automate processes between cloud apps and services
 
-In just a few minutes and without writing any code, 
-you can create a basic workflow that automates a process 
-between cloud services with [Azure Logic Apps](logic-apps-what-are-logic-apps.md). 
-This example logic app sends email to an Outlook or Gmail account 
-when new content appears in a website's RSS feed.
+Without writing any code, you can quickly create a basic workflow 
+that automates a process between cloud services with 
+[Azure Logic Apps](logic-apps-what-are-logic-apps.md). 
+This example logic app sends email to an Outlook or 
+Gmail account when new content appears in a website's RSS feed.
 
-Before you start, you need these items:
+To create and run a logic app, you need these items:
 
-* An Azure subscription 
+*	An Azure subscription. If you don't have a subscription, you can 
+[start with a free Azure account](https://azure.microsoft.com/free/). 
+Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
-	If you don't have a subscription, 
-	[start with a free Azure account](https://azure.microsoft.com/free/). 
-	Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
-
-	Your Azure subscription is used for billing certain steps 
-	or tasks that your logic app performs while active and running. 
-	Learn how [usage metering and billing](../logic-apps/logic-apps-pricing.md) 
+	Your Azure subscription is used for billing usage for your logic app 
+	when active and running. Learn how 
+	[usage metering and billing](../logic-apps/logic-apps-pricing.md) 
 	and [pricing](https://azure.microsoft.com/pricing/details/logic-apps/) 
 	work for Azure Logic Apps.
+
+Also, this example requires these items:
 
 * A mail account for Outlook.com, Office 365, or Gmail
 
