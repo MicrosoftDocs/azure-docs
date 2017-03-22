@@ -124,7 +124,7 @@ During the preview period of an Azure AD release, PowerShell cannot be used to f
 3. In this example, you want to find out which users have the Enterprise Mobility + Security license assigned directly, from a group, or both. You can use the following PowerShell script.
   
   ```
-  # Returns TRUE if the user has the license assigned directly
+  \# Returns TRUE if the user has the license assigned directly
   function UserHasLicenseAssignedDirectly
   {
       Param([Microsoft.Online.Administration.User]$user, [string]$skuId)
