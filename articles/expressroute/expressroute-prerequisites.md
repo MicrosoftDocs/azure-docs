@@ -28,12 +28,17 @@ To connect to Microsoft cloud services using ExpressRoute, you need to verify th
 
 ## Connectivity provider
 <<<<<<< HEAD
+<<<<<<< HEAD
 * You can work with an [ExpressRoute connectivity partner](expressroute-locations.md#partners) to connect to the Microsoft cloud. You can set up a connection between your on-premises network and Microsoft in [three ways](expressroute-introduction.md).
 * If your provider is not an ExpressRoute connectivity partner, you can still connect to the Microsoft cloud through a cloud exchange provider.
 =======
 * You can work with an [ExpressRoute connectivity partner](expressroute-locations.md#partners) to connect to the Microsoft cloud. You can set up a connection between your on-premises network and Microsoft in [three ways](expressroute-introduction.md). 
 * If your provider is not an ExpressRoute connectivity partner, you can still connect to the Microsoft cloud through a [cloud exchange provider](expressroute-locations.md#c1partners).
 >>>>>>> edb44088f29448db4be9de5e6394bf15d8d79657
+=======
+* You can work with an [ExpressRoute connectivity partner](expressroute-locations.md#partners) to connect to the Microsoft cloud. You can set up a connection between your on-premises network and Microsoft in [three ways](expressroute-introduction.md). 
+* If your provider is not an ExpressRoute connectivity partner, you can still connect to the Microsoft cloud through a [cloud exchange provider](expressroute-locations.md#c1partners).
+>>>>>>> e926e608bd788ea7b2a642d09acc91e8d188d622
 
 ## Network requirements
 * **Redundant connectivity**: there is no redundancy requirement on physical connectivity between you and your provider. Microsoft does require redundant BGP sessions to be set up between Microsoft’s routers and the peering routers, even when you have just [one physical connection to a cloud exchange](expressroute-faqs.md#onep2plink).
