@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 03/08/2017
+ms.date: 03/23/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 
@@ -42,7 +42,7 @@ The following high-level workflow is typical of nearly all applications and serv
 The following sections discuss these and the other resources of Batch that enable your distributed computational scenario.
 
 > [!NOTE]
-> You need a [Batch account](batch-account-create-portal.md) to use the Batch service. Also, nearly all solutions use an [Azure Storage][azure_storage] account for file storage and retrieval. Batch currently supports only the **General purpose** storage account type, as described in step 5 of [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
+> You need a [Batch account](#account) to use the Batch service. Also, nearly all solutions use an [Azure Storage][azure_storage] account for file storage and retrieval. Batch currently supports only the **General purpose** storage account type, as described in step 5 of [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
 >
 >
 
@@ -65,7 +65,16 @@ Some of the following resources--accounts, compute nodes, pools, jobs, and tasks
 * [Application packages](#application-packages)
 
 ## Account
-A Batch account is a uniquely identified entity within the Batch service. All processing is associated with a Batch account. When you perform operations with the Batch service, you need both the account name and one of its account keys. You can [create an Azure Batch account using the Azure portal](batch-account-create-portal.md).
+A Batch account is a uniquely identified entity within the Batch service. All processing is associated with a Batch account.
+
+You can create an Azure Batch account using the [Azure portal](batch-account-create-portal.md) or programmatically, such as with the [Batch Management .NET library](batch-management-dotnet.md). When creating the account, you can associate an Azure storage account.
+
+Batch supports two account configurations, based on the *pool allocation mode* property. The two configurations give you different options for authenticating with the Batch service and for provisioning and managing Batch [pools](#pool) (see later in this article). 
+
+
+* **Batch service** (default): You can access the Batch APIs using either account name and key authentication, or Azure Active Directory authentication. Batch compute resources are allocated behind the scenes in an Azure-managed account.   
+* **User subscription**: You can only access the Batch APIs using Azure Active Directory authentication. Batch compute resources are allocated directly in your Azure subscription. This mode gives you more flexibility to configure the compute nodes and integrate with other services. This mode requires you to set up an additional Azure key vault for your Batch account.
+ 
 
 ## Compute node
 A compute node is an Azure virtual machine (VM) that is dedicated to processing a portion of your application's workload. The size of a node determines the number of CPU cores, memory capacity, and local file system size that is allocated to the node. You can create pools of Windows or Linux nodes by using either Azure Cloud Services or Virtual Machines Marketplace images. See the following [Pool](#pool) section for more information on these options.
@@ -85,14 +94,15 @@ Azure Batch pools build on top of the core Azure compute platform. They provide 
 
 Every node that is added to a pool is assigned a unique name and IP address. When a node is removed from a pool, any changes that are made to the operating system or files are lost, and its name and IP address are released for future use. When a node leaves a pool, its lifetime is over.
 
-When you create a pool, you can specify the following attributes:
+When you create a pool, you can specify the following attributes. Some settings differ, depending on the pool allocation of the Batch [account](#account).
 
 * Compute node **operating system** and **version**
 
-    You have two options when you select an operating system for the nodes in your pool: **Virtual Machine Configuration** and **Cloud Services Configuration**.
+    In the Batch service pool allocation mode, you have two options when you select an operating system for the nodes in your pool: **Virtual Machine Configuration** and **Cloud Services Configuration**. In the user subscription mode, you can only use the Virtual Machine Configuration.
 
-    **Virtual Machine Configuration** provides both Linux and Windows images for compute nodes from the [Azure Virtual Machines Marketplace][vm_marketplace].
-    When you create a pool that contains Virtual Machine Configuration nodes, you must specify not only the size of the nodes, but also the **virtual machine image reference** and the Batch **node agent SKU** to be installed on the nodes. For more information about specifying these pool properties, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md).
+    **Virtual Machine Configuration** provides both Linux and Windows images for compute nodes from the [Azure Virtual Machines Marketplace][vm_marketplace] and, in the user subscription allocation mode, the option to use custom VM images.
+
+        When you create a pool that contains Virtual Machine Configuration nodes, you must specify not only the size of the nodes, but also the **virtual machine image reference** and the Batch **node agent SKU** to be installed on the nodes. For more information about specifying these pool properties, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md).
 
     **Cloud Services Configuration** provides Windows compute nodes *only*. Available operating systems for Cloud Services Configuration pools are listed in the [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md). When you create a pool that contains Cloud Services nodes, you need to specify only the node size and its *OS Family*. When you create pools of Windows compute nodes, you most commonly use Cloud Services.
 

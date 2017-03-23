@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/21/2017
+ms.date: 03/23/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 
@@ -26,24 +26,23 @@ ms.custom: H1Hack27Feb2017
 > 
 > 
 
-Learn how to create an Azure Batch account in the [Azure portal][azure_portal], and how to choose an account configuration that fits your compute scenario. Learn where to find important account properties like access keys and account URLs. 
+Learn how to create an Azure Batch account in the [Azure portal][azure_portal], and choose the account properties that fit your compute scenario. Learn where to find important account properties like access keys and account URLs. 
 
 
 
 ## Pool allocation modes
 
-Batch supports two different account configurations, based on the *pool allocation mode* property. The two configurations give you different options for provisioning and managing Batch pools and for authenticating with the Batch service. 
+Batch supports two account configurations, based on the *pool allocation mode* property. The two configurations give you different options for provisioning and managing Batch pools and for authenticating with the Batch service. 
 
 
-**Batch service** (default): Pools are allocated behind the scenes in an Azure-managed account, and you only access pool resources through Batch APIs. You can create a pool using either the Cloud Service configuration or the Virtual Machine configuration. Batch service core quotas apply to the account, not subscription quotas. You can access the Batch APIs using either account name and key authentication, or Azure Active Directory authentication.  
-**User subscription** (introduced in API version XXX): Pools are allocated as virtual machines scale sets you can access within your Azure subscription. You can only create a pool using the Virtual Machine configuration. However, you can choose a custom VM image to create the pool or select a supported Marketplace image. Your subscription quotas apply to resources in the account. You can only access the Batch APIs using Azure Active Directory authentication. This mode requires additional configuration.
+* **Batch service** (default): Pools are allocated behind the scenes in an Azure-managed account, and you only access pool resources through Batch APIs. You can create a pool using either the Cloud Service Configuration or the Virtual Machine Configuration. Batch service core quotas apply to the account, not subscription quotas. You can access the Batch APIs using either account name and key authentication, or Azure Active Directory authentication.  
+* **User subscription** (introduced in API version XXX): Pools are allocated as virtual machines scale sets you can access within your Azure subscription. You can only create a pool using the Virtual Machine configuration. However, you can choose a custom VM image to create the pool or select a supported Marketplace image. Your subscription quotas apply to resources in the account. You can only access the Batch APIs using Azure Active Directory authentication. This mode requires additional configuration.
 
 
-For more information, see the [feature overview](batch-api-basics.md).
 
 ## Create a Batch account
 
-Use the portal to create a Batch account in either the Batch service pool allocation mode or the user subscription mode.
+Use the portal to create a Batch account in one of the two *pool allocation modes*: *Batch service* pool allocation mode or the newer *user subscription* mode. For information about these two modes, see the [Feature overview](batch-api-basics.md#account). Also see the [blog post](https://blogs.technet.microsoft.com/windowshpc/2017/03/17/azure-batch-vnet-and-custom-image-support-for-virtual-machine-pools/) for features of the user subscription mode.
 
 ### Batch service mode
 
