@@ -60,16 +60,10 @@ Create a public IP address with the [New-AzureRmPublicIpAddress](https://docs.mi
 $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location westeurope -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name myPublicIPAddress
 ```
 
-Get the subnet that you previously created with the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v3.6.0/get-azurermvirtualnetworksubnetconfig) command.
-
-```powershell
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -VirtualNetwork $vnet
-```
-
 Create a network interface card with the [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermnetworkinterface) command.
 
 ```powershell
-$nic = New-AzureRmNetworkInterface -ResourceGroupName myResourceGroup -Location westeurope -Name myNic -Subnet $subnet -PublicIpAddress $pip
+$nic = New-AzureRmNetworkInterface -ResourceGroupName myResourceGroup -Location westeurope -Name myNic -SubnetId $vnet.Subnets[0].Id -PublicIpAddress $pip
 ```
 
 ### Create the virtual machine
