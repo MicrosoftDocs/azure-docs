@@ -32,7 +32,7 @@ The ability to bring the output of Azure log integration in to the SIEM is provi
 At a minimum the installation of Azlog requires the following items:
 * An Azure subscription. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
 * A storage account that can be used for Windows Azure diagnostic logging (you can use a pre-configured storage account, or create a new one – will we demonstrate how to configure the storage account later in this article)
-* Two systems: a machine that will run the Azure Log Integration service, and a machine that will be monitored and have its logging information sent to the AzLog service machine.
+* Two systems: a machine that will run the Azure Log Integration service, and a machine that will be monitored and have its logging information sent to the Azlog service machine.
    * A machine you want to monitor – this is a VM running as an [Azure Virtual Machine](../virtual-machines/virtual-machines-windows-overview.md)
    * A machine that will run the Azure log integration service; this machine will collect all the log information that will later be imported into your SIEM.
     * This system can be on-premises or in Microsoft Azure.  
@@ -71,16 +71,16 @@ The Azure log integration service collects telemetry data from the machine on wh
 ## Post installation and validation steps
 Once that you have completed the basic setup routine you need to perform some configuration steps:
 1. Open an elevated PowerShell window and navigate to **c:\Program Files\Microsoft Azure Log Integration**
-2. The first step you need to take is to get the Azlog Cmdlets imported. You can do that by running the script **LoadAzLogModule.ps1** (notice the “.\” ): type **.\LoadAzLogModule.ps1** and press ENTER.  
+2. The first step you need to take is to get the Azlog Cmdlets imported. You can do that by running the script **LoadAzlogModule.ps1** (notice the “.\” ): type **.\LoadAzlogModule.ps1** and press ENTER.  
 You should see something like what appears in the figure below. </br></br>
 ![Installation Screen with telemetry box checked](./media/security-azure-log-integration-get-started/loaded-modules.png) </br></br>
-3. Now you need to configure AZLog to use a specific Azure environment. An “Azure environment” is the “type” of Azure cloud data center you want to work with. While there are several Azure environments at this time, the currently relevant options are either AzureCloud or AzureUSGovernment.   In your elevated powershell environment make sure that you are in **c:\program files\Microsoft Azure Log Integration\** </br></br>
+3. Now you need to configure Azlog to use a specific Azure environment. An “Azure environment” is the “type” of Azure cloud data center you want to work with. While there are several Azure environments at this time, the currently relevant options are either AzureCloud or AzureUSGovernment.   In your elevated powershell environment make sure that you are in **c:\program files\Microsoft Azure Log Integration\** </br></br>
     Once there run the command: </br>
-    ``Set-AZLogAzureEnvironment -Name AzureCloud`` (for Azure commercial)
+    ``Set-AzlogAzureEnvironment -Name AzureCloud`` (for Azure commercial)
 
       >[!NOTE]
       When the command succeeds, you will not receive any feedback to this effect.  If you want to use the US Government Azure cloud, you would use AzureUSGovernment for the USA government cloud.  
-4. Azure Windows Diagnostics needs to be configured on the monitored system. Move over to the monitored machine and confirm this by looking at the properties of the virtual machine in the Azure portal and choosing **Diagnostic Settings**.  By default only boot diagnostics is configured. You will need to specify the storage account that you will be using for Windows Event Log storage and then choose **Windows Event Security** Logs and change the level of logging to All.
+4. Azure Windows Diagnostics needs to be configured on the monitored system. Move over to the monitored machine and confirm this by looking at the properties of the virtual machine in the Azure portal and choosing **Diagnostic Settings**.  By default only boot diagnostics is configured. You will need to specify the storage account that you will be using for Windows Event Log storage and then choose **Windows Event Security** Logs and change the level of logging to **All**.
 
   >[!NOTE]
   You should make note of the storage account name. You will need it in later steps. </br></br>
@@ -120,9 +120,9 @@ To obtain your storage account key. You can follow the steps below:
    ![two access keys](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
  7. Then, on the server that you installed Azure Log Integration open an elevated command prompt (note that we’re using an elevated command prompt window here, not an elevated PowerShell console).
  8. Navigate to **c:\Program Files\Microsoft Azure Log Integration**
- 9. Run ``azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey> `` </br> For example ``azlog source add azlogtest WAD azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==``
+ 9. Run ``Azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey> `` </br> For example ``Azlog source add Azlogtest WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==``
 If you would like the subscription id to show up in the event XML, append the subscription ID to the friendly name:
-``azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`` or for example, ``azlog source add azlogtest.YourSubscriptionID WAD azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==``
+``Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`` or for example, ``Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==``
 
 >[!NOTE]  
 Wait up to 60 minutes, then view the events that are pulled from the storage account. To view, open **Event Viewer > Windows Logs > Forwarded Events** on the Azlog Integrator.
@@ -131,15 +131,15 @@ Wait up to 60 minutes, then view the events that are pulled from the storage acc
 If after an hour data is not showing up in the **Forwarded Events** folder, then:
 
 1. Check the machine and confirm that it can access Azure. To test connectivity, try to open the [Azure portal](http://portal.azure.com) from the browser.
-2. Make sure the user account **azlog** has write permission on the folder **users\azlog**.
+2. Make sure the user account **Azlog** has write permission on the folder **users\Azlog**.
   <ol type="a">
    <li>Open explorer </li>
   <li> navigate to **c:\users** </li>
-  <li> Right click on **c:\users\azlog** </li>
+  <li> Right click on **c:\users\Azlog** </li>
   <li> Click on **security**  </li>
-  <li> Click on **NT Service\AZLog** and check the permissions for the account. If the account is missing from this tab or if the appropriate permissions are not currently showing you can grant the account rights in this tab.</li>
+  <li> Click on **NT Service\Azlog** and check the permissions for the account. If the account is missing from this tab or if the appropriate permissions are not currently showing you can grant the account rights in this tab.</li>
   </ol>
-3. Make sure the storage account added in the command **azlog source add** is listed when you run the command **azlog source list**.
+3. Make sure the storage account added in the command **Azlog source add** is listed when you run the command **Azlog source list**.
 4. Go to **Event Viewer > Windows Logs > Application** to see if there are any errors reported from the Azure log integration.
 
 If you run into any issues during the installation and configuration, Please open a [support request](../azure-supportability/how-to-create-azure-support-request.md), select 'Log Integration' as the service for which you are requesting support.
