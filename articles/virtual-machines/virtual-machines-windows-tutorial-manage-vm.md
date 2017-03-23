@@ -214,7 +214,7 @@ Azure virtual machine extensions are used to automate virtual machine configurat
 
 ### Install software
 
-Use the [Set-AzureRmVMCustomScriptExtension](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmcustomscriptextension) command to install the custom script extension. 
+Use the [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmextension) command to install the custom script extension. 
 
 In this case, a simple script is embedded in the extension configuration. The extension runs `powershell Add-WindowsFeature Web-Server` to install the IIS webserver.
 
