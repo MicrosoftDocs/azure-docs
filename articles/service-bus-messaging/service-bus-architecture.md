@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 03/22/2017
 ms.author: sethm
 
 ---
@@ -49,6 +49,8 @@ When the relay connection is established, the clients can exchange messages via 
 Now that you've read an overview of Service Bus architecture, visit the following links for more information:
 
 * [Service Bus messaging overview](service-bus-messaging-overview.md)
+* [Azure Relay overview](../service-bus-relay/relay-what-is-it.md)
 * [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 * [A queued messaging solution using Service Bus queues](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
+
 
