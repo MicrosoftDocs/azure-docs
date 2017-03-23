@@ -188,16 +188,15 @@ processes, and integrate cloud apps and cloud services - all without code.
 
 ## Manage your logic app
 
-To check, update, turn off, or delete your logic app, 
-follow these steps.
+To manage your app, you can perform tasks like check the status, 
+edit, view history, turn off, or delete your logic app.
 
 1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal").
 
 2. On the left menu, choose **More services**. Under **Enterprise Integration**, 
 choose **Logic Apps**. Select your logic app. 
 
-	Here's a sample of management tasks 
-	that you can perform on your logic app.
+	In the logic app menu, you can find these logic app management tasks:
 
 	| Task | Steps |
 	| --- | --- |
