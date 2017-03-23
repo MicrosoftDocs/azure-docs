@@ -20,18 +20,18 @@ ms.author: jdial
 ---
 # Azure Virtual Network
 
-The Azure Virtual Network service enables you to securely connect Azure resources to each other with virtual networks (VNets). A VNet is a representation of your own network in the cloud. It is a logical isolation of the Azure cloud dedicated to your subscription. You can also connect VNets to your on-premises network. The following picture shows some of the capabilities of the Azure Virtual Network service:
+The Azure Virtual Network service enables you to securely connect Azure resources to each other with virtual networks (VNets). A VNet is a representation of your own network in the cloud. A VNet is a logical isolation of the Azure cloud dedicated to your subscription. You can also connect VNets to your on-premises network. The following picture shows some of the capabilities of the Azure Virtual Network service:
 
 ![Network diagram](./media/virtual-networks-overview/virtual-network-overview.png)
 
-Click any of the following Azure Virtual Network capabilities to learn more about it:
-- **[Isolation:](#isolation)** VNets are completely isolated from one another. You can create separate VNets for development, testing, and production that use the same CIDR address blocks. Conversely, you can create multiple VNets that use different CIDR address blocks and connect networks together. You can segment a VNet into multiple subnets. Azure provides internal name resolution for VMs and Cloud Services role instances connected to a VNet. You have the option to configure a VNet to use your own DNS servers, instead of using Azure internal name resolution.
+To learn more about the following Azure Virtual Network capabilities, click the capability:
+- **[Isolation:](#isolation)** VNets are isolated from one another. You can create separate VNets for development, testing, and production that use the same CIDR address blocks. Conversely, you can create multiple VNets that use different CIDR address blocks and connect networks together. You can segment a VNet into multiple subnets. Azure provides internal name resolution for VMs and Cloud Services role instances connected to a VNet. You can optionally configure a VNet to use your own DNS servers, instead of using Azure internal name resolution.
 - **[Internet connectivity:](#internet)** All Azure Virtual Machines (VM) and Cloud Services role instances connected to a VNet have access to the Internet, by default. You can also enable inbound access to specific resources, as needed.
 - **[Azure resource connectivity:](#within-vnet)** Azure resources such as Cloud Services and VMs can be connected to the same VNet. The resources can connect to each other using private IP addresses, even if they are in different subnets. Azure provides default routing between subnets, VNets, and on-premises networks, so you don't have to configure and manage routes.
 - **[VNet connectivity:](#connect-vnets)** VNets can be connected to each other, enabling resources connected to any VNet to communicate with any resource on any other VNet.
 - **[On-premises connectivity:](#connect-on-premises)** VNets can be connected to on-premises networks through private network connections between your network and Azure, or through a site-to-site VPN connection over the Internet.
 - **[Traffic filtering:](#filtering)** VM and Cloud Services role instances network traffic can be filtered inbound and outbound by source IP address and port, destination IP address and port, and protocol.
-- **[Routing:](#routing)** You have the option to override Azure's default routing by configuring your own routes, or using BGP routes through a network gateway.
+- **[Routing:](#routing)** You can optionally override Azure's default routing by configuring your own routes, or using BGP routes through a network gateway.
 
 ## <a name = "isolation"></a>Network isolation and segmentation
 
