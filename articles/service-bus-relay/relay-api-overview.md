@@ -43,3 +43,8 @@ The following is a listing of all currently available Relay management-specific 
 | Language/Platform | Management package | Repository |
 | --- | --- | --- |
 | .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Relay) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/ResourceManagement/Relay) |
+
+## Next steps
+To learn more about Azure Relay, visit these links:
+* [What is Azure Relay?](relay-what-is-it.md)
+* [Relay FAQ](relay-faq.md)
