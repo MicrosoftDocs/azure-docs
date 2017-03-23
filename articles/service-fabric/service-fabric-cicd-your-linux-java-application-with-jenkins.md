@@ -104,9 +104,9 @@ Now when you run ``docker info`` in the terminal, you should see in the output t
       docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
       ```
 
-   > [!NOTE]
-   > Ensure that the cluster or machine where the Jenkins container image is hosted has a public-facing IP. This enables the Jenkins instance to receive notifications from GitHub.
-   >
+    > [!NOTE]
+    > Ensure that the cluster or machine where the Jenkins container image is hosted has a public-facing IP. This enables the Jenkins instance to receive notifications from GitHub.
+    >
 
 ## Install the Service Fabric Jenkins plug-in from the portal
 
@@ -143,9 +143,9 @@ Here, you can upload a plug-in. Select **Choose file**, and then select the **se
 
     ![Service Fabric Jenkins Build action][post-build-step]
 
- > [!NOTE]
- > The cluster here could be same as the one hosting the Jenkins container application, in case you are using Service Fabric to deploy the Jenkins container image.
- >
+   > [!NOTE]
+   > The cluster here could be same as the one hosting the Jenkins container application, in case you are using Service Fabric to deploy the Jenkins container image.
+   >
 
 ## Next steps
 GitHub and Jenkins are now configured. Consider making some sample change in your ``MyActor`` project in the repository example, https://github.com/sayantancs/SFJenkins. Push your changes to a remote ``master`` branch (or any branch that you have configured to work with). This triggers the Jenkins job, ``MyJob``, that you configured. It fetches the changes from GitHub, builds them, and deploys the application to the cluster endpoint you specified in post-build actions.  
