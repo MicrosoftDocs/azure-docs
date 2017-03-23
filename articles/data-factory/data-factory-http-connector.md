@@ -31,7 +31,7 @@ You can create a pipeline with a copy activity that moves data from an HTTP sour
 
 - The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-- You can also use the following tools to create a pipeline and define Data Factory entities in JSON format: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. For JSON samples to copy data from HTTP source to Azure Blob Storage, see [JSON examples](#sample-copy-data-from-http-source-to-azure-blob-storage) section of this articles.
+- You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. For JSON samples to copy data from HTTP source to Azure Blob Storage, see [JSON examples](#json-examples) section of this articles.
 
 ## HTTP linked service properties
 The following table provides description for JSON elements specific to HTTP linked service.
@@ -43,7 +43,7 @@ The following table provides description for JSON elements specific to HTTP link
 | authenticationType | Specifies the authentication type. Allowed values are: **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Refer to sections below this table on more properties and JSON samples for those authentication types respectively. | Yes |
 | enableServerCertificateValidation | Specify whether to enable server SSL certificate validation if source is HTTPS Web Server | No, default is true |
 | gatewayName | Name of the Data Management Gateway to connect to an on-premises HTTP source. | Yes if copying data from an on-premises HTTP source. |
-| encryptedCredential | Encrypted credential to access the SFTP server. Auto-generated when you configure the authentication information in copy wizard or the ClickOnce popup dialog. | No. Apply only when copying data from an on-premises HTTP server. |
+| encryptedCredential | Encrypted credential to access the HTTP endpoint. Auto-generated when you configure the authentication information in copy wizard or the ClickOnce popup dialog. | No. Apply only when copying data from an on-premises HTTP server. |
 
 See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for on-premises HTTP connector data source.
 
@@ -207,7 +207,10 @@ Currently, when the source in copy activity is of type **Http**, the following p
 | -------- | ----------- | -------- |
 | httpRequestTimeout | The timeout (TimeSpan) for the HTTP request to get a response. It is the timeout to get a response, not the timeout to read response data. | No. Default value: 00:01:40 |
 
-## Sample: Copy data from HTTP source to Azure Blob Storage
+## JSON examples
+The following example provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from HTTP source to Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities#supported-data-stores-and-formats.md) using the Copy Activity in Azure Data Factory.
+
+### Example: Copy data from HTTP source to Azure Blob Storage
 The Data Factory solution for this sample contains the following Data Factory entities:
 
 1. A linked service of type [HTTP](#http-linked-service-properties).
@@ -217,7 +220,6 @@ The Data Factory solution for this sample contains the following Data Factory en
 5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [HttpSource](#httpsource-in-copy-activity) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 The sample copies data from an HTTP source to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples.
-
 
 ### HTTP linked service
 This example uses the HTTP linked service with anonymous authentication. See [HTTP linked service](#http-linked-service-properties) section for different types of authentication you can use.
