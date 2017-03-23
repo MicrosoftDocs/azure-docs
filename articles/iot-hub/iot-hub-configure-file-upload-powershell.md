@@ -55,7 +55,7 @@ Sign in to your Azure account and select your subscription.
 
 ## Retrieve your storage account details
 
-The following steps assume that you created your storage account using the **Resource manager** deployment model, and not the **Classic** deployment model.
+The following steps assume that you created your storage account using the **Resource Manager** deployment model, and not the **Classic** deployment model.
 
 You need the connection string of an Azure storage account in the same subscription as your IoT hub to configure file uploads from your devices. You also need the name of a blob container in the storage account. Use the following command to retrieve your storage account keys:
 
