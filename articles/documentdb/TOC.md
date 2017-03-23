@@ -1,24 +1,37 @@
 
 # Overview
-## [What is DocumentDB?](documentdb-introduction.md)
-## [What is DocumentDB: API for MongoDB?](documentdb-protocol-mongodb.md)
-## [Core concepts](documentdb-resources.md)
-## [Global distribution](documentdb-distribute-data-globally.md)
-## [Security](documentdb-nosql-database-security.md)
-## [NoSQL TCO analysis](https://aka.ms/documentdb-tco-paper)
-## Scenarios
-### [Common use cases](documentdb-use-cases.md)
-### [Going social with DocumentDB](documentdb-social-media-apps.md)
+## [What is Stellar?](documentdb-introduction.md)
+## [What is Stellar: API for MongoDB?](documentdb-protocol-mongodb.md)
+## [What are Stellar tables?](stellar-table-introduction.md)
+## [What are Stellar graph databases?](stellar-graph-introduction.md)
 
-# Get Started
-## Write your first app
+# Quickstarts
+## [Create DB - Portal](documentdb-create-account.md)
+
+# Samples
+## [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+## [Azure CLI 1.0: Create an account](documentdb-automation-resource-manager-cli-nodejs.md)
+## [Azure CLI 1.0: Add or remove regions](documentdb-automation-region-management.md)
+## [Azure PowerShell](documentdb-manage-account-with-powershell.md)
+## [.NET samples](documentdb-dotnet-samples.md)
+## [Node.js samples](documentdb-nodejs-samples.md)
+## [Python samples](documentdb-python-samples.md)
+## [SQL syntax](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+## [SQL grammar cheat sheet](documentdb-sql-query-cheat-sheet.md)
+
+# Tutorials
+## Write your first document database app 
 ### [.NET console app](documentdb-get-started.md)
 ### [.NET Core console app](documentdb-dotnetcore-get-started.md)
 ### [Java console app](documentdb-java-get-started.md)
 ### [Node.js console app](documentdb-nodejs-get-started.md)
 ### [Node.js console app for MongoDB API](documentdb-mongodb-samples.md)
 ### [C++ console app](documentdb-cpp-get-started.md)
-## Build a web app
+## Write your first key/value table app
+### [.NET console app](stellar-tables-get-started.md)
+## Write your first graph database app
+### [.NET console app](stellar-graph-get-started.md)
+## Build a document database web app
 ### [.NET web app](documentdb-dotnet-application.md)
 ### [.NET web app for MongoDB API](documentdb-mongodb-application.md)
 ### [Node.js web app](documentdb-nodejs-application.md)
@@ -28,7 +41,16 @@
 ### [Export Emulator Certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 ## [FAQ](documentdb-faq.md)
 
-# How To
+# Concepts
+## [Core concepts](documentdb-resources.md)
+## [Global distribution](documentdb-distribute-data-globally.md)
+## [Security](documentdb-nosql-database-security.md)
+## [NoSQL TCO analysis](https://aka.ms/documentdb-tco-paper)
+## Scenarios
+### [Common use cases](documentdb-use-cases.md)
+### [Going social with Stellar](documentdb-social-media-apps.md)
+
+# How To Guides
 
 ## Plan
 ### [Partitioning and scaling](documentdb-partition-data.md)
@@ -96,7 +118,6 @@
 ### [Visualize your data with Power BI](documentdb-powerbi-visualize.md)
 ### [Leverage the ODBC driver for data visualization](documentdb-nosql-odbc-driver.md)
 
-
 # Reference
 ## [Java](documentdb-sdk-java.md)
 ## [.NET](documentdb-sdk-dotnet.md)
@@ -106,16 +127,9 @@
 ## [REST](/rest/api/documentdb/)
 ## [REST Resource Provider](/rest/api/documentdbresourceprovider/)
 
-# Related
-## [.NET samples](documentdb-dotnet-samples.md)
-## [Node.js samples](documentdb-nodejs-samples.md)
-## [Python samples](documentdb-python-samples.md)
-## [SQL Syntax](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-## [SQL grammar cheat sheet](documentdb-sql-query-cheat-sheet.md)
-
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/documentdb/)
-## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
+## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureStellar)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=documentdb)
 ## [Service updates](https://azure.microsoft.com/updates/?product=documentdb)
