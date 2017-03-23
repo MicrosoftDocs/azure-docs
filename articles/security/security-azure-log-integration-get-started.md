@@ -122,7 +122,7 @@ If after an hour data is not showing up in the **Forwarded Events** folder, then
   <li> navigate to c:\users </li>
   <li> Right click on c:\users\azlog </li>
   <li> Click on security  </li>
-  <li> Click on 'NT Service\AZLog' And check the permissions for the account. If the account is missing from this tab or if the appropriate permissions are not currently showing you can grant the account rights in this tab.</li>
+  <li> Click on 'NT Service\AZLog' and check the permissions for the account. If the account is missing from this tab or if the appropriate permissions are not currently showing you can grant the account rights in this tab.</li>
   </ol>
 3. Make sure the storage account added in the command **azlog source add** is listed when you run the command **azlog source list**.
 4. Go to **Event Viewer > Windows Logs > Application** to see if there are any errors reported from the Azure log integration.
@@ -132,7 +132,7 @@ If you still don’t see the events, then:
 ## Next steps
 To learn more about Azure Log Integration, see the following documents:
 
-* [Microsoft Azure Log Integration for Azure logs (Preview)](https://www.microsoft.com/download/details.aspx?id=53324) – Download Center for details, system requirements, and install instructions on Azure log integration.
+* [Microsoft Azure Log Integration for Azure logs](https://www.microsoft.com/download/details.aspx?id=53324) – Download Center for details, system requirements, and install instructions on Azure log integration.
 * [Introduction to Azure log integration](security-azure-log-integration-overview.md) – This document introduces you to Azure log integration, its key capabilities, and how it works.
 * [Partner configuration steps](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) – This blog post shows you how to configure Azure log integration to work with partner solutions Splunk, HP ArcSight, and IBM QRadar.
 * [Azure log Integration frequently asked questions (FAQ)](security-azure-log-integration-faq.md) - This FAQ answers questions about Azure log integration.
