@@ -49,7 +49,7 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
 	Enter the commands that follow to create:
 
 	- A public IP address resource with a static public IP address
-	- An IP configuration with the public IP address resource and a dynamic private IP address
+	- An IP configuration with the public IP address resource and a static private IP address
 
 	```bash
 	azure network public-ip create \
@@ -67,6 +67,7 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
 	azure network nic create \
 	--resource-group myResourceGroup \
 	--location westcentralus \
+	--private-ip-address 10.0.0.5
 	--subnet-vnet-name myVnet \
 	--subnet-name mySubnet \
 	--name myNic1 \
@@ -89,18 +90,19 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
 	--resource-group myResourceGroup \
 	--nic-name myNic1 \
 	--name IPConfig-2 \
-	--private-ip-address 10.0.0.5 \
+	--private-ip-address 10.0.0.6 \
 	--public-ip-name myPublicIP2
 	```
 
 	**IPConfig-3**
 
-	Enter the following commands to create an IP configuration with a dynamic private IP address and no public IP address:
+	Enter the following commands to create an IP configuration with a static private IP address and no public IP address:
 
 	```bash
 	azure network nic ip-config create \
 	--resource-group myResourceGroup \
 	--nic-name myNic1 \
+	--private-ip-address 10.0.0.7 \
 	--name IPConfig-3
 	```
 
@@ -135,13 +137,13 @@ You can add additional private and public IP addresses to an existing NIC by com
 
 	- **Add a private IP address**
 	
-		To add a private IP address to a NIC, you must create an IP configuration using the command below.  If you want to add a dynamic private IP address, remove `-PrivateIpAddress 10.0.0.7` before entering the command. When specifying a static IP address, it must be an unused address for the subnet.
+		To add a private IP address to a NIC, you must create an IP configuration using the command below. The static address must be an unused address for the subnet.
 
 		```bash
 		azure network nic ip-config create \
 		--resource-group myResourceGroup \
 		--nic-name myNic1 \
-		--private-ip-address 10.0.0.7 \
+		--private-ip-address 10.0.0.8 \
 		--name IPConfig-4
 		```
 		Create as many configurations as you require, using unique configuration names and private IP addresses (for configurations with static IP addresses).
@@ -166,13 +168,14 @@ You can add additional private and public IP addresses to an existing NIC by com
 			--domain-name-label mypublicdns3
 			```
 
- 			To create a new IP configuration with a dynamic private IP address and the associated *myPublicIP3* public IP address resource, enter the following command:
+ 			To create a new IP configuration with a static private IP address and the associated *myPublicIP3* public IP address resource, enter the following command:
 
 			```bash
 			azure network nic ip-config create \
 			--resource-group myResourceGroup \
 			--nic-name myNic \
 			--name IPConfig-4 \
+			--private-ip-address 10.0.0.9 \
 			--public-ip-name myPublicIP3
 			```
 
@@ -188,11 +191,11 @@ You can add additional private and public IP addresses to an existing NIC by com
 
 			Look for a line similar to the one that follows for IPConfig-3 in the returned output: <br>
 			
-				Name               Provisioning state  Primary  Private IP allocation  Private IP version  Private IP address  Subnet    Public IP
+				Name               Provisioning state  Primary  Private IP allocation Private IP version  Private IP address  Subnet    Public IP
 			
-				default-ip-config  Succeeded           true     Dynamic                IPv4                10.0.0.4            mySubnet  myPublicIP
-				IPConfig-2         Succeeded           false    Static                 IPv4                10.0.0.5            mySubnet  myPublicIP2
-				IPConfig-3         Succeeded           false    Dynamic                IPv4                10.0.0.6            mySubnet
+				default-ip-config  Succeeded           true     Static                IPv4                10.0.0.5            mySubnet  myPublicIP
+				IPConfig-2         Succeeded           false    Static                IPv4                10.0.0.6            mySubnet  myPublicIP2
+				IPConfig-3         Succeeded           false    Static                IPv4                10.0.0.7            mySubnet
 
 			Since the **Public IP** column for *IpConfig-3* is blank, no public IP address resource is currently associated to it. You can add an existing public IP address resource to IpConfig-3, or enter the following command to create one:
 
@@ -225,11 +228,11 @@ You can add additional private and public IP addresses to an existing NIC by com
 
 	The returned output is similar to the following: <br>
 
-		Name               Provisioning state  Primary  Private IP allocation  Private IP version  Private IP address  Subnet    Public IP
+		Name               Provisioning state  Primary  Private IP allocation Private IP version  Private IP address  Subnet    Public IP
 		
-		default-ip-config  Succeeded           true     Dynamic                IPv4                10.0.0.4            mySubnet  myPublicIP
-		IPConfig-2         Succeeded           false    Static                 IPv4                10.0.0.5            mySubnet  myPublicIP2
-		IPConfig-3         Succeeded           false    Dynamic                IPv4                10.0.0.6            mySubnet  myPublicIP3
+		default-ip-config  Succeeded           true     Static                IPv4                10.0.0.4            mySubnet  myPublicIP
+		IPConfig-2         Succeeded           false    Static                IPv4                10.0.0.5            mySubnet  myPublicIP2
+		IPConfig-3         Succeeded           false    Static                IPv4                10.0.0.6            mySubnet  myPublicIP3
 
 4. Add the private IP addresses you added to the NIC to the VM operating system by following the instructions in the [Add IP addresses to a VM operating system](#os-config) section of this article. Do not add the public IP addresses to the operating system.
 

@@ -75,7 +75,7 @@ az network vnet create \
 --subnet-prefix $VnetSubnetPrefix
 
 # Create a network interface connected to the subnet and associate the public IP address to it. Azure will create the
-# first IP configuration with a dynamic private IP address and will associate the public IP address resource to it.
+# first IP configuration with a static private IP address and will associate the public IP address resource to it.
 
 NicName="MyNic1"
 az network nic create \
@@ -83,6 +83,7 @@ az network nic create \
 --resource-group $RgName \
 --location $Location \
 --subnet $VnetSubnet1Name \
+--private-ip-address 10.0.0.5
 --vnet-name $VnetName \
 --public-ip-address $PipName
 
@@ -100,15 +101,16 @@ az network nic ip-config create \
 --resource-group $RgName \
 --nic-name $NicName \
 --name IPConfig-2 \
---private-ip-address 10.0.0.5 \
+--private-ip-address 10.0.0.6 \
 --public-ip-name myPublicIP2
 
-# Create a third IP configuration, and associate it to the NIC. This configuration has a dynamic private IP address and
+# Create a third IP configuration, and associate it to the NIC. This configuration has a static private IP address and
 # no public IP address.
 
 azure network nic ip-config create \
 --resource-group $RgName \
 --nic-name $NicName \
+--private-ip-address 10.0.0.7 \
 --name IPConfig-3
 
 # Note: Though this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations
@@ -170,13 +172,13 @@ You can add additional private and public IP addresses to an existing NIC by com
 
 	**Add a private IP address**
 	
-	To add a private IP address to a NIC, you must create an IP configuration using the command that follows. If you want to add a dynamic private IP address, remove `-PrivateIpAddress 10.0.0.7` before entering the command. When specifying a static IP address, it must be an unused address for the subnet.
+	To add a private IP address to a NIC, you must create an IP configuration using the command that follows. The static IP address must be an unused address for the subnet.
 
 	```bash
 	az network nic ip-config create \
 	--resource-group myResourceGroup \
 	--nic-name myNic1 \
-	--private-ip-address 10.0.0.7 \
+	--private-ip-address 10.0.0.8 \
 	--name IPConfig-4
 	```
 	
@@ -200,13 +202,14 @@ You can add additional private and public IP addresses to an existing NIC by com
 		--dns-name mypublicdns3
 		```
 
- 		To create a new IP configuration with a dynamic private IP address and the associated *myPublicIP3* public IP address resource, enter the following command:
+ 		To create a new IP configuration with a static private IP address and the associated *myPublicIP3* public IP address resource, enter the following command:
 
 		```bash
 		az network nic ip-config create \
 		--resource-group myResourceGroup \
 		--nic-name myNic1 \
 		--name IPConfig-5 \
+		--private-ip-address 10.0.0.9
 		--public-ip-address myPublicIP3
 		```
 
@@ -260,11 +263,11 @@ You can add additional private and public IP addresses to an existing NIC by com
 
 	Returned output: <br>
 	
-		Name        PrivateIpAddress    PrivateIpAllocationMethod    PublicIpAddressId
+		Name        PrivateIpAddress    PrivateIpAllocationMethod   PublicIpAddressId
 		
-		ipconfig1   10.0.0.4            Dynamic                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP1
-		IPConfig-2  10.0.0.5            Static                       /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
-		IPConfig-3  10.0.0.6            Dynamic                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP3
+		ipconfig1   10.0.0.4            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP1
+		IPConfig-2  10.0.0.5            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
+		IPConfig-3  10.0.0.6            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP3
 	
 
 4. Add the private IP addresses you added to the NIC to the VM operating system by following the instructions in the [Add IP addresses to a VM operating system](#os-config) section of this article. Do not add the public IP addresses to the operating system.
