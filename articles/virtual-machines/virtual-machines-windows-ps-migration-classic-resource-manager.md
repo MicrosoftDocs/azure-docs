@@ -130,7 +130,7 @@ Get-AzureRmVMUsage -Location "West US"
 > 
 > 
 
-### Migrate virtual machines in a cloud service (not in a virtual network)
+## Step 6.1 Migrate virtual machines in a cloud service (not in a virtual network)
 Get the list of cloud services by using the following command, and then pick the cloud service that you want to migrate. If the VMs in the cloud service are in a virtual network or if they have web or worker roles, the command returns an error message.
 
 ```powershell
@@ -211,7 +211,7 @@ If the prepared configuration looks good, you can move forward and commit the re
     Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 
-### Migrate virtual machines in a virtual network
+## Step 6.2 Migrate virtual machines in a virtual network
 To migrate virtual machines in a virtual network, you migrate the virtual network. The virtual machines automatically migrate with the virtual network. Pick the virtual network that you want to migrate. 
 > [!NOTE]
 > [Migrate single classic virtual machine](./virtual-machines-windows-migrate-single-classic-to-resource-manager.md) by creating a new Resource Manager virtual machine with Managed Disks using the VHD (OS and data) files of the virtual machine. 
@@ -251,7 +251,7 @@ If the prepared configuration looks good, you can move forward and commit the re
     Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
-### Migrate a storage account
+## Step 6.3 Migrate a storage account
 Once you're done migrating the virtual machines, we recommend you migrate the storage accounts.
 
 Before you migrate the storage account, please perform preceding prerequisite checks:
