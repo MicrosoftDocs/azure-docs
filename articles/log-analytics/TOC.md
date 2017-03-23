@@ -86,7 +86,6 @@
 ## [REST](/rest/api/loganalytics)
 
 # Resources
-## [Update Compliance](https://technet.microsoft.com/itpro/windows/manage/update-compliance-get-started)
-## [Upgrade Readiness](https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started)
+## [Windows Analytics](https://www.microsoft.com/WindowsForBusiness/windows-analytics)
 ## [Pricing](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=log-analytics)
