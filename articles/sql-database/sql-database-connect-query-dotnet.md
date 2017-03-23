@@ -26,7 +26,7 @@ This quick start uses as its starting point the resources created in one of thes
 
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
-- [Create DB - PowerShell](sql-database-get-started-powershell.md) 
+- [Create DB - PowerShell](sql-database-get-started-powershell.md)
 
 Before you start, make sure you have configured your development environment for C#. See [Install Visual Studio Community for free](https://www.visualstudio.com/) or install the [ADO.NET driver for SQL Server](https://www.microsoft.com/net/download).
 
@@ -50,30 +50,30 @@ Get the connection string in the Azure portal. You use the connection string to 
     string strConn = "<connection string>";
     using (var connection = new SqlConnection(strConn))
     {
-   connection.Open();
+       connection.Open();
 
-    SqlCommand selectCommand = new SqlCommand("", connection);
-    selectCommand.CommandType = CommandType.Text;
+       SqlCommand selectCommand = new SqlCommand("", connection);
+       selectCommand.CommandType = CommandType.Text;
 
-    selectCommand.CommandText = @"SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+       selectCommand.CommandText = @"SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
         FROM [SalesLT].[ProductCategory] pc
         JOIN [SalesLT].[Product] p
         ON pc.productcategoryid = p.productcategoryid";
 
-    SqlDataReader reader = selectCommand.ExecuteReader();
+       SqlDataReader reader = selectCommand.ExecuteReader();
 
-    while (reader.Read())
-    {
-        // show data
-        Console.WriteLine($"{reader.GetString(0)}\t{reader.GetString(1)}");
-    }
-    reader.Close();
+       while (reader.Read())
+       {
+          // show data
+          Console.WriteLine($"{reader.GetString(0)}\t{reader.GetString(1)}");
+       }
+       reader.Close();
     }
     ```
 
 ## Insert data
 
-Use [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transcat-SQL statement to insert data into your Azure SQL database.
+Use [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement to insert data into your Azure SQL database.
 
 ```csharp
 SqlCommand insertCommand = new SqlCommand("", connection);
@@ -95,19 +95,12 @@ VALUES
             @ListPrice,
             @SellStartDate)";
 
-insertCommand.Parameters.Add("@Name", SqlDbType.Text);
-insertCommand.Parameters.Add("@ProductNumber", SqlDbType.Int);
-insertCommand.Parameters.Add("@Color", SqlDbType.Text);
-insertCommand.Parameters.Add("@StandardCost", SqlDbType.Decimal);
-insertCommand.Parameters.Add("@ListPrice", SqlDbType.Decimal);
-insertCommand.Parameters.Add("@SellStartDate", SqlDbType.Date);
-
-insertCommand.Parameters["@Name"].Value = "BrandNewProduct";
-insertCommand.Parameters["@ProductNumber"].Value = 200989;
-insertCommand.Parameters["@Color"].Value = "Blue";
-insertCommand.Parameters["@StandardCost"].Value = 75;
-insertCommand.Parameters["@ListPrice"].Value = 80;
-insertCommand.Parameters["@SellStartDate"].Value = "3/15/2017";
+            insertCommand.Parameters.AddWithValue("@Name", "BrandNewProduct");
+            insertCommand.Parameters.AddWithValue("@ProductNumber", "200989");
+            insertCommand.Parameters.AddWithValue("@Color", "Blue");
+            insertCommand.Parameters.AddWithValue("@StandardCost", 75);
+            insertCommand.Parameters.AddWithValue("@ListPrice", 80);
+            insertCommand.Parameters.AddWithValue("@SellStartDate", "7/1/2016");
 
 int newrows = insertCommand.ExecuteNonQuery();
 Console.WriteLine($"Inserted {newrows.ToString()} row(s).");
@@ -121,10 +114,8 @@ Use [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.
 SqlCommand updateCommand = new SqlCommand("", connection);
 updateCommand.CommandType = CommandType.Text;
 updateCommand.CommandText = @"UPDATE SalesLT.Product SET ListPrice = @ListPrice WHERE Name = @Name";
-updateCommand.Parameters.Add("@Name", SqlDbType.Char);
-updateCommand.Parameters.Add("@ListPrice", SqlDbType.Decimal);
-updateCommand.Parameters["@ListPrice"].Value = 500;
-updateCommand.Parameters["@Name"].Value = "BrandNewProduct";
+updateCommand.Parameters.AddWithValue("@Name", "BrandNewProduct");
+updateCommand.Parameters.AddWithValue("@ListPrice", 500);
 
 int updatedrows = updateCommand.ExecuteNonQuery();
 Console.WriteLine($"Updated {updatedrows.ToString()} row(s).");
@@ -138,8 +129,7 @@ Use [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.
 SqlCommand deleteCommand = new SqlCommand("", connection);
 deleteCommand.CommandType = CommandType.Text;
 deleteCommand.CommandText = @"DELETE FROM SalesLT.Product WHERE Name = @Name";
-deleteCommand.Parameters.Add("@Name", SqlDbType.Char);
-deleteCommand.Parameters["@Name"].Value = "BrandNewProduct";
+deleteCommand.Parameters.AddWithValue("@Name", "BrandNewProduct");
 
 int deletedrows = deleteCommand.ExecuteNonQuery();
 Console.WriteLine($"Deleted {deletedrows.ToString()} row(s).");
@@ -210,19 +200,12 @@ namespace ConsoleApplication1
                             @ListPrice,
                             @SellStartDate)";
 
-                insertCommand.Parameters.Add("@Name", SqlDbType.Text);
-                insertCommand.Parameters.Add("@ProductNumber", SqlDbType.Int);
-                insertCommand.Parameters.Add("@Color", SqlDbType.Text);
-                insertCommand.Parameters.Add("@StandardCost", SqlDbType.Decimal);
-                insertCommand.Parameters.Add("@ListPrice", SqlDbType.Decimal);
-                insertCommand.Parameters.Add("@SellStartDate", SqlDbType.Date);
-
-                insertCommand.Parameters["@Name"].Value = "BrandNewProduct";
-                insertCommand.Parameters["@ProductNumber"].Value = 200989;
-                insertCommand.Parameters["@Color"].Value = "Blue";
-                insertCommand.Parameters["@StandardCost"].Value = 75;
-                insertCommand.Parameters["@ListPrice"].Value = 80;
-                insertCommand.Parameters["@SellStartDate"].Value = "7/1/2016";
+                insertCommand.Parameters.AddWithValue("@Name", "BrandNewProduct");
+                insertCommand.Parameters.AddWithValue("@ProductNumber", "200989");
+                insertCommand.Parameters.AddWithValue("@Color", "Blue");
+                insertCommand.Parameters.AddWithValue("@StandardCost", 75);
+                insertCommand.Parameters.AddWithValue("@ListPrice", 80);
+                insertCommand.Parameters.AddWithValue("@SellStartDate", "7/1/2016");
 
                 int newrows = insertCommand.ExecuteNonQuery();
                 Console.WriteLine($"Inserted {newrows.ToString()} row(s).");
@@ -234,10 +217,8 @@ namespace ConsoleApplication1
                 SqlCommand updateCommand = new SqlCommand("", connection);
                 updateCommand.CommandType = CommandType.Text;
                 updateCommand.CommandText = @"UPDATE SalesLT.Product SET ListPrice = @ListPrice WHERE Name = @Name";
-                updateCommand.Parameters.Add("@Name", SqlDbType.Char);
-                updateCommand.Parameters.Add("@ListPrice", SqlDbType.Decimal);
-                updateCommand.Parameters["@ListPrice"].Value = 500;
-                updateCommand.Parameters["@Name"].Value = "BrandNewProduct";
+                updateCommand.Parameters.AddWithValue("@Name", "BrandNewProduct");
+                updateCommand.Parameters.AddWithValue("@ListPrice", 500);
 
                 int updatedrows = updateCommand.ExecuteNonQuery();
                 Console.WriteLine($"Updated {updatedrows.ToString()} row(s).");
@@ -249,8 +230,7 @@ namespace ConsoleApplication1
                 SqlCommand deleteCommand = new SqlCommand("", connection);
                 deleteCommand.CommandType = CommandType.Text;
                 deleteCommand.CommandText = @"DELETE FROM SalesLT.Product WHERE Name = @Name";
-                deleteCommand.Parameters.Add("@Name", SqlDbType.Char);
-                deleteCommand.Parameters["@Name"].Value = "BrandNewProduct";
+                deleteCommand.Parameters.AddWithValue("@Name", "BrandNewProduct");
 
                 int deletedrows = deleteCommand.ExecuteNonQuery();
                 Console.WriteLine($"Deleted {deletedrows.ToString()} row(s).");
