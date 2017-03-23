@@ -1,6 +1,6 @@
 ### Troubleshoot Azure Diagnostics
 
-1. If you receive the following error message, the Microsoft.insights resource provider is not registered:
+If you receive the following error message, the Microsoft.insights resource provider is not registered:
 
 `Failed to update diagnostics for 'resource'. {"code":"Forbidden","message":"Please register the subscription 'subscription id' with Microsoft.Insights."}`
 
@@ -17,14 +17,8 @@ To register the resource provider, perform the following steps in the Azure port
 Once the *Microsoft.insights* resource provider is registered, retry configuring diagnostics.
 
 
-2. In PowerShell, if you receive an error message similar to the following, you need to update your version of PowerShell:
+In PowerShell, if you receive the following error message, you need to update your version of PowerShell:
 
-```
-Set-AzureRmDiagnosticSetting : A parameter cannot be found that matches parameter name 'WorkspaceId'.
-At line:1 char:254
-+ ... tomdomains/ec11ca60-1234-491e-5678-0ea07feae25c" -WorkspaceId "/subsc ...
-+                                                      ~~~~~~~~~~~~
-    + CategoryInfo          : InvalidArgument: (:) [Set-AzureRmDiagnosticSetting], ParameterBindingException
-+ FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.Azure.Commands.Insights.Diagnostics.SetAzureRmDiagnosticSettingCommand
-```
-Update your version of PowerShell to the November 2016 (v2.3.0) or later release of Azure PowerShell using the instructions in the [Get started with Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) article.
+`Set-AzureRmDiagnosticSetting : A parameter cannot be found that matches parameter name 'WorkspaceId'.`
+
+Update your version of PowerShell to the November 2016 (v2.3.0), or later, release using the instructions in the [Get started with Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) article.
