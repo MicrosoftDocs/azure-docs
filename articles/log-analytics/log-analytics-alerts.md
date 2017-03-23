@@ -1,6 +1,6 @@
 ---
-title: Creating alerts in OMS Log Analytics | Microsoft Docs
-description: Alerts in Log Analytics identify important information in your OMS repository and can proactively notify you of issues or invoke actions to attempt to correct them.  This article describes how to create an alert rule and details the different actions they can take.
+title: Understanding alerts in OMS Log Analytics | Microsoft Docs
+description: Alerts in Log Analytics identify important information in your OMS repository and can proactively notify you of issues or invoke actions to attempt to correct them.  This article describes the different kinds of alert rules and how they are defined.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 03/23/2017
 ms.author: bwren
 
 ---
@@ -24,8 +24,8 @@ Alerts in Log Analytics identify important information in your Log Analytics rep
 For the process of creating alert rules, see the following articles.
 
 - Create alert rules using [Azure portal](log-analytics-alerts-creating.md)
-- Create alert rules using [Resource Manager template]()
-- Create alert rules using [REST API]()
+- Create alert rules using [Resource Manager template](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)
+- Create alert rules using [REST API](log-analytics-api-alerts.md)
 
 
 ## Alert rules
