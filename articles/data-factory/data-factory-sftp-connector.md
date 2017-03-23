@@ -33,7 +33,7 @@ You can create a pipeline with a copy activity that moves data from an SFTP sour
 
 - You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. For JSON samples to copy data from SFTP server to Azure Blob Storage, see [JSON examples](#json-examples) section of this articles.
 
-## SFTP Linked Service properties
+## SFTP linked service properties
 The following table provides description for JSON elements specific to FTP linked service.
 
 | Property | Description | Required |
@@ -167,7 +167,7 @@ Whereas, the properties available in the typeProperties section of the activity 
 ## JSON examples
 The following example provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from SFTP source to Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
-## Sample: Copy data from SFTP server to Azure blob
+### Example: Copy data from SFTP server to Azure blob
 This sample shows how to copy data from an SFTP server to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.  
 
 The sample has the following data factory entities:
