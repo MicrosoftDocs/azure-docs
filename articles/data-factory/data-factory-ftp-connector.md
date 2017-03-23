@@ -27,12 +27,22 @@ If you are moving data from an **on-premises** FTP server to a cloud data store 
 
 You can install the gateway on the same on-premises machine or the Azure IaaS VM as the FTP server. However, we recommend that you install the gateway on a separate machine or a separate Azure IaaS VM to avoid resource contention and for better performance. When you install the gateway on a separate machine, the machine should be able to access the FTP server.
 
-## Copy data wizard
-The easiest way to create a pipeline that copies data from an FTP server is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
+## Getting started
+You can create a pipeline with a copy activity that moves data from an FTP source by using different tools/APIs.
 
-You can also use an [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) to create a pipeline. When using these tools, you define Data Factories entities in JSON format. For JSON samples to copy data to/from Azure Blob Storage, see [JSON example: Copy data from FTP server to Azure blob](#json-example-copy-data-from-ftp-server-to-azure-blob) section of this article.  
+- The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-Whether you use the wizard or tools or SDKs to create pipelines, you create linked services to link data stores or computes to your data factory. For example, to copy data from an Azure Blob Storage to an Azure SQL Database, you create two linked services - one to link the blob storage and the other one to link the SQL database to the data factory. Then, you define an input dataset by using the Azure Storage linked service and an output dataset by using the Azure SQL Database linked service. Then, you can create a pipeline with a copy activity that takes the input dataset as an input and output dataset as an output. When you use the wizard, the Data Factory entities (linked services, datasets, and pipeline) are automatically created for you by the wizard.
+- You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
+
+Whether you use the tools or APIs, you perform the following steps to create a simple pipeline that moves data from a source data store to a sink data store: 
+
+1. Create **linked services** to link input and output data stores to your data factory.
+2. Create **datasets** to represent input and output data for the copy operation. 
+3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output. 
+
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data from an FTP data store, see [JSON example: Copy data from FTP server to Azure blob](#json-example-copy-data-from-ftp-server-to-azure-blob) section of this article. 
+
+The following sections provide details about JSON properties that are used to define Data Factory entities specific to FTP:
 
 ## FTP Server linked service
 The following table provides description for JSON elements specific to FTP linked service.
