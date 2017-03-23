@@ -24,17 +24,14 @@ ms.author: janeng
 
 In this tutorial, you are going to learn how to
 
+* Create a database and a server-level firewall rule
+* Connect to an Azure SQL database using SQL Server Management Studio
 * Create a table in the database
 * Load data into the table 
+* Query the table 
 * Add an index to the table to optimize query performance
+* Drop the table 
 * Restore the database to a point in time 
-* Connect to and query the table 
-
-This tutorial uses as its starting point the resources created in one of these quick starts:
-
-- [Create DB - Portal](sql-database-get-started-portal.md)
-- [Create DB - CLI](sql-database-get-started-cli.md)
-- [Create DB - PowerShell](sql-database-get-started-powershell.md) 
 
 Before you start:
 
