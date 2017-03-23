@@ -63,7 +63,7 @@ Take the following steps to create an event hub:
 
 ![Shared access policy endpoints](./media/stream-analytics-twitter-sentiment-analysis-trends/keysandendpoints.png)
 
-2## Configure and start the Twitter client application
+## Configure and start the Twitter client application
 
 We have created a client application that connects to Twitter data via [Twitter's Streaming APIs](https://dev.twitter.com/streaming/overview) to collect Tweet events about a parameterized set of topics. The [Sentiment140](http://help.sentiment140.com/) open source tool assigns a sentiment value to each tweet as follows:
 
