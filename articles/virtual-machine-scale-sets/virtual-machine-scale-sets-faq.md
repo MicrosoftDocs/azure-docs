@@ -38,7 +38,7 @@ For metric names for autoscaling that uses host-based metrics, see [Supported me
 
 Yes. For examples of autoscaling based on an Azure Service Bus topic and queue length, see [Azure Monitor autoscaling common metrics](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/).
 
-For a Service Bus queue, use the following code:
+For a Service Bus queue, use the following JSON:
 
 ```json
 "metricName": "MessageCount",
@@ -46,7 +46,7 @@ For a Service Bus queue, use the following code:
 "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ServiceBus/namespaces/mySB/queues/myqueue"
 ```
 
-For a storage queue, use the following code:
+For a storage queue, use the following JSON:
 
 ```json
 "metricName": "ApproximateMessageCount",
@@ -92,7 +92,7 @@ To set up autoscale on a virtual machine scale set by using PowerShell, see the 
 
 To securely ship a certificate to the VM, you can install a customer certificate directly into a Windows certificate store from the customer's key vault.
 
-Use the following code:
+Use the following JSON:
 
 ```json
         "secrets": [ {
@@ -180,7 +180,7 @@ Include **osProfile** in your template:
 ```
  
 This JavaScript Object Notation (JSON) block is used in 
- [the azuredeploy.json GitHub quick start template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+ [the 101-vm-sshkey GitHub quick start template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
  
 The OS profile also is used in [the grelayhost.json GitHub quick start template](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
 
@@ -215,7 +215,7 @@ ssh | No | Collection | Specifies the SSH key configuration for a Linux OS
 path | Yes | String | Specifies the Linux file path where the SSH keys or certificate should be located
 keyData | Yes | String | Specifies a base64-encoded SSH public key
 
-For an example, see [the azuredeploy.json GitHub quick start template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+For an example, see [the 101-vm-sshkey GitHub quick start template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
  
 ### When I run `Update-AzureRmVmss` after adding more than one certificate from the same key vault, I see the following message:
@@ -244,7 +244,7 @@ You do not need to hard-code passwords in scripts. You can dynamically retrieve 
 
 A Windows Remote Management (WinRM) certificate reference must be present in the Secrets property of the OS profile. 
 
-The purpose of indicating the source vault is to enforce access control list (ACL) policies that exist in a user's Azure Cloud Service model. If the source vault isn't specified, users who do not have permissions to deploy or access secrets to a key vault would be able to through a certificate registration point. ACLs exist even for resources that do not exist.
+The purpose of indicating the source vault is to enforce access control list (ACL) policies that exist in a user's Azure Cloud Service model. If the source vault isn't specified, users who do not have permissions to deploy or access secrets to a key vault would be able to through a Compute Resource Provider (CRP). ACLs exist even for resources that do not exist.
 
 If you provide an incorrect source vault ID but a valid key vault URL, an error is reported when you poll the operation.
  
@@ -274,7 +274,7 @@ If you reimage a VM, certificates are deleted. Reimaging deletes the entire OS d
  
 ### What happens if you delete a certificate from the key vault?
 
-If the secret is deleted from the key vault, and then you run `stop deallocate` for all your VMs and then start them again, you will encounter a failure. The failure occurs because the Compute Resource Provider (CRP) needs to retrieve the secrets from the key vault, but it cannot. In this scenario, you can delete the certificates from the virtual machine scale set model. 
+If the secret is deleted from the key vault, and then you run `stop deallocate` for all your VMs and then start them again, you will encounter a failure. The failure occurs because the CRP needs to retrieve the secrets from the key vault, but it cannot. In this scenario, you can delete the certificates from the virtual machine scale set model. 
 
 The CRP component does not persist customer secrets. If you run `stop deallocate` for all VMs in the virtual machine scale set, the cache is deleted. In this scenario, secrets are retrieved from the key vault.
 
