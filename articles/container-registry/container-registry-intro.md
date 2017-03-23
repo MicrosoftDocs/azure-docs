@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 # Introduction to private Docker container registries
 
 
-Azure Container Registry is a managed [Docker registry](https://docs.docker.com/registry/) service based on the open-source Docker Registry v2. Create and maintain Azure container registries to store and manage your private [Docker container](https://www.docker.com/what-docker) images. Use container registries in Azure with your existing container development and deployment pipelines, and draw on the body of Docker community expertise.
+Azure Container Registry is a managed [Docker registry](https://docs.docker.com/registry/) service based on the open-source Docker Registry 2.0. Create and maintain Azure container registries to store and manage your private [Docker container](https://www.docker.com/what-docker) images. Use container registries in Azure with your existing container development and deployment pipelines, and draw on the body of Docker community expertise.
 
 For background about Docker and containers, see:
 
@@ -44,7 +44,7 @@ Developers can also push to a container registry as part of a container developm
 
 
 ## Key concepts
-* **Registry** - Create one or more container registries in your Azure subscription. Each registry is backed by a standard Azure [storage account](../storage/storage-introduction.md) in the same location. Create a registry in the same Azure location as your deployments to take advantage of local, network-close storage of your container images.
+* **Registry** - Create one or more container registries in your Azure subscription. Each registry is backed by a standard Azure [storage account](../storage/storage-introduction.md) in the same location. Take advantage of local, network-close storage of your container images by creating a registry in the same Azure location as your deployments.
 
   Registries are named in a root domain based on the subscription's [Azure Active Directory tenant](../active-directory/active-directory-howto-tenant.md). For example, if you have an organizational account in the Contoso domain, your fully qualified registry name is of the form `myregistry-contoso.azurecr.io`.
 
@@ -54,7 +54,7 @@ Developers can also push to a container registry as part of a container developm
 
   * `myregistry.azurecr.io/aspnetcore:1.0.1` represents a corporate-wide image
   * `myregistry.azurecr.io/warrantydept/dotnet-build` represents an image used to build .NET apps, shared across the warranty department
-  * `myregistry.azrecr.io/warrantydept/customersubmissions/web` represents a web image, grouped in the constomersubmissions app, owned by the warranty department
+  * `myregistry.azrecr.io/warrantydept/customersubmissions/web` represents a web image, grouped in the customer submissions app, owned by the warranty department
 
 * **Image** - Stored in a repository, each image is a read-only snapshot of a Docker container. Azure container registries can include both Windows and Linux images. You control image names for all your container deployments. Use standard [Docker commands](https://docs.docker.com/engine/reference/commandline/) to push images into a repository, or pull an image from a repository.
 
