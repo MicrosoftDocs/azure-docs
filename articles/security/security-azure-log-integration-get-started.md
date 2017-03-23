@@ -88,7 +88,7 @@ You should see something like what appears in the figure below. </br></br>
 5. Now we’ll switch our attention back to the Azure log integration machine. Verify that you have connectivity to the Storage Account from the system where you installed Azure Log Integration. Your Azlog system needs access to the storage account to retrieve information logged by Azure Diagnostics as configured on each of the monitored systems.  
   1. You can download Azure Storage Explorer [here](http://storageexplorer.com/).
   2. Run through the setup routine
-  3. Once that the installation completes click **next** and leave the check box **Launch Microsoft Azure Storage Explorer** checked.  
+  3. Once the installation completes click **Next** and leave the check box **Launch Microsoft Azure Storage Explorer** checked.  
   4. Log in to Azure.
   5. Verify that you can see the storage account that you configured for Azure Diagnostics.  
 ![Storage accounts](./media/security-azure-log-integration-get-started/storage-account.jpg) </br></br>
@@ -97,9 +97,9 @@ You should see something like what appears in the figure below. </br></br>
 ## Integrate Azure Diagnostic logging
 
 To complete this step we will need a few things up front.  
-**FriendlyNameForSource:** Anything you would like
-**StorageAccountName:** The name of the storage account that you specified when you configured Azure diagnotics.  
-**StorageKey:** You can get the storage key from the properties of the storage account.  
+* **FriendlyNameForSource:** Anything you would like
+* **StorageAccountName:** The name of the storage account that you specified when you configured Azure diagnotics.  
+* **StorageKey:** You can get the storage key from the properties of the storage account.  
 
 To obtain your storage account key. You can follow the steps below:
  1. Browse to the [Azure portal](http://portal.azure.com).
