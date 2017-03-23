@@ -41,7 +41,7 @@ Specifically, to identify trending topics in real time on Twitter, the company n
 
 ## Create an event hub input
 
-The sample application generates events and pushes them to an event hubs instance (an event hub, for short). Azure Service Bus event hubs are the preferred method of event ingestion for Stream Analytics. For more information, review the Event Hub documentation at [Azure Service Bus documentation](/azure/service-bus/).
+The sample application generates events and pushes them to an Event Hubs instance (an event hub, for short). Azure Service Bus event hubs are the preferred method of event ingestion for Stream Analytics. For more information, review the event hub documentation at [Azure Service Bus documentation](/azure/service-bus/).
 
 ### Create an event hub
 
