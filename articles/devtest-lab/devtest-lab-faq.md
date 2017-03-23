@@ -61,7 +61,7 @@ This article answers some of the most common questions about Azure DevTest Labs.
 * [My artifact failed during VM creation. How do I troubleshoot it?](#my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it)
 * [Why isn't my existing virtual network saving properly?](#why-isnt-my-existing-virtual-network-saving-properly)
 * [Why do I get a "Parent resource not found" error when provisioning from PowerShell?](#why-do-i-get-a-parent-resource-not-found-error-when-provisioning-a-vm-from-powershell)  
-* [Where can I find more error information when VM deployment is failed](#where-can-i-find-more-error-information-when-vm-deployment-is-failed)  
+* [Where can I find more error information if a VM deployment fails?](#where-can-i-find-more-error-information-if-a-vm-deployment-fails)  
 
 ### What if my question isn't answered here?
 If your question isn't listed here, let us know so we can help you find an answer.
