@@ -7,20 +7,20 @@
 # [Samples](https://github.com/azure/azure-relay/tree/master/samples)
 
 # Tutorials
-## Hybrid connections
+## Hybrid Connections
 ### [Get started with Hybrid Connections](relay-hybrid-connections-dotnet-get-started.md)
 ## WCF Relay
 ### [Get started with WCF Relay](service-bus-dotnet-how-to-use-relay.md)
 
 # Concepts
 ## [Authentication and security](relay-authentication-and-authorization.md)
+## [Hybrid Connections protocol](relay-hybrid-connections-protocol.md)
 
 # How-to guides
 ## Develop
 ### [Available APIs](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)
-### [Hybrid Connections protocol](relay-hybrid-connections-protocol.md)
 
 # Reference
 ## .NET
