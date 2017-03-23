@@ -35,8 +35,7 @@ In this tutorial, you are going to learn how to
 
 Before you start:
 
-* Install the newest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) 
-* Install the [Bulk Copy (BCP) command-line utility for Windows](https://www.microsoft.com/download/details.aspx?id=53591)
+Install the newest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) 
 
 ## Step 1 - Log in to the Azure portal
 
@@ -94,7 +93,7 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 
     <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
 
-## Step 5 - Connect to the server
+## Step 5 - Connect to the server using SSMS
 
 Use SQL Server Management Studio to establish a connection to your Azure SQL Database server.
 
@@ -115,7 +114,7 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
 
 4. In Object Explorer, expand **Databases** and then expand **mySampleDatabase** to view the objects in the sample database.
 
-## Step 6 - Create a **Students** table in the database 
+## Step 6 - Create and query a table 
 1. In Object Explorer, right-click **mySampleDatabase** and click **New Query**. A blank query window opens that is connected to your database.
 2. In the query window, execute following query:
 
@@ -123,55 +122,61 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
    CREATE TABLE [dbo].[Students]
    (
      [student_id] int, 
-     [name] varchar(30),
+     [name] varchar(100),
      [age] int,
-     [email] varchar(40),
+     [email] varchar(100),
      [AddressID] int REFERENCES [SalesLT].[Address] (AddressID)
    );
    ```
 
-Once the query is complete, you have created an empty table in your database called Students.
+   Once the query is complete, you have created an empty table in your database called Students.
 
-In an SSMS query window, execute following query: 
+3. In an SSMS query window, execute following query: 
 
-```sql
-SELECT name, age, email 
-FROM [dbo].[Students]
-```
+   ```sql
+   SELECT name, age, email 
+   FROM [dbo].[Students]
+   ```
 
-The Students table returns no data.
+   The Students table returns no data.
 
-## Step 7 - Load data into the Students table 
-1. [Download this sample txt file](https://microsoft-my.sharepoint.com/personal/ayolubek_microsoft_com/_layouts/15/guestaccess.aspx?guestaccesstoken=gQYCb16yjnJBDrK5aJaq8CMrlXNxf55ylI%2fi5XVCXQw%3d&docid=2_1b4c3b5ec415349fe9e35fdf4cb7ffb63&rev=1) into your local machine. In this example, we assume it is stored in the following location, *C:\Temp\SampleStudentData.txt*
-2. Open a command prompt window and run the following command, replacing the values for **ServerName**, **DatabaseName**, **UserName**, and **Password** with the values for your environment.
+## Step 7 - Load data into the table 
+1. Open a command prompt window.
 
-```bcp
-bcp Students in C:\Temp\SampleStudentData.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t ",""
-```
+2. Execute the following PowerShell command to download a sample text file to your current directory.
+
+   ```powershell
+   powershell -command "& { (New-Object Net.WebClient).DownloadFile('https://sqldbtutorial.blob.core.windows.net/tutorials/SampleStudentData.txt', 'SampleStudentData.txt') }" 
+   ``` 
+
+3. When this completes, execute the following command to insert 1000 rows into the Student table, replacing the values for **ServerName**, **DatabaseName**, **UserName**, and **Password** with the values for your environment.
+
+   ```bcp
+   bcp Students in SampleStudentData.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
+   ```
 
 You have now loaded sample data into the table you created earlier.
 
-## Step 8 - Add an index to the Students table 
+## Step 8 - Add an index to the Students table and then query the table
 To make searching for specific values in the table more efficient, create an index on the Students table. An index organizes the data in such a way, that now all data has to be looked at to find a specific value.
 
-In an SSMS query window, execute following query:
+1. In an SSMS query window, execute following query:
 
-```sql 
-CREATE NONCLUSTERED INDEX IX_Age ON Students (age);
-```
+   ```sql 
+   CREATE NONCLUSTERED INDEX IX_Age ON Students (age);
+   ```
 
-## Step 9 - Query data from table with index 
-In an SSMS query window, execute following query:
+2. In an SSMS query window, execute following query:
 
-```sql
-SELECT name, age, email 
-FROM [dbo].[Students]
-WHERE age > 20
-```
+   ```sql
+   SELECT name, age, email 
+   FROM [dbo].[Students]
+   WHERE age > 20
+   ```
 
-This query returns the name, age, and email of students who are older than 20 years old.
+   This query returns the name, age, and email of students who are older than 20 years old.
 
-## Step 10 - Drop Students table
+## Step 9 - Drop Students table
 
 [ADD VERBIAGE HERE]
 
@@ -181,7 +186,7 @@ In an SSMS query window, execute following query:
 DROP TABLE [dbo].[Students]
 ```
 
-## Step 11 - Restore database to a point in time before table creation 
+## Step 10 - Restore database to a point in time before table creation 
 Databases in Azure have continuous backups that are taken automatically every 5 - 10 minutes. These backups allow you to restore your database to a previous point in time. Restoring a database to a different point in time creates a duplicate database in the same server as the original database. The following steps restore the sample database to a point before the *Students* table was added. 
 
 * Navigate to the sample database you created in the quick start
