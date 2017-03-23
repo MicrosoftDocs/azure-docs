@@ -1,10 +1,10 @@
 ---
-title: 'How to configure routing (peering) for an ExpressRoute circuit: Azure: classic | Microsoft Docs'
+title: How to configure routing for an ExpressRoute circuit for the classic deployment model using PowerShell | Microsoft Docs
 description: This article walks you through the steps for creating and provisioning the private, public and Microsoft peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit.
 documentationcenter: na
 services: expressroute
 author: ganesr
-manager: timlt
+manager: carmonm
 editor: ''
 tags: azure-service-management
 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2017
-ms.author: ganesr;cherylmc
+ms.date: 12/13/2016
+ms.author: ganesr
 
 ---
-# Create and modify peering for an ExpressRoute circuit (classic)
+# Create and modify routing for an ExpressRoute circuit
 > [!div class="op_single_selector"]
 > * [Resource Manager- Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-routing-arm.md)
@@ -31,14 +31,12 @@ ms.author: ganesr;cherylmc
 
 This article walks you through the steps to create and manage routing configuration for an ExpressRoute circuit using PowerShell and the classic deployment model. The steps below will also show you how to check the status, update, or delete and deprovision peerings for an ExpressRoute circuit.
 
-[!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
-
 **About Azure deployment models**
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Configuration prerequisites
-* You will need the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [Getting started with Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs).  
+* You will need the latest version of the Azure PowerShell modules. You can download the latest PowerShell module from the PowerShell section of the [Azure Downloads page](https://azure.microsoft.com/downloads/). Follow the instructions in the [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) page for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules. 
 * Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) page, the [routing requirements](expressroute-routing.md) page, and the [workflows](expressroute-workflows.md) page before you begin configuration.
 * You must have an active ExpressRoute circuit. Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state for you to be able to run the cmdlets described below.
 
@@ -47,26 +45,7 @@ This article walks you through the steps to create and manage routing configurat
 > 
 > 
 
-You can configure one, two, or all three peerings (Azure private, Azure public and Microsoft) for an ExpressRoute circuit. You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time.
-
-
-### Log in to your Azure account and select a subscription
-1. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
-
-    	Login-AzureRmAccount
-
-2. Check the subscriptions for the account.
-
-    	Get-AzureRmSubscription
-
-3. If you have more than one subscription, select the subscription that you want to use.
-
-    	Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-
-4. Next, use the following cmdlet to add your Azure subscription to PowerShell for the classic deployment model.
-
-		Add-AzureAccount
-
+You can configure one, two, or all three peerings (Azure private, Azure public and Microsoft) for an ExpressRoute circuit. You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. 
 
 ## Azure private peering
 This section provides instructions on how to create, get, update, and delete the Azure private peering configuration for an ExpressRoute circuit. 
