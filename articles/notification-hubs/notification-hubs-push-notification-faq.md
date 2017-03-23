@@ -39,7 +39,7 @@ Here are some awesome Standard tier features:
 * *Scheduled Push* - You can schedule for notifications to be sent out anytime.
 
 ### 2.  What is the Notification Hubs SLA?
-For **Basic** and **Standard** Notification Hubs tiers, we guarantee that at least 99.9% of the time, properly configured applications will be able to send push notifications or perform registration management operations with respect to a Notification Hub deployed within a supported tier. To learn more about our SLA, please visit the [Notification Hubs SLA](https://azure.microsoft.com/en-us/support/legal/sla/notification-hubs/) page.
+For **Basic** and **Standard** Notification Hubs tiers, we guarantee that at least 99.9% of the time, properly configured applications will be able to send push notifications or perform registration management operations with respect to a Notification Hub deployed within a supported tier. To learn more about our SLA, please visit the [Notification Hubs SLA](https://azure.microsoft.com/support/legal/sla/notification-hubs/) page.
 
 > [!NOTE]
 > Because push notifications depend on 3rd party Platform Notification Systems (Apple's APNS, Google's FCM, etc), there is no SLA guarantee for the delivery of these messages. Once Notification Hubs batches out the sends to PNSes (SLA guaranteed), it is up to PNSes to get the pushes delivered (no SLA guaranteed).
@@ -214,5 +214,5 @@ We also provide the capability to export the telemetry data programmatically (in
 [Registrations Export/Import]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
-[Azure Mobile Apps]: https://azure.microsoft.com/en-us/services/app-service/mobile/
-[App Service Pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[Azure Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/
+[App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/
