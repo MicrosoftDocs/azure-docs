@@ -146,8 +146,6 @@ This property can be updated via the resource [application’s manifest][AAD-App
 
 A similar case happens if the different tiers of an application are registered in different tenants.  For example, consider the case of building a native client application that calls the Office 365 Exchange Online API.  To develop the native application, and later for the native application to run in a customer’s tenant, the Exchange Online service principal must be present.  In this case the developer and customer must purchase Exchange Online for the service principal to be created in their tenants.  
 
-In the case of an API built by an organization other than Microsoft, the developer of the API needs to provide a way for their customers to consent their application into a customer tenant, for example a web page that drives consent using the mechanisms described in this article.  After the service principal is created in the tenant, the native application can get tokens for the API.
-
 In the case of an API built by an organization other than Microsoft, the developer of the API needs to provide a way for their customers to consent the application into their customers' tenants. The recommended design is for the 3rd party developer to build the API such that it can also function as a web client to implement sign-up :
 
 1. Follow the earlier sections to ensure the API implements the multi-tenant application registration/code requirements
