@@ -23,9 +23,9 @@ Azure AD Connect requires a SQL Server database to store identity data. You can 
 ## Symptoms
 There are two common symptoms:
 
-1. Azure AD Connect Synchronization Service **is running** but fails to synchronize with *“stopped-database-disk-full”* error.
+* Azure AD Connect Synchronization Service **is running** but fails to synchronize with *“stopped-database-disk-full”* error.
 
-2. Azure AD Connect Synchronization Service **is unable to start**. When you attempt to start the service, it fails with event 6323 and error message *"The server encountered an error because SQL Server is out of disk space."*
+* Azure AD Connect Synchronization Service **is unable to start**. When you attempt to start the service, it fails with event 6323 and error message *"The server encountered an error because SQL Server is out of disk space."*
 
 ## Short-term recovery steps
 This section provides the steps to reclaim DB space required for Azure AD Connect Synchronization Service to resume operation. The steps include:
