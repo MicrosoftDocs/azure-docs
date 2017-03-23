@@ -125,7 +125,7 @@ To download the log files using the Azure Command Line Interface, open a new com
 This will save the logs for the web app named 'webappname' to a file named **diagnostics.zip** in the current directory.
 
 > [!NOTE]
-> If you have not installed the Azure Command-Line Interface (Azure CLI), or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](../xplat-cli-install.md).
+> If you have not installed the Azure Command-Line Interface (Azure CLI), or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](../cli-install-nodejs.md).
 >
 >
 
@@ -190,7 +190,7 @@ To filter specific log types, such as HTTP, use the **--Path** parameter. For ex
     azure site log tail webappname --path http
 
 > [!NOTE]
-> If you have not installed the Azure Command-Line Interface, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Interface](../xplat-cli-install.md).
+> If you have not installed the Azure Command-Line Interface, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Interface](../cli-install-nodejs.md).
 >
 >
 
