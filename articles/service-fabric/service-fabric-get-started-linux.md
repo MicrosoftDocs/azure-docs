@@ -202,6 +202,7 @@ For updating the CLI, navigate to the directory where you cloned the CLI and run
 * [Create your first CSharp application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
 * [Use the Azure CLI to manage your Service Fabric applications](service-fabric-azure-cli.md)
+* [Service Fabric Windows/Linux differences](service-fabric-windows-linux-differences.md)
 
 <!-- Links -->
 
