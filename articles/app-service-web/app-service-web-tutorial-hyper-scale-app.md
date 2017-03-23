@@ -31,7 +31,7 @@ In this step, you set up the local Node.js project.
 Open the command-line terminal of your choice and `CD` to a working directory. Then, run the following commands to clone the sample application. 
 
 ```powershell
-git clone https://github.com/cephalin/aspnetscale.git
+git clone https://github.com/cephalin/HighScaleApp.git
 ```
 
 ### Run the sample application in Visual Studio
@@ -39,13 +39,13 @@ git clone https://github.com/cephalin/aspnetscale.git
 Open the solution in Visual Studio.
 
 ```powershell
-cd aspnetscale
-.\aspnet2017.sln
+cd HighScaleApp
+.\HighScaleApp.sln
 ```
 
 Type `F5` to run the application.
 
-This sample ASP.NET web application comes from the default template, and persists user sessions and uses the output cache. Take a look at `aspnet2017\Controllers\HomeController.cs`. The `Index()` method adds a piece of data to the session.
+This sample ASP.NET web application comes from the default template, and persists user sessions and uses the output cache. Take a look at `HighScaleApp\Controllers\HomeController.cs`. The `Index()` method adds a piece of data to the session.
 
 ```csharp
 Session.Add("visited", "true"); 
@@ -348,7 +348,7 @@ az appservice web config appsettings update --settings "Region=West Europe" --na
 az appservice web config appsettings update --settings "Region=Southeast Asia" --name $appName-asia --resource-group myResourceGroup
 ```
 
-Your application code already uses this application setting. Take a look at `aspnet2017\Views\Home\Index.cshtml`.
+Your application code already uses this application setting. Take a look at `HighScaleApp\Views\Home\Index.cshtml`.
 
 ### Complete!
 
