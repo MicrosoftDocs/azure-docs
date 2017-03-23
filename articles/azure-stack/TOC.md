@@ -93,7 +93,6 @@
 # Build apps
 ## Overview
 ### [Develop for Azure Stack](azure-stack-developer.md)
-### [Manage version profiles](azure-stack-version-profiles.md)
 ## Get started
 ### [Connect to Azure Stack](azure-stack-connect-azure-stack.md)
 ### Set up development environment
@@ -114,6 +113,9 @@
 # Troubleshoot
 ## [Known issues](azure-stack-troubleshooting.md)
 ## [Diagnostics in Azure Stack](azure-stack-diagnostics.md)
+
+# Reference
+## [Manage API version profiles](azure-stack-version-profiles.md)
 
 # Resources
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  
