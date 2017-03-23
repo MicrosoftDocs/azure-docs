@@ -106,7 +106,7 @@ When the App Service Plan has been created, the Azure CLI shows information simi
 
 ```json
 {
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/quickStarts/providers/Microsoft.Web/serverfarms/quickStartPlan",
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
     "kind": "linux",
     "location": "West Europe",
     "sku": {
@@ -134,15 +134,15 @@ When the Web App has been created, the Azure CLI shows information similar to th
 {
     "clientAffinityEnabled": true,
     "defaultHostName": "<app_name>.azurewebsites.net",
-    "id": "/subscriptions/5d6c94cd-6781-43e3-8a94-ceef4c28850e/resourceGroups/quickStarts/providers/Microsoft.Web/sites/<app_name>",
+    "id": "/subscriptions/5d6c94cd-6781-43e3-8a94-ceef4c28850e/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app_name>",
     "isDefaultContainer": null,
     "kind": "app",
     "location": "West Europe",
     "name": "<app_name>",
     "repositorySiteName": "<app_name>",
     "reserved": true,
-    "resourceGroup": "quickStarts",
-    "serverFarmId": "/subscriptions/5d6c94cd-6781-43e3-8a94-ceef4c28850e/resourceGroups/quickStarts/providers/Microsoft.Web/serverfarms/quickStartPlan",
+    "resourceGroup": "myResourceGroup",
+    "serverFarmId": "/subscriptions/5d6c94cd-6781-43e3-8a94-ceef4c28850e/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
     "state": "Running",
     "type": "Microsoft.Web/sites",
 }
