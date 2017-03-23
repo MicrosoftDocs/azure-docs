@@ -28,7 +28,7 @@ Service principals are preferable to running the app under your own credentials 
 * You do not have to change the app's credentials if your responsibilities change.
 * You can use a certificate to automate authentication when executing an unattended script.  
 
-## Getting Started
+## Getting started
 
 Depending on how you have deployed Azure Stack, you will start by creating a service principal.  This document guides you through creating a service principal for both [Azure Active Directory(Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) and [Active Directory Federation Services(AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).  Once you've created the service principal, you'll use a set of steps that are common to both AD FS and Azure AD to [delegate permissions](azure-stack-create-service-principals.md#assign-role-to-service-principal) to the role.     
 
@@ -131,7 +131,7 @@ You can set the scope at the level of the subscription, resource group, or resou
 
 Now that you've created a service principal and assigned a role, you can begin using this within your application to access Azure Stack resources.  
 
-## Next Steps
+## Next steps
 
 [Add users for ADFS](azure-stack-add-users-adfs.md)
-[Manage user permissions](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-manage-permissions)
+[Manage user permissions](azure-stack-manage-permissions.md)
