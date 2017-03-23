@@ -88,26 +88,26 @@ For more information, see [Steps to generate an OAuth access token](https://dev.
 
 1. Replace the EventHubConnectionString and EventHubName values in TwitterWpfClient.exe.config with the connection string and name of your event hub. The connection string that you copied earlier gives you both the connection string and the name of your event hub. Be sure to separate them and put each in the correct field. For example, consider the following connection string:
 
-```
-   Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub
-```  
+ ```
+    Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub
+ ```  
 
    The TwitterWpfClient.exe.config file should contain your settings as shown in the following example:
 
-```
-     add key="EventHubConnectionString" value="Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey"
-     add key="EventHubName" value="yourhub"
-  ```
-> [!NOTE]
-   The text "EntityPath=" does **not** appear in the EventHubName value.
+ ```
+      add key="EventHubConnectionString" value="Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey"
+      add key="EventHubName" value="yourhub"
+   ```
+ > [!NOTE]
+    The text "EntityPath=" does **not** appear in the EventHubName value.
 
-   You can also enter the values for your Twitter and Azure connection information directly into the client. The same logic applies where "EntityPath=" is not used.
+    You can also enter the values for your Twitter and Azure connection information directly into the client. The same logic applies where "EntityPath=" is not used.
 
-![wpfclient](./media/stream-analytics-twitter-sentiment-analysis-trends/wpfclientlines.png)
+ ![wpfclient](./media/stream-analytics-twitter-sentiment-analysis-trends/wpfclientlines.png)
 
-4. **Optional:** Adjust the keywords to search for. By default, this application looks for some game keywords.  You can adjust the values for **twitter_keywords** in TwitterWpfClient.exe.config, if desired.
+3. **Optional:** Adjust the keywords to search for. By default, this application looks for some game keywords.  You can adjust the values for **twitter_keywords** in TwitterWpfClient.exe.config, if desired.
 
-5. Run TwitterWpfClient.exe. Then select the green start button to collect social sentiment. You see Tweet events with the **CreatedAt**, **Topic**, and **SentimentScore** values being sent to your event hub.
+4. Run TwitterWpfClient.exe. Then select the green start button to collect social sentiment. You see Tweet events with the **CreatedAt**, **Topic**, and **SentimentScore** values being sent to your event hub.
 
 ## Create a Stream Analytics job
 
