@@ -17,32 +17,195 @@ ms.author: jingwang
 
 ---
 # Move data from an HTTP source using Azure Data Factory
-This article outlines how to use the Copy Activity in Azure Data Factory to move data from an on-premises/cloud HTTP source to a supported sink data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article that presents a general overview of data movement with copy activity and the list of data stores supported as sources/sinks.
+This article outlines how to use the Copy Activity in Azure Data Factory to move data from an on-premises/cloud HTTP endpoint to a supported sink data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article that presents a general overview of data movement with copy activity and the list of data stores supported as sources/sinks.
 
 Data factory currently supports only moving data from an HTTP source to other data stores, but not moving data from other data stores to an HTTP destination.
 
 # Supported scenarios and authentication types
-You can use this HTTP connector to retrieve data from **both cloud and on-premises HTTP/s endpoint** by using HTTP GET or POST method. The following authentication types are supported: **Anonymous**, **Basic**, **Digest**, **Windows**, and **ClientCertificate**. Note the difference between this connector and the [Web table connector](data-factory-web-table-connector.md) is: the latter is used to extract table content from web HTML page.
+You can use this HTTP connector to retrieve data from **both cloud and on-premises HTTP/s endpoint** by using HTTP **GET** or **POST** method. The following authentication types are supported: **Anonymous**, **Basic**, **Digest**, **Windows**, and **ClientCertificate**. Note the difference between this connector and the [Web table connector](data-factory-web-table-connector.md) is: the latter is used to extract table content from web HTML page.
 
 When copying data from an on-premises HTTP endpoint, you need install a Data Management Gateway in the on-premises environment/Azure VM. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway.
 
-## Creating a pipeline
+## Getting started
 You can create a pipeline with a copy activity that moves data from an HTTP source by using different tools/APIs.
 
-- Copy Wizard
+- The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-    The easiest way to create a pipeline that copies data from an HTTP source is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
+- You can also use the following tools to create a pipeline and define Data Factory entities in JSON format: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. For JSON samples to copy data from HTTP source to Azure Blob Storage, see [JSON examples](#sample-copy-data-from-http-source-to-azure-blob-storage) section of this articles.
 
-- Azure portal
-- Visual Studio
-- Azure PowerShell
-- Azure Resource Manager template
-- .NET API
-- REST API
+## HTTP linked service properties
+The following table provides description for JSON elements specific to HTTP linked service.
 
-See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
+| Property | Description | Required |
+| --- | --- | --- |
+| type | The type property must be set to: `Http`. | Yes |
+| url | Base URL to the Web Server | Yes |
+| authenticationType | Specifies the authentication type. Allowed values are: **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Refer to sections below this table on more properties and JSON samples for those authentication types respectively. | Yes |
+| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation if source is HTTPS Web Server | No, default is true |
+| gatewayName | Name of the Data Management Gateway to connect to an on-premises HTTP source. | Yes if copying data from an on-premises HTTP source. |
+| encryptedCredential | Encrypted credential to access the SFTP server. Auto-generated when you configure the authentication information in copy wizard or the ClickOnce popup dialog. | No. Apply only when copying data from an on-premises HTTP server. |
 
-The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
+See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for on-premises HTTP connector data source.
+
+### Using Basic, Digest, or Windows authentication
+
+Set `authenticationType` as `Basic`, `Digest`, or `Windows`, and specify the following properties besides the HTTP connector generic ones introduced above:
+
+| Property | Description | Required |
+| --- | --- | --- |
+| username | Username to access the HTTP endpoint. | Yes |
+| password | Password for the user (username). | Yes |
+
+#### Example: using Basic authentication
+
+```JSON
+{
+    "name": "HttpLinkedService",
+    "properties":
+    {
+        "type": "Http",
+        "typeProperties":
+        {
+            "authenticationType": "basic",
+            "url" : "https://en.wikipedia.org/wiki/",
+            "userName": "user name",
+            "password": "password"
+        }
+    }
+}
+```
+
+### Using ClientCertificate authentication
+
+To use basic authentication, set `authenticationType` as `ClientCertificate`, and specify the following properties besides the HTTP connector generic ones introduced above:
+
+| Property | Description | Required |
+| --- | --- | --- |
+| embeddedCertData | The Base64-encoded contents of binary data of the Personal Information Exchange (PFX) file. | Specify either the `embeddedCertData` or `certThumbprint`. |
+| certThumbprint | The thumbprint of the certificate that was installed on your gateway machine’s cert store. Apply only when copying data from an on-premises HTTP source. | Specify either the `embeddedCertData` or `certThumbprint`. |
+| password | Password associated with the certificate. | No |
+
+If the certificate is installed in the personal store of the local computer, you need to grant the read permission to the gateway service:
+
+1. Launch Microsoft Management Console (MMC). Add the **Certificates** snap-in that targets the **Local Computer**.
+2. Expand **Certificates**, **Personal**, and click **Certificates**.
+3. Right-click the certificate from the personal store, and select **All Tasks**->**Manage Private Keys...**
+3. On the **Security** tab, add the user account under which Data Management Gateway Host Service is running with the read access to the certificate.  
+
+#### Example: using client certificate
+This linked service links your data factory to an on-premises HTTP web server. It uses a client certificate that is installed on the machine with Data Management Gateway installed.
+
+```JSON
+{
+    "name": "HttpLinkedService",
+    "properties":
+    {
+        "type": "Http",
+        "typeProperties":
+        {
+            "authenticationType": "ClientCertificate",
+            "url": "https://en.wikipedia.org/wiki/",
+		    "certThumbprint": "thumbprint of certificate",
+		    "gatewayName": "gateway name"
+
+        }
+    }
+}
+```
+
+#### Example: using client certificate in a file
+This linked service links your data factory to an on-premises HTTP web server. It uses a client certificate file on the machine with Data Management Gateway installed.
+
+```JSON
+{
+    "name": "HttpLinkedService",
+    "properties":
+    {
+        "type": "Http",
+        "typeProperties":
+        {
+            "authenticationType": "ClientCertificate",
+            "url": "https://en.wikipedia.org/wiki/",
+		    "embeddedCertData": "base64 encoded cert data",
+		    "password": "password of cert"
+        }
+    }
+}
+```
+
+## HTTP dataset properties
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
+
+The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **Http** has the following properties
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | Specified the type of the dataset. must be set to `Http`. | Yes |
+| relativeUrl | A relative URL to the resource that contains the data. When path is not specified, only the URL specified in the linked service definition is used. | No |
+| requestMethod | Http method. Allowed values are **GET** or **POST**. | No. Default is `GET`. |
+| additionalHeaders | Additional HTTP request headers. | No |
+| requestBody | Body for HTTP request. | No |
+| partitionedBy | partitionedBy can be used to specify a dynamic folderPath, filename for time series data. For example, folderPath parameterized for every hour of data. | No |
+| format | If you want to simply **retrieve the data from HTTP endpoint as-is** without parsing it, skip this format settings. <br><br> If you want to parse the HTTP response content during copy, the following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](#specifying-textformat), [Json Format](#specifying-jsonformat), [Avro Format](#specifying-avroformat), [Orc Format](#specifying-orcformat), and [Parquet Format](#specifying-parquetformat) sections.  |No |
+| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**; and supported levels are: **Optimal** and **Fastest**. For more information, see [Specifying compression](#specifying-compression) section. |No |
+
+### Example: using the GET (default) method
+
+```JSON
+{
+	"name": "HttpSourceDataInput",
+    "properties": {
+		"type": "Http",
+        "linkedServiceName": "HttpLinkedService",
+        "typeProperties": {
+			"relativeUrl": "XXX/test.xml",
+	    	"additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
+		},
+        "external": true,
+        "availability": {
+            "frequency": "Hour",
+            "interval":  1
+        }
+    }
+}
+```
+
+### Example: using the POST method
+
+```JSON
+{
+    "name": "HttpSourceDataInput",
+    "properties": {
+        "type": "Http",
+        "linkedServiceName": "HttpLinkedService",
+        "typeProperties": {
+            "relativeUrl": "/XXX/test.xml",
+		   "requestMethod": "Post",
+            "requestBody": "body for POST HTTP request"
+        },
+        "external": true,
+        "availability": {
+            "frequency": "Hour",
+            "interval":  1
+        }
+    }
+}
+```
+
+[!INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
+
+[!INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
+
+## HttpSource in Copy Activity
+For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
+
+Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
+
+Currently, when the source in copy activity is of type **Http**, the following properties are supported.
+
+| Property | Description | Required |
+| -------- | ----------- | -------- |
+| httpRequestTimeout | The timeout (TimeSpan) for the HTTP request to get a response. It is the timeout to get a response, not the timeout to read response data. | No. Default value: 00:01:40 |
 
 ## Sample: Copy data from HTTP source to Azure Blob Storage
 The Data Factory solution for this sample contains the following Data Factory entities:
@@ -186,203 +349,6 @@ See [HttpSource](#httpsource-in-copy-activity) for the list of properties suppor
    }
 }
 ```
-
-## HTTP linked service properties
-The following table provides description for JSON elements specific to HTTP linked service.
-
-| Property | Description | Required |
-| --- | --- | --- |
-| type | The type property must be set to: `Http`. | Yes |
-| url | Base URL to the Web Server | Yes |
-| authenticationType | Specifies the authentication type. <br> Allowed values are: **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Refer to sections below this table on more properties and JSON samples for those authentication types respectively. | Yes |
-| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation if source is HTTPS Web Server | No, default is true |
-| gatewayName | Name of the Data Management Gateway to connect to an on-premises HTTP source. | Yes if copying data from an on-premises HTTP source. |
-| encryptedCredential | Encrypted credential to access the SFTP server. Auto-generated when you configure the authentication information in copy wizard or the ClickOnce popup dialog. | No. Apply only when copying data from an on-premises HTTP server. |
-
-See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for on-premises HTTP connector data source.
-
-### Using Basic, Digest, Windows authentication
-
-Set `authenticationType` as `Basic`, `Digest`, or `Windows`, and specify the following properties besides the HTTP connector generic ones introduced above:
-
-| Property | Description | Required |
-| --- | --- | --- |
-| username | Username to access the HTTP endpoint. | Yes |
-| password | Password for the user (username). | Yes |
-
-#### Example: using Basic authentication
-
-```JSON
-{
-    "name": "HttpLinkedService",
-    "properties":
-    {
-        "type": "Http",
-        "typeProperties":
-        {
-            "authenticationType": "basic",
-            "url" : "https://en.wikipedia.org/wiki/",
-            "userName": "Administrator",
-            "password": "password"
-        }
-    }
-}
-```
-
-#### Example: using Digest authentication
-
-```JSON
-{
-    "name": "HttpLinkedService",
-    "properties":
-    {
-        "type": "Http",
-        "typeProperties":
-        {
-            "authenticationType": "Digest",
-            "url": "https://en.wikipedia.org/wiki/",
-		   "username": "user name",
-		   "password": "user name",
-        }
-    }
-}
-```
-
-### Using ClientCertificate authentication
-
-To use basic authentication, set `authenticationType` as `ClientCertificate`, and specify the following properties besides the HTTP connector generic ones introduced above:
-
-| Property | Description | Required |
-| --- | --- | --- |
-| embeddedCertData | The Base64-encoded contents of binary data of the Personal Information Exchange (PFX) file. | Specify either the `embeddedCertData` or `certThumbprint`. |
-| certThumbprint | The thumbprint of the certificate that was installed on your gateway machine’s cert store. Apply only when copying data from an on-premises HTTP source. | Specify either the `embeddedCertData` or `certThumbprint`. |
-| password | Password associated with the certificate. | No |
-
-If the certificate is installed in the personal store of the local computer, you need to grant the read permission to the gateway service:
-
-1. Launch Microsoft Management Console (MMC). Add the **Certificates** snap-in that targets the **Local Computer**.
-2. Expand **Certificates**, **Personal**, and click **Certificates**.
-3. Right-click the certificate from the personal store, and select **All Tasks**->**Manage Private Keys...**
-3. On the **Security** tab, add the user account under which Data Management Gateway Host Service is running with the read access to the certificate.  
-
-#### Example: using client certificate
-This linked service links your data factory to an on-premises HTTP web server. It uses a client certificate that is installed on the machine with Data Management Gateway installed.
-
-```JSON
-{
-    "name": "HttpLinkedService",
-    "properties":
-    {
-        "type": "Http",
-        "typeProperties":
-        {
-            "authenticationType": "ClientCertificate",
-            "url": "https://en.wikipedia.org/wiki/",
-		    "certThumbprint": "thumbprint of certificate",
-		    "gatewayName": "gateway name"
-
-        }
-    }
-}
-```
-
-#### Example: using client certificate in a file
-This linked service links your data factory to an on-premises HTTP web server. It uses a client certificate file on the machine with Data Management Gateway installed.
-
-```JSON
-{
-    "name": "HttpLinkedService",
-    "properties":
-    {
-        "type": "Http",
-        "typeProperties":
-        {
-            "authenticationType": "ClientCertificate",
-            "url": "https://en.wikipedia.org/wiki/",
-		    "embeddedCertData": "base64 encoded cert data",
-		    "password": "password of cert"
-        }
-    }
-}
-```
-
-## HTTP dataset properties
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
-
-The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **Http** has the following properties
-
-| Property | Description | Required |
-|:--- |:--- |:--- |
-| type | Specified the type of the dataset. must be set to Http. | Yes |
-| relativeUrl | A relative URL to the resource that contains the data. When path is not specified, only the URL specified in the linked service definition is used. | No |
-| requestMethod | Http method. **GET** or **POST**, default is GET. | No |
-| additionalHeaders | Additional HTTP request headers. | No |
-| requestBody | Body for HTTP request. | No |
-| partitionedBy | partitionedBy can be used to specify a dynamic folderPath, filename for time series data. For example, folderPath parameterized for every hour of data. | No |
-| format | If you want to simply **retrieve the data from HTTP endpoint as-is** without parsing it, skip this format settings. <br><br> Otherwise, the following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](#specifying-textformat), [Json Format](#specifying-jsonformat), [Avro Format](#specifying-avroformat), [Orc Format](#specifying-orcformat), and [Parquet Format](#specifying-parquetformat) sections.  |No |
-| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**; and supported levels are: **Optimal** and **Fastest**. For more information, see [Specifying compression](#specifying-compression) section. |No |
-
-### Example: using the GET (default) method
-
-```JSON
-{
-	"name": "HttpSourceDataInput",
-    "properties": {
-		"type": "Http",
-        "linkedServiceName": "HttpLinkedService",
-        "typeProperties": {
-			"relativeUrl": "XXX/test.xml",
-	    	"additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
-		},
-        "external": true,
-        "availability": {
-            "frequency": "Hour",
-            "interval":  1
-        }
-    }
-}
-```
-
-### Example: using the POST method
-
-```JSON
-{
-    "name": "HttpSourceDataInput",
-    "properties": {
-        "type": "Http",
-        "linkedServiceName": "HttpLinkedService",
-        "typeProperties": {
-            "relativeUrl": "/XXX/test.xml",
-		   "requestMethod": "Post",
-            "requestBody": "body for POST HTTP request"
-        },
-        "external": true,
-        "availability": {
-            "frequency": "Hour",
-            "interval":  1
-        }
-    }
-}
-```
-
-[!INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
-
-[!INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
-
-## HttpSource in Copy Activity
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
-
-Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
-
-Currently, when the source in copy activity is of type **Http**, the following properties are supported.
-
-| Property | Description | Required |
-| -------- | ----------- | -------- |
-| httpRequestTimeout | The timeout (TimeSpan) for the HTTP request to get a response. It is the timeout to get a response, not the timeout to read response data. | No. Default value: 00:01:40 |
-
-[!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
-
-[!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
