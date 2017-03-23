@@ -74,7 +74,7 @@ We have created a client application that connects to Twitter data via [Twitter'
 Then Tweet events are pushed to the event hub.  
 
 ### Set up the application
-Follow these steps to set up the application:
+ Follow these steps to set up the application:
 
 1. [Download the TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip), and then unzip it.
 
@@ -97,12 +97,12 @@ For more information, see [Steps to generate an OAuth access token](https://dev.
       add key="EventHubConnectionString" value="Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey"
       add key="EventHubName" value="yourhub"
    ```
- > [!NOTE]
+    > [!NOTE]
     The text "EntityPath=" does **not** appear in the EventHubName value.
 
-    You can also enter the values for your Twitter and Azure connection information directly into the client. The same logic applies where "EntityPath=" is not used.
+    You can also enter the values for your Twitter and Azure connection information directly into the client. The same logic applies    where "EntityPath=" is not used.
 
- ![wpfclient](./media/stream-analytics-twitter-sentiment-analysis-trends/wpfclientlines.png)
+   ![wpfclient](./media/stream-analytics-twitter-sentiment-analysis-trends/wpfclientlines.png)
 
 2. **Optional:** Adjust the keywords to search for. By default, this application looks for some game keywords.  You can adjust the values for **twitter_keywords** in TwitterWpfClient.exe.config, if desired.
 
