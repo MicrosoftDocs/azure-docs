@@ -27,7 +27,6 @@ In this tutorial, you are going to learn how to
 * Create a table in the database
 * Load data into the table 
 * Add an index to the table to optimize query performance
-* Drop the table 
 * Restore the database to a point in time 
 * Connect to and query the table 
 
@@ -60,7 +59,16 @@ CREATE TABLE [dbo].[Students]
 );
 ```
 
-Once the query is complete, you have created a table in your database called Students.
+Once the query is complete, you have created an empty table in your database called Students.
+
+Execute the following query: 
+
+```sql
+SELECT name, age, email 
+FROM [dbo].[Students]
+```
+
+The Students table returns no data.
 
 ## Step 2 - Load data into the table 
 * [Download this sample txt file](https://microsoft-my.sharepoint.com/personal/ayolubek_microsoft_com/_layouts/15/guestaccess.aspx?guestaccesstoken=gQYCb16yjnJBDrK5aJaq8CMrlXNxf55ylI%2fi5XVCXQw%3d&docid=2_1b4c3b5ec415349fe9e35fdf4cb7ffb63&rev=1) into your local machine. In this example, we assume it is stored in the following location, *C:\Temp\SampleStudentData.txt*
