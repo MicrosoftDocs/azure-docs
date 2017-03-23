@@ -29,6 +29,8 @@ For background about Docker and containers, see:
 * [Docker user guide](https://docs.docker.com/engine/userguide/)
 
 
+
+
 ## Use cases
 Pull images from an Azure container registry to various deployment targets:
 
@@ -36,6 +38,7 @@ Pull images from an Azure container registry to various deployment targets:
 * **Azure services** that support building and running applications at scale, including [Container Service](../container-service/index.md), [App Service](/app-service/index.md), [Batch](../batch/index.md), and [Service Fabric](../service-fabric/index.md).
 
 Developers can also push to a container registry as part of a container development workflow. For example, target a container registry from a continuous integration and deployment tool such as [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) or [Jenkins](https://jenkins.io/).
+
 
 
 
@@ -49,9 +52,9 @@ Developers can also push to a container registry as part of a container developm
 
 * **Repository** - A registry contains one or more repositories, which are groups of container images. Azure Container Registry supports multilevel repository namespaces. This feature enables you to group collections of images related to a specific app, or a collection of apps to specific development or operational teams. For example:
 
-  * `myregistry-contoso.azurecr.io/aspnetcore:1.0.1` represents a corporate-wide image
-  * `myregistry-contoso.azurecr.io/warrantydept/dotnet-build` represents an image used to build .NET apps, shared across the warranty department
-  * `myregistry-contoso.azrecr.io/warrantydept/customersubmissions/web` represents a web image, grouped in the constomersubmissions app, owned by the warranty department
+  * `myregistry.azurecr.io/aspnetcore:1.0.1` represents a corporate-wide image
+  * `myregistry.azurecr.io/warrantydept/dotnet-build` represents an image used to build .NET apps, shared across the warranty department
+  * `myregistry.azrecr.io/warrantydept/customersubmissions/web` represents a web image, grouped in the constomersubmissions app, owned by the warranty department
 
 * **Image** - Stored in a repository, each image is a read-only snapshot of a Docker container. Azure container registries can include both Windows and Linux images. You control image names for all your container deployments. Use standard [Docker commands](https://docs.docker.com/engine/reference/commandline/) to push images into a repository, or pull an image from a repository.
 
