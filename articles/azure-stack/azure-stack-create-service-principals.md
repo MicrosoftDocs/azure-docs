@@ -18,7 +18,9 @@ ms.author: shnatara
 
 ---
 # Provide applications access to Azure Stack
-When an application needs access to deploy or configure resources through Azure Resource Manager in Azure Stack, you will create a service principal, which is an identity for your application.  You can then delegate only the necessary permissions to that service principal.  As an example, you may have a configuration management tool that uses Azure Resource Manager to inventory resources.  In this scenario, you can create a service principal, grant the reader role to that service principal, and limit the configuration management tool to read-only access. 
+When an application needs access to deploy or configure resources through Azure Resource Manager in Azure Stack, you will create a service principal, which is an identity for your application.  You can then delegate only the necessary permissions to that service principal.  
+
+As an example, you may have a configuration management tool that uses Azure Resource Manager to inventory resources.  In this scenario, you can create a service principal, grant the reader role to that service principal, and limit the configuration management tool to read-only access. 
 
 Service principals are preferable to running the app under your own credentials because:
 
