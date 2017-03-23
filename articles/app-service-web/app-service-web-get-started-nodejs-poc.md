@@ -76,7 +76,7 @@ az login
 
 ## Create a resource group
 
-Create a resource group with the [az group create](cli/azure/group#create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed.
+Create a resource group with the [az group create](/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
@@ -84,7 +84,7 @@ az group create --name myResourceGroup --location westeurope
 
 ## Create an Azure App Service
 
-Create an App Service Plan on Linux Worker with the [az appservice plan create](cli/azure/appservice/plan#create) command.
+Create an App Service Plan on Linux Worker with the [az appservice plan create](/cli/azure/appservice/plan#create) command.
 
 > [!NOTE]
 > An App Service plan represents the collection of physical resources used to host your apps. All applications assigned to an App Service plan share the resources defined by it allowing you to save cost when hosting multiple apps.
