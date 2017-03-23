@@ -33,7 +33,7 @@ Apache Oozie is a workflow/coordination system that manages Hadoop jobs. It is i
 
 Before you begin this tutorial, you must have the following:
 
-* **Azure CLI**: See [Install and Configure the Azure CLI](../xplat-cli-install.md)
+* **Azure CLI**: See [Install and Configure the Azure CLI](../cli-install-nodejs.md)
 
 * **An HDInsight cluster**: See [Get Started with HDInsight on Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
