@@ -34,7 +34,7 @@ To use this scenario, you need:
 You can also select **New**, **Enterprise Integration**, and select **Logic App**. 
 
 3. Enter a name for your logic app, select your Azure subscription, 
-4. create or select an Azure resource group, select a location, and choose **Create**. 
+create or select an Azure resource group, select a location, and choose **Create**.
 
 	If you select **Pin to Dashboard**, the logic app automatically opens after deployment.
 
