@@ -62,7 +62,7 @@
 #### [Backup and restore](service-fabric-reliable-services-backup-restore.md)
 #### [Communicate with Reliable Services](service-fabric-reliable-services-communication.md)
 #### [Secure communications with Reliable Services](service-fabric-reliable-services-secure-communication.md)
-##### [ASP.NET](service-fabric-reliable-services-communication-webapi.md)
+##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 ##### [Service Remoting](service-fabric-reliable-services-communication-remoting.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Reverse Proxy](service-fabric-reverseproxy.md)
