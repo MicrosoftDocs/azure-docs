@@ -22,7 +22,7 @@ ms.author: parakhj
 # Azure AD B2C: Requesting Access Tokens
 
 
-An access token (denoted as **access\_token**) is a form of security token that a client can use to access resources that are secured by an [authorization server](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics), such as a web API. Access tokens are represented as [JWTs](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens) and contain information about the intended resource server and the granted permissions to the server. When calling the resource server, the access token must be present in the HTTP request.
+An access token (denoted as **access\_token**) is a form of security token that a client can use to access resources that are secured by an [authorization server](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics), such as a web API. Access tokens are represented as [JWTs](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens) and contain information about the intended resource server and the granted permissions to the server. When calling the resource server, the access token must be present in the HTTP request.
 
 This article discusses how to configure a client application and have it make a request to acquire an **access\_token** from the `authorize` and `token` endpoints.
 
@@ -30,7 +30,7 @@ This article discusses how to configure a client application and have it make a 
 
 Before requesting an access token, you first need to register a web API and publish permissions that can be granted to the client application. Get started by following the steps under the [Register a web API](active-directory-b2c-app-registration.md) section.
 
-## Granting Permissions to a Web API
+## Granting permissions to a web API
 
 In order for a client application to get specific permissions to an API, the client application needs to be granted those permissions via the Azure portal. To grant permissions to a client application:
 
@@ -44,7 +44,7 @@ In order for a client application to get specific permissions to an API, the cli
 > [!NOTE]
 > Azure AD B2C does not ask your client application users for their consent. Instead, all consent is provided by the admin, based on the permissions configured between the applications described above. If a permission grant for an application is revoked, all users who were previously able to acquire that permission will no longer be able to do so.
 
-## Requesting a Token
+## Requesting a token
 
 To get an access token for a resource application, the client application needs to specify the permissions wanted in the **scope** parameter of the request. For example, to acquire the “read” permission for the resource application that has the App ID URI of `https://contoso.onmicrosoft.com/notes`, the scope would be `https://contoso.onmicrosoft.com/notes/read`. Below is an example of an authorization code request to the `authorize` endpoint.
 
@@ -71,7 +71,7 @@ You may request more scopes/permissions for a resource than what is granted for 
 > [!NOTE] 
 > We do not support requesting permissions against two different web resources in the same request. This kind of request will fail.
 
-### Special Cases
+### Special cases
 
 The OpenID Connect standard specifies several special “scope” values. The following special scopes represent the permission to “access the user’s profile”:
 
@@ -80,7 +80,7 @@ The OpenID Connect standard specifies several special “scope” values. The fo
 
 If the “response\_type” parameter in a `authorize` request includes “token”, the “scope” parameter must include at least one resource permission (other than “openid” and “offline\_access”) that will be granted. Otherwise, the `authorize` request will terminate with a failure.
 
-## The Returned Token
+## The returned token
 
 In a successfully minted **access\_token** (from either the `authorize` or `token` endpoint), the following claims will be present:
 
@@ -92,6 +92,6 @@ In a successfully minted **access\_token** (from either the `authorize` or `toke
 
 When your API receives the **access\_token**, it must [validate the token](active-directory-b2c-reference-tokens.md) to prove that the token is authentic and has the correct claims.
 
-
+## Next 
 
 We are always open to feedback and suggestions! If you have any difficulties with this topic, or have recommendations for improving this content, we would appreciate your feedback at the bottom of the page. For feature requests, add them to [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
