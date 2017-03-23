@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/21/2017
 ms.author: sdanie
 
 ---
@@ -130,7 +130,7 @@ From this table, we can draw the following conclusions:
 * With Redis clustering, throughput increases linearly as you increase the number of shards (nodes) in the cluster. For example, if you create a P4 cluster of 10 shards, then the available throughput is 250K *10 = 2.5 Million RPS.
 * Throughput for bigger key sizes is higher in the Premium tier as compared to the Standard Tier.
 
-| Pricing tier | Size | CPU cores | Available bandwidth | 1 KB Key size |
+| Pricing tier | Size | CPU cores | Available bandwidth | 1 KB value size |
 | --- | --- | --- | --- | --- |
 | **Standard cache sizes** | | |**Megabits per sec (Mb/s) / Megabytes per sec (MB/s)** |**Requests per second (RPS)** |
 | C0 |250 MB |Shared |5 / 0.625 |600 |
