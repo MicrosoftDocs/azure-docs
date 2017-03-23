@@ -3,7 +3,7 @@ title: Set up your development environment on Linux | Microsoft Docs
 description: Install the runtime and SDK and create a local development cluster on Linux. After completing this setup, you will be ready to build applications.
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: mani-ramaswamy
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
-ms.author: seanmck
+ms.date: 03/23/2017
+ms.author: subramar
 
 ---
 # Prepare your development environment on Linux
@@ -62,7 +62,7 @@ To install the SDK and the associated runtime package via apt-get, you must firs
     ```bash
     sudo apt-get update
     ```
-## Install and set up the SDK
+## Install and set up the SDK for containers and guest executables
 Once your sources are updated, you can install the SDK.
 
 1. Install the Service Fabric SDK package. You are asked to confirm the installation and to agree to a license agreement.
@@ -76,6 +76,21 @@ Once your sources are updated, you can install the SDK.
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
 
+Once you have run the steps to install the Common SDK package, creation of apps with guest executable or container services should be possible. You can test this out by running  `yo azuresfguest`. If that results in an error, you may need to set your **$NODE_PATH** environment variable to where the node modules are located. 
+
+    ```bash
+    export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules 
+    ```
+
+If you are using the environment as root, you may need to set the variable with the following command:
+
+    ```bash
+    export NODE_PATH=$NODE_PATH:/root/.node/lib/node_modules 
+    ```
+
+> [!NOTE]
+> You may want to add these commands into your ~/.bashrc file so that you don't have to set the environment variable at every login.
+>
 
 ## Set up the Azure cross-platform CLI
 The [Azure cross-platform CLI][azure-xplat-cli-github] includes commands for interacting with Service Fabric entities, including clusters and applications. It is based on Node.js so [ensure that you have installed Node][install-node] before proceeding with the following instructions:
@@ -125,9 +140,8 @@ At this point, you are able to deploy pre-built Service Fabric application packa
 > [!NOTE]
 > Stand alone clusters aren't supported in Linux - only one box and Azure Linux multi-machine clusters are supported in the preview.
 >
->
 
-## Install the Java SDK and Eclipse Neon plugin (optional)
+## Install the Java SDK and Eclipse Neon plugin (optional, if you wish to use the Java programming models)
 The Java SDK provides the libraries and templates required to build Service Fabric services using Java.
 
 1. Install the Java SDK package.
@@ -155,7 +169,7 @@ If you already have the Service Fabric Eclipse plugin installed, make sure you a
 
 For more details on how to use Service Fabric Eclipse plugin to create, build, deploy, upgrade a Service Fabric java application, please refer to our detailed guide - [Service fabric getting started with eclipse](service-fabric-get-started-eclipse.md).
 
-## Install the .NET Core SDK (optional)
+## Install the .NET Core SDK (optional, if you wish to use the .NET Core programming models)
 The .NET Core SDK provides the libraries and templates required to build Service Fabric services using cross-platform .NET Core.
 
 1. Install the .NET Core SDK package.
@@ -179,7 +193,8 @@ To update to the latest version of the SDK and runtime, run the following steps 
    sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
    ```
 
-For updating the CLI, navigate to the directory where you cloned the CLI and run `git pull` for updating.
+For updating the CLI, navigate to the directory where you cloned the CLI and run `git pull` for updating.  If additional steps are needed for updating, the release notes will specify those. 
+
 
 ## Next steps
 * [Create and deploy your first Service Fabric Java application on Linux using Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
