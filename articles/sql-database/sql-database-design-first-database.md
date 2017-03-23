@@ -146,7 +146,7 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
 2. Execute the following PowerShell command to download a sample text file to your current directory.
 
    ```powershell
-   powershell -command "& { (New-Object Net.WebClient).DownloadFile('https://sqldbtutorial.blob.core.windows.net/tutorials/SampleStudentData.txt', 'SampleStudentData.txt') }" 
+   powershell -command "& { (New-Object Net.WebClient).DownloadFile('https://sqldbtutorial.blob.core.windows.net/tutorials/SampleStudentData.txt', 'SampleStudentData.txt'); echo 'Download complete' }" 
    ``` 
 
 3. When this completes, execute the following command to insert 1000 rows into the Student table, replacing the values for **ServerName**, **DatabaseName**, **UserName**, and **Password** with the values for your environment.
