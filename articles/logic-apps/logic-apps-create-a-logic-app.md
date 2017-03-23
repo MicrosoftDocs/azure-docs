@@ -143,7 +143,7 @@ sign in with the username and password for your email account.
 
 4. Provide the details for this action, 
 like the email address where you want to send mail, 
-and choose the parameters data that you 
+and choose the parameters for data that you 
 want to include in your email, for example:
 
 	![Select data to include in email](media/logic-apps-create-a-logic-app/rss-action-setup.png)
