@@ -43,7 +43,7 @@ When a client acquires an access token to access a protected resource, the clien
 It's important to make a distinction between confidential clients and public clients. For more information about different types of clients, see [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
 #### Token lifetimes with confidential client refresh tokens
-Confidential clients are applications that can securely store a client password (secret). They can prove that requests are coming from the client application and not from a malicious actor. For example, a web app is a confidential client because it can store a client secret on the web server. It is not exposed. Because these flows are more secure, the default lifetimes of refresh tokens issued to these flows are higher and cannot be changed by using policy.
+Confidential clients are applications that can securely store a client password (secret). They can prove that requests are coming from the client application and not from a malicious actor. For example, a web app is a confidential client because it can store a client secret on the web server. It is not exposed. Because these flows are more secure, the default lifetimes of refresh tokens issued to these flows is `until-revoked`, cannot be changed by using policy, and will not be revoked on voluntary password resets.
 
 #### Token lifetimes with public client refresh tokens
 
