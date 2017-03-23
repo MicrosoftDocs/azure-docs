@@ -73,7 +73,7 @@ If you have deployed Azure Stack with AD FS, you can use PowerShell to create a 
 After you download the tools, navigate to the downloaded folder and import the Identity PowerShell module by using the following command:
 
 ```PowerShell
-Import-Module .\AzureStack.Identity.psm1
+Import-Module .\Identity\AzureStack.Identity.psm1
 ```
 
 When you import the module, you may receive an error that says “AzureStack.Connect.psm1 is not digitally signed. The script will not execute on the system”. To resolve this issue, you can set execution policy to allow running the script with the following command in an elevated PowerShell session:
