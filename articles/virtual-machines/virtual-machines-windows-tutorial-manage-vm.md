@@ -288,7 +288,7 @@ New-AzureRmSnapshot -ResourceGroupName myResourceGroup -SnapshotName mySnapshot 
 
 ### Create disk from snapshot
 
-This snapshot can then be converted into a disk which can be used to recreate the virtual machine.
+This snapshot can then be converted into a disk, which can be used to recreate the virtual machine.
 
 Get the snapshot that you previously created with the Get-AzureRmSnapshot command.
 
