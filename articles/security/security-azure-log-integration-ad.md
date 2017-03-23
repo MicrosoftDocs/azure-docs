@@ -20,7 +20,7 @@ ms.author: barclayn
 
 #Integrate Azure Active Directory Audit logs
 
-Azure Active directory audit events help you identify privileged actions that occurred in Azure Active Directory. You can see the types of events that you can track by reviewing [Azure Active Directory audit report events](../active-directory/active-directory-reporting-audit-events#list-of-audit-report-events)
+Azure Active directory audit events help you identify privileged actions that occurred in Azure Active Directory. You can see the types of events that you can track by reviewing [Azure Active Directory audit report events](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md)
 You must have successfully completed the steps in the [Get started](security-azure-log-integration-get-started.md) article before performing the steps in this article.
 
 ## Steps to integrate Azure Active directory audit logs
@@ -43,7 +43,7 @@ Point the standard SIEM file forwarder connector to the appropriate folder to pi
 
 
 
-If you run into any issues during the installation and configuration, Please open a [support request](../azure-supportability/how-to-create-azure-support-request), select 'Log Integration' as the service for which you are requesting support.
+If you run into any issues during the installation and configuration, Please open a [support request](/azure-supportability/how-to-create-azure-support-request.md), select 'Log Integration' as the service for which you are requesting support.
 
 ## Next steps
 To learn more about Azure Log Integration, see the following documents:
