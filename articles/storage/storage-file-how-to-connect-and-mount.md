@@ -25,7 +25,7 @@ Azure File storage is a service that offers file shares in the cloud using the s
 # Prerequisites for mounting Azure File
 
 ## Storage Account Name and Key
-
+You will need access to your subscription in Azure Portal or your primary or secondary storage account name and key. SAS key is not supported for mounting.
 
 ## Open SMB over TCP port 445
 If you are connecting to a Azure FIle Share, check to see if your firewall is not blocking TCP ports 445 from client machine.
@@ -50,7 +50,7 @@ from Linux still requires that the client be in the same Azure region as the
 file share.
 
 ### MacOS
-Starting El Captain (Mac OS X 10.11).
+SMB 3.0 is supported starting macOS Sierra. There are known bugs affecting macOS performance over SMB.
 
 # Supported Operating Systems
 When a client accesses File storage, the SMB version used depends on the SMB
