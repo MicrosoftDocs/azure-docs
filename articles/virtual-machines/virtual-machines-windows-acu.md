@@ -24,8 +24,6 @@ ms.author: cynthn
 [!INCLUDE [virtual-machines-common-acu](../../includes/virtual-machines-common-acu.md)]
 
 
-**Next steps**
-
 Here are links to more information about the different sizes:
 - [General-purpose](virtual-machines-windows-sizes-general.md)
 - [Memory optimized](virtual-machines-windows-sizes-memory.md)
