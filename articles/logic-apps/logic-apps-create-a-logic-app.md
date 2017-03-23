@@ -194,19 +194,20 @@ follow these steps.
 1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal").
 
 2. On the left menu, choose **More services**. Under **Enterprise Integration**, 
-choose **Logic Apps**. Select your logic app.
+choose **Logic Apps**. Select your logic app. 
 
-	*	To check your app's status and general information, 
-	choose **Overview**.
+	Here's a sample of management tasks 
+	that you can perform on your logic app.
 
-	*	To edit your app, choose **Logic App Designer**.
-
-	*	To turn off your app for now, choose **Overview**. 
-	On the command bar, choose **Disable**.
-
-	*	To delete your logic app, choose **Overview**. 
-	On the command bar, choose **Delete**. Enter your 
-	logic app's name, then choose **Delete**.
+	| Task | Steps |
+	| --- | --- |
+	| View your app's status, execution history, and general information | Choose **Overview** |
+	| Edit your app | Choose **Logic App Designer** |
+	| View your app's workflow JSON definition | Choose **Logic App Code View** |
+	| View operations that you performed on your logic app | Choose **Activity log** |
+	| View past versions for your logic app | Choose **Versions** |
+	| Turn off your app temporarily | Choose **Overview**, then on the command bar, choose **Disable** |
+	| Delete your app | Choose **Overview**, then on the command bar, choose **Delete**. Enter your logic app's name, and choose **Delete** |
 
 ## Next steps
 
