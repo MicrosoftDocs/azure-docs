@@ -1,24 +1,32 @@
 
 # Overview
-## [What is DocumentDB?](documentdb-introduction.md)
-## [What is DocumentDB: API for MongoDB?](documentdb-protocol-mongodb.md)
+## [What is Stellar?](documentdb-introduction.md)
+## [What is Stellar: API for MongoDB?](documentdb-protocol-mongodb.md)
+## [What are Stellar premium tables?](stellar-table-introduction.md)
+## [What are Stellar graph databases?](stellar-graph-introduction.md)
+
+# Concepts
 ## [Core concepts](documentdb-resources.md)
 ## [Global distribution](documentdb-distribute-data-globally.md)
 ## [Security](documentdb-nosql-database-security.md)
 ## [NoSQL TCO analysis](https://aka.ms/documentdb-tco-paper)
 ## Scenarios
 ### [Common use cases](documentdb-use-cases.md)
-### [Going social with DocumentDB](documentdb-social-media-apps.md)
+### [Going social with Stellar](documentdb-social-media-apps.md)
 
 # Get Started
-## Write your first app
+## Write your first document database app 
 ### [.NET console app](documentdb-get-started.md)
 ### [.NET Core console app](documentdb-dotnetcore-get-started.md)
 ### [Java console app](documentdb-java-get-started.md)
 ### [Node.js console app](documentdb-nodejs-get-started.md)
 ### [Node.js console app for MongoDB API](documentdb-mongodb-samples.md)
 ### [C++ console app](documentdb-cpp-get-started.md)
-## Build a web app
+## Write your first key/value table app
+### [.NET console app](stellar-tables-get-started.md)
+## Write your first graph database app
+### [.NET console app](stellar-graph-get-started.md)
+## Build a document database web app
 ### [.NET web app](documentdb-dotnet-application.md)
 ### [.NET web app for MongoDB API](documentdb-mongodb-application.md)
 ### [Xamarin app](documentdb-mobile-apps-with-xamarin.md)
@@ -116,7 +124,7 @@
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/documentdb/)
-## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
+## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureStellar)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=documentdb)
 ## [Service updates](https://azure.microsoft.com/updates/?product=documentdb)
