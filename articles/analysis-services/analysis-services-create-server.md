@@ -44,7 +44,7 @@ To get started, you need:
    * **Subscription**: Select the subscription this server bills to.
    * **Resource group**: These are containers designed to help you manage a collection of Azure resources. To learn more, see [resource groups](../azure-resource-manager/resource-group-overview.md).
    * **Location**: This Azure datacenter location hosts the server. Choose a location nearest your largest user base.
-   * **Pricing tier**: Select a pricing tier. Tabular models up to 100 GB are supported. You can always change your pricing tier later.
+   * **Pricing tier**: Select a pricing tier. Tabular models up to 100 GB are supported. To learn more, see [Azure Analysis Services pricing](https://azure.microsoft.com/pricing/details/analysis-services/).
 4. Click **Create**.
 
 Create usually takes under a minute; often just a few seconds. If you selected **Add to Portal**, navigate to your portal to see your new server. Or, navigate to **More services** > **Analysis Services** to see if your server is ready. If it doesn't appear refresh the list.

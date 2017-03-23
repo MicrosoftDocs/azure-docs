@@ -48,7 +48,7 @@ Before you connect, you need to get the server name. In **Azure portal** > serve
 > 
 > 
 
-1. In [Power BI Desktop](https://powerbi.microsoft.com/desktop/), click **Get Data** > **Databases** > **Azure Analysis Services**.
+1. In [Power BI Desktop](https://powerbi.microsoft.com/desktop/), click **Get Data** > **Azure** > **Microsoft Azure Analysis Services database**.
 2. In **Server**, paste the server name from the clipboard.
 3. In **Database**, if you know the name of the tabular model database or perspective you want to connect to, paste it here. Otherwise, you can leave this field blank. You can select a database or perspective on the next screen.
 4. Leave the default **Connect live** option selected, then press **Connect**. If you're prompted to enter an account, enter your organizational account.
