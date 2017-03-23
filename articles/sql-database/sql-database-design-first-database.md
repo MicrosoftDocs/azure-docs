@@ -36,7 +36,7 @@ This tutorial uses as its starting point the resources created in one of these q
 Before you start:
 
 * Make sure you can connect to, and query the SQL Database you created:
-[Connect Using SSMS](sql-database-connect-query-ssms.md), [Connect using Visual Studio Code](sql-database/sql-database-connect-query-vscode.md)
+[Connect Using SSMS](sql-database-connect-query-ssms.md), [Connect using Visual Studio Code](sql-database-connect-query-vscode.md)
 * Install the Bulk Copy (BCP) command-line utility:
 [Install For Windows](https://www.microsoft.com/download/details.aspx?id=53591), [Install For Linux](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools)
 
