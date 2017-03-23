@@ -1,6 +1,6 @@
 ---
-title: Create Azure HDInsight (Hadoop) using templates | Microsoft Docs
-description: Learn how to create clusters for Azure HDInsight using Azure Azure Resource Management templates.
+title: Create HDInsight (Hadoop) clusters using templates | Microsoft Docs
+description: Learn how to create clusters for HDInsight using Resource Manager templates
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
@@ -18,10 +18,10 @@ ms.date: 03/14/2017
 ms.author: jgao
 
 ---
-# Create Hadoop clusters in HDInsight using Azure Resource Management templates
+# Create Hadoop clusters in HDInsight using Resource Manager templates
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Learn how to create HDInsight clusters using Azure Resource Management templates. For more information, see [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). To learn other cluster creation tools and features, click the tab select on the top of this page or see [Cluster creation methods](hdinsight-hadoop-provision-linux-clusters.md#cluster-creation-methods).
+In this article, you learn how to create Azure HDInsight clusters using Azure Resource Manager templates. For more information, see [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). To learn other cluster creation tools and features, click the tab select on the top of this page or see [Cluster creation methods](hdinsight-hadoop-provision-linux-clusters.md#cluster-creation-methods).
 
 ## Prerequisites:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
