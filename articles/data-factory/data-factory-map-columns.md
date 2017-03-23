@@ -175,3 +175,7 @@ In this case, the query results are first mapped to columns specified in “stru
 
 ![Column mapping flow-2](./media/data-factory-map-columns/column-mapping-flow-2.png)
 
+## Next steps
+See the article for a tutorial on using Copy Activity: 
+
+- [Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
