@@ -37,7 +37,7 @@ Prerequisites to listing on Azure Marketplace
 
 -   You are responsible for licensing your software and any third-party software dependencies.
 
--   You must provide content that meets criteria for your offering to be listed on azure.microsoft.com and in the Azure Management Portal
+-   You must provide content that meets criteria for your offering to be listed on Azure Marketplace and in the Azure Management Portal
 
 -   You must agree to the terms of the Azure Marketplace Participation Policies and Publisher Agreement​
 
@@ -70,15 +70,6 @@ Once all the pre-requisites have been met, you are ready to start authoring your
 
 -   Support
 
-A note about tooltips & validations
-===================================
-
-The forms for publishing a VM offer are built with inline tooltips & validations. You will be informed of any requirements for a specific field via the various tooltips around the form. You will also be informed in case there is a validation error. These should help you get the forms filled out with the right details and help you to publish your offer faster.
-
-![publishvm3][3]
-
-Note that you can still save your offer with any errors that might be in the forms. You can come back and continue where you left off.
-
 How to fill out the Offer Settings form
 =======================================
 
@@ -97,7 +88,7 @@ This dropdown allows you to choose the publisher profile you want to publish thi
 Name
 ----
 
-This is the display name for your offer. This is the name that will show up in [Azure Marketplace](https://azuremarketplace.microsoft.com) and in [Azure Portal](https://portal.azure.com/). It can have a maximum of 50 characters.
+This is the display name for your offer. This is the name that will show up in [Azure Marketplace](https://azuremarketplace.microsoft.com) and in [Azure Portal](https://portal.azure.com/). It can have a maximum of 50 characters. Guidance here is to include a recognizable brand name for your product. Dont include your company name here unless that is how it is marketed. 
 
 Click on “Save” to save your progress. Next step would be to add SKUs for your offer.
 
@@ -110,7 +101,7 @@ A SKU is the commercial name for a VM image. Click on the “SKUs” form. Here 
 
 This is a unique identifier for the SKU within an offer. This ID will be visible in product URLs, ARM templates and billing reports. It can only be composed of lowercase alphanumeric characters or dashes (-). The ID cannot end in a dash and can have a maximum of 50 characters. Note that this field is locked once an offer goes live. You can have multiple SKUs within an offer. You need a SKU for each image you are planning to publish.
 
-Once a SKU has been added, it will appear in the list of SKUs within the “SKUs” form. Click on the SKU name to get into the details of that particular SKU. A lot of the fields here are self-explanatory. Let’s go over some of them.
+Once a SKU has been added, it will appear in the list of SKUs within the “SKUs” form. Click on the SKU name to get into the details of that particular SKU. Here are some details for some of the fields.
 
 Hide this SKU
 -------------
@@ -206,7 +197,7 @@ The next section to complete will be the VM Images section. Before going to this
 
 -   [Guide to create a virtual machine image for the Azure Marketplace](https://github.com/Microsoft/azure-docs/blob/master/articles/marketplace-publishing/marketplace-publishing-vm-image-creation.md)
 
-Once you have your VHD ready, you can start filling out this section. Most fields are self-explanatory. Let’s go over some of them.
+Once you have your VHD ready, you can start filling out this section. Here are some details for some of the fields.
 
 ### Recommended VM Sizes
 
@@ -255,7 +246,7 @@ Note that once you publish a SKU with a given VM version and Data disks, these g
 Marketplace Form
 ================
 
-The marketplace form within a virtual machine offer asks for fields that will show up on [Azure Marketplace](https://azuremarketplace.microsoft.com) and on [Azure Portal](https://portal.azure.com/). Many fields are self-explanatory. More details around some of them here:
+The marketplace form within a virtual machine offer asks for fields that will show up on [Azure Marketplace](https://azuremarketplace.microsoft.com) and on [Azure Portal](https://portal.azure.com/). Here are some details for some of the fields.
 
 ### Preview Subscription Ids
 
@@ -312,7 +303,7 @@ The Hero logo is optional. The publisher can choose not to upload a Hero logo. H
 Support Form
 ============
 
-The next form to fill out is the support form. This form asks for support contacts from your company like engineering contact information and customer support contact information. Fields here are self-explanatory.
+The next form to fill out is the support form. This form asks for support contacts from your company like engineering contact information and customer support contact information. 
 
 How to publish an offer
 =======================
