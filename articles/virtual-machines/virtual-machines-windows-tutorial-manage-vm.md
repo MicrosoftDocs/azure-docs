@@ -20,7 +20,7 @@ ms.author: davidmu
 
 # Manage Windows virtual machines with Azure PowerShell
 
-In this tutorial, you will create a virtual machine and perform many common management tasks such as adding a disk, automating software installation, managing firewall rules, and creating a virtual machine snapshot.
+In this tutorial, you create a virtual machine and perform common management tasks such as adding a disk, automating software installation, managing firewall rules, and creating a virtual machine snapshot.
 
 To complete this tutorial, make sure that you have installed the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module. 
 
@@ -228,11 +228,11 @@ Get the public IP address of the virtual machine with the [Get-AzureRmPublicIPAd
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroup -Name myPublicIPAddress
 ```
 
-Open an internet browser and enter the public IP address of the virtual machine into the address bar. Even though IIS has been installed, the default site is not accessible. This is addressed in the next section of this tutorial. 
+Open an internet browser and enter the public IP address of the virtual machine into the address bar. Even though IIS has been installed, the default site is not accessible. Access to the webserver is addressed in the next section of this tutorial. 
 
 ## Step 4 – Configure firewall
 
-In a previous section the IIS webserver was installed. Without a network security group rule to allow inbound traffic on port 80, the webserver cannot be accessed from the internet. This step walks you through creating the NSG rule to allow inbound connections on port 80.
+In a previous section, the IIS webserver was installed. Without a network security group rule to allow inbound traffic on port 80, the webserver cannot be accessed from the internet. This step walks you through creating the NSG rule to allow inbound connections on port 80.
 
 ### Add NSG rule
 
@@ -262,7 +262,7 @@ Now browse to the public IP address of the virtual machine. With the NSG rule in
 
 ## Step 5 – Snapshot virtual machine
 
-Taking a snapshot of a virtual machines creates a read only, point-in-time copy of the virtual machines operating system disk. With a disk snapshot, the virtual machine can be quickly restored to a specific state, or the snapshot can be used to create a new virtual machine with an identical state. 
+Taking a snapshot of a virtual machine creates a read only, point-in-time copy of the virtual machines operating system disk. With a snapshot, the virtual machine can be restored to a specific state, or the snapshot can be used to create a new virtual machine with an identical state. 
 
 ### Create snapshot
 
@@ -316,7 +316,7 @@ To demonstrate virtual machine recovery, delete the existing virtual machine.
 Remove-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Force
 ```
 
-Create a new virtual machine from the snapshot disk. In this example, the existing network interface is being specified. This configuration will apply all previously created NSG rules to the new virtual machine.
+Create a new virtual machine from the snapshot disk. In this example, the existing network interface is being specified. This configuration applies all previously created NSG rules to the new virtual machine.
 
 Get the disk that you created from the snapshot with the [Get-AzureRmDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermdisk) command.
 
@@ -354,7 +354,7 @@ Get the public IP address of the new virtual machine with the [Get-AzureRmPublic
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroup -Name myPublicIPAddress
 ```
 
-Enter the public IP address of the virtual machine into the address bar of the internet browser. You will see that IIS is running in the restored virtual machine. 
+Enter the public IP address of the virtual machine into the address bar of the internet browser. You should see that IIS is running in the restored virtual machine. 
 
 ## Step 6 – Management tasks
 
@@ -362,7 +362,7 @@ During the lifecycle of a virtual machine, you may want to run management tasks 
 
 ### Resize virtual machine
 
-To resize an Azure virtual machine, you will need to know the name of the sizes available in the chosen Azure region. These sizes can be found with the [Get-AzureRmVMSize](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermvmsize) command.
+To resize an Azure virtual machine, you need the name of the sizes available in the chosen Azure region. These sizes can be found with the [Get-AzureRmVMSize](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermvmsize) command.
 
 ```powershell
 Get-AzureRmVMSize -Location westeurope
@@ -404,7 +404,7 @@ Start-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -StayProvisioned -Force
 ```
 
-### Delete resource goup
+### Delete resource group
 
 Deleting a resource group also deletes all resources contained within.
 
