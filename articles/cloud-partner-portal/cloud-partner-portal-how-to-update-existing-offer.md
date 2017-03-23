@@ -3,7 +3,7 @@ title: How to update an existing offer | Microsoft Docs
 description: This article gives gives details around updating an existing offer via the cloud partner portal
 services: cloud-partner-portal
 documentationcenter: ''
-author: andalmia
+author: anuragdalmia
 manager: hamidm
 
 ms.service: cloud-partner-portal
@@ -12,9 +12,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2017
-ms.author: anuragdalmia
+ms.author: andalmia
 
 ---
+
 If you would like to update your offer that’s available in Azure Marketplace, you need to update your offer in the [Cloud Partner Portal](https://cloudpartner.azure.com/) and re-publish. This article walks you through the different aspects of updating your VM offer.
 
 Making updates to Offer Settings
