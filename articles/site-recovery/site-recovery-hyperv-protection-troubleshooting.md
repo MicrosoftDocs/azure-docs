@@ -17,7 +17,7 @@ ms.date: 03/2/2017
 ms.author: asgang
 
 ---
-## Troubleshoot on-premises Hyper-V replication  issues
+# Troubleshoot on-premises Hyper-V replication  issues
 
 This article catalogs the most common errors and mitigation during the Hyper-v replication failures.
 
@@ -38,7 +38,7 @@ If replication is paused for the virtual machine, right-click the virtual machin
 	> If a virtual machine migrates to a new Hyper-V host that's within the cluster or a standalone machine and the Hyper-V host has been configured through Azure Site Recovery, replication for the virtual machine wouldn't be impacted. Ensure that the new Hyper-V host meets all the prerequisites and is configured by using Azure Site Recovery.
 
 
-### Event Log
+### Event log
 | Event sources | Details |
 | --- |:--- |
 | **Applications and Service Logs/Microsoft/VirtualMachineManager/Server/Admin** (Virtual Machine Manager server) |Provides useful logging to troubleshoot many different Virtual Machine Manager issues. |
@@ -63,7 +63,7 @@ under **Data Collector Sets.**
 
 To view the collected information, first stop the tracing session by disabling the log. Save the log, and open it again in Event Viewer or use other tools to convert it as desired.
 
-### Hyper-V Replica issues, fixed for Azure Site Recovery in the July 2016 update for Windows Server 2012 R2
+### Hyper-V replica issues, fixed for Azure Site Recovery in the July 2016 update for Windows Server 2012 R2
 Following improvements are made in [Hyper-v replica update](https://support.microsoft.com/help/3184854/hyper-v-replica-issues-are-fixed-for-azure-site-recovery-in-the-july-2016-update-for-windows-server-2012-r2) to fix issues related to  resynchronization (resync) or time-outs during initial replication or delta replication.
 It is highly recommended to install the above update to avoid following issues. 
 
@@ -103,12 +103,12 @@ During the state of delta replication that occurs after initial replication, if 
 
 With this fix, the time-out for a delta replication cycle is increased to 15 days.
 
-### Virtual Machine Replication state on the Azure portal and Hyper-V console is out of sync
+### Virtual Machine replication state on the Azure portal and Hyper-V console is out of sync
 
 In case virtual machine initial replication job failed and you resume the replication through Hyper-V manager, you will see that ASR portal is not able to get the exact state of the machine and the protection state keep on showing critical even if the health of replication in hyper-v shows green.
 
 On the portal, you see below error 
-![IR error on the portal](media/site-recovery-protection-common-errors/hyper-v-IR-failure.png)
+![IR error on the portal](media/site-recovery-protection-common-errors/hyper-v-IR-failure1.png)
 
 To make the replication health status of the machine in sync with hyper-v, use following steps 
 
