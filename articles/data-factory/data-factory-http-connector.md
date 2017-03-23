@@ -21,7 +21,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to move
 
 Data factory currently supports only moving data from an HTTP source to other data stores, but not moving data from other data stores to an HTTP destination.
 
-# Supported scenarios and authentication types
+## Supported scenarios and authentication types
 You can use this HTTP connector to retrieve data from **both cloud and on-premises HTTP/s endpoint** by using HTTP **GET** or **POST** method. The following authentication types are supported: **Anonymous**, **Basic**, **Digest**, **Windows**, and **ClientCertificate**. Note the difference between this connector and the [Web table connector](data-factory-web-table-connector.md) is: the latter is used to extract table content from web HTML page.
 
 When copying data from an on-premises HTTP endpoint, you need install a Data Management Gateway in the on-premises environment/Azure VM. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway.

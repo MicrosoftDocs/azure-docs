@@ -21,7 +21,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to move
 
 Data factory currently supports only moving data from an SFTP server to other data stores, but not for moving data from other data stores to an SFTP server. It supports both on-premises and cloud SFTP servers.
 
-# Supported scenarios and authentication types
+## Supported scenarios and authentication types
 You can use this SFTP connector to copy data from **both cloud SFTP servers and on-premises SFTP servers**. **Basic** and **SshPublicKey** authentication types are supported when connecting to the SFTP server.
 
 When copying data from an on-premises SFTP server, you need install a Data Management Gateway in the on-premises environment/Azure VM. See [Data Management Gateway](data-factory-data-management-gateway.md) for details on the gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on setting up the gateway and using it.
