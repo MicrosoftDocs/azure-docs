@@ -166,7 +166,7 @@ After the reprotect succeed, the virtual machine will enter a protected state.
 
 After the virtual machine has entered a protected state, you can initiate a failback. The failback will shut down the virtual machine in Azure and boot the on-premises virtual machine. Hence there is a small downtime for the application. So, choose the time for failback when your application can tolerate a downtime.
 
-[Steps to initiate failback of the virtual machine](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-failback)
+[Steps to initiate failback of the virtual machine](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back)
 
 ## Common issues
 
