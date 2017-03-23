@@ -237,4 +237,4 @@ resulting socket.
 ## Next steps
 To learn more about Azure Relay, visit these links:
 * [What is Azure Relay?](relay-what-is-it.md)
-* [Available Relay apis](relay-api-overview.md)
+* [Available Relay APIs](relay-api-overview.md)
