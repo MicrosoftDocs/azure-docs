@@ -16,7 +16,6 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: cfowler
 ---
-
 # Create a Node.js Application on Web App
 
 This quickstart shows you how to clone and test a Node.js Application on your local machine, then deploy that application into Azure using the Azure CLI.
@@ -122,7 +121,7 @@ When the App Service Plan has been created, the Azure CLI shows information simi
 
 ## Create a Web App
 
-
+Run the following command to create the Web App in Azure.
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
