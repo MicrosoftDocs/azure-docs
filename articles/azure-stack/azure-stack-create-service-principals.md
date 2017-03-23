@@ -57,7 +57,8 @@ When programmatically logging in, you use the ID for your application and an aut
 
 After saving the key, the value of the key is displayed. Copy this value because you are not able to retrieve the key later. You provide the key value with the application ID to sign as the application. Store the key value where your application can retrieve it.
 
-     ![saved key](./media/azure-stack-create-service-principal/image15.png)
+![saved key](./media/azure-stack-create-service-principal/image15.png)
+
 
 Once complete, proceed to [assigning your application a role](azure-stack-create-service-principals.md#assign-role-to-service-principal).
 
