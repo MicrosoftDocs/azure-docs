@@ -36,7 +36,7 @@ At a minimum the installation of Azlog requires the following items:
    * A machine you want to monitor – this is a VM running as an [Azure Virtual Machine](../virtual-machines/virtual-machines-windows-overview.md)
    * A machine that will run the Azure log integration service; this machine will collect all the log information that will later be imported into your SIEM.
     * This system can be on-premises or in Microsoft Azure.  
-    * It needs to be running an x64 version of Windows server 2008 R2 SP1 or higher and have .NET 4.5.1 installed. You can determine the .NET version installed by following the article titled [How to determine which version of .NET framework versions are installed](https://msdn.microsoft.com/library/hh925568(v=vs.110).aspx)  
+    * It needs to be running an x64 version of Windows server 2008 R2 SP1 or higher and have .NET 4.5.1 installed. You can determine the .NET version installed by following the article titled [How to: Determine Which .NET Framework Versions Are Installed](https://msdn.microsoft.com/library/hh925568)  
     It must have connectivity to the Azure storage account used for Azure diagnostic logging. We will provide instructions later in this article on how you can confirm this connectivity
 
 ## Deployment considerations
