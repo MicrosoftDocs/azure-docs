@@ -27,7 +27,7 @@ You've just received a notification that the ACME Customer Portal application is
 
 ## Components and features used
 - [Service Map solution](operations-management-suite-service-map.md)
-- [Log Analytics log searches](../log-analytics/log-analytics-log-search.md)
+- [Log Analytics log searches](../log-analytics/log-analytics-log-searches.md)
 
 
 ## Walk through
