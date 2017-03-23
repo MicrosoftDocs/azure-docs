@@ -58,7 +58,7 @@ Billing is based on the number of users configured to use Multi-Factor Authentic
 
 **Q: How does Multi-Factor Authentication billing work?**
 
-When you purchase Azure Multi-Factor Authentication as a standalone service (by creating a per-user or per-authentication MFA provider) your organization's Azure subscription is billed monthly based on usage. This billing model works like virtual machines and websites.
+When you purchase Azure Multi-Factor Authentication as a standalone service (by creating a per-user or per-authentication MFA provider) your organization's Azure subscription is billed monthly based on usage. This billing model is similar to how Azure bills for usage of virtual machines and websites.
 
 When you purchase a subscription for Azure Multi-Factor Authentication (as a per-user annual license, or as part of an Office 365, Azure AD Premium, or Enterprise Mobility + Security bundle), your organization only pays the annual license fee for each user.
 
@@ -70,11 +70,17 @@ In some instances, yes.
 
 Multi-Factor Authentication for Azure Administrators offers a subset of Azure MFA features at no cost for access to Microsoft online services, including the Azure and Office 365 administrator portals. This offer applies to the Azure Administrators in Azure Active Directory instances that don't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider. If your admins use the free version, and then you create a Multi-Factor Authentication provider, all admins and users in the directory who are configured to use Multi-Factor Authentication get the full version of Azure Multi-Factor Authentication.
 
-Multi-Factor Authentication for Office 365 users offers a subset of Azure MFA features at no cost for access to Microsoft online services, including Exchange Online, SharePoint Online, and other Office 365 services. This offer applies to users who have an Office 365 license assigned, when the corresponding instance of Azure Active Directory doesn't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider. Using the Multi-Factor Authentication provider upgrades all admins and users in the directory who are configured to use Multi-Factor Authentication to the full version of Azure Multi-Factor Authentication.
+Multi-Factor Authentication for Office 365 users offers a subset of Azure MFA features at no cost for access to Microsoft online services, including Exchange Online, SharePoint Online, and other Office 365 services. This offer applies to users who have an Office 365 license assigned, when the corresponding instance of Azure Active Directory doesn't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider. 
 
 **Q: Can my organization switch between per-user and per-authentication consumption billing models at any time?**
 
-Your organization chooses a billing model when it creates a resource. You cannot change a billing model after the resource is provisioned. You can, however, create another Multi-Factor Authentication resource to replace the original. User settings and configuration options can only be transferred to the new resource if the original provider was linked to an Azure AD tenant and the new provider is linked to the same tenant during creation. An Azure AD tenant cannot be linked to two Multi-Factor Authentication providers at the same time. Delete the original one before creating a new one.
+If your organization purchases MFA as a standalone service with consumption-based billing, you choose a billing model when you create an MFA provider. You cannot change the billing model after an MFA provider is created. However, you can delete the MFA provider and create a new one with a different billing model. 
+
+When an MFA provider is created, it can be linked to an Azure Active Directory (aka “Azure AD tenant”). If the current MFA Provider is linked to an Azure AD tenant, you can safely delete the MFA provider and create a new MFA Provider that is linked to the same Azure AD tenant. Alternatively, if you purchased enough MFA, Azure AD Premium, or Enterprise Mobility + Security (EMS) licenses to cover all users that are enabled for MFA, you can delete the MFA provider altogether.
+
+If, however, your MFA provider is not linked to an Azure AD tenant, or you link the new MFA provider to a different Azure AD tenant, user settings and configuration options will not be transferred to the new MFA provider. Also, existing Azure MFA Servers will need to be reactivated using activation credentials generated through the new MFA Provider. Reactivating the MFA Servers to link them to the new MFA Provider doesn't impact phone call and text message authentication, but mobile app notifications will stop working for all users until they reactivate the mobile app.
+
+Learn more about MFA providers in [Getting started with an Azure Multi-Factor Auth Provider](multi-factor-authentication-get-started-auth-provider.md).
 
 **Q: Can my organization switch between consumption-based billing and subscriptions (a license-based model) at any time?**
 
@@ -82,7 +88,7 @@ In some instances, yes.
 
 If your directory has a *per-user* Azure Multi-Factor Authentication provider, you can add MFA licenses. Users with licenses aren't be counted in the per-user consumption-based billing. Users without licenses can still be enabled for MFA through the MFA provider. If you purchase and assign licenses for all your users configured to use Multi-Factor Authentication, you can delete the Azure Multi-Factor Authentication provider. You can always create another per-user MFA provider if you have more users than licenses in the future. 
 
-If your directory has a *per-authentication* Azure Multi-Factor Authentication, you cannot combine that with MFA licenses. Technically you can, but you don't want to because you'll be billed for every two-step verification request, whether it comes from someone with an MFA license assigned or not. 
+If your directory has a *per-authentication* Azure Multi-Factor Authentication provider, you will always be billed for each authentication, as long as the MFA provider is linked to your subscription. You can assign MFA licenses to users, but you'll still be billed for every two-step verification request, whether it comes from someone with an MFA license assigned or not. 
 
 **Q: Does my organization have to use and synchronize identities to use Azure Multi-Factor Authentication?**
 
@@ -94,7 +100,7 @@ Azure Active Directory is required for the license model because licenses are ad
 
 **Q: What should I tell my users to do if they don’t receive a response on their phone, or don't have their phone with them?**
 
-Hopefully all your users configured more than one verification method. Tell them to try signing in again, but select a different verification method on the sign-in page. If the user doesn’t have another method configured, you can update the number assigned to be the user's primary phone.
+Hopefully all your users configured more than one verification method. Tell them to try signing in again, but select a different verification method on the sign-in page. 
 
 You can point your users to the [End-user troubleshooting guide](./end-user/multi-factor-authentication-end-user-troubleshoot.md).
 
@@ -109,7 +115,7 @@ To prevent unauthorized access, delete all the user's app passwords. After the u
 
 **Q: What if a user can't sign in to non-browser apps?**
 
-If your organization still uses legacy clients, and you [allowed the use of app passwords](multi-factor-authentication-whats-next.md#app-passwords), then your users can't sign in to these legacy clients with their username and password. Instead, they need to [set up app passwords](./end-user/multi-factor-authentication-end-user-app-passwords.md). Your users clear (delete) their sign-in information, restart the app, and then sign in with their username and *app password* instead of their regular password. 
+If your organization still uses legacy clients, and you [allowed the use of app passwords](multi-factor-authentication-whats-next.md#app-passwords), then your users can't sign in to these legacy clients with their username and password. Instead, they need to [set up app passwords](./end-user/multi-factor-authentication-end-user-app-passwords.md). Your users must clear (delete) their sign-in information, restart the app, and then sign in with their username and *app password* instead of their regular password. 
 
 If your organization doesn't have legacy clients, you should not allow your users to create app passwords. 
 
@@ -120,7 +126,7 @@ If your organization doesn't have legacy clients, you should not allow your user
 
 **Q: My users say that sometimes they don't receive the text message, or they reply to two-way text messages but the verification times out.**
 
-Delivery of text messages, and receipt of replies in two-way SMS, is not guaranteed because there are uncontrollable factors that might affect the reliability of the service. These factors include the destination country, the mobile phone carrier, and the signal strength.
+Delivery of text messages and receipt of replies in two-way SMS are not guaranteed because there are uncontrollable factors that might affect the reliability of the service. These factors include the destination country, the mobile phone carrier, and the signal strength.
 
 If your users often have problems with reliably receiving text messages, tell them to use the mobile app or phone call method instead. The mobile app can receive notifications both over cellular and Wi-Fi connections. In addition, the mobile app can generate verification codes even when the device has no signal at all. The Microsoft Authenticator app is available for [Android](http://go.microsoft.com/fwlink/?Linkid=825072), [IOS](http://go.microsoft.com/fwlink/?Linkid=825073), and [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
@@ -182,7 +188,7 @@ Tell them to follow this procedure to remove their account from the mobile app, 
 
 **Q: What should users do if they see a 0x800434D4L error message when signing in to a non-browser application?**
 
-Currently, a user can use additional security verification only with applications and services that the user can access through a browser. Non-browser applications (also referred to as *rich client applications*) that are installed on a local computer, such as Windows PowerShell, doesn't work with accounts that require additional security verification. In this case, the user might see the application generate an 0x800434D4L error.
+The 0x800434D4L error occurs when you try to sign in to a non-broswer application, installed on a local computer, that doesn't work with account that require two-step verification. 
 
 A workaround for this is to have separate user accounts for admin-related and non-admin operations. Later, you can link mailboxes between your admin account and non-admin account so that you can sign in to Outlook by using your non-admin account. For more details about this, learn how to [give an administrator the ability to open and view the contents of a user's mailbox](http://help.outlook.com/141/gg709759.aspx?sl=1).
 
