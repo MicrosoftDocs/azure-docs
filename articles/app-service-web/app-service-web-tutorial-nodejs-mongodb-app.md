@@ -22,14 +22,14 @@ This tutorial shows you how to deploy a [MEAN.js](http://meanjs.org/) app to Azu
 
 You should have working knowledge of Node.js. This tutorial is not intended to help you with issues related to developing Node.js apps in general.
 
-Before starting this tutorial, ensure that [the Azure CLI is installed](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) on your machine. In addition, you need [Node.js](https://nodejs.org/) and [Git](http://www.git-scm.com/downloads). You will be running `az`, `npm`, and `git` commands.
+Before starting this tutorial, ensure that [the Azure CLI is installed](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) on your machine. In addition, you need [Node.js](https://nodejs.org/) and [Git](http://www.git-scm.com/downloads). You will run `az`, `npm`, and `git` commands.
 
 ## Step 1 - Create local MEAN.js app
 In this step, you set up the local Node.js project.
 
 ### Clone MEAN.js code
 
-Open the command-line terminal of your choice and `CD` to a working directory. Then, run the following commands to clone the official MEAN.js repository. You will be using the 0.5.0 release of MEAN.js.
+Open the command-line terminal of your choice and `CD` to a working directory. Then, run the following commands to clone the official MEAN.js repository. In this tutorial, you use the 0.5.0 release of MEAN.js.
 
 ```bash
 git clone https://github.com/meanjs/mean.git
@@ -46,7 +46,7 @@ npm install
 npm start
 ```
 
-Unless you already have a local MongoDB instance, `npm start` should terminate with the following error message.
+Unless you already have a local MongoDB instance, `npm start` should terminate with the following error message:
 
 ```bash
 { [MongoError: failed to connect to server [localhost:27017] on first connect]
@@ -58,11 +58,11 @@ Instead of setting up a local MongoDB instance, you create one in Azure.
 
 ## Step 2 - Connect to MongoDB
 
-In this step, you connect your app to a MongoDB database. For MongoDB, you will use [Azure DocumentDB](https://docs.microsoft.com/en-us/azure/documentdb/), which can support MongoDB client connections.
+In this step, you connect your app to a MongoDB database. For MongoDB, this tutorial uses [Azure DocumentDB](https://docs.microsoft.com/en-us/azure/documentdb/), which can support MongoDB client connections.
 
 ### Create resource group
 
-Create a [resource group](../azure-resource-manager/resource-group-overview.md). This is where you put all the Azure resources that you want to manage together, such as 
+Create a [resource group](../azure-resource-manager/resource-group-overview.md). A resource group is where you put all the Azure resources that you want to manage together, such as 
 the web app and the DocumentDB database back end.
 
 ```azurecli
@@ -94,7 +94,7 @@ The `--query primaryMasterKey --output tsv` portion helps filter the JSON output
 
 ### Set the MEAN.js environment variable
 
-MEAN.js lets you use several environment variables to set the connection URI for MongoDB, and `MONGODB_URI` is one of them (take a look at `config/env/development.js`). Set this environment variable using the connection information of your DocumentDB database.
+MEAN.js lets you use several environment variables to set the connection URI for MongoDB, and `MONGODB_URI` is one of them (see `config/env/development.js` in your repository). Set this environment variable using the connection information of your DocumentDB database.
 
 ```bash
 export MONGODB_URI="mongodb://$accountname:$password@$accountname.documents.azure.com:10250/mean-dev?ssl=true&sslverifycertificate=false"
@@ -135,7 +135,7 @@ az appservice web config update --node-version 6.9.3 --name <app_name> --resourc
 
 ### Configure MongoDB connection string
 
-Remember that you created a local environment variable for `MONGODB_URI`. You need to do the same for your app in Azure. You do this by setting an application setting for your app.
+Remember that you created a local environment variable for `MONGODB_URI`. Do the same for your Azure app by setting an application setting for your app.
 
 ```azurecli
 az appservice web config appsettings update --settings dbconnstring="mongodb://$accountname:$password@$accountname.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false" --name <app_name> --resource-group myResourceGroup    
@@ -157,21 +157,21 @@ Configure local Git deployment.
 az appservice web source-control config-local-git --name $webappname --resource-group myResourceGroup
 ```
 
-This command gives you an output that looks like the following:
+This command gives you an output that looks like the following JSON:
 
 ```json
 {
   "url": "https://user123@myuniqueappname.scm.azurewebsites.net/myuniqueappname.git"
 }
 ```
-Use the returned URL to configure your Git remote. Below is a command that uses the preceding output example.
+Use the returned URL to configure your Git remote. The following command uses the preceding output example.
 
 ```bash
 git remote add azure https://user123@myuniqueappname.scm.azurewebsites.net/myuniqueappname.git
 ```
 
 ### Deploy sample application
-You are now ready to deploy your MEAN.js sample application. Simply run `git push`.
+You are now ready to deploy your MEAN.js sample application. Run `git push`.
 
 ```bash
 git push azure master
@@ -198,7 +198,7 @@ az appservice web log config --name <app_name> --resource-group myResourceGroup 
 
 ### Generate errors
 
-Navigate to a nonexistent page at your web app to generate some error entries. For example: `http://<app_name>.azurewebsites.net/404`. 
+To generate some error entries, navigate to a nonexistent page in your web app. For example: `http://<app_name>.azurewebsites.net/404`. 
 
 ### Download log files
 Download the log files for review.

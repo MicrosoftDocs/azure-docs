@@ -21,7 +21,7 @@ ms.author: cephalin
 
 This tutorial shows you how to scale out an ASP.NET web app in Azure to maximize user requests.
 
-Before starting this tutorial, ensure that [the Azure CLI is installed](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) on your machine. In addition, you need [Visual Studio](https://www.visualstudio.com/vs/) on your local machine in order to run the sample application locally.
+Before starting this tutorial, ensure that [the Azure CLI is installed](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) on your machine. In addition, you need [Visual Studio](https://www.visualstudio.com/vs/) on your local machine run the sample application.
 
 ## Step 1 - Get sample application
 In this step, you set up the local Node.js project.
@@ -69,7 +69,7 @@ az group create --location "West Europe" --name myResourceGroup
 
 To see what possible values you can use for `---location`, use the [az appservice list-locations](https://docs.microsoft.com/en-us/cli/azure/appservice#list-locations) command.
 
-## Create an App Service plan
+### Create an App Service plan
 Use [az appservice plan create](https://docs.microsoft.com/en-us/cli/azure/appservice/plan#create) to create a "B1" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 ```azurecli
@@ -78,9 +78,9 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 An App Service plan is a scale unit, which can include any number of apps that you want to scale up or out together over the same App Service infrastructure. Each plan is also assigned a [pricing tier](https://azure.microsoft.com/en-us/pricing/details/app-service/). Higher tiers include better hardware and more features, such as more scale-out instances.
 
-For this tutorial, B1 is the minimimum tier that enables scale-out up to 3 instances. You can always move your app up or down the pricing tier later by running [az appservice plan update](). 
+For this tutorial, B1 is the minimum tier that enables scale-out up to 3 instances. You can always move your app up or down the pricing tier later by running [az appservice plan update](). 
 
-## Create a web app
+### Create a web app
 Use [az appservice web create](https://docs.microsoft.com/en-us/cli/azure/appservice/web#create) to create a web app with a unique name in `$appName`.
 
 ```azurecli
@@ -110,14 +110,14 @@ This command gives you an output that looks like the following:
 }
 ```
 
-Use the returned URL to configure your Git remote. Below is a command that uses the preceding output example.
+Use the returned URL to configure your Git remote. The following command uses the preceding output example.
 
 ```bash
 git remote add azure https://user123@myuniqueappname.scm.azurewebsites.net/myuniqueappname.git
 ```
 
 ### Deploy the sample application
-You are now ready to deploy your sample application. Simply run `git push`.
+You are now ready to deploy your sample application. Run `git push`.
 
 ```bash
 git push azure master
@@ -179,7 +179,7 @@ Your application now uses Redis to manage sessions and caching. Type `F5` to run
 
 ### Configure the connection string in Azure
 
-For your application to work in Azure, you need to configure the same Redis connection string in your Azure web app. Since `redis.config` is not maintained in source control, it will not be deployed to Azure when you run Git deployment.
+For your application to work in Azure, you need to configure the same Redis connection string in your Azure web app. Since `redis.config` is not maintained in source control, it is not deployed to Azure when you run Git deployment.
 
 Use [az appservice web config appsettings update]() to add the connection string with the same name (`RedisConnection`).
 
@@ -208,14 +208,14 @@ az appservice web browse --name $appName --resource-group myResourceGroup
 ## Step 4 - Scale to multiple instances
 The App Service plan is the scale unit for your Azure web apps. To scale out your web app, you scale the App Service plan.
 
-Use [az appservice plan update]() to scale out the App Service plan to 3 instances, which is the maximum number allowed by the B1 pricing tier. Remember that B1 is the pricing tier that you chose when you created the App Service plan earlier. 
+Use [az appservice plan update]() to scale out the App Service plan to three instances, which is the maximum number allowed by the B1 pricing tier. Remember that B1 is the pricing tier that you chose when you created the App Service plan earlier. 
 
 ```azurecli
 az appservice plan update --name myAppServicePlan --resource-group myResourceGroup --number-of-workers 3 
 ```
 
 ## Step 5 - Scale geographically
-When scaling geographically, you run your app in multiple regions of the Azure cloud. This enables you to load-balance your app further by geography and also lower the response time to client browsers by placing your app closer to them.
+When scaling geographically, you run your app in multiple regions of the Azure cloud. This setup enables you to load-balance your app further based on geography and also lower the response time to client browsers by placing your app closer to them.
 
 In this step, you scale your ASP.NET web app to a second region with [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/). At the end of the step, you will have a web app running in West Europe (already created) and a web app running in Southeast Asia (not yet created). Both apps will be served from the same Traffic Manager URL.
 
@@ -260,7 +260,7 @@ az network traffic-manager profile show --name myTrafficManagerProfile --resourc
 Copy the output into your browser. You should see your web app again.
 
 ### Create an Azure Redis Cache in Asia
-Now, you replicate your Azure web app to the Southeast Asia region. To start, use [az redis create]() to create a second Azure Redis Cache in Southeast Asia.
+Now, you replicate your Azure web app to the Southeast Asia region. To start, use [az redis create]() to create a second Azure Redis Cache in Southeast Asia. This cache needs to be colocated with your app in Asia.
 
 ```powershell
 $redis = (az redis create --name $cacheName-asia --resource-group myResourceGroup --location "Southeast Asia" --sku-capacity 0 --sku-family C --sku-name Basic | ConvertFrom-Json)
@@ -276,7 +276,7 @@ az appservice plan create --name myAppServicePlanAsia --resource-group myResourc
 ```
 
 ### Create a web app in Asia
-Use [az appservice web create](https://docs.microsoft.com/en-us/cli/azure/appservice/web#create) to create a secound web app.
+Use [az appservice web create](https://docs.microsoft.com/en-us/cli/azure/appservice/web#create) to create a second web app.
 
 ```azurecli
 az appservice web create --name $appName-asia --resource-group myResourceGroup --plan myAppServicePlanAsia
@@ -304,7 +304,7 @@ This command gives you an output that looks like the following:
 }
 ```
 
-Use the returned URL to configure a second Git remote for your local repository. Below is a command that uses the preceding output example.
+Use the returned URL to configure a second Git remote for your local repository. The following command uses the preceding output example.
 
 ```bash
 git remote add azure-asia https://user123@myuniqueappname-asia.scm.azurewebsites.net/myuniqueappname.git
@@ -349,6 +349,6 @@ az appservice web config appsettings update --settings "Region=Southeast Asia" -
 
 ### Complete!
 
-Now, try to access the URL of your Traffic Manager profile from browsers in different geographical regions. Client browsers from Europe should show "ASP.NET West Europe", and client browser from Asia should show "ASP.NET Southeast Asia".
+Now, try to access the URL of your Traffic Manager profile from browsers in different geographical regions. Client browsers from Europe should show "ASP.NET West Europe", and client browser from Asia should show "ASP.NET Southeast Asia."
 
 ## More resources
