@@ -16,6 +16,7 @@ ms.topic: get-started-article
 ms.date: 03/21/2017
 ms.author: renash
 ---
+https://support.apple.com/en-us/HT204445
 
 1.  Be in El Capitan. Haven’t tested in anything earlier, because don’t care.
 
