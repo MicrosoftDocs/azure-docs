@@ -24,7 +24,7 @@ ms.author: janeng
 
 In this tutorial, you are going to learn how to
 
-* Create a new table in the database
+* Create a table in the database
 * Load data into the table 
 * Add an index to the table to optimize query performance
 * Drop the table 
@@ -33,20 +33,20 @@ In this tutorial, you are going to learn how to
 
 This tutorial uses as its starting point the resources created in one of these quick starts: [Create DB - Portal](sql-database-get-started-portal.md), [Create DB - CLI](sql-database-get-started-cli.md), [CreateDB - PowerShell](sql-database-get-started-powershell.md)
 
-Before you start :
+Before you start:
 
 * Make sure you can connect to, and query the SQL Database you created:
 [Connect Using SSMS](sql-database-connect-query-ssms.md), [Connect using Visual Studio Code](sql-database/sql-database-connect-query-vscode.md)
-* You will need the Bulk Copy (BCP) command-line utility installed:
+* Install the Bulk Copy (BCP) command-line utility:
 [Install For Windows](https://www.microsoft.com/download/details.aspx?id=53591), [Install For Linux](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools)
 
-## Step 1 - Create a new table 
+## Step 1 - Create a table 
 
 ### Connect to the database 
 * [Connect using SQL Server Management Studio](sql-database-connect-query-ssms.md)
 * [Connect using Visual Studio Code](sql-database-connect-query-vscode.md)
 
-### Create a new 'Students' table in the database 
+### Create a 'Students' table in the database 
 * In SSMS, right-click on the database and click New Query to open a blank query window.
 * Enter the following query in the window, and execute it:
 
@@ -61,7 +61,7 @@ CREATE TABLE [dbo].[Students]
 );
 ```
 
-Once the query is complete, you have created a new table in your database called Students.
+Once the query is complete, you have created a table in your database called Students.
 
 ## Step 2 - Load data into the table 
 * [Download this sample txt file](https://microsoft-my.sharepoint.com/personal/ayolubek_microsoft_com/_layouts/15/guestaccess.aspx?guestaccesstoken=gQYCb16yjnJBDrK5aJaq8CMrlXNxf55ylI%2fi5XVCXQw%3d&docid=2_1b4c3b5ec415349fe9e35fdf4cb7ffb63&rev=1) into your local machine. In this example, we assume it is stored in the following location, *C:\Temp\SampleStudentData.txt*
@@ -74,7 +74,7 @@ bcp Students in C:\Temp\SampleStudentData.txt -S <ServerName> -d <DatabaseName> 
 You have now loaded sample data into the table you created earlier.
 
 ## Step 3 - Add an index to the table 
-Indexes are structures in a database that speed up data retrieval. We will create an index on the age column of the Students table to speed up retrieval of students matching an age range.
+Indexes are structures in a database that speed up data retrieval. You create an index on the age column of the Students table to speed up retrieval of students matching an age range.
 
 ### Add an index to table 
 * Open a blank query window
@@ -97,11 +97,11 @@ WHERE age > 20
 This query returns the name, age, and email of students who are older than 20 years old.
 
 ## Step 4 - Restore database to a point in time before table creation 
-Databases in Azure have continuous backups that are taken automatically every 5 - 10 minutes. These backups allow you to restore your database to a previous point in time. Restoring a database to a different point in time creates a duplicate database in the same server as the original database. Below, we will restore the sample database to a point before the *Students* table was added. 
+Databases in Azure have continuous backups that are taken automatically every 5 - 10 minutes. These backups allow you to restore your database to a previous point in time. Restoring a database to a different point in time creates a duplicate database in the same server as the original database. The following steps restore the sample database to a point before the *Students* table was added. 
 
-### Login to the Portal 
-* Open your browser of choice and connect to the [Azure Portal](https://portal.azure.com)
-* Sign in to the [Azure Portal](https://portal.azure.com/)
+### Log in to the Azure portal 
+* Open your browser of choice and connect to the [Azure portal](https://portal.azure.com)
+* Sign in to the [Azure portal](https://portal.azure.com/)
 
 ### Restore database 
 * Navigate to the sample database you created in the quickstart
