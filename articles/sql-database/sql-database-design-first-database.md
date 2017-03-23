@@ -30,7 +30,11 @@ In this tutorial, you are going to learn how to
 * Restore the database to a point in time 
 * Connect to and query the table 
 
-This tutorial uses as its starting point the resources created in one of these quick starts: [Create DB - Portal](sql-database-get-started-portal.md), [Create DB - CLI](sql-database-get-started-cli.md), [CreateDB - PowerShell](sql-database-get-started-powershell.md)
+This tutorial uses as its starting point the resources created in one of these quick starts:
+
+- [Create DB - Portal](sql-database-get-started-portal.md)
+- [Create DB - CLI](sql-database-get-started-cli.md)
+- [Create DB - PowerShell](sql-database-get-started-powershell.md) 
 
 Before you start:
 
