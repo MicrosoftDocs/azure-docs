@@ -11,3 +11,5 @@ _themes.VS.Modern/
 AzureMigration.ps1
 .migrationtemp
 articles/directories.txt
+
+.vscode/*
