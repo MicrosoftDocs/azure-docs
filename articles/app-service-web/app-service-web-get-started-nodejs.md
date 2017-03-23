@@ -70,7 +70,7 @@ Create a web app using the [az appservice web create](https://docs.microsoft.com
 The following example creates the Web App in the previously created App Service Plan.
 
 ```azurecli
-az appservice web create --name <app-name> --plan quickStartASP --resource-group myResourceGroup
+az appservice web create --name <app-name> --plan quickStartPlan --resource-group myResourceGroup
 ```
 
 When the Web App has been created, the Azure CLI shows information similar to the following example.
@@ -87,7 +87,7 @@ When the Web App has been created, the Azure CLI shows information similar to th
     "repositorySiteName": "<app-name>",
     "reserved": true,
     "resourceGroup": "quickStarts",
-    "serverFarmId": "/subscriptions/5d6c94cd-6781-43e3-8a94-ceef4c28850e/resourceGroups/quickStarts/providers/Microsoft.Web/serverfarms/quickStartASP",
+    "serverFarmId": "/subscriptions/5d6c94cd-6781-43e3-8a94-ceef4c28850e/resourceGroups/quickStarts/providers/Microsoft.Web/serverfarms/quickStartPlan",
     "state": "Running",
     "type": "Microsoft.Web/sites",
 }

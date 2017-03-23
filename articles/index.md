@@ -54,7 +54,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <h3>Free PluralSight Video Training for Dev and IT</h3>
+                                    <h3>Free PluralSight Video Training for Azure</h3>
                                 </div>
                             </div>
                         </div>
@@ -602,12 +602,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/biztalk-services/">
-                                                <img src="media/index/BizTalkServices.svg" alt="" />
-                                                <p>Biztalk Services</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/service-bus/">
                                                 <img src="media/index/ServiceBus.svg" alt="" />
                                                 <p>Service Bus</p>
@@ -635,6 +629,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Data Factory</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/biztalk-services/">
+                                                <img src="media/index/BizTalkServices.svg" alt="" />
+                                                <p>Biztalk Services</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1820,25 +1820,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/biztalk-services/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/BizTalkServices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Biztalk Services</h3>
-                                                    <p>Seamlessly integrate the enterprise and the cloud</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/service-bus/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1927,6 +1908,25 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>Data Factory</h3>
                                                     <p>Orchestrate and manage data transformation and movement</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/biztalk-services/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/BizTalkServices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Biztalk Services</h3>
+                                                    <p>Seamlessly integrate the enterprise and the cloud</p>
                                                 </div>
                                             </div>
                                         </div>

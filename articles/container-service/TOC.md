@@ -15,6 +15,7 @@
 ### [Enable DC/OS public access](container-service-enable-public-access.md)
 ### [Load balance DC/OS containers](container-service-load-balancing.md)
 ### [App/user-specific orchestrator in DC/OS](container-service-application-specific-marathon.md)
+### [Add a file share](container-service-dcos-fileshare.md)
 ### Monitor DC/OS
 #### [Monitor with ELK](container-service-monitoring-elk.md)
 #### [Monitor with OMS](container-service-monitoring-oms.md)
