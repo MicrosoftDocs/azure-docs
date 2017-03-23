@@ -87,7 +87,7 @@ To make searching for specific values in the table more efficient, create an ind
 Execute the following query:
 
 ```sql 
-CREATE CLUSTERED INDEX IX_Age ON Students (age);
+CREATE NONCLUSTERED INDEX IX_Age ON Students (age);
 ```
 
 ### Query data from table with index 
@@ -108,7 +108,7 @@ Databases in Azure have continuous backups that are taken automatically every 5 
 Log in to the [Azure portal](https://portal.azure.com/)
 
 ### Restore database 
-* Navigate to the sample database you created in the quickstart
+* Navigate to the sample database you created in the quick start
 * Click **Restore** on the database blade 
 * Fill out the SQL Database form with the required information:
 	* DatabaseName: Provide a database name 
