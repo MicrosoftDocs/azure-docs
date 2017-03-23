@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/08/2017
+ms.date: 3/17/2017
 ms.author: negat
 ms.custom: na
 
@@ -465,7 +465,7 @@ You must set up protected settings with the storage account key and name for thi
 See: https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/ 
  
   
-### What is the resourceGuid property on a NIC for? It’s not documented here.
+### What is the resourceGuid property on a NIC for?
 
 It’s a unique ID. Lower layers will be logging this ID at some point in the future. 
  
@@ -479,6 +479,9 @@ The allocation method of scale set IPs is always “Dynamic”. It does not mean
 
 See https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet 
 
+### How do I add a scale set’s first VM's IP address to the output of a template?
+
+See: http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips
 
 
 

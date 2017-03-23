@@ -140,7 +140,7 @@ To see the Kubernetes web interface, you can use:
 ```console
 kubectl proxy
 ```
-This runs a simple authenticated proxy on localhost, which you can use to view the [Kubernetes web UI](http://localhost:8001/ui). For more information, see [Using the Kubernetes web UI with Azure Container Service](container-service-kubernetes-ui.md).
+This runs a simple authenticated proxy on localhost, which you can use to view the Kubernetes web UI running on [http://localhost:8001/ui](http://localhost:8001/ui). For more information, see [Using the Kubernetes web UI with Azure Container Service](container-service-kubernetes-ui.md).
 
 ![Image of Kubernetes dashboard](media/container-service-kubernetes-walkthrough/kubernetes-dashboard.png)
 
@@ -155,13 +155,13 @@ kubectl get pods
 Using your pod name, you can run a remote command on your pod.  For example:
 
 ```console
-kubectl exec nginx-701339712-retbj date
+kubectl exec <pod name> date
 ```
 
 You can also get a fully interactive session using the `-it` flags:
 
 ```console
-kubectl exec nginx-701339712-retbj -it bash
+kubectl exec <pod name> -it bash
 ```
 
 ![Remote session inside a container](media/container-service-kubernetes-walkthrough/kubernetes-remote.png)

@@ -42,7 +42,7 @@ You can complete the task using one of the following CLI versions:
 
 ## Prerequisites
 * [Git](http://www.git-scm.com/downloads).
-* [Azure CLI](../xplat-cli-install.md).
+* [Azure CLI](../cli-install-nodejs.md).
 * A Microsoft Azure account. If you don't have an account, you can 
   [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) or 
   [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).

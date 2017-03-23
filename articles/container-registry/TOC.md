@@ -25,3 +25,4 @@
 ## [Region availability](https://azure.microsoft.com/regions/services/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/container-registry/)
 ## [Service Updates](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-container-registry)
