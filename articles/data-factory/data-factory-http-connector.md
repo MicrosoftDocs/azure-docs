@@ -56,7 +56,7 @@ Set `authenticationType` as `Basic`, `Digest`, or `Windows`, and specify the fol
 | username | Username to access the HTTP endpoint. | Yes |
 | password | Password for the user (username). | Yes |
 
-#### Example: using Basic authentication
+#### Example: using Basic, Digest, or Windows authentication
 
 ```JSON
 {
@@ -85,7 +85,7 @@ To use basic authentication, set `authenticationType` as `ClientCertificate`, an
 | certThumbprint | The thumbprint of the certificate that was installed on your gateway machine’s cert store. Apply only when copying data from an on-premises HTTP source. | Specify either the `embeddedCertData` or `certThumbprint`. |
 | password | Password associated with the certificate. | No |
 
-If the certificate is installed in the personal store of the local computer, you need to grant the read permission to the gateway service:
+If you use `certThumbprint` for authentication and the certificate is installed in the personal store of the local computer, you need to grant the read permission to the gateway service:
 
 1. Launch Microsoft Management Console (MMC). Add the **Certificates** snap-in that targets the **Local Computer**.
 2. Expand **Certificates**, **Personal**, and click **Certificates**.
