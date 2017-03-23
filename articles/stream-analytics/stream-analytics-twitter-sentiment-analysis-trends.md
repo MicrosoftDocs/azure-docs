@@ -63,7 +63,7 @@ Take the following steps to create an event hub:
 
 ![Shared access policy endpoints](./media/stream-analytics-twitter-sentiment-analysis-trends/keysandendpoints.png)
 
-## Configure and start the Twitter client application
+2## Configure and start the Twitter client application
 
 We have created a client application that connects to Twitter data via [Twitter's Streaming APIs](https://dev.twitter.com/streaming/overview) to collect Tweet events about a parameterized set of topics. The [Sentiment140](http://help.sentiment140.com/) open source tool assigns a sentiment value to each tweet as follows:
 
@@ -74,7 +74,6 @@ We have created a client application that connects to Twitter data via [Twitter'
 Then Tweet events are pushed to the event hub.  
 
 ### Set up the application
-
 Follow these steps to set up the application:
 
 1. [Download the TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip), and then unzip it.
@@ -105,9 +104,9 @@ For more information, see [Steps to generate an OAuth access token](https://dev.
 
  ![wpfclient](./media/stream-analytics-twitter-sentiment-analysis-trends/wpfclientlines.png)
 
-3. **Optional:** Adjust the keywords to search for. By default, this application looks for some game keywords.  You can adjust the values for **twitter_keywords** in TwitterWpfClient.exe.config, if desired.
+2. **Optional:** Adjust the keywords to search for. By default, this application looks for some game keywords.  You can adjust the values for **twitter_keywords** in TwitterWpfClient.exe.config, if desired.
 
-4. Run TwitterWpfClient.exe. Then select the green start button to collect social sentiment. You see Tweet events with the **CreatedAt**, **Topic**, and **SentimentScore** values being sent to your event hub.
+3. Run TwitterWpfClient.exe. Then select the green start button to collect social sentiment. You see Tweet events with the **CreatedAt**, **Topic**, and **SentimentScore** values being sent to your event hub.
 
 ## Create a Stream Analytics job
 
