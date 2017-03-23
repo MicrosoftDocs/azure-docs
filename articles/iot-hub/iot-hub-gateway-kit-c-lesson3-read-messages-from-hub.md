@@ -1,5 +1,5 @@
 ---
-title: Read messages from your Azure IoT hub | Microsoft Docs
+title: 'SensorTag device & Azure IoT Gateway - Lesson 3: Read messages | Microsoft Docs'
 description: Run a sample code on your host computer to read the messages from your IoT hub.
 services: iot-hub
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

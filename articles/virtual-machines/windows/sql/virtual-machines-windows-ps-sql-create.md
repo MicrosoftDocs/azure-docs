@@ -9,12 +9,12 @@ editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 10/25/2016
+ms.workload: iaas-sql-server
+ms.date: 01/17/2017
 ms.author: jroth
 
 ---

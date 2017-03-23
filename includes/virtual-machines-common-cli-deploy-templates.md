@@ -12,7 +12,7 @@
 * [Attach a data disk](#attach-a-data-disk)
 
 ## Getting ready
-Before you can use the Azure CLI with Azure resource groups, you need to have the right Azure CLI version and an Azure account. If you don't have the Azure CLI, [install it](../articles/xplat-cli-install.md).
+Before you can use the Azure CLI with Azure resource groups, you need to have the right Azure CLI version and an Azure account. If you don't have the Azure CLI, [install it](../articles/cli-install-nodejs.md).
 
 ### Update your Azure CLI version to 0.9.0 or later
 Type `azure --version` to see whether you have already installed version 0.9.0 or later.
@@ -42,7 +42,7 @@ Now [log in to your Azure account interactively](../articles/xplat-cli-connect.m
 
 Your account may have more than one subscription. You can list your subscriptions by typing `azure account list`, which might look something like this:
 
-```azure cli
+```azurecli
 azure account list
 info:    Executing command account list
 data:    Name                              Id                                    Tenant Id                            Current

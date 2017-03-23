@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure DNS Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to manage your DNS records using Azure Domain Name System. Documentation shows how to set up and manage DNS zones and records for domain names.
+services: dns
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: dns
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # DNS Documentation
 
@@ -26,7 +37,7 @@ Learn how to manage your DNS records using Azure Domain Name System, a hosting s
         </a>
     </li>
     <li>
-        <a href="/azure/dns/dns-getstarted-create-dnszone-portal">
+        <a href="/azure/dns/dns-getstarted-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -44,7 +55,7 @@ Learn how to manage your DNS records using Azure Domain Name System, a hosting s
         </a>
     </li>
     <li>
-        <a href="/azure/dns/dns-getstarted-create-dnszone">
+        <a href="/azure/dns/dns-getstarted-powershell">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -62,7 +73,7 @@ Learn how to manage your DNS records using Azure Domain Name System, a hosting s
         </a>
     </li>
      <li>
-        <a href="/azure/dns/dns-getstarted-create-recordset">
+        <a href="/azure/dns/dns-getstarted-cli">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -72,7 +83,7 @@ Learn how to manage your DNS records using Azure Domain Name System, a hosting s
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DNS record sets using Azure PowerShell</h3>
+                        <h3>Get Started with Azure DNS using the Azure CLI</h3>
                     </div>
                 </div>
             </div>
@@ -86,7 +97,7 @@ Learn how to manage your DNS records using Azure Domain Name System, a hosting s
 <h2>Reference</h2>
 <ul class="panelContent cardsW">
 <li>
-	<div class="cardSize">
+    <div class="cardSize">
         <div class="cardPadding">
             <div class="card">
                 <div class="cardText">

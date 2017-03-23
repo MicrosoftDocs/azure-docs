@@ -1,6 +1,6 @@
 ---
-title: Monitoring Kubernetes in Azure Container Service using DataDog | Microsoft Docs
-description: Monitoring Kubernetes in Azure Container Service using DataDog
+title: Monitor Azure Kubernetes cluster with Datadog | Microsoft Docs
+description: Monitoring Kubernetes cluster in Azure Container Service using Datadog
 services: container-service
 documentationcenter: ''
 author: bburns
@@ -52,12 +52,12 @@ Datadog is a monitoring service that gathers monitoring data from your container
 
 You first need to [create an account](https://www.datadoghq.com/lpg/)
 
-## Installing the DataDog Agent with a DaemonSet
+## Installing the Datadog Agent with a DaemonSet
 DaemonSets are used by Kubernetes to run a single instance of a container on each host in the cluster.
 They're perfect for running monitoring agents.
 
-Once you have logged into DataDog, you can follow the [DataDog instructions](https://app.datadoghq.com/account/settings#agent/kubernetes)
-to install DataDog agents on your cluster using a DaemonSet.
+Once you have logged into Datadog, you can follow the [Datadog instructions](https://app.datadoghq.com/account/settings#agent/kubernetes)
+to install Datadog agents on your cluster using a DaemonSet.
 
 ## Conclusion
 That's it! Once the agents are up and running you should see data in the console in a few minutes. You can visit

@@ -26,7 +26,7 @@ Wunderlist provide a todo list and task manager to help people get their stuff d
 > 
 > 
 
-You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Triggers and actions
 The Wunderlist connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats.
@@ -755,5 +755,5 @@ Delete a reminder: Delete a specific reminder
 | revision |integer |No |
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
 

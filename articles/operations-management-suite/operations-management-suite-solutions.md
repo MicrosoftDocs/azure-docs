@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/17/2016
+ms.date: 03/01/2017
 ms.author: bwren
 
+ms.custom: H1Hack27Feb2017
+
 ---
-# Management solutions in Operations Management Suite (OMS) (Preview)
+# Working with management solutions in Operations Management Suite (OMS) (Preview)
 > [!NOTE]
 > This is preliminary documentation for management solutions in OMS which are currently in preview.    
 > 

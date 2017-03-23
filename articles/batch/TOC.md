@@ -1,6 +1,7 @@
 # Overview
 ## [What is Azure Batch](batch-technical-overview.md)
 ## [Feature overview](batch-api-basics.md)
+## [APIs and tools](batch-apis-tools.md)
 ## [Quotas and limits](batch-quota-limit.md)
 # Get Started
 ## [Create a Batch account](batch-account-create-portal.md)
@@ -10,6 +11,7 @@
 ## Develop
 ### [Application packages](batch-application-packages.md)
 ### [Autoscale compute nodes](batch-automatic-scaling.md)
+### [Azure AD authentication](batch-aad-auth.md)
 ### [Concurrent node tasks](batch-parallel-node-tasks.md)
 ### [Efficient list queries](batch-efficient-list-queries.md)
 ### [Job preparation and completion tasks](batch-job-prep-release.md)
@@ -25,11 +27,12 @@
 ### [Batch diagnostic logs](batch-diagnostics.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch)
+## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)
+## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
-## [Python SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch)
+## [Python SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html)
 ## [REST](/rest/api/batchservice)
 
 # Related
@@ -45,4 +48,5 @@
 ## [Service updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 

@@ -1,5 +1,5 @@
 ---
-title: Performance test and scale results for on-premises to on-premises Hyper-V replication with Site Recovery | Microsoft Docs
+title: Test results for Hyper-V replication between sites with Azure Site Recovery | Microsoft Docs
 description: This article provides information about performance testing for on-premises to on-premises replication using Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/01/2016
+ms.date: 01/23/2017
 ms.author: raynew
 
 ---
-# Performance test and scale results for on-premises to on-premises Hyper-V replication with Site Recovery
+# Test results for on-premises to on-premises Hyper-V replication with Site Recovery
 You can use Microsoft Azure Site Recovery to orchestrate and manage replication of virtual machines and physical servers to Azure, or to a secondary datacenter. This article provides the results of performance testing we did when replicating Hyper-V virtual machines between two on-premises datacenters.
 
 ## Overview
@@ -68,7 +68,7 @@ The amount of I/O operations on the recovery site is a function of the number of
 ![Secondary results](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744918.png)
 
 ### Effect of replication on network utilization
-An average of 275 MB per second of network bandwidth was used between the primary and recovery nodes (with compression enabled) against an existing bandwidth of 5 GB per second.
+An average of 275 Mb per second of network bandwidth was used between the primary and recovery nodes (with compression enabled) against an existing bandwidth of 5 Gb per second.
 
 ![Results network utilization](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744919.png)
 
@@ -167,4 +167,3 @@ The table summarizes the performance metrics and counters that were measured in 
 
 ## Next steps
 * [Set up protection between two on-premises VMM sites](site-recovery-vmm-to-vmm.md)
-

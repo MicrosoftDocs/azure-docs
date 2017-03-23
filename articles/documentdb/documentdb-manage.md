@@ -1,21 +1,4 @@
 ---
-title: DocumentDB storage and performance | Microsoft Docs
-description: Learn about data storage and document storage in DocumentDB and how you can scale DocumentDB to meet the capacity needs of your application.
-keywords: document storage
-services: documentdb
-author: mimig1
-manager: jhubbard
-editor: cgronlun
-documentationcenter: ''
-
-ms.assetid: d3c0bae3-1862-4203-9260-e36216a7823d
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/06/2016
-ms.author: mimig
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 

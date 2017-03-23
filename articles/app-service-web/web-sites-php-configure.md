@@ -65,7 +65,7 @@ To use the Azure Command-Line Interface, you must have **Node.js** installed on 
         azure site show {app-name}
 
 > [!NOTE] 
-> The [Azure CLI 2.0 (Preview)](https://github.com/Azure/azure-cli) commands that are equivalent to the above are:
+> The [Azure CLI 2.0](https://github.com/Azure/azure-cli) commands that are equivalent to the above are:
 >
 >
 
@@ -182,7 +182,7 @@ processing during `git push` by enabling the Composer extension.
 For more information, see the [PHP Developer Center](/develop/php/).
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 > 
 > 
 

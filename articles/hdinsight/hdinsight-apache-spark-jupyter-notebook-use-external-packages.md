@@ -1,5 +1,5 @@
 ---
-title: Use external packages with Jupyter notebooks in Apache Spark clusters on HDInsight | Microsoft Docs
+title: Use custom Maven packages with Jupyter notebooks in Spark on Azure | Microsoft Docs
 description: Step-by-step instructions on how to configure Jupyter notebooks available with HDInsight Spark clusters to use external Spark packages.
 services: hdinsight
 documentationcenter: ''
@@ -14,13 +14,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 
 ---
-# Use external packages with Jupyter notebooks in Apache Spark clusters on HDInsight Linux
+# Use external packages with Jupyter notebooks in Apache Spark clusters on HDInsight
+> [!div class="op_single_selector"]
+> * [Using cell magic](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+> * [Using Script Action](hdinsight-apache-spark-python-package-installation.md)
+>
+>
 
-Learn how to configure a Jupyter notebook in Apache Spark cluster on HDInsight (Linux) to use external, community-contributed **maven** packages that are not included out-of-the-box in the cluster. 
+Learn how to configure a Jupyter notebook in Apache Spark cluster on HDInsight to use external, community-contributed **maven** packages that are not included out-of-the-box in the cluster. 
 
 You can search the [Maven repository](http://search.maven.org/) for the complete list of packages that are available. You can also get a list of available packages from other sources. For example, a complete list of community-contributed packages is available at [Spark Packages](http://spark-packages.org/).
 
@@ -32,19 +37,19 @@ In this article, you will learn how to use the [spark-csv](http://search.maven.o
 You must have the following:
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## Use external packages with Jupyter notebooks
 1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 2. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
-   
-   > [!NOTE]
-   > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-   > 
-   > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   > 
+	> [!NOTE]
+	> You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
+	> 
+	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
+	> 
 
+   
 
 3. Create a new notebook. Click **New**, and then click **Spark**.
    

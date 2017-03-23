@@ -25,7 +25,7 @@
 
 # How To
 ## Move Data
-### [Data Factory Copy Wizard](data-factory-copy-wizard.md)
+### [Data Factory Copy Wizard](data-factory-azure-copy-wizard.md)
 #### [Load 1 TB in 15 minutes](data-factory-load-sql-data-warehouse.md)
 ### [Copy Activity](data-factory-data-movement-activities.md)
 #### [Performance & Tuning Guide](data-factory-copy-activity-performance.md)
@@ -50,6 +50,8 @@
 #### [Oracle](data-factory-onprem-oracle-connector.md)
 #### [PostgreSQL](data-factory-onprem-postgresql-connector.md)
 #### [Salesforce](data-factory-salesforce-connector.md)
+#### [SAP Business Warehouse](data-factory-sap-business-warehouse-connector.md)
+#### [SAP HANA](data-factory-sap-hana-connector.md)
 #### [SQL Server](data-factory-sqlserver-connector.md)
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
@@ -62,11 +64,12 @@
 ### [HDInsight Pig Activity](data-factory-pig-activity.md)
 ### [HDInsight MapReduce Activity](data-factory-map-reduce.md)
 ### [HDInsight Streaming Activity](data-factory-hadoop-streaming-activity.md)
+### [HDInsight Spark Activity](data-factory-spark.md)
 ### [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
+### [Machine Learning Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
 ### [Stored Procedure Activity](data-factory-stored-proc-activity.md)
 ### [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
 ### [.NET custom activity](data-factory-use-custom-activities.md)
-### [Invoke Spark programs](data-factory-spark.md)
 ### [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 ## Develop
 ### [Azure Resource Manager template](data-factory-how-to-use-resource-manager-templates.md)
@@ -84,7 +87,6 @@
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
-## [Azure Data Factory Developer Reference](data-factory-sdks.md)
 ## [REST](/rest/api/datafactory/)
 
 # Resources

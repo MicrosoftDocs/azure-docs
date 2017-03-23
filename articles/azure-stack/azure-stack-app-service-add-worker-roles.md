@@ -1,5 +1,5 @@
 ---
-title: App Service on Azure Stack - Adding More Worker Roles | Microsoft Docs
+title: Scale out worker roles in App Services - Azure Stack  | Microsoft Docs
 description: Detailed guidance for scaling Azure Stack App Services
 services: azure-stack
 documentationcenter: ''
@@ -13,11 +13,15 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 3/1/2017
 ms.author: kathm
 
 ---
 # App Service on Azure Stack: Adding more worker roles 
+
+> [!IMPORTANT] 
+> This topic applies only to Azure Stack Technical Preview 2.
+>
 
 This document provides instructions about how to scale App Service on Azure Stack worker roles. It contains steps for creating additional worker roles to support applications of any size.
 

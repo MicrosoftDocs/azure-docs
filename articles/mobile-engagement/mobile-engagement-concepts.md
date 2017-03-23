@@ -4,7 +4,7 @@ description: Azure Mobile Engagement concepts
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 8d19abd1-0a6c-4772-9fa5-5e99980ac5da

@@ -4,7 +4,7 @@ description: Learn how to create high-scale complex applications with Azure App 
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: c0fdb676-36a6-4738-925f-65b4835d187f
@@ -70,7 +70,7 @@ You will also use the typical branching strategy, with code moving from the dev 
 > * You can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Apps.
 > * You can [activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) - Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
 > 
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 > 
 > 
 
@@ -272,7 +272,7 @@ Agile software development is a must-have for many companies who want to adopt A
 * [Git Branching – Basic Branching and Merging](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * [David Ebbo’s Blog](http://blog.davidebbo.com/)
 * [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-* [Azure Cross-Platform Command-Line Tools](../xplat-cli-install.md)
+* [Azure Cross-Platform Command-Line Tools](../cli-install-nodejs.md)
 * [Create or edit users in Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 * [Project Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 

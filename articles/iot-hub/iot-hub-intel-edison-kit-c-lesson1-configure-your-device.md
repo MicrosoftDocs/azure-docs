@@ -1,5 +1,5 @@
 ---
-title: Configure your Edison Azure IoT Starter Kit | Microsoft Docs
+title: 'Connect Intel Edison (C) to Azure IoT - Lesson 1: Configure device | Microsoft Docs'
 description: Configure Intel Edison for first-time use.
 services: iot-hub
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/7/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

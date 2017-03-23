@@ -1,5 +1,5 @@
 ---
-title: Scale sets CLI quick create | Microsoft Docs
+title: Quick create a scale set in Azure - CLI | Microsoft Docs
 description: Deploy scale sets using CLI quick create.
 keywords: virtual machine scale sets
 services: virtual-machine-scale-sets
@@ -15,11 +15,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/23/2016
+ms.date: 2/21/2017
 ms.author: negat
 
 ---
-# Quickly create a scale set using the Azure CLI
+# Quickly create a scale set using the Azure CLI 2.0
+
+This article uses the Azure CLI 2.0. If you wish to use the Azure CLI 1.0, refer to [this article](virtual-machine-scale-sets-cli-quick-create-cli-nodejs.md).
+
 [!INCLUDE [cli-vmss-quick-create](../../includes/virtual-machines-linux-cli-vmss-quick-create-include.md)]
 
 ## Next steps
