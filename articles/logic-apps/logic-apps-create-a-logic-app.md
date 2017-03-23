@@ -21,7 +21,7 @@ ms.author: jeffhollan; estfan
 
 Without writing any code, you can automate processes between cloud apps and services 
 when you create and run workflows with [Azure Logic Apps](logic-apps-what-are-logic-apps.md). 
-This first example shows how you can quickly create a logic app workflow that checks 
+This first example shows how you can create a basic logic app workflow that checks 
 an RSS feed for new content on a website. When new items appear in the website's feed, 
 the logic app sends email to an Outlook or Gmail account.
 
@@ -38,7 +38,7 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
 
 Also, this example requires these items:
 
-* A mail account for Outlook.com, Office 365, or Gmail
+* An Outlook.com, Office 365 Outlook, or Gmail account
 
 * A link to a website's RSS feed. This example uses 
 the RSS feed for the [MSDN Channel 9 website](https://channel9.msdn.com/): 
@@ -61,7 +61,7 @@ and is the first item that your logic app needs.
    > Then choose **Logic App** > **Create**.
 
 3. Name your logic app and select your Azure subscription. 
-Now select or create an Azure resource group, which helps you organize and 
+Now create or select an Azure resource group, which helps you organize and 
 manage related Azure resources. Finally, select the datacenter location 
 for hosting your logic app. When you're done, choose **Create**.
 
@@ -82,9 +82,10 @@ For now, choose **Blank Logic App** so you can
 build your logic app from scratch.
 
 	The Logic App Designer opens and shows 
-	available services and *triggers*. 
+	available services and *triggers* that 
+	you can use in your logic app.
 
-5. In the search box, type `RSS` so that you can select 
+5. In the search box, type `RSS`, and select 
 this trigger: **RSS - When a feed item is published** 
 
 	![RSS trigger](media/logic-apps-create-a-logic-app/rss-trigger.png)
@@ -93,20 +94,22 @@ this trigger: **RSS - When a feed item is published**
 
 	You can also change **Frequency** and **Interval**. 
 	These settings determine how often your logic app checks for 
-	new items and returns all items during that time span.
+	new items and returns all items found during that time span.
 
 	For this example, let's check every day for new 
 	items posted to the MSDN Channel 9 website.
 
 	![Set up trigger with RSS feed, frequency, and interval](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 
-7. Save your changes. On the designer command bar, choose **Save**.
+7. Save your changes. (On the designer command bar, choose **Save**.)
 
 	![Save your logic app](media/logic-apps-create-a-logic-app/save-logic-app.png)
 
-	Your logic app is now live and periodically checks 
-	for new items in the specified RSS feed. However, 
-	to make this scenario more interesting, we add an action.
+	Your logic app is now live. Based on the schedule that you set up, 
+	your logic app checks for new items in the specified RSS feed. 
+
+	However, to make this example more interesting, we add an 
+	action that your logic app takes after your trigger fires.
 
 ## Add an action that responds to your trigger
 
@@ -119,9 +122,9 @@ Now we add an action that sends email when new items appear in the website's RSS
 	The designer shows [available connectors](../connectors/apis-list.md) so 
 	that you can select an action to perform when your trigger fires.
 
-2. Based on the mail account that you have, follow the steps for Outlook or Gmail.
+2. Based on your email account, follow the steps for Outlook or Gmail.
 
-	*	To send mail to your Outlook account, 
+	*	To send email to your Outlook account, 
 	in the search box, enter `outlook`. 
 	Under **Services**, select either **Outlook.com** 
 	or **Office 365 Outlook**. Under **Actions**, 
@@ -129,7 +132,7 @@ Now we add an action that sends email when new items appear in the website's RSS
 
 		![Select Outlook "Send an email" action](media/logic-apps-create-a-logic-app/actions.png)
 
-	*	To send mail to your Gmail account, 
+	*	To send email to your Gmail account, 
 	in the search box, enter `gmail`. 
 	Under **Actions**, select **Gmail - Send email**.
 
@@ -149,21 +152,26 @@ want to include in your email. For example:
 
 	![Completed logic app](media/logic-apps-create-a-logic-app/save-run-complete-logic-app.png)
 
-5. Save your changes. (On the designer command bar, choose **Save**)
+5. Save your changes. (On the designer command bar, choose **Save**.)
 
-	Now when your logic app checks the specified RSS feed and 
-	finds new items, you get an email that includes your selected data. 
-	If no new items are found, your logic app "skips" the action 
-	that sends you email.
+6.	Now manually trigger your logic app for testing. 
+On the designer command bar, choose **Run**. Otherwise, 
+your logic app checks the specified RSS feed 
+based on the schedule that you set up.
 
-6. To manually trigger your logic app at any time, 
-choose **Run** on the designer command bar.
+	If your logic app finds new items, 
+	you get an email that includes your selected data. 
+	If no new items are found, your logic app "skips" 
+	the action that sends you email.
 
-7. To monitor and view your logic app's run and trigger history, 
-on your logic app menu, choose **Overview**. To update the data, 
-choose **Refresh**. 
+7. To monitor and check your logic app's run and trigger history, 
+on your logic app menu, choose **Overview**.
 
 	![Monitor and view logic app run and trigger history](media/logic-apps-create-a-logic-app/logic-app-run-trigger-history.png)
+
+   > [!TIP]
+   > If you don't find the data that you expect, on the command bar, 
+   > try choosing **Refresh**.
 
 	To learn more about your logic app's status or run and trigger 
 	history, or to diagnose your logic app, see 
