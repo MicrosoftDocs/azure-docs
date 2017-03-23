@@ -138,7 +138,7 @@ This section provides instructions on how to create, get, update, and delete the
 
 
 ### To view Azure private peering details
-You can get configuration details using the following cmdlet
+You can get configuration details using the following cmdlet.
 
     $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
@@ -178,19 +178,19 @@ This section provides instructions on how to create, get, update, and delete the
    
         Install-AzureRM
    
-    Import all of the AzureRM.* modules within the known semantic version range
+    Import all of the AzureRM.* modules within the known semantic version range.
    
         Import-AzureRM
    
-    You can also just import a select module within the known semantic version range 
+    You can also just import a select module within the known semantic version range. 
    
         Import-Module AzureRM.Network 
    
-    Logon to your account
+    Logon to your account.
    
         Login-AzureRmAccount
    
-    Select the subscription you want to create ExpressRoute circuit
+    Select the subscription you want to create ExpressRoute circuit.
    
         Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 2. Create an ExpressRoute circuit.
@@ -238,13 +238,13 @@ This section provides instructions on how to create, get, update, and delete the
    * An MD5 hash if you choose to use one. **This is optional**.
 
     
-	You can run the following cmdlet to configure Azure public peering for your circuit
+	You can run the following cmdlet to configure Azure public peering for your circuit.
      
 	  	Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
 
   		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
      
-	You can use the cmdlet below if you choose to use an MD5 hash
+	You can use the cmdlet below if you choose to use an MD5 hash.
      
   		Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100  -SharedKey "A1B2C3D4"
 
@@ -291,19 +291,19 @@ This section provides instructions on how to create, get, update, and delete the
    
         Install-AzureRM
    
-    Import all of the AzureRM.* modules within the known semantic version range
+    Import all of the AzureRM.* modules within the known semantic version range.
    
         Import-AzureRM
    
-    You can also just import a select module within the known semantic version range 
+    You can also just import a select module within the known semantic version range. 
    
         Import-Module AzureRM.Network 
    
-    Logon to your account
+    Logon to your account.
    
         Login-AzureRmAccount
    
-    Select the subscription you want to create ExpressRoute circuit
+    Select the subscription you want to create ExpressRoute circuit.
    
         Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 2. Create an ExpressRoute circuit.
