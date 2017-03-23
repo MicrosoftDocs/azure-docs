@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
+ms.date: 03/22/2017
 ms.author: cynthn
 
 ---
@@ -29,9 +29,9 @@ ms.author: cynthn
 ## Other sizes
 - [General purpose](virtual-machines-windows-sizes-general.md)
 - [Compute optimized](virtual-machines-windows-sizes-compute.md)
-- [GPU](virtual-machines-windows-sizes-gpu.md)
-- [High performance compute](virtual-machines-windows-sizes-hpc.md)
 - [Storage optimized](virtual-machines-windows-sizes-storage.md)
+- [GPU optimized](virtual-machines-windows-sizes-gpu.md)
+- [High performance compute](virtual-machines-windows-sizes-hpc.md)
 
 ## Next steps
 Learn more about how [Azure compute units (ACU)](virtual-machines-windows-acu.md) can help you compare compute performance across Azure SKUs.

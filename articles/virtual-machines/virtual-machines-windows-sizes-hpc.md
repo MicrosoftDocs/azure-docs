@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 03/22/2017
 ms.author: cynthn
 
 ---
@@ -27,12 +27,11 @@ ms.author: cynthn
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## Other sizes
-
 - [General purpose](virtual-machines-windows-sizes-general.md)
 - [Compute optimized](virtual-machines-windows-sizes-compute.md)
-- [GPU ](virtual-machines-windows-sizes-gpu.md)
 - [Memory optimized](virtual-machines-windows-sizes-memory.md)
 - [Storage optimized](virtual-machines-windows-sizes-storage.md)
+- [GPU optimized](virtual-machines-windows-sizes-gpu.md)
 
 ## Next steps
 

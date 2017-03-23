@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
+ms.date: 03/22/2017
 ms.author: cynthn
 
 ---
@@ -27,12 +27,12 @@ ms.author: cynthn
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## Other sizes
-
 - [General purpose](virtual-machines-linux-sizes-general.md)
 - [Compute optimized](virtual-machines-linux-sizes-compute.md)
-- [GPU](virtual-machines-linux-sizes-gpu.md)
 - [Memory optimized](virtual-machines-linux-sizes-memory.md)
 - [Storage optimized](virtual-machines-linux-sizes-storage.md)
+- [GPU](virtual-machines-linux-sizes-gpu.md)
+
 
 ## Next steps
 

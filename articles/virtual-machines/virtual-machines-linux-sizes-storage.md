@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
+ms.date: 03/22/2017
 ms.author: cynthn
 
 ---
@@ -29,8 +29,8 @@ ms.author: cynthn
 
 ## Other sizes
 - [General purpose](virtual-machines-linux-sizes-general.md)
-- [Memory optimized](virtual-machines-linux-sizes-memory.md)
 - [Compute optimized](virtual-machines-linux-sizes-compute.md)
+- [Memory optimized](virtual-machines-linux-sizes-memory.md)
 - [GPU](virtual-machines-linux-sizes-gpu.md)
 - [High performance compute](virtual-machines-linux-sizes-hpc.md)
 

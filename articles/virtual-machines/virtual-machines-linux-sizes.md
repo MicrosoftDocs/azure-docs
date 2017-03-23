@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
+ms.date: 03/22/2017
 ms.author: cynthn
 ---
 
@@ -34,19 +34,20 @@ This article describes the available sizes and options for the Azure virtual mac
 
 | Type                     | Sizes           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [General purpose](virtual-machines-linux-sizes-general.md)          | D, Dv2, A0-7, Av2 | Balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. |
-| [Compute optimized](virtual-machines-linux-sizes-compute.md)        | F, Fs             | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, bath processes, and application servers.        |
-| [Memory optimized](virtual-machines-linux-sizes-memory.md)         | G, GS, DS, DSv2   | High memory-to-core ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
+| [General purpose](virtual-machines-linux-sizes-general.md)          | DSv2, Dv2, DS, D, A0-7, Av2 | Balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. |
+| [Compute optimized](virtual-machines-linux-sizes-compute.md)        | Fs, F             | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, bath processes, and application servers.        |
+| [Memory optimized](virtual-machines-linux-sizes-memory.md)         | GS, G, DSv2, DS   | High memory-to-core ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
 | [Storage optimized](virtual-machines-linux-sizes-storage.md)        | Ls                | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases.                                                         |
 | [GPU](virtual-machines-linux-sizes-gpu.md)            | NV, NC            | Specialized virtual machines targeted for heavy graphic rendering and video editing. Available with single or multiple GPUs.       |
-| [High Performance Compute](virtual-machines-linux-sizes-hpc.md) | A8-11, H          | Our fastest and most powerful CPU virtual machines with optional high-throughput network interfaces (RDMA). 
+| [High performance compute](virtual-machines-linux-sizes-hpc.md) | H, A8-11          | Our fastest and most powerful CPU virtual machines with optional high-throughput network interfaces (RDMA). 
 
 ## Next steps
 - [General purpose](virtual-machines-linux-sizes-general.md)
-- [Memory optimized](virtual-machines-linux-sizes-memory.md)
 - [Compute optimized](virtual-machines-linux-sizes-compute.md)
+- [Memory optimized](virtual-machines-linux-sizes-memory.md)
+- [Storage optimized](virtual-machines-linux-sizes-storage.md)
 - [GPU](virtual-machines-linux-sizes-gpu.md)
 - [High performance compute](virtual-machines-linux-sizes-hpc.md)
-- [Storage optimized](virtual-machines-linux-sizes-storage.md)
+
 
 

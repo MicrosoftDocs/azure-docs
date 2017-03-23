@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
+ms.date: 03/22/2017
 ms.author: cynthn
 ---
 
@@ -28,14 +28,15 @@ This article describes the available sizes and options for the Azure virtual mac
 <br>    
 
 
+
 | Type                     | Sizes           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [General purpose](virtual-machines-windows-sizes-general.md)          | D, Dv2, A0-7, Av2 | Balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. |
-| [Compute optimized](virtual-machines-windows-sizes-compute.md)        | F, Fs             | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, bath processes, and application servers.        |
-| [Memory optimized](virtual-machines-windows-sizes-memory.md)         | G, GS, DS, DSv2   | High memory-to-core ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
+| [General purpose](virtual-machines-windows-sizes-general.md)          | DSv2, Dv2, DS, D, A0-7, Av2 | Balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. |
+| [Compute optimized](virtual-machines-windows-sizes-compute.md)        | Fs, F             | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, bath processes, and application servers.        |
+| [Memory optimized](virtual-machines-windows-sizes-memory.md)         | GS, G, DSv2, DS   | High memory-to-core ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
 | [Storage optimized](virtual-machines-windows-sizes-storage.md)        | Ls                | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases.                                                         |
 | [GPU](virtual-machines-windows-sizes-gpu.md)            | NV, NC            | Specialized virtual machines targeted for heavy graphic rendering and video editing. Available with single or multiple GPUs.       |
-| [High Performance Compute](virtual-machines-windows-sizes-hpc.md) | A8-11, H          | Our fastest and most powerful CPU virtual machines with optional high-throughput network interfaces (RDMA). 
+| [High performance compute](virtual-machines-windows-sizes-hpc.md) | H, A8-11          | Our fastest and most powerful CPU virtual machines with optional high-throughput network interfaces (RDMA). 
 
 
 ## Next steps
@@ -43,10 +44,11 @@ Learn more about how [Azure compute units (ACU)](virtual-machines-windows-acu.md
 
 Learn more about the different VM sizes that are available:
 - [General purpose](virtual-machines-windows-sizes-general.md)
-- [Memory optimized](virtual-machines-windows-sizes-memory.md)
 - [Compute optimized](virtual-machines-windows-sizes-compute.md)
+- [Memory optimized](virtual-machines-windows-sizes-memory.md)
+- [Storage optimized](virtual-machines-windows-sizes-storage.md)
 - [GPU optimized](virtual-machines-windows-sizes-gpu.md)
 - [High performance compute](virtual-machines-windows-sizes-hpc.md)
-- [Storage optimized](virtual-machines-windows-sizes-storage.md)
+
 
 
