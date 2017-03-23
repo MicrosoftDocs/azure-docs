@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 023/07/2017
+ms.date: 03/23/2017
 ms.author: iainfou
 
 ---
 # How to encrypt virtual disks on a Linux VM
-For enhanced virtual machine (VM) security and compliance, virtual disks in Azure can be encrypted at rest. Disks are encrypted using cryptographic keys that are secured in an Azure Key Vault. You control these cryptographic keys and can audit their use. This article details how to encrypt virtual disks on a Linux VM using the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](virtual-machines-linux-encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For enhanced virtual machine (VM) security and compliance, virtual disks in Azure can be encrypted. Disks are encrypted using cryptographic keys that are secured in an Azure Key Vault. You control these cryptographic keys and can audit their use. This article details how to encrypt virtual disks on a Linux VM using the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](virtual-machines-linux-encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Quick commands
 If you need to quickly accomplish the task, the following section details the base commands to encrypt virtual disks on your VM. More detailed information and context for each step can be found the rest of the document, [starting here](#overview-of-disk-encryption).
@@ -47,30 +47,18 @@ az keyvault key create --vault-name myKeyVault --name myKey \
   --protection software
 ```
 
-Create a service principal using Azure Active Directory with [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac). The service principal handles the authentication and exchanging of cryptographic keys from Key Vault:
+Create a service principal using Azure Active Directory with [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac). The service principal handles the authentication and exchanging of cryptographic keys from Key Vault. The following example reads in the values for the service principal Id and password for use in later commands:
 
 ```azurecli
-az ad sp create-for-rbac
+read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
 ```
 
-The output is similar to the following example:
+The password is only output when you create the service principal. You can list your service principals with [az ad sp list](/cli/azure/ad/sp#list) and view additional information about a specific service principal with [az ad sp show](/cli/azure/ad/sp#show).
 
-```json
-{
-  "appId": "54dae448-d995-4814-806d-c0daaed10266",
-  "displayName": "azure-cli-2017-03-07-18-43-25",
-  "name": "http://azure-cli-2017-03-07-18-43-25",
-  "password": "80ada6ac-95f5-4718-9e3a-aafa30db4795",
-  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-}
-```
-
-Note the `appId` and `password` shown in the output from the preceding command. The password is only displayed when you create the service principal. You can list your service principals with [az ad sp list](/cli/azure/ad/sp#list) and view information about a specific service principal with [az ad sp show](/cli/azure/ad/sp#show).
-
-Set permissions on your Key Vault with [az keyvault set-policy](/cli/azure/keyvault#set-policy). In the following example, replace `appId` with the value output from the preceding command to create the service principal:
+Set permissions on your Key Vault with [az keyvault set-policy](/cli/azure/keyvault#set-policy). In the following example, the service principal Id is supplied from the preceding command:
 
 ```azurecli
-az keyvault set-policy --name myKeyVault --spn appId \
+az keyvault set-policy --name myKeyVault --spn $sp_id \
   --key-permissions all \
   --secret-permissions all
 ```
@@ -85,19 +73,12 @@ az vm create -g myResourceGroup -n myVM --image OpenLogic:CentOS:7.2n:7.2.201606
 
 SSH to your VM. Create a partition and filesystem, then mount the data disk. For more information, see [Connect to a Linux VM to mount the new disk](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Close your SSH session.
 
-Encrypt your VM with [az vm encryption enable](/cli/azure/vm/encryption#enable). Provide the information for the service principal you created:
-
-| CLI flag            | Service principal property |
-|---------------------|----------------------------|
-| --aad-client-id     | appId                      |
-| --aad-client-secret | password                   |
-
-The following example uses the `appId` and `password` displayed from the preceding `ad sp create-for-rbac` command. Replace these values with your own credentials:
+Encrypt your VM with [az vm encryption enable](/cli/azure/vm/encryption#enable). The following example uses the `$sp_id` and `$sp_password` variables from the preceding `ad sp create-for-rbac` command:
 
 ```azurecli
 az vm encryption enable --resource-group myResourceGroup --name myVM \
-  --aad-client-id 54dae448-d995-4814-806d-c0daaed10266 \
-  --aad-client-secret 80ada6ac-95f5-4718-9e3a-aafa30db4795 \
+  --aad-client-id $sp_id \
+  --aad-client-secret $sp_password \
   --disk-encryption-keyvault myKeyVault \
   --key-encryption-key myKey \
   --volume-type all
@@ -191,30 +172,18 @@ az keyvault key create --vault-name myKeyVault --name myKey \
 ## Create the Azure Active Directory application
 When virtual disks are encrypted or decrypted, you specify an account to handle the authentication and exchanging of cryptographic keys from Key Vault. This account, an Azure Active Directory service principal, allows the Azure platform to request the appropriate cryptographic keys on behalf of the VM. A default Azure Active Directory instance is available in your subscription, though many organizations have dedicated Azure Active Directory directories.
 
-Create a service principal using Azure Active Directory with [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac):
+Create a service principal using Azure Active Directory with [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac). The following example reads in the values for the service principal Id and password for use in later commands:
 
 ```azurecli
-az ad sp create-for-rbac
+read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
 ```
 
-The output is similar to the following example:
+The password is only displayed when you create the service principal. You can list your service principals with [az ad sp list](/cli/azure/ad/sp#list) and view additional information about a specific service principal with [az ad sp show](/cli/azure/ad/sp#show).
 
-```json
-{
-  "appId": "54dae448-d995-4814-806d-c0daaed10266",
-  "displayName": "azure-cli-2017-03-07-18-43-25",
-  "name": "http://azure-cli-2017-03-07-18-43-25",
-  "password": "80ada6ac-95f5-4718-9e3a-aafa30db4795",
-  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-}
-```
-
-Note the `appId` and `password` shown in the output from the preceding command. The password is only displayed when you create the service principal. You can list your service principals with [az ad sp list](/cli/azure/ad/sp#list) and view information about a specific service principal with [az ad sp show](/cli/azure/ad/sp#show).
-
-To successfully encrypt or decrypt virtual disks, permissions on the cryptographic key stored in Key Vault must be set to permit the Azure Active Directory service principal to read the keys. Set permissions on your Key Vault with [az keyvault set-policy](/cli/azure/keyvault#set-policy). In the following example, replace `appId` with the value output from the preceding command to create the service principal:
+To successfully encrypt or decrypt virtual disks, permissions on the cryptographic key stored in Key Vault must be set to permit the Azure Active Directory service principal to read the keys. Set permissions on your Key Vault with [az keyvault set-policy](/cli/azure/keyvault#set-policy). In the following example, the service principal Id is supplied from the preceding command:
 
 ```azurecli
-az keyvault set-policy --name myKeyVault --spn appId \
+az keyvault set-policy --name myKeyVault --spn $sp_id \
   --key-permissions all \
   --secret-permissions all
 ```
@@ -246,12 +215,12 @@ Encrypt your VM with [az vm encryption enable](/cli/azure/vm/encryption#enable).
 | --aad-client-id     | appId                      |
 | --aad-client-secret | password                   |
 
-The following example uses the `appId` and `password` displayed from the preceding `ad sp create-for-rbac` command. Replace these values with your own credentials:
+The following example uses the `$sp_id` and `$sp_password` variables from the preceding `ad sp create-for-rbac` command:
 
 ```azurecli
 az vm encryption enable --resource-group myResourceGroup --name myVM \
-  --aad-client-id 54dae448-d995-4814-806d-c0daaed10266 \
-  --aad-client-secret 80ada6ac-95f5-4718-9e3a-aafa30db4795 \
+  --aad-client-id $sp_id \
+  --aad-client-secret $sp_password \
   --disk-encryption-keyvault myKeyVault \
   --key-encryption-key myKey \
   --volume-type all
