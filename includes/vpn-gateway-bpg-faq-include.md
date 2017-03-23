@@ -28,6 +28,8 @@ Azure VPN gateway will advertise the following routes to your on-premises BGP de
 ### Can I advertise default route (0.0.0.0/0) to Azure VPN gateways?
 Yes.
 
+Please note this will force all VNet traffic towards your on-premises VPN network and will prevent public communication to the resources in your VNet, such as Virtual Machines, on their Azure public IP addresses.
+
 ### Can I advertise the exact prefixes as my Virtual Network prefixes?
 
 No, advertising the same prefixes as any one of your Virtual Network address prefixes will be blocked or filtered by the Azure platform. However you can advertise a prefix that is a superset of what you have inside your Virtual Network. 
