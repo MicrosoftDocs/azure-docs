@@ -3,7 +3,7 @@ title: How to publish a virtual machine | Microsoft Docs
 description: This article gives gives details around publishing a virtual machine via the cloud partner portal
 services: cloud-partner-portal
 documentationcenter: ''
-author: andalmia
+author: anuragdalmia
 manager: hamidm
 
 ms.service: cloud-partner-portal
@@ -12,9 +12,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2017
-ms.author: anuragdalmia
+ms.author: andalmia
 
 ---
+
 What are pre-requisites for publishing a VM
 ===========================================
 

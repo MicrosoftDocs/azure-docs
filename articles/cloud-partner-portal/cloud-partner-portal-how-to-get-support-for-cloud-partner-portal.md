@@ -3,7 +3,7 @@ title: How to get support for the cloud partner portal | Microsoft Docs
 description: This article gives gives details around getting support for the cloud partner portal
 services: cloud-partner-portal
 documentationcenter: ''
-author: andalmia
+author: anuragdalmia
 manager: hamidm
 
 ms.service: cloud-partner-portal
@@ -12,9 +12,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2017
-ms.author: anuragdalmia
+ms.author: andalmia
 
 ---
+
 <span id="_Hlk477955830" class="anchor"></span>**How to get support for Cloud Partner Portal**
 
 Microsoft provides support for a wide variety of products and services. Ensuring that your query finds the right support team is important to ensure an appropriate and timely response. Please consider the following scenarios, which should help you route your query to the appropriate team:
