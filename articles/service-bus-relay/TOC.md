@@ -1,14 +1,10 @@
 # Overview
 ## [What is Relay?](relay-what-is-it.md)
-## Common use cases (NEEDED)
 ## [FAQ](relay-faq.md)
 
-# Quickstart
-## [Create a namespace](relay-create-namespace-portal.md)
+# [Quickstart](relay-create-namespace-portal.md)
 
-# Samples
-## Hybrid Connections (NEEDED)
-## [WCF Relay](service-bus-relay-samples.md)
+# [Samples](https://github.com/azure/azure-relay/tree/master/samples)
 
 # Tutorials
 ## Hybrid connections
@@ -17,26 +13,14 @@
 ### [Get started with WCF Relay](service-bus-dotnet-how-to-use-relay.md)
 
 # Concepts
-## Feature overview (NEEDED)
 ## [Authentication and security](relay-authentication-and-authorization.md)
 
 # How-to guides
 ## Develop
 ### [Available APIs](relay-api-overview.md)
-#### .NET
-##### [.NET Standard](relay-hybrid-connections-dotnet-api-overview.md)
-##### .NET Framework (NEEDED)
-#### Node
-##### hyco-ws (NEEDED)
-##### hyco-websocket  (NEEDED)
-### Availability between data centers (NEEDED)
-### Handle errors and retry (NEEDED)
-### Scale (needed)
+#### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
+#### [Node](relay-hybrid-connections-node-ws-api-overview.md)
 ### [Hybrid Connections protocol](relay-hybrid-connections-protocol.md)
-## Manage
-### ARM (NEEDED)
-### PowerShell (NEEDED)
-### Relay management libraries (NEEDED)
 
 # Reference
 ## .NET
