@@ -14,8 +14,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/27/2017
-ms.author: markgal;trinadhk
+ms.date: 3/13/2017
+ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -88,7 +88,7 @@ The following table shows the Azure Backup components that have support for Linu
 | Azure Backup (MARS) agent |No (Only Windows based agent) |
 | System Center DPM |File-consistent backup on Hyper-V only<br/> (not available for Azure VM) |
 | Azure Backup Server |File-consistent backup on Hyper-V only<br/> (not available for Azure VM) |
-| Azure IaaS VM Backup |Yes |
+| Azure IaaS VM Backup |Yes (application consistent backup using [pre-script and post-script framework](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)) |
 
 ## Using Premium Storage VMs with Azure Backup
 Azure Backup protects Premium Storage VMs. Azure Premium Storage is solid-state drive (SSD)-based storage designed to support I/O-intensive workloads. Premium Storage is attractive for virtual machine (VM) workloads. For more information about Premium Storage, see the article, [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md).
