@@ -250,11 +250,12 @@ This section provides instructions on how to create, get, update, and delete the
 
   		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-  
-  > [!IMPORTANT]
-  > Ensure that you specify your AS number as peering ASN, not customer ASN.
-  > 
-  >
+     
+> [!IMPORTANT]
+> Ensure that you specify your AS number as peering ASN, not customer ASN.
+> 
+>
+
 
 ### To view Azure public peering details
 You can get configuration details using the following cmdlet:
