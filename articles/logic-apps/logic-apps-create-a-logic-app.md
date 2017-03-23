@@ -108,8 +108,8 @@ this trigger: **RSS - When a feed item is published**
 	Your logic app is now live. Based on the schedule that you set up, 
 	your logic app checks for new items in the specified RSS feed. 
 
-	However, to make this example more interesting, we add an 
-	action that your logic app takes after your trigger fires.
+	But to make this example more useful, we add an 
+	action that your logic app performs after your trigger fires.
 
 ## Add an action that responds to your trigger
 
