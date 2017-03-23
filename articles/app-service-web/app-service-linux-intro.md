@@ -28,15 +28,25 @@ Customers can use App Service on Linux to host web apps natively on Linux for su
 App Service on Linux currently supports the following application stacks:
 
 * Node.js
+	* 4.5.0
+	* 4.4.7
+	* 6.2.2
+	* 6.6.0
+	* 6.9.3
 * PHP
+	* 5.6.23
+	* 7.0.6
 * .Net Core
+	* 1.0
 * Ruby
+	* 2.3
 
 Customers can deploy their applications by using:
 
 * FTP
 * Local Git
 * GitHub
+* Bitbucket
 
 For application scaling:
 

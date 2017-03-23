@@ -37,7 +37,7 @@ Create an Azure Key Vault with [az keyvault create](/cli/azure/keyvault#create) 
 
 ```azurecli
 az keyvault create --name myKeyVault --resource-group myResourceGroup \
-  --location WestUS --enable-for-disk-encryption
+  --location WestUS --enabled-for-disk-encryption True
 ```
 
 Create a cryptographic key in your Key Vault with [az keyvault key create](/cli/azure/keyvault/key#create). The following example creates a key named `myKey`:
@@ -143,6 +143,8 @@ Disk encryption is not currently supported in the following scenarios:
 ## Create the Azure Key Vault and keys
 You need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login). Throughout the command examples, replace all example parameters with your own names, location, and key values. The following examples use a convention of `myResourceGroup`, `myKeyVault`, `myAADApp`, etc.
 
+Throughout the command examples, replace all example parameters with your own names, location, and key values. The following examples use a convention of `myResourceGroup`, `myKeyVault`, `myAADApp`, etc.
+
 The first step is to create an Azure Key Vault to store your cryptographic keys. Azure Key Vault can store keys, secrets, or passwords that allow you to securely implement them in your applications and services. For virtual disk encryption, you use Key Vault to store a cryptographic key that is used to encrypt or decrypt your virtual disks. 
 
 Enable the Azure Key Vault provider within your Azure subscription with [az provider register](/cli/azure/provider#register) and create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group name `myResourceGroup` in the `WestUS` location:
@@ -156,7 +158,7 @@ The Azure Key Vault containing the cryptographic keys and associated compute res
 
 ```azurecli
 az keyvault create --name myKeyVault --resource-group myResourceGroup \
-  --location WestUS --enable-for-disk-encryption
+  --location WestUS --enabled-for-disk-encryption True
 ```
 
 You can store cryptographic keys using software or Hardware Security Model (HSM) protection. Using an HSM requires a premium Key Vault. There is an additional cost to creating a premium Key Vault rather than standard Key Vault that stores software-protected keys. To create a premium Key Vault, in the preceding step add `--sku Premium` to the command. The following example uses software-protected keys since we created a standard Key Vault. 

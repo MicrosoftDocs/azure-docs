@@ -347,7 +347,7 @@ See the [Azure Blob dataset type properties](data-factory-azure-blob-connector.m
 
 **Azure SQL output dataset**
 
-The sample copies data to a table named “MyTable” in Azure SQL. Create the table in Azure SQL with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour.
+The sample copies data to a table named “MyOutputTable” in Azure SQL. Create the table in Azure SQL with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour.
 
 ```JSON
 {

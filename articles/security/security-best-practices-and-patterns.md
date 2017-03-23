@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/06/2017
 ms.author: terrylan
 
 ---
@@ -25,7 +25,6 @@ We currently have the following Azure security best practices and patterns artic
 * [Identity management and access control security best practices](azure-security-identity-management-best-practices.md)
 * [Internet of Things security best practices](azure-security-iot-best-practices.md)
 * [Azure IaaS Security Best Practices] (azure-security-iaas.md)
-* [Best practices for software update on Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
 * [Azure boundary security best practices](../best-practices-network-security.md)
 * [Implementing a secure hybrid network architecture in Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
 * [Azure PaaS Best Practices] (https://docs.microsoft.com/en-us/azure/security/security-paas-deployments)

@@ -3,7 +3,7 @@ title: Get started with Azure SQL database auditing | Microsoft Docs
 description: Get started with SQL database auditing
 services: sql-database
 documentationcenter: ''
-author: ronitr
+author: giladm
 manager: jhubbard
 editor: giladm
 
@@ -14,8 +14,8 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
-ms.author: ronitr; giladm
+ms.date: 7/3/2017
+ms.author: giladm
 
 ---
 # Get started with SQL database auditing
@@ -38,8 +38,8 @@ SQL Database Auditing allows you to:
 
 There are two **Auditing methods**:
 
-* **Blob auditing** - logs are written to Azure Blob Storage. This is a newer auditing method, which provides **higher performance**, supports **higher granularity object-level auditing**, and is **more cost effective**.
-* **Table auditing** - logs are written to Azure Table Storage.
+* **Blob Auditing** - logs are written to Azure Blob Storage. This is a newer auditing method, which provides **higher performance**, supports **higher granularity object-level auditing**, and is **more cost effective**. Blob Auditing will be replacing Table Auditing.
+* **Table Auditing (deprecated)** - logs are written to Azure Table Storage.
 
 > [!IMPORTANT]
 > The introduction of the new Blob Auditing brings a major change to the way server auditing policy is being inherited by the database. See [Blob/Table differences in server auditing policy inheritance](#subheading-8) section for additional details.
@@ -53,7 +53,7 @@ An auditing policy can be defined for a specific database or as a default server
 ## <a id="subheading-2"></a>Set up auditing for your database
 The following section describes the configuration of auditing using the Azure portal.
 
-### <a id="subheading-2-1">Blob auditing</a>
+### <a id="subheading-2-1">Blob Auditing</a>
 1. Launch the [Azure portal](https://portal.azure.com) at https://portal.azure.com.
 2. Navigate to the settings blade of the SQL Database / SQL Server you want to audit. In the Settings blade, select **Auditing & Threat detection**.
 
@@ -72,11 +72,12 @@ The following section describes the configuration of auditing using the Azure po
     <a id="storage-screenshot"></a>
     ![Navigation pane][4]
 6. If you want to customize the audited events, you can do this via PowerShell or REST API - see the [Automation (PowerShell / REST API)](#subheading-7) section for more details.
-7. Click **Save**.
+7. Once you've configured your auditing settings, you can turn on the new **Threat Detection** (preview) feature, and configure the emails to receive security alerts. Threat Detection allows you to receive proactive alerts on anomalous database activities that may indicate potential security threats. See [Getting Started with Threat Detection](sql-database-threat-detection-get-started.md) for more details.
+8. Click **Save**.
 
-### <a id="subheading-2-2">Table auditing</a>
+### <a id="subheading-2-2">Table Auditing</a> (deprecated)
 
-> Before setting up **Table auditing**, check if you are using a ["Downlevel Client"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Also, if you have strict firewall settings, please note that the [IP endpoint of your database will change](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) when enabling Table Auditing.
+> Before setting up **Table Auditing**, check if you are using a ["Downlevel Client"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Also, if you have strict firewall settings, please note that the [IP endpoint of your database will change](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) when enabling Table Auditing.
 
 
 1. Launch the [Azure portal](https://portal.azure.com) at https://portal.azure.com.
@@ -114,7 +115,7 @@ The following section describes the configuration of auditing using the Azure po
     > <br><br>
     > Otherwise, it is **recommended to only enable server-level Blob Auditing** and leave the database-level auditing disabled for all databases.
 
-###<a>Table auditing</a>
+###<a>Table auditing</a> (deprecated)
 
 If **server-level Table auditing is enabled**, it only applies to the database if the "Inherit settings from server" checkbox is checked in the database blade (this is checked by default for all existing and newly created databases).
 
@@ -130,9 +131,9 @@ You can explore audit logs using a tool such as [Azure Storage Explorer](http://
 See below specifics for analysis of both **Blob** and **Table** audit logs.
 
 ### <a id="subheading-3-1">Blob Auditing</a>
-Blob Auditing logs are saved as a collection of Blob files within a container named "**sqldbauditlogs**".
+Blob Auditing logs are saved as a collection of blob files within a container named "**sqldbauditlogs**".
 
-For further details about the Blob audit logs storage folder hierarchy, Blob naming convention, and log format, see the [Blob Audit Log Format Reference (doc file download)](https://go.microsoft.com/fwlink/?linkid=829599).
+For further details about the Blob audit logs storage folder hierarchy, blob naming convention, and log format, see the [Blob Audit Log Format Reference (doc file download)](https://go.microsoft.com/fwlink/?linkid=829599).
 
 There are several methods to view Blob Auditing logs:
 
@@ -164,7 +165,7 @@ There are several methods to view Blob Auditing logs:
 
 3. We have created a **sample application** that runs in Azure and utilizes OMS public APIs to push SQL audit logs into OMS for consumption via the OMS dashboard ([more info here](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration)).
 
-### <a id="subheading-3-2">Table auditing</a>
+### <a id="subheading-3-2">Table auditing</a> (deprecated)
 Table Auditing logs are saved as a collection of Azure Storage Tables with a **SQLDBAuditLogs** prefix.
 
 For further details about the Table audit log format, see the [Table Audit Log Format Reference (doc file download)](http://go.microsoft.com/fwlink/?LinkId=506733).
@@ -233,14 +234,14 @@ You can also configure Auditing in Azure SQL Database using the following automa
    * [Set-AzureRMSqlDatabaseAuditingPolicy][105]
    * [Set-AzureRMSqlServerAuditingPolicy][106]
    * [Use-AzureRMSqlServerAuditingPolicy][107]
-2. **REST API - Blob auditing**
+2. **REST API - Blob Auditing**
 
    * [Create or Update Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695939.aspx)
    * [Create or Update Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771861.aspx)
    * [Get Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695938.aspx)
    * [Get Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771860.aspx)
    * [Get Server Blob Auditing Operation Result](https://msdn.microsoft.com/library/azure/mt771862.aspx)
-3. **REST API - Table auditing**
+3. **REST API - Table Auditing (deprecated)**
 
    * [Create or Update Database Auditing Policy](https://msdn.microsoft.com/library/azure/mt604471.aspx)
    * [Create or Update Server Auditing Policy](https://msdn.microsoft.com/library/azure/mt604383.aspx)
