@@ -47,8 +47,7 @@ Before you start:
 * [Connect using Visual Studio Code](sql-database-connect-query-vscode.md)
 
 ### Create a 'Students' table in the database 
-* In SSMS, right-click on the database and click New Query to open a blank query window.
-* Enter the following query in the window, and execute it:
+In an SSMS query window or in the VS Code editor, enter the following query in the window, and execute it:
 
 ```sql 
 CREATE TABLE [dbo].[Students]
@@ -77,16 +76,14 @@ You have now loaded sample data into the table you created earlier.
 Indexes are structures in a database that speed up data retrieval. You create an index on the age column of the Students table to speed up retrieval of students matching an age range.
 
 ### Add an index to table 
-* Open a blank query window
-* Enter the following query in the window:
+In an SSMS query window or in the VS Code editor, enter the following query in the window, and execute it:
 
 ```sql 
 CREATE CLUSTERED INDEX IX_Age ON Students (age);
 ```
 
 ### Query data from table with index 
-* Open a blank query window 
-* Enter the following query in the window: 
+In an SSMS query window or in the VS Code editor, enter the following query in the window, and execute it: 
 
 ```sql
 SELECT name, age, email 
