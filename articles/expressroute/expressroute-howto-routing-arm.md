@@ -61,19 +61,19 @@ This section provides instructions on how to create, get, update, and delete the
    
         Install-AzureRM
    
-    Import all of the AzureRM.* modules within the known semantic version range
+    Import all of the AzureRM.* modules within the known semantic version range.
    
         Import-AzureRM
    
-    You can also just import a select module within the known semantic version range 
+    You can also just import a select module within the known semantic version range. 
    
         Import-Module AzureRM.Network 
    
-    Logon to your account
+    Logon to your account.
    
         Login-AzureRmAccount
    
-    Select the subscription you want to create ExpressRoute circuit
+    Select the subscription you want to create ExpressRoute circuit.
    
         Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 2. Create an ExpressRoute circuit.
@@ -122,13 +122,13 @@ This section provides instructions on how to create, get, update, and delete the
      
     You can run the following cmdlet to configure Azure private peering for your circuit.
      
-         Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
+        Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
      
-         Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+        Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
      
     You can use the cmdlet below if you choose to use an MD5 hash.
      
-         Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
+        Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
 
      
    > [!IMPORTANT]
@@ -140,9 +140,9 @@ This section provides instructions on how to create, get, update, and delete the
 ### To view Azure private peering details
 You can get configuration details using the following cmdlet
 
-        $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+    $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-        Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt    
+    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt    
 
 
 ### To update Azure private peering configuration
