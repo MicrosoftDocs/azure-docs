@@ -1,6 +1,6 @@
 ---
-title: 'Create a self-signed root certificate and generate client certificates for Point-to-Site: PowerShell: Azure | Microsoft Docs'
-description: This article contains steps to create a self-signed root certificate, export the public key, and generate client certificates using PowerShell.
+title: 'Create a self-signed certificates for Point-to-Site: PowerShell: Azure | Microsoft Docs'
+description: This article contains steps to create a self-signed root certificate, export the public key, and generate client certificates using PowerShell on Windows 10.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cherylmc
 
 ---
@@ -29,9 +29,9 @@ Point-to-Site connections use certificates to authenticate. When you configure a
 
 ## <a name="rootcert"></a>Create a self-signed root certificate
 
-The following steps walk you through creating a self-signed root certificate using PowerShell.
+The following steps walk you through creating a self-signed root certificate using PowerShell. Windows 10 is required to complete the following steps. The cmdlets and parameters that are used in these steps are part of the Windows 10 operating system, not a part of a PowerShell version.
 
-1. Open a Windows PowerShell console with elevated privileges.
+1. From a computer running Windows 10, open a Windows PowerShell console with elevated privileges.
 2. Use the following example to create the self-signed root certificate. The following example creates a self-signed root certificate named 'P2SRootCert' that is automatically installed in 'Certificates-Current User\Personal\Certificates'. You can view the certificate by opening *certmgr.msc*.
 
     	$cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
@@ -60,6 +60,8 @@ Each client computer that connects to a VNet using Point-to-Site must have a cli
 
 The following steps walk you through generating a client certificate from a self-signed root certificate. You may generate multiple client certificates from the same root certificate. When you generate client certificates using the steps below, the client certificate is automatically installed on the computer that you used to generate the certificate. If you want to install a client certificate on another client computer, you can export the certificate.
 
+Windows 10 is required to complete the following steps. The cmdlets and parameters that are used in these steps are part of the Windows 10 operating system, not a part of a PowerShell version.
+
 ### Example 1
 
 This example uses the declared '$cert' variable from the previous section. If you closed the PowerShell console after creating the self-signed root certificate, or are creating additional client certificates in a new PowerShell console session, use the steps in Example 2.
@@ -83,7 +85,7 @@ If you are creating additional client certificates, or are not using the same Po
 2. Locate the subject name from the returned list, then copy the thumbprint that is located next to it to a text file. In the following example, there are two certificates. The CN name is the name of the self-signed root certificate from which you want to generate a child certificate. In this case, 'P2SRootCert'.
 
 		Thumbprint                                Subject
-		----------                                -------
+
 		AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
 		7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
 
@@ -111,7 +113,7 @@ When you generate a client certificate, it's automatically installed on the comp
 
 1. To export a client certificate, open **certmgr.msc**. The client certificates that you generated are, by default, located in 'Certificates - Current User\Personal\Certificates'. Right-click the client certificate that you want to export, click **all tasks**, and then click **export**. This opens the **Certificate Export Wizard**.
 2. In the Wizard, click **Next**, then select **Yes, export the private key**, and then click **Next**.
-3. On the **Export File Format** page, you can leave the defaults selected. Then click **Next**. 
+3. On the **Export File Format** page, leave the defaults selected. Make sure that 'Include all certificates in the certification path if possible' is selected. Then click **Next**.
 4. On the **Security** page, you must protect the private key. If you select to use a password, make sure to record or remember the password that you set for this certificate. Then click **Next**.
 5. On the **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then click **Next**.
 6. Click **Finish** to export the certificate.    

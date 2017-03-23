@@ -18,6 +18,18 @@ ms.author: spelluru
 
 ---
 # Invoke Spark Programs from Data Factory
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Hive Activity](data-factory-hive-activity.md) 
+> * [Pig Activity](data-factory-pig-activity.md)
+> * [MapReduce Activity](data-factory-map-reduce.md)
+> * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
+> * [Spark Activity](data-factory-spark.md)
+> * [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [Machine Learning Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
+> * [Stored Procedure Activity](data-factory-stored-proc-activity.md)
+> * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
+> * [.NET Custom Activity](data-factory-use-custom-activities.md)
+
 ## Introduction
 The HDInsight Spark activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes Spark programs on [your own](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) HDInsight cluster. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
@@ -40,7 +52,7 @@ Before you use a Spark activity in a Data Factory pipeline, create a HDInsight (
 ```
 
 > [!NOTE]
-> Currently, the Spark Activity does not support using an on-demand HDInsight linked service.  
+> Currently, the Spark Activity does not support Spark clusters using Data Lake Store as primary storage or on-demand HDInsight linked service. 
 
 For details about the HDInsight linked service and other compute linked services, see [Data Factory compute linked services](data-factory-compute-linked-services.md) article. 
 
@@ -124,10 +136,7 @@ SparkJob2
 > [!IMPORTANT]
 > For a complete walkthrough of creating a pipeline with a transformation activity, see [Create a pipeline to transform data](data-factory-build-your-first-pipeline-using-editor.md) article. 
 
-## Spark sample on GitHub
-Before the Spark Activity was supported, the work-around to run Spark programs from Data Factory pipeline was to use a MapReduce activity. You can still use the [MapReduce Activity](data-factory-map-reduce.md) in a Data Factory pipeline to run Spark programs on your HDInsight Spark cluster. We recommend you use the Spark Activity instead of using the MapReduce activity. 
 
-The [Spark - Data Factory sample on GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark) shows how to use MapReduce activity to invoke a Spark program. The spark program just copies data from one Azure Blob container to another. 
 
 ## See Also
 * [Hive Activity](data-factory-hive-activity.md)

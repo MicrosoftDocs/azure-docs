@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2017
+ms.date: 03/15/2017
 ms.author: tomfitz
 
 ---
@@ -45,6 +45,7 @@ The following error codes are described in this topic:
 * [Authorization failed](#authorization-failed)
 * [BadRequest](#badrequest)
 * [DeploymentFailed](#deploymentfailed)
+* [DisallowedOperation](#disallowedoperation)
 * [InvalidContentLink](#invalidcontentlink)
 * [InvalidTemplate](#invalidtemplate)
 * [MissingSubscriptionRegistration](#noregisteredproviderfound)
@@ -119,6 +120,40 @@ You receive this error when the resource SKU you have selected (such as VM size)
   ```
 
 If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, contact [Azure Support](https://portal.azure.com/#create/Microsoft.Support).
+
+### DisallowedOperation
+
+```
+Code: DisallowedOperation
+Message: The current subscription type is not permitted to perform operations on any provider 
+namespace. Please use a different subscription.
+```
+
+If you receive this error, you are using a subscription that is not permitted to access any Azure services other than Azure Active Directory. You might have this type of subscription when you need to access the classic portal but are not permitted to deploy resources. To resolve this issue, you must use a subscription that has permission to deploy resources.  
+
+To view your available subscriptions with PowerShell, use:
+
+```powershell
+Get-AzureRmSubscription
+```
+
+And, to set the current subscription, use:
+
+```powershell
+Set-AzureRmContext -SubscriptionName {subscription-name}
+```
+
+To view your available subscriptions with Azure CLI 2.0, use:
+
+```azurecli
+az account list
+```
+
+And, to set the current subscription, use:
+
+```azurecli
+az account set --subscription {subscription-name}
+```
 
 ### InvalidTemplate
 This error can result from several different types of errors.
@@ -384,19 +419,19 @@ To get the supported API versions for a particular type of resource, use:
 To see whether the provider is registered, use the `azure provider list` command.
 
 ```azurecli
-azure provider list
+az provider list
 ```
 
 To register a resource provider, use the `azure provider register` command, and specify the *namespace* to register.
 
 ```azurecli
-azure provider register Microsoft.Cdn
+az provider register --namespace Microsoft.Cdn
 ```
 
-To see the supported locations and API versions for a resource provider, use:
+To see the supported locations and API versions for a resource type, use:
 
 ```azurecli
-azure provider show -n Microsoft.Compute --json > compute.json
+az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
 <a id="quotaexceeded" />
@@ -407,18 +442,23 @@ For complete quota information, see [Azure subscription and service limits, quot
 To examine your subscription's quotas for cores, you can use the `azure vm list-usage` command in the Azure CLI. The following example illustrates that the core quota for a free trial account is 4:
 
 ```azurecli
-azure vm list-usage
+az vm list-usage --location "South Central US"
 ```
 
 Which returns:
 
 ```azurecli
-info:    Executing command vm list-usage
-Location: westus
-data:    Name   Unit   CurrentValue  Limit
-data:    -----  -----  ------------  -----
-data:    Cores  Count  0             4
-info:    vm list-usage command OK
+[
+  {
+    "currentValue": 0,
+    "limit": 2000,
+    "name": {
+      "localizedValue": "Availability Sets",
+      "value": "availabilitySets"
+    }
+  },
+  ...
+]
 ```
 
 If you deploy a template that creates more than four cores in the West US region, you get a deployment error that looks like:
@@ -476,13 +516,13 @@ Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/p
 In **PowerShell**, provide that policy identifier as the **Id** parameter to retrieve details about the policy that blocked your deployment.
 
 ```powershell
-(Get-AzureRmPolicyAssignment -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
+(Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
-In **Azure CLI**, provide the name of the policy definition:
+In **Azure CLI 2.0**, provide the name of the policy definition:
 
 ```azurecli
-azure policy definition show regionPolicyDefinition --json
+az policy definition show --name regionPolicyAssignment
 ```
 
 For more information about policies, see [Use Policy to manage resources and control access](resource-manager-policy.md).
@@ -519,21 +559,13 @@ You can discover valuable information about how your deployment is processed by 
 
    This information can help you determine whether a value in the template is being incorrectly set.
 
-- Azure CLI
+- Azure CLI 2.0
 
-   In Azure CLI, set the **--debug-setting** parameter to All, ResponseContent, or RequestContent.
-
-  ```azurecli
-  azure group deployment create --debug-setting All -f c:\Azure\Templates\storage.json -g examplegroup -n ExampleDeployment
-  ```
-
-   Examine the logged request and response content with the following command:
+   Examine the deployment operations with the following command:
 
   ```azurecli
-  azure group deployment operation list --resource-group examplegroup --name ExampleDeployment --json
+  az group deployment operation list --resource-group ExampleGroup --name vmlinux
   ```
-
-   This information can help you determine whether a value in the template is being incorrectly set.
 
 - Nested template
 
