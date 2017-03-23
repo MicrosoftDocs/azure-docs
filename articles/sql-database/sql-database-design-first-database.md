@@ -38,11 +38,8 @@ This tutorial uses as its starting point the resources created in one of these q
 
 Before you start:
 
-* Make sure you can connect to, and query the SQL Database you created:
-[Connect Using SSMS](sql-database-connect-query-ssms.md), [Connect using Visual Studio Code](sql-database-connect-query-vscode.md)
-* Install the Bulk Copy (BCP) command-line utility:
-[Install For Windows](https://www.microsoft.com/download/details.aspx?id=53591), [Install For Linux](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools)
-
+* Make sure you can connect to, and [query the SQL database using SQL Server Management Studio](sql-database-connect-query-ssms.md)
+* [Install the Bulk Copy (BCP) command-line utility for Windows](https://www.microsoft.com/download/details.aspx?id=53591) or [Install For Bulk Copy (BCP) command-line utility for Linux](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools).
 
 ## Step 1 - Log in to the Azure portal
 
@@ -89,28 +86,52 @@ The SQL Database service creates a firewall preventing external applications and
 3. Click **OK** and then click the **X** to close the Firewall settings page.
 
 You can now connect to the database and its server using SQL Server Management Studio or another tool of your choice.
-## Step 1 - Create a table 
 
-## Step 4 - Connect to mySampleDatabase database
+## Step 4 - Get connection information
 
-Use your SQL editor of choice and connect to mySampleDatabase on your Azure SQL Database server.
+Get the fully qualified server name for your Azure SQL Database server in the Azure portal. You use the fully qualified server name to connect to your server using SQL Server Management Studio.
 
-* [Connect using SQL Server Management Studio](sql-database-connect-query-ssms.md)
-* [Connect using Visual Studio Code](sql-database-connect-query-vscode.md)
+1. Log in to the [Azure portal](https://portal.azure.com/).
+2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
+3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**.
 
-## Step 5 - Create a 'Students' table in the database 
-In an SSMS query window or in the VS Code editor connected to mySampleDatabase, execute following query:
+    <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
 
-```sql 
-CREATE TABLE [dbo].[Students]
-(
-  [student_id] int, 
-  [name] varchar(30),
-  [age] int,
-  [email] varchar(40),
-  [AddressID] int REFERENCES [SalesLT].[Address] (AddressID)
-);
-```
+## Step 5 - Connect to the server
+
+Use SQL Server Management Studio to establish a connection to your Azure SQL Database server.
+
+1. Type **SSMS** in the Windows search box and then click **Enter** to open SSMS.
+
+2. In the **Connect to Server** dialog box, enter the following information:
+   - **Server type**: Specify Database engine
+   - **Server name**: Enter your fully qualified server name, such as **mynewserver20170313.database.windows.net**
+   - **Authentication**: Specify SQL Server Authentication
+   - **Login**: Enter your server admin account
+   - **Password**: Enter the password for your server admin account
+ 
+    <img src="./media/sql-database-connect-query-ssms/connect.png" alt="connect to server" style="width: 780px;" />
+
+3. Click **Connect**. The Object Explorer window opens in SSMS. 
+
+    <img src="./media/sql-database-connect-query-ssms/connected.png" alt="connected to server" style="width: 780px;" />
+
+4. In Object Explorer, expand **Databases** and then expand **mySampleDatabase** to view the objects in the sample database.
+
+## Step 6 - Create a 'Students' table in the database 
+1. In Object Explorer, right-click **mySampleDatabase** and click **New Query**. A blank query window opens that is connected to your database.
+2. In the query window, execute following query:
+
+   ```sql 
+   CREATE TABLE [dbo].[Students]
+   (
+     [student_id] int, 
+     [name] varchar(30),
+     [age] int,
+     [email] varchar(40),
+     [AddressID] int REFERENCES [SalesLT].[Address] (AddressID)
+   );
+   ```
 
 Once the query is complete, you have created an empty table in your database called Students.
 
@@ -123,7 +144,7 @@ FROM [dbo].[Students]
 
 The Students table returns no data.
 
-## Step 6 - Load data into the table 
+## Step 7 - Load data into the table 
 * [Download this sample txt file](https://microsoft-my.sharepoint.com/personal/ayolubek_microsoft_com/_layouts/15/guestaccess.aspx?guestaccesstoken=gQYCb16yjnJBDrK5aJaq8CMrlXNxf55ylI%2fi5XVCXQw%3d&docid=2_1b4c3b5ec415349fe9e35fdf4cb7ffb63&rev=1) into your local machine. In this example, we assume it is stored in the following location, *C:\Temp\SampleStudentData.txt*
 * Open a command prompt window and run the following command, replacing the values for *ServerName*, *DatabaseName*, *UserName*, and *Password* with your own.
 
@@ -133,7 +154,7 @@ bcp Students in C:\Temp\SampleStudentData.txt -S <ServerName> -d <DatabaseName> 
 
 You have now loaded sample data into the table you created earlier.
 
-## Step 3 - Add an index to the table 
+## Step 8 - Add an index to the table 
 To make searching for specific values in the table more efficient, create an index on the Students table. An index organizes the data in such a way, that now all data has to be looked at to find a specific value.
 
 ### Add an index to table 
@@ -143,7 +164,7 @@ Execute the following query:
 CREATE NONCLUSTERED INDEX IX_Age ON Students (age);
 ```
 
-### Query data from table with index 
+## Step 9 - Query data from table with index 
 Execute the following query: 
 
 ```sql
@@ -154,10 +175,10 @@ WHERE age > 20
 
 This query returns the name, age, and email of students who are older than 20 years old.
 
-## Step 7 - Restore database to a point in time before table creation 
+## Step 10 - Restore database to a point in time before table creation 
 Databases in Azure have continuous backups that are taken automatically every 5 - 10 minutes. These backups allow you to restore your database to a previous point in time. Restoring a database to a different point in time creates a duplicate database in the same server as the original database. The following steps restore the sample database to a point before the *Students* table was added. 
 
-## Step  - Restore database 
+## Step 11 -  Restore database 
 * Navigate to the sample database you created in the quick start
 * Click **Restore** on the database blade 
 * Fill out the SQL Database form with the required information:
