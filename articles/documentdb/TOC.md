@@ -2,19 +2,24 @@
 # Overview
 ## [What is Stellar?](documentdb-introduction.md)
 ## [What is Stellar: API for MongoDB?](documentdb-protocol-mongodb.md)
-## [What are Stellar premium tables?](stellar-table-introduction.md)
+## [What are Stellar tables?](stellar-table-introduction.md)
 ## [What are Stellar graph databases?](stellar-graph-introduction.md)
 
-# Concepts
-## [Core concepts](documentdb-resources.md)
-## [Global distribution](documentdb-distribute-data-globally.md)
-## [Security](documentdb-nosql-database-security.md)
-## [NoSQL TCO analysis](https://aka.ms/documentdb-tco-paper)
-## Scenarios
-### [Common use cases](documentdb-use-cases.md)
-### [Going social with Stellar](documentdb-social-media-apps.md)
+# Quickstarts
+## [Create DB - Portal](documentdb-create-account.md)
 
-# Get Started
+# Samples
+## [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+## [Azure CLI 1.0: Create an account](documentdb-automation-resource-manager-cli-nodejs.md)
+## [Azure CLI 1.0: Add or remove regions](documentdb-automation-region-management.md)
+## [Azure PowerShell](documentdb-manage-account-with-powershell.md)
+## [.NET samples](documentdb-dotnet-samples.md)
+## [Node.js samples](documentdb-nodejs-samples.md)
+## [Python samples](documentdb-python-samples.md)
+## [SQL syntax](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+## [SQL grammar cheat sheet](documentdb-sql-query-cheat-sheet.md)
+
+# Tutorials
 ## Write your first document database app 
 ### [.NET console app](documentdb-get-started.md)
 ### [.NET Core console app](documentdb-dotnetcore-get-started.md)
@@ -37,7 +42,16 @@
 ### [Export Emulator Certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 ## [FAQ](documentdb-faq.md)
 
-# How To
+# Concepts
+## [Core concepts](documentdb-resources.md)
+## [Global distribution](documentdb-distribute-data-globally.md)
+## [Security](documentdb-nosql-database-security.md)
+## [NoSQL TCO analysis](https://aka.ms/documentdb-tco-paper)
+## Scenarios
+### [Common use cases](documentdb-use-cases.md)
+### [Going social with Stellar](documentdb-social-media-apps.md)
+
+# How To Guides
 
 ## Plan
 ### [Partitioning and scaling](documentdb-partition-data.md)
@@ -105,7 +119,6 @@
 ### [Visualize your data with Power BI](documentdb-powerbi-visualize.md)
 ### [Leverage the ODBC driver for data visualization](documentdb-nosql-odbc-driver.md)
 
-
 # Reference
 ## [Java](documentdb-sdk-java.md)
 ## [.NET](documentdb-sdk-dotnet.md)
@@ -114,13 +127,6 @@
 ## [Python](documentdb-sdk-python.md)
 ## [REST](/rest/api/documentdb/)
 ## [REST Resource Provider](/rest/api/documentdbresourceprovider/)
-
-# Related
-## [.NET samples](documentdb-dotnet-samples.md)
-## [Node.js samples](documentdb-nodejs-samples.md)
-## [Python samples](documentdb-python-samples.md)
-## [SQL Syntax](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-## [SQL grammar cheat sheet](documentdb-sql-query-cheat-sheet.md)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/documentdb/)
