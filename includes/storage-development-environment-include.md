@@ -2,11 +2,17 @@
 Next, set up your development environment in Visual Studio so you're ready to try the code examples in this guide.
 
 ### Create a Windows console application project
-In Visual Studio, create a new Windows console application, as shown:
+In Visual Studio, create a new Windows console application. The following steps show you how to create a console application in Visual Studio 2017, however, the steps are similar in other versions of Visual Studio.
 
-![Create console application dialog in Visual Studio](./media/storage-development-environment-include/storage-development-environment-include-1.png)
+1. Select **File** > **New** > **Project**
+2. Select **Installed** > **Templates** > **Visual C#** > **Windows Classic Desktop**
+3. Select **Console App (.NET Framework)**
+4. Enter a name for your application in the **Name:** field
+5. Select **OK**
 
-All code examples in this tutorial can be added to the **Main()** method of your console application's `program.cs` file.
+![Project creation dialog in Visual Studio](./media/storage-development-environment-include/storage-development-environment-include-1.png)
+
+All code examples in this tutorial can be added to the `Main()` method of your console application's `Program.cs` file.
 
 You can use the Azure Storage Client Library in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
 
