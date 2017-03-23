@@ -41,12 +41,14 @@ Before you start:
 
 ## Step 1 - Create a table 
 
-### Connect to the database 
+### Connect to mySampleDatabase database
+Use your SQL editor of choice and connect to mySampleDatabase on your Azure SQL Database server.
+
 * [Connect using SQL Server Management Studio](sql-database-connect-query-ssms.md)
 * [Connect using Visual Studio Code](sql-database-connect-query-vscode.md)
 
 ### Create a 'Students' table in the database 
-In an SSMS query window or in the VS Code editor, execute following query:
+In an SSMS query window or in the VS Code editor connected to mySampleDatabase, execute following query:
 
 ```sql 
 CREATE TABLE [dbo].[Students]
