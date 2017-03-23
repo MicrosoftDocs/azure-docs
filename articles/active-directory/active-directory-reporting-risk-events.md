@@ -150,6 +150,7 @@ We recommend that you contact the user to verify if they actually signed in from
  
 ## Next steps
 
+Risk events are the foundation for protecting your Azure AD's identities. Azure AD can currently detect six risk events: 
 
 
 | Risk Event Type | Risk Level | Detection Type |
@@ -161,12 +162,13 @@ We recommend that you contact the user to verify if they actually signed in from
 | [Sign-ins from infected devices](#sign-ins-from-infected-devices) | Low | Offline |
 | [Sign-ins from IP addresses with suspicious activity](#sign-ins-from-ip-addresses-with-suspicious-activity) | Medium | Offline|
 
+Where can you find the risk events that have been detected in your environment?
+There are two places where you review reported risk events:
 
+ - **Azure AD reporting** - Risk events are part of Azure AD's security reports. For more details, see the [users at risk security report](active-directory-reporting-security-user-at-risk.md) and the [risky sign-ins security report](active-directory-reporting-security-risky-sign-ins.md).
 
+ - **Azure AD Identity Protection** - Risk events are also part of [Azure Active Directory Identity Protection's](active-directory-identityprotection.md) reporting capabilities.
+    
 
-
-
-
-## Next steps
-* [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-
+While the detection of risk events already represents an important aspect of protecting your identities, you also have the option to either manually address them or even implement automated responses by configuring conditional access policies. For more details, see of [Azure Active Directory Identity Protection's](active-directory-identityprotection.md).
+ 
