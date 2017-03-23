@@ -25,7 +25,7 @@ Learn about network interfaces (NIC) and how to work with them. A NIC is the int
 
 ![Network interface](./media/virtual-network-network-interface/nic.png)
 
-This article explains how to work with the concepts shown in the picture. Click any of the following concepts to go directly to that section of the article.
+This article explains how to work with the concepts shown in the picture. Click any of the following concepts to go directly to that section of the article:
 
 - [Network interfaces](#nics): A NIC is connected to one subnet within an Azure Virtual Network (VNet). In the picture, **VM1** has two NICs attached to it and **VM1** has one NIC attached to it. Each NIC is connected to the same VNet, but to different subnets. This section provides steps to list existing NICs, and create, change, and delete NICs. 
 - [IP configurations](#ip-configs): One or more IP configurations are associated to each NIC. Each IP configuration has a private IP address assigned to it. An IP configuration may have a public IP address associated to it. In the picture, **NIC1** and **NIC3** each have one IP configuration associated to them, while **NIC2** has two IP configurations associated to it. The IP configuration assigned to NIC1 and NIC3 have public IP addresses assigned, whereas neither IP configuration assigned to NIC2 has a public IP address assigned to it. This section provides steps to create, change, and delete IP configurations with private IP addresses assigned using the static and dynamic assignment methods. This section also provides steps to associate and disassociate public IP addresses to and from an IP configuration. 
@@ -253,7 +253,7 @@ To associate an NSG to a NIC or disassociate an NSG from a NIC, complete the fol
 |**Tool**|**Command**|
 |---|---|
 |**CLI**|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)]|
+|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vms"></a>Attach and detach NICs to or from a virtual machine
 
