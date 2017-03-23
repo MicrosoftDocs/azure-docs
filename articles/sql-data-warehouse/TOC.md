@@ -102,7 +102,7 @@
 ### [Migrate data](sql-data-warehouse-migrate-data.md)
 ### [Migrate to premium storage](sql-data-warehouse-migrate-to-premium-storage.md)
 
-## Pause and scale
+## Manage compute
 
 ### [Overview](sql-data-warehouse-manage-compute-overview.md)
 ### [Azure portal](sql-data-warehouse-manage-compute-portal.md)
