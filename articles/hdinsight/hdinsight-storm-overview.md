@@ -76,7 +76,7 @@ Within 15 minutes of submitting the request, you have a new Storm cluster runnin
 
 * __Web connectivity__: HDInsight clusters provide the Ambari web UI. The Ambari web UI allows you to easily monitor, configure, and manage services on your cluster. Storm on HDInsight also provides the Storm UI, which allows you to monitor and manage running Storm topologies from your browser.
 
-  For more information, see [Manage HDInsight using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md) and [Monitor and manage using the Storm UI](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage:-storm-ui).
+  For more information, see [Manage HDInsight using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md) and [Monitor and manage using the Storm UI](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui).
 
 * __Azure PowerShell and CLI__: Both Azure PowerShell and Azure CLI provide command-line utilities that you can use from your client system to work with HDInsight and other Azure services.
 
