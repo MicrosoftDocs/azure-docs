@@ -17,7 +17,7 @@ You can use the Table service to store and query huge sets of
 structured, non-relational data, and your tables will scale as demand
 increases.
 
-[!INCLUDE [storage-table-stellar-tip-include](../../includes/storage-table-stellar-tip-include.md)]
+[!INCLUDE [storage-table-stellar-tip-include](storage-table-stellar-tip-include.md)]
 
 ## Table Service Concepts
 The Table service contains the following components:
