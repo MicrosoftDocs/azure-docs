@@ -237,15 +237,7 @@ resulting socket.
     );
 ```
 
-
 ## Next steps
 To learn more about Azure Relay, visit these links:
-
-* [Microsoft.Azure.Relay reference](/dotnet/api/microsoft.azure.relay)
 * [What is Azure Relay?](relay-what-is-it.md)
 * [Available Relay apis](relay-api-overview.md)
-
-[RelayConnectionStringBuilder]: /dotnet/api/microsoft.azure.relay.relayconnectionstringbuilder
-[HCStream]: /dotnet/api/microsoft.azure.relay.hybridconnectionstream
-[HCClient]: /dotnet/api/microsoft.azure.relay.hybridconnectionclient
-[HCListener]: /dotnet/api/microsoft.azure.relay.hybridconnectionlistener
