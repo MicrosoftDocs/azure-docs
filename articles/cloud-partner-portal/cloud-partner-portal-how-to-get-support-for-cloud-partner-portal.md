@@ -24,23 +24,11 @@ Microsoft provides support for a wide variety of products and services. Ensuring
 
 -   If you are a publisher via Cloud Partner Portal and have a question relating to your app or service, continue reading below.
 
-This article will show you how to:
-
--   Sign in to your Microsoft account.
-
--   Navigate to the publisher support pages.
-
--   Select the problem type and category.
-
--   Request support.
-
--   Provide contact information.
-
--   Describe the problem.
+This article will show you how to how to open a support ticket for the issues you are facing.
 
 **1. Sign in to your Microsoft account**
 
-Navigate to [Cloud Partner Portal](https://cloudpartner.azure.com/) and sign in with your Microsoft account\\AAD credentials.
+Navigate to [Cloud Partner Portal](https://cloudpartner.azure.com/) and sign in with your work or school account.
 
 **2. Navigate to the publisher support pages**
 
@@ -52,31 +40,25 @@ From the upper-right menu, click on the “Help” icon and select the “Suppor
 
 ![support2][2]
 
-Available problem types are as follows:
-
--   **Virtual Machines**
-
--   **Cortana Intelligence**
-
 **4. Request support**
 
 After you select the problem type and category, click the **Start request** button.
 
 **5. Provide contact information and describe the problem**
 
-Describe the problem as fully as you can, and provide any files (screenshots, network traces, etc.) that may be helpful in solving your issue.
+Describe the problem as fully as you can, and provide any files (screenshots, error descriptions, network traces, etc.) that may be helpful in solving your issue.
 
 ![support3][3]
 
 **6. Submission confirmation**
 
-Once you have submitted your issue, we will acknowledge receipt within 24 hours and assign your issue a priority and severity. Our dedicated team of support engineers will assist with its resolution according to our Service Level Agreement response times.
+Once you have submitted your issue, we will acknowledge receipt within 24 hours and assign your issue a priority and severity. Our dedicated team of support engineers will assist with its resolution according to our Service Level Agreement response times. You can view this "Response time" as per screenshot below. 
 
 ![support4][4]
 
--   If you need to talk to us about your issue, use the confirmation number in all correspondence.
+-   If you need to talk to us about your issue, reply back to the email that you recive for the opened support case and we can set up some time with you. 
 
--   You can view progress on your issue at any time.
+-   You can view progress on your issue at any time using the "View incident online" link in screenshot above.
 
 
 [1]: ./media/cloud-partner-portal-how-to-get-support-for-cloud-partner-portal/support1.png
