@@ -23,7 +23,7 @@ Without writing any code, you can automate processes between cloud apps and serv
 when you create and run workflows with [Azure Logic Apps](logic-apps-what-are-logic-apps.md). 
 This first example shows how you can create a basic logic app workflow that checks 
 an RSS feed for new content on a website. When new items appear in the website's feed, 
-the logic app sends email to an Outlook or Gmail account.
+the logic app sends email from an Outlook or Gmail account.
 
 To create and run a logic app, you need these items:
 
@@ -124,7 +124,7 @@ Now we add an action that sends email when new items appear in the website's RSS
 
 2. Based on your email account, follow the steps for Outlook or Gmail.
 
-	*	To send email to your Outlook account, 
+	*	To send email from your Outlook account, 
 	in the search box, enter `outlook`. 
 	Under **Services**, select either **Outlook.com** 
 	or **Office 365 Outlook**. Under **Actions**, 
@@ -132,7 +132,7 @@ Now we add an action that sends email when new items appear in the website's RSS
 
 		![Select Outlook "Send an email" action](media/logic-apps-create-a-logic-app/actions.png)
 
-	*	To send email to your Gmail account, 
+	*	To send email from your Gmail account, 
 	in the search box, enter `gmail`. 
 	Under **Actions**, select **Send email**.
 
@@ -142,7 +142,8 @@ Now we add an action that sends email when new items appear in the website's RSS
 sign in with the username and password for your email account. 
 
 4. Provide the details for this action, 
-and choose parameters for data that you 
+like the email address where you want to send mail, 
+and choose the parameters data that you 
 want to include in your email, for example:
 
 	![Select data to include in email](media/logic-apps-create-a-logic-app/rss-action-setup.png)
@@ -160,9 +161,9 @@ your logic app checks the specified RSS feed
 based on the schedule that you set up.
 
 	If your logic app finds new items, 
-	you get an email that includes your selected data. 
+	the logic app sends email that includes your selected data. 
 	If no new items are found, your logic app skips 
-	the action that sends you email.
+	the action that sends email.
 
 7. To monitor and check your logic app's run and trigger history, 
 on your logic app menu, choose **Overview**.
