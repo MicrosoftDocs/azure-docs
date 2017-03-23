@@ -161,7 +161,7 @@ based on the schedule that you set up.
 
 	If your logic app finds new items, 
 	you get an email that includes your selected data. 
-	If no new items are found, your logic app "skips" 
+	If no new items are found, your logic app skips 
 	the action that sends you email.
 
 7. To monitor and check your logic app's run and trigger history, 
