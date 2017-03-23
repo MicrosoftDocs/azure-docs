@@ -73,7 +73,7 @@ bcp Students in C:\Temp\SampleStudentData.txt -S <ServerName> -d <DatabaseName> 
 You have now loaded sample data into the table you created earlier.
 
 ## Step 3 - Add an index to the table 
-Indexes are structures in a database that speed up data retrieval. You create an index on the age column of the Students table to speed up retrieval of students matching an age range.
+To make searching for specific values in the table more efficient, create an index on the Students table. An index organizes the data in such a way, that now all data has to be looked at to find a specific value.
 
 ### Add an index to table 
 Execute the following query:
