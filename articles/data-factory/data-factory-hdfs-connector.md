@@ -99,7 +99,7 @@ The **typeProperties** section is different for each type of dataset and provide
 | fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: <br/><br/>Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | partitionedBy |partitionedBy can be used to specify a dynamic folderPath, filename for time series data. Example: folderPath parameterized for every hour of data. |No |
 | format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No |
-| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**; and supported levels are: **Optimal** and **Fastest**. For more information, see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. Supported levels are: **Optimal** and **Fastest**. For more information, see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
 > [!NOTE]
 > filename and fileFilter cannot be used simultaneously.
@@ -138,7 +138,7 @@ In this example, year, month, day, and time of SliceStart are extracted into sep
 ## File System Source in copy activity
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policies are available for all types of activities.
 
-Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
+Whereas, properties available in the typeProperties section of the activity vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
 
 For Copy Activity, when source is of type **FileSystemSource** the following properties are available in typeProperties section:
 
@@ -332,7 +332,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
 #### Requirement:
 
-* The gateway machine need to join the Kerberos realm and can’t join any Windows domain.
+* The gateway machine needs to join the Kerberos realm and can’t join any Windows domain.
 
 #### How to configure:
 
@@ -347,7 +347,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
 	**Restart** the machine after executing these 2 commands.
 
-2.	Verify the configuration with **Ksetup** command. The output should be like below:
+2.	Verify the configuration with **Ksetup** command. The output should be like:
 
             C:> Ksetup
             default realm = REALM.COM (external)
@@ -371,7 +371,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
 **On KDC server:**
 
-1.	Edit the KDC configuration in **krb5.conf** file to let KDC trust Windows Domain referring to below configuration template. By default, the configuration is located at **/etc/krb5.conf**.
+1.	Edit the KDC configuration in **krb5.conf** file to let KDC trust Windows Domain referring to the following configuration template. By default, the configuration is located at **/etc/krb5.conf**.
 
             [logging]
              default = FILE:/var/log/krb5libs.log
@@ -417,7 +417,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
 **On domain controller:**
 
-1.	Run below **Ksetup** commands to add a realm entry:
+1.	Run the following **Ksetup** commands to add a realm entry:
 
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
@@ -454,7 +454,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
 **On gateway machine:**
 
-* Run below **Ksetup** commands to add a realm entry.
+* Run the following **Ksetup** commands to add a realm entry.
 
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
