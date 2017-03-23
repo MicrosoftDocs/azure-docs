@@ -1,6 +1,6 @@
 ---
 title: Create your first workflow between cloud apps & services - Azure Logic Apps | Microsoft Docs
-description: Automate processes between for software-as-a-service (SaaS) apps and services with Azure Logic Apps
+description: Automate processes between software-as-a-service apps and services by creating workflows with Azure Logic Apps
 author: jeffhollan
 manager: anneta
 editor: ''
@@ -19,10 +19,11 @@ ms.author: jeffhollan; estfan
 ---
 # Create your first logic app workflow to automate processes between cloud apps and services
 
-Without writing any code, you can automate processes between cloud services 
-by creating a workflow with [Azure Logic Apps](logic-apps-what-are-logic-apps.md). 
-In your first logic app, this example checks an RSS feed for new content on a website 
-and sends email to an Outlook or Gmail account when new items are posted.
+Without writing any code, you can automate processes between cloud apps and services 
+when you create and run workflows with [Azure Logic Apps](logic-apps-what-are-logic-apps.md). 
+This first example shows how you can quickly create a logic app workflow that checks 
+an RSS feed for new content on a website. When new items appear in the website's feed, 
+the logic app sends email to an Outlook or Gmail account.
 
 To create and run a logic app, you need these items:
 
@@ -40,7 +41,8 @@ Also, this example requires these items:
 * A mail account for Outlook.com, Office 365, or Gmail
 
 * A link to a website's RSS feed. This example uses 
-the RSS feed for MSDN Channel 9: `https://s.ch9.ms/Feeds/RSS`
+the RSS feed for the [MSDN Channel 9 website](https://channel9.msdn.com/): 
+`https://s.ch9.ms/Feeds/RSS`
 
 ## Add a trigger that starts your workflow
 
@@ -82,8 +84,8 @@ build your logic app from scratch.
 	The Logic App Designer opens and shows 
 	available services and *triggers*. 
 
-5. In the search box, type `RSS` so you can find and select this 
-trigger: **RSS - When a feed item is published** 
+5. In the search box, type `RSS` so that you can select 
+this trigger: **RSS - When a feed item is published** 
 
 	![RSS trigger](media/logic-apps-create-a-logic-app/rss-trigger.png)
 
