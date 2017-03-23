@@ -1,7 +1,7 @@
 
 To register the app for push notifications through Apple Push Notification Service (APNS), you must create a push certificate, App ID, and provisioning profile for the project on Apple's developer portal.
 
-The App ID contains the configuration settings that enable your app to send and receive push notifications. These settings include the push notification certificate that's needed to authenticate with Apple Push Notification Service (APNS) when the app is sending and receiving push notifications.
+The App ID contains the configuration settings that enable your app to send and receive push notifications. These settings include the push notification certificate that's needed to authenticate with APNS when the app is sending and receiving push notifications.
 
 For more information about these concepts, see the official [Apple Push Notification Service](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1) documentation.
 
@@ -25,7 +25,7 @@ These steps walk you through the process of creating the certificate signing req
 
       ![Save the certificate signing request](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-save-csr.png)
 
-      This saves the CSR file in the selected location. (The default location is your desktop). Remember the location that you choose for this file.
+      This saves the CSR file in the selected location. (The default location is your desktop.) Remember the location that you choose for this file.
 
 ## Register your app for push notifications
 Create a new Explicit App ID for your application with Apple, and then configure it for push notifications.  
@@ -99,7 +99,7 @@ Create a new Explicit App ID for your application with Apple, and then configure
 
 2. Under **Development**, select **iOS App Development** as the provisioning profile type, and then select **Continue**.
 
-3. Next, in the **App ID** drop-down list, select the app ID you created, and then select **Continue**.
+3. In the **App ID** drop-down list, select the app ID you created, and then select **Continue**.
 
       ![Select app ID](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-select-appid-for-provisioning.png)
 
@@ -107,7 +107,7 @@ Create a new Explicit App ID for your application with Apple, and then configure
 
        ![Signing certificate](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-provisioning-select-cert.png)
 
-5. Next, select the **Devices** to use for testing, and then select **Continue**.
+5. Select the **Devices** to use for testing, and then select **Continue**.
 
      ![Add provisioning profile](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
 
