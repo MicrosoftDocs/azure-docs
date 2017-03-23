@@ -35,8 +35,8 @@ In this tutorial, you are going to learn how to
 
 Before you start:
 
-* Make sure you can connect to, and [query the SQL database using SQL Server Management Studio](sql-database-connect-query-ssms.md)
-* [Install the Bulk Copy (BCP) command-line utility for Windows](https://www.microsoft.com/download/details.aspx?id=53591) or [Install For Bulk Copy (BCP) command-line utility for Linux](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools).
+* Install the newest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) 
+* Install the [Bulk Copy (BCP) command-line utility for Windows](https://www.microsoft.com/download/details.aspx?id=53591)
 
 ## Step 1 - Log in to the Azure portal
 
