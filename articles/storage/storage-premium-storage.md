@@ -56,7 +56,7 @@ Here are some of the features of Premium Storage:
 
     Premium Storage supports VM disks that can be attached to specific size-series VMs. Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series VMs. You have a choice of three disk sizes: P10 (128 GB), P20 (512 GB), and P30 (1,024 GB). Each disk size has its own performance specifications. Depending on your application requirements, you can attach one or more disks to your VM. We describe the specifications in more detail in [Premium Storage scalability and performance targets](#premium-storage-scalability-and-performance-targets).
 
-* **Premium page blob**
+* **Premium page blobs**
 
     Premium Storage supports page blobs. Use page blobs to store persistent, unmanaged disks for VMs. Unlike standard Azure Storage, Premium Storage does not support block blobs, append blobs, files, tables, or queues.
 
@@ -241,7 +241,7 @@ A snapshot for a managed disk is a read-only copy of the managed disk. The snaps
 If a managed disk is attached to a VM, some API operations on the disk are not permitted. For example, you cannot generate a shared access signature (SAS) to perform a copy operation while the disk is attached to a VM. Instead, first create a snapshot of the disk, and then perform the copy of the snapshot. Alternately, you can detach the disk and then generate an SAS to perform the copy operation.
 
 
-## Using Premium Storage with Linux VMs
+## Premium Storage for Linux VMs
 For help setting up your Linux VMs in Premium Storage, see the following information:
 
 To achieve scalability targets in Premium Storage, for all premium storage disks with cache set to **ReadOnly** or **None**, you must disable “barriers” when you mount the file system. You don't need barriers in this scenario because the writes to premium storage disks are durable for these cache settings. When the write request successfully finishes, data has been written to the persistent store. To disable "barriers," use one of the following methods. Choose the one for your file system:
