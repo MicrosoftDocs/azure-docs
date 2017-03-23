@@ -17,7 +17,7 @@ ms.date: 03/23/2017
 ms.author: jotaub
 ---
 
-# Azure Relay Hybrid Connections NodeAPI overview
+# Relay Hybrid Connections hyco-ws Node API overview
 
 ## Overview
 
