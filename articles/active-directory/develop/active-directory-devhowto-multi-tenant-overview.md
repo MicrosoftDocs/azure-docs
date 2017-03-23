@@ -148,12 +148,12 @@ A similar case happens if the different tiers of an application are registered i
 
 In the case of an API built by an organization other than Microsoft, the developer of the API needs to provide a way for their customers to consent their application into a customer tenant, for example a web page that drives consent using the mechanisms described in this article.  After the service principal is created in the tenant, the native application can get tokens for the API.
 
-In the case of an API built by an organization other than Microsoft, the developer of the API needs to provide a way for their customers to consent their application into a customer tenant. The recommended design is for the 3rd party developer to build the API such that it can also function as a web client to implement sign-up :
+In the case of an API built by an organization other than Microsoft, the developer of the API needs to provide a way for their customers to consent the application into their customers' tenants. The recommended design is for the 3rd party developer to build the API such that it can also function as a web client to implement sign-up :
 
-1. Follow the earlier sections to ensure the API follows the Azure AD multi-tenant application registration/code requirements
+1. Follow the earlier sections to ensure the API implements the multi-tenant application registration/code requirements
 2. In addition to exposing the API's scopes/roles, ensure the registration includes the "Sign in and read user profile" Azure AD permission (provided by default)
-3. Implement a "sign-up my organization" page in the web application, following the [admin consent](#admin-consent) guidance discussed earlier 
-4. Once the user consents to the application, the service principal and consent delegation links are created in the tenant, and the native application can get tokens for the API
+3. Implement a sign-in/sign-up page in the web client, following the [admin consent](#admin-consent) guidance discussed earlier 
+4. Once the user consents to the application, the service principal and consent delegation links are created in their tenant, and the native application can get tokens for the API
 
 The diagram below provides an overview of consent for a multi-tier app registered in different tenants:
 
