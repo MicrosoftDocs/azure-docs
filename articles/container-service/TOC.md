@@ -15,6 +15,7 @@
 ### [Enable DC/OS public access](container-service-enable-public-access.md)
 ### [Load balance DC/OS containers](container-service-load-balancing.md)
 ### [App/user-specific orchestrator in DC/OS](container-service-application-specific-marathon.md)
+### [Add a file share](container-service-dcos-fileshare.md)
 ### Monitor DC/OS
 #### [Monitor with ELK](container-service-monitoring-elk.md)
 #### [Monitor with OMS](container-service-monitoring-oms.md)
@@ -36,8 +37,6 @@
 ### [Docker Swarm continuous integration](container-service-docker-swarm-setup-ci-cd.md)
 # Reference
 ## [Azure CLI 2.0](/cli/azure/acs)
-## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
-## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
 ## [REST](/rest/api/compute/containerservices)
 # Resources
 ## [Region availability](https://azure.microsoft.com/regions/services/)

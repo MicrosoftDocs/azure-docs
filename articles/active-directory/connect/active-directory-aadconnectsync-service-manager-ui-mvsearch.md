@@ -22,7 +22,7 @@ ms.author: billmath
 
 The metaverse search tab is useful for troubleshooting data-related problems. In the top half, you can create a query based on a combination of attributes. When you are satisfied with your query, click **Search**. The result is visible in the bottom grid. You can select which columns should be visible with **Column Settings**.
 
-In the search results, select an object and **Properties** to see the [metaverse object properties](active-directory-aadconnectsync-service-manager-ui-connectors.md#metaverse-object-properties).
+In the search results, select an object and **Properties** to see the [metaverse object properties](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md#metaverse-object-properties).
 
 ## Next steps
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.

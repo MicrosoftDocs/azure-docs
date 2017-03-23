@@ -44,10 +44,10 @@ When you create a virtual machine (VM) in the Azure portal using the Resource Ma
 
 * [Create a Fully Qualified Domain Name in the Azure portal](virtual-machines-linux-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## Virtual NICs
+## Network interfaces
 A network interface (NIC) is the interconnection between a Virtual Machine (VM) and the underlying software network. This article explains what a network interface is and how it's used in the Azure Resource Manager deployment model.
 
-* [Virtual Network Interfaces Overview](../virtual-network/virtual-network-network-interface-overview.md)
+* [Virtual Network Interfaces](../virtual-network/virtual-network-network-interface.md)
 
 ## Virtual NICs and DNS labeling
 If you have a server that you need to be persistent, but that server is treated as cattle and is torn down and deployed frequently, you will want to use DNS labeling on your NIC to persist the name on the VNET.  With the following walk-through you will setup a persistently named NIC with a static IP.

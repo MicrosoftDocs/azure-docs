@@ -132,7 +132,7 @@ azure vm extension set myResourceGroup myVM \
 ```
 
 ## Use the Azure CLI 1.0
-If you haven't already, [install the Azure CLI 1.0 and connect to your Azure subscription](../xplat-cli-install.md). Make sure that you are using Resource Manager mode as follows:
+If you haven't already, [install the Azure CLI 1.0 and connect to your Azure subscription](../cli-install-nodejs.md). Make sure that you are using Resource Manager mode as follows:
 
 ```azurecli
 azure config mode arm

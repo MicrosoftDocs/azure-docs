@@ -41,14 +41,18 @@ For those of you with knowledge of older sync technologies, the staging mode is 
 To apply this method, follow these steps:
 
 1. [Prepare](#prepare)
-2. [Import and Synchronize](#import-and-synchronize)
-3. [Verify](#verify)
-4. [Switch active server](#switch-active-server)
+2. [Configuration](#configuration)
+3. [Import and Synchronize](#import-and-synchronize)
+4. [Verify](#verify)
+5. [Switch active server](#switch-active-server)
 
 #### Prepare
 1. Install Azure AD Connect, select **staging mode**, and unselect **start synchronization** on the last page in the installation wizard. This mode allows you to run the sync engine manually.
    ![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/readytoconfigure.png)
 2. Sign off/sign in and from the start menu select **Synchronization Service**.
+
+#### Configuration
+If you have made custom changes to the primary server and want to compare the configuration with the staging server, then use [Azure AD Connect configuration documenter](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
 #### Import and Synchronize
 1. Select **Connectors**, and select the first Connector with the type **Active Directory Domain Services**. Click **Run**, select **Full import**, and **OK**. Do these steps for all Connectors of this type.
@@ -105,6 +109,7 @@ A common and supported method is to run the sync engine in a virtual machine. In
 If you are not using the SQL Server Express that comes with Azure AD Connect, then high availability for SQL Server should also be considered. The only high availability solution supported is SQL clustering. Unsupported solutions include mirroring and Always On.
 
 ## Appendix CSAnalyzer
+See the section [verify](#verify) on how to use this script.
 
 ```
 Param(

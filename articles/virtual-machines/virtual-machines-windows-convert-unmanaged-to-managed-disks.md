@@ -134,7 +134,7 @@ This section will show you how to convert your existing Azure VMs on Standard un
 1. Stop (deallocate) the VM.
 
     ```powershell
-    Stop-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName -Force
+    Stop-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName -Force
     ```
 2.  Upgrade all of the disks to Premium Storage.
 
@@ -153,7 +153,7 @@ This section will show you how to convert your existing Azure VMs on Standard un
 1. Start the VM.
 
     ```powershell
-    Start-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName
+    Start-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName
     ```
     
 You can also have a mixture of disks that use standard and Premium storage.
