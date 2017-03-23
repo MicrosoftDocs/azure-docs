@@ -236,16 +236,19 @@ This section provides instructions on how to create, get, update, and delete the
    * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
    * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
    * An MD5 hash if you choose to use one. **This is optional**.
-     
+
+    
 	You can run the following cmdlet to configure Azure public peering for your circuit
      
-		Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
-		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+	  	Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
+
+  		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
      
 	You can use the cmdlet below if you choose to use an MD5 hash
      
-		Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100  -SharedKey "A1B2C3D4"
-		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+  		Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100  -SharedKey "A1B2C3D4"
+
+  		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
   > [!IMPORTANT]
   > Ensure that you specify your AS number as peering ASN, not customer ASN.
@@ -347,11 +350,11 @@ This section provides instructions on how to create, get, update, and delete the
    * Routing Registry Name: You can specify the RIR / IRR against which the AS number and prefixes are registered.
    * An MD5 hash, if you choose to use one. **This is optional.**
      
-     You can run the following cmdlet to configure Microsoft peering for your circuit
+  	You can run the following cmdlet to configure Microsoft peering for your circuit
      
-		Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+  		Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
      
-		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+  		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 ### To get Microsoft peering details
 You can get configuration details using the following cmdlet:
