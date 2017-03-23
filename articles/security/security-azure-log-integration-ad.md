@@ -20,22 +20,23 @@ ms.author: barclayn
 
 #Integrate Azure Active Directory Audit logs
 
-Azure Active directory audit events help you identify priviledged actions that occurred in Azure Active Directory. You can see the types of events that you can track by reviewing [Azure Active Directory audit report events](../active-directory/active-directory-reporting-audit-events#list-of-audit-report-events)
+Azure Active directory audit events help you identify privileged actions that occurred in Azure Active Directory. You can see the types of events that you can track by reviewing [Azure Active Directory audit report events](../active-directory/active-directory-reporting-audit-events#list-of-audit-report-events)
 
 ## Steps to integrate Azure Active directory audit logs
 
-1. Open the command prompt and cd into c:\Program Files\Microsoft Azure Log Integration
+1. Open the command prompt and cd into **c:\Program Files\Microsoft Azure Log Integration**
 2. Run the command providing your tenantID. You will need to be member of the tenant admin role to run the command.
 
-AZLOG.exe authorizedirectoryreader tenantId
+``Azlog.exe authorizedirectoryreader tenantId``
 
 Example
 
 ``AZLOG.exe authorizedirectoryreader ba2c0000-d24b-4f4e-92b1-48c4469999``
 
-Check the following folders to confirm that the Azure Active Directory Audit log JSON files are created in
-C:\Users\azlog\AzureActiveDirectoryJson
-C:\Users\azlog\AzureActiveDirectoryJsonLD
+Check the following folders to confirm that the Azure Active Directory Audit log JSON files are created in:
+
+* C:\Users\azlog\AzureActiveDirectoryJson
+* C:\Users\azlog\AzureActiveDirectoryJsonLD
 
 Point the standard SIEM file forwarder connector to the appropriate folder to pipe the data to the SIEM instance. You may need some field mappings based on the SIEM product you are using.
 
