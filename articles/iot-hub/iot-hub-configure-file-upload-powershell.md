@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2017
+ms.date: 03/23/2017
 ms.author: dobett
 
 ---
 # Configure IoT Hub file uploads using PowerShell
+
+[!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
 To use the [file upload functionality in IoT Hub][lnk-upload], you must first associate an Azure storage account with your IoT hub. You can use an existing storage account or create a new one.
 
