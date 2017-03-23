@@ -45,7 +45,7 @@ Use the following steps to install PowerShell for Azure Stack:
 
  # Import the bootstrapper module into the current PowerShell session
  Import-Module -Name AzureRm.Bootstrapper
-```
+ ```
 
 2. Run the following command to install the required version of the AzureRM modules for Compute, Storage, Network, Key Vault etc.  
 
