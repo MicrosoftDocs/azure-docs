@@ -134,16 +134,16 @@ Now we add an action that sends email when new items appear in the website's RSS
 
 	*	To send email to your Gmail account, 
 	in the search box, enter `gmail`. 
-	Under **Actions**, select **Gmail - Send email**.
+	Under **Actions**, select **Send email**.
 
 		![Choose "Gmail - Send email"](media/logic-apps-create-a-logic-app/actions-gmail.png)
 
 3. When you're prompted for credentials, 
 sign in with the username and password for your email account. 
 
-4. Provide the details for this action and 
-choose parameters for data that you 
-want to include in your email. For example:
+4. Provide the details for this action, 
+and choose parameters for data that you 
+want to include in your email, for example:
 
 	![Select data to include in email](media/logic-apps-create-a-logic-app/rss-action-setup.png)
 
