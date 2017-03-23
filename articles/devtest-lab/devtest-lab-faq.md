@@ -61,7 +61,7 @@ This article answers some of the most common questions about Azure DevTest Labs.
 * [My artifact failed during VM creation. How do I troubleshoot it?](#my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it)
 * [Why isn't my existing virtual network saving properly?](#why-isnt-my-existing-virtual-network-saving-properly)
 * [Why do I get a "Parent resource not found" error when provisioning from PowerShell?](#why-do-i-get-a-parent-resource-not-found-error-when-provisioning-a-vm-from-powershell)  
-* [Where can I find more error information when VM deployment is failed](#where-can-i-find-more-error-information-when-vm-deployment-is-failed)  
+* [Where can I find more error information if a VM deployment fails?](#where-can-i-find-more-error-information-if-a-vm-deployment-fails)  
 
 ### What if my question isn't answered here?
 If your question isn't listed here, let us know so we can help you find an answer.
@@ -94,9 +94,9 @@ Azure DevTest Labs is a free service, meaning that creating labs and configuring
 ### What are the different security levels in Azure DevTest Labs?
 Security access is determined by [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-built-in-roles.md). To understand how access works, it helps to understand the differences between a permission, a role, and a scope as defined by RBAC.
 
-* **Permission** - A permission is a defined access to a specific action. For example, a permission could be read-access to all virtual machines.
+* **Permission** - A permission is a defined access to a specific action. For example, a permission can be read-access to all virtual machines.
 * **Role** - A role is a set of permissions that can be grouped and assigned to a user. For example, a "subscription owner" has access to all resources within a subscription.
-* **Scope** - A scope is a level within the hierarchy of Azure resource. For example, a scope could be a resource group or a single lab or the entire subscription.
+* **Scope** - A scope is a level within the hierarchy of Azure resource. For example, a scope can be a resource group or a single lab or the entire subscription.
 
 Within the scope of Azure DevTest Labs, there are two types of roles to define user permissions: lab owner and lab user.
 
@@ -233,7 +233,7 @@ To share a direct link to your lab users, you can perform the following procedur
 2. Copy the lab URL from your browser and share it with your lab users.
 
 > [!NOTE]
-> If your lab users are external users with an [Microsoft account](#what-is-a-microsoft-account) and they don’t belong to your company’s Active directory, they may receive an error when navigating to the provided link. If they receive an error, instruct them to click their name in the upper-right corner of the Azure portal and select the directory where the lab exists from the **Directory** section of the menu.
+> If your lab users are external users with a [Microsoft account](#what-is-a-microsoft-account) and they don’t belong to your company’s Active directory, they may receive an error when navigating to the provided link. If they receive an error, instruct them to click their name in the upper-right corner of the Azure portal and select the directory where the lab exists from the **Directory** section of the menu.
 >
 >
 

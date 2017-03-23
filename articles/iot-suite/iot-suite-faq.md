@@ -36,14 +36,14 @@ See the section [Add support for a new method to the simulator][lnk-add-method] 
 In the remote monitoring preconfigured solution, the simulated device code only uses the **Desired.Config.TemperatureMeanValue** and **Desired.Config.TelemetryInterval** desired properties to update the reported properties. All other desired property change requests are ignored.
 
 ### My device does not appear in the list of devices in the solution dashboard, why?
-The list of devices in the solution dashboard uses a query to return the list of devices. Currently, a query cannot return more than 10K devices. Try making the search criteria for you query more restrictive.
+The list of devices in the solution dashboard uses a query to return the list of devices. Currently, a query cannot return more than 10K devices. Try making the search criteria for your query more restrictive.
 
 ### What's the difference between deleting a resource group in the Azure portal and clicking delete on a preconfigured solution in azureiotsuite.com?
 * If you delete the preconfigured solution in [azureiotsuite.com][lnk-azureiotsuite], you delete all the resources that were provisioned when you created the preconfigured solution. If you added additional resources to the resource group, these resources are also deleted. 
 * If you delete the resource group in the [Azure portal][lnk-azure-portal], you only delete the resources in that resource group. You also need to delete the Azure Active Directory application associated with the preconfigured solution in the [Azure classic portal][lnk-classic-portal].
 
 ### How many IoT Hub instances can I provision in a subscription?
-You can provision 10 IoT hubs per subscription. You can create an [Azure support ticket][link-azuresupportticket] to raise this limit, but by default, you can only provision 10 IoT Hubs per subscription, as outlined in [Azure subscription limits][link-azuresublimits]. As a result, since every preconfigured solution provisions a new IoT Hub, you can only provision up to 10 preconfigured solutions in a given subscription. 
+By default you can provision [10 IoT hubs per subscription][link-azuresublimits]. You can create an [Azure support ticket][link-azuresupportticket] to raise this limit. As a result, since every preconfigured solution provisions a new IoT Hub, you can only provision up to 10 preconfigured solutions in a given subscription. 
 
 ### How many DocumentDB instances can I provision in a subscription?
 Fifty. You can create an [Azure support ticket][link-azuresupportticket] to raise this limit, but by default, you can only provision 50 DocumentDB instances per subscription. 
