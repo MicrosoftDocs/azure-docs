@@ -97,8 +97,8 @@ For more information, see [Steps to generate an OAuth access token](https://dev.
       add key="EventHubConnectionString" value="Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey"
       add key="EventHubName" value="yourhub"
    ```
-    > [!NOTE]
-    The text "EntityPath=" does **not** appear in the EventHubName value.
+   > [!NOTE]
+   > The text "EntityPath=" does **not** appear in the EventHubName value.
 
     You can also enter the values for your Twitter and Azure connection information directly into the client. The same logic applies    where "EntityPath=" is not used.
 
