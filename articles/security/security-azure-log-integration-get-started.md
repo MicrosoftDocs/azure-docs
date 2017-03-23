@@ -113,7 +113,7 @@ Perform the following steps to obtain the storage key:
  4. A list of storage accounts will appear, double click on the account that you assigned to Log storage.
 
    ![list of storage accounts](./media/security-azure-log-integration-get-started/storage-accounts.png)
- 5. Click on Access keys in the Settings section.
+ 5. Click on **Access keys** in the **Settings** section.
 
   ![access keys](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
  6. Copy **key1** and put it in a secure location that you can access for the next step.
