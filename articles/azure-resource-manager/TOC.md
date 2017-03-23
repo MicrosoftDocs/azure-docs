@@ -7,7 +7,7 @@
 
 # Get started
 ## [Export template](resource-manager-export-template.md)
-## [Create your first template](/azure/templates/?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Create your first template](resource-manager-create-first-template.md)
 ## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # How to
