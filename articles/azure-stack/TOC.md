@@ -93,7 +93,7 @@
 # Build apps
 ## Overview
 ### [Develop for Azure Stack](azure-stack-developer.md)
-### [Version Profiles](azure-stack-version-profiles.md)
+### [Manage version profiles](azure-stack-version-profiles.md)
 ## Get started
 ### [Connect to Azure Stack](azure-stack-connect-azure-stack.md)
 ### Set up development environment
