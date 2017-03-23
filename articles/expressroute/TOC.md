@@ -2,27 +2,25 @@
 ## [What is ExpressRoute?](expressroute-introduction.md)
 ## [ExpressRoute FAQ](expressroute-faqs.md)
 ## [Connectivity models](expressroute-connectivity-models.md)
+## [Circuits and routing domains](expressroute-circuit-peerings.md)
 ## [Locations and partners](expressroute-locations.md)
 ### [Providers by location](expressroute-locations-providers.md)
 ### [Locations by provider](expressroute-locations.md)
+## [Virtual network gateways for ExpressRoute](expressroute-about-virtual-network-gateways.md)
 
 # Get Started
-## [Workflows](expressroute-workflows.md)
 ## [Prerequisites](expressroute-prerequisites.md)
-## [Circuits and routing domains](expressroute-circuit-peerings.md)
+## [Workflows](expressroute-workflows.md)
 ## [Routing requirements](expressroute-routing.md)
-## [Optimize routing](expressroute-optimize-routing.md)
 ## [NAT requirements](expressroute-nat.md)
 ## [QoS requirements](expressroute-qos.md)
 ## [Moving circuits from classic to Resource Manager](expressroute-move.md)
-## [Virtual network gateways for ExpressRoute](expressroute-about-virtual-network-gateways.md)
 
 # How To
 ## Create and modify a circuit
 ### [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-circuit-arm.md)
-### [PowerShell (Classic)](expressroute-howto-circuit-classic.md)
-## Create and modify routing configuration
+## Create and modify peering configuration
 ### [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
 ### [PowerShell (Classic)](expressroute-howto-routing-classic.md)
@@ -38,11 +36,12 @@
 ### [PowerShell (Classic)](expressroute-howto-coexist-classic.md)
 ## [Migrate a circuit from classic to Resource Manager](expressroute-howto-move-arm.md)
 ## Configure a router for ExpressRoute
-### [Router configuration setup samples](expressroute-config-samples-routing.md)
+### [Configure a router](expressroute-config-samples-routing.md)
 ### [Router configuration samples for NAT](expressroute-config-samples-nat.md)
 
 ## Best Practices
 ### [Best practices for network security and cloud services](../best-practices-network-security.md)
+## [Optimize routing](expressroute-optimize-routing.md)
 ### [Asymmetric routing](expressroute-asymmetric-routing.md)
 
 ## Troubleshoot
