@@ -88,7 +88,7 @@ Use the **Update-AzureRmProfile** cmdlet to update the modules in an API version
 Update-AzureRmProfile -Profile 2017-03-09-profile
 ```
 
-To remove the previously installed versions of the modules before updating to the latest available version. Use the Update-AzureRmProfile cmdlet along with the **-RemovePreviousVersions** parameter:
+To remove the previously installed versions of the modules before updating to the latest available version, use the Update-AzureRmProfile cmdlet along with the **-RemovePreviousVersions** parameter:
 
 ```PowerShell 
 Update-AzureRmProfile -Profile 2017-03-09-profile -RemovePreviousVersions
