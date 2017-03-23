@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
+ms.date: 03/23/2017
 ms.author: cynthn
 
 ---
@@ -23,7 +23,7 @@ ms.author: cynthn
 
 [!INCLUDE [virtual-machines-common-acu](../../includes/virtual-machines-common-acu.md)]
 
-## Next steps
+**Next steps**
 
 Here are links to more information about the different sizes:
 - [General-purpose](virtual-machines-linux-sizes-general.md)

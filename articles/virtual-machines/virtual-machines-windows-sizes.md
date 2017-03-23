@@ -39,7 +39,8 @@ This article describes the available sizes and options for the Azure virtual mac
 | [High performance compute](virtual-machines-windows-sizes-hpc.md) | H, A8-11          | Our fastest and most powerful CPU virtual machines with optional high-throughput network interfaces (RDMA). 
 
 
-## Next steps
+** Next steps**
+
 Learn more about how [Azure compute units (ACU)](virtual-machines-windows-acu.md) can help you compare compute performance across Azure SKUs.
 
 Learn more about the different VM sizes that are available:

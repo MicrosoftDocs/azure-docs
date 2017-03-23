@@ -41,7 +41,11 @@ This article describes the available sizes and options for the Azure virtual mac
 | [GPU](virtual-machines-linux-sizes-gpu.md)            | NV, NC            | Specialized virtual machines targeted for heavy graphic rendering and video editing. Available with single or multiple GPUs.       |
 | [High performance compute](virtual-machines-linux-sizes-hpc.md) | H, A8-11          | Our fastest and most powerful CPU virtual machines with optional high-throughput network interfaces (RDMA). 
 
-## Next steps
+** Next steps**
+
+Learn more about how [Azure compute units (ACU)](virtual-machines-linux-acu.md) can help you compare compute performance across Azure SKUs.
+
+Learn more about the different VM sizes that are available:
 - [General purpose](virtual-machines-linux-sizes-general.md)
 - [Compute optimized](virtual-machines-linux-sizes-compute.md)
 - [Memory optimized](virtual-machines-linux-sizes-memory.md)
