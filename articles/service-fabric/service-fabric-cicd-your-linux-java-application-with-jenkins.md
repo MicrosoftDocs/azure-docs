@@ -104,9 +104,9 @@ Now when you run ``docker info`` in the terminal, you should see in the output t
       docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
       ```
 
-    > [!NOTE]
-    > Ensure that the cluster or machine where the Jenkins container image is hosted has a public-facing IP. This enables the Jenkins instance to receive notifications from GitHub.
-    >
+ > [!NOTE]
+ > Ensure that the cluster or machine where the Jenkins container image is hosted has a public-facing IP. This enables the Jenkins instance to receive notifications from GitHub.
+ >
 
 ## Install the Service Fabric Jenkins plug-in from the portal
 
