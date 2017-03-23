@@ -17,30 +17,30 @@ ms.date: 03/23/2017
 ms.author: jotaub
 ---
 
-# Relay Hybrid Connections hyco-ws Node API overview
+# Azure Relay Hybrid Connections NodeAPI overview
 
 ## Overview
+
 The [`hyco-ws`](https://www.npmjs.com/package/hyco-ws) Node package for Azure Relay Hybrid Connections is built on and extends the 
 ['ws'](https://www.npmjs.com/package/ws) NPM package. This package 
 re-exports all exports of that base package and adds new exports that enable 
-integration with the Azure Relay service's Hybrid Connections feature. 
+integration with the Azure Relay service Hybrid Connections feature. 
 
-Existing applications that `require('ws')` can use this package instead 
-with `require('hyco-ws')` , which also enables hybrid scenarios where an 
+Existing applications that `require('ws')` can use this package with `require('hyco-ws')` instead, which also enables hybrid scenarios in which an 
 application can listen for WebSocket connections locally from "inside the firewall"
-and via Relay Hybrid Connections all at the same time.
+and via Hybrid Connections, all at the same time.
   
-## Additional documentation
-The API is [generally documented in the main 'ws' package](https://github.com/websockets/ws/blob/master/doc/ws.md)
-and this document describes how this package differs from that baseline. 
+## Documentation
+
+The APIs are [documented in the main 'ws' package](https://github.com/websockets/ws/blob/master/doc/ws.md). This document describes how this package differs from that baseline. 
 
 The key differences between the base package and this 'hyco-ws' is that it adds 
-a new server class, that is exported via `require('hyco-ws').RelayedServer`,
+a new server class, exported via `require('hyco-ws').RelayedServer`,
 and a few helper methods.
 
 ### Package Helper methods
-There are several utility methods available on the package export that can be 
-referenced like this:
+
+There are several utility methods available on the package export that you can reference as follows:
 
 ``` JavaScript
 const WebSocket = require('hyco-ws');
@@ -51,32 +51,32 @@ listenUri = WebSocket.appendRelayToken(listenUri, 'ruleName', '...key...')
 
 ```
 
-The helper methods are for use with this package, but might be also be used by a Node server 
-for enabling web or device clients to create listeners or senders by handing them URIs that
-already embed short-lived tokens and that can be used with common WebSocket stacks that do 
+The helper methods are for use with this package, but can also be used by a Node server 
+for enabling web or device clients to create listeners or senders. The server uses these methods by passing them URIs that
+embed short-lived tokens. These URIs can also be used with common WebSocket stacks that do 
 not support setting HTTP headers for the WebSocket handshake. Embedding authorization tokens
-into the URI is primarily supported for those library-external usage scenarios. 
+into the URI is supported primarily for those library-external usage scenarios. 
 
 #### createRelayListenUri
-``` js
+``` JavaScript
 var uri = createRelayListenUri([namespaceName], [path], [[token]], [[id]])
 ```
 
 Creates a valid Azure Relay Hybrid Connection listener URI for the given namespace and path. This 
-URI can then be used with the relayed version of the WebSocketServer class.
+URI can then be used with the relay version of the WebSocketServer class.
 
 - **namespaceName** (required) - the domain-qualified name of the Azure Relay namespace to use
 - **path** (required) - the name of an existing Azure Relay Hybrid Connection in that namespace
-- **token** (optional) - a previously issued Relay access token that shall be embedded in
-                         the listener URI (see below)
-- **id** (optional) - a tracking identifier that allows end-to-end diagnostics tracking of requests
+- **token** (optional) - a previously-issued Relay access token that is embedded in
+                         the listener URI (see the following example)
+- **id** (optional) - a tracking identifier that enables end-to-end diagnostics tracking of requests
 
 The **token** value is optional and should only be used when it is not possible to send HTTP 
-headers along with the WebSocket handshake as it is the case with the W3C WebSocket stack.                  
+headers along with the WebSocket handshake, as is the case with the W3C WebSocket stack.                  
 
 
 #### createRelaySendUri 
-``` js
+``` JavaScript
 var uri = createRelaySendUri([namespaceName], [path], [[token]], [[id]])
 ```
 
@@ -85,16 +85,16 @@ URI can be used with any WebSocket client.
 
 - **namespaceName** (required) - the domain-qualified name of the Azure Relay namespace to use
 - **path** (required) - the name of an existing Azure Relay Hybrid Connection in that namespace
-- **token** (optional) - a previously issued Relay access token that shall be embedded in
-                         the send URI (see below)
-- **id** (optional) - a tracking identifier that allows end-to-end diagnostics tracking of requests
+- **token** (optional) - a previously-issued Relay access token that is embedded in
+                         the send URI (see the following example)
+- **id** (optional) - a tracking identifier that enables end-to-end diagnostics tracking of requests
 
 The **token** value is optional and should only be used when it is not possible to send HTTP 
-headers along with the WebSocket handshake as it is the case with the W3C WebSocket stack.                   
+headers along with the WebSocket handshake, as is the case with the W3C WebSocket stack.                   
 
 
 #### createRelayToken 
-``` js
+``` JavaScript
 var token = createRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 ```
 
@@ -102,34 +102,36 @@ Creates an Azure Relay Shared Access Signature (SAS) token for the given target 
 and SAS rule key that is valid for the given number of seconds or for an hour from the current 
 instant if the expiry argunent is omitted.
 
-- **uri** (required) - the URI for which the token is to be issued. The URI will be normalized to 
-                       using the http scheme and query string information will be stripped.
-- **ruleName** (required) - SAS rule name either for the entity represented by the given URI or 
-                            for the namespace represented by teh URI host-portion.
+- **uri** (required) - the URI for which the token is to be issued. The URI is normalized to 
+                       use the HTTP scheme, and query string information will be stripped.
+- **ruleName** (required) - SAS rule name for either the entity represented by the given URI, or 
+                            for the namespace represented by the URI host portion.
 - **key** (required) - valid key for the SAS rule. 
 - **expirationSeconds** (optional) - the number of seconds until the generated token should expire. 
                             The default is 1 hour (3600) if not specified.
 
-The issued token will confer the rights associated with the chosen SAS rule for the chosen duration.
+The issued token confers the rights associated with the specified SAS rule for the given duration.
 
 #### appendRelayToken
-``` js
+``` JavaScript
 var uri = appendRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 ```
 
-This method is functionally equivalent to the **createRelayToken** method above, but
+This method is functionally equivalent to the **createRelayToken** method documented previously, but
 returns the token correctly appended to the input URI.
 
 ### Class ws.RelayedServer
-The `hycows.RelayedServer` class is an alternative to the `ws.Server`
-class that does not listen on the local network, but delegates listening to the Azure Relay.
 
-The two classes are largely contract compatible, meaning that an existing application using 
+The `hycows.RelayedServer` class is an alternative to the `ws.Server`
+class that does not listen on the local network, but delegates listening to the Azure Relay service.
+
+The two classes are mostly contract compatible, meaning that an existing application using 
 the `ws.Server` class can be changed to use the relayed version quite easily. The 
-main differences in the constructor and the available options.
+main differences are in the constructor and in the available options.
 
 #### Constructor  
-``` js 
+
+``` JavaScript 
 var ws = require('hyco-ws');
 var server = ws.RelayedServer;
 
@@ -141,74 +143,77 @@ var wss = new server(
 ```
 
 The `RelayedServer` constructor supports a different set of arguments than the 
-`Server` since it is neither a standalone listener nor embeddable into an existing HTTP
+`Server`, because it is neither a standalone listener nor embeddable into an existing HTTP
 listener framework. There are also fewer options available since the WebSocket management is 
 largely delegated to the Relay service.
 
 Constructor arguments:
 
 - **server** (required) - the fully qualified URI for a Hybrid Connection name on which to listen, usually
-                          constructed with the WebSocket.createRelayListenUri() helper.
-- **token** (required) - this argument *either* holds a previously issued token string *or* a callback
+                          constructed with the WebSocket.createRelayListenUri() helper method.
+- **token** (required) - this argument holds either a previously issued token string or a callback
                          function that can be called to obtain such a token string. The callback option
-                         is preferred as it allows token renewal.
+                         is preferred, as it enables token renewal.
 
 #### Events
-`RelayedServer` instances emit three Events that allow you to handle incoming requests, establish 
+
+`RelayedServer` instances emit three events that enable you to handle incoming requests, establish 
 connections, and detect error conditions. You must subscribe to the 'connect' event to handle 
 messages. 
 
 ##### headers
-``` js 
+``` JavaScript 
 function(headers)
 ```
 
-The 'headers' event is raised just before an incoming connection is accepted, allowing
-for modification of the headers to send to the client. 
+The 'headers' event is raised just before an incoming connection is accepted, enabling
+modification of the headers to send to the client. 
 
 ##### connection
-``` js
+``` JavaScript
 function(socket)
 ```
 
-Emitted whenever a new WebSocket connection is accepted. The object is of type ws.WebSocket 
-just as with the base package.
+Emitted when a new WebSocket connection is accepted. The object is of type `ws.WebSocket`, 
+same as with the base package.
+
 
 ##### error
-``` js
+``` JavaScript
 function(error)
 ```
 
-If the underlying server emits an error, it will be forwarded here.  
+If the underlying server emits an error, it is forwarded here.  
 
 #### Helpers
+
 To simplify starting a relayed server and immediately subscribing to incoming connections,
-the package exposes a simple helper function, which is also used in the samples:
+the package exposes a simple helper function, which is also used in the samples, as follows:
 
 ##### createRelayedListener
-``` js
-var WebSocket = require('hyco-ws');
 
-var wss = WebSocket.createRelayedServer(
-    {
-        server : WebSocket.createRelayListenUri(ns, path),
-        token: function() { return WebSocket.createRelayToken('http://' + ns, keyrule, key); }
-    }, 
-    function (ws) {
-        console.log('connection accepted');
-        ws.onmessage = function (event) {
-            console.log(JSON.parse(event.data));
-        };
-        ws.on('close', function () {
-            console.log('connection closed');
-        });       
-});
+``` JavaScript
+    var WebSocket = require('hyco-ws');
+
+    var wss = WebSocket.createRelayedServer(
+        {
+            server : WebSocket.createRelayListenUri(ns, path),
+            token: function() { return WebSocket.createRelayToken('http://' + ns, keyrule, key); }
+        }, 
+        function (ws) {
+            console.log('connection accepted');
+            ws.onmessage = function (event) {
+                console.log(JSON.parse(event.data));
+            };
+            ws.on('close', function () {
+                console.log('connection closed');
+            });       
+    });
 ``` 
-```js
-var server = createRelayedServer([options], [connectCallback] )
-```
 
-This method is simple syntactic sugar that calls the constructor to create a new 
+var server = createRelayedServer([options], [connectCallback] )
+
+This method calls the constructor to create a new 
 instance of the RelayedServer and then subscribes the provided callback 
 to the 'connection' event.
  
