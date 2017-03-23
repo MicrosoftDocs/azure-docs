@@ -28,11 +28,11 @@ Service principals are preferable to running the app under your own credentials 
 
 ## Getting Started
 
-Depending on how you've deployed Azure Stack, you'll start by creating a service principal.  This document guides you through creating a service principal for both [Azure Active Directory(Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) and [Active Directory Federation Services(AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).  Once you've created the service principal, you'll use a set of steps that are common to both AD FS and Azure AD to [delegate permissions](azure-stack-create-service-principals.md#assign-role-to-service-principal) to the role.     
+Depending on how you have deployed Azure Stack, you will start by creating a service principal.  This document guides you through creating a service principal for both [Azure Active Directory(Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) and [Active Directory Federation Services(AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).  Once you've created the service principal, you'll use a set of steps that are common to both AD FS and Azure AD to [delegate permissions](azure-stack-create-service-principals.md#assign-role-to-service-principal) to the role.     
 
 ## Create service principal for Azure AD
 
-If you've deployed Azure Stack using Azure AD as the identity store, you can create service principals just like you do for Azure.  This section shows you how to perform the steps through the portal.  Check that you have the [required Azure AD permissions](./azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) before beginning.
+If you've deployed Azure Stack using Azure AD as the identity store, you can create service principals just like you do for Azure.  This section shows you how to perform the steps through the portal.  Check that you have the [required Azure AD permissions](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) before beginning.
 
 ### Create service principal
 In this section, you'll create an application (service principal) in Azure AD that will represent your application.
@@ -41,7 +41,7 @@ In this section, you'll create an application (service principal) in Azure AD th
 2. Select **Azure Active Directory** > **App registrations** > **Add**   
 3. Provide a name and URL for the application. Select either **Web app / API** or **Native** for the type of application you want to create. After setting the values, select **Create**.
 
-You have created your a service principal for your application.
+You have created a service principal for your application.
 
 ### Get credentials
 When programmatically logging in, you use the ID for your application and an authentication key. To get those values, use the following steps:
