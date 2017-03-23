@@ -20,7 +20,7 @@ ms.author: ruturajd
 # Reprotect from Azure to an on-premises site
 
 ## Overview
-This article describes how to reprotect Azure Virtual Machines from Azure to the on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure by using this [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-failover.md).
+This article describes how to reprotect Azure virtual machines from Azure to the on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure by using [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-failover.md).
 
 After reprotect finishes and the protected virtual machines are replicating, you can initiate a failback on the virtual machines to bring them to the on-premises site.
 
@@ -36,19 +36,19 @@ Following are the prerequisite steps that you need to take or consider when you 
 * If the virtual machines that you want to fail back to are managed by a vCenter server, you need to make sure that you have the required permissions for discovery of virtual machines on vCenter servers. [Read more](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
 * If snapshots are present on the on-premises virtual machine, then reprotection will fail. You can delete the snapshots before you proceed to reprotect.
 * Before you fail back you’ll need to create two additional components:
-  * **Create a process server**. The process server receives data from the protected virtual machine in Azure and sends data to the on-premises site. A low-latency network is required between the process server and the protected virtual machine. Thus, you can have an on-premises process server if you are using an ExpressRoute connection or an Azure process server if you are using a VPN.
+  * **Create a process server**. The process server receives data from the protected virtual machine in Azure and sends data to the on-premises site. A low-latency network is required between the process server and the protected virtual machine. Thus, you can have an on-premises process server if you are using an Azure ExpressRoute connection or an Azure process server if you are using a VPN.
   * **Create a master target server**: The master target server receives failback data. The on-premises management server that you created has a master target server installed by default. However, depending on the volume of failed-back traffic, you might need to create a separate master target server for failback.
 		* [A Linux virtual machine needs a Linux master target server](site-recovery-how-to-install-linux-master-target.md).
 		* A Windows virtual machine needs a Windows master target server. You can use the on-premises process server and master target machines again.
 * A configuration server is required on premises when you do a failback. During failback, the virtual machine must exist in the configuration server database. Otherwise, failback won't be successful. Make sure that you take regularly scheduled backups of your server. If there is a disaster, you need to restore the server with the same IP address so that failback works.
 * Ensure that you set the disk.EnableUUID=true setting in configuration parameters of the master target virtual machine in VMware. If this row does not exist, add it. This setting is required to provide a consistent UUID to the virtual machine disk (VMDK) so that it mounts correctly.
-* **You cannot use Storage vMaster for master target server**. This can cause the failback to fail. The virtual machine will not start because the disks will not be made available to it.
+* *You cannot use Storage vMaster for master target server*. This can cause the failback to fail. The virtual machine will not start because the disks will not be made available to it.
 * You need add a new drive to the master target server. This drive is called a retention drive. Add a new disk and format the drive.
 * Master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
 
-### Why do I need a S2S VPN or an ExpressRoute to replicate data back to the on-premises site?
-Where replication from on premises to Azure can happen over the Internet or an ExpressRoute that has public peering, reprotect and failback requires a site-to-site (S2S) VPN to replicate data. The network should be provided so that the failed-over virtual machines in Azure can reach (ping) the on-premises configuration server. You might also be deploying a process server in the Azure network of the failed-over virtual machine. This process server should also be able to communicate with the on-premises configuration server.
+### Why do I need a S2S VPN or an ExpressRoute connection to replicate data back to the on-premises site?
+Where replication from on premises to Azure can happen over the Internet or an ExpressRoute connection that has public peering, reprotect and failback requires a site-to-site (S2S) VPN to replicate data. The network should be provided so that the failed-over virtual machines in Azure can reach (ping) the on-premises configuration server. You might also be deploying a process server in the Azure network of the failed-over virtual machine. This process server should also be able to communicate with the on-premises configuration server.
 
 ### When should I install a process server in Azure?
 
@@ -57,15 +57,15 @@ The virtual machines on Azure that you want to reprotect send replication data t
 
 You can deploy a process server in Azure or use the existing process server that you used during failover. The important point to consider is the latency to send the data from the virtual machines on Azure to the process server.
 
-* If you have an ExpressRoute set up, an on-premises process server can be used to send data because the latency between the virtual machine and the process server is low.
+If you have an ExpressRoute connection set up, an on-premises process server can be used to send data because the latency between the virtual machine and the process server is low.
 
-    ![Architecture diagram for ExpressRoute](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
+ ![Architecture diagram for ExpressRoute](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
 
 
 
-* However, if you have only an S2S VPN, then we recommend deploying the process server in Azure.
+However, if you have only an S2S VPN, then we recommend deploying the process server in Azure.
 
-    ![Architecture Diagram for VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
+ ![Architecture Diagram for VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
 
 
 Remember that replication will happen only over the S2S VPN or the private peering of your ExpressRoute network. Ensure that enough bandwidth is available over that network channel.
@@ -80,7 +80,7 @@ Read more about how to install an [Azure process server](site-recovery-vmware-se
 An on-premises master target server is required to receive data from the process server and then write to the on-premises virtual machine's VMDK. If you are protecting Windows virtual machines, you need a Windows master target server. You can reuse the on-premises process server and master target <!-- !todo component -->. For Linux virtual machines, you need to set up an additional on-premises Linux master target.
 
 
-Click the following links to read about how to install a master target server.
+Click the following links to read about how to install a master target server:
 
 * [How to install Windows master target server](site-recovery-vmware-to-azure.md#run-site-recovery-unified-setup)
 * [How to install Linux master target server](site-recovery-how-to-install-linux-master-target.md)
@@ -92,7 +92,7 @@ Click the following links to read about how to install a master target server.
 
 * If the virtual machine is not present on premises on the vCenter server, you need to create a new virtual machine during reprotect. This virtual machine will be created on the ESX host on which you create the master target. Choose the ESX host carefully, so that the failback virtual machine is created on the host that you want.
 
-* **You cannot use Storage vMotion for the master target server**. This can cause the failback to fail. The virtual machine will not start because the disks will not be made available to it.
+* *You cannot use Storage vMotion for the master target server*. This can cause the failback to fail. The virtual machine will not start because the disks will not be made available to it.
 
 * You need to add a new drive to your existing Windows master target server. This drive is called a retention drive. Add a new disk and format the drive. The retention drive is used to stop the points in time when the virtual machine replicates back to the on-premises site. Following are some criteria of a retention drive without which the drive will not be listed for the master target server.
 
@@ -171,10 +171,10 @@ After the virtual machine has entered a protected state, you can initiate a fail
 ## Common issues
 
 * If you used a template to create your virtual machines, ensure that each virtual machine has a unique UUID for the disks. If the on-premises virtual machine's UUID clashes with that of the master target because both were created from the same template, reprotection will fail. You need to deploy another master target that has not been created from the same template.
-* If you perform a read-only user vCenter discovery and protect virtual machines, protection succeeds, and failover works. During reprotection, failover fails because the datastores cannot be discovered. As a symptom, you will not see the datastores listed during reprotection. To resolve this issue, you can update the vCenter credential with an appropriate account that has permissions, and retry the job. For more information, see [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)
+* If you perform a read-only user vCenter discovery and protect virtual machines, protection succeeds, and failover works. During reprotection, failover fails because the datastores cannot be discovered. As a symptom, you will not see the datastores listed during reprotection. To resolve this issue, you can update the vCenter credential with an appropriate account that has permissions, and retry the job. For more information, see [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
 * When you fail back a Linux virtual machine and run it on premises, you can see that the Network Manager package has been uninstalled from the machine. This uninstallation happens because the Network Manager package is removed when the virtual machine is recovered in Azure.
 * When a Linux virtual machine is configured with a static IP address and is failed over to Azure, the IP address is acquired from DHCP. When you fail over to on premises, the virtual machine continues to use DHCP to acquire the IP address. Manually sign in to the machine, and set the IP address back to a static address if necessary. A Windows virtual machine can acquire its static IP again.
 * If you use either ESXi 5.5 free edition or vSphere 6 Hypervisor free edition, failover succeeds, but failback does not succeed. To enable failback, upgrade to either program's evaluation license.
 * If you cannot reach the configuration server from the process server, use Telnet to check connectivity to the configuration server on port 443. You can also try to ping the configuration server from the process server. A process server should also have a heartbeat when it is connected to the configuration server.
 * If you are trying to fail back to an alternate vCenter, make sure that your new vCenter is discovered and that the master target server is also discovered. A typical symptom is that the datastores are not accessible or visible in the **Reprotect** dialog box.
-* A Windows Server 2008R2 SP1 server that is protected as a physical on-premises server cannot be failed back from Azure to an on-premises site.
+* A Windows Server 2008 R2 SP1 server that is protected as a physical on-premises server cannot be failed back from Azure to an on-premises site.
