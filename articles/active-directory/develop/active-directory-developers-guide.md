@@ -56,7 +56,7 @@ These tutorials are tailored for multiple platforms and can help you quickly sta
 ### Querying the directory quickstart guide
 | [![.NET](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md) |
 |:---:|
-| [Graph API](active-directory-graph-api-quickstart.md) |
+| [Azure AD Graph API](active-directory-graph-api-quickstart.md) |
 
 ## How-tos
 These articles describe how to perform specific tasks by using Azure Active Directory:
