@@ -4,15 +4,9 @@
 ## [Management solutions](operations-management-suite-solutions.md)
 
 # Get started
-## Insight & analytics
-### [Sign up for Log Analytics](../log-analytics/log-analytics-get-started.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Automation & control
-### [My first runbook](../automation/automation-first-runbook-graphical.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Protection & recovery
-### [Introduction to Azure Backup](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Security & compliance
-### [Security and Audit](oms-security-getting-started.md)
-### [Data security](oms-security-data-security.md)
+## Walkthroughs
+### [Service Map](operations-management-suite-walkthrough-servicemap.md)
+
 
 # How to
 ## Analyze

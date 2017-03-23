@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 03/23/2017
 ms.author: bwren
 
 ---
 
 # Operations Management Suite (OMS) self paced demo - Service Map
-This is a self paced demo that walks through using the [Service Map solution](operations-management-suite-service-map.md) in Operations Management Suite (OMS) to identify and diagnose a simulated problem in a web application.  Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services.  It also consolidates data collected by other OMS services to assist you in inspecting performance and identifying issue.  We'll also use [log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md) to drill down on collected in order to identify the root problem.
+This is a self paced demo that walks through using the [Service Map solution](operations-management-suite-service-map.md) in Operations Management Suite (OMS) to identify and diagnose a simulated problem in a web application.  Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services.  It also consolidates data collected by other OMS services to assist you in analyzing performance and identifying issues.  You'll also use [log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md) to drill down on collected data in order to identify the root problem.
 
 
 ## Scenario description
