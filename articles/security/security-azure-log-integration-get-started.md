@@ -74,8 +74,7 @@ Once that you have completed the basic setup routine you need to perform some co
 2. Next you will import the Azlog Cmdlets. You can do that by running the script **LoadAzLogModule.ps1** (notice the “.\” ): type **.\LoadAzLogModule.ps1** and press ENTER.  
 You should see something like what appears in the figure below. </br></br>
 ![Installation Screen with telemetry box checked](./media/security-azure-log-integration-get-started/loaded-modules.png) </br></br>
-3. Now you need to configure AZLog to use a specific Azure environment. An “Azure environment” is the “type” of Azure cloud data center you want to work with. While there are several Azure environments at this time, the currently relevant options are either AzureCloud or AzureUSGovernment.   In your elevated powershell environment make sure that you are in </br></br>
-    **c:\program files\Microsoft Azure Log Integration\** </br></br>
+3. Now you need to configure AZLog to use a specific Azure environment. An “Azure environment” is the “type” of Azure cloud data center you want to work with. While there are several Azure environments at this time, the currently relevant options are either AzureCloud or AzureUSGovernment.   In your elevated powershell environment make sure that you are in **c:\program files\Microsoft Azure Log Integration\** </br></br>
     Once there run the command: </br>
     ``Set-AZLogAzureEnvironment -Name AzureCloud`` (for Azure commercial)
 
