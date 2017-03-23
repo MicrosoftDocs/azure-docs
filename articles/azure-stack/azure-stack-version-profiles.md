@@ -20,7 +20,7 @@ ms.author: sngun
 
 # Manage API version profiles in Azure Stack
 
-API version profiles provide a mechanism to manage version differences in various Azure cloud instances such as Azure Public, Azure Stack, Azure China, Azure Germany, and Azure Government. API version profile is a set of AzureRM PowerShell modules with specific API versions. Each Azure cloud instance has a set of supported API version profiles. For example, Azure Stack supports the **2017-03-09-profile**, Azure Public supports the **latest** API version profile. Azure Public always supports the latest services, whereas other Azure cloud instances may support specific API version profiles. When you install a profile, the AzureRM PowerShell modules that correspond to the specified profile are installed
+API version profiles provide a way to manage version differences between Azure and Azure Stack. API version profile is a set of AzureRM PowerShell modules with specific API versions. Each Azure cloud instance has a set of supported API version profiles. For example, Azure Stack supports a specific dated profile version such as  **2017-03-09-profile**, and Azure supports the **latest** API version profile. When you install a profile, the AzureRM PowerShell modules that correspond to the specified profile are installed.
 
 ## Install the PowerShell module required to use API version profiles
 
