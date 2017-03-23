@@ -83,7 +83,7 @@ az network nic create \
 --resource-group $RgName \
 --location $Location \
 --subnet $VnetSubnet1Name \
---private-ip-address 10.0.0.5
+--private-ip-address 10.0.0.4
 --vnet-name $VnetName \
 --public-ip-address $PipName
 
@@ -101,7 +101,7 @@ az network nic ip-config create \
 --resource-group $RgName \
 --nic-name $NicName \
 --name IPConfig-2 \
---private-ip-address 10.0.0.6 \
+--private-ip-address 10.0.0.5 \
 --public-ip-name myPublicIP2
 
 # Create a third IP configuration, and associate it to the NIC. This configuration has a static private IP address and
@@ -110,7 +110,7 @@ az network nic ip-config create \
 azure network nic ip-config create \
 --resource-group $RgName \
 --nic-name $NicName \
---private-ip-address 10.0.0.7 \
+--private-ip-address 10.0.0.6 \
 --name IPConfig-3
 
 # Note: Though this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations
@@ -178,7 +178,7 @@ You can add additional private and public IP addresses to an existing NIC by com
 	az network nic ip-config create \
 	--resource-group myResourceGroup \
 	--nic-name myNic1 \
-	--private-ip-address 10.0.0.8 \
+	--private-ip-address 10.0.0.7 \
 	--name IPConfig-4
 	```
 	
@@ -209,7 +209,7 @@ You can add additional private and public IP addresses to an existing NIC by com
 		--resource-group myResourceGroup \
 		--nic-name myNic1 \
 		--name IPConfig-5 \
-		--private-ip-address 10.0.0.9
+		--private-ip-address 10.0.0.8
 		--public-ip-address myPublicIP3
 		```
 

@@ -67,7 +67,7 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
 	azure network nic create \
 	--resource-group myResourceGroup \
 	--location westcentralus \
-	--private-ip-address 10.0.0.5
+	--private-ip-address 10.0.0.4
 	--subnet-vnet-name myVnet \
 	--subnet-name mySubnet \
 	--name myNic1 \
@@ -90,7 +90,7 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
 	--resource-group myResourceGroup \
 	--nic-name myNic1 \
 	--name IPConfig-2 \
-	--private-ip-address 10.0.0.6 \
+	--private-ip-address 10.0.0.5 \
 	--public-ip-name myPublicIP2
 	```
 
@@ -102,7 +102,7 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
 	azure network nic ip-config create \
 	--resource-group myResourceGroup \
 	--nic-name myNic1 \
-	--private-ip-address 10.0.0.7 \
+	--private-ip-address 10.0.0.6 \
 	--name IPConfig-3
 	```
 
@@ -143,7 +143,7 @@ You can add additional private and public IP addresses to an existing NIC by com
 		azure network nic ip-config create \
 		--resource-group myResourceGroup \
 		--nic-name myNic1 \
-		--private-ip-address 10.0.0.8 \
+		--private-ip-address 10.0.0.7 \
 		--name IPConfig-4
 		```
 		Create as many configurations as you require, using unique configuration names and private IP addresses (for configurations with static IP addresses).
@@ -175,7 +175,7 @@ You can add additional private and public IP addresses to an existing NIC by com
 			--resource-group myResourceGroup \
 			--nic-name myNic \
 			--name IPConfig-4 \
-			--private-ip-address 10.0.0.9 \
+			--private-ip-address 10.0.0.8 \
 			--public-ip-name myPublicIP3
 			```
 
@@ -193,9 +193,9 @@ You can add additional private and public IP addresses to an existing NIC by com
 			
 				Name               Provisioning state  Primary  Private IP allocation Private IP version  Private IP address  Subnet    Public IP
 			
-				default-ip-config  Succeeded           true     Static                IPv4                10.0.0.5            mySubnet  myPublicIP
-				IPConfig-2         Succeeded           false    Static                IPv4                10.0.0.6            mySubnet  myPublicIP2
-				IPConfig-3         Succeeded           false    Static                IPv4                10.0.0.7            mySubnet
+				default-ip-config  Succeeded           true     Static                IPv4                10.0.0.4            mySubnet  myPublicIP
+				IPConfig-2         Succeeded           false    Static                IPv4                10.0.0.5            mySubnet  myPublicIP2
+				IPConfig-3         Succeeded           false    Static                IPv4                10.0.0.6            mySubnet
 
 			Since the **Public IP** column for *IpConfig-3* is blank, no public IP address resource is currently associated to it. You can add an existing public IP address resource to IpConfig-3, or enter the following command to create one:
 
