@@ -28,10 +28,12 @@ To use this scenario, you need:
 
 ## Create a new logic app to email you tweets
 
-1. On the [Azure portal](https://portal.azure.com), select **New**.
+1. Sign in to the [Azure portal](https://portal.azure.com). 
 
-2. In the search box, search for 'logic app', and press Enter. 
-You can also select **New**, **Enterprise Integration**, and select **Logic App**. 
+2. From the left menu, choose **New** > **Enterprise Integration** > **Logic App**.
+
+	You can also choose **New**, then in the search box, 
+	type `logic app`, and press Enter. Choose **Logic App** > **Create**.
 
 3. Enter a name for your logic app, select your Azure subscription, 
 create or select an Azure resource group, select a location, and choose **Create**.
