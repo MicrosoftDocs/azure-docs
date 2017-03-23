@@ -31,13 +31,12 @@ Before working through this example, you need:
 
 ## Manage the authentication inside your cluster
 
-To use a private registry, the first step is to be authenticated on it. To do it, you will need to use the `docker login` command line.
+The conventional way to push and pull image from a private registry is to be, first, authenticated on it. To do it, you have to use the `docker login` command line on any docker client process who will need to use your private registry.
+When it comes to the production world, using DC/OS in our case, you want to make sure that you are able to pull images from any node. It means that you want to automate the authentication process, and don't run the command line on each machines, because as you can imagine, depending on the size of your cluster, it could be a problematic and heavy operation. 
 
-If you want to be able to pull image on any nodes of your DC/OS cluster, you will have to run this command first on each node. As you can imagine, depending on the size of your cluster it could be a problematic operation. 
+Assuming that you already [setup a file share inside your DC/OS](container-service-dcos-fileshare.md), we will leverage it by doing:
 
-According that you already [setup a file share inside your DC/OS](container-service-dcos-fileshare.md), we will leverage it by doing:
-
-1. First, SSH to the master (or the first master) of your DC/OS-based cluster. For example, `ssh userName@masterFQDN –A –p 22`, where the masterFQDN is the fully qualified domain name of the master VM.
+1. First, SSH to the master (or the first master) of your DC/OS-based cluster. For example, `ssh userName@masterFQDN –A –p 22`, where the masterFQDN is the fully qualified domain name of the master VM. [More infos by clicking here](https://docs.microsoft.com/en-us/azure/container-service/container-service-connect#connect-to-a-dcos-or-swarm-cluster)
 
 2. Initiate the authentication to your ACR service by using the following command: `sudo docker login --username=<USERNAME> --password=<PASSWORD> <ACR-REGISTRY-NAME>.azurecr.io`. You have to replace the 'USERNAME', 'PASSWORD'and 'ACR-REGISTRY-NAME' variables with the values provided on your Azure portal
 
