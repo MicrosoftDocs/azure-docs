@@ -51,7 +51,7 @@ You also have the option to scale up the Azure log integration service to help i
 * On a 4-processor (core) machine, a single instance of Azlog Integrator can process about 1.5 million events per day (~62.5K/hour).
 
 ## Install Azure log integration
-To install Azure Log integratin you need to download the binaries [Azure log integration](https://www.microsoft.com/download/details.aspx?id=53324). and run through the setup routine and decide if you want to provide telemetry information to Microsoft.  
+To install Azure Log Integration you need to download the binaries [Azure log integration](https://www.microsoft.com/download/details.aspx?id=53324). and run through the setup routine and decide if you want to provide telemetry information to Microsoft.  
 
 ![Installation Screen with telemetry box checked](./media/security-azure-log-integration-get-started/telemetry.png)
 
@@ -71,7 +71,7 @@ The Azure log integration service collects telemetry data from the machine on wh
 ## Post installation and validation steps
 Once that you have completed the basic setup routine you need to perform some configuration steps:
 1. Open an elevated PowerShell window and navigate to **c:\Program Files\Microsoft Azure Log Integration**
-2. Next you will import the Azlog Cmdlets. You can do that by running the script **LoadAzLogModule.ps1** (notice the “.\” ): type **.\LoadAzLogModule.ps1** and press ENTER.  
+2. The first step you need to take is to get the Azlog Cmdlets imported. You can do that by running the script **LoadAzLogModule.ps1** (notice the “.\” ): type **.\LoadAzLogModule.ps1** and press ENTER.  
 You should see something like what appears in the figure below. </br></br>
 ![Installation Screen with telemetry box checked](./media/security-azure-log-integration-get-started/loaded-modules.png) </br></br>
 3. Now you need to configure AZLog to use a specific Azure environment. An “Azure environment” is the “type” of Azure cloud data center you want to work with. While there are several Azure environments at this time, the currently relevant options are either AzureCloud or AzureUSGovernment.   In your elevated powershell environment make sure that you are in **c:\program files\Microsoft Azure Log Integration\** </br></br>
