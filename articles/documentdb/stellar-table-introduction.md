@@ -1,5 +1,5 @@
 ---
-title: What are Stellar premium tables? | Microsoft Docs
+title: What are Azure Stellar premium tables? | Microsoft Docs
 description: Learn about premium tables on Azure Stellar.
 services: documentdb
 author: mimig1
