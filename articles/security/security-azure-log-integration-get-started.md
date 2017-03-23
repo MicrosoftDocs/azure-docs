@@ -75,11 +75,11 @@ Once that you have completed the basic setup routine you need to perform some co
 You should see something like what appears in the figure below. </br></br>
 ![Installation Screen with telemetry box checked](./media/security-azure-log-integration-get-started/loaded-modules.png) </br></br>
 3. Now you need to configure AZLog to use a specific Azure environment. An “Azure environment” is the “type” of Azure cloud data center you want to work with. While there are several Azure environments at this time, the currently relevant options are either AzureCloud or AzureUSGovernment.   In your elevated powershell environment make sure that you are in </br></br>
-**c:\program files\Microsoft Azure Log Integration\** </br></br>
-Once there run the command: </br>
-``Set-AZLogAzureEnvironment -Name AzureCloud`` (for Azure commercial)
-  >[!NOTE]
-  When the command succeeds, you will not receive any feedback to this effect.  If you want to use the US Government Azure cloud, you would use AzureUSGovernment for the USA government cloud.  
+    **c:\program files\Microsoft Azure Log Integration\** </br></br>
+    Once there run the command: </br>
+    ``Set-AZLogAzureEnvironment -Name AzureCloud`` (for Azure commercial)
+      >[!NOTE]
+      When the command succeeds, you will not receive any feedback to this effect.  If you want to use the US Government Azure cloud, you would use AzureUSGovernment for the USA government cloud.  
 4. Azure Windows Diagnostics needs to be configured on the monitored system. Move over to the monitored machine and confirm this by looking at the properties of the virtual machine in the Azure portal and choosing **Diagnostic Settings**.  By default only boot diagnostics is configured. You will need to specify the storage account that you will be using for Windows Event Log storage and then choose **Windows Event Security** Logs and change the level of logging to All.
 
   >[!NOTE]
