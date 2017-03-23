@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/28/2017
+ms.date: 03/08/2017
 ms.author: nepeters
 
 ---
@@ -34,9 +34,7 @@ The following table includes links to bash scripts built using the Azure CLI.
 |**Network virtual machines**||
 | [Secure network traffic between virtual machines](./scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates two virtual machines, all related resources, and an internal and external network security groups (NSG). |
 |**Monitor virtual machines**||
-| [Monitor a VM with Operations Management Suite](./scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine, installs the Operations Management Suite agent, and enrolls the VM in an OMS Workspace.  |
-|**Restart virtual machines**||
-| [Restart VMs](./scripts/virtual-machines-linux-cli-sample-restart-by-tag.md) | Creates VMs and restarts them. |
+| [Monitor a VM with Operations Management Suite](./scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a virtual machine, installs the Operations Management Suite agent, and enrolls the VM in an OMS Workspace.  |
 |**Troubleshoot virtual machines**||
 | [Troubleshoot a VMs operating system disk](./scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Mounts the operating system disk from one VM as a data disk on a second VM. |
 | | |

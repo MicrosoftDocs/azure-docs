@@ -13,23 +13,41 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 03/07/2017
 ms.author: erikje
 
 ---
 # Register Azure Stack with your Azure Subscription
 
-You must register with Azure to download marketplace items from Azure and to set up Azure Stack to report commerce data back to Microsoft. 
+For Azure Active Directory deployments, you can register Azure Stack with Azure to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. This registration is not currently supported for deployments using Active Directory Federation Services (AD FS). 
 
 > [!NOTE]
 >In TP3, registering Azure Stack is not required because you don't have to select a business model or connection option. However, you can test the process and provide feedback about it.
 >
 
+
+## Get Azure subscription
+
+Before registering Azure Stack with Azure, you must have:
+
+- The subscription ID for an Azure subscription (China, Germany, government cloud, and CSP subscriptions are not supported in TP3)
+- The username and password for an account that is an owner for the subscription (Hotmail.com, live.com domains and 2FA accounts are not supported)
+- The AAD directory for the Azure subscription. You can find this directory in Azure by hovering over your avatar at the top right corner of the Azure portal. 
+
+If you don’t have an Azure subscription that meets these requirements, you can [create a free Azure account here](https://azure.microsoft.com/en-us/free/?b=17.06). Registering Azure Stack incurs not cost on your Azure subscription.
+
+
+
+
 ## Register
 
+> [!NOTE]
+>All these steps must be completed on the host computer, not the console computer.
+>
+
 1. Sign in to the Azure Stack POC host computer as an Azure Stack administrator.
-2. Install the Azure PowerShell cmdlets on the host computer by running the 'Install-module AzureRM' cmdlet. 
-3. Copy the [RegisterWithAzure.ps1 script](https://go.microsoft.com/fwlink/?linkid=842959) to a folder on the host computer (such as C:\Temp).
+2. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md). 
+3. Copy the [RegisterWithAzure.ps1 script](https://go.microsoft.com/fwlink/?linkid=842959) to a folder (such as C:\Temp).
 4. Start PowerShell ISE as an administrator.
 5. Run the RegisterWithAzure.ps1 script. Make sure to change the values for *YourAccountName* (the owner of the Azure subscription), *YourGUID*, and *YourDirectory* to match your Azure subscription.
 

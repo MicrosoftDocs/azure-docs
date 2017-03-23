@@ -4,7 +4,7 @@ description: Monitor the performance and usage of your application at different 
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2016
+ms.date: 03/14/2017
 ms.author: awills
 
 ---
@@ -22,7 +22,7 @@ Should the telemetry from different components and versions of your application 
 First, let's understand the question. 
 The data received from your application is stored and processed by Application Insights in a Microsoft Azure *resource*. Each resource is identified by an *instrumentation key* (iKey). In your app, the key is provided to the Application Insights SDK so that it can send the data it collects to the right resource. The key can be provided either in code or in ApplicationInsights.config. By changing the key in the SDK, you can direct data to different resources. 
 
-In a simple case, when you create the code for a new application, you also create a new resource in Application Insights. In Visual Studio, the *new project* dialog does this for you.
+In a simple case, when you register an application with Application Insights, you create a new resource in Application Insights. In Visual Studio, the *Configure Application Insights* or *Add Application Insights* dialog does this for you.
 
 If it's a high-volume website, it might be deployed on more than one server instance.
 

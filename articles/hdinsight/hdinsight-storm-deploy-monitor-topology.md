@@ -14,8 +14,9 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/13/2017
+ms.date: 03/01/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 
 ---
 # Deploy and manage Apache Storm topologies on Windows-based HDInsight
@@ -43,6 +44,10 @@ The Storm Dashboard and the Storm features in the HDInsight Tools rely on the St
 
   * Visual Studio 2013 with [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
   * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
+
+  * Visual Studio 2015 (any edition)
+
+  * Visual Studio 2017 (any edition)
 
 ## Storm Dashboard
 
