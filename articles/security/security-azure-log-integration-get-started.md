@@ -94,14 +94,15 @@ You should see something like what appears in the figure below. </br></br>
 ![Storage accounts](./media/security-azure-log-integration-get-started/storage-account.jpg) </br></br>
    6. Notice that there are a few options under storage accounts. One of them is **Tables**. Under **Tables** you should see one called **WADWindowsEventLogsTable**. </br></br>
    ![Storage accounts](./media/security-azure-log-integration-get-started/storage-explorer.png) </br>
-## Integrate Azure Diagnostic logging
 
+## Integrate Azure Diagnostic logging
+In this step, you will configure the machine running the Azure Log Integration service to connect to the storage account that contains the log files.
 To complete this step we will need a few things up front.  
 * **FriendlyNameForSource:** Anything you would like
 * **StorageAccountName:** The name of the storage account that you specified when you configured Azure diagnotics.  
 * **StorageKey:** You can get the storage key from the properties of the storage account.  
 
-To obtain your storage account key. You can follow the steps below:
+Perform the following steps to obtain the storage key:
  1. Browse to the [Azure portal](http://portal.azure.com).
  2. In the navigation pane of the Azure console, scroll to the bottom and click **More services.**
 
