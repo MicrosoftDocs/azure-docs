@@ -66,7 +66,7 @@ Once the query is complete, you have created a table in your database called Stu
 * [Download this sample txt file](https://microsoft-my.sharepoint.com/personal/ayolubek_microsoft_com/_layouts/15/guestaccess.aspx?guestaccesstoken=gQYCb16yjnJBDrK5aJaq8CMrlXNxf55ylI%2fi5XVCXQw%3d&docid=2_1b4c3b5ec415349fe9e35fdf4cb7ffb63&rev=1) into your local machine. In this example, we assume it is stored in the following location, *C:\Temp\SampleStudentData.txt*
 * Open a command prompt window and run the following command, replacing the values for *ServerName*, *DatabaseName*, *UserName*, and *Password* with your own.
 
-```
+```bcp
 bcp Students in C:\Temp\SampleStudentData.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t ",""
 ```
 
@@ -97,8 +97,7 @@ This query returns the name, age, and email of students who are older than 20 ye
 Databases in Azure have continuous backups that are taken automatically every 5 - 10 minutes. These backups allow you to restore your database to a previous point in time. Restoring a database to a different point in time creates a duplicate database in the same server as the original database. The following steps restore the sample database to a point before the *Students* table was added. 
 
 ### Log in to the Azure portal 
-* Open your browser of choice and connect to the [Azure portal](https://portal.azure.com)
-* Sign in to the [Azure portal](https://portal.azure.com/)
+Log in to the [Azure portal](https://portal.azure.com/)
 
 ### Restore database 
 * Navigate to the sample database you created in the quickstart
