@@ -37,7 +37,7 @@ When you create an Analysis Services server in Azure, you specify a unique name 
 
 ## Get the server name
 
-Before you connect, you need to get the server name. In **Azure portal** > server > **Overview** > **Server name**, copy the entire server name. If other users in your organization are connecting to this server too, you'll can share this server name with them. When specifying a server name, the entire path must be used.
+Before you connect, you need to get the server name. In **Azure portal** > server > **Overview** > **Server name**, copy the entire server name. If other users in your organization are connecting to this server too, you can share this server name with them. When specifying a server name, the entire path must be used.
 
 ![Get server name in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
