@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/24/2017
 ms.author: markvi
 
 ---
@@ -288,8 +288,13 @@ The definition helps you to verify whether the values are present or if you need
         Value = "http://<verified-domain-name>/adfs/services/trust/"
     );
 
-> [!NOTE]
-> The issuerID claim for computer in the rule above must contain one of the verified domain names in Azure AD. This is not the AD FS service URL.
+
+In the claim above,
+
+- `$<domain>` is the AD FS service URL
+- `<verified-domain-name>` is a placeholder you need to replace with one of your verified domain names in Azure AD
+
+
 
 For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](active-directory-add-domain.md).  
 To get a list of your verified company domains, you can use the [Get-MsolDomain](https://docs.microsoft.com/powershell/msonline/v1/get-msoldomain) cmdlet. 
