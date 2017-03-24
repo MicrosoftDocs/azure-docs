@@ -15,4 +15,3 @@ To create a VNet in the Resource Manager deployment model by using the Azure por
 11. **Location**: Select the location for your VNet. The location determines where the resources that you deploy to this VNet will reside.
 12. Select **Pin to dashboard** if you want to be able to find your VNet easily on the dashboard, and then click **Create**.
 13. After clicking **Create**, you will see a tile on your dashboard that will reflect the progress of your VNet. The tile changes as the VNet is being created.
-

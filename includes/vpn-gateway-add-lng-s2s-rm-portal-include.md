@@ -8,4 +8,3 @@
 6. For **Resource Group**, select the resource group that you want to use. You can either create a new resource group, or select one that you have already created.
 7. For **Location**, select the location that this object will be created in. You may want to select the same location that your VNet resides in, but you are not required to do so.
 8. Click **Create** to create the local network gateway.
-

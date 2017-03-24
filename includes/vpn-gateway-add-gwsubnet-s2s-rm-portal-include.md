@@ -7,4 +7,3 @@
 
     ![Adding the subnet](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/gwsubnet.png "Adding the subnet")
 5. Click **OK** at the bottom of the blade to create the subnet.
-

@@ -3,9 +3,3 @@ Site-to-Site connections to an on-premises network require a VPN device. There a
 When configuring your VPN device, you will need the public IP address of the virtual network gateway. You can view the public IP address for your virtual network gateway by using the Azure portal. Navigate to **Virtual network gateways**, then click the name of your gateway. 
 
 Your VPN device configuration will also require a shared key. This is the same shared key that you will specify when creating your Site-to-Site VPN connection.
-
-
-
-
-
-
