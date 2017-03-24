@@ -63,7 +63,7 @@ To work around this issue, we recommend using an HTTP redirect to direct traffic
 
 Full support for naked domains in Traffic Manager is tracked in our feature backlog. You can register your support for this feature request by [voting for it on our community feedback site](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
 
-## Does Traffic Manager consider the client subnet address when handling DNS queries? 
+### Does Traffic Manager consider the client subnet address when handling DNS queries? 
 No, at this time Traffic Manager considers only the source IP address of the DNS query it receives, which in most cases is the IP address of the DNS resolver, when performing lookups for Geographic and Performance routing methods.  
 Specifically, [RFC 7871 – Client Subnet in DNS Queries](https://tools.ietf.org/html/rfc7871) that provides an [Extension Mechanism for DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) which can pass on the client subnet address from resolvers that support it to DNS servers is currently not supported in Traffic Manager. You can register your support for this feature request through our [community feedback site](https://feedback.azure.com/forums/217313-networking).
 
