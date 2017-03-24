@@ -142,10 +142,9 @@ Now we add an action that sends email when new items appear in the website's RSS
 3. When you're prompted for credentials, 
 sign in with the username and password for your email account. 
 
-4. Provide the details for this action, 
-like the email address where you want to send mail, 
-and choose the parameters for data that you 
-want to include in your email, for example:
+4. Provide the details for this action, like the destination email address, 
+and choose the parameters for the data to include in the email, 
+for example:
 
 	![Select data to include in email](media/logic-apps-create-a-logic-app/rss-action-setup.png)
 
