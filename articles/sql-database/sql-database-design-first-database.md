@@ -31,7 +31,7 @@ In this tutorial, you are going to learn how to
 * [Create and query a table in the database](sql-database-design-first-database.md#step-6---create-and-query-a-table)
 * [Load data into a table](sql-database-design-first-database.md#step-7---load-data-into-the-table) 
 * [Add an index to the table to optimize query performance](sql-database-design-first-database.md#step-8---add-an-index-to-a-table)
-* [Restore the database to a point in time](sql-database-design-first-database.md#step-9---restore-a-database-to-a-point-in-time) 
+* [Restore the database to a point in time](sql-database-design-first-database.md##step-9---restore-a-database-to-a-point-in-time) 
 
 Before you start:
 
