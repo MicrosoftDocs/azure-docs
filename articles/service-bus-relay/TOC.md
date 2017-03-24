@@ -4,7 +4,9 @@
 
 # Get Started
 ## [Create a namespace](relay-create-namespace-portal.md)
-## [Hybrid Connections](relay-hybrid-connections-dotnet-get-started.md)
+## Hybrid Connections
+### [.NET](relay-hybrid-connections-dotnet-get-started.md)
+### [Node](relay-hybrid-connections-node-get-started.md)
 ## [WCF Relay](service-bus-dotnet-how-to-use-relay.md)
 
 # How To
