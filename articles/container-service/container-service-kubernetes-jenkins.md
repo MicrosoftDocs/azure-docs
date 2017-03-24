@@ -35,21 +35,31 @@ The basic steps detailed in this article are:
 Deploy the Kubernetes cluster in Azure Container Service using the following steps. Full documentation is located [here](container-service-kubernetes-walkthrough.md).
 
 ### Step 1: Create a resource group
-```
+```azurecli
 RESOURCE_GROUP=my-resource-group
 LOCATION=westus
+
 az group create --name=$RESOURCE_GROUP --location=$LOCATION
 ```
 
 ### Step 2: Deploy the cluster
-> [!NOTE]
-> The following steps require a local SSH public key stored in the ~/.ssh folder.
+> **NOTE:** The following steps require a local SSH public key stored in the ~/.ssh folder.
 >
 
-```
+```azurecli
 DNS_PREFIX=some-unique-value
 CLUSTER_NAME=any-acs-cluster-name
-az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=$CLUSTER_NAME --dns-prefix=$DNS_PREFIX --ssh-key-value ~/.ssh/id_rsa.pub --admin-username=azureuser --master-count=1 --agent-count=5 --agent-vm-size=Standard_D1_v2
+
+az acs create \
+--orchestrator-type=kubernetes \
+--resource-group $RESOURCE_GROUP \ 
+--name=$CLUSTER_NAME \
+--dns-prefix=$DNS_PREFIX \ 
+--ssh-key-value ~/.ssh/id_rsa.pub \
+--admin-username=azureuser \
+--master-count=1 \
+--agent-count=5 \
+--agent-vm-size=Standard_D1_v2
 ```
 
 ## Set up Jenkins and configure access to Container Service
@@ -63,12 +73,12 @@ az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --
 - Install Docker on the Jenkins machine via these [instructions](https://docs.docker.com/cs-engine/1.13/#install-on-ubuntu-1404-lts-or-1604-lts). This allows for Docker commands to be run in Jenkins jobs.
 - Configure Docker permissions to allow Jenkins to access endpoint.
 
-    ```
-        sudo chmod 777 /run/docker.sock
+    ```bash
+    sudo chmod 777 /run/docker.sock
     ```
 - Install `kubectl` CLI on Jenkins. More details are at [Installing and Setting up kubectl](https://kubernetes.io/docs/tasks/kubectl/install/)
 
-    ```
+    ```bash
     curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 
     chmod +x ./kubectl
@@ -82,7 +92,7 @@ az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --
 
 - Copy the `kubectl` config file to the Jenkins machine.
 
-    ```
+    ```bash
     export KUBE_MASTER=<your_cluster_master_fqdn>
         
     sudo scp -3 -i ~/.ssh/id_rsa azureuser@$KUBE_MASTER:.kube/config user@<your_jenkins_server>:~/.kube/config
@@ -111,7 +121,7 @@ az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --
 ### Step 1: Deploy initial v1 of application
 - Build the app from the developer machine with the following commands. Replace `myrepo` with your own.
     
-    ```
+    ```bash
     git clone https://github.com/chzbrgr71/go-web.git
     cd go-web
     docker build -t myrepo/go-web .
@@ -119,7 +129,7 @@ az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --
 
 - Push image to Docker Hub.
 
-    ```
+    ```bash
     docker login
     docker push myrepo/go-web
     ```
@@ -128,7 +138,7 @@ az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --
     
     > **NOTE:** Edit the `go-web.yaml` file to update your container image and repo.
         
-    ```
+    ```bash
     kubectl create -f ./go-web.yaml --record
     ```
 ### Step 2: Configure Jenkins system
@@ -140,6 +150,8 @@ az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --
 - Under **Global Properties**, add an environment variable `DOCKER_HUB` and provide your Docker Hub password. (This is useful in this demo, but a production scenario would require a more secure approach.)
 - Save.
 
+![Jenkins Github access](media/container-service-kubernetes-jenkins/jenkins-github-access.png)
+
 ### Step 3: Create the Jenkins Workflow
 - Create a new Jenkins item
 - Provide a name (eg - "go-web") and select **Freestyle Project**. 
@@ -147,7 +159,7 @@ az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --
 - In **Source Code Management**, provide the Github repo URL and credentials. 
 - Add a **Build Step** of type **Execute shell** and use the following text:
 
-    ```
+    ```bash
     WEB_IMAGE_NAME="myrepo/go-web:kube${BUILD_NUMBER}"
     docker build -t $WEB_IMAGE_NAME .
     docker login -u <your-dockerhub-username> -p ${DOCKER_HUB}
@@ -156,10 +168,12 @@ az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --
 
 - Add another **Build Step** of type **Execute shell** and use the following text:
 
-    ```
+    ```bash
     WEB_IMAGE_NAME="myrepo/go-web:kube${BUILD_NUMBER}"
     kubectl set image deployment/go-web go-web=$WEB_IMAGE_NAME --kubeconfig /var/lib/jenkins/config
     ```
+
+![Jenkins build steps](media/container-service-kubernetes-jenkins/jenkins-build-steps.png)
     
 - Save the Jenkins item and test with **Build Now**.
 
@@ -169,13 +183,15 @@ az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --
 - In your GitHub repo for go-web, click **Settings > Webhooks**.
 - Verify that the Jenkins webhook URL was added successfully. The URL should end in "github-webhook"
 
+![Jenkins webhook configuration](media/container-service-kubernetes-jenkins/jenkins-webhook.png)
+
 ## Test the CI/CD process end to end
 
 1. Update code for the repo and push/synch with the GitHub repository.
 2. From the Jenkins console, check the **Build History** and validate that the job has run. View console output to see details.
 3. From Kubernetes, view details of the upgraded deployment:
 
-    ```
+    ```bash
     kubectl rollout history deployment/go-web
     ```
 
