@@ -7,7 +7,7 @@
 ## Hybrid Connections
 ### [.NET](relay-hybrid-connections-dotnet-get-started.md)
 ### [Node](relay-hybrid-connections-node-get-started.md)
-## [WCF Relay](service-bus-dotnet-how-to-use-relay.md)
+## [WCF Relay](relay-wcf-dotnet-get-started.md)
 
 # How To
 ## Plan and design
