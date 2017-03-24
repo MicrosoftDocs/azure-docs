@@ -36,11 +36,7 @@ Apache Kafka is a publish-subscribe messaging solution that is available with HD
 
 * A text editor or Java IDE
 
-* An SSH client (you need the `ssh` and `scp` commands) - For more information on using SSH with HDInsight, see the following documents:
-  
-  * [Use SSH with Linux-based HDInsight from Linux, Unix, Mac OS, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-  * [Use SSH (PuTTY) with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* An SSH client (you need the `ssh` and `scp` commands) - For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## Create the clusters
 
@@ -129,11 +125,7 @@ The steps in this document demonstrate how to set these environment variables.
    
     When prompted, enter the password you used when creating the clusters.
    
-    For more information on using SSH with HDInsight, see the following documents:
-   
-    * [Use SSH with Linux-based HDInsight from Linux, Unix, Mac OS and Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Use SSH (PuTTY) with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. From the SSH connection to the Kafka cluster, use the following commands to get the zookeeper nodes from Ambari:
 
@@ -201,11 +193,7 @@ Leave the SSH connection to the Kafka cluster active, as you can use it to verif
    
     When prompted, enter the password you used when creating the clusters.
    
-    For more information on using SSH with HDInsight, see the following documents:
-   
-    * [Use SSH with Linux-based HDInsight from Linux, Unix, Mac OS, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Use SSH (PuTTY) with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. From the SSH connection to the Storm cluster, use the following commands to run the `set-env-variables.sh` script:
 

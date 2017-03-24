@@ -114,11 +114,7 @@ Once the resources have been created, you are redirected to a blade for the reso
    
     Replace **sshuser** with the SSH user name used when creating the cluster. Replace **BASENAME** with the base name used when creating the cluster.
    
-    For more information on using SSH with HDInsight, see the following documents:
-   
-    * [Use SSH with HDInsight from a Linux, Mac OS, Unix client, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md).
-   
-    * [Use SSH (PuTTY) with HDInsight from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md).
+    For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use the following command to find the Zookeeper hosts, set the `SOURCE_ZKHOSTS` variable, and then create several new topics named `testtopic`:
    
@@ -157,11 +153,7 @@ Once the resources have been created, you are redirected to a blade for the reso
    
     Replace **sshuser** with the SSH user name used when creating the cluster. Replace **BASENAME** with the base name used when creating the cluster.
    
-    For more information on using SSH with HDInsight, see the following documents:
-   
-    * [Use SSH with HDInsight from a Linux, Mac OS, Unix client, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
-    
-    * [Use SSH (PuTTY) with HDInsight from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md)
+    For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use the following command to create a `consumer.properties` file that describes how to communicate with the **source** cluster:
    

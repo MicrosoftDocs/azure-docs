@@ -57,10 +57,7 @@ The aggregated logs are not directly readable, as they are written in a [TFile][
 
 ## YARN CLI tools
 
-To use the YARN CLI tools, you must first connect to the HDInsight cluster using SSH. Use one of the following documents for information on using SSH with HDInsight:
-
-* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+To use the YARN CLI tools, you must first connect to the HDInsight cluster using SSH. For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 You can view these logs as plain text by running one of the following commands:
 

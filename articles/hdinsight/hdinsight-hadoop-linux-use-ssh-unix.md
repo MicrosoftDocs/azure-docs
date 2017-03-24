@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # Connect to HDInsight (Hadoop) using SSH
 
-[Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) allows you to securely connect to Linux or other Unix systems. HDInsight can use Linux (Ubuntu) as the operating system for nodes within the cluster. When using a Linux-based HDInsight cluster, SSH can be used to connect to the head and edge nodes and run commands directly on those nodes.
+Learn how to use [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) to securely connect to HDInsight. HDInsight can use Linux (Ubuntu) as the operating system for nodes within the cluster. SSH can be used to connect to the head and edge nodes of a Linux-based cluster and run commands directly on those nodes.
 
 The following table contains the address and port information needed when connecting to HDInsight using SSH:
 
@@ -48,7 +48,7 @@ Most operating systems provide the `ssh` client. Microsoft Windows does not prov
 
 * [GitHub Desktop (https://desktop.github.com/)](https://desktop.github.com/) The `ssh` command is provided through the Git Shell command line. GitHub Desktop can be configured to use Bash, the Windows Command Prompt, or PowerShell as the command line for the Git Shell.
 
-* [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH): The PowerShell team is porting OpenSSH to Windows, and provides **test** releases.
+* [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH): The PowerShell team is porting OpenSSH to Windows, and provides test releases.
 
     > [!WARNING]
     > The OpenSSH package includes the SSH server component, `sshd`. This component starts an SSH server on your system, allowing others to connect to it. Do not configure this component or open port 22 unless you want to host an SSH server on your system. It is not required to communicate with HDInsight.
