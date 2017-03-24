@@ -68,6 +68,7 @@ The objective of this section is to outline how to enable the application integr
 ## Configure single sign-on
 The objective of this section is to outline how to enable users to authenticate to Sprinklr with their account in Azure AD using federation based on the SAML protocol. 
 
+
 As part of this procedure, you are required to create a base-64 encoded certificate file.  
 
 If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
@@ -112,10 +113,10 @@ If you are not familiar with this procedure, see [How to convert a binary certif
   3. Select **Use new SSO Certificate**.
   4. Create a **base-64 encoded** file from your downloaded certificate.  
   
-    >[!TIP]
-    >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o). 
-    > 
-
+     >[!TIP]
+     >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o). 
+     >    
+     
   5. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Identity Provider Certificate** textbox.
   6. In the Azure classic portal, in the **Configure SSO at Sprinklr** dialog:
      *  Copy the **Identity Provider ID** value, and then paste it into the **Entity Id** textbox.
