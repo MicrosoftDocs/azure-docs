@@ -168,7 +168,7 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgName -VMName $vmName 
     -KeyEncryptionKeyVaultId $keyVaultResourceId
 ```
 
-Accept the prompt to continue with the VM encryption. Note that the VM restarts during the process. Once the encryption process completes and the VM has rebooted, review the encryption status:
+Accept the prompt to continue with the VM encryption. The VM restarts during the process. Once the encryption process completes and the VM has rebooted, review the encryption status:
 
 ```powershell
 Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName $vmName
