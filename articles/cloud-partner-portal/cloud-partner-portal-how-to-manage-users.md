@@ -1,8 +1,8 @@
 ---
-title: Managing Users
-description:Cloud partner portal provides users the capability to add users with role based access. This helps manage access and permissions to the offers while multiple people are working on it. 
+title: Managing Users  | Microsoft Docs
+description: Cloud partner portal provides users the capability to add users with role based access. This helps manage access and permissions to the offers while multiple people are working on it. 
 documentationcenter: ''
-author: rupeskazure
+author: rupeshazure
 manager: hamidm
 
 
@@ -13,6 +13,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2017
 ms.author: rupesk@microsoft.com
+
 
 ---
 

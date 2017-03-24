@@ -1,8 +1,9 @@
 ---
-title: Managing ‘Azure Marketplace’ and ‘Appsource’ Publisher Profile
-description:This document is a walk through to view and manage your registered publisher profile.
+title: Managing ‘Azure Marketplace’ and ‘Appsource’ Publisher Profile  | Microsoft Docs
+description: This document is a walk through to view and manage your registered publisher profile.
+services: marketplace-publishing
 documentationcenter: ''
-author: rupeskazure
+author: rupeshazure
 manager: hamidm
 
 
@@ -13,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2017
 ms.author: rupesk@microsoft.com
+
 
 ---
 
