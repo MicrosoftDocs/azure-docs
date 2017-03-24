@@ -89,7 +89,7 @@ Now you're all set. Use the following steps to check that your Azure AD users ar
     ![Azure portal user identity](./media/billing-use-existing-office-365-account-azure-subscription/18-azure-portal-user-identity.png)
 
 ## More about Azure and Office 365 subscriptions
-Office 365 and Azure use the Azure AD service to manage users and subscriptions. The Azure directory is like container in which you can group users and subscriptions. To use the same user accounts for your Azure and Office 365 subscriptions, you need to make sure that the subscriptions are created in the same directory. Keep in mind the following points:
+Office 365 and Azure use the Azure AD service to manage users and subscriptions. The Azure directory is like a container in which you can group users and subscriptions. To use the same user accounts for your Azure and Office 365 subscriptions, you need to make sure that the subscriptions are created in the same directory. Keep in mind the following points:
 
 * A subscription gets created under a directory.
 * Users belong to directories.
