@@ -75,7 +75,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **TalentLMS** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **TalentLMS** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
     ![Configure single sign-on](./media/active-directory-saas-talentlms-tutorial/IC777292.png "Configure single sign-on")
 
@@ -105,9 +105,9 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
   2. In the Azure classic portal, on the **Configure single sign-on at TalentLMS** dialog page, copy the **Identity Provider ID** value, and then paste it into the **Identity provider (IdP)** textbox.
   3. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Certificate Fingerprint** textbox.
       
-    >[!TIP]
-    >For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI) 
-    >    
+     >[!TIP]
+     >For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI). 
+     >    
 
   4. In the Azure classic portal, on the **Configure single sign-on at TalentLMS** dialog page, copy the **Remote Login URL** value, and then paste it into the **Remote sign-in URL** textbox. 
   5. In the Azure classic portal, on the **Configure single sign-on at TalentLMS** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Remote sign-out URL** textbox.
@@ -127,7 +127,7 @@ In order to enable Azure AD users to log into TalentLMS, they must be provisione
 
 * In the case of TalentLMS, provisioning is a manual task.
 
-** To provision a user accounts, perform the following steps:**
+**To provision a user accounts, perform the following steps:**
 
 1. Log in to your **TalentLMS** tenant.
 
@@ -146,7 +146,7 @@ In order to enable Azure AD users to log into TalentLMS, they must be provisione
 ## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-** To assign users to TalentLMS, perform the following steps:**
+**To assign users to TalentLMS, perform the following steps:**
 
 1. In the Azure classic portal, create a test account.
 
