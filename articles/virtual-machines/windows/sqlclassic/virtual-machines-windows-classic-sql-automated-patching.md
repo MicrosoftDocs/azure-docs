@@ -21,7 +21,7 @@ ms.author: jroth
 # Automated Patching for SQL Server in Azure Virtual Machines (Classic)
 > [!div class="op_single_selector"]
 > * [Resource Manager](../sql/virtual-machines-windows-sql-automated-patching.md)
-> * [Classic](virtual-machines-windows-classic-sql-automated-patching.md)
+> * [Classic](../classic/sql-automated-patching.md)
 > 
 > 
 
