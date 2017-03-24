@@ -65,7 +65,7 @@ After creating the registry, find the registry settings by starting at the **Con
 
    * **Login server** - The fully qualified name you use to log in to the registry. In this example, it is `myregistry01.azurecr.io`.
    * **Admin user** - Toggle to enable or disable the registry's admin user account.
-   * **Username** and **Password** - The credentials of the admin user account (if enabled) you can use to log in to the registry. You can optionally regenerate the passwords. Two passwords are created so that you can maintain connections to the registry by using one password while you regenerate the other password. To authenticate with a service principal instead, see [Authenticate with the container registry](container-registry-authentication).
+   * **Username** and **Password** - The credentials of the admin user account (if enabled) you can use to log in to the registry. You can optionally regenerate the passwords. Two passwords are created so that you can maintain connections to the registry by using one password while you regenerate the other password. To authenticate with a service principal instead, see [Authenticate with a private Docker container registry](container-registry-authentication.md).
 
 ## Next steps
 * [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md)
