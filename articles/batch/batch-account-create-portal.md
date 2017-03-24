@@ -28,21 +28,13 @@ ms.custom: H1Hack27Feb2017
 
 Learn how to create an Azure Batch account in the [Azure portal][azure_portal], and choose the account properties that fit your compute scenario. Learn where to find important account properties like access keys and account URLs. 
 
-
-
-## Pool allocation modes
-
-Batch supports two account configurations, based on the *pool allocation mode* property. The two configurations give you different options for provisioning and managing Batch pools and for authenticating with the Batch service. 
-
-
-* **Batch service** (default): Pools are allocated behind the scenes in an Azure-managed account, and you only access pool resources through Batch APIs. You can create a pool using either the Cloud Service Configuration or the Virtual Machine Configuration. Batch service core quotas apply to the account, not subscription quotas. You can access the Batch APIs using either account name and key authentication, or Azure Active Directory authentication.  
-* **User subscription** (introduced in API version XXX): Pools are allocated as virtual machines scale sets you can access within your Azure subscription. You can only create a pool using the Virtual Machine configuration. However, you can choose a custom VM image to create the pool or select a supported Marketplace image. Your subscription quotas apply to resources in the account. You can only access the Batch APIs using Azure Active Directory authentication. This mode requires additional configuration.
+For background about Batch accounts and scenarios, see the [feature overview](batch-api-basics.md).
 
 
 
 ## Create a Batch account
 
-Use the portal to create a Batch account in one of the two *pool allocation modes*: *Batch service* pool allocation mode or the newer *user subscription* mode. For information about these two modes, see the [Feature overview](batch-api-basics.md#account). Also see the [blog post](https://blogs.technet.microsoft.com/windowshpc/2017/03/17/azure-batch-vnet-and-custom-image-support-for-virtual-machine-pools/) for features of the user subscription mode.
+Use the portal to create a Batch account in one of the two *pool allocation modes*: *Batch service* pool allocation mode or the newer *user subscription* mode. For information about these two modes, see the [feature overview](batch-api-basics.md#account). Also see the [blog post](https://blogs.technet.microsoft.com/windowshpc/2017/03/17/azure-batch-vnet-and-custom-image-support-for-virtual-machine-pools/) for features of the user subscription mode.
 
 ### Batch service mode
 
@@ -50,11 +42,11 @@ Use the portal to create a Batch account in one of the two *pool allocation mode
 2. Click **New** > **Compute** > **Batch Service**.
    
     ![Batch in the Marketplace][marketplace_portal]
-3. The **New Batch Account** blade is displayed. See the descriptions of each blade element.
+3. The **New Batch Account** blade is displayed. See the descriptions below of each blade element.
    
     ![Create a Batch account][account_portal]
    
-    a. **Account Name**: The name for your Batch account. The name you choose must be unique within the Azure region where the account is created (see **Location** below). The account name may contain only lowercase characters or numbers, and must be 3-24 characters in length.
+    a. **Account name**: The Batch account name you choose must be unique within the Azure region where the account is created (see **Location** below). The account name may contain only lowercase characters or numbers, and must be 3-24 characters in length.
    
     b. **Subscription**: The subscription in which to create the Batch account. If you have only one subscription, it is selected by default.
 
@@ -64,7 +56,7 @@ Use the portal to create a Batch account in one of the two *pool allocation mode
    
     d. **Location**: The Azure region in which to create the Batch account. Only the regions supported by your subscription and resource group are displayed as options.
    
-    e. **Storage Account** (optional): A general-purpose Azure Storage account that you associate with your Batch account. This is recommended for most Batch accounts. See [Linked Azure Storage account](#linked-azure-storage-account) below for more details.
+    e. **Storage account** (optional): A general-purpose Azure Storage account that you associate with your Batch account. This is recommended for most Batch accounts. See [Linked Azure Storage account](#linked-azure-storage-account) later in this article for more details.
 
 ### User subscription mode
 
@@ -86,11 +78,11 @@ Use the portal to create a Batch account in one of the two *pool allocation mode
 2. Click **New** > **Compute** > **Batch Service**
    
     ![Batch in the Marketplace][marketplace_portal]
-3. The **New Batch Account** blade is displayed. See the descriptions of each blade element.
+3. The **New Batch Account** blade is displayed. See the descriptions below of each blade element.
    
     ![Create a Batch account][account_portal_byos]
    
-    a. **Account Name**: The name for your Batch account. The name you choose must be unique within the Azure region where the account is created (see **Location** below). The account name may contain only lowercase characters or numbers, and must be 3-24 characters in length.
+    a. **Account name**: The Batch account name you choose must be unique within the Azure region where the account is created (see **Location** below). The account name may contain only lowercase characters or numbers, and must be 3-24 characters in length.
    
     b. **Subscription**: The subscription in which to create the Batch account. If you have only one subscription, it is selected by default.
 
@@ -100,7 +92,7 @@ Use the portal to create a Batch account in one of the two *pool allocation mode
    
     d. **Location**: The Azure region in which to create the Batch account. Only the regions supported by your subscription and resource group are displayed as options.
    
-    e. **Storage Account** (optional): A general-purpose Azure Storage account that you associate with your Batch account. This is recommended for most Batch accounts. See [Linked Azure Storage account](#linked-azure-storage-account) below for more details.
+    e. **Storage account** (optional): A general-purpose Azure Storage account that you associate with your Batch account. This is recommended for most Batch accounts. See [Linked Azure Storage account](#linked-azure-storage-account) below for more details.
 
 4. Click **Create** to create the account.
    
