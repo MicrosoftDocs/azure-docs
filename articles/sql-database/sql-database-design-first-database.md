@@ -24,14 +24,15 @@ ms.author: janeng
 
 In this tutorial, you are going to learn how to
 
-* Create a database and a server-level firewall rule
-* Connect to an Azure SQL database using SQL Server Management Studio
-* Create a table in the database
-* Load data into the table 
-* Query the table 
-* Add an index to the table to optimize query performance
-* Drop the table 
-* Restore the database to a point in time 
+* [Create a database](sql-database-design-first-database.md#step-2---create-a-sql-database)
+* [Create a server-level firewall rule](sql-database-design-first-database.md#step-3---create-a-server-level-firewall-rule)
+* [Get connection information](sql-database-design-first-database.md#step-4---get-connection-information)
+* [Connect to an Azure SQL database using SQL Server Management Studio](sql-database-design-first-database.md#step-5---connect-to-the-server-using-ssms)
+* [Create and query a table in the database](sql-database-design-first-database.md#step-6---create-and-query-a-table)
+* [Load data into a table](sql-database-design-first-database.md#step-7---load-data-into-the-table) 
+* [Add an index to the table to optimize query performance](sql-database-design-first-database.md#step-8---add-an-index-to-a-table)
+* [Drop a table](sql-database-design-first-database.md#step-9---drop-a-table) 
+* [Restore the database to a point in time](sql-database-design-first-database.md#step-10---restore-database-to-a-point-in-time) 
 
 Before you start:
 
@@ -157,7 +158,7 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
 
 You have now loaded sample data into the table you created earlier.
 
-## Step 8 - Add an index to the Students table and then query the table
+## Step 8 - Add an index to a table
 To make searching for specific values in the table more efficient, create an index on the Students table. An index organizes the data in such a way, that now all data has to be looked at to find a specific value.
 
 1. In an SSMS query window, execute following query:
@@ -176,7 +177,7 @@ To make searching for specific values in the table more efficient, create an ind
 
    This query returns the name, age, and email of students who are older than 20 years old.
 
-## Step 9 - Drop Students table
+## Step 9 - Drop a table
 
 [ADD VERBIAGE HERE]
 
@@ -186,7 +187,7 @@ In an SSMS query window, execute following query:
 DROP TABLE [dbo].[Students]
 ```
 
-## Step 10 - Restore database to a point in time before table creation 
+## Step 10 - Restore a database to a point in time 
 Databases in Azure have continuous backups that are taken automatically every 5 - 10 minutes. These backups allow you to restore your database to a previous point in time. Restoring a database to a different point in time creates a duplicate database in the same server as the original database. The following steps restore the sample database to a point before the *Students* table was added. 
 
 * Navigate to the sample database you created in the quick start
