@@ -26,10 +26,69 @@ Since Service Fabric on Linux is a preview, there are some features that are sup
 * Standalone installer isn't available on Linux.
 * XML schema validation for manifest files is not performed on Linux. 
 * Console redirection isn't supported on Linux (Caution: Using console redirection isn't recommended for use on Windows either, and we plan to deprecate them).
-* Only a subset of Powershell commands can be run against a Linux cluster.
+* The Fault Analysis Service (FAS) isn't available on Linux.
+* Azure Active Directory support isn't available on Linux.
 * Some CLI command equivalents of Powershell commands aren't available.
+* Only a subset of Powershell commands can be run against a Linux cluster (as expanded in the next section).
 
 The development tooling is obviously different with VisualStudio, Powershell,  VSTS and ETW being used on Windows and Yeoman, Eclipse, Jenkins and LTTng used on Linux.
+
+## Powershell cmdlets that won't work against a Linux Service Fabric cluster
+
+* Invoke-ServiceFabricChaosTestScenario
+* Invoke-ServiceFabricFailoverTestScenario
+* Invoke-ServiceFabricPartitionDataLoss
+* Invoke-ServiceFabricPartitionQuorumLoss
+* Restart-ServiceFabricPartition
+* Start-ServiceFabricNode
+* Stop-ServiceFabricNode
+* Get-ServiceFabricImageStoreContent
+* Get-ServiceFabricChaosReport
+* Get-ServiceFabricNodeTransitionProgress
+* Get-ServiceFabricPartitionDataLossProgress
+* Get-ServiceFabricPartitionQuorumLossProgress
+* Get-ServiceFabricPartitionRestartProgress
+* Get-ServiceFabricTestCommandStatusList
+* Remove-ServiceFabricTestState
+* Start-ServiceFabricChaos
+* Start-ServiceFabricNodeTransition
+* Start-ServiceFabricPartitionDataLoss
+* Start-ServiceFabricPartitionQuorumLoss
+* Start-ServiceFabricPartitionRestart
+* Stop-ServiceFabricChaos
+* Stop-ServiceFabricTestCommand
+* Cmd
+* Get-ServiceFabricNodeConfiguration
+* Get-ServiceFabricClusterConfiguration
+* Get-ServiceFabricClusterConfigurationUpgradeStatus
+* Get-ServiceFabricPackageDebugParameters
+* New-ServiceFabricPackageDebugParameter
+* New-ServiceFabricPackageSharingPolicy
+* Add-ServiceFabricNode
+* Copy-ServiceFabricClusterPackage
+* Get-ServiceFabricRuntimeSupportedVersion
+* Get-ServiceFabricRuntimeUpgradeVersion
+* New-ServiceFabricCluster
+* New-ServiceFabricNodeConfiguration
+* Remove-ServiceFabricCluster
+* Remove-ServiceFabricClusterPackage
+* Remove-ServiceFabricNodeConfiguration
+* Test-ServiceFabricClusterManifest
+* Test-ServiceFabricConfiguration
+* Update-ServiceFabricNodeConfiguration
+* Approve-ServiceFabricRepairTask
+* Complete-ServiceFabricRepairTask
+* Get-ServiceFabricRepairTask
+* Invoke-ServiceFabricDecryptText
+* Invoke-ServiceFabricEncryptSecret
+* Invoke-ServiceFabricEncryptText
+* Invoke-ServiceFabricInfrastructureCommand
+* Invoke-ServiceFabricInfrastructureQuery
+* Remove-ServiceFabricRepairTask
+* Start-ServiceFabricRepairTask
+* Stop-ServiceFabricRepairTask
+* Update-ServiceFabricRepairTaskHealthPolicy
+
 
 
 ## Next steps

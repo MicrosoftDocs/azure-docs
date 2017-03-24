@@ -122,6 +122,7 @@ The [Azure cross-platform CLI][azure-xplat-cli-github] includes commands for int
 > [!NOTE]
 > Service Fabric commands are not yet available in Azure CLI 2.0.
 
+
 ## Set up a local cluster
 If everything has installed successfully, you should be able to start a local cluster.
 
@@ -141,19 +142,7 @@ At this point, you are able to deploy pre-built Service Fabric application packa
 > Stand alone clusters aren't supported in Linux - only one box and Azure Linux multi-machine clusters are supported in the preview.
 >
 
-## Install the Java SDK and Eclipse Neon plugin (optional, if you wish to use the Java programming models)
-The Java SDK provides the libraries and templates required to build Service Fabric services using Java.
-
-1. Install the Java SDK package.
-
-    ```bash
-    sudo apt-get install servicefabricsdkjava
-    ```
-2. Run the SDK setup script.
-
-    ```bash
-    sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
-    ```
+## Install the Eclipse Neon plugin (optional)
 
 You can install the Eclipse plugin for Service Fabric from within the **Eclipse IDE for Java Developers**.
 
@@ -168,6 +157,24 @@ You can install the Eclipse plugin for Service Fabric from within the **Eclipse 
 If you already have the Service Fabric Eclipse plugin installed, make sure you are on the latest version. You can check if it can be updated any further be following - ``Help => Installation Details``. Then search for Service fabric in the list of installed plugin and click on update. If there is any pending update, it will be fetched and installed.
 
 For more details on how to use Service Fabric Eclipse plugin to create, build, deploy, upgrade a Service Fabric java application, please refer to our detailed guide - [Service fabric getting started with eclipse](service-fabric-get-started-eclipse.md).
+
+> [!NOTE]
+> At this stage, you can create guest executable or container applications with the Eclipse plugin. However, to use the Reliable Actors or Services programming models, you need to install the Java SDK as outlined in the next section.
+>
+
+## Install the Java SDK (optional, if you wish to use the Java programming models)
+The Java SDK provides the libraries and templates required to build Service Fabric services using Java.
+
+1. Install the Java SDK package.
+
+    ```bash
+    sudo apt-get install servicefabricsdkjava
+    ```
+2. Run the SDK setup script.
+
+    ```bash
+    sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
+    ```
 
 ## Install the .NET Core SDK (optional, if you wish to use the .NET Core programming models)
 The .NET Core SDK provides the libraries and templates required to build Service Fabric services using cross-platform .NET Core.
