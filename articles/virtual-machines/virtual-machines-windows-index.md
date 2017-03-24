@@ -58,7 +58,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Azure infrastructure services implementation guidelines](virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Create an availability set for virtual machines](virtual-machines-windows-classic-configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Create an availability set for virtual machines](windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## Deploy
 [Create a custom virtual machine running Windows](virtual-machines-windows-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
@@ -95,7 +95,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [How to install and configure Trend Micro Deep Security as a Service on a Windows VM](virtual-machines-windows-classic-install-trend.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[How to configure an availability set for virtual machines in the classic deployment model](virtual-machines-windows-classic-configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[How to configure an availability set for virtual machines in the classic deployment model](windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [How to set up endpoints on a classic Azure virtual machine](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
