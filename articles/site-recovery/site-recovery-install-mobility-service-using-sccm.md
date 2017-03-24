@@ -106,11 +106,11 @@ GOTO :ENDSCRIPT
 5. Select the **This package contains source files** check box.
 6. Click **Browse**, and select the network share where the installer is stored (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows).
 
-  ![create-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package.png)
+  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package.png)
 
 7. On the **Choose the program type that you want to create** page, select **Standard Program**, and click **Next**.
 
-  ![create-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
+  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
 
 8. On the **Specify information about this standard program** page, provide the following inputs, and click **Next**. (The other inputs can use their default values.)
  
@@ -120,12 +120,12 @@ GOTO :ENDSCRIPT
 | Command line | install.bat |
 | Program can run | Whether or not a user is logged on |
 
- ![sccm-package-properties](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties.png)
+ ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties.png)
 
 9. On the next page, select the target operating systems. Mobility Service can be installed only on Windows Server 2012 R2, Windows Server 2012, and Windows Server 2008 R2.
 
 
-  ![sccm-package-properties-page2](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)   
+  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)   
 10. To complete the wizard, click **Next** twice.
 
 > [!NOTE]
@@ -133,19 +133,19 @@ GOTO :ENDSCRIPT
 
 ### Step 3: Deploy the package
 1. In the SCCM console, right-click your package, and select **Distribute Content**.
-  ![distribute-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
+  ![Screenshot of SCCM console](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
 2. Select the **[distribution points](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** on to which the packages should be copied.
 3. Complete the wizard. The package then starts replicating to the specified distribution points.
 4. Once the package distribution is done, right-click the package, and select **Deploy**.
-  ![deploy-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
+  ![Screenshot of SCCM console](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
 5. Select the Windows Server device collection you created in the prerequisites section as the target collection for deployment.
 
-  ![sccm-select-target-collection](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection.png)
+  ![Screenshot of Deploy Software wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection.png)
 
 6. On the **Specify the content destination** page, select your **Distribution Points**.
 7. On the **Specify settings to control how this software is deployed** page, ensure that the purpose is **Required**.
 
-  ![sccm-deploy-select-purpose](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
+  ![Screenshot of Deploy Software wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
 
 8. On the **Specify the schedule for this deployment** page, specify a schedule. For more information, see [scheduling packages](https://technet.microsoft.com/library/gg682178.aspx).
 9. On the **Distribution Points** page, configure the properties as per the needs of your datacenter. Then complete the wizard.
@@ -154,7 +154,7 @@ GOTO :ENDSCRIPT
 > To avoid unnecessary reboots, schedule the package installation during your monthly maintenance window or software updates window.
 
 You can monitor the deployment progress by using the SCCM console. Go to **Monitoring** > **Deployments** > *[your package name]*.
-  ![monitor-sccm](./media/site-recovery-install-mobility-service-using-sccm/report.PNG)
+  ![Screenshot of SCCM option to monitor deployments](./media/site-recovery-install-mobility-service-using-sccm/report.PNG)
 
 ## Deploy Mobility Service on computers running Linux
 > [!NOTE]
@@ -263,11 +263,11 @@ exit ${Error}
 5. Select the **This package contains source files** check box.
 6. Click **Browse**, and select the network share where the installer is stored (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux).
 
-  ![create-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package-linux.png)
+  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package-linux.png)
 
 7. On the **Choose the program type that you want to create** page, select **Standard Program**, and click **Next**.
 
-  ![create-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
+  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
 
 8. On the **Specify information about this standard program** page, provide the following inputs, and click **Next**. (The other inputs can use their default values.)
 
@@ -277,30 +277,30 @@ exit ${Error}
 | Command line | ./install_linux.sh |
 | Program can run | Whether or not a user is logged on |
 
-![sccm-package-properties](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-linux.png)   
+![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-linux.png)   
 
 9. On the next page, select **This program can run on any platform**.
-  ![sccm-package-properties-page2](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)   
+  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)   
 
 10. To complete the wizard, click **Next** twice.
 > [!NOTE]
 > The script supports both new installations of Mobility Service agents and updates to agents that are already installed.
 
 ### Step 3: Deploy the package
-1. In the SCCM Console, right-click your package, and select **Distribute Content**.
-  ![distribute-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
+1. In the SCCM console, right-click your package, and select **Distribute Content**.
+  ![Screenshot of SCCM console](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
 2. Select the **[distribution points](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** on to which the packages should be copied.
 3. Complete the wizard. The package then starts replicating to the specified distribution points.
 4. Once the package distribution is done, right-click the package, and select **Deploy**.
-  ![deploy-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
+  ![Screenshot of SCCM console](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
 5. Select the Linux Server device collection you created in the prerequisites section as the target collection for deployment.
 
-  ![sccm-select-target-collection](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection-linux.png)
+  ![Screenshot of Deploy Software wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection-linux.png)
 
 6. On the **Specify the content destination** page, select your **Distribution Points**.
 7. On the **Specify settings to control how this software is deployed** page, ensure that the purpose is **Required**.
 
-  ![sccm-deploy-select-purpose](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
+  ![Screenshot of Deploy Software wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
 
 8. On the **Specify the schedule for this deployment** page, specify a schedule. For more information, see [scheduling packages](https://technet.microsoft.com/library/gg682178.aspx).
 9. On the **Distribution Points** page, configure the properties as per the needs of your datacenter. Then complete the wizard.
