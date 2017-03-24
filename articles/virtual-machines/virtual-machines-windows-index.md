@@ -102,7 +102,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 ## Storage
 [About disks and VHDs for Azure virtual machines](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[How to attach a data disk to a classic Windows virtual machine](virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[How to attach a data disk to a classic Windows virtual machine](windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [How to detach a data disk from a classic Windows virtual machine](virtual-machines-windows-classic-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
