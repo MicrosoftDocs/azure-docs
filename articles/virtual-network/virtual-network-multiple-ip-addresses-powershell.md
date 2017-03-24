@@ -67,7 +67,9 @@ The steps that follow explain how to create an example VM with multiple IP addre
 5. Create a network security group (NSG) and a rule. The NSG secures the VM using inbound and outbound rules. In this case, an inbound rule is created for port 3389, which allows incoming remote desktop connections.
 
 	```powershell
+	
 	# Create an inbound network security group rule for port 3389
+
 	$NSGRule = New-AzureRmNetworkSecurityRuleConfig `
 	-Name MyNsgRuleRDP `
 	-Protocol Tcp `
@@ -91,6 +93,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 	In the following commands, **Replace <replace-with-your-unique-name> with the unique DNS name to use.** The name must be unique across all public IP addresses within an Azure region. This is an optional parameter. It can be removed if you only want to connect to the VM using the public IP address.
 
 	```powershell
+	
 	# Create a public IP address
 	$PublicIP1 = New-AzureRmPublicIpAddress `
 	-Name "MyPublicIP1" `
@@ -117,6 +120,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 7. Define the secondary IP configurations for the NIC. You can add or remove configurations as necessary. Each IP configuration must have a private IP address assigned. Each configuration can optionally have one public IP address assigned.
 
 	```powershell
+	
 	# Create a public IP address
 	$PublicIP2 = New-AzureRmPublicIpAddress `
 	-Name "MyPublicIP2" `
@@ -142,6 +146,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 8. Create the NIC and associate the three IP configurations to it:
 
 	```powershell
+	
 	$NIC = New-AzureRmNetworkInterface `
 	-Name MyNIC `
 	-ResourceGroupName $RgName `
@@ -156,6 +161,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 9. Create the VM by entering the following commands:
 
 	```powershell
+	
 	# Define a credential object. When you run these commands, you're prompted to enter a sername and password for the VM you're reating.
 	$cred = Get-Credential
 	
@@ -280,7 +286,7 @@ You can add private and public IP addresses to a NIC by completing the steps tha
 
 		```		
 		Name       PrivateIpAddress PublicIpAddress                                           Primary
-		---------- ---------------- --------------------------------------------------------- -------
+		
 		IPConfig-1 10.0.0.4         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress    True
 		IPConfig-2 10.0.0.5         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress   False
 		IpConfig-3 10.0.0.6                                                                     False
