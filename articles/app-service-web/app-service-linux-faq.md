@@ -66,6 +66,14 @@ If you have a question, please comment on the article and we will answer it as s
 
 **A:** We mount an SMB share to \home\ directory; thus overriding any content there.
 
+**Q:** What is the format for private registry server url?
+
+**A:** You need to enter the full registry url including "http://" or "https://".
+
+**Q:** What is the format for the image name in private registry option?
+
+**A:** You need to add the full image name including the private registry url (eg. myacr.azurecr.io/dotnet:latest)
+
 **Q:** I want to expose more than one port on my custom container image. Is that possible?
 
 **A:** Currently that is not supported.
