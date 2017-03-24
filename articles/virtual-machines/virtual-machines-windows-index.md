@@ -135,7 +135,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
 
-[SAP](virtual-machines-windows-classic-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[SAP](windows/classic/sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [SQL Server](./windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 
