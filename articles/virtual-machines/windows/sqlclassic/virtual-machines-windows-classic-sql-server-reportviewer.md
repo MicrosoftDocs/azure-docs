@@ -88,5 +88,5 @@ For instructions on publishing an ASP.NET Web application to Azure, see [How to:
 
 [SQL Server Business Intelligence in Azure Virtual Machines](../classic/ps-sql-bi.md)
 
-[Use PowerShell to Create an Azure VM With a Native Mode Report Server](virtual-machines-windows-classic-ps-sql-report.md)
+[Use PowerShell to Create an Azure VM With a Native Mode Report Server](../classic/ps-sql-report.md)
 

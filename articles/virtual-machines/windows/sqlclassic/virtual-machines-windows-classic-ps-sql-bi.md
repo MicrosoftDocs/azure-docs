@@ -135,7 +135,7 @@ Analysis Services, Reporting Services, SQL Server Database Engine, and data sour
 The virtual machine gallery image for SQL Server includes Reporting Services Native mode installed, however the report server is not configured. The steps in this section configure the Reporting Services report server. For more detailed information on configuring Reporting Services Native mode, see [Install Reporting Services Native Mode Report Server (SSRS)](https://msdn.microsoft.com/library/ms143711.aspx).
 
 > [!NOTE]
-> For similar content that uses Windows PowerShell scripts to configure the report server, see [Use PowerShell to Create an Azure VM With a Native Mode Report Server](virtual-machines-windows-classic-ps-sql-report.md).
+> For similar content that uses Windows PowerShell scripts to configure the report server, see [Use PowerShell to Create an Azure VM With a Native Mode Report Server](../classic/ps-sql-report.md).
 
 ### Connect to the Virtual Machine and Start the Reporting Services Configuration Manager
 There are two common workflows for connecting to an Azure Virtual Machine:
