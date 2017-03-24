@@ -111,7 +111,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 ## Networking
 [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
 
-[Connect virtual machines created with the classic deployment model with a virtual network or cloud service](virtual-machines-windows-classic-connect-vms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Connect virtual machines created with the classic deployment model with a virtual network or cloud service](windows/classic/connect-vms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Manage NSGs using Azure PowerShell](../virtual-network/virtual-networks-create-nsg-classic-ps.md)
 

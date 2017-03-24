@@ -21,7 +21,7 @@
 
 ## Network
 ### [How to set up endpoints](../../virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-### [Connect VMs with a VNet or Cloud Service](../../virtual-machines-windows-classic-connect-vms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+### [Connect VMs with a VNet or Cloud Service](connect-vms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Connect Classic VNets to Resource Manager VNets](../../../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Create a load balancer](../../../load-balancer/load-balancer-get-started-internet-classic-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Manage NSGs using Azure PowerShell](../../../virtual-network/virtual-networks-create-nsg-classic-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
