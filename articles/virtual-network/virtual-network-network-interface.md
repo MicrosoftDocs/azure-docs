@@ -25,7 +25,7 @@ Learn about network interfaces (NIC) and how to work with them. A NIC is the int
 
 ![Network interface](./media/virtual-network-network-interface/nic.png)
 
-This article explains how to work with the concepts shown in the picture. Click any of the following concepts to go directly to that section of the article.
+This article explains how to work with the concepts shown in the picture. Click any of the following concepts to go directly to that section of the article:
 
 - [Network interfaces](#nics): A NIC is connected to one subnet within an Azure Virtual Network (VNet). In the picture, **VM1** has two NICs attached to it and **VM1** has one NIC attached to it. Each NIC is connected to the same VNet, but to different subnets. This section provides steps to list existing NICs, and create, change, and delete NICs. 
 - [IP configurations](#ip-configs): One or more IP configurations are associated to each NIC. Each IP configuration has a private IP address assigned to it. An IP configuration may have a public IP address associated to it. In the picture, **NIC1** and **NIC3** each have one IP configuration associated to them, while **NIC2** has two IP configurations associated to it. The IP configuration assigned to NIC1 and NIC3 have public IP addresses assigned, whereas neither IP configuration assigned to NIC2 has a public IP address assigned to it. This section provides steps to create, change, and delete IP configurations with private IP addresses assigned using the static and dynamic assignment methods. This section also provides steps to associate and disassociate public IP addresses to and from an IP configuration. 
@@ -72,7 +72,7 @@ The Azure portal creates a primary IP configuration named **ipconfig1** with a d
 > Azure assigns a MAC address to the NIC only after the NIC is attached to a VM and the VM is started the first time. You cannot specify the MAC address that Azure assigns to the NIC. The MAC address remains assigned to the NIC until the NIC is deleted or the private IP address assigned to the primary IP configuration of the primary NIC is changed. To learn more about IP configurations, read the [IP configurations](#ip-configs) section of this article.
 
 |**Tool**|**Command**|
-|---|---|
+|:---|:---|
 |**CLI**|[az network nic create](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
 |**PowerShell**|[New-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/new-azurermnetworkinterface/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
 
@@ -177,7 +177,7 @@ The Azure DHCP servers assign the private IP address for the primary IP configur
 
 Assigning multiple IP addresses to a NIC is helpful in scenarios such as:
 - Hosting multiple websites or services with different IP addresses and SSL certificates on a single server.
-- Serve as a network virtual appliance, such as a firewall or load balancer.
+- A VM serving as a network virtual appliance, such as a firewall or load balancer.
 - The ability to add any of the private IP addresses for any of the NICs to an Azure Load Balancer back-end pool. In the past, only the primary IP address for the primary NIC could be added to a back-end pool. To learn more about how to load balance multiple IP configurations, read the [Load balancing multiple IP configurations](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article.
 
 There is a limited number of public IP addresses that can be used within a subscription and a limited number of private IP addresses that can be assigned to a NIC. To learn more about these limits, read the [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article.
@@ -253,11 +253,11 @@ To associate an NSG to a NIC or disassociate an NSG from a NIC, complete the fol
 |**Tool**|**Command**|
 |---|---|
 |**CLI**|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)]|
+|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vms"></a>Attach and detach NICs to or from a virtual machine
 
-You can attach an existing NIC to a VM when you create it or you can attach an existing NIC to an existing VM. You can also detach a NIC from an existing VM. Though the portal creates a NIC when you create a VM, it does not allow you to:
+You can attach an existing NIC to a VM when you create it or you can attach an existing NIC to an existing VM. You can also detach a NIC from an existing VM that has at least two NICs. Though the portal creates a NIC when you create a VM, it does not allow you to:
 
 - Specify an existing NIC to attach when creating the VM
 - Create a VM with multiple NICs attached
@@ -271,6 +271,7 @@ You can use PowerShell or the CLI to create a NIC or VM with all the previous at
 - By default, all outbound traffic from the VM is sent out the IP address assigned to the primary IP configuration of the primary NIC. You can of course, control which IP address is used for outbound traffic within the VM's operating system.
 - In the past, all VMs within the same availability set were required to have a single, or multiple, NICs. VMs with any number of NICs can now exist in the same availability set. A VM can only be added to an availability set when it's created though. To learn more about availability sets, read the [Manage the availability of Windows virtual machines in Azure](../virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) article.
 - While NICs attached to the same VM can be connected to different subnets within a VNet, the NICs must all be connected to the same VNet.
+- You can add any IP address for any IP configuration of any primary or secondary NIC to an Azure Load Balancer back-end pool. In the past, only the primary IP address for the primary NIC could be added to a back-end pool.
 
 ### <a name="vm-create"></a>Attach one or more NICs when creating a virtual machine
 
@@ -300,7 +301,7 @@ The VM you want to attach a NIC to must support multiple NICs and be in the stop
 
 ### <a name="vm-detach-nic"></a>Detach a NIC from an existing virtual machine
 
-The VM you want to detach a NIC from must be in the stopped (deallocated) state. You can detach any NIC, even the primary NIC. Azure assigns the primary attribute to another NIC in the VM. You cannot detach NICs from a VM using the Azure portal. You can use the following Azure CLI or PowerShell commands to detach NICs from VMs:
+The VM you want to detach a NIC from must be in the stopped (deallocated) state and must currently have at least two attached NICs. You can detach any NIC, but the VM must always have at least one NIC attached. If you detach a primary NIC, Azure assigns the primary attribute to a remaining attached NIC that's been attached to the VM the longest. You can also designate any NIC as the primary yourself. You cannot detach NICs from a VM, nor set the primary attribute for a NIC using the Azure portal, though you can accomplish both operations using the CLI or PowerShell. You can use the following Azure CLI or PowerShell commands to detach NICs from VMs:
 
 - **CLI:** [az vm nic remove](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#remove)
 - **PowerShell:** [Remove-AzureRMVMNetworkInterface](/powershell/resourcemanager/azurerm.compute/v2.5.0/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)

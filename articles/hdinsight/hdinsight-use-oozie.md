@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 
 ---
 # Use Oozie with Hadoop to define and run a workflow in HDInsight

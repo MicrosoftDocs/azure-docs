@@ -32,7 +32,7 @@ Learn how to analyze flight delay data using Hive on Linux-based HDInsight then 
 
 * **Azure SQL Database**. You use an Azure SQL database as a destination data store. If you do not have a SQL Database already, see [SQL Database tutorial: Create a SQL database in minutes](../sql-database/sql-database-get-started.md).
 
-* **Azure CLI**. If you have not installed the Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) for more steps.
+* **Azure CLI**. If you have not installed the Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) for more steps.
 
 ## Download the flight data
 
