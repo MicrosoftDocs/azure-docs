@@ -67,5 +67,5 @@ This article focuses on options to create HPC Pack clusters to run Windows workl
 * [Burst to Azure Batch with HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 
 ## Create RDMA clusters for MPI workloads
-* [Set up a Windows RDMA cluster with HPC Pack to run MPI applications](virtual-machines-windows-classic-hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Set up a Windows RDMA cluster with HPC Pack to run MPI applications](windows/classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
