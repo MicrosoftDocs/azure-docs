@@ -21,12 +21,12 @@ ms.author: jgao
 # Create Hadoop clusters in HDInsight using Resource Manager templates
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Read this article to learn how to create Azure HDInsight clusters using Azure Resource Manager templates. For more information, see [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). To learn about other cluster creation tools and features, click the tab selector on the top of this page or see [Cluster creation methods](hdinsight-hadoop-provision-linux-clusters.md#cluster-creation-methods).
+In this article, you learn several ways to create Azure HDInsight clusters with Azure Resource Manager templates. For more information, see [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). To learn about other cluster creation tools and features, click the tab selector on the top of this page or see [Cluster creation methods](hdinsight-hadoop-provision-linux-clusters.md#cluster-creation-methods).
 
 ## Prerequisites
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-To follow the instructions in this article, you must have:
+To follow the instructions in this article, you'll need:
 
 * An [Azure subscription](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
 * Azure PowerShell and/or Azure CLI
@@ -36,7 +36,7 @@ To follow the instructions in this article, you must have:
 ### Access control requirements
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## Use Resource Manager templates
+### Resource Manager templates
 A Resource Manager template makes it easy to create the following for your application in a single, coordinated operation:
 * HDInsight clusters and their dependent resources (such as the default storage account)
 * Other resources (such as Azure SQL Database to use Apache Sqoop) 
@@ -50,7 +50,7 @@ For more information about Resource Manager templates, see the following article
 * [Author Azure Resource Management templates](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Deploy an application with Azure Resource Manager templates](../azure-resource-manager/resource-group-template-deploy.md)
 
-## Generate a template
+## Generate templates
 
 Using the Azure portal, you can configure all the properties of a cluster and then save the template before deploying it. This allows you to reuse the template.
 
@@ -59,28 +59,26 @@ Using the Azure portal, you can configure all the properties of a cluster and th
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **New** on the left menu, click **Intelligence + analytics**, and then click **HDInsight**.
 3. Follow the instructions to enter properties. You can use either the **Quick create** or the **Custom** option.
-4. On the Summary tab, click **Download template and parameters**:
+4. On the **Summary** tab, click **Download template and parameters**:
 
-    ![HDInsight Hadoop create cluster Resource Management template download](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-download.png)
+    ![HDInsight Hadoop create cluster Resource Manager template download](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-download.png)
 
-    This lists the template file, the parameters file, and the code samples used to deploy the template:
+    You see a list of the template file, parameters file, and code samples used to deploy the template:
 
-    ![HDInsight Hadoop create cluster Resource Management template download options](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-download-options.png)
+    ![HDInsight Hadoop create cluster Resource Manager template download options](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-download-options.png)
 
     From here, you can download the template, save it to your template library, or deploy the template.
 
     To access a template in your library, click **More services** from the left menu, and then click **Templates** (under the **Other** category).
 
 > [!Note]
-> The template and parameters file must be used together. Otherwise, you might get unexpected results. For example, the default `clusterKind` property value is always `hadoop`, despite what you specify before you download the template.
+> The template and parameters file must be used together. Otherwise, you might get unexpected results. For example, the default **clusterKind** property value is always **hadoop**, despite what you specify before you download the template.
 
 
 
-## Deploy with PowerShell
+### Deploy with PowerShell
 
-The following procedure creates a Hadoop cluster in HDInsight.
-
-**To deploy a cluster using Resource Manager template**
+This procedure creates a Hadoop cluster in HDInsight.
 
 1. Save the JSON file in [Appendix A](#appx-a-arm-template) to your workstation. In the PowerShell script, the file name is `C:\HDITutorials-ARM\hdinsight-arm-template.json`.
 2. Set the parameters and variables if needed.
@@ -134,12 +132,12 @@ The following procedure creates a Hadoop cluster in HDInsight.
         # List cluster
         Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName
 
-    The PowerShell script configures only the cluster name. The storage account name is hard-coded in the template. You are prompted to enter the cluster user password. (The default username is *admin*.) You are also prompted to enter the SSH user password. (The default SSH username is *sshuser*.)  
+    The PowerShell script configures only the cluster name. The storage account name is hard-coded in the template. You are prompted to enter the cluster user password. (The default username is **admin**.) You are also prompted to enter the SSH user password. (The default SSH username is **sshuser**.)  
 
 For more information, see  [Deploy with PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy).
 
-## Deploy with CLI
-The following sample creates a cluster and its dependent storage account and container by calling a Resource Manager template:
+### Deploy with CLI
+The following sample uses Azure command-line interface (CLI). It creates a cluster and its dependent storage account and container by calling a Resource Manager template:
 
     azure login
     azure config mode arm
@@ -148,18 +146,18 @@ The following sample creates a cluster and its dependent storage account and con
 
 You are prompted to enter:
 * The cluster name
-* The cluster user password. (The default username is `admin`.)
-* The SSH user password. (The default SSH username is `sshuser`.)
+* The cluster user password. (The default username is **admin**.)
+* The SSH user password. (The default SSH username is **sshuser**.)
 
 The following code provides inline parameters:
 
     azure group deployment create --resource-group "hdi1229rg" --name "hdi1229" --template-file "c:\Tutorials\HDInsightARM\create-linux-based-hadoop-cluster-in-hdinsight.json" --parameters '{\"clusterName\":{\"value\":\"hdi1229\"},\"clusterLoginPassword\":{\"value\":\"Pass@word1\"},\"sshPassword\":{\"value\":\"Pass@word1\"}}'
 
-## Deploy with the REST API
+### Deploy with the REST API
 See [Deploy with the REST API](../azure-resource-manager/resource-group-template-deploy-rest.md).
 
-## Deploy with Visual Studio
- You can use Visual Studio to create a resource group project and deploy it to Azure through the user interface. You select the type of resources to include in your project. Those resources are automatically added to the Resource Manager template. The project also provides a PowerShell script to deploy the template.
+### Deploy with Visual Studio
+ Use Visual Studio to create a resource group project and deploy it to Azure through the user interface. You select the type of resources to include in your project. Those resources are automatically added to the Resource Manager template. The project also provides a PowerShell script to deploy the template.
 
 For an introduction to using Visual Studio with resource groups, see [Creating and deploying Azure resource groups through Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
@@ -176,7 +174,7 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 The following Azure Resource Manager template creates a Linux-based Hadoop cluster with the dependent Azure storage account.
 
 > [!NOTE]
-> The sample includes configuration information for Hive metastore and Oozie metastore.  Remove the section or configure the section before using the template.
+> This sample includes configuration information for Hive metastore and Oozie metastore. Remove the section or configure the section before using the template.
 >
 >
 
