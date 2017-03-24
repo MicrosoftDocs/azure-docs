@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 03/24/2017
 ms.author: jotaub
 ---
 
@@ -21,7 +21,7 @@ ms.author: jotaub
 
 ## Runtime APIs
 
-The following is a listing of all currently available Relay runtime clients. While some of these libraries also include limited management functionality, there are also [specific libraries](#management-apis) dedicated to management operations.
+The following is a listing of all currently available Relay runtime client libraries. While some of these libraries also include limited management functionality, there are also [specific libraries](#management-apis) dedicated to management operations.
 
 See [additional information](#additional-information) for more details on the status of each runtime library.
 
@@ -34,7 +34,7 @@ See [additional information](#additional-information) for more details on the st
 ### Additional information
 
 #### .NET
-The .NET ecosystem has multiple runtimes, hence there are multiple .NET libraries for Event Hubs. The .NET Standard library can be run using either .NET Core or the .NET Framework, while the .NET Framework library can only be run in a .NET Framework environment. For more information on .NET Frameworks, see [framework versions.](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions)
+The .NET ecosystem has multiple runtimes, hence there are multiple .NET libraries for Event Hubs. The .NET Standard library can be run using either .NET Core or the .NET Framework, while the .NET Framework library can only be run in a .NET Framework environment. For more information on .NET Frameworks, see [framework versions](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
 
 ## Management APIs
 
