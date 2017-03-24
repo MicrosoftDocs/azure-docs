@@ -34,9 +34,9 @@ With Run As and Classic Run As accounts, you can:
 * Provide a standardized way to authenticate with Azure when you manage Resource Manager or Service Management resources from runbooks in the Azure portal.
 * Automate the use of global runbooks, which you can configure in Azure Alerts.
 
- > [!NOTE]
- > The [Azure Alert integration feature](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) with Automation global runbooks requires an Automation account that's configured with a Run As account and a Classic Run As account. You can select an Automation account that already has defined Run As and Classic Run As accounts, or you can choose to create a new Automation account.
- >  
+> [!NOTE]
+> The [Azure Alert integration feature](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) with Automation global runbooks requires an Automation account that's configured with a Run As account and a Classic Run As account. You can select an Automation account that already has defined Run As and Classic Run As accounts, or you can choose to create a new Automation account.
+>  
 
 This article shows how to create an Automation account from the Azure portal, update an Automation account by using Azure PowerShell, manage the account configuration, and authenticate in your runbooks.
 
@@ -73,12 +73,12 @@ The **Add Automation Account** blade opens.
 
  ![The "Add Automation Account" blade](media/automation-sec-configure-azure-runas-account/create-automation-account-properties-b.png)
 
-  > [!NOTE]
-  > If your account is not a member of the subscription administrators role and co-administrator of the subscription, the following warning is displayed on the **Add Automation Account** blade:
-  >
-  >![Add Automation Account Warning](media/automation-sec-configure-azure-runas-account/create-account-without-perms.png)
-  >
-  >
+   > [!NOTE]
+   > If your account is not a member of the subscription administrators role and co-administrator of the subscription, the following warning is displayed on the **Add Automation Account** blade:
+   >
+   >![Add Automation Account Warning](media/automation-sec-configure-azure-runas-account/create-account-without-perms.png)
+   >
+   >
 
 4. On the **Add Automation Account** blade, in the **Name** box, type a name for your new Automation account.
 
