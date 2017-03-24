@@ -1,5 +1,5 @@
 ---
-How to share marketplace publishing and cloud partner portal Feedback  | Microsoft Docs
+title: How to share marketplace publishing and cloud partner portal Feedback  | Microsoft Docs
 description: Please share your feedback for the marketplace publishing and cloud partner portal.
 services: marketplace-publishing
 documentationcenter: ''
@@ -15,7 +15,9 @@ ms.workload: na
 ms.date: 03/23/2017
 ms.author: rupesk@microsoft.com
 
+
 ---
+
 # Feedback: Marketplace publishing and Cloud partner portal. 
 
 Microsoft wants to make the Azure Marketplace publishing process and cloud partner portal experience process as easy and as intuitive as possible. We’re looking to you to let us know if we hit the mark or if we have things to work on. We promise to triage and review all partner feedback. Will you take a minute and let us know what you think?.

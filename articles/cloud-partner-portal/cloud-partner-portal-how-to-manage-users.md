@@ -1,6 +1,6 @@
 ---
-Cloud partner portal provides users the capability to add users with role based access. This helps manage access and permissions to the offers while multiple people are working on it. 
-
+title: Managing Users
+description:Cloud partner portal provides users the capability to add users with role based access. This helps manage access and permissions to the offers while multiple people are working on it. 
 documentationcenter: ''
 author: rupeskazure
 manager: hamidm
