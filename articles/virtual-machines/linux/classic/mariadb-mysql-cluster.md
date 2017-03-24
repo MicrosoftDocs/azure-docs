@@ -344,7 +344,7 @@ The database you created returns the following table:
 ## Next steps
 In this article, you created a three-node MariaDB + Galera highly available cluster on Azure virtual machines running CentOS 7. The VMs are load balanced with Azure Load Balancer.
 
-You might want to look at [another way to cluster MySQL on Linux](../../virtual-machines-linux-classic-mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) and ways to [optimize and test MySQL performance on Azure Linux VMs](../../virtual-machines-linux-classic-optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+You might want to look at [another way to cluster MySQL on Linux](mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) and ways to [optimize and test MySQL performance on Azure Linux VMs](../../virtual-machines-linux-classic-optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 <!--Anchors-->
 [Architecture overview]:#architecture-overview
