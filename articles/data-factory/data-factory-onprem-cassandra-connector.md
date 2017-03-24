@@ -45,15 +45,15 @@ The following example provides sample JSON definitions that you can use to creat
 ## Sample: Copy data from Cassandra to Blob
 The sample copies data from a Cassandra database to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. Data can be copied directly to any of the sinks stated in the [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores-and-formats) article by using the Copy Activity in Azure Data Factory.
 
-* A linked service of type [OnPremisesCassandra](#onpremisescassandra-linked-service-properties).
-* A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-* An input [dataset](data-factory-create-datasets.md) of type [CassandraTable](#cassandratable-properties).
-* An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-* A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [CassandraSource](#cassandrasource-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+* A linked service of type [OnPremisesCassandra](#linked-service-properties).
+* A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+* An input [dataset](data-factory-create-datasets.md) of type [CassandraTable](#dataset-properties).
+* An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+* A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [CassandraSource](#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 **Cassandra linked service**
 
-This example uses the **Cassandra** linked service. See [Cassandra linked service](#onpremisescassandra-linked-service-properties) section for the properties supported by this linked service.  
+This example uses the **Cassandra** linked service. See [Cassandra linked service](#linked-service-properties) section for the properties supported by this linked service.  
 
 ```JSON
 {
@@ -146,7 +146,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1).
 
 The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **CassandraSource** and **sink** type is set to **BlobSink**.
 
-See [RelationalSource type properties](#cassandrasource-type-properties) for the list of properties supported by the RelationalSource.
+See [RelationalSource type properties](#copy-activity-properties) for the list of properties supported by the RelationalSource.
 
 ```JSON
 {  
@@ -196,7 +196,7 @@ See [RelationalSource type properties](#cassandrasource-type-properties) for the
 }
 ```
 
-## OnPremisesCassandra linked service properties
+## Linked service properties
 The following table provides description for JSON elements specific to Cassandra linked service.
 
 | Property | Description | Required |
@@ -210,7 +210,7 @@ The following table provides description for JSON elements specific to Cassandra
 | gatewayName |The name of the gateway that is used to connect to the on-premises Cassandra database. |Yes |
 | encryptedCredential |Credential encrypted by the gateway. |No |
 
-## CassandraTable properties
+## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
 The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **CassandraTable** has the following properties
@@ -220,7 +220,7 @@ The **typeProperties** section is different for each type of dataset and provide
 | keyspace |Name of the keyspace or schema in Cassandra database. |Yes (If **query** for **CassandraSource** is not defined). |
 | tableName |Name of the table in Cassandra database. |Yes (If **query** for **CassandraSource** is not defined). |
 
-## CassandraSource type properties
+## Copy activity properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
