@@ -27,7 +27,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 ## Overview
 [About virtual machines](virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Frequently asked question about Azure Virtual Machines created with the classic deployment model](virtual-machines-windows-classic-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Frequently asked question about Azure Virtual Machines created with the classic deployment model](windows/classic/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Compare VMs, websites, and cloud services](../app-service-web/choose-web-site-cloud-service-vm.md)
 
