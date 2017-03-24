@@ -143,9 +143,61 @@ namespace reducer
 
 After creating the application, build it to produce the `/bin/Debug/reducer.exe` file in the project directory.
 
+## Upload to storage
+
+1. In Visual Studio, open **Server Explorer**.
+
+2. Expand **Azure**, and then expand **HDInsight**.
+
+3. If prompted, enter your Azure subscription credentials, and then click **Sign In**.
+
+4. Expand the HDInsight cluster that you wish to deploy this application to. An entry with the text __(Default Storage Account)__ is listed.
+
+    ![Server Explorer showing the storage account for the cluster](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
+
+    * If this entry can be expanded, you are using an __Azure Storage Account__ as default storage for the cluster. To view the files on the default storage for the cluster, expand the entry and then double-click the __(Default Container)__.
+
+    * If this entry cannot be expanded, you are using __Azure Data Lake Store__ as the default storage for the cluster. To view the files on the default storage for the cluster, double-click the __(Default Storage Account)__ entry.
+
+6. To upload the .exe files, use one of the following methods:
+
+    * If using an __Azure Storage Account__, click the upload icon, and then browse to the **bin\debug** folder for the **mapper** project. Finally, select the **mapper.exe** file and click **Ok**.
+
+        ![upload icon](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
+    
+    * If using __Azure Data Lake Store__, right-click an empty area in the file listing, and then select __Upload__. Finally, select the **mapper.exe** file and click **Open**.
+
+    Once the __mapper.exe__ upload has finished, repeat the upload process for the __reducer.exe__ file.
+
 ## Run a job: Using an SSH session
 
+1. Use SSH to connect to the HDInsight cluster. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
+2. Use the following command to start the MapReduce job:
+
+    ```bash
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files /mapper.exe,/reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+    ```
+
+    The following list describes what each parameter does:
+
+    * `hadoop-streaming.jar`: The jar file that contains the streaming MapReduce functionality.
+    * `-files`: Adds the `mapper.exe` and `reducer.exe` files to this job. The `/` before each file is the path in default storage.
+    * `-mapper`: Specifies which file implements the mapper.
+    * `-reducer`: Specifies which file implements the reducer.
+    * `-input`: The input data.
+    * `-output`: The output directory.
+
+3. Once the MapReduce job completes, use the following to view the results:
+
+    ```bash
+    hdfs dfs -text /example/wordcountout/part-00000
+    ```
+
+    The following text is an example of the data returned by this command:
+
+    [tbd]
+    
 ## Run a job: Using PowerShell
 
 Use the following PowerShell script to run a MapReduce job and download the results.
