@@ -111,9 +111,10 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
   3. In the Azure classic portal, on the **Configure single sign-on at ITRP** dialog page, copy the **SAML SSO URL** value, and then paste it into the **SAML SSO URL** textbox.
   4. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Certificate Fingerprint** textbox.
       
-    >[!TIP]
-    >For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
-    >  
+     >[!TIP]
+     >For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
+     >
+    
   5. Click **Save**.
 
 9. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
