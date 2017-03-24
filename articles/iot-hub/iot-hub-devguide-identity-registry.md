@@ -85,16 +85,16 @@ The device data that a given IoT solution stores depends on the specific require
 
 ## Device heartbeat
 
-The IoT Hub identity registry contains a field called **connectionState**. Only use the **connectionState** field during development and debugging. IoT solutions should not query the field at run time (for example, to check if a device is connected in order to decide whether to send a cloud-to-device message or an SMS).
+The IoT Hub identity registry contains a field called **connectionState**. Only use the **connectionState** field during development and debugging. IoT solutions should not query the field at run time (for example, to check if a device is connected to decide whether to send a cloud-to-device message or an SMS).
 
-If your IoT solution needs to know if a device is connected (either at run time, or with more accuracy than the **connectionState** property provides), your should implement the *heartbeat pattern*.
+If your IoT solution needs to know if a device is connected (either at run time, or with more accuracy than the **connectionState** property provides), you should implement the *heartbeat pattern*.
 
 In the heartbeat pattern, the device sends device-to-cloud messages at least once every fixed amount of time (for example, at least once every hour). Therefore, even if a device does not have any data to send, it still sends an empty device-to-cloud message (usually with a property that identifies it as a heartbeat). On the service side, the solution maintains a map with the last heartbeat received for each device. The solution assumes that there is a problem with a device if it does not receive a heartbeat message within the expected time.
 
 A more complex implementation could include the information from [operations monitoring][lnk-devguide-opmon] to identify devices that are trying to connect or communicate but failing. When you implement the heartbeat pattern, make sure to check [IoT Hub Quotas and Throttles][lnk-quotas].
 
 > [!NOTE]
-> If an IoT solution needs the device connection state solely to determine whether to send cloud-to-device messages, and messages are not broadcast to large sets of devices, a much simpler pattern to consider is to use a short Expiry time. This pattern achieves the same result as maintaining a device connection state registry using the heartbeat pattern, while being more efficient. It is also possible, by requesting message acknowledgements, to be notified by IoT Hub of which devices are able to receive messages and which are not online or are failed.
+> If an IoT solution needs the device connection state solely to determine whether to send cloud-to-device messages, and messages are not broadcast to large sets of devices, a simpler pattern to consider is using a short Expiry time. This pattern achieves the same result as maintaining a device connection state registry using the heartbeat pattern, while being more efficient. It is also possible, by requesting message acknowledgements, to be notified by IoT Hub of which devices are able to receive messages and which are not online or are failed.
 
 ## Reference topics:
 
