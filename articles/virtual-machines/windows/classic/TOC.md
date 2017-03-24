@@ -73,7 +73,7 @@
 ### [Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
 ####[Configure Oracle Data Guard for Azure](configure-oracle-data-guard.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ####[Configure Oracle GoldenGate for Azure](configure-oracle-goldengate.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-####[Miscellaneous considerations for images](../../virtual-machines-windows-classic-oracle-considerations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+####[Miscellaneous considerations for images](oracle-considerations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ####[List of Oracle VM images](../../virtual-machines-windows-classic-oracle-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [SAP](../../virtual-machines-windows-classic-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
