@@ -18,7 +18,7 @@ ms.date: 03/15/2017
 ms.author: cherylmc
 
 ---
-# Create a VNet with a Site-to-Site connection using the Azure portal (classic)
+# Create a Site-to-Site connection using the Azure portal (classic)
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -27,11 +27,12 @@ ms.author: cherylmc
 >
 >
 
+
+A Site-to-Site (S2S) VPN gateway connection is a connection over IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. This type of connection requires a VPN device located on-premises that has a public IP address assigned to it and is not located behind a NAT. Site-to-Site connections can be used for cross-premises and hybrid configurations.
+
 This article walks you through creating a virtual network and a Site-to-Site VPN gateway connection to your on-premises network using the classic deployment model and the Azure portal. 
 
-A Site-to-Site (S2S) VPN gateway connection is a connection over IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. This type of connection requires a VPN device located on-premises that has a public IP address assigned to it and is not located behind a NAT. S2S connections can be used for cross-premises and hybrid configurations or to connect VNets that are in different deployment models.
-
-![Site-to-Site VPN Gateway cross-premises connection diagram](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
+![Site-to-Site VPN Gateway cross-premises connection diagram](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
 
 ### Deployment models and methods for Site-to-Site connections
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
