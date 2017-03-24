@@ -47,6 +47,7 @@
 #### [CLI](storage-file-how-to-use-files-cli.md)
 #### [Storage Explorer](vs-azure-tools-storage-explorer-files.md)
 ### Develop with Azure Files
+#### [.NET](storage-dotnet-how-to-use-file-storage.md)
 #### [Java](storage-java-how-to-use-file-storage.md)
 #### [C++](storage-c-plus-plus-how-to-use-files.md)
 #### [Python](storage-python-how-to-use-file-storage.md)
