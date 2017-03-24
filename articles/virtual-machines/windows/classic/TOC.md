@@ -40,7 +40,7 @@
 ## Configure
 ### [Reset a password or the Remote Desktop service](../../virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Install and configure Symantec Endpoint Protection](install-symantec.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-### [Install and configure Trend Micro Deep Security as a Service](../../virtual-machines-windows-classic-install-trend.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+### [Install and configure Trend Micro Deep Security as a Service](install-trend.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Configure an availability set](configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Resize a Windows VM created in the classic deployment model](../../virtual-machines-windows-classic-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 

@@ -93,7 +93,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [How to install and configure Symantec Endpoint Protection on a Windows VM](windows/classic/install-symantec.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[How to install and configure Trend Micro Deep Security as a Service on a Windows VM](virtual-machines-windows-classic-install-trend.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[How to install and configure Trend Micro Deep Security as a Service on a Windows VM](windows/classic/install-trend.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [How to configure an availability set for virtual machines in the classic deployment model](windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
