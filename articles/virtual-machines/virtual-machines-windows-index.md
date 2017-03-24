@@ -71,7 +71,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Create and configure a classic Windows Virtual Machine in Azure PowerShell](windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Injecting custom data into an Azure virtual machine](virtual-machines-windows-classic-inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Injecting custom data into an Azure virtual machine](windows/classic/inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## Manage
 [Manage your virtual machines by using Azure PowerShell](virtual-machines-windows-classic-manage-psh.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
