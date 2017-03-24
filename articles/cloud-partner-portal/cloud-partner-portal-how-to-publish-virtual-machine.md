@@ -159,7 +159,7 @@ You can set pricing per core for your SKU. For this, you just need to enter a ba
 
 #### Discrete Pricing
 
-You can set the pricing for each sets of cores individually if you would like to price each SKU option separately.
+You can set the pricing for each sets of cores individually if you would like to price each core separately.
 
 **
 **
@@ -189,19 +189,24 @@ VM Images
 
 The next section to complete will be the VM Images section. Before going to this section, you need to have the VHD that you want to publish ready. Here are some links helping you to create your VHD:
 
--   [Technical prerequisites for creating a virtual machine image for the Azure Marketplace](https://github.com/Microsoft/azure-docs/blob/master/articles/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites.md)
+-   [Technical prerequisites for creating a virtual machine image for the Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites)
 
--   [Develop an on-premises virtual machine image for the Azure Marketplace](https://github.com/Microsoft/azure-docs/blob/master/articles/marketplace-publishing/marketplace-publishing-vm-image-creation-on-premise.md)
+-   [Creating and uploading a Linux VHD](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json )
 
--   [How to troubleshoot common issues encountered during VHD creation](https://github.com/Microsoft/azure-docs/blob/master/articles/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting.md)
+-   [Create & test a Linux VM from an image](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 
--   [Guide to create a virtual machine image for the Azure Marketplace](https://github.com/Microsoft/azure-docs/blob/master/articles/marketplace-publishing/marketplace-publishing-vm-image-creation.md)
+-   [Creating and uploading a Windows VHD ](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+
+-   [Create & test a Windows VM from an image](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
+
+-   [How to troubleshoot common issues encountered during VHD creation](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting )
+
 
 Once you have your VHD ready, you can start filling out this section. Here are some details for some of the fields.
 
 ### Recommended VM Sizes
 
-Select up to six recommended virtual machine sizes. These are recommendations that get displayed to the customer in the Pricing tier blade in the Azure Portal when they decide to purchase and deploy your image. **These are only recommendations. The customer is able to select any VM size that accommodates the disks specified in your image.**
+Select up to six recommended virtual machine sizes. These are recommendations that get displayed to the customer in Azure Marketplace and the Pricing tier blade in the Azure Portal when they decide to purchase and deploy your image. **These are only recommendations. The customer is able to select any VM size that accommodates the disks specified in your image.**
 
 ![publishvm9][9]
 
