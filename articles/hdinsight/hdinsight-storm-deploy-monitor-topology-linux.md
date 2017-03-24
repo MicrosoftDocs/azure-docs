@@ -32,11 +32,7 @@ In this document, learn the basics of managing and monitoring Storm topologies r
 
 * **A Linux-based Storm on HDInsight cluster**: see [Get started with Apache Storm on HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md) for steps on creating a cluster
 
-* (Optional) **Familiarity with SSH and SCP**: For more information on using SSH and SCP with HDInsight, see the following documents:
-  
-  * [Use SSH with Linux-based Hadoop on HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-  * [Use SSH with Linux-based Hadoop on HDInsight from PuTTY on Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* (Optional) **Familiarity with SSH and SCP**: For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * (Optional) **Visual Studio**: Azure SDK 2.5.1 or newer and the Data Lake Tools for Visual Studio. For more information, see [Get started using Data Lake Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
@@ -81,11 +77,7 @@ The HDInsight Tools can be used to submit C# or hybrid topologies to your Storm 
    
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
    
-    For more information on using SSH to connect to your HDInsight cluster, see the following documents:
-   
-   * [Use SSH with Linux-based Hadoop on HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-   * [Use SSH with Linux-based Hadoop on HDInsight from PuTTY on Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    For more information on using SSH to connect to your HDInsight cluster, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use the following command to start an example topology:
    
