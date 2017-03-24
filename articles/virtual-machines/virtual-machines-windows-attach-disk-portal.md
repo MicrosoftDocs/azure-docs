@@ -97,5 +97,5 @@ defrag.exe <volume:> -l
 ```
 
 ## Next steps
-If you application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+If you application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](virtual-machines-windows-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

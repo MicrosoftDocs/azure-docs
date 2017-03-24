@@ -33,7 +33,7 @@ You can create a pipeline with a copy activity that moves data from an SFTP sour
 
 - You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. For JSON samples to copy data from SFTP server to Azure Blob Storage, see [JSON examples](#json-examples) section of this articles.
 
-## SFTP linked service properties
+## Linked service properties
 The following table provides description for JSON elements specific to FTP linked service.
 
 | Property | Description | Required |
@@ -151,13 +151,58 @@ To use basic authentication, set `authenticationType` as `SshPublicKey`, and spe
 }
 ```
 
-[!INCLUDE [data-factory-file-share-dataset](../../includes/data-factory-file-share-dataset.md)]
+## Dataset properties
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types.
 
-[!INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
+The **typeProperties** section is different for each type of dataset. It provides information that is specific to the dataset type. The typeProperties section for a dataset of type **FileShare** dataset has the following properties:
 
-[!INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
+| Property | Description | Required |
+| --- | --- | --- |
+| folderPath |Sub path to the folder. Use escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. |Yes |
+| fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: <br/><br/>Data.<Guid>.txt (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
+| fileFilter |Specify a filter to be used to select a subset of files in the folderPath rather than all files.<br/><br/>Allowed values are: `*` (multiple characters) and `?` (single character).<br/><br/>Examples 1: `"fileFilter": "*.log"`<br/>Example 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> fileFilter is applicable for an input FileShare dataset. This property is not supported with HDFS. |No |
+| partitionedBy |partitionedBy can be used to specify a dynamic folderPath, filename for time series data. For example, folderPath parameterized for every hour of data. |No |
+| format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No |
+| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**; and supported levels are: **Optimal** and **Fastest**. For more information, see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+| useBinaryTransfer |Specify whether use Binary transfer mode. True for binary mode and false ASCII. Default value: True. This property can only be used when associated linked service type is of type: FtpServer. |No |
 
-## SFTP Copy Activity type properties
+> [!NOTE]
+> filename and fileFilter cannot be used simultaneously.
+>
+>
+
+### Using partionedBy property
+As mentioned in the previous section, you can specify a dynamic folderPath, filename for time series data with partitionedBy. You can do so with the Data Factory macros and the system variable SliceStart, SliceEnd that indicate the logical time period for a given data slice.
+
+To learn about time series datasets, scheduling, and slices, See [Creating Datasets](data-factory-create-datasets.md), [Scheduling & Execution](data-factory-scheduling-and-execution.md), and [Creating Pipelines](data-factory-create-pipelines.md) articles.
+
+#### Sample 1:
+
+```json
+"folderPath": "wikidatagateway/wikisampledataout/{Slice}",
+"partitionedBy":
+[
+    { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
+],
+```
+In this example {Slice} is replaced with the value of Data Factory system variable SliceStart in the format (YYYYMMDDHH) specified. The SliceStart refers to start time of the slice. The folderPath is different for each slice. Example: wikidatagateway/wikisampledataout/2014100103 or wikidatagateway/wikisampledataout/2014100104.
+
+#### Sample 2:
+
+```json
+"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+"fileName": "{Hour}.csv",
+"partitionedBy":
+ [
+    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
+],
+```
+In this example, year, month, day, and time of SliceStart are extracted into separate variables that are used by folderPath and fileName properties.
+
+## Copy activity properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policies are available for all types of activities.
 
 Whereas, the properties available in the typeProperties section of the activity vary with each activity type. For Copy activity, the type properties vary depending on the types of sources and sinks.
@@ -172,11 +217,11 @@ This sample shows how to copy data from an SFTP server to an Azure Blob Storage.
 
 The sample has the following data factory entities:
 
-* A linked service of type [sftp](#sftp-linked-service-properties).
-* A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-* An input [dataset](data-factory-create-datasets.md) of type [FileShare](#fileshare-dataset-type-properties).
-* An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-* A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [FileSystemSource](#sftp-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+* A linked service of type [sftp](#linked-service-properties).
+* A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+* An input [dataset](data-factory-create-datasets.md) of type [FileShare](#dataset-properties).
+* An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+* A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [FileSystemSource](#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 The sample copies data from an SFTP server to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
@@ -187,7 +232,7 @@ This example uses the basic authentication with user name and password in plain 
 * Basic authentication with encrypted credentials
 * SSH public key authentication
 
-See [FTP linked service](#ftp-linked-service-properties) section for different types of authentication you can use.
+See [FTP linked service](#linked-service-properties) section for different types of authentication you can use.
 
 ```JSON
 
