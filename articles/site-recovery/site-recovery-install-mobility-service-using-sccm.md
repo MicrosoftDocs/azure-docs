@@ -122,13 +122,13 @@ GOTO :ENDSCRIPT
 
  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties.png)
 
+ 9. On the next page, select the target operating systems. Mobility Service can be installed only on Windows Server 2012 R2, Windows Server 2012, and Windows Server 2008 R2.
 
-9. On the next page, select the target operating systems. Mobility Service can be installed only on Windows Server 2012 R2, Windows Server 2012, and Windows Server 2008 R2.
 
+  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png) 
 
-  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)   
+  10. To complete the wizard, click **Next** twice.
 
-10. To complete the wizard, click **Next** twice.
 
 > [!NOTE]
 > The script supports both new installations of Mobility Service agents and updates to agents that are already installed.
@@ -279,12 +279,13 @@ exit ${Error}
 | Command line | ./install_linux.sh |
 | Program can run | Whether or not a user is logged on |
 
-![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-linux.png)   
+![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-linux.png)
 
 9. On the next page, select **This program can run on any platform**.
-  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)   
+  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)
 
-10. To complete the wizard, click **Next** twice.
+10. To complete the wizard, click **Next** twice. 
+ 
 > [!NOTE]
 > The script supports both new installations of Mobility Service agents and updates to agents that are already installed.
 
