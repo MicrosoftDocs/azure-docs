@@ -78,7 +78,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Connect classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 
-[About the virtual machine agent and extensions](virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[About the virtual machine agent and extensions](windows/classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Manage virtual machine extensions](virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
