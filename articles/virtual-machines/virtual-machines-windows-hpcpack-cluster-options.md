@@ -61,7 +61,7 @@ This article focuses on options to create HPC Pack clusters to run Windows workl
 ## Add worker role nodes to an HPC Pack cluster
 * [Burst to Azure worker instances with HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 * [Tutorial: Set up a hybrid cluster with HPC Pack in Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
-* [Add Azure "burst" nodes to an HPC Pack head node in Azure](virtual-machines-windows-classic-hpcpack-cluster-node-burst.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Add Azure "burst" nodes to an HPC Pack head node in Azure](windows/classic/hpcpack-cluster-node-burst.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## Integrate with Azure Batch
 * [Burst to Azure Batch with HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
