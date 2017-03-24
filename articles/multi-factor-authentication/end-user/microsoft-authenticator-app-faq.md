@@ -35,6 +35,14 @@ The reason that the codes change every 30 seconds is so that you never use the s
 
 The codes don't require internet or data, so you don't have to worry about having phone service to sign in, or that the app will use up your data plan. When you close the app, it doesn't keep running in the background so it won't drain your battery. You can close the app and ignore it until the next time that you sign in.  
 
+### I only get notifications when I have the app open. If the app isn't open, I don't get any notifications.
+
+If you encounter this, check the following cases:
+
+- Is your phone in Do Not Disturb or Quiet mode? That mode keeps apps from sending notifications.
+- Is your app enabled for notifications? You can check this by going to 
+- 
+
 ### I'm already using the Microsoft Authenticator application for verification codes. How do I switch to one-click push notifications?
 Approving a sign-in through push notification is only available for personal Microsoft accounts or work and school Microsoft accounts, not for third-party accounts like Google or Facebook. If you have a work or school Microsoft account, your organization can choose to disable this option.
 
