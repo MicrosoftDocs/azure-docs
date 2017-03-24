@@ -231,7 +231,7 @@ For the expected input structure, see [Create or update a virtual machine set](h
 Find the secret in the virtual machine scale set object that is in the key vault. Then, add your certificate reference (the URL and the secret store name) to the list associated with the vault.
 
 > [!NOTE] 
-> Currently,  you cannot remove certificates from VMs by using the virtual machine scale set API.
+> Currently, you cannot remove certificates from VMs by using the virtual machine scale set API.
 >
 
 New VMs will not have the old certificate. However, VMs that have the certificate and which are already deployed will have the old certificate.
