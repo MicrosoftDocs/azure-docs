@@ -177,19 +177,23 @@ To make searching for specific values in the table more efficient, create an ind
    This query returns the name, age, and email of students who are older than 20 years old.
 
 ## Step 9 - Restore a database to a point in time 
-Databases in Azure have continuous backups that are taken automatically every 5 - 10 minutes. These backups allow you to restore your database to a previous point in time. Restoring a database to a different point in time creates a duplicate database in the same server as the original database. The following steps restore the sample database to a point before the *Students* table was added. 
+Databases in Azure have [continuous backups](sql-database-automated-backups.md) that are taken automatically every 5 - 10 minutes. These backups allow you to restore your database to a previous point in time. Restoring a database to a different point in time creates a duplicate database in the same server as the original database as of the point in time you specify (within the retention period for your service tier). The following steps restore the sample database to a point before the **Students** table was added. 
 
-* Navigate to the sample database you created in the quick start
-* Click **Restore** on the database blade 
-* Fill out the SQL Database form with the required information:
-	* DatabaseName: Provide a database name 
-	* Point-in-time: Select the **Point-in-time** tab on the restore blade 
-	* Restore point: Input a time that occurs before the database was changed
+1. On the SQL Database page for your database, click **Restore** on the toolbar. The **Restore** page opens.
+
+    <img src="./media/sql-database-design-first-database/restore.png" alt="restore" style="width: 780px;" />
+
+2. Fill out the **Restore** form with the required information:
+	* Database name: Provide a database name 
+	* Point-in-time: Select the **Point-in-time** tab on the Restore form 
+	* Restore point: Select a time that occurs before the database was changed
 	* Target server: You cannot change this value when restoring a database 
-	* Elastic database pool: Select **None** for this tutorial 
+	* Elastic database pool: Select **None**  
 	* Pricing tier: Select **20 DTUs** and **250 GB** of storage.
 
-You have now restored the sample database to a point in time before the *Students* table was added.
+    <img src="./media/sql-database-design-first-database/restore-point.png" alt="restore-point" style="width: 780px;" />
+
+3. Click **OK** to restore the database to a point in time before the *Students* table was added.
 
 ## Next Steps 
 Samples - [SQL Database PowerShell samples](sql-database-powershell-samples.md)
