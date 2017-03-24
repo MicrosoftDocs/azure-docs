@@ -20,7 +20,7 @@ ms.author: mikeray
 ---
 # Configure an ILB listener for Always On Availability Groups in Azure
 > [!div class="op_single_selector"]
-> * [Internal Listener](virtual-machines-windows-classic-ps-sql-int-listener.md)
+> * [Internal Listener](../classic/ps-sql-int-listener.md)
 > * [External Listener](../classic/ps-sql-ext-listener.md)
 > 
 > 

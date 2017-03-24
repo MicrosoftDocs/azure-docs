@@ -20,7 +20,7 @@ ms.author: mikeray
 ---
 # Configure an external listener for Always On Availability Groups in Azure
 > [!div class="op_single_selector"]
-> * [Internal Listener](virtual-machines-windows-classic-ps-sql-int-listener.md)
+> * [Internal Listener](../classic/ps-sql-int-listener.md)
 > * [External Listener](../classic/ps-sql-ext-listener.md)
 > 
 > 
@@ -44,7 +44,7 @@ Note the following guidelines about the availability group listener in Azure whe
 ## Determine the accessibility of the listener
 [!INCLUDE [ag-listener-accessibility](../../../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-This article focuses on creating a listener that uses **external load balancing**. If you want a listener that is private to your virtual network, see the version of this article that provides steps for setting up an [listener with ILB](virtual-machines-windows-classic-ps-sql-int-listener.md)
+This article focuses on creating a listener that uses **external load balancing**. If you want a listener that is private to your virtual network, see the version of this article that provides steps for setting up an [listener with ILB](../classic/ps-sql-int-listener.md)
 
 ## Create load-balanced VM endpoints with direct server return
 External load balancing uses the virtual the public Virtual IP address of the cloud service that hosts your VMs. So you do not need to create or configure the load balancer in this case.

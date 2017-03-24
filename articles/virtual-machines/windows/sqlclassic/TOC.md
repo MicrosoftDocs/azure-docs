@@ -14,7 +14,7 @@
 ### [High availability options](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
 ### [Configure Always On availability group in the classic portal](../classic/portal-sql-alwayson-availability-groups.md)
 ### [Configure Always On availability group with PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
-### [Configure an internal listener for an availability group](virtual-machines-windows-classic-ps-sql-int-listener.md)
+### [Configure an internal listener for an availability group](../classic/ps-sql-int-listener.md)
 ### [Configure an external listener for an availability group](../classic/ps-sql-ext-listener.md)
 ### [Extend on-premises availability group to Azure](virtual-machines-windows-classic-sql-onprem-availability.md)
 ## Manage
