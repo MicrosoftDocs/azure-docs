@@ -18,7 +18,7 @@
 ### [Configure an external listener for an availability group](../classic/ps-sql-ext-listener.md)
 ### [Extend on-premises availability group to Azure](../classic/sql-onprem-availability.md)
 ## Manage
-### [Use the SQL Server IaaS Agent Extension](virtual-machines-windows-classic-sql-server-agent-extension.md)
+### [Use the SQL Server IaaS Agent Extension](../classic/sql-server-agent-extension.md)
 ### [Automated Patching](../classic/sql-automated-patching.md)
 ### [Configure Azure Key Vault Integration](../classic/ps-sql-keyvault.md)
 ### [Use Premium Storage](virtual-machines-windows-classic-sql-server-premium-storage.md)

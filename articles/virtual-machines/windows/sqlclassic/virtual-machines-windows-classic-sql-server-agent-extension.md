@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 # Automate management tasks on Azure Virtual Machines with the SQL Server Agent Extension (Classic)
 > [!div class="op_single_selector"]
 > * [Resource Manager](../sql/virtual-machines-windows-sql-server-agent-extension.md)
-> * [Classic](virtual-machines-windows-classic-sql-server-agent-extension.md)
+> * [Classic](../classic/sql-server-agent-extension.md)
 > 
 >
  

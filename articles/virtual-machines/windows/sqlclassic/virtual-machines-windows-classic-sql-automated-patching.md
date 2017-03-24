@@ -25,7 +25,7 @@ ms.author: jroth
 > 
 > 
 
-Automated Patching establishes a maintenance window for an Azure Virtual Machine running SQL Server. Automated Updates can only be installed during this maintenance window. For SQL Server, this ensures that system updates and any associated restarts occur at the best possible time for the database. Automated Patching depends on the [SQL Server IaaS Agent Extension](virtual-machines-windows-classic-sql-server-agent-extension.md).
+Automated Patching establishes a maintenance window for an Azure Virtual Machine running SQL Server. Automated Updates can only be installed during this maintenance window. For SQL Server, this ensures that system updates and any associated restarts occur at the best possible time for the database. Automated Patching depends on the [SQL Server IaaS Agent Extension](../classic/sql-server-agent-extension.md).
 
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. To view the Resource Manager version of this article, see [Automated Patching for SQL Server in Azure Virtual Machines Resource Manager](../sql/virtual-machines-windows-sql-automated-patching.md).
@@ -50,7 +50,7 @@ To use Automated Patching, consider the following prerequisites:
 
 **SQL Server IaaS Extension**:
 
-* [Install the SQL Server IaaS Extension](virtual-machines-windows-classic-sql-server-agent-extension.md).
+* [Install the SQL Server IaaS Extension](../classic/sql-server-agent-extension.md).
 
 ## Settings
 The following table describes the options that can be configured for Automated Patching. For classic VMs, you must use PowerShell to configure these settings.
@@ -84,7 +84,7 @@ It could take several minutes to install and configure the SQL Server IaaS Agent
 To disable Automated Patching, run the same script without the -Enable parameter to the New-AzureVMSqlServerAutoPatchingConfig. As with installation, it can take several minutes to disable Automated Patching.
 
 ## Next steps
-For information about other available automation tasks, see [SQL Server IaaS Agent Extension](virtual-machines-windows-classic-sql-server-agent-extension.md).
+For information about other available automation tasks, see [SQL Server IaaS Agent Extension](../classic/sql-server-agent-extension.md).
 
 For more information about running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
 

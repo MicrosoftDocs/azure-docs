@@ -41,7 +41,7 @@ When this feature is enabled, it automatically installs the SQL Server Connector
 Use PowerShell to configure Azure Key Vault Integration. The following sections provide an overview of the required parameters and then a sample PowerShell script.
 
 ### Install the SQL Server IaaS Extension
-First, [install the SQL Server IaaS Extension](virtual-machines-windows-classic-sql-server-agent-extension.md).
+First, [install the SQL Server IaaS Extension](../classic/sql-server-agent-extension.md).
 
 ### Understand the input parameters
 The following table lists the parameters required to run the PowerShell script in the next section.
