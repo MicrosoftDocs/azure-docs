@@ -257,8 +257,7 @@ Once you have encrypted your data disks, you can later add additional virtual di
 For example, lets add a second virtual disk to your VM as follows:
 
 ```azurecli
-az vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
-  --size-in-gb 5
+az vm disk attach-new --resource-group myResourceGroup --vm-name myVM --size-in-gb 5
 ```
 
 Rerun the command to encrypt the virtual disks, this time adding the `--sequence-version` parameter, and incrementing the value from our first run as follows:
