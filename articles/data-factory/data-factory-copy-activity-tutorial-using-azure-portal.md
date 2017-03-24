@@ -198,7 +198,7 @@ In this step, you create a dataset named **InputDataset** that points to a blob 
 3. Click **Deploy** on the toolbar to create and deploy the **InputDataset** dataset. Confirm that you see the **InputDataset** in the tree view.
 
 > [!NOTE]
-> See [Move data from/to Azure Blob](data-factory-azure-blob-connector.md#dataset-type) for details about JSON properties.
+> See [Move data from/to Azure Blob](data-factory-azure-blob-connector.md#dataset-properties) for details about JSON properties.
 > 
 > 
 
