@@ -64,7 +64,7 @@ You can view these logs as plain text by running one of the following commands:
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 
-You must specify the &lt;applicationId>, &lt;user-who-started-the-application>, &lt;containerId>, and &ltworker-node-address> information when running these commands.
+You must specify the &lt;applicationId>, &lt;user-who-started-the-application>, &lt;containerId>, and &lt;worker-node-address> information when running these commands.
 
 ## YARN ResourceManager UI
 The YARN ResourceManager UI runs on the cluster headnode, and can be accessed through the Ambari web UI; however, you must first [create an SSH tunnel](hdinsight-linux-ambari-ssh-tunnel.md) before you can access the ResourceManager UI.
