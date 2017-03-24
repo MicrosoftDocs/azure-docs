@@ -53,10 +53,10 @@ These tutorials are tailored for multiple platforms and can help you quickly sta
 |:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapi-dotnet.md) |[Node.js](active-directory-devquickstarts-webapi-nodejs.md) |
 
-### Querying the directory quickstart guide
-| [![.NET](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md) |
-|:---:|
-| [Azure AD Graph API](active-directory-graph-api-quickstart.md) |
+### Microsoft Graph and Azure AD Graph API quick-start guides
+| [![.NET](./media/active-directory-developers-guide/graph.png)](https://developer.microsoft.com/en-us/graph/quick-start) | [![.NET](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md) |
+|:---:|:---:|
+| [Microsoft Graph](https://developer.microsoft.com/en-us/graph/quick-start) | [Azure AD Graph API](active-directory-graph-api-quickstart.md) |
 
 ## How-tos
 These articles describe how to perform specific tasks by using Azure Active Directory:
