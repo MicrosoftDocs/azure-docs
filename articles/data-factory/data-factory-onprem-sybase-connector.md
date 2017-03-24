@@ -47,11 +47,11 @@ This sample shows how to copy data from a Sybase database to an Azure Blob Stora
 
 The sample has the following data factory entities:
 
-1. A linked service of type [OnPremisesSybase](data-factory-onprem-sybase-connector.md#sybase-linked-service-properties).
-2. A liked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](data-factory-onprem-sybase-connector.md#sybase-dataset-type-properties).
-4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5. The [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](data-factory-onprem-sybase-connector.md#sybase-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+1. A linked service of type [OnPremisesSybase](data-factory-onprem-sybase-connector.md#linked-service-properties).
+2. A liked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](data-factory-onprem-sybase-connector.md#dataset-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. The [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](data-factory-onprem-sybase-connector.md#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 The sample copies data from a query result in Sybase database to a blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
@@ -228,7 +228,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 }
 ```
 
-## Sybase linked service properties
+## Linked service properties
 The following table provides description for JSON elements specific to Sybase linked service.
 
 | Property | Description | Required |
@@ -244,7 +244,7 @@ The following table provides description for JSON elements specific to Sybase li
 
 See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for an on-premises Sybase data source.
 
-## Sybase dataset type properties
+## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
 The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The **typeProperties** section for dataset of type **RelationalTable** (which includes Sybase dataset) has the following properties:
@@ -253,7 +253,7 @@ The typeProperties section is different for each type of dataset and provides in
 | --- | --- | --- |
 | tableName |Name of the table in the Sybase Database instance that linked service refers to. |No (if **query** of **RelationalSource** is specified) |
 
-## Sybase copy activity type properties
+## Copy activity properties
 For a full list of sections & properties available for defining activities, see [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
