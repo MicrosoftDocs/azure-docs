@@ -10,6 +10,7 @@ tags: ''
 
 ms.assetid: a13b2f7a-612d-4800-bc92-7fc0524f3e89
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
