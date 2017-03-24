@@ -2,7 +2,7 @@
 
 
 
-For details about the VM Agents and how they work to support VM Extensions, see [VM Agent and VM Extensions Overview](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+For details about the VM Agents and how they work to support VM Extensions, see [VM Agent and VM Extensions Overview](../articles/virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## Azure VM Extensions
 VM Extensions implement most of the critical functionality that you want to use with your VMs, including basic functionality like resetting passwords, configuring RDP, and many, many others. Because new extensions are added all the time, the number of possible features your VMs support in Azure continues to increase. By default, several basic VM extensions are installed when you create your VM from the Image Gallery, including **IaaSDiagnostics** (currently Windows VMs only), **VMAccess**, and **BGInfo** (also currently Windows only). However, not all extensions are implemented on both Windows and Linux at any specific time, due to the constant flow of feature updates and new extensions.

@@ -49,7 +49,7 @@ To access the Azure RDMA network for Windows MPI traffic, RDMA-capable instances
   ```PowerShell
   Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
-  For more information, see [Virtual machine extensions and features](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). You can also work with extensions for VMs deployed in the [classic deployment model](virtual-machines-windows-classic-manage-extensions.md).
+  For more information, see [Virtual machine extensions and features](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). You can also work with extensions for VMs deployed in the [classic deployment model](windows/classic/manage-extensions.md).
 
 
 ## Considerations for HPC Pack and Windows
