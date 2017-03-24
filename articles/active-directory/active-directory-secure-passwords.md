@@ -21,7 +21,7 @@ ms.author: markvi
 This article discusses best practices you can follow as a user or as an administrator to protect your Azure Active Directory (Azure AD) and Microsoft Account Service accounts. 
 
  >[!NOTE]
- > Azure AD administrators can reset user passwords by clicking the directory name. From the [Azure Management portal](https://manage.windowsazure.com), choose the Users page, click the name of the user, and Reset Password. 
+ >Azure AD administrators can reset user passwords by clicking the directory name. From the [Azure Management portal](https://manage.windowsazure.com), choose the Users page, click the name of the user, and Reset Password. 
  >
 
 Azure AD incorporates the following common approaches to securing passwords:
@@ -69,9 +69,9 @@ And for other Microsoft accounts, their screen looks similar to the one below:
 
 For information about password management in Azure Active Directory, see [How password management works](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-how-it-works).
 
- >![NOTE]
- >If you are an Azure AD administrator, you may want to use [Windows Hello](https://www.microsoft.com/en-us/windows/windows-hello) to avoid having your users create traditional passwords altogether.
- >
+  >![NOTE]
+  >If you are an Azure AD administrator, you may want to use [Windows Hello](https://www.microsoft.com/en-us/windows/windows-hello) to avoid having your users create traditional passwords altogether.
+  >
 
 ## Next steps
 [How to update your own password](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-update-your-own-password)<br>
