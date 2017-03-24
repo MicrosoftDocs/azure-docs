@@ -57,9 +57,9 @@ The following example provides sample JSON definitions that you can use to creat
 ## Sample: Copy data from SQL Server to Azure Blob
 The following sample shows:
 
-1. A linked service of type [OnPremisesSqlServer](linked-service-properties).
+1. A linked service of type [OnPremisesSqlServer](#linked-service-properties).
 2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-3. An input [dataset](data-factory-create-datasets.md) of type [SqlServerTable](dataset-properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [SqlServerTable](#dataset-properties).
 4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 5. The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [SqlSource](#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 

@@ -152,7 +152,7 @@ To use basic authentication, set `authenticationType` as `SshPublicKey`, and spe
 ```
 
 ## Dataset properties
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](../articles/data-factory/data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types.
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types.
 
 The **typeProperties** section is different for each type of dataset. It provides information that is specific to the dataset type. The typeProperties section for a dataset of type **FileShare** dataset has the following properties:
 
@@ -174,7 +174,7 @@ The **typeProperties** section is different for each type of dataset. It provide
 ### Using partionedBy property
 As mentioned in the previous section, you can specify a dynamic folderPath, filename for time series data with partitionedBy. You can do so with the Data Factory macros and the system variable SliceStart, SliceEnd that indicate the logical time period for a given data slice.
 
-To learn about time series datasets, scheduling, and slices, See [Creating Datasets](../articles/data-factory/data-factory-create-datasets.md), [Scheduling & Execution](../articles/data-factory/data-factory-scheduling-and-execution.md), and [Creating Pipelines](../articles/data-factory/data-factory-create-pipelines.md) articles.
+To learn about time series datasets, scheduling, and slices, See [Creating Datasets](data-factory-create-datasets.md), [Scheduling & Execution](data-factory-scheduling-and-execution.md), and [Creating Pipelines](data-factory-create-pipelines.md) articles.
 
 #### Sample 1:
 

@@ -216,11 +216,11 @@ The following examples provide sample JSON definitions that you can use to creat
 ## Example: Copy data from Azure Blob to Azure Data Lake Store
 The following sample shows:
 
-1. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-2. A linked service of type [AzureDataLakeStore](#azure-data-lake-store-linked-service).
-3. An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset).
-4. An output [dataset](data-factory-create-datasets.md) of type [AzureDataLakeStore](#azure-data-lake-store-dataset).
-5. A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-source-and-sink-in-copy-activity) and [AzureDataLakeStoreSink](#azure-data-lake-store-source-and-sink-in-copy-activity).
+1. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+2. A linked service of type [AzureDataLakeStore](#linked-service-properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type [AzureDataLakeStore](#dataset-properties).
+5. A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) and [AzureDataLakeStoreSink](#copy-activity-properties).
 
 The sample copies time-series data from an Azure Blob Storage to Azure Data Lake Store every hour. The JSON properties used in these samples are described in sections following the samples.
 
@@ -405,7 +405,7 @@ The following sample shows:
 2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 3. An input [dataset](data-factory-create-datasets.md) of type [AzureDataLakeStore](#dataset-properties).
 4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-5. A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [AzureDataLakeStoreSource](#copy-activity-properties) and [BlobSink](#copy-activity-properties)
+5. A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [AzureDataLakeStoreSource](#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)
 
 The sample copies time-series data from an Azure Data Lake store to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples.
 

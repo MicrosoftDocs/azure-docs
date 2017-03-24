@@ -47,11 +47,11 @@ This sample shows how to copy data from a Teradata database to an Azure Blob Sto
 
 The sample has the following data factory entities:
 
-1. A linked service of type [OnPremisesTeradata](data-factory-onprem-teradata-connector.md#linked-service-properties).
+1. A linked service of type [OnPremisesTeradata](#linked-service-properties).
 2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-3. An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](data-factory-onprem-teradata-connector.md#dataset-properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](#dataset-properties).
 4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-5. The [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](data-factory-onprem-teradata-connector.md#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+5. The [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 The sample copies data from a query result in Teradata database to a blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
@@ -245,7 +245,7 @@ The following table provides description for JSON elements specific to Teradata 
 
 See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for an on-premises Teradata data source.
 
-## Dataset type properties
+## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
 The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. Currently, there are no type properties supported for the Teradata dataset.

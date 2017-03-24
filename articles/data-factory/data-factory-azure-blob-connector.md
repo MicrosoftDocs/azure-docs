@@ -327,11 +327,11 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 ## Example: Copy data from Azure SQL to Azure Blob
 The following sample shows:
 
-1. A linked service of type [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-database-linked-service).
-2. A linked service of type [AzureStorage](#azure-storage-linked-service).
-3. An input [dataset](data-factory-create-datasets.md) of type [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-table-dataset).
-4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](#azure-blob-dataset).
-5. A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [SqlSource](data-factory-azure-sql-connector.md#sql-source-and-sink-in-copy-activity) and [BlobSink](#azure-blob-source-and-sink-in-copy-activity).
+1. A linked service of type [AzureSqlDatabase](data-factory-azure-sql-connector.md#linked-service-properties).
+2. A linked service of type [AzureStorage](#linked-service-properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [AzureSqlTable](data-factory-azure-sql-connector.md#dataset-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](#dataset-properties).
+5. A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [SqlSource](data-factory-azure-sql-connector.md#copy-activity-properties) and [BlobSink](#copy-activity-properties).
 
 The sample copies time-series data from an Azure SQL table to an Azure blob hourly. The JSON properties used in these samples are described in sections following the samples.
 
