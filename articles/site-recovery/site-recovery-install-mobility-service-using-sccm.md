@@ -114,20 +114,19 @@ GOTO :ENDSCRIPT
 
 8. On the **Specify information about this standard program** page, provide the following inputs, and click **Next**. (The other inputs can use their default values.)
  
-| **Parameter name** | **Value** |
-|--|--|
-| Name | Install Microsoft Azure Mobility Service (Windows) |
-| Command line | install.bat |
-| Program can run | Whether or not a user is logged on |
+  | **Parameter name** | **Value** |
+  |--|--|
+  | Name | Install Microsoft Azure Mobility Service (Windows) |
+  | Command line | install.bat |
+  | Program can run | Whether or not a user is logged on |
 
- ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties.png)
+  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties.png)
 
  9. On the next page, select the target operating systems. Mobility Service can be installed only on Windows Server 2012 R2, Windows Server 2012, and Windows Server 2008 R2.
 
-
   ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png) 
 
-  10. To complete the wizard, click **Next** twice.
+ 10. To complete the wizard, click **Next** twice.
 
 
 > [!NOTE]
@@ -273,13 +272,13 @@ exit ${Error}
 
 8. On the **Specify information about this standard program** page, provide the following inputs, and click **Next**. (The other inputs can use their default values.)
 
-  | **Parameter name** | **Value** |
-|--|--|
-| Name | Install Microsoft Azure Mobility Service (Linux) |
-| Command line | ./install_linux.sh |
-| Program can run | Whether or not a user is logged on |
+    | **Parameter name** | **Value** |
+  |--|--|
+  | Name | Install Microsoft Azure Mobility Service (Linux) |
+  | Command line | ./install_linux.sh |
+  | Program can run | Whether or not a user is logged on |
 
-![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-linux.png)
+  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-linux.png)
 
 9. On the next page, select **This program can run on any platform**.
   ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)
