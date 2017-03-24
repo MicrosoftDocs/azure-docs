@@ -18,7 +18,7 @@ ms.author: jingwang
 
 ---
 # Data Management Gateway
-The Data Management Gateway is a client agent that you must install in your on-premises environment to copy data between cloud and on-premises data stores. The on-premises data stores supported by Data Factory are listed in the [Supported data sources](data-factory-data-movement-activities.md#supported-data-stores-and-formats) section. 
+The Data Management Gateway is a client agent that you must install in your on-premises environment to copy data between cloud and on-premises data stores. The on-premises data stores supported by Data Factory are listed in the [Supported data sources](data-factory-data-movement-activities.md#supported-data-stores-and-formats) section.
 
 > [!NOTE]
 > Currently, gateway supports only the copy activity and stored procedure activity in Data Factory. It is not possible to use the gateway from a custom activity to access on-premises data sources.
@@ -127,14 +127,13 @@ If you move cursor over the system tray icon/notification message, you see detai
 ### Ports and firewall
 There are two firewalls you need to consider: **corporate firewall** running on the central router of the organization, and **Windows firewall** configured as a daemon on the local machine where the gateway is installed.  
 
-![firewalls](./media/data-factory-data-management-gateway/firewalls.png)
+![firewalls](./media/data-factory-data-management-gateway/firewalls2.png)
 
 At corporate firewall level, you need configure the following domains and outbound ports:
 
 | Domain names | Ports | Description |
 | --- | --- | --- |
 | *.servicebus.windows.net |443, 80 |Listeners on Service Bus Relay over TCP (requires 443 for Access Control token acquisition) |
-| *.servicebus.windows.net |9350-9354, 5671 |Optional service bus relay over TCP |
 | *.core.windows.net |443 |HTTPS |
 | *.clouddatahub.net |443 |HTTPS |
 | graph.windows.net |443 |HTTPS |
@@ -142,13 +141,26 @@ At corporate firewall level, you need configure the following domains and outbou
 
 At windows firewall level, these outbound ports are normally enabled. If not, you can configure the domains and ports accordingly on gateway machine.
 
+> [!NOTE]
+> 1. Based on your source/ sinks, you may have to whitelist additional domains and outbound ports in your corporate/ windows firewall.
+> 2. For some Cloud Databases (eg. [SQL Azure Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access), etc.), you may need to whitelist IP address of Gateway machine on there firewall configuration. 
+>
+>
+
+
 #### Copy data from a source data store to a sink data store
 Ensure that the firewall rules are enabled properly on the corporate firewall, Windows firewall on the gateway machine, and the data store itself. Enabling these rules allows the gateway to connect to both source and sink successfully. Enable rules for each data store that is involved in the copy operation.
 
 For example, to copy from **an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink**, do the following steps:
 
-* Allow outbound **TCP** communication on port **1433** for both Windows firewall and corporate firewall
+* Allow outbound **TCP** communication on port **1433** for both Windows firewall and corporate firewall.
 * Configure the firewall settings of Azure SQL server to add the IP address of the gateway machine to the list of allowed IP addresses.
+
+> [!NOTE]
+> If your firewall does not allow outbound port 1433, Gateway will not be able to access Azure SQL directly. In that case you may use Staged Copy to SQL Azure Database/ SQL Azure DW. In this scenario you would only require HTTPS (port 443) for the data movement.
+>
+>
+
 
 ### Proxy server considerations
 If your corporate network environment uses a proxy server to access the internet, configure Data Management Gateway to use appropriate proxy settings. You can set the proxy during the initial registration phase.
