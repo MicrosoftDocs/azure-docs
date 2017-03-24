@@ -88,7 +88,7 @@ To set up autoscale on a virtual machine scale set by using PowerShell, see the 
 
 ## Certificates
 
-### How do I securely ship a certificate to the VM? How do I provision a virtual machine scale set to run a website where the Secure Sockets Layer (SSL) for the website is shipped securely from a certificate configuration? (The common certificate rotation operation would be almost the same as a configuration update operation.) Do you have an example of how to do this? 
+### How do I securely ship a certificate to the VM? How do I provision a virtual machine scale set to run a website where the SSL for the website is shipped securely from a certificate configuration? (The common certificate rotation operation would be almost the same as a configuration update operation.) Do you have an example of how to do this? 
 
 To securely ship a certificate to the VM, you can install a customer certificate directly into a Windows certificate store from the customer's key vault.
 
@@ -125,7 +125,7 @@ For more information, see [Create or update a virtual machine scale set](https:/
   Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
   ```
 
-  This command gives you the input for the Resource Manager template.
+  This command gives you the input for the Azure Resource Manager template.
 
   For an example of how to create a self-signed certificate in a key vault, see [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
 
@@ -179,7 +179,7 @@ Include **osProfile** in your template:
         }
 ```
  
-This JavaScript Object Notation (JSON) block is used in 
+This JSON block is used in 
  [the 101-vm-sshkey GitHub quick start template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
  
 The OS profile also is used in [the grelayhost.json GitHub quick start template](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
@@ -195,7 +195,7 @@ To remove the certificate from existing VMs, write a custom script extension to 
  
 ### How do I inject an existing SSH public key into the virtual machine scale set SSH layer during provisioning? I want to store the SSH public key values in Azure Key Vault, and then use them in my Resource Manager template.
 
-If you are providing the VMs only with a public Secure Shell (SSH) key, you don't need to put the public keys in Key Vault. Public keys are not secret.
+If you are providing the VMs only with a public SSH key, you don't need to put the public keys in Key Vault. Public keys are not secret.
  
 You can provide SSH public keys in plain text when you create a Linux VM:
 
@@ -393,9 +393,9 @@ If the extension definition in the virtual machine scale set model is updated an
 
 If an existing VM is service-healed, it appears as a reboot, and the extensions are not rerun. If it is reimaged, it's like replacing the OS drive with the source image. Any specialization from the latest model, such as extensions, are run.
  
-### How do I join a virtual machine scale set to an Azure Active Directory (Azure AD) domain?
+### How do I join a virtual machine scale set to an Azure AD domain?
 
-To join a virtual machine scale set to an Azure AD domain, you can define an extension. 
+To join a virtual machine scale set to an Azure Active Directory (Azure AD) domain, you can define an extension. 
 
 To define an extension, use the JsonADDomainExtension property:
 
