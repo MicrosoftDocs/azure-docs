@@ -20,7 +20,7 @@
 ## Manage
 ### [Use the SQL Server IaaS Agent Extension](virtual-machines-windows-classic-sql-server-agent-extension.md)
 ### [Automated Patching](virtual-machines-windows-classic-sql-automated-patching.md)
-### [Configure Azure Key Vault Integration](virtual-machines-windows-classic-ps-sql-keyvault.md)
+### [Configure Azure Key Vault Integration](../classic/ps-sql-keyvault.md)
 ### [Use Premium Storage](virtual-machines-windows-classic-sql-server-premium-storage.md)
 ### [Security Considerations](../sql/virtual-machines-windows-sql-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## Backup and restore
