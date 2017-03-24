@@ -27,4 +27,4 @@ ms.author: cynthn
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]
 
 ## Next steps 
-You can also [create a custom virtual machine running Linux](../../virtual-machines-linux-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+You can also [create a custom virtual machine running Linux](../../virtual-machines-linux-classic-createportal.md).

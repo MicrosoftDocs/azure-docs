@@ -26,7 +26,7 @@ Refernce article:
 
 This article shows you how to attach new and existing disks created with the Classic deployment model to a Windows virtual machine using the Azure portal.
 
-You can also [attach a data disk to a Linux VM in the Azure portal](../../virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+You can also [attach a data disk to a Linux VM in the Azure portal](../../virtual-machines-linux-attach-disk-portal.md).
 
 Before you attach a disk, review these tips:
 
@@ -109,4 +109,4 @@ fsutil behavior set DisableDeleteNotify 0
 If your application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](../../virtual-machines-windows-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## Additional resources
-[About disks and VHDs for virtual machines](../../virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[About disks and VHDs for virtual machines](../../virtual-machines-linux-about-disks-vhds.md)
