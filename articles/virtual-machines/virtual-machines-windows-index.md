@@ -91,7 +91,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [About virtual machine extensions and features](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[How to install and configure Symantec Endpoint Protection on a Windows VM](virtual-machines-windows-classic-install-symantec.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[How to install and configure Symantec Endpoint Protection on a Windows VM](windows/classic/install-symantec.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [How to install and configure Trend Micro Deep Security as a Service on a Windows VM](virtual-machines-windows-classic-install-trend.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
