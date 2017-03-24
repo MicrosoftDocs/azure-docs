@@ -42,7 +42,7 @@
 #### [MariaDB cluster tutorial](mariadb-mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 #### [Install MySQL on an OpenSUSE VM](mysql-on-opensuse.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 #### [Using load-balanced sets to clusterize MySQL](mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-#### [Optimizing MySQL performance](../../virtual-machines-linux-classic-optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+#### [Optimizing MySQL performance](optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## Run applications
 ### [Ruby on Rails web application](virtual-machines-linux-classic-ruby-rails-web-app.md)
