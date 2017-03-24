@@ -51,15 +51,3 @@ This article is provided to help an Azure Marketplace publisher and/or co-admini
 10. Every time I am trying to create an image from my VHDs, I get the error “.VHD is already registered with image repository as the resource” in PowerShell. I did not create any image before nor did I find any image with this name in Azure. How do I resolve this?
     
     This usually happen if the user provisioned a VM from this VHD and there is a lock on that VHD. Please check that there is no VM allocated from this VHD. If the error still persist , then please raise a support ticket using this link or from the Publishing portal regarding this (details are given in the answer of question 11).
-11. How do I raise a support ticket for my issue?
-    
-    Please follow the steps below.
-    
-    * Ensure that you are an Azure Certified partner before raising a support ticket. If not, then please apply to the Azure Certified program using this [link](https://azure.microsoft.com/en-us/documentation/articles/marketplace-publishing-azure-certification/).
-    * If you are an approved  Azure Certified partner then please login to the [Publishing portal](https://publish.windowsazure.com/) using a Microsoft account .If you do not have not have a Microsoft account, you can create one using this [link](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
-    * Click on the “Get support” link from the menu under username (see the screenshot below).
-      
-      ![drawing](media/marketplace-publishing-vm-image-creation-troubleshooting/img11_01.png)
-    * Select problem type as “VM image Certification” and Category as “Preparing VHDs for the Azure VM Marketplace” and click on the button “Start request”.
-    * Fill in the details and submit the ticket. The support team will help you to resolve the issue.
-
