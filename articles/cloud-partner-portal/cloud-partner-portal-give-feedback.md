@@ -1,5 +1,5 @@
 ---
-title: How to share Azure marketplace publishing and cloud partner portal Feedback  | Microsoft Docs
+title: Share Azure marketplace publishing and cloud partner portal Feedback  | Microsoft Docs
 description: Please share your feedback for the Azure marketplace publishing and cloud partner portal.
 services: marketplace-publishing
 documentationcenter: ''
