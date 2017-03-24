@@ -25,8 +25,7 @@ An Azure container registry stores and manages private [Docker](http://hub.docke
 For more background and concepts, see [the overview](container-registry-intro.md)
 
 
-> [!NOTE]
-> Container Registry is currently in preview.
+> [!NOTE]> Container Registry is currently in preview.
 > 
 > 
 
@@ -36,7 +35,6 @@ For more background and concepts, see [the overview](container-registry-intro.md
 
 ## Log in to a registry
 Run `docker login` to log in to your container registry with your [registry credentials](container-registry-authentication.md).
-
 The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/active-directory-application-objects.md). For example, you might have assigned a service principal to your registry for an automation scenario. 
 
 ```
@@ -48,7 +46,6 @@ docker login myregistry-contoso.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx
 
 ## Steps to pull and push an image
 The follow example downloads an Nginx image from the public Docker Hub registry, tags it for your private Azure container registry, pushes it to your registry, then pulls it again.
-
 **1. Pull the Docker official image for Nginx**
 
 First pull the public Nginx image to your local computer.
@@ -93,7 +90,7 @@ docker pull myregistry-contoso.azurecr.io/samples/nginx
 **6. Start the Nginx container from your registry**
 
 ```
-docker run -it --rm -p 8080:80 myregistry-exp.azurecr.io/samples/nginx
+docker run -it --rm -p 8080:80 myregistry-contoso.azurecr.io/samples/nginx
 ```
 
 Browse to [http://localhost:8080](http://localhost:8080) to view the running container.
