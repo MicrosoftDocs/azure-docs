@@ -240,7 +240,7 @@ The following table summarizes some of the options available to publish existing
   
   1. Create a .VHD hard drive on your local computer that contains your reports.
   2. Create and install a management certificate.
-  3. Upload the VHD file to Azure using the Add-AzureVHD cmdlet [Create and upload a Windows Server VHD to Azure](../../virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+  3. Upload the VHD file to Azure using the Add-AzureVHD cmdlet [Create and upload a Windows Server VHD to Azure](../classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
   4. Attach the disk to the virtual machine.
 
 ## Install other SQL Server Services and features

@@ -65,7 +65,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Capture a Windows virtual machine created in the classic deployment model](windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Create and upload a classic Windows Server VHD using PowerShell](virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Create and upload a classic Windows Server VHD using PowerShell](windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Automating Azure virtual machine deployment with Chef](virtual-machines-windows-chef-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

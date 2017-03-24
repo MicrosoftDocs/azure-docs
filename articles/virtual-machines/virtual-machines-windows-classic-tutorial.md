@@ -34,7 +34,7 @@ This tutorial shows you how to create an Azure virtual machine (VM) running Wind
 
 This section shows you how to use the **Dashboard** in the Azure portal to select and then create the virtual machine.
 
-You can also create VMs using [your own images](virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). To learn about this and other methods, see [Different ways to create a Windows virtual machine](virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+You can also create VMs using [your own images](windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). To learn about this and other methods, see [Different ways to create a Windows virtual machine](virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 <!-- 02/27/2017 Video removed as it was based on the classic portal. -->
 
