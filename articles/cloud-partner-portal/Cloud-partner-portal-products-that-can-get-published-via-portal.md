@@ -18,7 +18,7 @@ ms.author: rupesk@microsoft.com
 
 ---
 
-# What products can be published via the Cloud Partner Portal. 
+# What products can be published via the Cloud Partner Portal
 
 The Cloud Partner Portal is your hub for publishing your Azure Certified Virtual Machine (VM) image to Microsoft Azure Marketplace or your Cortana Intelligence/Microsoft R Solutions application to Microsoft AppSource.  
 
@@ -57,15 +57,19 @@ Let's get started with the Onboarding process:
  
 Once you've submitted the application form, you will hear back from the Azure Marketplace team within 3 business days with your approval status.  If you are approved, you will be contacted via email by the Azure Marketplace Onboarding team to start the remaining steps of the Onboarding process. This email will contain the following:
  
-•	Promo code waiving the $99 application fee for Dev Center, wh ere you will complete Registration (Step 2)
+•	Promo code waiving the $99 application fee for Dev Center, where you will complete Registration (Step 2)
+
 •	Login details for Cloud Partner Portal
+
 •	Overview of publishing process 
+
 •	Offer for call with Onboarding team to go through process and answer any questions
  
 You can choose to wait until you speak with the Onboarding team to get started with publishing your offer, or you can go ahead and move forward on your own - it's entirely up to you. All the documentation you will need to publish is here, but we will be available to guide you through this process.
  
 ###Step 2: Register by submitting your Dev Center application 
->Note: Approval and background check can take up to 2 weeks. 
+>[!NOTE]
+>Approval and background check can take up to 2 weeks. 
  
 While you are waiting for approval in Developer Center, you can create your Azure Marketplace offer in the CPP cloud partner portal (Step 3) and certify your VM image in Staging (Step 4), but you *must* complete Registration (Step 2) to publish your offer to production and be live on Azure Marketplace . 
 
