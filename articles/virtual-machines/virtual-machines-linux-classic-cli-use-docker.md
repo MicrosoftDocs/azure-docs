@@ -158,23 +158,23 @@ The Docker daemon on the host is configured to listen for and authenticate clien
 * The Azure Docker VM extension also supports Docker Compose, which uses a declarative YAML file to take a developer-modeled application across any environment and generate a consistent deployment. See [Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine].  
 
 <!--Anchors-->
-[Subheading 1]: #subheading-1
-[Subheading 2]: #subheading-2
-[Subheading 3]: #subheading-3
-[Next steps]: #next-steps
+[Subheading 1]:#subheading-1
+[Subheading 2]:#subheading-2
+[Subheading 3]:#subheading-3
+[Next steps]:#next-steps
 
-[How to use the Docker VM Extension with Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
-[Virtual Machine Extensions for Linux and Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
-[Container and Container Management Resources for Azure]: #Container-and-Container-Management-Resources-for-Azure
+[How to use the Docker VM Extension with Azure]:#How-to-use-the-Docker-VM-Extension-with-Azure
+[Virtual Machine Extensions for Linux and Windows]:#Virtual-Machine-Extensions-For-Linux-and-Windows
+[Container and Container Management Resources for Azure]:#Container-and-Container-Management-Resources-for-Azure
 
 
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-hero-tutorial.md
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
-[How to use the Docker VM Extension with the Portal]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
+[Link 1 to another azure.microsoft.com documentation topic]:virtual-machines-windows-hero-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]:../web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]:../storage-whatis-account.md
+[How to use the Docker VM Extension with the Portal]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 
-[Docker User Guide]: https://docs.docker.com/userguide/
+[Docker User Guide]:https://docs.docker.com/userguide/
 
 [Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine]:virtual-machines-linux-docker-compose-quickstart.md

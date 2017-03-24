@@ -35,6 +35,6 @@ ms.author: cynthn
 ## Next steps
 For details about MySQL, see the [MySQL Documentation][MySQLDocs].
 
-[MySQLDocs]: http://dev.mysql.com/doc/index-topic.html
-[MySQL]: http://www.mysql.com
+[MySQLDocs]:http://dev.mysql.com/doc/index-topic.html
+[MySQL]:http://www.mysql.com
 

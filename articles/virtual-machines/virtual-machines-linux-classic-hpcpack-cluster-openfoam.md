@@ -583,19 +583,19 @@ exit ${RTNSTS}
 
 
 <!--Image references-->
-[keygen]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/keygen.png
-[keys]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/keys.png
-[step_variables]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/step_variables.png
-[data_files]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/data_files.png
-[decompose]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/decompose.png
-[job_details]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/job_details.png
-[job_resources]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/job_resources.png
-[task_details1]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/task_details1.png
-[task_dependencies]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/task_dependencies.png
-[creds]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/creds.png
-[heat_map]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/heat_map.png
-[tank]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/tank.png
-[tank_result]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/tank_result.png
-[isosurface]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/isosurface.png
-[isosurface_color]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/isosurface_color.png
-[linux_processes]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/linux_processes.png
+[keygen]:./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/keygen.png
+[keys]:./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/keys.png
+[step_variables]:./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/step_variables.png
+[data_files]:./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/data_files.png
+[decompose]:./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/decompose.png
+[job_details]:./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/job_details.png
+[job_resources]:./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/job_resources.png
+[task_details1]:./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/task_details1.png
+[task_dependencies]:./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/task_dependencies.png
+[creds]:./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/creds.png
+[heat_map]:./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/heat_map.png
+[tank]:./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/tank.png
+[tank_result]:./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/tank_result.png
+[isosurface]:./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/isosurface.png
+[isosurface_color]:./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/isosurface_color.png
+[linux_processes]:./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/linux_processes.png

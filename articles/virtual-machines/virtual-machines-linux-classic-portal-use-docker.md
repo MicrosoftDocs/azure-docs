@@ -134,29 +134,29 @@ Once you complete the above steps, you now have a fully functional Docker host r
 You are ready to go to the [Docker User Guide] and use your Docker VM. If you want to automate creating Docker hosts on Azure VMs through command line interface, see [How to use the Docker VM Extension from the Azure Command-line Interface (Azure CLI)]
 
 <!--Anchors-->
-[Create a new VM from the Image Gallery]: #createvm
-[Create Docker Certificates]: #dockercerts
-[Add the Docker VM Extension]: #adddockerextension
-[Test Docker Client and Azure Docker Host]: #testclientandserver
-[Next steps]: #next-steps
+[Create a new VM from the Image Gallery]:#createvm
+[Create Docker Certificates]:#dockercerts
+[Add the Docker VM Extension]:#adddockerextension
+[Test Docker Client and Azure Docker Host]:#testclientandserver
+[Next steps]:#next-steps
 
 <!--Image references-->
-[StartingPoint]: ./media/StartingPoint.png
-[StartingPoint]: ./media/StartingPoint.png
-[StartingPoint]: ./media/StartingPoint.png
-[StartingPoint]: ./media/StartingPoint.png
-[StartingPoint]: ./media/StartingPoint.png
-[StartingPoint]: ./media/StartingPoint.png
-[StartingPoint]: ./media/StartingPoint.png
-[StartingPoint]: ./media/StartingPoint.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
+[StartingPoint]:./media/StartingPoint.png
+[StartingPoint]:./media/StartingPoint.png
+[StartingPoint]:./media/StartingPoint.png
+[StartingPoint]:./media/StartingPoint.png
+[StartingPoint]:./media/StartingPoint.png
+[StartingPoint]:./media/StartingPoint.png
+[StartingPoint]:./media/StartingPoint.png
+[StartingPoint]:./media/StartingPoint.png
+[6]:./media/markdown-template-for-new-articles/pretty49.png
+[7]:./media/markdown-template-for-new-articles/channel-9.png
 
 
 <!--Link references-->
-[How to use the Docker VM Extension from the Azure Command-line Interface (Azure CLI)]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
-[Azure Linux Agent]: virtual-machines-linux-agent-user-guide.md
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
+[How to use the Docker VM Extension from the Azure Command-line Interface (Azure CLI)]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
+[Azure Linux Agent]:virtual-machines-linux-agent-user-guide.md
+[Link 3 to another azure.microsoft.com documentation topic]:../storage-whatis-account.md
 
-[Running Docker with https]: http://docs.docker.com/articles/https/
-[Docker User Guide]: https://docs.docker.com/userguide/
+[Running Docker with https]:http://docs.docker.com/articles/https/
+[Docker User Guide]:https://docs.docker.com/userguide/

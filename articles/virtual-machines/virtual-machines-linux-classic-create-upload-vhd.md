@@ -108,6 +108,6 @@ To create your own VMs, provide your own username + password, location, DNS name
 ## Next steps
 For more information, see [Azure CLI reference for the Azure classic deployment model](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
-[Step 1: Prepare the image to be uploaded]: #prepimage
-[Step 2: Prepare the connection to Azure]: #connect
-[Step 3: Upload the image to Azure]: #upload
+[Step 1: Prepare the image to be uploaded]:#prepimage
+[Step 2: Prepare the connection to Azure]:#connect
+[Step 3: Upload the image to Azure]:#upload

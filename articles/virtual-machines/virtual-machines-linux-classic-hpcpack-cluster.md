@@ -299,16 +299,16 @@ The HPC Pack [clusrun](https://technet.microsoft.com/library/cc947685.aspx) tool
 * If you are interested in working with Linux nodes in an on-premises HPC Pack cluster, see the [TechNet guidance](https://technet.microsoft.com/library/mt595803.aspx).
 
 <!--Image references-->
-[scenario]: ./media/virtual-machines-linux-classic-hpcpack-cluster/scenario.png
-[portal]: ./media/virtual-machines-linux-classic-hpcpack-cluster/portal.png
-[validate]: ./media/virtual-machines-linux-classic-hpcpack-cluster/validate.png
-[resources]: ./media/virtual-machines-linux-classic-hpcpack-cluster/resources.png
-[deploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster/deploy.png
-[management]: ./media/virtual-machines-linux-classic-hpcpack-cluster/management.png
-[heatmap]: ./media/virtual-machines-linux-classic-hpcpack-cluster/heatmap.png
-[fileshareperms]: ./media/virtual-machines-linux-classic-hpcpack-cluster/fileshare1.png
-[filesharing]: ./media/virtual-machines-linux-classic-hpcpack-cluster/fileshare2.png
-[nfsauth]: ./media/virtual-machines-linux-classic-hpcpack-cluster/nfsauth.png
-[nfsshare]: ./media/virtual-machines-linux-classic-hpcpack-cluster/nfsshare.png
-[nfsperm]: ./media/virtual-machines-linux-classic-hpcpack-cluster/nfsperm.png
-[nfsmanage]: ./media/virtual-machines-linux-classic-hpcpack-cluster/nfsmanage.png
+[scenario]:./media/virtual-machines-linux-classic-hpcpack-cluster/scenario.png
+[portal]:./media/virtual-machines-linux-classic-hpcpack-cluster/portal.png
+[validate]:./media/virtual-machines-linux-classic-hpcpack-cluster/validate.png
+[resources]:./media/virtual-machines-linux-classic-hpcpack-cluster/resources.png
+[deploy]:./media/virtual-machines-linux-classic-hpcpack-cluster/deploy.png
+[management]:./media/virtual-machines-linux-classic-hpcpack-cluster/management.png
+[heatmap]:./media/virtual-machines-linux-classic-hpcpack-cluster/heatmap.png
+[fileshareperms]:./media/virtual-machines-linux-classic-hpcpack-cluster/fileshare1.png
+[filesharing]:./media/virtual-machines-linux-classic-hpcpack-cluster/fileshare2.png
+[nfsauth]:./media/virtual-machines-linux-classic-hpcpack-cluster/nfsauth.png
+[nfsshare]:./media/virtual-machines-linux-classic-hpcpack-cluster/nfsshare.png
+[nfsperm]:./media/virtual-machines-linux-classic-hpcpack-cluster/nfsperm.png
+[nfsmanage]:./media/virtual-machines-linux-classic-hpcpack-cluster/nfsmanage.png

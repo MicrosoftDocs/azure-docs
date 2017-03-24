@@ -347,17 +347,17 @@ In this article, you created a three-node MariaDB + Galera highly available clus
 You might want to look at [another way to cluster MySQL on Linux](virtual-machines-linux-classic-mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) and ways to [optimize and test MySQL performance on Azure Linux VMs](virtual-machines-linux-classic-optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 <!--Anchors-->
-[Architecture overview]: #architecture-overview
-[Creating the template]: #creating-the-template
-[Creating the cluster]: #creating-the-cluster
-[Load balancing the cluster]: #load-balancing-the-cluster
-[Validating the cluster]: #validating-the-cluster
-[Next steps]: #next-steps
+[Architecture overview]:#architecture-overview
+[Creating the template]:#creating-the-template
+[Creating the cluster]:#creating-the-cluster
+[Load balancing the cluster]:#load-balancing-the-cluster
+[Validating the cluster]:#validating-the-cluster
+[Next steps]:#next-steps
 
 <!--Image references-->
 
 <!--Link references-->
-[Galera]: http://galeracluster.com/products/
-[MariaDBs]: https://mariadb.org/en/about/
+[Galera]:http://galeracluster.com/products/
+[MariaDBs]:https://mariadb.org/en/about/
 [create an SSH key for authentication]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
 [issue #1268 in the Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268
