@@ -45,7 +45,7 @@ Once you’ve completed this step correctly, a pop-up will appear asking for an 
 
 
 ##Certifying Virtual Machines (<5 days)
-This step is where we run several tests to ensure your VM image meets the requirements for Azure Certified. All the guidance you will need to ensure you pass the certification requirements are [here](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites).
+This step is where we run several tests to ensure your VM image meets the requirements for Azure Certified. All the guidance you will need to ensure you pass the certification requirements are [here](https://docs.microsoft.com//azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites).
 
 ![Offer Go Live Sequence](./media/Cloud-partner-portal-how-to-offer-go-live-Azure-Marketplace\image4.png)
 
