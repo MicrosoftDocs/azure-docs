@@ -74,7 +74,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 [Injecting custom data into an Azure virtual machine](windows/classic/inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## Manage
-[Manage your virtual machines by using Azure PowerShell](virtual-machines-windows-classic-manage-psh.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Manage your virtual machines by using Azure PowerShell](windows/classic/manage-psh.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Connect classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 
