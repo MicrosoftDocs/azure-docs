@@ -43,7 +43,7 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 > Make sure to specify the fully qualified registry name (all lowercase). In this example, it is `myregistry.azurecr.io`.
 
 ## Steps to pull and push an image
-The follow example downloads an Nginx image from the public Docker Hub registry, tags it for your private Azure container registry, pushes it to your registry, then pulls it again.
+The follow example downloads the Nginx image from the public Docker Hub registry, tags it for your private Azure container registry, pushes it to your registry, then pulls it again.
 
 **1. Pull the Docker official image for Nginx**
 
@@ -54,7 +54,7 @@ docker pull nginx
 ```
 **2. Start the Nginx container**
 
-The following command starts the local Nginx container interactively (so you can see output from Nginx) and listening on port 8080. It removes the running container once stopped.
+The following command starts the local Nginx container interactively on port 8080, allowing you to see output from Nginx. It removes the running container once stopped.
 
 ```
 docker run -it --rm -p 8080:80 nginx
@@ -103,7 +103,7 @@ docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
 ##Concurrent Limits
-In some scenarios, executing calls concurrently might result in errors. Below are the limits of concurrent calls with "Push" and "Pull" operations on Azure container registry:
+In some scenarios, executing calls concurrently might result in errors. The following table contains the limits of concurrent calls with "Push" and "Pull" operations on Azure container registry:
 
 | Operation  | Limit                                  |
 | ---------- | -------------------------------------- |
