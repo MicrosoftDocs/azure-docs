@@ -250,7 +250,7 @@ $apimProxyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name ap
 ```
 
 ### Step 10
-Configure URL rule paths for the back-end pools. This enables selecting only some of the APIs from API Management for being exposed to the public. (e.g. if there are `Echo API (/echo/), Calculator API (/calc/) etc.` make only `Echo API` accessible from Internet). 
+Configure URL rule paths for the back-end pools. This enables selecting only some of the APIs from API Management for being exposed to the public. (e.g. if there are `Echo API` (/echo/), `Calculator API` (/calc/) etc. make only `Echo API` accessible from Internet). 
 
 The following example creates a simple rule for the "/echo/" path routing traffic to the back-end "apimProxyBackendPool".
 

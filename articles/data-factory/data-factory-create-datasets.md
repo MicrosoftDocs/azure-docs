@@ -101,7 +101,7 @@ Note the following points:
 
 * type is set to AzureSqlTable.
 * tableName type property (specific to AzureSqlTable type) is set to MyTable.
-* linkedServiceName refers to a linked service of type AzureSqlDatabase. See the definition of the following linked service.
+* linkedServiceName refers to a linked service of type AzureSqlDatabase, which is defined in the following JSON snippet.
 * availability frequency is set to Day and interval is set to 1, which means that the slice is produced daily.  
 
 AzureSqlLinkedService is defined as follows:
@@ -135,7 +135,7 @@ As you can see, the linked service defines how to connect to an Azure SQL databa
 The supported data sources and dataset types are aligned. See topics referenced in the [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores-and-formats) article for information on types and configuration of datasets. For example, if you are using data from an Azure SQL database, click Azure SQL Database in the list of supported data stores to see detailed information.  
 
 ## <a name="Structure"></a>Dataset Structure
-The **structure** section defines the schema of the dataset. It contains a collection of names and data types of columns.  In the following example, the dataset has three columns slicetimestamp, projectname, and pageviews and they are of type: String, String, and Decimal respectively.
+The **structure** section is an **optional** section that defines the schema of the dataset. It contains a collection of names and data types of columns. You use the structure section for either providing type information for **type conversions** or doing **column mappings**. In the following example, the dataset has three columns `slicetimestamp`, `projectname`, and `pageviews` and they are of type: String, String, and Decimal respectively.
 
 ```json
 structure:  
@@ -145,6 +145,27 @@ structure:
     { "name": "pageviews", "type": "Decimal"}
 ]
 ```
+
+Each column contains the following properties:
+
+| Property | Description | Required |
+| --- | --- | --- |
+| name |Name of the column. |Yes |
+| type |Data type of the column.  |No |
+| culture |.NET based culture to be used when type is specified and is .NET type `Datetime` or `Datetimeoffset`. Default is “en-us”. |No |
+| format |Format string to be used when type is specified and is .NET type `Datetime` or `Datetimeoffset`. |No |
+
+Use the following guidelines for when to include “structure” information and what to include in the **structure** section.
+
+* **For structured data sources** that store data schema and type information along with the data itself (sources like SQL Server, Oracle, Azure table etc.), you should specify the “structure” section only if you want map source columns to sink columns and their names are not the same. 
+  
+    As type information is already available for structured data sources, you should not include type information when you do include the “structure” section.
+* **For schema on read data sources (specifically Azure blob)**, you can choose to store data without storing any schema or type information with the data. For these types of data sources, include “structure” when you want to map source columns to sink columns (or) when the dataset is an input dataset for a copy activity and data types of source dataset need to be converted to native types for the sink. 
+	
+	Data factory supports the following CLS-compliant .NET based type values for providing type information in “structure” for schema on read data sources like Azure blob: Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset, Timespan.
+
+Data Factory automatically performs type conversions when moving data from a source data store to a sink data store. 
+  
 
 ## <a name="Availability"></a> Dataset Availability
 The **availability** section in a dataset defines the processing window (hourly, daily, weekly etc.) or the slicing model for the dataset. See [Scheduling and Execution](data-factory-scheduling-and-execution.md) article for more details on the dataset slicing and dependency model.
@@ -163,11 +184,11 @@ The following table describes properties you can use in the availability section
 
 | Property | Description | Required | Default |
 | --- | --- | --- | --- |
-| frequency |Specifies the time unit for dataset slice production.<br/><br/>**Supported frequency**: Minute, Hour, Day, Week, Month |Yes |NA |
-| interval |Specifies a multiplier for frequency<br/><br/>”Frequency x interval” determines how often the slice is produced.<br/><br/>If you need the dataset to be sliced on an hourly basis, you set **Frequency** to **Hour**, and **interval** to **1**.<br/><br/>**Note:** If you specify Frequency as Minute, we recommend that you set the interval to no less than 15 |Yes |NA |
+| frequency |Specifies the time unit for dataset slice production.<br/><br/><b>Supported frequency</b>: Minute, Hour, Day, Week, Month |Yes |NA |
+| interval |Specifies a multiplier for frequency<br/><br/>”Frequency x interval” determines how often the slice is produced.<br/><br/>If you need the dataset to be sliced on an hourly basis, you set <b>Frequency</b>to <b>Hour</b>, and <b>interval</b> to <b>1</b>.<br/><br/><b>Note</b>: If you specify Frequency as Minute, we recommend that you set the interval to no less than 15 |Yes |NA |
 | style |Specifies whether the slice should be produced at the start/end of the interval.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>If Frequency is set to Month and style is set to EndOfInterval, the slice is produced on the last day of month. If the style is set to StartOfInterval, the slice is produced on the first day of month.<br/><br/>If Frequency is set to Day and style is set to EndOfInterval, the slice is produced in the last hour of the day.<br/><br/>If Frequency is set to Hour and style is set to EndOfInterval, the slice is produced at the end of the hour. For example, for a slice for 1 PM – 2 PM period, the slice is produced at 2 PM. |No |EndOfInterval |
-| anchorDateTime |Defines the absolute position in time used by scheduler to compute dataset slice boundaries. <br/><br/>**Note:** If the AnchorDateTime has date parts that are more granular than the frequency then the more granular parts are ignored. <br/><br/>For example, if the **interval** is **hourly** (frequency: hour and interval: 1) and the **AnchorDateTime** contains **minutes and seconds**, then the **minutes and seconds** parts of the AnchorDateTime are ignored. |No |01/01/0001 |
-| offset |Timespan by which the start and end of all dataset slices are shifted. <br/><br/>**Note:** If both anchorDateTime and offset are specified, the result is the combined shift. |No |NA |
+| anchorDateTime |Defines the absolute position in time used by scheduler to compute dataset slice boundaries. <br/><br/><b>Note</b>: If the AnchorDateTime has date parts that are more granular than the frequency then the more granular parts are ignored. <br/><br/>For example, if the <b>interval</b> is <b>hourly</b> (frequency: hour and interval: 1) and the <b>AnchorDateTime</b> contains <b>minutes and seconds</b>then the <b>minutes and seconds</b> parts of the AnchorDateTime are ignored. |No |01/01/0001 |
+| offset |Timespan by which the start and end of all dataset slices are shifted. <br/><br/><b>Note</b>: If both anchorDateTime and offset are specified, the result is the combined shift. |No |NA |
 
 ### offset example
 Daily slices that start at 6 AM instead of the default midnight.
