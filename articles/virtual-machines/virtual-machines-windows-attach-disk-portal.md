@@ -29,6 +29,7 @@ This article shows you how to attach both new and existing disks to a Windows vi
 You can also [attach a data disk using Powershell](virtual-machines-windows-attach-disk-ps.md).
 
 
+
 ## Find the virtual machine
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. On the Hub menu, click **Virtual Machines**.
@@ -88,7 +89,13 @@ If the command returns 0, TRIM is enabled correctly. If it returns 1, run the fo
 ```
 fsutil behavior set DisableDeleteNotify 0
 ```
+				
+After deleting data from your disk you can ensure the TRIM operations flush properly by running defrag with TRIM:
+
+```
+defrag.exe <volume:> -l
+```
 
 ## Next steps
-If you application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+If you application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](virtual-machines-windows-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
