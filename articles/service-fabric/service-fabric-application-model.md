@@ -1,5 +1,5 @@
 ---
-title: Service Fabric application model | Microsoft Docs
+title: Azure Service Fabric application model | Microsoft Docs
 description: How to model and describe applications and services in Service Fabric.
 services: service-fabric
 documentationcenter: .net
