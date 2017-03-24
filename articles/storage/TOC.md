@@ -41,7 +41,7 @@
 ### [Connect and Mount](storage-file-how-to-connect-and-mount.md)
 #### [Windows](storage-file-how-to-use-files-windows.md)
 #### [Linux](storage-file-how-to-use-files-linux.md)
-#### [Mac](storage-file-how-to-use-files-mac.md)
+#### [macOS](storage-file-how-to-use-files-mac.md)
 ### [Tooling and Scripting](storage-file-how-to-tooling-and-scripting.md)
 #### [Powershell](storage-file-how-to-use-files-powershell.md)
 #### [CLI](storage-file-how-to-use-files-cli.md)
