@@ -42,6 +42,7 @@ Before you can protect or back up a Resource Manager-deployed virtual machine (V
 * Select a scenario, define the backup policy, and define items to protect.
 * Check the installation of VM Agent on virtual machine.
 * Check network connectivity
+* For Linux VMs, in case you want to customize your backup environment for application consistent backups please follow the [steps to configure pre-snapshot and post-snapshot scripts](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
 
 If you know these conditions already exist in your environment then proceed to the [Back up your VMs article](backup-azure-vms.md). If you need to set up, or check, any of these prerequisites, this article leads you through the steps to prepare that prerequisite.
 

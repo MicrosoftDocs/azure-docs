@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/18/2017
+ms.date: 03/18/2017
 ms.author: sasubram
 
 ---
@@ -85,6 +85,12 @@ Based on user feedback, the B2B collaboration public preview refresh provides ke
 * Provide PowerShell support for B2B collaboration.
 
 * Provide auditing and reporting capabilities.
+
+## Help us shape your features
+ 
+We're constantly listening to your feedback on ways to improve B2B collaboration. We invite you join the discussion, share your user scenarios, best practices, and what you like about Azure AD B2B collaboration at the [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b)
+ 
+We also invite you to submit your ideas and vote for future features at the [B2B Collaboration Ideas](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas) site.
 
 ## Next steps
 

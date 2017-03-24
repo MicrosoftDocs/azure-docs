@@ -85,7 +85,7 @@ Use the following steps to copy data from the production cluster to the test clu
 Alternatively, you may want to use the `Start-AzureStorageBlobCopy` Azure PowerShell cmdlet to copy blobs between storage accounts outside of HDInsight. For more information, see the How to manage Azure Blobs section of Using Azure PowerShell with Azure Storage.
 
 ## Client-side technologies
-In general, client-side technologies such as [Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs), [Azure CLI](../xplat-cli-install.md), or the [.NET SDK for Hadoop](https://hadoopsdk.codeplex.com/) continue to work the same with Linux-based clusters, as they rely on REST APIs that are the same across both cluster OS types.
+In general, client-side technologies such as [Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs), [Azure CLI](../cli-install-nodejs.md), or the [.NET SDK for Hadoop](https://hadoopsdk.codeplex.com/) continue to work the same with Linux-based clusters, as they rely on REST APIs that are the same across both cluster OS types.
 
 ## Server-side technologies
 The following table provides guidance on migrating server-side components that are Windows specific.
@@ -93,7 +93,7 @@ The following table provides guidance on migrating server-side components that a
 | If you are using this technology... | Take this action... |
 | --- | --- |
 | **PowerShell** (server-side scripts, including Script Actions used during cluster creation) |Rewrite as Bash scripts. For Script Actions, see [Customize Linux-based HDInsight with Script Actions](hdinsight-hadoop-customize-cluster-linux.md) and [Script action development for Linux-based HDInsight](hdinsight-hadoop-script-actions-linux.md). |
-| **Azure CLI** (server-side scripts) |While the Azure CLI is available on Linux, it does not come pre-installed on the HDInsight cluster head nodes. If you need it for server-side scripting, see [Install the Azure CLI](../xplat-cli-install.md) for information on installing on Linux-based platforms. |
+| **Azure CLI** (server-side scripts) |While the Azure CLI is available on Linux, it does not come pre-installed on the HDInsight cluster head nodes. If you need it for server-side scripting, see [Install the Azure CLI](../cli-install-nodejs.md) for information on installing on Linux-based platforms. |
 | **.NET components** |.NET is not fully supported on all Linux-based HDInsight cluster types. Linux-based Storm on HDInsight clusters created after 10/28/2016 support C# Storm topologies using the SCP.NET framework. Additional support for .NET will be added in future updates. |
 | **Win32 components or other Windows-only technology** |Guidance depends on the component or technology. You may be able to find a version that is compatible with Linux, or you may need to find an alternate solution or rewrite this component. |
 

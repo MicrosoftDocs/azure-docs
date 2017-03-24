@@ -14,31 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/22/2016
+ms.date: 03/17/2017
 ms.author: mikeray
 
 ---
 # Configure Always On availability group in Azure VM with PowerShell
 > [!div class="op_single_selector"]
-> * [Resource Manager: Template](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-> * [Resource Manager: Manual](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 > * [Classic: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 > * [Classic: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
-> 
-> 
+<br/>
 
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+> Microsoft recommends that most new deployments use the Resource Manager model. Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. 
+
+To complete this task with the Azure resource manager model, see [SQL Server Always On availability groups on Azure virtual machines](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 Azure virtual machines (VMs) can help database administrators to implement lower the cost of a high availability SQL Server system. This tutorial shows you how to implement an availability group using SQL Server Always On end-to-end inside an Azure environment. At the end of the tutorial, your SQL Server Always On solution in Azure will consist of the following elements:
 
 * A virtual network containing multiple subnets, including a front-end and a back-end subnet
 * A domain controller with an Active Directory (AD) domain
 * Two SQL Server VMs deployed to the back-end subnet and joined to the AD domain
-* A 3-node WSFC cluster with the Node Majority quorum model
+* A 3-node Windows Failover Cluster with the Node Majority quorum model
 * An availability group with two synchronous-commit replicas of an availability database
 
-This scenario is chosen for its simplicity, not for its cost effectiveness or other factors on Azure. For example, you can minimize the number of VMs for a two-replica availability group in order to save on compute hours in Azure by using the domain controller as the quorum file share witness in a 2-node WSFC cluster. This method reduces the VM count by one from the above configuration.
+This scenario is chosen for its simplicity, not for its cost effectiveness or other factors on Azure. For example, you can minimize the number of VMs for a two-replica availability group in order to save on compute hours in Azure by using the domain controller as the quorum file share witness in a 2-node failover cluster. This method reduces the VM count by one from the above configuration.
 
 This tutorial is intended to show you the steps required to set up the described solution above without elaborating on the details of each step. Therefore, instead of showing you the GUI configuration steps, it uses PowerShell scripting to take you quickly through each step. It assumes the following:
 
@@ -218,7 +217,7 @@ The DC server is now successfully provisioned. Next, you will configure the Acti
             -ChangePasswordAtLogon $false `
             -Enabled $true
    
-    **CORP\Install** is used to configure everything related to the SQL Server service instances, the WSFC cluster, and the availability group. **CORP\SQLSvc1** and **CORP\SQLSvc2** are used as the SQL Server service accounts for the two SQL Server VMs.
+    **CORP\Install** is used to configure everything related to the SQL Server service instances, the failover cluster, and the availability group. **CORP\SQLSvc1** and **CORP\SQLSvc2** are used as the SQL Server service accounts for the two SQL Server VMs.
 7. Next, run the following commands to give **CORP\Install** the permissions to create computer objects in the domain.
    
         Cd ad:
@@ -230,7 +229,7 @@ The DC server is now successfully provisioned. Next, you will configure the Acti
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
    
-    The GUID specified above is the GUID for the computer object type. The **CORP\Install** account needs the **Read All Properties** and **Create Computer Objects** permission in order to create the Active Direct objects for the WSFC cluster. The **Read All Properties** permission is already given to CORP\Install by default, so you do not need to grant it explicitly. For more information on permissions needed to create the WSFC cluster, see [Failover Cluster Step-by-Step Guide: Configuring Accounts in Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
+    The GUID specified above is the GUID for the computer object type. The **CORP\Install** account needs the **Read All Properties** and **Create Computer Objects** permission in order to create the Active Direct objects for the failover cluster. The **Read All Properties** permission is already given to CORP\Install by default, so you do not need to grant it explicitly. For more information on permissions needed to create the failover cluster, see [Failover Cluster Step-by-Step Guide: Configuring Accounts in Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
    
     Now that you have finished configuring Active Directory and the user objects, you will create two SQL Server VMs and join them to this domain.
 
@@ -249,7 +248,7 @@ The DC server is now successfully provisioned. Next, you will configure the Acti
         $dnsSettings = New-AzureDns -Name "ContosoBackDNS" -IPAddress "10.10.0.4"
    
     The IP address **10.10.0.4** is typically assigned to the first VM you create in the **10.10.0.0/16** subnet of your Azure virtual network. You should verify this is the address of your DC server by running **IPCONFIG**.
-2. Run the following piped commands to create the first VM in the WSFC cluster, named **ContosoQuorum**:
+2. Run the following piped commands to create the first VM in the failover cluster, named **ContosoQuorum**:
    
         New-AzureVMConfig `
             -Name $quorumServerName `
@@ -368,8 +367,8 @@ The DC server is now successfully provisioned. Next, you will configure the Acti
    
     The SQL Server VMs are now provisioned and running, but they are installed with SQL Server with default options.
 
-## Initialize the WSFC Cluster VMs
-In this section, you need to modify the three servers you will use in the WSFC cluster and the SQL Server installation. Specifically:
+## Initialize the Failover Cluster VMs
+In this section, you need to modify the three servers you will use in the failover cluster and the SQL Server installation. Specifically:
 
 * (All servers) You need to install the **Failover Clustering** feature.
 * (All servers) You need to add **CORP\Install** as the machine **administrator**.
@@ -473,8 +472,8 @@ Finally, you are ready to configure the availability group. You will use the SQL
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. Download **CreateAzureFailoverCluster.ps1** from [Create WSFC Cluster for Always On Availability Groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) to the local working directory. You will use this script to help you create a functional WSFC cluster. For important information on how WSFC interacts with the Azure network, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
-8. Change to your working directory and create the WSFC cluster with the downloaded script.
+7. Download **CreateAzureFailoverCluster.ps1** from [Create Failover Cluster for Always On Availability Groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) to the local working directory. You will use this script to help you create a functional failover cluster. For important information on how Windows Clustering interacts with the Azure network, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+8. Change to your working directory and create the failover cluster with the downloaded script.
    
         Set-ExecutionPolicy Unrestricted -Force
         .\CreateAzureFailoverCluster.ps1 -ClusterName "$clusterName" -ClusterNode "$server1","$server2","$serverQuorum"

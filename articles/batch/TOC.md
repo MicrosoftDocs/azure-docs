@@ -11,6 +11,7 @@
 ## Develop
 ### [Application packages](batch-application-packages.md)
 ### [Autoscale compute nodes](batch-automatic-scaling.md)
+### [Azure AD authentication](batch-aad-auth.md)
 ### [Concurrent node tasks](batch-parallel-node-tasks.md)
 ### [Efficient list queries](batch-efficient-list-queries.md)
 ### [Job preparation and completion tasks](batch-job-prep-release.md)
@@ -47,4 +48,5 @@
 ## [Service updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 

@@ -32,7 +32,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 * [Log on to a Linux VM Using the Azure classic portal](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Set up
-* [Install Azure Command-Line Interface (Azure CLI)](../xplat-cli-install.md)
+* [Install Azure Command-Line Interface (Azure CLI)](../cli-install-nodejs.md)
 
 ## Tutorials
 * [Install the LAMP Stack on a Linux virtual machine in Azure](virtual-machines-linux-create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

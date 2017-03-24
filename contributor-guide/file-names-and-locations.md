@@ -46,7 +46,7 @@ Here are a few examples of valid names that follow the pattern. :
 
 ## A/B testing
 
-A/B testing on docs.microsoft.com requires one file in the A/B pair to include **.experimental** in the file name:  file-name.experimental.md
+A/B testing on docs.microsoft.com requires one file in the A/B pair to include **.experimental.** in the file name:  file-name.experimental.md
 
 ## Marketplace content
 To distinguish content that focuses on partner contributions to the Azure marketplace, start the file names with "marketplace". This content should not be too common, as most partner content should be created on the partners' own web sites.
