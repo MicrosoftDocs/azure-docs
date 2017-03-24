@@ -1,12 +1,13 @@
+Site-to-Site connections to an on-premises network require a VPN device. There are many different VPN devices that will work with Azure. For information about VPN devices and configuration settings, see [VPN Devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md). Before configuring your VPN device, check for any [Known device compatibility issues](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) for the VPN device that you want to use. For specific VPN device configuration information, work with your device manufacturer.
+
 To configure your VPN device, you will need the public IP address of the virtual network gateway. To find the public IP address of your virtual network gateway using PowerShell, use the following sample:
 
     Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
 
 You can also view the public IP address for your virtual network gateway by using the Azure portal. Navigate to **Virtual network gateways**, then click the name of your gateway.
 
-For specific VPN device configuration information, work with your device manufacturer.
+Your VPN device configuration will also require a shared key. This is the same shared key that you will specify when creating your Site-to-Site VPN connection.
 
-- For more information about VPN devices that work well with Azure, see [VPN Devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md).
-- Check for any [Known device compatibility issues](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) for the VPN device that you want to use.
+
 
 
