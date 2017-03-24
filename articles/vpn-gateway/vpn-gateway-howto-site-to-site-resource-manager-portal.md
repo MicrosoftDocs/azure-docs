@@ -79,7 +79,7 @@ When using these steps as an exercise, you can use the following example values:
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-s2s-rm-portal-include.md)]
 
 ## <a name="dns"></a>2. Specify a DNS server
-DNS is not required to create a S2S connection. However, DNS is required if you want name resolution.
+DNS is not required to create a S2S connection. However, DNS is required if you want name resolution. This setting lets you specify the DNS server that you want to use for name resolution for this virtual network. It does not create a DNS server.
 
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
