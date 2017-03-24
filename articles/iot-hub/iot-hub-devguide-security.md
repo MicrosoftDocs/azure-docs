@@ -93,7 +93,8 @@ HTTP implements authentication by including a valid token in the **Authorization
 Username (DeviceId is case-sensitive):
 `iothubname.azure-devices.net/DeviceId`
 
-Password (Generate SAS token with the [device explorer][lnk-device-explorer] tool): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
+Password (Generate SAS token with the [device explorer][lnk-device-explorer] tool): 
+`SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
 > [!NOTE]
 > The [Azure IoT SDKs][lnk-sdks] automatically generate tokens when connecting to the service. In some cases, the Azure IoT SDKs do not support all the protocols or all the authentication methods.
@@ -125,9 +126,7 @@ A token signed with a shared access key grants access to all the functionality a
 
 The security token has the following format:
 
-```
-SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}
-```
+`SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`
 
 Here are the expected values:
 
@@ -233,9 +232,7 @@ var token = generateSasToken(endpoint, deviceKey, null, 60);
 
 The result, which grants access to all functionality for device1, would be:
 
-```
-SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697
-```
+`SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
 > It is possible to generate a SAS token using the .NET [device explorer][lnk-device-explorer] tool or the cross-platform, node-based [iothub-explorer][lnk-iothub-explorer] command-line utility.
@@ -270,9 +267,7 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 The result, which grants access to all functionality for device1, would be:
 
-```
-SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697&skn=device
-```
+`SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697&skn=device`
 
 A protocol gateway could use the same token for all devices simply setting the resource URI to `myhub.azure-devices.net/devices`.
 
@@ -306,9 +301,7 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 The result, which would grant access to read all device identities, would be:
 
-```
-SharedAccessSignature sr=myhub.azure-devices.net%2fdevices&sig=JdyscqTpXdEJs49elIUCcohw2DlFDR3zfH5KqGJo4r4%3D&se=1456973447&skn=registryRead
-```
+`SharedAccessSignature sr=myhub.azure-devices.net%2fdevices&sig=JdyscqTpXdEJs49elIUCcohw2DlFDR3zfH5KqGJo4r4%3D&se=1456973447&skn=registryRead`
 
 ## Supported X.509 certificates
 
