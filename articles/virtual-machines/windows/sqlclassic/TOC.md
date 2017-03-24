@@ -29,7 +29,7 @@
 ### [Use Azure Storage for Backup and Restore](../sql/virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## Business Intelligence
 ### [SQL Server Business Intelligence in Azure VMs](../classic/ps-sql-bi.md)
-### [Use ReportViewer in a web site hosted in Azure](virtual-machines-windows-classic-sql-server-reportviewer.md)
+### [Use ReportViewer in a web site hosted in Azure](../classic/sql-server-reportviewer.md)
 ### [Use PowerShell to create an Azure VM with a Report Server](../classic/ps-sql-report.md)
 ## [Performance best practices](../sql/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## [Application patterns](../sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
