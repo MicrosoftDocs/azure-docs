@@ -1,6 +1,6 @@
 Site-to-Site connections to an on-premises network require a VPN device. There are many different VPN devices that will work with Azure. For information about VPN devices and configuration settings, see [VPN Devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md). Before configuring your VPN device, check for any [Known device compatibility issues](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) for the VPN device that you want to use. For specific VPN device configuration information, work with your device manufacturer.
 
-When configuring your VPN device, you will the following items:
+When configuring your VPN device, you will need the following items:
 
 - **The Public IP address** of your virtual network gateway.
 
