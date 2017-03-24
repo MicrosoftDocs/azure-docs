@@ -87,7 +87,7 @@ Now when you run ``docker info`` in the terminal, you should see in the output t
   1. Pull the Service Fabric Jenkins container image: ``docker pull raunakpandya/jenkins:v1``
   2. Run the container image: ``docker run -itd -p 8080:8080 raunakpandya/jenkins:v1``
   3. Get the ID of the container image instance. You can list all the Docker containers with the command ``docker ps –a``
-  4. Log in to the Jenkins portal by using the following steps:
+  4. Sign in to the Jenkins portal by using the following steps:
 
     * ```sh
     docker exec [first-four-digits-of-container-ID] cat /var/jenkins_home/secrets/initialAdminPassword
