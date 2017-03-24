@@ -44,18 +44,18 @@ This sample shows how to copy data from an ODBC data store to Azure Blob Storage
 
 The sample has the following data factory entities:
 
-1. A linked service of type [OnPremisesOdbc](#odbc-linked-service-properties).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](#odbc-dataset-type-properties).
-4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](#odbc-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+1. A linked service of type [OnPremisesOdbc](#linked-service-properties).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](#dataset-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 The sample copies data from a query result in an ODBC data store to a blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
 As a first step, set up the data management gateway. The instructions are in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
 
 **ODBC linked service**
-This example uses the Basic authentication. See [ODBC linked service](#odbc-linked-service-properties) section for different types of authentication you can use.
+This example uses the Basic authentication. See [ODBC linked service](#linked-service-properties) section for different types of authentication you can use.
 
     {
         "name": "OnPremOdbcLinkedService",
@@ -225,7 +225,7 @@ The pipeline contains a Copy Activity that is configured to use these input and 
 
 
 
-## ODBC Linked Service properties
+## Linked service properties
 The following table provides description for JSON elements specific to ODBC linked service.
 
 | Property | Description | Required |
@@ -293,7 +293,7 @@ You can encrypt the credentials using the [New-AzureRMDataFactoryEncryptValue](h
 
 
 
-## ODBC Dataset type properties
+## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
 The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **RelationalTable** (which includes ODBC dataset) has the following properties
@@ -302,7 +302,7 @@ The **typeProperties** section is different for each type of dataset and provide
 | --- | --- | --- |
 | tableName |Name of the table in the ODBC data store. |Yes |
 
-## ODBC Copy Activity type properties
+## Copy activity properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policies are available for all types of activities.
 
 Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.

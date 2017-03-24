@@ -37,7 +37,7 @@ The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutoria
 
 You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
 
-Whether you use the tools or APIs, you perform the following steps to create a simple pipeline that moves data from a source data store to a sink data store: 
+Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store: 
 
 1. Create **linked services** to link input and output data stores to your data factory.
 2. Create **datasets** to represent input and output data for the copy operation. 
@@ -47,7 +47,7 @@ When you use the wizard, JSON definitions for these Data Factory entities (linke
 
 The following sections provide details about JSON properties that are used to define Data Factory entities specific to HDFS:
 
-## HDFS linked service
+## Linked service properties
 A linked service links a data store to a data factory. You create a linked service of type **Hdfs** to link an on-premises HDFS to your data factory. The following table provides description for JSON elements specific to HDFS linked service.
 
 | Property | Description | Required |
@@ -98,7 +98,7 @@ A linked service links a data store to a data factory. You create a linked servi
     }
 }
 ```
-## File Share dataset
+## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
 The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **FileShare** (which includes HDFS dataset) has the following properties
@@ -145,7 +145,7 @@ In this example {Slice} is replaced with the value of Data Factory system variab
 ```
 In this example, year, month, day, and time of SliceStart are extracted into separate variables that are used by folderPath and fileName properties.
 
-## File System Source in copy activity
+## Copy activity properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policies are available for all types of activities.
 
 Whereas, properties available in the typeProperties section of the activity vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
@@ -163,11 +163,11 @@ This sample shows how to copy data from an on-premises HDFS to Azure Blob Storag
 
 The sample provides JSON definitions for the following Data Factory entities. You can use these definitions to create a pipeline to copy data from HDFS to Azure Blob Storage by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). 
 
-1. A linked service of type [OnPremisesHdfs](#hdfs-linked-service).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. An input [dataset](data-factory-create-datasets.md) of type [FileShare](#file-share-dataset).
-4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset).
-5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [FileSystemSource](#file-system-source-in-copy-activity) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-source-and-sink-in-copy-activity).
+1. A linked service of type [OnPremisesHdfs](#linked-service-properties).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [FileShare](#dataset-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [FileSystemSource](#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 The sample copies data from an on-premises HDFS to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
@@ -366,7 +366,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
 **In Azure Data Factory:**
 
-* Configure the HDFS connector using **Windows authentication** together with your Kerberos principal name and password to connect to the HDFS data source. Check [HDFS Linked Service properties](#hdfs-linked-service-properties) section on configuration details.
+* Configure the HDFS connector using **Windows authentication** together with your Kerberos principal name and password to connect to the HDFS data source. Check [HDFS Linked Service properties](#linked-service-properties) section on configuration details.
 
 ### <a name="kerberos-mutual-trust"></a>Option 2: Enable mutual trust between Windows domain and Kerberos realm
 
