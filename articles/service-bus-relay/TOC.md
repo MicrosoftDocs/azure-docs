@@ -4,10 +4,8 @@
 
 # Get Started
 ## [Create a namespace](relay-create-namespace-portal.md)
-## Hybrid Connections
-### [Get started with Hybrid Connections](relay-hybrid-connections-dotnet-get-started.md)
-## WCF Relay
-### [Get started with WCF Relay](service-bus-dotnet-how-to-use-relay.md)
+## [Hybrid Connections](relay-hybrid-connections-dotnet-get-started.md)
+## [WCF Relay](service-bus-dotnet-how-to-use-relay.md)
 
 # How To
 ## Plan and design
@@ -23,7 +21,7 @@
 ### [Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)
 ### [Microsoft.ServiceBus](/dotnet/api/Microsoft.ServiceBus)
 ## [Exceptions](relay-exceptions.md)
-## [Port settings](service-bus-relay-port-settings.md)
+## [Port settings](relay-port-settings.md)
 
 # Resources
 ## [Samples](https://github.com/azure/azure-relay/tree/master/samples)
