@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.date: 02/23/2017
 ms.author: larryfr
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
 
 # Add additional storage accounts to HDInsight
