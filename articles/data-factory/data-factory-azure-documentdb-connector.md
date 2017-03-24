@@ -33,11 +33,11 @@ This DocumentDB connector support copying data from/to DocumentDB single partiti
 ## Sample: Copy data from DocumentDB to Azure Blob
 The sample below shows:
 
-1. A linked service of type [DocumentDb](#azure-documentdb-linked-service-properties).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md).
-3. An input [dataset](data-factory-create-datasets.md) of type [DocumentDbCollection](#azure-documentdb-dataset-type-properties).
-4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [DocumentDbCollectionSource](#azure-documentdb-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+1. A linked service of type [DocumentDb](#linked-service-properties).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [DocumentDbCollection](#dataset-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [DocumentDbCollectionSource](#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 The sample copies data in Azure DocumentDB to Azure Blob. The JSON properties used in these samples are described in sections following the samples.
 
@@ -183,7 +183,7 @@ The following pipeline copies data from the Person collection in the DocumentDB 
 The sample below shows:
 
 1. A linked service of type [DocumentDb](#azure-documentdb-linked-service-properties).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 3. An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4. An output [dataset](data-factory-create-datasets.md) of type [DocumentDbCollection](#azure-documentdb-dataset-type-properties).
 5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) and [DocumentDbCollectionSink](#azure-documentdb-copy-activity-type-properties).
@@ -362,7 +362,7 @@ Then the output JSON in DocumentDB will be as:
 ```
 DocumentDB is a NoSQL store for JSON documents, where nested structures are allowed. Azure Data Factory enables user to denote hierarchy via **nestingSeparator**, which is “.” in this example. With the separator, the copy activity will generate the “Name” object with three children elements First, Middle and Last, according to “Name.First”, “Name.Middle” and “Name.Last” in the table definition.
 
-## Azure DocumentDB Linked Service properties
+## Linked service properties
 The following table provides description for JSON elements specific to Azure DocumentDB linked service.
 
 | **Property** | **Description** | **Required** |
@@ -370,7 +370,7 @@ The following table provides description for JSON elements specific to Azure Doc
 | type |The type property must be set to: **DocumentDb** |Yes |
 | connectionString |Specify information needed to connect to Azure DocumentDB database. |Yes |
 
-## Azure DocumentDB Dataset type properties
+## Dataset properties
 For a full list of sections & properties available for defining datasets please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
 The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for the dataset of type **DocumentDbCollection** has the following properties.
@@ -406,7 +406,7 @@ For schema-free data stores such as DocumentDB, the Data Factory service infers 
 
 Therefore, for schema-free data sources, the best practice is to specify the structure of data using the **structure** property.
 
-## Azure DocumentDB Copy Activity type properties
+## Copy activity properties
 For a full list of sections & properties available for defining activities please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
 
 > [!NOTE]
