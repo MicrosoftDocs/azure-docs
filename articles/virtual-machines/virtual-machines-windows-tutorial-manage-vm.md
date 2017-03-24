@@ -24,7 +24,7 @@ In this tutorial, you create a virtual machine and perform common management tas
 
 To complete this tutorial, make sure that you have installed the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module. 
 
-## Step 1 – Create a virtual machine
+## Step 1 – Create a virtual machine and supporting resources
 
 First, log in to your Azure subscription with the Login-AzureRmAccount command and follow the on-screen directions.
 
@@ -40,7 +40,7 @@ An Azure resource group is a logical container into which Azure resources are de
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location westeurope
 ```
 
-### Create the virtual network, public IP address, and network interface card
+### Create the virtual network
 
 Create a subnet with the [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermvirtualnetworksubnetconfig) command.
 
@@ -53,6 +53,7 @@ Create a virtual network with the [New-AzureRmVirtualNetwork](https://docs.micro
 ```powershell
 $vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location westeurope -Name myVnet -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 ```
+### Create the public IP address
 
 Create a public IP address with the [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermpublicipaddress) command.
 
@@ -62,8 +63,44 @@ $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location w
 
 Create a network interface card with the [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermnetworkinterface) command.
 
+### Create the network interface card
+
 ```powershell
 $nic = New-AzureRmNetworkInterface -ResourceGroupName myResourceGroup -Location westeurope -Name myNic -SubnetId $vnet.Subnets[0].Id -PublicIpAddress $pip
+```
+
+### Create the network security group
+
+An Azure [network security group](../virtual-network/virtual-networks-nsg.md) (NSG) controls inbound and outbound traffic for one or many virtual machines. Network security group rules allow or deny network traffic on a specific port or port range. These rules can also include a source address prefix so that only traffic originating at a predefined source can communicate with a virtual machine.
+
+Create an NSG rule to enable a Remote Desktop session with the [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermnetworksecurityruleconfig) command.  
+
+```powershell
+$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myRDPRule -Protocol Tcp -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 3389 -Access Allow
+```
+
+Create the NSG using the rule that you previously created with the [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermnetworksecuritygroup) command.
+
+```powershell
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location westeurope -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
+```
+
+Get the virtual network with the [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/get-azurermvirtualnetwork) command.
+
+```powershell
+$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Name myVnet
+```
+
+Add the NSG to the subnet in the virtual network with the [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/set-azurermvirtualnetworksubnetconfig) command.
+
+```powershell
+Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name mySubnet -NetworkSecurityGroup $nsg -AddressPrefix 192.168.1.0/24
+```
+
+Update the virtual network with the [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/set-azurermvirtualnetwork) command.
+
+```powershell
+Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 ```
 
 ### Create the virtual machine
@@ -154,39 +191,7 @@ Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
 
 ### Configure disk
 
-Once the disk has been attached to the virtual machine, the operating system needs to be configured to use the disk. 
-
-An Azure [network security group](../virtual-network/virtual-networks-nsg.md) (NSG) controls inbound and outbound traffic for one or many virtual machines. Network security group rules allow or deny network traffic on a specific port or port range. These rules can also include a source address prefix so that only traffic originating at a predefined source can communicate with a virtual machine.
-
-Create an NSG rule to enable a Remote Desktop session with the [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermnetworksecurityruleconfig) command.  
-
-```powershell
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myRDPRule -Protocol Tcp -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 3389 -Access Allow
-```
-
-Create the NSG using the rule that you previously created with the [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermnetworksecuritygroup) command.
-
-```powershell
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location westeurope -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
-```
-
-Get the virtual network with the [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/get-azurermvirtualnetwork) command.
-
-```powershell
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Name myVnet
-```
-
-Add the NSG to the subnet in the virtual network with the [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/set-azurermvirtualnetworksubnetconfig) command.
-
-```powershell
-Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name mySubnet -NetworkSecurityGroup $nsg -AddressPrefix 192.168.1.0/24
-```
-
-Update the virtual network with the [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/set-azurermvirtualnetwork) command.
-
-```powershell
-Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-```
+Once the disk has been attached to the virtual machine, the operating system needs to be configured to use the disk.
 
 Open a Remote Desktop session with the [Get-AzureRmRemoteDesktopFile](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermremotedesktopfile) command.
 
@@ -354,9 +359,19 @@ Enter the public IP address of the virtual machine into the address bar of the i
 
 During the lifecycle of a virtual machine, you may want to run management tasks such as starting, stopping, or deleting a virtual machine. Additionally, you may want to create scripts to automate repetitive or complex tasks. Using the Azure PowerShell, many common management tasks can be run from the command line or in scripts. 
 
+### Stop virtual machine
+
+Stop and deallocate a virtual machine with the [Stop-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/stop-azurermvm) command.
+
+```powershell
+Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Force
+```
+
+If you want to keep the virtual machine in a provisioned state, use the -StayProvisioned parameter.
+
 ### Resize virtual machine
 
-To resize an Azure virtual machine, you need the name of the sizes available in the chosen Azure region. These sizes can be found with the [Get-AzureRmVMSize](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermvmsize) command.
+To resize an Azure virtual machine, you need the name of the sizes available in the chosen Azure region. These sizes can be found with the [Get-AzureRmVMSize](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermvmsize) command. The virtual machine must be stopped and deallocated to be resized.
 
 ```powershell
 Get-AzureRmVMSize -Location westeurope
@@ -374,12 +389,6 @@ Set the new size of the virtual machine by setting the vmSize property with the 
 $vm.HardwareProfile.vmSize = "Standard_F4s"
 ```
 
-Stop and deallocate the virtual machine before resizing with the Stop-AzureRmVM command.
-
-```powershell
-Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Force
-```
-
 Update the virtual machine with the [Update-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/update-azurermvm) command.
 
 ```powershell
@@ -390,12 +399,6 @@ Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
 
 ```powershell
 Start-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
-```
-
-### Stop virtual machine
-
-```powershell
-Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -StayProvisioned -Force
 ```
 
 ### Delete resource group
