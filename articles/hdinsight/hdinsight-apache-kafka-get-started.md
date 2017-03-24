@@ -9,6 +9,7 @@ editor: cgronlun
 
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: ''
 ms.topic: hero-article
 ms.tgt_pltfrm: na
