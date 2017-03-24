@@ -120,7 +120,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 ## Develop
 [Create and Manage Azure Virtual Machines in Visual Studio](windows/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Creating a virtual machine for a web application with Visual Studio](virtual-machines-windows-classic-web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Creating a virtual machine for a web application with Visual Studio](windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [How to run a compute-intensive task in Java on a virtual machine](windows/classic/java-run-compute-intensive-task.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
