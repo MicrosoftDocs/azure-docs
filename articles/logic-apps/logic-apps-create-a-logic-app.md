@@ -20,7 +20,7 @@ ms.author: jeffhollan; estfan
 ---
 # Create your first logic app workflow to automate processes between cloud apps and services
 
-Without writing any code, you can automate processes between cloud apps and services 
+Without writing any code, you can automate business processes between cloud apps and services 
 when you create and run workflows with [Azure Logic Apps](logic-apps-what-are-logic-apps.md). 
 This first example shows how you can create a basic logic app workflow that checks 
 an RSS feed for new content on a website. When new items appear in the website's feed, 
