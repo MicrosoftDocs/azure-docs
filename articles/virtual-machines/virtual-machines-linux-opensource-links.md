@@ -52,7 +52,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 
 ### Docker
 * [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](linux/classic/cli-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Using the Docker VM Extension from the Azure portal](virtual-machines-linux-classic-portal-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Using the Docker VM Extension from the Azure portal](linux/classic/portal-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [How to use docker-machine on Azure](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### Ubuntu
