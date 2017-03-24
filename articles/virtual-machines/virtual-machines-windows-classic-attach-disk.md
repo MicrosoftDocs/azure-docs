@@ -106,7 +106,7 @@ fsutil behavior set DisableDeleteNotify 0
 ```
 
 ## Next steps
-If your application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+If your application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](virtual-machines-windows-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## Additional resources
 [About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
