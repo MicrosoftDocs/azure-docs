@@ -43,4 +43,4 @@ Here are some examples that use the Azure PowerShell module.
 * **Delete an image**: `Remove-AzureVMImage –ImageName "MyOldVmImage"`
 
 ## Next Steps
-You can also [create a Windows machine using the Azure portal](../../virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+You can also [create a Windows machine using the Azure portal](tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

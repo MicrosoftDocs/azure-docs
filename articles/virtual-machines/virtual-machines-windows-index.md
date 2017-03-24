@@ -43,7 +43,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 ## Get started
 [Learning path for Windows VMs](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
 
-[Create a Windows virtual machine in the Azure classic portal](virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Create a Windows virtual machine in the Azure classic portal](windows/classic/tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [How to log on to a classic virtual machine running Windows Server](windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 

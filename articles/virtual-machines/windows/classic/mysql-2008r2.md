@@ -25,7 +25,7 @@ ms.author: cynthn
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 ## Create a virtual machine running Windows Server 2012 R2
-If you don't already have a VM running Windows Server 2012 R2, you can use this [tutorial](../../virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to create the virtual machine. 
+If you don't already have a VM running Windows Server 2012 R2, you can use this [tutorial](tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to create the virtual machine. 
 
 ## Attach a data disk
 After the virtual machine is created, you can optionally attach an additional data disk. This is recommended for production workloads and to avoid running out of space on the OS drive (C:), which  includes the operating system.
