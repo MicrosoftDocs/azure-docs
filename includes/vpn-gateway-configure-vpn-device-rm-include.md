@@ -4,7 +4,7 @@ When configuring your VPN device, you will need the following items:
 
 - **The Public IP address** of your virtual network gateway.
 
-	-  To find the Public IP address using the Azure portal,  navigate to **Virtual network gateways**, then click the name of your gateway. 
+	-  To find the Public IP address using the Azure portal, navigate to **Virtual network gateways**, then click the name of your gateway. 
 
 	- To find the Public IP address of your virtual network gateway using PowerShell, use the following example, replacing the values with your own.
 
