@@ -47,7 +47,7 @@
 ## Run applications
 ### [Ruby on Rails web application](virtual-machines-linux-classic-ruby-rails-web-app.md)
 ### [Cassandra and Node.js client](cassandra-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-### [LAMP stack](../../virtual-machines-linux-classic-lamp-script.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+### [LAMP stack](lamp-script.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Tomcat](../../virtual-machines-linux-classic-setup-tomcat.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Web application with Visual Studio](../../virtual-machines-linux-classic-web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [RDMA cluster to run MPI applications](../../virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
