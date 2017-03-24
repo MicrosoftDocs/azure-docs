@@ -20,7 +20,7 @@
 ### [Use D: as a data disk](../../virtual-machines-windows-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## Network
-### [How to set up endpoints](../../virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+### [How to set up endpoints](setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Connect VMs with a VNet or Cloud Service](connect-vms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Connect Classic VNets to Resource Manager VNets](../../../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Create a load balancer](../../../load-balancer/load-balancer-get-started-internet-classic-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
