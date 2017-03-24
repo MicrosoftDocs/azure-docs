@@ -13,12 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2016
+ms.date: 03/24/2017
 ms.author: tarcher
 
 ---
 # Comparing custom images and formulas in DevTest Labs
-## Overview
 Both [custom images](devtest-lab-create-template.md) and [formulas](devtest-lab-manage-formulas.md) 
 can be used as bases for [created new VMs](devtest-lab-add-vm-with-artifacts.md). 
 However, the key distinction between custom images and formulas is that 
@@ -59,3 +58,5 @@ Formulas provide a dynamic way to create VMs from the desired configuration/sett
 ## Related blog posts
 * [Custom images or formulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
+## Next steps
+- [DevTest Labs FAQ](devtest-lab-faq.md)
