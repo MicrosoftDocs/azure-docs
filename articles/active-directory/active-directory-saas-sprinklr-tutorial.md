@@ -159,9 +159,9 @@ This section describes how to create AAD user accounts inside Sprinklr.
   4. Select a **User Type**.
   5. Click **Update**.
    
-    >[!IMPORTANT]
-    >**Password Disabled** must be selected to enable a user to log in via an Identity provider. 
-    > 
+     >[!IMPORTANT]
+     >**Password Disabled** must be selected to enable a user to log in via an Identity provider. 
+     > 
 
 6. Go to **Role**, and then perform the following steps:
    
