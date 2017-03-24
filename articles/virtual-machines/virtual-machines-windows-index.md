@@ -118,7 +118,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 [Create a load balancer](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
 
 ## Develop
-[Create and Manage Azure Virtual Machines in Visual Studio](virtual-machines-windows-classic-manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Create and Manage Azure Virtual Machines in Visual Studio](windows/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Creating a virtual machine for a web application with Visual Studio](virtual-machines-windows-classic-web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
