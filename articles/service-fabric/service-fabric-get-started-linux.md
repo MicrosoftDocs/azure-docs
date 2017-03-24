@@ -32,7 +32,7 @@ ms.author: subramar
 ### Supported operating system versions
 The following operating system versions are supported for development:
 
-* Ubuntu 16.04 ("Xenial Xerus")
+* Ubuntu 16.04 (i**"Xenial Xerus"**)
 
 ## Update your apt sources
 To install the SDK and the associated runtime package via apt-get, you must first update your apt sources.
@@ -43,7 +43,7 @@ To install the SDK and the associated runtime package via apt-get, you must firs
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ trusty main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
-3. Add the dotnet repo to your sources list.
+3. Add the **dotnet** repo to your sources list.
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -76,7 +76,7 @@ Once your sources are updated, you can install the SDK.
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
 
-Once you have run the steps to install the Common SDK package, creation of apps with guest executable or container services should be possible. You can test this out by running  `yo azuresfguest`. If that results in an error, you may need to set your **$NODE_PATH** environment variable to where the node modules are located. 
+Once you have run the steps to install the Common SDK package, creation of apps with guest executable or container services should be possible by running `yo azuresfguest`. You may need to set your **$NODE_PATH** environment variable to where the node modules are located. 
 
     ```bash
     export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules 
@@ -154,9 +154,9 @@ You can install the Eclipse plugin for Service Fabric from within the **Eclipse 
 5. Choose the Service Fabric plugin and click next.
 6. Proceed through the installation and accept the end-user license agreement.
 
-If you already have the Service Fabric Eclipse plugin installed, make sure you are on the latest version. You can check if it can be updated any further be following - ``Help => Installation Details``. Then search for Service fabric in the list of installed plugin and click on update. If there is any pending update, it will be fetched and installed.
+If you already have the Service Fabric Eclipse plugin installed, make sure you are on the latest version. You can check by selecting ``Help => Installation Details`` and searching for Service fabric in the list of installed plugins. Select update if a newer version is available. 
 
-For more details on how to use Service Fabric Eclipse plugin to create, build, deploy, upgrade a Service Fabric java application, please refer to our detailed guide - [Service fabric getting started with eclipse](service-fabric-get-started-eclipse.md).
+For more details on using the Service Fabric Eclipse plugin for creating Java applications, see [Service fabric getting started with eclipse](service-fabric-get-started-eclipse.md).
 
 > [!NOTE]
 > At this stage, you can create guest executable or container applications with the Eclipse plugin. However, to use the Reliable Actors or Services programming models, you need to install the Java SDK as outlined in the next section.
@@ -200,7 +200,7 @@ To update to the latest version of the SDK and runtime, run the following steps 
    sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
    ```
 
-For updating the CLI, navigate to the directory where you cloned the CLI and run `git pull` for updating.  If additional steps are needed for updating, the release notes will specify those. 
+For updating the CLI, navigate to the directory where you cloned the CLI and run `git pull` for updating.  If additional steps are needed for updating, the release notes will specify those steps. 
 
 
 ## Next steps

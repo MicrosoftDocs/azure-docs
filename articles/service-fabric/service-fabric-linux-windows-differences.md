@@ -22,7 +22,7 @@ ms.author: subramar
 Since Service Fabric on Linux is a preview, there are some features that are supported on Windows, but not on Linux. Eventually, the feature sets will be at parity when Service Fabric on Linux becomes generally available.
 
 * Reliable Collections (and Reliable Stateful Services) are not supported on Linux.
-* ReverseProxy isn't avaiable on Linux.
+* ReverseProxy isn't available on Linux.
 * Standalone installer isn't available on Linux.
 * XML schema validation for manifest files is not performed on Linux. 
 * Console redirection isn't supported on Linux (Caution: Using console redirection isn't recommended for use on Windows either, and we plan to deprecate them).
@@ -31,7 +31,7 @@ Since Service Fabric on Linux is a preview, there are some features that are sup
 * Some CLI command equivalents of Powershell commands aren't available.
 * Only a subset of Powershell commands can be run against a Linux cluster (as expanded in the next section).
 
-The development tooling is obviously different with VisualStudio, Powershell,  VSTS and ETW being used on Windows and Yeoman, Eclipse, Jenkins and LTTng used on Linux.
+The development tooling is different with VisualStudio, Powershell, VSTS, and ETW being used on Windows and Yeoman, Eclipse, Jenkins, and LTTng used on Linux.
 
 ## Powershell cmdlets that won't work against a Linux Service Fabric cluster
 
