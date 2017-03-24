@@ -22,7 +22,7 @@ ms.author: jeffhollan; estfan
 
 Without writing any code, you can automate business processes more easily and quickly 
 when you create and run workflows with [Azure Logic Apps](logic-apps-what-are-logic-apps.md). 
-This first example shows how you can create a basic logic app workflow that checks 
+This first example shows how to create a basic logic app workflow that checks 
 an RSS feed for new content on a website. When new items appear in the website's feed, 
 the logic app sends email from an Outlook or Gmail account.
 
