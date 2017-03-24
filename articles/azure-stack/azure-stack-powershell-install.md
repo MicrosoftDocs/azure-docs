@@ -44,21 +44,21 @@ article. The AzureRM.Bootstrapper module provides PowerShell commands that are
 required to work with API version profiles. Use the following 
 command to install the AzureRM.Bootstrapper module:  
 
-    ```powershell
-    # Install the AzureRM.Bootstrapper module
-    Install-Module -Name AzureRm.BootStrapper
+```powershell
+# Install the AzureRM.Bootstrapper module
+Install-Module -Name AzureRm.BootStrapper
     
-    # Import the bootstrapper module into the current PowerShell session
-    Import-Module -Name AzureRm.Bootstrapper
-    ```
+# Import the bootstrapper module into the current PowerShell session
+Import-Module -Name AzureRm.Bootstrapper
+```
 
 2. Run the following command to install the required version of the 
 AzureRM modules for Compute, Storage, Network, Key Vault etc.  
 
-    ```powershell
-    # Installs and imports the API Version Profile required by Azure Stack into the current PowerShell session.
-    Use-AzureRmProfile -Profile 2017-03-09-profile
-    ```
+```powershell
+# Installs and imports the API Version Profile required by Azure Stack into the current PowerShell session.
+Use-AzureRmProfile -Profile 2017-03-09-profile
+```
 
 3. In addition to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules such as AzureStackAdmin, and AzureStackStorage by running the following command:  
 
