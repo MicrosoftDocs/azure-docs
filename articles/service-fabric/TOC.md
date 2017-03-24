@@ -22,6 +22,7 @@
 ### [Patterns and scenarios](service-fabric-patterns-and-scenarios.md)
 ### Basics
 #### [Application model](service-fabric-application-model.md)
+#### [Package an application](service-fabric-pacakage-apps.md)
 #### [Supported programming model](service-fabric-choose-framework.md)
 #### [Service state](service-fabric-concepts-state.md)
 #### [Service communication](service-fabric-connect-and-communicate-with-services.md)
