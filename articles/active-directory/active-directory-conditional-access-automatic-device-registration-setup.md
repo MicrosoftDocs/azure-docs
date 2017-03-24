@@ -83,7 +83,8 @@ Use the following table to get an overview of the steps that are required for yo
 | Step 1: Configure service connection point | ![Check][1]                            | ![Check][1]                    | ![Check][1]        |
 | Step 2: Setup issuance of claims           |                                        | ![Check][1]                    | ![Check][1]        |
 | Step 3: Enable non-Windows 10 devices      |                                        |                                | ![Check][1]        |
-
+| Step 4: Control deployment and rollout     | ![Check][1]                            | ![Check][1]                    | ![Check][1]        |
+| Step 5: Verify registered devices          | ![Check][1]                            | ![Check][1]                    | ![Check][1]        |
 
 
 
