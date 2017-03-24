@@ -20,7 +20,7 @@ ms.author: jroth
 # Connect to a SQL Server Virtual Machine on Azure (Classic Deployment)
 > [!div class="op_single_selector"]
 > * [Resource Manager](../sql/virtual-machines-windows-sql-connect.md)
-> * [Classic](virtual-machines-windows-classic-sql-connect.md)
+> * [Classic](../classic/sql-connect.md)
 > 
 > 
 
