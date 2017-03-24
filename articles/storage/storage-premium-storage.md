@@ -110,7 +110,7 @@ These are some of the features of the DS-series, DSv2-series, GS-series, and Fs-
 
     To analyze VM performance by using disks in Premium Storage, turn on VM diagnostics in the [Azure portal](https://portal.azure.com). For more information, see [Azure VM monitoring with Azure Diagnostics Extension](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/). 
 
-    To see disk performance, use operating system-based tools like [Windows Performance Monitor](https://technet.microsoft.com/library/cc749249.aspx) for Windows VMs and the **[iostat](http://linux.die.net/man/1/iostat)** command for Linux VMs.
+    To see disk performance, use operating system-based tools like [Windows Performance Monitor](https://technet.microsoft.com/library/cc749249.aspx) for Windows VMs and the [iostat](http://linux.die.net/man/1/iostat) command for Linux VMs.
 
 * **VM scale limits and performance**
 
@@ -173,11 +173,11 @@ Here are some important things to know about Premium Storage scalability and per
  
 * **I/O size**
 
-    The size of an I/O is 256 KB. If the data being transferred is less than 256 KB, it is considered one I/O unit. Larger I/O sizes are counted as multiple I/Os of size 256 KB. For example, 1,100 KB I/O is counted as five I/O units.
+    The size of an I/O is 256 KB. If the data being transferred is less than 256 KB, it is considered 1 I/O unit. Larger I/O sizes are counted as multiple I/Os of size 256 KB. For example, 1,100 KB I/O is counted as 5 I/O units.
 
 * **Throughput**
 
-    Throughput limit includes writes to the disk, and it includes reads from the disk that aren't served from the cache. For example, a P10 disk has 100 MB/s throughput per disk. Some examples of valid throughput for a P10 disk are shown in the following table:
+    The throughput limit includes writes to the disk, and it includes disk read operations that aren't served from the cache. For example, a P10 disk has 100 MB/s throughput per disk. Some examples of valid throughput for a P10 disk are shown in the following table:
 
     | Max throughput per P10 disk | Non-cache reads from disk | Non-cache writes to disk |
     | --- | --- | --- |
@@ -252,7 +252,7 @@ To achieve scalability targets in Premium Storage, for all premium storage disks
 * For premium storage disks with cache set to **ReadWrite**, enable barriers for write durability.
 * For volume labels to persist after you restart the VM, you must update /etc/fstab with the universally unique identifier (UUID) references to the disks. For more information, see [Add a managed disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md).
 
-The following Linux distributions have been validated for Azure Premium Storage. For better performance and stability with Premium Storage, we recommend that you upgrade your VMs to one of these versions, at a minimum (or to a later version). Some of the versions require the latest Linux Integration Services (LIS), v4.0, for Azure. To download and install a distribution, follow the link listed in the following table. We will add more images to the list as we complete validation. Note that our validations show that performance varies for each image. Performance depends on workload characteristics and your image settings. Different images are tuned for different kinds of workloads.
+The following Linux distributions have been validated for Azure Premium Storage. For better performance and stability with Premium Storage, we recommend that you upgrade your VMs to one of these versions, at a minimum (or to a later version). Some of the versions require the latest Linux Integration Services (LIS), v4.0, for Azure. To download and install a distribution, follow the link listed in the following table. We add images to the list as we complete validation. Note that our validations show that performance varies for each image. Performance depends on workload characteristics and your image settings. Different images are tuned for different kinds of workloads.
 
 | Distribution | Version | Supported kernel | Details |
 | --- | --- | --- | --- |
