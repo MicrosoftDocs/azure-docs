@@ -24,7 +24,7 @@ This article shows you how to configure an Azure Automation account in the Azure
 
 When you create an Automation account in the Azure portal, you automatically create two accounts:
 
-* A Run As account. This account creates a service principal in Azure Active Directory (Azure AD) and a certificate, and assigns the Contributor role-based access control (RBAC), which manages Resource Manager resources by using runbooks.
+* A Run As account. This account creates a service principal in Azure Active Directory (Azure AD) and a certificate. It also assigns the Contributor role-based access control (RBAC), which manages Resource Manager resources by using runbooks.
 * A Classic Run As account. This account uploads a management certificate, which is used to manage Service Management or classic resources by using runbooks.
 
 Creating an Automation account simplifies the process for you and helps you quickly start building and deploying runbooks to support your automation needs.
@@ -46,22 +46,22 @@ Before you begin creating an Automation account, it's a good idea to understand 
 * The process works only for Automation accounts that you create in the Azure portal. Attempting to create an account from the Azure classic portal does not replicate the Run As account configuration.
 * If you already have runbooks and assets (such as schedules or variables) in place to manage classic resources, and you want runbooks to authenticate with the new Classic Run As account, do either of the following:
 
-  * To create a Classic Run As account, follow the instructions in the "Managing your Run As account" section 
+  * To create a Classic Run As account, follow the instructions in the "Managing your Run As account" section. 
   * To update your existing account, use the PowerShell script in the "Update your Automation account by using PowerShell" section.
 * To authenticate by using the new Run As account and Classic Run As Automation account, you  need to modify your existing runbooks with the example code provided in the section [Authentication code examples](#authentication-code-examples).
 
     >[!NOTE]
-    >The Run As account is for authentication against Resource Manager resources using the certificate-based service principal, and the Classic Run As account is for authenticating against Service Management resources with a management certificate.
+    >The Run As account is for authentication against Resource Manager resources using the certificate-based service principal. The Classic Run As account is for authenticating against Service Management resources with a management certificate.
 
 ## Create an Automation account from the Azure portal
 In this section, you create an Azure Automation account from the Azure portal, which in turn creates both a Run As account and a Classic Run As account.
 
 >[!NOTE]
->To create an Automation account, you must be a member of the Service Admins role or co-administrator of the subscription that is granting access to the subscription. You must also be added as a user to that subscription's default Active Directory. The account does not need to be assigned a privileged role.
+>To create an Automation account, you must be a member of the Service Admins role or co-administrator of the subscription that is granting access to the subscription. You must also be added as a user to that subscription's default Active Directory instance. The account does not need to be assigned a privileged role.
 
->If you are not a member of the subscription’s Active Directory before you are added to the co-administrator role of the subscription, you will be added to Active Directory as a guest. In this instance, you will receive a “You do not have permissions to create…” warning on the **Add Automation Account** blade.
+>If you are not a member of the subscription’s Active Directory instance before you are added to the co-administrator role of the subscription, you will be added to Active Directory as a guest. In this instance, you will receive a “You do not have permissions to create…” warning on the **Add Automation Account** blade.
 
->Users who were added to the co-administrator role first can be removed from the subscriptions Active Directory and re-added to make them a full User in Active Directory. To verify this situation from the **Azure Active Directory** pane in the Azure portal by selecting **Users and groups**, selecting **All users** and, after you select the specific user, selecting **Profile**. The value of the **User type** attribute under the users profile should not equal **Guest**.
+>Users who were added to the co-administrator role first can be removed from the subscription's Active Directory instance and re-added to make them a full User in Active Directory. To verify this situation from the **Azure Active Directory** pane in the Azure portal by selecting **Users and groups**, selecting **All users** and, after you select the specific user, selecting **Profile**. The value of the **User type** attribute under the users profile should not equal **Guest**.
 >
 
 1. Sign in to the Azure portal with an account that is a member of the subscription administrators role and co-administrator of the subscription.
@@ -199,7 +199,7 @@ This section describes how to delete and re-create a Run As or Classic Run As ac
 
 2. On the **Automation account** blade, in the account properties pane, select **Run As Accounts**.
 
-3. On the **Run As Accounts** properties blade, select either the Run As Account or Classic Run As account that you want to delete and then, on the **Properties** blade for the selected account, click **Delete**.
+3. On the **Run As Accounts** properties blade, select either the Run As account or Classic Run As account that you want to delete. Then, on the **Properties** blade for the selected account, click **Delete**.
 
  ![Delete Run As account](media/automation-sec-configure-azure-runas-account/automation-account-delete-runas.png)
 
@@ -507,7 +507,7 @@ You can use the following updated sample code, taken from the *AzureAutomationTu
          }
     }
 
-To help you to easily work between multiple subscriptions, the script includes two additional lines of code that support referencing a subscription context. A variable asset named *SubscriptionId* contains the ID of the subscription, and after the `Add-AzureRmAccount` cmdlet statement, the [`Set-AzureRmContext`](https://msdn.microsoft.com/library/mt619263.aspx) cmdlet is stated with the parameter set *-SubscriptionId*. If the variable name is too generic, you can revise it to include a prefix or use another naming convention to make it easier to identify. Alternatively, you can use the parameter set *-SubscriptionName* instead of *-SubscriptionId* with a corresponding variable asset.
+To help you to easily work between multiple subscriptions, the script includes two additional lines of code that support referencing a subscription context. A variable asset named *SubscriptionId* contains the ID of the subscription. After the `Add-AzureRmAccount` cmdlet statement, the [`Set-AzureRmContext`](https://msdn.microsoft.com/library/mt619263.aspx) cmdlet is stated with the parameter set *-SubscriptionId*. If the variable name is too generic, you can revise it to include a prefix or use another naming convention to make it easier to identify. Alternatively, you can use the parameter set *-SubscriptionName* instead of *-SubscriptionId* with a corresponding variable asset.
 
 The cmdlet that you use for authenticating in the runbook, `Add-AzureRmAccount`, uses the *ServicePrincipalCertificate* parameter set. It authenticates by using the service principal certificate, not the user credentials.
 
