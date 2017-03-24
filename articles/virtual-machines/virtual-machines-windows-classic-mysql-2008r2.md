@@ -33,7 +33,7 @@ After the virtual machine is created, you can optionally attach an additional da
 See [How to attach a data disk to a Windows virtual machine](windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) and follow the instructions for attaching an empty disk. Set the host cache setting to **None** or **Read-only**.
 
 ## Log on to the virtual machine
-Next, you'll [log on to the virtual machine](virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) so you can install MySQL.
+Next, you'll [log on to the virtual machine](windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) so you can install MySQL.
 
 ## Install and run MySQL Community Server on the virtual machine
 Follow these steps to install, configure, and run the Community version of MySQL Server:
