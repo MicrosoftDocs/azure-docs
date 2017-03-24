@@ -28,7 +28,7 @@ ms.author: jroth
 ## Overview
 This tutorial shows you how to create a single Azure virtual machine using the **Azure Resource Manager** deployment model using Azure PowerShell cmdlets. In this tutorial, we will create a single virtual machine using a single disk drive from an image in the SQL Gallery. We will create new providers for the storage, network, and compute resources that will be used by the virtual machine. If you have existing providers for any of these resources, you can use those providers instead.
 
-If you need the classic version of this topic, see [Provision a SQL Server virtual machine using Azure PowerShell Classic](../sqlclassic/virtual-machines-windows-classic-ps-sql-create.md).
+If you need the classic version of this topic, see [Provision a SQL Server virtual machine using Azure PowerShell Classic](../classic/ps-sql-create.md).
 
 ## Prerequisites
 For this tutorial you'll need:

@@ -5,7 +5,7 @@
 
 # Get Started
 ## [Provision a VM in the Azure Portal](../sql/virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
-## [Provision a VM using Azure PowerShell](virtual-machines-windows-classic-ps-sql-create.md)
+## [Provision a VM using Azure PowerShell](../classic/ps-sql-create.md)
 ## [Connect to a VM](virtual-machines-windows-classic-sql-connect.md)
 ## [Migrate a SQL Server database](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
