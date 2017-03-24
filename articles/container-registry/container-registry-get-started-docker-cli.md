@@ -96,13 +96,19 @@ Browse to [http://localhost:8080](http://localhost:8080) to view the running con
 
 To stop the running container, press [CTRL]+[C].
 
-**6. Remove the image**
+**6. (Optional) Remove the image**
 
 ```
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
+##Concurrent Limits
+In some scenarios, executing calls concurrently might result in errors. Below are the limits of concurrent calls with "Push" and "Pull" operations on Azure container registry:
 
+| Operation  | Limit                                  |
+| ---------- | -------------------------------------- |
+| PULL       | Up to 10 concurrent pulls per registry |
+| PUSH       | Up to 5 concurrent pushes per registry |
 
 ## Next steps
 Now that you know the basics, you are ready to start using your registry! For example, start deploying container images to an [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/) cluster.
