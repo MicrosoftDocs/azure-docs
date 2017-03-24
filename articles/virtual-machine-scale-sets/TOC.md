@@ -11,7 +11,7 @@
 
 ## Create a template
 ### [Learn about scale set templates](virtual-machine-scale-sets-mvss-start.md)
-### [Modify a template and add a virtual network](virtual-machine-scale-sets-mvss-existing-vnet.md)
+### [Add a virtual network](virtual-machine-scale-sets-mvss-existing-vnet.md)
 
 ## Deploy
 ### [Create with the portal](virtual-machine-scale-sets-portal-create.md)
