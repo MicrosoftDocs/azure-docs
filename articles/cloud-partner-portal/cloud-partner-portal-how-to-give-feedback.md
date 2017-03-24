@@ -3,7 +3,7 @@ title: How to share marketplace publishing and cloud partner portal Feedback  | 
 description: Please share your feedback for the marketplace publishing and cloud partner portal.
 services: marketplace-publishing
 documentationcenter: ''
-author: rupeskazure
+author: rupeshazure
 manager: hamidm
 
 
