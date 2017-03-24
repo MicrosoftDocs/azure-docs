@@ -352,5 +352,8 @@ See [HttpSource](#httpsource-in-copy-activity) for the list of properties suppor
 }
 ```
 
+> [!NOTE]
+> To map columns from source dataset to columns from sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
+
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.

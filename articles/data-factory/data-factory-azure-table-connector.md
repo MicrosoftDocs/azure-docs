@@ -18,10 +18,9 @@ ms.author: jingwang
 
 ---
 # Move data to and from Azure Table using Azure Data Factory
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to/from Azure Table from/to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement and supported data store combinations with copy activity.
+This article explains how to use the Copy Activity in Azure Data Factory to move data to/from Azure Table Storage. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity. 
 
-## Copy data wizard
-The easiest way to create a pipeline that copies data to/from Azure Table Storage is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
+You can copy data from any supported source data store to Azure Table Storage or from Azure Table Storage to any supported sink data store. For a list of data stores supported as sources or sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. 
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data to/from an Azure Table Storage by using different tools/APIs.
