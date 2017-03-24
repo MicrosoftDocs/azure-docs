@@ -30,7 +30,7 @@ and availability of your HPC Pack cluster resources so you can control costs.
 > In addition, the PowerShell scripts described in this article are not available in HPC Pack 2016.
 
 ## Prerequisites
-* **HPC Pack 2012 R2 cluster in Azure VMs**: Create an HPC Pack 2012 R2 cluster in the classic deployment model. For example, you can automate the deployment by using the HPC Pack 2012 R2 VM image in the Azure Marketplace and an Azure PowerShell script. For information and prerequisites, see [Create an HPC Cluster with the HPC Pack IaaS deployment script](../../virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* **HPC Pack 2012 R2 cluster in Azure VMs**: Create an HPC Pack 2012 R2 cluster in the classic deployment model. For example, you can automate the deployment by using the HPC Pack 2012 R2 VM image in the Azure Marketplace and an Azure PowerShell script. For information and prerequisites, see [Create an HPC Cluster with the HPC Pack IaaS deployment script](hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
   
     After deployment, find the node management scripts in the %CCP\_HOME%bin folder on the head node. Run each of the scripts as an administrator.
 * **Azure publish settings file or management certificate**: You need to do one of the following on the head node:

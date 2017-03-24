@@ -40,7 +40,7 @@ Pack](https://technet.microsoft.com/library/gg481749.aspx).
   Pack Head Node in an Azure VM](../../virtual-machines-windows-hpcpack-cluster-headnode.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For automated HPC Pack cluster deployment options, see [Options to create and manage a Windows HPC cluster in Azure with Microsoft HPC Pack](../../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
   > [!TIP]
-  > If you use the [HPC Pack IaaS deployment script](../../virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to create the cluster in Azure,
+  > If you use the [HPC Pack IaaS deployment script](hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to create the cluster in Azure,
   > you can include Azure burst nodes in your automated
   > deployment. See the examples in that article.
   > 
