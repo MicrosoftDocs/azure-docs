@@ -15,7 +15,7 @@
 ### [Configure Always On availability group in the classic portal](../classic/portal-sql-alwayson-availability-groups.md)
 ### [Configure Always On availability group with PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 ### [Configure an internal listener for an availability group](virtual-machines-windows-classic-ps-sql-int-listener.md)
-### [Configure an external listener for an availability group](virtual-machines-windows-classic-ps-sql-ext-listener.md)
+### [Configure an external listener for an availability group](../classic/ps-sql-ext-listener.md)
 ### [Extend on-premises availability group to Azure](virtual-machines-windows-classic-sql-onprem-availability.md)
 ## Manage
 ### [Use the SQL Server IaaS Agent Extension](virtual-machines-windows-classic-sql-server-agent-extension.md)

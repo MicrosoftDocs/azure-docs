@@ -21,7 +21,7 @@ ms.author: mikeray
 # Configure an external listener for Always On Availability Groups in Azure
 > [!div class="op_single_selector"]
 > * [Internal Listener](virtual-machines-windows-classic-ps-sql-int-listener.md)
-> * [External Listener](virtual-machines-windows-classic-ps-sql-ext-listener.md)
+> * [External Listener](../classic/ps-sql-ext-listener.md)
 > 
 > 
 
