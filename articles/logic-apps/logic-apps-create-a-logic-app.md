@@ -1,10 +1,11 @@
 ---
-title: Create your first workflow between cloud apps & services - Azure Logic Apps | Microsoft Docs
-description: Automate processes between software-as-a-service apps and services by creating workflows with Azure Logic Apps
+title: Create your first workflow between cloud apps & cloud services - Azure Logic Apps | Microsoft Docs
+description: Automate business processes for system integration and enterprise application integration (EAI) scenarios by creating and running workflows in Azure Logic Apps
 author: jeffhollan
 manager: anneta
 editor: ''
 services: logic-apps
+keywords: workflow, cloud apps, cloud services, business processes, system integration, enterprise application integration, EAI
 documentationcenter: ''
 
 ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
