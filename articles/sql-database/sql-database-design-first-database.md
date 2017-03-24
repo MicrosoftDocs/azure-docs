@@ -22,16 +22,7 @@ ms.author: janeng
 
 # Design your first Azure SQL database
 
-In this tutorial, you are going to learn how to
-
-* [Create a database](sql-database-design-first-database.md#step-2---create-a-sql-database)
-* [Create a server-level firewall rule](sql-database-design-first-database.md#step-3---create-a-server-level-firewall-rule)
-* [Get connection information](sql-database-design-first-database.md#step-4---get-connection-information)
-* [Connect to an Azure SQL database using SQL Server Management Studio](sql-database-design-first-database.md#step-5---connect-to-the-server-using-ssms)
-* [Create and query a table in the database](sql-database-design-first-database.md#step-6---create-and-query-a-table)
-* [Load data into a table](sql-database-design-first-database.md#step-7---load-data-into-the-table) 
-* [Add an index to the table to optimize query performance](sql-database-design-first-database.md#step-8---add-an-index-to-a-table)
-* [Restore the database to a point in time](sql-database-design-first-database.md##step-9---restore-a-database-to-a-point-in-time) 
+In this tutorial, you use the Azure portal to create a database on a new server with a server-level firewall. You will then use SQL Server Management Studio to create a table, load data into that table, query the table, and add an index to the table. Finally, you will use the SQL Database service's automated backups to restore the database to an earlier point in time before you added this new table.
 
 Before you start:
 
