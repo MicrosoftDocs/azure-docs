@@ -36,7 +36,7 @@ After completing this tutorial, the AAD users to whom you have assign ThousandEy
 ## Enable the application integration for ThousandEyes
 The objective of this section is to outline how to enable the application integration for ThousandEyes.
 
-** To enable the application integration for ThousandEyes, perform the following steps:**
+**To enable the application integration for ThousandEyes, perform the following steps:**
 
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
@@ -68,7 +68,7 @@ This section outlines how to enable users to authenticate to ThousandEyes with t
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **ThousandEyes** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **ThousandEyes** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
     ![Configure Single SignOn](./media/active-directory-saas-thousandeyes-tutorial/IC790062.png "Configure Single SignOn")
 
@@ -138,9 +138,9 @@ In the case of ThousandEyes, provisioning is a manual task.
   1. Type the **Name**, **Email** and other details of a valid Azure Active Directory account you want to provision into the related textboxes.
   2. Click **Add New User to Account**.
       
-    >[!NOTE]
-    >The AAD account holder will get an email including a link to confirm and activate the account.
-    >  
+     >[!NOTE]
+     >The AAD account holder will get an email including a link to confirm and activate the account.
+     >  
 
 >[!NOTE]
 >You can use any other ThousandEyes user account creation tools or APIs provided by ThousandEyes to provision AAD user accounts.
