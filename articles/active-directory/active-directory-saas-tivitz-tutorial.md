@@ -119,9 +119,9 @@ In this section, you enable Azure AD SSO in the classic portal and configure sin
  2. In the **Identifier** textbox, type a URL using the following pattern: `https://<company name>.o365.tivitz.com/`
  3. Click **Next**.
 
-	>[!NOTE] 
-	>Please note that these are not the real values. You have to update these values with the actual Sign On URL and Identifier. Contact [TiViTz support team](emaiLto:info@tivitz.com) to get these values.
-	>
+	 >[!NOTE] 
+	 >Please note that these are not the real values. You have to update these values with the actual Sign On URL and Identifier. Contact [TiViTz support team](emaiLto:info@tivitz.com) to get these values.
+	 >
 
 4. On the **Configure single sign-on at TiViTz** page, click **Download metadata** and then save the file on your computer:
 
