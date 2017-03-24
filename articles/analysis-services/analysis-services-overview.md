@@ -111,7 +111,7 @@ Data models in Azure Analysis Services may require different data providers to c
 
 ### Client connections
 
-Client applications require the latest client [data providers](analysis-services-data-proividers.md) to connect to Azure Analysis Services.
+Client applications require the latest client [data providers](analysis-services-data-providers.md) to connect to Azure Analysis Services.
 
 Excel workbooks with live connections to an Azure Analysis Services server and saved on OneDrive or SharePoint Online are not supported.
 
