@@ -17,7 +17,7 @@ ms.workload: big-data
 ms.date: 02/27/2017
 ms.author: larryfr
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
 # Use SSH with HDInsight (Hadoop) from Bash on Windows 10, Linux, Unix, or OS X
 
