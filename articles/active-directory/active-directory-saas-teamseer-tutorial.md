@@ -74,7 +74,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **TeamSeer** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **TeamSeer** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
     ![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/IC789621.png "Configure Single Sign-On")
 
@@ -110,9 +110,10 @@ If you are not familiar with this procedure, see [How to convert a binary certif
   1. In the Azure classic portal, on the **Configure single sign-on at TeamSeer** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **URL** textbox.
   2. Create a **base-64 encoded** file from your downloaded certificate.  
       
-    >[!TIP]
-    >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
-    >  
+     >[!TIP]
+     >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+     >
+     
   3. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **IdP Public Certificate** textbox.
 
 10. To complete the SAML provider configuration, perform the following steps:
@@ -131,7 +132,7 @@ In order to enable Azure AD users to log into TeamSeer, they must be provisioned
 
 * In the case of TeamSeer, provisioning is a manual task.
 
-***To provision a user accounts, perform the following steps:**
+**To provision a user accounts, perform the following steps:**
 
 1. Log in to your **TeamSeer** company site as an administrator.
 
