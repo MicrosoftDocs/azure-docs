@@ -287,7 +287,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
   }
 }
 ```
-See the [Azure Blob dataset type properties](data-factory-azure-blob-connector.md#azure-blob-dataset) section for the list of properties supported by this dataset type.  
+See the [Azure Blob dataset type properties](data-factory-azure-blob-connector.md#dataset-properties) section for the list of properties supported by this dataset type.  
 
 **A copy activity in a pipeline with SQL source and Blob sink:**
 
@@ -348,11 +348,11 @@ See the [Sql Source](#sqlsource) section and [BlobSink](data-factory-azure-blob-
 ## Sample: Copy data from Azure Blob to Azure SQL Database
 The sample defines the following Data Factory entities:  
 
-1. A linked service of type [AzureSqlDatabase](#azure-sql-database-linked-service).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset).
-4. An output [dataset](data-factory-create-datasets.md) of type [AzureSqlTable](#azure-sql-table-dataset).
-5. A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-source-and-sink-in-copy-activity) and [SqlSink](#sql-source-and-sink-in-copy-activity).
+1. A linked service of type [AzureSqlDatabase](#linked-service-properties).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type [AzureSqlTable](#dataset-properties).
+5. A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) and [SqlSink](#copy-activity-properties).
 
 The sample copies time-series data (hourly, daily, etc.) from Azure blob to a table in Azure SQL database every hour. The JSON properties used in these samples are described in sections following the samples.
 
@@ -455,7 +455,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
   }
 }
 ```
-See the [Azure Blob dataset type properties](data-factory-azure-blob-connector.md#azure-blob-dataset) section for the list of properties supported by this dataset type.
+See the [Azure Blob dataset type properties](data-factory-azure-blob-connector.md#dataset-properties) section for the list of properties supported by this dataset type.
 
 **Azure SQL Database output dataset:**
 
