@@ -143,7 +143,7 @@ This section walks you through configuring the VM as a Reporting Services native
 * Use the script to configure the report server
 * Use Configuration Manager to Configure the Report Server.
 
-For more detailed steps, see the section [Connect to the Virtual Machine and Start the Reporting Services Configuration Manager](../classic/ps-sql-bi.md#connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager).
+For more detailed steps, see the section [Connect to the Virtual Machine and Start the Reporting Services Configuration Manager](virtual-machines-windows-classic-ps-sql-bi.md#connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager).
 
 **Authentication Note:** Windows authentication is the recommended authentication method and it is the default Reporting Services authentication. Only users that are configured on the VM can access Reporting Services and assigned to Reporting Services roles.
 

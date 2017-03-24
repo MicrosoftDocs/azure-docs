@@ -107,4 +107,4 @@ Pack](http://technet.microsoft.com/library/jj159097.aspx).
   the cluster workload, see [Automatically grow and shrink Azure compute resources in an HPC Pack cluster](hpcpack-cluster-node-autogrowshrink.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 <!--Image references-->
-[burst]: ./media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png
+[burst]: ./media/hpcpack-cluster-node-burst/burst.png

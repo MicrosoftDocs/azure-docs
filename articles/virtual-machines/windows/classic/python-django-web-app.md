@@ -165,9 +165,9 @@ A screenshot of the completed application appears next.
 ## Shutting down your Azure virtual machine
 When you're done with this tutorial, shut down and/or remove your newly created Azure virtual machine to free up resources for other tutorials and avoid incurring Azure usage charges.
 
-[1]: ./media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-browser-azure.png
+[1]: ./media/python-django-web-app/django-helloworld-browser-azure.png
 
-[port80]: ./media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-port80.png
+[port80]: ./media/python-django-web-app/django-helloworld-port80.png
 
 [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [python.org]: https://www.python.org/downloads/
