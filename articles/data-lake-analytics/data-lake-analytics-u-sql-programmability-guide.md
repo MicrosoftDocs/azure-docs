@@ -2024,7 +2024,7 @@ The user-defined applier base class definition is as follows:
     }
 ```
 
-To define a user-defined applier, we need to create the `IApplier` interface with the [`SqlUserDefinedCombiner`] attribute, which is optional for a user-defined applier definition.
+To define a user-defined applier, we need to create the `IApplier` interface with the [`SqlUserDefinedApplier`] attribute, which is optional for a user-defined applier definition.
 
 ```c#
     [SqlUserDefinedApplier]
