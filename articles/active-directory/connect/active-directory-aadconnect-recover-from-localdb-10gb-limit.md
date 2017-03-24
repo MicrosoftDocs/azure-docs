@@ -33,7 +33,7 @@ This section provides the steps to reclaim DB space required for Azure AD Connec
 2. [Shrink the database](#shrink-the-database)
 3. [Delete run history data](#delete-run-history-data)
 4. [Shorten retention period for run history data](#shorten-retention-period-for-run-history-data)
-t
+
 ### Determine the Synchronization Service status
 First, determine whether the Synchronization Service is still running or not:
 
