@@ -289,7 +289,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 ```
 
 
-**A copy activity in a pipeline with File System source and Blob sink:**
+**Copy activity in a pipeline with Amazon S3 source (File System source) and Blob sink:**
 
 The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **FileSystemSource** and **sink** type is set to **BlobSink**.
 
