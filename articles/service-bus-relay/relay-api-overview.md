@@ -21,7 +21,7 @@ ms.author: jotaub
 
 ## Runtime APIs
 
-The following is a listing of all currently available Relay runtime client libraries. While some of these libraries also include limited management functionality, there are also [specific libraries](#management-apis) dedicated to management operations.
+The following is a listing of all currently available Relay runtime clients.
 
 See [additional information](#additional-information) for more details on the status of each runtime library.
 
@@ -35,14 +35,6 @@ See [additional information](#additional-information) for more details on the st
 
 #### .NET
 The .NET ecosystem has multiple runtimes, hence there are multiple .NET libraries for Event Hubs. The .NET Standard library can be run using either .NET Core or the .NET Framework, while the .NET Framework library can only be run in a .NET Framework environment. For more information on .NET Frameworks, see [framework versions](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
-
-## Management APIs
-
-The following is a listing of all currently available Relay management-specific libraries. None of these libraries contain runtime operations, and are for the sole purpose of managing Relay entities.
-
-| Language/Platform | Management package | Repository |
-| --- | --- | --- |
-| .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Relay) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/ResourceManagement/Relay) |
 
 ## Next steps
 To learn more about Azure Relay, visit these links:
