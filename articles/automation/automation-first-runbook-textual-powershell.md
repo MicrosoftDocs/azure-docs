@@ -27,14 +27,14 @@ ms.author: magoedte;sngun
 > 
 > 
 
-This tutorial walks you through the creation of a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) in Azure Automation. We'll start with a simple runbook that we'll test and publish while we explain how to track the status of the runbook job. Then we'll modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine. We'll then make the runbook more robust by adding runbook parameters.
+This tutorial walks you through the creation of a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) in Azure Automation. We start with a simple runbook that we test and publish while we explain how to track the status of the runbook job. Then we modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine. Lastly, we make the runbook more robust by adding runbook parameters.
 
 ## Prerequisites
 To complete this tutorial, you need the following:
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or <a href="/pricing/free-account/" target="_blank">[sign up for a free account](https://azure.microsoft.com/free/).
 * [Automation account](automation-sec-configure-azure-runas-account.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
-* An Azure virtual machine. We stop and start this machine so it should not be production.
+* An Azure virtual machine. We stop and start this machine so it should not be a production VM.
 
 ## Step 1 - Create new runbook
 We'll start by creating a simple runbook that outputs the text *Hello World*.
@@ -102,7 +102,7 @@ We've tested and published our runbook, but so far it doesn't do anything useful
 5. Click **Start** to start the test. Once it completes, you should receive output similar to the following, displaying basic information from your account. This confirms that the credential is valid.<br><br> ![Authenticate](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
 
 ## Step 6 - Add code to start a virtual machine
-Now that our runbook is authenticating to our Azure subscription, we can manage resources. We add a command to start a virtual machine. You can pick any virtual machine in your Azure subscription, and for now we will hardcode that name into the cmdlet.
+Now that our runbook is authenticating to our Azure subscription, we can manage resources. We add a command to start a virtual machine. You can pick any virtual machine in your Azure subscription, and for now we will hardcode that name in the runbook.
 
 1. After *Add-AzureRmAccount*, type *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* providing the name and Resource Group name of the virtual machine to start.  
    
