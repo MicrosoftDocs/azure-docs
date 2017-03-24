@@ -257,7 +257,7 @@ Once you have encrypted your data disks, you can later add additional virtual di
 For example, lets add a second virtual disk to your VM as follows:
 
 ```azurecli
-azure vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
+az vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
   --size-in-gb 5
 ```
 
@@ -265,9 +265,9 @@ Rerun the command to encrypt the virtual disks, this time adding the `--sequence
 
 ```azurecli
 az vm encryption enable --resource-group myResourceGroup --name myVM \
-  --aad-client-id 54dae448-d995-4814-806d-c0daaed10266 \
-  --aad-client-secret 80ada6ac-95f5-4718-9e3a-aafa30db4795 \
-  --disk-encryption-keyvault myKeyVault \
+  --aad-client-id $sp_id \
+  --aad-client-secret $sp_password \
+  --disk-encryption-keyvault $keyvault_name \
   --key-encryption-key myKey \
   --volume-type all \
   --sequence-version 2
