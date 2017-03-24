@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 1d1ed180-e0f4-4d1c-b5ea-72e0eda643bc
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
