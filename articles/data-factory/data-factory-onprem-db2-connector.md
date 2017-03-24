@@ -57,11 +57,11 @@ This sample shows how to copy data from an on-premises DB2 database to an Azure 
 
 The sample has the following data factory entities:
 
-1. A linked service of type [OnPremisesDb2](data-factory-onprem-db2-connector.md#db2-linked-service-properties).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](data-factory-onprem-db2-connector.md#db2-dataset-type-properties).
-4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](data-factory-onprem-db2-connector.md#db2-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+1. A linked service of type [OnPremisesDb2](data-factory-onprem-db2-connector.md#linked-service-properties).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](data-factory-onprem-db2-connector.md#dataset-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](data-factory-onprem-db2-connector.md#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 The sample copies data from a query result in a DB2 database to an Azure blob hourly. The JSON properties used in these samples are described in sections following the samples.
 
@@ -238,7 +238,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 }
 ```
 
-## DB2 linked service properties
+## Linked service properties
 The following table provides description for JSON elements specific to DB2 linked service.
 
 | Property | Description | Required |
@@ -254,7 +254,7 @@ The following table provides description for JSON elements specific to DB2 linke
 
 See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for an on-premises DB2 data source. 
 
-## DB2 dataset type properties
+## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
 The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type RelationalTable (which includes DB2 dataset) has the following properties.
@@ -263,7 +263,7 @@ The typeProperties section is different for each type of dataset and provides in
 | --- | --- | --- |
 | tableName |Name of the table in the DB2 Database instance that linked service refers to. The tableName is case-sensitive. |No (if **query** of **RelationalSource** is specified) |
 
-## DB2 copy activity type properties
+## Copy activity properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policies are available for all types of activities.
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
