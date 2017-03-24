@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/13/2017
 ms.author: kgremban
 
 ms.custom: H1Hack27Feb2017
@@ -77,7 +77,7 @@ Once you complete the installation, the installer creates a PowerShell script in
 -	Grant access to the certificate’s private key to Network User.
 -	Restart the NPS.
 
-Unless you want to use your own certificates (instead of the self-signed certificates that the PowerShell script generates), run the PowerShell Script to complete the installation.
+Unless you want to use your own certificates (instead of the self-signed certificates that the PowerShell script generates), run the PowerShell Script to complete the installation. If you install the extension on multiple servers, each one should have its own certificate so that you don't have downtime when you renew the certificates. 
 
 ## Configure your NPS extension
 

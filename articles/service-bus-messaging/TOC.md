@@ -1,6 +1,7 @@
 # Overview
 ## [What is Service Bus Messaging?](service-bus-messaging-overview.md)
 ## [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
+## [Service Bus architecture](service-bus-architecture.md)
 ## [FAQ](service-bus-faq.md)
 
 # Get Started

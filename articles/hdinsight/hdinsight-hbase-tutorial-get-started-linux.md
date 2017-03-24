@@ -10,11 +10,12 @@ editor: cgronlun
 
 ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/09/2017
+ms.date: 03/22/2017
 ms.author: jgao
 
 ---
@@ -219,6 +220,11 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
         -v
 
 For more information about HBase Rest, see [Apache HBase Reference Guide](https://hbase.apache.org/book.html#_rest).
+
+>
+> [!NOTE]
+> Thrift is not supported by HBase in HDInsight.
+>
 
 ## Check cluster status
 HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI, you can request statistics or information about regions.
