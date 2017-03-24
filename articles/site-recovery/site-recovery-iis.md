@@ -40,7 +40,7 @@ Before you start, make sure you understand the following:
 
 1. [Replicating a virtual machine to Azure](site-recovery-vmware-to-azure.md)
 1. How to [design a recovery network](site-recovery-network-design.md)
-1. [Doing a test failover to Azure](site-recovery-test-failover-azure.md)
+1. [Doing a test failover to Azure](./site-recovery-test-failover-to-azure.md)
 1. [Doing a failover to Azure](site-recovery-failover.md)
 1. How to [replicate a domain controller](site-recovery-active-directory.md)
 1. How to [replicate SQL Server](site-recovery-sql.md)
@@ -92,10 +92,10 @@ A typical multi-tier IIS web application will consist of a database tier with SQ
 ![Recovery Plan](./media/site-recovery-iis/RecoveryPlan.png)
 
 ### Adding scripts to the recovery plan
-You may need to do some operations on the Azure virtual machines post failover/Test failover to make IIS web farm function correctly. You can automate the post failover operation like updating DNS entry, changing site binding, change  in connection string  by adding corresponding scripts in the recovery plan as below. [Learn more about add script recovery plan](./site-recovery-create-recovery-plans#add-scripts).
+You may need to do some operations on the Azure virtual machines post failover/Test failover to make IIS web farm function correctly. You can automate the post failover operation like updating DNS entry, changing site binding, change  in connection string  by adding corresponding scripts in the recovery plan as below. [Learn more about add script recovery plan](./site-recovery-create-recovery-plans.md#add-scripts).
 
 #### DNS Update
-If you are using a static IPs for the virtual machines, you need to update the DNS entries with the new IP addresses of the virtual machines. You can add [DNS update](DNS update script path) script to the recovery plan after Group 3 in order to update dependencies for the IIS web application. If you are using dynamic IPs, no more steps are required.  
+If you are using a static IPs for the virtual machines, you need to update the DNS entries with the new IP addresses of the virtual machines. You can add [DNS update](https://aka.ms/asr-dns-update) script to the recovery plan after Group 3 in order to update dependencies for the IIS web application. If you are using dynamic IPs, no more steps are required.  
 
 #### Connection string in an application’s web.config
 The connection string specifies the database that the web site communicates with. 
