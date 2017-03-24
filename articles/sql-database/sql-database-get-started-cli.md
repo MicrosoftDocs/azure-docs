@@ -61,7 +61,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 ## Create a database in the server with sample data
 
-Create a database with an [S0 performance level](sql-database-service-tiers.md) in the server with the [az sql db create](/cli/azure/sql/db#create) command. The following example creates a database called `mySampleDatabase` and loads the AdventureWorksLT sample data into this database. Replace these predefined values as desired (the Connnect quick starts build upon the values in this quick start).
+Create a database with an [S0 performance level](sql-database-service-tiers.md) in the server with the [az sql db create](/cli/azure/sql/db#create) command. The following example creates a database called `mySampleDatabase` and loads the AdventureWorksLT sample data into this database. Replace these predefined values as desired (the Connect quick starts build upon the values in this quick start).
 
 ```azurecli
 az sql db create --resource-group myResourceGroup --server $servername \
