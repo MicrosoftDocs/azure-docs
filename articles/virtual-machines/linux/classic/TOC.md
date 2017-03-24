@@ -18,7 +18,7 @@
 ### [Manage VMs with Visual Studio](manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Monitor VMs using the Diagnostic VM Extension](diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Inject custom data](inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-### [Reset Linux passwords or keys, fix SSH, and check disks](../../virtual-machines-linux-classic-reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+### [Reset Linux passwords or keys, fix SSH, and check disks](reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Create a Docker host using the CLI](cli-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Create a Docker host using the portal](portal-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [How to use Docker with Swarm](../../virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
