@@ -34,7 +34,7 @@ For background about Batch accounts and scenarios, see the [feature overview](ba
 
 ## Create a Batch account
 
-Use the portal to create a Batch account in one of the two *pool allocation modes*: *Batch service* pool allocation mode or the newer *user subscription* mode. For information about these two modes, see the [feature overview](batch-api-basics.md#account). Also see the [blog post](https://blogs.technet.microsoft.com/windowshpc/2017/03/17/azure-batch-vnet-and-custom-image-support-for-virtual-machine-pools/) for features of the user subscription mode.
+Use the portal to create a Batch account in one of the two *pool allocation modes*: *Batch service* pool allocation mode or the newer *user subscription* mode, which requires more configuration. For information about these two modes, see the [feature overview](batch-api-basics.md#account). For features of the user subscription mode, also see the [blog post](https://blogs.technet.microsoft.com/windowshpc/2017/03/17/azure-batch-vnet-and-custom-image-support-for-virtual-machine-pools/).
 
 ### Batch service mode
 
@@ -111,7 +111,7 @@ Once the account has been created, you can open the **Batch account blade** to a
 
 ![Batch account URL in portal][account_url]
 
-* **Access keys**: To authenticate access to your Batch account from your application, you'll need an account access key. To view or regenerate your Batch account's access keys, enter `keys` in the left menu **Search** box on the Batch account blade, then select **Keys**.
+* **Access keys** (Batch service mode): To authenticate access to your Batch account from your application, you'll need an account access key. To view or regenerate your Batch account's access keys, enter `keys` in the left menu **Search** box on the Batch account blade, then select **Keys**. (This setting is not available in user subscription mode.)
   
     ![Batch account keys in Azure portal][account_keys]
 
@@ -119,7 +119,7 @@ Once the account has been created, you can open the **Batch account blade** to a
 
 ## Linked Azure Storage account
 
-As mentioned earlier, you can optionally link a general-purpose Azure Storage account to your Batch account. The [application packages](batch-application-packages.md) feature of Batch uses Azure Blob storage, as does the [Batch File Conventions .NET](batch-task-output.md) library. These optional features assist you in deploying the applications that your Batch tasks run, and persisting the data they produce.
+You can optionally link a general-purpose Azure Storage account to your Batch account. The [application packages](batch-application-packages.md) feature of Batch uses Azure Blob storage, as does the [Batch File Conventions .NET](batch-task-output.md) library. These optional features assist you in deploying the applications that your Batch tasks run, and persisting the data they produce.
 
 We recommend that you create a new Storage account exclusively for use by your Batch account.
 
@@ -142,9 +142,7 @@ Please be aware that as with your Azure subscription and other Azure services, c
 
 ![Batch account quotas in Azure portal][quotas]
 
-Keep these quotas in mind as you are designing and scaling up your Batch workloads. For example, if your pool isn't reaching the target number of compute nodes you've specified, you might have reached the core quota limit for your Batch account.
 
-The quota for Batch accounts is per region per subscription, so you can have more than one Batch account by default, as long as they are in different regions. You can run multiple Batch workloads in a single Batch account, or distribute your workloads among Batch accounts that are in the same subscription, but in different Azure regions.
 
 Additionally, many of these quotas can be increased simply with a free product support request submitted in the Azure portal. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for details on requesting quota increases.
 
