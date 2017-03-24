@@ -146,4 +146,4 @@ Prerequisites for Azure AD:
 * To configure a domain-joined HDInsight cluster, see [Configure domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md).
 * To manage domain-joined HDInsight clusters, see [Manage domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md).
 * To configure Hive policies and run Hive queries, see [Configure Hive policies for domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md).
-* To run Hive queries by using SSH on domain-joined HDInsight clusters, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+* To run Hive queries by using SSH on domain-joined HDInsight clusters, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).

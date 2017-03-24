@@ -50,7 +50,6 @@ actions:
 
 ## Next Steps
 * [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
-* [Connect to a Linux-based cluster using SSH from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md)
-* [Connect to a Linux-based cluster using SSH from a Linux, Unix, or Mac client](hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Connect to HDInsight using SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Manage a Linux-based cluster using Ambari](hdinsight-hadoop-manage-ambari.md)
 

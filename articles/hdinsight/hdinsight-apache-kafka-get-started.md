@@ -31,11 +31,7 @@ You must have the following to successfully complete this Apache Kafka tutorial:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **Familiarity with SSH and SCP**. For more information on using SSH and SCP with HDInsight, see the following documents:
-  
-   * **Linux, Unix, OS X, and Windows 10 clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, Unix, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
-   
-   * **Windows clients**: See [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* **Familiarity with SSH and SCP**. For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or an equivalent, such as OpenJDK.
 
@@ -104,14 +100,7 @@ Replace **SSHUSER** with the SSH username you provided during cluster creation. 
 
 When prompted, enter the password you used for the SSH account.
 
-> [!NOTE]
-> If you have a version of Windows that does not include the SSH command, see the[Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md) document. It contains information on using the PuTTY SSH client for Windows.
-
-For information on using SSH with HDInsight, see the following documents:
-
-* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, OS X, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-* [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ##<a id="getkafkainfo"></a>Get the Zookeeper and Broker host information
 
