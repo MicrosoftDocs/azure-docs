@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/13/2017
 ms.author: jingwang
 
 ---
@@ -38,17 +38,18 @@ This sample shows how to copy data from an OData source to Azure Blob Storage. H
 
 The sample has the following data factory entities:
 
-1. A linked service of type [OData](#odata-linked-service-properties).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. An input [dataset](data-factory-create-datasets.md) of type [ODataResource](#odata-dataset-type-properties).
-4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](#odata-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+1. A linked service of type [OData](#linked-service-properties).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [ODataResource](#dataset-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 The sample copies data from querying against an OData source to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
 **OData linked service**
-This example uses the Anonymous authentication. See [OData linked service](#odata-linked-service-properties) section for different types of authentication you can use.
+This example uses the Anonymous authentication. See [OData linked service](#linked-service-properties) section for different types of authentication you can use.
 
+```json
     {
         "name": "ODataLinkedService",
            "properties":
@@ -61,10 +62,11 @@ This example uses the Anonymous authentication. See [OData linked service](#odat
                }
            }
     }
-
+```
 
 **Azure Storage linked service**
 
+```json
     {
           "name": "AzureStorageLinkedService",
         "properties": {
@@ -74,11 +76,13 @@ This example uses the Anonymous authentication. See [OData linked service](#odat
             }
           }
     }
+```
 
 **OData input dataset**
 
 Setting “external”: ”true” informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
+```json
     {
         "name": "ODataDataset",
         "properties":
@@ -102,6 +106,7 @@ Setting “external”: ”true” informs the Data Factory service that the dat
             }
         }
     }
+```
 
 Specifying **path** in the dataset definition is optional.
 
@@ -109,6 +114,7 @@ Specifying **path** in the dataset definition is optional.
 
 Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
 
+```json
     {
         "name": "AzureBlobODataDataSet",
         "properties": {
@@ -162,13 +168,14 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
             }
         }
     }
-
+```
 
 
 **Pipeline with Copy activity**
 
 The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the latest (newest) data from the OData source.
 
+```json
     {
         "name": "CopyODataToBlob",
         "properties": {
@@ -212,11 +219,11 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
             "end": "2016-02-03T19:00:00Z"
         }
     }
-
+```
 
 Specifying **query** in the pipeline definition is optional. The **URL** that the Data Factory service uses to retrieve data is: URL specified in the linked service (required) + path specified in the dataset (optional) + query in the pipeline (optional).
 
-## OData linked Service properties
+## Linked Service properties
 The following table provides description for JSON elements specific to OData linked service.
 
 | Property | Description | Required |
@@ -230,6 +237,7 @@ The following table provides description for JSON elements specific to OData lin
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises OData service. Specify only if you are copying data from on-prem OData source. |No |
 
 ### Using Basic authentication
+```json
     {
         "name": "inputLinkedService",
         "properties":
@@ -244,8 +252,10 @@ The following table provides description for JSON elements specific to OData lin
            }
        }
     }
+```
 
 ### Using Anonymous authentication
+```json
     {
         "name": "ODataLinkedService",
            "properties":
@@ -258,8 +268,10 @@ The following table provides description for JSON elements specific to OData lin
            }
        }
     }
+```
 
 ### Using Windows authentication accessing on-premises OData source
+```json
     {
         "name": "inputLinkedService",
         "properties":
@@ -275,8 +287,10 @@ The following table provides description for JSON elements specific to OData lin
            }
        }
     }
+```
 
 ### Using OAuth authentication accessing cloud OData source
+```json
     {
         "name": "inputLinkedService",
         "properties":
@@ -284,14 +298,15 @@ The following table provides description for JSON elements specific to OData lin
             "type": "OData",
                "typeProperties":
             {
-               "url": "<endpoint of cloud OData source e.g. https://<tenant>.crm.dynamics.com/XRMServices/2011/OrganizationData.svc">",
+               "url": "<endpoint of cloud OData source e.g. https://<tenant>.crm.dynamics.com/XRMServices/2011/OrganizationData.svc>",
                "authenticationType": "OAuth",
                "authorizedCredential": "<auto generated by clicking the Authorize button on UI>"
            }
        }
     }
+```
 
-## OData dataset type properties
+## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
 The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **ODataResource** (which includes OData dataset) has the following properties
@@ -300,7 +315,7 @@ The **typeProperties** section is different for each type of dataset and provide
 | --- | --- | --- |
 | path |Path to the OData resource |No |
 
-## OData Copy Activity type properties
+## Copy activity properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.

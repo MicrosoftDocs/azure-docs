@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/14/2017
 ms.author: awills
 
 ---
@@ -687,7 +687,9 @@ Server-side dependency results always show `success==False` if the Application I
 ### Traces table
 Contains the telemetry sent by your app using TrackTrace(), or [other logging frameworks](app-insights-asp-net-trace-logs.md).
 
-
+## Video 
+ 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## Next steps
 * [Analytics language reference](app-insights-analytics-reference.md)

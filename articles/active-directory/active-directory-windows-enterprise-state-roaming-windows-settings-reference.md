@@ -4,7 +4,7 @@ description: A complete list of all the settings that will be roamed or backed u
 services: active-directory
 keywords: enterprise state roaming, windows cloud
 documentationcenter: ''
-author: ningtan
+author: tanning
 manager: femila
 editor: curtand
 

@@ -45,8 +45,8 @@ To set up the app to authenticate users, first register it in your tenant by doi
 5. Follow the prompts to create a **Web Application and/or WebAPI**.
   * **Name** describes the app to users.
   * **Sign-On URL** is the base URL of the app. The skeleton's default URL is http://localhost:8080/adal4jsample/.
-  * **App ID URI** a unique identifier for the app. The naming convention is `https://<tenant-domain>/<app-name>` (for example, `http://localhost:8080/adal4jsample/`).
 6. After you've completed the registration, Azure AD assigns the app a unique application ID. Copy the value from the app page to use in the next sections.
+7. From the **Settings** -> **Properties** page for your application, update the App ID URI. The **App ID URI** is a unique identifier for the app. The naming convention is `https://<tenant-domain>/<app-name>` (for example, `http://localhost:8080/adal4jsample/`).
 
 When you are in the portal for the app, create and copy a key for the app on the **Settings** page. You'll need the key shortly.
 

@@ -155,7 +155,7 @@ $vm = Set-AzureRmVMSourceImage -VM $vm -Id $image.Id
 Enter the storage type (PremiumLRS or StandardLRS) and the size of the OS disk. This example sets the account type to **PremiumLRS**, the disk size to **128 GB** and disk caching to **ReadWrite**.
 
 ```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm  -ManagedDiskStorageAccountType PremiumLRS -DiskSizeInGB 128 `
+$vm = Set-AzureRmVMOSDisk -VM $vm  -StorageAccountType PremiumLRS -DiskSizeInGB 128 `
 -CreateOption FromImage -Caching ReadWrite
 
 $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $computerName `

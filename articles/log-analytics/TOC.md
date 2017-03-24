@@ -68,7 +68,11 @@
 ### [Service Map](../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [SQL Assessment](log-analytics-sql-assessment.md)
 ### [Surface Hub](log-analytics-surface-hubs.md)
+### [Update Management](../operations-management-suite/oms-solution-update-management.md)
 ### [VMware](log-analytics-vmware.md)
+### Windows Analytics
+#### [Update Compliance](https://technet.microsoft.com/itpro/windows/manage/update-compliance-get-started)
+#### [Upgrade Readiness](https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started)
 ### [Wire Data](log-analytics-wire-data.md)
 ## Develop
 ### [Data collector API](log-analytics-data-collector-api.md)
@@ -82,6 +86,6 @@
 ## [REST](/rest/api/loganalytics)
 
 # Resources
-## [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
+## [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)
 ## [Pricing](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=log-analytics)

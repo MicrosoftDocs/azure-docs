@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -33,7 +34,7 @@ Apache Oozie is a workflow/coordination system that manages Hadoop jobs. It is i
 
 Before you begin this tutorial, you must have the following:
 
-* **Azure CLI**: See [Install and Configure the Azure CLI](../xplat-cli-install.md)
+* **Azure CLI**: See [Install and Configure the Azure CLI](../cli-install-nodejs.md)
 
 * **An HDInsight cluster**: See [Get Started with HDInsight on Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 

@@ -14,23 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/22/2016
+ms.date: 03/17/2017
 ms.author: mikeray
 
 ---
 # Configure Always On availability group in Azure VM (Classic)
 > [!div class="op_single_selector"]
-> * [Resource Manager: Template](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-> * [Resource Manager: Manual](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 > * [Classic: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 > * [Classic: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
-> 
-> 
-
 <br/>
 
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+> Microsoft recommends that most new deployments use the Resource Manager model. Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. 
+
+To complete this task with the Azure resource manager model, see [SQL Server Always On availability groups on Azure virtual machines](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 This end-to-end tutorial shows you how to implement Availability Groups using SQL Server Always On running on Azure virtual machines.
 
@@ -39,14 +36,14 @@ At the end of the tutorial, your SQL Server Always On solution in Azure will con
 * A virtual network containing multiple subnets, including a front-end and a back-end subnet
 * A domain controller with an Active Directory (AD) domain
 * Two SQL Server VMs deployed to the back-end subnet and joined to the AD domain
-* A 3-node WSFC cluster with the Node Majority quorum model
+* A 3-node failover cluster with the Node Majority quorum model
 * An availability group with two synchronous-commit replicas of an availability database
 
 The figure below is a graphical representation of the solution.
 
 ![Test Lab Architecture for AG in Azure](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC791912.png)
 
-Note that this is one possible configuration. For example, you can minimize the number of VMs for a two-replica availability group in order to save on compute hours in Azure by using the domain controller as the quorum file share witness in a 2-node WSFC cluster. This method reduces the VM count by one from the above configuration.
+Note that this is one possible configuration. For example, you can minimize the number of VMs for a two-replica availability group in order to save on compute hours in Azure by using the domain controller as the quorum file share witness in a 2-node cluster. This method reduces the VM count by one from the above configuration.
 
 This tutorial assumes the following:
 
@@ -147,7 +144,7 @@ The next steps configure the Active Directory (AD) accounts for later use.
    | **Other password options** |Selected |
    | **Password never expires** |Checked |
 5. Click **OK** to create the **Install** user. This account will be used to configure the failover cluster and the availability group.
-6. Create two additional users with the same steps: **CORP\SQLSvc1** and **CORP\SQLSvc2**. These accounts will be used for the SQL Server instances.Next, you need to give **CORP\Install** the necessary permissions for configuring Windows Service Failover Clustering (WSFC).
+6. Create two additional users with the same steps: **CORP\SQLSvc1** and **CORP\SQLSvc2**. These accounts will be used for the SQL Server instances.Next, you need to give **CORP\Install** the necessary permissions for configuring Windows failover clustering.
 7. In the **Active Directory Administrative Center**, select **corp (local)** in the left pane. Then in the right-hand **Tasks** pane, click **Properties**.
    
     ![CORP User Properties](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784627.png)
@@ -162,7 +159,7 @@ The next steps configure the Active Directory (AD) accounts for later use.
 Now that you have finished configuring Active Directory and the user objects, you will create three SQL Server VMs and join them to this domain.
 
 ## Create the SQL Server VMs
-Next, create three VMs, including a WSFC cluster node and two SQL Server VMs. To create each of the VMs, go back to the Azure classic portal, click **New**, **Compute**, **Virtual Machine**, and then **From Gallery**. Then use the templates in the following table to help you create the VMs.
+Next, create three VMs, including a cluster node and two SQL Server VMs. To create each of the VMs, go back to the Azure classic portal, click **New**, **Compute**, **Virtual Machine**, and then **From Gallery**. Then use the templates in the following table to help you create the VMs.
 
 | Page | VM1 | VM2 | VM3 |
 | --- | --- | --- | --- |
@@ -227,15 +224,15 @@ Once the three VMs are fully provisioned, you need to join them to the **corp.co
 
 The SQL Server VMs are now provisioned and running, but they are installed with SQL Server with default options.
 
-## Create the WSFC Cluster
-In this section, you create the WSFC cluster that will host the availability group you will create later. By now, you should have done the following to each of the three VMs you will use in the WSFC cluster:
+## Create the Failover Cluster
+In this section, you create the failover cluster that will host the availability group you will create later. By now, you should have done the following to each of the three VMs you will use in the failover cluster:
 
 * Fully provisioned in Azure
 * Joined VM to the domain
 * Added **CORP\Install** to the local Administrators group
 * Added the Failover Clustering feature
 
-All these are prerequisites on each VM before you can join it to the WSFC cluster.
+All these are prerequisites on each VM before you can join it to the failover cluster.
 
 Also, note that the Azure virtual network does not behave in the same way as an on-premises network. You need to create the cluster in the following order:
 
@@ -404,7 +401,7 @@ You are now ready to configure an availability group. Below is an outline of wha
      ![AG in Failover Cluster Manager](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665534.gif)
 
 > [!WARNING]
-> Do not try to fail over the availability group from the Failover Cluster Manager. All failover operations should be performed from within **Always On Dashboard** in SSMS. For more information, see [Restrictions on Using The WSFC Failover Cluster Manager with Availability Groups](https://msdn.microsoft.com/library/ff929171.aspx).
+> Do not try to fail over the availability group from the Failover Cluster Manager. All failover operations should be performed from within **Always On Dashboard** in SSMS. For more information, see [Restrictions on Using The Failover Cluster Manager with Availability Groups](https://msdn.microsoft.com/library/ff929171.aspx).
 > 
 > 
 

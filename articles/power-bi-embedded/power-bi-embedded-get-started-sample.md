@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 02/28/2017
+ms.date: 03/02/2017
 ms.author: asaxton
 
 ---
@@ -241,4 +241,8 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 
 [Common Microsoft Power BI Embedded scenarios](power-bi-embedded-scenarios.md)  
 [Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)  
+[Embed a report](power-bi-embedded-embed-report.md)  
+[Create a new report from a dataset](power-bi-embedded-create-report-from-dataset.md)  
+[Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
+[JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 More questions? [Try the Power BI Community](http://community.powerbi.com/)

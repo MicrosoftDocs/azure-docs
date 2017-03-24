@@ -79,9 +79,12 @@
 ### [Risky sign-ins](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risk events](active-directory-reporting-risk-events.md)
 ### [Named networks](active-directory-known-networks-azure-portal.md)
-### [FAQ](active-directory-reporting-faq.md)
 ### [Report migration](active-directory-reporting-migration.md)
 ### [Retention](active-directory-reporting-retention.md)
+### [FAQ](active-directory-reporting-faq.md)
+### Troubleshoot
+#### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
+#### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
 ###	Programmatic Access
 #### [Audit reference](active-directory-reporting-api-audit-reference.md)
 #### [Audit samples](active-directory-reporting-api-audit-samples.md)
@@ -157,6 +160,8 @@
 #### Publish apps
 ##### [Azure portal](application-proxy-publish-azure-portal.md)
 ##### [Classic portal](active-directory-application-proxy-publish.md)
+
+#### [PingAccess for Azure AD](application-proxy-ping-access.md)
 #### [Security](application-proxy-security-considerations.md)
 #### [Networks](application-proxy-network-topology-considerations.md)
 #### [Remote Desktop](application-proxy-publish-remote-desktop.md)

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 03/08/2017
 ms.author: jingwang
 ---
 
@@ -34,11 +34,11 @@ The following example provides sample JSON definitions that you can use to creat
 
 The following sample shows:
 
-1.	A linked service of type [AzureSearch](#azure-search-linked-service-properties).
-2.	A linked service of type [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
-3.	An input [dataset](data-factory-create-datasets.md) of type [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties).
-4.	An output [dataset](data-factory-create-datasets.md) of type [AzureSearchIndex](#azure-search-index-dataset-properties).
-4.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) and [AzureSearchIndexSink](#azure-search-index-sink-properties).
+1.	A linked service of type [AzureSearch](#linked-service-properties).
+2.	A linked service of type [OnPremisesSqlServer](data-factory-sqlserver-connector.md#linked-service-properties).
+3.	An input [dataset](data-factory-create-datasets.md) of type [SqlServerTable](data-factory-sqlserver-connector.md#dataset-properties).
+4.	An output [dataset](data-factory-create-datasets.md) of type [AzureSearchIndex](#dataset-properties).
+4.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) and [AzureSearchIndexSink](#copy-activity-properties).
 
 The sample copies time-series data from an on-premises SQL Server database to an Azure Search index hourly. The JSON properties used in this sample are described in sections following the samples.
 
@@ -191,7 +191,7 @@ If you are copying data from a cloud data store into Azure Search, `executionLoc
 }
 ```
 
-## Azure Search linked service properties
+## Linked service properties
 
 The following table provides descriptions for JSON elements that are specific to the Azure Search linked service.
 
@@ -201,7 +201,7 @@ The following table provides descriptions for JSON elements that are specific to
 | url | URL for the Azure Search service. | Yes |
 | key | Admin key for the Azure Search service. | Yes |
 
-## Azure Search Index dataset properties
+## Dataset properties
 
 For a full list of sections and properties that are available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types. The **typeProperties** section is different for each type of dataset. The typeProperties section for a dataset of the type **AzureSearchIndex** has the following properties:
 
@@ -211,7 +211,7 @@ For a full list of sections and properties that are available for defining datas
 | indexName | Name of the Azure Search index. Data Factory does not create the index. The index must exist in Azure Search. | Yes |
 
 
-## Azure Search Index Sink properties
+## Copy activity properties
 For a full list of sections and properties that are available for defining activities, see the [Creating pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and various policies are available for all types of activities. The properties that are available in the typeProperties section of the activity, on the other hand, vary with each activity type. For Copy Activity, they vary depending on the types of sources and sinks.
 
 For Copy Activity, when the source is of the type **AzureSearchIndexSink**, the following properties are available in typeProperties section:

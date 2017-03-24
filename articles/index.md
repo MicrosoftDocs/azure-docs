@@ -44,17 +44,17 @@ description: Learn how to build and manage powerful applications using Microsoft
                 </a>
             </li>
             <li>
-                <a href="https://azure.microsoft.com/get-started/">
+                <a href="https://azure.microsoft.com/en-us/community/training/">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/video.svg" src="media/index/video.png" alt="" />
+                                        <img data-hoverimage="media/index/getstarted_pluralsight.svg" src="media/index/getstarted_pluralsight.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <h3>5-Minute Getting Started Videos</h3>
+                                    <h3>Free PluralSight Video Training for Azure</h3>
                                 </div>
                             </div>
                         </div>
@@ -602,12 +602,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/biztalk-services/">
-                                                <img src="media/index/BizTalkServices.svg" alt="" />
-                                                <p>Biztalk Services</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/service-bus/">
                                                 <img src="media/index/ServiceBus.svg" alt="" />
                                                 <p>Service Bus</p>
@@ -637,8 +631,14 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <p>Data Factory</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/biztalk-services/">
+                                                <img src="media/index/BizTalkServices.svg" alt="" />
+                                                <p>Biztalk Services</p>
+                                            </a>
+                                        </li>
                                     </ul>
-								    <h3>Other Clouds</h3>
+                                    <h3>Other Clouds</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/azure-government/">
@@ -652,7 +652,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <p>Azure Stack</p>
                                             </a>
                                         </li>
-									</ul>
+                                    </ul>
                                 </div>
                             </li>
                         </ul>
@@ -1820,25 +1820,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/biztalk-services/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/BizTalkServices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Biztalk Services</h3>
-                                                    <p>Seamlessly integrate the enterprise and the cloud</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/service-bus/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1927,6 +1908,25 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>Data Factory</h3>
                                                     <p>Orchestrate and manage data transformation and movement</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/biztalk-services/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/BizTalkServices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Biztalk Services</h3>
+                                                    <p>Seamlessly integrate the enterprise and the cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2409,8 +2409,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </a>
                             </li>
-						</ul>
-					</li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -2435,10 +2435,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent">Get the .NET SDK</a>
+                                                    <a href="/dotnet/api">Get the .NET SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/dotnet/api/">Get started</a>
+                                                    <a href="/azure/app-service-web/app-service-web-get-started-dotnet">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/dotnet/api">API reference</a>
@@ -2726,7 +2726,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="https://github.com/Microsoft/DockerToolsDocs">Docker Tools</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker">Get Started</a>
+                                                    <a href="/dotnet/articles/core/docker/visual-studio-tools-for-docker">Get Started</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Download for Visual Studio</a>
