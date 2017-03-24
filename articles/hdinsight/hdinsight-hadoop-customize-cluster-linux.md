@@ -754,11 +754,7 @@ __Resolution__: To resolve this error, manually connect to each cluster node usi
 sudo pip install azure-storage==0.20.0
 ```
 
-For more information on connecting to the cluster using SSH, see the following documents:
-
-* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, OS X, or Windows](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-* [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+For information on connecting to the cluster with SSH, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ### History doesn't show scripts used during cluster creation
 
