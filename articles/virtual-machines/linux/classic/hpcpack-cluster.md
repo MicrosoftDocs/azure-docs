@@ -295,7 +295,7 @@ The HPC Pack [clusrun](https://technet.microsoft.com/library/cc947685.aspx) tool
 
 ## Next steps
 * Try scaling up the cluster to a larger number of nodes, or try running a Linux workload on the cluster. For an example, see [Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](hpcpack-cluster-namd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-* Try a cluster with [RDMA-capable, compute-intensive VMs](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to run MPI workloads. For an example, see [Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](../../virtual-machines-linux-classic-hpcpack-cluster-openfoam.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+* Try a cluster with [RDMA-capable, compute-intensive VMs](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to run MPI workloads. For an example, see [Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](hpcpack-cluster-openfoam.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 * If you are interested in working with Linux nodes in an on-premises HPC Pack cluster, see the [TechNet guidance](https://technet.microsoft.com/library/mt595803.aspx).
 
 <!--Image references-->
