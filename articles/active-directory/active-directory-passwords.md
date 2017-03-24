@@ -19,7 +19,7 @@ ms.author: joflore
 ---
 # Azure Active Directory password reset for IT administrators
 > [!IMPORTANT]
-> Are you here because you want to reset your Azure or O365 password?  If so, please [skip to this section](#users-how-to-manage-your-own-password).
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 >
 >
 

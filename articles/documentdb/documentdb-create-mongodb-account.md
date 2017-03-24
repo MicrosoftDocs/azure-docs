@@ -1,21 +1,7 @@
 ---
-title: Create a DocumentDB account for use with MongoDB apps | Microsoft Docs
-description: Use this tutorial to learn how to create a DocumentDB account with protocol support for MongoDB, now available for preview.
-keywords: mongodb apps, mongodb app
-services: documentdb
-author: AndrewHoh
-manager: jhubbard
-editor: ''
-documentationcenter: ''
+redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-create-account
+ROBOTS: NOINDEX, NOFOLLOW
 
-ms.assetid: 413f3ae1-a68e-43be-b0d7-fa2987644f3e
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/24/2016
-ms.author: anhoh
 
 ---
 

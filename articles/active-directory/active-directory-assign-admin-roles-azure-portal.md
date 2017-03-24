@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/07/2017
 ms.author: femila
 
 ---
@@ -28,13 +28,6 @@ Using Azure Active Directory (Azure AD), you can designate separate administrato
 
 The following administrator roles are available:
 
-
-- **Application Administrator**: Users with this role can create and manage all applications, manage license assignments, monitor service health, and manage service requests.
-
-- **Application Developer**: Users with this role can create applications. This role is used to allow some users to keep their ability to create applications when the **UsersPermissionToCreateLOBAppsEnabled** flag (allowing all users to create applications) is set to false.
-
-- **Application Proxy Service Administrator**: Users with this role have permissions to manage all aspects of the Application Proxy Service in Azure AD.
-
 * **Billing administrator**: Makes purchases, manages subscriptions, manages support tickets, and monitors service health.
 
 * **Global administrator / Company Administrator**: Has access to all administrative features. The person who signs up for the Azure account becomes a global administrator. Only global administrators can assign other administrator roles. There can be more than one global administrator at your company. Global admins can reset the password for any user and all other administrators. To reset their own password they must use the password reset service (passwordreset.microsoftonline.com) or have another global admin reset their password for them.
@@ -43,6 +36,7 @@ The following administrator roles are available:
   > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Company Administrator". It is "Global Administrator" in the [Azure portal](https://portal.azure.com).
   >
   >
+
 * **Compliance administrator**:Users with this role have management permissions within in the Office 365 Security & Compliance Center and Exchange Admin Center, and access to read audit logs in the Office 365 Admin Center. More information at “[About Office 365 admin roles](https://microsoft.sharepoint.com/teams/adiamteam/_layouts/15/WopiFrame.aspx?sourcedoc={dae8d6f3-5990-46a2-b12b-4c0e561bc7cc}&action=view&wdAccPdf=1).”
 
 * **CRM service administrator**: Users with this role have global permissions within Microsoft CRM Online, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).

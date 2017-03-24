@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/03/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -79,6 +79,13 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 ```
 
 You can find commonly used URLs for your cluster in the Azure portal, the Azure Resource Explorer, or other Azure tools.
+
+### How do I tell which orchestrator version is running in my cluster?
+
+* DC/OS: See the [Mesosphere documentation](https://support.mesosphere.com/hc/en-us/articles/207719793-How-to-get-the-DCOS-version-from-the-command-line-)
+* Docker Swarm: Run `docker version`
+* Kubernetes: Run `kubectl version`
+
 
 ### How do I upgrade the orchestrator after deployment?
 

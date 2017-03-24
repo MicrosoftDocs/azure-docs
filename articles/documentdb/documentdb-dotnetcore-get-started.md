@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 02/11/2017
+ms.date: 03/06/2017
 ms.author: arramac
 
 ---
@@ -21,8 +21,9 @@ ms.author: arramac
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [Node.js for MongoDB](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -55,7 +56,7 @@ Please make sure you have the following:
 
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). 
     * Alternatively, you can use the [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md) for this tutorial.
-* [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) and [.NET Core 1.0.1 - VS 2015 Tooling Preview 2](https://go.microsoft.com/fwlink/?LinkID=827546)
+* [Visual Studio 2017](https://www.visualstudio.com/vs/) 
     * If you're working on MacOS or Linux, you can develop .NET Core apps from the command-line by installing the [.NET Core SDK](https://www.microsoft.com/net/core#macos) for the plaform of your choice. 
     * If you're working on Windows, you can develop .NET Core apps from the command-line by installing the [.NET Core SDK](https://www.microsoft.com/net/core#windows). 
     * You can use your own editor, or download [Visual Studio Code](https://code.visualstudio.com/) which is free and works on Windows, Linux, and MacOS. 
@@ -66,16 +67,19 @@ Let's create a DocumentDB account. If you already have an account you want to us
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 ## <a id="SetupVS"></a>Step 2: Setup your Visual Studio solution
-1. Open **Visual Studio 2015** on your computer.
+1. Open **Visual Studio 2017** on your computer.
 2. On the **File** menu, select **New**, and then choose **Project**.
-3. In the **New Project** dialog, select **Templates** / **Visual C#** / **.NET Core**/**Console Application (.NET Core)**, name your project, and then click **OK**.
+3. In the **New Project** dialog, select **Templates** / **Visual C#** / **.NET Core**/**Console Application (.NET Core)**, name your project **DocumentDBGettingStarted**, and then click **OK**.
+
    ![Screen shot of the New Project window](./media/documentdb-dotnetcore-get-started/nosql-tutorial-new-project-2.png)
-4. In the **Solution Explorer**, right click on your new console application, which is under your Visual Studio solution.
-5. Then without leaving the menu, click on **Manage NuGet Packages...**
+4. In the **Solution Explorer**, right click on **DocumentDBGettingStarted**.
+5. Then without leaving the menu, click on **Manage NuGet Packages...**.
+
    ![Screen shot of the Right Clicked Menu for the Project](./media/documentdb-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-6. In the **Nuget** tab, click **Browse**, and type **azure documentdb** in the search box.
+6. In the **Nuget** tab, click **Browse** at the top of the window, and type **azure documentdb** in the search box.
 7. Within the results, find **Microsoft.Azure.DocumentDB.Core** and click **Install**.
-   The package ID for the DocumentDB Client Library for .NET Core is [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core). If you are targetting a .NET Framework version(like net461) that is not supported by this .NET Core Nuget package, then use [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) that supports all .NET Framework versions starting .NET Framework 4.5.
+   The package ID for the DocumentDB Client Library for .NET Core is [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core). If you are targeting a .NET Framework version (like net461) that is not supported by this .NET Core Nuget package, then use [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) that supports all .NET Framework versions starting .NET Framework 4.5.
+8. At the prompts, accept the Nuget package installations and the license agreement.
 
 Great! Now that we finished the setup, let's start writing some code. You can find a completed code project of this tutorial at [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started).
 
@@ -83,10 +87,10 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
 First, add these references to the beginning of your C# application, in the Program.cs file:
 
     using System;
-    using System.Linq;
-    using System.Threading.Tasks;
 
     // ADD THIS PART TO YOUR CODE
+    using System.Linq;
+    using System.Threading.Tasks;
     using System.Net;
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
@@ -99,7 +103,7 @@ First, add these references to the beginning of your C# application, in the Prog
 
 Now, add these two constants and your *client* variable underneath your public class *Program*.
 
-    public class Program
+    class Program
     {
         // ADD THIS PART TO YOUR CODE
         private const string EndpointUri = "<your endpoint URI>";
@@ -110,7 +114,7 @@ Next, head to the [Azure Portal](https://portal.azure.com) to retrieve your URI 
 
 In the Azure Portal, navigate to your DocumentDB account, and then click **Keys**.
 
-Copy the URI from the portal and paste it into `<your endpoint URI>` in the program.cs file. Then copy the PRIMARY KEY from the portal and paste it into `<your key>`. If you are using the Azure DocumentDB Emulator, use `https://localhost:8081` as the endpoint, and the well-defined authorization key from [How to develop using the DocumentDB Emulator](documentdb-nosql-local-emulator.md).
+Copy the URI from the portal and paste it into `<your endpoint URI>` in the program.cs file. Then copy the PRIMARY KEY from the portal and paste it into `<your key>`. If you are using the Azure DocumentDB Emulator, use `https://localhost:8081` as the endpoint, and the well-defined authorization key from [How to develop using the DocumentDB Emulator](documentdb-nosql-local-emulator.md). Make sure to remove the < and > but leave the double quotes around your endpoint and key.
 
 ![Screen shot of the Azure Portal used by the NoSQL tutorial to create a C# console application. Shows a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
 
@@ -154,7 +158,7 @@ Add the following code to run your asynchronous task from your **Main** method. 
                     Console.ReadKey();
             }
 
-Press **F5** to run your application.
+Press the **DocumentDBGettingStarted** button to build and run the application.
 
 Congratulations! You have successfully connected to a DocumentDB account, let's now take a look at working with DocumentDB resources.  
 
@@ -182,7 +186,7 @@ Copy and paste the following code to your **GetStartedDemo** method underneath t
         // ADD THIS PART TO YOUR CODE
         await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB_oa" });
 
-Press **F5** to run your application.
+Press the **DocumentDBGettingStarted** button to run your application.
 
 Congratulations! You have successfully created a DocumentDB database.  
 
@@ -203,7 +207,7 @@ Copy and paste the following code to your **GetStartedDemo** method underneath t
         // ADD THIS PART TO YOUR CODE
         await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
 
-Press **F5** to run your application.
+Press the **DocumentDBGettingStarted** button to run your application.
 
 Congratulations! You have successfully created a DocumentDB document collection.  
 
@@ -362,7 +366,7 @@ Copy and paste the following code to your **GetStartedDemo** method underneath t
 
     await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
-Press **F5** to run your application.
+Press the **DocumentDBGettingStarted** button to run your application.
 
 Congratulations! You have successfully created two DocumentDB documents.  
 
@@ -414,7 +418,7 @@ Copy and paste the following code to your **GetStartedDemo** method underneath t
     // ADD THIS PART TO YOUR CODE
     this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
-Press **F5** to run your application.
+Press the **DocumentDBGettingStarted** button to run your application.
 
 Congratulations! You have successfully queried against a DocumentDB collection.
 
@@ -457,7 +461,7 @@ Copy and paste the following code to your **GetStartedDemo** method underneath t
 
     this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
-Press **F5** to run your application.
+Press the **DocumentDBGettingStarted** button to run your application.
 
 Congratulations! You have successfully replaced a DocumentDB document.
 
@@ -489,7 +493,7 @@ Copy and paste the following code to your **GetStartedDemo** method underneath t
     // ADD THIS PART TO CODE
     await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
 
-Press **F5** to run your application.
+Press the **DocumentDBGettingStarted** button to run your application.
 
 Congratulations! You have successfully deleted a DocumentDB document.
 
@@ -506,12 +510,12 @@ Copy and paste the following code to your **GetStartedDemo** method underneath t
     // Clean up/delete the database
     await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"));
 
-Press **F5** to run your application.
+Press the **DocumentDBGettingStarted** button to run your application.
 
 Congratulations! You have successfully deleted a DocumentDB database.
 
 ## <a id="Run"></a>Step 11: Run your C# console application all together!
-Hit F5 in Visual Studio to build the application in debug mode.
+Press the **DocumentDBGettingStarted** button in Visual Studio to build the application in debug mode.
 
 You should see the output of your get started app. The output will show the results of the queries we added and should match the example text below.
 

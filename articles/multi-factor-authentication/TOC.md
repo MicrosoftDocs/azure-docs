@@ -1,6 +1,7 @@
 # Overview
 ## [What is Azure Multi-Factor Authentication?](multi-factor-authentication.md)
 ## [How it Works](multi-factor-authentication-how-it-works.md)
+## [How to get Azure MFA](multi-factor-authentication-versions-plans.md)
 
 # Get started
 ## [Choose where to deploy](multi-factor-authentication-get-started.md)
@@ -20,6 +21,7 @@
 #### [Advanced VPN Configurations](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md)
 #### [Windows Authentication](multi-factor-authentication-get-started-server-windows.md)
+#### [Upgrade MFA Server](multi-factor-authentication-server-upgrade.md)
 #### [Upgrade from PhoneFactor](multi-factor-authentication-get-started-server-upgrade.md)
 
 ## Manage users

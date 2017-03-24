@@ -61,8 +61,7 @@ To use Microsoft Cognitive Service APIs, you first need to create an account in 
     to [Manage Azure resources through portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 
     -   **API Setting:** By default, account creation is disabled until your
-    [Azure subscription service
-    administrator](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles)
+    [Azure Account Administrator](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles)
     explicitly enables it.
 
         This setting change will apply only to the currently selected API type and location or Resource group location on the panel to the left.
@@ -70,17 +69,15 @@ To use Microsoft Cognitive Service APIs, you first need to create an account in 
         ![Create Cognitive Services APIs account](media/cognitive-services-apis-create-account/create-account.png)
 
         > [!NOTE]
-        > If you receive a notification that the update setting failed, you are not logged in as an [Account Administrator](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator#types-of-azure-admin-accounts). If you are not the Account Administrator, email the administrator mailbox identified in the notification, or contact your company or department IT. The Account Administrator should follow the previous steps to enable creation.
+        > If you receive a notification that the update setting failed, you are not logged in as an [Account Administrator](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator#types-of-azure-admin-accounts). The Account Administrator must follow the previous steps to enable creation.
         >
         > ![Update setting failed message](./media/cognitive-services-apis-create-account/updatefailed.png)
         
-        In some cases, the Account Administrator may not have access to the subscription. If so, have the Service Administrator follow the steps in the [Add or change Azure administrator roles that manage the subscription or service](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator).
+        In some cases, the Account Administrator may not have access to the subscription. If so, have the Service Administrator follow the steps in the [Add or change Azure administrator roles that manage the subscription or service](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator) document.
         
-        If the Account Administrator does not know who the Service Administrator is, they can log in to the [Azure Account Center](https://account.windowsazure.com/) to find out.
+        To find the Account Administrator or Service Administrator for your subscription, select your subscription in the [Azure portal](https://portal.azure.com), and then select __Properties__. The __Account Admin__ and __Service Admin__ information is displayed at the bottom of the properties blade.
         
-        ![Account center](./media/cognitive-services-apis-create-account/accountcenter.png)
-        
-        ![Service administrator](./media/cognitive-services-apis-create-account/serviceadministrator.png)
+        ![Subscription properties](./media/cognitive-services-apis-create-account/subscription-properties.png)
     
     Microsoft may use data you send to the Cognitive Services to improve
     Microsoft products and services. For more information, please refer

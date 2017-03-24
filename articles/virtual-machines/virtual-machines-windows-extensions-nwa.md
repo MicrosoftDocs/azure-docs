@@ -34,7 +34,7 @@ The Network Watcher Agent extension for Windows can be run against Windows Serve
 
 ### Internet connectivity
 
-Some of the Network Watcher Agent functionality requires that the target virtual machine be connected to the Internet. Without the ability to establish outgoing connections some of the Network Watcher Agent features may malfunction or become unavailable. For more details, please see the [Network Watcher documentation](https://review.docs.microsoft.com/en-us/azure/network-watcher/).
+Some of the Network Watcher Agent functionality requires that the target virtual machine be connected to the Internet. Without the ability to establish outgoing connections some of the Network Watcher Agent features may malfunction or become unavailable. For more details, please see the [Network Watcher documentation](../network-watcher/network-watcher-monitoring-overview.md).
 
 ## Extension schema
 

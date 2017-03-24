@@ -57,7 +57,7 @@ If the registration is successful, the output shows the following:
 
 ![register](media/azure-stack-kv-manage-powershell/image2.png)
 
-The following sections assume Key Vault service is registered within the tenant subscription. When invoking key vault commands, if you get an error- "The subscription is not registered to use namespace ‘Microsoft.KeyVault" then, confirm that you have [enabled the Key Vault resource provider](#enable-your-tenant- subscription-for-vault-operations) as per instructions mentioned earlier.
+The following sections assume Key Vault service is registered within the tenant subscription. When invoking key vault commands, if you get an error- "The subscription is not registered to use namespace ‘Microsoft.KeyVault" then, confirm that you have [enabled the Key Vault resource provider](#enable-your-tenant-subscription-for-vault-operations) as per instructions mentioned earlier.
 
 ## Create a key vault 
 

@@ -20,20 +20,15 @@ ms.author: jotaub
 # Get started sending messages to Event Hubs in .NET Standard
 
 > [!NOTE]
-> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples/SampleSender).
+> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender).
 
-## What will be accomplished
-
-This tutorial shows how to write a .NET Core console application that sends a set of messages to an Event Hub. You can run the [GitHub](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples/SampleSender) solution as-is, replacing the `EhConnectionString` and `EhEntityPath` variables with your Event Hub values, or you can follow the steps in this tutorial to create your own.
+This tutorial shows how to write a .NET Core console application that sends a set of messages to an Event Hub. You can run the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender) solution as-is, replacing the `EhConnectionString` and `EhEntityPath` strings with your Event Hub values, or you can follow the steps in this tutorial to create your own.
 
 ## Prerequisites
 
-1. [Microsoft Visual Studio 2015 or 2017](http://www.visualstudio.com).
-
-2. [.NET Core Visual Studio 2015 or 2017 Tooling](http://www.microsoft.com/net/core).
-
+1. [Microsoft Visual Studio 2015 or 2017](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2015, but Visual Studio 2017 is also supported.
+2. [.NET Core Visual Studio 2015 or 2017 tools](http://www.microsoft.com/net/core).
 3. An Azure subscription.
-
 4. An Event Hubs namespace.
 
 To send messages to an Event Hub, we will write a C# console application using Visual Studio.
@@ -44,7 +39,9 @@ The first step is to use the [Azure portal](https://portal.azure.com) to create 
 
 ## Create a console application
 
-Launch Visual Studio and create a new .NET Core console application.
+Launch Visual Studio. From the File menu, click **New**, and then click **Project**. Create a .NET Core console application.
+
+![][1]
 
 ## Add the Event Hubs NuGet package
 
@@ -200,3 +197,5 @@ You can learn more about Event Hubs by visiting the following links:
 * [Event Hubs overview](event-hubs-what-is-event-hubs.md)
 * [Create an Event Hub](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
+
+[1]: ./media/event-hubs-dotnet-standard-getstarted-send/netcore.png

@@ -88,7 +88,7 @@ There are two ways in which you can uninstall Mobility Service on a Windows Serv
 1. Open Control Panel > Programs
 2. Select  **Microsoft Azure Site Recovery Mobility Service/Master Target server** and click on Uninstall.
 
-## Uninstall using Command-line
+### Uninstall using Command-line
 1. Open an admin command prompt
 2. Run the following command to uninstall Mobility Service.
 

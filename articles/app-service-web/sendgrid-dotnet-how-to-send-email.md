@@ -171,7 +171,7 @@ Apps can be applied to **SendGrid** email messages using methods implemented as 
 The following examples demonstrate the footer and click tracking
 filters:
 
-### Footer
+### Footer settings
     msg.SetFooterSetting(
                          true,
                          "Some Footer HTML",
