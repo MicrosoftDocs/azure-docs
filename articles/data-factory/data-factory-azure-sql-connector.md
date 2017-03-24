@@ -343,7 +343,7 @@ In the example, **sqlReaderQuery** is specified for the SqlSource. The Copy Acti
 
 If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query to run against the Azure SQL Database. For example: `select column1, column2 from mytable`. If the dataset definition does not have the structure, all columns are selected from the table.
 
-See the [Sql Source](#sqlsource) section and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-source-and-sink-in-copy-activity) for the list of properties supported by SqlSource and BlobSink.
+See the [Sql Source](#sqlsource) section and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) for the list of properties supported by SqlSource and BlobSink.
 
 ## Sample: Copy data from Azure Blob to Azure SQL Database
 The sample defines the following Data Factory entities:  
@@ -529,7 +529,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
    }
 }
 ```
-See the [Sql Sink](#sqlsink) section and [BlobSource](data-factory-azure-blob-connector.md#azure-blob-source-and-sink-in-copy-activity) for the list of properties supported by SqlSink and BlobSource.
+See the [Sql Sink](#sqlsink) section and [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) for the list of properties supported by SqlSink and BlobSource.
 
 ## Identity columns in the target database
 This section provides an example for copying data from a source table without an identity column to a destination table with an identity column.
