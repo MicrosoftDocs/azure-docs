@@ -21,7 +21,7 @@ ms.author: cynthn
 # Create a virtual machine running Windows in the Azure portal
 > [!div class="op_single_selector"]
 > * [Azure classic portal](virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-> * [PowerShell: Classic deployment](virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+> * [PowerShell: Classic deployment](windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 >
 >
 
