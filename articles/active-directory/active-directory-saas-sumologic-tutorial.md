@@ -75,7 +75,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **SumoLogic** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **SumoLogic** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
     ![Configure single sign-on](./media/active-directory-saas-sumologic-tutorial/IC778552.png "Configure single sign-on")
 
@@ -114,9 +114,9 @@ If you are not familiar with this procedure, see [How to convert a binary certif
   4. In the Azure classic portal, on the **Configure single sign-on at SumoLogic** dialogue page, copy the **Authentication Request URL** value, and then paste it into the **Authn Request URL** textbox.
   5. Create a **Base-64 encoded** file from your downloaded certificate.  
       
-    >[!TIP]
-    >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
-    >  
+     >[!TIP]
+     >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+     >  
 
   6. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into **X.509 Certificate** textbox.
   7. As **Email Attribute**, select **Use SAML subject**.  
