@@ -1,6 +1,6 @@
 ---
-title: Buy and Configure an SSL Certificate for your Azure App Service
-description: Learn how to Buy and Configure an SSL Certificate for your Azure App Service.
+title: Buy and configure an SSL certificate for your Azure App Service
+description: Learn how to buy and configure an SSL certificate for your Azure App Service.
 services: app-service
 documentationcenter: .net
 author: apurvajo
@@ -18,16 +18,16 @@ ms.date: 09/19/2016
 ms.author: apurvajo
 
 ---
-# Buy and Configure an SSL Certificate for your Azure App Service
+# Buy and configure an SSL certificate for your Azure App Service
 > [!div class="op_single_selector"]
-> * [Buy SSL cert in Azure](web-sites-purchase-ssl-web-site.md)
+> * [Buy SSL certificate in Azure](web-sites-purchase-ssl-web-site.md)
 > * [Use SSL cert from elsewhere](web-sites-configure-ssl-certificate.md)
 > 
 > 
 
-By default, **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** already enables HTTPS for your web app with a wildcard certificate for the *.azurewebsites.net domain. If you don't plan to configure a custom domain, then you can benefit from the default HTTPS certificate. However, like all *[wildcard domains](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), it is not as secure as using a custom domain with your own certificate. 
+By default, **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** enables HTTPS for your web app with a wildcard certificate for the *.azurewebsites.net domain. If you don't plan to configure a custom domain, then you can benefit from the default HTTPS certificate. However, like all *[wildcard domains](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), it is not as secure as using a custom domain with your own certificate. 
 Azure App Service now provides you a really simplified way to purchase and manage an SSL certificate right from Azure Portal without ever leaving the portal.  
-This article explains how to buy and configure an SSL Certificate for your **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** in 3 simple steps. 
+This article explains how to buy and configure an SSL Certificate for your **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** in three simple steps. 
 
 > [!NOTE]
 > SSL Certificates for Custom domain names cannot be used with Free and Shared web app. You must configure your web app for Basic, Standard or Premium mode, which may change how much you are billed for your subscription. See **[Web Apps Pricing Details](https://azure.microsoft.com/pricing/details/web-sites/)** for more information.
@@ -36,7 +36,7 @@ This article explains how to buy and configure an SSL Certificate for your **[Az
 
 ## <a name="bkmk_Overview"></a>Overview
 > [!NOTE]
-> Please do not attempt to purchase an SSL Certificate using a subscription that does not have an Active Credit Card associated with it. This could result in your subscription being disabled. 
+> Do not attempt to purchase an SSL Certificate by using a subscription that does not have an active credit card associated with it. This could result in your subscription being disabled. 
 > 
 > 
 
@@ -193,12 +193,13 @@ Turn **"Auto Renew"** ON if you would like to automatically renew your certifica
 6. Once the certificate is ready make sure you sync your resources using this certificate to prevent disruption to the service.
 7. Sync option is not available for Certificates that are not yet assigned to the Web App. 
 
-## More Resources
+## Next steps
+
 * [Enable HTTPS for an app in Azure App Service](web-sites-configure-ssl-certificate.md)
 * [Buy and Configure a custom domain name in Azure App Service](custom-dns-web-site-buydomains-web-app.md)
 * [Microsoft Azure Trust Center](/support/trust-center/security/)
 * [Configuration options unlocked in Azure Web Sites](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-* [Azure Management Portal](https://manage.windowsazure.com)
+* [Azure portal](https://manage.windowsazure.com)
 
 > [!NOTE]
 > If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
