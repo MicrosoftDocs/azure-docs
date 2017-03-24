@@ -70,7 +70,7 @@ The device identity operations category tracks errors that occur when you attemp
 
 ### Device telemetry
 
-The device telemetry category tracks errors that occur at the IoT hub and are related to the telemetry pipeline. This category includes errors that occur when sending telemetry events (such as throttling) and receiving telemetry events (such as unauthorized reader). Note that this category cannot catch errors caused by code running on the device itself.
+The device telemetry category tracks errors that occur at the IoT hub and are related to the telemetry pipeline. This category includes errors that occur when sending telemetry events (such as throttling) and receiving telemetry events (such as unauthorized reader). This category cannot catch errors caused by code running on the device itself.
 
 ```json
 {
@@ -144,7 +144,7 @@ The file upload category tracks errors that occur at the IoT hub and are related
 * Failed uploads reported by the device.
 * Errors that occur when a file is not found in storage during IoT Hub notification message creation.
 
-Note that this category cannot catch errors that directly occur while the device is uploading a file to storage.
+This category cannot catch errors that directly occur while the device is uploading a file to storage.
 
 ```json
 {
@@ -165,7 +165,7 @@ Note that this category cannot catch errors that directly occur while the device
 
 ### Message routing
 
-The message routing category tracks errors that occur during message route evaluation and endpoint health as perceived by IoT Hub. This category includes events such as when a rule evaluates to "undefined", when IoT Hub marks an endpoint as dead, and any other errors received from an endpoint. Note that this category does not include specific errors about the messages themselves (such as device throttling errors), which are reported under the "device telemetry" category.
+The message routing category tracks errors that occur during message route evaluation and endpoint health as perceived by IoT Hub. This category includes events such as when a rule evaluates to "undefined", when IoT Hub marks an endpoint as dead, and any other errors received from an endpoint. This category does not include specific errors about the messages themselves (such as device throttling errors), which are reported under the "device telemetry" category.
 
 ```json
 {
