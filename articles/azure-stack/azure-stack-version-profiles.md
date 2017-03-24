@@ -20,7 +20,7 @@ ms.author: sngun
 
 # Manage API version profiles in Azure Stack
 
-API version profiles provide a way to manage version differences between Azure and Azure Stack. An API version profile is a set of AzureRM PowerShell modules with specific API versions. Each Azure cloud instance has a set of supported API version profiles. For example, Azure Stack supports a specific dated profile version such as  **2017-03-09-profile**, and Azure supports the **latest** API version profile. When you install a profile, the AzureRM PowerShell modules that correspond to the specified profile are installed.
+API version profiles provide a way to manage version differences between Azure and Azure Stack. An API version profile is a set of AzureRM PowerShell modules with specific API versions. Each cloud platform has a set of supported API version profiles. For example, Azure Stack supports a specific dated profile version such as  **2017-03-09-profile**, and Azure supports the **latest** API version profile. When you install a profile, the AzureRM PowerShell modules that correspond to the specified profile are installed.
 
 ## Install the PowerShell module required to use API version profiles
 
@@ -29,7 +29,7 @@ The **AzureRM.Bootstrapper** module that is available through the PowerShell Gal
 ```PowerShell
 Install-Module -Name AzureRm.BootStrapper
 ```
-The AzureRM.Bootstrapper module is in preview, details and functionality are subject to change. To download and install the latest version of this module from the PowerShell Gallery, run the following cmdlet:
+The AzureRM.Bootstrapper module is in preview; details and functionality are subject to change. To download and install the latest version of this module from the PowerShell Gallery, run the following cmdlet:
 
 ```PowerShell
 Update-Module -Name "AzureRm.BootStrapper"
@@ -37,15 +37,14 @@ Update-Module -Name "AzureRm.BootStrapper"
 
 ## Install a profile
 
-Use the **Install-AzureRmProfile** cmdlet with **2017-03-09-profile** API version profile to install the AzureRM modules required by Azure Stack. Note that the Azure Stack administrator modules are not installed with this API version profile, and they should be installed separately as specified in the Step 3 of [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) article.
+Use the **Install-AzureRmProfile** cmdlet with the **2017-03-09-profile** API version profile to install the AzureRM modules required by Azure Stack. Note that the Azure Stack administrator modules are not installed with this API version profile, and they should be installed separately as specified in the Step 3 of the [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) article.
 
 ```PowerShell 
 Install-AzureRMProfile -Profile 2017-03-09-profile
 ```
 ## Install and import modules in a profile
 
-Use the **Use-AzureRmProfile** cmdlet to install and import modules that are associated with an API version profile. You can import only one API version profile in a PowerShell session. To import a different API version profile, you must open a new PowerShell session. Use-AzureRMProfile cmdlet, runs the following tasks:
-
+Use the **Use-AzureRmProfile** cmdlet to install and import modules that are associated with an API version profile. You can import only one API version profile in a PowerShell session. To import a different API version profile, you must open a new PowerShell session. The Use-AzureRMProfile cmdlet runs the following tasks:  
 1. Checks if the PowerShell modules associated with the specified API version profile are installed in the current scope.  
 2. Downloads and installs the modules if they are not already installed.   
 3. Imports the modules into the current PowerShell session. 
