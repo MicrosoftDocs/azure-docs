@@ -127,9 +127,9 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
   1. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<company name>.nyansa.com/`.
   2. Click **Next**.
 
-	 >[!NOTE]
-	 >Please note that you have to update these values with the actual Sign On URL, Identifier and Reply URL. To get these values, contact [Voyance support team](emaiLto:support@nyansa.com).
-	 >
+	  >[!NOTE]
+	  >You have to update these values with the actual Sign On URL, Identifier and Reply URL. To get these values, contact [Voyance support team](emaiLto:support@nyansa.com).
+	  >
 
 5. On the **Configure single sign-on at Voyance** page, click **Download certificate** and then save the file on your computer:
 
