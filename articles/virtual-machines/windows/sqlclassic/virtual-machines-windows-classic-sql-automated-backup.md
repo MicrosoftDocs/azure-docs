@@ -21,7 +21,7 @@ ms.author: jroth
 # Automated Backup for SQL Server in Azure Virtual Machines (Classic)
 > [!div class="op_single_selector"]
 > * [Resource Manager](../sql/virtual-machines-windows-sql-automated-backup.md)
-> * [Classic](virtual-machines-windows-classic-sql-automated-backup.md)
+> * [Classic](../classic/sql-automated-backup.md)
 > 
 > 
 

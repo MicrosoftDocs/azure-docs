@@ -25,7 +25,7 @@
 ### [Security Considerations](../sql/virtual-machines-windows-sql-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## Backup and restore
 ### [Backup and Restore](../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
-### [Automated Backup](virtual-machines-windows-classic-sql-automated-backup.md)
+### [Automated Backup](../classic/sql-automated-backup.md)
 ### [Use Azure Storage for Backup and Restore](../sql/virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## Business Intelligence
 ### [SQL Server Business Intelligence in Azure VMs](../classic/ps-sql-bi.md)
