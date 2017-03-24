@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/30/2016
+ms.date: 03/24/2017
 ms.author: jdial;annahar
 
 ---
@@ -35,7 +35,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 3. Replace *myResourceGroup* and *westus* with a name and location of your choosing. Create a resource group. A resource group is a logical container into which Azure resources are deployed and managed.
 
 	```powershell
-	\$RgName   = "MyResourceGroup"
+	$RgName   = "MyResourceGroup"
 	$Location = "westus"
 
 	New-AzureRmResourceGroup `
@@ -46,6 +46,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 4. Create a virtual network (VNet) and subnet in the same location as the resource group:
 
 	```powershell
+	
 	# Create a subnet configuration
 	$SubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
 	-Name MySubnet `
