@@ -15,16 +15,20 @@ You can select the time planned maintenance impacts your VMs that are deployed i
 3. You can remove the VM from its availability set in the Azure portal.
 
    1. In the portal, select the VM to remove from the Availability Set.  
+
    2. Under **settings**, click **Availability set**.
 
       ![Availability Set Selection](./media/virtual-machines-planned-maintenance-schedule/availabilitysetselection.png)
+
    3. In the availability set dropdown menu, select “Not part of an availability set.”
 
       ![Remove from Set](./media/virtual-machines-planned-maintenance-schedule/availabilitysetwarning.png)
-     >[!TIP]
-     >You can reconfigure the VM to multi-instance later by >selecting one of the listed availability sets.
 
    4. At the top, click **Save**. Click **Yes** to acknowledge that this action restarts the VM.
+
+   >[!TIP]
+   >You can reconfigure the VM to multi-instance later by >selecting one of the listed availability sets.
+
 4. VMs removed from availability sets are moved to Single-Instance hosts and are not updated during the planned maintenance to Availability Set Configurations.
 5. Once the update to Availability Set VMs is complete (according to schedule outlined in the original email), you should add the VMs back into their availability sets. Becoming part of an Availability set reconfigures the VMs as multi-instance, and results in a reboot. Typically, once all multi-instance updates are completed across the entire Azure environment, single-instance maintenance follows.
 
