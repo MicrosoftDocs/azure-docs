@@ -140,9 +140,9 @@ You can manage the values of these attributes from the **"Atrributes"** tab of t
   2. In the **Identifier** textbox, type: `urn:auth0:optimizely:contoso`
   3. Click **Next**. 
 
-    >[!NOTE] 
-    >The values for the **Sign On URL** and **Identifier** are only placeholders for the actual values. You can find instructions for aquiring the actual values from Optimizely later in this tutorial.
-    >
+     >[!NOTE] 
+     >The values for the **Sign On URL** and **Identifier** are only placeholders for the actual values. You can find instructions for aquiring the actual values from Optimizely later in this tutorial.
+     >
 
 1. On the **Configure single sign-on at Optimizely** page, perform the following steps:
    
