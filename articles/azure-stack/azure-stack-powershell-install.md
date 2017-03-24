@@ -47,9 +47,6 @@ command to install the AzureRM.Bootstrapper module:
 ```powershell
 # Install the AzureRM.Bootstrapper module
 Install-Module -Name AzureRm.BootStrapper
-    
-# Import the bootstrapper module into the current PowerShell session
-Import-Module -Name AzureRm.Bootstrapper
 ```
 
 2. Run the following command to install the required version of the 
