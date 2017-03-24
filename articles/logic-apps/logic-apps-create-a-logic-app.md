@@ -87,7 +87,7 @@ choose **Logic Apps**. Select your logic app.
 	*	To edit your app, on the logic app menu, choose **Logic App Designer**.
 
 	*	To turn off your app temporarily, on the logic app menu, 
-	choose **Overview**. On the command bar, choose **Disble**.
+	choose **Overview**. On the command bar, choose **Disable**.
 
 	*	To delete your app, on the logic app menu, choose **Overview**. 
 	On the command bar, choose **Delete**. Enter your logic app's name, 
