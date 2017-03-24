@@ -2,14 +2,14 @@ Site-to-Site connections to an on-premises network require a VPN device. There a
 
 When configuring your VPN device, you will the following items:
 
-- The Public IP address of your virtual network gateway.
+- **The Public IP address** of your virtual network gateway.
 
 	-  To find the Public IP address using the Azure portal,  navigate to **Virtual network gateways**, then click the name of your gateway. 
 
-	- To find the Public IP address of your virtual network gateway using PowerShell, use the following example:
+	- To find the Public IP address of your virtual network gateway using PowerShell, use the following example, replacing the values with your own.
 
     		Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
-- A shared key. This is the same shared key that you will specify when creating your Site-to-Site VPN connection. In our examples, we use a very basic shared key. You should generate a more complex key to use.
+- **A shared key**. This is the same shared key that you will specify when creating your Site-to-Site VPN connection. In our examples, we use a very basic shared key. You should generate a more complex key to use.
 
 
 
