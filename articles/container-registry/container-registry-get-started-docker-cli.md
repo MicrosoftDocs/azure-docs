@@ -96,7 +96,7 @@ Browse to [http://localhost:8080](http://localhost:8080) to view the running con
 
 To stop the running container, press [CTRL]+[C].
 
-**6. (Optional) Remove the image**
+**7. (Optional) Remove the image**
 
 ```
 docker rmi myregistry.azurecr.io/samples/nginx
