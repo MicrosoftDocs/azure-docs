@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 03/23/2017
 ms.author: jingwang
 
 ---
@@ -52,11 +52,11 @@ This sample shows how to copy data from an on-premises MySQL database to an Azur
 
 The sample has the following data factory entities:
 
-1. A linked service of type [OnPremisesMySql](data-factory-onprem-mysql-connector.md#mysql-linked-service-properties).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](data-factory-onprem-mysql-connector.md#mysql-dataset-type-properties).
-4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](data-factory-onprem-mysql-connector.md#mysql-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+1. A linked service of type [OnPremisesMySql](data-factory-onprem-mysql-connector.md#linked-service-properties).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](data-factory-onprem-mysql-connector.md#dataset-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](data-factory-onprem-mysql-connector.md#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 The sample copies data from a query result in MySQL database to a blob hourly. The JSON properties used in these samples are described in sections following the samples.
 
@@ -64,6 +64,7 @@ As a first step, setup the data management gateway. The instructions are in the 
 
 **MySQL linked service**
 
+```JSON
     {
       "name": "OnPremMySqlLinkedService",
       "properties": {
@@ -79,9 +80,11 @@ As a first step, setup the data management gateway. The instructions are in the 
         }
       }
     }
+```
 
 **Azure Storage linked service**
 
+```JSON
     {
       "name": "AzureStorageLinkedService",
       "properties": {
@@ -91,6 +94,7 @@ As a first step, setup the data management gateway. The instructions are in the 
         }
       }
     }
+```
 
 **MySQL input dataset**
 
@@ -98,6 +102,7 @@ The sample assumes you have created a table “MyTable” in MySQL and it contai
 
 Setting “external”: ”true” informs the Data Factory service that the table is external to the data factory and is not produced by an activity in the data factory.
 
+```JSON
     {
         "name": "MySqlDataSet",
         "properties": {
@@ -119,13 +124,13 @@ Setting “external”: ”true” informs the Data Factory service that the tab
             }
         }
     }
-
-
+```
 
 **Azure Blob output dataset**
 
 Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
 
+```JSON
     {
         "name": "AzureBlobMySqlDataSet",
         "properties": {
@@ -179,13 +184,13 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
             }
         }
     }
-
-
+```
 
 **Pipeline with Copy activity**
 
 The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data in the past hour to copy.
 
+```JSON
     {
         "name": "CopyMySqlToBlob",
         "properties": {
@@ -229,10 +234,9 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
             "end": "2014-06-01T19:00:00Z"
         }
     }
+```
 
-
-
-## MySQL linked service properties
+## Linked service properties
 The following table provides description for JSON elements specific to MySQL linked service.
 
 | Property | Description | Required |
@@ -241,14 +245,14 @@ The following table provides description for JSON elements specific to MySQL lin
 | server |Name of the MySQL server. |Yes |
 | database |Name of the MySQL database. |Yes |
 | schema |Name of the schema in the database. |No |
-| authenticationType |Type of authentication used to connect to the MySQL database. Possible values are: Anonymous, Basic, and Windows. |Yes |
-| username |Specify user name if you are using Basic or Windows authentication. |No |
-| password |Specify password for the user account you specified for the username. |No |
+| authenticationType |Type of authentication used to connect to the MySQL database. Possible values are: `Basic`. |Yes |
+| username |Specify user name to connect to the MySQL database. |Yes |
+| password |Specify password for the user account you specified. |Yes |
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises MySQL database. |Yes |
 
 See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for an on-premises MySQL data source.
 
-## MySQL dataset type properties
+## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
 The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **RelationalTable** (which includes MySQL dataset) has the following properties
@@ -257,7 +261,7 @@ The **typeProperties** section is different for each type of dataset and provide
 | --- | --- | --- |
 | tableName |Name of the table in the MySQL Database instance that linked service refers to. |No (if **query** of **RelationalSource** is specified) |
 
-## MySQL copy activity type properties
+## Copy activity properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, are policies are available for all types of activities.
 
 Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
