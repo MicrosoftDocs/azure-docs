@@ -266,7 +266,7 @@ You can attach an existing NIC to a VM when you create it or you can attach an e
 
 You can use PowerShell or the CLI to create a NIC or VM with all the previous attributes that you cannot use the portal for. Before completing the tasks in the following sections, consider the following constraints and behaviors:
 
-- The VM size must support multiple NICs. To learn how many NICs each VM size supports, read the [Windows](../virtual-machines/virtual-machines-windows-sizes.md) or [Linux](../virtual-machines/virtual-machines-linux-sizes.md) VM sizes articles.
+- The VM size 
 - By default, the first NIC attached to a VM is defined as the *primary* NIC. All other NICs attached to the VM are *secondary* NICs.
 - By default, all outbound traffic from the VM is sent out the IP address assigned to the primary IP configuration of the primary NIC. You can of course, control which IP address is used for outbound traffic within the VM's operating system.
 - In the past, all VMs within the same availability set were required to have a single, or multiple, NICs. VMs with any number of NICs can now exist in the same availability set. A VM can only be added to an availability set when it's created though. To learn more about availability sets, read the [Manage the availability of Windows virtual machines in Azure](../virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) article.

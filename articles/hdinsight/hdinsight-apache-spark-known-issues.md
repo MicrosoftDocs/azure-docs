@@ -10,11 +10,12 @@ tags: azure-portal
 
 ms.assetid: 610c4103-ffc8-4ec0-ad06-fdaf3c4d7c10
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 03/24/2017
 ms.author: nitinme
 
 ---
@@ -23,7 +24,7 @@ ms.author: nitinme
 This document keeps track of all the known issues for the HDInsight Spark public preview.  
 
 ## Livy leaks interactive session
-When Livy is restarted with an interactive session (from Ambari or due to headnode 0 virtual machine reboot) still alive, an interactive job session will be leaked. Because of this, new jobs can stuck in the Accepted state, and cannot be started.
+When Livy is restarted (from Ambari or due to headnode 0 virtual machine reboot) with an interactive session still alive, an interactive job session will be leaked. Because of this, new jobs can stuck in the Accepted state, and cannot be started.
 
 **Mitigation:**
 
@@ -58,6 +59,14 @@ When hdiuser submits a job with spark-submit, there is an error java.io.FileNotF
 2. Provide 777 permissions on /var/log/spark after cluster creation. 
 3. Update the spark log location using Ambari to be a directory with 777 permissions.  
 4. Run spark-submit as sudo.  
+
+## Spark-Phoenix connector is not supported
+
+Currently, the Spark-Phoenix connector is not supported with an HDInsight Spark cluster.
+
+**Mitigation:**
+
+You must use the Spark-HBase connector instead. For instructions see [How to use Spark-HBase connector](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
 ## Issues related to Jupyter notebooks
 Following are some known issues related to Jupyter notebooks.
