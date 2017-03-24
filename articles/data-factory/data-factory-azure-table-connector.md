@@ -28,10 +28,10 @@ The following examples provide sample JSON definitions that you can use to creat
 ## Sample: Copy data from Azure Table to Azure Blob
 The following sample shows:
 
-1. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md) (used for both table & blob).
-2. An input [dataset](data-factory-create-datasets.md) of type [AzureTable](#azure-table-dataset-type-properties).
-3. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4. The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [AzureTableSource](#azure-table-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+1. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) (used for both table & blob).
+2. An input [dataset](data-factory-create-datasets.md) of type [AzureTable](#dataset-properties).
+3. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+4. The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [AzureTableSource](#activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 The sample copies data belonging to the default partition in an Azure Table to a blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
@@ -48,7 +48,7 @@ The sample copies data belonging to the default partition in an Azure Table to a
   }
 }
 ```
-Azure Data Factory supports two types of Azure Storage linked services: **AzureStorage** and **AzureStorageSas**. For the first one, you specify the connection string that includes the account key and for the later one, you specify the Shared Access Signature (SAS) Uri. See [Linked Services](#linked-services) section for details.  
+Azure Data Factory supports two types of Azure Storage linked services: **AzureStorage** and **AzureStorageSas**. For the first one, you specify the connection string that includes the account key and for the later one, you specify the Shared Access Signature (SAS) Uri. See [Linked Services](#linked-service-properties) section for details.  
 
 **Azure Table input dataset:**
 
@@ -195,10 +195,10 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 ## Sample: Copy data from Azure Blob to Azure Table
 The following sample shows:
 
-1. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md) (used for both table & blob)
-2. An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-3. An output [dataset](data-factory-create-datasets.md) of type [AzureTable](#azure-table-dataset-type-properties).
-4. The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) and [AzureTableSink](#azure-table-copy-activity-type-properties).
+1. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) (used for both table & blob)
+2. An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+3. An output [dataset](data-factory-create-datasets.md) of type [AzureTable](#dataset-properties).
+4. The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) and [AzureTableSink](#copy-activity-properties).
 
 The sample copies time-series data from an Azure blob to an Azure table hourly. The JSON properties used in these samples are described in sections following the samples.
 
@@ -216,7 +216,7 @@ The sample copies time-series data from an Azure blob to an Azure table hourly. 
 }
 ```
 
-Azure Data Factory supports two types of Azure Storage linked services: **AzureStorage** and **AzureStorageSas**. For the first one, you specify the connection string that includes the account key and for the later one, you specify the Shared Access Signature (SAS) Uri. See [Linked Services](#linked-services) section for details.
+Azure Data Factory supports two types of Azure Storage linked services: **AzureStorage** and **AzureStorageSas**. For the first one, you specify the connection string that includes the account key and for the later one, you specify the Shared Access Signature (SAS) Uri. See [Linked Services](#linked-service-properties) section for details.
 
 **Azure Blob input dataset:**
 
@@ -360,12 +360,12 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 }
 ```
 
-## Linked Services
+## Linked service properties
 There are two types of linked services you can use to link an Azure blob storage to an Azure data factory. They are: **AzureStorage** linked service and **AzureStorageSas** linked service. The Azure Storage linked service provides the data factory with global access to the Azure Storage. Whereas, The Azure Storage SAS (Shared Access Signature) linked service provides the data factory with restricted/time-bound access to the Azure Storage. There are no other differences between these two linked services. Choose the linked service that suits your needs. The following sections provide more details on these two linked services.
 
 [!INCLUDE [data-factory-azure-storage-linked-services](../../includes/data-factory-azure-storage-linked-services.md)]
 
-## Azure Table Dataset type properties
+## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
 The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The **typeProperties** section for the dataset of type **AzureTable** has the following properties.
@@ -382,7 +382,7 @@ For schema-free data stores such as Azure Table, the Data Factory service infers
 
 Therefore, for schema-free data sources, the best practice is to specify the structure of data using the **structure** property.
 
-## Azure Table Copy Activity type properties
+## Copy activity properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output datasets, and policies are available for all types of activities.
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
