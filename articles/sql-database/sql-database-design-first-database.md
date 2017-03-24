@@ -31,7 +31,6 @@ In this tutorial, you are going to learn how to
 * [Create and query a table in the database](sql-database-design-first-database.md#step-6---create-and-query-a-table)
 * [Load data into a table](sql-database-design-first-database.md#step-7---load-data-into-the-table) 
 * [Add an index to the table to optimize query performance](sql-database-design-first-database.md#step-8---add-an-index-to-a-table)
-* [Drop a table](sql-database-design-first-database.md#step-9---drop-a-table) 
 * [Restore the database to a point in time](sql-database-design-first-database.md#step-10---restore-database-to-a-point-in-time) 
 
 Before you start:
@@ -177,17 +176,7 @@ To make searching for specific values in the table more efficient, create an ind
 
    This query returns the name, age, and email of students who are older than 20 years old.
 
-## Step 9 - Drop a table
-
-[ADD VERBIAGE HERE]
-
-In an SSMS query window, execute following query:
-
-```sql
-DROP TABLE [dbo].[Students]
-```
-
-## Step 10 - Restore a database to a point in time 
+## Step 9 - Restore a database to a point in time 
 Databases in Azure have continuous backups that are taken automatically every 5 - 10 minutes. These backups allow you to restore your database to a previous point in time. Restoring a database to a different point in time creates a duplicate database in the same server as the original database. The following steps restore the sample database to a point before the *Students* table was added. 
 
 * Navigate to the sample database you created in the quick start
