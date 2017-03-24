@@ -30,7 +30,7 @@ This is the fifth step of the walkthrough, [Develop a predictive analytics solut
 - - -
 To give others a chance to use the predictive model we've developed in this walkthrough, we can deploy it as a web service on Azure.
 
-Up to this point we've been experimenting with training our model. But the deployed service is no longer going to do training - it generates predictions by scoring the user's input based on our model. So we're going to do some preparation to convert this experiment from a ***training*** experiment to a ***predictive*** experiment. 
+Up to this point we've been experimenting with training our model. But the deployed service is no longer going to do training - it's going to generate new predictions by scoring the user's input based on our model. So we're going to do some preparation to convert this experiment from a ***training*** experiment to a ***predictive*** experiment. 
 
 This is a two-step process:  
 
@@ -80,7 +80,7 @@ When you click **Set Up Web Service**, several things happen:
 > You can see that the experiment is saved in two parts under tabs that have been added at the top of the experiment canvas. The original training experiment is under the tab **Training experiment**, and the newly created predictive experiment is under **Predictive experiment**. The predictive experiment is the one we'll deploy as a web service.
 
 We need to take one additional step with this particular experiment.
-We added two [Execute R Script][execute-r-script] modules to provide a weighting function to the data. That was just a trick we needed for training and testing, so we can take those modules out in the final model.
+We added two [Execute R Script][execute-r-script] modules to provide a weighting function to the data. That was just a trick we needed for training and testing, so we can take out those modules in the final model.
 
 Machine Learning Studio removed one [Execute R Script][execute-r-script] module when it removed the [Split][split] module. Now we can remove the other and connect [Metadata Editor][metadata-editor] directly to [Score Model][score-model].    
 
@@ -95,7 +95,7 @@ Our experiment should now look like this:
 > 
 > 
 
-Run the experiment one last time (click **Run**.) If you want to verify that the model is still working, click the output of the [Score Model][score-model] module and select **View Results**. You'll see that the original data is displayed, along with the credit risk value ("Scored Labels") and the scoring probability value ("Scored Probabilities".) 
+Run the experiment one last time (click **Run**.) If you want to verify that the model is still working, click the output of the [Score Model][score-model] module and select **View Results**. You can see that the original data is displayed, along with the credit risk value ("Scored Labels") and the scoring probability value ("Scored Probabilities".) 
 
 ## Deploy the web service
 You can deploy the experiment as either a Classic web service or a New web service that's based on Azure Resource Manager.
@@ -112,7 +112,7 @@ You can configure the service by clicking the **CONFIGURATION** tab. Here you ca
 ### Deploy as a New web service
 
 > [!NOTE] 
-> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md). 
+> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information, see, [Manage a web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md). 
 
 To deploy a New web service derived from our experiment:
 
@@ -142,7 +142,7 @@ When the web service is accessed, the user's data enters through the **Web servi
 The results are then returned to the user from the web service through the **Web service output** module.
 
 > [!TIP]
-> The way we have the predictive experiment configured, the entire results from the [Score Model][score-model] module are returned. This includes all the input data plus the credit risk value and the scoring probability. If you wanted to return something different - for example, only the credit risk value - then you could insert a [Project Columns][project-columns] module between [Score Model][score-model] and the **Web service output** to eliminate columns you don't want the web service to return. 
+> The way we have the predictive experiment configured, the entire results from the [Score Model][score-model] module are returned. This includes all the input data plus the credit risk value and the scoring probability. But you can return something different if you want - for example, you could return just the credit risk value. To do this, insert a [Project Columns][project-columns] module between [Score Model][score-model] and the **Web service output** to eliminate columns you don't want the web service to return. 
 > 
 > 
 
@@ -168,10 +168,10 @@ You can test the web service in Machine Learning Studio or in the Azure Machine 
 
 2. Enter a set of data and then click **Test Request-Response**.
 
-The results of the test will display on the right hand side of the page in the output column. 
+The results of the test are displayed on the right-hand side of the page in the output column. 
 
 > [!TIP]
-> When testing in the Azure Machine Learning Web Services portal, you can have the portal create sample data that you can use to test the Request-Response service. On the **Configure** page, select "Yes" for **Sample Data Enabled?**. When you open the the Request-Response tab on the **Test** page, the portal will fill in sample data taken from the original credit risk dataset.
+> When testing in the Azure Machine Learning Web Services portal, you can have the portal create sample data that you can use to test the Request-Response service. On the **Configure** page, select "Yes" for **Sample Data Enabled?**. When you open the Request-Response tab on the **Test** page, the portal fills in sample data taken from the original credit risk dataset.
 
 ## Manage the web service
 
