@@ -34,149 +34,151 @@ The steps that follow explain how to create an example VM with multiple IP addre
 2. Login to your account with the `login-azurermaccount` command.
 3. Replace *myResourceGroup* and *westus* with a name and location of your choosing. Create a resource group. A resource group is a logical container into which Azure resources are deployed and managed.
 
-  ```powershell
-  \$RgName   = "MyResourceGroup"
-  $Location = "westus"
+		```powershell
+		\$RgName   = "MyResourceGroup"
+		$Location = "westus"
 
-  New-AzureRmResourceGroup `
-  -Name $RgName `
-  -Location $Location
-  ```
+		New-AzureRmResourceGroup `
+		-Name $RgName `
+		-Location $Location
+		```
 
 4. Create a virtual network (VNet) and subnet in the same location as the resource group:
 
-  ```powershell
-  # Create a subnet configuration
-  $SubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-  -Name MySubnet `
-  -AddressPrefix 10.0.0.0/24
+		```powershell
+		# Create a subnet configuration
+		$SubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+		-Name MySubnet `
+		-AddressPrefix 10.0.0.0/24
 
-  # Create a virtual network
-  $VNet = New-AzureRmVirtualNetwork `
-  -ResourceGroupName $RgName `
-  -Location $Location `
-  -Name MyVNet `
-  -AddressPrefix 10.0.0.0/16 `
-  -Subnet $subnetConfig
+		# Create a virtual network
+		$VNet = New-AzureRmVirtualNetwork `
+		-ResourceGroupName $RgName `
+		-Location $Location `
+		-Name MyVNet `
+		-AddressPrefix 10.0.0.0/16 `
+		-Subnet $subnetConfig
 
-  # Get the subnet object
-  $Subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $SubnetConfig.Name -VirtualNetwork $VNet
-  ```
+		# Get the subnet object
+		$Subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $SubnetConfig.Name -VirtualNetwork $VNet
+		```
 
 5. Create a network security group (NSG) and a rule. The NSG secures the VM using inbound and outbound rules. In this case, an inbound rule is created for port 3389, which allows incoming remote desktop connections.
 
-  ```powershell
-  # Create an inbound network security group rule for port 3389
-  $NSGRule = New-AzureRmNetworkSecurityRuleConfig `
-  -Name MyNsgRuleRDP `
-  -Protocol Tcp `
-  -Direction Inbound `
-  -Priority 1000 `
-  -SourceAddressPrefix * `
-  -SourcePortRange * `
-  -DestinationAddressPrefix * `
-  -DestinationPortRange 3389 -Access Allow
-
-  # Create a network security group
-  $NSG = New-AzureRmNetworkSecurityGroup `
-  -ResourceGroupName $RgName `
-  -Location $Location `
-  -Name MyNetworkSecurityGroup `
-  -SecurityRules $NSGRule
-  ```
+		```powershell
+		# Create an inbound network security group rule for port 3389
+		$NSGRule = New-AzureRmNetworkSecurityRuleConfig `
+		-Name MyNsgRuleRDP `
+		-Protocol Tcp `
+		-Direction Inbound `
+		-Priority 1000 `
+		-SourceAddressPrefix * `
+		-SourcePortRange * `
+		-DestinationAddressPrefix * `
+		-DestinationPortRange 3389 -Access Allow
+		
+		# Create a network security group
+		$NSG = New-AzureRmNetworkSecurityGroup `
+		-ResourceGroupName $RgName `
+		-Location $Location `
+		-Name MyNetworkSecurityGroup `
+		-SecurityRules $NSGRule
+		```
 
 6. Define the primary IP configuration for the NIC. Change 10.0.0.4 to a valid address in the subnet you created, if you didn't use the value defined previously. Before assigning a static IP address, it's recommended that you first confirm it's not already in use. Enter the command `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. If the address is available, the output returns *True*. If it's not available, the output returns *False* and a list of addresses that are available. 
 
-In the following commands, **Replace <replace-with-your-unique-name> with the unique DNS name to use.** The name must be unique across all public IP addresses within an Azure region. This is an optional parameter. It can be removed if you only want to connect to the VM using the public IP address.
+	In the following commands, **Replace <replace-with-your-unique-name> with the unique DNS name to use.** The name must be unique across all public IP addresses within an Azure region. This is an optional parameter. It can be removed if you only want to connect to the VM using the public IP address.
 
-  ```powershell
-  # Create a public IP address
-  $PublicIP1 = New-AzureRmPublicIpAddress `
-  -Name "MyPublicIP1" `
-  -ResourceGroupName $RgName `
-  -Location $Location `
-  -DomainNameLabel <replace-with-your-unique-name> `
-  -AllocationMethod Static
+		```powershell
+		# Create a public IP address
+		$PublicIP1 = New-AzureRmPublicIpAddress `
+		-Name "MyPublicIP1" `
+		-ResourceGroupName $RgName `
+		-Location $Location `
+		-DomainNameLabel <replace-with-your-unique-name> `
+		-AllocationMethod Static
+		
+		#Create an IP configuration with a static private IP address and assign the public IP ddress to it
+		$IpConfigName1 = "IPConfig-1"
+		$IpConfig1     = New-AzureRmNetworkInterfaceIpConfig `
+		-Name $IpConfigName1 `
+		-Subnet $Subnet `
+		-PrivateIpAddress 10.0.0.4 `
+		-PublicIpAddress $PublicIP1 `
+		-Primary
+		```
 
-  #Create an IP configuration with a static private IP address and assign the public IP ddress to it
-  $IpConfigName1 = "IPConfig-1"
-  $IpConfig1     = New-AzureRmNetworkInterfaceIpConfig `
-  -Name $IpConfigName1 `
-  -Subnet $Subnet `
-  -PrivateIpAddress 10.0.0.4 `
-  -PublicIpAddress $PublicIP1 `
-  -Primary
-  ```
-  When you assign multiple IP configurations to a NIC, one configuration must be assigned as the *-Primary*.
+	When you assign multiple IP configurations to a NIC, one configuration must be assigned as the *-Primary*.
 
-  > [!NOTE]
-  > Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
+	> [!NOTE]
+	> Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
 
 7. Define the secondary IP configurations for the NIC. You can add or remove configurations as necessary. Each IP configuration must have a private IP address assigned. Each configuration can optionally have one public IP address assigned.
 
-  ```powershell
-  # Create a public IP address
-  $PublicIP2 = New-AzureRmPublicIpAddress `
-  -Name "MyPublicIP2" `
-  -ResourceGroupName $RgName `
-  -Location $Location `
-  -AllocationMethod Static
-
-  #Create an IP configuration with a static private IP address and assign the public IP ddress to it
-  $IpConfigName2 = "IPConfig-2"
-  $IpConfig2     = New-AzureRmNetworkInterfaceIpConfig `
-  -Name $IpConfigName2 `
-  -Subnet $Subnet `
-  -PrivateIpAddress 10.0.0.5 `
-  -PublicIpAddress $PublicIP2
-
-  $IpConfigName3 = "IpConfig-3"
-  $IpConfig3 = New-AzureRmNetworkInterfaceIpConfig `
-  -Name $IPConfigName3 `
-  -Subnet $Subnet `
-  -PrivateIpAddress 10.0.0.6
-  ```
+		```powershell
+		# Create a public IP address
+		$PublicIP2 = New-AzureRmPublicIpAddress `
+		-Name "MyPublicIP2" `
+		-ResourceGroupName $RgName `
+		-Location $Location `
+		-AllocationMethod Static
+		
+		#Create an IP configuration with a static private IP address and assign the public IP ddress to it
+		$IpConfigName2 = "IPConfig-2"
+		$IpConfig2     = New-AzureRmNetworkInterfaceIpConfig `
+		-Name $IpConfigName2 `
+		-Subnet $Subnet `
+		-PrivateIpAddress 10.0.0.5 `
+		-PublicIpAddress $PublicIP2
+		
+		$IpConfigName3 = "IpConfig-3"
+		$IpConfig3 = New-AzureRmNetworkInterfaceIpConfig `
+		-Name $IPConfigName3 `
+		-Subnet $Subnet `
+		-PrivateIpAddress 10.0.0.6
+		```
 
 8. Create the NIC and associate the three IP configurations to it:
 
-  ```powershell
-  $NIC = New-AzureRmNetworkInterface `
-  -Name MyNIC `
-  -ResourceGroupName $RgName `
-  -Location $Location `
-  -NetworkSecurityGroupId $NSG.Id `
-  -IpConfiguration $IpConfig1,$IpConfig2,$IpConfig3
-  ```
+		```powershell
+		$NIC = New-AzureRmNetworkInterface `
+		-Name MyNIC `
+		-ResourceGroupName $RgName `
+		-Location $Location `
+		-NetworkSecurityGroupId $NSG.Id `
+		-IpConfiguration $IpConfig1,$IpConfig2,$IpConfig3
+		```
 
-  >[!NOTE]
-  >Though all configurations are assigned to one NIC in this article, you can assign multiple IP configurations to every NIC attached to the VM. To learn how to create a VM with multiple NICs, read the [Create a VM with multiple NICs](virtual-network-deploy-multinic-arm-ps.md) article.
+	>[!NOTE]
+	>Though all configurations are assigned to one NIC in this article, you can assign multiple IP configurations to every NIC attached to the VM. To learn how to create a VM with multiple NICs, read the [Create a VM with multiple NICs](virtual-network-deploy-multinic-arm-ps.md) article.
 
 9. Create the VM by entering the following commands:
-  ```powershell
-  # Define a credential object. When you run these commands, you're prompted to enter a sername and password for the VM you're creating.
-  $cred = Get-Credential
 
-  # Create a virtual machine configuration
-  $VmConfig = New-AzureRmVMConfig `
-  -VMName MyVM `
-  -VMSize Standard_DS1_v2 | `
-  Set-AzureRmVMOperatingSystem -Windows `
-  -ComputerName MyVM `
-  -Credential $cred | `
-  Set-AzureRmVMSourceImage `
-  -PublisherName MicrosoftWindowsServer `
-  -Offer WindowsServer `
-  -Skus 2016-Datacenter `
-  -Version latest | `
-  Add-AzureRmVMNetworkInterface `
-  -Id $NIC.Id
-
-  # Create the VM
-  New-AzureRmVM `
-  -ResourceGroupName $RgName `
-  -Location $Location `
-  -VM $VmConfig
-  ```
+		```powershell
+		# Define a credential object. When you run these commands, you're prompted to enter a sername and password for the VM you're creating.
+		$cred = Get-Credential
+		
+		# Create a virtual machine configuration
+		$VmConfig = New-AzureRmVMConfig `
+		-VMName MyVM `
+		-VMSize Standard_DS1_v2 | `
+		Set-AzureRmVMOperatingSystem -Windows `
+		-ComputerName MyVM `
+		-Credential $cred | `
+		Set-AzureRmVMSourceImage `
+		-PublisherName MicrosoftWindowsServer `
+		-Offer WindowsServer `
+		-Skus 2016-Datacenter `
+		-Version latest | `
+		Add-AzureRmVMNetworkInterface `
+		-Id $NIC.Id
+		
+		# Create the VM
+		New-AzureRmVM `
+		-ResourceGroupName $RgName `
+		-Location $Location `
+		-VM $VmConfig
+		```
 
 10. Add the private IP addresses to the VM operating system by completing the steps for your operating system in the [Add IP addresses to a VM operating system](#os-config) section of this article. Do not add the public IP addresses to the operating system.
 
