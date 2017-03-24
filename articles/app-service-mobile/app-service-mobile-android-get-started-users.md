@@ -4,7 +4,7 @@ description: Learn how to use the Mobile Apps feature of Azure App Service to au
 services: app-service\mobile
 documentationcenter: android
 author: ysxu
-manager: erikre
+manager: adrianha
 editor: ''
 
 ms.assetid: 1fc8e7c1-6c3c-40f4-9967-9cf5e21fc4e1
@@ -33,7 +33,7 @@ In this tutorial, you add authentication to the todolist quickstart project on A
 
      This exception happens because the app attempts to access the back end as an unauthenticated user, but the *TodoItem* table now requires authentication.
 
-Next, you update the app to authenticate users before requesting resources from the Mobile Apps back end.
+Next, you update the app to authenticate users before requesting resources from the Mobile Apps back end. 
 
 ## Add authentication to the app
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]

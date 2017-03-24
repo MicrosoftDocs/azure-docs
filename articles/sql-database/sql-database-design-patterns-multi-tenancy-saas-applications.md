@@ -4,19 +4,19 @@ description: This article discusses the requirements and common data architectur
 keywords: ''
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
+author: srinia
 manager: jhubbard
 editor: ''
 
 ms.assetid: 1dd20c6b-ddbb-40ef-ad34-609d398d008a
 ms.service: sql-database
-ms.custom: app development
+ms.custom: development
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-design
-ms.date: 11/08/2016
-ms.author: carlrab
+ms.date: 02/01/2017
+ms.author: srinia
 
 ---
 # Design patterns for multitenant SaaS applications and Azure SQL Database
@@ -87,7 +87,7 @@ In Figure 2, the Y axis shows the level of tenant isolation. The X axis shows th
 
 Figure 2: Popular multitenant data models
 
-The lower-right quadrant in Figure 2 shows an application pattern that uses a potentially large, shared standalone database, and the shared table (or separate schema) approach. It's good for resource sharing because all tenants use the same database resources (CPU, memory, input/output) in a single database. But tenant isolation is limited. You might need to take additional steps to protect tenants from each other at the application layer. These additional steps can significantly increase the DevOps cost of developing and managing the application. Scalability is limited by the scale of the hardware that hosts the database.
+The lower-right quadrant in Figure 2 shows an application pattern that uses a potentially large, shared single database, and the shared table (or separate schema) approach. It's good for resource sharing because all tenants use the same database resources (CPU, memory, input/output) in a single database. But tenant isolation is limited. You might need to take additional steps to protect tenants from each other at the application layer. These additional steps can significantly increase the DevOps cost of developing and managing the application. Scalability is limited by the scale of the hardware that hosts the database.
 
 The lower-left quadrant in Figure 2 illustrates multiple tenants sharded across multiple databases (typically, different hardware scale units). Each database hosts a subset of tenants, which addresses the scalability concern of other patterns. If more capacity is required for more tenants, you can easily place the tenants on new databases allocated to new hardware scale units. However, the amount of resource sharing is reduced. Only tenants placed on the same scale units share resources. This approach provides little improvement to tenant isolation because many tenants are still collocated without being automatically protected from each other’s actions. Application complexity remains high.
 
@@ -121,7 +121,7 @@ Elastic pools in SQL Database combine tenant isolation with resource sharing amo
 | [Elastic database client library](sql-database-elastic-database-client-library.md): Manage data distributions and map tenants to databases. | |
 
 ## Shared models
-As described earlier, for most SaaS providers, a shared model approach might pose problems with tenant isolation issues and complexities with application development and maintenance. However, for multitenant applications that provide a service directly to consumers, tenant isolation requirements may not be as high a priority as minimizing cost. They might be able to pack tenants in one or more databases at a high density to reduce costs. Shared-database models using a standalone database or multiple sharded databases might result in additional efficiencies in resource sharing and overall cost. Azure SQL Database provides some features that help customers build isolation for improved security and management at scale in the data tier.
+As described earlier, for most SaaS providers, a shared model approach might pose problems with tenant isolation issues and complexities with application development and maintenance. However, for multitenant applications that provide a service directly to consumers, tenant isolation requirements may not be as high a priority as minimizing cost. They might be able to pack tenants in one or more databases at a high density to reduce costs. Shared-database models using a single database or multiple sharded databases might result in additional efficiencies in resource sharing and overall cost. Azure SQL Database provides some features that help customers build isolation for improved security and management at scale in the data tier.
 
 | Application requirements | SQL database capabilities |
 | --- | --- |
@@ -147,7 +147,7 @@ Create an [elastic pool custom dashboard for SaaS](https://github.com/Microsoft/
 
 Use the Azure SQL Database tools to [migrate existing databases to scale out](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-View our tutorial on how to [create an elastic pool](sql-database-elastic-pool-create-portal.md).  
+To create an elastic pool using the Azure portal, see [create an elastic pool](sql-database-elastic-pool-manage-portal.md).  
 
 Learn how to [monitor and manage an elastic pool](sql-database-elastic-pool-manage-portal.md).
 
@@ -157,7 +157,7 @@ Learn how to [monitor and manage an elastic pool](sql-database-elastic-pool-mana
 * [Multitenant applications with elastic database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 * [Authentication in multitenant apps by using Azure Active Directory and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 * [Tailspin Surveys application](../guidance/guidance-multitenant-identity-tailspin.md)
-* [Solution quick starts](sql-database-solution-quick-starts.md)
+
 
 ## Questions and feature requests
 For questions, find us in the [SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Add a feature request in the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).

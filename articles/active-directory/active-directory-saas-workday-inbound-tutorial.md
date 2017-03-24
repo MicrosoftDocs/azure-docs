@@ -2,7 +2,7 @@
 title: 'Tutorial: Configuring Workday for Inbound Synchronization | Microsoft Docs'
 description: Learn how to use Workday as source of identity data for Azure Active Directory.
 services: active-directory
-author: MarkusVi
+author: jeevansd
 documentationcenter: na
 manager: femila
 
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
-ms.author: markvi
+ms.date: 01/24/2017
+ms.author: jeedes
 
 ---
 # Tutorial: Configuring Workday for Inbound Synchronization

@@ -193,6 +193,7 @@ You can serialize objects in Node.js or C# functions. In C# functions, you can a
 * Any type that implements `ITableEntity`
 * `ICollector<T>` (to output multiple entities. See [sample](#outcsharp).)
 * `IAsyncCollector<T>` (async version of `ICollector<T>`)
+* `CloudTable` (using the Azure Storage SDK. See [sample](#readmulti).)
 
 <a name="outputsample"></a>
 
@@ -278,15 +279,16 @@ let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
 ```javascript
 module.exports = function (context) {
 
-    context.bindings.outputTable = [];
+    context.bindings.tableBinding = [];
 
-    for (i = 1; i < 10; i++) {
-        context.bindings.outputTable.push({
+    for (var i = 1; i < 10; i++) {
+        context.bindings.tableBinding.push({
             PartitionKey: "Test",
             RowKey: i.toString(),
             Name: "Name " + i
         });
-
+    }
+    
     context.done();
 };
 ```

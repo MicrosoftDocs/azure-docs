@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/23/2016
 ms.author: andbuc
+ms.custom: H1Hack27Feb2017
 
 ---
-# Get started with the Azure IoT Gateway SDK (Linux)
+# Explore the IoT Gateway SDK architecture on Linux
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## How to build the sample
@@ -25,7 +26,11 @@ Before you get started, you must [set up your development environment][lnk-setup
 
 1. Open a shell.
 2. Navigate to the root folder in your local copy of the **azure-iot-gateway-sdk** repository.
-3. Run the **tools/build.sh --skip-unittests** script. This script uses the **cmake** utility to create a folder called **build** in the root folder of your local copy of the **azure-iot-gateway-sdk** repository and generate a makefile. The script then builds the solution, skipping unit tests. Remove the **--skip-unittests** parameter if you want to build and run the unit tests.
+3. Run the **tools/build.sh** script. This script uses the **cmake** utility to create a folder
+called **build** in the root folder of your local copy of the **azure-iot-gateway-sdk** repository 
+and generate a makefile. The script then builds the solution, skipping unit tests and end to 
+end tests. Add the **--run-unittests** parameter if you want to build and run the unit tests. Add the 
+**--run-e2e-tests** if you want to build and run the end to end tests.
 
 > [!NOTE]
 > Every time you run the **build.sh** script, it deletes and then recreates the **build** folder in the root folder of your local copy of the **azure-iot-gateway-sdk** repository.

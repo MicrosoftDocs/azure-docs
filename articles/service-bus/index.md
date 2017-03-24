@@ -1,9 +1,21 @@
 ---
+title: Azure Service Bus Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to set up messaging that connects applications and services across on-premises and cloud environments.  Tutorials, videos, API references, and more.
+services: service-bus
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date:  01/23/2017
+ms.author: carolz
 ---
 #Service Bus Documentation
 
-Service Bus provides cloud-enabled communication with enterprise messaging and relayed communication that helps you connect on-premises solutions with the cloud. 
+Learn how to use Service Bus to connect across on-premises and cloud environments. Tutorials, videos, API references, and other documentation show how to set up cloud messaging between applications and services.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -230,11 +242,4 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-bus.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Service Bus Documentation
-        </div>
-    </a>
-</div>
+

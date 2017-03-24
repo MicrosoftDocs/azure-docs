@@ -3,7 +3,7 @@ title: Technical articles for classic Windows VMs | Microsoft Azure
 description: A complete list of Microsoft Azure documentation articles for Windows virtual machines in the classic deployment model
 services: virtual-machines-windows
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: timlt
 tags: azure-service-management
 editor: ''
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/05/2016
+ms.date: 02/13/2017
 ms.author: danlep
 
 ---
@@ -38,7 +38,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Install Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
-[Install Azure CLI](../xplat-cli-install.md)
+[Install Azure CLI](../cli-install-nodejs.md)
 
 ## Get started
 [Learning path for Windows VMs](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
@@ -84,10 +84,6 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Custom Script extension for classic Windows virtual machines](virtual-machines-windows-classic-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-
-[Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-patching.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-
 [Platform-supported migration from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 
 ## Configure
@@ -104,13 +100,13 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 [How to set up endpoints on a classic Azure virtual machine](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## Storage
-[About disks and VHDs for Azure virtual machines](virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[About disks and VHDs for Azure virtual machines](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [How to attach a data disk to a classic Windows virtual machine](virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [How to detach a data disk from a classic Windows virtual machine](virtual-machines-windows-classic-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Use the D drive as a data drive on a Windows VM](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Use the D drive as a data drive on a Windows VM](virtual-machines-windows-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## Networking
 [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
@@ -141,12 +137,12 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [SAP](virtual-machines-windows-classic-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[SQL Server](./windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 
 [Tomcat](virtual-machines-windows-classic-java-run-tomcat-app-server.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## Reference
-[Azure CLI commands in Service Management mode](../virtual-machines-command-line-tools.md)
+[Azure CLI commands in Service Management mode](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 
 [Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 

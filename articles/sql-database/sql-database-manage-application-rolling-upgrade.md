@@ -1,5 +1,5 @@
 ---
-title: Cloud disaster recovery solutions - SQL Database Active Geo-Replication | Microsoft Docs
+title: Rolling application upgrades - Azure SQL Database | Microsoft Docs
 description: Learn how to use Azure SQL Database geo-replication to support online upgrades of your cloud application.
 services: sql-database
 documentationcenter: ''
@@ -9,7 +9,7 @@ editor: monicar
 
 ms.assetid: 58f42859-1e37-463c-a3d8-a3ca2e867148
 ms.service: sql-database
-ms.custom: business continuity; app development
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -24,7 +24,7 @@ ms.author: sashan
 > 
 > 
 
-Learn how to use [Geo-Replication](sql-database-geo-replication-overview.md) in SQL Database to enable rolling upgrades of your cloud application. Because upgrade is a disruptive operation, it should be part of your business continuity planning and design. In this article we look at two different methods of orchestrating the upgrade process, and discuss the benefits and trade-offs of each option. For the purposes of this article we will use a simple application that consists of a web site connected to a standalone database as its data tier. Our goal is to upgrade version 1 of the application to version 2 without any significant impact on the end user experience. 
+Learn how to use [Geo-Replication](sql-database-geo-replication-overview.md) in SQL Database to enable rolling upgrades of your cloud application. Because upgrade is a disruptive operation, it should be part of your business continuity planning and design. In this article we look at two different methods of orchestrating the upgrade process, and discuss the benefits and trade-offs of each option. For the purposes of this article we will use a simple application that consists of a web site connected to a single database as its data tier. Our goal is to upgrade version 1 of the application to version 2 without any significant impact on the end user experience. 
 
 When evaluating the upgrade options you should consider the following factors:
 

@@ -4,7 +4,7 @@ description: Set up web tests in Application Insights. Get alerts if a website b
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 03/13/2017
 ms.author: awills
 
 ---
@@ -26,7 +26,7 @@ You can set up web tests for any HTTP or HTTPS endpoint that is accessible from 
 There are two types of web test:
 
 * [URL ping test](#create): a simple test that you can create in the Azure portal.
-* [Multi-step web test](#multi-step-web-tests): which you create in Visual Studio Ultimate or Visual Studio Enterprise and upload to the portal.
+* [Multi-step web test](#multi-step-web-tests): which you create in Visual Studio Enterprise and upload to the portal.
 
 You can create up to 10 web tests per application resource.
 
@@ -75,37 +75,20 @@ These charts combine results for all the web tests of this application.
 ## <a name="failures"></a>If you see failures
 Click a red dot.
 
-![Click a red dot](./media/app-insights-monitor-web-app-availability/14-availRedDot.png)
+![Click a red dot](./media/app-insights-monitor-web-app-availability/open-instance.png)
 
-Or, scroll down and click a test where you see less than 100% success.
 
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
+From a web test result, you can:
 
-The results of that test open.
+* Inspect the response received from your server.
+* Open the telemetry sent by your server app while processing the failed request instance.
+* Log an issue or work item in Git or VSTS to track the problem. The bug will contain a link to this event.
+* Open the web test result in Visual Studio.
 
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/16-1test.png)
-
-The test is run from several locations&#151;pick one where the results are less than 100%.
-
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
-
-Scroll down to **Failed tests** and pick a result.
-
-Click the result to evaluate it in the portal and see why it failed.
-
-![Webtest run result](./media/app-insights-monitor-web-app-availability/18-availDetails.png)
-
-Alternatively, you can download the result file and inspect it in Visual Studio.
 
 *Looks OK but reported as a failure?* Check all the images, scripts, style sheets, and any other files loaded by the page. If any of them fails, the test is reported as failed, even if the main html page loads OK.
 
-### Open the server request and exceptions
-
-From the detailed properties of a particular test, you can open the server-side report of the request and any other events such as exceptions.
-
-![Webtest run result](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
-
-If you don't see related items, it may be because [sampling](app-insights-sampling.md) is in operation.
+*No related items?* That may be because [sampling](app-insights-sampling.md) is in operation.
 
 ## Multi-step web tests
 You can monitor a scenario that involves a sequence of URLs. For example, if you are monitoring a sales website, you can test that adding items to the shopping cart works correctly.
@@ -114,16 +97,19 @@ You can monitor a scenario that involves a sequence of URLs. For example, if you
 > There is a charge for multi-step web tests. [Pricing scheme](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
-To create a multi-step test, you record the scenario by using Visual Studio, and then upload the recording to Application Insights. Application Insights replays the scenario at intervals and verifies the responses.
+To create a multi-step test, you record the scenario by using Visual Studio Enterprise, and then upload the recording to Application Insights. Application Insights replays the scenario at intervals and verifies the responses.
 
 Note that you can't use coded functions in your tests: the scenario steps must be contained as a script in the .webtest file.
 
 #### 1. Record a scenario
-Use Visual Studio Enterprise or Ultimate to record a web session.
+Use Visual Studio Enterprise to record a web session.
 
-1. Create a web performance test project.
+1. Create a Web performance test project.
 
-    ![In Visual Studio, create a project from the Web Performance and Load Test template.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![In Visual Studio Enterprise edition, create a project from the Web Performance and Load Test template.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+
+ * *Don't see the Web Performance and Load Test template?* - Close Visual Studio Enterprise. Open **Visual Studio Installer** to modify your Visual Studio Enterprise installation. Under **Individual Components**, select **Web Performance and load testing tools**.
+
 2. Open the .webtest file and start recording.
 
     ![Open the .webtest file and click Record.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)
@@ -236,7 +222,7 @@ From the Overview blade, open **Settings**, **Performance Tests**. When you crea
 When the test is complete, you are shown response times and success rates.
 
 ## Automation
-* [Use PowerShell scripts to set up a web test](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automatically.
+* [Use PowerShell scripts to set up a web test](app-insights-powershell.md#add-an-availability-test) automatically.
 * Set up a [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) that is called when an alert is raised.
 
 ## Questions? Problems?

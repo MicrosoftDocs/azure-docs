@@ -21,6 +21,7 @@
 ### [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Using Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Upload data from offline sources](data-lake-store-offline-bulk-data-upload.md)
+### [Migrate Azure Data Lake Store across regions](data-lake-store-migration-cross-region.md)
 
 ## Secure Data
 ### [Security overview](data-lake-store-security-overview.md)
@@ -29,12 +30,20 @@
 ### [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md)
 ### [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
 
+## Performance
+### [Performance tuning guidance for Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)
+### [Performance tuning guidance for Spark on HDInsight and Azure Data Lake Store](data-lake-store-performance-tuning-spark.md)
+### [Performance tuning guidance for Hive on HDInsight and Azure Data Lake Store](data-lake-store-performance-tuning-hive.md)
+### [Performance tuning guidance for MapReduce on HDInsight and Azure Data Lake Store](data-lake-store-performance-tuning-mapreduce.md)
+### [Performance tuning guidance for Storm on HDInsight and Azure Data Lake Store](data-lake-store-performance-tuning-storm.md)
+
 ## Integrate with Azure Services
 ### [Access from VMs in Azure VNET](data-lake-store-connectivity-from-vnets.md)
 ### [Use with Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-### [Create HDInsight cluster with Data Lake Store using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-### [Create HDInsight cluster with Data Lake Store using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-### [Create HDInsight cluster with Data Lake Store using Resource Manager template](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+### [HDInsight with Data Lake Store - Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+### [HDInsight with Data Lake Store as default storage - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+### [HDInsight with Data Lake Store as additional storage - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+### [HDInsight with Data Lake Store - Azure template](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Use with Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Use with Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Use with Power BI](data-lake-store-power-bi.md)

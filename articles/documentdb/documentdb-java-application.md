@@ -21,6 +21,7 @@ ms.author: denlee
 # Build a Java web application using DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
+> * [.NET for MongoDB](documentdb-mongodb-application.md)
 > * [Node.js](documentdb-nodejs-application.md)
 > * [Java](documentdb-java-application.md)
 > * [Python](documentdb-python-application.md)
@@ -454,7 +455,7 @@ Now that we've finished the fun bits - all that left is to build a quick user in
             }
         }
 3. We'll need a Web User Interface to display to the user. Let's re-write the index.jsp we created earlier:
-   
+    ```html
         <html>
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -541,6 +542,7 @@ Now that we've finished the fun bits - all that left is to build a quick user in
           <script src="assets/todo.js"></script>
         </body>
         </html>
+    ```
 4. And finally, write some client-side Javascript to tie the web user interface and the servlet together:
    
         var todoApp = {

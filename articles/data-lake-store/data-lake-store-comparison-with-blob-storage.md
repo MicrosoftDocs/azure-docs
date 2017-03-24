@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2016
+ms.date: 01/03/2017
 ms.author: nitinme
 
 ---
@@ -35,7 +35,7 @@ The table in this article summarizes the differences between Azure Data Lake Sto
 | Data Operations - Auditing |Available. See [here](data-lake-store-diagnostic-logs.md) for information. |Available |
 | Encryption data at rest |Transparent, Server side <ul><li>With service-managed keys</li><li>With customer-managed keys in Azure KeyVault</li></ul> |<ul><li>Transparent, Server side</li> <ul><li>With service-managed keys</li><li>With customer-managed keys in Azure KeyVault (coming soon)</li></ul><li>Client-side encryption</li></ul> |
 | Management operations (e.g. Account Create) |[Role-based access control](../active-directory/role-based-access-control-what-is.md) (RBAC) provided by Azure for account management |[Role-based access control](../active-directory/role-based-access-control-what-is.md) (RBAC) provided by Azure for account management |
-| Developer SDKs |.NET, Java, Node.js |.Net, Java, Python, Node.js, C++, Ruby |
+| Developer SDKs |.NET, Java, Python, Node.js |.Net, Java, Python, Node.js, C++, Ruby |
 | Analytics Workload Performance |Optimized performance for parallel analytics workloads. High Throughput and IOPS. |Not optimized for analytics workloads |
 | Size limits |No limits on account sizes, file sizes or number of files |Specific limits documented [here](../azure-subscription-service-limits.md#storage-limits) |
 | Geo-redundancy |Locally-redundant (multiple copies of data in one Azure region) |Locally redundant (LRS), globally redundant (GRS), read-access globally redundant (RA-GRS). See [here](../storage/storage-redundancy.md) for more information |

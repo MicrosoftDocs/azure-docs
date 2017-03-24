@@ -1,5 +1,5 @@
 ---
-title: Use Apache Spark to build machine learning applications on HDInsight | Microsoft Docs
+title: Use Apache Spark to build machine learning applications on Azure HDInsight | Microsoft Docs
 description: Step-by-step instructions on how to use notebooks with Apache Spark to build machine learning applications
 services: hdinsight
 documentationcenter: ''
@@ -14,11 +14,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 
 ---
-# Build Machine Learning applications to run on Apache Spark clusters on HDInsight Linux
+# Build Machine Learning applications to run on Apache Spark clusters on HDInsight
+
 Learn how to build a machine learning application using an Apache Spark cluster in HDInsight. This article shows how to use the Jupyter notebook available with the cluster to build and test our application. The application uses the sample HVAC.csv data that is available on all clusters by default.
 
 **Prerequisites:**
@@ -26,7 +27,7 @@ Learn how to build a machine learning application using an Apache Spark cluster 
 You must have the following:
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md). 
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md). 
 
 ## <a name="data"></a>Show me the data
 Before we start building the application, let us understand the structure of the data and the kind of analysis we will do on the data. 
@@ -75,7 +76,7 @@ In this application we use a Spark ML pipeline to perform a document classificat
    
     Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
 
-        # List the structure of data for better understanding. Becuase the data will be
+        # List the structure of data for better understanding. Because the data will be
         # loaded as an array, this structure makes it easy to understand what each element
         # in the array corresponds to
 

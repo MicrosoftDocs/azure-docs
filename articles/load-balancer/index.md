@@ -1,9 +1,22 @@
 ---
+title: Azure Load Balancer Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to use Load Balancer for network performance of apps. Manage traffic for virtual machines and cloud resources, and in cross-premises virtual networks.
+services: load-balancer
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid:	
+ms.service: load-balancer
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
+
 #Load Balancer Documentation
 
-Azure Load Balancer delivers high availability and network performance to your applications.  Load Balancer can be configured to load balance incoming Internet traffic to virtual machines, traffic between cloud resources, traffic in a cross-premises virtual network, or external traffic to a specific virtual machine.
+Learn how to configure Load Balancer to deliver high availability and network performance to your applications. Documentation shows you how to load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -91,7 +104,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                     <div class="cardText">
                         <h3>Command-Line</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network">PowerShell</a></p>
-                        <p><a href="/cli/azure/network/lb">Azure CLI 2​.0 (Preview)</a></p>
+                        <p><a href="/cli/azure/network/lb">Azure CLI 2​.0</a></p>
                     </div>
                 </div>
             </div>
@@ -127,11 +140,4 @@ Azure Load Balancer delivers high availability and network performance to your a
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Load Balancer Documentation
-        </div>
-    </a>
-</div>
+

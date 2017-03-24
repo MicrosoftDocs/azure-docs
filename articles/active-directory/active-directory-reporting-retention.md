@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/30/2016
-ms.author: dhanyahk
+ms.author: dhanyahk;markvi
 
 ---
 # Azure Active Directory report retention policies
@@ -27,8 +27,8 @@ How can you get the collection of activity data started?
 
 | Azure AD Edition | Collection Start |
 | :--              | :--   |
-|Premium and Premium 2 | When you sign-up for a license |
-| Free | The first time you open the [Azure Active Directory blade](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) or use the [reporting APIs](https://aka.ms/aadreports)  |
+| Azure AD Premium P1 <br /> Azure AD Premium P2 | When you sign-up for a subscription |
+| Azure AD Free | The first time you open the [Azure Active Directory blade](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) or use the [reporting APIs](https://aka.ms/aadreports)  |
 
 
 When is your activity data available in the Azure portal?
@@ -43,14 +43,14 @@ For how long is the collected data stored?
 
 **Activity reports**	
 
-| Report | Azure AD Free | Azure AD Premium 1 | Azure AD Premium 2 |
+| Report | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--    | :--           | :--                | :--                |
 | Directory Audit | 7 days | 30 days | 30 days |
 | Sign-in Activity |	7 days | 30 days | 30 days |
 
 **Security Signals**
 
-| Report | Azure AD Free | Azure AD Premium 1 | Azure AD Premium 2 |
+| Report | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--    | :--           | :--                | :--                |
 | Risky sign-ins | 7 days | 30 days | 90 days |
 

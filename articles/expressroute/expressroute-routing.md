@@ -1,5 +1,5 @@
 ---
-title: Routing requirements for ExpressRoute | Microsoft Docs
+title: Routing requirements for Azure ExpressRoute | Microsoft Docs
 description: This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits.
 documentationcenter: na
 services: expressroute
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 03/03/2017
 ms.author: osamam
 
 ---
@@ -123,9 +123,7 @@ For example, if you connected to Microsoft in Amsterdam through ExpressRoute, yo
 
 Refer to the [ExpressRoute partners and peering locations](expressroute-locations.md) page for a detailed list of geopolitical regions, associated Azure regions, and corresponding ExpressRoute peering locations.
 
-You can purchase more than one ExpressRoute circuit per geopolitical region. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering and Microsoft peering paths. This means you will have multiple paths from your network into Microsoft. This can potentially cause sub-optimal routing decisions to be made within your network. As a result, you may experience sub-optimal connectivity experiences to different services. 
-
-Microsoft will tag prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer [optimal routing to customers](expressroute-optimize-routing.md).
+You can purchase more than one ExpressRoute circuit per geopolitical region. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering and Microsoft peering paths. This means you will have multiple paths from your network into Microsoft. This can potentially cause sub-optimal routing decisions to be made within your network. As a result, you may experience sub-optimal connectivity experiences to different services. You can rely on the community values to make appropriate routing decisions to offer [optimal routing to users](expressroute-optimize-routing.md).
 
 | **Microsoft Azure region** | **BGP community value** |
 | --- | --- |
@@ -160,6 +158,9 @@ Microsoft will tag prefixes advertised through public peering and Microsoft peer
 | India South |12076:51019 |
 | India West |12076:51018 |
 | India Central |12076:51017 |
+| **Korea** | |
+| Korea South |12076:51028 |
+| Korea Central |12076:51029 |
 
 All routes advertised from Microsoft will be tagged with the appropriate community value. 
 
@@ -188,8 +189,12 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | **National Clouds Azure Region**| **BGP community value** |
 | --- | --- |
 | **US Government** |  |
+| US Gov Arizona | 12076:51106 |
 | US Gov Iowa | 12076:51109 |
 | US Gov Virginia | 12076:51105 |
+| US Gov Texas | 12076:51108 |
+| US DoD Central | 12076:51209 |
+| US DoD East | 12076:51205 |
 
 
 | **Service in National Clouds** | **BGP community value** |

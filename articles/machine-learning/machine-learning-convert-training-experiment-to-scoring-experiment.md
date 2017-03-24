@@ -1,5 +1,5 @@
 ---
-title: Convert a Machine Learning training experiment to a predictive experiment | Microsoft Docs
+title: Convert to a predictive experiment in Azure Machine Learning | Microsoft Docs
 description: How to convert a Machine Learning training experiment, used for training your predictive analytics model, to a predictive experiment which can be deployed as a web service.
 services: machine-learning
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 03/20/2017
 ms.author: garye
 
 ---
 # Convert a Machine Learning training experiment to a predictive experiment
 Azure Machine Learning enables you to build, test, and deploy predictive analytics solutions.
 
-Once you've created and iterated on a *training experiment* to train your predictive analytics model, and you're ready to use it to score new data, you need to prepare and streamline your experiment for scoring. You can then deploy this *predictive experiment* as an Azure web service so that users can send data to your model and receive your model's predictions.
+Once you've created and iterated on a *training experiment* to train your predictive analytics model, and you're ready to use it to score new data, you need to prepare and streamline your experiment for scoring. You can then operationalize this *predictive experiment* as an Azure web service so that users can send data to your model and receive your model's predictions.
 
 By converting to a predictive experiment, you're getting your trained model ready to be deployed as a web service. Users of the web service will send input data to your model and your model will send back the prediction results. So as you convert to a predictive experiment you will want to keep in mind how you expect your model to be used by others.
 
@@ -36,7 +36,7 @@ The process of converting a training experiment to a predictive experiment invol
 After you have run your experiment (**RUN** button at the bottom of the experiment canvas), the **Set Up Web Service** button (select the **Predictive Web Service** option) will perform for you the three steps of converting your training experiment to a predictive experiment:
 
 1. It saves your trained model as a module in the **Trained Models** section of the module palette (to the left of the experiment canvas), then replaces the machine learning algorithm and [Train Model][train-model] modules with the saved trained model.
-2. It removes modules that are clearly not needed. In our example, this includes the [Split Data][split], 2nd [Score Model][score-model], and [Evaluate Model][evaluate-model] modules.
+2. It removes modules that are clearly not needed. In our example, this includes the [Split Data][split], 2<sup>nd</sup> [Score Model][score-model], and [Evaluate Model][evaluate-model] modules.
 3. It creates Web service input and output modules and adds them in default locations in your experiment.
 
 For example, the following experiment trains a two-class boosted decision tree model using sample census data:
@@ -54,7 +54,7 @@ When you convert this training experiment to a predictive experiment, some of th
   
     For instance, in this example the sample dataset may have missing values and it includes columns that are not needed to train the model. So a [Clean Missing Data][clean-missing-data] module was included to deal with missing values, and a [Select Columns in Dataset][select-columns] module was included to exclude those extra columns from the data flow. If you know that the data that will be submitted for scoring through the web service will not have missing values, then you can remove the [Clean Missing Data][clean-missing-data] module. However, since the [Select Columns in Dataset][select-columns] module helps define the set of features being scored, that module needs to remain.
 * **Train** - These modules are used to train the model. When you click **Set Up Web Service**, these modules are replaced with a single trained model module. This new module is saved in the **Trained Models** section of the module palette.
-* **Score** - In this example, the Split module is used to divide the data stream into a set of test data and training data. In the predictive experiment this isn't needed and can be removed. Similarly, the 2nd [Score Model][score-model] module and the [Evaluate Model][evaluate-model] module are used to compare results from the test data, so these modules are also not needed in the predictive experiment. The remaining [Score Model][score-model] module, however, is needed to return a score result through the web service.
+* **Score** - In this example, the [Split Data][split] module is used to divide the data stream into a set of test data and training data. In the predictive experiment this isn't needed and can be removed. Similarly, the 2<sup>nd</sup> [Score Model][score-model] module and the [Evaluate Model][evaluate-model] module are used to compare results from the test data, so these modules are also not needed in the predictive experiment. The remaining [Score Model][score-model] module, however, is needed to return a score result through the web service.
 
 Here is how our example looks after clicking **Set Up Web Service**:
 

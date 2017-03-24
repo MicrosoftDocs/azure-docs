@@ -1,10 +1,10 @@
 ---
-title: Contact Microsoft Support | Microsoft Docs
+title: Log Support ticket for StorSimple 8000 series | Microsoft Docs
 description: Learn how to create a support request and start a support session on your StorSimple device.
 services: storsimple
 documentationcenter: ''
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: 2ebc20fe-f490-4749-8e43-c9fac86f1676
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
-ms.author: alkohli
+ms.date: 02/27/2017
+ms.author: alkohli;anbacker
+ms.custom: H1Hack27Feb2017
 
 ---
-# Contact Microsoft Support
+# Contact Microsoft Support for your StorSimple
 If you encounter any issues with your Microsoft Azure StorSimple solution, you can create a service request for technical support. In an online session with your support engineer, you may also need to start a support session on your StorSimple device. This article walks you through:
 
 * How to create a support request.

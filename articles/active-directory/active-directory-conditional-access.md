@@ -14,11 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/21/2016
+ms.date: 02/23/2017
 ms.author: markvi
 
 ---
 # Conditional access in Azure Active Directory
+
+> [!div class="op_single_selector"]
+> * [Azure classic portal](active-directory-conditional-access.md)
+> * [Azure portal](active-directory-conditional-access-azure-portal.md)
+
 The control capabilities in Azure Active Directory (Azure AD) conditional access offer simple ways to help secure resources in the cloud and on-premises. Conditional access policies like multi-factor authentication can help protect against the risk of stolen and phished credentials. Other conditional access policies can help keep your organization's data safe. For example, in addition to requiring credentials, you might have a policy that only devices that are enrolled in a mobile device management system like Microsoft Intune can access your organization's sensitive services.
 
 ## Prerequisites

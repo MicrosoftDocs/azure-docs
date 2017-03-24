@@ -1,5 +1,5 @@
 ---
-title: SQLFilter syntax reference | Microsoft Docs
+title: Azure Service Bus SQLFilter syntax reference | Microsoft Docs
 description: Details about SQLFilter grammar.
 services: service-bus-messaging
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2016
+ms.date: 03/23/2017
 ms.author: sethm
 
 ---
@@ -218,7 +218,7 @@ Consider the following [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sq
   
 	-   `property IS NULL` is evaluated as `true` if either the property doesn't exist or the property's value is `null`.  
   
-Property evaluation semantics:  
+### Property evaluation semantics  
   
 -   An attempt to evaluate a non-existent system property will throw a [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) exception.  
   
@@ -270,7 +270,7 @@ Property evaluation semantics:
 +---+---+---+---+  
 ```  
   
-Operator binding semantics:  
+### Operator binding semantics
   
 -   Comparison operators such as `>`, `>=`, `<`, `<=`, `!=`, and `=` follow the same semantics as the C# operator binding in data type promotions and implicit conversions.  
   

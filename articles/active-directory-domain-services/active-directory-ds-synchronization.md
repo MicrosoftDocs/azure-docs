@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 
 ---
@@ -29,11 +29,13 @@ If you configure write-back, changes occurring in your Azure AD directory are sy
 
 > [!NOTE]
 > Always use the latest version of Azure AD Connect to ensure you have fixes for all known bugs.
-> 
-> 
+>
+>
 
 ## Synchronization from your Azure AD tenant to your managed domain
-User accounts, group memberships, and credential hashes are synchronized from your Azure AD tenant to your Azure AD Domain Services managed domain. This synchronization process is automatic. You do not need to configure, monitor, or manage this synchronization process. The synchronization process is also one-way/unidirectional in nature. Your managed domain is largely read-only except for any custom OUs you create. Therefore, you cannot make changes to user attributes, user passwords, or group memberships within the managed domain. As a result, there is no reverse synchronization of changes from your managed domain back to your Azure AD tenant.
+User accounts, group memberships, and credential hashes are synchronized from your Azure AD tenant to your Azure AD Domain Services managed domain. This synchronization process is automatic. You do not need to configure, monitor, or manage this synchronization process. After the one-time initial synchronization of your directory is complete, it typically takes about 20 minutes for changes made in Azure AD to be reflected in your managed domain. This synchronization interval applies to password changes or changes to attributes made in Azure AD.
+
+The synchronization process is also one-way/unidirectional in nature. Your managed domain is largely read-only except for any custom OUs you create. Therefore, you cannot make changes to user attributes, user passwords, or group memberships within the managed domain. As a result, there is no reverse synchronization of changes from your managed domain back to your Azure AD tenant.
 
 ## Synchronization from a multi-forest on-premises environment
 Many organizations have a fairly complex on-premises identity infrastructure consisting of multiple account forests. Azure AD Connect supports synchronizing users, groups, and credential hashes from multi-forest environments to your Azure AD tenant.
@@ -63,8 +65,8 @@ The following table lists some common attributes and describes how they are sync
 
 > [!NOTE]
 > **Sign in to the managed domain using the UPN format:** The SAMAccountName attribute may be auto-generated for some user accounts in your managed domain. If multiple users have the same mailNickname attribute or users have overly long UPN prefixes, the SAMAccountName for these users may be auto-generated. Therefore, the SAMAccountName format (for example, 'CONTOSO100\joeuser') is not always a reliable way to sign in to the domain. Users' auto-generated SAMAccountName may differ from their UPN prefix. Use the UPN format (for example, 'joeuser@contoso100.com') to sign in to the managed domain reliably.
-> 
-> 
+>
+>
 
 ### Attribute mapping for user accounts
 The following table illustrates how specific attributes for user objects in your Azure AD tenant are synchronized to corresponding attributes in your managed domain.
@@ -116,4 +118,3 @@ As described in a preceding section of this article, there is no synchronization
 * [Deployment scenarios - Azure AD Domain Services](active-directory-ds-scenarios.md)
 * [Networking considerations for Azure AD Domain Services](active-directory-ds-networking.md)
 * [Get started with Azure AD Domain Services](active-directory-ds-getting-started.md)
-

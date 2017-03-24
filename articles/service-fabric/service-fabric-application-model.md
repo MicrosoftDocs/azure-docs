@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/01/2016
+ms.date: 3/02/2017
 ms.author: ryanwi
 
 ---
@@ -67,6 +67,10 @@ The service manifest declaratively defines the service type and version. It spec
         <Program>MyServiceHost.exe</Program>
       </ExeHost>
     </EntryPoint>
+    <EnvironmentVariables>
+      <EnvironmentVariable Name="MyEnvVariable" Value=""/>
+      <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
+    </EnvironmentVariables>
   </CodePackage>
   <ConfigPackage Name="MyConfig" Version="ConfigVersion1" />
   <DataPackage Name="MyData" Version="DataVersion1" />
@@ -79,13 +83,15 @@ The service manifest declaratively defines the service type and version. It spec
 
 **SetupEntryPoint** is a privileged entry point that runs with the same credentials as Service Fabric (typically the *LocalSystem* account) before any other entry point. The executable specified by **EntryPoint** is typically the long-running service host. The presence of a separate setup entry point avoids having to run the service host with high privileges for extended periods of time. The executable specified by **EntryPoint** is run after **SetupEntryPoint** exits successfully. The resulting process is monitored and restarted (beginning again with **SetupEntryPoint**) if it ever terminates or crashes.
 
+**EnvironmentVariables** provides a list of environment variables that are set for this code package. These can be overridden in the `ApplicationManifest.xml` to provide different values for different service instances. 
+
 **DataPackage** declares a folder, named by the **Name** attribute, that contains arbitrary static data to be consumed by the process at run time.
 
-**ConfigPackage** declares a folder, named by the **Name** attribute, that contains a *Settings.xml* file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the **ConfigPackage** **version** has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically. Here is an example *Settings.xml*  file:
+**ConfigPackage** declares a folder, named by the **Name** attribute, that contains a *Settings.xml* file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the **ConfigPackage** **version** has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically. Here is an example *Settings.xml* file:
 
 ```xml
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
-  <Section Name="MyConfigurationSecion">
+  <Section Name="MyConfigurationSection">
     <Parameter Name="MySettingA" Value="Example1" />
     <Parameter Name="MySettingB" Value="Example2" />
   </Section>
@@ -122,6 +128,8 @@ Thus, an application manifest describes elements at the application level and re
   <Description>An example application manifest</Description>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="MyServiceManifest" ServiceManifestVersion="SvcManifestVersion1"/>
+    <ConfigOverrides/>
+    <EnvironmentOverrides CodePackageRef="MyCode"/>
   </ServiceManifestImport>
   <DefaultServices>
      <Service Name="MyService">
@@ -135,7 +143,9 @@ Thus, an application manifest describes elements at the application level and re
 
 Like service manifests, **Version** attributes are unstructured strings and are not parsed by the system. These are also used to version each component for upgrades.
 
-**ServiceManifestImport** contains references to service manifests that compose this application type. Imported service manifests determine what service types are valid within this application type.
+**ServiceManifestImport** contains references to service manifests that compose this application type. Imported service manifests determine what service types are valid within this application type. 
+Within the ServiceManifestImport you can override configuration values in Settings.xml and environment variables in ServiceManifest.xml files. 
+
 
 **DefaultServices** declares service instances that are automatically created whenever an application is instantiated against this application type. Default services are just a convenience and behave like normal services in every respect after they have been created. They are upgraded along with any other services in the application instance and can be removed as well.
 
@@ -185,6 +195,9 @@ Typical scenarios for using **SetupEntryPoint** are when you need to run an exec
 * Setting up and initializing environment variables that the service executable needs. This is not limited to only executables written via the Service Fabric programming models. For example, npm.exe needs some environment variables configured for deploying a node.js application.
 * Setting up access control by installing security certificates.
 
+For more details on how to configure the **SetupEntryPoint** see [Configure the policy for a service setup entry point](service-fabric-application-runas-security.md)  
+
+### Configure 
 ### Build a package by using Visual Studio
 If you use Visual Studio 2015 to create your application, you can use the Package command to automatically create a package that matches the layout described above.
 
@@ -194,8 +207,17 @@ To create a package, right-click the application project in Solution Explorer an
 
 When packaging is complete, you will find the location of the package in the **Output** window. Note that the packaging step occurs automatically when you deploy or debug your application in Visual Studio.
 
+### Build a package by command line
+It is also possible to programmatically package up your application using `msbuild.exe`. Under the hood this is what Visual Studio is running so the output will be the same.
+
+```shell
+D:\Temp> msbuild HelloWorld.sfproj /t:Package
+```
+
 ### Test the package
-You can verify the package structure locally through PowerShell by using the **Test-ServiceFabricApplicationPackage** command. This command will check for manifest parsing issues and verify all references. Note that this command only verifies the structural correctness of the directories and files in the package. It will not verify any of the code or data package contents beyond checking that all necessary files are present.
+You can verify the package structure locally through PowerShell by using the [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) command.
+This command will check for manifest parsing issues and verify all references. This command only verifies the structural correctness of the directories and files in the package.
+It doesn't verify any of the code or data package contents beyond checking that all necessary files are present.
 
 ```
 PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
@@ -230,14 +252,80 @@ True
 PS D:\temp>
 ```
 
-Once the application is packaged correctly and passes verification, then it's ready for deployment.
+If your application has [application parameters](service-fabric-manage-multiple-environment-app-configuration.md) defined, you can pass them in [Test-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) for proper validation.
+
+If you know the cluster where the application will be deployed, it is recommended you pass in the image store connection string. In this case, the package is also validated against previous versions of the application
+that are already running in the cluster. For example, the validation can detect whether a package with the same version but different content was already deployed.  
+
+Once the application is packaged correctly and passes validation, evaluate based on the size and the number of files if compression is needed. 
+
+### Compress a package
+When a package is large or has many files, you can compress it for faster deployment. Compression reduces the number of files and the package size.
+[Uploading the application package](service-fabric-deploy-remove-applications.md#upload-the-application-package) may take longer than uploading the uncompressed package, but [registering](service-fabric-deploy-remove-applications.md#register-the-application-package) and [un-registering the application type](service-fabric-deploy-remove-applications.md#unregister-an-application-type) is faster.
+
+The deploy mechanism is same for compressed and uncompressed packages. If the package is compressed, it is stored as such in the cluster image store and it's uncompressed on the node before the application is run.
+The compression replaces the valid Service Fabric package with the compressed version. The folder must allow write permissions. Running compression on an already compressed package yields no changes. 
+
+You can compress a package by running the Powershell command [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) 
+with `CompressPackage` switch. You can uncompress the package with the same command, using `UncompressPackage` switch.
+
+The following command compresses the package without copying it to the image store. You can copy a compressed package to one or more Service Fabric clusters, as needed, using [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage)
+without the `SkipCopy` flag. 
+The package now includes zipped files for the `code`, `config` and `data` packages. The application manifest and the service manifests are not zipped,
+because they are needed for many internal operations (like package sharing, application type name and version extraction for certain validations).
+Zipping the manifests would make these operations inefficient.
+
+```
+PS D:\temp> tree /f .\MyApplicationType
+
+D:\TEMP\MYAPPLICATIONTYPE
+│   ApplicationManifest.xml
+│
+└───MyServiceManifest
+    │   ServiceManifest.xml
+    │
+    ├───MyCode
+    │       MyServiceHost.exe
+    │       MySetup.bat
+    │
+    ├───MyConfig
+    │       Settings.xml
+    │
+    └───MyData
+            init.dat
+PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -CompressPackage -SkipCopy
+
+PS D:\temp> tree /f .\MyApplicationType
+
+D:\TEMP\MYAPPLICATIONTYPE
+│   ApplicationManifest.xml
+│
+└───MyServiceManifest
+       ServiceManifest.xml
+       MyCode.zip
+       MyConfig.zip
+       MyData.zip
+
+```
+
+Alternatively, you can compress and copy the package with [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) in one step.
+If the package is large, provide a high enough timeout to allow time for both the package compression and the upload to the cluster.
+```
+PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -ApplicationPackagePathInImageStore MyApplicationType -ImageStoreConnectionString fabric:ImageStore -CompressPackage -TimeoutSec 5400
+```
+
+Internally, Service Fabric computes checksums for the application packages for validation. When using compression, the checksums are computed on the zipped versions of each package.
+If you copied an uncompressed version of your application package, and you want to use compression for the same package, you must change the application manifest version to avoid checksum mismatch.
+Similarly, if you uploaded a compressed version of the package, you must update the application manifest version to use an uncompressed package.
+
+The package is now packaged correctly, validated, and compressed (if needed), so it is ready for [deployment](service-fabric-deploy-remove-applications.md) to one or more Service Fabric clusters.
 
 ## Next steps
-[Deploy and remove applications][10]
+[Deploy and remove applications][10] describes how to use PowerShell to manage application instances
 
-[Managing application parameters for multiple environments][11]
+[Managing application parameters for multiple environments][11] describes how to configure parameters and environment variables for different application instances.
 
-[RunAs: Running a Service Fabric application with different security permissions][12]
+[Configure security policies for your application][12] describes how to run services under security policies to restrict access.
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png

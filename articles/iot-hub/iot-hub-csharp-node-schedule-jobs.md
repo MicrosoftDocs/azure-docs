@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2016
+ms.date: 02/24/2017
 ms.author: juanpere
 
 ---
@@ -96,7 +96,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
             CloudToDeviceMethod directMethod = new CloudToDeviceMethod("lockDoor", TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5));
 
             JobResponse result = await jobClient.ScheduleDeviceMethodAsync(jobId,
-                "SELECT * from DEVICES",
+                "deviceId='myDeviceId'",
                 directMethod,
                 DateTime.Now,
                 10);
@@ -114,7 +114,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
             twin.ETag = "*";
 
             JobResponse result = await jobClient.ScheduleTwinUpdateAsync(jobId,
-                "SELECT * from DEVICES", 
+                "deviceId='myDeviceId'",
                 twin,
                 DateTime.Now,
                 10);
@@ -195,7 +195,7 @@ In this section, you create a Node.js console app that responds to a direct meth
         if (err) {
             console.error('Could not connect to IotHub client.');
         }  else {
-            console.log('Client connected to IoT Hub.  Waiting for reboot direct method.');
+            console.log('Client connected to IoT Hub.  Waiting for lockDoor direct method.');
             client.onDeviceMethod('lockDoor', onLockDoor);
         }
     });
@@ -238,7 +238,7 @@ To continue getting started with IoT Hub, see [Getting started with the IoT Gate
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-fwupdate]: iot-hub-node-node-firmware-update.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/

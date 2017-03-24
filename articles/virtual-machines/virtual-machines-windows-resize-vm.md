@@ -1,5 +1,5 @@
 ---
-title: Resize a Windows VM | Microsoft Docs
+title: Use PowerShell to resize a Windows VM in Azure | Microsoft Docs
 description: Resize a Windows virtual machine created in the Resource Manager deployment model, using Azure Powershell.
 services: virtual-machines-windows
 documentationcenter: ''

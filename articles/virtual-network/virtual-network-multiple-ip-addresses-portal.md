@@ -24,8 +24,6 @@ ms.author: annahar
 >
 This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using the Azure portal. Multiple IP addresses cannot be assigned to resources created through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../resource-manager-deployment-model.md) article.
 
-[!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
-
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Create a VM with multiple IP addresses
@@ -38,16 +36,13 @@ You can add private and public IP addresses to a NIC by completing the steps tha
 
 ### <a name="coreadd"></a>Core steps
 
-1. Register for the preview by sending an email to [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use. Do not attempt to complete the remaining steps:
-	- Until you receive an e-mail notifying you that you've been accepted into the preview
-	- Without following the instructions in the email you receive
-2. Browse to the Azure portal at https://portal.azure.com and sign into it, if necessary.
-3. In the portal, click **More services** > type *virtual machines* in the filter box, and then click **Virtual machines**.
-4. In the **Virtual machines** blade, click the VM you want to add IP addresses to. Click **Network interfaces** in the virtual machine blade that appears, and then select the network interface you want to add the IP addresses to. In the example shown in the following picture, the NIC named *myNIC* from the VM named *myVM* is selected:
+1. Browse to the Azure portal at https://portal.azure.com and sign into it, if necessary.
+2. In the portal, click **More services** > type *virtual machines* in the filter box, and then click **Virtual machines**.
+3. In the **Virtual machines** blade, click the VM you want to add IP addresses to. Click **Network interfaces** in the virtual machine blade that appears, and then select the network interface you want to add the IP addresses to. In the example shown in the following picture, the NIC named *myNIC* from the VM named *myVM* is selected:
 
 	![Network interface](./media/virtual-network-multiple-ip-addresses-portal/figure1.png)
 
-5. In the blade that appears for the NIC you selected, click **IP configurations**, as shown in the following picture:
+4. In the blade that appears for the NIC you selected, click **IP configurations**, as shown in the following picture:
 
 	![IP configurations](./media/virtual-network-multiple-ip-addresses-portal/figure2.png)
 

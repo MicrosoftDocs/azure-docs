@@ -1,9 +1,21 @@
 ---
+title: Azure Automation Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to use Automation to automate processes and configuration management in order to save time and increase reliability of regular administrative tasks.
+services: automation
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid:
+ms.service: automation
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Automation Documentation
 
-Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud environment. It saves time and increases the reliability of regular administrative tasks and even schedules them to be automatically performed at regular intervals.
+Learn how to use Automation to save time and increase the reliability of regular administrative tasks performed in a cloud environment. Tutorials, API references, and other documentation show you how to automate processes using runbooks or automate configuration management using Desired State Configuration.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -161,11 +173,4 @@ Azure Automation provides a way for users to automate the manual, long-running, 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/automation.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Automation Documentation
-        </div>
-    </a>
-</div>
+

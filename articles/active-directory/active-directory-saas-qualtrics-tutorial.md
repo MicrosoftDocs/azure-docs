@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2016
+ms.date: 01/18/2017
 ms.author: jeedes
 
 ---
@@ -58,12 +58,12 @@ The objective of this section is to outline how to enable the application integr
    
    ![Qualtrics](./media/active-directory-saas-qualtrics-tutorial/IC789544.png "Qualtrics")
    
-   ## Configuring single sign-on
+## Configuring single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Qualtrics with their account in Azure AD using federation based on the SAML protocol.
 
 ### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **Qualtrics** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **Qualtrics** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-qualtrics-tutorial/IC789545.png "Configure Single Sign-On")
 2. On the **How would you like users to sign on to Qualtrics** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -75,7 +75,7 @@ The objective of this section is to outline how to enable users to authenticate 
 4. On the **Configure single sign-on at Qualtrics** page, click **Download metadata**, and then save the metadata file on your computer.
    
    ![Configure Single Sign-On](./media/active-directory-saas-qualtrics-tutorial/IC789548.png "Configure Single Sign-On")
-5. Send the metadatafile to the Qualtrics support team.
+5. Send the metadata file to the Qualtrics support team.
    
    > [!NOTE]
    > The single sign-on configuration has to be performed by the Qualtrics support team. You will get a notification as soon as the configuration has been completed.
@@ -85,10 +85,11 @@ The objective of this section is to outline how to enable users to authenticate 
    
    ![Configure Single Sign-On](./media/active-directory-saas-qualtrics-tutorial/IC789549.png "Configure Single Sign-On")
    
-   ## Configuring user provisioning
+## Configuring user provisioning
 
 There is no action item for you to configure user provisioning to Qualtrics.  
 When an assigned user tries to log into Qualtrics using the access panel, Qualtrics checks whether the user exists.  
+
 If there is no user account available yet, it is automatically created by Qualtrics.
 
 ## Assigning users
@@ -96,7 +97,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 ### To assign users to Qualtrics, perform the following steps:
 1. In the Azure classic portal, create a test account.
-2. On the **Qualtrics **application integration page, click **Assign users**.
+2. On the **Qualtrics** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-qualtrics-tutorial/IC789550.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.

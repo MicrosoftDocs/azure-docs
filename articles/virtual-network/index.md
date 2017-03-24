@@ -1,10 +1,21 @@
 ---
+title: Azure Virtual Network Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to use a virtual network in the cloud. Documentation shows how to deploy a VNet, use it to launch resources, and integrate with an on-premises network.
+services: virtual-network
+author: carolz
+manager: carolz
 layout: LandingPage
-+toc_rel: breadcrumb.json
+ms.assetid: 
+ms.service: virtual-network
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Virtual Network Documentation
 
-An Azure Virtual Network (VNet) is a logical representation of your own network in the cloud.  With VNet you can fully control elements of the network and segment your VNet into subnets and use it to launch Azure Virtual Machines or Cloud Services.  Additionally, you can connect the VNet to you on-premises network using one of the connectivity options available in Azure, expanding your network to the cloud while keeping control over resources.
+Learn how to use Virtual Network (VNet), a logical representation of your network in the cloud. Documentation shows you how set up and manage a VNet, use it to launch Virtual Machines or Cloud Services, connect the VNet to your on-premises network, and expand your network to the cloud while keeping control over resources.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -109,9 +120,9 @@ An Azure Virtual Network (VNet) is a logical representation of your own network 
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell (Resource manager)</a></p>
-                        <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">PowerShell (Classic)</a></p>
-                        <p><a href="/cli/azure">Azure CLI</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network">PowerShell (Resource manager)</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking">PowerShell (Classic)</a></p>
+                        <p><a href="/cli/azure/network">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
@@ -144,11 +155,4 @@ An Azure Virtual Network (VNet) is a logical representation of your own network 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-network.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Virtual Network Documentation
-        </div>
-    </a>
-</div>
+

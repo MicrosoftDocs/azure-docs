@@ -1,10 +1,10 @@
 ---
-title: How to create NSGs in ARM mode using a template| Microsoft Docs
-description: Learn how to create and deploy NSGs in ARM using a template
+title: Create network security groups - Azure Resource Manager Template| Microsoft Docs
+description: Learn how to create and deploy network security groups using an Azure Resource Manager template.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 
@@ -16,9 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
-# How to create NSGs using a template
+# Create network security groups using an Azure Resource Manager template
+
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -146,7 +148,7 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 ## Deploy the ARM template by using the Azure CLI
 To deploy the ARM template by using the Azure CLI, follow the steps below.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **`azure config mode`** command to switch to Resource Manager mode, as shown below.
 
 	```azurecli
