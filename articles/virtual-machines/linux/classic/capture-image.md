@@ -98,6 +98,6 @@ Alternatively, use the [Azure classic portal][Azure classic portal] to create a 
 
 [Azure classic portal]:http://manage.windowsazure.com
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md
-[How to Create a Custom Virtual Machine]:../../virtual-machines-linux-classic-create-custom.md
+[How to Create a Custom Virtual Machine]:create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]:../../windows/classic/attach-disk.md
-[How to Create a Linux Virtual Machine]:../../virtual-machines-linux-classic-create-custom.md
+[How to Create a Linux Virtual Machine]:create-custom.md
