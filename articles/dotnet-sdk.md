@@ -2,8 +2,7 @@
 title: What is the Azure .NET SDK
 description: Learn what is included in the Azure .NET SDK.
 documentationcenter: .net
-author: juliako
-manager: wpickett
+author: chrissfanos
 editor: mollybos
 services: ''
 
