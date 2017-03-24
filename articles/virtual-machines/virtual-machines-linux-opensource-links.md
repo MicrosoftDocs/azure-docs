@@ -99,7 +99,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 ## Troubleshooting
 * [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Troubleshoot classic deployment issues with creating a new Linux virtual machine in Azure](virtual-machines-linux-classic-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)  
-* [Troubleshoot classic deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 
+* [Troubleshoot classic deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure](linux/classic/restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 
 
 ## Reference
 * [Azure CLI commands in Azure Service Management (asm) mode](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
