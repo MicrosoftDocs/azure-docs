@@ -1,7 +1,7 @@
 
 
 ## Oracle virtual machine images
-See [List of Oracle virtual machine images](../articles/virtual-machines/virtual-machines-linux-classic-oracle-images.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) for the latest set of Windows-based and Linux-based virtual machine images.
+See [List of Oracle virtual machine images](../articles/virtual-machines/linux/classic/oracle-images.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) for the latest set of Windows-based and Linux-based virtual machine images.
 
 ## Considerations for Windows-based virtual machines
 See [Miscellaneous considerations for Oracle virtual machine images](../articles/virtual-machines/windows/classic/oracle-considerations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to understand limitations for Oracle software on Windows Server-based Azure virtual machines.

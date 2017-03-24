@@ -90,5 +90,5 @@ For related information, see KB article **860340.1** at <http://support.oracle.c
 * **64-bit JDK.** The Oracle WebLogic Server virtual machine images and the Oracle JDK virtual machine images provided by Azure contain the 64-bit versions of both Windows Server and the JDK.
 
 ## Additional resources
-[Oracle virtual machine images for Azure](../../virtual-machines-linux-classic-oracle-images.md)
+[Oracle virtual machine images for Azure](../../linux/classic/oracle-images.md)
 
