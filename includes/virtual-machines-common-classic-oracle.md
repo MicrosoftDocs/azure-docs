@@ -13,5 +13,5 @@ See [Miscellaneous considerations for Oracle virtual machine images](../articles
 [Configuring Oracle Data Guard for Azure](../articles/virtual-machines/windows/classic/configure-oracle-data-guard.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) steps you through configuration of the standby environment and the listener.
 
 ## Oracle GoldenGate
-[Configuring Oracle GoldenGate for Azure](../articles/virtual-machines/virtual-machines-windows-classic-configure-oracle-goldengate.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) steps you through database and replication setup.
+[Configuring Oracle GoldenGate for Azure](../articles/virtual-machines/windows/classic/configure-oracle-goldengate.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) steps you through database and replication setup.
 
