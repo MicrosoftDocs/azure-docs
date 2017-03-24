@@ -41,7 +41,7 @@ Although the simplest approach is to attach a single disk to the virtual machine
 Consider two different approaches for attaching multiple disks based on whether you want to prioritize the performance of read operations or write operations for your database:
 
 * **Oracle ASM on its own** is likely to result in better write operation performance, but worse IOPS for read operations as compared to the approach using disk arrays. The following illustration logically depicts this arrangement.  
-    ![](media/virtual-machines-windows-classic-oracle-considerations/image2.png)
+    ![](media/mysql-2008r2/image2.png)
 
 > [!IMPORTANT]
 > Evaluate the trade-off between write performance and read performance on a case-by-case basis. Your actual results can vary when you use this.

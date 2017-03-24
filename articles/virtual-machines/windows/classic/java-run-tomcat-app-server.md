@@ -130,11 +130,9 @@ At this point, your Tomcat website should be viewable from an external browser. 
 ## Next steps
 You can learn about other services (such as Azure Storage, service bus, and SQL Database) that you may want to include with your Java applications. View the information available at the [Java Developer Center](https://azure.microsoft.com/develop/java/).
 
-[virtual_machine_tomcat]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png
+[virtual_machine_tomcat]:media/java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png
 
-[service_automatic_startup]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/WA_TomcatServiceAutomaticStart.png
-
-
+[service_automatic_startup]:media/java-run-tomcat-app-server/WA_TomcatServiceAutomaticStart.png
 
 
 
@@ -142,12 +140,14 @@ You can learn about other services (such as Azure Storage, service bus, and SQL 
 
 
 
-[NewIBRule]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewInboundRule.png
-[NewRulePort]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRulePort.png
-[NewRuleProtocol]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleProtocol.png
-[NewRuleAction]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleAction.png
-[NewRuleName]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleName.png
-[NewRuleProfile]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleProfile.png
+
+
+[NewIBRule]:media/java-run-tomcat-app-server/NewInboundRule.png
+[NewRulePort]:media/java-run-tomcat-app-server/NewRulePort.png
+[NewRuleProtocol]:media/java-run-tomcat-app-server/NewRuleProtocol.png
+[NewRuleAction]:media/java-run-tomcat-app-server/NewRuleAction.png
+[NewRuleName]:media/java-run-tomcat-app-server/NewRuleName.png
+[NewRuleProfile]:media/java-run-tomcat-app-server/NewRuleProfile.png
 
 
 <!-- Deleted from the "To create an ednpoint for your virtual mache" 3/17/2017,

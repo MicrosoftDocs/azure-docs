@@ -54,23 +54,23 @@ Follow these steps to install, configure, and run the Community version of MySQL
 9. On the **Product Configuration** page, click **Next**.
 10. On the **Type and Networking** page, specify your desired configuration type and connectivity options, including the TCP port if needed. Select **Show Advanced Options**, and then click **Next**.
     
-    ![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_TypeNetworking.png)
+    ![](media/mysql-2008r2/MySQL_TypeNetworking.png)
 11. On the **Accounts and Roles** page, specify a strong MySQL root password. Add additional MySQL user accounts as needed, and then click **Next**.
     
-    ![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_AccountsRoles_Filled.png)
+    ![](media/mysql-2008r2/MySQL_AccountsRoles_Filled.png)
 12. On the **Windows Service** page, specify changes to the default settings for running the MySQL Server as a Windows service as needed, and then click **Next**.
     
-    ![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_WindowsService.png)
+    ![](media/mysql-2008r2/MySQL_WindowsService.png)
 13. On the **Advanced Options** page, specify changes to logging options as needed, and then click **Next**.
     
-    ![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_AdvOptions.png)
+    ![](media/mysql-2008r2/MySQL_AdvOptions.png)
 14. On the **Apply Server Configuration** page, click **Execute**. When the configuration steps are complete, click **Finish**.
 15. On the **Product Configuration** page, click **Next**.
 16. On the **Installation Complete** page, click **Copy Log to Clipboard** if you want to examine it later, and then click **Finish**.
 17. From the start screen, type **mysql**, and then click **MySQL 5.6 Command Line Client**.
 18. Enter the root password that you specified in step 11 and you'll be presented with a prompt where you can issue commands to configure MySQL. For the details of commands and syntax, see [MySQL Reference Manuals](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
     
-    ![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_CommandPrompt.png)
+    ![](media/mysql-2008r2/MySQL_CommandPrompt.png)
 19. You can also configure server configuration default settings, such as the base and data directories and drives, with entries in the C:\Program Files (x86)\MySQL\MySQL Server 5.6\my-default.ini file. For more information, see [5.1.2 Server Configuration Defaults](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
 
 ## Configure endpoints
@@ -102,7 +102,7 @@ To test your remote connection to the MySQL Server service running on the Azure 
 1. In the Azure classic portal, click **Virtual Machines**, click the name of your MySQL server virtual machine, and then click **Dashboard**.
 2. From the virtual machine dashboard, note the **DNS Name** value under the **Quick Glance** section. Here is an example:
    
-   ![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_DNSName.png)
+   ![](media/mysql-2008r2/MySQL_DNSName.png)
 3. From a local computer running MySQL or the MySQL client, run the following command to log in as a MySQL user.
    
      mysql -u <yourMysqlUsername> -p -h <yourDNSname>
