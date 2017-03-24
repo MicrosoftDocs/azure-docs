@@ -35,7 +35,7 @@ The basic steps detailed in this article are:
 Deploy the Kubernetes cluster in Azure Container Service using the following steps. Full documentation is located [here](container-service-kubernetes-walkthrough.md).
 
 ### Step 1: Create a resource group
-```console
+```
 RESOURCE_GROUP=my-resource-group
 LOCATION=westus
 az group create --name=$RESOURCE_GROUP --location=$LOCATION
@@ -46,7 +46,7 @@ az group create --name=$RESOURCE_GROUP --location=$LOCATION
 > The following steps require a local SSH public key stored in the ~/.ssh folder.
 >
 
-```console
+```
 DNS_PREFIX=some-unique-value
 CLUSTER_NAME=any-acs-cluster-name
 az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=$CLUSTER_NAME --dns-prefix=$DNS_PREFIX --ssh-key-value ~/.ssh/id_rsa.pub --admin-username=azureuser --master-count=1 --agent-count=5 --agent-vm-size=Standard_D1_v2
@@ -78,8 +78,7 @@ az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --
 
 ### Step 2: Set up access to the Kubernetes cluster
 
-> [!NOTE]
-> There are multiple approaches to accomplishing the following steps. Use the approach that is easiest for you.
+> **NOTE:** There are multiple approaches to accomplishing the following steps. Use the approach that is easiest for you.
 
 - Copy the `kubectl` config file to the Jenkins machine.
 
@@ -106,8 +105,7 @@ az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --
 - Docker Hub account to store and update images.
 - Containerized application that can be rebuilt and updated. You can use this sample container app written in Golang: https://github.com/chzbrgr71/go-web 
 
-> [!NOTE]
-> The following steps must be performed in your own GitHub account. Feel free to clone the above repo, but you must use your own account to configure the webhooks and Jenkins access.
+> **NOTE:** The following steps must be performed in your own GitHub account. Feel free to clone the above repo, but you must use your own account to configure the webhooks and Jenkins access.
 >
 
 ### Step 1: Deploy initial v1 of application
@@ -183,6 +181,6 @@ az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --
 
 ## Next steps
 
-- Build a more complex workflow that includes side-by-side deployment and automated tests in Jenkins.
 - Deploy Azure Container Registry and store images in a secure repository. [Azure Container Registry docs](https://docs.microsoft.com/en-us/azure/container-registry).
+- Build a more complex workflow that includes side-by-side deployment and automated tests in Jenkins.
 - For more information about CI/CD with Jenkins and Kubernetes, see the [Jenkins blog](https://jenkins.io/blog/2015/07/24/integrating-kubernetes-and-jenkins/).
