@@ -122,7 +122,7 @@ Perform the following steps to obtain the storage key:
  7. Then, on the server that you installed Azure Log Integration open an elevated command prompt (note that we’re using an elevated command prompt window here, not an elevated PowerShell console).
  8. Navigate to **c:\Program Files\Microsoft Azure Log Integration**
  9. Run ``Azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey> `` </br> For example ``Azlog source add Azlogtest WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==``
-If you would like the subscription id to show up in the event XML, append the subscription ID to the friendly name:
+If you would like the subscription ID to show up in the event XML, append the subscription ID to the friendly name:
 ``Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`` or for example, ``Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==``
 
 >[!NOTE]  
@@ -135,7 +135,7 @@ If after an hour data is not showing up in the **Forwarded Events** folder, then
 2. Make sure the user account **Azlog** has write permission on the folder **users\Azlog**.
   <ol type="a">
    <li>Open explorer </li>
-  <li> navigate to **c:\users** </li>
+  <li> Navigate to **c:\users** </li>
   <li> Right click on **c:\users\Azlog** </li>
   <li> Click on **security**  </li>
   <li> Click on **NT Service\Azlog** and check the permissions for the account. If the account is missing from this tab or if the appropriate permissions are not currently showing you can grant the account rights in this tab.</li>
@@ -143,7 +143,7 @@ If after an hour data is not showing up in the **Forwarded Events** folder, then
 3. Make sure the storage account added in the command **Azlog source add** is listed when you run the command **Azlog source list**.
 4. Go to **Event Viewer > Windows Logs > Application** to see if there are any errors reported from the Azure log integration.
 
-If you run into any issues during the installation and configuration, Please open a [support request](../azure-supportability/how-to-create-azure-support-request.md), select 'Log Integration' as the service for which you are requesting support.
+If you run into any issues during the installation and configuration, Please open a [support request](../azure-supportability/how-to-create-azure-support-request.md), select **Log Integration** as the service for which you are requesting support.
 
 ## Next steps
 To learn more about Azure Log Integration, see the following documents:
