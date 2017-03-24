@@ -30,14 +30,13 @@ Cloud Services is an example of [Platform-as-a-Service](https://azure.microsoft.
 
 More control also means less ease of use; unless you need the  additional control options, it's typically quicker and easier to get a web application up and running in Web Apps in App Service compared to Cloud Services.
 
-The technology provides two slightly different VM options: instances of *web roles* run a variant of Windows Server with IIS, while instances of *worker roles* run the same Windows Server variant without IIS. A Cloud Services application relies on some combination of these two options.
-
-Any combination of these two slightly different VM hosting options are available in a cloud service:
+There are two types of Cloud Service roles, the only difference is how your role is hosted on the virtual machine.
 
 * **Web role**  
-  Runs Windows Server with your web app automatically deployed to IIS.
+Automatically deploys and hosts your app through IIS.
+
 * **Worker role**  
-  Runs Windows Server without IIS.
+Does not use IIS and runs your app standalone.
 
 For example, a simple application might use just a web role, while a more complex application might use a web role to handle incoming requests from users, then pass the work those requests create to a worker role for processing. (This communication could use [Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) or [Azure Queues](../storage/storage-introduction.md).)
 
