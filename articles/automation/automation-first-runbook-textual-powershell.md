@@ -14,7 +14,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/19/2016
+ms.date: 03/24/2017
 ms.author: magoedte;sngun
 
 ---
@@ -33,20 +33,18 @@ This tutorial walks you through the creation of a [PowerShell runbook](automatio
 To complete this tutorial, you will need the following.
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or <a href="/pricing/free-account/" target="_blank">[sign up for a free account](https://azure.microsoft.com/free/).
-* [Automation account](automation-security-overview.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
+* [Automation account](automation-sec-configure-azure-runas-account.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
 * An Azure virtual machine. We will stop and start this machine so it should not be production.
 
 ## Step 1 - Create new runbook
 We'll start by creating a simple runbook that outputs the text *Hello World*.
 
 1. In the Azure Portal, open your Automation account.  
-   The Automation account page gives you a quick view of the resources in this account. You should already have some Assets. Most of those are the modules that are automatically included in a new Automation account. You should also have the Credential asset that's mentioned in the [prerequisites](#prerequisites).
-2. Click on the **Runbooks** tile to open the list of runbooks.  
-   ![RunbooksControl](media/automation-first-runbook-textual-powershell/automation-runbooks-control.png)  
+   The Automation account page gives you a quick view of the resources in this account. You should already have some assets. Most of those are the modules that are automatically included in a new Automation account. You should also have the Credential asset that's mentioned in the [prerequisites](#prerequisites).
+2. Click on the **Runbooks** tile to open the list of runbooks.<br><br> ![RunbooksControl](media/automation-first-runbook-textual-powershell/runbooks-control-tiles.png)  
 3. Create a new runbook by clicking on the **Add a runbook** button and then **Create a new runbook**.
 4. Give the runbook the name *MyFirstRunbook-PowerShell*.
-5. In this case, we're going to create a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) so select **Powershell** for **Runbook type**.  
-   ![Runbook Type](media/automation-first-runbook-textual-powershell/automation-runbook-type.png)  
+5. In this case, we're going to create a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) so select **Powershell** for **Runbook type**.<br><br> ![Runbook Type](media/automation-first-runbook-textual-powershell/automation-runbook-type.png)  
 6. Click **Create** to create the runbook and open the textual editor.
 
 ## Step 2 - Add code to the runbook
@@ -77,26 +75,20 @@ The runbook that we just created is still in Draft mode. We need to publish it b
 2. If you scroll left to view the runbook in the **Runbooks** pane now, it will show an **Authoring Status** of **Published**.
 3. Scroll back to the right to view the pane for **MyFirstRunbook-PowerShell**.  
    The options across the top allow us to start the runbook, view the runbook, schedule it to start at some time in the future, or create a [webhook](automation-webhooks.md) so it can be started through a HTTP call.
-4. We just want to start the runbook so click **Start** and then click **Ok** when the Start Runbook blade opens.  
-   ![Start button](media/automation-first-runbook-textual-powershell/automation-start-button.png)  
+4. We just want to start the runbook so click **Start** and then click **Ok** when the Start Runbook blade opens.<br><br> ![Start button](media/automation-first-runbook-textual-powershell/automation-start-button.png)<br>    
 5. A job pane is opened for the runbook job that we just created. We can close this pane, but in this case we'll leave it open so we can watch the job's progress.
-6. The job status is shown in **Job Summary** and matches the statuses that we saw when we tested the runbook.  
-   ![Job Summary](media/automation-first-runbook-textual-powershell/automation-job-summary.png)  
-7. Once the runbook status shows *Completed*, click **Output**. The Output pane is opened, and we can see our *Hello World*.  
-   ![Job Output](media/automation-first-runbook-textual-powershell/automation-job-output.png)
+6. The job status is shown in **Job Summary** and matches the statuses that we saw when we tested the runbook.<br><br> ![Job Summary](media/automation-first-runbook-textual-powershell/job-pane-status-blade-jobsummary.png)<br>  
+7. Once the runbook status shows *Completed*, click **Output**. The Output pane is opened, and we can see our *Hello World*.<br><br> ![Job Output](media/automation-first-runbook-textual-powershell/job-pane-status-blade-outputtile.png)<br> 
 8. Close the Output pane.
-9. Click **All Logs** to open the Streams pane for the runbook job. We should only see *Hello World* in the output stream, but this can show other streams for a runbook job such as Verbose and Error if the runbook writes to them.  
-   ![All Logs](media/automation-first-runbook-textual-powershell/automation-alllogs.png)  
+9. Click **All Logs** to open the Streams pane for the runbook job. We should only see *Hello World* in the output stream, but this can show other streams for a runbook job such as Verbose and Error if the runbook writes to them.<br><br> ![All Logs](media/automation-first-runbook-textual-powershell/job-pane-status-blade-alllogstile.png)<br>   
 10. Close the Streams pane and the Job pane to return to the MyFirstRunbook-PowerShell pane.
-11. Click **Jobs** to open the Jobs pane for this runbook. This lists all of the jobs created by this runbook. We should only see one job listed since we only ran the job once.  
-    ![Job List](media/automation-first-runbook-textual-powershell/automation-job-list.png)  
+11. Click **Jobs** to open the Jobs pane for this runbook. This lists all of the jobs created by this runbook. We should only see one job listed since we only ran the job once.<br><br> ![Job List](media/automation-first-runbook-textual-powershell/runbook-control-job-tile.png)  
 12. You can click on this job to open the same Job pane that we viewed when we started the runbook. This allows you to go back in time and view the details of any job that was created for a particular runbook.
 
 ## Step 5 - Add authentication to manage Azure resources
 We've tested and published our runbook, but so far it doesn't do anything useful. We want to have it manage Azure resources. It won't be able to do that though unless we have it authenticate using the credentials that are referred to in the [prerequisites](#prerequisites). We do that with the **Add-AzureRmAccount** cmdlet.
 
-1. Open the textual editor by clicking **Edit** on the MyFirstRunbook-PowerShell pane.  
-   ![Edit Runbook](media/automation-first-runbook-textual-powershell/automation-edit-runbook.png)  
+1. Open the textual editor by clicking **Edit** on the MyFirstRunbook-PowerShell pane.<br><br> ![Edit Runbook](media/automation-first-runbook-textual-powershell/automation-edit-runbook.png)<br>   
 2. We don't need the **Write-Output** line anymore, so go ahead and delete it.
 3. Type or copy and paste the following code that will handle the authentication with your Automation Run As account:
    
@@ -107,7 +99,7 @@ We've tested and published our runbook, but so far it doesn't do anything useful
    ```
    <br>
 4. Click **Test pane** so that we can test the runbook.
-5. Click **Start** to start the test. Once it completes, you should receive output similar to the following, displaying basic information from your account. This confirms that the credential is valid. <br> ![Authenticate](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
+5. Click **Start** to start the test. Once it completes, you should receive output similar to the following, displaying basic information from your account. This confirms that the credential is valid.<br><br> ![Authenticate](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
 
 ## Step 6 - Add code to start a virtual machine
 Now that our runbook is authenticating to our Azure subscription, we can manage resources. We'll add a command to start a virtual machine. You can pick any virtual machine in your Azure subscription, and for now we'll be hardcoding that name into the cmdlet.
@@ -144,8 +136,7 @@ Our runbook currently starts the virtual machine that we hardcoded in the runboo
 3. Close the Test pane.
 4. Click **Publish** to publish the new version of the runbook.
 5. Stop the virtual machine that you started in the previous step.
-6. Click **Start** to start the runbook. Type in the **VMName** and **ResourceGroupName** for the virtual machine that you're going to start.  
-   ![Pass Parameter](media/automation-first-runbook-textual-powershell/automation-pass-params.png)  
+6. Click **Start** to start the runbook. Type in the **VMName** and **ResourceGroupName** for the virtual machine that you're going to start.<br><br> ![Pass Parameter](media/automation-first-runbook-textual-powershell/automation-pass-params.png)<br>  
 7. When the runbook completes, check that the virtual machine was started.
 
 ## Differences from PowerShell Workflow
