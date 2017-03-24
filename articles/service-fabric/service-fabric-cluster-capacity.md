@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/24/2017
 ms.author: chackdan
 
 ---
@@ -67,7 +67,7 @@ The durability tier is used to indicate to the system the privileges that your V
 
 This privilege is expressed in the following values:
 
-* Gold - The infrastructure Jobs can be paused for a duration of 2 hours per UD
+* Gold - The infrastructure Jobs can be paused for a duration of 2 hours per UD. Gold durability  can be enabled only on full node VM skus like D15_V2, G5 etc.
 * Silver - The infrastructure Jobs can be paused for a duration of 30 minutes per UD (This is currently not enabled for use. Once enabled this will be available on all standard VMs of single core and above).
 * Bronze - No privileges. This is the default.
 
