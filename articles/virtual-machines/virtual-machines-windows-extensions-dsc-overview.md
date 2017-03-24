@@ -56,7 +56,7 @@ Installation of the WMF requires a reboot. After reboot, the extension downloads
 ## PowerShell cmdlets
 PowerShell cmdlets can be used with Azure Resource Manager or the classic deployment model to package, publish, and monitor DSC extension deployments. The following cmdlets listed are the classic deployment modules, but "Azure" can be replaced with "AzureRm" to use the Azure Resource Manager model. For example,  `Publish-AzureVMDscConfiguration` uses the classic deployment model, where `Publish-AzureRmVMDscConfiguration` uses Azure Resource Manager. 
 
-`Publish-AzureVMDscConfiguration` takes in a configuration file, scans it for dependent DSC resources, and creates a .zip file containing the configuration and DSC resources needed to enact the configuration. It can also create the package locally using the `-ConfigurationArchivePath` parameter. Otherwise, it publishes the .zip file to Azure blob storage and secure it with a SAS token.
+`Publish-AzureVMDscConfiguration` takes in a configuration file, scans it for dependent DSC resources, and creates a .zip file containing the configuration and DSC resources needed to enact the configuration. It can also create the package locally using the `-ConfigurationArchivePath` parameter. Otherwise, it publishes the .zip file to Azure blob storage and secures it with a SAS token.
 
 The .zip file created by this cmdlet has the .ps1 configuration script at the root of the archive folder. Resources have the module folder placed in the archive folder. 
 

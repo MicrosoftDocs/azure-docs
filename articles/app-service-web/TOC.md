@@ -11,8 +11,8 @@
 ## [Create Python app](app-service-web-get-started-python.md)	
 
 # Samples
-## [Azure CLI](../app-service/app-service-cli-samples.md?toc=%2fazure%2fapp-service-web%2ftoc.json) 
-## [PowerShell](../app-service/app-service-powershell-samples.md?toc=%2fazure%2fapp-service-web%2ftoc.json) 
+## [Azure CLI](app-service-cli-samples.md) 
+## [PowerShell](app-service-powershell-samples.md) 
 
 # Tutorials
 ## [Add functionality to web app](app-service-web-get-started-2.md)
@@ -82,7 +82,6 @@
 
 ### [Migrate from IIS](web-sites-migration-from-iis-server.md)
 ### [Test in production](app-service-web-test-in-production-get-start.md)
-### [Run performance tests](app-service-web-app-performance-test.md) 
 
 ## Connect to DB/resources		
 
@@ -150,10 +149,8 @@
 ## [Quota Information](../azure-subscription-service-limits.md#app-service-limits)	
 ## [Service Updates & Release Notes](https://azure.microsoft.com/updates/?product=app-service)	
 ## [Best practices](app-service-best-practices.md)
-
 ## [Samples](https://azure.microsoft.com/resources/samples/?service=app-service)	
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=app-service)
 ## Cookbooks	
 ### [Reference Architectures](../guidance/guidance-ra-app-service.md)	
 ### [Deployment Scripts](https://azure.microsoft.com/documentation/scripts/)	
-

@@ -206,9 +206,9 @@ To view task outputs and logs in the Azure portal, navigate to the task whose ou
 ![Task outputs blade in the Azure portal][2]
 
 ## Code sample
-The [PersistOutputs][github_persistoutputs] sample project is one of the [Azure Batch code samples][github_samples] on GitHub. This Visual Studio 2015 solution demonstrates how to use the Azure Batch File Conventions library to persist task output to durable storage. To run the sample, follow these steps:
+The [PersistOutputs][github_persistoutputs] sample project is one of the [Azure Batch code samples][github_samples] on GitHub. This Visual Studio solution demonstrates how to use the Azure Batch File Conventions library to persist task output to durable storage. To run the sample, follow these steps:
 
-1. Open the project in **Visual Studio 2015**.
+1. Open the project in **Visual Studio 2015 or newer**.
 2. Add your Batch and Storage **account credentials** to **AccountSettings.settings** in the Microsoft.Azure.Batch.Samples.Common project.
 3. **Build** (but do not run) the solution. Restore any NuGet packages if prompted.
 4. Use the Azure portal to upload an [application package](batch-application-packages.md) for **PersistOutputsTask**. Include the `PersistOutputsTask.exe` and its dependent assemblies in the .zip package, set the application ID to "PersistOutputsTask", and the application package version to "1.0".

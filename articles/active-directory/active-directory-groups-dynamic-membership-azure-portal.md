@@ -150,7 +150,7 @@ Allowed operators
 * -contains
 * -notContains
 
-| Poperties | Allowed values | Usage |
+| Properties | Allowed values | Usage |
 | --- | --- | --- |
 | otherMails |Any string value |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |

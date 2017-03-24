@@ -34,6 +34,12 @@ Using this article, you add management solutions to a workspace using the Azure 
 
 You can easily remove a management solution when it is no longer needed. When you remove a management solution, its data is not sent to OMS. If you are on the Free pricing tier, removing a solution can reduce the amount of data used, helping you stay under daily quota of data.
 
+## View available management solutions
+
+The Azure marketplace contains the list of [management solutions for Log Analytics](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
+
+You can install management solutions from Azure marketplace by clicking the **Get it now** link at the bottom of each solution.
+
 ## Add a management solution
 1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com) using your Azure subscription.
 2. In the **New** blade under **Marketplace**, select **Monitoring + management**.
@@ -64,10 +70,10 @@ All solutions in the following table are available from within the Azure portal 
 
 | Management solution    																	| Offer                                     								| Pricing tiers<sup>1</sup>													| Notes |
 | ---                    																	| ---                                       								| ---           																							| ---   |
-| Activity Log Analytics 																	| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| 90 days of data are available free of charge |
+| Activity Log Analytics 																	| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| 90 days of data are available free of charge<br>Data not subject to the Free tier cap |
 | [AD Assessment](log-analytics-ad-assessment.md)          									| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| |
 | [AD Replication Status](log-analytics-ad-replication-status.md)  							| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| |
-| Agent Health 			 																	| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| |
+| Agent Health 			 																	| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| Data not subject to the Free tier cap |
 | [Alert Management](log-analytics-solution-alert-management.md) 	     					| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| |
 | Application Insights Connector <br>(Preview) 												| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| |
 | Automation Hybrid Worker 																	| <ul><li>Automation and Control</li></ul>									| Free<br> Per&nbsp;Node&nbsp;(OMS) 							   											| Requires your Log Analytics workspace to be linked to an Automation account |
@@ -80,6 +86,7 @@ All solutions in the following table are available from within the Azure portal 
 | [Containers](log-analytics-containers.md) 			 									| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| |
 | HDInsight HBase Monitoring <br>(Preview) 													| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| |
 | [Key Vault Analytics](log-analytics-azure-key-vault.md)  					| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| |
+| Logic Apps B2B  					| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| |
 | [Malware Assessment](log-analytics-malware.md) 											| <ul><li>Security and Compliance</li></ul>				    				| Free<br> Per&nbsp;Node&nbsp;(OMS)							   												| |
 | [Network Performance Monitor](log-analytics-network-performance-monitor.md) <br>(Preview)	| <ul><li>Insight and Analytics</li></ul> 									| Free<br> Per&nbsp;Node&nbsp;(OMS) 																		| |
 | Office 365 Analytics <br>(Preview)														| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| |
@@ -92,7 +99,8 @@ All solutions in the following table are available from within the Azure portal 
 | [SurfaceHub](log-analytics-surface-hubs.md) 			 	  								| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| |
 | [System Center Operations Manager Assessment](log-analytics-scom-assessment.md) <br>(Preview) | <ul><li>Insight and Analytics</li><li>Log Analytics</li></ul> 		| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| |
 | Update Management		 	  																| <ul><li>Automation and Control</li></ul>									| Free<br> Per&nbsp;Node&nbsp;(OMS) 							   											| Requires your Log Analytics workspace to be linked to an Automation account |
-| [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics) <br>(Preview) 															| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| No charge for data or nodes |
+| [Update Compliance](https://technet.microsoft.com/en-us/itpro/windows/manage/update-compliance-get-started) <br>(Preview) 															| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| No charge for data or nodes<br>Data not subject to the Free tier cap |
+| [Upgrade Readiness](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness) 															| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| No charge for data or nodes<br>Data not subject to the Free tier cap |
 | [VMware Monitoring](log-analytics-vmware.md) <br>(Preview) 								| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| |
 | Wire Data 2.0<br>(Preview) 	  															| <ul><li>Insight and Analytics</li></ul> 					 				| Free<br> Per&nbsp;Node&nbsp;(OMS) 																		| Available in East US and West Europe |
 
@@ -167,7 +175,7 @@ The Log Analytics Windows agent and System Center Operations Manager agent are e
 | Antimalware Assessment |Windows |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |hourly |
 | Security and Audit<sup>1</sup> | Windows and Linux | ![Some](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Some](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Some](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Some](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | various |
 
-<sup>1</sup>The Security and Audit solution can collect logs from Windows, Operations Manager, and Linux agents. See [Data sources](#data-sources) for data collection information about:
+<sup>1</sup> The Security and Audit solution can collect logs from Windows, Operations Manager, and Linux agents. See [Data sources](#data-sources) for data collection information about:
 
 - Syslog
 - Windows security event logs

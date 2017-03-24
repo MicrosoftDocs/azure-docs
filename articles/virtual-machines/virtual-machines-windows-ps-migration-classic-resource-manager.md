@@ -1,9 +1,9 @@
 ---
 title: Migrate to Resource Manager with PowerShell | Microsoft Docs
-description: This article walks through the platform-supported migration of IaaS resources from classic to Azure Resource Manager by using Azure PowerShell commands
+description: This article walks through the platform-supported migration of IaaS resources such as virtual machines (VMs), virtual networks (VNETs), and storage accounts from classic to Azure Resource Manager (ARM) by using Azure PowerShell commands
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: singhkays
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
-ms.author: cynthn
+ms.date: 03/14/2017
+ms.author: kasing
 
 ---
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell
@@ -26,6 +26,11 @@ If you want, you can also migrate resources by using the [Azure Command Line Int
 * For background on supported migration scenarios, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md). 
 * For detailed guidance and a migration walkthrough, see [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md).
 * [Review most common migration errors](virtual-machines-migration-errors.md)
+
+<br>
+Here is a flowchart to identify the order in which steps need to be executed during a migration process
+
+![Screenshot that shows the migration steps](./media/virtual-machines-windows-migration-classic-resource-manager/migration-flow.png)
 
 ## Step 1: Plan for migration
 Here are a few best practices that we recommend as you evaluate migrating IaaS resources from classic to Resource Manager:
@@ -125,7 +130,7 @@ Get-AzureRmVMUsage -Location "West US"
 > 
 > 
 
-### Migrate virtual machines in a cloud service (not in a virtual network)
+## Step 6.1 Migrate virtual machines in a cloud service (not in a virtual network)
 Get the list of cloud services by using the following command, and then pick the cloud service that you want to migrate. If the VMs in the cloud service are in a virtual network or if they have web or worker roles, the command returns an error message.
 
 ```powershell
@@ -206,8 +211,10 @@ If the prepared configuration looks good, you can move forward and commit the re
     Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 
-### Migrate virtual machines in a virtual network
-To migrate virtual machines in a virtual network, you migrate the network. The virtual machines automatically migrate with the network. Pick the virtual network that you want to migrate. 
+## Step 6.2 Migrate virtual machines in a virtual network
+To migrate virtual machines in a virtual network, you migrate the virtual network. The virtual machines automatically migrate with the virtual network. Pick the virtual network that you want to migrate. 
+> [!NOTE]
+> [Migrate single classic virtual machine](./virtual-machines-windows-migrate-single-classic-to-resource-manager.md) by creating a new Resource Manager virtual machine with Managed Disks using the VHD (OS and data) files of the virtual machine. 
 
 This example sets the virtual network name to **myVnet**. Replace the example virtual network name with your own. 
 
@@ -244,23 +251,22 @@ If the prepared configuration looks good, you can move forward and commit the re
     Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
-### Migrate a storage account
+## Step 6.3 Migrate a storage account
 Once you're done migrating the virtual machines, we recommend you migrate the storage accounts.
 
 Before you migrate the storage account, please perform preceding prerequisite checks:
 
-* **Check if classic VM disks are stored in the storage account**
+* **Migrate classic virtual machines whose disks are stored in the storage account**
 
-    Find classic VM disks attached to VMs in the storage account using following command: 
-
+    Preceding command returns RoleName and DiskName properties of all the classic VM disks in the storage account. RoleName is the name of the virtual machine to which a disk is attached. If preceding command returns disks then ensure that virtual machines to which these disks are attached are migrated before migrating the storage account.
     ```powershell
      $storageAccountName = 'yourStorageAccountName'
       Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Select-Object -ExpandProperty AttachedTo -Property `
       DiskName | Format-List -Property RoleName, DiskName 
 
     ```
-    Above command returns RoleName and DiskName properties of all the classic VM disks in the storage account. RoleName is the name of the virtual machine to which a disk is attached. If above command returns disks then ensure that virtual machines to which these disks are attached are migrated before migrating the storage account.
-
+* **Delete unattached classic VM disks stored in the storage account**
+ 
     Find unattached classic VM disks in the storage account using following command: 
 
     ```powershell
@@ -273,8 +279,25 @@ Before you migrate the storage account, please perform preceding prerequisite ch
     ```powershell
        Remove-AzureDisk -DiskName 'yourDiskName'
     ```
-     
+* **Delete VM images stored in the storage account**
 
+    Preceding command returns all the VM images with OS disk stored in the storage account.
+     ```powershell
+        Get-AzureVmImage | Where-Object { $_.OSDiskConfiguration.MediaLink -ne $null -and $_.OSDiskConfiguration.MediaLink.Host.Contains($storageAccountName)`
+                                } | Select-Object -Property ImageName, ImageLabel
+     ```
+     Preceding command returns all the VM images with data disks stored in the storage account.
+     ```powershell
+
+        Get-AzureVmImage | Where-Object {$_.DataDiskConfigurations -ne $null `
+                                         -and ($_.DataDiskConfigurations | Where-Object {$_.MediaLink -ne $null -and $_.MediaLink.Host.Contains($storageAccountName)}).Count -gt 0 `
+                                        } | Select-Object -Property ImageName, ImageLabel
+     ```
+    Delete all the VM images returned by above commands using preceding command:
+    ```powershell
+    Remove-AzureVMImage -ImageName 'yourImageName'
+    ```
+    
 Prepare each storage account for migration by using the following command. In this example, the storage account name is **myStorageAccount**. Replace the example name with the name of your own storage account. 
 
 ```powershell
