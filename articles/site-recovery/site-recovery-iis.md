@@ -67,9 +67,9 @@ For the purpose of creating this article VMware virtual machines with IIS Server
 **VMware** | Yes | Yes
 **Physical server** | No | Yes
 
-## Replicating virtual machines
+## Replicate virtual machines
 
-Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating the virtual machines to Azure. 
+Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating the virtual machines to Azure. Protect all IIS  web farm virtual machines. 
 
 If you are using a static IP then specify the IP that you want the virtual machine to take in the [**Target IP**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties) setting in Compute and Network settings. 
 
@@ -78,29 +78,29 @@ If you are using a static IP then specify the IP that you want the virtual machi
 
 ## Creating a recovery plan
 
-A recovery plan allows sequencing the failover of various tiers in a multi-tier application, hence, maintaining application consistency. Follow the below steps while creating a recovery plan for a multi-tier web application. 
+A recovery plan allows sequencing the failover of various tiers in a multi-tier application, hence, maintaining application consistency. Follow the below steps while creating a recovery plan for a multi-tier web application.  [Learn more about creating a recovery plan](./site-recovery-create-recovery-plans.md).
 
 ### Adding virtual machines to failover groups
-A typical multi-tier IIS web application will consist of a database tier with SQL VMs, the web tier constituted by a web server and an application tier. 
+A typical multi-tier IIS web application will consist of a database tier with SQL virtual machines, the web tier constituted by a IIS server and an application tier. Add all these virtual machines to different group based on tier as below.
 
-1. Create a recovery plan with the virtual machine in the database tier added under Group 1 to ensure that they are shutdown last and brought up first. 
+1. Create a recovery plan. Add the database tier virtual machines under Group 1 to ensure that they are shutdown last and brought up first. 
 
-1. Add the virtual machines in the application tier under Group 2 such that they are brought up after the database tier has been brought up.
+1. Add the application tier virtual machines under Group 2 such that they are brought up after the database tier has been brought up.
 
-1. Add the virtual machines in the web tier (with the IIS server) in Group 3 such that they are brought up after the application tier has been brought up.
+1. Add the web tier virtual machines in Group 3 such that they are brought up after the application tier has been brought up.
 
 ![Recovery Plan](./media/site-recovery-iis/RecoveryPlan.png)
 
 ### Adding scripts to the recovery plan
-You may need to do some operation on Azure failover virtual machine post failover to function it correctly. You can automate the post failover process like updating DNS entry, change site binding, change  in connection string  by adding scripts in the recovery plan as below. [Learn more about add script recovery plan](./site-recovery-create-recovery-plans#add-scripts).
+You may need to do some operations on the Azure virtual machines post failover/Test failover to make IIS web farm function correctly. You can automate the post failover operation like updating DNS entry, changing site binding, change  in connection string  by adding corresponding scripts in the recovery plan as below. [Learn more about add script recovery plan](./site-recovery-create-recovery-plans#add-scripts).
 
 #### DNS Update
-You need to update the virtual machine site IIS server IP against the host header of the website. If you are using a static IPs for the virtual machines, you need to update the DNS with entries for the IP addresses of the virtual machines. You can add [DNS update](DNS update script path) script to the recovery plan after Group 3 in order to update dependencies for the IIS web application. If you are using dynamic IPs, no more steps are required.  
+If you are using a static IPs for the virtual machines, you need to update the DNS entries with the new IP addresses of the virtual machines. You can add [DNS update](DNS update script path) script to the recovery plan after Group 3 in order to update dependencies for the IIS web application. If you are using dynamic IPs, no more steps are required.  
 
 #### Connection string in an application’s web.config
 The connection string specifies the database that the web site communicates with. 
 
-If the connection string carries the name of the database VM, no further steps will be needed post failover and the application will be able to automatically communicate to the DB. Also, if the IP address for the database VM is retained, it will not be needed to update the connection string. If the connection string refers to the database VM using an IP address, it will need to be updated post failover. E.g. the below connection string points to the DB with IP 127.0.1.2 
+If the connection string carries the name of the database virtual machine, no further steps will be needed post failover and the application will be able to automatically communicate to the DB. Also, if the IP address for the database virtual machine is retained, it will not be needed to update the connection string. If the connection string refers to the database virtual machine using an IP address, it will need to be updated post failover. E.g. the below connection string points to the DB with IP 127.0.1.2 
 
 		<?xml version="1.0" encoding="utf-8"?> 
 		<configuration> 
@@ -109,8 +109,7 @@ If the connection string carries the name of the database VM, no further steps w
 		</connectionStrings> 
 		</configuration>
 
-You can add the [IIS conntection string](IIS-update-Connectionstrin.ps1 path) script to update the connection string. 
-
+You can update the connection string in database tier by adding [IIS Data Tier script](https://aka.ms/asr-iis-datatier-update-script-classic) after Group1 in recovery plan. 
 
 ####site bindings for the application
 
@@ -121,11 +120,11 @@ Every site consists of binding information that includes the type of binding, th
 
 ![SSL Binding](./media/site-recovery-iis/SSLBinding.png)
 
-If  you have associated the IP address with a site, you will need to update all site bindings with the new IP address. you can use this [script](script location) to change the site bindings. 
+If you have associated the IP address with a site, you will need to update all site bindings with the new IP address. You can add [IIS Web tier update script](https://aka.ms/asr-web-tier-update-scirpt-classsic) after Group 3 in recovery plan to change the site bindings. 
 
 
-#### load balance
-3. Use this [script](scipt-location.md) to attach a load balance on the failed over virtual machine
+#### Update load balancer IP address
+3. if you have  Application Request Routing virtual machine, add [IIS ARR  failover script](https://aka.ms/asr-iis-arrtier-failover-script-classic) after Group 3 to update the IP address.
 
 #### The SSL cert binding for an https connection
 Websites can have an associated SSL certificate that helps in ensuring a secure communication between the webserver and the user’s browser. If the website has an https connection and an associated https site binding to the IP address of the IIS server with an SSL cert binding, a new site binding will need to be added for the cert with the IP of the IIS virtual machine post failover. 
