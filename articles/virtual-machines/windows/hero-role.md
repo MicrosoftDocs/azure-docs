@@ -44,7 +44,7 @@ If you haven't already created your first VM, you should go back to [Create your
    
    ![Screenshot showing a message abut verifying the identity of the VM](./media/hero-role/cert-warning.png)
 
-If you run in to trouble when you try to connect, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](../virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+If you run in to trouble when you try to connect, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Install IIS on your VM
 Now that you are logged in to the VM, we will install a server role so that you can experiment more.

@@ -24,9 +24,9 @@ ms.author: iainfou
 This article provides detailed troubleshooting steps to diagnose and fix complex Remote Desktop errors for Windows-based Azure virtual machines.
 
 > [!IMPORTANT]
-> To eliminate the more common Remote Desktop errors, make sure to read [the basic troubleshooting article for Remote Desktop](../virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before proceeding.
+> To eliminate the more common Remote Desktop errors, make sure to read [the basic troubleshooting article for Remote Desktop](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before proceeding.
 
-You may encounter a Remote Desktop error message that does not resemble any of the specific error messages covered in [the basic Remote Desktop troubleshooting guide](../virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Follow these steps to determine why the Remote Desktop (RDP) client is unable to connect to the RDP service on the Azure VM.
+You may encounter a Remote Desktop error message that does not resemble any of the specific error messages covered in [the basic Remote Desktop troubleshooting guide](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Follow these steps to determine why the Remote Desktop (RDP) client is unable to connect to the RDP service on the Azure VM.
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -46,7 +46,7 @@ Before proceeding, it might help to mentally review what has changed since the l
 Before proceeding to the detailed troubleshooting,
 
 * Check the status of the virtual machine in the Azure classic portal or the Azure portal for any obvious issues.
-* Follow the [quick fix steps for common RDP errors in the basic troubleshooting guide](../virtual-machines-windows-troubleshoot-rdp-connection.md#quick-troubleshooting-steps).
+* Follow the [quick fix steps for common RDP errors in the basic troubleshooting guide](troubleshoot-rdp-connection.md#quick-troubleshooting-steps).
 
 Try reconnecting to the VM via Remote Desktop after these steps.
 
