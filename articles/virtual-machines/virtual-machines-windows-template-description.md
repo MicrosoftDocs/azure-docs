@@ -279,7 +279,7 @@ Several profile elements are used when defining a virtual machine resource. Some
    
 - [size](virtual-machines-windows-sizes.md)
 - [name](virtual-machines-linux-infrastructure-naming-guidelines.md) and credentials
-- disk and [operating system settings](virtual-machines-windows-cli-ps-findimage.md)
+- disk and [operating system settings](windows/cli-ps-findimage.md)
 - [network interface](../virtual-network/virtual-networks-multiple-nics.md) 
 - boot diagnostics
 
@@ -311,7 +311,7 @@ If you want to create a Linux operating system, you might use this definition:
 },
 ```
 
-Configuration settings for the operating system disk are assigned with the osDisk element. The example defines a new managed disk with the caching mode set to **ReadWrite** and that the disk is being created from a [platform image](virtual-machines-windows-cli-ps-findimage.md):
+Configuration settings for the operating system disk are assigned with the osDisk element. The example defines a new managed disk with the caching mode set to **ReadWrite** and that the disk is being created from a [platform image](windows/cli-ps-findimage.md):
 
 ```
 "osDisk": { 

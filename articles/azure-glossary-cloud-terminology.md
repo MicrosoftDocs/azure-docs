@@ -63,7 +63,7 @@ See also [Active Geo-Replication for Azure SQL Database](sql-database/sql-databa
 
 ### <a name="image"></a>image
 A file that contains the operating system and application configuration that can be used to create any number of virtual machines. In Azure there are two types of images: VM image and OS image. A VM image includes an operating system and all disks attached to a virtual machine when the image is created. An OS image contains only a generalized operating system with no data disk configurations.  
-See also [Navigate and select Windows virtual machine images in Azure with PowerShell or the CLI](virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+See also [Navigate and select Windows virtual machine images in Azure with PowerShell or the CLI](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### <a name="limits"></a>limits
 The number of resources that can be created or the performance benchmark that can be achieved. Limits are typically associated with subscriptions, services, and offerings.  

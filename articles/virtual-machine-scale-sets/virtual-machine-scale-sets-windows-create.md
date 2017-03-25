@@ -129,7 +129,7 @@ You have all the resources that you need for the scale set configuration, so let
         $imageOffer = "WindowsServer"
         $imageSku = "2012-R2-Datacenter"
    
-    To find the information about other images to use, look at [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+    To find the information about other images to use, look at [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 3. Create the storage profile:
    
