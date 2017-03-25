@@ -126,5 +126,5 @@ Depending on your network connection and the size of your VHD file, this command
 
 ## Next steps
 * [Create a VM in Azure from a generalized VHD](windows/create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Create a VM in Azure from a specialized VHD](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) by attaching it as an OS disk when you create a new VM.
+* [Create a VM in Azure from a specialized VHD](windows/create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) by attaching it as an OS disk when you create a new VM.
 

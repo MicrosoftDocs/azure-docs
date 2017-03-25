@@ -93,5 +93,5 @@ Elapsed time:            00.00:13:07
 * When you use AZCopy, if you see the error "Server failed to authenticate the request", make sure the value of the Authorization header is formed correctly including the signature. If you are using Key 2 or the secondary storage key, try using the primary or 1st storage key.
 
 ## Next steps
-* You can create a new VM by [attaching the copy of the VHD to a VM as an OS disk](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* You can create a new VM by [attaching the copy of the VHD to a VM as an OS disk](windows/create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
