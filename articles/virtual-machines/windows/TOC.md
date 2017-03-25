@@ -127,7 +127,7 @@
 ## Scale and availability
 ### [VM availability](../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Create an availability set](../virtual-machines-windows-create-availability-set.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Change availability set for VM](../virtual-machines-windows-change-availability-set.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Change availability set for VM](change-availability-set.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Load Balancer overview](../virtual-machines-windows-load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Create a load balancer](../../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Scale multiple VMs with VMSS](../virtual-machines-windows-vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
