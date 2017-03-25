@@ -21,7 +21,7 @@ ms.author: davidmu
 # Deploy an Azure Virtual Machine using C# and a Resource Manager template
 This article shows you how to deploy an Azure Resource Manager template using C#. The [template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json) deploys a single virtual machine running Windows Server in a new virtual network with a single subnet.
 
-For a detailed description of the virtual machine resource, see [Virtual machines in an Azure Resource Manager template](../virtual-machines-windows-template-description.md). For more information about all the resources in a template, see [Azure Resource Manager template walkthrough](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+For a detailed description of the virtual machine resource, see [Virtual machines in an Azure Resource Manager template](template-description.md). For more information about all the resources in a template, see [Azure Resource Manager template walkthrough](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
 It takes about 10 minutes to do these steps.
 
