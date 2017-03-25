@@ -163,9 +163,9 @@ for example:
 
 5. Save your changes. (On the designer command bar, choose **Save**.)
 
-6.	Now manually run your logic app for testing. 
+6.	You can now manually run your logic app for testing. 
 On the designer command bar, choose **Run**. Otherwise, 
-your logic app checks the specified RSS feed 
+you can let your logic app check the specified RSS feed 
 based on the schedule that you set up.
 
 	If your logic app finds new items, 
