@@ -142,7 +142,7 @@ For more information about Managed Disks, please refer to the following articles
 
 * [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
 
-* [Attach a managed data disk to a Windows VM using PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
+* [Attach a managed data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md)
 
 * [Add a managed disk to a Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
 
