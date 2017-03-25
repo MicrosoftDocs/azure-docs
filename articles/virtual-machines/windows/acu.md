@@ -30,4 +30,4 @@ Here are links to more information about the different sizes:
 - [Compute optimized](sizes-compute.md)
 - [GPU optimized](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
-- [Storage optimized](../virtual-machines-windows-sizes-storage.md)
+- [Storage optimized](sizes-storage.md)
