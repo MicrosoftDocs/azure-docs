@@ -31,7 +31,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Compare VMs, websites, and cloud services](../app-service-web/choose-web-site-cloud-service-vm.md)
 
-[Virtual Machines and Containers in Azure](virtual-machines-windows-containers.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Virtual Machines and Containers in Azure](windows/containers.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Environment setup
 [Free account](https://azure.microsoft.com/free/)
