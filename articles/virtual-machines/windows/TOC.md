@@ -137,7 +137,7 @@
 ### [Azure Automation overview](manage-using-azure-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Manage VM security
-### [Reset password](../virtual-machines-windows-reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Reset password](reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Create a work or school identity in Azure AD](create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Manage access](../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Encrypt a disk](../../security/azure-security-disk-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
