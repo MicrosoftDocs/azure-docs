@@ -17,7 +17,7 @@
 ### [App architecture](dotnet-core-2-architecture.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Access and security](dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Availability and scale](dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [App deployment](../virtual-machines-windows-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [App deployment](dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Concepts
 ## [Regions and availability](../virtual-machines-windows-regions-and-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

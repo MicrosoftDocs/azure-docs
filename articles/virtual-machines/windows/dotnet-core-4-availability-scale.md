@@ -247,5 +247,5 @@ For more information on the copy function, see [Create multiple instances of res
 ## Next step
 <hr>
 
-[Step 4 - Application Deployment with Azure Resource Manager Templates](../virtual-machines-windows-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Step 4 - Application Deployment with Azure Resource Manager Templates](dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
