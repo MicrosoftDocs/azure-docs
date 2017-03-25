@@ -130,7 +130,7 @@
 ### [Change availability set for VM](change-availability-set.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Load Balancer overview](load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Create a load balancer](../../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Scale multiple VMs with VMSS](../virtual-machines-windows-vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Scale multiple VMs with VMSS](vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Create multiple Azure virtual machines](multiple-vms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Vertically scale VMs with Azure Automation](vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Create a VM with monitoring and diagnostics](extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
