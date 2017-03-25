@@ -144,5 +144,5 @@ A [Recovery Services vault](../backup/backup-introduction-to-azure-backup.md) is
 ## Next steps
 * If your intent is to work with Linux VMs, look at [Azure and Linux](virtual-machines-linux-azure-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Learn more about the guidelines around setting up your infrastructure in the [Example Azure infrastructure walkthrough](virtual-machines-windows-infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Make sure you follow the [Best Practices for running a Windows VM on Azure](virtual-machines-windows-guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Make sure you follow the [Best Practices for running a Windows VM on Azure](windows/guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

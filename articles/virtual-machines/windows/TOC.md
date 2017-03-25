@@ -43,7 +43,7 @@
 #### [Compute-intensive sizes](a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Azure compute units (ACU)](acu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Compute benchmark scores](compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Best practices for running a Windows VM](../virtual-machines-windows-guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Best practices for running a Windows VM](guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## Deployment considerations
 ### [Infrastructure guidelines](../virtual-machines-windows-infrastructure-virtual-machine-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Subscriptions and accounts](../virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
