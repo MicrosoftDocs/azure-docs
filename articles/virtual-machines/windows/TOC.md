@@ -125,7 +125,7 @@
 ### [Create an FDQN using the portal](../virtual-machines-windows-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Scale and availability
-### [VM availability](../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [VM availability](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Create an availability set](create-availability-set.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Change availability set for VM](change-availability-set.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Load Balancer overview](load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

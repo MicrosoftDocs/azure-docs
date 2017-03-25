@@ -28,7 +28,7 @@ Availability sets provide redundancy to your application. We recommend that you 
 
 If you want your VM to be part of an availability set, you need to create the availability set first or while you are creating your first VM in the set. If your VM will be using Managed Disks, the availability set must be created as a managed availability set.
 
-For more information about creating and using availability sets, see [Manage the availability of virtual machines](../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For more information about creating and using availability sets, see [Manage the availability of virtual machines](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Use the portal to create an availability set before creating your VMs
 1. In the hub menu, click **Browse** and select **Availability sets**.

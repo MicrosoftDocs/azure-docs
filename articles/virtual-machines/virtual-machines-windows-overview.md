@@ -134,7 +134,7 @@ This table shows you some of the ways that you can get information about a VM.
 You use the Connect button in the Azure portal to [start a Remote Desktop (RDP) session](windows/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Things can sometimes go wrong when trying to use a remote connection. If this situation happens to you, check out the help information in [Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Manage availability
-It’s important for you to understand how to [ensure high availability](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for your application. This configuration involves creating multiple VMs to ensure that at least one is running.
+It’s important for you to understand how to [ensure high availability](windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for your application. This configuration involves creating multiple VMs to ensure that at least one is running.
 
 In order for your deployment to qualify for our 99.95 VM Service Level Agreement, you need to deploy two or more VMs running your workload inside an [availability set](windows/infrastructure-availability-sets-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). This configuration ensures your VMs are distributed across multiple fault domains and are deployed onto hosts with different maintenance windows. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explains the guaranteed availability of Azure as a whole.
 

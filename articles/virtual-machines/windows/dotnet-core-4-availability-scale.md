@@ -58,7 +58,7 @@ The availability set as seen from the Azure portal. Each virtual machine and det
 
 ![Availability Set](./media/dotnet-core-4-availability-scale/ase-win.png)
 
-For in-depth information on Availability Sets, see [Manage availability of virtual machines](../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+For in-depth information on Availability Sets, see [Manage availability of virtual machines](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 ## Network Load Balancer
 Whereas an availability set provides application fault tolerance, a load balancer makes many instances of the application available on a single network address. Multiple instances of an application can be hosted on many virtual machines, each one connected to a load balancer. As the application is accessed, the load balancer routes the incoming request across the attached members. A Load Balancer can be added using the Visual Studio Add New Resource Wizard, or by inserting properly formatted JSON resource into the Azure Resource Manager template.

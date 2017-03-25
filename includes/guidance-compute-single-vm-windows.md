@@ -176,7 +176,7 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 [github-folder]: http://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm
 [group-policy]: https://technet.microsoft.com/en-us/library/dn595129.aspx
 [log-collector]: https://azure.microsoft.com/en-us/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
-[manage-vm-availability]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md
+[manage-vm-availability]:../articles/virtual-machines/windows/manage-availability.md
 [multi-vm]: ../articles/guidance/guidance-compute-multi-vm.md
 [naming conventions]: ../articles/guidance/guidance-naming-conventions.md
 [nsg]: ../articles/virtual-network/virtual-networks-nsg.md
