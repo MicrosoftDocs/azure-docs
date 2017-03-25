@@ -188,7 +188,7 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-labs-user
 [rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
 [reboot-logs]: https://azure.microsoft.com/en-us/blog/viewing-vm-reboot-logs/
-[resize-os-disk]: ../articles/virtual-machines/virtual-machines-windows-expand-os-disk.md
+[resize-os-disk]:../articles/virtual-machines/windows/expand-os-disk.md
 [Resize-VHD]: https://technet.microsoft.com/en-us/library/hh848535.aspx
 [Resize virtual machines]: https://azure.microsoft.com/en-us/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md

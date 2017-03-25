@@ -54,7 +54,7 @@ No. If you want your VM to be part of an availability set, you need to create th
 Yes. For instructions, see [Upload a Windows VM image to Azure ](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Can I resize the OS disk?
-Yes. For instructions, see [How to expand the OS drive of a Virtual Machine in an Azure Resource Group](virtual-machines-windows-expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Yes. For instructions, see [How to expand the OS drive of a Virtual Machine in an Azure Resource Group](windows/expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Can I copy or clone an existing Azure VM?
 Yes. For instructions, see [How to create a copy of a Windows virtual machine in the Resource Manager deployment model](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
