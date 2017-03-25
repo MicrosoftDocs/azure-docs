@@ -69,12 +69,13 @@ You can create, monitor, and manage Azure data factories programmatically using 
     using System.Collections.ObjectModel;
     using System.Threading.Tasks;
 
+    using Microsoft.Azure;
     using Microsoft.Azure.Management.DataFactories;
     using Microsoft.Azure.Management.DataFactories.Models;
     using Microsoft.Azure.Management.DataFactories.Common.Models;
 
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Microsoft.Azure;
+
 	```
 6. Add the following code that creates an instance of **DataPipelineManagementClient** class to the **Main** method. You use this object to create a data factory, a linked service, input and output datasets, and a pipeline. You also use this object to monitor slices of a dataset at runtime.
 
@@ -84,8 +85,8 @@ You can create, monitor, and manage Azure data factories programmatically using 
 	string dataFactoryName = "APITutorialFactorySP";
 	
 	TokenCloudCredentials aadTokenCredentials = new TokenCloudCredentials(
-	        ConfigurationManager.AppSettings["SubscriptionId"],
-	        GetAuthorizationHeader().Result);
+            ConfigurationManager.AppSettings["SubscriptionId"],
+	    GetAuthorizationHeader().Result);
 	
 	Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 	
@@ -279,10 +280,11 @@ You can create, monitor, and manage Azure data factories programmatically using 
     public static async Task<string> GetAuthorizationHeader()
     {
         AuthenticationResult result = await context.AcquireTokenAsync(
-                    resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
-                    clientId: ConfigurationManager.AppSettings["AdfClientId"],
-                    redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
-                    promptBehavior: PromptBehavior.Always);
+            resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+            clientId: ConfigurationManager.AppSettings["AdfClientId"],
+            redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
+            promptBehavior: PromptBehavior.Always);
+
         if (result != null)
             return result.AccessToken;
 
@@ -334,14 +336,13 @@ You can create, monitor, and manage Azure data factories programmatically using 
 	Console.ReadKey();
 	
 	var datasliceRunListResponse = client.DataSliceRuns.List(
-	        resourceGroupName,
-	        dataFactoryName,
-	        Dataset_Destination,
-	        new DataSliceRunListParameters()
-	        {
-	            DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
-	        }
-	    );
+	    resourceGroupName,
+	    dataFactoryName,
+	    Dataset_Destination,
+	    new DataSliceRunListParameters()
+	    {
+	        DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
+	    });
 	
 	foreach (DataSliceRun run in datasliceRunListResponse.DataSliceRuns)
 	{
@@ -388,9 +389,14 @@ public static async Task<string> GetAuthorizationHeaderNoPopup()
 {
     var authority = new Uri(new Uri("https://login.windows.net"), ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
     var context = new AuthenticationContext(authority.AbsoluteUri);
-    var credential = new ClientCredential(ConfigurationManager.AppSettings["AdfClientId"], ConfigurationManager.AppSettings["AdfClientSecret"]);
+    var credential = new ClientCredential(
+        ConfigurationManager.AppSettings["AdfClientId"],
+	ConfigurationManager.AppSettings["AdfClientSecret"]);
     
-    AuthenticationResult result = await context.AcquireTokenAsync(ConfigurationManager.AppSettings["WindowsManagementUri"], credential);
+    AuthenticationResult result = await context.AcquireTokenAsync(
+        ConfigurationManager.AppSettings["WindowsManagementUri"],
+	credential);
+
     if (result != null)
         return result.AccessToken;
 
