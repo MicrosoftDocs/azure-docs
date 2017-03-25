@@ -328,5 +328,5 @@ Try running other Linux workloads. For example, see:
 * [Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](hpcpack-cluster-openfoam.md)
 
 <!--Image references-->
-[hndeploy]:./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png
-[clustermanager]:./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/ClusterManager.png
+[hndeploy]:media/hpcpack-cluster-starccm/hndeploy.png
+[clustermanager]:media/hpcpack-cluster-starccm/ClusterManager.png
