@@ -42,12 +42,10 @@ Also, this example requires these items:
 * An Outlook.com, Office 365 Outlook, or Gmail account
 
 	> [!TIP]
-	> If you have a personal [Microsoft account](https://account.microsoft.com/account) 
-	> like *@outlook.com* or *@hotmail.com*, then you have an Outlook.com account. 
-	> 
-	> If you have an Azure work or school account managed by Azure Active Directory (Azure AD), 
-	> like *@contoso.onmicrosoft.com* or just *@contoso.com*
-	> then you have an **Office 365 Outlook** account.
+	> You have an **Outlook.com** account if you have a personal 
+	> [Microsoft account](https://account.microsoft.com/account). 
+	> Otherwise, you have an **Office 365 Outlook** account 
+	> if you have an Azure work or school account.
 
 * A link to a website's RSS feed. This example uses 
 the RSS feed for the [MSDN Channel 9 website](https://channel9.msdn.com/): 
