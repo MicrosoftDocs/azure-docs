@@ -58,7 +58,7 @@
 ## Create VMs
 ### [VM creation overview](creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Create VM with a template](../virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Create VM with C#](../virtual-machines-windows-csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Create VM with C#](csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Create VM with C# and template](../virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Create VM with Chef](chef-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Create VM running popular application frameworks](app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
