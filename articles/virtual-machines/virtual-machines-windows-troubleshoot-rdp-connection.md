@@ -162,7 +162,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
     Direction                : Inbound
     ```
    
-    If you do not have a rule that allows RDP traffic, [create a Network Security Group rule](virtual-machines-windows-nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Allow TCP port 3389.
+    If you do not have a rule that allows RDP traffic, [create a Network Security Group rule](windows/nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Allow TCP port 3389.
 3. **Reset user credentials**. This troubleshooting step resets the password on the local administrator account that you specify when you are unsure of, or have forgotten, the credentials.
    
     First, specify the username and a new password by assigning credentials to the `$cred` variable as follows:
