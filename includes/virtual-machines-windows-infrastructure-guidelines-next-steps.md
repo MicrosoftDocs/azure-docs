@@ -7,5 +7,5 @@ The full series of guidelines helps you understand all the different design cons
 * [Azure Networking Guidelines](../articles/virtual-machines/virtual-machines-windows-infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Azure Availability Set Guidelines](../articles/virtual-machines/windows/infrastructure-availability-sets-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Azure Virtual Machine Guidelines](../articles/virtual-machines/virtual-machines-windows-infrastructure-virtual-machine-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Azure Example Infrastructure Walkthrough](../articles/virtual-machines/virtual-machines-windows-infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Azure Example Infrastructure Walkthrough](../articles/virtual-machines/windows/infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
