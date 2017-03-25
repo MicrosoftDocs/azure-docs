@@ -23,7 +23,7 @@ These steps show you how to use Azure PowerShell commands to migrate infrastruct
 
 If you want, you can also migrate resources by using the [Azure Command Line Interface (Azure CLI)](virtual-machines-linux-cli-migration-classic-resource-manager.md).
 
-* For background on supported migration scenarios, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md). 
+* For background on supported migration scenarios, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](windows/migration-classic-resource-manager.md). 
 * For detailed guidance and a migration walkthrough, see [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md).
 * [Review most common migration errors](virtual-machines-migration-errors.md)
 
@@ -35,7 +35,7 @@ Here is a flowchart to identify the order in which steps need to be executed dur
 ## Step 1: Plan for migration
 Here are a few best practices that we recommend as you evaluate migrating IaaS resources from classic to Resource Manager:
 
-* Read through the [supported and unsupported features and configurations](virtual-machines-windows-migration-classic-resource-manager.md). If you have virtual machines that use unsupported configurations or features, we recommend that you wait for the configuration/feature support to be announced. Alternatively, if it suits your needs, remove that feature or move out of that configuration to enable migration.
+* Read through the [supported and unsupported features and configurations](windows/migration-classic-resource-manager.md). If you have virtual machines that use unsupported configurations or features, we recommend that you wait for the configuration/feature support to be announced. Alternatively, if it suits your needs, remove that feature or move out of that configuration to enable migration.
 * If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal.
 
 > [!IMPORTANT]
@@ -318,7 +318,7 @@ If the prepared configuration looks good, you can move forward and commit the re
 ```
 
 ## Next steps
-* For more information about migration, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md).
+* For more information about migration, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](windows/migration-classic-resource-manager.md).
 * To migrate additional network resources to Resource Manager using Azure PowerShell, use similar steps with [Move-AzureNetworkSecurityGroup](https://msdn.microsoft.com/library/mt786729.aspx), [Move-AzureReservedIP](https://msdn.microsoft.com/library/mt786752.aspx), and [Move-AzureRouteTable](https://msdn.microsoft.com/library/mt786718.aspx).
 * For open-source scripts you can use to migrate Azure resources from classic to Resource Manager, see [Community tools for migration to Azure Resource Manager migration](virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
