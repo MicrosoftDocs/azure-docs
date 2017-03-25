@@ -64,7 +64,7 @@ Azure uses the storage account as a container for your unmanaged disks. When you
 ## Premium Storage-supported VMs
 Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series VMs. You can use both standard and premium storage disks with these VMs. You cannot use premium storage disks with VM series which are not Premium Storage-compatible.
 
-For information on available Azure VM types and sizes for Windows VMs, see [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For information on VM types and sizes for Linux VMs, see [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For information on available Azure VM types and sizes for Windows VMs, see [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For information on VM types and sizes for Linux VMs, see [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Following are some of the features of the DS, DSv2, GS, and Fs series VMs:
 
@@ -88,7 +88,7 @@ For example, a STANDARD_DS1 VM has dedicated bandwidth of 32 MB/s available for 
 Currently, the largest VM on the DS-series is Standard_DS15_v2 and it can provide up to 960 MB/s across all disks. The largest VM on the GS-series is Standard_GS5 and it can give up to 2000 MB/s across all disks.
 Note that these limits are for disk traffic alone, and don't include cache-hits and network traffic. There is a separate bandwidth available for VM network traffic, which is different from the dedicated bandwidth for premium storage disks.
 
-For the most up-to-date information on maximum IOPS and throughput (bandwidth) for Premium Storage-supported VMs, see [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For the most up-to-date information on maximum IOPS and throughput (bandwidth) for Premium Storage-supported VMs, see [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 To learn about the premium storage disks and their IOPs and throughput limits, see the table in the [Premium Storage Scalability and Performance Targets](#premium-storage-scalability-and-performance-targets) section in this article.
 

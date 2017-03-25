@@ -18,7 +18,7 @@ ms.author: iainfou
 
 ---
 # Create a Windows VM with multiple NICs
-You can create a virtual machine (VM) in Azure that has multiple virtual network interfaces (NICs) attached to it. A common scenario would be to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. This article provides quick commands to create a VM with multiple NICs attached to it. For detailed information, including how to create multiple NICs within your own PowerShell scripts, read more about [deploying multi-NIC VMs](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md). Different [VM sizes](../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) support a varying number of NICs, so size your VM accordingly.
+You can create a virtual machine (VM) in Azure that has multiple virtual network interfaces (NICs) attached to it. A common scenario would be to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. This article provides quick commands to create a VM with multiple NICs attached to it. For detailed information, including how to create multiple NICs within your own PowerShell scripts, read more about [deploying multi-NIC VMs](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md). Different [VM sizes](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) support a varying number of NICs, so size your VM accordingly.
 
 ## Create core resources
 Make sure that you have the [latest Azure PowerShell installed and configured](/powershell/azureps-cmdlets-docs). Log in to your Azure account:
@@ -78,7 +78,7 @@ $myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
 Typically you also create a [network security group](../../virtual-network/virtual-networks-nsg.md) or [load balancer](../../load-balancer/load-balancer-overview.md) to help manage and distribute traffic across your VMs. The [more detailed multi-NIC VM](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md) article guides you through creating a Network Security Group and assigning NICs.
 
 ## Create the virtual machine
-Now start to build your VM configuration. Each VM size has a limit for the total number of NICs that you can add to a VM. Read more about [Windows VM sizes](../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Now start to build your VM configuration. Each VM size has a limit for the total number of NICs that you can add to a VM. Read more about [Windows VM sizes](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 First, set your VM credentials to the `$cred` variable as follows:
 
@@ -205,6 +205,6 @@ You can also use a `copyIndex()` to then append a number to a resource name, whi
 You can read a complete example of [creating multiple NICs using Resource Manager templates](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
 ## Next steps
-Make sure to review [Windows VM sizes](../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) when trying to creating a VM with multiple NICs. Pay attention to the maximum number of NICs each VM size supports. 
+Make sure to review [Windows VM sizes](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) when trying to creating a VM with multiple NICs. Pay attention to the maximum number of NICs each VM size supports. 
 
 

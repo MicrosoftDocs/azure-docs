@@ -97,7 +97,7 @@ To create the web server VM, complete the following steps:
 	|**Resource group**|**Use existing:** Select *MyRG*|Though we’re using the same resource group as we did for the VNet, the resources don’t have to exist in the same resource group.|
 	|**Location**|*West US*|The location must be the same location that you specified in step 5 of the [Create a virtual network with two subnets](#create-vnet) section of this article. VMs and the VNets they connect to must exist in the same location.|
 
-4. In the **Choose a size** blade, click *DS1_V2 Standard*, then click **Select**. Read the [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article for a list of all Windows VM sizes supported by Azure.
+4. In the **Choose a size** blade, click *DS1_V2 Standard*, then click **Select**. Read the [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article for a list of all Windows VM sizes supported by Azure.
 5. In the **Settings** blade, enter or select the following values and click **OK**:
 
 	|**Setting**|**Value**|**Details**|

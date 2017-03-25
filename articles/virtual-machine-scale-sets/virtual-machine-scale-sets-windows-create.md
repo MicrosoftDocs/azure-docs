@@ -87,7 +87,7 @@ You have all the resources that you need for the scale set configuration, so let
    
         $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
    
-    This example shows a scale set being created with three virtual machines. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) for more about the capacity of scale sets. This step also includes setting the size (referred to as SkuName) of the virtual machines in the set. To find a size that meets your needs, look at [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+    This example shows a scale set being created with three virtual machines. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) for more about the capacity of scale sets. This step also includes setting the size (referred to as SkuName) of the virtual machines in the set. To find a size that meets your needs, look at [Sizes for virtual machines](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 5. Add the network interface configuration to the scale set configuration:
    
         Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssConfig -Primary $true -IPConfiguration $ipConfig

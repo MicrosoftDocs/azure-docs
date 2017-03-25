@@ -71,7 +71,7 @@ To enable RDP, add an NSG rule that allows inbound traffic to TCP port 3389.
 
 ## Scalability considerations
 
-You can scale a VM up or down by [changing the VM size](../articles/virtual-machines/virtual-machines-windows-sizes.md). To scale out horizontally, put two or more VMs into an availability set behind a load balancer. For details, see [Running multiple VMs on Azure for scalability and availability][multi-vm].
+You can scale a VM up or down by [changing the VM size](../articles/virtual-machines/windows/sizes.md). To scale out horizontally, put two or more VMs into an availability set behind a load balancer. For details, see [Running multiple VMs on Azure for scalability and availability][multi-vm].
 
 ## Availability considerations
 
@@ -200,12 +200,12 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 [storage-account-limits]: ../articles/azure-subscription-service-limits.md#storage-limits
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [Use Security Center]: ../articles/security-center/security-center-get-started.md#use-security-center
-[virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-windows-sizes.md
+[virtual-machine-sizes]: ../articles/virtual-machines/windows/sizes.md
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
-[vm-size-tables]: ../articles/virtual-machines/virtual-machines-windows-sizes.md
+[vm-size-tables]: ../articles/virtual-machines/windows/sizes.md
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Single Windows VM architecture in Azure"
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
 [blocks]: https://github.com/mspnp/template-building-blocks

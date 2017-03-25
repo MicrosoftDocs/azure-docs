@@ -133,7 +133,7 @@ The **Subscription** and the **Location** must be same that you specified when y
 
 ### Step 2: Specify the parameter settings
 
-Enter or modify values for the template parameters. Click the icon next to each parameter for help information. Also see the guidance for [available VM sizes](../virtual-machines-windows-sizes.md).
+Enter or modify values for the template parameters. Click the icon next to each parameter for help information. Also see the guidance for [available VM sizes](sizes.md).
 
 Specify the values you recorded in the Prerequisites for the following parameters: **Vault name**, **Vault resource group**, **Certificate URL**, and **Certificate thumbprint**.
 

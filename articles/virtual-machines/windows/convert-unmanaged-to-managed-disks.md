@@ -95,10 +95,10 @@ This section covers how to convert your existing Azure VMs from unmanaged disks 
 
 ## Migrate existing Azure VMs using standard unmanaged disks to Premium managed disks
 
-This section will show you how to convert your existing Azure VMs on Standard unmanaged disks to Premium managed disks. In order to use Premium Managed Disks, your VM must use a [VM size](../virtual-machines-windows-sizes.md) that supports Premium storage.
+This section will show you how to convert your existing Azure VMs on Standard unmanaged disks to Premium managed disks. In order to use Premium Managed Disks, your VM must use a [VM size](sizes.md) that supports Premium storage.
 
 
-1.  First, set the common parameters. Make sure the [VM size](../virtual-machines-windows-sizes.md) you select supports Premium storage.
+1.  First, set the common parameters. Make sure the [VM size](sizes.md) you select supports Premium storage.
 
     ```powershell
     $resourceGroupName = 'YourResourceGroupName'

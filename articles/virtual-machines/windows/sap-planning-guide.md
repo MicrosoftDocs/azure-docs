@@ -274,7 +274,7 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-linux-update-agent]:../virtual-machines-linux-update-agent.md
 [virtual-machines-manage-availability]:../virtual-machines-windows-manage-availability.md
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:../virtual-machines-windows-ps-create.md
-[virtual-machines-sizes]:../virtual-machines-windows-sizes.md
+[virtual-machines-sizes]:sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:classic/ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:classic/ps-sql-int-listener.md
 [virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./sql/virtual-machines-windows-sql-high-availability-dr.md

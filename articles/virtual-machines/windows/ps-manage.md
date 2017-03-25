@@ -275,7 +275,7 @@ It returns something like this example:
     ---------  -------------------  ----------  ------------
                               True          OK  OK
 
-See [Sizes for virtual machines in Azure](../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for a list of available sizes for a virtual machine.
+See [Sizes for virtual machines in Azure](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for a list of available sizes for a virtual machine.
 
 ## Delete a virtual machine
 

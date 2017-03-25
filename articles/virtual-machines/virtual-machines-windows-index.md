@@ -50,7 +50,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 ## Plan
 [About images for classic virtual machines](windows/classic/about-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Sizes for virtual machines](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Sizes for virtual machines](windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [About H-series and compute-intensive A-series VMs](windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
