@@ -229,7 +229,7 @@ For resource types that are largely accessed through another resource, you can u
    
    * [Running VMs for an N-tier architecture on Azure](../guidance/guidance-compute-n-tier-vm.md)
    * [Setting up WinRM access for Virtual Machines in Azure Resource Manager](../virtual-machines/virtual-machines-windows-winrm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-   * [Allow external access to your VM using the Azure portal](../virtual-machines/virtual-machines-windows-nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+   * [Allow external access to your VM using the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
    * [Allow external access to your VM using PowerShell](../virtual-machines/virtual-machines-windows-nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
    * [Opening ports and endpoints](../virtual-machines/virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 2. The **domainNameLabel** property for publicIPAddresses must be unique. domainNameLabel is required to be between 3 and 63 characters long and to follow the rules specified by this regular expression `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. As the uniqueString function generates a string that is 13 characters long, the dnsPrefixString parameter is limited to no more than 50 characters.

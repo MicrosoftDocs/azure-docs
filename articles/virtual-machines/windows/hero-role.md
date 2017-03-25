@@ -89,7 +89,7 @@ In order for your VM to accept inbound traffic over port 80, you need to add an 
    
     ![Screenshot showing the button to add a security rule](./media/hero-role/port-80.png)
 
-For more information about NSGs, inbound and outbound rules, see [Allow external access to your VM using the Azure portal](../virtual-machines-windows-nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+For more information about NSGs, inbound and outbound rules, see [Allow external access to your VM using the Azure portal](nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Connect to the default IIS website
 1. In the Azure portal, click **Virtual machines** and then select your VM.
