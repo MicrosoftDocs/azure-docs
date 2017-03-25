@@ -33,5 +33,5 @@ ms.author: cynthn
 - [Storage optimized](virtual-machines-windows-sizes-storage.md)
 
 ## Next steps
-Learn more about how [Azure compute units (ACU)](virtual-machines-windows-acu.md) can help you compare compute performance across Azure SKUs.
+Learn more about how [Azure compute units (ACU)](windows/acu.md) can help you compare compute performance across Azure SKUs.
 

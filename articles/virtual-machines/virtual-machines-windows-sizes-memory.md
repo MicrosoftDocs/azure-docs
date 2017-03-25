@@ -34,4 +34,4 @@ ms.author: cynthn
 - [High performance compute](virtual-machines-windows-sizes-hpc.md)
 
 ## Next steps
-Learn more about how [Azure compute units (ACU)](virtual-machines-windows-acu.md) can help you compare compute performance across Azure SKUs.
+Learn more about how [Azure compute units (ACU)](windows/acu.md) can help you compare compute performance across Azure SKUs.
