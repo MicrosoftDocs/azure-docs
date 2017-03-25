@@ -128,7 +128,7 @@ This table shows you some of the ways that you can get information about a VM.
 | Azure portal |On the hub menu, click **Virtual Machines** and then select the VM from the list. On the blade for the VM, you have access to overview information, setting values, and monitoring metrics. |
 | Azure PowerShell |For information about using PowerShell to manage VMs, see [Manage Azure Virtual Machines using Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 | REST API |Use the [Get VM information](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) operation to get information about a VM. |
-| Client SDKs |For information about using C# to manage VMs, see [Manage Azure Virtual Machines using Azure Resource Manager and C#](virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
+| Client SDKs |For information about using C# to manage VMs, see [Manage Azure Virtual Machines using Azure Resource Manager and C#](windows/csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 
 ### Log on to the VM
 You use the Connect button in the Azure portal to [start a Remote Desktop (RDP) session](windows/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Things can sometimes go wrong when trying to use a remote connection. If this situation happens to you, check out the help information in [Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

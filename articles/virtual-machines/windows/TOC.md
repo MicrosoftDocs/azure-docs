@@ -76,7 +76,7 @@
 ### [Manage VMs using PowerShell](../virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Common CLI tasks](cli-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Manage VMs using CLI](cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Manage VMs using C#](../virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Manage VMs using C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Connect with RDP
 ### [Log on to a VM](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
