@@ -36,7 +36,7 @@ By using Azure Active Directory (Azure AD), you can support Single Sign-On (SSO)
    
     ![Introduction page](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-1.png)
 
-1. On the **Single-Sign On** page of the **Configure Azure AD Authentication** wizard, select a domain from the **Domain** drop-down list. The list of domains contains all domains accessible by the accounts listed in the Account Settings dialog. As an alternative, you can enter a domain name if you don’t find the one you’re looking for, such as `mydomain.onmicrosoft.com`. You can choose the option to create an Azure Active Directory app or use the settings from an existing Azure Active Directory app. Click **Next** when done.
+1. On the **Single-Sign On** page of the **Configure Azure AD Authentication** wizard, select a domain from the **Domain** drop-down list. The list of domains contains all domains accessible by the accounts listed in the Account Settings dialog. As an alternative, you can enter a domain name if you don’t find the one you’re looking for, such as `mydomain.onmicrosoft.com`. You can choose the option to create an Azure Active Directory app or use the settings from an existing Azure Active Directory app. Select **Next** when done.
    
 	![Single-sign on page](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-2.png)
 
@@ -44,7 +44,7 @@ By using Azure Active Directory (Azure AD), you can support Single Sign-On (SSO)
    
     ![Directory access page](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-3.png)
 
-1. Click **Finish** to add the necessary configuration code and references to enable your project for Azure AD authentication. You can see the Active Directory domain on the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Select **Finish** to add the necessary configuration code and references to enable your project for Azure AD authentication. You can see the Active Directory domain on the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Visual Studio will display a [What Happened](#how-your-project-is-modified) article to show you how your project was modified. If you want to check that everything worked, open one of the modified configuration files and verify that the settings mentioned in the article are there. 
 
