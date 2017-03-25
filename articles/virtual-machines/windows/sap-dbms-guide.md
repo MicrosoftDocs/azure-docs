@@ -152,10 +152,10 @@ ms.custom: H1Hack27Feb2017
 
 [dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
 
-[getting-started]:../virtual-machines-windows-sap-get-started.md
-[getting-started-dbms]:../virtual-machines-windows-sap-get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
-[getting-started-deployment]:../virtual-machines-windows-sap-get-started.md#6aadadd2-76b5-46d8-8713-e8d63630e955
-[getting-started-planning]:../virtual-machines-windows-sap-get-started.md#3da0389e-708b-4e82-b2a2-e92f132df89c
+[getting-started]:sap-get-started.md
+[getting-started-dbms]:sap-get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
+[getting-started-deployment]:sap-get-started.md#6aadadd2-76b5-46d8-8713-e8d63630e955
+[getting-started-planning]:sap-get-started.md#3da0389e-708b-4e82-b2a2-e92f132df89c
 
 [getting-started-windows-classic]:../virtual-machines-windows-classic-sap-get-started.md
 [getting-started-windows-classic-dbms]:../virtual-machines-windows-classic-sap-get-started.md#c5b77a14-f6b4-44e9-acab-4d28ff72a930
