@@ -115,7 +115,7 @@ This table provides information to get you started creating your VM.
 | Client SDKs |[Deploy Azure Resources using C#](csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | REST APIs |[Create or update a VM](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
 
-You hope it never happens, but occasionally something goes wrong. If this situation happens to you, look at the information in [Troubleshoot Resource Manager deployment issues with creating a Windows virtual machine in Azure](../virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+You hope it never happens, but occasionally something goes wrong. If this situation happens to you, look at the information in [Troubleshoot Resource Manager deployment issues with creating a Windows virtual machine in Azure](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## How do I manage the VM that I created?
 VMs can be managed using a browser-based portal, command-line tools with support for scripting, or directly through APIs. Some typical management tasks that you might perform are getting information about a VM, logging on to a VM, managing availability, and making backups.
