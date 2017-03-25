@@ -71,7 +71,7 @@
 #### [Tag a VM](../virtual-machines-windows-tag.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Backup using Recovery Services](../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Manage backups with PowerShell](../../backup/backup-azure-vms-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Download VM template](../virtual-machines-windows-download-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Download VM template](download-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Common PowerShell tasks](../virtual-machines-windows-ps-common-ref.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Manage VMs using PowerShell](../virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Common CLI tasks](cli-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
