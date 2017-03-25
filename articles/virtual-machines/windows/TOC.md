@@ -3,7 +3,7 @@
 
 # Quickstart
 ## [Create VM - Portal](../virtual-machines-windows-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Create VM - Azure CLI](../virtual-machines-windows-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Create VM - Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Create VM - PowerShell](../virtual-machines-windows-quick-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Samples
