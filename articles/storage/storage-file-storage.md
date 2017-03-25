@@ -17,12 +17,13 @@ ms.date: 03/21/2017
 ms.author: renash
 ---
 # Introduction to Azure File Storage
-Azure File Storage is Microsoft's easy to use cloud file system. Azure File Storage offers network file shares in the cloud using the industry standard [Server Message Block (SMB) Protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) and [Common Internet File System (CIFS)](https://technet.microsoft.com/en-us/library/cc939973.aspx). Azure File shares can be mounted concurrently by clients such as on-premises deployments of Windows, macOS, or Linux, or by Azure Virtual Machines. 
+Azure File Storage is Microsoft's easy to use cloud file system. Azure File Storage offers network file shares in the cloud using the industry standard [Server Message Block (SMB) Protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) and [Samba/Common Internet File System (CIFS)](https://technet.microsoft.com/en-us/library/cc939973.aspx). Azure File shares can be mounted concurrently by clients such as on-premises deployments of Windows, macOS, or Linux, or by Azure Virtual Machines. 
 
 Azure File shares can be used to:
 
-* Completely replace on-premises file shares without globally available file shares for today's mobile workforce.
 * Provide file share functionality for virtual machines running in Azure.
+* Completely replace on-premises file shares without globally available file shares for today's mobile workforce.
+* Enable moving and managing data using familiar tools like robocopy in addition to Azure tools like AzCopy.
 * Enable "lift and shift" migration of applications that depend on file semantics to the cloud, without expensive rewrites.
 
 ## Videos
@@ -42,7 +43,9 @@ Azure File Storage allows you to replace Windows Server, Linux, or NAS based fil
 ## How does it work?
 Managing Azure File shares is a lot simpler than managing file shares on-premises. The following diagram illustrates the Azure File Storage management constructs:
 
-![File Capabilities](../../includes/media/storage-file-concepts-include/AzureFileCapabilities.PNG)
+|File Structure|File Capabilities|
+|-|-|
+|![File Structure](../../includes/media/storage-file-concepts-include/files-concepts.png)|![File Capabilities](../../includes/media/storage-file-concepts-include/AzureFileCapabilities.PNG)|
 
 * **Storage Account**: All access to Azure Storage is done through a storage account. See Azure Storage Scalability and Performance Targets for details about storage account capacity.
 * **Share**: A File storage share is an SMB file share in Azure. All directories and files must be created in a parent share. An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the 5 TB total capacity of the file share.
@@ -59,7 +62,7 @@ Managing Azure File shares is a lot simpler than managing file shares on-premise
 * [Manage Azure File Share using tools and scripts](storage-file-how-to-tooling-and-scripting)
 
 ## See Also
-* **[Inside Azure File Storage](https://azure.microsoft.com/en-us/blog/inside-azure-file-storage/)**
+
 * **[Azure Blob](../storage/storage-dotnet-how-to-use-blobs.md)**: Massively-scalable object storage for unstructured data
 * **[Azure Table](../storage/storage-dotnet-how-to-use-tables.md)**: Flexible NoSQL database
 * **[Azure Queues](../storage/storage-dotnet-how-to-use-queues.md)**: Durable queues for large-volume cloud services
