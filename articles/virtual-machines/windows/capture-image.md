@@ -78,5 +78,5 @@ This article shows you how to use Azure PowerShell to create an image of a gener
     You can also verify the URI in the portal. The image is copied to a container named **system** in your storage account. 
 
 ## Next steps
-* Now you can [create a VM from the image](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Now you can [create a VM from the image](create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
