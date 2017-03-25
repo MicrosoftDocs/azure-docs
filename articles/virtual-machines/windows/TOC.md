@@ -122,7 +122,7 @@
 #### [Azure PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Azure portal](nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [DNS name resolution options](../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Create an FDQN using the portal](../virtual-machines-windows-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Create an FDQN using the portal](portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Scale and availability
 ### [VM availability](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
