@@ -228,7 +228,7 @@ For resource types that are largely accessed through another resource, you can u
      For more information about connecting to virtual machines, see:
    
    * [Running VMs for an N-tier architecture on Azure](../guidance/guidance-compute-n-tier-vm.md)
-   * [Setting up WinRM access for Virtual Machines in Azure Resource Manager](../virtual-machines/virtual-machines-windows-winrm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+   * [Setting up WinRM access for Virtual Machines in Azure Resource Manager](../virtual-machines/windows/winrm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
    * [Allow external access to your VM using the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
    * [Allow external access to your VM using PowerShell](../virtual-machines/windows/nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
    * [Opening ports and endpoints](../virtual-machines/virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

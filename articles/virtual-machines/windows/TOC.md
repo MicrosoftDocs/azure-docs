@@ -143,7 +143,7 @@
 ### [Encrypt a disk](../../security/azure-security-disk-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Apply policies to VMs](policy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Set up Key Vault](key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Set up WinRM](../virtual-machines-windows-winrm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Set up WinRM](winrm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Use VM extensions
 ### [VM extensions overview](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
