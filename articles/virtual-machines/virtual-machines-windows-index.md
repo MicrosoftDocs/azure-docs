@@ -56,7 +56,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Planned maintenance for Azure virtual machines](virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Azure infrastructure services implementation guidelines](virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Azure infrastructure services implementation guidelines](windows/infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Create an availability set for virtual machines](windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
