@@ -27,7 +27,7 @@ There are generally three types of resource names you work with:
 2. Resource names that do not need to be unique but you want to provide a name that helps identify the context.
 3. Resource names that can be generic.
 
-For help with establishing a naming convention, see [Infrastructure naming guidelines](../virtual-machines/virtual-machines-windows-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For information about resource name restrictions, see [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md).
+For help with establishing a naming convention, see [Infrastructure naming guidelines](../virtual-machines/windows/infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For information about resource name restrictions, see [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md).
 
 ### Unique resource names
 You must provide a unique resource name for any resource type that has a data access endpoint. Some common types that require a unique name include:
