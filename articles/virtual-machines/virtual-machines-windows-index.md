@@ -54,7 +54,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [About H-series and compute-intensive A-series VMs](windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Planned maintenance for Azure virtual machines](virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Planned maintenance for Azure virtual machines](windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Azure infrastructure services implementation guidelines](windows/infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

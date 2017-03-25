@@ -181,7 +181,7 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 [naming conventions]: ../articles/guidance/guidance-naming-conventions.md
 [nsg]: ../articles/virtual-network/virtual-networks-nsg.md
 [nsg-default-rules]: ../articles/virtual-network/virtual-networks-nsg.md#default-rules
-[planned-maintenance]: ../articles/virtual-machines/virtual-machines-windows-planned-maintenance.md
+[planned-maintenance]:../articles/virtual-machines/windows/planned-maintenance.md
 [premium-storage]: ../articles/storage/storage-premium-storage.md
 [rbac]: ../articles/active-directory/role-based-access-control-what-is.md
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
