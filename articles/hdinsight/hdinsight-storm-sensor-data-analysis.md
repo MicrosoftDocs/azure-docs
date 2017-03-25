@@ -45,10 +45,7 @@ The Azure Resource Manager template used in this document demonstrates how to cr
 * [Java and the JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html): Used to develop the Storm topology.
 * [Maven](http://maven.apache.org/what-is-maven.html): Used to build and compile the project.
 * [Git](http://git-scm.com/): Used to download the project from GitHub.
-* An **SSH** client: Used to connect to the Linux-based HDInsight clusters. For more information on using SSH with HDInsight, see the following documents:
-  
-  * [Use SSH (PuTTY) with HDInsight from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md)
-  * [Use SSH with HDInsight from a Linux, Unix, OS X, or Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
+* An **SSH** client: Used to connect to the Linux-based HDInsight clusters. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
     
     > [!NOTE]
     > You must also have access to the `scp` command, which is used to copy files between your local development environment and the HDInsight cluster using SSH.
