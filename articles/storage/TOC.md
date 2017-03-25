@@ -48,7 +48,7 @@
 ### [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
 ### [Attach a managed disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md)
 ### [Add a managed disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md)
-### [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
+### [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 ### [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
 
 # How To

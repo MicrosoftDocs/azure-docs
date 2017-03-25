@@ -127,4 +127,4 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 ## Next steps
 
-Create a [snapshot](../virtual-machines-windows-snapshot-copy-managed-disk.md).
+Create a [snapshot](snapshot-copy-managed-disk.md).

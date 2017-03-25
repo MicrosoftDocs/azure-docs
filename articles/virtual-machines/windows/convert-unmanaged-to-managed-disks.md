@@ -161,5 +161,5 @@ You can also have a mixture of disks that use standard and Premium storage.
 
 ## Next steps
 
-Take a read-only copy of a VM using [snapshots](../virtual-machines-windows-snapshot-copy-managed-disk.md).
+Take a read-only copy of a VM using [snapshots](snapshot-copy-managed-disk.md).
 
