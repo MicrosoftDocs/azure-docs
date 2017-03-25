@@ -13,14 +13,14 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 
 | SKU Family | ACU/Core |
 | --- | --- |
-| [A0](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) |50 |
-| [A1-A4](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) |100 |
-| [A5-A7](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) |100 |
-| [A1_v2-A8_v2](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) |100 |
-| [A2m_v2-A8m_v2](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) |100 |
+| [A0](../articles/virtual-machines/windows/sizes-general.md) |50 |
+| [A1-A4](../articles/virtual-machines/windows/sizes-general.md) |100 |
+| [A5-A7](../articles/virtual-machines/windows/sizes-general.md) |100 |
+| [A1_v2-A8_v2](../articles/virtual-machines/windows/sizes-general.md) |100 |
+| [A2m_v2-A8m_v2](../articles/virtual-machines/windows/sizes-general.md) |100 |
 | [A8-A11](../articles/virtual-machines/virtual-machines-windows-sizes-hpc.md) |225* |
-| [D1-D14](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) |160 |
-| [D1_v2-D15_v2](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) |210 - 250* |
+| [D1-D14](../articles/virtual-machines/windows/sizes-general.md) |160 |
+| [D1_v2-D15_v2](../articles/virtual-machines/windows/sizes-general.md) |210 - 250* |
 | [DS1-DS14](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |160 |
 | [DS1_v2-DS15_v2](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |210-250* |
 | [F1-F16](../articles/virtual-machines/windows/sizes-compute.md) |210-250* |

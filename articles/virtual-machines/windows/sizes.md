@@ -37,7 +37,7 @@ This article describes the available sizes and options for the Azure virtual mac
 
 | Type                     | Sizes           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [General purpose](../virtual-machines-windows-sizes-general.md)          | DSv2, Dv2, DS, D, Av2, A0-7 | Balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. |
+| [General purpose](sizes-general.md)          | DSv2, Dv2, DS, D, Av2, A0-7 | Balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. |
 | [Compute optimized](sizes-compute.md)        | Fs, F             | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, bath processes, and application servers.        |
 | [Memory optimized](../virtual-machines-windows-sizes-memory.md)         | GS, G, DSv2, DS   | High memory-to-core ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
 | [Storage optimized](../virtual-machines-windows-sizes-storage.md)        | Ls                | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases.                                                         |
@@ -49,7 +49,7 @@ This article describes the available sizes and options for the Azure virtual mac
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
 
 Learn more about the different VM sizes that are available:
-- [General purpose](../virtual-machines-windows-sizes-general.md)
+- [General purpose](sizes-general.md)
 - [Compute optimized](sizes-compute.md)
 - [Memory optimized](../virtual-machines-windows-sizes-memory.md)
 - [Storage optimized](../virtual-machines-windows-sizes-storage.md)

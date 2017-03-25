@@ -1,6 +1,6 @@
 ---
-title: Azure Windows VM sizes - Compute optimized | Microsoft Docs
-description: Lists the different compute optimized sizes available for Windows virtual machines in Azure.
+title: Azure Windows VM sizes - General purpose | Microsoft Docs
+description: Lists the different general purpose sizes available for Windows virtual machines in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -19,15 +19,17 @@ ms.author: cynthn
 
 ---
 
-# Compute optimized
+# General purpose
 
-[!INCLUDE [virtual-machines-common-sizes-compute](../../../includes/virtual-machines-common-sizes-compute.md)]
+
+[!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-general.md)]
+
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 
 ## Other sizes
-- [General purpose](sizes-general.md)
+- [Compute optimized](sizes-compute.md)
 - [Memory optimized](../virtual-machines-windows-sizes-memory.md)
 - [Storage optimized](../virtual-machines-windows-sizes-storage.md)
 - [GPU optimized](../virtual-machines-windows-sizes-gpu.md)

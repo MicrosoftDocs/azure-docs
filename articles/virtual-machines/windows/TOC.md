@@ -34,7 +34,7 @@
 ## [Azure planned maintenance](planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Schedule](planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [VM sizes](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [General purpose](../virtual-machines-windows-sizes-general.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [General purpose](sizes-general.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Compute optimized](sizes-compute.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Memory optimized](../virtual-machines-windows-sizes-memory.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Storage optimized](../virtual-machines-windows-sizes-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

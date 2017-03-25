@@ -27,7 +27,7 @@ ms.author: cynthn
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## Other sizes
-- [General purpose](virtual-machines-windows-sizes-general.md)
+- [General purpose](windows/sizes-general.md)
 - [Compute optimized](windows/sizes-compute.md)
 - [Storage optimized](virtual-machines-windows-sizes-storage.md)
 - [GPU optimized](virtual-machines-windows-sizes-gpu.md)

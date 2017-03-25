@@ -30,7 +30,7 @@ ms.author: cynthn
 
 
 ## Other sizes
-- [General purpose](virtual-machines-windows-sizes-general.md)
+- [General purpose](windows/sizes-general.md)
 - [Compute optimized](windows/sizes-compute.md)
 - [Memory optimized](virtual-machines-windows-sizes-memory.md)
 - [GPU optimized](virtual-machines-windows-sizes-gpu.md)
