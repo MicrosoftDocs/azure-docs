@@ -87,7 +87,7 @@
 ### [Use Windows client images](client-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Prepare a VHD for upload](../virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Create a Managed Disk image](capture-image-resource.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Create a VM from a generalized Managed Disk image](../virtual-machines-windows-create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Create a VM from a generalized Managed Disk image](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 
 

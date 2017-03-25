@@ -168,5 +168,5 @@ You can also create a managed image from a snapshot of the VHD from a generalize
 	
 
 ## Next steps
-- Now you can [create a VM from the generalized managed image](../virtual-machines-windows-create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).	
+- Now you can [create a VM from the generalized managed image](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).	
 
