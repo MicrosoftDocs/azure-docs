@@ -27,7 +27,7 @@ Azure managed disks removes the need of managing [storage accounts](../storage/s
 
 
 > [!IMPORTANT]
-> Review [Plan for the migration to Managed Disks](virtual-machines-windows-on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) before starting your migration to [Managed Disks](../storage/storage-managed-disks-overview.md).
+> Review [Plan for the migration to Managed Disks](windows/on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) before starting your migration to [Managed Disks](../storage/storage-managed-disks-overview.md).
 >
 > Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 >

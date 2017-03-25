@@ -175,7 +175,7 @@
 #### [Deployment Guide](../virtual-machines-windows-sap-deployment-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Migrate VMs
-### [Migrate AWS and on-premises VMs to Azure overview](../virtual-machines-windows-on-prem-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Migrate AWS and on-premises VMs to Azure overview](on-prem-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Migrate from Amazon Web Services (AWS) to Azure](aws-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Upload and create VM from generalized VHD](../virtual-machines-windows-upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Upload and create VM from specialized VHD](../virtual-machines-windows-upload-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

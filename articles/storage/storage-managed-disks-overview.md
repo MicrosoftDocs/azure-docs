@@ -154,6 +154,6 @@ For more information about Managed Disks, please refer to the following articles
 
 ### Operational guidance
 
-* [Migrate from AWS and other platforms to Managed Disks in Azure](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+* [Migrate from AWS and other platforms to Managed Disks in Azure](../virtual-machines/windows/on-prem-to-azure.md)
 
 * [Convert Azure VMs to managed disks in Azure](../virtual-machines/windows/migrate-to-managed-disks.md)

@@ -23,7 +23,7 @@ ms.author: cynthn
 
 You can migrate an Amazon Web Services (AWS) EC2 instance to Azure by uploading the VHD. If you want to create multiple VMs in Azure from the same image, you must first generalize the VM and then export the generalized VHD to a local directory. Once the VHD is uploaded, you can create a new Azure VM that uses [Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for storage. Azure Managed Disks removes the need to manage storage accounts for Azure IaaS VMs. You have to only specify the type (Premium or Standard) and size of disk you need, and Azure will create and manage the disk for you. 
 
-Before starting this process,  make sure that you review [Plan for the migration to Managed Disks](../virtual-machines-windows-on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
+Before starting this process,  make sure that you review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
 
 Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
