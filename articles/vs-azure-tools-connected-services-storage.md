@@ -18,7 +18,17 @@ ms.author: tarcher
 
 ---
 # Adding Azure storage by using Visual Studio Connected Services
-With Visual Studio, you can connect any C# cloud service, .NET backend mobile service, ASP.NET website or service, ASP.NET Core service, or Azure WebJob service to Azure Storage by using the **Add Connected Services** dialog. The connected service functionality adds all the needed references and connection code, and modifies your configuration files appropriately. The dialog also takes you to documentation that tells you what the next steps are to start working with blob storage, queues, and tables.
+With Visual Studio, you can connect any of the following to Azure Storage by using the **Add Connected Services** dialog:
+
+- C# cloud service
+- .NET backend mobile service
+- ASP.NET website or service
+- ASP.NET Core service
+- Azure WebJob service 
+
+The connected service functionality adds all the needed references and connection code to your project, and modifies your configuration files appropriately. 
+
+After completion, the **Add Connected Services** dialog automatically displays documentation detailing the steps required to start working with blob storage, queues, and tables.
 
 ## Connect to Azure Storage using the Connected Services dialog
 1. Open your project in Visual Studio
