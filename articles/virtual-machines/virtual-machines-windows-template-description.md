@@ -456,4 +456,4 @@ It’s not a problem to use the same template to create resources or to update e
 
 - Create your own template using [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 - Deploy the template that you created using [Create a Windows virtual machine with a Resource Manager template](virtual-machines-windows-ps-template.md).
-- Learn how to manage the VMs that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md).
+- Learn how to manage the VMs that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](windows/ps-manage.md).
