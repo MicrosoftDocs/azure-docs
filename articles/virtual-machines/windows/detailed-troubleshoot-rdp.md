@@ -122,7 +122,7 @@ For more information, see [What is a Network Security Group (NSG)?](../../virtua
 ## Source 5: Windows-based Azure VM
 ![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_5.png)
 
-Follow the instructions in [this article](../virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). This article resets the Remote Desktop service on the virtual machine:
+Follow the instructions in [this article](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). This article resets the Remote Desktop service on the virtual machine:
 
 * Enable the "Remote Desktop" Windows Firewall default rule (TCP port 3389).
 * Enable Remote Desktop connections by setting the HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections registry value to 0.
@@ -183,7 +183,7 @@ Exit the remote Azure PowerShell session by using this command.
 Verify that the Remote Desktop endpoint for the Azure VM is also using TCP port 3398 as its internal port. Restart the Azure VM and try the Remote Desktop connection again.
 
 ## Additional resources
-[How to reset a password or the Remote Desktop service for Windows virtual machines](../virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[How to reset a password or the Remote Desktop service for Windows virtual machines](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
