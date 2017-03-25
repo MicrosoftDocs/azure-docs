@@ -41,6 +41,14 @@ Also, this example requires these items:
 
 * An Outlook.com, Office 365 Outlook, or Gmail account
 
+	> [!TIP]
+	> If you have a personal [Microsoft account](https://account.microsoft.com/account) 
+	> like *@outlook.com* or *@hotmail.com*, then you have an Outlook.com account. 
+	> 
+	> If you have an Azure work or school account managed by Azure Active Directory (Azure AD), 
+	> like *@contoso.onmicrosoft.com* or just *@contoso.com*
+	> then you have an **Office 365 Outlook** account.
+
 * A link to a website's RSS feed. This example uses 
 the RSS feed for the [MSDN Channel 9 website](https://channel9.msdn.com/): 
 `https://s.ch9.ms/Feeds/RSS`
@@ -52,7 +60,8 @@ and is the first item that your logic app needs.
 
 1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal").
 
-2. From the left menu, choose **New** > **Enterprise Integration** > **Logic App**.
+2. From the left menu, choose **New** > **Enterprise Integration** > **Logic App** 
+as shown here:
 
 	![Azure portal, New, Enterprise Integration, Logic App](media/logic-apps-create-a-logic-app/azure-portal-create-logic-app.png)
 
@@ -64,12 +73,13 @@ and is the first item that your logic app needs.
 3. Name your logic app and select your Azure subscription. 
 Now create or select an Azure resource group, which helps you organize and 
 manage related Azure resources. Finally, select the datacenter location 
-for hosting your logic app. When you're done, choose **Create**.
+for hosting your logic app. When you're ready, 
+choose **Pin to dashboard** and then **Create**.
 
 	![Logic app details](media/logic-apps-create-a-logic-app/logic-app-settings.png)
 
    > [!NOTE]
-   > If you select **Pin to dashboard**, 
+   > When you select **Pin to dashboard**, 
    > your logic app appears on the Azure dashboard after deployment, 
    > and opens automatically. If your logic app doesn't appear on the dashboard, 
    > on the **All resources** tile, choose **See More**, and select your logic app. 
@@ -102,15 +112,14 @@ this trigger: **RSS - When a feed item is published**
 
 	![Set up trigger with RSS feed, frequency, and interval](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 
-7. Save your changes. (On the designer command bar, choose **Save**.)
+7. Save your work for now. (On the designer command bar, choose **Save**.)
 
 	![Save your logic app](media/logic-apps-create-a-logic-app/save-logic-app.png)
 
-	Your logic app is now live. Based on the schedule that you set up, 
-	your logic app checks for new items in the specified RSS feed. 
-
-	But to make this example more useful, we add an 
-	action that your logic app performs after your trigger fires.
+	When you save, your logic app goes live, but currently, 
+	your logic app only checks for new items in the specified RSS feed. 
+	To make this example more useful, we add an action that your 
+	logic app performs after your trigger fires.
 
 ## Add an action that responds to your trigger
 
@@ -125,11 +134,10 @@ Now we add an action that sends email when new items appear in the website's RSS
 
 2. Based on your email account, follow the steps for Outlook or Gmail.
 
-	*	To send email from your Outlook account, 
-	in the search box, enter `outlook`. 
-	Under **Services**, select either **Outlook.com** 
-	or **Office 365 Outlook**. Under **Actions**, 
-	select **Send an email**.
+	*	To send email from your Outlook account, in the search box, 
+	enter `outlook`. Based on the account that you have, under **Services**, 
+	choose **Outlook.com** or **Office 365 Outlook**. 
+	Under **Actions**, select **Send an email**.
 
 		![Select Outlook "Send an email" action](media/logic-apps-create-a-logic-app/actions.png)
 
@@ -155,7 +163,7 @@ for example:
 
 5. Save your changes. (On the designer command bar, choose **Save**.)
 
-6.	Now manually trigger your logic app for testing. 
+6.	Now manually run your logic app for testing. 
 On the designer command bar, choose **Run**. Otherwise, 
 your logic app checks the specified RSS feed 
 based on the schedule that you set up.
