@@ -173,7 +173,7 @@ You can install the Eclipse plugin for Service Fabric from within the **Eclipse 
 
 If you already have the Service Fabric Eclipse plugin installed, make sure you are on the latest version. You can check by selecting ``Help => Installation Details`` and searching for Service Fabric in the list of installed plugins. Select update if a newer version is available. 
 
-For more details, see [Service fabric getting started with eclipse](service-fabric-get-started-eclipse.md).
+For more information, see [Service fabric getting started with eclipse](service-fabric-get-started-eclipse.md).
 
 
 ## Install the .NET Core SDK (optional, if you wish to use the .NET Core programming models)
