@@ -41,7 +41,7 @@ This article describes the available sizes and options for the Azure virtual mac
 | [Compute optimized](sizes-compute.md)        | Fs, F             | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, bath processes, and application servers.        |
 | [Memory optimized](../virtual-machines-windows-sizes-memory.md)         | GS, G, DSv2, DS   | High memory-to-core ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
 | [Storage optimized](../virtual-machines-windows-sizes-storage.md)        | Ls                | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases.                                                         |
-| [GPU](../virtual-machines-windows-sizes-gpu.md)            | NV, NC            | Specialized virtual machines targeted for heavy graphic rendering and video editing. Available with single or multiple GPUs.       |
+| [GPU](sizes-gpu.md)            | NV, NC            | Specialized virtual machines targeted for heavy graphic rendering and video editing. Available with single or multiple GPUs.       |
 | [High performance compute](../virtual-machines-windows-sizes-hpc.md) | H, A8-11          | Our fastest and most powerful CPU virtual machines with optional high-throughput network interfaces (RDMA). 
 
 <br>
@@ -53,7 +53,7 @@ Learn more about the different VM sizes that are available:
 - [Compute optimized](sizes-compute.md)
 - [Memory optimized](../virtual-machines-windows-sizes-memory.md)
 - [Storage optimized](../virtual-machines-windows-sizes-storage.md)
-- [GPU optimized](../virtual-machines-windows-sizes-gpu.md)
+- [GPU optimized](sizes-gpu.md)
 - [High performance compute](../virtual-machines-windows-sizes-hpc.md)
 
 

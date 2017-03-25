@@ -33,7 +33,7 @@ ms.author: cynthn
 - [General purpose](windows/sizes-general.md)
 - [Compute optimized](windows/sizes-compute.md)
 - [Memory optimized](virtual-machines-windows-sizes-memory.md)
-- [GPU optimized](virtual-machines-windows-sizes-gpu.md)
+- [GPU optimized](windows/sizes-gpu.md)
 - [High performance compute](virtual-machines-windows-sizes-hpc.md)
 
 ## Next steps

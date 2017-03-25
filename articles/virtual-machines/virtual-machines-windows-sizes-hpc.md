@@ -31,7 +31,7 @@ ms.author: cynthn
 - [Compute optimized](windows/sizes-compute.md)
 - [Memory optimized](virtual-machines-windows-sizes-memory.md)
 - [Storage optimized](virtual-machines-windows-sizes-storage.md)
-- [GPU optimized](virtual-machines-windows-sizes-gpu.md)
+- [GPU optimized](windows/sizes-gpu.md)
 
 ## Next steps
 
