@@ -148,7 +148,7 @@ To capture the image, first run the following command on the Linux VM. This comm
 sudo waagent -deprovision
 ```
 
-From your client computer, run the following Azure CLI commands to capture the image. For more information, see [How to capture a classic Linux virtual machine as an image](../../windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).  
+From your client computer, run the following Azure CLI commands to capture the image. For more information, see [How to capture a classic Linux virtual machine as an image](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).  
 
 ```
 azure vm shutdown <vm-name>
