@@ -157,7 +157,7 @@
 ### [Extensions in templates](extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Exporting VM extensions](extensions-export-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Configuration samples](extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Troubleshoot extensions](../virtual-machines-windows-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Troubleshoot extensions](extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Run applications
 ### [SQL Server](./sql/virtual-machines-windows-sql-server-iaas-overview.md)
