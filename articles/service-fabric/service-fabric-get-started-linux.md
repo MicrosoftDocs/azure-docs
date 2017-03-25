@@ -160,7 +160,7 @@ The Java SDK provides the libraries and templates required to build Service Fabr
 You can install the Eclipse plugin for Service Fabric from within the **Eclipse IDE for Java Developers**. You can use Eclipse to create Service Fabric guest executable applications and container applications in addition to Service Fabric Java applications.
 
 > [!NOTE]
->  Installing the Java SDK is a prerequisite to using the Eclipse plugin, even if you will only be using it to create and deploy guest executables and container applications.
+> Installing the Java SDK is a prerequisite to using the Eclipse plugin, even if you only use it to create and deploy guest executables and container applications.
 >
 
 1. In Eclipse, ensure that you have latest eclipse **Neon** and latest Buildship version (1.0.17 or later) installed. You can check the versions of installed components by choosing **Help > Installation Details**. You can update Buildship using the instructions [here][buildship-update].
@@ -171,9 +171,9 @@ You can install the Eclipse plugin for Service Fabric from within the **Eclipse 
 5. Choose the Service Fabric plugin and click next.
 6. Proceed through the installation and accept the end-user license agreement.
 
-If you already have the Service Fabric Eclipse plugin installed, make sure you are on the latest version. You can check by selecting ``Help => Installation Details`` and searching for Service fabric in the list of installed plugins. Select update if a newer version is available. 
+If you already have the Service Fabric Eclipse plugin installed, make sure you are on the latest version. You can check by selecting ``Help => Installation Details`` and searching for Service Fabric in the list of installed plugins. Select update if a newer version is available. 
 
-For more details on using the Service Fabric Eclipse plugin for creating Java applications, see [Service fabric getting started with eclipse](service-fabric-get-started-eclipse.md).
+For more details, see [Service fabric getting started with eclipse](service-fabric-get-started-eclipse.md).
 
 
 ## Install the .NET Core SDK (optional, if you wish to use the .NET Core programming models)
