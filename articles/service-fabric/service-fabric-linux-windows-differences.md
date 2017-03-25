@@ -25,7 +25,7 @@ Since Service Fabric on Linux is a preview, there are some features that are sup
 * ReverseProxy isn't available on Linux.
 * Standalone installer isn't available on Linux.
 * XML schema validation for manifest files is not performed on Linux. 
-* Console redirection isn't supported on Linux (Caution: Using console redirection isn't recommended for use on Windows either, and we plan to deprecate them).
+* Console redirection isn't supported on Linux (Caution: Console redirection should never be used in production clusters, even on Windows).
 * The Fault Analysis Service (FAS) isn't available on Linux.
 * Azure Active Directory support isn't available on Linux.
 * Some CLI command equivalents of Powershell commands aren't available.

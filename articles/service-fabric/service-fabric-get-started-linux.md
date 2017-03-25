@@ -142,26 +142,6 @@ At this point, you are able to deploy pre-built Service Fabric application packa
 > Stand alone clusters aren't supported in Linux - only one box and Azure Linux multi-machine clusters are supported in the preview.
 >
 
-## Install the Eclipse Neon plugin (optional)
-
-You can install the Eclipse plugin for Service Fabric from within the **Eclipse IDE for Java Developers**.
-
-1. In Eclipse, ensure that you have latest eclipse **Neon** and latest Buildship version (1.0.17 or later) installed. You can check the versions of installed components by choosing **Help > Installation Details**. You can update Buildship using the instructions [here][buildship-update].
-2. To install the Service Fabric plugin, choose **Help > Install New Software...**
-3. In the "Work with" textbox, enter: http://dl.windowsazure.com/eclipse/servicefabric
-4. Click Add.
-    ![Eclipse plugin][sf-eclipse-plugin]
-5. Choose the Service Fabric plugin and click next.
-6. Proceed through the installation and accept the end-user license agreement.
-
-If you already have the Service Fabric Eclipse plugin installed, make sure you are on the latest version. You can check by selecting ``Help => Installation Details`` and searching for Service fabric in the list of installed plugins. Select update if a newer version is available. 
-
-For more details on using the Service Fabric Eclipse plugin for creating Java applications, see [Service fabric getting started with eclipse](service-fabric-get-started-eclipse.md).
-
-> [!NOTE]
-> At this stage, you can create guest executable or container applications with the Eclipse plugin. However, to use the Reliable Actors or Services programming models, you need to install the Java SDK as outlined in the next section.
->
-
 ## Install the Java SDK (optional, if you wish to use the Java programming models)
 The Java SDK provides the libraries and templates required to build Service Fabric services using Java.
 
@@ -175,6 +155,26 @@ The Java SDK provides the libraries and templates required to build Service Fabr
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
     ```
+## Install the Eclipse Neon plugin (optional)
+
+You can install the Eclipse plugin for Service Fabric from within the **Eclipse IDE for Java Developers**. You can use Eclipse to create Service Fabric guest executable applications and container applications in addition to Service Fabric Java applications.
+
+> [!NOTE]
+>  Installing the Java SDK is a prerequisite to using the Eclipse plugin, even if you will only be using it to create and deploy guest executables and container applications.
+>
+
+1. In Eclipse, ensure that you have latest eclipse **Neon** and latest Buildship version (1.0.17 or later) installed. You can check the versions of installed components by choosing **Help > Installation Details**. You can update Buildship using the instructions [here][buildship-update].
+2. To install the Service Fabric plugin, choose **Help > Install New Software...**
+3. In the "Work with" textbox, enter: http://dl.windowsazure.com/eclipse/servicefabric
+4. Click Add.
+    ![Eclipse plugin][sf-eclipse-plugin]
+5. Choose the Service Fabric plugin and click next.
+6. Proceed through the installation and accept the end-user license agreement.
+
+If you already have the Service Fabric Eclipse plugin installed, make sure you are on the latest version. You can check by selecting ``Help => Installation Details`` and searching for Service fabric in the list of installed plugins. Select update if a newer version is available. 
+
+For more details on using the Service Fabric Eclipse plugin for creating Java applications, see [Service fabric getting started with eclipse](service-fabric-get-started-eclipse.md).
+
 
 ## Install the .NET Core SDK (optional, if you wish to use the .NET Core programming models)
 The .NET Core SDK provides the libraries and templates required to build Service Fabric services using cross-platform .NET Core.
