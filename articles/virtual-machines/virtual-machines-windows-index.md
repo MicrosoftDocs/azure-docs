@@ -153,7 +153,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 ## Troubleshooting
 [Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Troubleshoot Access to an Application Running on an Azure Virtual Machine](virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Troubleshoot Access to an Application Running on an Azure Virtual Machine](windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Troubleshoot allocation failures when you create, restart, or resize VMs in Azure](windows/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
