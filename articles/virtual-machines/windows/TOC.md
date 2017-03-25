@@ -79,7 +79,7 @@
 ### [Manage VMs using C#](../virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Connect with RDP
-### [Log on to a VM](../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Log on to a VM](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Manage VM images
 ### [Find marketplace VM images](cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

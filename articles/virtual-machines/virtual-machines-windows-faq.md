@@ -33,7 +33,7 @@ Each data disk can be up to 1 TB. The number of data disks you can use depends o
 An Azure storage account provides storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. For pricing details, see [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/).
 
 ## How can I access my virtual machine?
-Establish a remote connection using Remote Desktop Connection (RDP) for a Windows VM. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). A maximum of two concurrent connections are supported, unless the server is configured as a Remote Desktop Services session host.  
+Establish a remote connection using Remote Desktop Connection (RDP) for a Windows VM. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](windows/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). A maximum of two concurrent connections are supported, unless the server is configured as a Remote Desktop Services session host.  
 
 If you’re having problems with Remote Desktop, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 

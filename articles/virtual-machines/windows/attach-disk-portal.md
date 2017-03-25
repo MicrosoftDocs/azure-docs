@@ -49,7 +49,7 @@ Continue by following instructions for attaching either a [new disk](#option-1-a
 
 ### Initialize a new data disk
 
-1. Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+1. Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 2. After you log on to the virtual machine, open **Server Manager**. In the left pane, select **File and Storage Services**.
    
     ![Open Server Manager](./media/attach-disk-portal/fileandstorageservices.png)

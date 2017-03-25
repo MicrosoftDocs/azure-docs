@@ -55,7 +55,7 @@ Pack head node by using the Resource Manager deployment model.
    > If you want to join the head node to an existing Active Directory domain in Azure, make sure you specify the virtual network for that domain when creating the VM.
    > 
    > 
-5. After you create the VM and the VM is running, [connect to the VM](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) by Remote Desktop. 
+5. After you create the VM and the VM is running, [connect to the VM](windows/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) by Remote Desktop. 
 6. Join the VM to an Active Directory domain forest by choosing one of the following options:
    
    * If you created the VM in an Azure virtual network with an existing domain forest, join the VM to the forest by using standard Server Manager or Windows PowerShell tools. Then restart.

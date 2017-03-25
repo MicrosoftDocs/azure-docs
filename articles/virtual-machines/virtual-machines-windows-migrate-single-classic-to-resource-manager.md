@@ -169,5 +169,5 @@ Prepare your application for downtime. To do a clean migration, you have to stop
 
 ## Next steps
 
-- Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](windows/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

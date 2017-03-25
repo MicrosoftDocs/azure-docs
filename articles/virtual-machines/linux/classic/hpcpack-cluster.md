@@ -162,7 +162,7 @@ Modify the file as needed for your environment and desired cluster configuration
    > 
 
 ## Connect to the head node
-After you deploy the HPC Pack cluster in Azure, [connect by Remote Desktop](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to the head node VM using the domain credentials you provided when you deployed the cluster (for example, *hpc\\clusteradmin*). You manage the cluster from the head node.
+After you deploy the HPC Pack cluster in Azure, [connect by Remote Desktop](../../windows/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to the head node VM using the domain credentials you provided when you deployed the cluster (for example, *hpc\\clusteradmin*). You manage the cluster from the head node.
 
 On the head node, start HPC Cluster Manager to check the status of the HPC Pack cluster. You can manage and monitor Linux compute nodes the same way you work with Windows compute nodes. For example, you see the Linux nodes listed in **Resource Management** (these nodes are deployed with the **LinuxNode** template).
 
