@@ -64,7 +64,7 @@ This article answers some of the most common questions about Azure DevTest Labs.
 * [Where can I find more error information if a VM deployment fails?](#where-can-i-find-more-error-information-if-a-vm-deployment-fails)  
 
 ### What if my question isn't answered here?
-If your question isn't listed here, let us know so we can help you find an answer.
+If your question is not listed here, let us know so we can help you find an answer.
 
 * Post a question in the [Disqus thread](#comments) at the end of this FAQ and engage with the Azure Cache team and other community members about this article.
 * To reach a wider audience, post a question on the [Azure DevTest Labs MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs), and engage with the Azure DevTest Labs team and other members of the community.
@@ -156,7 +156,7 @@ Attaching multiple disks to VMs is supported.
 ### If I want to use a Windows OS image for my testing, do I have to purchase an MSDN subscription?
 If you need to use Windows client OS images (Windows 7 or later) for your development or testing in Azure, then yes, you must either:
 
-- [Buy an MSDN subscription](https://www.visualstudio.com/products/how-to-buy-vs). 
+- [Buy an MSDN subscription](https://www.visualstudio.com/products/how-to-buy-vs).
 - if you have an Enterprise Agreement, create an Azure subscription with the [Enterprise Dev/Test offer](https://azure.microsoft.com/en-us/offers/ms-azr-0148p).
 
 For more information about the Azure credits for each MSDN offering, see [Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
@@ -257,6 +257,6 @@ When one resource is a parent to another resource, the parent resource must exis
 VMs are child resources under a lab in a resource group. When you use Azure Resource Templates to deploy through PowerShell, the resource group name provided in the PowerShell script should be the resource group name of the lab. For more information, see [Troubleshoot common Azure deployment errors](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
 
 ### Where can I find more error information if a VM deployment fails?
-VM deployment errors are captured in the activity logs. You can find lab VMs activity logs through the **Audit logs** or **Virtual machine diagnostics** on the resource menu in the lab's VM blade (the blade displays after you select the VM from **My virtual machines** list). 
+VM deployment errors are captured in the activity logs. You can find lab VMs activity logs through the **Audit logs** or **Virtual machine diagnostics** on the resource menu in the lab's VM blade (the blade displays after you select the VM from **My virtual machines** list).
 
 Sometimes, the deployment error occurs before the VM deployment starts - such as when the subscription limit for a resource created with the VM is exceeded. In this case, the error details are captured in the lab level **Activity logs** that can be find at the bottom of the **Configuration and policies** settings. For more information about using activity logs in Azure, see [View activity logs to audit actions on resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
