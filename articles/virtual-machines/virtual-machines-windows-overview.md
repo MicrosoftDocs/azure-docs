@@ -87,7 +87,7 @@ VM [extensions](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fv
 These common tasks can be accomplished using extensions:
 
 * **Run custom scripts** – The [Custom Script Extension](windows/extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) helps you configure workloads on the VM by running your script when the VM is provisioned.
-* **Deploy and manage configurations** – The [PowerShell Desired State Configuration (DSC) Extension](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) helps you set up DSC on a VM to manage configurations and environments.
+* **Deploy and manage configurations** – The [PowerShell Desired State Configuration (DSC) Extension](windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) helps you set up DSC on a VM to manage configurations and environments.
 * **Collect diagnostics data** – The [Azure Diagnostics Extension](windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) helps you configure the VM to collect diagnostics data that can be used to monitor the health of your application.
 
 ### Related resources

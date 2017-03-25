@@ -29,7 +29,7 @@ This document provides an overview of virtual machine extensions, prerequisites 
 
 There are many different Azure VM extensions available, each with a specific use case. Some example use cases are:
 
-- Apply PowerShell Desired State configurations to a virtual machine by using the DSC extension for Windows. For more information, see [Azure Desired State configuration extension](virtual-machines-windows-extensions-dsc-overview.md).
+- Apply PowerShell Desired State configurations to a virtual machine by using the DSC extension for Windows. For more information, see [Azure Desired State configuration extension](windows/extensions-dsc-overview.md).
 - Configure virtual machine monitoring by using the Microsoft Monitoring Agent VM extension. For more information, see [Connect Azure virtual machines to Log Analytics](../log-analytics/log-analytics-azure-vm-extension.md).
 - Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see the [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 - Configure an Azure virtual machine by using Chef. For more information, see [Automating Azure virtual machine deployment with Chef](windows/chef-automation.md).
@@ -280,6 +280,6 @@ An extension can also be removed using the Azure portal. To do so:
 | Extension name | Description | More information |
 | --- | --- | --- |
 | Custom Script Extension for Windows |Run scripts against an Azure virtual machine |[Custom Script Extension for Windows](windows/extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| DSC Extension for Windows |PowerShell DSC (Desired State Configuration) Extension |[DSC Extension for Windows](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| DSC Extension for Windows |PowerShell DSC (Desired State Configuration) Extension |[DSC Extension for Windows](windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure Diagnostics Extension |Manage Azure Diagnostics |[Azure Diagnostics Extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM Access Extension |Manage users and credentials |[VM Access Extension for Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |

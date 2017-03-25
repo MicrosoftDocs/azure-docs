@@ -149,7 +149,7 @@
 ### [VM extensions overview](../virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Custom Script extension](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [OMS agent extension](../virtual-machines-windows-extensions-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [PowerShell DSC extension](../virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [PowerShell DSC extension](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [PowerShell DSC extension Credential Handling](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [DSC and VMSS with templates](../virtual-machines-windows-extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Azure Log Collector extension](../virtual-machines-windows-log-collector-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
