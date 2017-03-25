@@ -48,6 +48,7 @@ az group create --name=$RESOURCE_GROUP --location=$LOCATION
 >
 
 ```azurecli
+RESOURCE_GROUP=my-resource-group
 DNS_PREFIX=some-unique-value
 CLUSTER_NAME=any-acs-cluster-name
 
@@ -66,18 +67,18 @@ az acs create \
 ## Set up Jenkins and configure access to Container Service
 
 ### Step 1: Install Jenkins
-- Create an Azure VM with Ubuntu 16.04 LTS. 
-- Install Jenkins via these [instructions](https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Ubuntu).
-- A more detailed tutorial is at [howtoforge.com](https://www.howtoforge.com/tutorial/how-to-install-jenkins-with-apache-on-ubuntu-16-04).
-- Update the Azure network security group to allow port 8080 and then browse the public IP at port 8080 to manage Jenkins in your browser.
-- Initial Jenkins admin password is stored at /var/lib/jenkins/secrets/initialAdminPassword.
-- Install Docker on the Jenkins machine via these [instructions](https://docs.docker.com/cs-engine/1.13/#install-on-ubuntu-1404-lts-or-1604-lts). This allows for Docker commands to be run in Jenkins jobs.
-- Configure Docker permissions to allow Jenkins to access endpoint.
+1. Create an Azure VM with Ubuntu 16.04 LTS. 
+2. Install Jenkins via these [instructions](https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Ubuntu).
+3. A more detailed tutorial is at [howtoforge.com](https://www.howtoforge.com/tutorial/how-to-install-jenkins-with-apache-on-ubuntu-16-04).
+4. Update the Azure network security group to allow port 8080 and then browse the public IP at port 8080 to manage Jenkins in your browser.
+5. Initial Jenkins admin password is stored at /var/lib/jenkins/secrets/initialAdminPassword.
+6. Install Docker on the Jenkins machine via these [instructions](https://docs.docker.com/cs-engine/1.13/#install-on-ubuntu-1404-lts-or-1604-lts). This allows for Docker commands to be run in Jenkins jobs.
+7. Configure Docker permissions to allow Jenkins to access endpoint.
 
     ```bash
     sudo chmod 777 /run/docker.sock
     ```
-- Install `kubectl` CLI on Jenkins. More details are at [Installing and Setting up kubectl](https://kubernetes.io/docs/tasks/kubectl/install/).
+8. Install `kubectl` CLI on Jenkins. More details are at [Installing and Setting up kubectl](https://kubernetes.io/docs/tasks/kubectl/install/).
 
     ```bash
     curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
@@ -93,7 +94,7 @@ az acs create \
 > There are multiple approaches to accomplishing the following steps. Use the approach that is easiest for you.
 >
 
-- Copy the `kubectl` config file to the Jenkins machine.
+1. Copy the `kubectl` config file to the Jenkins machine.
 
     ```bash
     export KUBE_MASTER=<your_cluster_master_fqdn>
@@ -107,7 +108,7 @@ az acs create \
     sudo ssh -i ~/.ssh/id_rsa user@<your_jenkins_server> sudo cp /home/user/.kube/config /var/lib/jenkins/config
     ```
         
-- Validate from Jenkins that the Kubernetes cluster is accessible.
+2. Validate from Jenkins that the Kubernetes cluster is accessible.
     
 
 ## Create a Jenkins workflow
@@ -123,7 +124,7 @@ az acs create \
 >
 
 ### Step 1: Deploy initial v1 of application
-- Build the app from the developer machine with the following commands. Replace `myrepo` with your own.
+1. Build the app from the developer machine with the following commands. Replace `myrepo` with your own.
     
     ```bash
     git clone https://github.com/chzbrgr71/go-web.git
@@ -131,14 +132,14 @@ az acs create \
     docker build -t myrepo/go-web .
     ```
 
-- Push image to Docker Hub.
+2. Push image to Docker Hub.
 
     ```bash
     docker login
     docker push myrepo/go-web
     ```
 
-- Deploy to the Kubernetes cluster.
+3. Deploy to the Kubernetes cluster.
     
     > [!NOTE] 
     > Edit the `go-web.yaml` file to update your container image and repo.
@@ -148,22 +149,22 @@ az acs create \
     kubectl create -f ./go-web.yaml --record
     ```
 ### Step 2: Configure Jenkins system
-- Click **Manage Jenkins** > **Configure System**.
-- Under **GitHub**, select **Add Github Server**.
-- Leave **API URL** as default.
-- Under **Credentials**, add a Jenkins credential using **Secret text**. We recommend using GitHub personal access tokens, which are configured in your GitHub user account settings. More details on this [here.](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)
-- Click **Test connection** to ensure this is configured correctly.
-- Under **Global Properties**, add an environment variable `DOCKER_HUB` and provide your Docker Hub password. (This is useful in this demo, but a production scenario would require a more secure approach.)
-- Save.
+1. Click **Manage Jenkins** > **Configure System**.
+2. Under **GitHub**, select **Add Github Server**.
+3. Leave **API URL** as default.
+4. Under **Credentials**, add a Jenkins credential using **Secret text**. We recommend using GitHub personal access tokens, which are configured in your GitHub user account settings. More details on this [here.](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)
+5. Click **Test connection** to ensure this is configured correctly.
+6. Under **Global Properties**, add an environment variable `DOCKER_HUB` and provide your Docker Hub password. (This is useful in this demo, but a production scenario would require a more secure approach.)
+7. Save.
 
 ![Jenkins GitHub access](media/container-service-kubernetes-jenkins/jenkins-github-access.png)
 
 ### Step 3: Create the Jenkins workflow
-- Create a Jenkins item.
-- Provide a name (for example, "go-web") and select **Freestyle Project**. 
-- Check **GitHub project** and provide the URL to your GitHub repo.
-- In **Source Code Management**, provide the Github repo URL and credentials. 
-- Add a **Build Step** of type **Execute shell** and use the following text:
+1. Create a Jenkins item.
+2. Provide a name (for example, "go-web") and select **Freestyle Project**. 
+3. Check **GitHub project** and provide the URL to your GitHub repo.
+4. In **Source Code Management**, provide the Github repo URL and credentials. 
+5. Add a **Build Step** of type **Execute shell** and use the following text:
 
     ```bash
     WEB_IMAGE_NAME="myrepo/go-web:kube${BUILD_NUMBER}"
@@ -172,7 +173,7 @@ az acs create \
     docker push $WEB_IMAGE_NAME
     ```
 
-- Add another **Build Step** of type **Execute shell** and use the following text:
+6. Add another **Build Step** of type **Execute shell** and use the following text:
 
     ```bash
     WEB_IMAGE_NAME="myrepo/go-web:kube${BUILD_NUMBER}"
@@ -181,13 +182,13 @@ az acs create \
 
 ![Jenkins build steps](media/container-service-kubernetes-jenkins/jenkins-build-steps.png)
     
-- Save the Jenkins item and test with **Build Now**.
+7. Save the Jenkins item and test with **Build Now**.
 
 ### Step 4: Connect GitHub webhook
-- In the Jenkins item you created, click **Configure**.
-- Under **Build Triggers**, select **GitHub hook trigger for GITScm polling** and **Save**. This automatically configures the GitHub webhook.
-- In your GitHub repo for go-web, click **Settings > Webhooks**.
-- Verify that the Jenkins webhook URL was added successfully. The URL should end in "github-webhook".
+1. In the Jenkins item you created, click **Configure**.
+2. Under **Build Triggers**, select **GitHub hook trigger for GITScm polling** and **Save**. This automatically configures the GitHub webhook.
+3. In your GitHub repo for go-web, click **Settings > Webhooks**.
+4. Verify that the Jenkins webhook URL was added successfully. The URL should end in "github-webhook".
 
 ![Jenkins webhook configuration](media/container-service-kubernetes-jenkins/jenkins-webhook.png)
 
@@ -203,6 +204,6 @@ az acs create \
 
 ## Next steps
 
-- Deploy Azure Container Registry and store images in a secure repository. See [Azure Container Registry docs](https://docs.microsoft.com/en-us/azure/container-registry).
+- Deploy Azure Container Registry and store images in a secure repository. See [Azure Container Registry docs](https://docs.microsoft.com/azure/container-registry).
 - Build a more complex workflow that includes side-by-side deployment and automated tests in Jenkins.
 - For more information about CI/CD with Jenkins and Kubernetes, see the [Jenkins blog](https://jenkins.io/blog/2015/07/24/integrating-kubernetes-and-jenkins/).
