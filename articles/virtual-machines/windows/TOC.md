@@ -1,5 +1,5 @@
 # Overview
-## [About Virtual Machines](../virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [About Virtual Machines](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Quickstart
 ## [Create VM - Portal](../virtual-machines-windows-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

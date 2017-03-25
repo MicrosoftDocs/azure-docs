@@ -107,7 +107,7 @@ To create the web server VM, complete the following steps:
 	|**Subnet**|Select *Front-end*|You can select any subnet that exists within the VNet.|
 	|**Public IP address**|Accept the default|A public IP address enables you to connect to the VM from the Internet. To learn more about public IP addresses, read the [IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) article.|
 	|**Network security group (firewall)**|Accept the default|Click the **(new) MyWebServer-nsg** default NSG the portal created to view its settings. In the **Create network security group** blade that opens, notice that it has one inbound rule that allows TCP/3389 (RDP) traffic from any source IP address.|
-	|**All other values**|Accept the defaults|To learn more about the remaining settings, read the [About VMs](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article.|
+	|**All other values**|Accept the defaults|To learn more about the remaining settings, read the [About VMs](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article.|
 
 	Network security groups (NSG) enable you to create inbound/outbound rules for the type of network traffic that can flow to and from the VM. By default, all inbound traffic to the VM is denied. You might add additional inbound rules for TCP/80 (HTTP) and TCP/443 (HTTPS) for a production web server. There is no rule for outbound traffic because by default, all outbound traffic is allowed. You can add/remove rules to control traffic per your policies. Read the [Network security groups](virtual-networks-nsg.md) article to learn more about NSGs.
 
@@ -156,7 +156,7 @@ Though you created one VNet and two VMs, the Azure portal created several additi
 
 	![Resource group contents](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-To learn more about VMs, disks, and storage accounts, read the [Virtual machine](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and [Storage account](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) overview articles. You can see the two default NSGs the portal created for you. You can also see that the portal created two network interface (NIC) resources. A NIC enables a VM to connect to other resources over the VNet. Read the [NIC](virtual-network-network-interface.md) article to learn more about NICs. The portal also created one Public IP address resource. Public IP addresses are one setting for a public IP address resource. To learn more about public IP addresses, read the [IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) article.
+To learn more about VMs, disks, and storage accounts, read the [Virtual machine](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and [Storage account](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) overview articles. You can see the two default NSGs the portal created for you. You can also see that the portal created two network interface (NIC) resources. A NIC enables a VM to connect to other resources over the VNet. Read the [NIC](virtual-network-network-interface.md) article to learn more about NICs. The portal also created one Public IP address resource. Public IP addresses are one setting for a public IP address resource. To learn more about public IP addresses, read the [IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) article.
 
 ## <a name="connect-to-from-vms"></a>Connect to the VMs
 
@@ -248,4 +248,4 @@ In this exercise, you created a VNet and two VMs. You specified come custom sett
 - [Public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
 - [Network interfaces](virtual-network-network-interface.md)
 - [Network security groups](virtual-networks-nsg.md)
-- [Virtual machines](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Virtual machines](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
