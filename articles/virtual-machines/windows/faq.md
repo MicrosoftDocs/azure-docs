@@ -57,7 +57,7 @@ Yes. For instructions, see [Upload a Windows VM image to Azure ](upload-image.md
 Yes. For instructions, see [How to expand the OS drive of a Virtual Machine in an Azure Resource Group](expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Can I copy or clone an existing Azure VM?
-Yes. For instructions, see [How to create a copy of a Windows virtual machine in the Resource Manager deployment model](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Yes. For instructions, see [How to create a copy of a Windows virtual machine in the Resource Manager deployment model](vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Why am I not seeing Canada Central and Canada East regions through Azure Resource Manager?
 

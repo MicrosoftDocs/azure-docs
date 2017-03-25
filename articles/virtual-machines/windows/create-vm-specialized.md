@@ -104,7 +104,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 	
 ## Configure the OS disk
 
-The specialised OS could be a VHD that you [uploaded to Azure](upload-image.md) or a [copy the VHD from an existing Azure VM](../virtual-machines-windows-vhd-copy.md). 
+The specialised OS could be a VHD that you [uploaded to Azure](upload-image.md) or a [copy the VHD from an existing Azure VM](vhd-copy.md). 
 
 You can choose one of two options:
 - **Option 1**: Create a specialized managed disk from a specialied VHD in an existing storage account to use as the OS disk.
