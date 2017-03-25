@@ -11,7 +11,7 @@
 ## [PowerShell](../virtual-machines-windows-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Tutorials
-## [Install and run IIS](../virtual-machines-windows-hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Install and run IIS](hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## Deploy an app with VM template
 ### [Tutorial overview](dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [App architecture](dotnet-core-2-architecture.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

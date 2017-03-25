@@ -66,6 +66,6 @@ When no longer needed, delete the resource group, virtual machine, and all relat
 
 ## Next steps
 
-[Install a role and configure firewall tutorial](./virtual-machines-windows-hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Install a role and configure firewall tutorial](windows/hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Explore VM deployment CLI samples](windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
