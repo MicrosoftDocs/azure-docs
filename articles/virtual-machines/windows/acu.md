@@ -27,7 +27,7 @@ ms.author: cynthn
 Here are links to more information about the different sizes:
 - [General-purpose](../virtual-machines-windows-sizes-general.md)
 - [Memory optimized](../virtual-machines-windows-sizes-memory.md)
-- [Compute optimized](../virtual-machines-windows-sizes-compute.md)
+- [Compute optimized](sizes-compute.md)
 - [GPU optimized](../virtual-machines-windows-sizes-gpu.md)
 - [High performance compute](../virtual-machines-windows-sizes-hpc.md)
 - [Storage optimized](../virtual-machines-windows-sizes-storage.md)

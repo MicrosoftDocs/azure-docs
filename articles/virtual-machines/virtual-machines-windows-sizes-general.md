@@ -29,7 +29,7 @@ ms.author: cynthn
 
 
 ## Other sizes
-- [Compute optimized](virtual-machines-windows-sizes-compute.md)
+- [Compute optimized](windows/sizes-compute.md)
 - [Memory optimized](virtual-machines-windows-sizes-memory.md)
 - [Storage optimized](virtual-machines-windows-sizes-storage.md)
 - [GPU optimized](virtual-machines-windows-sizes-gpu.md)

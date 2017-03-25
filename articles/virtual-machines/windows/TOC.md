@@ -35,7 +35,7 @@
 ### [Schedule](planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [VM sizes](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [General purpose](../virtual-machines-windows-sizes-general.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Compute optimized](../virtual-machines-windows-sizes-compute.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Compute optimized](sizes-compute.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Memory optimized](../virtual-machines-windows-sizes-memory.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Storage optimized](../virtual-machines-windows-sizes-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [GPU optimized](../virtual-machines-windows-sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
