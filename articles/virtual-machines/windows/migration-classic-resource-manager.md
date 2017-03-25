@@ -256,7 +256,7 @@ This message is received when the VM does not have outbound connectivity to the 
 ## Next steps
 Now that you understand the migration of classic IaaS resources to Resource Manager, you can start migrating resources.
 
-* [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+* [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md)
 * [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](../virtual-machines-windows-ps-migration-classic-resource-manager.md)
 * [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](../virtual-machines-linux-cli-migration-classic-resource-manager.md)
 * [Clone a classic virtual machine to Azure Resource Manager by using community PowerShell scripts](../virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

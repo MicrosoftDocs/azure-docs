@@ -84,7 +84,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Custom Script extension for classic Windows virtual machines](windows/classic/extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Platform-supported migration from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+[Platform-supported migration from classic to Azure Resource Manager](windows/migration-classic-resource-manager-deep-dive.md)
 
 ## Configure
 [How to reset a password or the Remote Desktop service for a Windows VM](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

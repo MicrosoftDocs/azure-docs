@@ -160,5 +160,5 @@ If the prepared configuration looks good, you can move forward and commit the re
 
 ## Next steps
 * [Platform-supported migration of IaaS resources from classic to Resource Manager](windows/migration-classic-resource-manager.md)
-* [Technical deep dive on platform-supported migration from classic to Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+* [Technical deep dive on platform-supported migration from classic to Resource Manager](windows/migration-classic-resource-manager-deep-dive.md)
 

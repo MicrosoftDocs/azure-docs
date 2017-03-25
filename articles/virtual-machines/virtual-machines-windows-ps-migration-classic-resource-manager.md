@@ -24,7 +24,7 @@ These steps show you how to use Azure PowerShell commands to migrate infrastruct
 If you want, you can also migrate resources by using the [Azure Command Line Interface (Azure CLI)](virtual-machines-linux-cli-migration-classic-resource-manager.md).
 
 * For background on supported migration scenarios, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](windows/migration-classic-resource-manager.md). 
-* For detailed guidance and a migration walkthrough, see [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md).
+* For detailed guidance and a migration walkthrough, see [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](windows/migration-classic-resource-manager-deep-dive.md).
 * [Review most common migration errors](virtual-machines-migration-errors.md)
 
 <br>
