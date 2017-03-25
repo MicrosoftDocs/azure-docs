@@ -152,5 +152,5 @@ Click **Review legal terms** to review the terms. If you agree, click **Purchase
 3. Click **Connect** to log on to any of the head nodes using Remote Desktop with your specified administrator user name. If the cluster you deployed is in an Active Directory Domain, the user name is of the form <privateDomainName>\<adminUsername> (for example, hpc.local\hpcadmin).
 
 ## Next steps
-* Submit jobs to your cluster. See [Submit jobs to HPC an HPC Pack cluster in Azure](../virtual-machines-windows-hpcpack-cluster-submit-jobs.md) and [Manage an HPC Pack 2016 cluster in Azure using Azure Active Directory](../virtual-machines-windows-hpcpack-cluster-active-directory.md).
+* Submit jobs to your cluster. See [Submit jobs to HPC an HPC Pack cluster in Azure](../virtual-machines-windows-hpcpack-cluster-submit-jobs.md) and [Manage an HPC Pack 2016 cluster in Azure using Azure Active Directory](hpcpack-cluster-active-directory.md).
 
