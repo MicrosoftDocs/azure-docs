@@ -105,7 +105,7 @@ For detailed information on pricing for Managed Disks, see [Managed Disks Pricin
 Managed Disks also support creating a managed custom image. You can create an image from your custom VHD in a storage account or directly from a generalized (sys-prepped) VM. This captures in a single image all managed disks associated with a VM, including both the OS and data disks. This enables creating hundreds of VMs using your custom image without the need to copy or manage any storage accounts.
 
 For information on creating images, please check out the following articles:
-* [How to capture a managed image of a generalized VM in Azure](../virtual-machines/virtual-machines-windows-capture-image-resource.md)
+* [How to capture a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md)
 * [How to generalize and capture a Linux virtual machine using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-capture-image.md)
 
 ## Images versus snapshots
