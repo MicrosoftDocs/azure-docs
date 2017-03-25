@@ -372,7 +372,7 @@ You can optionally add data disks to the VMs. The [number of disks](virtual-mach
 
 ## Extensions
 
-Although [extensions](virtual-machines-windows-extensions-features.md) are a separate resource, they are closely tied to VMs. Extensions can be added as a child resource of the VM or as a separate resource. The example shows the [Diagnostics Extension](windows/extensions-diagnostics-template.md) being added to the VMs:
+Although [extensions](windows/extensions-features.md) are a separate resource, they are closely tied to VMs. Extensions can be added as a child resource of the VM or as a separate resource. The example shows the [Diagnostics Extension](windows/extensions-diagnostics-template.md) being added to the VMs:
 
 ```
 { 

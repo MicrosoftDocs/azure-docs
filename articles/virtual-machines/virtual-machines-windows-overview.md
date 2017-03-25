@@ -82,7 +82,7 @@ This table shows some ways that you can find the information for an image.
 You can choose to [upload and use your own image](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and when you do, the publisher name, offer, and sku aren’t used.
 
 ### Extensions
-VM [extensions](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) give your VM additional capabilities through post deployment configuration and automated tasks.
+VM [extensions](windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) give your VM additional capabilities through post deployment configuration and automated tasks.
 
 These common tasks can be accomplished using extensions:
 

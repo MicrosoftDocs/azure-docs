@@ -29,7 +29,7 @@ ms.author: kundanap
 
 This article provides sample configuration for configuring Azure VM Extensions for Windows VMs.
 
-To learn more about these extensions, see [Azure VM Extensions Overview.](../virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+To learn more about these extensions, see [Azure VM Extensions Overview.](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 To learn more about authoring extension templates, see [Authoring Extension Templates.](extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

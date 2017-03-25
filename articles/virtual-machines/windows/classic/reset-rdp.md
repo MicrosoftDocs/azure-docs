@@ -100,7 +100,7 @@ This command sets the fDenyTSConnections registry value to 0, enabling Remote De
 ## Next steps
 If the Azure VM access extension does not respond and you are unable to reset the password, you can [reset the local Windows password offline](../../virtual-machines-windows-reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). This method is a more advanced process and requires you to connect the virtual hard disk of the problematic VM to another VM. Follow the steps documented in this article first, and only attempt the offline password reset method as a last resort.
 
-[Azure VM extensions and features](../../virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Azure VM extensions and features](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Connect to an Azure virtual machine with RDP or SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 

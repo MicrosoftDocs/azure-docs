@@ -146,7 +146,7 @@
 ### [Set up WinRM](../virtual-machines-windows-winrm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Use VM extensions
-### [VM extensions overview](../virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [VM extensions overview](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Custom Script extension](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [OMS agent extension](../virtual-machines-windows-extensions-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [PowerShell DSC extension](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
