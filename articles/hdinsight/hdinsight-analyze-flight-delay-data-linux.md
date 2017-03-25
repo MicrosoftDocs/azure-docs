@@ -17,7 +17,7 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: larryfr
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
 # Analyze flight delay data by using Hive on Linux-based HDInsight
 
@@ -65,10 +65,7 @@ Learn how to analyze flight delay data using Hive on Linux-based HDInsight then 
    
     ```ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net```
    
-    For more information on using SSH with Linux-based HDInsight, see the following articles:
-   
-   * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 3. Once connected, use the following to unzip the .zip file:
    

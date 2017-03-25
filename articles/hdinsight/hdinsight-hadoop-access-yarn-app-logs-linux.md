@@ -10,6 +10,7 @@ editor: cgronlun
 
 ms.assetid: 3ec08d20-4f19-4a8e-ac86-639c04d2f12e
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -57,17 +58,14 @@ The aggregated logs are not directly readable, as they are written in a [TFile][
 
 ## YARN CLI tools
 
-To use the YARN CLI tools, you must first connect to the HDInsight cluster using SSH. Use one of the following documents for information on using SSH with HDInsight:
-
-* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+To use the YARN CLI tools, you must first connect to the HDInsight cluster using SSH. For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 You can view these logs as plain text by running one of the following commands:
 
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 
-You must specify the &lt;applicationId>, &lt;user-who-started-the-application>, &lt;containerId>, and &ltworker-node-address> information when running these commands.
+You must specify the &lt;applicationId>, &lt;user-who-started-the-application>, &lt;containerId>, and &lt;worker-node-address> information when running these commands.
 
 ## YARN ResourceManager UI
 The YARN ResourceManager UI runs on the cluster headnode, and can be accessed through the Ambari web UI; however, you must first [create an SSH tunnel](hdinsight-linux-ambari-ssh-tunnel.md) before you can access the ResourceManager UI.
