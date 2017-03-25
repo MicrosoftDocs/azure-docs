@@ -43,4 +43,4 @@ The VM Agent is enabled in the following situations:
 >
 
 ## Find, Add, Update, and Remove VM Extensions
-For details on these tasks, see [Add, Find, Update, and Remove Azure VM Extensions](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+For details on these tasks, see [Add, Find, Update, and Remove Azure VM Extensions](../articles/virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
