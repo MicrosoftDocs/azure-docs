@@ -153,7 +153,7 @@ GO
 ## JSON examples
 The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure SQL Database and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
-## Sample: Copy data from Azure SQL Database to Azure Blob
+## Example: Copy data from Azure SQL Database to Azure Blob
 The same defines the following Data Factory entities:
 
 1. A linked service of type [AzureSqlDatabase](#linked-service-properties).
@@ -345,7 +345,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 
 See the [Sql Source](#sqlsource) section and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) for the list of properties supported by SqlSource and BlobSink.
 
-## Sample: Copy data from Azure Blob to Azure SQL Database
+## Example: Copy data from Azure Blob to Azure SQL Database
 The sample defines the following Data Factory entities:  
 
 1. A linked service of type [AzureSqlDatabase](#linked-service-properties).
@@ -651,7 +651,8 @@ When moving data to and from Azure SQL, the following mappings are used from SQL
 | varchar |String, Char[] |
 | xml |Xml |
 
-You can map columns from source dataset to columns from sink dataset. For details, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
+> [!NOTE]
+> To map columns from source dataset to columns from sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
 
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
