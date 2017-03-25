@@ -37,7 +37,7 @@
         // Initiate the connection
         var relayConnection = await client.CreateConnectionAsync();
    
-        // We run two conucrrent loops on the connection. One 
+        // We run two concurrent loops on the connection. One 
         // reads input from the console and writes it to the connection 
         // with a stream writer. The other reads lines of input from the 
         // connection with a stream reader and writes them to the console. 
