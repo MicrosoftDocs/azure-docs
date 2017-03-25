@@ -29,7 +29,7 @@ Azure managed disks removes the need of managing [storage accounts](../storage/s
 > [!IMPORTANT]
 > Review [Plan for the migration to Managed Disks](windows/on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) before starting your migration to [Managed Disks](../storage/storage-managed-disks-overview.md).
 >
-> Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](windows/prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 >
 >
 
@@ -49,7 +49,7 @@ Sysprep removes all your personal account information, among other things, and p
 Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
-> If you are running Sysprep before uploading your VHD to Azure for the first time, make sure you have [prepared your VM](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before running Sysprep. 
+> If you are running Sysprep before uploading your VHD to Azure for the first time, make sure you have [prepared your VM](windows/prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before running Sysprep. 
 > 
 > 
 

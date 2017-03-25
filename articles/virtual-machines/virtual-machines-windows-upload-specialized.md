@@ -26,7 +26,7 @@ A specialized VHD maintains the user accounts, applications and other state data
 
 
 > [!IMPORTANT]
-> Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](windows/prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 >
 >
 
@@ -49,7 +49,7 @@ For more information, see [Azure PowerShell Versioning](https://docs.microsoft.c
  
 If you intend to use the specialized VHD as-is to create a new VM, ensure the following steps are completed. 
   * If you are going to use Managed Disks, review [Plan for the migration to Managed Disks](windows/on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
-  * [Prepare a Windows VHD to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Do not** generalize the VM using Sysprep.
+  * [Prepare a Windows VHD to upload to Azure](windows/prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Do not** generalize the VM using Sysprep.
   * Remove any guest virtualization tools and agents that are installed on the VM (i.e. VMware tools).
   * Ensure the VM is configured to pull its IP address and DNS settings via DHCP. This ensures that the server obtains an IP address within the VNet when it starts up. 
   * Shut down to VM before proceeding.
