@@ -64,7 +64,7 @@ For more advanced topics, see
 For more advanced topics, see
 
 * [Use PowerShell to set up diagnostics on Azure Virtual Machines](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Service Fabric using Azure Diagnostics
 Get started at [Monitor a Service Fabric application](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Many other Service Fabric diagnostics articles are available in the navigation tree on the left once you get to this article.

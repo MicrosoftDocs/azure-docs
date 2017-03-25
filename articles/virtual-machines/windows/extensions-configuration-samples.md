@@ -338,7 +338,7 @@ Please refer to CustomScript version 1.4 for parameter description. Version 1.7 
           }
 
 ### Azure Diagnostics
-For more details about how to configure diagnostics, see [Azure Diagnostics Extension](../virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+For more details about how to configure diagnostics, see [Azure Diagnostics Extension](extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
