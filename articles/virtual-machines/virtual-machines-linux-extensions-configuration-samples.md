@@ -20,7 +20,7 @@ ms.author: kundanap
 ---
 # Linux VM extension configuration samples
 > [!div class="op_single_selector"]
-> * [PowerShell - Template](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [PowerShell - Template](windows/extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 > * [CLI - Template](virtual-machines-linux-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
