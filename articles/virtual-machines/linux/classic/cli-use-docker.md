@@ -81,7 +81,7 @@ where:
 
 If the command was successful, you should see something like the following, depending on the precise arguments and options you used:
 
-![](./media/virtual-machines-linux-classic-cli-use-docker/dockercreateresults.png)
+![](media/cli-use-docker/dockercreateresults.png)
 
 > [!NOTE]
 > Creating a virtual machine can take a few minutes, but after it has been provisioned (the state value is `ReadyRole`) the Docker daemon (the Docker service) starts and you can connect to the Docker container host.
