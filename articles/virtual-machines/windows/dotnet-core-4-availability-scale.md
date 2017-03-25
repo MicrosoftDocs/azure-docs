@@ -194,7 +194,7 @@ One example inbound NAT rule as seen in the Azure portal. An RDP NAT rule is cre
 
 ![Inbound NAT Rule](./media/dotnet-core-4-availability-scale/natrule-win.png)
 
-For in-depth information on the Azure Network Load Balancer, see [Load balancing for Azure infrastructure services](../virtual-machines-windows-load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For in-depth information on the Azure Network Load Balancer, see [Load balancing for Azure infrastructure services](load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Deploy multiple VMs
 Finally, for an Availability Set or Load Balancer to effectively function, multiple virtual machines are required. Multiple VMs can be deployed using the Azure Resource Manager template copy function. Using the copy function, it is not necessary to define a finite number of Virtual Machines, rather this value can be dynamically provided at the time of deployment. The copy function consumes the number of instances to be created and handles deploying the proper number of virtual machines and associated resources.
