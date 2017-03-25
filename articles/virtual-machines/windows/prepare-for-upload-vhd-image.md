@@ -296,5 +296,5 @@ The following settings do not affect VHD uploading. However, we strongly recomme
     ```
 
 ## Next steps
-* [Upload a Windows VM image to Azure for Resource Manager deployments](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Upload a Windows VM image to Azure for Resource Manager deployments](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

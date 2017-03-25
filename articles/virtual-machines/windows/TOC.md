@@ -107,7 +107,7 @@
 ### [Expand data disk](expand-data-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Use D: as data disk](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### Create VMs using unmanaged disks
-#### [Upload a VHD](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Upload a VHD](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Create an unmanaged image](capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Create an unmanaged VM from a generalized VHD](create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Copy a VM](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

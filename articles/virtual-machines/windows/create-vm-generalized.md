@@ -20,7 +20,7 @@ ms.author: cynthn
 ---
 # Create a VM from a generalized VHD image in a storage account 
 
-This topic covers creating a VM from a generalized unmanaged disk that is in a storage account. A generalized VHD image has had all of your personal account information removed using [Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). You can create a generalized VHD by running Sysprep on an on-premises VM, then [uploading the VHD to Azure](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), or by running Sysprep on an existing Azure VM and then [copying the VHD](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+This topic covers creating a VM from a generalized unmanaged disk that is in a storage account. A generalized VHD image has had all of your personal account information removed using [Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). You can create a generalized VHD by running Sysprep on an on-premises VM, then [uploading the VHD to Azure](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), or by running Sysprep on an existing Azure VM and then [copying the VHD](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 If you want to create a VM from a specialized VHD in a storage account, see [Create a VM from a specialized VHD](create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

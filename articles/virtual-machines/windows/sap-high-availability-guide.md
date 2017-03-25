@@ -418,7 +418,7 @@ ms.custom: H1Hack27Feb2017
 [./windows/sql/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:sql/virtual-machines-windows-sql-high-availability-dr.md
 [./windows/sql/virtual-machines-sql-server-infrastructure-services]:sql/virtual-machines-windows-sql-server-iaas-overview.md
 [./windows/sql/virtual-machines-sql-server-performance-best-practices]:sql/virtual-machines-windows-sql-performance.md
-[virtual-machines-upload-image-windows-resource-manager]:../virtual-machines-windows-upload-image.md
+[virtual-machines-upload-image-windows-resource-manager]:upload-image.md
 [virtual-machines-windows-tutorial]:../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../../virtual-network/virtual-network-deploy-multinic-arm-cli.md

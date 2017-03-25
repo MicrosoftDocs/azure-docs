@@ -51,7 +51,7 @@ You can change the drive letter by moving the page file and reassigning drive le
 ## Can I add an existing VM to an availability set?
 No. If you want your VM to be part of an availability set, you need to create the VM within the set. There currently isn't a way to add a VM to an availability set after it has been created.
 ## Can I upload a virtual machine to Azure?
-Yes. For instructions, see [Upload a Windows VM image to Azure ](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Yes. For instructions, see [Upload a Windows VM image to Azure ](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Can I resize the OS disk?
 Yes. For instructions, see [How to expand the OS drive of a Virtual Machine in an Azure Resource Group](expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

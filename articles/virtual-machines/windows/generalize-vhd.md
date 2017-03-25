@@ -43,6 +43,6 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 > 
 
 ## Next Steps
-* If the VM is on-premises, you can now [upload the VHD to Azure](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* If the VM is on-premises, you can now [upload the VHD to Azure](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * If the VM is already in Azure, you can now [create an image from the generalized VM](windows/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
