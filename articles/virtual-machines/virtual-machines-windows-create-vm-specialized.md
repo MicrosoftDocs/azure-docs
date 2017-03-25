@@ -131,7 +131,7 @@ or
 	-DiskSizeInGB 128 -CreateOption Attach -Windows
 	```
 
-Optional: Attach additional managed disks as data disks. This option assumes that you created your managed data disks using [Create managed data disks](virtual-machines-windows-create-managed-disk-ps.md). 
+Optional: Attach additional managed disks as data disks. This option assumes that you created your managed data disks using [Create managed data disks](windows/create-managed-disk-ps.md). 
 
 ```powershell
 $vm = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
