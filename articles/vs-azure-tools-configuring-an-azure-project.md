@@ -43,7 +43,7 @@ You can configure an Azure cloud service project, depending on your requirements
 
 1. Set **Use web project ports** to **True** to make sure that your web role uses the same port each time it starts locally in IIS Express.
 
-1. From the Visual Studio, toolbar, select **Save**.
+1. From the Visual Studio toolbar, select **Save**.
 
 ## Next steps
 - [Configure an Azure project using multiple service configurations](vs-azure-tools-multiple-services-project-configurations.md)
