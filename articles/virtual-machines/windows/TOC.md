@@ -171,7 +171,7 @@
 ### [Deploying SAP IDES EHP7 SP3 for SAP ERP 6.0 on Microsoft Azure](sap-cal-ides-erp6-ehp7-sp3-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Planning and Implementation Guide](../virtual-machines-windows-sap-planning-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [High-Availability Guide](../virtual-machines-windows-sap-high-availability-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [DBMS Deployment Guide](../virtual-machines-windows-sap-dbms-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [DBMS Deployment Guide](sap-dbms-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Deployment Guide](../virtual-machines-windows-sap-deployment-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Migrate VMs
