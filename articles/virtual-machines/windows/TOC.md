@@ -8,7 +8,7 @@
 
 # Samples
 ## [Azure CLI](cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [PowerShell](../virtual-machines-windows-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [PowerShell](powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Tutorials
 ## [Install and run IIS](hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

@@ -128,4 +128,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [Install a role and configure firewall tutorial](windows/hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Explore VM deployment PowerShell samples](./virtual-machines-windows-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Explore VM deployment PowerShell samples](windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
