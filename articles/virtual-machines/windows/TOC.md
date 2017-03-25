@@ -142,7 +142,7 @@
 ### [Manage access](../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Encrypt a disk](../../security/azure-security-disk-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Apply policies to VMs](../virtual-machines-windows-policy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Set up Key Vault](../virtual-machines-windows-key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Set up Key Vault](key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Set up WinRM](../virtual-machines-windows-winrm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Use VM extensions
