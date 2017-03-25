@@ -30,7 +30,7 @@ For more information about how Azure uses the temporary disk, see [Understanding
 ## Attach the data disk
 First, you'll need to attach the data disk to the virtual machine. 
 
-* To use the portal, see [How to attach a data disk in the Azure portal](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* To use the portal, see [How to attach a data disk in the Azure portal](windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * To use the classic portal, see [How to attach a data disk to a Windows virtual machine](windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 
 
 ## Temporarily move pagefile.sys to C drive
@@ -65,5 +65,5 @@ First, you'll need to attach the data disk to the virtual machine.
 9. Restart the virtual machine.
 
 ## Next steps
-* You can increase the storage available to your virtual machine by [attaching a additional data disk](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* You can increase the storage available to your virtual machine by [attaching a additional data disk](windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

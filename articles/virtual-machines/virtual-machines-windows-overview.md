@@ -100,7 +100,7 @@ The resources in this table are used by the VM and need to exist or be created w
 | [Virtual network](../virtual-network/virtual-networks-overview.md) |Yes |The VM must be a member of a virtual network. |
 | [Public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |No |The VM can have a public IP address assigned to it to remotely access it. |
 | [Network interface](../virtual-network/virtual-network-network-interface.md) |Yes |The VM needs the network interface to communicate in the network. |
-| [Data disks](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |No |The VM can include data disks to expand storage capabilities. |
+| [Data disks](windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |No |The VM can include data disks to expand storage capabilities. |
 
 ## How do I create my first VM?
 You have several choices for creating your VM. The choice that you make depends on the environment you are in. 

@@ -102,5 +102,5 @@ For more information about NSGs, inbound and outbound rules, see [Allow external
     ![Screenshot showing what the default IIS page looks like in a browser](./media/virtual-machines-windows-hero-tutorial/iis-default.png)
 
 ## Next steps
-* You can also experiment with [attaching a data disk](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to your virtual machine. Data disks provide more storage for your virtual machine.
+* You can also experiment with [attaching a data disk](windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to your virtual machine. Data disks provide more storage for your virtual machine.
 

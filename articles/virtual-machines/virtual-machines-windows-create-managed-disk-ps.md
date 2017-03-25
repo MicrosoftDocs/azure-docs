@@ -76,4 +76,4 @@ The disk size in this example is 128GB, but you should choose a size that meets 
 	```
 	
 ## Next Steps	
-- If you already have a VM, you can [attach a data disk](virtual-machines-windows-attach-disk-portal.md).
+- If you already have a VM, you can [attach a data disk](windows/attach-disk-portal.md).

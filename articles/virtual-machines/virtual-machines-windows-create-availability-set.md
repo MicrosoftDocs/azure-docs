@@ -90,5 +90,5 @@ For more information, see [New-AzureRmAvailabilitySet](/powershell/new-azurermav
 * When you create a VM, if the availability set you want isn't in the drop-down list in the portal you may have created it in a different resource group. If you don't know the resource group for your availability set, go to the hub menu and click Browse > Availability sets to see a list of your availability sets and which resource groups they belong to.
 
 ## Next steps
-Add additional storage to your VM by adding an additional [data disk](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Add additional storage to your VM by adding an additional [data disk](windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
