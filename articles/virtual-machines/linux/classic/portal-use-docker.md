@@ -70,24 +70,24 @@ To add the Docker VM Extension, locate the VM instance you created and scroll do
 > 
 > 
 
-![](./media/virtual-machines-linux-classic-portal-use-docker/ClickExtensions.png)
+![](media/portal-use-docker/ClickExtensions.png)
 
 ### Add an Extension
 Click the **+ Add** to display the possible VM Extensions you can add to this VM.
 
-![](./media/virtual-machines-linux-classic-portal-use-docker/ClickAdd.png)
+![](media/portal-use-docker/ClickAdd.png)
 
 ### Select the Docker VM Extension
 Choose the Docker VM Extension, which brings up the Docker description and important links, and then click **Create** at the bottom to begin the installation procedure.
 
-![](./media/virtual-machines-linux-classic-portal-use-docker/ChooseDockerExtension.png)
+![](media/portal-use-docker/ChooseDockerExtension.png)
 
-![](./media/virtual-machines-linux-classic-portal-use-docker/CreateButtonFocus.png)
+![](media/portal-use-docker/CreateButtonFocus.png)
 
 ### Add your Certificate and Key Files:
 In the form fields, enter the base64-encoded versions of your CA Certificate, your Server Certificate, and your Server Key, as shown in the following graphic.
 
-![](./media/virtual-machines-linux-classic-portal-use-docker/AddExtensionFormFilled.png)
+![](media/portal-use-docker/AddExtensionFormFilled.png)
 
 > [!NOTE]
 > Note that (as in the preceding image) the 2376 is filled in by default. You can enter any endpoint here, but the next step will be to open up the matching endpoint. If you change the default, make sure to open up the matching endpoint in the next step.
@@ -97,11 +97,11 @@ In the form fields, enter the base64-encoded versions of your CA Certificate, yo
 ## Add the Docker Communication Endpoint
 When viewing the resource group you've created, select the Network Security Group associated with your VM, and click **Inbound Security Rules** to view the rules as shown here.
 
-![](./media/virtual-machines-linux-classic-portal-use-docker/AddingEndpoint.png)
+![](media/portal-use-docker/AddingEndpoint.png)
 
 Click **+ Add** to add another rule, and in the default case, enter a name for the endpoint (in this example, **Docker**), and 2376 'Destination Port Range'. Set the protocol value showing **TCP**, and Click **OK** to create the rule.
 
-![](./media/virtual-machines-linux-classic-portal-use-docker/AddEndpointFormFilledOut.png)
+![](media/portal-use-docker/AddEndpointFormFilledOut.png)
 
 ## Test your Docker Client and Azure Docker Host
 Locate and copy the name of your VM's domain, and at the command line of your client computer, type `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:2376 info` (where *dockerextension* is replaced by the subdomain for your VM).
