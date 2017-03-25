@@ -34,7 +34,7 @@ There are many different Azure VM extensions available, each with a specific use
 - Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see the [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 - Configure an Azure virtual machine by using Chef. For more information, see [Automating Azure virtual machine deployment with Chef](windows/chef-automation.md).
 
-In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Windows allows any PowerShell script to be run on a virtual machine. This is useful when you're designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Windows VM Custom Script extension](virtual-machines-windows-extensions-customscript.md).
+In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Windows allows any PowerShell script to be run on a virtual machine. This is useful when you're designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Windows VM Custom Script extension](windows/extensions-customscript.md).
 
 To work through an example where a VM extension is used in an end-to-end application deployment, see [Automating application deployments to Azure virtual machines](windows/dotnet-core-1-landing.md).
 
@@ -89,7 +89,7 @@ Cmdlet          Set-AzureRmVMExtension                             2.2.0      Az
 Cmdlet          Set-AzureRmVMSqlServerExtension                    2.2.0      AzureRM.Compute
 ```
 
-The following example uses the Custom Script extension to download a script from a GitHub repository onto the target virtual machine and then run the script. For more information on the Custom Script extension, see [Custom Script extension overview](virtual-machines-windows-extensions-customscript.md).
+The following example uses the Custom Script extension to download a script from a GitHub repository onto the target virtual machine and then run the script. For more information on the Custom Script extension, see [Custom Script extension overview](windows/extensions-customscript.md).
 
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
@@ -279,7 +279,7 @@ An extension can also be removed using the Azure portal. To do so:
 ## Common VM extensions reference
 | Extension name | Description | More information |
 | --- | --- | --- |
-| Custom Script Extension for Windows |Run scripts against an Azure virtual machine |[Custom Script Extension for Windows](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Custom Script Extension for Windows |Run scripts against an Azure virtual machine |[Custom Script Extension for Windows](windows/extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | DSC Extension for Windows |PowerShell DSC (Desired State Configuration) Extension |[DSC Extension for Windows](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure Diagnostics Extension |Manage Azure Diagnostics |[Azure Diagnostics Extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM Access Extension |Manage users and credentials |[VM Access Extension for Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
