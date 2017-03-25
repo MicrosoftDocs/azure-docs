@@ -155,7 +155,7 @@ For more information, see the [full Resource Manager template](https://github.co
 }
 ```
 
-For more information, see [Authoring Azure Resource Manager templates with Windows VM extensions](virtual-machines-windows-extensions-authoring-templates.md).
+For more information, see [Authoring Azure Resource Manager templates with Windows VM extensions](windows/extensions-authoring-templates.md).
 
 ## Secure VM extension data
 

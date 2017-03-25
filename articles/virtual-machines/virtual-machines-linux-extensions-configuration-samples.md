@@ -31,7 +31,7 @@ This article provides sample configuration for configuring Azure VM extensions f
 
 To learn more about these extensions click here : [Azure VM Extensions Overview.](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-To learn more about authoring extension templates click here : [Authoring Extension Templates.](virtual-machines-windows-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+To learn more about authoring extension templates click here : [Authoring Extension Templates.](windows/extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 This article lists expected configuration values for some of the Linux Extensions.
 
