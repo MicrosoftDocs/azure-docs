@@ -32,7 +32,7 @@ The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutoria
 
 You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
 
-Whether you use the tools or APIs, you perform the following steps to create a simple pipeline that moves data from a source data store to a sink data store: 
+Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store: 
 
 1. Create **linked services** to link input and output data stores to your data factory.
 2. Create **datasets** to represent input and output data for the copy operation. 
@@ -42,7 +42,7 @@ When you use the wizard, JSON definitions for these Data Factory entities (linke
 
 The following sections provide details about JSON properties that are used to define Data Factory entities specific to Azure Data Lake Store: 
 
-## Azure Data Lake Store linked service 
+## Linked service properties
 A linked service links a data store to a data factory. You create a linked service of type **AzureDataLakeStore** to link your Azure Data Lake store to your data factory. The following table provides description for JSON elements specific to Azure Data Lake Store linked service, and you can choose between **service principal** and **user credential** authentication.
 
 | Property | Description | Required |
@@ -153,7 +153,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 ```
 See [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), and [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) topics for details about the Data Factory classes used in the code. Add a reference to **2.9.10826.1824** version of **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll** for the WindowsFormsWebAuthenticationDialog class used in the code.
 
-## Azure Data Lake Store dataset
+## Dataset properties
 To specify a dataset to represent input data in an Azure Blob Storage, you set the type property of the dataset to: **AzureDataLakeStore**. Set the **linkedServiceName** property of the dataset to the name of the Azure Data Lake Store linked service. For a full list of JSON sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.). The **typeProperties** section is different for each type of dataset and provides information about the location, format etc., of the data in the data store. The typeProperties section for dataset of type **AzureDataLakeStore** dataset has the following properties:
 
 | Property | Description | Required |
@@ -194,7 +194,7 @@ In this example, {Slice} is replaced with the value of Data Factory system varia
 ```
 In this example, year, month, day, and time of SliceStart are extracted into separate variables that are used by folderPath and fileName properties.
 
-## Azure Data Lake Store source and sink in copy activity
+## Copy activity properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
 
 Whereas, properties available in the typeProperties section of the activity vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks
@@ -216,11 +216,11 @@ The following examples provide sample JSON definitions that you can use to creat
 ## Example: Copy data from Azure Blob to Azure Data Lake Store
 The following sample shows:
 
-1. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-2. A linked service of type [AzureDataLakeStore](#azure-data-lake-store-linked-service).
-3. An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset).
-4. An output [dataset](data-factory-create-datasets.md) of type [AzureDataLakeStore](#azure-data-lake-store-dataset).
-5. A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-source-and-sink-in-copy-activity) and [AzureDataLakeStoreSink](#azure-data-lake-store-source-and-sink-in-copy-activity).
+1. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+2. A linked service of type [AzureDataLakeStore](#linked-service-properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type [AzureDataLakeStore](#dataset-properties).
+5. A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) and [AzureDataLakeStoreSink](#copy-activity-properties).
 
 The sample copies time-series data from an Azure Blob Storage to Azure Data Lake Store every hour. The JSON properties used in these samples are described in sections following the samples.
 
@@ -258,7 +258,7 @@ The sample copies time-series data from an Azure Blob Storage to Azure Data Lake
 ```
 
 > [!NOTE]
-> See the steps in [Azure Data Lake Store Linked Service properties](#azure-data-lake-store-linked-service-properties) section with configuration details.
+> See the steps in [Azure Data Lake Store Linked Service properties](#linked-service-properties) section with configuration details.
 >
 
 **Azure Blob input dataset:**
@@ -401,11 +401,11 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 ## Example: Copy data from Azure Data Lake Store to Azure Blob
 The following sample shows:
 
-1. A linked service of type [AzureDataLakeStore](#azure-data-lake-store-linked-service).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. An input [dataset](data-factory-create-datasets.md) of type [AzureDataLakeStore](#azure-data-lake-store-dataset).
-4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset).
-5. A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [AzureDataLakeStoreSource](#azure-data-lake-store-source-and-sink-in-copy-activity) and [BlobSink](#azure-blob-copy-activity-type-properties)
+1. A linked service of type [AzureDataLakeStore](#linked-service-properties).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [AzureDataLakeStore](#dataset-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [AzureDataLakeStoreSource](#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)
 
 The sample copies time-series data from an Azure Data Lake store to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
@@ -427,7 +427,7 @@ The sample copies time-series data from an Azure Data Lake store to an Azure blo
 ```
 
 > [!NOTE]
-> See the steps in [Azure Data Lake Store Linked Service properties](#azure-data-lake-store-linked-service-properties) section with configuration details.
+> See the steps in [Azure Data Lake Store Linked Service properties](#linked-service-properties) section with configuration details.
 >
 
 **Azure Storage linked service:**

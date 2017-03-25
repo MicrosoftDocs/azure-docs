@@ -10,6 +10,7 @@ documentationcenter: ''
 
 ms.assetid: 367b3f4a-f7d3-4e59-abd0-5dc59576f1ff
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -101,7 +102,7 @@ The following table lists the versions of HDInsight currently available, the cor
 
 | HDInsight Version | HDP Version | VM OS | High Availability | Release Date | Available on Azure portal | Support Expiration Date | Deprecation Date |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDI 3.6 Preview |Spark 2.1 |Ubuntu 16 |Yes |02/28/2017 |Yes | | |
+| HDI 3.6 Preview |HDP 2.6 |Ubuntu 16 |Yes |02/28/2017 |Yes | | |
 | HDI 3.5 |HDP 2.5 |Ubuntu 16 |Yes |9/30/2016 |Yes | | |
 | HDI 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |Yes |03/29/2016 |Yes |12/29/2016 |1/9/2018 |
 | HDI 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS or Windows Server 2012R2 |Yes |12/02/2015 |Yes |06/27/2016 |07/31/2017 |
