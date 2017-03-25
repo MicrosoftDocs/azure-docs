@@ -32,7 +32,7 @@
 ## [Azure Security Center](../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Disaster recovery](../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Azure planned maintenance](planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Schedule](../virtual-machines-windows-planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Schedule](planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [VM sizes](../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [General purpose](../virtual-machines-windows-sizes-general.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Compute optimized](../virtual-machines-windows-sizes-compute.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
