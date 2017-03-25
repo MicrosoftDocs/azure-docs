@@ -39,7 +39,7 @@
 ### [Memory optimized](../virtual-machines-windows-sizes-memory.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Storage optimized](../virtual-machines-windows-sizes-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [GPU optimized](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [High performance compute](../virtual-machines-windows-sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [High performance compute](sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Compute-intensive sizes](a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Azure compute units (ACU)](acu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Compute benchmark scores](compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

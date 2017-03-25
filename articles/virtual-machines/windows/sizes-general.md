@@ -33,7 +33,7 @@ ms.author: cynthn
 - [Memory optimized](../virtual-machines-windows-sizes-memory.md)
 - [Storage optimized](../virtual-machines-windows-sizes-storage.md)
 - [GPU optimized](sizes-gpu.md)
-- [High performance compute](../virtual-machines-windows-sizes-hpc.md)
+- [High performance compute](sizes-hpc.md)
 
 ## Next steps
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
