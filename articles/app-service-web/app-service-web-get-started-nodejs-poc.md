@@ -47,9 +47,9 @@ Change to the directory that contains the sample code.
 cd nodejs-docs-hello-world
 ```
 
-## Run the sample locally
+## Run the app locally
 
-Run the start script using `npm`.
+Run the application locally by opening a terminal window an using the `npm start` script for the sample to launch the built in Node.js http server.
 
 ```bash
 npm start
@@ -62,6 +62,8 @@ http://localhost:1337
 ```
 
 You can see the **Hello World** message from the sample app displayed in the page.
+
+![localhost-hello-world-in-browser](media/app-service-web-get-started-nodejs-poc/localhost-hello-world-in-browser.png)
 
 In your terminal window, press **Ctrl+C** to exit the web server.
 
@@ -121,7 +123,7 @@ When the App Service Plan has been created, the Azure CLI shows information simi
 
 ## Create a Web App
 
-Run the following command to create the Web App in Azure.
+Now that an App Service plan has been created, create a Web App within the `quickStartPlan` App Service plan. The Web App gives us a hosting space to deploy our code as well as provides a url for us to view the deployed application. Use the [az appservice web create](/cli/azure/appservice/web#create) command to create the Web App.
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
@@ -147,6 +149,14 @@ When the Web App has been created, the Azure CLI shows information similar to th
 }
 ```
 
+Browse to the site to see your newly created Web App.
+
+```bash
+http://<app_name>.azurewebsites.net
+```
+
+![app-service-web-service-created](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
+
 ## Configure to use Node.js
 
 Use the az appservice web config update command to configure the Web App to use Node.js version `6.9.3`.
@@ -155,16 +165,18 @@ Use the az appservice web config update command to configure the Web App to use 
 > Setting the node.js version this way uses a default container provided by the platform, if you would like to use your own container refer to the reference for the [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) command.
 
 ```azurecli
-az appservice web config update --node-version 6.9.3 --startup-file index.js --name <app_name> --resource-group myResourceGroup
+az appservice web config update --linux-fx-version "NODE|6.9.3" --startup-file process.json --name <app_name> --resource-group myResourceGroup
 ```
 
 ## Configure local git deployment
 
-Set the account-level deployment credentials.
+You can deploy to your Web App in a variety of ways including FTP, local Git as well as GitHub, Visual Studio Team Services and Bitbucket. For FTP and local Git it is necessary to have a deployment user configured on the server to authenicate your deployment.
+
+Use the [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set) command to create your account-level credentials.
 
 > [!NOTE]
 > A deployment user is required for FTP and Local Git deployment to a Web App.
-> The `username` and `password` are account-level, as such, are different from your Azure Subscription credentials.
+> The `username` and `password` are account-level, as such, are different from your Azure Subscription credentials. These credentials are only required to be created once.
 >
 
 ```azurecli
@@ -219,6 +231,7 @@ remote: Copying file: 'LICENSE'
 remote: Copying file: 'README.md'
 remote: Copying file: 'index.js'
 remote: Copying file: 'package.json'
+remote: Copying file: 'process.json'
 remote: Deleting file: 'hostingstart.html'
 remote: Ignoring: .git
 remote: Using start-up script index.js from package.json.
@@ -242,7 +255,7 @@ az appservice web browse --name <app_name> --resource-group myResourceGroup
 
 This time, the page that displays the Hello World message is delivered by a web server running on App Service Web App.
 
-## Updating the Code
+## Updating and Deploying the Code
 
 Open `index.js`, make a small change to the text within the call to `response.end`.
 
