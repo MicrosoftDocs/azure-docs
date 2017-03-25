@@ -66,7 +66,7 @@
 
 
 ## Configure VMs
-### [Resize a VM](../virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Resize a VM](resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Use tags](../../resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Tag a VM](../virtual-machines-windows-tag.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Backup using Recovery Services](../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
