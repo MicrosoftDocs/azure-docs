@@ -46,7 +46,7 @@ This article focuses on options to create HPC Pack clusters to run Windows workl
 
 ### Tutorials
 * [Tutorial: Deploy an HPC Pack 2016 cluster in Azure](virtual-machines-windows-hpcpack-2016-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Tutorial: Get started with an HPC Pack cluster in Azure to run Excel and SOA workloads](virtual-machines-windows-excel-cluster-hpcpack.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Tutorial: Get started with an HPC Pack cluster in Azure to run Excel and SOA workloads](windows/excel-cluster-hpcpack.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### Manual deployment with the Azure portal
 * [Set up the head node of an HPC Pack cluster in an Azure VM](virtual-machines-windows-hpcpack-cluster-headnode.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
