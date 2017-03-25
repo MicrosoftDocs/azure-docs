@@ -21,7 +21,7 @@ ms.author: delhan
 # Troubleshoot classic deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure
 > [!div class="op_single_selector"]
 > * [Classic](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-> * [Resource Manager](../../virtual-machines-windows-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [Resource Manager](../restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 > 
 > 
 
