@@ -31,7 +31,7 @@ Using the Azure portal is a simple way to try out a virtual machine, especially 
 ## Template
 Virtual machines require a combination of resources (such as a availability sets and storage accounts). Rather than deploying and managing each resource separately, you can create an Azure Resource Manager template that deploys and provisions all of the resources in a single, coordinated operation.
 
-* [Create a Windows virtual machine with a Resource Manager template](../virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Create a Windows virtual machine with a Resource Manager template](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Azure PowerShell
 If you prefer working in a command shell, you can use Azure PowerShell.
