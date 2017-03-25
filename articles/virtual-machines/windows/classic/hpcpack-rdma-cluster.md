@@ -89,7 +89,7 @@ in an Azure VM.
 ## Scenario 2: Deploy compute nodes in compute-intensive VMs (IaaS)
 In this scenario, you deploy the HPC Pack head node and cluster compute nodes on VMs in an Azure virtual network. HPC Pack provides several [deployment options in Azure VMs](../../virtual-machines-linux-hpcpack-cluster-options.md), including automated deployment scripts and Azure quickstart templates. As an example, the following considerations and steps guide you to use
 the [HPC Pack IaaS deployment
-script](hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to
+script](hpcpack-cluster-powershell-script.md) to
 automate the deployment of an HPC Pack 2012 R2 cluster in Azure.
 
 ![Cluster in Azure VMs][iaas]
@@ -99,7 +99,7 @@ automate the deployment of an HPC Pack 2012 R2 cluster in Azure.
    
     Download the HPC Pack IaaS Deployment Script package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922).
    
-    To prepare the client computer, create the script configuration file, and run the script, see [Create an HPC Cluster with the HPC Pack IaaS deployment script](hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 
+    To prepare the client computer, create the script configuration file, and run the script, see [Create an HPC Cluster with the HPC Pack IaaS deployment script](hpcpack-cluster-powershell-script.md). 
    
     To deploy RDMA-capable compute nodes, note the following additional considerations:
    
