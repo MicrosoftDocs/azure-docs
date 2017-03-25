@@ -94,9 +94,9 @@ Substitute your own values for your subscription name and the account and servic
     To work around this problem, log on to the domain controller and either remove the forwarder configuration setting or configure a valid forwarder DNS server. To do this, in Server Manager click **Tools** > **DNS** to open DNS Manager, and then double-click **Forwarders**.
 
 ## Next steps
-* See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) for information about supported Linux distributions, moving data, and submitting jobs to an HPC Pack cluster with Linux compute nodes.
+* See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](hpcpack-cluster.md) for information about supported Linux distributions, moving data, and submitting jobs to an HPC Pack cluster with Linux compute nodes.
 * For tutorials that use the script to create a cluster and run a Linux HPC workload, see:
-  * [Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](hpcpack-cluster-namd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-  * [Run OpenFOAM with Microsoft HPC Pack on Linux compute nodes in Azure](hpcpack-cluster-openfoam.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-  * [Run STAR-CCM+ with Microsoft HPC Pack on Linux compute nodes in Azure](hpcpack-cluster-starccm.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+  * [Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](hpcpack-cluster-namd.md)
+  * [Run OpenFOAM with Microsoft HPC Pack on Linux compute nodes in Azure](hpcpack-cluster-openfoam.md)
+  * [Run STAR-CCM+ with Microsoft HPC Pack on Linux compute nodes in Azure](hpcpack-cluster-starccm.md)
 

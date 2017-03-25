@@ -31,5 +31,5 @@ If you place your virtual machines in the same standalone cloud service, you can
 [!INCLUDE [virtual-machines-common-classic-connect-vms](../../../../includes/virtual-machines-common-classic-connect-vms.md)]
 
 ## Next steps
-After you create a virtual machine, it's a good idea to [add a data disk](attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) so your services and workloads have a location to store data. 
+After you create a virtual machine, it's a good idea to [add a data disk](attach-disk.md) so your services and workloads have a location to store data. 
 
