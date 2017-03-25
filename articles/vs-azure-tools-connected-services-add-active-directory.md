@@ -52,7 +52,7 @@ By using Azure Active Directory (Azure AD), you can support Single Sign-On (SSO)
 When you run the wizard, Visual Studio adds Azure Active Directory and associated references to your project. Configuration files and code files in your project are also modified to add support for Azure AD. The specific modifications that Visual Studio makes depend on the project type. For detailed information about how ASP.NET MVC projects are modified, see [What happened– MVC Projects](http://go.microsoft.com/fwlink/p/?LinkID=513809). For Web API projects, see [What happened – Web API Projects](http://go.microsoft.com/fwlink/p/?LinkId=513810).
 
 ## Next steps
-* [MSDN Forum for Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
+* [MSDN Forum for Azure Active Directory](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
 * [Azure Active Directory Documentation](https://azure.microsoft.com/documentation/services/active-directory/)
-* [Blog Post: Intro to Azure AD](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
+* [Blog Post: Intro to Azure Active Directory](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
