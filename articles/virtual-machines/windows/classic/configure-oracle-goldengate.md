@@ -584,5 +584,5 @@ Remote desktop to Site A and check if the replication has taken place:
     101 DVD 10 22-MAR-13
 
 ## Additional Resources
-[Oracle Virtual Machine images for Azure](../../virtual-machines-linux-classic-oracle-images.md)
+[Oracle Virtual Machine images for Azure](../../linux/classic/oracle-images.md)
 
