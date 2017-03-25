@@ -45,6 +45,9 @@ To create the local VM containing a 5-node Service Fabric cluster, perform the f
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
+    This will bring down one file **Vagrantfile** containing the VM configuration along with the location the VM is downloaded from.
+
+   
 2. Navigate to the local clone of the repo
 
     ```bash
@@ -67,6 +70,10 @@ To create the local VM containing a 5-node Service Fabric cluster, perform the f
    This step downloads the preconfigured VM image, boot it locally, and then set up a local Service Fabric cluster in it. You should expect it to take a few minutes. If setup completes successfully, you see a message in the output indicating that the cluster is starting up.
 
     ![Cluster setup starting following VM provisioning][cluster-setup-script]
+
+>[!TIP]
+>  If the VM download is taking a long time, you can download it using wget or curl or through a browser by navigating to the link specified by **config.vm.box_url** in the file **Vagrantfile**. After downloading it locally, edit **Vagrantfile** to point to the local path where you downloaded the image. For example if you downloaded the image to /home/users/test/azureservicefabric.tp8.box, then set **config.vm.box_url** to that path.
+>
 
 5. Test that the cluster has been set up correctly by navigating to Service Fabric Explorer at http://192.168.50.50:19080/Explorer (assuming you kept the default private network IP).
 
