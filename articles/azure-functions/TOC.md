@@ -1,4 +1,24 @@
 # Overview
+## [About Functions]()
+## [Compare Serverless options](functions-compare-serverless-options.md)
+
+# Quickstarts
+
+# Samples
+
+# Tutorials
+
+# Concepts
+
+# How-to guides
+
+# Reference
+
+# Resources
+
+---
+
+# Overview
 ## [What is Azure Functions?](functions-overview.md)
 # Get Started
 ## [Create your first function](functions-create-first-azure-function.md)
