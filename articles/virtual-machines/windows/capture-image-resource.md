@@ -24,7 +24,7 @@ A managed image resource can be created from a generalized VM that is stored as 
 
 
 ## Prerequisites
-You need to have already [generalized the VM](../virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and Stop\deallocatted the VM. Generalizing a VM removes all your personal account information, among other things, and prepares the machine to be used as an image.
+You need to have already [generalized the VM](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and Stop\deallocatted the VM. Generalizing a VM removes all your personal account information, among other things, and prepares the machine to be used as an image.
 
 
 
