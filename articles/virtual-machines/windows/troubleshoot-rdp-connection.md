@@ -237,11 +237,11 @@ If you are still encountering RDP issues, you can [open a support request](https
 ## Troubleshoot specific RDP errors
 You may encounter a specific error message when trying to connect to your VM via RDP. The following are the most common error messages:
 
-* [The remote session was disconnected because there are no Remote Desktop License Servers available to provide a license](../virtual-machines-windows-troubleshoot-specific-rdp-errors.md#rdplicense).
-* [Remote Desktop can't find the computer "name"](../virtual-machines-windows-troubleshoot-specific-rdp-errors.md#rdpname).
-* [An authentication error has occurred. The Local Security Authority cannot be contacted](../virtual-machines-windows-troubleshoot-specific-rdp-errors.md#rdpauth).
-* [Windows Security error: Your credentials did not work](../virtual-machines-windows-troubleshoot-specific-rdp-errors.md#wincred).
-* [This computer can't connect to the remote computer](../virtual-machines-windows-troubleshoot-specific-rdp-errors.md#rdpconnect).
+* [The remote session was disconnected because there are no Remote Desktop License Servers available to provide a license](troubleshoot-specific-rdp-errors.md#rdplicense).
+* [Remote Desktop can't find the computer "name"](troubleshoot-specific-rdp-errors.md#rdpname).
+* [An authentication error has occurred. The Local Security Authority cannot be contacted](troubleshoot-specific-rdp-errors.md#rdpauth).
+* [Windows Security error: Your credentials did not work](troubleshoot-specific-rdp-errors.md#wincred).
+* [This computer can't connect to the remote computer](troubleshoot-specific-rdp-errors.md#rdpconnect).
 
 ## Additional resources
 If none of these errors occurred and you still can't connect to the VM via Remote Desktop, read the detailed [troubleshooting guide for Remote Desktop](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
