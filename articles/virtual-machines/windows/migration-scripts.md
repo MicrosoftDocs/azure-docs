@@ -28,7 +28,7 @@ This article catalogs the tools that have been provided by the community to assi
 > 
 > * [Platform supported migration of IaaS resources from Classic to Azure Resource Manager stack](migration-classic-resource-manager.md)
 > * [Technical Deep Dive on Platform supported migration from Classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md)
-> * [Migrate IaaS resources from Classic to Azure Resource Manager using Azure PowerShell](../virtual-machines-windows-ps-migration-classic-resource-manager.md)
+> * [Migrate IaaS resources from Classic to Azure Resource Manager using Azure PowerShell](ps-migration-classic-resource-manager.md)
 > 
 > 
 

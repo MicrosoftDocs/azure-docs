@@ -6,7 +6,7 @@ This article addresses some common questions users ask about Azure virtual machi
 ## Can I migrate my VM created in the classic deployment model to the new Resource Manager model?
 Yes. For instructions on how to migrate, see:
 
-* [Migrate from classic to Azure Resource Manager using Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-ps-migration-classic-resource-manager.md).
+* [Migrate from classic to Azure Resource Manager using Azure PowerShell](../articles/virtual-machines/windows/ps-migration-classic-resource-manager.md).
 * [Migrate from classic to Azure Resource Manager using Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md).
 
 ## What can I run on an Azure VM?

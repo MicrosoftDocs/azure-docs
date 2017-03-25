@@ -57,7 +57,7 @@ In the following example screenshots, you can see the representation of a cloud 
 ## Next steps
 Now that you understand the migration of classic IaaS resources to Resource Manager, you can start migrating resources.
 
-* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-ps-migration-classic-resource-manager.md)
+* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](windows/ps-migration-classic-resource-manager.md)
 * [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 * [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](windows/migration-classic-resource-manager.md)
 * [Clone a classic virtual machine to Azure Resource Manager by using community PowerShell scripts](windows/migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
