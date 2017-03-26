@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/01/2017
+ms.date: 03/27/2017
 ms.author: jeffstok
 
 ---
@@ -23,7 +23,10 @@ ms.author: jeffstok
 ## Introduction
 Stream Analytics exposes two types of logs: 
 * [Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) that are always enabled and provide insights into operations performed on jobs;
-* [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) that are user configurable and provide richer insights into everything that happens with the job starting when it’s created, updated, while it’s running and until it’s deleted;
+* [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) that are user configurable and provide richer insights into everything that happens with the job starting when it’s created, updated, while it’s running and until it’s deleted.
+
+> [!NOTE]
+> It should be noted that the usage of services such as Azure Storage, Event Hub, and Log Analytics for analyzing non-conforming data will be charged based on the pricing model for those services.
 
 ## How to enable diagnostic logs
 The diagnostics logs are turned **off** by default. To enable them follow these steps:
