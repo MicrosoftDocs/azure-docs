@@ -47,3 +47,10 @@ To resolve the issue, update the Synchronize Service’s user account under Wind
 
 ## Encryption key error
 Under specific conditions, changing the password of the service account leads to encryption key issue. Refer to article () if the Synchronization Service fails to start with error *“Windows could not start the Microsoft Azure AD Sync on Local Computer. For more information, review the System Event log. If this is a non-Microsoft service, contact the service vendor, and refer to service-specific error code -21451857952.”*
+
+## Next steps
+**Overview topics**
+
+* [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
+
+* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
