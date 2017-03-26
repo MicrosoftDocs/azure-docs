@@ -1,0 +1,65 @@
+---
+title: Delete an offer from Azure Marketplace | Microsoft Docs
+description: This article gives gives details around deleting an offer from Azure Marketplace
+services: cloud-partner-portal
+documentationcenter: ''
+author: anuragdalmia
+manager: hamidm
+
+ms.service: cloud-partner-portal
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/22/2017
+ms.author: andalmia
+
+---
+Delete a live SKU from Azure Marketplace
+========================================
+
+You can delete a live SKU from Azure Marketplace by following these steps:
+
+1.  Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/).
+
+2.  Select your offer from the **All offers** tab.
+
+3.  In the pane on the left side of the screen, select the **SKUs** tab.
+
+4.  Select the SKU which you want to delete and click on the delete button for that SKU.
+
+5.  [Republish](https://www.bing.com) the offer to Azure Marketplace.
+
+After the offer is live on Azure Marketplace, the SKU will be deleted from Azure Marketplace and Azure portal.
+
+Rollback to a previous SKU version
+==================================
+
+You can delete the current version of a live SKU from Azure Marketplace by following the steps here. When the process is complete, the SKU will be rolled back to its previous version.
+
+1.  Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/).
+
+2.  Select your offer from the **All offers** tab.
+
+3.  In the pane on the left side of the screen, select the **SKUs** tab.
+
+4.  Delete the latest **Disk Version** from the list of published disk versions.
+
+5.  [Republish](https://www.bing.com) the offer to Azure Marketplace.
+
+After the offer is live in Azure Marketplace, the current version of the listed SKU will be deleted from Azure Marketplace and the Azure portal. The SKU will be rolled back to its previous version.
+
+Delete a live offer
+===================
+
+There are various aspects that need to be taken care of in case of a request to remove a live offer. Please follow the steps below to get guidance from the support team to remove a live offer from Azure Marketplace:
+
+1.  Raise a support ticket using this [link](https://go.microsoft.com/fwlink/?linkid=844975)
+
+2.  Select **Managing offers** in the **Problem type** list and **Modifying an offer and/or SKU already in production** in the **Category** list.
+
+3.  Submit the request
+
+The support team will guide you through the offer deletion process.
+
+Note that deletion of a SKU/offer will not affect current purchases of the SKU/offer already made. Those will continue to work as before. They will not be available for any new purchases going forward.  
