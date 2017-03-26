@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync: How to manage encryption key | Microsoft Docs'
+title: 'Azure AD Connect sync: How to manage the encryption key | Microsoft Docs'
 description: This topic documents how to abandon encryption key after the password of the Azure AD Connect sync service account is changed.
 services: active-directory
 keywords: Azure AD sync service account, password
@@ -18,7 +18,7 @@ ms.date: 03/26/2017
 ms.author: billmath
 
 ---
-# Azure AD Connect sync: How to manage encryption key
+# Azure AD Connect sync: How to manage the encryption key
 Azure AD Connect Synchronization Service uses 3 types of accounts:
 
 * **Azure AD Connect sync service account** – this is the user account used by the Synchronization Service as the operating context while running as a Windows service.
