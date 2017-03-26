@@ -23,7 +23,7 @@ ms.author: jeffstok
 ## Introduction
 Stream Analytics exposes two types of logs: 
 * [Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) that are always enabled and provide insights into operations performed on jobs;
-* [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) that are user configurable and provide richer insights into everything that happens with the job starting when it’s created, updated, while it’s running and until it’s deleted.
+* [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) that are configurable and provide richer insights into everything that happens with the job starting when it’s created, updated, while it’s running, and until it’s deleted.
 
 > [!NOTE]
 > It should be noted that the usage of services such as Azure Storage, Event Hub, and Log Analytics for analyzing non-conforming data will be charged based on the pricing model for those services.
@@ -35,7 +35,7 @@ Sign on to the Azure portal and navigate to the streaming job blade. Then go to 
 
 ![blade navigation to diagnostic logs](./media/stream-analytics-job-diagnostic-logs/image1.png)  
 
-Then click on the "Turn on diagnostics" link
+Then click the "Turn on diagnostics" link
 
 ![turn on diagnostic logs](./media/stream-analytics-job-diagnostic-logs/image2.png)
 
@@ -45,7 +45,7 @@ On the opened diagnostics, change the status to "On."
 
 Configure the desired archival target (storage account, event hub, Log Analytics) and select the categories of logs that you want to collect (Execution, Authoring). Then save the new diagnostics configuration.
 
-Once saved the configuration will take about 10 minutes to take effect. After that, the logs will start appearing in the configured archival target (which you can see on the "Diagnostics logs" blade):
+Once saved the configuration takes about 10 minutes to take effect. After that, the logs will start appearing in the configured archival target (which you can see on the "Diagnostics logs" blade):
 
 ![blade navigation to diagnostic logs](./media/stream-analytics-job-diagnostic-logs/image4.png)
 
@@ -68,11 +68,11 @@ All logs are stored in JSON format and each entry has the following common strin
 Name | Description
 ------- | -------
 time | The timestamp (in UTC) of the log
-resourceId | The ID of the resource that operation took place on, upper-cased. It includes the subscription id, resource group, and job name. For example, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**
-category | The log category, either **Execution** or **Authoring**
+resourceId | The ID of the resource that operation took place on, upper-cased. It includes the subscription id, resource group, and job name. For example, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
+category | The log category, either **Execution** or **Authoring**.
 operationName | Name of the operation that is logged. For example, **Send Events: SQL Output write failure to mysqloutput**
 status | The status of the operation. For example, **Failed, Succeeded**.
-level | Log level. For example, **Error, Warning, Informational**
+level | Log level. For example, **Error, Warning, Informational**.
 properties | log entry-specific detail; serialized as JSON string; see following for more details
 
 ### Execution logs properties schema
@@ -86,7 +86,7 @@ Name | Description
 ------- | -------
 Source | Name of the job input or output where the error happened.
 Message | Message associated with the error.
-Type | The type of error. For example, **DataConversionError, CsvParserError, ServiceBusPropertyColumnMissingError** etc.
+Type | The type of error. For example, **DataConversionError, CsvParserError, and ServiceBusPropertyColumnMissingError**.
 Data | Contains data useful to accurately locate the source of the error. Subject to truncation depending on size.
 
 Depending on the **operationName** value, data errors will have the following schema:
