@@ -7,7 +7,7 @@ Azure AD Connect Synchronization Service uses 3 types of accounts:
 
 * **Azure AD service account** – this is the user account used by the Synchronization Service to connect to Azure AD.
 
-The passwords of the AD DS account and Azure AD service account are encrypted before they are stored in the Synchronization Service database. The encryption key used is secured using [Windows Data Protection (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx). DPAPI protects the encryption key using the password of the **Azure AD Connect sync service account**. Under specific conditions, if the password of the Azure AD sync service account is updated, the Synchronization Service can no longer retrieve the encryption key via DPAPI. Without the encryption key, the Synchronization Service cannot decrypt the passwords required to synchronize to/from on-premises AD and Azure AD.
+The passwords of the AD DS account and Azure AD service account are encrypted by the Synchronization Service before they are stored in the database. The encryption key used is secured using [Windows Data Protection (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx). DPAPI protects the encryption key using the **password of the Azure AD Connect sync service account**. Under specific conditions, if the password is updated, the Synchronization Service can no longer retrieve the encryption key via DPAPI. Without the encryption key, the Synchronization Service cannot decrypt the passwords required to synchronize to/from on-premises AD and Azure AD.
 
 ## Symptoms
 There are two common symptoms:
@@ -72,6 +72,13 @@ You cannot directly provide the password of the Azure AD service account to the 
 ### Start the Synchronization Service
 Now that the Synchronization Service has access to the encryption key and all the passwords it needs, you can restart the service in the Windows Service Control Manager:
 
-1. Go to Windows Service Control Manager (START → Services).
+1. Go to **Windows Service Control Manager** (START → Services).
 
-2. Select Microsoft Azure AD Sync and click Start.
+2. Select **Microsoft Azure AD Sync** and click **Start**.
+
+## Next steps
+**Overview topics**
+
+* [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
+
+* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
