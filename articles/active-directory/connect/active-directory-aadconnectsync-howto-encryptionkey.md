@@ -22,7 +22,7 @@ To resolve this issue, you need to:
 
 1. Abandon the existing encryption key
 
-2. Provide the Synchronization Service with the password of the AD DS sync account
+2. Provide the password of the AD DS sync account
 
 3. Reinitialize the password of the Azure AD sync account
 
@@ -38,3 +38,35 @@ Abandon the existing encryption key sp that new encryption key can be created:
 3. Navigate to folder: `$env:programfiles\Microsoft Azure AD Sync\bin\`
 
 4. Run the command: `./miiskmu.exe /a`
+
+### Provide the password of the AD DS sync account
+As the existing passwords stored inside the database can no longer be decrypted, you need to provide the Synchronization Service with the password of the AD DS sync account. The Synchronization Service will encrypt the passwords using the new encryption keys:
+
+1. Start the **Synchronization Service Manager** (START → Synchronization Service).
+
+2. Go to the **Connectors** tab.
+
+3. Select the **AD Connector** which corresponds to your on-premises AD. If you have more than one AD connector, repeat the following steps for each of them.
+
+4. Under **Actions**, select **Properties**.
+
+5. In the pop-up dialog, select **Connect to Active Directory Forest**:
+
+    1. The **Forest name** indicates the corresponding on-prem AD.
+    
+    2. The **User name** indicates the AD DS account used for synchronization.
+
+6. Enter the password of the AD DS account in the **Password** textbox. If you do not know its password, you must set it to a known value before performing this step.
+
+7. Click **OK** to save the new password and close the pop-up dialog.
+
+### Reinitialize the password of the Azure AD sync account
+You cannot directly provide the password of the Azure AD service account to the Synchronization Service. Instead, you need to use the cmdlet Add-ADSyncAADServiceAccount to reinitialize the Azure AD service account. The cmdlet resets the service account password and makes it available to the Synchronization Service:
+
+1. Start a new PowerShell session on the Azure AD Connect server.
+
+2. Run cmdlet `Add-ADSyncAADServiceAccount`.
+
+3. In the pop up dialog, provide the Azure AD Global admin credentials for your Azure AD tenant.
+
+
