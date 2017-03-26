@@ -51,7 +51,7 @@ To resolve the issue, provide the Synchronization Service with the new password:
 
 8.	Restart the **Synchronization Service** to remove the old password from memory cache:
 
-    1. Go to **Windows Service Control Manager** (Start → Services).
+    1. Go to **Windows Service Control Manager** (START → Services).
   
     2. Select **Microsoft Azure AD Sync** and click **Start** or **Restart**.
     
