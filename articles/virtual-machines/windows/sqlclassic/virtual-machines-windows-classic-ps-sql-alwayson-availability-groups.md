@@ -34,16 +34,16 @@ Azure virtual machines (VMs) can help database administrators to lower the cost 
 * A virtual network that contains multiple subnets, including a front-end and a back-end subnet.
 * A domain controller with an Active Directory domain.
 * Two SQL Server VMs that are deployed to the back-end subnet and joined to the Active Directory domain.
-* A 3-node Windows Failover Cluster with the Node Majority quorum model.
+* A three-node Windows failover cluster with the Node Majority quorum model.
 * An availability group with two synchronous-commit replicas of an availability database.
 
-This scenario is chosen for its simplicity on Azure, not for its cost-effectiveness or other factors. For example, you can minimize the number of VMs for a 2-replica availability group in order to save on compute hours in Azure by using the domain controller as the quorum file share witness in a 2-node failover cluster. This method reduces the VM count by one from the above configuration.
+This scenario is chosen for its simplicity on Azure, not for its cost-effectiveness or other factors. For example, you can minimize the number of VMs for a two-replica availability group to save on compute hours in Azure by using the domain controller as the quorum file share witness in a two-node failover cluster. This method reduces the VM count by one from the above configuration.
 
 This tutorial is intended to show you the steps that are required to set up the described solution above without elaborating on the details of each step. Therefore, instead of showing you the GUI configuration steps, it uses PowerShell scripting to take you quickly through each step. It assumes the following:
 
 * You already have an Azure account with the virtual machine subscription.
 * You've installed the [Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs).
-* You already have a solid understanding of Always On availability groups for on-premise solutions. For more information, see [Always On availability groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
+* You already have a solid understanding of Always On availability groups for on-premises solutions. For more information, see [Always On availability groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 ## Connect to your Azure subscription and create the virtual network
 1. In a PowerShell window on your local computer, import the Azure module, download a publishing settings file to your machine, and connect your PowerShell session to your Azure subscription by importing the downloaded publishing settings.
@@ -174,7 +174,7 @@ This tutorial is intended to show you the steps that are required to set up the 
 The domain controller server is now successfully provisioned. Next, you'll configure the Active Directory domain on this domain controller server. Leave the PowerShell window open on your local computer. You'll use it again later to create the two SQL Server VMs.
 
 ## Configure the domain controller
-1. Connect to the domain contoller server by launching the remote desktop file. Use the machine administrator’s username AzureAdmin and password **Contoso!000**, which you specified when you created the new VM.
+1. Connect to the domain controller server by launching the remote desktop file. Use the machine administrator’s username AzureAdmin and password **Contoso!000**, which you specified when you created the new VM.
 2. Open a PowerShell window in administrator mode.
 3. Run the following **DCPROMO.EXE** command to set up the **corp.contoso.com** domain, with the data directories on drive M.
 
@@ -235,7 +235,7 @@ The domain controller server is now successfully provisioned. Next, you'll confi
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
 
-    The GUID specified above is the GUID for the computer object type. The **CORP\Install** account needs the **Read All Properties** and **Create Computer Objects** permission in order to create the Active Direct objects for the failover cluster. The **Read All Properties** permission is already given to CORP\Install by default, so you don't need to grant it explicitly. For more information on permissions that are needed to create the failover cluster, see [Failover Cluster Step-by-Step Guide: Configuring Accounts in Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
+    The GUID specified above is the GUID for the computer object type. The **CORP\Install** account needs the **Read All Properties** and **Create Computer Objects** permission to create the Active Direct objects for the failover cluster. The **Read All Properties** permission is already given to CORP\Install by default, so you don't need to grant it explicitly. For more information on permissions that are needed to create the failover cluster, see [Failover Cluster Step-by-Step Guide: Configuring Accounts in Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
 
     Now that you've finished configuring Active Directory and the user objects, you'll create two SQL Server VMs and join them to this domain.
 
@@ -283,9 +283,9 @@ The domain controller server is now successfully provisioned. Next, you'll confi
     Note the following regarding the command above:
 
    * **New-AzureVMConfig** creates a VM configuration with the desired availability set name. The subsequent VMs will be created with the same availability set name so that they are joined to the same availability set.
-   * **Add-AzureProvisioningConfig** joins the VM to the Active Directory domain you created.
+   * **Add-AzureProvisioningConfig** joins the VM to the Active Directory domain that you created.
    * **Set-AzureSubnet** places the VM in the Back subnet.
-   * **New-AzureVM** creates a new cloud service and creates the new Azure VM in the new cloud service. The **DnsSettings** parameter specifies that the DNS server for the servers in the new cloud service has the IP address **10.10.0.4**, which is the IP address of the DC server. This parameter is needed to enable the new VMs in the cloud service to join to the Active Directory domain successfully. Without this parameter, you must manually set the IPv4 settings in your VM to use the DC server as the primary DNS server after the VM is provisioned and then join the VM to the Active Directory domain.
+   * **New-AzureVM** creates a new cloud service and creates the new Azure VM in the new cloud service. The **DnsSettings** parameter specifies that the DNS server for the servers in the new cloud service has the IP address **10.10.0.4**. This is the IP address of the domain controller server. This parameter is needed to enable the new VMs in the cloud service to join to the Active Directory domain successfully. Without this parameter, you must manually set the IPv4 settings in your VM to use the domain controller server as the primary DNS server after the VM is provisioned, and then join the VM to the Active Directory domain.
 3. Run the following piped commands to create the SQL Server VMs, named **ContosoSQL1** and **ContosoSQL2**.
 
         # Create ContosoSQL1...
@@ -346,12 +346,12 @@ The domain controller server is now successfully provisioned. Next, you'll confi
 
     Note the following regarding the commands above:
 
-   * **New-AzureVMConfig** uses the same availability set name as the DC server, and uses the SQL Server 2012 Service Pack 1 Enterprise Edition image in the virtual machine gallery. It also sets the operating system disk to read-caching only (no write caching). It is recommended that you migrate the database files to a separate data disk that you attach to the VM and configure it with no read or write caching. However, the next best thing is to remove write caching on the operating system disk, since you cannot remove read caching on the operating system disk.
-   * **Add-AzureProvisioningConfig** joins the VM to the Active Directory domain you created.
+   * **New-AzureVMConfig** uses the same availability set name as the domain controller server, and uses the SQL Server 2012 Service Pack 1 Enterprise Edition image in the virtual machine gallery. It also sets the operating system disk to read-caching only (no write caching). We recommend that you migrate the database files to a separate data disk that you attach to the VM, and configure it with no read or write caching. However, the next best thing is to remove write caching on the operating system disk because you can't remove read caching on the operating system disk.
+   * **Add-AzureProvisioningConfig** joins the VM to the Active Directory domain that you created.
    * **Set-AzureSubnet** places the VM in the Back subnet.
-   * **Add-AzureEndpoint** adds access endpoints so that client applications can access these SQL Server services instances on the internet. Different ports are given to ContosoSQL1 and ContosoSQL2.
+   * **Add-AzureEndpoint** adds access endpoints so that client applications can access these SQL Server services instances on the Internet. Different ports are given to ContosoSQL1 and ContosoSQL2.
    * **New-AzureVM** creates the new SQL Server VM in the same cloud service as ContosoQuorum. You must place the VMs in the same cloud service if you want them to be in the same availability set.
-4. Wait for each VM to be fully provisioned and download its remote desktop file to your working directory. The for loop cycles through the three new VMs and executes the commands inside the top-level curly brackets for each of them.
+4. Wait for each VM to be fully provisioned and download its remote desktop file to your working directory. The **for** loop cycles through the three new VMs and executes the commands inside the top-level curly brackets for each of them.
 
         Foreach ($VM in $VMs = Get-AzureVM -ServiceName $sqlServiceName)
         {
@@ -371,24 +371,24 @@ The domain controller server is now successfully provisioned. Next, you'll confi
             Get-AzureRemoteDesktopFile -ServiceName $VM.ServiceName -Name $VM.InstanceName -LocalPath "$workingDir$($VM.InstanceName).rdp"
         }
 
-    The SQL Server VMs are now provisioned and running, but they are installed with SQL Server with default options.
+    The SQL Server VMs are now provisioned and running, but they're installed with SQL Server with default options.
 
-## Initialize the Failover Cluster VMs
-In this section, you need to modify the three servers you will use in the failover cluster and the SQL Server installation. Specifically:
+## Initialize the failover cluster VMs
+In this section, you need to modify the three servers that you'll use in the failover cluster and the SQL Server installation. Specifically:
 
 * (All servers) You need to install the **Failover Clustering** feature.
 * (All servers) You need to add **CORP\Install** as the machine **administrator**.
 * (ContosoSQL1 and ContosoSQL2 only) You need to add **CORP\Install** as a **sysadmin** role in the default database.
-* (ContosoSQL1 and ContosoSQL2 only) You need to add **NT AUTHORITY\System** as a login with the following permissions:
+* (ContosoSQL1 and ContosoSQL2 only) You need to add **NT AUTHORITY\System** as a sign-in with the following permissions:
 
   * Alter any availability group
   * Connect SQL
   * View server state
 * (ContosoSQL1 and ContosoSQL2 only) The **TCP** protocol is already enabled on the SQL Server VM. However, you still need to open the firewall for remote access of SQL Server.
 
-Now, you are ready to start. Beginning with **ContosoQuorum**, follow the steps below:
+Now, you're ready to start. Beginning with **ContosoQuorum**, follow the steps below:
 
-1. Connect to **ContosoQuorum** by launching the remote desktop files. Use the machine administrator’s username **AzureAdmin** and password **Contoso!000**, which you specified when creating the VMs.
+1. Connect to **ContosoQuorum** by launching the remote desktop files. Use the machine administrator’s username **AzureAdmin** and password **Contoso!000**, which you specified when you created the VMs.
 2. Verify that the computers have been successfully joined to **corp.contoso.com**.
 3. Wait for the SQL Server installation to finish running the automated initialization tasks before proceeding.
 4. Open a PowerShell window in administrator mode.
@@ -399,13 +399,13 @@ Now, you are ready to start. Beginning with **ContosoQuorum**, follow the steps 
 6. Add **CORP\Install** as local administrator.
 
         net localgroup administrators "CORP\Install" /Add
-7. Log out of ContosoQuorum. You are done with this server now.
+7. Sign out of ContosoQuorum. You're done with this server now.
 
         logoff.exe
 
-Next, initialize **ContosoSQL1** and **ContosoSQL2**. Follow the steps below, which are identical for both of the SQL Server VMs.
+Next, initialize **ContosoSQL1** and **ContosoSQL2**. Follow the steps below, which are identical for both SQL Server VMs.
 
-1. Connect to the two SQL Server VMs by launching the remote desktop files. Use the machine administrator’s username **AzureAdmin** and password **Contoso!000**, which you specified when creating the VMs.
+1. Connect to the two SQL Server VMs by launching the remote desktop files. Use the machine administrator’s username **AzureAdmin** and password **Contoso!000**, which you specified when you created the VMs.
 2. Verify that the computers have been successfully joined to **corp.contoso.com**.
 3. Wait for the SQL Server installation to finish running the automated initialization tasks before proceeding.
 4. Open a PowerShell window in administrator mode.
@@ -413,7 +413,7 @@ Next, initialize **ContosoSQL1** and **ContosoSQL2**. Follow the steps below, wh
 
         Import-Module ServerManager
         Add-WindowsFeature Failover-Clustering
-6. Add **CORP\Install** as local administrator
+6. Add **CORP\Install** as local administrator.
 
         net localgroup administrators "CORP\Install" /Add
 7. Import the SQL Server PowerShell Provider.
@@ -424,7 +424,7 @@ Next, initialize **ContosoSQL1** and **ContosoSQL2**. Follow the steps below, wh
 
         net localgroup administrators "CORP\Install" /Add
         Invoke-SqlCmd -Query "EXEC sp_addsrvrolemember 'CORP\Install', 'sysadmin'" -ServerInstance "."
-9. Add **NT AUTHORITY\System** as a login with the three permissions described above.
+9. Add **NT AUTHORITY\System** as a sign-in with the three permissions described above.
 
         Invoke-SqlCmd -Query "CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS" -ServerInstance "."
         Invoke-SqlCmd -Query "GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
@@ -433,14 +433,14 @@ Next, initialize **ContosoSQL1** and **ContosoSQL2**. Follow the steps below, wh
 10. Open the firewall for remote access of SQL Server.
 
          netsh advfirewall firewall add rule name='SQL Server (TCP-In)' program='C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\Binn\sqlservr.exe' dir=in action=allow protocol=TCP
-11. Log out of both VMs.
+11. Sign out of both VMs.
 
          logoff.exe
 
-Finally, you are ready to configure the availability group. You will use the SQL Server PowerShell Provider to perform all of the work on **ContosoSQL1**.
+Finally, you're ready to configure the availability group. You'll use the SQL Server PowerShell Provider to perform all of the work on **ContosoSQL1**.
 
-## Configure the Availability Group
-1. Connect to **ContosoSQL1** again by launching the remote desktop files. Instead of logging in using the machine account, log in using **CORP\Install**.
+## Configure the availability group
+1. Connect to **ContosoSQL1** again by launching the remote desktop files. Instead of signing in by using the machine account, sign in by using **CORP\Install**.
 2. Open a PowerShell window in administrator mode.
 3. Define the following variables:
 
@@ -456,7 +456,7 @@ Finally, you are ready to configure the availability group. You will use the SQL
         $backupShare = "\\$server1\backup"
         $quorumShare = "\\$server1\quorum"
         $ag = "AG1"
-4. Import SQL Server PowerShell Provider.
+4. Import the SQL Server PowerShell Provider.
 
         Set-ExecutionPolicy RemoteSigned -Force
         Import-Module "sqlps" -DisableNameChecking
@@ -478,12 +478,12 @@ Finally, you are ready to configure the availability group. You will use the SQL
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. Download **CreateAzureFailoverCluster.ps1** from [Create Failover Cluster for Always On Availability Groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) to the local working directory. You will use this script to help you create a functional failover cluster. For important information on how Windows Clustering interacts with the Azure network, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+7. Download **CreateAzureFailoverCluster.ps1** from [Create Failover Cluster for Always On Availability Groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) to the local working directory. You'll use this script to help you create a functional failover cluster. For important information on how Windows Failover Clustering interacts with the Azure network, see [High availability and disaster recovery for SQL Server in Azure Virtual Machines](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
 8. Change to your working directory and create the failover cluster with the downloaded script.
 
         Set-ExecutionPolicy Unrestricted -Force
         .\CreateAzureFailoverCluster.ps1 -ClusterName "$clusterName" -ClusterNode "$server1","$server2","$serverQuorum"
-9. Enable Always On Availability Groups for the default SQL Server instances on **ContosoSQL1** and **ContosoSQL2**.
+9. Enable Always On availability groups for the default SQL Server instances on **ContosoSQL1** and **ContosoSQL2**.
 
         Enable-SqlAlwaysOn `
             -Path SQLSERVER:\SQL\$server1\Default `
@@ -495,7 +495,7 @@ Finally, you are ready to configure the availability group. You will use the SQL
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-10. Create a backup directory and grant permissions for the SQL Server service accounts. You will use this directory to prepare the availability database on the secondary replica.
+10. Create a backup directory and grant permissions for the SQL Server service accounts. You'll use this directory to prepare the availability database on the secondary replica.
 
          $backup = "C:\backup"
          New-Item $backup -ItemType directory
@@ -561,7 +561,7 @@ Finally, you are ready to configure the availability group. You will use the SQL
              -Path "SQLSERVER:\SQL\$server2\Default\AvailabilityGroups\$ag" `
              -Database $db
 
-## Next Steps
-You have now successfully implemented SQL Server Always On by creating an availability group in Azure. To configure a listener for this availability group, see [Configure an ILB listener for Always On Availability Groups in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+## Next steps
+You've now successfully implemented SQL Server Always On by creating an availability group in Azure. To configure a listener for this availability group, see [Configure an ILB listener for Always On availability groups in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
-For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+For other information about using SQL Server in Azure, see [SQL Server on Azure virtual machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
