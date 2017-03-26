@@ -1,5 +1,5 @@
 ---
-title: How to get support for the cloud partner portal | Microsoft Docs
+title: Support for the cloud partner portal | Microsoft Docs
 description: This article gives gives details around getting support for the cloud partner portal
 services: cloud-partner-portal
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.author: andalmia
 
 ---
 
-<span id="_Hlk477955830" class="anchor"></span>**How to get support for Cloud Partner Portal**
+<span id="_Hlk477955830" class="anchor"></span>**Support for Cloud Partner Portal**
 
 Microsoft provides support for a wide variety of products and services. Ensuring that your query finds the right support team is important to ensure an appropriate and timely response. Please consider the following scenarios, which should help you route your query to the appropriate team:
 
@@ -52,16 +52,16 @@ Describe the problem as fully as you can, and provide any files (screenshots, er
 
 **6. Submission confirmation**
 
-Once you have submitted your issue, we will acknowledge receipt within 24 hours and assign your issue a priority and severity. Our dedicated team of support engineers will assist with its resolution according to our Service Level Agreement response times. You can view this "Response time" as per screenshot below. 
+Once you have submitted your issue, we will acknowledge receipt within 24 hours and assign your issue a priority and severity. Our dedicated team of support engineers will assist with its resolution according to our Service Level Agreement response times. You can view this **Response time** as per screenshot below. 
 
 ![support4][4]
 
 -   If you need to talk to us about your issue, reply back to the email that you recive for the opened support case and we can set up some time with you. 
 
--   You can view progress on your issue at any time using the "View incident online" link in screenshot above.
+-   You can view progress on your issue at any time using the **View incident online** link in screenshot above.
 
 
-[1]: ./media/cloud-partner-portal-how-to-get-support-for-cloud-partner-portal/support1.png
-[2]: ./media/cloud-partner-portal-how-to-get-support-for-cloud-partner-portal/support2.png
-[3]: ./media/cloud-partner-portal-how-to-get-support-for-cloud-partner-portal/support3.png
-[4]: ./media/cloud-partner-portal-how-to-get-support-for-cloud-partner-portal/support4.png
+[1]: ./media/cloud-partner-portal-support-for-cloud-partner-portal/support1.png
+[2]: ./media/cloud-partner-portal-support-for-cloud-partner-portal/support2.png
+[3]: ./media/cloud-partner-portal-support-for-cloud-partner-portal/support3.png
+[4]: ./media/cloud-partner-portal-support-for-cloud-partner-portal/support4.png

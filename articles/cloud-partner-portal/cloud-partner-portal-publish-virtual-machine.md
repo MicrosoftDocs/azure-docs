@@ -1,5 +1,5 @@
 ---
-title: How to publish a virtual machine | Microsoft Docs
+title: Publish a virtual machine | Microsoft Docs
 description: This article gives gives details around publishing a virtual machine via the cloud partner portal
 services: cloud-partner-portal
 documentationcenter: ''
@@ -15,17 +15,19 @@ ms.date: 03/22/2017
 ms.author: andalmia
 
 ---
+Publish a virtual machine
+=========================
 
 What are pre-requisites for publishing a VM
-===========================================
+-------------------------------------------
 
 Prerequisites to listing on Azure Marketplace
 
 1.  Technical
 
-> Must have Azure compatible VHD-need link to testing tools for compatibility <https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites>
+> Must have Azure compatible VHD-need link to testing tools for compatibility <https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites>
 
--   
+
 
 1.  Non-technical (business requirements)
 
@@ -41,7 +43,7 @@ Prerequisites to listing on Azure Marketplace
 
 -   You must agree to the terms of the Azure Marketplace Participation Policies and Publisher Agreement​
 
-*You must agree to comply with the [Terms of Use](https://azure.microsoft.com/en-us/support/legal/website-terms-of-use/) , [Microsoft Privacy Statement](http://www.microsoft.com/en-us/privacystatement/default.aspx) and [Microsoft Azure Certified Program Agreement](https://azure.microsoft.com/en-us/support/legal/marketplace/certified-program-agreement/).*
+*You must agree to comply with the [Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/) , [Microsoft Privacy Statement](http://www.microsoft.com/privacystatement/default.aspx) and [Microsoft Azure Certified Program Agreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).*
 
 How to create a new VM offer
 ============================
@@ -80,6 +82,8 @@ Offer ID
 
 This is a unique identifier for the offer within a publisher profile. This ID will be visible in product URLs, ARM templates and billing reports. It can only be composed of lowercase alphanumeric characters or dashes (-). The ID cannot end in a dash and can have a maximum of 50 characters. Note that this field is locked once an offer goes live.
 
+For eg., if a publisher **contoso** publishers an offer with offer ID **sample-vm**, it will show up in Azure marketplace as **https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-vm?tab=Overview**
+
 Publisher ID
 ------------
 
@@ -88,7 +92,7 @@ This dropdown allows you to choose the publisher profile you want to publish thi
 Name
 ----
 
-This is the display name for your offer. This is the name that will show up in [Azure Marketplace](https://azuremarketplace.microsoft.com) and in [Azure Portal](https://portal.azure.com/). It can have a maximum of 50 characters. Guidance here is to include a recognizable brand name for your product. Dont include your company name here unless that is how it is marketed. 
+This is the display name for your offer. This is the name that will show up in [Azure Marketplace](https://azuremarketplace.microsoft.com) and in [Azure Portal](https://portal.azure.com/). It can have a maximum of 50 characters. Guidance here is to include a recognizable brand name for your product. Dont include your company name here unless that is how it is marketed. If you are marketing this offer at your own website, ensure that the name is exactly how it shows up in your website.
 
 Click on “Save” to save your progress. Next step would be to add SKUs for your offer.
 
@@ -119,7 +123,7 @@ This SKU will be deployable to customers in all public Azure regions that have M
 
 ### Azure Government Cloud 
 
-This SKU will be deployable in the Azure Government Cloud. Before publishing to [Azure Government](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-manage-marketplace-partners), we recommend publishers test and validate their solution works as expected. To stage and test, request a trial account [here](https://azure.microsoft.com/en-us/offers/ms-azr-usgov-0044p). Please note that Microsoft Azure Government is a government-community cloud with controlled access for customers from the US Federal, State, local or tribal AND partners eligible to serve these entities.
+This SKU will be deployable in the Azure Government Cloud. Before publishing to [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), we recommend publishers test and validate their solution works as expected. To stage and test, request a trial account [here](https://azure.microsoft.com/offers/ms-azr-usgov-0044p). Please note that Microsoft Azure Government is a government-community cloud with controlled access for customers from the US Federal, State, local or tribal AND partners eligible to serve these entities.
 
 Country/Region availability
 ---------------------------
@@ -189,17 +193,17 @@ VM Images
 
 The next section to complete will be the VM Images section. Before going to this section, you need to have the VHD that you want to publish ready. Here are some links helping you to create your VHD:
 
--   [Technical prerequisites for creating a virtual machine image for the Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites)
+-   [Technical prerequisites for creating a virtual machine image for the Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites)
 
--   [Creating and uploading a Linux VHD](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json )
+-   [Creating and uploading a Linux VHD](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json )
 
--   [Create & test a Linux VM from an image](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-upload-vhd)
+-   [Create & test a Linux VM from an image](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 
--   [Creating and uploading a Windows VHD ](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+-   [Creating and uploading a Windows VHD ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
 
--   [Create & test a Windows VM from an image](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
+-   [Create & test a Windows VM from an image](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
 
--   [How to troubleshoot common issues encountered during VHD creation](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting )
+-   [How to troubleshoot common issues encountered during VHD creation](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting )
 
 
 Once you have your VHD ready, you can start filling out this section. Here are some details for some of the fields.
@@ -216,7 +220,9 @@ Specify the ports that you would like made open and available. These ports are o
 
 ### Adding VM Images
 
-The next step would be to add a VM image for your SKU. Start by clicking the “+ New version” under the “VHD’s” section. This will show a collection of fields that needs to be filled out.
+The next step would be to add a VM image for your SKU. You can add up to 8 disk versions per SKU. Only the highest disk version number for a particular SKU will show up in Azure Marketplace. Others will be visible via APIs. 
+
+Start by clicking the “+ New version” under the **Disk version** section. This will show a collection of fields that needs to be filled out.
 
 #### VM image version
 
@@ -242,11 +248,11 @@ Note that once you publish a SKU with a given VM version and Data disks, these g
 
 | **Issue**                                                           | **Failure Message**                                                           | **Fix**                                                   | **Documentation Link**                                                                                    |
 |---------------------------------------------------------------------|-------------------------------------------------------------------------------|-----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
-| Failure in copying images - "?" is not found in SAS url             | Failure: Copying Images. Not able to download blob using provided SAS Uri.    | Update the SAS Url using recommended tools                | <https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/> |
-| Failure in copying images - “st” and “se” parameters not in SAS url | Failure: Copying Images. Not able to download blob using provided SAS Uri.    | Update the SAS Url with Start and End dates on it         | <https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/> |
-| Failure in copying images - “sp=rl” not in SAS url                  | Failure: Copying Images. Not able to download blob using provided SAS Uri     | Update the SAS Url with permissions set as “Read” & “List | <https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/> |
-| Failure in copying images - SAS url have white spaces in vhd name   | Failure: Copying Images. Not able to download blob using provided SAS Uri.    | Update the SAS Url without white spaces                   | <https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/> |
-| Failure in copying images – SAS Url Authorization error             | Failure: Copying Images. Not able to download blob due to authorization error | Regenerate the SAS Url                                    | <https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/> |
+| Failure in copying images - "?" is not found in SAS url             | Failure: Copying Images. Not able to download blob using provided SAS Uri.    | Update the SAS Url using recommended tools                | <https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/> |
+| Failure in copying images - “st” and “se” parameters not in SAS url | Failure: Copying Images. Not able to download blob using provided SAS Uri.    | Update the SAS Url with Start and End dates on it         | <https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/> |
+| Failure in copying images - “sp=rl” not in SAS url                  | Failure: Copying Images. Not able to download blob using provided SAS Uri     | Update the SAS Url with permissions set as “Read” & “List | <https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/> |
+| Failure in copying images - SAS url have white spaces in vhd name   | Failure: Copying Images. Not able to download blob using provided SAS Uri.    | Update the SAS Url without white spaces                   | <https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/> |
+| Failure in copying images – SAS Url Authorization error             | Failure: Copying Images. Not able to download blob due to authorization error | Regenerate the SAS Url                                    | <https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/> |
 
 Marketplace Form
 ================
@@ -315,17 +321,17 @@ How to publish an offer
 
 &lt;Point to Dina’s doc&gt;
 
-[1]: ./media/cloud-partner-portal-how-to-publish-virtual-machine/publishvm1.png
-[2]: ./media/cloud-partner-portal-how-to-publish-virtual-machine/publishvm2.png
-[3]: ./media/cloud-partner-portal-how-to-publish-virtual-machine/publishvm3.png
-[4]: ./media/cloud-partner-portal-how-to-publish-virtual-machine/publishvm4.png
-[5]: ./media/cloud-partner-portal-how-to-publish-virtual-machine/publishvm5.png
-[6]: ./media/cloud-partner-portal-how-to-publish-virtual-machine/publishvm6.png
-[7]: ./media/cloud-partner-portal-how-to-publish-virtual-machine/publishvm7.png
-[8]: ./media/cloud-partner-portal-how-to-publish-virtual-machine/publishvm8.png
-[9]: ./media/cloud-partner-portal-how-to-publish-virtual-machine/publishvm9.png
-[10]: ./media/cloud-partner-portal-how-to-publish-virtual-machine/publishvm10.png
-[11]: ./media/cloud-partner-portal-how-to-publish-virtual-machine/publishvm11.png
-[12]: ./media/cloud-partner-portal-how-to-publish-virtual-machine/publishvm12.png
-[13]: ./media/cloud-partner-portal-how-to-publish-virtual-machine/publishvm13.png
-[14]: ./media/cloud-partner-portal-how-to-publish-virtual-machine/publishvm14.png
+[1]: ./media/cloud-partner-portal-publish-virtual-machine/publishvm1.png
+[2]: ./media/cloud-partner-portal-publish-virtual-machine/publishvm2.png
+[3]: ./media/cloud-partner-portal-publish-virtual-machine/publishvm3.png
+[4]: ./media/cloud-partner-portal-publish-virtual-machine/publishvm4.png
+[5]: ./media/cloud-partner-portal-publish-virtual-machine/publishvm5.png
+[6]: ./media/cloud-partner-portal-publish-virtual-machine/publishvm6.png
+[7]: ./media/cloud-partner-portal-publish-virtual-machine/publishvm7.png
+[8]: ./media/cloud-partner-portal-publish-virtual-machine/publishvm8.png
+[9]: ./media/cloud-partner-portal-publish-virtual-machine/publishvm9.png
+[10]: ./media/cloud-partner-portal-publish-virtual-machine/publishvm10.png
+[11]: ./media/cloud-partner-portal-publish-virtual-machine/publishvm11.png
+[12]: ./media/cloud-partner-portal-publish-virtual-machine/publishvm12.png
+[13]: ./media/cloud-partner-portal-publish-virtual-machine/publishvm13.png
+[14]: ./media/cloud-partner-portal-publish-virtual-machine/publishvm14.png
