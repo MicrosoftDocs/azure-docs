@@ -1,3 +1,23 @@
+---
+title: 'Azure AD Connect sync: How to manage the AD DS account | Microsoft Docs'
+description: This topic documents how to update the connector after the password of the AD DS account is changed.
+services: active-directory
+keywords: AD DS account, password
+documentationcenter: ''
+author: cychua
+manager: femila
+editor: ''
+
+ms.assetid: 3d6d5ef4-13c0-4dd1-997b-410a6514ba71
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/25/2017
+ms.author: billmath
+
+---
 # Azure AD Connect sync: How to manage the AD DS account
 The AD DS account refers to the domain user account used by Azure AD Connect Synchronization Service to connect with on-premises AD. If you change the account password, the Synchronization Service will no longer be able to import/export changes to on-premises AD.
 
@@ -31,7 +51,7 @@ To resolve the issue, provide the Synchronization Service with the new password:
 
 8.	Restart the **Synchronization Service** to remove the old password from memory cache:
 
-    1. Go to Windows Service Control Manager (Start → Services).
+    1. Go to **Windows Service Control Manager** (Start → Services).
   
     2. Select **Microsoft Azure AD Sync** and click **Start** or **Restart**.
     
