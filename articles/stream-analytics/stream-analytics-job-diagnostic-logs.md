@@ -68,11 +68,11 @@ All logs are stored in JSON format and each entry has the following common strin
 Name | Description
 ------- | -------
 time | The timestamp (in UTC) of the log
-resourceId | The ID of the resource that operation took place on, upper-cased. It includes the subscription id, resource group, and job name. For example, `/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB`
-category | The log category, either `Execution` or `Authoring`
-operationName | Name of the operation that is logged. For example, `Send Events: SQL Output write failure to mysqloutput`
-status | The status of the operation. For example, `Failed, Succeeded`.
-level | Log level. For example, `Error, Warning, Informational`
+resourceId | The ID of the resource that operation took place on, upper-cased. It includes the subscription id, resource group, and job name. For example, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**
+category | The log category, either **Execution** or **Authoring**
+operationName | Name of the operation that is logged. For example, **Send Events: SQL Output write failure to mysqloutput**
+status | The status of the operation. For example, **Failed, Succeeded**.
+level | Log level. For example, **Error, Warning, Informational**
 properties | log entry-specific detail; serialized as JSON string; see following for more details
 
 ### Execution logs properties schema
@@ -86,7 +86,7 @@ Name | Description
 ------- | -------
 Source | Name of the job input or output where the error happened.
 Message | Message associated with the error.
-Type | The type of error. For example, `DataConversionError, CsvParserError, ServiceBusPropertyColumnMissingError` etc.
+Type | The type of error. For example, **DataConversionError, CsvParserError, ServiceBusPropertyColumnMissingError** etc.
 Data | Contains data useful to accurately locate the source of the error. Subject to truncation depending on size.
 
 Depending on the **operationName** value, data errors will have the following schema:
@@ -102,7 +102,7 @@ Name | Description
 -------- | --------
 Error | (optional) Error information, usually exception information if available.
 Message| Log message.
-Type | Type of message, maps to internal categorization of errors: for example JobValidationError, BlobOutputAdapterInitializationFailure etc.
+Type | Type of message, maps to internal categorization of errors: for example **JobValidationError, BlobOutputAdapterInitializationFailure**, etc.
 Correlation ID | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) that uniquely identifies the job execution. All execution log entries produced since the job is started until it stops will have the same "Correlation ID."
 
 
