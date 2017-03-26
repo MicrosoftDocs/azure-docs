@@ -20,8 +20,8 @@ ms.author: mikeray
 ---
 # Configure the Always On availability group on an Azure VM with PowerShell
 > [!div class="op_single_selector"]
-> * [Classic: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-> * [Classic: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+> * [Classic: UI](../classic/portal-sql-alwayson-availability-groups.md)
+> * [Classic: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
 > [!IMPORTANT]
@@ -562,6 +562,6 @@ Finally, you're ready to configure the availability group. You'll use the SQL Se
              -Database $db
 
 ## Next steps
-You've now successfully implemented SQL Server Always On by creating an availability group in Azure. To configure a listener for this availability group, see [Configure an ILB listener for Always On availability groups in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+You've now successfully implemented SQL Server Always On by creating an availability group in Azure. To configure a listener for this availability group, see [Configure an ILB listener for Always On availability groups in Azure](../classic/ps-sql-int-listener.md).
 
 For other information about using SQL Server in Azure, see [SQL Server on Azure virtual machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
