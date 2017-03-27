@@ -106,10 +106,6 @@ you should now find a generated callback URL, like this example:
 
     ![Generated callback URL for endpoint](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
 
-    Here's the longer version:
-
-    https://prod-00.southcentralus.logic.azure.com:443/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke?api-version...
-
     This URL contains a Shared Access Signature (SAS) key 
     in the query parameters that are used for authentication. 
     You can also get the HTTP endpoint URL from your logic app overview 
@@ -134,7 +130,8 @@ but you can use a different HTTP method.
 
 1. On your **Request** trigger, choose **Show advanced options**.
 
-2. Open the **Method** list. For this example, select **GET**. 
+2. Open the **Method** list. For this example, select **GET** 
+so that you can test your HTTP endpoint's URL later.
 
     > [!NOTE]
     > You can select any other HTTP method, or specify a custom method 
@@ -150,7 +147,8 @@ customize your trigger's relative path.
 1. On your **Request** trigger, choose **Show advanced options**. 
 
 2. Under **Method**, specify the HTTP method that you want your request to use. 
-For this example, select the **GET** method so you can later test your HTTP endpoint's URL.
+For this example, select the **GET** method, if you haven't already, 
+so that you can test your HTTP endpoint's URL.
 
       > [!NOTE]
       > When you specify a relative path for your trigger, 
@@ -165,7 +163,7 @@ that your URL should accept, for example, `customers/{customerID}`.
 (Under your trigger, choose **New step** > **Add an action** > **Response**) 
 
 5. In your response's **Body**, include the token for the parameter 
-that you specified in your trigger.
+that you specified in your trigger's relative path.
 
     For example, to return `Hello {customerID}`, 
     update your response's **Body** with `Hello {customerID token}`. 
@@ -180,11 +178,9 @@ that you specified in your trigger.
 
 6. Save your logic app. 
 
-    Your HTTP endpoint URL now includes the relative path, for example:
+    Your HTTP endpoint URL now includes the relative path, for example: 
 
-    ``` text
-    https://prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}?api-version...
-    ```
+    https&#58;//prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}?api-version...
 
 7. To test your HTTP endpoint, 
 copy and paste the updated URL into another browser window, 
