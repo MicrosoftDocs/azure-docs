@@ -159,9 +159,9 @@ You can add additional private and public IP addresses to an existing NIC by com
 		**Associate the resource to a new IP configuration**
 	
 		Whenever you add a public IP address in a new IP configuration, you must also add a private IP address, because all IP configurations must have a private IP address. You can either add an existing public IP address resource, or create a new one. To create a new one, enter the following command:
-	
+
 		```azurecli
-  		azure network public-ip create \
+		azure network public-ip create \
 		--resource-group myResourceGroup \
 		--location westcentralus \
 		--name myPublicIP3 \
