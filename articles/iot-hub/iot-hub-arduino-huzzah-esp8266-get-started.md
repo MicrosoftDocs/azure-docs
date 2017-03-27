@@ -282,6 +282,11 @@ If you see the following output from the serial monitor window and the blinking 
 
 ![final output in arduino ide](media/iot-hub-arduino-huzzah-esp8266-get-started/14_arduino-ide-final-output.png)
 
-## Summary
+## Next steps
 
-You have successfully connected Feather HUZZAH ESP8266 to your IoT hub and sent the captured sensor data to your IoT hub.
+You have successfully connected Feather HUZZAH ESP8266 to your IoT hub and sent the captured sensor data to your IoT hub. 
+
+To continue getting started with IoT Hub and to explore other IoT scenarios, see:
+
+- [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+- [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
