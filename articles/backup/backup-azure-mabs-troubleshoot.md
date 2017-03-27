@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
-ms.author: pullabhk;markg;
+ms.date: 3/24/2017
+ms.author: pullabhk;markgal;
 
 ---
 
@@ -50,4 +50,3 @@ You can troubleshoot errors encountered while using Azure Backup Server with inf
 | Backup | Online recovery point creation failed | If the error message says "The encryption passphrase for this server is not set. Please configure an encryption passphrase" try configuring an encryption passphrase. If it fails, <br> <ol><li>check whether the scratch location exists or not. The location mentioned in the registry HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config with name “ScratchLocation” should exist.</li><li> If the scratch location exists, try re-registering using the old passphrase. **Whenever you configure an encryption passphrase, please save it in a secure location**</li><ol>
 | Backup | Backup failure for BMR | If BMR size is huge, retry after moving some application files to OS drive |
 | Backup | Error while accessing files/shared folders | Try modifying the antivirus settings as suggested [here](https://technet.microsoft.com/library/hh757911.aspx)|
-
