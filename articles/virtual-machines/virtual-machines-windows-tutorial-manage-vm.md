@@ -24,13 +24,15 @@ In this tutorial, you create a virtual machine and perform common management tas
 
 To complete this tutorial, make sure that you have installed the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module. 
 
-## Step 1 – Create a virtual machine
+## Step 1 – Log in to Azure
 
 First, log in to your Azure subscription with the Login-AzureRmAccount command and follow the on-screen directions.
 
 ```powershell
 Login-AzureRmAccount
 ```
+
+## Step 2 - Create a resource group
 
 Create a resource group with the [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Resources/v2.0.3/new-azurermresourcegroup) command. 
 
@@ -66,7 +68,7 @@ Create a network interface card with the [New-AzureRmNetworkInterface](https://d
 ### Create the network interface card
 
 ```powershell
-$nic = New-AzureRmNetworkInterface -ResourceGroupName myResourceGroup -Location westeurope -Name myNic -SubnetId $vnet.Subnets[0].Id -PublicIpAddress $pip
+$nic = New-AzureRmNetworkInterface -ResourceGroupName myResourceGroup -Location westeurope -Name myNic -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 ```
 
 ### Create the network security group
