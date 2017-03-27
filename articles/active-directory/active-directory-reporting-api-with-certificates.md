@@ -35,9 +35,9 @@ You will need to have Azure AD PowerShell V2 and AzureADUtils module installed.
 1. Download and install Azure AD Powershell V2, following the instructions at [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md).
 2. Download the Azure AD Utils module from [AzureAD/azure-activedirectory-powershell](https://github.com/AzureAD/azure-activedirectory-powershell/blob/gh-pages/Modules/AzureADUtils/AzureADUtils.psm1). 
   This module provides several utility cmdlets including:
-  * The latest version of ADAL using Nuget
-  * Access tokens from user, application keys, and certificates using ADAL
-  * Graph API handling paged results
+   * The latest version of ADAL using Nuget
+   * Access tokens from user, application keys, and certificates using ADAL
+   * Graph API handling paged results
 
 **To install the Azure AD Utils module:**
 
