@@ -52,7 +52,7 @@ Use the following steps to configure your Azure Stack environment:
   ```
   
   b. If you don’t know the Azure Active Directory (AAD) tenant name, for example in an ADFS environment, you can run the following commands to get the GUID:  
-  
+
     ```PowerShell
     # Add your Azure Stack host to the list of trusted hosts by running the following command in an elevated PowerShell session
     Set-Item wsman:\localhost\Client\TrustedHosts -Value "<Azure Stack host address>" -Concatenate  
@@ -66,13 +66,13 @@ Use the following steps to configure your Azure Stack environment:
 
 2. Register an AzureRM environment that targets your Azure Stack instance. AzureRM commands can be targeted at multiple clouds such as Azure Stack, Azure China, Azure Government etc. To target it to your Azure Stack instance, you should register the AzureRM environment as follows:  
 
-  ```PowerShell
-  # Use this command to access the administrative portal
-  Add-AzureStackAzureRmEnvironment -AadTenant $AadTenant -Name AzureStack
+    ```PowerShell
+    # Use this command to access the administrative portal
+    Add-AzureStackAzureRmEnvironment -AadTenant $AadTenant -Name AzureStack
 
-  # Use this command to access the tenant portal
-  Add-AzureStackAzureRmEnvironment -AadTenant $AadTenant -ArmEndpoint https://publicapi.local.azurestack.external -Name AzureStack
-  ```
+    # Use this command to access the tenant portal
+    Add-AzureStackAzureRmEnvironment -AadTenant $AadTenant -ArmEndpoint https://publicapi.local.azurestack.external -Name AzureStack
+    ```
   
   ![Get environment details](media/azure-stack-powershell-configure/getenvdetails.png)  
 
