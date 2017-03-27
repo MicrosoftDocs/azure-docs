@@ -110,7 +110,7 @@ Perform the following steps to install the gateway.  If you installed a previous
 ## Configure network load balancing 
 You can configure the gateway for high availability using network load balancing (NLB). This can be done by installing Microsoft Network Load Balancing (NLB) or using a hardware-based load balancers.  The load balancer manages traffic from your agents by redirecting the requested connections from the OMS Agents or Operations Manager management servers across its nodes. If one Gateway server goes down, the traffic gets redirected to other nodes.
 
-To learn how to design and deploy a Windows Server 2016 network load balancing cluster, please see the topic [Network load balancing](https://technet.microsoft.com/en-us/windows-server-docs/networking/technologies/network-load-balancing).   The following steps describe how to configure the OMS Gateway with the IP address of the NLB cluster.  
+To learn how to design and deploy a Windows Server 2016 network load balancing cluster, please see the topic [Network load balancing](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).   The following steps describe how to configure the OMS Gateway with the IP address of the NLB cluster.  
 
 1.  Log onto the Windows server that is a member of the NLB cluster with an administrative account.  
 2.  Open Network Load Balancing Manager in Server Manager, click **Tools**, and then click **Network Load Balancing Manager**.
