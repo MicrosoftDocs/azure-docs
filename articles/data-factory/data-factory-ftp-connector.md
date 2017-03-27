@@ -34,7 +34,7 @@ The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutoria
 
 You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
 
-Whether you use the tools or APIs, you perform the following steps to create a simple pipeline that moves data from a source data store to a sink data store: 
+Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store: 
 
 1. Create **linked services** to link input and output data stores to your data factory.
 2. Create **datasets** to represent input and output data for the copy operation. 
@@ -368,7 +368,8 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
     }
 }
 ```
-
+> [!NOTE]
+> To map columns from source dataset to columns from sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
 
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.

@@ -139,7 +139,7 @@ You can choose a post-failover deployment model according to your need. If you c
 ## Post-migration steps
 
 1. **Configure replicated VMs to the availability set if applicable**. Site Recovery does not support migrating VMs along with the availability set. Depending on the deployment of your replicated VM, do one of the following:
-  * For a VM created using the classic deployment model: Add the VM to the availability set in the Azure portal. For detailed steps, go to [Add an existing virtual machine to an availability set](../virtual-machines/virtual-machines-windows-classic-configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
+  * For a VM created using the classic deployment model: Add the VM to the availability set in the Azure portal. For detailed steps, go to [Add an existing virtual machine to an availability set](../virtual-machines/windows/classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
   * For the Resource Manager deployment model: Save your configuration of the VM and then delete and re-create the VMs in the availability set. To do so, use the script at [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Check the limitation of this script and plan downtime before running the script.
 
 2. **Delete old VMs and disks**. Before deleting these, please make sure the Premium disks are consistent with source disks and the new VMs perform the same function as the source VMs. In the Resource Manager (RM) deployment model, delete the VM and delete the disks from your source storage accounts in the Azure portal. In the classic deployment model, you can delete the VM and disks in the classic portal or Azure portal. If there is an issue in which the disk is not deleted even though you deleted the VM, please see [Troubleshoot errors when you delete VHDs in an RM deployment](storage-resource-manager-cannot-delete-storage-account-container-vhd.md) or [Troubleshoot deleting VHDs in a classic deployment](storage-cannot-delete-storage-account-container-vhd.md).
@@ -156,8 +156,8 @@ You can choose a post-failover deployment model according to your need. If you c
 See the following resources for specific scenarios for migrating virtual machines:
 
 * [Migrate Azure Virtual Machines between Storage Accounts](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-* [Create and upload a Windows Server VHD to Azure.](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Create and upload a Windows Server VHD to Azure.](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Migrating Virtual Machines from Amazon AWS to Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Also, see the following resources to learn more about Azure Storage and Azure Virtual Machines:

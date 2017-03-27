@@ -153,10 +153,8 @@ To stop the topology, use **Ctrl+C**.
              scp wordcount-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:wordcount-1.0-SNAPSHOT.jar
         
          Replace USERNAME with an SSH user for your cluster, and CLUSTERNAME with your HDInsight cluster name.
-     2. Once the file has been copied to the cluster, use SSH to connect to the cluster and submit the job. For information on using SSH with HDInsight, see one of the following:
-        
-        * [Use SSH with Linux-based HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-        * [Use SSH with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+     2. Once the file has been copied to the cluster, use SSH to connect to the cluster and submit the job. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+     
      3. Once connected, use the following to start the topology:
         
              storm jar wordcount-1.0-SNAPSHOT.jar wordcount.core wordcount
