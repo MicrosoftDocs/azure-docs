@@ -29,6 +29,8 @@ For detailed information on compatibility between Mono and .NET, see the [Mono c
 > [!IMPORTANT]
 > The SCP.NET framework is compatible with Mono. For more information on using SCP.NET with Mono, see [Use Visual Studio to develop C# topologies for Apache Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
+For more information on the version of Mono included with HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md).
+
 ## Automated portability analysis
 
 The [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer) can be used to generate a report of incompatibilities between your application and Mono. Use the following steps to configure the analyzer to check your application for Mono portability:
