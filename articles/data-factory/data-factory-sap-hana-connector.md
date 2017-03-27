@@ -17,7 +17,7 @@ ms.author: jingwang
 
 ---
 # Move data From SAP HANA using Azure Data Factory
-This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premsies SAP HANA. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
+This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises SAP HANA. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
 You can copy data from an on-premises SAP HANA data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from an SAP HANA to other data stores, but not for moving data from other data stores to an SAP HANA.
 
@@ -42,7 +42,7 @@ Whether you use the tools or APIs, you perform the following steps to create a p
 
 When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data from an on-premises SAP HANA, see [JSON example: Copy data from SAP HANA to Azure Blob](#json-example-copy-data-from-sap-hana-to-azure-blob) section of this article. 
 
-The following sections provide details about JSON properties that are used to define Data Factory entities specific to a SAP HANA data store:
+The following sections provide details about JSON properties that are used to define Data Factory entities specific to an SAP HANA data store:
 
 ## Linked service properties
 The following table provides description for JSON elements specific to SAP HANA linked service.

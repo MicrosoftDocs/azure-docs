@@ -18,7 +18,7 @@ ms.author: jingwang
 
 ---
 # Move data from PostgreSQL using Azure Data Factory
-This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premsies PostgreSQL database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
+This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises PostgreSQL database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
 You can copy data from an on-premises PostgreSQL data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from a PostgreSQL data store to other data stores, but not for moving data from other data stores to an PostgreSQL data store. 
 
@@ -76,16 +76,16 @@ The typeProperties section is different for each type of dataset and provides in
 ## Copy activity properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
 
-Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
+Whereas, properties available in the typeProperties section of the activity vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
 
-When source is of type **RelationalSource** (which includes PostgreSQL) the following properties are available in typeProperties section:
+When source is of type **RelationalSource** (which includes PostgreSQL), the following properties are available in typeProperties section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
 | query |Use the custom query to read data. |SQL query string. For example: "query": "select * from \"MySchema\".\"MyTable\"". |No (if **tableName** of **dataset** is specified) |
 
 > [!NOTE]
-> Schema and table names are case-sensitive and they have to  be enclosed in "" (double quotes) in the query.  
+> Schema and table names are case-sensitive and they have to  be enclosed in `""` (double quotes) in the query.  
 
 **Example:**
 

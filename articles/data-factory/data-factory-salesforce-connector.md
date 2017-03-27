@@ -30,7 +30,7 @@ This connector supports the following editions of Salesforce: Developer Edition,
 * To copy data from Salesforce to on-premises data stores, you must have at least Data Management Gateway 2.0 installed in your on-premises environment.
 
 ## Salesforce request limits
-Salesforce has limits for both total API requests and concurrent API requests. Note the following:
+Salesforce has limits for both total API requests and concurrent API requests. Note the following points:
 * If the number of concurrent requests exceeds the limit, throttling occurs and you will see random failures;
 * If the total number of requests exceeds the limit, the Salesforce account will be blocked for 24 hours.
 
@@ -49,7 +49,7 @@ Whether you use the tools or APIs, you perform the following steps to create a p
 2. Create **datasets** to represent input and output data for the copy operation. 
 3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output. 
 
-When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data from an Salesforce data store, see [JSON example: Copy data from Salesforce to Azure Blob](#json-example-copy-data-from-salesforce-to-azure-blob) section of this article. 
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data from Salesforce, see [JSON example: Copy data from Salesforce to Azure Blob](#json-example-copy-data-from-salesforce-to-azure-blob) section of this article. 
 
 The following sections provide details about JSON properties that are used to define Data Factory entities specific to Salesforce: 
 
@@ -59,7 +59,7 @@ The following table provides descriptions for JSON elements that are specific to
 | Property | Description | Required |
 | --- | --- | --- |
 | type |The type property must be set to: **Salesforce**. |Yes |
-| environmentUrl | Specify the URL of Salesforce instance. <br><br> - Default is "https://login.salesforce.com". <br> - To copy data from sandbox, specify "https://test.salesforce.com". <br> - To copy data from custom domain, specify e.g. "https://[domain].my.salesforce.com". |No |
+| environmentUrl | Specify the URL of Salesforce instance. <br><br> - Default is "https://login.salesforce.com". <br> - To copy data from sandbox, specify "https://test.salesforce.com". <br> - To copy data from custom domain, specify, for example, "https://[domain].my.salesforce.com". |No |
 | username |Specify a user name for the user account. |Yes |
 | password |Specify a password for the user account. |Yes |
 | securityToken |Specify a security token for the user account. See [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) for instructions on how to reset/get a security token. To learn about security tokens in general, see [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Yes |
@@ -215,7 +215,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1).
 
 **Pipeline with Copy Activity**
 
-The pipeline contains Copy Activity, which is configured to use the above input and output datasets, and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource**, and the **sink** type is set to **BlobSink**.
+The pipeline contains Copy Activity, which is configured to use the input and output datasets, and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource**, and the **sink** type is set to **BlobSink**.
 
 See [RelationalSource type properties](#copy-activity-properties) for the list of properties that are supported by the RelationalSource.
 

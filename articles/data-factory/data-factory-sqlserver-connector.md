@@ -20,10 +20,10 @@ ms.author: jingwang
 # Move data to and from SQL Server on-premises or on IaaS (Azure VM) using Azure Data Factory
 This article explains how to use the Copy Activity in Azure Data Factory to move data to/from an on-premises SQL Server database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity. 
 
-You can copy data from any supported source data store to a SQL Server database or from a SQL Server database to any supported sink data store. For a list of data stores supported as sources or sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. 
+You can copy data from any supported source data store to SQL Server database or from SQL Server database to any supported sink data store. For a list of data stores supported as sources or sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. 
 
 ## Supported SQL Server versions
-This SQL Server connector support copying data from/to below versions of instance hosted on-premises or in Azure IaaS using both SQL authentication and Windows authentication: SQL Server 2016, SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008, SQL Server 2005
+This SQL Server connector support copying data from/to the following versions of instance hosted on-premises or in Azure IaaS using both SQL authentication and Windows authentication: SQL Server 2016, SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008, SQL Server 2005
 
 ## Enabling connectivity
 The concepts and steps needed for connecting with SQL Server hosted on-premises or in Azure IaaS (Infrastructure-as-a-Service) VMs are the same. In both cases, you need to use Data Management Gateway for connectivity.
@@ -125,7 +125,7 @@ For a full list of sections & properties available for defining activities, see 
 > [!NOTE]
 > The Copy Activity takes only one input and produces only one output.
 
-Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
+Whereas, properties available in the typeProperties section of the activity vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
 
 ### SqlSource
 When source in a copy activity is of type **SqlSource**, the following properties are available in **typeProperties** section:

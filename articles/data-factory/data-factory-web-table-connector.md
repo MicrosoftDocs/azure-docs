@@ -39,7 +39,7 @@ Whether you use the tools or APIs, you perform the following steps to create a p
 
 When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data from a web table, see [JSON example: Copy data from Web table to Azure Blob](#json-example-copy-data-from-web-table-to-azure-blob) section of this article. 
 
-The following sections provide details about JSON properties that are used to define Data Factory entities specific to a Web table :
+The following sections provide details about JSON properties that are used to define Data Factory entities specific to a Web table:
 
 ## Linked service properties
 The following table provides description for JSON elements specific to Web linked service.
@@ -102,7 +102,7 @@ The **typeProperties** section is different for each type of dataset and provide
 ## Copy activity properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
 
-Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
+Whereas, properties available in the typeProperties section of the activity vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
 
 Currently, when the source in copy activity is of type **WebSource**, no additional properties are supported.
 
@@ -208,7 +208,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1).
 
 **Pipeline with Copy activity**
 
-The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **WebSource** and **sink** type is set to **BlobSink**.
+The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **WebSource** and **sink** type is set to **BlobSink**.
 
 See [WebSource type properties](#copy-activity-type-properties) for the list of properties supported by the WebSource.
 

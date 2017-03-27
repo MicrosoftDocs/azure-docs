@@ -23,9 +23,9 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 Data factory currently supports only moving data from a DB2 database to [supported sink data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats), but not moving data from other data stores to a DB2 database.
 
 ## Prerequisites
-For the Azure Data Factory service to be able to connect to your on-premises DB2 database, you must install a Data Management Gateway on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a software that connects on-premises data sources to cloud services in a secure and managed way. See [Data Management Gateway](data-factory-data-management-gateway.md) article for details about Data Management Gateway. See [Move data from on-premises to cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on setting up the gateway a data pipeline to move data.
+For the Azure Data Factory service to be able to connect to your on-premises DB2 database, you must install a Data Management Gateway on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a component that connects on-premises data sources to cloud services in a secure and managed way. See [Data Management Gateway](data-factory-data-management-gateway.md) article for details about Data Management Gateway. See [Move data from on-premises to cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on setting up the gateway a data pipeline to move data.
 
-You must use the gateway to connect to a DB2 database even if the database is hosted in the cloud, for example, on an Azure IaaS VM. You can have the gateway on the same VM that hosts the database or on a separate VM as long as as the gateway can connect to the database.  
+You must use the gateway to connect to a DB2 database even if the database is hosted in the cloud, for example, on an Azure IaaS VM. You can have the gateway on the same VM that hosts the database or on a separate VM as long as long as the gateway can connect to the database.  
 
 The Data Management Gateway provides a built-in DB2 driver, therefore you don't need to manually install any driver when copying data from DB2.
 
@@ -87,7 +87,7 @@ The typeProperties section is different for each type of dataset and provides in
 ## Copy activity properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policies are available for all types of activities.
 
-Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
+Whereas, properties available in the typeProperties section of the activity vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
 
 For Copy Activity, when source is of type **RelationalSource** (which includes DB2) the following properties are available in typeProperties section:
 
