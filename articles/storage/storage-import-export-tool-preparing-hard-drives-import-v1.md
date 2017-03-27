@@ -1,7 +1,6 @@
 ---
-
-title: Preparing Hard Drives for an Import Job | Microsoft Docs
-description: Learn how to prepare one or more hard drives for an import job for the Microsoft Azure Import-Export Service
+title: Preparing hard drives for an Azure Import/Export import job - v1 | Microsoft Docs
+description: Learn how to prepare hard drives using the WAImportExport (v1) tool to create an import job for the Azure Import/Export service.
 author: muralikk
 manager: syadav
 editor: tysonn

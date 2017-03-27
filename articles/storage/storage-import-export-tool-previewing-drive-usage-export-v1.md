@@ -1,6 +1,6 @@
 ---
-title: Previewing Drive Usage for an Export Job | Microsoft Docs
-description: Learn how to preview the list of blobs you have selected for an export job in the Azure Import-Export Service
+title: Previewing drive usage for an Azure Import/Export export Job | Microsoft Docs
+description: Learn how to preview the list of blobs you've selected for an export job in the Azure Import/Export service
 author: muralikk
 manager: syadav
 editor: tysonn
