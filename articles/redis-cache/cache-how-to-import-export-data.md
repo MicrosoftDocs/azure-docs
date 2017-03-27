@@ -97,6 +97,7 @@ This section contains frequently asked questions about the Import/Export feature
 
 * [What pricing tiers can use Import/Export?](#what-pricing-tiers-can-use-importexport)
 * [Can I import data from any Redis server?](#can-i-import-data-from-any-redis-server)
+* [What RDB versions can I import?](#what-rdb-versions-can-i-import)
 * [Is my cache available during an Import/Export operation?](#is-my-cache-available-during-an-importexport-operation)
 * [Can I use Import/Export with Redis cluster?](#can-i-use-importexport-with-redis-cluster)
 * [How does Import/Export work with a custom databases setting?](#how-does-importexport-work-with-a-custom-databases-setting)
@@ -115,6 +116,10 @@ Yes, in addition to importing data exported from Azure Redis Cache instances, yo
 > To successfully import data exported from Redis servers other than Azure Redis Cache, the page blog size must be aligned on a 512 byte boundary. For sample code to perform any required byte paddings, see [Sample page blog upload](https://github.com/JimRoberts-MS/SamplePageBlobUpload).
 > 
 > 
+
+## What RDB versions can I import?
+
+Azure Redis Cache supports RDB import up through RDB version 7.
 
 ### Is my cache available during an Import/Export operation?
 * **Export** - Caches remain available and you can continue to use your cache during an export operation.
