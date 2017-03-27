@@ -243,6 +243,14 @@ Logic apps have built-in support for direct-access endpoints.
 
 ## Reference content from an incoming request
 
+If the content's type is `application/json`, 
+you can reference properties from the incoming request. 
+Otherwise, content is treated as a single binary unit that you can pass to other APIs. 
+You can't reference this content inside the workflow without converting that content. 
+For example, if you pass `application/xml` content, you can use `@xpath()` 
+for an XPath extraction, or `@json()` for converting XML to JSON. 
+Learn about [working with content types](../logic-apps/logic-apps-content-type.md).
+
 To get the output from an incoming request, 
 you can use the `@triggerOutputs()` function. 
 The output might look like this example:
@@ -284,15 +292,7 @@ of your workflow.
 ### Construct the response
 
 You can include more than one header and any type of content in the response body. 
-If the content's type is `application/json`, 
-you can reference properties from inside your request. 
-Otherwise, content is treated as a single binary unit that you can pass to other APIs. 
-You can't reference this content inside the workflow without converting that content. 
-For example, if you pass `application/xml` content, you can use `@xpath()` 
-for an XPath extraction, or `@json()` for converting XML to JSON. 
-Learn about [working with content types](../logic-apps/logic-apps-content-type.md).
-
-For our example response, the header specifies 
+In our example response, the header specifies 
 that the response has content type `application/json`. 
 and the body contains `title` and `name`, based on 
 the JSON schema updated previously for the **Request** trigger.
