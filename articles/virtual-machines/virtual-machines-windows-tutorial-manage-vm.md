@@ -58,7 +58,7 @@ $vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location w
 Create a public IP address with the [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermpublicipaddress) command.
 
 ```powershell
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location westeurope -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name myPublicIPAddress
+$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location westeurope -AllocationMethod Static -Name myPublicIPAddress
 ```
 
 Create a network interface card with the [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermnetworkinterface) command.
@@ -225,7 +225,7 @@ Open an internet browser and enter the public IP address of the virtual machine 
 
 An Azure [network security group](../virtual-network/virtual-networks-nsg.md) (NSG) controls inbound and outbound traffic for one or many virtual machines. Network security group rules allow or deny network traffic on a specific port or port range. These rules can also include a source address prefix so that only traffic originating at a predefined source can communicate with a virtual machine.
 
-In the previous section the IIS webserver was installed. Without a network security group rule to allow inbound traffic on port 80, the webserver cannot be accessed from the internet. This step walks you through creating the NSG rule to allow inbound connections on port 80.
+In the previous section, the IIS webserver was installed. Without a network security group rule to allow inbound traffic on port 80, the webserver cannot be accessed from the internet. This step walks you through creating the NSG rule to allow inbound connections on port 80.
 
 ### Create NSG rule
 
@@ -270,18 +270,12 @@ $snapshotConfig = New-AzureRmSnapshotConfig -Location westeurope -CreateOption C
 Create the snapshot with the New-AzureRmSnapshot command.
 
 ```powershell
-New-AzureRmSnapshot -ResourceGroupName myResourceGroup -SnapshotName mySnapshot -Snapshot $snapshotConfig
+$snapshot = New-AzureRmSnapshot -ResourceGroupName myResourceGroup -SnapshotName mySnapshot -Snapshot $snapshotConfig
 ```
 
 ### Create disk from snapshot
 
 This snapshot can then be converted into a disk, which can be used to recreate the virtual machine.
-
-Get the snapshot that you previously created with the Get-AzureRmSnapshot command.
-
-```powershell
-$snapshot = Get-AzureRmSnapshot -ResourceGroupName myResourceGroup -Name mySnapshot
-```
 
 Create the configuration of the disk with the [New-AzureRmDiskConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermdiskconfig) command.
 
@@ -292,7 +286,7 @@ $diskConfig = New-AzureRmDiskConfig -Location westeurope -CreateOption Copy -Sou
 Create the disk with the [New-AzureRmDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermdisk) command.
 
 ```powershell
-New-AzureRmDisk -ResourceGroupName myResourceGroup -DiskName myOSDiskFromSnapshot -Disk $diskConfig
+$disk = New-AzureRmDisk -ResourceGroupName myResourceGroup -DiskName myOSDiskFromSnapshot -Disk $diskConfig
 ```
 
 ### Restore virtual machine from snapshot
@@ -305,19 +299,13 @@ Remove-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Force
 
 Create a new virtual machine from the snapshot disk. In this example, the existing network interface is being specified. This configuration applies all previously created NSG rules to the new virtual machine.
 
-Get the disk that you created from the snapshot with the [Get-AzureRmDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermdisk) command.
-
-```powershell
-$disk = Get-AzureRmDisk -ResourceGroupName myResourceGroup -Name myOSDiskFromSnapshot
-```
-
 Create the initial configuration for the virtual machine with the [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermvmconfig) command.
 
 ```powershell
 $vm = New-AzureRmVMConfig -VMName myVM -VMSize Standard_D1
 ```
 
-Add the operating system disk settings to the virtual machine configuration with the [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmosdisk) command.
+Add the operating system disk with the [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmosdisk) command.
 
 ```powershell
 $vm = Set-AzureRmVMOSDisk -VM $vm -CreateOption Attach -ManagedDiskId $disk.Id -Windows
@@ -333,12 +321,6 @@ Create the virtual machine with the [New-AzureRmVM](https://docs.microsoft.com/p
 
 ```powershell
 New-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -Location westeurope
-```
-
-Get the public IP address of the new virtual machine with the [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/get-azurermpublicipaddress) command.
-
-```powershell
-Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroup -Name myPublicIPAddress
 ```
 
 Enter the public IP address of the virtual machine into the address bar of the internet browser. You should see that IIS is running in the restored virtual machine. 
