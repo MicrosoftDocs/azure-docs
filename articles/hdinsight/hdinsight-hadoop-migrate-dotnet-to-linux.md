@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: 'dotnet'
 ms.topic: article
 ms.tgt_pltfrm: 'na'
