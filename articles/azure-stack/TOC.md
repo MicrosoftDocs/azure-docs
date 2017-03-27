@@ -36,8 +36,9 @@
 
 # Security & compliance
 ## How to
-### [Manage user permissions](azure-stack-manage-permissions.md)
+### [Manage RBAC](azure-stack-manage-permissions.md)
 ### [Add users for AD FS](azure-stack-add-users-adfs.md)
+### [Create service principals](Azure-stack-create-service-principals.md)
 
 # Offer services
 ## Get started

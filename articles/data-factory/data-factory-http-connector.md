@@ -33,7 +33,7 @@ You can create a pipeline with a copy activity that moves data from an HTTP sour
 
 - You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. For JSON samples to copy data from HTTP source to Azure Blob Storage, see [JSON examples](#json-examples) section of this articles.
 
-## HTTP linked service properties
+## Linked service properties
 The following table provides description for JSON elements specific to HTTP linked service.
 
 | Property | Description | Required |
@@ -133,7 +133,7 @@ This linked service links your data factory to an on-premises HTTP web server. I
 }
 ```
 
-## HTTP dataset properties
+## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
 The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **Http** has the following properties
@@ -196,7 +196,7 @@ The **typeProperties** section is different for each type of dataset and provide
 
 [!INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
-## HttpSource in Copy Activity
+## Copy activity properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
 
 Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
@@ -213,16 +213,16 @@ The following example provide sample JSON definitions that you can use to create
 ### Example: Copy data from HTTP source to Azure Blob Storage
 The Data Factory solution for this sample contains the following Data Factory entities:
 
-1. A linked service of type [HTTP](#http-linked-service-properties).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. An input [dataset](data-factory-create-datasets.md) of type [Http](#http-dataset-properties).
-4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [HttpSource](#httpsource-in-copy-activity) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+1. A linked service of type [HTTP](#linked-service-properties).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [Http](#dataset-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [HttpSource](#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 The sample copies data from an HTTP source to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
 ### HTTP linked service
-This example uses the HTTP linked service with anonymous authentication. See [HTTP linked service](#http-linked-service-properties) section for different types of authentication you can use.
+This example uses the HTTP linked service with anonymous authentication. See [HTTP linked service](#linked-service-properties) section for different types of authentication you can use.
 
 ```JSON
 {
@@ -351,6 +351,9 @@ See [HttpSource](#httpsource-in-copy-activity) for the list of properties suppor
    }
 }
 ```
+
+> [!NOTE]
+> To map columns from source dataset to columns from sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
 
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
