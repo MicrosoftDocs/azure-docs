@@ -103,7 +103,7 @@ Additionally, many of these quotas can be increased simply with a free product s
 In addition to using the Azure portal, you can also create and manage Batch accounts with the following:
 
 * [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
-* [Azure CLI](../xplat-cli-install.md)
+* [Azure CLI](../cli-install-nodejs.md)
 * [Batch Management .NET](batch-management-dotnet.md)
 
 ## Next steps

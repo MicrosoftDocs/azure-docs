@@ -1,5 +1,5 @@
 ---
-title: 'Azure portal: Create and query a single SQL database | Microsoft Docs'
+title: 'Azure portal: Create a SQL database | Microsoft Docs'
 description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases in the Azure portal. You also learn to query an Azure SQL database using the Azure portal.
 keywords: sql database tutorial, create a sql database
 services: sql-database
@@ -8,7 +8,7 @@ author: CarlRabeler
 manager: jhubbard
 editor: ''
 
-ms.assetid: 
+ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
 ms.custom: quick start
 ms.workload: data-management
@@ -41,7 +41,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
    - Database name: Provide a database name
    - Subscription: Select your subscription
    - Resource group: Select new or existing
-   - Source: Select **Sample (AdventureWOrksLT)**
+   - Source: Select **Sample (AdventureWorksLT)**
    - Server: Create a new server (the **Server** name must be globally unique)
    - Elastic pool: Select **Not now** for this quick start
    - Pricing tier: Select **20 DTUs** and **250** GB of storage
@@ -57,7 +57,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 
 ## Create a server-level firewall rule
 
-The SQL Database service creates a firewall preventing external applications and tools from connecting to your new server and database. Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your IP address to enable external connectivity through the SQL Database firewall. 
+The SQL Database service creates a firewall preventing external applications and tools from connecting to your server and database. Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your IP address to enable external connectivity through the SQL Database firewall. 
 
 1. Click **Set server firewall** on the toolbar for your database. The **Firewall settings** page for the SQL Database server opens. 
 
@@ -73,7 +73,7 @@ You can now connect to the database and its server using SQL Server Management S
 
 Follow these steps to query the database using the query editor in the Azure portal. 
 
-1. On the SQL Databse page for your database, click **Tools** on the toolbar. The **Query editor** preview page opens.
+1. On the SQL Database page for your database, click **Tools** on the toolbar. The **Query editor** preview page opens.
 
      ![tools menu](./media/sql-database-get-started/tools-menu.png) 
 
@@ -99,7 +99,7 @@ Follow these steps to query the database using the query editor in the Azure por
 
 ## Clean up resources
 
-Some of the quick starts in this collection and in the tutorial collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following steps to delete all resources created by this quick start in the Azure portal.
+Other quick starts in this collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following steps to delete all resources created by this quick start in the Azure portal.
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**. 
 2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.
