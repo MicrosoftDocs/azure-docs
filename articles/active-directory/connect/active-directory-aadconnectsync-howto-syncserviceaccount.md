@@ -19,7 +19,7 @@ ms.author: billmath
 
 ---
 # Azure AD Connect sync: How to manage the Azure AD Connect sync service account
-The Azure AD Connect sync service account refers to the user account used by Azure AD Connect Synchronization Service as its operating context while running as a Windows service. If you change the service account password, the Synchronization Service will no longer start correctly.
+The Azure AD Connect sync service account refers to the user account used by Azure AD Connect Synchronization Service as its operating context while running as a Windows service. If you change the service account password, the Synchronization Service can no longer start correctly.
 
 ## Symptoms
 There are two common symptoms:
