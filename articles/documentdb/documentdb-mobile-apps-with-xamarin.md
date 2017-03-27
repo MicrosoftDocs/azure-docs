@@ -43,7 +43,7 @@ It's easy to get started with DocumentDB. Go to the Azure portal, and create a n
 
 ![DocumentDB Quick start for mobile apps](media/documentdb-mobile-apps-with-xamarin/documentdb-quickstart.png)
 
-Or if you have an existing Xamarin app, you can add a [DocumentDB NuGet package](documentdb-sdk-dotnet-core.md). DocumentDB supports Xamarin.IOS, Xamarin.Android, and Xamarin Forms shared libraries.
+Or if you have an existing Xamarin app, you can add the [DocumentDB NuGet package](documentdb-sdk-dotnet-core.md). DocumentDB supports Xamarin.IOS, Xamarin.Android, and Xamarin Forms shared libraries.
 
 ### Work with data
 Your data records are stored in DocumentDB as schemaless JSON documents in heterogeneous collections. You can store documents with different structures in the same collection:
