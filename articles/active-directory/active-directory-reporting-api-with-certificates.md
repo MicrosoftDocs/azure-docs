@@ -1,6 +1,6 @@
 ---
-title: Get data from directories using the Azure AD Reporting API | Microsoft Docs
-description: Explains what an Azure AD tenant is, and how to manage Azure through Azure Active Directory
+title: Get data from directories using the Azure AD Reporting API with certificates | Microsoft Docs
+description: Explains how to use the Azure AD Reporting API with certificate credentials to get data from directories without user intervention. 
 services: active-directory
 documentationcenter: ''
 author: ramical
@@ -17,7 +17,7 @@ ms.date: 03/24/2017
 ms.author: ramical
 
 ---
-# Get data from directories using the Azure AD Reporting API
+# Get data from directories using the Azure AD Reporting API with certificates
 This article discusses how to use the Azure AD Reporting API with certificate credentials to get data from directories without user intervention. 
 
 ## Use the Azure AD Reporting API 
