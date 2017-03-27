@@ -133,8 +133,9 @@ Now we add an action that sends email when new items appear in the website's RSS
 2. Based on your email account, follow the steps for Outlook or Gmail.
 
 	*	To send email from your Outlook account, in the search box, 
-	enter `outlook`. Based on the account that you have, under **Services**, 
-	choose **Outlook.com** or **Office 365 Outlook**. 
+	enter `outlook`. Under **Services**, 
+	choose **Outlook.com** for personal Microsoft accounts, 
+	or choose **Office 365 Outlook** for Azure work or school accounts. 
 	Under **Actions**, select **Send an email**.
 
 		![Select Outlook "Send an email" action](media/logic-apps-create-a-logic-app/actions.png)
