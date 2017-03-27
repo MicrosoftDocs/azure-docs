@@ -187,7 +187,7 @@ Some of the first workloads that customers move to Azure are labs and external-f
 
 ### Deploy and test a backup solution
 
-Handle a backup the same way that you handle any other operation, like a security update. This is true of systems that are part of your production environment extending to the cloud. Test and dev systems must follow backup strategies that provide restore capabilities that are similar to what users have grown accustomed to, based on their experience with on-premises environments.
+Just like security updates, a backup needs to be handled the same way that you handle any other operation. This is true of systems that are part of your production environment extending to the cloud. Test and dev systems must follow backup strategies that provide restore capabilities that are similar to what users have grown accustomed to, based on their experience with on-premises environments.
 
 Production workloads moved to Azure should integrate with existing backup solutions when possible. Or, you can use [Azure Backup](../backup/backup-azure-arm-vms.md) to help address your backup requirements.
 
