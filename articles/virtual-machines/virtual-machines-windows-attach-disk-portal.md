@@ -29,6 +29,7 @@ This article shows you how to attach both new and existing disks to a Windows vi
 You can also [attach a data disk using Powershell](virtual-machines-windows-attach-disk-ps.md).
 
 
+
 ## Find the virtual machine
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. On the Hub menu, click **Virtual Machines**.
@@ -51,7 +52,7 @@ Continue by following instructions for attaching either a [new disk](#option-1-a
 1. Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 2. After you log on to the virtual machine, open **Server Manager**. In the left pane, select **File and Storage Services**.
    
-    ![Open Server Manager](./media/virtual-machines-windows-classic-attach-disk/fileandstorageservices.png)
+    ![Open Server Manager](./windows/classic/media/attach-disk/fileandstorageservices.png)
 3. Expand the menu and select **Disks**.
 4. The **Disks** section lists the disks. In most cases, it will have disk 0, disk 1, and disk 2. Disk 0 is the operating system disk, disk 1 is the temporary disk, and disk 2 is the data disk you just attached to the VM. The new data disk will list the Partition as **Unknown**. Right-click the disk and select **Initialize**.
 5. You're notified that all data will be erased when the disk is initialized. Click **Yes** to acknowledge the warning and initialize the disk. Once complete, the partition will be listed as **GPT**. Right-click the disk again and select **New Volume**.
@@ -88,7 +89,13 @@ If the command returns 0, TRIM is enabled correctly. If it returns 1, run the fo
 ```
 fsutil behavior set DisableDeleteNotify 0
 ```
+				
+After deleting data from your disk you can ensure the TRIM operations flush properly by running defrag with TRIM:
+
+```
+defrag.exe <volume:> -l
+```
 
 ## Next steps
-If you application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+If you application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](virtual-machines-windows-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

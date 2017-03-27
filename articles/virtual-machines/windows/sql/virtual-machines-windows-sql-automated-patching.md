@@ -21,7 +21,7 @@ ms.author: jroth
 # Automated Patching for SQL Server in Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
-> * [Classic](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
+> * [Classic](../classic/sql-automated-patching.md)
 > 
 > 
 
@@ -29,7 +29,7 @@ Automated Patching establishes a maintenance window for an Azure Virtual Machine
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-To view the classic version of this article, see [Automated Patching for SQL Server in Azure Virtual Machines Classic](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md).
+To view the classic version of this article, see [Automated Patching for SQL Server in Azure Virtual Machines Classic](../classic/sql-automated-patching.md).
 
 ## Prerequisites
 To use Automated Patching, consider the following prerequisites:
