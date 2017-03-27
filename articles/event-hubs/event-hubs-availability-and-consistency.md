@@ -20,7 +20,7 @@ ms.author: sethm;jotaub
 # Availability and consistency in Event Hubs
 
 ## Overview
-Azure Event Hubs uses a [partitioning model](event-hubs-what-is-event-hubs.md#partitions) to improve availability and parallelization within a single Event Hub. For example, if an Event Hub has four partitions, and one of those partitions is moved from one server to another in a load balancing operation, you can still send and receive from three other partitions. Additionally, more partitions enables you to have more concurrent readers processing your data, improving your aggregate throughput. Understanding the implications of partitioning and ordering in a distributed system is a critical aspect of solution design.
+Azure Event Hubs uses a [partitioning model](event-hubs-what-is-event-hubs.md#partitions) to improve availability and parallelization within a single event hub. For example, if an event hub has four partitions, and one of those partitions is moved from one server to another in a load balancing operation, you can still send and receive from three other partitions. Additionally, more partitions enables you to have more concurrent readers processing your data, improving your aggregate throughput. Understanding the implications of partitioning and ordering in a distributed system is a critical aspect of solution design.
 
 To help explain the tradeoff between ordering and availability, see the [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem), also known as Brewer's theorem. This theorem states that one must choose between consistency, availability, and partition tolerance.
 
@@ -30,10 +30,10 @@ Brewer's theorem defines consistency and availability as follows:
 * Consistency - a read is guaranteed to return the most recent write for a given client.
 
 ## Partition tolerance
-Event Hubs is built on top of a partitioned data model. You can configure the number of partitions in your Event Hub during setup, but you cannot change this value later. Since you must use partitions with Event Hubs, you only need to make a decision regarding availability and consistency for your application.
+Event Hubs is built on top of a partitioned data model. You can configure the number of partitions in your event hub during setup, but you cannot change this value later. Since you must use partitions with Event Hubs, you only need to make a decision regarding availability and consistency for your application.
 
 ## Availability
-The simplest way to get started with Event Hubs is to use the default behavior. If you create a new `EventHubClient` object and use the `Send` method, your events are automatically distributed between partitions in your Event Hub. This behavior allows for the greatest amount of up time.
+The simplest way to get started with Event Hubs is to use the default behavior. If you create a new `EventHubClient` object and use the `Send` method, your events are automatically distributed between partitions in your event hub. This behavior allows for the greatest amount of up time.
 
 For use cases that require the maximum up time, this model is preferred.
 
@@ -55,10 +55,10 @@ data.Properties.Add("SequenceNumber", sequenceNumber);
 await eventHubClient.SendAsync(data);
 ```
 
-The preceding example sends your event to one of the available partitions in your Event Hub, and sets the corresponding sequence number from your application. This solution requires state to be kept by your processing application, but gives your senders an endpoint that is more likely to be available.
+The preceding example sends your event to one of the available partitions in your event hub, and sets the corresponding sequence number from your application. This solution requires state to be kept by your processing application, but gives your senders an endpoint that is more likely to be available.
 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
 * [Event Hubs overview](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md)
+* [Create an event hub](event-hubs-create.md)

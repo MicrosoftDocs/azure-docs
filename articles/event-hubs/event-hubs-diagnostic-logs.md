@@ -1,6 +1,6 @@
 ---
 title: Azure Event Hubs diagnostic logs | Microsoft Docs
-description: Learn how to set up diagnostic logs for Event Hubs in Azure.
+description: Learn how to set up diagnostic logs for event hubs in Azure.
 keywords:
 documentationcenter: ''
 services: event-hubs
