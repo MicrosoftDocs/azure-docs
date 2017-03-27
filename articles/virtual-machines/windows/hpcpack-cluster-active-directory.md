@@ -18,7 +18,7 @@ ms.author: danlep
 
 ---
 # Manage an HPC Pack cluster in Azure using Azure Active Directory
-[Microsoft HPC Pack 2016](https://technet.microsoft.com/library/cc514029) supports integration with [Azure Active Directory](../active-directory/index.md) (Azure AD) for administrators who deploy an HPC Pack cluster in Azure.
+[Microsoft HPC Pack 2016](https://technet.microsoft.com/library/cc514029) supports integration with [Azure Active Directory](../../active-directory/index.md) (Azure AD) for administrators who deploy an HPC Pack cluster in Azure.
 
 
 
@@ -26,7 +26,7 @@ Follow the steps in this article for the following high level tasks: 
 * Manually integrate your HPC Pack cluster with your Azure AD tenant
 * Manage and schedule jobs in your HPC Pack cluster in Azure 
 
-Integrating an HPC Pack cluster solution with Azure AD follows standard steps to integrate other applications and services. This article assumes you are familiar with basic user management in Azure AD. For more information and background, see the [Azure Active Directory documentation](../active-directory/index.md) and the following section.
+Integrating an HPC Pack cluster solution with Azure AD follows standard steps to integrate other applications and services. This article assumes you are familiar with basic user management in Azure AD. For more information and background, see the [Azure Active Directory documentation](../../active-directory/index.md) and the following section.
 
 ## Benefits of integration
 

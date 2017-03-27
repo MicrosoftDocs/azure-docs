@@ -52,7 +52,7 @@ If you don’t already have a certificate that meets these requirements, you can
 
 ### Upload certificate to an Azure key vault
 
-Before deploying the HPC cluster, upload the certificate to an [Azure key vault](../key-vault/index.md) as a secret, and record the following information for use during the deployment: **Vault name**, **Vault resource group**, **Certificate URL**, and **Certificate thumbprint**.
+Before deploying the HPC cluster, upload the certificate to an [Azure key vault](../../key-vault/index.md) as a secret, and record the following information for use during the deployment: **Vault name**, **Vault resource group**, **Certificate URL**, and **Certificate thumbprint**.
 
 A sample PowerShell script to upload the certificate follows. For more information about uploading a certificate to an Azure key vault, see [Get started with Azure Key Vault](../../key-vault/key-vault-get-started.md).
 
