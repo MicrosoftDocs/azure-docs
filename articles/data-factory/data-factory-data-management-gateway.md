@@ -142,7 +142,7 @@ At windows firewall level, these outbound ports are normally enabled. If not, yo
 
 > [!NOTE]
 > 1. Based on your source/ sinks, you may have to whitelist additional domains and outbound ports in your corporate/ windows firewall.
-> 2. For some Cloud Databases (eg. [SQL Azure Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access), etc.), you may need to whitelist IP address of Gateway machine on there firewall configuration.
+> 2. For some Cloud Databases (eg. [SQL Azure Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access), etc.), you may need to whitelist IP address of Gateway machine on there firewall configuration.
 >
 >
 
@@ -156,7 +156,7 @@ For example, to copy from **an on-premises data store to an Azure SQL Database s
 * Configure the firewall settings of Azure SQL server to add the IP address of the gateway machine to the list of allowed IP addresses.
 
 > [!NOTE]
-> If your firewall does not allow outbound port 1433, Gateway will not be able to access Azure SQL directly. In this case you may use [Staged Copy](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-copy-activity-performance#staged-copy) to SQL Azure Database/ SQL Azure DW. In this scenario you would only require HTTPS (port 443) for the data movement.
+> If your firewall does not allow outbound port 1433, Gateway will not be able to access Azure SQL directly. In this case you may use [Staged Copy](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) to SQL Azure Database/ SQL Azure DW. In this scenario you would only require HTTPS (port 443) for the data movement.
 >
 >
 
