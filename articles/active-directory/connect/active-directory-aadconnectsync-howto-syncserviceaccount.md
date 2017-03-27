@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync: How to manage the Azure AD Connect sync service account | Microsoft Docs'
+title: 'Azure AD Connect sync:  Event ID 7038 or error 1069 The service did not start due to a logon failure | Microsoft Docs'
 description: This topic documents how to update the connector after the password of the AD DS account is changed.
 services: active-directory
 keywords: AD DS account, password
@@ -18,7 +18,7 @@ ms.date: 03/25/2017
 ms.author: billmath
 
 ---
-# Azure AD Connect sync: How to manage the Azure AD Connect sync service account
+# Azure AD Connect sync: Event ID 7038 or error 1069 'The service did not start due to a logon failure'
 The Azure AD Connect sync service account refers to the user account used by Azure AD Connect Synchronization Service as its operating context while running as a Windows service. If you change the service account password, the Synchronization Service can no longer start correctly.
 
 ## Symptoms
