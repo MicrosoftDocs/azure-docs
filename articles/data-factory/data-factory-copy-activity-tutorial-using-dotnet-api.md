@@ -167,8 +167,7 @@ You should have following four values from these steps:
     string resourceGroupName = "ADFTutorialResourceGroup";
     string dataFactoryName = "APITutorialFactory";
 
-    TokenCloudCredentials aadTokenCredentials =
-        new TokenCloudCredentials(
+    TokenCloudCredentials aadTokenCredentials = new TokenCloudCredentials(
             ConfigurationManager.AppSettings["SubscriptionId"],
             GetAuthorizationHeader().Result);
 
@@ -388,7 +387,7 @@ You should have following four values from these steps:
 
     while (DateTime.Now - start < TimeSpan.FromMinutes(5) && !done)
     {
-        Console.WriteLine("Pulling the slice status");
+        Console.WriteLine("Pulling the slice status");        
         // wait before the next status check
         Thread.Sleep(1000 * 12);
 
@@ -456,11 +455,11 @@ You should have following four values from these steps:
     {
         AuthenticationContext context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
         ClientCredential credential = new ClientCredential(
-	    ConfigurationManager.AppSettings["ApplicationId"],
-	    ConfigurationManager.AppSettings["Password"]);
-        AuthenticationResult result = context.AcquireTokenAsync(
-	    resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
-	    clientCredential: credential);
+	        ConfigurationManager.AppSettings["ApplicationId"],
+	        ConfigurationManager.AppSettings["Password"]);
+        AuthenticationResult result = await context.AcquireTokenAsync(
+	        resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+	        clientCredential: credential);
 
         if (result != null)
             return result.AccessToken;
