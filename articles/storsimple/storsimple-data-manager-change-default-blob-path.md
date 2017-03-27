@@ -89,18 +89,45 @@ Perform the following steps to create an Azure function.
         public static void Run(QueueItem myQueueItem, TraceWriter log)
         {
             log.Info($"Blob Uri: {myQueueItem.TargetLocation}");
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["STORAGE_CONNECTIONNAME"]);
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["techreadysac_STORAGE"]);
+
+            string storageAccUriEndswith = "windows.net/";
+            string uri = myQueueItem.TargetLocation.Replace("%20", " ");
+
+            // Remove storage account uri string
+            uri = uri.Substring(uri.IndexOf(storageAccUriEndswith) + storageAccUriEndswith.Length);
+
+            string containerName = uri.Substring(0, uri.IndexOf("/")); 
+
+            // Remove container name string
+            uri = uri.Substring(containerName.Length + 1);
+
+            // Current blob path
+            string blobName = uri; 
+
+            string volumeName = uri.Substring(containerName.Length + 1);
+            volumeName = uri.Substring(0, uri.IndexOf("/"));
+
+            // Remove volume name string
+            uri = uri.Substring(volumeName.Length + 1);
+
+            string newContainerName = uri.Substring(0, uri.IndexOf("/")).ToLower();
+            string newBlobName = uri.Substring(newContainerName.Length + 1);
+
+            log.Info($"Container name: {containerName}");
+            log.Info($"Volume name: {volumeName}");
+            log.Info($"New container name: {newContainerName}");
+
+            log.Info($"Blob name: {blobName}");
+            log.Info($"New blob name: {newBlobName}");
 
             // Create the blob client.
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-            string uriString = "windows.net/";
-            string containerName = myQueueItem.TargetLocation;
-            containerName = containerName.Substring(containerName.IndexOf(uriString) + uriString.Length);
-            containerName = containerName.Substring(0, containerName.IndexOf("/"));
-            //log.Info($"Container name: {containerName}");
-
+            // Container reference
             CloudBlobContainer container = blobClient.GetContainerReference(containerName);
+            CloudBlobContainer newContainer = blobClient.GetContainerReference(newContainerName);
+            newContainer.CreateIfNotExists();
 
             if(!container.Exists())
             {
@@ -108,20 +135,26 @@ Perform the following steps to create an Azure function.
                 return;
             }
 
-            string containerUri = string.Format("{0}/", container.Uri.ToString());  // Reading container Uri
-            string blobUri =  myQueueItem.TargetLocation;
-            string blobName = blobUri.Replace(containerUri, string.Empty).Replace("%20", " "); // Reading existing file path after container name
-            string newBlobName = blobName.Substring(blobName.IndexOf(string.Format("{0}/", container.Name)) + container.Name.Length + 1); // Reading actual File path after container name
+            if(!newContainer.Exists())
+            {
+               log.Info($"Container - {newContainerName} not exists");
+               return;
+            }
 
-            log.Info($"Blob name: {blobName}");
-            log.Info($"New blob name: {newBlobName}");
-
-            CloudBlockBlob blobCopy = container.GetBlockBlobReference(newBlobName);
             CloudBlockBlob blob = container.GetBlockBlobReference(blobName);
+            if (!blob.Exists())
+            {
+                // Skip to copy the blob to new container, if source blob doesn't exist
+                log.Info($"The specified blob does not exist.");
+                log.Info($"Blob Uri: {blob.Uri}");
+                return;
+            }
+
+            CloudBlockBlob blobCopy = newContainer.GetBlockBlobReference(newBlobName);
             if (!blobCopy.Exists())
             {
                 blobCopy.StartCopy(blob);
-                // Delete old blob, after copy the blob
+                // Delete old blob, after copy to new container
                 blob.DeleteIfExists();
                 log.Info($"Blob file path renamed completed successfully");
             }
