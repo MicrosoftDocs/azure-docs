@@ -9,11 +9,12 @@ editor: cgronlun
 
 ms.assetid: 1f174323-c17b-428c-903d-04f0e272784c
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 03/21/2017
 ms.author: nitinme
 
 ---
@@ -30,16 +31,15 @@ In this tutorial, you use Jupyter notebook available with HDInsight Spark cluste
 
 * Azure HDInsight Spark cluster with Data Lake Store as storage. Follow the instructions at [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
-	> [!IMPORTANT]
-   	> If you are using Data Lake Store as the primary storage for the cluster, make sure you create a Spark 1.6 cluster.
-  	>
-   	>
-
+	
 ## Prepare the data
 
-If you have created the HDInsight cluster with Data Lake Store as default storage, you do not need to perform this step because the cluster creation processes adds some sample data in the Data Lake Store account that you specify while creating the cluster.
+> [!NOTE]
+> You do not need to perform this step if you have created the HDInsight cluster with Data Lake Store as default storage. The cluster creation processes adds some sample data in the Data Lake Store account that you specify while creating the cluster. Skip to the section [Use HDInsight Spark cluster with Data Lake Store](#use-an-hdinsight-spark-cluster-with-data-lake-store).
+>
+>
 
-if you created an HDInsight cluster with Data Lake Store as additional storage and Azure Storage Blob as default storage, you should first copy over some sample data to the Data Lake Store account. You can use the sample data from the Azure Storage Blob associated with the HDInsight cluster. You can use the [ADLCopy tool](http://aka.ms/downloadadlcopy) to do so. Download and install the tool from the link.
+If you created an HDInsight cluster with Data Lake Store as additional storage and Azure Storage Blob as default storage, you should first copy over some sample data to the Data Lake Store account. You can use the sample data from the Azure Storage Blob associated with the HDInsight cluster. You can use the [ADLCopy tool](http://aka.ms/downloadadlcopy) to do so. Download and install the tool from the link.
 
 1. Open a command prompt and navigate to the directory where AdlCopy is installed, typically `%HOMEPATH%\Documents\adlcopy`.
 

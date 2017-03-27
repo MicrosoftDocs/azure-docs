@@ -41,11 +41,11 @@ The following example provides sample JSON definitions that you can use to creat
 ## Sample: Copy data from SAP Business Warehouse to Azure Blob
 The sample has the following data factory entities:
 
-1. A linked service of type [SapBw](#sap-bw-linked-service).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](#sap-bw-dataset).
-4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](#sap-bw-source-in-copy-activity) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+1. A linked service of type [SapBw](#linked-service-properties).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](#dataset-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 The sample copies data from an SAP Business Warehouse instance to an Azure blob hourly. The JSON properties used in these samples are described in sections following the samples.
 
@@ -223,7 +223,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 ```
 
 
-## SAP BW linked service
+## Linked service properties
 The following table provides description for JSON elements specific to SAP Business Warehouse (BW) linked service.
 
 Property | Description | Allowed values | Required
@@ -236,13 +236,13 @@ password | Password for the user. | string | Yes
 gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises SAP BW instance. | string | Yes
 encryptedCredential | The encrypted credential string. | string | No
 
-## SAP BW dataset
+## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
 The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. There are no type-specific properties supported for the SAP BW dataset of type **RelationalTable**. 
 
 
-## SAP BW source in copy activity
+## Copy activity properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, are policies are available for all types of activities.
 
 Whereas, properties available in the **typeProperties** section of the activity vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.

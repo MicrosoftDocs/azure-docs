@@ -34,7 +34,7 @@ The following tables list which Microsoft services support deployment and manage
 | Container Service |Yes |[Container Service REST](/rest/api/compute/containerservices) |[Container Service resources](/azure/templates/microsoft.containerservice/containerservices) |
 | Dynamics Lifecycle Services |Yes | | |
 | Scale Sets |Yes |[Scale Set REST](/rest/api/compute/virtualmachinescalesets) |[Scale Set resources](/azure/templates/microsoft.compute/virtualmachinescalesets) |
-| Service Fabric |Yes |[Service Fabric Rest](/rest/api/servicefabric) | [Service Fabric schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-09-01/Microsoft.ServiceFabric.json) |
+| Service Fabric |Yes |[Service Fabric Rest](/rest/api/servicefabric) | [Service Fabric resources](/azure/templates/microsoft.servicefabric/clusters) |
 | Virtual Machines |Yes |[VM REST](/rest/api/compute/virtualmachines) |[VM resources](/azure/templates/microsoft.compute/virtualmachines) |
 | Virtual Machines (classic) |Limited |- |- |
 | Remote App |No |- |- |
@@ -114,11 +114,11 @@ Cloud Services (classic) can be used with other classic resources. However, clas
 | CDN |Yes |[CDN REST](/rest/api/cdn) |[CDN resources](/azure/templates/microsoft.cdn/profiles) |
 | Media Service |Yes |[Media Services REST](/rest/api/media) |[Media resources](/azure/templates/microsoft.media/mediaservices) |
 
-## Hybrid Integration
+## Enterprise Integration
 | Service | Resource Manager Enabled | REST API | Template format |
 | --- | --- | --- | --- |
 | BizTalk Services |Yes | |[BizTalk Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
-| Recovery Service |Yes |[Recovery Services REST](/rest/api/recoveryservices) |[Recovery Services resources](/azure/templates/microsoft.recoveryservices/vaults) |
+| Relay | Yes |  | [Relay resources](/azure/templates/microsoft.relay/namespaces) |
 | Service Bus |Yes |[Service Bus REST](/rest/api/servicebus) |[Service Bus resources](/azure/templates/microsoft.servicebus/namespaces) |
 
 ## Identity & Access Management
@@ -136,10 +136,11 @@ Azure Active Directory works with Resource Manager to enable role-based access c
 | Service | Resource Manager Enabled | REST API | Template format |
 | --- | --- | --- | --- |
 | Advisor | Yes | [Advisor REST](/rest/api/advisor/) | - |
-| Automation |Yes |[Automation REST](https://msdn.microsoft.com/library/azure/mt662285.aspx) |[Automation schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-31/Microsoft.Automation.json) |
+| Automation |Yes |[Automation REST](https://msdn.microsoft.com/library/azure/mt662285.aspx) |[Automation resources](/azure/templates/microsoft.automation/automationaccounts) |
 | Billing | Yes | [Billing REST](/rest/api/billing/) | - |
 | Key Vault |Yes |[Key Vault REST](/rest/api/keyvault) |[Key vault resources](/azure/templates/microsoft.keyvault/vaults) |
 | Operational Insights |Yes | | |
+| Recovery Service |Yes |[Recovery Services REST](/rest/api/recoveryservices) |[Recovery Services resources](/azure/templates/microsoft.recoveryservices/vaults) |
 | Scheduler |Yes |[Scheduler REST](/rest/api/scheduler) |[Scheduler resources](/azure/templates/microsoft.scheduler/jobcollections) |
 | Security |Yes |[Security REST](https://msdn.microsoft.com/library/azure/mt704034.aspx) | |
 | Server Management | Yes | [Server Management REST](/rest/api/servermanagement/) | [Server Management resources](/azure/templates/microsoft.servermanagement/gateways) |
