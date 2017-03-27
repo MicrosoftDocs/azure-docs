@@ -57,11 +57,38 @@ Follow the directions in the [create a certificate tutorial](cloud-services-cert
 ### Disable SSL 3.0
 To disable SSL 3.0 and use TLS security, create a startup task which is documented on this blog post: https://azure.microsoft.com/en-us/blog/how-to-disable-ssl-3-0-in-azure-websites-roles-and-virtual-machines/
 
-## Scale a cloud service
+### Add **nosniff** to your website
+To prevent clients from sniffing the MIME types, add a setting in your *web.config* file.
+
+```xml
+<configuration>
+   <system.webServer>
+      <httpProtocol>
+         <customHeaders>
+            <add name="X-Content-Type-Options" value="nosniff" />
+         </customHeaders>
+      </httpProtocol>
+   </system.webServer>
+</configuration>
+```
+
+You can also add this as a setting in IIS. Use the following command with the [common startup tasks](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe) article.
+
+```cmd
+%windir%\system32\inetsrv\appcmd set config /section:httpProtocol /+customHeaders.[name='X-Content-Type-Options',value='nosniff']
+```
+
+### Customize IIS for a web role
+Use the IIS startup script from the [common startup tasks](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe) article.
+
+## Scaling
 ### I cannot scale beyond X instances
 Your Azure Subscription has a limit on the number of cores you can use. Scaling will not work if you have used all the cores available. For example, if you have a limit of 100 cores, this means you could have 100 A1 sized virtual machine instances for your cloud service, or 50 A2 sized virtual machine instances.
 
-## Troubleshooting
+## Networking
 ### I can't reserve an IP in a multi-VIP cloud service
 First, make sure that the virtual machine instance that you're trying to reserve the IP for is turned on. Second, make sure that you're using Reserved IPs for bother the staging and production deployments. **Do not** change the settings while the deployment is upgrading.
 
+## Remote desktop
+### How do I remote desktop when I have an NSG?
+Add a rule to the NSG that forwards port **20000**.

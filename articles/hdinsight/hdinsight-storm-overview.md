@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 72d54080-1e48-4a5e-aa50-cce4ffc85077
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -38,7 +39,7 @@ Apache Storm on HDInsight provides the following key benefits:
 * Easy customization by running scripts against the cluster during or after creation. For more information, see [Customize HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md).
 
 * Use the language of your choice: Storm components can be written in a variety of languages, such as **Java**, **C#**, and **Python**.
-  
+
   * Visual Studio integration with HDInsight for the development, management, and monitoring of C# topologies. For more information, see [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
   * Supports the **Trident** Java interface. This interface allows you to create Storm topologies that support "exactly once" processing of messages, "transactional" datastore persistence, and a set of common stream analytics operations.
@@ -46,13 +47,13 @@ Apache Storm on HDInsight provides the following key benefits:
 * Easy scale-up and scale-down of the cluster: Add or remove worker nodes with no impact to running Storm topologies.
 
 * Integrate with the following Azure Services:
-  
+
     * Event Hubs
     * Virtual Network
     * SQL Database
     * Azure Storage
     * DocumentDB.
-  
+
   * Securely combine the capabilities of multiple HDInsight clusters by using Azure Virtual Network: Create analytic pipelines that use HDInsight, HBase, or Hadoop clusters.
 
 For a list of companies that are using Apache Storm for their real-time analytics solutions, see [Companies Using Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
@@ -64,7 +65,7 @@ To get started using Storm, see [Get started with Storm on HDInsight][gettingsta
 You can provision a new Storm on HDInsight cluster in minutes. Specify the cluster name, size, administrator account, and the storage account. Azure creates the cluster, including sample topologies and a web-management dashboard.
 
 > [!NOTE]
-> You can also provision Storm clusters by using the [Azure CLI](../xplat-cli-install.md) or [Azure PowerShell](/powershell/azureps-cmdlets-docs).
+> You can also provision Storm clusters by using the [Azure CLI](../cli-install-nodejs.md) or [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Within 15 minutes of submitting the request, you have a new Storm cluster running and ready for your first real-time analytics pipeline.
 
@@ -76,7 +77,7 @@ Within 15 minutes of submitting the request, you have a new Storm cluster runnin
 
 * __Web connectivity__: HDInsight clusters provide the Ambari web UI. The Ambari web UI allows you to easily monitor, configure, and manage services on your cluster. Storm on HDInsight also provides the Storm UI, which allows you to monitor and manage running Storm topologies from your browser.
 
-  For more information, see [Manage HDInsight using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md) and [Monitor and manage using the Storm UI](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-using-the-storm-ui).
+  For more information, see [Manage HDInsight using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md) and [Monitor and manage using the Storm UI](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui).
 
 * __Azure PowerShell and CLI__: Both Azure PowerShell and Azure CLI provide command-line utilities that you can use from your client system to work with HDInsight and other Azure services.
 
@@ -148,7 +149,7 @@ Apache Storm runs **topologies** instead of the MapReduce jobs that you may be f
 * **Stream**: An unbound collection of **tuples**. Streams are produced by **spouts** and **bolts**, and they are consumed by **bolts**.
 * **Tuple**: A named list of dynamically typed values.
 * **Spout**: Consumes data from a data source and emits one or more **streams**.
-  
+
   > [!NOTE]
   > Often, data is read from a queue such as Kafka or Azure Event hubs. If there is an outage, the queue ensures that data is persisted.
 

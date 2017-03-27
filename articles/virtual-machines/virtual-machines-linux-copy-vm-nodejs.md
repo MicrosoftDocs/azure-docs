@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
+ms.date: 03/22/2017
 ms.author: cynthn
 
 ---
@@ -31,7 +31,7 @@ You can complete the task using one of the following CLI versions:
 ## Before you begin
 Ensure that you meet the following prerequisites before you start the steps:
 
-* You have the [Azure CLI](../xplat-cli-install.md) downloaded and installed on your machine. 
+* You have the [Azure CLI](../cli-install-nodejs.md) downloaded and installed on your machine. 
 * You also need some information about your existing Azure Linux VM:
 
 | Source VM information | Where to get it |
