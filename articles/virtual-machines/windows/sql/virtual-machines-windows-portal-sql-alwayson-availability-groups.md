@@ -18,7 +18,7 @@ ms.date: 03/17/2017
 ms.author: mikeray
 
 ---
-# Configure Always On availability group in Azure VM automatically - Resource Manager
+# Configure AlwaysOn Availability Group in Azure VM Automatically using Marketplace Template
 
 This tutorial shows you how to create a SQL Server availability group with Azure Resource Manager virtual machines. The tutorial uses Azure blades to configure a template. You can review the default settings, type required settings, and update the blades in the portal as you walk through this tutorial.
 
