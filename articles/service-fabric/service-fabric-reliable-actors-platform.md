@@ -27,7 +27,7 @@ This article explains how Reliable Actors work on the Service Fabric platform. R
 These components together form the Reliable Actor framework. 
 
 ## Service Layering
-Because the Actor Service itself is a Reliable Service, all of the [application model](service-fabric-application-model.md), lifecycle, [packaging](service-fabric-application-model.md#package-an-application), [deployment](service-fabric-deploy-remove-applications.md), upgrade, and scaling concepts of Reliable Services apply the same way to Actor services. 
+Because the Actor Service itself is a Reliable Service, all of the [application model](service-fabric-application-model.md), lifecycle, [packaging](service-fabric-package-apps.md), [deployment](service-fabric-deploy-remove-applications.md), upgrade, and scaling concepts of Reliable Services apply the same way to Actor services. 
 
 ![Actor Service layering][1]
 
