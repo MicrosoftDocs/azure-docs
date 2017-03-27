@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 03/27/2017
 ms.author: mimig
 
 ---
