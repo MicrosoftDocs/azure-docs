@@ -14,7 +14,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/24/2017
+ms.date: 03/26/2017
 ms.author: magoedte;sngun
 
 ---
@@ -50,32 +50,27 @@ We'll start by creating a simple runbook that outputs the text *Hello World*.
 ## Step 2 - Add code to the runbook
 You can either type code directly into the runbook, or you can select cmdlets, runbooks, and assets from the Library control and have them added to the runbook with any related parameters. For this walkthrough, we type directly in the runbook.
 
-1. Our runbook is currently empty, type *Write-Output "Hello World."*.  
-   ![Hello World](media/automation-first-runbook-textual-powershell/automation-helloworld.png)  
-2. Save the runbook by clicking **Save**.  
-   ![Save Button](media/automation-first-runbook-textual-powershell/automation-save-button.png)  
+1. Our runbook is currently empty, type *Write-Output "Hello World."*.<br><br> ![Hello World](media/automation-first-runbook-textual-powershell/automation-helloworld.png)  
+2. Save the runbook by clicking **Save**.<br><br> ![Save Button](media/automation-first-runbook-textual-powershell/automation-runbook-edit-controls-save.png)  
 
 ## Step 3 - Test the runbook
 Before we publish the runbook to make it available in production, we want to test it to make sure that it works properly. When you test a runbook, you run its **Draft** version and view its output interactively.
 
-1. Click **Test pane** to open the Test pane.  
-   ![Test Pane](media/automation-first-runbook-textual-powershell/automation-testpane.png)  
+1. Click **Test pane** to open the Test pane.<br><br> ![Test Pane](media/automation-first-runbook-textual-powershell/automation-runbook-edit-controls-test.png)  
 2. Click **Start** to start the test. This should be the only enabled option.
 3. A [runbook job](automation-runbook-execution.md) is created and its status displayed.  
    The job status starts as *Queued* indicating that it is waiting for a runbook worker in the cloud to come available. It will then move to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.  
-4. When the runbook job completes, its output is displayed. In our case, we should see *Hello World*  
-   ![Test Pane Output](media/automation-first-runbook-textual-powershell/automation-testpane-output.png)  
+4. When the runbook job completes, its output is displayed. In our case, we should see *Hello World*.<br><br> ![Test Pane Output](media/automation-first-runbook-textual-powershell/automation-testpane-output.png)  
 5. Close the Test pane to return to the canvas.
 
 ## Step 4 - Publish and start the runbook
 The runbook that we created is still in Draft mode. We need to publish it before we can run it in production.  When you publish a runbook, you overwrite the existing Published version with the Draft version.  In our case, we don't have a Published version yet because we just created the runbook.
 
-1. Click **Publish** to publish the runbook and then **Yes** when prompted.  
-   ![Publish button](media/automation-first-runbook-textual-powershell/automation-publish-button.png)  
+1. Click **Publish** to publish the runbook and then **Yes** when prompted.<br><br> ![Publish button](media/automation-first-runbook-textual-powershell/automation-runbook-edit-controls-publish.png)  
 2. If you scroll left to view the runbook in the **Runbooks** pane now, it will show an **Authoring Status** of **Published**.
 3. Scroll back to the right to view the pane for **MyFirstRunbook-PowerShell**.  
    The options across the top allow us to start the runbook, view the runbook, schedule it to start at some time in the future, or create a [webhook](automation-webhooks.md) so it can be started through an HTTP call.
-4. We want to start the runbook, so click **Start** and then click **Ok** when the Start Runbook blade opens.<br><br> ![Start button](media/automation-first-runbook-textual-powershell/automation-start-button.png)<br>    
+4. We want to start the runbook, so click **Start** and then click **Ok** when the Start Runbook blade opens.<br><br> ![Start button](media/automation-first-runbook-textual-powershell/automation-runbook-controls-start.png)<br>    
 5. A job pane is opened for the runbook job that we created. We can close this pane, but in this case we leave it open so we can watch the job's progress.
 6. The job status is shown in **Job Summary** and matches the statuses that we saw when we tested the runbook.<br><br> ![Job Summary](media/automation-first-runbook-textual-powershell/job-pane-status-blade-jobsummary.png)<br>  
 7. Once the runbook status shows *Completed*, click **Output**. The Output pane is opened, and we can see our *Hello World*.<br><br> ![Job Output](media/automation-first-runbook-textual-powershell/job-pane-status-blade-outputtile.png)<br> 
@@ -88,7 +83,7 @@ The runbook that we created is still in Draft mode. We need to publish it before
 ## Step 5 - Add authentication to manage Azure resources
 We've tested and published our runbook, but so far it doesn't do anything useful. We want to have it manage Azure resources. It won't be able to do that though unless we have it authenticate using the credentials that are referred to in the [prerequisites](#prerequisites). We do that with the **Add-AzureRmAccount** cmdlet.
 
-1. Open the textual editor by clicking **Edit** on the MyFirstRunbook-PowerShell pane.<br><br> ![Edit Runbook](media/automation-first-runbook-textual-powershell/automation-edit-runbook.png)<br>   
+1. Open the textual editor by clicking **Edit** on the MyFirstRunbook-PowerShell pane.<br><br> ![Edit Runbook](media/automation-first-runbook-textual-powershell/automation-runbook-controls-edit.png)<br>   
 2. We don't need the **Write-Output** line anymore, so go ahead and delete it.
 3. Type or copy and paste the following code that handles the authentication with your Automation Run As account:
    
