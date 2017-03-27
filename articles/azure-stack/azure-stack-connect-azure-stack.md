@@ -67,14 +67,14 @@ Set-ExecutionPolicy Unrestricted
 To create a VPN connection to the Azure Stack PoC computer, use the following steps:
 
 
-1.	Add the Azure Stack PoC computer’s host IP address & certificate authority(CA) to the list of trusted hosts on your client computer by running the following commands in an elevated PowerShell session:
+1. Add the Azure Stack PoC computer’s host IP address & certificate authority(CA) to the list of trusted hosts on your client computer by running the following commands in an elevated PowerShell session:
 
     ```PowerShell
     Set-Item wsman:\localhost\Client\TrustedHosts -Value $hostIP -Concatenate
     Set-Item wsman:\localhost\Client\TrustedHosts -Value mas-ca01.azurestack.local -Concatenate
     ```
 
-2.	Assign the Azure Stack host IP address and administrator password to the **$hostIP** and **$Password** variables by running the following PowerShell commands and make sure that you populate the administrator password and fields:
+2. Assign the Azure Stack host IP address and administrator password to the **$hostIP** and **$Password** variables by running the following PowerShell commands and make sure that you populate the administrator password and fields:
 
     ```PowerShell
     #Change the IP address in the following command to match your Azure Stack host IP address
