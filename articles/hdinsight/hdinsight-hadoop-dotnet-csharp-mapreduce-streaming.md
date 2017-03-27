@@ -45,11 +45,11 @@ For more information on streaming, see [Hadoop Streaming (https://hadoop.apache.
 
 ## Prerequisites
 
-* A familiarity with writing and building C# code that targets .NET Framework 4.5.
-
-    * Use whatever IDE you want. We recommend [Visual Studio](https://www.visualstudio.com/vs) 2015, 2017, or [Visual Studio Code](https://code.visualstudio.com/). The steps in this document use Visual Studio 2017.
+* A familiarity with writing and building C# code that targets .NET Framework 4.5. The steps in this document use Visual Studio 2017.
 
 * A way to upload .exe files to the cluster. The steps in this document use the Data Lake Tools for Visual Studio to upload the files to primary storage for the cluster.
+
+* Azure PowerShell or a SSH client.
 
 * A Hadoop on HDInsight cluster. For more information on creating a cluster, see [Create an HDInsight cluster](hdinsight-provision-clusters.md).
 
@@ -159,7 +159,7 @@ After creating the application, build it to produce the `/bin/Debug/reducer.exe`
 
     * If this entry cannot be expanded, you are using __Azure Data Lake Store__ as the default storage for the cluster. To view the files on the default storage for the cluster, double-click the __(Default Storage Account)__ entry.
 
-6. To upload the .exe files, use one of the following methods:
+5. To upload the .exe files, use one of the following methods:
 
     * If using an __Azure Storage Account__, click the upload icon, and then browse to the **bin\debug** folder for the **mapper** project. Finally, select the **mapper.exe** file and click **Ok**.
 
@@ -173,16 +173,24 @@ After creating the application, build it to produce the `/bin/Debug/reducer.exe`
 
 1. Use SSH to connect to the HDInsight cluster. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Use the following command to start the MapReduce job:
+2. Use one of the following command to start the MapReduce job:
 
-    ```bash
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files /mapper.exe,/reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
-    ```
+    * If using __Data Lake Store__ as default storage:
+
+        ```bash
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+        ```
+    
+    * If using __Azure Storage__ as default storage:
+
+        ```bash
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasbs:///mapper.exe,wasbs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+        ```
 
     The following list describes what each parameter does:
 
     * `hadoop-streaming.jar`: The jar file that contains the streaming MapReduce functionality.
-    * `-files`: Adds the `mapper.exe` and `reducer.exe` files to this job. The `/` before each file is the path in default storage.
+    * `-files`: Adds the `mapper.exe` and `reducer.exe` files to this job. The `adl:///` or `wasb:///` before each file is the path to the root of default storage for the cluster.
     * `-mapper`: Specifies which file implements the mapper.
     * `-reducer`: Specifies which file implements the reducer.
     * `-input`: The input data.
@@ -196,11 +204,38 @@ After creating the application, build it to produce the `/bin/Debug/reducer.exe`
 
     The following text is an example of the data returned by this command:
 
-    [tbd]
-    
+        you     1128
+        young   38
+        younger 1
+        youngest        1
+        your    338
+        yours   4
+        yourself        34
+        yourselves      3
+        youth   17
+
 ## Run a job: Using PowerShell
 
 Use the following PowerShell script to run a MapReduce job and download the results.
 
-[normal powershell mapreduce EXCEPT for storage. Need to figure out storage based on ADL/WASB]
+[!code-powershell[main](../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]
 
+This script prompts you for the cluster login account name and password, along with the HDInsight cluster name. Once the job completes, the output is downloaded to the `output.txt` file in the directory the script is ran from. The following text is an example of the data in the `output.txt` file:
+
+    you     1128
+    young   38
+    younger 1
+    youngest        1
+    your    338
+    yours   4
+    yourself        34
+    yourselves      3
+    youth   17
+
+## Next steps
+
+For more information on using MapReduce with HDInsight, see [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md).
+
+For information on using C# with Hive and Pig, see [Use a C# user defined function with Hive and Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md).
+
+For information on using C# with Storm on HDInsight, see [Develop C# topologies for Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
