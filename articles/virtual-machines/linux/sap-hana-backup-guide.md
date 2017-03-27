@@ -18,44 +18,7 @@ ms.author: rclaus
 
 # Backup guide for SAP HANA on Azure Virtual Machines
 
-## Contents
-
-- Overview
-- General items regarding HANA backup
-  - SAP HANA backup documentation
-  - Why SAP HANA backup?
-  - How to verify correctness of SAP HANA backup
-  - Pros and cons of HANA backup versus storage snapshot
-  - SAP HANA data consistency when taking storage snapshots
-  - SAP HANA backup scheduling strategy
-  - SAP HANA configuration files
-  - SAP HANA Cockpit
-  - SAP HANA backup encryption
-- SAP HANA backup based on storage snapshots
-  - Introduction
-  - SAP HANA snapshots
-  - HANA VM backup via Azure Backup service
-  - HANA VM backup automation via Azure Backup service
-  - HANA license key and VM restore via Azure Backup service
-  - SAP HANA backup via manual disk snapshot
-- SAP HANA backup into the file system
-  - Introduction
-  - Azure backup agent
-  - Azure blobxfer utility details
-  - SAP HANA backup performance
-  - Copy SAP HANA backup files to Azure blob storage
-  - Blob copy of dedicated Azure data disks in backup software RAID
-  - Copy SAP HANA backup files to NFS share
-  - Copy SAP HANA backup files to Azure file service
-- Test setup
-  - Test Virtual Machine on Azure
-  - Test backup size
-  - Test tool to copy files directly to Azure storage
-  - Test backup size estimation
-  - Test HANA backup file size
-- Summary
-
-## Overview
+## Getting Started
 
 The backup guide for SAP HANA running on Azure virtual Machines will only describe Azure-specific topics. For general SAP HANA backup related items, check the SAP HANA documentation. See _SAP HANA backup documentation_ later in this document.
 
@@ -92,7 +55,7 @@ _&quot;Is it possible to take backups on the secondary side?_
 _No, currently you can only take data and log backups on the primary side. If automatic log backup
 is enabled, after takeover to the secondary side, the log backups will automatically be written there.&quot;_
 
-## General items regarding Hana Backup
+## SAP resources for HANA backup
 
 ### SAP HANA backup documentation
 
