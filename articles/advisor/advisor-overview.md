@@ -25,7 +25,7 @@ Learn about Azure Advisor and its key capabilities, and get answers to frequentl
 Advisor is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of your Azure resources.
 
 With Advisor, you can:
-* Get proactive, actionable, and personalized best-practice recommendations. 
+* Get proactive, actionable, and personalized best practices recommendations. 
 * Improve the performance, security, and high availability of your resources, as you identify opportunities to reduce your overall Azure spend.
 * Get recommendations with proposed actions inline.
 
@@ -77,7 +77,7 @@ To snooze or dismiss a recommendation, click the **Snooze** button or link. You 
 
 ## Next steps
 
-See these resources to learn more about Advisor recommendations:
+To learn more about Advisor recommendations, see:
 
 * [Get started with Advisor](advisor-get-started.md)
 * [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
