@@ -124,7 +124,7 @@ this trigger: **RSS - When a feed item is published**
 
 Now we add an action that sends email when new items appear in the website's RSS feed.
 
-1. In the designer, under your trigger, choose **New step** > **Add an action**. 
+1. In the designer, under your trigger, choose **New step** > **Add an action** as shown here. 
 
    ![Add an action](media/logic-apps-create-a-logic-app/add-new-action.png)
 
