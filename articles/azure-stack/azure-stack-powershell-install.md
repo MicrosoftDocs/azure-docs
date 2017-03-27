@@ -65,10 +65,9 @@ To install the Azure Stack PowerShell modules on a computer, which doesn’t alr
   Install-Module -Name AzureStack -RequiredVersion 1.2.9
   ```
 
-3. To confirm the installation of AzureRM modules, run the following command:
-
+3. To confirm the installation of AzureRM modules, run the following command:  
   ```powershell
-    Get-Module -ListAvailable
+  Get-Module -ListAvailable
   ```
 
   If the installation is successful, this command lists the AzureRM and AzureStack modules.
