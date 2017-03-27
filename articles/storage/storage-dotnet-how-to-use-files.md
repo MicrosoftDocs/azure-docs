@@ -261,17 +261,31 @@ To mount the file share from an on-premises client, you must first take these st
 To write code that calls File storage, you can use the storage client libraries for .NET and Java, or the Azure Storage REST API. The example in this section demonstrates how to work with a file share by using the [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/mt347887.aspx) from a simple console application running on the desktop.
 
 ### Create the console application and obtain the assembly
-To create a new console application in Visual Studio and install the NuGet package containing the Azure Storage Client Library:
+In Visual Studio, create a new Windows console application. The following steps show you how to create a console application in Visual Studio 2017, however, the steps are similar in other versions of Visual Studio.
 
-1. In Visual Studio, choose **File > New Project**, and then choose **Windows > Console Application** from the list of Visual C# templates.
-2. Provide a name for the console application, and then click **OK**.
-3. Once your project has been created, right-click the project in Solution Explorer and choose **Manage NuGet Packages**. Search online for "WindowsAzure.Storage" and click **Install** to install the Azure Storage Client Library for .NET package and dependencies.
+1. Select **File** > **New** > **Project**
+2. Select **Installed** > **Templates** > **Visual C#** > **Windows Classic Desktop**
+3. Select **Console App (.NET Framework)**
+4. Enter a name for your application in the **Name:** field
+5. Select **OK**
 
-The code examples in this article also use the [Microsoft Azure Configuration Manager Library](https://msdn.microsoft.com/library/azure/mt634646.aspx) to retrieve the storage connection string from an app.config file in the console application. With Azure Configuration Manager, you can retrieve your connection string at runtime regardless of whether your application is running in Microsoft Azure or from a desktop, mobile, or web application.
+![Project creation dialog in Visual Studio](./media/storage-development-environment-include/storage-development-environment-include-1.png)
 
-To install the Azure Configuration Manager package, right-click the project in Solution Explorer and choose **Manage NuGet Packages**. Search online for "ConfigurationManager" and click **Install** to install the package.
+All code examples in this tutorial can be added to the `Main()` method of your console application's `Program.cs` file.
 
-Using Azure Configuration Manager is optional. You can also use an API such as the .NET Framework's [ConfigurationManager class](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx).
+You can use the Azure Storage Client Library in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
+
+### Use NuGet to install the required packages
+There are two packages you need to reference in your project to complete this tutorial:
+
+* [Microsoft Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): This package provides programmatic access to data resources in your storage account.
+* [Microsoft Azure Configuration Manager library for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): This package provides a class for parsing a connection string in a configuration file, regardless of where your application is running.
+
+You can use NuGet to obtain both packages. Follow these steps:
+
+1. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.
+2. Search online for "WindowsAzure.Storage" and click **Install** to install the Storage Client Library and its dependencies.
+3. Search online for "WindowsAzure.ConfigurationManager" and click **Install** to install the Azure Configuration Manager.
 
 ### Save your storage account credentials to the app.config file
 Next, save your credentials in your project's app.config file. Edit the app.config file so that it appears similar to the following example, replacing `myaccount` with your storage account name, and `mykey` with your storage account key.
