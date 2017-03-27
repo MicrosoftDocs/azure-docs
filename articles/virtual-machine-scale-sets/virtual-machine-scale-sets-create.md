@@ -95,13 +95,13 @@ az vmss create --resource-group vmss-test-1 --name MyScaleSet --image UbuntuLTS 
 
 ## Create from PowerShell
 
-PowerShell is more complicated to use than Azure CLI. While Azure CLI provides defaults for networking-related resources (such as load balancers, IP addresses, and virtual networks), PowerShell does not. Referencing an image with PowerSell is a slightly more complicated too. You can get images with the following cmdlets:
+PowerShell is more complicated to use than Azure CLI. While Azure CLI provides defaults for networking-related resources (such as load balancers, IP addresses, and virtual networks), PowerShell does not. Referencing an image with PowerShell is a slightly more complicated too. You can get images with the following cmdlets:
 
-1. Get-AzureRMVMImagePublisher
-2. Get-AzureRMVMImageOffer
-3. Get-AzureRmVMImageSku
+- Get-AzureRMVMImagePublisher
+- Get-AzureRMVMImageOffer
+- Get-AzureRmVMImageSku
 
-The cmdlets work can be piped in sequence. Here is an example of how to get all images for the **West US 2** region whose publisher has the name **microsoft** in it.
+The cmdlets work can be piped in sequence. Here is an example of how to get all images for the **West US 2** region with a publisher that has the name **microsoft** in it.
 
 ```powershell
 Get-AzureRMVMImagePublisher -Location WestUS2 | Where-Object PublisherName -Like *microsoft* | Get-AzureRMVMImageOffer | Get-AzureRmVMImageSku | Select-Object PublisherName, Offer, Skus
@@ -157,7 +157,7 @@ New-AzureRmVmss -ResourceGroupName vmss-test-1 -Name my-scale-set -VirtualMachin
 You can deploy a virtual machine scale set by using an Azure Resource Manager template. You can create your own template or use one from the [template repository](https://azure.microsoft.com/resources/templates/?term=vmss). These templates can be deployed directly to your Azure subscription.
 
 >[!NOTE]
->To create your own template you create a JSON text file. For general information about how to create and customize a template, see [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
+>To create your own template, you create a JSON text file. For general information about how to create and customize a template, see [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
 A sample template is available [on GitHub](https://github.com/gatneil/mvss/tree/minimum-viable-scale-set). For more information about how to create and use that sample, see [Minimum viable scale set](.\virtual-machine-scale-sets-mvss-start.md).
 
