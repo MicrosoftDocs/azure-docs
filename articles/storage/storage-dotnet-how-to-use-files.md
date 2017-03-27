@@ -269,8 +269,6 @@ In Visual Studio, create a new Windows console application. The following steps 
 4. Enter a name for your application in the **Name:** field
 5. Select **OK**
 
-![Project creation dialog in Visual Studio](./media/storage-development-environment-include/storage-development-environment-include-1.png)
-
 All code examples in this tutorial can be added to the `Main()` method of your console application's `Program.cs` file.
 
 You can use the Azure Storage Client Library in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
