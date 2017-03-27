@@ -197,10 +197,9 @@ but replace `{customerID}` with `123456`, and press Enter.
 <a name="generated-tokens"></a>
 ### Tokens generated from JSON schemas for your logic app
 
-When you provide a JSON schema for your **Request** trigger, 
-the Logic App Designer uses that schema to generate tokens for 
-properties that the schema describes and that you can use 
-for passing data through your logic app workflow.
+When you provide a JSON schema in your **Request** trigger, 
+the Logic App Designer generates tokens for properties in that schema. 
+You can then use those tokens for passing data through your logic app workflow.
 
 For this example, if you add the `title` and `name` 
 properties to your JSON schema, their tokens are 
@@ -298,9 +297,9 @@ of your workflow.
 ### Construct the response
 
 For our example response, the header specifies 
-that the response has content type `application/json`, 
-and the body contains `title` and `name`, 
-based on the JSON schema used for the **Request** trigger in this example.
+that the response has content type `application/json`. 
+and the body contains `title` and `name`, based on 
+the JSON schema updated previously for the **Request** trigger.
 
 ![HTTP Response action][3]
 
