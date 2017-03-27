@@ -42,10 +42,10 @@ Also, this example requires these items:
 * An Outlook.com, Office 365 Outlook, or Gmail account
 
 	> [!TIP]
-	> If you use a personal 
+	> If you have a personal 
 	> [Microsoft account](https://account.microsoft.com/account), 
 	> you have an Outlook.com account. 
-	> Otherwise, if you use an Azure work or school account, 
+	> Otherwise, if you have an Azure work or school account, 
 	> you have an **Office 365 Outlook** account.
 
 * A link to a website's RSS feed. This example uses 
