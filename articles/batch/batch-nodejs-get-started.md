@@ -65,16 +65,26 @@ Copy and store the key to be used in the subsequent steps.
 Following code snippet first imports the azure-batch Node.js module and then creates a Batch Service client. You need to first create a SharedKeyCredentials object with the Batch account key copied from the previous step.
 
 
-`// Initializing Azure Batch variables
+```
+// Initializing Azure Batch variables
+
 var batch = require('azure-batch');
+
 var accountName = '<azure-batch-account-name>';
+
 var accountKey = '<account-key-downloaded>';
+
 var accountUrl = '<account-url>'
+
 // Create Batch credentials object using account name and account key
+
 var credentials = new batch.SharedKeyCredentials(accountName,accountKey);
+
 // Create Batch service client
+
 var batch_client = new batch.ServiceClient(credentials,accountUrl);
-`
+
+```
 
 The Azure Batch URI can be found in the Overview tab of the Azure portal. It is of the format:
 
@@ -98,7 +108,8 @@ An Azure Batch pool consists of multiple VMs (also known as Batch Nodes). Azure 
 
 Following code snippet creates the configuration parameter objects.
 
-`// Creating Image reference configuration for Ubuntu Linux VM
+```
+// Creating Image reference configuration for Ubuntu Linux VM
 var imgRef = {publisher:"Canonical",offer:"UbuntuServer",sku:"14.04.2-LTS",version:"latest"}
 
 // Creating the VM configuration object with the SKUID
@@ -109,7 +120,7 @@ var vmSize = "STANDARD_F4"
 
 //Setting number of VMs in the pool to 4
 var numVMs = 4
-`
+```
 
 >[!Tip]
 > You can find the list of VM Linux Images available for Azure Batch along with the SKU ID from this [link](https://docs.microsoft.com/en-us/azure/batch/batch-linux-nodes#list-of-virtual-machine-images).
@@ -118,18 +129,20 @@ Once the pool configuration is defined, you can create the Azure Batch pool. The
 
 Following Code snippet creates an Azure Batch pool.
 
-`// Create a unique Azure Batch pool ID
+```
+// Create a unique Azure Batch pool ID
 var poolid = "pool" + customerDetails.customerid;
 var poolConfig = {id:poolid, displayName:poolid,vmSize:vmSize,virtualMachineConfiguration:vmconfig,targetDedicated:numVms,enableAutoScale:false };
 // Creating the Pool for the specific customer
 var pool = batch_client.pool.add(poolConfig,function(error,result){
     if(error!=null){console.log(error.response)};
 });
-`
+```
 
 You can check the status of the pool created and ensure that the state is in "active" before going ahead with submission of a Job to that pool.
 
-` var cloudPool = batch_client.pool.get(poolid,function(error,result,request,response){
+```
+var cloudPool = batch_client.pool.get(poolid,function(error,result,request,response){
         if(error == null)
         {
 
@@ -151,10 +164,12 @@ You can check the status of the pool created and ensure that the state is in "ac
             }
         }
         });
-    `
+```
+
 Following is a sample result object returned by the pool.get function.
 
-`{ id: 'processcsv_201721152',
+```
+{ id: 'processcsv_201721152',
   displayName: 'processcsv_201721152',
   url: 'https://<batch-account-name>.centralus.batch.azure.com/pools/processcsv_201721152',
   eTag: '<eTag>',
@@ -209,7 +224,7 @@ Following is a sample result object returned by the pool.get function.
   enableInterNodeCommunication: false,
   maxTasksPerNode: 1,
   taskSchedulingPolicy: { nodeFillType: 'Spread' } }
-  `
+```
 
 
 ### Step 4: Submit an Azure Batch job
@@ -218,7 +233,7 @@ An Azure Batch job is a logical group of similar tasks. In our scenario, it is "
 These tasks would run in parallel and deployed across multiple nodes, orchestrated by the Azure Batch service.
 
 >[!Tip]
->You can use the ![maxTasksPerNode](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) property to specify maximum number of tasks that can run concurrently on a single node.
+>You can use the [maxTasksPerNode](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) property to specify maximum number of tasks that can run concurrently on a single node.
 
 
 #### Preparation task
@@ -231,7 +246,7 @@ You can upload the script on an Azure Storage Account and generate a SAS URI to 
 
 
 >[!Tip]
-A preparation task for a job runs only on the VM nodes where the specific task needs to run. If you want prerequisites to be installed task on all nodes irrespective of the tasks that run on it, you can use the ![startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) property while adding a pool. You can use the following preparation task definition for reference.
+A preparation task for a job runs only on the VM nodes where the specific task needs to run. If you want prerequisites to be installed task on all nodes irrespective of the tasks that run on it, you can use the [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) property while adding a pool. You can use the following preparation task definition for reference.
 
 A preparation task is specified during the submission of Azure Batch job. Following are the preparation task configuration parameters:
 
@@ -246,12 +261,15 @@ A preparation task is specified during the submission of Azure Batch job. Follow
 
 Following code snippet shows the preparation task script configuration sample:
 
-`var job_prep_task_config = {id:"installprereq",commandLine:"sudo sh startup_prereq.sh > startup.log",resourceFiles:[{'blobSource':'Blob SAS URI','filePath':'startup_prereq.sh'}],waitForSuccess:true,runElevated:true}
-`
+```
+var job_prep_task_config = {id:"installprereq",commandLine:"sudo sh startup_prereq.sh > startup.log",resourceFiles:[{'blobSource':'Blob SAS URI','filePath':'startup_prereq.sh'}],waitForSuccess:true,runElevated:true}
+```
+
 If there are no prerequisites to be installed for your tasks to run, you can skip the preparation tasks. Following code creates a job with display name "process csv files."
 
 
- `// Setting up Batch pool configuration
+ ```
+ // Setting up Batch pool configuration
  var pool_config = {poolId:poolid}
  // Setting up Job configuration along with preparation task
  var jobId = "processcsvjob"
@@ -262,7 +280,7 @@ If there are no prerequisites to be installed for your tasks to run, you can ski
      {
          console.log("Error submitting job : " + error.response);
      }});
-`
+```
 
 
 ### Step 5: Submit Azure Batch Tasks for a Job
@@ -276,7 +294,8 @@ If we look at the [Python script](https://github.com/shwetams/azure-batchclient-
 
 Assuming we have four containers "con1", "con2", "con3","con4" following code shows submitting for tasks to the Azure batch job "process csv" we created earlier.
 
-`// storing container names in an array
+```
+// storing container names in an array
 var container_list = ["con1","con2","con3","con4"]
     container_list.forEach(function(val,index){           
 
@@ -298,7 +317,7 @@ var container_list = ["con1","con2","con3","con4"]
            });
 
     });
-`
+```
 
 The code adds multiple tasks to the pool. And each of the tasks is executed on a node in the pool of VMs created. If the number of tasks exceeds the number of VMs in a pool or the maxTasksPerNode property, the tasks wait until a node is made available. This orchestration is handled by Azure Batch automatically.
 
