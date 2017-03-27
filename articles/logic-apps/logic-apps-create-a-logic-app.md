@@ -126,7 +126,7 @@ Now we add an action that sends email when new items appear in the website's RSS
 
 1. In the designer, under your trigger, choose **New step** > **Add an action**. 
 
-	![Add an action](media/logic-apps-create-a-logic-app/add-new-action.png)
+   ![Add an action](media/logic-apps-create-a-logic-app/add-new-action.png)
 
    The designer shows [available connectors](../connectors/apis-list.md) so 
    that you can select an action to perform when your trigger fires.
