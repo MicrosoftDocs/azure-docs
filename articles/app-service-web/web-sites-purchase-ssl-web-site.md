@@ -21,7 +21,7 @@ ms.author: apurvajo
 # Buy and configure an SSL certificate for your App Service app
 > [!div class="op_single_selector"]
 > * [Buy SSL certificate in Azure](web-sites-purchase-ssl-web-site.md)
-> * [Use SSL certificate somewhere else](web-sites-configure-ssl-certificate.md)
+> * [Use SSL certificate elsewhere](web-sites-configure-ssl-certificate.md)
 > 
 > 
 
@@ -29,7 +29,7 @@ By default, [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) e
 
 App Service gives you a simplified way to purchase and manage an SSL certificate in the Azure portal. 
 
-This article explains how to buy and configure an SSL certificate for your [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) app in three simple steps. 
+This article explains how to buy and configure an SSL certificate for your [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) app. 
 
 > [!NOTE]
 > You can't use SSL certificates for custom domain names for apps that are hosted in a Free or Shared App Service plan. To use SSL certificates, your web app must be hosted in a Basic, Standard, or Premium App Service plan. Changing your subscription type might change how much you are billed for your subscription. For more information, see [App Service pricing](https://azure.microsoft.com/pricing/details/web-sites/).
@@ -42,11 +42,11 @@ This article explains how to buy and configure an SSL certificate for your [App 
 > 
 
 ## Purchase, store, and assign an SSL certificate for your custom domain
-To enable HTTPS for a custom domain, start by [configuring a custom domain name in App Service](web-sites-custom-domain-name.md).
+To enable HTTPS for a custom domain, start by [mapping a custom domain name to your Azure app](web-sites-custom-domain-name.md).
 
 Before you request an SSL certificate, first determine which domain names you will secure with the certificate. This determines the type of certificate you need. If you want to secure a single domain name, like contoso.com *or* www.contoso.com, you can use a Standard (basic) certificate. If you need to secure multiple domain names, like contoso.com, www.contoso.com, *and* mail.contoso.com, you can get a [wildcard certificate](http://en.wikipedia.org/wiki/Wildcard_certificate).
 
-## <a name="bkmk_purchasecert"></a>Prerequisite: Purchase an SSL certificate
+### <a name="bkmk_purchasecert"></a>Purchase an SSL certificate
 
 1. In the [Azure portal](https://portal.azure.com/), select **Browse**. In the **Search** box, type **App Service certificates**. In the search results, select **App Service Certificates**. 
    
@@ -57,10 +57,10 @@ Before you request an SSL certificate, first determine which domain names you wi
    ![Add a certificate](./media/app-service-web-purchase-ssl-web-site/add.jpg)
 
 3. Enter a **name** for your SSL certificate.
-4. Enter the **Host Name**.
+4. Enter the **host name**.
    
    > [!WARNING]
-   > This is one of the most critical parts of the purchase process. Be sure that you enter the correct host name (custom domain name) that you want this certificate to secure. *DO NOT* append the host name with "www." For example, if your custom domain name is www.contoso.com, enter **contoso.com** in the **Host Name** field. The certificate will protect www and root domains. 
+   > This is one of the most critical parts of the purchase process. Be sure that you enter the correct host name (custom domain name) that you want this certificate to secure. *Do not* append the host name with "www." For example, if your custom domain name is www.contoso.com, enter **contoso.com** in the **Host Name** box. The certificate will protect www and root domains. 
    > 
    > 
 5. Select your **subscription**. 
@@ -77,23 +77,26 @@ Before you request an SSL certificate, first determine which domain names you wi
    
    You can choose from two SKUS in App Service:
    * S1: Standard Certificate with one-year validity and auto renewal  
-   * W1: Wildcard certificate with one-year validity and auto renewal       
-   For more information, see [App Service pricing](https://azure.microsoft.com/pricing/details/web-sites/).
+   * W1: Wild Card certificate with one-year validity and auto renewal       
+   
 
-  ![Certificate SKU](./media/app-service-web-purchase-ssl-web-site/SKU.jpg)
+
+   ![Certificate SKU](./media/app-service-web-purchase-ssl-web-site/SKU.jpg)
+
+    For more information, see [App Service pricing](https://azure.microsoft.com/pricing/details/web-sites/).
 
 > [!NOTE]
 > Creating an SSL certificate can take up to 10 minutes. The process involves multiple steps that take place in the background.  
 > 
 > 
 
-## <a name="bkmk_StoreKeyVault"></a>Step 1: Store the certificate in Azure Key Vault
+### <a name="bkmk_StoreKeyVault"></a>Store the certificate in Azure Key Vault
 
 1. When you've completed the SSL certificate purchase, in the Azure portal, go to the **App Service Certificates** blade.   
    
    ![Certificate ready to store in Key Vault](./media/app-service-web-purchase-ssl-web-site/ReadyKV.jpg)
    
- Note that the certificate status is **Pending Issuance**. You need to complete a few steps before you can start using this certificate.
+    Note that the certificate status is **Pending Issuance**. You need to complete a few steps before you can start using this certificate.
 
 2. On the **Certificate Properties** blade, select **Certificate Configuration**. To store this certificate in Key Vault, select **Step 1: Store**.
 3. On the **Key Vault Status** blade, to select an existing key vault to store this certificate, select **Key Vault Repository**.  To create a new key vault in the same subscription and resource group, select **Create New Key Vault**.
@@ -107,44 +110,47 @@ Before you request an SSL certificate, first determine which domain names you wi
    > 
 4. After you have selected the Key Vault repository to store the certificate in, at the top of **Key Vault Status** blade, select the **Store** button.  
    
-  To confirm your selection, click your browser's refresh button. A green check mark shows this step is finished.
+    To confirm your selection, click your browser's refresh button. A green check mark shows this step is finished.
 
-## <a name="bkmk_VerifyOwnership"></a>Step 2: Verify the domain ownership
+### <a name="bkmk_VerifyOwnership"></a>Verify the domain ownership
 
-1. On the **Certificate Configuration** blade, select **Step 2: Verify**. App Service certificates support three types of domain verification:
-* Domain verification
-* Mail verification
-* Manual verification
-   
-   * **Domain verification** 
+On the **Certificate Configuration** blade, select **Step 2: Verify**. 
+
+App Service certificates support three types of domain verification:
+
+   * Domain verification
+   * Mail verification
+   * Manual verification
+
+#### Domain verification 
      
-     * Domain verification is the most convenient process *only if* you have [purchased your custom domain from Azure App Service](custom-dns-web-site-buydomains-web-app.md).
-     * To complete this step, select **Verify**.
-     * To update the certificate status after verification is complete, select **Refresh**. It might take a few minutes for verification to complete.
+* Domain verification is the most convenient process, but *only if* you have [purchased your custom domain from Azure App Service](custom-dns-web-site-buydomains-web-app.md).
+* To complete this step, select **Verify**.
+* To update the certificate status after verification is complete, select **Refresh**. It might take a few minutes for verification to complete.
 
-   * **Mail verification**
+ #### Mail verification
      
-     * With a custom domain, a verification email is sent to the email address associated with the domain. To complete the email verification step, open the email and click the verification link. 
-     * If you need to resend the verification email, click the **Resend Email** button.
+* With a custom domain, a verification email is sent to the email address associated with the domain. To complete the email verification step, open the email and click the verification link. 
+* If you need to resend the verification email, click the **Resend Email** button.
 
-   * **Manual verification**    
+#### Manual verification    
      
-      **HTML web page verification (only works with a Standard certificate SKU)**
+**HTML web page verification (only works with a Standard certificate SKU)**
 
-        1. Create an HTML file named starfield.html. The contents of this file should be the precise name of the domain verification token. (You can copy the token from the **Domain Verification Status** blade.)
-        2. Upload this file to the root of the web server where you host your domain. For example, /.well-known/pki-validation/starfield.html.
-        3.  When verification is finished, select **Refresh** to update the certificate status. It might take a few minutes for verification to finish.
+1. Create an HTML file named starfield.html. The contents of this file should be the precise name of the domain verification token. (You can copy the token from the **Domain Verification Status** blade.)
+2. Upload this file to the root of the web server where you host your domain. For example, /.well-known/pki-validation/starfield.html.
+3.  When verification is finished, select **Refresh** to update the certificate status. It might take a few minutes for verification to finish.
           
-          For example, if you are buying a standard certificate for **contosocertdemo.com**, with a domain verification token **tgjgthq8d11ttaeah97s3fr2sh**, a web request made to **http://contosocertdemo.com/.well-known/pki-validation/starfield.html** should return **tgjgthq8d11ttaeah97s3fr2sh**.
+    For example, if you are buying a standard certificate for **contosocertdemo.com**, with a domain verification token **tgjgthq8d11ttaeah97s3fr2sh**, a web request made to **http://contosocertdemo.com/.well-known/pki-validation/starfield.html** should return **tgjgthq8d11ttaeah97s3fr2sh**.
 
-      **DNS TXT record verification**
+**DNS TXT record verification**
         
-        * Using your DNS manager, create a TXT record on the **@** subdomain with a value equal to the **domain verification token.**
-        * To update the certificate status when verification is finished, select **Refresh**. It might take few minutes for verification to finish.
+* Using your DNS manager, create a TXT record on the **@** subdomain with a value equal to the **domain verification token.**
+* To update the certificate status when verification is finished, select **Refresh**. It might take few minutes for verification to finish.
           
-          For example, to perform validation for a wildcard certificate with hostname **\*.contosocertdemo.com** or **\*.subdomain.contosocertdemo.com** and domain verification token **tgjgthq8d11ttaeah97s3fr2sh**, create a TXT record on **contosocertdemo.com** that has the value **tgjgthq8d11ttaeah97s3fr2sh**     
+  For example, to perform validation for a wildcard certificate with hostname **\*.contosocertdemo.com** or **\*.subdomain.contosocertdemo.com** and domain verification token **tgjgthq8d11ttaeah97s3fr2sh**, create a TXT record on **contosocertdemo.com** that has the value **tgjgthq8d11ttaeah97s3fr2sh**     
 
-## <a name="bkmk_AssignCertificate"></a>Step 3: Assign the certificate to an App Service app
+### <a name="bkmk_AssignCertificate"></a>Assign the certificate to an App Service app
 
 > [!NOTE]
 > Before you complete the steps in this section, you must associate a custom domain name with your app. For more information, see [Configure a custom domain name for a web app](web-sites-custom-domain-name.md).
@@ -162,8 +168,8 @@ Before you request an SSL certificate, first determine which domain names you wi
    
     ![SSL bindings](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
    
-    •    To associate a certificate with a domain name, IP-based SSL maps the dedicated public IP address of the server to the domain name. When you use IP-based SSL, each domain name (for example, contoso.com or fabricam.com) associated with your service must have a dedicated IP address. This is the traditional method of associating an SSL certificate with a web server.
-    •    SNI-based SSL is an extension to SSL and [Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS). When you use SNI-based SSL, multiple domains can share the same IP address. Each domain has a separate security certificate. Most modern browsers, including Internet Explorer, Chrome, Firefox, and Opera, support SNI. Older browsers might not support SNI. For more information about SNI, see [Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication) in Wikipedia.
+    * To associate a certificate with a domain name, IP-based SSL maps the dedicated public IP address of the server to the domain name. When you use IP-based SSL, each domain name (for example, contoso.com or fabricam.com) associated with your service must have a dedicated IP address. This is the traditional method of associating an SSL certificate with a web server.
+    * SNI-based SSL is an extension to SSL and [Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS). When you use SNI-based SSL, multiple domains can share the same IP address. Each domain has a separate security certificate. Most modern browsers, including Internet Explorer, Chrome, Firefox, and Opera, support SNI. Older browsers might not support SNI. For more information about SNI, see [Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication) in Wikipedia.
 
 6. To save your changes and enable SSL, select **Add Binding**.
 
@@ -200,15 +206,15 @@ If you want to handle renewals manually, set **Auto Renew** to **Off**. You can 
 
 3. Rekeying your certificate rolls the certificate with a new certificate. The new certificate is issued from the certificate authority.
 4. You are not charged for rekeying for the lifetime of the certificate. 
-5. Rekeying your certificate puts the certificate in the **Pending Issuance** state. 
+5. Rekeying your certificate gives the certificate a **Pending Issuance** status. 
 6. When the certificate is ready, to prevent disruption to the service, be sure that you sync your resources by using the certificate.
 7. The sync option is not available for certificates that are not yet assigned to a web app. 
 
 ## Next steps
 
-* [Enable HTTPS for an app in Azure App Service](web-sites-configure-ssl-certificate.md)
+* [Secure your app's custom domain with HTTPS](web-sites-configure-ssl-certificate.md)
 * [Buy and configure a custom domain name in Azure App Service](custom-dns-web-site-buydomains-web-app.md)
-* [Microsoft Azure Trust Center](/support/trust-center/security/)
+* [Microsoft Azure Trust Center](https://azure.microsoft.com/en-us/support/trust-center/)
 * [Configuration options unlocked in Azure web sites](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
 
 > [!NOTE]
