@@ -285,7 +285,7 @@ If there are no prerequisites to be installed for your tasks to run, you can ski
 
 ### Step 5: Submit Azure Batch Tasks for a Job
 
-Now that our process csv job is created. Let's create tasks for that job. Let's assume that we have four containers that we want the tasks to be created for, This converts to four tasks, one for each container.
+Now that our process csv job is created, let us create tasks for that job. Assuming we have four containers, we have to create four tasks, one for each container.
 
 If we look at the [Python script](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py), it accepts two parameters:
 
