@@ -90,6 +90,10 @@ If you have a question, please comment on the article and we will answer it as s
 
 **A:** You can specify an Application setting called **PORT** and give it the value of the expected port number.
 
+**Q:** Do I need to implement HTTPS in my custom container.
+
+**A:** No, the platform handles HTTPS termination at the shared frontends.
+
 ## Pricing and SLA ##
 
 **Q:** What is the pricing while in public preview?
