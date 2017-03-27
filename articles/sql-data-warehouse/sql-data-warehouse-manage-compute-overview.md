@@ -36,7 +36,7 @@ The architecture for SQL Data Warehouse consists of a control node, compute node
 
 During a normal active session in SQL Data Warehouse, your system's head node that manages the metadata and contains the distributed query optimizer. Beneath this head node are your compute nodes and your storage layer. For a DWU 400, your system has one head node, four compute nodes, and the storage layer, consisting of 60 distributions. 
 
-When you undergo a scale or pause operation, the system first kills all incoming queries and then rolls back transactions to ensure a consistent state. For scale operations, scaling will only occur once this transactional rollback has completed. For a scale-up operation, the system will provision the extra desired number of compute nodes, and then begin reattaching the compute nodes to the storage layer. For a scale-down operation, the unneeded nodes will be released and the remaining compute nodes will reattach themselves to the appropriate number of distributions. For a pause operation, all compute nodes will be released and your system will undergo a variety of metadata operations to leave your final system in a stable state.
+When you undergo a scale or pause operation, the system first kills all incoming queries and then rolls back transactions to ensure a consistent state. For scale operations, scaling will only occur once this transactional rollback has completed. For a scale-up operation, the system provisions the extra desired number of compute nodes, and then begins reattaching the compute nodes to the storage layer. For a scale-down operation, the unneeded nodes are released and the remaining compute nodes reattach themselves to the appropriate number of distributions. For a pause operation, all compute nodes are released and your system will undergo a variety of metadata operations to leave your final system in a stable state.
 
 | DWU  | \#of compute nodes | \# of distributions per node |
 | ---- | ------------------ | ---------------------------- |
@@ -59,7 +59,7 @@ The three primary functions for managing compute are:
 2. Resume
 3. Scale
 
-Each of these operations may take several minute to complete. If you are scaling/pausing/resuming automatically, you may want to implement logic to ensure that certain operations have been completed before proceeding with another action. 
+Each of these operations may take several minutes to complete. If you are scaling/pausing/resuming automatically, you may want to implement logic to ensure that certain operations have been completed before proceeding with another action. 
 
 Checking the database state through various endpoints will allow you to correctly implement automation of such operations. The portal will provide notification upon completion of an operation and the databases current state but does not allow for programmatic checking of state. 
 
@@ -102,10 +102,10 @@ To understand what your ideal DWU value is, try scaling up and down, and running
 
 Recommendations for finding the best DWU for your workload:
 
-1. For a data warehouse in development, begin by selecting a small number of DWUs.  A good starting point is DW400 or DW200.
+1. For a data warehouse in development, begin by selecting a smaller DWU performance level.  A good starting point is DW400 or DW200.
 2. Monitor your application performance, observing the number of DWUs selected compared to the performance you observe.
 3. Determine how much faster or slower performance should be for you to reach the optimum performance level for your requirements by assuming linear scale.
-4. Increase or decrease the number of DWUs in proportion to how much faster or slower you want your workload to perform. The service will respond quickly and adjust the compute resources to meet the new DWU requirements.
+4. Increase or decrease the number of DWUs in proportion to how much faster or slower you want your workload to perform. 
 5. Continue making adjustments until you reach an optimum performance level for your business requirements.
 
 > [!NOTE]
@@ -158,7 +158,7 @@ To resume a database, use any of these individual methods.
 
 ## Permissions
 
-Scaling the database require the permissions described in [ALTER DATABASE][ALTER DATABASE].  Pause and Resume require the [SQL DB Contributor][SQL DB Contributor] permission, specifically Microsoft.Sql/servers/databases/action.
+Scaling the database requires the permissions described in [ALTER DATABASE][ALTER DATABASE].  Pause and Resume require the [SQL DB Contributor][SQL DB Contributor] permission, specifically Microsoft.Sql/servers/databases/action.
 
 <a name="next-steps-bk"></a>
 
