@@ -21,7 +21,7 @@ ms.author: alkohli
 
 ## Overview
 
-The StorSimple 8000 Series Cloud Appliance is an additional capability that comes with your Microsoft Azure StorSimple solution. The StorSimple Cloud Appliance runs on a virtual machine in a Microsoft Azure virtual network, and you can use it to back up and clone data from your hosts. 
+The StorSimple 8000 Series Cloud Appliance is an additional capability that comes with your Microsoft Azure StorSimple solution. The StorSimple Cloud Appliance runs on a virtual machine in a Microsoft Azure virtual network, and you can use it to back up and clone data from your hosts.
 
 This article describes the step-by-step process of deploying a StorSimple Cloud Appliance in Azure. After reading this article, you will:
 
@@ -41,34 +41,13 @@ The StorSimple Cloud Appliance is available in two models, a standard 8010 (form
 | **Maximum capacity** |30 TB |64 TB |
 | **Azure VM** |Standard_A3 (4 cores, 7 GB memory)| Standard_DS3 (4 cores, 14 GB memory)|
 | **Version compatibility** |Versions running pre-Update 2 or later |Versions running Update 2 or later |
-| **Region availability** |All Azure regions |Azure regions that support Premium Storage<br></br>For a list of regions, see [supported regions for 8020](#supported-regions-for-8020) |
+| **Region availability** |All Azure regions |Azure regions that support Premium Storage<br></br>The Premium Storage regions are regions that correspond to the row for Disk storage in the [list of Azure Services by Region](https://azure.microsoft.com/regions/services/). |
 | **Storage type** |Uses Azure Standard Storage for local disks<br></br> Learn how to [create a Standard Storage account](../storage/storage-create-storage-account.md) |Uses Azure Premium Storage for local disks<sup>2</sup> <br></br>Learn how to [create a Premium Storage account](../storage/storage-premium-storage.md) |
 | **Workload guidance** |Item level retrieval of files from backups |Cloud dev and test scenarios <br></br>Low latency and higher performance workloads<br></br>Secondary device for disaster recovery |
 
 <sup>1</sup> *Formerly known as the 1100*.
 
 <sup>2</sup> *Both the 8010 and 8020 use Azure Standard Storage for the cloud tier. The difference only exists in the local tier within the device*.
-
-#### Supported regions for 8020
-The Premium Storage regions that are currently supported for 8020 are listed in the following table. This list is continuously updated as Premium Storage becomes available in more regions.
-
-| S. no. | Currently supported in regions |
-| --- | --- |
-| 1 |Central US |
-| 2 |East US |
-| 3 |East US 2 |
-| 4 |West US |
-| 5 |North Europe |
-| 6 |West Europe |
-| 7 |Southeast Asia |
-| 8 |Japan East |
-| 9 |Japan West |
-| 10 |Australia East |
-| 11 |Australia Southeast* |
-| 12 |East Asia* |
-| 13 |South Central US* |
-
-*Premium Storage was launched recently in these geos.
 
 ## How the cloud appliance differs from the physical device
 
@@ -87,13 +66,13 @@ The following table shows some key differences between the StorSimple Cloud Appl
 
 ## Prerequisites for the cloud appliance
 
-The following sections explain the configuration prerequisites for your StorSimple Cloud Appliance. Before you deploy a cloud appliance, review the [security considerations for using a cloud appliance](storsimple-8000-security.md#storsimple-cloud-appliance-security).
+The following sections explain the configuration prerequisites for your StorSimple Cloud Appliance. Before you deploy a cloud appliance, review the [security considerations for using a cloud appliance](storsimple-security.md#storsimple-cloud-appliance-security).
 
 #### Azure requirements
 
 Before you provision the cloud appliance, you need to make the following preparations in your Azure environment:
 
-* For the cloud appliance, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). If using Premium Storage, you must create a virtual network in an Azure region that supports Premium Storage. More information on [regions that are currently supported for 8020](#supported-regions-for-8020).
+* For the cloud appliance, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). If using Premium Storage, you must create a virtual network in an Azure region that supports Premium Storage. The Premium Storage regions are regions that correspond to the row for Disk storage in the [list of Azure Services by Region](https://azure.microsoft.com/regions/services/).
 * We recommend that you use the default DNS server provided by Azure instead of specifying your own DNS server name. If your DNS server name is not valid or if the DNS server is not able to resolve IP addresses correctly, the creation of the cloud appliance fails.
 * Point-to-site and site-to-site are optional, but not required. If you wish, you can configure these options for more advanced scenarios.
 * You can create [Azure Virtual Machines](../virtual-machines/virtual-machines-windows-hero-tutorial?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (host servers) in the virtual network that can use the volumes exposed by the cloud appliance. These servers must meet the following requirements:
@@ -187,7 +166,7 @@ After you enable remote management on the cloud appliance, use Windows PowerShel
 > [!WARNING]
 > **For enhanced security, we strongly recommend that you use HTTPS when connecting to the endpoints and then delete the endpoints after you have completed your PowerShell remote session.**
 
-You must follow the procedures in [Connecting remotely to your StorSimple device](storsimple-8000-remote-connect.md) to set up remoting for your cloud appliance.
+You must follow the procedures in [Connecting remotely to your StorSimple device](storsimple-remote-connect.md) to set up remoting for your cloud appliance.
 
 ## Connect directly to the cloud appliance
 
@@ -210,7 +189,7 @@ The following sections discuss some of the differences you encounter when workin
 Because it is a software-only device, maintenance for the cloud appliance is minimal when compared to maintenance for the physical device. You have the following options:
 
 * **Software updates** – You cannot update a cloud appliance. Use the latest version of software to create a new cloud appliance.
-* **Support package** – You can create and upload a support package to help Microsoft Support troubleshoot issues with your cloud appliance. For a step-by-step procedure, go to [create and manage a support package](storsimple-8000-create-manage-support-package.md).
+* **Support package** – You can create and upload a support package to help Microsoft Support troubleshoot issues with your cloud appliance. For a step-by-step procedure, go to [create and manage a support package](storsimple-create-manage-support-package.md).
 
 ### Storage accounts for a cloud appliance
 
@@ -278,4 +257,4 @@ During the creation of a cloud appliance, if there is no connectivity to the Int
 
 ## Next steps
 * Learn how to [use the StorSimple Device Manager service to manage a cloud appliance](storsimple-8000-manager-service-administration.md).
-* Understand how to [restore a StorSimple volume from a backup set](storsimple-8000-restore-from-backup-set.md).
+* Understand how to [restore a StorSimple volume from a backup set](storsimple-8000-restore-from-backup-set-u2.md).
