@@ -85,7 +85,7 @@ A subscription is how tenants buy your offers. A subscription is a combination o
 Subscriptions help providers organize access and use of cloud resources and services.
 
 ## Azure Resource Manager
-By using Azure Resource Manager, you can work with your infrastructure resources in a template-based, declaritive model.   It provides a single interface that you can use to deploy, manage, and monitor your solution components, such as virtual machines, storage accounts, web apps, and databases. For full information and guidance, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
+By using Azure Resource Manager, you can work with your infrastructure resources in a template-based, declarative model.   It provides a single interface that you can use to deploy, manage, and monitor your solution components, such as virtual machines, storage accounts, web apps, and databases. For full information and guidance, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 ### Resource groups
 Resource groups are collections of resources, services, and applications—and each resource has a type, such as virtual machines, virtual networks, public IPs, storage accounts, and websites. Each resource must be in a resource group and so resource groups help logically organize resources, such as by workload or location.  In Microsoft Azure Stack, resources such as plans and offers are also managed in resource groups.

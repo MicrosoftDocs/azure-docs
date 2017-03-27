@@ -127,28 +127,39 @@ If you move cursor over the system tray icon/notification message, you see detai
 ### Ports and firewall
 There are two firewalls you need to consider: **corporate firewall** running on the central router of the organization, and **Windows firewall** configured as a daemon on the local machine where the gateway is installed.  
 
-![firewalls](./media/data-factory-data-management-gateway/firewalls.png)
+![firewalls](./media/data-factory-data-management-gateway/firewalls2.png)
 
 At corporate firewall level, you need configure the following domains and outbound ports:
 
 | Domain names | Ports | Description |
 | --- | --- | --- |
-| *.servicebus.windows.net |443, 80 |Listeners on Service Bus Relay over TCP (requires 443 for Access Control token acquisition) |
-| *.servicebus.windows.net |9350-9354, 5671 |Optional service bus relay over TCP |
-| *.core.windows.net |443 |HTTPS |
-| *.clouddatahub.net |443 |HTTPS |
-| graph.windows.net |443 |HTTPS |
-| login.windows.net |443 |HTTPS |
+| *.servicebus.windows.net |443, 80 |Used for communication with Data Movement Service backend |
+| *.core.windows.net |443 |Used for Staged copy using Azure Blob (if configured)|
+| *frontend.clouddatahub.net |443 |Used for communication with Data Movement Service backend |
+
 
 At windows firewall level, these outbound ports are normally enabled. If not, you can configure the domains and ports accordingly on gateway machine.
+
+> [!NOTE]
+> 1. Based on your source/ sinks, you may have to whitelist additional domains and outbound ports in your corporate/ windows firewall.
+> 2. For some Cloud Databases (eg. [SQL Azure Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access), etc.), you may need to whitelist IP address of Gateway machine on there firewall configuration.
+>
+>
+
 
 #### Copy data from a source data store to a sink data store
 Ensure that the firewall rules are enabled properly on the corporate firewall, Windows firewall on the gateway machine, and the data store itself. Enabling these rules allows the gateway to connect to both source and sink successfully. Enable rules for each data store that is involved in the copy operation.
 
 For example, to copy from **an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink**, do the following steps:
 
-* Allow outbound **TCP** communication on port **1433** for both Windows firewall and corporate firewall
+* Allow outbound **TCP** communication on port **1433** for both Windows firewall and corporate firewall.
 * Configure the firewall settings of Azure SQL server to add the IP address of the gateway machine to the list of allowed IP addresses.
+
+> [!NOTE]
+> If your firewall does not allow outbound port 1433, Gateway will not be able to access Azure SQL directly. In this case you may use [Staged Copy](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) to SQL Azure Database/ SQL Azure DW. In this scenario you would only require HTTPS (port 443) for the data movement.
+>
+>
+
 
 ### Proxy server considerations
 If your corporate network environment uses a proxy server to access the internet, configure Data Management Gateway to use appropriate proxy settings. You can set the proxy during the initial registration phase.
@@ -183,7 +194,7 @@ You can view and update HTTP proxy by using Configuration Manager tool.
 >
 >
 
-### Configure proxy server settings 
+### Configure proxy server settings
 If you select **Use system proxy** setting for the HTTP proxy, gateway uses the proxy setting in diahost.exe.config and diawp.exe.config.  If no proxy is specified in diahost.exe.config and diawp.exe.config, gateway connects to cloud service directly without going through proxy. The following procedure provides instructions for updating the diahost.exe.config file.  
 
 1. In File Explorer, make a safe copy of C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config to back up the original file.
@@ -208,7 +219,7 @@ If you select **Use system proxy** setting for the HTTP proxy, gateway uses the 
 
 > [!IMPORTANT]
 > Do not forget to update **both** diahost.exe.config and diawp.exe.config.  
-     
+
 
 In addition to these points, you also need to make sure Microsoft Azure is in your company’s whitelist. The list of valid Microsoft Azure IP addresses can be downloaded from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -258,12 +269,12 @@ You can disable/enable the auto-update feature by doing the following steps:
 1. Launch Windows PowerShell on the gateway machine.
 2. Switch to the C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript folder.
 3. Run the following command to turn the auto-update feature OFF (disable).   
-	
+
 	```PowerShell
 	.\GatewayAutoUpdateToggle.ps1  -off
 	```
 4. To turn it back on:
-	
+
 	```PowerShell
 	.\GatewayAutoUpdateToggle.ps1  -on  
 	```
@@ -385,7 +396,7 @@ This section describes how to create and register a gateway using Azure PowerShe
 
 1. Launch **Azure PowerShell** in administrator mode.
 2. Log in to your Azure account by running the following command and entering your Azure credentials.
-	
+
 	```PowerShell
     Login-AzureRmAccount
 	```
@@ -433,13 +444,13 @@ This section describes how to create and register a gateway using Azure PowerShe
 You can remove a gateway using the **Remove-AzureRmDataFactoryGateway** cmdlet and update description for a gateway using the **Set-AzureRmDataFactoryGateway** cmdlets. For syntax and other details about these cmdlets, see Data Factory Cmdlet Reference.  
 
 ### List gateways using PowerShell
-	
+
 ```PowerShell
 Get-AzureRmDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -ResourceGroupName ADF_ResourceGroup
 ```
 
 ### Remove gateway using PowerShell
-	
+
 ```PowerShell
 Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
 ```
