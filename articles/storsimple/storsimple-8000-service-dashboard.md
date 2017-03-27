@@ -51,13 +51,12 @@ The essentials area captures some of the important properties such as, the resou
 
     ![Click alerts tile](./media/storsimple-8000-service-dashboard/service-summary8.png)
 
-* The **Capacity** tile displays shows the primary storage that is provisioned and remaining across all devices relative to the total storage available across all devices. **Provisioned** refers to the amount of storage that is prepared and allocated for use, **Remaining** refers to the remaining capacity that can be provisioned across all devices. 
+* The **Capacity** tile displays shows the primary storage that is provisioned and remaining across all devices relative to the total storage available across all devices. **Provisioned** refers to the amount of storage that is prepared and allocated for use, **Remaining** refers to the remaining capacity that can be provisioned across all devices.
 
     ![Capacity tile](./media/storsimple-8000-service-dashboard/service-summary6.png)
 
     The **Remaining Tiered** capacity is the available capacity that can be provisioned including cloud, while the **Remaining Local** is the capacity remaining on the disks attached to the StorSimple 8000 series devices.
 
-    ![Click capacity tile](./media/storsimple-8000-service-dashboard/)
 
 * In the **Usage** chart, you can see the relevant metrics for your devices. You can view the primary storage used across all devices, and the cloud storage consumed by devices over the past 7 days, the default time period. 
 

@@ -82,6 +82,6 @@ Perform the following steps to cancel a running job.
 3. When prompted for confirmation, click **Yes**. This job is now canceled.
 
 ## Next steps
-* Learn how to [manage your StorSimple backup policies](storsimple-8000-manage-backup-policies.md).
-* Learn how to [use the StorSimple Device Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+* Learn how to [manage your StorSimple backup policies](storsimple-8000-manage-backup-policies-u2.md).
+* Learn how to [use the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md).
 

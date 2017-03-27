@@ -113,6 +113,6 @@ Perform the following steps to swap or reassign the VIPs for any of the network 
 2. After the IP addresses are cleared, assign the new IP addresses to the respective interfaces.
 
 ## Next steps
-* Learn how to [configure MPIO for your StorSimple device](storsimple-8000-configure-mpio-windows-server.md).
+* Learn how to [configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server.md).
 * Learn how to [use the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md).
 

@@ -159,5 +159,5 @@ You can place the StorSimple device into maintenance mode (from normal mode) to 
 
 ## Next steps
 
-Learn how to [apply normal and maintenance mode updates](storsimple-8000-update-device.md) on your StorSimple device.
+Learn how to [apply normal and maintenance mode updates](storsimple-update-device.md) on your StorSimple device.
 

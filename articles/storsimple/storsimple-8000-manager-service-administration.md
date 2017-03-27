@@ -72,28 +72,28 @@ For more information about each workflow, click the appropriate procedure in the
 | Deactivate a device</br>Delete a device |StorSimple Device Manager service → Devices |[Deactivate or delete a device](storsimple-8000-deactivate-and-delete-device.md) |
 | Learn about disaster recovery and device failover</br>Failover to a physical device</br>Failover to a virtual device</br>Business continuity disaster recovery (BCDR) |StorSimple Device Manager service → Devices |[Failover and disaster recovery for your StorSimple device](storsimple-8000-device-failover-disaster-recovery.md) |
 | List backups for a volume</br>Select a backup set</br>Delete a backup set |StorSimple Device Manager service → Backup Catalog |[Manage backups](storsimple-8000-manage-backup-catalog.md) |
-| Clone a volume |StorSimple Device Manager service → Backup Catalog |[Clone a volume](storsimple-8000-clone-volume.md) |
-| Restore a backup set |StorSimple Device Manager service → Backup Catalog |[Restore a backup set](storsimple-8000-restore-from-backup-set.md) |
+| Clone a volume |StorSimple Device Manager service → Backup Catalog |[Clone a volume](storsimple-8000-clone-volume-u2,md) |
+| Restore a backup set |StorSimple Device Manager service → Backup Catalog |[Restore a backup set](storsimple-8000-restore-from-backup-set-u2.md) |
 | About  storage accounts</br>Add a storage account</br>Edit a storage account</br>Delete a storage account</br>Key rotation of storage accounts |StorSimple Device Manager service → Configure |[Manage storage accounts](storsimple-8000-manage-storage-accounts.md) |
 | About bandwidth templates</br>Add a bandwidth template</br>Edit a bandwidth template</br>Delete a bandwidth template</br>Use a default bandwidth template</br>Create an all-day bandwidth template that starts at a specified time |StorSimple Device Manager service → Configure |[Manage bandwidth templates](storsimple-8000-manage-bandwidth-templates.md) |
 | About access control records</br>Create an access control record</br>Edit an access control record</br>Delete an access control record |StorSimple Device Manager service → Configure |[Manage access control records](storsimple-8000-manage-acrs.md) |
 | View job details</br>Cancel a job |StorSimple Device Manager service → Jobs |[Manage jobs](storsimple-8000-manage-jobs.md) |
 | Receive alert notifications</br>Manage alerts</br>Review alerts |StorSimple Device Manager service → Alerts |[View and manage StorSimple alerts](storsimple-8000-manage-alerts.md) |
 | View connected initiators</br>Find the device serial number</br>Find the target IQN |StorSimple Device Manager service → Devices → Dashboard |[Use the StorSimple device dashboard](storsimple-8000-device-dashboard.md) |
-| Create monitoring charts |StorSimple Device Manager service → Devices → Monitor |[Monitor your StorSimple device](storsimple-8000-monitor-device.md) |
+| Create monitoring charts |StorSimple Device Manager service → Devices → Monitor |[Monitor your StorSimple device](storsimple-monitor-device.md) |
 | Add a volume container</br>Modify a volume container</br>Delete a volume container |StorSimple Device Manager service → Devices → Volume Containers |[Manage volume containers](storsimple-8000-manage-volume-containers.md) |
 | Add a volume</br>Modify a volume</br>Take a volume offline</br>Delete a volume</br>Monitor a volume |StorSimple Device Manager service → Devices → Volume Containers → Volumes |[Manage volumes](storsimple-8000-manage-volumes-u2.md) |
 | Modify device settings</br>Modify time settings</br>Modify DNS.md settings</br>Configure network interfaces |StorSimple Device Manager service → Devices → Configure |[Modify device configuration for your StorSimple device](storsimple-8000-modify-device-config.md) |
 | View web proxy settings |StorSimple Device Manager service → Devices → Configure |[Configure web proxy for your device](storsimple-8000-configure-web-proxy.md) |
 | Modify device administrator password</br>Modify StorSimple Snapshot Manager password |StorSimple Device Manager service → Devices → Configure |[Change StorSimple passwords](storsimple-8000-change-passwords.md) |
-| Configure remote management |StorSimple Device Manager service → Devices → Configure |[Connect remotely to your StorSimple device](storsimple-8000-remote-connect.md) |
+| Configure remote management |StorSimple Device Manager service → Devices → Configure |[Connect remotely to your StorSimple device](storsimple-remote-connect.md) |
 | Configure alert settings |StorSimple Device Manager service → Devices → Configure |[View and manage StorSimple alerts](storsimple-8000-manage-alerts.md) |
-| Configure CHAP for your StorSimple device |StorSimple Device Manager service → Devices → Configure |[Configure CHAP for your StorSimple device](storsimple-8000-configure-chap.md) |
-| Add a backup policy</br>Add or modify a schedule</br>Delete a backup policy</br>Take a manual backup</br>Create a custom backup policy with multiple volumes and schedules |StorSimple Device Manager service → Devices → Backup policies |[Manage backup policies](storsimple-8000-manage-backup-policies.md) |
+| Configure CHAP for your StorSimple device |StorSimple Device Manager service → Devices → Configure |[Configure CHAP for your StorSimple device](storsimple-configure-chap.md) |
+| Add a backup policy</br>Add or modify a schedule</br>Delete a backup policy</br>Take a manual backup</br>Create a custom backup policy with multiple volumes and schedules |StorSimple Device Manager service → Devices → Backup policies |[Manage backup policies](storsimple-8000-manage-backup-policies-u2.md) |
 | Stop device controllers</br>Restart device controllers</br>Shut down device controllers</br>Reset your device to factory defaults</br>(Above are for on-premises device only) |StorSimple Device Manager service → Devices → Maintenance |[Manage StorSimple device controller](storsimple-8000-manage-device-controller.md) |
 | Learn about StorSimple hardware components</br>Monitor hardware status</br>(Above are for on-premises device only) |StorSimple Device Manager service → Devices → Maintenance |[Monitor hardware components](storsimple-8000-monitor-hardware-status.md) |
-| Create a support package |StorSimple Device Manager service → Devices → Maintenance |[Create and manage a Support package](storsimple-8000-create-manage-support-package.md) |
-| Install software updates |StorSimple Device Manager service → Devices → Maintenance |[Update your device](storsimple-8000-update-device.md) |
+| Create a support package |StorSimple Device Manager service → Devices → Maintenance |[Create and manage a Support package](storsimple-8000-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple) |
+| Install software updates |StorSimple Device Manager service → Devices → Maintenance |[Update your device](storsimple-update-device.md) |
 
 ## Next steps
 
