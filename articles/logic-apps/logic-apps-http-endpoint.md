@@ -241,6 +241,8 @@ After you create your HTTP endpoint,
 you can trigger your logic app through a `POST` method to the full URL. 
 Logic apps have built-in support for direct-access endpoints.
 
+## Reference content from an incoming request
+
 You can include more than one header and any type of content in the body. 
 If the content's type is `application/json`, 
 you can reference properties from inside your request. 
@@ -249,8 +251,6 @@ You can't reference this content inside the workflow without converting that con
 For example, if you pass `application/xml` content, you can use `@xpath()` 
 for an XPath extraction, or `@json()` for converting XML to JSON. 
 Learn about [working with content types](../logic-apps/logic-apps-content-type.md).
-
-## Reference content from an incoming request
 
 To get the output from an incoming request, 
 you can use the `@triggerOutputs()` function. 
