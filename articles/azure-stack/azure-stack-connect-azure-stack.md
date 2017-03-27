@@ -86,8 +86,8 @@ To create a VPN connection to the Azure Stack PoC computer, use the following st
 3. Get the Azure Stack host computer’s NAT IP address. If you do not remember the NAT IP address of the Azure Stack PoC instance you are trying to connect to, you can get it by using the **Get-AzureStackNatServerAddress** command:
 
     ```PowerShell
+    # Get host computer's NAT IP address
     $natIp = Get-AzureStackNatServerAddress -HostComputer $hostIP -Password $Password
-    #test line
     ```
     ![get NAT IP](media/azure-stack-connect-azure-stack/image1.png)  
 
