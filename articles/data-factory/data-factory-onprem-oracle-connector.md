@@ -72,8 +72,6 @@ The following table provides description for JSON elements specific to Oracle li
 | connectionString | Specify information needed to connect to the Oracle Database instance for the connectionString property. | Yes |
 | gatewayName | Name of the gateway that that is used to connect to the on-premises Oracle server |Yes |
 
-See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for an on-premises Oracle data source.
-
 **Example: using Microsoft driver:**
 ```json
 {

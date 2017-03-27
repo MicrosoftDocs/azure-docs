@@ -107,8 +107,8 @@ Whereas, properties available in the typeProperties section of the activity vary
 Currently, when the source in copy activity is of type **WebSource**, no additional properties are supported.
 
 
-## Sample: Copy data from Web table to Azure Blob
-The sample below shows:
+## JSON example: Copy data from Web table to Azure Blob
+The following sample shows:
 
 1. A linked service of type [Web](#linked-service-properties).
 2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).

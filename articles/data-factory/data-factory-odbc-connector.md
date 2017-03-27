@@ -62,8 +62,6 @@ The following table provides description for JSON elements specific to ODBC link
 | password |Specify password for the user account you specified for the username. |No |
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the ODBC data store. |Yes |
 
-See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for an on-premises ODBC data store.
-
 ### Using Basic authentication
 
 ```json

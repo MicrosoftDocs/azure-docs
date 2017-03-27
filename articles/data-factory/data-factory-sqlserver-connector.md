@@ -104,8 +104,6 @@ If username and password are specified, gateway uses them to impersonate the spe
 }
 ```
 
-See [Setting Credentials and Security](data-factory-data-management-gateway.md#encrypting-credentials) for details about setting credentials for an SQL Server data source.
-
 ## Dataset properties
 In the samples, you have used a dataset of type **SqlServerTable** to represent a table in a SQL Server database.  
 

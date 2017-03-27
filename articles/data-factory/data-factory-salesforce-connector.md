@@ -31,8 +31,9 @@ This connector supports the following editions of Salesforce: Developer Edition,
 
 ## Salesforce request limits
 Salesforce has limits for both total API requests and concurrent API requests. Note the following points:
-* If the number of concurrent requests exceeds the limit, throttling occurs and you will see random failures;
-* If the total number of requests exceeds the limit, the Salesforce account will be blocked for 24 hours.
+
+- If the number of concurrent requests exceeds the limit, throttling occurs and you will see random failures.
+- If the total number of requests exceeds the limit, the Salesforce account will be blocked for 24 hours.
 
 You might also receive the “REQUEST_LIMIT_EXCEEDED“ error in both scenarios. See the "API Request Limits" section in the [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) article for details.
 
@@ -104,7 +105,7 @@ When specify the SOQL or SQL query, pay attention to the DateTime format differe
     * **Using JSON editing to specify the query (escape char properly):** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
 
 ### Retrieving data from Salesforce Report
-You can retrieve data from Salesforce reports by specifying query as `{call "<report name>"}`, e.g. `"query": "{call \"TestReport\"}"`.
+You can retrieve data from Salesforce reports by specifying query as `{call "<report name>"}`,for example,. `"query": "{call \"TestReport\"}"`.
 
 ### Retrieving deleted records from Salesforce Recycle Bin
 To query the soft deleted records from Salesforce Recycle Bin, you can specify **"IsDeleted = 1"** in your query. For example,
@@ -112,7 +113,7 @@ To query the soft deleted records from Salesforce Recycle Bin, you can specify *
 * To query only the deleted records, specify "select * from MyTable__c **where IsDeleted= 1**"
 * To query all the records including the existing and the deleted, specify "select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**"
 
-## Sample: Copy data from Salesforce to an Azure blob
+## JSON example: Copy data from Salesforce to Azure Blob
 The following example provides sample JSON definitions that you can use to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from Salesforce to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.   
 
 Here are the Data Factory artifacts that you'll need to create to implement the scenario. The sections that follow the list provide details about these steps.

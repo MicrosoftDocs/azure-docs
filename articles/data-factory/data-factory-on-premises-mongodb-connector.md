@@ -249,8 +249,6 @@ The following table provides description for JSON elements specific to **OnPremi
 | gatewayName |Name of the gateway that accesses the data store. |Yes |
 | encryptedCredential |Credential encrypted by gateway. |Optional |
 
-See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for an on-premises MongoDB data source.
-
 ## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 

@@ -28,7 +28,7 @@ The Cassandra connector supports the following versions of Cassandra: 2.X.
 ## Prerequisites
 For the Azure Data Factory service to be able to connect to your on-premises Cassandra database, you must install a Data Management Gateway on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a component that connects on-premises data sources to cloud services in a secure and managed way. See [Data Management Gateway](data-factory-data-management-gateway.md) article for details about Data Management Gateway. See [Move data from on-premises to cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on setting up the gateway a data pipeline to move data.
 
-You must use the gateway to connect to a Cassandra database even if the database is hosted in the cloud, for example, on an Azure IaaS VM. Y You can have the gateway on the same VM that hosts the database or on a separate VM as long as long as the gateway can connect to the database.  
+You must use the gateway to connect to a Cassandra database even if the database is hosted in the cloud, for example, on an Azure IaaS VM. Y You can have the gateway on the same VM that hosts the database or on a separate VM as long as the gateway can connect to the database.  
 
 When you install the gateway, it automatically installs a Microsoft Cassandra ODBC driver used to connect to Cassandra database. Therefore, you don't need to manually install any driver on the gateway machine when copying data from the Cassandra database. 
 

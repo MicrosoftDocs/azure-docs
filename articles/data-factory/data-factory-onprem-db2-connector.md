@@ -25,7 +25,7 @@ Data factory currently supports only moving data from a DB2 database to [support
 ## Prerequisites
 For the Azure Data Factory service to be able to connect to your on-premises DB2 database, you must install a Data Management Gateway on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a component that connects on-premises data sources to cloud services in a secure and managed way. See [Data Management Gateway](data-factory-data-management-gateway.md) article for details about Data Management Gateway. See [Move data from on-premises to cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on setting up the gateway a data pipeline to move data.
 
-You must use the gateway to connect to a DB2 database even if the database is hosted in the cloud, for example, on an Azure IaaS VM. You can have the gateway on the same VM that hosts the database or on a separate VM as long as long as the gateway can connect to the database.  
+You must use the gateway to connect to a DB2 database even if the database is hosted in the cloud, for example, on an Azure IaaS VM. You can have the gateway on the same VM that hosts the database or on a separate VM as long as the gateway can connect to the database.  
 
 The Data Management Gateway provides a built-in DB2 driver, therefore you don't need to manually install any driver when copying data from DB2.
 
@@ -73,7 +73,6 @@ The following table provides description for JSON elements specific to DB2 linke
 | password |Specify password for the user account you specified for the username. |No |
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises DB2 database. |Yes |
 
-See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for an on-premises DB2 data source. 
 
 ## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
