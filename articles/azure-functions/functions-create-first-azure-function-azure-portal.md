@@ -32,6 +32,8 @@ To complete this quickstart, you must have an Azure account. [Free accounts](htt
 
 [!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
 
+For more information, see [Create a function app from the Azure portal](functions-create-function-app-portal.md).
+
 ## Create a function
 These steps create a function in the new function app by using the Azure Functions quickstart.
 

@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.date: 02/08/2017
 ms.author: larryfr
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
 # Delete an HDInsight cluster using your browser, PowerShell, or the Azure CLI
 
