@@ -149,6 +149,7 @@ You should have following four values from these steps:
     ```csharp
     using System.Configuration;
     using System.Collections.ObjectModel;
+    using System.Threading;
     using System.Threading.Tasks;
 
     using Microsoft.Azure;
