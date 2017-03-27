@@ -40,14 +40,12 @@
 ### [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md)
 ### [Azure AD service account](active-directory-aadconnectsync-howto-azureadaccount.md)
-### [AD DS account](active-directory-aadconnectsync-howto-addsccount.md)
-### [Azure AD Connect sync service account](active-directory-aadconnectsync-howto-syncserviceaccount.md)
-### [Encryption key](active-directory-aadconnectsync-howto-encryptionkey.md)
 ### [Installation wizard](active-directory-aadconnectsync-installation-wizard.md)
 ### [Change the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Configure Filtering](active-directory-aadconnectsync-configure-filtering.md)
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md)
+### [AD Recycle Bin](active-directory-aadconnectsync-recommend-adrecyclebin.md)
 
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
 #### [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md)
@@ -66,6 +64,10 @@
 ### [Object is not synchronized](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Password synchronization](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 ### [How to recover from LocalDB 10-GB limit](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
+### [Event ID 6000 or 'no-start-credentials' error after password change](active-directory-aadconnectsync-howto-addsccount.md)
+### [Event ID 7038 or error 1069 'The service did not start due to a logon failure'](active-directory-aadconnectsync-howto-syncserviceaccount.md)
+### [Event ID 6028 ‘The server encryption key cannot be accessed’ or error code -21451857952](active-directory-aadconnectsync-howto-encryptionkey.md)
+
 
 # Reference
 ## [Identity synchronization and duplicate attribute resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
