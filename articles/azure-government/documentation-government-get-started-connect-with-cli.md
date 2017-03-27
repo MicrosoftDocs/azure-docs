@@ -37,11 +37,19 @@ After the cloud has been set you can continue logging in:
 az login --username your-user-name@your-gov-tenant.onmicrosoft.com
 ```
 
-To confirm that you are connected to Azure Government you can list the locations:
+To confirm the cloud has correctly been set to AzureUSGovernment, run this command:
 
 ```
-az account list-locations
+az cloud list
 ```
+
+or
+
+```
+az cloud list --output table
+```
+
+and verify that the isActive flag is set to true for the AzureUSGovernment item.
 
 ## Azure CLI 1.0
 There are multiple ways to [install the Azure CLI v1](https://docs.microsoft.com/azure/xplat-cli-install). If you already have Node installed, the easiest way is to install the npm package:
