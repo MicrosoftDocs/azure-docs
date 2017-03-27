@@ -84,9 +84,6 @@ Now you can create the script. Below is an example using the Invoke-AzureADGraph
 
 You are now ready to export to a CSV and save to a SIEM system. You can also wrap your script in a scheduled task to get Azure AD data from your tenant periodically without having to store application keys in the source code. 
 
-The above example uses passwords for the demonstration purposes. Instead, you can  use the credential manager to securely store and retrieve passwords.
-
-
 ## Next steps
 [The fundamentals of Azure identity management](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity)<br>
 [How to get operational insights with password management reports](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-get-insights#view-password-reset-activity)
