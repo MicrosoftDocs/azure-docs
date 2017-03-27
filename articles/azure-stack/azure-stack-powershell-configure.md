@@ -55,11 +55,9 @@ Use the following steps to configure your Azure Stack environment:
   
   ```PowerShell
   # Add your Azure Stack host to the list of trusted hosts by running the following command in an elevated PowerShell session
-  Set-Item wsman:\localhost\Client\TrustedHosts -Value "<Azure Stack host address>" -Concatenate
-    
+  Set-Item wsman:\localhost\Client\TrustedHosts -Value "<Azure Stack host address>" -Concatenate  
   # Get the administrator password used when deploying the Azure Stack
-  $Password = ConvertTo-SecureString "<Administrator password provided when deploying Azure Stack>" -AsPlainText -Force
-    
+  $Password = ConvertTo-SecureString "<Administrator password provided when deploying Azure Stack>" -AsPlainText -Force  
   #Get the Active Directory Tenant GUID
   $AadTenant = Get-AzureStackAadTenant -HostComputer <Host IP Address> -Password $Password
   ```
