@@ -49,7 +49,7 @@ or
 az cloud list --output table
 ```
 
-and verify that the isActive flag is set to true for the AzureUSGovernment item.
+and verify that the `isActive` flag is set to `true` for the AzureUSGovernment item.
 
 ## Azure CLI 1.0
 There are multiple ways to [install the Azure CLI v1](https://docs.microsoft.com/azure/xplat-cli-install). If you already have Node installed, the easiest way is to install the npm package:
