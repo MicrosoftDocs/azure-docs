@@ -236,9 +236,9 @@ The outbound connection to the Internet is allowed because all outbound traffic 
 
 To delete all resources created in this article, complete the following steps:
 
-1. To view the MyRG resource group created in this article, complete steps 1-3 in the [Review resources](#review) section of this article. Once again, review the resources in the resource group. If you created the MyRG resource group, per previous steps, you see the 12 resources shown in the picture in step 3.
+1. To view the MyRG resource group created in this article, complete steps 1-3 in the [Review resources](#review) section of this article. Once again, review the resources in the resource group. If you created the MyRG resource group, per previous steps, you see the 12 resources shown in the picture in step 4.
 2. In the MyRG blade, click the **Delete** button.
-3. The portal requires you to type the name of the resource group to confirm that you want to delete it. If you see resources other than the resources shown in step 3 of the [Review resources](#review) section of this article, click **Cancel**. If you see only the 12 resources created as part of this article, type *MyRG* for the resource group name, then click **Delete**. Deleting a resource group deletes all resources within the resource group, so always be sure to confirm the contents of a resource group before deleting it. The portal deletes all resources contained within the resource group, then deletes the resource group itself. This process takes several minutes.
+3. The portal requires you to type the name of the resource group to confirm that you want to delete it. If you see resources other than the resources shown in step 4 of the [Review resources](#review) section of this article, click **Cancel**. If you see only the 12 resources created as part of this article, type *MyRG* for the resource group name, then click **Delete**. Deleting a resource group deletes all resources within the resource group, so always be sure to confirm the contents of a resource group before deleting it. The portal deletes all resources contained within the resource group, then deletes the resource group itself. This process takes several minutes.
 
 ## <a name="next-steps"></a>Next steps
 

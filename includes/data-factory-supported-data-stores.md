@@ -25,7 +25,9 @@ Copy Activity in Data Factory copies data from a source data store to a sink dat
 | &nbsp; |[File System](../articles/data-factory/data-factory-onprem-file-system-connector.md)* |✓ |✓ |
 | &nbsp; |[FTP](../articles/data-factory/data-factory-ftp-connector.md) |✓ | |
 | &nbsp; |[HDFS](../articles/data-factory/data-factory-hdfs-connector.md)* |✓ | |
-| **Others** |[Generic OData](../articles/data-factory/data-factory-odata-connector.md) |✓ | |
+| &nbsp; |[SFTP](../articles/data-factory/data-factory-sftp-connector.md) |✓ | |
+| **Others** |[Generic HTTP](../articles/data-factory/data-factory-http-connector.md) |✓ | |
+| &nbsp; |[Generic OData](../articles/data-factory/data-factory-odata-connector.md) |✓ | |
 | &nbsp; |[Generic ODBC](../articles/data-factory/data-factory-odbc-connector.md)* |✓ | |
 | &nbsp; |[Salesforce](../articles/data-factory/data-factory-salesforce-connector.md) |✓ | |
 | &nbsp; |[Web Table (table from HTML)](../articles/data-factory/data-factory-web-table-connector.md) |✓ | |

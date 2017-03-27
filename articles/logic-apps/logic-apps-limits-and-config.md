@@ -78,8 +78,7 @@ These are limits for a single logic app instance.
 
 |Name|Limit|Notes|
 |----|----|----|
-|Actions executions per second (bursts)|1,000|Can distribute workload across multiple apps as needed|
-|Actions executions per hour (sustained)|1,000,000|Can distribute workload across multiple apps as needed|
+|Actions executions per 5 minutes |100,000|Can distribute workload across multiple apps as needed|
 
 ### Definition limits
 

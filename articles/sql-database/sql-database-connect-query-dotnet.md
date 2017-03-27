@@ -26,7 +26,6 @@ This quick start uses as its starting point the resources created in one of thes
 
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
-- [Create DB - PowerShell](sql-database-get-started-powershell.md)
 
 Before you start, make sure you have configured your development environment for C#. See [Install Visual Studio Community for free](https://www.visualstudio.com/) or install the [ADO.NET driver for SQL Server](https://www.microsoft.com/net/download).
 
@@ -50,24 +49,24 @@ Get the connection string in the Azure portal. You use the connection string to 
     string strConn = "<connection string>";
     using (var connection = new SqlConnection(strConn))
     {
-   connection.Open();
+       connection.Open();
 
-    SqlCommand selectCommand = new SqlCommand("", connection);
-    selectCommand.CommandType = CommandType.Text;
+       SqlCommand selectCommand = new SqlCommand("", connection);
+       selectCommand.CommandType = CommandType.Text;
 
-    selectCommand.CommandText = @"SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+       selectCommand.CommandText = @"SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
         FROM [SalesLT].[ProductCategory] pc
         JOIN [SalesLT].[Product] p
         ON pc.productcategoryid = p.productcategoryid";
 
-    SqlDataReader reader = selectCommand.ExecuteReader();
+       SqlDataReader reader = selectCommand.ExecuteReader();
 
-    while (reader.Read())
-    {
-        // show data
-        Console.WriteLine($"{reader.GetString(0)}\t{reader.GetString(1)}");
-    }
-    reader.Close();
+       while (reader.Read())
+       {
+          // show data
+          Console.WriteLine($"{reader.GetString(0)}\t{reader.GetString(1)}");
+       }
+       reader.Close();
     }
     ```
 

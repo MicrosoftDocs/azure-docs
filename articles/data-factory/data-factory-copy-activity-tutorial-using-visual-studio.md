@@ -93,7 +93,7 @@ In this step, you create two linked services: **AzureStorageLinkedService1** and
 4. Save the **AzureSqlLinkedService1.json** file. 
 
 > [!NOTE]
-> See [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) for details about JSON properties.
+> See [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties) for details about JSON properties.
 > 
 > 
 
@@ -165,7 +165,7 @@ In this step, you create a dataset named **InputDataset** that points to a blob 
     ```
             
 > [!NOTE]
-> See [Move data from/to Azure Blob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) for details about JSON properties.
+> See [Move data from/to Azure Blob](data-factory-azure-blob-connector.md#dataset-properties) for details about JSON properties.
 > 
 > 
 
@@ -212,7 +212,7 @@ In this step, you create an output dataset named **OutputDataset**. This dataset
    * The **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**).  The Data Factory service generates an output data slice every hour in the **emp** table in the Azure SQL database.
 
 > [!NOTE]
-> See [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) for details about JSON properties.
+> See [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties) for details about JSON properties.
 > 
 > 
 
