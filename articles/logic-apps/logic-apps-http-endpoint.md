@@ -180,7 +180,7 @@ that you specified in your trigger's relative path.
 
     Your HTTP endpoint URL now includes the relative path, for example: 
 
-    https&#58;//prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}?api-version...
+    https&#58;//prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}...
 
 7. To test your HTTP endpoint, 
 copy and paste the updated URL into another browser window, 
