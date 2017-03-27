@@ -58,9 +58,10 @@ In this section, you create a Java console app that creates a device identity in
 3. Using a text editor, open the pom.xml file in the create-device-identity folder and add the following dependency to the **dependencies** node. This dependency enables you to use the iot-service-client package in your app:
    
     ```
-    <groupId>com.microsoft.azure.sdk.iot</groupId>
+    </dependency>
+      <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.0.15</version>
+      <version>1.2.16</version>
     </dependency>
     ```
     
@@ -73,8 +74,8 @@ In this section, you create a Java console app that creates a device identity in
    
     ```
     import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
-    import com.microsoft.azure.sdk.iot.service.sdk.Device;
-    import com.microsoft.azure.sdk.iot.service.sdk.RegistryManager;
+    import com.microsoft.azure.sdk.iot.service.Device;
+    import com.microsoft.azure.sdk.iot.service.RegistryManager;
    
     import java.io.IOException;
     import java.net.URISyntaxException;
@@ -284,7 +285,7 @@ In this section, you create a Java console app that simulates a device that send
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.0.21</version>
+      <version>1.1.22</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/22/2017
 ms.author: jingwang
 
 ---
@@ -23,25 +23,25 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 Data factory currently supports only moving data from a Web table to other data stores, but not moving data from other data stores to a Web table destination.
 
 > [!NOTE]
-> This Web connector currently supports only extracting table content from an HTML page.
+> This Web connector currently supports only extracting table content from an HTML page. To retrieve data from a HTTP/s endpoint, use [HTTP connector](data-factory-http-connector.md) instead.
 >
 >
 
 ## Sample: Copy data from Web table to Azure Blob
 The sample below shows:
 
-1. A linked service of type [Web](#web-linked-service-properties).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. An input [dataset](data-factory-create-datasets.md) of type [WebTable](#WebTable-dataset-properties).
-4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [WebSource](#websource-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+1. A linked service of type [Web](#linked-service-properties).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [WebTable](#dataset-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [WebSource](#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 The sample copies data from a Web table to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
 The following sample shows how to copy data from a Web table to an Azure blob. However, data can be copied directly to any of the sinks stated in the [Data Movement Activities](data-factory-data-movement-activities.md) article by using the Copy Activity in Azure Data Factory.
 
 **Web linked service**
-This example uses the Web linked service with anonymous authentication. See [Web linked service](#web-linked-service-properties) section for different types of authentication you can use.
+This example uses the Web linked service with anonymous authentication. See [Web linked service](#linked-service-properties) section for different types of authentication you can use.
 
 ```JSON
 {
@@ -130,7 +130,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1).
 
 The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **WebSource** and **sink** type is set to **BlobSink**.
 
-See [WebSource type properties](#websource-copy-activity-type-properties) for the list of properties supported by the WebSource.
+See [WebSource type properties](#copy-activity-type-properties) for the list of properties supported by the WebSource.
 
 ```JSON
 {  
@@ -178,7 +178,7 @@ See [WebSource type properties](#websource-copy-activity-type-properties) for th
 }
 ```
 
-## Web Linked Service properties
+## Linked service properties
 The following table provides description for JSON elements specific to Web linked service.
 
 | Property | Description | Required |
@@ -204,7 +204,7 @@ The following table provides description for JSON elements specific to Web linke
 }
 ```
 
-## WebTable dataset properties
+## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
 The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **WebTable** has the following properties
@@ -236,7 +236,7 @@ The **typeProperties** section is different for each type of dataset and provide
 }
 ```
 
-## WebSource - Copy Activity type properties
+## Copy activity properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
