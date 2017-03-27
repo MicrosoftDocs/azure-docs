@@ -66,7 +66,7 @@ The following table shows some key differences between the StorSimple Cloud Appl
 
 ## Prerequisites for the cloud appliance
 
-The following sections explain the configuration prerequisites for your StorSimple Cloud Appliance. Before you deploy a cloud appliance, review the [security considerations for using a cloud appliance](storsimple-security.md#storsimple-cloud-appliance-security).
+The following sections explain the configuration prerequisites for your StorSimple Cloud Appliance. Before you deploy a cloud appliance, review the [security considerations for using a cloud appliance](storsimple-security.md#storsimple-virtual-device-security).
 
 #### Azure requirements
 
@@ -75,7 +75,7 @@ Before you provision the cloud appliance, you need to make the following prepara
 * For the cloud appliance, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). If using Premium Storage, you must create a virtual network in an Azure region that supports Premium Storage. The Premium Storage regions are regions that correspond to the row for Disk storage in the [list of Azure Services by Region](https://azure.microsoft.com/regions/services/).
 * We recommend that you use the default DNS server provided by Azure instead of specifying your own DNS server name. If your DNS server name is not valid or if the DNS server is not able to resolve IP addresses correctly, the creation of the cloud appliance fails.
 * Point-to-site and site-to-site are optional, but not required. If you wish, you can configure these options for more advanced scenarios.
-* You can create [Azure Virtual Machines](../virtual-machines/virtual-machines-windows-hero-tutorial?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (host servers) in the virtual network that can use the volumes exposed by the cloud appliance. These servers must meet the following requirements:
+* You can create [Azure Virtual Machines](../virtual-machines/virtual-machines-windows-quick-create-portal.md) (host servers) in the virtual network that can use the volumes exposed by the cloud appliance. These servers must meet the following requirements:
 
   * Be Windows or Linux VMs with iSCSI Initiator software installed.
   * Be running in the same virtual network as the cloud appliance.
