@@ -9,6 +9,7 @@ editor: cgronlun
 
 ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -165,10 +166,8 @@ Hive is great for working with data in HDInsight, but sometimes you need a more 
    
         ssh myuser@mycluster-ssh.azurehdinsight.net
    
-    For more information on using SSH with HDInsight, see the following documents.
-   
-   * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
 4. From the SSH session, copy the jar file to HDInsight storage.
    
         hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars
