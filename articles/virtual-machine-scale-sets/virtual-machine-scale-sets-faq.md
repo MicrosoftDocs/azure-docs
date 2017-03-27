@@ -479,7 +479,7 @@ The allocation method of scale set IPs is always “Dynamic”. It does not mean
 
 See https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet 
 
-### How do I add a scale set’s first VM's IP address to the output of a template?
+### How do I add a scale set's first VM's IP address to the output of a template?
 
 See: http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips
 
