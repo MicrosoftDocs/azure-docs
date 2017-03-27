@@ -86,6 +86,6 @@ You are now ready to export to a CSV and save to a SIEM system. You can also wra
 
 ## Next steps
 [The fundamentals of Azure identity management](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity)<br>
-[How to get operational insights with password management reports](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-get-insights#view-password-reset-activity)
+
 
 
