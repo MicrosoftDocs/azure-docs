@@ -48,7 +48,7 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
 4. Create a subnet in the virtual network:
 
 	```azurecli
-	azure network vnet subnet create --resource-group $RgName --vnet-name myVNet \
+	azure network vnet subnet create --name mySubnet --resource-group $RgName --vnet-name myVNet \
 	--address-prefix 10.0.0.0/24
 	```
 	
