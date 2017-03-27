@@ -60,10 +60,10 @@ The session should look similar to this screen:
 
 3. Use the New-AzureADApplicationCertificateCredential cmdlet from AzureADUtils to add a certificate credential to it. 
 
->[!Note}
+>[!Note]
 >You need to provide the application Object ID that you captured earlier, as well as the certificate object (get this using the Cert: drive).
 >
->
+
 
   ![Azure portal](./media/active-directory-report-api-with-certificates/add-certificate-credential.png)
   
