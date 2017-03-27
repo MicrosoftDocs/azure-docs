@@ -66,7 +66,9 @@ The following table shows some key differences between the StorSimple Cloud Appl
 
 ## Prerequisites for the cloud appliance
 
-The following sections explain the configuration prerequisites for your StorSimple Cloud Appliance. Before you deploy a cloud appliance, review the [security considerations for using a cloud appliance](storsimple-security.md#storsimple-virtual-device-security).
+The following sections explain the configuration prerequisites for your StorSimple Cloud Appliance. Before you deploy a cloud appliance, review the security considerations for using a cloud appliance.
+
+[!INCLUDE [StorSimple Cloud Appliance security](../../includes/storsimple-8000-cloud-appliance-security.md)]
 
 #### Azure requirements
 
