@@ -78,36 +78,36 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
 
 	 Enter the following commands to create a new public IP address resource and a new IP configuration with a static public IP address and a static private IP address:
 	
-		```bash
-		azure network public-ip create \
-		--resource-group myResourceGroup \
-		--location westcentralus \
-		--name myPublicIP2 \
-		--domain-name-label mypublicdns2 \
-		--allocation-method Static
+	```bash
+	azure network public-ip create \
+	--resource-group myResourceGroup \
+	--location westcentralus \
+	--name myPublicIP2 \
+	--domain-name-label mypublicdns2 \
+	--allocation-method Static
 
-		azure network nic ip-config create \
-		--resource-group myResourceGroup \
-		--nic-name myNic1 \
-		--name IPConfig-2 \
-		--private-ip-address 10.0.0.5 \
-		--public-ip-name myPublicIP2
-		```
+	azure network nic ip-config create \
+	--resource-group myResourceGroup \
+	--nic-name myNic1 \
+	--name IPConfig-2 \
+	--private-ip-address 10.0.0.5 \
+	--public-ip-name myPublicIP2
+	```
 
 	**IPConfig-3**
 
 	Enter the following commands to create an IP configuration with a static private IP address and no public IP address:
 
-		```bash
-		azure network nic ip-config create \
-		--resource-group myResourceGroup \
-		--nic-name myNic1 \
-		--private-ip-address 10.0.0.6 \
-		--name IPConfig-3
-		```
+	```bash
+	azure network nic ip-config create \
+	--resource-group myResourceGroup \
+	--nic-name myNic1 \
+	--private-ip-address 10.0.0.6 \
+	--name IPConfig-3
+	```
 
-		>[!NOTE] 
-		>Though this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a VM. To learn how to create a VM with multiple NICs, read the Create a VM with multiple NICs article.
+	>[!NOTE] 
+	>Though this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a VM. To learn how to create a VM with multiple NICs, read the Create a VM with multiple NICs article.
 
 5. [Create a Linux VM](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-the-linux-vms) article. Be sure to remove the ```  --availset-name myAvailabilitySet \ ``` property as it is not required for this scenario. Use the appropriate location based on your scenario. 
 
