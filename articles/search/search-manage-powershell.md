@@ -22,7 +22,6 @@ ms.author: seasa
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [REST API](search-get-started-management-api.md)
 > 
 > 
 

@@ -34,7 +34,6 @@
 ## Manage
 ### Administer Azure Search
 #### [Azure portal](search-manage.md)
-#### [REST](search-get-started-management-api.md)
 #### [PowerShell](search-manage-powershell.md)
 ### [Monitor usage and statistics](search-monitor-usage.md)
 ### [Search traffic analytics](search-traffic-analytics.md)
