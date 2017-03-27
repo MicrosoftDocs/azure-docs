@@ -163,7 +163,7 @@ To deploy the Azure Resource Manager template you downloaded by using Azure CLI,
 
 ### Step 1
 
-If you have never used Azure CLI, see [Install and configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
+If you have never used Azure CLI, see [Install and configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
 
 ### Step 2
 
