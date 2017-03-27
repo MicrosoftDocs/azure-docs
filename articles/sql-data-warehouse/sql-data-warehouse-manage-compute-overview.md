@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 03/22/2017
-ms.author: elbutte-
+ms.author: elbutter
 
 ---
 # Manage compute power in Azure SQL Data Warehouse (Overview)
@@ -67,7 +67,7 @@ Checking the database state through various endpoints will allow you to correctl
 >
 >  Compute management functionality does not exist across all endpoints.
 >
-> 
+>  
 
 |              | Pause/Resume | Scale | Check database state |
 | ------------ | ------------ | ----- | -------------------- |
