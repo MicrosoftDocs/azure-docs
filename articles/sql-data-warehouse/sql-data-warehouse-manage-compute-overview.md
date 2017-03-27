@@ -98,7 +98,8 @@ To adjust DWUs, you can use any of these individual methods.
 
 To understand what your ideal DWU value is, try scaling up and down, and running a few queries after loading your data. Since scaling is quick, you can try various performance levels in an hour or less. 
 
-> [!Note] SQL Data Warehouse is designed to process large amounts of data. To see its true capabilities for scaling, especially at larger DWUs, you want to use a large data set which approaches or exceeds 1 TB.
+> [!Note] 
+> SQL Data Warehouse is designed to process large amounts of data. To see its true capabilities for scaling, especially at larger DWUs, you want to use a large data set which approaches or exceeds 1 TB.
 
 Recommendations for finding the best DWU for your workload:
 
