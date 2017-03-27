@@ -51,7 +51,8 @@ Create a Resource Group, skip this step if you already have one where you want t
 
 `az group create -n "<resource-group-name>" -l "<location>"`
 
-Then create an Azure Batch account.
+Next, create an Azure Batch account.
+
 `az batch account create -l "<location>"  -g "<resource-group-name>" -n "<batch-account-name>"`
 
 Each Batch account has its corresponding access keys. These keys are needed to create further resources in Azure batch account. A good practice for production environment is to use Azure Key Vault to store these keys. You can then create a Service principal for the application. Using this service principal the application can create an OAuth token to access keys from the key vault.
