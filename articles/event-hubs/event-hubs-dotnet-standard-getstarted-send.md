@@ -1,5 +1,5 @@
 ---
-title: Send events to Azure Event Hubs by using .NET Standard | Microsoft Docs
+title: Send events to Azure Event Hubs using .NET Standard | Microsoft Docs
 description: Get started sending events to Event Hubs in .NET Standard
 services: event-hubs
 documentationcenter: na
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2017
-ms.author: jotaub
+ms.date: 03/27/2017
+ms.author: jotaub;sethm
 ---
 
 # Get started sending messages to Azure Event Hubs in .NET Standard
@@ -54,6 +54,7 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
     ```csharp
     using Microsoft.Azure.EventHubs;
 	using System.Text;
+	using System.Threading.Tasks;
     ```
 
 2. Add constants to the `Program` class for the Event Hubs connection string and entity path (individual Event Hub name). Replace the placeholders in brackets with the proper values that were obtained when creating the Event Hub.
@@ -88,7 +89,7 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
     }
     ```
 
-4. Add a new method named `SendMessagesToEventHub` to the `Program` class like the following:
+4. Add a new method named `SendMessagesToEventHub` to the `Program` class, as follows:
 
     ```csharp
     // Creates an Event Hub client and sends 100 messages to the event hub.
