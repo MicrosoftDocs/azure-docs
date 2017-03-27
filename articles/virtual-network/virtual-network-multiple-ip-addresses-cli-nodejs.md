@@ -70,17 +70,17 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
 	
 	Replace *mypublicdns* with a name that is unique within the Azure location.
 
-		```azurecli
-		azure network public-ip create --resource-group $RgName --location $Location --name myPublicIP1 \
-		--domain-name-label mypublicdns --allocation-method Static
+	  ```azurecli
+	  azure network public-ip create --resource-group $RgName --location $Location --name myPublicIP1 \
+	  --domain-name-label mypublicdns --allocation-method Static
 		
-		azure network nic create --resource-group $RgName --location $Location --name myNic1 \
-		--private-ip-address 10.0.0.4 --subnet-name mySubnet --subnet-vnet-name myVNet \
-		--subnet-name mySubnet --public-ip-name myPublicIP1
-		```
+	  azure network nic create --resource-group $RgName --location $Location --name myNic1 \
+	  --private-ip-address 10.0.0.4 --subnet-name mySubnet --subnet-vnet-name myVNet \
+	  --subnet-name mySubnet --public-ip-name myPublicIP1
+	  ```
 
-		> [!NOTE]
-		> Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
+	  > [!NOTE]
+	  > Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
 
 	**IPConfig-2**
 
