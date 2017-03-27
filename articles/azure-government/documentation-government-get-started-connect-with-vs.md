@@ -22,6 +22,13 @@ ms.author: zakramer
 # Connecting via Visual Studio
 Visual Studio is used by developers to easily manage their Azure subscriptions while building solutions.  Visual Studio does not currently allow you to configure a connection to Azure Government in the user interface.  
 
+[Visual Studio 2015 Instructions](#Vs2015Instructions)
+
+[Visual Studio 2017 Instructions](#Vs2017Instructions)
+
+<a name="Vs2015Instructions"></a>
+## Instructions for Visual Studio 2015
+
 ### Updating Visual Studio for Azure Government
 To enable Visual Studio to connect to Azure Government, you need to update the registry.
 
@@ -53,7 +60,7 @@ To enable Visual Studio to connect to Azure Public, you need to remove the regis
 2. Create a text file named **VisualStudioForAzureGov_Remove.reg**
 3. Copy and paste the following text into **VisualStudioForAzureGov_Remove.reg**:
    
-        Windows Registry Editor Version 5.00
+         Windows Registry Editor Version 5.00
    
         [HKEY_CURRENT_USER\Software\Microsoft\VSCommon\ConnectedUser]
         "AadInstance"=-
@@ -67,5 +74,52 @@ To enable Visual Studio to connect to Azure Public, you need to remove the regis
 
 > [!NOTE]
 > Once this registry key has been reverted, your Azure Government subscriptions show but are not accessible.  They can safely be removed.
+> 
+> 
+
+<a name="Vs2017Instructions"></a>
+## Instructions for Visual Studio 2017
+
+### Updating Visual Studio for Azure Government
+To enable Visual Studio to connect to Azure Government, you need to create a file on disk.
+
+1. Close Visual Studio
+2. Create a text file named **%localappdata%\\.IdentityService\AadConfigurations\AadProvider.Configuration.json**
+3. Copy and paste the following text into **AadProvider.Configuration.json**:
+   
+         {
+         "AuthenticationQueryParameters": null,
+         "AsmEndPoint": "https://management.usgovcloudapi.net",
+         "Authority": "https://login-us.microsoftonline.com/",
+         "AzureResourceManagementEndpoint": "https://management.usgovcloudapi.net",
+         "AzureResourceManagementAudienceEndpoints": [ "https://management.usgovcloudapi.net" ],
+         "ClientIdentifier": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1",
+         "EnvironmentName": "Fairfax",
+         "GraphEndpoint": "https://graph.windows.net",
+         "MsaHomeTenantId": "f577cd82-810c-43f9-a1f6-0cc532871050",
+         "NativeClientRedirect": "urn:ietf:wg:oauth:2.0:oob",
+         "PortalEndpoint": "https://portal.core.usgovcloudapi.net/",
+         "ResourceEndpoint": "https://management.core.usgovcloudapi.net",
+         "ValidateAuthority": true,
+         "VisualStudioOnlineEndpoint": "https://app.vssps.visualstudio.com/",
+         "VisualStudioOnlineAudience": "499b84ac-1321-427f-aa17-267ca6975798"
+         }
+
+5. Launch Visual Studio and begin using [Cloud Explorer](../vs-azure-tools-resources-managing-with-cloud-explorer.md)
+
+> [!NOTE]
+> Once this file is set, only Azure Government subscriptions are accessible.  You still see subscriptions that you configured previously but they do not work because Visual Studio is now connected to Azure Government instead of Azure Public.  See the following section for steps to revert the changes.
+> 
+> 
+
+### Reverting Visual Studio Connection to Azure Government
+To enable Visual Studio to connect to Azure Public, you need to remove the registry settings that enable connection to Azure Government.
+
+1. Close Visual Studio
+2. Delete the file **%localappdata%\\.IdentityService\AadConfigurations\AadProvider.Configuration.json**
+3. Launch Visual Studio
+
+> [!NOTE]
+> Once this file has been removed, your Azure Government subscriptions show but are not accessible.  They can safely be removed.
 > 
 > 
