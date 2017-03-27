@@ -32,47 +32,71 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
 
 1. Install and configure the Azure CLI 1.0 by following the steps in the [Install and Configure the Azure CLI](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article and log into your Azure account with the `azure-login` command.
 
-2. [Create a resource group](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-groups-and-choose-deployment-locations) followed by a [virtual network and subnet](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet). Change the ` --address-prefixes` and `--address-prefix` fields to the following to follow the exact scenario outlined in this article:
+2. Create a resource group:
+	```azurecli
+	RgName=myResourceGroup
+	Location=westcentralus
+	azure group create \
+	--name $RgName \
+	--location $Location
+	```
+3. Create a virtual network:
+	```azurecli
+	azure network vnet create \
+	--resource-group $RgName \
+	--location $Location
+	--name myVNet \
+	--address-prefixes 10.0.0.0/16
+	```
+4. Create a subnet in the virtual network:
+	```azurecli
+	azure network vnet subnet create \
+	--resource-group $RgName
+	--vnet-name myVNet \
+	--address-prefix 10.0.0.0/24
+	
+5. Create  a storage account for the VM. Before running the following command, replace *mystorageaccount* with a unique name. The name must be unique across Azure:
+	```azurecli
+	az storage account create \
+	--resource-group $RgName \
+	--location $Location \
+  	--name mystorageaccount \
+	--kind Storage \
+	--sku Standard_LRS
+	```
 
-		--address-prefixes 10.0.0.0/16
-		--address-prefix 10.0.0.0/24
-
-	>[!NOTE] 
-	>The referenced article above uses West Europe as the location to create resources, but this article uses West Central US. Make location changes appropriately.
-
-3. [Create  a storage account](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-storage-account) for your VM.
-
-4. Create the NIC and the IP configurations you want to assign to the NIC. You can add, remove, or change the configurations as necessary. The following configurations are described in the scenario:
+6. Create the IP configurations, a NIC, and assign the IP configurations to the NIC. You can add, remove, or change the configurations as necessary. The following configurations are described in the scenario:
 
 	**IPConfig-1**
 
 	Enter the commands that follow to create:
 
 	- A public IP address resource with a static public IP address
-	- An IP configuration with the public IP address resource and a static private IP address
+	- A NIC, assigning the public IP address and a static private IP address to it.
+	
+	Replace *mypublicdns* with a name that is unique within the Azure location.
 
 		```azurecli
 		azure network public-ip create \
-		--resource-group myResourceGroup \
-		--location westcentralus \
-		--name myPublicIP \
+		--resource-group $RgName \
+		--location $Location \
+		--name myPublicIP1 \
 		--domain-name-label mypublicdns \
 		--allocation-method Static
+		
+		azure network nic create \
+		--resource-group $RgName \
+		--location $Location \
+		--name myNic1 \
+		--private-ip-address 10.0.0.4
+		--subnet-name mySubnet \
+		--subnet-vnet-name myVNet \
+		--subnet-name mySubnet \
+		--public-ip-name myPublicIP1
 		```
-
+			
 		> [!NOTE]
 		> Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
-
-		```azurecli
-		azure network nic create \
-		--resource-group myResourceGroup \
-		--location westcentralus \
-		--private-ip-address 10.0.0.4
-		--subnet-vnet-name myVnet \
-		--subnet-name mySubnet \
-		--name myNic1 \
-		--public-ip-name myPublicIP
-		```
 
 	**IPConfig-2**
 
@@ -80,14 +104,14 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
 	
 	  ```azurecli
 	  azure network public-ip create \
-	  --resource-group myResourceGroup \
-	  --location westcentralus \
+	  --resource-group $RgName \
+	  --location $Location \
 	  --name myPublicIP2 \
 	  --domain-name-label mypublicdns2 \
 	  --allocation-method Static
 
 	  azure network nic ip-config create \
-	  --resource-group myResourceGroup \
+	  --resource-group $RgName \
 	  --nic-name myNic1 \
 	  --name IPConfig-2 \
 	  --private-ip-address 10.0.0.5 \
@@ -109,23 +133,29 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
 	>[!NOTE] 
 	>Though this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a VM. To learn how to create a VM with multiple NICs, read the Create a VM with multiple NICs article.
 
-5. [Create a Linux VM](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-the-linux-vms) article. Be sure to remove the ```  --availset-name myAvailabilitySet \ ``` property as it is not required for this scenario. Use the appropriate location based on your scenario. 
+7. Create a Linux VM 
 
-	>[!WARNING] 
-	> Step 6 in the Create a VM article fails if the VM size is not supported in the location you selected. Run the following command to get a full list of VMs in US West Central, for example:
-	> `azure vm sizes --location westcentralus`
-	> This location name can be changed based on your scenario.
+	```azurecli
+	az vm create \
+	--resource-group $RgName \
+	--name myVM1 \
+	--location $Location \
+	--nics myNic1 \
+	--image UbuntuLTS \
+	--ssh-key-value ~/.ssh/id_rsa.pub \
+	--admin-username azureuser
+	```
 
 	To change the VM size to Standard DS2 v2, for example, simply add the following property `--vm-size Standard_DS3_v2` to the `azure vm create` command in step 6.
 
-6. Enter the following command to view the NIC and the associated IP configurations:
+8. Enter the following command to view the NIC and the associated IP configurations:
 
 	```azurecli
 	azure network nic show \
-	--resource-group myResourceGroup \
+	--resource-group $MyRg \
 	--name myNic1
 	```
-7. Add the private IP addresses to the VM operating system by completing the steps for your operating system in the [Add IP addresses to a VM operating system](#os-config) section of this article.
+9. Add the private IP addresses to the VM operating system by completing the steps for your operating system in the [Add IP addresses to a VM operating system](#os-config) section of this article.
 
 ## <a name="add"></a>Add IP addresses to a VM
 
