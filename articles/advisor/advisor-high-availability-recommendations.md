@@ -37,11 +37,13 @@ Advisor identifies virtual machines that are not part of an availability set and
 
 Advisor identifies availability sets that contain a single virtual machine and recommends adding one or more virtual machines to it. To provide redundancy to your application, we recommend that you group two or more virtual machines in an availability set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose either to create a virtual machine or to use an existing virtual machine, and to add it to the availability set.  
 
-![Advisor recommendation: For high availability, add one or more VMs to this availability set](./media/advisor-high-availability-recommendations/advisor-high-availability-add-vm-to-availability-set.png)
+![Advisor recommendation: Add one or more VMs to this availability set](./media/advisor-high-availability-recommendations/advisor-high-availability-add-vm-to-availability-set.png)
 
 
 ## Ensure application gateway fault tolerance
 To ensure the business continuity of mission-critical applications that are powered by application gateways, Advisor identifies application gateway instances that are not configured for fault tolerance, and it suggests remediation actions that you can take. Advisor identifies medium or large single-instance application gateways, and it recommends adding at least one more instance. It also identifies single- or multi-instance small application gateways and recommends migrating to medium or large SKUs. Advisor recommends these actions to ensure that your application gateway instances are configured to satisfy the current SLA requirements for these resources.
+
+![Advisor recommendation: Deploy two or more medium or large sized application gateway instances](./media/advisor-high-availability-recommendations/advisor-high-availability-application-gateway.png)
 
 ## Improve the performance and reliability of virtual machine disks
 
@@ -51,9 +53,12 @@ Azure Premium Storage delivers high-performance, low-latency disk support for vi
 
 If your disks do not require high IOPS, you can limit costs by maintaining them in standard storage. Standard storage stores virtual machine disk data on hard disk drives (HDDs) instead of SSDs. You can choose to migrate your virtual machine disks to premium disks. Premium disks are supported on most virtual machine SKUs. However, in some cases, if you want to use premium disks, you might need to upgrade your virtual machine SKUs as well.
 
+![Advisor recommendation: Improve the reliability of your virtual machine disks by upgrading to premium disks](./media/advisor-high-availability-recommendations/advisor-high-availability-upgrade-to-premium-disks.png)
+
 ## Protect your virtual machine data from accidental deletion
 Advisor identifies virtual machines where backup is not enabled, and it recommends enabling backup. Setting up virtual machine backup ensures the availability of your business-critical data and offers protection against accidental deletion or corruption.
 
+![Advisor recommendation: Configure virtual machine backup to protect your mission-critical data](./media/advisor-high-availability-recommendations/advisor-high-availability-virtual-machine-backup.png)
 
 ## Access high availability recommendations in Advisor
 
