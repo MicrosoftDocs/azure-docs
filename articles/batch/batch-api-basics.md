@@ -72,8 +72,8 @@ You can create an Azure Batch account using the [Azure portal](batch-account-cre
 Batch supports two account configurations, based on the *pool allocation mode* property. The two configurations give you different options for authenticating with the Batch service and for provisioning and managing Batch [pools](#pool) (see later in this article). 
 
 
-* **Batch service** (default): You can access the Batch APIs using either account name and key authentication, or Azure Active Directory authentication. Batch compute resources are allocated behind the scenes in an Azure-managed account.   
-* **User subscription**: You can only access the Batch APIs using Azure Active Directory authentication. Batch compute resources are allocated directly in your Azure subscription. This mode gives you more flexibility to configure the compute nodes and integrate with other services. This mode requires you to set up an additional Azure key vault for your Batch account.
+* **Batch service** (default): You can access the Batch APIs using either account name and key authentication, or [Azure Active Directory authentication](batch-aad-auth.md). Batch compute resources are allocated behind the scenes in an Azure-managed account.   
+* **User subscription**: You can only access the Batch APIs using [Azure Active Directory authentication](batch-aad-auth.md). Batch compute resources are allocated directly in your Azure subscription. This mode gives you more flexibility to configure the compute nodes and integrate with other services. This mode requires you to set up an additional Azure key vault for your Batch account.
  
 
 ## Compute node
@@ -345,13 +345,13 @@ In Batch service allocation mode, only **Cloud Services Configuration** pools ca
 
 * If communication to the compute nodes is denied by a **Network Security Group (NSG)** associated with the VNet, then the Batch service will set the state of the compute nodes to **unusable**. The subnet must allow communication from the Azure Batch service to be able to schedule tasks on the compute nodes.
 
-### VNets in user subscription allocation mode
+### VNet in user subscription allocation mode
 
-In user subscription allocation mode, only **Virtual Machine Configuration** pools are supported and can be assigned a VNet. Additionally, the specified VNet must be a **Resource Manager-**based VNet. VNets created with the classic deployment model are not supported.
+In user subscription allocation mode, only **Virtual Machine Configuration** pools are supported and can be assigned a VNet. Additionally, the specified VNet must be a **Resource Manager-** based VNet. VNets created with the classic deployment model are not supported.
 
 * The specified subnet must allow communication from the Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the specified VNet has any associated Network Security Groups (NSG). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service sets the state of the compute nodes to unusable.
 
-* If the specified VNET has any associated NSGs, then inbound communication must be enabled. For a Linux pook ports 29876, 29877, and 22 must be enabled. For a Windows Pool, port 3389 must be enabled.
+* If the specified VNet has any associated NSGs, then inbound communication must be enabled. For a Linux pool, ports 29876, 29877, and 22 must be enabled. For a Windows pool, port 3389 must be enabled.
 
 ## Scaling compute resources
 With [automatic scaling](batch-automatic-scaling.md), you can have the Batch service dynamically adjust the number of compute nodes in a pool according to the current workload and resource usage of your compute scenario. This allows you to lower the overall cost of running your application by using only the resources you need, and releasing those you don't need.
