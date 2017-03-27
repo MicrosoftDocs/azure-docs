@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
-ms.date: 03/21/2017
+ms.date: 03/30/2017
 ms.author: jehollan
 ---
 
 # Call, trigger, or nest workflows with HTTP endpoints in logic apps
 
-Logic apps can natively expose synchronous HTTP endpoints as triggers 
+You can natively expose synchronous HTTP endpoints as triggers on logic apps 
 so that you can trigger or call your logic apps through a URL. 
 You can also nest workflows in your logic apps by using a pattern of callable endpoints.
 
@@ -31,8 +31,10 @@ so that your logic apps can receive incoming requests:
 * [API Connection webhook](logic-apps-workflow-actions-triggers.md#api-connection)
 * [HTTP Webhook](../connectors/connectors-native-http.md)
 
-Our examples use the **Request** trigger, 
-but all principles identically apply to the other trigger types.
+   > [!NOTE]
+   > Although our examples use the **Request** trigger, 
+   > you can use any of the listed HTTP triggers, 
+   > and all principles identically apply to the other trigger types.
 
 ## Set up an HTTP endpoint for your logic app
 
@@ -44,83 +46,83 @@ Go to your logic app, and open Logic App Designer.
 2. Add a trigger that lets your logic app receive incoming requests. 
 For example, add the **Request** trigger to your logic app.
 
-3.	Under **Request Body JSON Schema**, 
-enter the JSON schema for the payload (data) that you expect the trigger to receive.
+3.  Under **Request Body JSON Schema**, 
+you can optionally enter a JSON schema for the payload (data) 
+that you expect the trigger to receive.
 
-	The designer uses this schema for generating tokens 
-	that your logic app can use to consume, parse, 
-	and pass data from the trigger through your workflow. 
-	More about [tokens generated from JSON schemas](#generated-tokens).
+    The designer uses this schema for generating tokens 
+    that your logic app can use to consume, parse, 
+    and pass data from the trigger through your workflow. 
+    More about [tokens generated from JSON schemas](#generated-tokens).
 
-	For this example, enter the schema shown in the designer:
+    For this example, enter the schema shown in the designer:
 
-	```json
-	{
-		"type": "object",
-		"properties": {
-			"address": {
-				"type": "string"
-			}
-		},
-		"required": [
-			"address"
-		]
-	}
-	```
+    ```json
+    {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "address"
+      ]
+    }
+    ```
 
-	![Add the Request action][1]
+    ![Add the Request action][1]
 
-      > [!TIP]
-      > 
-      > You can generate a schema for a sample JSON payload 
-      > from a tool like [jsonschema.net](http://jsonschema.net/), 
-      > or in the **Request** trigger by choosing **Use sample payload to generate schema**. 
-      > Enter your sample payload, and choose **Done**.
-      > 
+    > [!TIP]
+    > 
+    > You can generate a schema for a sample JSON payload 
+    > from a tool like [jsonschema.net](http://jsonschema.net/), 
+    > or in the **Request** trigger by choosing **Use sample payload to generate schema**. 
+    > Enter your sample payload, and choose **Done**.
 
-	For example, this sample payload:
+    For example, this sample payload:
 
-      ```json
-      {
-         "address": "21 2nd Street, New York, New York"
-      }
-      ```
+    ```json
+    {
+       "address": "21 2nd Street, New York, New York"
+    }
+    ```
 
-	generates this schema:
+    generates this schema:
 
-      ```json
-      }
-         "type": "object",
-         "properties": {
-            "address": {
-               "type": "string" 
-            }
-         }
-      }
-      ```
+    ```json
+    }
+       "type": "object",
+       "properties": {
+          "address": {
+             "type": "string" 
+          }
+       }
+    }
+    ```
 
-4.	Save your logic app. Under **HTTP POST to this URL**, 
+4.  Save your logic app. Under **HTTP POST to this URL**, 
 you should now find a generated callback URL, like this example:
 
-	![Generated callback URL for endpoint](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
+    ![Generated callback URL for endpoint](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
 
-	``` text
-	https://prod-00.southcentralus.logic.azure.com:443/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke?api-version...
-	```
+    Here's the longer version:
 
-	This URL contains a Shared Access Signature (SAS) key 
-	in the query parameters that are used for authentication. 
-	You can also get the HTTP endpoint URL from your logic app overview 
-	in the Azure portal. Under **Trigger History**, 
-	select your trigger:
+    https://prod-00.southcentralus.logic.azure.com:443/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke?api-version...
 
-	![Get HTTP endpoint URL from Azure portal][2]
+    This URL contains a Shared Access Signature (SAS) key 
+    in the query parameters that are used for authentication. 
+    You can also get the HTTP endpoint URL from your logic app overview 
+    in the Azure portal. Under **Trigger History**, 
+    select your trigger:
 
-	Or you can get the URL by making this call:
+    ![Get HTTP endpoint URL from Azure portal][2]
 
-	``` text
-	POST https://management.azure.com/{resourceID-for-your-logic-app}/triggers/{myendpointtrigger}/listCallbackURL?api-version=2016-06-01
-	```
+    Or you can get the URL by making this call:
+
+    ```
+    POST https://management.azure.com/{logic-app-resourceID}/triggers/{myendpointtrigger}/listCallbackURL?api-version=2016-06-01
+    ```
 
 ## Change the HTTP method for your trigger
 
@@ -130,12 +132,15 @@ but you can use a different HTTP method.
 > [!NOTE]
 > You can specify only one method type.
 
-1.	On your **Request** trigger, choose **Show advanced options**.
+1. On your **Request** trigger, choose **Show advanced options**.
 
-2. Open the **Method** list. Select another HTTP method, 
-or specify a custom method.
+2. Open the **Method** list. For this example, select **GET**. 
 
-	![Change HTTP method](./media/logic-apps-http-endpoint/change-method.png)
+    > [!NOTE]
+    > You can select any other HTTP method, or specify a custom method 
+    > for your own logic app.
+
+    ![Change HTTP method](./media/logic-apps-http-endpoint/change-method.png)
 
 ## Accept parameters through your HTTP endpoint URL
 
@@ -151,50 +156,51 @@ For this example, select the **GET** method so you can later test your HTTP endp
       > When you specify a relative path for your trigger, 
       > you must also explicitly specify an HTTP method for your trigger.
 
-3.	Under **Relative path**, specify the relative path for the parameter 
-	that your URL should accept, for example, `customer/{customerID}`.
+3. Under **Relative path**, specify the relative path for the parameter 
+that your URL should accept, for example, `customers/{customerID}`.
 
-	![Specify the HTTP method and relative path for parameter](./media/logic-apps-http-endpoint/relativeurl.png)
+    ![Specify the HTTP method and relative path for parameter](./media/logic-apps-http-endpoint/relativeurl.png)
 
-4.	To use the parameter, add a **Response** action to your logic app. 
+4. To use the parameter, add a **Response** action to your logic app. 
 (Under your trigger, choose **New step** > **Add an action** > **Response**) 
 
-5.	In your response's **Body**, include the token for the parameter 
+5. In your response's **Body**, include the token for the parameter 
 that you specified in your trigger.
 
-	For example, to return `Hello {customerID}`, 
-	update your response's **Body** with `Hello {customerID token}`. 
-	The dynamic content list should appear and show the `customerID` 
-	token for you to select.
+    For example, to return `Hello {customerID}`, 
+    update your response's **Body** with `Hello {customerID token}`. 
+    The dynamic content list should appear and show the `customerID` 
+    token for you to select.
 
-	![Add parameter to response body](./media/logic-apps-http-endpoint/relativeurlresponse.png)
+    ![Add parameter to response body](./media/logic-apps-http-endpoint/relativeurlresponse.png)
 
-	Your **Body** should look like this example:
+    Your **Body** should look like this example:
 
-	![Response body with parameter](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
+    ![Response body with parameter](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
 
 6. Save your logic app. 
 
-	Your HTTP endpoint URL now includes the relative path, for example:
+    Your HTTP endpoint URL now includes the relative path, for example:
 
-	``` text
-	https://prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customer/{customerID}?api-version...
-	```
+    ``` text
+    https://prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}?api-version...
+    ```
 
 7. To test your HTTP endpoint, 
 copy and paste the updated URL into another browser window, 
 but replace `{customerID}` with `123456`, and press Enter.
 
-	Your browser should show this text: 
+    Your browser should show this text: 
 
-	`Hello 123456`
+    `Hello 123456`
 
 <a name="generated-tokens"></a>
 ### Tokens generated from JSON schemas for your logic app
 
-When you specify a JSON schema in your **Request** trigger, 
-the Logic App Designer uses that schema to generate tokens, 
-which you can use in your logic app workflow steps.
+When you provide a JSON schema for your **Request** trigger, 
+the Logic App Designer uses that schema to generate tokens for 
+properties that the schema describes and that you can use 
+for passing data through your logic app workflow.
 
 For this example, if you add the `title` and `name` 
 properties to your JSON schema, their tokens are 
@@ -238,8 +244,7 @@ to your trigger. You can then select from eligible logic apps.
 
 After you create your HTTP endpoint, 
 you can trigger your logic app through a `POST` method to the full URL. 
-Logic apps have built-in support for direct-access endpoints 
-and always use the `POST` method to start running the logic app.
+Logic apps have built-in support for direct-access endpoints.
 
 You can include more than one header and any type of content in the body. 
 If the content's type is `application/json`, 
@@ -274,7 +279,9 @@ you can use the `@triggerBody()` shortcut.
 
 You might want to respond to certain requests that start a logic app 
 by returning content to the caller. To construct the status code, 
-header, and body for your response, you can use the **Response** action.
+header, and body for your response, you can use the **Response** action. 
+This action can appear anywhere in your logic app, not just at the end 
+of your workflow.
 
 > [!NOTE] 
 > If your logic app doesn't include a **Response**, 
