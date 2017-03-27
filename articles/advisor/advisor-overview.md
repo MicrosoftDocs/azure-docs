@@ -26,7 +26,7 @@ Advisor is a personalized cloud consultant that helps you follow best practices 
 
 With Advisor, you can:
 * Get proactive, actionable, and personalized best-practice recommendations. 
-* Improve the performance, security, and high availability of your resources, and identify opportunities to reduce your overall Azure spend.
+* Improve the performance, security, and high availability of your resources, as you identify opportunities to reduce your overall Azure spend.
 * Get recommendations with proposed actions inline.
 
 You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordashboard). Sign in to the [portal](https://portal.azure.com), select **Browse**, and then scroll to **Azure Advisor**. The Advisor dashboard displays personalized recommendations for a selected subscription. 
@@ -46,28 +46,30 @@ The recommendations are divided into four categories:
 > [!NOTE]
 > To access Advisor recommendations, you must first *register your subscription* with Advisor. A subscription is registered when a *subscription Owner* launches the Advisor dashboard and clicks the **Get recommendations** button. This is a *one-time operation*. After the subscription is registered, you can access Advisor recommendations as *Owner*, *Contributor*, or *Reader* for a subscription, a resource group, or a specific resource.
 
-You can click a recommendation to learn more about it. You can also learn about actions you can perform to take advantage of an opportunity or resolve an issue. 
+You can click a recommendation to learn more about it. You can also learn about actions that you can perform to take advantage of an opportunity or resolve an issue. 
 
 Advisor offers recommendations with inline actions or documentation links. Clicking an inline action takes you through a “guided user journey” to implement it. Clicking a documentation link points you to documentation that describes how to manually implement the action. 
 
-Advisor updates recommendations hourly. If you don’t intend to take an immediate action on a recommendation, you can snooze it for a time period or dismiss it. 
+Advisor updates recommendations hourly. If you don’t intend to take immediate action on a recommendation, you can snooze it for a specified time period or dismiss it. 
 
 ## Frequently asked questions
 
 ### How do I access Advisor?
-You can access Advisor through the Azure portal. Sign into the portal, select **Browse**, and then scroll to **Azure Advisor**. You can also view Advisor recommendations through the virtual machine resource blade. Choose a virtual machine, and then scroll to Advisor recommendations in the menu. 
+You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordashboard). Sign in to the [portal](https://portal.azure.com), select **Browse**, and then scroll to **Azure Advisor**. The Advisor dashboard displays personalized recommendations for a selected subscription. 
+
+You can also view Advisor recommendations through the virtual machine resource blade. Choose a virtual machine, and then scroll to Advisor recommendations in the menu. 
 
 ### What permissions do I need to access Advisor?
 
-To access Advisor recommendations, you must first **register** your subscription with Advisor. A subscription is registered when a subscription Owner launches the Advisor dashboard and clicks on the **Get recommendations** button. This is a **one-time operation**. Once a subscription is registered, Advisor recommendations can be accessed by **Owner**s, **Contributor**s, or **Reader**s for a subscription, resource group or a specific resource.
+To access Advisor recommendations, you must first *register your subscription* with Advisor. A subscription is registered when a *subscription Owner* launches the Advisor dashboard and clicks the **Get recommendations** button. This is a *one-time operation*. After the subscription is registered, you can access Advisor recommendations as *Owner*, *Contributor*, or *Reader* for a subscription, a resource group, or a specific resource.
 
 ### How often are Advisor recommendations updated?
 
-Advisor recommendations are updated on an hourly basis.
+Advisor recommendations are updated hourly.
 
 ### What resources does Advisor provide recommendations for?
 
-Advisor provides recommendations for virtual machines, availability sets, application gateways, App Services, SQL servers, SQL databases, and Redis cache.
+Advisor provides recommendations for virtual machines, availability sets, application gateways, App Services, SQL servers, SQL databases, and Redis Cache.
 
 ### Can I snooze or dismiss a recommendation?
 
