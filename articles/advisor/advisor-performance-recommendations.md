@@ -36,7 +36,7 @@ For more information about SQL Database Advisor, see [SQL Database Advisor](http
 
 ## Improve Redis Cache performance and reliability
 
-Advisor identifies Azure Redis Cache instances where performance might be adversely affected by high memory usage, server load, network bandwidth, or a large quantity of client connections. Advisor also provides best-practice recommendations to help you avoid potential issues. For more information about Redis Cache recommendations, see [Redis Cache Advisor](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#redis-cache-advisor).
+Advisor identifies Azure Redis Cache instances where performance might be adversely affected by high memory usage, server load, network bandwidth, or a large number of client connections. Advisor also provides best-practice recommendations to help avoid potential issues. For more information about Redis Cache recommendations, see [Redis Cache Advisor](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#redis-cache-advisor).
 
 
 ## Improve App Service performance and reliability
