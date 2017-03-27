@@ -162,7 +162,7 @@ foreach (IListBlobItem item in container.ListBlobs(null, false))
 }
 ```
 
-By including path information blob names, you can create a virtual directory structure you can organize and traverse as you would a traditional file system. The directory structure is virtual only--the only resources available in Blob storage are containers and blobs. However, the storage client library offers a **CloudBlobDirectory** object to refer to a virtual directory and simplify the process of working with blobs that are organized in this way.
+By including path information in blob names, you can create a virtual directory structure you can organize and traverse as you would a traditional file system. The directory structure is virtual only--the only resources available in Blob storage are containers and blobs. However, the storage client library offers a **CloudBlobDirectory** object to refer to a virtual directory and simplify the process of working with blobs that are organized in this way.
 
 For example, consider the following set of block blobs in a container named *photos*:
 
