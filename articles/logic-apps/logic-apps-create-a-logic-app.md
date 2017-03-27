@@ -34,7 +34,7 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
 
 	Your Azure subscription is used for billing logic app usage. Learn how 
 	[usage metering](../logic-apps/logic-apps-pricing.md) and 
-	[pricing](https://azure.microsoft.com/pricing/details/logic-apps/) 
+	[pricing](https://azure.microsoft.com/pricing/details/logic-apps) 
 	work for Azure Logic Apps.
 
 Also, this example requires these items:
@@ -139,13 +139,13 @@ Now we add an action that sends email when new items appear in the website's RSS
 	or choose **Office 365 Outlook** for Azure work or school accounts. 
 	Under **Actions**, select **Send an email**.
 
-		![Select Outlook "Send an email" action](media/logic-apps-create-a-logic-app/actions.png)
+	![Select Outlook "Send an email" action](media/logic-apps-create-a-logic-app/actions.png)
 
 	*	To send email from your Gmail account, 
 	in the search box, enter `gmail`. 
 	Under **Actions**, select **Send email**.
 
-		![Choose "Gmail - Send email"](media/logic-apps-create-a-logic-app/actions-gmail.png)
+	![Choose "Gmail - Send email"](media/logic-apps-create-a-logic-app/actions-gmail.png)
 
 3. When you're prompted for credentials, 
 sign in with the username and password for your email account. 
@@ -161,7 +161,7 @@ for example:
 
 	![Completed logic app](media/logic-apps-create-a-logic-app/save-run-complete-logic-app.png)
 
-5. Save your changes. (On the designer command bar, choose **Save**.)
+5.	Save your changes. (On the designer command bar, choose **Save**.)
 
 6.	You can now manually run your logic app for testing. 
 On the designer command bar, choose **Run**. Otherwise, 
@@ -173,7 +173,7 @@ based on the schedule that you set up.
 	If no new items are found, your logic app skips 
 	the action that sends email.
 
-7. To monitor and check your logic app's run and trigger history, 
+7.	To monitor and check your logic app's run and trigger history, 
 on your logic app menu, choose **Overview**.
 
 	![Monitor and view logic app run and trigger history](media/logic-apps-create-a-logic-app/logic-app-run-trigger-history.png)
