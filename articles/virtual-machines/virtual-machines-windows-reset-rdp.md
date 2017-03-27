@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 03/24/2017
 ms.author: iainfou
 
 ---
@@ -38,11 +38,17 @@ Select your Windows virtual machine then click **Support + Troubleshooting** > *
 
 ![Password reset page](./media/virtual-machines-windows-reset-rdp/Portal-RM-PW-Reset-Windows.png)
 
-Enter the username and a new password, then click **Update**. Try connecting to your VM again.
+Enter the username and a new password, and then click **Update**. Try connecting to your VM again.
+
+> [!NOTE] 
+> - After you change the password, and the operation is complete in the portal, it could take 3–5 minutes before this change takes effect on the VM. However, if the change does not take effect, try restarting the VM.
+> - The VMAccess extension works only against the built-in local administrator account and will not do anything on any other local ID or domain ID.
+> - If the target computer is a domain controller, the extension resets or renames the domain administrator account.
+
 
 ### **Reset the Remote Desktop service configuration**
 
-Select your Windows virtual machine then click **Support + Troubleshooting** > **Reset password**. The password reset blade is displayed. 
+Select your Windows virtual machine, and then click **Support + Troubleshooting** > **Reset password**. The password reset blade is displayed as follows:
 
 ![Reset RDP configuration](./media/virtual-machines-windows-reset-rdp/Portal-RM-RDP-Reset.png)
 
