@@ -67,7 +67,7 @@ Follow these steps to change your work or school account password from the [Acce
 4. Enter your old password, and then enter a new password and confirm it.
 5. Click **Submit**.
 
-Run into a problem changing your password? Read about [Common problems and their solutions](#common-problems-and-their-solutions).
+Did you run into a problem changing your password? Read about [Common problems and their solutions](#common-problems-and-their-solutions).
 
 ## Reset your password
 Follow these steps to reset your work or school account password from any work or school account sign-in page.
@@ -106,7 +106,7 @@ Follow these steps to reset your work or school account password from any work o
 
 8. Your administrator might require an additional verification step. If so, repeat step 4 with a different option selected.
 
-9. On the Choose a new password page, enter a new password and confirm your choice, and then click **Finish**.
+9. On the **Choose a new password** page, enter a new password and confirm your choice, and then click **Finish**.
 
    ![New password confirmation][107]
 
@@ -132,7 +132,7 @@ Follow these steps to unlock your local account from any work or school account 
 1. On any work or school account sign-in page, click the **Can't access your account?** link or go to the [Who are you? page](https://passwordreset.microsoftonline.com).
 
    ![Account sign-in][110]
-2. On the Who are you? page, enter your work or school account ID and prove you aren't a robot by passing the CAPTCHA challenge. 
+2. On the **Who are you?** page, enter your work or school account ID and prove you aren't a robot by passing the CAPTCHA challenge. 
 3. Click **Next**.
 
    ![Identity confirmation][111]
@@ -181,7 +181,7 @@ Here are some common error cases and their solutions:
           </tr>
           <tr>
             <td>
-              <p>I get a Please contact your admin page after entering my user ID</p>
+              <p>I get a **Please contact your admin** page after entering my user ID.</p>
             </td>
             <td>
               <p>Contact your admin. <br><br>We've detected that your user account password is not managed by Microsoft. As a result, we are unable to automatically reset your password. <br><br>Contact your admin or helpdesk for any further assistance. </p>
@@ -192,7 +192,7 @@ Here are some common error cases and their solutions:
           </tr>
           <tr>
             <td>
-              <p>I get a "Your account is not enabled for password reset" error after entering my user ID</p>
+              <p>I get a "Your account is not enabled for password reset" error after entering my user ID.</p>
             </td>
             <td>
               <p>Your account is not enabled for password reset.<br><br>Your administrator has not set up your account for use with this service.<br><br> If you want, we can contact an administrator in your organization to reset your password for you.</p>
@@ -203,7 +203,7 @@ Here are some common error cases and their solutions:
           </tr>
           <tr>
             <td>
-              <p>I get a "We could not verify your account" error after entering my user ID</p>
+              <p>I get a "We could not verify your account" error after entering my user ID.</p>
             </td>
             <td>
               <p>We could not verify your account.<br><br>If you want, we can contact an administrator in your organization to reset your password for you. </p>
