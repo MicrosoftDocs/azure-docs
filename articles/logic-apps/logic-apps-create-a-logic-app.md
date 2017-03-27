@@ -161,28 +161,28 @@ for example:
 
 5.	Save your changes. (On the designer command bar, choose **Save**.)
 
-6.	You can now manually run your logic app for testing. 
+6. You can now manually run your logic app for testing. 
 On the designer command bar, choose **Run**. Otherwise, 
 you can let your logic app check the specified RSS feed 
 based on the schedule that you set up.
 
-	If your logic app finds new items, 
-	the logic app sends email that includes your selected data. 
-	If no new items are found, your logic app skips 
-	the action that sends email.
+   If your logic app finds new items, 
+   the logic app sends email that includes your selected data. 
+   If no new items are found, your logic app skips 
+   the action that sends email.
 
-7.	To monitor and check your logic app's run and trigger history, 
+7. To monitor and check your logic app's run and trigger history, 
 on your logic app menu, choose **Overview**.
 
-	![Monitor and view logic app run and trigger history](media/logic-apps-create-a-logic-app/logic-app-run-trigger-history.png)
+   ![Monitor and view logic app run and trigger history](media/logic-apps-create-a-logic-app/logic-app-run-trigger-history.png)
 
    > [!TIP]
    > If you don't find the data that you expect, on the command bar, 
    > try choosing **Refresh**.
 
-	To learn more about your logic app's status or run and trigger 
-	history, or to diagnose your logic app, see 
-	[Troubleshoot your logic app](logic-apps-diagnosing-failures.md).
+   To learn more about your logic app's status or run and trigger 
+   history, or to diagnose your logic app, see 
+   [Troubleshoot your logic app](logic-apps-diagnosing-failures.md).
 
       > [!NOTE]
       > Your logic app continues running until you turn off your app. 
