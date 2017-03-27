@@ -35,11 +35,15 @@ In Media Services, you upload your digital files into an asset. The Asset  can c
 ## Get started
 
 1. [Create a Media Services account](media-services-portal-create-account.md) into which you want to transfer the assets.
-2. Sign up for Data Manager preview, as described in the [StorSimple Data Manager](../storsimple/storsimple-data-manager-overview) article.
+2. Sign up for Data Manager preview, as described in the [StorSimple Data Manager](../storsimple/storsimple-data-manager-overview.md) article.
 3. Create a StorSimple Data Manager account.
 4. Create a data transformation job that when runs, extracts data from a StorSimple device and transfers it into an AMS account as assets. 
 
 	When the job starts running, a storage queue is created. This queue is populated with messages about transformed blobs as they are ready. The name of this queue is the same as the name of the job definition. 
+
+## See also
+
+[Use the .Net SDK to trigger jobs in the Data Manager](../storsimple/storsimple-data-manager-dotnet-jobs.md)
 
 ## Next steps
 
