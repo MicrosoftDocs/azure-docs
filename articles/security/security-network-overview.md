@@ -213,7 +213,7 @@ Learn more:
 ## Azure Network Watcher
 Azure Network Watcher includes a large number of network monitoring capabilities that will help with the troubleshooting of problems as well as provide a whole new set of tools to assist with the identification of security issues.
 
-[Security Group View ](/network-watcher/network-watcher-security-group-view-overview.md) helps with auditing and security compliance of Virtual Machines and can be used to perform programmatic audits comparing prescriptive rules to effective rules for each of your VMs. This can help you find any configuration drift that may occur.
+[Security Group View ](/network-watcher/network-watcher-security-group-view-overview.md) helps with auditing and security compliance of Virtual Machines and can be used to perform programmatic audits comparing the baselines policies defined by your organization to effective rules for each of your VMs. This can help you identify any configuration drift.
 
 [Packet capture](/network-watcher/network-watcher-packet-capture-overview.md) This feature of Network Watcher allows you to capture network traffic to and from the virtual machine. Besides helping by allowing you to collect network statistics and with the troubleshooting of application issues packet capture can be invaluable in the investigation of network intrusions. You can also use this functionality together with Azure Functions to start network captures in response to specific Azure alerts.
 
