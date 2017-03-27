@@ -244,7 +244,7 @@ For more information about this package, see the [EntityFramework](https://www.n
 	    url: "{controller}/{action}/{id}",
 	    defaults: new { controller = "Teams", action = "Index", id = UrlParameter.Optional }
 	);
-```
+	```
 
 
 ### Configure the views
