@@ -54,7 +54,7 @@ Create a Resource Group, skip this step if you already have one where you want t
 Then create an Azure Batch account.
 `az batch account create -l "<location>"  -g "<resource-group-name>" -n "<batch-account-name>"`
 
-Each Batch account has its corresponding access keys. These keys are needed to create further resources in Azure batch account. A good practice for production environment is to use Azure Key Vault to store these keys. You can then create a Service principal for the application. Using this service principal the application can create an auth token to access keys from the key vault.
+Each Batch account has its corresponding access keys. These keys are needed to create further resources in Azure batch account. A good practice for production environment is to use Azure Key Vault to store these keys. You can then create a Service principal for the application. Using this service principal the application can create an OAuth token to access keys from the key vault.
 
 `az batch account keys list -g "<resource-group-name>" -n "<batch-account-name>"`
 
@@ -99,7 +99,7 @@ An Azure Batch pool consists of multiple VMs (also known as Batch Nodes). Azure 
 Following code snippet creates the configuration parameter objects.
 
 `// Creating Image reference configuration for Ubuntu Linux VM
-var imgRef = {publisher:"Canonical","offer":"UbuntuServer",sku:"14.04.2-LTS",version:"latest"}
+var imgRef = {publisher:"Canonical",offer:"UbuntuServer",sku:"14.04.2-LTS",version:"latest"}
 
 // Creating the VM configuration object with the SKUID
 var vmconfig = {imageReference:imgRef,nodeAgentSKUId:"batch.node.ubuntu 14.04"}
@@ -223,7 +223,7 @@ These tasks would run in parallel and deployed across multiple nodes, orchestrat
 
 #### Preparation task
 
-The VM nodes created are blank Ubuntu nodes. Often will have your own set of programs that you need to install as prerequisites.
+The VM nodes created are blank Ubuntu nodes. Often, you need to install a set of programs as prerequisites.
 Typically, for Linux nodes you can have a shell script that installs the prerequisites before the actual tasks run. However it could be any programmable executable.
 The [shell script](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/startup_prereq.sh) in this example installs Python-pip and the Azure Storage SDK for Python.
 
@@ -248,7 +248,7 @@ Following code snippet shows the preparation task script configuration sample:
 
 `var job_prep_task_config = {id:"installprereq",commandLine:"sudo sh startup_prereq.sh > startup.log",resourceFiles:[{'blobSource':'Blob SAS URI','filePath':'startup_prereq.sh'}],waitForSuccess:true,runElevated:true}
 `
-If there are no prerequisites to be installed for your tasks to run, you can skip the preparation tasks. Following code will create a job with display name "process csv files."
+If there are no prerequisites to be installed for your tasks to run, you can skip the preparation tasks. Following code creates a job with display name "process csv files."
 
 
  `// Setting up Batch pool configuration
@@ -272,7 +272,7 @@ Now that our process csv job is created. Let's create tasks for that job. Let's 
 If we look at the [Python script](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py), it accepts two parameters:
 
 * container name: The Storage container to download files from
-* pattern : An optional parameter of file name pattern
+* pattern: An optional parameter of file name pattern
 
 Assuming we have four containers "con1", "con2", "con3","con4" following code shows submitting for tasks to the Azure batch job "process csv" we created earlier.
 
@@ -300,6 +300,6 @@ var container_list = ["con1","con2","con3","con4"]
     });
 `
 
-The code adds multiple tasks to the pool. And each of the tasks are executed on a node in the pool of VMs created. If the number of tasks exceeds the number of VMs in a pool or the maxTasksPerNode property, the tasks wait until a node is made available. This orchestration is handled by Azure Batch automatically.
+The code adds multiple tasks to the pool. And each of the tasks is executed on a node in the pool of VMs created. If the number of tasks exceeds the number of VMs in a pool or the maxTasksPerNode property, the tasks wait until a node is made available. This orchestration is handled by Azure Batch automatically.
 
 The portal has detailed views on the tasks and job statuses. You can also use the list and get functions in the Azure Node SDK. Details are provided in the documentation [link](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html).
