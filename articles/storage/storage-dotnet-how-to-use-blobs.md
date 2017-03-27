@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/24/2017
+ms.date: 03/27/2017
 ms.author: marsma
 ---
 # Get started with Azure Blob storage using .NET
@@ -46,7 +46,7 @@ For additional examples using Blob storage, see [Getting Started with Azure Blob
 [!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
 ### Add using directives
-Add the following **using** directives to the top of the `program.cs` file:
+Add the following **using** directives to the top of the `Program.cs` file:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager

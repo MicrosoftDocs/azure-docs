@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 3/8/2017
+ms.date: 03/27/2017
 ms.author: renash
 
 ---
@@ -293,8 +293,8 @@ Next, save your credentials in your project's app.config file. Edit the app.conf
 > 
 > 
 
-### Add namespace declarations
-Open the `program.cs` file from Solution Explorer, and add the following namespace declarations to the top of the file.
+### Add using directives
+Open the `Program.cs` file from Solution Explorer, and add the following using directives to the top of the file.
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
@@ -543,7 +543,7 @@ You can enable metrics for File storage from the [Azure Portal](https://portal.a
 
 The following code example shows how to use the Storage Client Library for .NET to enable metrics for File storage.
 
-First, add the following `using` statements to your program.cs file, in addition to those you added above:
+First, add the following `using` directives to your `Program.cs` file, in addition to those you added above:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage.File.Protocol;
@@ -643,7 +643,7 @@ Also, you can refer to [Azure Files Troubleshooting Article](storage-troubleshoo
     To transfer large numbers of files into File storage, we recommend that you use AzCopy, Azure Powershell (Windows), or the Azure CLI (Linux/Unix), as these tools have been optimized for network transfer.
 15. **Patch released to fix slow-performance issue with Azure Files**
     
-    The Windows team recently released a patch to fix a slow performance issue when the customer accesses Azure Files Storage from Windows 8.1 or Windows Server 2012 R2. For more information, please check out the associated KB article, [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025).
+    The Windows team recently released a patch to fix a slow performance issue when the customer accesses Azure Files Storage from Windows 8.1 or Windows Server 2012 R2. For more information, please check out the associated KB article, [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/kb/3114025).
 16. **Using Azure File Storage with IBM MQ**
     
     IBM has released a document to guide IBM MQ customers when configuring Azure File Storage with their service. For more information, please check out [How to setup IBM MQ Multi instance queue manager with Microsoft Azure File Service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
@@ -653,8 +653,8 @@ Also, you can refer to [Azure Files Troubleshooting Article](storage-troubleshoo
 
 18. **How can I enable Server Side encryption for Azure Files?**
 
-    [Server Side Encryption](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) is currently in Preview. During preview, the feature can only be enabled for newly created Azure Resource Manager (ARM) Storage accounts.
-    You can enable this feature on Azure Resource Manager storage account using the Azure Portal. We plan to have [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) or the [Microsoft Azure Storage Resource Provider API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) for enabling encryption for file storage by end of February. There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage your data is automatically encrypted for you. 
+    [Server Side Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption) is currently in Preview. During preview, the feature can only be enabled for newly created Azure Resource Manager (ARM) Storage accounts.
+    You can enable this feature on Azure Resource Manager storage account using the Azure Portal. We plan to have [Azure Powershell](https://msdn.microsoft.com/library/azure/mt607151.aspx), [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli-nodejs) or the [Microsoft Azure Storage Resource Provider API](https://docs.microsoft.com/rest/api/storagerp/storageaccounts) for enabling encryption for file storage by end of February. There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage your data is automatically encrypted for you. 
     Find out more about Storage Service Encryption. You can also reach out to ssediscussions@microsoft.com for additional questions on the preview.
 
 ## Next steps
@@ -668,7 +668,7 @@ See these links for more information about Azure File storage.
 * [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md)
 * [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md)
 * [Using the Azure CLI with Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)
-* [Troubleshooting Azure File storage problems](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
+* [Troubleshooting Azure File storage problems](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### Reference
 * [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)
