@@ -24,7 +24,7 @@ In this tutorial, you create a virtual machine and perform common management tas
 
 To complete this tutorial, make sure that you have installed the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module. 
 
-## Step 1 – Create a virtual machine and supporting resources
+## Step 1 – Create a virtual machine
 
 First, log in to your Azure subscription with the Login-AzureRmAccount command and follow the on-screen directions.
 
@@ -85,12 +85,6 @@ Create the NSG using the rule that you previously created with the [New-AzureRmN
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location westeurope -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
 ```
 
-Get the virtual network with the [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/get-azurermvirtualnetwork) command.
-
-```powershell
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Name myVnet
-```
-
 Add the NSG to the subnet in the virtual network with the [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/set-azurermvirtualnetworksubnetconfig) command.
 
 ```powershell
@@ -107,13 +101,11 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 When creating a virtual machine, several options are available such as operating system image, disk sizing, and administrative credentials. In this example, a virtual machine is created with a name of `myVM` running the latest version of Windows Server 2016 Datacenter. 
 
-Get the credentials that are needed for the administrator account on the virtual machine with the [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) command.
+Get the username and password needed for the administrator account on the virtual machine with the [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) command.
 
 ```powershell
 $cred = Get-Credential
 ```
-
-Enter the username and password that you want to use for the administrator account on the virtual machine.
 
 Create the initial configuration for the virtual machine with the [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermvmconfig) command.
 
@@ -199,7 +191,7 @@ Open a Remote Desktop session with the [Get-AzureRmRemoteDesktopFile](https://do
 Get-AzureRmRemoteDesktopFile -ResourceGroupName myResourceGroup -Name myVM -Launch
 ```
 
-Open Windows PowerShell on the virtual machine and initialize and format the data disk with these commands.
+Open an elevated Windows PowerShell session on the virtual machine and initialize and format the data disk with these commands.
 
 ```powershell
 Get-Disk | Where partitionstyle -eq 'raw' | Initialize-Disk -PartitionStyle MBR -PassThru | New-Partition -AssignDriveLetter -UseMaximumSize | Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
@@ -224,35 +216,31 @@ Set-AzureRmVMExtension -ResourceGroupName myResourceGroup -ExtensionName IIS -VM
 Get the public IP address of the virtual machine with the [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/get-azurermpublicipaddress) command.
 
 ```powershell
-Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroup -Name myPublicIPAddress
+Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroup -Name myPublicIPAddress | select IpAddress
 ```
 
 Open an internet browser and enter the public IP address of the virtual machine into the address bar. Even though IIS has been installed, the default site is not accessible. Access to the webserver is addressed in the next section of this tutorial. 
 
 ## Step 4 – Configure firewall
 
-In a previous section, the IIS webserver was installed. Without a network security group rule to allow inbound traffic on port 80, the webserver cannot be accessed from the internet. This step walks you through creating the NSG rule to allow inbound connections on port 80.
+An Azure [network security group](../virtual-network/virtual-networks-nsg.md) (NSG) controls inbound and outbound traffic for one or many virtual machines. Network security group rules allow or deny network traffic on a specific port or port range. These rules can also include a source address prefix so that only traffic originating at a predefined source can communicate with a virtual machine.
 
-### Add NSG rule
+In the previous section the IIS webserver was installed. Without a network security group rule to allow inbound traffic on port 80, the webserver cannot be accessed from the internet. This step walks you through creating the NSG rule to allow inbound connections on port 80.
+
+### Create NSG rule
 
 To access the IIS webserver, you must add an inbound NSG rule to the NSG that you previously created. The following example opens port `80` for the virtual machine.
 
-Get the NSG with the [Get-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/get-azurermnetworksecuritygroup) command.
+To create an inbound NSG rule, use the [Add-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/add-azurermnetworksecurityruleconfig) command. The following example opens port `80` for the virtual machine.
 
 ```powershell
-$securityGroup = Get-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Name myNetworkSecurityGroup 
-```
-
-Add the new rule to the NSG with the [Add-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/add-azurermnetworksecurityruleconfig) command.
-
-```powershell
-Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $securityGroup -Name myHTTPRule -Access Allow -Protocol Tcp -Direction Inbound -Priority 1010 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 80
+Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name myHTTPRule -Access Allow -Protocol Tcp -Direction Inbound -Priority 1010 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 80
 ```
 
 Update the NSG with the [Set-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/set-azurermnetworksecuritygroup) command.
 
 ```powershell
-Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $securityGroup
+Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
 ```
 
 Now browse to the public IP address of the virtual machine. With the NSG rule in place, the default IIS website is displayed.
@@ -335,7 +323,7 @@ Add the operating system disk settings to the virtual machine configuration with
 $vm = Set-AzureRmVMOSDisk -VM $vm -CreateOption Attach -ManagedDiskId $disk.Id -Windows
 ```
 
-Add the network interface card that you previously created to the virtual machine configuration with the [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/add-azurermvmnetworkinterface) command.
+Add the network interface card with the [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/add-azurermvmnetworkinterface) command.
 
 ```powershell
 $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
@@ -357,7 +345,7 @@ Enter the public IP address of the virtual machine into the address bar of the i
 
 ## Step 6 – Management tasks
 
-During the lifecycle of a virtual machine, you may want to run management tasks such as starting, stopping, or deleting a virtual machine. Additionally, you may want to create scripts to automate repetitive or complex tasks. Using the Azure PowerShell, many common management tasks can be run from the command line or in scripts. 
+During the lifecycle of a virtual machine, you may want to run management tasks such as starting, stopping, or deleting a virtual machine. Additionally, you may want to create scripts to automate repetitive or complex tasks. Using Azure PowerShell, many common management tasks can be run from the command line or in scripts. 
 
 ### Stop virtual machine
 
@@ -371,7 +359,7 @@ If you want to keep the virtual machine in a provisioned state, use the -StayPro
 
 ### Resize virtual machine
 
-To resize an Azure virtual machine, you need the name of the sizes available in the chosen Azure region. These sizes can be found with the [Get-AzureRmVMSize](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermvmsize) command. The virtual machine must be stopped and deallocated to be resized.
+To resize a stopped and deallocated virtual machine, you need the name of the sizes available in the chosen Azure region. These sizes can be found with the [Get-AzureRmVMSize](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermvmsize) command.
 
 ```powershell
 Get-AzureRmVMSize -Location westeurope
