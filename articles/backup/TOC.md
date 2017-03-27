@@ -2,7 +2,7 @@
 # Overview
 ## [What is Azure Backup?](backup-introduction-to-azure-backup.md)
 
-# Quickstart
+# Get started
 ## [Back up files and folders](backup-try-azure-backup-in-10-mins.md)
 ## [Back up Azure virtual machines](backup-azure-vms-first-look.md)
 ## [Protect Azure VMs](backup-azure-vms-first-look-arm.md)
