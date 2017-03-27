@@ -69,4 +69,8 @@ For more information on accessing logs, see the following documents:
 
 ## Next steps
 
-[tbd]
+* [Use C# with MapReduce on HDInsight](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
+
+* [Use C# user defined functions with Hive and Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
+
+* [Develop C# topologies for Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md)
