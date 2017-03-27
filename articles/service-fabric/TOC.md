@@ -1,3 +1,4 @@
+
 # Overview
 ## [What is Service Fabric?](service-fabric-overview.md)
 ## [Understand microservices](service-fabric-overview-microservices.md)
@@ -22,11 +23,13 @@
 ### [Patterns and scenarios](service-fabric-patterns-and-scenarios.md)
 ### Basics
 #### [Application model](service-fabric-application-model.md)
+#### [Package an application](service-fabric-package-apps.md)
 #### [Supported programming model](service-fabric-choose-framework.md)
 #### [Service state](service-fabric-concepts-state.md)
 #### [Service communication](service-fabric-connect-and-communicate-with-services.md)
 #### [Add a web front end](service-fabric-add-a-web-frontend.md)
 #### [Service manifest resources](service-fabric-service-manifest-resources.md)
+#### [Get started with Eclipse plugin for Java development](service-fabric-get-started-eclipse.md)
 #### [Manage apps in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 #### [Configure secure connections in Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
 #### Debug
