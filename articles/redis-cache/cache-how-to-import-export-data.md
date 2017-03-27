@@ -113,11 +113,11 @@ Import/Export is available only in the premium pricing tier.
 Yes, in addition to importing data exported from Azure Redis Cache instances, you can import RDB files from any Redis server running in any cloud or environment, such as Linux, Windows, or cloud providers such as Amazon Web Services. To do this, upload the RDB file from the desired Redis server into a page blob in an Azure Storage Account, and then import it into your premium Azure Redis Cache instance. For example, you may want to export the data from your production cache and import it into a cache used as part of a staging environment for testing or migration.
 
 > [!IMPORTANT]
-> To successfully import data exported from Redis servers other than Azure Redis Cache, the page blog size must be aligned on a 512 byte boundary. For sample code to perform any required byte paddings, see [Sample page blog upload](https://github.com/JimRoberts-MS/SamplePageBlobUpload).
+> To successfully import data exported from Redis servers other than Azure Redis Cache when using a page blob, the page blog size must be aligned on a 512 byte boundary. For sample code to perform any required byte paddings, see [Sample page blog upload](https://github.com/JimRoberts-MS/SamplePageBlobUpload).
 > 
 > 
 
-## What RDB versions can I import?
+### What RDB versions can I import?
 
 Azure Redis Cache supports RDB import up through RDB version 7.
 
