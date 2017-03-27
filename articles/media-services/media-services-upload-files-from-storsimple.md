@@ -44,7 +44,7 @@ In Media Services, you upload your digital files into an asset. The Asset  can c
 ## Next steps
 
 You can now encode your uploaded assets. For more information, see [Encode assets](media-services-portal-encode.md).
-1
+
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
