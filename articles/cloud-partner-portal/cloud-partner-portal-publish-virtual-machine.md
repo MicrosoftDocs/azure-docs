@@ -48,7 +48,19 @@ Prerequisites to listing on Azure Marketplace
 How to create a new VM offer
 ============================
 
-Once all the pre-requisites have been met, you are ready to start authoring your virtual machine (VM) offer.
+Once all the pre-requisites have been met, you are ready to start authoring your virtual machine (VM) offer. Before we begin, a quick overview of an offer and a SKU
+
+Offer
+-----
+A virtual machine offer corresponds to a class of product offering from a publisher. If you have a  new kind of product/virtual machine that you would like to be available in Azure Marketplace, a new offer would be the way to go. An offer is a collection of SKUs. Every offer appears as its own entity in Azure Marketplace. 
+
+SKU
+---
+A SKU is the smallest purchasable unit of an offer. While within the same product class (offer), SKUs allow you to differentiate between different features supported, VM image types and billing models supported. 
+
+Add multiple SKUs if you would like to support different billing models like Bring Your Own License (BYOL), Pay as you Go (PAYG), etc. Add multiple SKUs when each SKU supports a different feature set and each of them is priced differently. Also add multiple SKUs if you have different VM images for public vs sovereign clouds. 
+
+A SKU shows up under the parent offer in Azure Marketplace while it shows up as its own purchasable entity in Azure portal. 
 
 1.  Login to the [cloud partner portal](http://cloudpartner.azure.com/).
 
@@ -99,7 +111,7 @@ Click on “Save” to save your progress. Next step would be to add SKUs for yo
 How to create SKUs
 ==================
 
-A SKU is the commercial name for a VM image. Click on the “SKUs” form. Here you can see an option to “Add a SKU” clicking on which will allow you to enter a “SKU ID”.
+Click on the “SKUs” form. Here you can see an option to “Add a SKU” clicking on which will allow you to enter a “SKU ID”.
 
 ![publishvm4][4]
 
@@ -143,11 +155,11 @@ There are currently 2 kinds of pricing models supported.
 
 ### Bring-Your-Own-License (BYOL)
 
-The publishers manage the licensing of the software running on the VM.
+You manage the licensing of the software running on the VM. Microsoft will only charge the infrastructure costs.
 
 ### Usage based monthly billed SKU
 
-Customers get charged on a per-hour basis based on the rates set by the publishers on the VM sizes. In case of **hourly billing** model of the SKUs, the total price will be the summation of the software cost charged by the publisher and the infrastructure cost charged by Microsoft. This total cost will be displayed to the customer as an hourly and monthly price when they are considering the purchase. **Publisher receives 80% of the software cost charged by them.** Hence please make the calculation accordingly before setting prices for your SKUs.
+Customers get charged on a per-hour basis based on the rates set by the publishers on the VM sizes. In case of **hourly billing** model of the SKUs, the total price will be the summation of the software cost charged by the publisher and the infrastructure cost charged by Microsoft. This total cost will be displayed to the customer as an hourly and monthly price when they are considering the purchase. The billing in this case will be on a monthly basis.
 
 Within the Usage based model, there are additional settings required by you.
 
@@ -157,7 +169,7 @@ You can specify if you want to provide a free trial for your customers. Here the
 
 #### Per Core Pricing
 
-You can set pricing per core for your SKU. For this, you just need to enter a base price for a single core and we auto-compute the prices for the rest of the cores.
+You can set pricing per core for your SKU. For this, you just need to enter a base price for a single core and we auto-compute the prices for the rest of the cores. Enter the prices in USD in the portal and we will auto-calculate the prices for other regions. You can verify the prices in the other regions by using **Export Pricing Data**
 
 ![publishvm6][6]
 
@@ -172,7 +184,7 @@ You can set the pricing for each sets of cores individually if you would like to
 
 #### Export-Import Pricing
 
-You have the flexibility to export the pricing that has been configured via the portal to make changes via the excel interface. Clicking on **Export-Pricing** will download an excel file with pricing details pre-populated. You will be able to edit these within the excel and then use **Import-Pricing** to import the changes that were made. The imported pricing will reflect in the portal as well.
+You have the flexibility to export the pricing that has been configured via the portal to make changes via the excel interface. This also allows you to verify per-region pricing and pricing in local currencies. Clicking on **Export-Pricing** will download an excel file with pricing details pre-populated. You will be able to edit these within the excel and then use **Import-Pricing** to import the changes that were made. The imported pricing will reflect in the portal as well.
 
 Within this pricing excel, the prices for the different regions are listed in local currency. The exchange rate that we use is refreshed daily.
 
@@ -184,7 +196,7 @@ Within this pricing excel, the prices for the different regions are listed in lo
 
 -   This price is charged to the user in addition to [Azure's virtual machine pricing](http://aka.ms/vmpricingdetails).
 
--   Prices are set for all regions in local currency on available currency rates at the time of setting prices. You are ultimately liable for your own pricing.
+-   Prices are set for all regions in local currency on available currency rates at the time of setting prices.
 
 -   To set or view each region’s price individually, please export the pricing spreadsheet and import with custom pricing.
 
@@ -210,7 +222,7 @@ Once you have your VHD ready, you can start filling out this section. Here are s
 
 ### Recommended VM Sizes
 
-Select up to six recommended virtual machine sizes. These are recommendations that get displayed to the customer in Azure Marketplace and the Pricing tier blade in the Azure Portal when they decide to purchase and deploy your image. **These are only recommendations. The customer is able to select any VM size that accommodates the disks specified in your image.**
+Select up to six recommended virtual machine sizes. These are recommendations that get displayed to the customer in Azure Marketplace and the Pricing tier blade in the Azure Portal when they decide to purchase and deploy your image. **These are only recommendations. The customer is able to select any VM size that accommodates the disks specified in your image.** Below is how recommended VM sizes will appear to the customer in Azure Portal.
 
 ![publishvm9][9]
 
