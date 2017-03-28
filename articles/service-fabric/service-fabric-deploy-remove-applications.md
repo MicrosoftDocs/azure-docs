@@ -92,7 +92,7 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
             Settings.xml
 ```
 
-If the application package is large and/or has many files, you can [compress it](service-fabric-application-model.md#compress-a-package). The compression reduces the size and the number of files.
+If the application package is large and/or has many files, you can [compress it](service-fabric-package-apps.md#compress-a-package). The compression reduces the size and the number of files.
 The side effect is that registering and un-registering the application type are faster. Upload time may be slower currently, especially if you include the time to compress the package. 
 
 To compress a package, use the same [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) command. Compression can be done separate from upload,
@@ -283,7 +283,7 @@ If the client machine is in another region than the cluster, consider using a cl
 
 Issue: Upload package completed successfully, but [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) times out.
 Try:
-- [Compress the package](service-fabric-application-model.md#compress-a-package) before copying to the image store.
+- [Compress the package](service-fabric-package-apps.md#compress-a-package) before copying to the image store.
 The compression reduces the size and the number of files, which in turn reduces the amount of traffic and work that Service Fabric must perform. The upload operation may be slower (especially if you include the compression time), but register and un-register the application type are faster.
 - Specify a larger timeout for [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) with `TimeoutSec` parameter.
 - Specify `Async` switch for [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype). The command returns when the cluster accepts the command and the provision continues async.
@@ -292,7 +292,7 @@ For this reason, there is no need to specify a higher timeout in this case.
 ### Deploy application package with many files
 Issue: [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) times out for an application package with many files (order of thousands).
 Try:
-- [Compress the package](service-fabric-application-model.md#compress-a-package) before copying to the image store. The compression reduces the number of files.
+- [Compress the package](service-fabric-package-apps.md#compress-a-package) before copying to the image store. The compression reduces the number of files.
 - Specify a larger timeout for [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) with `TimeoutSec` parameter.
 - Specify `Async` switch for [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype). The command returns when the cluster accepts the command and the provision continues async.
 For this reason, there is no need to specify a higher timeout in this case. 
