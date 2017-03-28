@@ -10,11 +10,12 @@ tags: azure-portal
 
 ms.assetid: 2b3e672a-1195-4fa5-afb7-b7b73937bfbe
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 02/28/2017
 ms.author: larryfr
 
 ---
@@ -35,9 +36,11 @@ To complete the steps in this article, you need the following.
 
 * Visual Studio (one of the following versions):
   
-    Visual Studio 2013 Community/Professional/Premium/Ultimate with [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
+    * Visual Studio 2013 Community/Professional/Premium/Ultimate with [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
   
-    Visual Studio 2015 (Community/Enterprise)
+    * Visual Studio 2015 (any edition)
+
+    * Visual Studio 2017 (any edition)
 
 * HDInsight tools for Visual Studio or Azure Data Lake tools for Visual Studio. See [Get started using Visual Studio Hadoop tools for HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md) for information on installing and configuring the tools.
 

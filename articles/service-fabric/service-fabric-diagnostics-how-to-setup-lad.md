@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2016
+ms.date: 03/02/2017
 ms.author: subramar
 
 ---
@@ -35,7 +35,7 @@ The first step in collecting logs is to deploy the Diagnostics extension on each
 
 To deploy the Diagnostics extension to the VMs in the cluster as part of cluster creation, set **Diagnostics** to **On**. After you create the cluster, you can't change this setting by using the portal.
 
-Then, configure Linux Azure Diagnostics (LAD) to collect the files and place them into your storage account. This process is explained as scenario 3 ("Upload your own log files") in the article [Using LAD to monitor and diagnose Linux VMs](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json). Following this process gets you access to the traces. You can upload the traces to a visualizer of your choice.
+Then, configure Linux Azure Diagnostics (LAD) to collect the files and place them into your storage account. This process is explained as scenario 3 ("Upload your own log files") in the article [Using LAD to monitor and diagnose Linux VMs](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json). Following this process gets you access to the traces. You can upload the traces to a visualizer of your choice.
 
 You can also deploy the Diagnostics extension by using Azure Resource Manager. The process is similar for Windows and Linux and is documented for Windows clusters in [How to collect logs with Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md).
 
@@ -44,5 +44,5 @@ You can also use Operations Management Suite, as described in [Operations Manage
 After you finish this configuration, the LAD agent monitors the specified log files. Whenever a new line is appended to the file, it creates a syslog entry that is sent to the storage that you specified.
 
 ## Next steps
-To understand in more detail what events you should examine while troubleshooting issues, see [LTTng documentation](http://lttng.org/docs) and [Using LAD](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+To understand in more detail what events you should examine while troubleshooting issues, see [LTTng documentation](http://lttng.org/docs) and [Using LAD](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 

@@ -9,11 +9,12 @@ editor: cgronlun
 
 ms.assetid: 1f174323-c17b-428c-903d-04f0e272784c
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 03/21/2017
 ms.author: nitinme
 
 ---
@@ -30,16 +31,15 @@ In this tutorial, you use Jupyter notebook available with HDInsight Spark cluste
 
 * Azure HDInsight Spark cluster with Data Lake Store as storage. Follow the instructions at [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
-	> [!IMPORTANT]
-   	> If you are using Data Lake Store as the primary storage for the cluster, make sure you create a Spark 1.6 cluster.
-  	>
-   	>
-
+	
 ## Prepare the data
 
-If you have created the HDInsight cluster with Data Lake Store as default storage, you do not need to perform this step because the cluster creation processes adds some sample data in the Data Lake Store account that you specify while creating the cluster.
+> [!NOTE]
+> You do not need to perform this step if you have created the HDInsight cluster with Data Lake Store as default storage. The cluster creation processes adds some sample data in the Data Lake Store account that you specify while creating the cluster. Skip to the section [Use HDInsight Spark cluster with Data Lake Store](#use-an-hdinsight-spark-cluster-with-data-lake-store).
+>
+>
 
-if you created an HDInsight cluster with Data Lake Store as additional storage and Azure Storage Blob as default storage, you should first copy over some sample data to the Data Lake Store account. You can use the sample data from the Azure Storage Blob associated with the HDInsight cluster. You can use the [ADLCopy tool](http://aka.ms/downloadadlcopy) to do so. Download and install the tool from the link.
+If you created an HDInsight cluster with Data Lake Store as additional storage and Azure Storage Blob as default storage, you should first copy over some sample data to the Data Lake Store account. You can use the sample data from the Azure Storage Blob associated with the HDInsight cluster. You can use the [ADLCopy tool](http://aka.ms/downloadadlcopy) to do so. Download and install the tool from the link.
 
 1. Open a command prompt and navigate to the directory where AdlCopy is installed, typically `%HOMEPATH%\Documents\adlcopy`.
 
@@ -94,7 +94,7 @@ if you created an HDInsight cluster with Data Lake Store as additional storage a
 	* If you have Data Lake Store as default storage, HVAC.csv will be at the path similar to the following URL:
 
 			adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
-	
+
 		Or, you could also use a shortened format such as the following:
 
 			adl:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
@@ -107,20 +107,20 @@ if you created an HDInsight cluster with Data Lake Store as additional storage a
 
 			# Load the data. The path below assumes Data Lake Store is default storage for the Spark cluster
 			hvacText = sc.textFile("adl://MYDATALAKESTORE.azuredatalakestore.net/cluster/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-			
+
 			# Create the schema
 			hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
-			
+
 			# Parse the data in hvacText
 			hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
-			
+
 			# Create a data frame
 			hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
-			
+
 			# Register the data fram as a table to run queries against
 			hvacdf.registerTempTable("hvac")
 
-6. Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you just created by using the `%%sql` magic. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
+6. Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you just created by using the `%%sql` magic. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
 		%%sql
 		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"

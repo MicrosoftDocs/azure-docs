@@ -1,3 +1,4 @@
+
 # Overview
 ## [What is Azure Government?](documentation-government-welcome.md)
 ## [ITAR](documentation-government-overview-itar.md)
@@ -31,10 +32,12 @@
 ### [Compute](documentation-government-compute.md)
 ### [Storage](documentation-government-services-storage.md)
 ### [Database](documentation-government-services-database.md)
+### [Intelligence + Analytics](documentation-government-services-intelligenceandanalytics.md)
 ### [Networking](documentation-government-networking.md)
 ### [Security + Identity](documentation-government-services-securityandidentity.md)
 ### [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
 ### [Web + Mobile](documentation-government-services-webandmobile.md)
+### [Media Services](documentation-government-services-media.md)
 
 
 # Resources

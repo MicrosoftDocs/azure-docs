@@ -2,19 +2,22 @@
 ## [What are virtual machine scale sets?](virtual-machine-scale-sets-overview.md)
 
 # Get Started
-## [Create a scale set in the portal](virtual-machine-scale-sets-portal-create.md)
-## [Create a scale set using Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
+## [Deploy a scale set in the portal](virtual-machine-scale-sets-portal-create.md)
+## [Deploy a scale set using PowerShell or Azure CLI](virtual-machine-scale-sets-create.md)
 
 # How To
 ## Plan and design
 ### [Design considerations](virtual-machine-scale-sets-design-overview.md)
 
+## Create a template
+### [Learn about scale set templates](virtual-machine-scale-sets-mvss-start.md)
+### [Add a virtual network](virtual-machine-scale-sets-mvss-existing-vnet.md)
+
 ## Deploy
-### [Scale set using the portal](virtual-machine-scale-sets-portal-create.md)
+### [Create with the portal](virtual-machine-scale-sets-portal-create.md)
+### [Create with Visual Studio](virtual-machine-scale-sets-vs-create.md)
+### [Create with PowerShell or Azure CLI](virtual-machine-scale-sets-create.md)
 ### [Scale set with managed disks](virtual-machine-scale-sets-managed-disks.md)
-### [Scale set using Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Scale set using PowerShell](virtual-machine-scale-sets-windows-create.md)
-### [Scale set using Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
 ### [Linux scale set with autoscale](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Windows scale set with autoscale](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Applications on scale sets](virtual-machine-scale-sets-deploy-app.md)
@@ -35,6 +38,9 @@
 
 ## Troubleshoot
 ### [Autoscale](virtual-machine-scale-sets-troubleshoot.md)
+
+## FAQ
+### [Scale Set FAQ](virtual-machine-scale-sets-faq.md)
 
 # Reference
 ## [PowerShell](/powershell/azureps-cmdlets-docs)

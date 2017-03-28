@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 03/21/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 
@@ -25,7 +25,7 @@ Learn ways to set up and manage multiple virtual machines to ensure high availab
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-For instructions on creating and using availability sets when using the classic deployment model, see [How to Configure an Availability Set](virtual-machines-windows-classic-configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+For instructions on creating and using availability sets when using the classic deployment model, see [How to Configure an Availability Set](windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-manage-availability](../../includes/virtual-machines-common-manage-availability.md)]
 

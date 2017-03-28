@@ -19,7 +19,7 @@ ms.author: joflore
 ---
 # Password management frequently asked questions
 > [!IMPORTANT]
-> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -31,6 +31,7 @@ This FAQ is split into the following sections:
 
 * [**Questions about Password Reset Registration**](#password-reset-registration)
 * [**Questions about Password Reset**](#password-reset)
+* [**Questions about Password Change**](#password-change)
 * [**Questions about password management Reports**](#password-management-reports)
 * [**Questions about password writeback**](#password-writeback)
 
@@ -165,6 +166,18 @@ This FAQ is split into the following sections:
   >
   >
 
+## Password change
+* **Q:  Where should my users go to change their passwords?**
+
+  > **A:** Users may change their passwords anywhere they see thier profile picture or icon (like in the upper right corner of their [Office 365](https://portal.office.com) or [Access Panel](https://myapps.microsoft.com) experiences. Users may change their passwords from the [Access Panel profile page](https://account.activedirectory.windowsazure.com/r#/profile). Users may also be asked to change their passwords automatically at the Azure AD sign in screen if their passwords have expired. Finally, users may navigate to the [Azure AD Password Change Portal](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) directly if they wish to change their passwords.
+  >
+  >
+* **Q:  Can my users be notified in the Office Portal when their on-premises password expires?**
+
+  > **A:** This is possible today if you are using ADFS by following the instructions here: [Sending Password Policy Claims with ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). If you are using password hash synchronization, this is not possible today. This is because we do not sync password policies from on-premises, so it is not possible for us to post expiry notifications to cloud experiences. In either case, it is also possible to [notify users whose passwords are about to expire by using PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  >
+  >
+
 ## Password management reports
 * **Q:  How long does it take for data to show up on the password management reports?**
 
@@ -180,7 +193,7 @@ This FAQ is split into the following sections:
   ![][002]
 * **Q: What is the maximum number of events are stored in the password management reports?**
 
-  > **A:** Up to 1,000 password reset or password reset registration events are stored in the password management reports.  We are working to expand this number to include more events.
+  > **A:** Up to 75,000 password reset or password reset registration events are stored in the password management reports, spanning back up to 30 days.  We are working to expand this number to include more events.
   >
   >
 * **Q:  How far back do the password management reports go?**
@@ -190,7 +203,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  Is there a maximum number of rows that can appear on the password management reports?**
 
-  > **A:** Yes, a maximum of 1,000 rows may appear on either of the password management reports, whether they are being shown in the UI or being downloaded. We are currently investigating how to increase this limit.
+  > **A:** Yes, a maximum of 75,000 rows may appear on either of the password management reports, whether they are being shown in the UI or being downloaded. We are currently investigating how to increase this limit.
   >
   >
 * **Q:  Is there an API to access the password reset or registration reporting data?**
@@ -229,7 +242,7 @@ This FAQ is split into the following sections:
 ## Next steps
 Below are links to all of the Azure AD Password Reset documentation pages:
 
-* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
 * [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
 * [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs

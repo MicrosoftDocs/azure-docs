@@ -19,7 +19,7 @@ ms.author: joflore
 ---
 # Azure Active Directory password reset for IT administrators
 > [!IMPORTANT]
-> Are you here because you want to reset your Azure or O365 password?  If so, please [skip to this section](#users-how-to-manage-your-own-password).
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -114,8 +114,8 @@ For more information on Azure AD Premium or Basic pricing, visit the [Active Dir
 | Topic |  |
 | --- | --- |
 | Where do I go to see password reset reports? |[Overview of password management reports](active-directory-passwords-get-insights.md#overview-of-password-management-reports) |
-| Where can I see how users are using password reset in my organization? |[View password reset activity](active-directory-passwords-get-insights.md#view-password-reset-activity) |
-| Where can I see how many users are registering, and what they are registering for? |[View password reset registration activity](active-directory-passwords-get-insights.md#view-password-reset-registration-activity) |
+| Where can I see how users are using password reset in my organization? |[View password reset activity](active-directory-passwords-get-insights.md#how-to-view-password-management-reports) |
+| Where can I see how many users are registering, and what they are registering for? |[View password reset registration activity](active-directory-passwords-get-insights.md#how-to-view-password-management-reports) |
 | How can I get password reset reports from an API? |[Creating an azure ad application to access the reporting API](active-directory-reporting-api-getting-started.md) |
 | What kind of password reset reporting information is available through an API? |[Password reset and registration events available in the reporting API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview#SsprActivityEvent) |
 
@@ -209,7 +209,7 @@ Below are some of the cool features we're working on right now!
 ## Next steps
 Below are links to all of the Azure AD password reset documentation pages:
 
-* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
 * [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
 * [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs

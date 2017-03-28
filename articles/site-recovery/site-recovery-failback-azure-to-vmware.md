@@ -1,5 +1,5 @@
 ---
-title: Fail back VMware VMs from Azure to on-premises | Microsoft Docs
+title: Failback VMware VMs from Azure to on-premises | Microsoft Docs
 description: Learn about failing back to the on-premises site after failover of VMware VMs and physical servers to Azure.
 services: site-recovery
 documentationcenter: ''
@@ -13,17 +13,19 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: required
-ms.date: 10/05/2016
+ms.date: 03/27/2017
 ms.author: ruturajd
 
 ---
 # Fail back VMware virtual machines and physical servers to the on-premises site
 > [!div class="op_single_selector"]
-> * [Azure Portal](site-recovery-failback-azure-to-vmware.md)
-> * [Azure Classic Portal](site-recovery-failback-azure-to-vmware-classic.md)
-> * [Azure Classic Portal (Legacy)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+> * [VMware/physical machines from Azure](site-recovery-failback-azure-to-vmware.md)
+> * [Hyper-V VMs from Azure](site-recovery-failback-from-azure-to-hyper-v.md)
 
-This article describes how to fail back Azure virtual machines from Azure to the on-premises site. Follow the instructions here when you're ready to fail back your VMware virtual machines or Windows or Linux physical servers after they've failed over from the on-premises site to Azure using this [tutorial](site-recovery-vmware-to-azure-classic.md).
+This article describes how to failback Azure virtual machines from Azure to the on-premises site. Follow the instructions here when you're ready to fail back your VMware virtual machines or Windows or Linux physical servers after you have re-protected your machines using this [reference](site-recovery-how-to-reprotect.md).
+
+>[!NOTE]
+>If you are using the classic Azure portal, please refer to instructions mentioned [here](site-recovery-failback-azure-to-vmware-classic.md) for enhanced VMware to Azure architecture and [here](site-recovery-failback-azure-to-vmware-classic-legacy.md) for the legacy architecture
 
 ## Overview
 The diagrams in this section show the failback architecture for this scenario.

@@ -12,32 +12,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2016
+ms.date: 3/10/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory Integration with SmarterU
 The objective of this tutorial is to show the integration of Azure and SmarterU.  
+
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
 * A SmarterU tenant
 
-After completing this tutorial, the Azure AD users you have assigned to SmarterU will be able to single sign into the application at your SmarterU company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to SmarterU will be able to sign into the application using single sign-on (SSO) at your SmarterU company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
 1. Enabling the application integration for SmarterU
-2. Configuring single sign-on
+2. Configuring single sign-on (SSO)
 3. Configuring user provisioning
 4. Assigning users
 
 ![Scenario](./media/active-directory-saas-smarteru-tutorial/IC777320.png "Scenario")
 
-## Enabling the application integration for SmarterU
+## Enable the application integration for SmarterU
 The objective of this section is to outline how to enable the application integration for SmarterU.
 
-### To enable the application integration for SmarterU, perform the following steps:
+**To enable the application integration for SmarterU, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-smarteru-tutorial/IC700993.png "Active Directory")
@@ -64,10 +66,11 @@ The objective of this section is to outline how to enable the application integr
    
     ![SmarterU](./media/active-directory-saas-smarteru-tutorial/IC777322.png "SmarterU")
 
-## Configuring single sign-on
+## Configure single sign-on
 The objective of this section is to outline how to enable users to authenticate to SmarterU with their account in Azure AD using federation based on the SAML protocol.
 
-### To configure single sign-on, perform the following steps:
+**To configure single sign-on, perform the following steps:**
+
 1. In the Azure classic portal, on the **SmarterU** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
     ![Configure Single Sign-On](./media/active-directory-saas-smarteru-tutorial/IC777323.png "Configure Single Sign-On")
@@ -88,54 +91,46 @@ The objective of this section is to outline how to enable users to authenticate 
 
 6. On the account configuration page, perform the following steps:
    
-    ![External Authorization](./media/active-directory-saas-smarteru-tutorial/IC777327.png "External Authorization")
- 
-    a. Select **Enable External Authorization**.
-   
-    b. In the **Master Login Control** section, select the **SmarterU** tab.
-   
-    c. In the **User Default Login** section, select the **SmarterU** tab.
-   
-    d. Select **Enable Okta**.
-   
-    e. Copy the content of the downloaded metadata file, and then paste it into the **Okta Metadata** textbox.
-
-    f. Click **Save**.
+    ![External Authorization](./media/active-directory-saas-smarteru-tutorial/IC777327.png "External Authorization") 
+  1. Select **Enable External Authorization**.
+  2. In the **Master Login Control** section, select the **SmarterU** tab.
+  3. In the **User Default Login** section, select the **SmarterU** tab.
+  4. Select **Enable Okta**.
+  5. Copy the content of the downloaded metadata file, and then paste it into the **Okta Metadata** textbox.
+  6. Click **Save**.
 
 7. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-smarteru-tutorial/IC777328.png "Configure Single Sign-On")
 
-## Configuring user provisioning
-In order to enable Azure AD users to log into SmarterU, they must be provisioned into SmarterU.  
+## Configure user provisioning
+In order to enable Azure AD users to log into SmarterU, they must be provisioned into SmarterU.
+
 In the case of SmarterU, provisioning is a manual task.
 
-### To provision a user accounts, perform the following steps:
+**To provision a user accounts, perform the following steps:**
+
 1. Log in to your **SmarterU** tenant.
 
 2. Go to **Users**.
 
 3. In the user section, perform the following steps:
    
-    ![New User](./media/active-directory-saas-smarteru-tutorial/IC777329.png "New User")
-   
-    a. Click **+User**.
-   
-    b. Type the related attribute values of the Azure AD user account into the following textboxes: **Primary Email**, **Employee ID**, **Password**, **Verify Password**, **Given Name**, **Surname**.
-   
-    c. Click **Active**.
-   
-    d. Click **Save**.
+    ![New User](./media/active-directory-saas-smarteru-tutorial/IC777329.png "New User")   
+  1. Click **+User**.
+  2. Type the related attribute values of the Azure AD user account into the following textboxes: **Primary Email**, **Employee ID**, **Password**, **Verify Password**, **Given Name**, **Surname**.
+  3. Click **Active**. 
+  4. Click **Save**.
 
-> [!NOTE]
-> You can use any other SmarterU user account creation tools or APIs provided by SmarterU to provision AAD user accounts.
-> 
+>[!NOTE]
+>You can use any other SmarterU user account creation tools or APIs provided by SmarterU to provision AAD user accounts.
 > 
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to SmarterU, perform the following steps:
+**To assign users to SmarterU, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
 
 2. On the **SmarterU** application integration page, click **Assign users**.

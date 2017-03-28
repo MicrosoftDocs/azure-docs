@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/08/2017
 ms.author: mimig
 
 ---
@@ -55,7 +55,7 @@ There is no limit to the total amount of data that a collection can store in Doc
 There is no limit to the total amount of throughput that a collection can support in DocumentDB, if your workload can be distributed roughly evenly among a sufficiently large number of partition keys.
 
 ### How much does Microsoft Azure DocumentDB cost?
-Refer to the [DocumentDB pricing details](https://azure.microsoft.com/pricing/details/documentdb/) page for details. DocumentDB usage charges are determined by the number of collections in use, the number of hours the collections were online, and the consumed storage and provisioned throughput for each collection.
+Refer to the [DocumentDB pricing details](https://azure.microsoft.com/pricing/details/documentdb/) page for details. DocumentDB usage charges are determined by the number of collections provisioned, the number of hours the collections were online, and the provisioned throughput for each collection.
 
 ### Is there a free account available?
 If you are new to Azure, you can sign up for an [Azure free account](https://azure.microsoft.com/free/), which gives you 30 days and $200 to try all the Azure services. Or, if you have a Visual Studio subscription, you are eligible for [$150 in free Azure credits per month](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) to use on any Azure service.  
@@ -118,6 +118,26 @@ Yes, because DocumentDB is a RESTful service, resource links are immutable and c
 
 ### Is a local instance of DocumentDB available?
 Yes. The [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md) provides a high-fidelity emulation of the DocumentDB service. It supports identical functionality as Azure DocumentDB, including support for creating and querying JSON documents, provisioning and scaling collections, and executing stored procedures and triggers. You can develop and test applications using the DocumentDB Emulator, and deploy them to Azure at global scale by just making a single configuration change to the connection endpoint for DocumentDB.
+
+## Database questions about developing against API for MongoDB
+### What is DocumentDB's API for MongoDB?
+Microsoft Azure DocumentDB's API for MongoDB is a compatability layer that allows applications to easily and transparently communicate with the native DocumentDB database engine using existing, community supported Apache MongoDB APIs and drivers. Developers can now use existing MongoDB tool chains and skills to build applications that leverage DocumentDB, benefitting from DocumentDB's unique capabilities, which include auto-indexing, backup maintenance, financially backed service level agreements (SLAs), etc.
+
+### How to do I connect to my API for MongoDB database?
+The quickest way to connect to DocumentDB's API for MongoDB is to head over to the [Azure portal](https://portal.azure.com). Navigate your way to your account. In the account's *Left Navigation*, click on *Quick Start*. *Quick Start* is the best way to get code snippets to connect to your database. 
+
+DocumentDB enforces strict security requirements and standards. DocumentDB accounts require authentication and secure communication via *SSL*, so make sure to use TLSv1.2.
+
+For more details, see [Connect to your API for MongoDB database](documentdb-connect-mongodb-account.md).
+
+### Are there additional error codes for an API for MongoDB database?
+API for MongoDB has its own specific error codes in addition to the common MongoDB error codes.
+
+
+| Error               | Code  | Description  | Solution  |
+|---------------------|-------|--------------|-----------|
+| TooManyRequests     | 16500 | The total number of request units consumed has exceeded the provisioned request unit rate for the collection and has been throttled. | Consider scaling the throughput of the collection from the Azure Portal or retrying again. |
+| ExceededMemoryLimit | 16501 | As a multi-tenant service, the operation has exceeded the client's memory allotment. | Reduce the scope of the operation through a more restrictive query criteria or contact support from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>*Ex:  &nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 [azure-portal]: https://portal.azure.com
 [query]: documentdb-sql-query.md

@@ -1,3 +1,4 @@
+
 # Overview
 ## [What is Service Fabric?](service-fabric-overview.md)
 ## [Understand microservices](service-fabric-overview-microservices.md)
@@ -22,11 +23,13 @@
 ### [Patterns and scenarios](service-fabric-patterns-and-scenarios.md)
 ### Basics
 #### [Application model](service-fabric-application-model.md)
+#### [Package an application](service-fabric-package-apps.md)
 #### [Supported programming model](service-fabric-choose-framework.md)
 #### [Service state](service-fabric-concepts-state.md)
 #### [Service communication](service-fabric-connect-and-communicate-with-services.md)
 #### [Add a web front end](service-fabric-add-a-web-frontend.md)
 #### [Service manifest resources](service-fabric-service-manifest-resources.md)
+#### [Get started with Eclipse plugin for Java development](service-fabric-get-started-eclipse.md)
 #### [Manage apps in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 #### [Configure secure connections in Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
 #### Debug
@@ -54,7 +57,6 @@
 #### Get started
 ##### [C# on Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
-#### [Architecture](service-fabric-reliable-services-platform-architecture.md)
 #### [Reliable Services lifecycle](service-fabric-reliable-services-lifecycle.md)
 #### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 #### [Use Reliable Collections](service-fabric-work-with-reliable-collections.md)
@@ -63,7 +65,7 @@
 #### [Backup and restore](service-fabric-reliable-services-backup-restore.md)
 #### [Communicate with Reliable Services](service-fabric-reliable-services-communication.md)
 #### [Secure communications with Reliable Services](service-fabric-reliable-services-secure-communication.md)
-##### [ASP.NET](service-fabric-reliable-services-communication-webapi.md)
+##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 ##### [Service Remoting](service-fabric-reliable-services-communication-remoting.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Reverse Proxy](service-fabric-reverseproxy.md)
@@ -78,8 +80,8 @@
 #### [Lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
 #### [Polymorphism](service-fabric-reliable-actors-polymorphism.md)
 #### [Reentrancy](service-fabric-reliable-actors-reentrancy.md)
+#### [Events](service-fabric-reliable-actors-events.md) 
 #### [Timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
-#### [Events](service-fabric-reliable-actors-events.md)
 #### [State management](service-fabric-reliable-actors-state-management.md)
 #### [Configure KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
@@ -89,6 +91,7 @@
 ## Migrate from Cloud Services
 ### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [Migrate to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+### [Recomended practices](/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ## Create and manage clusters
 
@@ -110,11 +113,11 @@
 #### [Cluster networking patterns](service-fabric-patterns-networking.md)
 #### [Node types and VM Scale Sets](service-fabric-cluster-nodetypes.md)
 #### [Scale a cluster](service-fabric-cluster-scale-up-down.md)
+#### [Scale a cluster programmatically](service-fabric-cluster-programmatic-scaling.md)
 #### [Upgrade a cluster](service-fabric-cluster-upgrade.md)
 #### [Delete a cluster](service-fabric-cluster-delete.md)
 #### [Access control](service-fabric-cluster-security-roles.md)
 #### [Configure a cluster](service-fabric-cluster-fabric-settings.md)
-#### [Secure a cluster using certs](service-fabric-windows-cluster-x509-security.md)
 #### [Add or rollover cluster certificates](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Try a Party Cluster for free](http://aka.ms/tryservicefabric)
 
@@ -132,7 +135,8 @@
 
 ## Manage application lifecycle
 ### [Overview](service-fabric-application-lifecycle.md)
-### [Set up continuous integration](service-fabric-set-up-continuous-integration.md)
+### [Set up continuous integration with VSTS](service-fabric-set-up-continuous-integration.md)
+### [Deploy your Linux Java app using Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 ### [Understand the ImageStoreConnectionString setting](service-fabric-image-store-connection-string.md)
 ### Deploy or remove applications
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
@@ -166,7 +170,6 @@
 ### [Diagnostics in stateful Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnostics in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Troubleshoot your local cluster](service-fabric-troubleshoot-local-cluster-setup.md)
-### [Troubleshoot common issues](service-fabric-diagnostics-troubleshoot-common-scenarios.md)
 
 ## Scale applications
 ### [Partition Reliable Services](service-fabric-concepts-partitioning.md)
@@ -181,7 +184,6 @@
 #### [Using controlled Chaos](service-fabric-controlled-chaos.md)
 #### [Using Test actions](service-fabric-testability-actions.md)
 #### [During workloads](service-fabric-testability-workload-tests.md)
-#### [By invoking data loss](service-fabric-use-data-loss-api.md)
 #### [Using Test scenarios](service-fabric-testability-scenarios.md)
 #### [Using the node transition APIs](service-fabric-node-transition-apis.md)
 ### [Load test your application](service-fabric-vso-load-test.md)

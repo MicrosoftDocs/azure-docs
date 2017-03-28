@@ -32,14 +32,14 @@ For example, if you create a public IP resource with **contoso** as a **domainna
 
 If you create the public IP address using the portal, it will look like the following:
 
-![](media/azure-stack-whats-new-dns/image01.png)
+![Create public IP address](media/azure-stack-whats-new-dns/image01.png)
 
 This is particularly useful if you want to associate a public IP address with a load-balanced resource. For example, you might have a load balancer processing requests from a web application to a web site located behind the load balancer on one or more virtual machines.  Now you can access the load-balanced web site by a DNS name, rather than by an IP address.
 
 ## Create and manage DNS zones and records using API
 TP3 introduces the ability to create and manage DNS zones and records in Azure Stack.  
 
-Azure Stack provides a DNS service like that of Azure’s, using APIs that are consistent with Azure’s DNS APIs.  By hosting your domains in Azure Stack DNS, you can manage your DNS records with the same credentials, APIs, tools, billing, and support as your other Azure services. For obvious reasons the Azure Stack DNS infrastructure is more compact than Azures. Because of this, the scope, scale, and performance depends on the scale of the Azure Stack deployment and the environment where it is deployed.  So, things like performance, availability, global distribution and High-Availability (HA) can vary from deployment to deployment.
+Azure Stack provides a DNS service like that of Azure’s, using APIs that are consistent with Azure’s DNS APIs.  By hosting your domains in Azure Stack DNS, you can manage your DNS records with the same credentials, APIs, tools, billing, and support as your other Azure services. For obvious reasons the Azure Stack DNS infrastructure is more compact than Azure's. Because of this, the scope, scale, and performance depends on the scale of the Azure Stack deployment and the environment where it is deployed.  So, things like performance, availability, global distribution, and High-Availability (HA) can vary from deployment to deployment.
 
 ## Comparison with Azure DNS
 DNS in Azure Stack is very similar to DNS in Azure, with two major exceptions:
@@ -52,7 +52,7 @@ DNS in Azure Stack is very similar to DNS in Azure, with two major exceptions:
 
 In addition, there are some minor differences in how Azure Stack DNS implements Tags, Metadata, Etags, and Limits.
 
-The following information applies specifically to Azure Stack DNS and varies slightly from Azure DNS. To learn more Azure DNS, see DNS zones and records [DNS zones and records](../dns/dns-zones-records.md) at the Microsoft Azure documentation site.
+The following information applies specifically to Azure Stack DNS and varies slightly from Azure DNS. To learn more about Azure DNS, see [DNS zones and records](../dns/dns-zones-records.md) at the Microsoft Azure documentation site.
 
 ### Tags, metadata, and Etags
 
@@ -91,4 +91,5 @@ The following default limits apply when using Azure Stack DNS:
 | Record sets per zone| 5000|
 | Records per record set| 20|
 
-
+## Next steps
+[Introducing iDNS for Azure Stack](azure-stack-understanding-dns-in-tp2.md)

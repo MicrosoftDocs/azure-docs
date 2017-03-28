@@ -10,6 +10,7 @@ editor: cgronlun
 
 ms.assetid: 1f3b3a78-4d16-4d99-ba6e-06f7bb185d6a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -190,7 +191,7 @@ With the storage account, the input data, and the HiveQL script prepared, you ar
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="./media/hdinsight-hadoop-create-linux-clusters-adf/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Select **Use existing** option for the **Resource group** setting, and select the name of the resource group you created in the previous step (using PowerShell script). 
 3. Enter a name for the data factory (**Data Factory Name**). This name must be globally unique.
-4. Enter the **storage account name** and **store account key** you wrote down in the previous step.
+4. Enter the **storage account name** and **storage account key** you wrote down in the previous step.
 5. Select **I agree to the terms and conditions** stated above after reading through **terms and conditions**.
 6. Select **Pin to dashboard** option. 
 6. Click **Purchase/Create**. You see a tile on the Dashboard called **Deploying Template deployment**. Wait until the **Resource group** blade for your resource group opens. You can also click the tile titled as your resource group name to open the resource group blade. 
@@ -273,7 +274,7 @@ The following Data Factory entities are defined in the JSON template:
 * [Data pipeline with a copy activity](#data-pipeline)
 
 #### Azure Storage linked service
-The Azure Storage linked service links your Azure storage account to the data factory. In this tutorial, the same storage account is as the default HDInsight storage account, input data storage, and output data storage. Therefore, you define only one Azure Storage linked service. In the linked service definition, you specify the name and key of your Azure storage account. See [Azure Storage linked service](../data-factory/data-factory-azure-blob-connector.md#azure-storage-linked-service) for details about JSON properties used to define an Azure Storage linked service. 
+The Azure Storage linked service links your Azure storage account to the data factory. In this tutorial, the same storage account is used as the default HDInsight storage account, input data storage, and output data storage. Therefore, you define only one Azure Storage linked service. In the linked service definition, you specify the name and key of your Azure storage account. See [Azure Storage linked service](../data-factory/data-factory-azure-blob-connector.md#azure-storage-linked-service) for details about JSON properties used to define an Azure Storage linked service. 
 
 ```json
 {
@@ -331,7 +332,7 @@ See [On-demand HDInsight Linked Service](../data-factory/data-factory-compute-li
 > As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage.
 
 #### Azure blob input dataset
-In the input dataset definition, you specify the names of blob container, folder, and file that contains the input data. See [Azure Blob dataset properties](../data-factory/data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) for details about JSON properties used to define an Azure Blob dataset. 
+In the input dataset definition, you specify the names of blob container, folder, and file that contains the input data. See [Azure Blob dataset properties](../data-factory/data-factory-azure-blob-connector.md#dataset-properties) for details about JSON properties used to define an Azure Blob dataset. 
 
 ```json
 
@@ -373,7 +374,7 @@ Notice the following specific settings in the JSON definition:
 ```
 
 #### Azure Blob output dataset
-In the output dataset definition, you specify the names of blob container and folder that holds the output data. See [Azure Blob dataset properties](../data-factory/data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) for details about JSON properties used to define an Azure Blob dataset.  
+In the output dataset definition, you specify the names of blob container and folder that holds the output data. See [Azure Blob dataset properties](../data-factory/data-factory-azure-blob-connector.md#dataset-properties) for details about JSON properties used to define an Azure Blob dataset.  
 
 ```json
 

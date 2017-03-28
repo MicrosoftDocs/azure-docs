@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 03/07/2017
 ms.author: cynthn
 
 ---
@@ -95,4 +95,4 @@ Continue by following instructions for attaching either a [managed disk](#use-az
 
 
 ## Next steps
-After the disk is added, you need to prepare it for use. For more information, see [How to: Initialize a new data disk in Linux](virtual-machines-linux-classic-attach-disk.md#initialize-a-new-data-disk-in-linux).
+After the disk is added, you need to prepare it for use. For more information, see [How to: Initialize a new data disk in Linux](linux/classic/attach-disk.md#initialize-a-new-data-disk-in-linux).

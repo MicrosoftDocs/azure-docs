@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/03/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -80,6 +80,13 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 
 You can find commonly used URLs for your cluster in the Azure portal, the Azure Resource Explorer, or other Azure tools.
 
+### How do I tell which orchestrator version is running in my cluster?
+
+* DC/OS: See the [Mesosphere documentation](https://support.mesosphere.com/hc/en-us/articles/207719793-How-to-get-the-DCOS-version-from-the-command-line-)
+* Docker Swarm: Run `docker version`
+* Kubernetes: Run `kubectl version`
+
+
 ### How do I upgrade the orchestrator after deployment?
 
 Currently, Azure Container Service doesn't provide tools to upgrade the version of the orchestrator you deployed on your cluster. If Container Service supports a later version, you can deploy a new cluster. Another option is to use orchestrator-specific tools if they are available to upgrade a cluster in-place. For example, see [DC/OS Upgrading](https://dcos.io/docs/1.8/administration/upgrading/).
@@ -94,7 +101,7 @@ You can find the connection string in the Azure portal, or by using Azure comman
 
 3. In the **Deployment history** blade, click the deployment that has a name beginning with **microsoft-acs** followed by a deployment date. Example: microsoft-acs-201701310000.  
 
-4. On the **Summary** page, under **Outputs**, several cluster links are <provided></provided>. **SSHMaster0** provides an SSH connection string to the first master in your container service cluster. 
+4. On the **Summary** page, under **Outputs**, several cluster links are provided. **SSHMaster0** provides an SSH connection string to the first master in your container service cluster. 
 
 As previously noted, you can also use Azure tools to find the FQDN of the master. Make an SSH connection to the master using the FQDN of the master and the user name you specified when creating the cluster. For example:
 

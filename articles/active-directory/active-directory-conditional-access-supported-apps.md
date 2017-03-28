@@ -1,5 +1,5 @@
 ---
-title: Applications that use conditional access rules in Azure Active Directory | Microsoft Docs
+title: Applications and browsers that use conditional access rules in Azure Active Directory | Microsoft Docs
 description: With conditional access control, Azure Active Directory checks for specific conditions when it authenticates the user, and to allow application access.
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2017
+ms.date: 03/28/2017
 ms.author: markvi
 
 ---
-# Applications that use conditional access rules in Azure Active Directory
+# Applications and browsers that use conditional access rules in Azure Active Directory
+
 Conditional access rules are supported in Azure Active Directory (Azure AD)-connected applications, pre-integrated federated software as a service (SaaS) applications, applications that use password single sign-on (SSO), line-of-business applications, and applications that use Azure AD Application Proxy. For a detailed list of applications for which you can use conditional access, see [Services enabled with conditional access](active-directory-conditional-access-technical-reference.md). Conditional access works both with mobile and desktop applications that use modern authentication. In this article, we cover how conditional access works in mobile and desktop apps.
 
 You can use Azure AD sign-in pages in applications that use modern authentication. With a sign-in page, a user is prompted for multi-factor authentication. A message is shown if the user's access is blocked. Modern authentication is required for the device to authenticate with Azure AD, so that device-based conditional access policies are evaluated.
@@ -42,7 +43,7 @@ The following applications support conditional access for Office 365 and other A
 | Office 365 SharePoint Online |Windows 8.1, Windows 7 |Office 2016 apps, Office 2013 (with modern authentication), OneDrive sync client (see [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) |
 | Office 365 SharePoint Online |iOS, Android |Office mobile apps |
 | Office 365 SharePoint Online |Mac OS X |Office 2016 apps for multi-factor authentication and location only; device-based policy support planned for the future |
-| Office 365 Yammer |Windows 10, iOS, and Android |Office Yammer app |
+| Office 365 Yammer |Windows 10, iOS; Android support planned for the future |Office Yammer app |
 | Dynamics CRM |Windows 10, Windows 8.1, Windows 7, iOS, and Android |Dynamics CRM app |
 | PowerBI service |Windows 10, Windows 8.1, Windows 7, iOS, and Android |PowerBI app |
 | Azure Remote App service |Windows 10, Windows 8.1, Windows 7, iOS, Android, and Mac OS X |Azure Remote app |
@@ -106,3 +107,34 @@ By applying the following three rules to the AD FS relying party trust for Micro
     c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
     c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
+
+
+## Supported browsers
+
+
+| OS                     | Browsers                 | Support |
+| :--                    | :--                      | :-:     |
+| Win 10                 | IE, Edge                 | ![Check][1] |
+| Win 10                 | Chrome                   | Coming soon |
+| Win 8 / 8.1            | IE                       | ![Check][1] |
+| Win 7                  | IE                       | ![Check][1] |
+| iOS	                 | Safari                   | ![Check][1] |
+| Android                | Chrome                   | ![Check][1] |
+| WinPhone               | IE, Edge                 | ![Check][1] |
+| Windows Server 2016    | IE, Edge                 | ![Check][1] |
+| Windows Server 2012 R2 | IE                       | ![Check][1] |
+| Windows Server2008 R2	 | IE                       | ![Check][1] |
+| Mac OS                 | Safari                   | ![Check][1] |
+| Mac OS                 | Chrome                   | Coming soon |
+
+
+## Next steps
+
+For more details, see [Conditional access in Azure Active Directory](active-directory-conditional-access.md)
+
+
+
+<!--Image references-->
+[1]: ./media/active-directory-conditional-access-supported-apps/ic195031.png
+
+

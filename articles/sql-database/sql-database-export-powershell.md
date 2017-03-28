@@ -37,10 +37,10 @@ To complete this article, you need the following:
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
 ## Export your database
-The [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt707796\(v=azure.300\).aspx) cmdlet submits an export database request to the service. Depending on the size of your database, the export operation may take some time to complete.
+The [New-AzureRmSqlDatabaseExport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport) cmdlet submits an export database request to the service. Depending on the size of your database, the export operation may take some time to complete.
 
 > [!IMPORTANT]
-> To guarantee a transactionally consistent BACPAC file, you should first [create a copy of your database](sql-database-copy-powershell.md), and then export the database copy.
+> To guarantee a transactionally consistent BACPAC file, you should first [create a copy of your database](scripts/sql-database-copy-database-to-new-server-powershell.md), and then export the database copy.
 > 
 > 
 
@@ -50,7 +50,7 @@ The [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt70
 
 
 ## Monitor the progress of the export operation
-After running [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt603644\(v=azure.300\).aspx), you can check the status of the request by running [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/azure/mt707794\(v=azure.300\).aspx). Running this immediately after the request usually returns **Status : InProgress**. When you see **Status: Succeeded** the export is complete.
+After running [New-AzureRmSqlDatabaseExport](https://docs.microsoft.com//powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport), you can check the status of the request by running [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/get-azurermsqldatabaseimportexportstatus). Running this immediately after the request usually returns **Status : InProgress**. When you see **Status: Succeeded** the export is complete.
 
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
 
@@ -100,7 +100,7 @@ Azure SQL Database Automated Export is now in preview and will be retired on Mar
 
 
 ## Next steps
-* To learn how to import an Azure SQL database by using Powershell, see [Import a BACPAC using PowerShell](sql-database-import-powershell.md).
+* To learn how to import an Azure SQL database by using Powershell, see [Import a BACPAC using PowerShell](scripts/sql-database-import-from-bacpac-powershell.md).
 * To learn about importing a BACPAC using SQLPackage, see [Import a BACPAC to Azure SQL Database using SqlPackage](sql-database-import-sqlpackage.md)
 * To learn about importing a BACPAC using the Azure portal, see [Import a BACPAC to Azure SQL Database using the Azure portal](sql-database-import-portal.md)
 * For a discussion of the entire SQL Server database migration process, including performance recommendations, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
@@ -110,6 +110,6 @@ Azure SQL Database Automated Export is now in preview and will be retired on Mar
 
 
 ## Additional resources
-* [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt707796\(v=azure.300\).aspx)
-* [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/azure/mt707794\(v=azure.300\).aspx)
+* [New-AzureRmSqlDatabaseExport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport)
+* [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/get-azurermsqldatabaseimportexportstatus)
 

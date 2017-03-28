@@ -9,6 +9,7 @@ editor: cgronlun
 
 ms.assetid: e17794e8-faae-4264-9434-67f61ea78f13
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -170,7 +171,7 @@ SerDe is the best choice for parsing nested JSON documents, it allows you to def
 
     add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
 
-    ![Adding JAR to your project][image-hdi-hivejson-addjar]
+   ![Adding JAR to your project][image-hdi-hivejson-addjar]
 
 Now, you are ready to use the SerDe to run queries against the JSON document.
 
