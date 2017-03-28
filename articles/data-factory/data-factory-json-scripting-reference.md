@@ -24,35 +24,35 @@ Click the link for the store you are interested in to see the JSON schemas for l
 
 | Category | Data store 
 |:--- |:--- |
-| **Azure** |[Azure Blob storage](../articles/data-factory/data-factory-azure-blob-connector.mdlinked-service-properties) |
-| &nbsp; |[Azure Data Lake Store](../articles/data-factory/data-factory-azure-datalake-connector.md#linked-service-properties) |
-| &nbsp; |[Azure DocumentDB](../articles/data-factory/data-factory-azure-documentdb-connector.md#linked-service-properties) |
-| &nbsp; |[Azure SQL Database](../articles/data-factory/data-factory-azure-sql-connector.md#linked-service-properties) |
-| &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) |
-| &nbsp; |[Azure Search Index](../articles/data-factory/data-factory-azure-search-connector.md#linked-service-properties) |
-| &nbsp; |[Azure Table storage](../articles/data-factory/data-factory-azure-table-connector.md#linked-service-properties) |
-| **Databases** |[Amazon Redshift](../articles/data-factory/data-factory-amazon-redshift-connector.md#linked-service-properties) |
-| &nbsp; |[DB2](../articles/data-factory/data-factory-onprem-db2-connector.md#linked-service-properties) |
-| &nbsp; |[MySQL](../articles/data-factory/data-factory-onprem-mysql-connector.md#linked-service-properties) |
-| &nbsp; |[Oracle](../articles/data-factory/data-factory-onprem-oracle-connector.md#linked-service-properties) |
-| &nbsp; |[PostgreSQL](../articles/data-factory/data-factory-onprem-postgresql-connector.md#linked-service-properties) |
-| &nbsp; |[SAP Business Warehouse](../articles/data-factory/data-factory-sap-business-warehouse-connector.md#linked-service-properties) |
-| &nbsp; |[SAP HANA](../articles/data-factory/data-factory-sap-hana-connector.md#linked-service-properties) |
-| &nbsp; |[SQL Server](../articles/data-factory/data-factory-sqlserver-connector.md#linked-service-properties) |
-| &nbsp; |[Sybase](../articles/data-factory/data-factory-onprem-sybase-connector.md#linked-service-properties) |
-| &nbsp; |[Teradata](../articles/data-factory/data-factory-onprem-teradata-connector.md#linked-service-properties) |
-| **NoSQL** |[Cassandra](../articles/data-factory/data-factory-onprem-cassandra-connector.md#linked-service-properties) |
-| &nbsp; |[MongoDB](../articles/data-factory/data-factory-on-premises-mongodb-connector.md#linked-service-properties) |
-| **File** |[Amazon S3](../articles/data-factory/data-factory-amazon-simple-storage-service-connector.md#linked-service-properties) |
-| &nbsp; |[File System](../articles/data-factory/data-factory-onprem-file-system-connector.md#linked-service-properties) |
-| &nbsp; |[FTP](../articles/data-factory/data-factory-ftp-connector.md#linked-service-properties) |
-| &nbsp; |[HDFS](../articles/data-factory/data-factory-hdfs-connector.md#linked-service-properties) |
-| &nbsp; |[SFTP](../articles/data-factory/data-factory-sftp-connector.md#linked-service-properties) |
-| **Others** |[Generic HTTP](../articles/data-factory/data-factory-http-connector.md#linked-service-properties) |
-| &nbsp; |[Generic OData](../articles/data-factory/data-factory-odata-connector.md#linked-service-properties) |
-| &nbsp; |[Generic ODBC](../articles/data-factory/data-factory-odbc-connector.md#linked-service-properties) |
-| &nbsp; |[Salesforce](../articles/data-factory/data-factory-salesforce-connector.md#linked-service-properties) |
-| &nbsp; |[Web Table (table from HTML)](../articles/data-factory/data-factory-web-table-connector.md#linked-service-properties) |
+| **Azure** |[Azure Blob storage](data-factory-azure-blob-connector.mdlinked-service-properties) |
+| &nbsp; |[Azure Data Lake Store](data-factory-azure-datalake-connector.md#linked-service-properties) |
+| &nbsp; |[Azure DocumentDB](data-factory-azure-documentdb-connector.md#linked-service-properties) |
+| &nbsp; |[Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties) |
+| &nbsp; |[Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) |
+| &nbsp; |[Azure Search Index](data-factory-azure-search-connector.md#linked-service-properties) |
+| &nbsp; |[Azure Table storage](data-factory-azure-table-connector.md#linked-service-properties) |
+| **Databases** |[Amazon Redshift](data-factory-amazon-redshift-connector.md#linked-service-properties) |
+| &nbsp; |[DB2](data-factory-onprem-db2-connector.md#linked-service-properties) |
+| &nbsp; |[MySQL](data-factory-onprem-mysql-connector.md#linked-service-properties) |
+| &nbsp; |[Oracle](data-factory-onprem-oracle-connector.md#linked-service-properties) |
+| &nbsp; |[PostgreSQL](data-factory-onprem-postgresql-connector.md#linked-service-properties) |
+| &nbsp; |[SAP Business Warehouse](data-factory-sap-business-warehouse-connector.md#linked-service-properties) |
+| &nbsp; |[SAP HANA](data-factory-sap-hana-connector.md#linked-service-properties) |
+| &nbsp; |[SQL Server](data-factory-sqlserver-connector.md#linked-service-properties) |
+| &nbsp; |[Sybase](data-factory-onprem-sybase-connector.md#linked-service-properties) |
+| &nbsp; |[Teradata](data-factory-onprem-teradata-connector.md#linked-service-properties) |
+| **NoSQL** |[Cassandra](data-factory-onprem-cassandra-connector.md#linked-service-properties) |
+| &nbsp; |[MongoDB](data-factory-on-premises-mongodb-connector.md#linked-service-properties) |
+| **File** |[Amazon S3](data-factory-amazon-simple-storage-service-connector.md#linked-service-properties) |
+| &nbsp; |[File System](data-factory-onprem-file-system-connector.md#linked-service-properties) |
+| &nbsp; |[FTP](data-factory-ftp-connector.md#linked-service-properties) |
+| &nbsp; |[HDFS](data-factory-hdfs-connector.md#linked-service-properties) |
+| &nbsp; |[SFTP](data-factory-sftp-connector.md#linked-service-properties) |
+| **Others** |[Generic HTTP](data-factory-http-connector.md#linked-service-properties) |
+| &nbsp; |[Generic OData](data-factory-odata-connector.md#linked-service-properties) |
+| &nbsp; |[Generic ODBC](data-factory-odbc-connector.md#linked-service-properties) |
+| &nbsp; |[Salesforce](data-factory-salesforce-connector.md#linked-service-properties) |
+| &nbsp; |[Web Table (table from HTML)](data-factory-web-table-connector.md#linked-service-properties) |
 
 
 ## Computes
