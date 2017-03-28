@@ -17,7 +17,7 @@ ms.date: 01/07/2017
 ms.author: ambapat
 
 ---
-# Manage Key Vault using CLI
+# Manage Key Vault using CLI 2.0
 Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## Introduction
@@ -28,7 +28,7 @@ Use this tutorial to help you get started with Azure Key Vault to create a harde
 > [!NOTE]
 > This tutorial does not include instructions on how to write the Azure application that one of the steps includes, which shows how to authorize an application to use a key or secret in the key vault.
 >
-> Currently, you cannot configure Azure Key Vault in the Azure portal. Instead, use these Cross-Platform Command-Line Interface  instructions. Or, for Azure PowerShell instructions, see [this equivalent tutorial](key-vault-get-started.md).
+> This tutorial uses the latest Azure CLI 2.0. For instructions using older (node.js based) CLI refer to [this equivalent tutorial](key-vault-manage-with-cli.md).
 >
 >
 
