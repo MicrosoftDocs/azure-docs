@@ -24,9 +24,7 @@ ms.author: janeng
 
 In this tutorial, you use the Azure portal to create a database on a new server with a server-level firewall. You will then use SQL Server Management Studio to create a table, load data into that table, query the table, and add an index to the table. Finally, you will use the SQL Database service's automated backups to restore the database to an earlier point in time before you added this new table.
 
-Before you start:
-
-Install the newest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) 
+To complete this tutorial, make sure you have installed the newest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) 
 
 ## Step 1 - Log in to the Azure portal
 
@@ -187,4 +185,4 @@ Databases in Azure have [continuous backups](sql-database-automated-backups.md) 
 3. Click **OK** to restore the database to a point in time before the *Students* table was added.
 
 ## Next Steps 
- For PowerShell samples for common tasks, see [SQL Database PowerShell samples](sql-database-powershell-samples.md)
+For PowerShell samples for common tasks, see [SQL Database PowerShell samples](sql-database-powershell-samples.md)
