@@ -1,5 +1,5 @@
 ---
-title: Getting started with the Cloud Partner Portal  | Microsoft Docs
+title: Getting started with the Cloud Partner Portal for Azure Marketplace  | Microsoft Docs
 description: This article guides publishers of a tour around the Cloud Partner Portal and all that it is capable of.
 services: cloud-partner-portal
 documentationcenter: ''
@@ -46,7 +46,7 @@ The top menu bar contains interactive actions for support and feedback, as well 
 2.	Feedback – Have something you want to say? Let us know here.
 3.	Publisher account – When you first visit the portal you will see the publisher agreement contract to accept becoming a publisher. From then on, this is where you can make edits to your publisher profile or revisit the contract. 
 
-[!Note] The Publisher profile is where you connect your registered [Dev Center](https://dev.windows.com/en-us/registration?accountProgram=Azure) account so that you are able to sell your offers. If you have not already done so, please go register your company with Dev Center to ensure that you will be able to publish your offer.
+[!Note] The Publisher profile is where you connect your registered [Dev Center](https://dev.windows.com/registration?accountProgram=Azure) account so that you are able to sell your offers. If you have not already done so, please go register your company with Dev Center to ensure that you will be able to publish your offer.
 
 ### Offer page 
 As you create or edit your offer, you will work heavily in our offer page. This is where you configure all settings for your offer and check its status. 
@@ -57,6 +57,6 @@ As you create or edit your offer, you will work heavily in our offer page. This 
 2.	Use the Action Bar to explicitly manage your offer’s changes by saving and discarding your input.
 3.	Navigate between the required Forms for each offer as you change your offer’s settings.
 
-### Next steps	
+## Next steps	
 Now that you've seen the Cloud Partner Portal, learn more about all the [supported product types](./Cloud-partner-portal-products-that-can-get-published-via-portal.md).
 

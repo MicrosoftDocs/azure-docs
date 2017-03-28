@@ -1,5 +1,5 @@
 ---
-title: Lead Management Instructions for Dynamics CRM online  | Microsoft Docs
+title: Lead Management Instructions for Dynamics CRM online on Azure Marketplace  | Microsoft Docs
 description: This article guides publishers step by step as to how to set up their lead management with Dynamics CRM online.
 services: cloud-partner-portal
 documentationcenter: ''

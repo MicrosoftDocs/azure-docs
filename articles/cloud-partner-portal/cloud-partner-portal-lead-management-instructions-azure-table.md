@@ -1,5 +1,5 @@
 ---
-title: Lead Management Instructions for Azure Table  | Microsoft Docs
+title: Lead Management Instructions for Azure Table on Azure Marketplace  | Microsoft Docs
 description: This article guides publishers step by step as to how to set up their lead management with Azure Table storage.
 services: cloud-partner-portal
 documentationcenter: ''
@@ -18,9 +18,11 @@ ms.author: brdi
 
 # Lead Management Instructions for Azure Table
 
-1. If you don’t have an Azure account, then please first [go create one](https://azure.microsoft.com/en-us/pricing/free-trial/).
+This document provides you with instructions on how to setup your Azure Table so that Microsoft can provide you with sales leads. 
 
-2. Once your Azure account is ready, go log into the [Azure portal](https://portal.azure.com) and create a storage account. See screenshot below for instructions and go here to [learn more about storage pricing](https://azure.microsoft.com/en-us/pricing/details/storage/). <br/>
+1. If you don’t have an Azure account, then please first [go create one](https://azure.microsoft.com/pricing/free-trial/).
+
+2. Once your Azure account is ready, go log into the [Azure portal](https://portal.azure.com) and create a storage account. See screenshot below for instructions and go here to [learn more about storage pricing](https://azure.microsoft.com/pricing/details/storage/). <br/>
 
 ![Azure storage create flow image](./media/cloud-partner-portal-lead-management-instructions-azure-table\azurestoragecreate.png)
 
@@ -31,5 +33,4 @@ ms.author: brdi
   Sample final connection string: <br/>
 `{"connectionString":"DefaultEndpointsProtocol=https;AccountName=leadaccount;AccountKey=ObS0EW7tDmXrC8oNeG6IRHpx2IUioBQTQynQcR/MUMqrNqQ/RC6zctP8HfucNJO+ond7dJHTROO9ziiPNspjEg=="}`
 
-[!NOTE]
 You can use [Azure storage explorer](http://azurestorageexplorer.codeplex.com/) (third party app) or any other tool to see the data in your storage table or export the data.

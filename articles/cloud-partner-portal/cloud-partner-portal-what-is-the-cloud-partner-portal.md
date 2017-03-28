@@ -1,5 +1,5 @@
 ---
-title: What is the Cloud Partner Portal?  | Microsoft Docs
+title: What is the Cloud Partner Portal for Azure publishing?  | Microsoft Docs
 description: This article tells about how exactly the publishing process works on the Cloud Partner Portal.
 services: cloud-partner-portal
 documentationcenter: ''
@@ -27,7 +27,7 @@ If you are a new ISV and haven’t done so already, go ahead and
 
 If you are reading this section, you should have received an invitation email from us that your application is approved to onboard your solution to the [Cloud Partner Portal](https://cloudpartner.azure.com/), so let’s get started.
 
-## How the publishing process works
+### How the publishing process works
 The Cloud Partner Portal, makes it as easy as possible to take your pre-built solution and list it onto the Marketplace. It’s important to call out that we highly recommend you build your complete solution before coming to the publishing process, as it simplifies the work required and allows you to make your solution available faster.
 
 ![Publishing flow diagram](./media/cloud-partner-portal-what-is-the-cloud-partner-portal\publishing-flow-diagram.png)

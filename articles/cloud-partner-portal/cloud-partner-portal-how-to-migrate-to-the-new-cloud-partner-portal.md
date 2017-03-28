@@ -1,5 +1,5 @@
 ---
-title: How to migrate to the new Cloud Partner Portal  | Microsoft Docs
+title: How to migrate to the new Cloud Partner Portal for Azure Marketplace  | Microsoft Docs
 description: This article explains what the required steps are to migrate your offers to the new Cloud Partner Portal.
 services: cloud-partner-portal
 documentationcenter: ''

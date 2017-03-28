@@ -1,5 +1,5 @@
 ---
-title: Lead Management Instructions for Marketo  | Microsoft Docs
+title: Lead Management Instructions for Marketo on Azure Marketplace  | Microsoft Docs
 description: This article guides publishers step by step as to how to set up their lead management with Marketo.
 services: cloud-partner-portal
 documentationcenter: ''
@@ -17,6 +17,8 @@ ms.author: brdi
 ---
 
 # Lead Management Instructions for Marketo
+
+This document provides you with instructions on how to setup your Marketo system so that Microsoft can provide you with sales leads. 
 
 1. Go to “Design Studio” in Marketo. <br/>
 ![Marketo setup image](./media/cloud-partner-portal-lead-management-instructions-marketo\marketo1.png)
