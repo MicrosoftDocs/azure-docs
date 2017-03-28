@@ -114,13 +114,13 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Configure Single Sign-On](./media/active-directory-saas-landgorilla-tutorial/tutorial_landgorilla_url_02.png)
 
-    a. In the **Identifier** textbox, type the value using following pattern: 
+    a. In the **Identifier** textbox, type the value using one of the following pattern: 
 	
 	`https://<customer domain>.landgorilla.com/` 
 	
 	`https://www.<customer domain>.landgorilla.com`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern:
+	b. In the **Reply URL** textbox, type a URL using one of the following pattern:
 
 	`https://<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php`
 
