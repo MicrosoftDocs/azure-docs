@@ -144,7 +144,7 @@ Cause **
     By default, Windows Explorer does not run as Administrator. If you run net use from an Administrator command prompt, you map the network drive "As Administrator." Because mapped drives are user-centric, the user account that is logged in does not display the drives if they are mounted under a different user account. Solution is to mount the share from a non-administrator command line.
 
 ## Also See
-* [Manage Azure File Share using tools and scripts](storage-file-how-to-tooling-and-scripting)
+* [Manage Azure File Share using tools and scripts](storage-file-how-to-tooling-and-scripting.md)
 * [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md)
 * [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md)
 * [Using the Azure CLI with Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)
