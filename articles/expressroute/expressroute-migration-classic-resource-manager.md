@@ -20,32 +20,32 @@ ms.author: ganesr;cherylmc
 ---
 # Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model
 
-This article explains how to migrate ExpressRoute circuits and associated virtual networks from the classic deployment model to the Resource Manager deployment model. 
+This article explains how to migrate Azure ExpressRoute circuits and associated virtual networks from the classic deployment model to the Azure Resource Manager deployment model. 
 
 
 ## Before you begin
-* Verify that you have the latest version of the Azure PowerShell modules. For more information, see [how to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Verify that you have the latest version of the Azure PowerShell modules. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
-* Review the information that is provided under [moving an ExpressRoute circuit from classic to Resource Manager](expressroute-move.md). Make sure that you fully understand the limits and limitations.
+* Review the information that is provided under [Moving an ExpressRoute circuit from classic to Resource Manager](expressroute-move.md). Make sure that you fully understand the limits and limitations.
 * Verify that the circuit is fully operational in the classic deployment model.
 * Ensure that you have a resource group that was created in the Resource Manager deployment model.
 * Review the following resource-migration documentation:
 
-	* [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md).
+	* [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
 	* [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 	* [FAQs: Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
 	* [Common errors during classic to Azure Resource Manager migration](../virtual-machines/virtual-machines-migration-errors.md)
 
 ## Supported and unsupported scenarios
 
-* An ExpressRoute circuit can be migrated from the classic to the Resource Manager environment without any downtime. You can move any ExpressRoute circuit from the classic to the Resource manager environment with no downtime. Follow instructions on [moving ExpressRoute circuits from the classic to the Resource Manager deployment model using PowerShell](expressroute-howto-move-arm.md). This is a prerequisite to move resources connected to the virtual network.
-* Virtual networks, gateways, and associated deployments within the virtual network that are attached to an ExpressRoute in the same subscription can be migrated to the Resource Manager environment without any downtime. You can follow the steps described later to migrate resources such as virtual networks, gateways, and virtual machines deployed within the virtual network. You must ensure that the virtual networks are configured correctly before they are migrated. 
+* An ExpressRoute circuit can be migrated from the classic to the Resource Manager environment without any downtime. You can move any ExpressRoute circuit from the classic to the Resource Manager environment with no downtime. Follow instructions on [moving ExpressRoute circuits from the classic to the Resource Manager deployment model using PowerShell](expressroute-howto-move-arm.md). This is a prerequisite to move resources connected to the virtual network.
+* Virtual networks, gateways, and associated deployments within the virtual network that are attached to an ExpressRoute circuit in the same subscription can be migrated to the Resource Manager environment without any downtime. You can follow the steps described later to migrate resources such as virtual networks, gateways, and virtual machines deployed within the virtual network. You must ensure that the virtual networks are configured correctly before they are migrated. 
 * Virtual networks, gateways, and associated deployments within the virtual network that are not in the same subscription as the ExpressRoute circuit require some downtime to complete the migration. The last section of the document describes the steps to be followed to migrate resources.
 
 ## Move an ExpressRoute circuit from classic to Resource Manager
-You must move an expressRoute circuit from the classic to the Resource Manager environment before you try to migrate resources that are attached to the ExpressRoute circuit. To accomplish this task, see the following articles:
+You must move an ExpressRoute circuit from the classic to the Resource Manager environment before you try to migrate resources that are attached to the ExpressRoute circuit. To accomplish this task, see the following articles:
 
-* Review the information that is provided under [moving an ExpressRoute circuit from classic to Resource Manager](expressroute-move.md).
+* Review the information that is provided under [Moving an ExpressRoute circuit from classic to Resource Manager](expressroute-move.md).
 * [Move a circuit from classic to Resource Manager using Azure PowerShell](expressroute-howto-move-arm.md).
 * Use the Azure Service Management portal. You can follow the workflow to [create a new ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md) and select the import option. 
 
@@ -158,7 +158,7 @@ This section describes the steps to be followed to migrate a virtual network, ga
 	New-AzureRmVirtualNetworkGatewayConnection -Name  ($vnetName + "-GwConn") -ResourceGroupName ($vnetName + "-Migrated")  -Location $vnet.Location -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey $key
 	```
 ## Next steps
-* [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md).
+* [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 * [FAQs: Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
 * [Common errors during classic to Azure Resource Manager migration](../virtual-machines/virtual-machines-migration-errors.md)
