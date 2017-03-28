@@ -26,9 +26,9 @@ The permissions required to restore a group can be any of the following:
 
 Role  | Permissions 
 --------- | ---------
-Company Administrator, Partner Tier2 support, and InTune Service Admins | Can restore ANY group 
-User Account Administrator and Partner Tier1 support | Can restore any group except those assigned to the Company Administrator role 
-User | Can restore any group that they own 
+Company Administrator, Partner Tier2 support, and InTune Service Admins | Can restore any deleted Office 365 group 
+User Account Administrator and Partner Tier1 support | Can restore any deleted Office 365 group except those assigned to the Company Administrator role 
+User | Can restore any deleted Office 365 group that they owned 
 
 
 ## How to view deleted Office 365 groups that are available to restore
