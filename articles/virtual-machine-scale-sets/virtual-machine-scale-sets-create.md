@@ -77,10 +77,24 @@ The path to an HTTP URI:
 >[!TIP]
 >You can get a list of available images with `az vm image list`.
 
+
 To create a virtual machine scale set you must specify the _resource group_, _name_, _operating system image_, and _authentication information_. The following example creates a basic virtual machine scale set (this step may take a few minutes).
 
 ```azurecli
 az vmss create --resource-group vmss-test-1 --name MyScaleSet --image UbuntuLTS --authentication-type password --admin-username azureuser --admin-password P@ssw0rd!
+```
+
+Once the command finishes you will now have your virtual machine scale set created. You may need to get the IP address of the virtual machine so that you can connect to it. You can get a lot of different information about the virtual machine (including the IP address) with the following command. 
+
+```azurecli
+az vmss list-instance-connection-info --resource-group vmss-test-1 --name MyScaleSet
+```
+
+With the IP address, you can connect to your virtual machine (provided you have opened the correct ports).
+To open a port, use this command.
+
+```azurecli
+
 ```
 
 ## Create from PowerShell
