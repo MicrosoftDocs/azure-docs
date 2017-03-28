@@ -39,7 +39,7 @@
 ### [Configure alerts on service notifications](monitoring-activity-log-alerts-on-service-notifications.md)
 ## Action Groups
 ### [Learn about webhook schema](monitoring-activity-log-alerts-webhook.md)
-### [SMS Alert behavior](monitoring-sms-alert-behavior)
+### [SMS Alert behavior](monitoring-sms-alert-behavior.md)
 ### [Alert Rate limiting](monitoring-alerts-rate-limiting.md)
 ### [Create action groups with Resource Manager](monitoring-create-action-group-with-resource-manager-template.md)
 ## Manage diagnostic logs
