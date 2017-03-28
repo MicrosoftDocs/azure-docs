@@ -62,7 +62,7 @@ When a customer deploys container applications on Azure resources, they are depl
 
 It is also critical to understand that containers share the kernel and the resources of the host (which in Azure Container Service is an Azure VM in a cluster). Therefore, containers running in production must be run in non-privileged user mode. Running a container with root privileges can compromise the entire environment. With root-level access in a container, a hacker can gain access to the full root privileges on the host. In addition, it is important to run containers with read-only file systems. This prevents someone who has access to the compromised container to write malicious scripts to the file system and gain access to other files. Similarly, it is important to limit the resources (such as memory, CPU, and network bandwidth) allocated to a container. This helps prevent hackers from hogging resources and pursuing illegal activities such as credit card fraud or bitcoin mining, which could previent other containers from running on the host or cluster.
 
-### Orchestrator considerations
+## Orchestrator considerations
 
 Each orchestrator available in Azure Container Service has its own security considerations and best practices. For example, you should limit direct SSH access to cluster hosts in Container Service. Instead, you should use the orchestrator UI and command-line tools (such as `kubectl` for Kubernetes) to manage the container environment without accessing the host. For more information, see [Make a remote connection to a Kubernetes, DC/OS, or Docker Swarm cluster](container-service-connect.md).
 
@@ -70,7 +70,7 @@ For additional orchestrator-specific security information, see the following res
 
 * **Kubernetes**: [Security Best Practices for Kubernetes Deployment](http://blog.kubernetes.io/2016/08/security-best-practices-kubernetes-deployment.html)
 
-* **DC/OS**: [Securing Your cluster](https://dcos.io/docs/1.8/administration/securing-your-cluster/)
+* **DC/OS**: [Securing Your Cluster](https://dcos.io/docs/1.8/administration/securing-your-cluster/)
 
 * **Docker Swarm**: [Docker Security](https://www.docker.com/docker-security)
 
@@ -78,6 +78,6 @@ For additional orchestrator-specific security information, see the following res
 
 ## Next steps
 
-* For more about Docker container security, see [Introduction to Container Security](https://www.docker.com/sites/default/files/WP_IntrotoContainerSecurity_08.19.2016.pdf)
+* For more about Docker container security, see [Introduction to Container Security](https://www.docker.com/sites/default/files/WP_IntrotoContainerSecurity_08.19.2016.pdf).
 
-* For information about Azure platform security, see the [Azure Security Center](https://www.microsoft.com/trustcenter/security/azure-security )
+* For information about Azure platform security, see the [Azure Security Center](https://www.microsoft.com/en-us/trustcenter/cloudservices/azure).
