@@ -17,14 +17,14 @@ ms.author: spelluru
 
 ---
 # Azure Data Factory - JSON Scripting Reference
-The following sections provide links to sections in other articles that has JSON schemas specific to the store or compute. 
+The following sections provide links to sections in other articles that have JSON schemas specific to the store or compute. 
 
 ## Data stores
 Click the link for the store you are interested in to see the JSON schemas for linked service, dataset, and the source/sink for the copy activity.
 
 | Category | Data store 
 |:--- |:--- |
-| **Azure** |[Azure Blob storage](data-factory-azure-blob-connector.mdlinked-service-properties) |
+| **Azure** |[Azure Blob storage](data-factory-azure-blob-connector.md#linked-service-properties) |
 | &nbsp; |[Azure Data Lake Store](data-factory-azure-datalake-connector.md#linked-service-properties) |
 | &nbsp; |[Azure DocumentDB](data-factory-azure-documentdb-connector.md#linked-service-properties) |
 | &nbsp; |[Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties) |
