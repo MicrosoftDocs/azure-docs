@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2017
+ms.date: 03/22/2017
 ms.author: markvi
 
 ---
@@ -42,9 +42,9 @@ The following applications support conditional access for Office 365 and other A
 | Office 365 SharePoint Online |Windows 8.1, Windows 7 |Office 2016 apps, Office 2013 (with modern authentication), OneDrive sync client (see [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) |
 | Office 365 SharePoint Online |iOS, Android |Office mobile apps |
 | Office 365 SharePoint Online |Mac OS X |Office 2016 apps for multi-factor authentication and location only; device-based policy support planned for the future |
-| Office 365 Yammer |Windows 10, iOS, and Android |Office Yammer app |
+| Office 365 Yammer |Windows 10, iOS; Android support planned for the future |Office Yammer app |
 | Dynamics CRM |Windows 10, Windows 8.1, Windows 7, iOS, and Android |Dynamics CRM app |
-| PowerBI service |Windows 10, Windows 8.1, Windows 7, iOS, and Android |PowerBI app |
+| PowerBI service |Windows 10, Windows 8.1, Windows 7, and iOS|PowerBI app (Andoird app not supported) |
 | Azure Remote App service |Windows 10, Windows 8.1, Windows 7, iOS, Android, and Mac OS X |Azure Remote app |
 | Any My Apps app service |Android and iOS |Any My Apps app service |
 

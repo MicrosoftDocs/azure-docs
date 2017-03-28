@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Data Catalog supported data sources | Microsoft Docs
 description: Specification of the currently supported data sources.
 services: data-catalog
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 02/17/2017
+ms.date: 03/14/2017
 ms.author: maroche
 
 ---
@@ -368,8 +368,8 @@ You can publish meta data using a public API, a click-once registration tool, or
     <tr>
       <td>Postgresql Table</td>
       <td>✓</td>
-      <td></td>
-      <td></td>
+      <td>✓</td>
+      <td>✓</td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
@@ -377,8 +377,8 @@ You can publish meta data using a public API, a click-once registration tool, or
     <tr>
       <td>Postgresql View</td>
       <td>✓</td>
-      <td></td>
-      <td></td>
+      <td>✓</td>
+      <td>✓</td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>

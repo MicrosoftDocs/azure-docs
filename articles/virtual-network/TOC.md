@@ -7,9 +7,6 @@
 ## IP addressing
 ### [Resource Manager](virtual-network-ip-addresses-overview-arm.md)
 ### [Classic](virtual-network-ip-addresses-overview-classic.md)
-## Virtual machines
-### [Network interfaces](virtual-network-network-interface-overview.md)
-### [Name resolution](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 # Get Started
 ## [Create your first virtual network](virtual-network-get-started-vnet-subnet.md)
@@ -107,6 +104,7 @@
 ### Access control lists
 #### [Classic portal](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
+### [Name resolution for VMs and cloud services](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ## Manage
 ### Network security groups
@@ -125,6 +123,7 @@
 ### Routes
 #### [Portal](virtual-network-routes-troubleshoot-portal.md)
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
+### [Throughput testing](virtual-network-bandwidth-testing.md)
 
 # Reference
 ## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)

@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/01/2017
+ms.date: 03/15/2017
 ms.author: alkohli
 
 ---
@@ -153,7 +153,7 @@ On your virtual array, you can provision shares when it is configured as a file 
 Keep in mind the following best practices when provisioning shares or volumes on your virtual device.
 
 * The file sizes relative to the provisioned size of a tiered share can impact the tiering performance. Working with large files could result in a slow tier out. When working with large files, we recommend that the largest file is smaller than 3% of the share size.
-* A maximum of 16 volumes/shares can be created on the virtual array. If locally pinned, the volumes/shares can be between 50 GB to 2 TB. If tiered, the volumes/shares must be between 500 GB to 20 TB. 
+* A maximum of 16 volumes/shares can be created on the virtual array. For the size limits of the locally pinned and tiered volumes/shares, always refer to the [StorSimple Virtual Array limits](storsimple-ova-limits.md).
 * When creating a volume, factor in the expected data consumption as well as future growth. The volume cannot be expanded later.
 * Once the volume has been created, you cannot shrink the size of the volume on StorSimple.
 * When writing to a tiered volume on StorSimple, when the volume data reaches a certain threshold (relative to the local space reserved for the volume), the IO is throttled. Continuing to write to this volume slows down the IO significantly. Though you can write to a tiered volume beyond its provisioned capacity (we do not actively stop the user from writing beyond the provisioned capacity), you see an alert notification to the effect that you have oversubscribed. Once you see the alert, it is imperative that you take remedial measures such as delete the volume data (volume expansion is currently not supported).

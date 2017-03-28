@@ -40,7 +40,7 @@ See also [Manage the availability of Windows virtual machines](virtual-machines/
 One of two [deployment models](resource-manager-deployment-model.md) used to deploy resources in Azure (the new model is Azure Resource Manager). Some Azure resources can be deployed in one model or the other, while others can be deployed in both models. Guidance for individual Azure resources detail which model(s) a resource can be deployed with.
 
 ### <a name="cli"></a>Azure command-line interface (CLI)
-A [command-line interface](xplat-cli-install.md) that can be used to manage Azure services from Windows, OSX, and Linux PCs.
+A [command-line interface](cli-install-nodejs.md) that can be used to manage Azure services from Windows, OSX, and Linux PCs.
 
 ### <a name="powershell"></a>Azure PowerShell
 A [command-line interface](/powershell/azureps-cmdlets-docs) to manage Azure services via a command line from Windows PCs. Some services or service features can be managed only via PowerShell or the CLI. Guidance for each individual Azure resource details which model(s) a resource can be deployed with.   

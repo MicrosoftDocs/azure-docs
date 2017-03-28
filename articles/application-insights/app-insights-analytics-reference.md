@@ -711,10 +711,12 @@ The result arrays are rendered in an Analytics chart in the same way as the corr
 
 **Example**
 
+```AIQL
 requests
 | make-series sum(itemCount) default=0, avg(duration) default=0
   on timestamp in range (ago(7d), now(), 1d)
   by client_City
+```
 
 ![Results of make-series](./media/app-insights-analytics-reference/make-series.png)
 

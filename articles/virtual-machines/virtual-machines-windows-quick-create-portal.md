@@ -11,16 +11,18 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/14/2017
+ms.date: 03/21/2017
 ms.author: nepeters
 ---
 
 # Create a Windows virtual machine with the Azure portal
 
-Azure virtual machines can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring VMs, and all related Azure resources.
+Azure virtual machines can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring virtual machines and all related resources. This Quickstart steps through creating a virtual machine using the Azure portal. 
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Log in to Azure 
 
@@ -32,7 +34,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 3. Select **Compute** from the **New** blade, select **Windows Server 2016 Datacenter** from the **Compute** blade, and then click the **Create** button.
 
-4. Fill out the virtual machine **Basics** form. For **Resource group**, create a new one. A resource group is a logical container into which Azure resources are created and collectively managed. When complete, click **OK**.
+4. Fill out the virtual machine **Basics** form. The user name and password entered here is used to log in to the virtual machine. For **Resource group**, create a new one. A resource group is a logical container into which Azure resources are created and collectively managed. When complete, click **OK**.
 
     ![Enter basic information about your VM in the portal blade](./media/virtual-machine-quick-start/create-windows-vm-portal-basic-blade.png)  
 
@@ -46,19 +48,17 @@ Log in to the Azure portal at http://portal.azure.com.
 
 ## Connect to virtual machine
 
-After the deployment has completed, create a remote desktop connection with the virtual machine.
+After the deployment has completed, create a remote desktop connection to the virtual machine.
 
-1. Click the **Connect** button on the virtual machine blade. This creates and downloads a Remote Desktop Protocol file (.rdp file) that is like a shortcut to connect to your machine. Open this file to connect to your VM.
+1. Click the **Connect** button on the virtual machine blade. A Remote Desktop Protocol file (.rdp file) is created and downloaded.
 
     ![Portal 9](./media/virtual-machine-quick-start/portal-quick-start-9.png) 
 
-3. Click **Connect** on the remote desktop connection window.
+2. To connect to your VM, open the downloaded RDP file. If prompted, click **Connect**. On a Mac, you need an RDP client such as this [Remote Desktop Client](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) from the Mac App Store.
 
-    ![Portal 10](./media/virtual-machine-quick-start/portal-quick-start-10.png) 
+3. Enter the user name and password you specified when creating the virtual machine, then click **Ok**.
 
-4. Enter the user name and password specified when creating the virtual machine, and then click **Ok**.
-
-5. You may receive a certificate warning, click **Yes** to proceed with the connection.
+4. You may receive a certificate warning during the login process. Click **Yes** or **Continue** to proceed with the connection.
 
 ## Delete virtual machine
 

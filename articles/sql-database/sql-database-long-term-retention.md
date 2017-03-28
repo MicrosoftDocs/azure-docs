@@ -108,7 +108,7 @@ To remove long-term backup retention backups from the vault, see [Delete long-te
     A: No, the vault and server must be in the same region to minimize the copy time and avoid the traffic charges.
 5. Q: How many databases can I store in one vault?
 
-    A: Currently we only support up to 1000 databases per vault. 
+    A: Currently, we only support up to 1000 databases per vault. 
 6. Q. How many vaults can I create per subscription?
 
     A. You can create up to 25 vaults per subscription.
@@ -126,7 +126,7 @@ To remove long-term backup retention backups from the vault, see [Delete long-te
     A. Yes, TDE is supported. You can restore the database from the vault even if the original database no longer exists.
 11. Q. What happens with the backups in the vault if my subscription is suspended? 
 
-    A. If your subscription is suspended, we retain the existing databases and backups but the new backups are not be copied to the vault. After you reactivate the subscription, the service resumes copying backups to the vault. Your vault become accessibles to the restore operations using the backups that had been copied there before the subscription was suspended. 
+    A. If your subscription is suspended, we retain the existing databases and backups. New backups are not being copied to the vault. After you reactivate the subscription, the service resumes copying backups to the vault. Your vault become accessibles to the restore operations using the backups that had been copied there before the subscription was suspended. 
 12. Q: Can I get access to the SQL Database backup files so I can download / restore to SQL Server?
 
     A: No, not currently.
