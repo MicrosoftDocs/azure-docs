@@ -12,8 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 03/28/2017
 ms.author: rupesk@microsoft.com
+ms.robots: NOINDEX, NOFOLLOW
 
 
 ---
@@ -22,7 +23,9 @@ ms.author: rupesk@microsoft.com
 
 This document is a walk through on viewing and managing users to your registered publisher profile. 
 
-By this time, you have completed the steps to become an Azure Marketplace and Appsource publisher. The publisher profile is registered on the **[Cloud Partner Portal](https://cloudpartner.azure.com/)** following approval of your partner request.Your publisher profile will be applicable to all the offers and SKUs published via your account used during partner registration. Your publisher profile will apply to all offers and SKUs published from the account used during partner registration. (If you haven’t registered your company as a Cloud Partner click [here](http://createopportunity.azurewebsites.net/)
+By this time, you have completed the steps to become an Azure Marketplace and Appsource publisher. The publisher profile is registered on the **[Cloud Partner Portal](https://cloudpartner.azure.com/)** following approval of your partner request.Your publisher profile will be apply to all the offers and SKUs published via from the account used during partner registration.  
+
+(**If you haven’t registered your company as a Cloud Partner click [here](http://createopportunity.azurewebsites.net/)** )
 
 Your publisher profile distinguishes your company on the Azure Marketplace and Appsource. It consists of your publisher ID, display name, and owner email(s). A well-managed profile will increase your visibility and help Marketplace users easily identify and select an appropriate offer.
 
@@ -30,11 +33,11 @@ Your publisher profile distinguishes your company on the Azure Marketplace and A
 
 > [!NOTE] 
 > 
-> Your publisher ID and registered owner email is not editable once you publish your first offer. You can view and edit (restricted to only updating the publisher display name) your publisher profile from the ‘Cloud Partner Portal’. 
+> Your publisher ID and registered owner email is not editable once you publish your first offer. You can view and edit (restricted to updating the publisher display name) your publisher profile from the ‘Cloud Partner Portal’. 
 
 
 > [!NOTE]  
-> Add users (contributors and owners) to your publishing profile from the Users section on the left navigation pane on the   **[Cloud Partner Portal](https://cloudpartner.azure.com/).** 
+> Add users (contributors and owners) to your publishing profile from the **Users** section on the left navigation pane on the   **[Cloud Partner Portal](https://cloudpartner.azure.com/).** 
 
 **To view and manage your publisher profile**, from the top-right menu bar, click the **Publisher profile tab**. 
 
