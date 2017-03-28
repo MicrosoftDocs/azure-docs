@@ -19,8 +19,34 @@ ms.author: jingwang
 
 # Repeatable copy in Azure Data Factory
 
-## Introduction
-When copying data to Azure SQL/SQL Server from other data stores, you need to keep repeatability in mind to avoid unintended outcomes. 
+## Repeatable read from relational sources
+When copying data from relational data stores, keep repeatability in mind to avoid unintended outcomes. In Azure Data Factory, you can rerun a slice manually. You can also configure retry policy for a dataset so that a slice is rerun when a failure occurs. When a slice is rerun in either way, you need to make sure that the same data is read no matter how many times a slice is run.  
+ 
+> [!NOTE]
+> The following samples are for Azure SQL but are applicable to any data store that supports rectangular datasets. You may have to adjust the **type** of source and the **query** property (for example: query instead of sqlReaderQuery) for the data store.   
+
+Usually, when reading from relational stores, you want to read only the data corresponding to that slice. A way to do so would be by using the WindowStart and WindowEnd system variables available in Azure Data Factory. Read about the variables and functions in Azure Data Factory here in the [Azure Data Factory - Functions and System Variables](data-factory-functions-variables.md) article. Example: 
+
+```json
+"source": {
+	"type": "SqlSource",
+	"sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm\\'', WindowStart, WindowEnd)"
+},
+```
+This query reads data that falls in the slice duration range (WindowStart -> WindowEnd) from the table MyTable. Rerun of this slice would also always ensure that the same data is read. 
+
+In other cases, you may wish to read the entire table and may define the sqlReaderQuery as follows:
+
+```json
+"source": 
+{            
+	"type": "SqlSource",
+	"sqlReaderQuery": "select * from MyTable"
+},
+```
+
+## Repeatable write at SqlSink
+When copying data to **Azure SQL/SQL Server** from other data stores, you need to keep repeatability in mind to avoid unintended outcomes. 
 
 When copying data to Azure SQL/SQL Server Database, the copy activity appends data to the sink table by default. Say, you are copying data from a CSV (comma-separated values) file containing two records to the following table in an Azure SQL/SQL Server Database. When a slice runs, the two records are copied to the SQL table. 
 
