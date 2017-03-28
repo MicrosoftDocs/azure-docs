@@ -23,7 +23,7 @@ This article provides guidelines to explore different Azure AD capabilities in a
 
 ## How to use this Playbook
 
-1. Use the [Theme](#Theme) section and pick the area(s) of interest based on your needs.  
+1. Use the [Theme](#theme) section and pick the area(s) of interest based on your needs.  
 2. Scope the PoC by choosing the scenarios that align with your business goals. The shorter the better. We recommend to do it as short and concise as possible to convey the value to the stakeholders while minimizing the complexity to realize it.  
 3. Use the PoC Implementation section to understand the scenarios, and what would they mean for your environment. In each scenario, we describe how to set it up (what we call building blocks), and how to navigate the scenarios. 
 4. Each building block explains the pre-requisites needed, as well as an approximate time to complete. This can help you during the planning process. 
