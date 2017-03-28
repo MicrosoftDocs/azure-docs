@@ -203,7 +203,7 @@ The sample application is hosted on Github. Clone the sample repository that con
 1. Run the following command:
 
    ```bash
-   git clone https://github.com/Azure-Samples/iot-hub-feather-huzzah-client-app.git
+   git clone https://github.com/Azure-Samples/iot-hub-SparkFun-ThingDev-client-app.git
    ```
 
 Install the package for Sparkfun ESP8266 Thing Dev in Arduino IDE:
