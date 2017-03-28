@@ -6,6 +6,7 @@ documentationcenter: ''
 author: anuragdalmia
 manager: hamidm
 
+ms.robots: NOINDEX, NOFOLLOW
 ms.service: cloud-partner-portal
 ms.devlang: na
 ms.topic: article
