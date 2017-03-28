@@ -57,7 +57,7 @@ This article describes how to create a cluster on Windows-based Azure virtual ma
         }
         ],
     ```
-7. If you intend this to be a secure cluster, decide the security measure you would like to use and follow the steps at the associated link: [X509 Certificate](service-fabric-windows-cluster-x509-security.md) or [Windows Security](service-fabric-windows-cluster-windows-security). If setting up the cluster using Windows Security, you will need to set up a domain controller to manage Active Directory. Note that using a domain controller machine as a Service Fabric node is not supported.
+7. If you intend this to be a secure cluster, decide the security measure you would like to use and follow the steps at the associated link: [X509 Certificate](service-fabric-windows-cluster-x509-security.md) or [Windows Security](service-fabric-windows-cluster-windows-security.md). If setting up the cluster using Windows Security, you will need to set up a domain controller to manage Active Directory. Note that using a domain controller machine as a Service Fabric node is not supported.
 8. Open a [PowerShell ISE window](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise). Navigate to the folder where you extracted the downloaded standalone installer package and saved the cluster configuration file. Run the following PowerShell command to deploy the cluster:
    
     ```
