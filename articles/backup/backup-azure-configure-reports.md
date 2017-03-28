@@ -48,7 +48,7 @@ Use the following steps to configure storage account for recovery services vault
 6. Select **Azure Backup Reporting Data** check box and also move the slider to select retention period for this reporting data. Reporting data in storage account is kept for the period selected using this slider. 
 7. Review all the changes and click **Save** button on top. This action ensures that all your changes are saved and storage account is now configured for storing reporting data.
 
-## Viewing reports in Power BI 
+## View reports in Power BI 
 After configuring storage account for reports using recovery services vault, it takes around 24 hours for reporting data to start flowing in. After 24 hours of setting up storage account, use the following steps to view reports in Power BI:
 1. [Sign in](https://powerbi.microsoft.com/landing/signin/) to Power BI.
 2. Click **Get Data** and click Get under **Services** in Content Pack Library. [Learn more](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-packs-services/) about Power BI content packs.
