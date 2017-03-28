@@ -60,3 +60,11 @@ After configuring storage account for reports using recovery services vault, it 
 8. Click **Azure Backup** under Dashboards, which shows a set of pinned key reports.
 9. Click on any report in the dashboard to navigate to the complete set of reports.
 10. Click on each tab in the reports to view reports in that area.
+
+## Next Steps
+Now that you have configured storage account for reports and imported Azure Backup content pack, the next step is to customize these reports and leveraging the data model for creating new reports. Please refer the following articles for more details.
+
+* [Filtering reports in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
+* Leveraging Azure Backup reporting data model 
+* [Creating new reports in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
+
