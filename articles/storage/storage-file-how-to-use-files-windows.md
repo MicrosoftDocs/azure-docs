@@ -19,10 +19,10 @@ ms.author: renash
 
 # Mount the file share from a machine running Windows
 
-Azure File storage is a service that offers file shares in the cloud using the standard Server Message Block (SMB) Protocol. Both SMB 2.1 and SMB 3.0 are supported. Mounting is possible from the server located at local datacenter, on-premises or in Azure provided the [prereqisites](#prereq) below are met. The instructions to mount and persist on all Windoes version are the same from command line. UI mounting differes slightly in each OS. We will go over mounting Azure File Share form Windows 10 File Explorer from UI.
+Azure File storage is a service that offers file shares in the cloud using the standard Server Message Block (SMB) Protocol. Both SMB 2.1 and SMB 3.0 are supported. Mounting is possible from the server located at local datacenter, on-premises or in Azure provided the [prereqisites](#prereq) below are met. The instructions to mount and persist on all Windows version are the same from command line. UI mounting differs slightly in each OS. We will go over mounting Azure File Share form Windows 10 File Explorer from UI.
 
 * [Prerequisites](#prereq)
-* [Automatically reconnecting after reboot - Pesisting credentials](#reconnect)
+* [Automatically reconnecting after reboot - Persisting credentials](#reconnect)
 * [Mount file share using net use command](#netuse)
 * [Mount Azure File Share using File Explorer on Windows 10](#win10)
 * [Troubleshoot mounting in Windows](#troubleshoot)
@@ -30,9 +30,9 @@ Azure File storage is a service that offers file shares in the cloud using the s
 <a id="prereq"/></a>
 ## Prerequisites for Mounting Azure File Share
 
-Azure File share can be mounted on Windows machine either on-premises orin Azure VM depending on OS version. Below table illustrates the 
+Azure File share can be mounted on Windows machine either on-premises or in Azure VM depending on OS version. Below table illustrates the 
 
-| Windows Version        | SMB Version |Mountable On Azure VM|Mountable On-Premisis|
+| Windows Version        | SMB Version |Mountable On Azure VM|Mountable On-Premise|
 |------------------------|-------------|---------------------|---------------------|
 | Windows 7              | SMB 2.1     | Yes                 | No                  |
 | Windows Server 2008 R2 | SMB 2.1     | Yes                 | No                  |
@@ -42,7 +42,7 @@ Azure File share can be mounted on Windows machine either on-premises orin Azure
 | Windows 10             | SMB 3.0     | Yes                 | Yes                 |
 
 <a id="reconnect"/></a>
-## Automatically reconnecting after reboot - Pesisting credentials
+## Automatically reconnecting after reboot - Persisting credentials
 
 Before mounting to the file share, first persist your storage account
 credentials on the virtual machine. This step allows Windows to automatically
@@ -65,7 +65,7 @@ you are developing an application that runs as a service, you will need to
 persist your credentials in that context as well.
 
 Once you have a remote connection to the virtual machine, you can run the net
-usecommand to mount the file share, using the following syntax.
+use command to mount the file share, using the following syntax.
 Replace \<storage-account-name\> with the name of your storage account,
 and \<share-name\> with the name of your File storage share.
 
