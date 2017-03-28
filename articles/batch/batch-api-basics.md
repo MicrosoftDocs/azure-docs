@@ -328,6 +328,10 @@ When you create a pool of compute nodes in Azure Batch, you can use the APIs to 
 
 * The VNet should have enough free **IP addresses** to accommodate the `targetDedicated` property of the pool. If the subnet doesn't have enough free IP addresses, the Batch service partially allocates the compute nodes in the pool and returns a resize error.
 
+* The specified subnet must allow communication from the Batch service to be able to schedule tasks on the compute nodes. If communication to the compute nodes is denied by a **Network Security Group (NSG)** associated with the VNet, then the Batch service sets the state of the compute nodes to **unusable**. 
+
+* If the specified VNet has any associated NSGs, then inbound communication must be enabled. For a Linux pool, ports 29876, 29877, and 22 must be enabled. For a Windows pool, port 3389 must be enabled.
+
 Additional settings for the VNet depend on the pool allocation mode of the Batch account.
 
 ### VNet in Batch service allocation mode
@@ -343,15 +347,13 @@ In Batch service allocation mode, only **Cloud Services Configuration** pools ca
   * Check the **MicrosoftAzureBatch** check box
   * Select the **Select** button
 
-* If communication to the compute nodes is denied by a **Network Security Group (NSG)** associated with the VNet, then the Batch service will set the state of the compute nodes to **unusable**. The subnet must allow communication from the Azure Batch service to be able to schedule tasks on the compute nodes.
+
 
 ### VNet in user subscription allocation mode
 
 In user subscription allocation mode, only **Virtual Machine Configuration** pools are supported and can be assigned a VNet. Additionally, the specified VNet must be a **Resource Manager-** based VNet. VNets created with the classic deployment model are not supported.
 
-* The specified subnet must allow communication from the Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the specified VNet has any associated Network Security Groups (NSG). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service sets the state of the compute nodes to unusable.
 
-* If the specified VNet has any associated NSGs, then inbound communication must be enabled. For a Linux pool, ports 29876, 29877, and 22 must be enabled. For a Windows pool, port 3389 must be enabled.
 
 ## Scaling compute resources
 With [automatic scaling](batch-automatic-scaling.md), you can have the Batch service dynamically adjust the number of compute nodes in a pool according to the current workload and resource usage of your compute scenario. This allows you to lower the overall cost of running your application by using only the resources you need, and releasing those you don't need.
