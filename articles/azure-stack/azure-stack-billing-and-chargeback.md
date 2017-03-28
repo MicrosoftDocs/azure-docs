@@ -17,7 +17,7 @@ ms.date: 10/18/2016
 ms.author: alfredop
 
 ---
-# Customer billing and chargeback in Azure Stack
+# Usage and billing in Azure Stack
 Now that you’re using Azure Stack, it’s a good idea to think about how
 to track usage. Service providers rely on usage information to bill
 their customers, and to understand the cost of providing services.

@@ -65,10 +65,11 @@
 #### [Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)
 #### [Add a custom virtual machine image](azure-stack-add-vm-image.md)
 #### [Deploy Linux virtual machines](azure-stack-linux.md)
-### Billing and chargeback
-#### [Billing and chargeback overview](azure-stack-billing-and-chargeback.md)
-#### [Provider resource usage API](azure-stack-provider-resource-api.md)
-#### [Tenant resource usage API](azure-stack-tenant-resource-usage-api.md)
+### Usage and Billing
+#### [Overview](azure-stack-billing-and-chargeback.md)
+#### [Consumption reporting](azure-stack-usage-reporting.md)
+#### [Provider usage API](azure-stack-provider-resource-api.md)
+#### [Tenant usage API](azure-stack-tenant-resource-usage-api.md)
 #### [Usage FAQ](azure-stack-usage-related-faq.md)
 
 # Use services
