@@ -181,6 +181,6 @@ if(Test-Path $parametersFilePath) {
 }
 ```
 
-## Next Steps
+## Next steps
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
