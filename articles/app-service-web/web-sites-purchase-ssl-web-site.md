@@ -41,7 +41,7 @@ This article explains how to buy and set up an SSL certificate for your [App Ser
 > 
 > 
 
-## Preqrequisites
+## Prerequisites
 To enable HTTPS for a custom domain, start by [mapping a custom domain name to your Azure app](web-sites-custom-domain-name.md).
 
 Before you request an SSL certificate, first determine which domain names you will secure with the certificate. This determines the type of certificate you need. If you want to secure a single domain name, like contoso.com *or* www.contoso.com, you can use a Standard (basic) certificate. If you need to secure multiple domain names, like contoso.com, www.contoso.com, *and* mail.contoso.com, you can get a [wildcard certificate](http://en.wikipedia.org/wiki/Wildcard_certificate).
@@ -69,7 +69,7 @@ Before you request an SSL certificate, first determine which domain names you wi
 
 6. Select or create a **resource group**.
    
-   You can use resource groups to manage related Azure resources as a unit. Resource groups are useful when you want to establish role-based access control (RBAC) rules for your apps. For more information, see [Manage Azure resources through the portal](../azure-resource-manager/resource-group-portal).
+   You can use resource groups to manage related Azure resources as a unit. Resource groups are useful when you want to establish role-based access control (RBAC) rules for your apps. For more information, see Managing your Azure resources.
 
 7. Select the **certificate SKU**. 
    
