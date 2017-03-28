@@ -50,7 +50,7 @@ You also need the following for your development environment:
 * Mac or PC that is running Windows or Ubuntu.
 * Wireless network for Feather HUZZAH ESP8266 to connect to.
 * Internet connection to download the configuration tool.
-* [Arduino IDE](https://www.arduino.cc/en/main/software) version 1.6.8 (or newer), earlier versions will not work with the AzureIoT library).
+* [Arduino IDE](https://www.arduino.cc/en/main/software) version 1.6.8 (or newer), earlier versions will not work with the AzureIoT library.
 
 The following items are optional in case you don’t have a sensor. You also have the option of using simulated sensor data.
 
