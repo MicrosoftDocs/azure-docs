@@ -155,9 +155,13 @@ From the left menu, click **App Service**, then click the name of your Azure web
 
 ![Portal navigation to Azure web app](./media/app-service-web-get-started-dotnet/access-portal.png)
 
-You have landed in your web app's _blade_ (a portal page that opens horizontally). By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. 
+You have landed in your web app's _blade_ (a portal page that opens horizontally). 
 
-The tabs on the left side of the blade shows the different configuration pages you can open. Here in the Azure portal, you can add many great features to your web app. Here are just a few of the possibilities:
+By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the blade shows the different configuration pages you can open. Here in the Azure portal, you can add many great features to your web app. 
+
+![App Service blade in Azure portal](./media/app-service-web-get-started-dotnet/web-app-blade.png)
+
+Here are just a few of the possibilities of features you can quickly add to your Azure web app:
 
 - Map a custom DNS name
 - Bind a custom SSL certificate
@@ -165,17 +169,17 @@ The tabs on the left side of the blade shows the different configuration pages y
 - Scale up and out
 - Add user authentication
 
-![App Service blade in Azure portal](./media/app-service-web-get-started-dotnet/web-app-blade.png)
-
 ## Clean up resources
 
 To delete your first Azure web app, you can click **Delete** in the **Overview** page. However, there's a better way to delete everything that you created in this quick start. From your web app's **Overview** page, click the resource group to open its blade. 
 
 ![Access resource group from App Service blade](./media/app-service-web-get-started-dotnet/access-resource-group.png)
 
-In the resource group blade, you can see both the App Service plan and the App Service app that Visual Studio created for you. At the top of the blade, click **Delete**. 
+In the resource group blade, you can see both the App Service plan and the App Service app that Visual Studio created for you. 
 
-![Delete resource group in Azure portal](./media/app-service-web-get-started-dotnet/delete-resource-group.png)
+At the top of the blade, click **Delete**. 
+
+<!--![Delete resource group in Azure portal](./media/app-service-web-get-started-dotnet/delete-resource-group.png)-->
 
 In the confirmation blade, confirm by typing the resource group name **myResourceGroup** into the text box and click **Delete**.
 
