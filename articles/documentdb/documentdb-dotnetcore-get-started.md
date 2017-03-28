@@ -310,7 +310,7 @@ private async Task CreateFamilyDocumentIfNotExists(string databaseName, string c
 
 And insert two documents, one each for the Andersen Family and the Wakefield Family.
 
-Copy and paste the code that follows `// ADD THIS PART TO YOUR CODE code` to your **GetStartedDemo** method underneath the document collection creation.
+Copy and paste the code that follows `// ADD THIS PART TO YOUR CODE` to your **GetStartedDemo** method underneath the document collection creation.
 
 ```csharp
 await this.CreateDatabaseIfNotExists("FamilyDB_oa");
