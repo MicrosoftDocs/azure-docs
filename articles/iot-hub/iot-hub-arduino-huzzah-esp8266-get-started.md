@@ -27,7 +27,7 @@ ms.author: xshi
 Connect Adafruit Feather HUZZAH ESP8266 to an IoT hub. Then run a sample application on ESP8266 to collect temperature and humidity data from a DHT22 sensor. Finally, send the sensor data to your IoT hub.
 
 > [!NOTE]
->If you are using other ESP8266 boards, you can still follow these steps to connect them to your IoT hub. Depending on the ESP8266 board you are using, you may need to reconfigure the `LED_PIN`. For example, if you are using ESP8266 from AI-Thinker, you may change it from `0` to `2`. Don't have a kit yet?: Click [here](http://azure.com/iotstarterkits)
+>If you are using other ESP8266 boards, you can still follow these steps to connect them to your IoT hub. Depending on the ESP8266 board you are using, you may need to reconfigure the `LED_PIN`. For example, if you are using ESP8266 from AI-Thinker, you may change it from `0` to `2`. Don't have a board yet? [Get a Microsoft Azure IoT starter kit](http://azure.com/iotstarterkits).
 
 ## What you will learn
 
@@ -45,7 +45,7 @@ To complete this operation, you need the following parts from your Feather HUZZA
 * The Feather HUZZAH ESP8266 board.
 * A Micro USB to Type A USB cable.
 
-You also need the following for your development environment:
+You also need the following things for your development environment:
 
 * Mac or PC that is running Windows or Ubuntu.
 * Wireless network for Feather HUZZAH ESP8266 to connect to.
@@ -170,7 +170,7 @@ Use the Micro USB to Type A USB cable to connect Feather HUZZAH ESP8266 to your 
 
 ### Add serial port permissions – Ubuntu only
 
-If you use Ubuntu, make sure a normal user has the permissions to operate on the USB port of Feather HUZZAH ESP826. To add serial port permissions for a normal user, follow these steps:
+If you use Ubuntu, make sure you have the permissions to operate on the USB port of Feather HUZZAH ESP826. To add serial port permissions, follow these steps:
 
 1. Run the following commands at a terminal:
 
