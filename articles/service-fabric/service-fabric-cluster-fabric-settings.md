@@ -21,8 +21,9 @@ ms.author: chackdan
 # Customize Service Fabric cluster settings and Fabric Upgrade policy
 This document tells you how to customize the various fabric settings and the fabric upgrade policy for your Service Fabric cluster. You can customize them on the portal or using an Azure Resource Manager template.
 
-[!NOTE]
-Not all settings may be available via the portal. In case a setting listed below is not available via the portal customize it using an Azure Resource Manager template.
+> [!NOTE]
+> Not all settings may be available via the portal. In case a setting listed below is not available via the portal customize it using an Azure Resource Manager template.
+> 
 
 ## Customizing Service Fabric cluster settings using Azure Resource Manager templates
 The steps below illustrate how to add a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section.
