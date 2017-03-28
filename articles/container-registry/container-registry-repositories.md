@@ -8,8 +8,8 @@ manager: balans
 editor: dlepow
 
 
-ms.service: required
-ms.devlang: may be required
+ms.service: container-registry
+ms.devlang: na
 ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -32,7 +32,7 @@ Azure container registry allows you to store container images in repositories. B
 
 Once you have pushed images to your container registry, you can see a list of the repositories hosting the images in the Azure portal.
 
-If you followed the steps in the [Push Docker image to Azure private registry](container-registry-get-started-docker-cli.md) article, you should now have a Nginx image in your container registry. As part of the instructions, you should have specified a namespace for the image, in the example below the command pushes the NGinx image to the "samples" repository:
+If you followed the steps in the [Push Docker image to Azure private registry](container-registry-get-started-docker-cli.md) article, you should now have a Nginx image in your container registry. As part of the instructions, you should have specified a namespace for the image. In the example below, the command pushes the NGinx image to the "samples" repository:
 
 ```
 docker push myregistry.azurecr.io/samples/nginx
