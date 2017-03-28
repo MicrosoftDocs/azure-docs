@@ -61,8 +61,8 @@ We need you to share service account information with us so that we can authoriz
 This role is created by the solution that you imported and has permissions to only write the leads and to know solution version for ensuring compatibility.
 
 7.  For Dynamics 365 8.2, additional permission are required for the Microsoft Marketplace Lead Writer role created by the solution that you imported. While in Security, select Security Roles and find the role for Microsoft Marketplace Lead Writer, choose that role and change the setting for create/read/write for the User Entity UI Settings in the Core Records tab shown below: <br/>
-![Dynamics security roles image](./media/cloud-partner-portal-lead-management-instructions-dynamics\crmonline8.JPG)<br/>
-![Dynamics manage security roles image](./media/cloud-partner-portal-lead-management-instructions-dynamics\crmonline9.JPG)<br/>
+![Dynamics security roles image](./media/cloud-partner-portal-lead-management-instructions-dynamics\crmonline10.jpg)<br/>
+![Dynamics manage security roles image](./media/cloud-partner-portal-lead-management-instructions-dynamics\crmonline11.jpg)<br/>
 
 
 Finally, plug in your access information into the **Url**, **User Name**, and **Password** fields on the Cloud Partner Portal.
