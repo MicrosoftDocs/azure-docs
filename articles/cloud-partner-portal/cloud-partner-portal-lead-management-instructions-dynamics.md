@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2017
 ms.author: brdi
-
+ms.robots: NOINDEX, NOFOLLOW
 ---
 
 # Lead Management Instructions for Dynamics CRM online
