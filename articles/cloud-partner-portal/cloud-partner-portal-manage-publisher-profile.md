@@ -25,7 +25,7 @@ This document is a walkthrough on viewing and managing users to your registered 
 
 By this time, you have completed the steps to become an Azure Marketplace and AppSource publisher.The publisher profile is registered on the **[Cloud Partner Portal](https://cloudpartner.azure.com/)** following approval of your partner request.Your publisher profile will apply to all the offers and SKUs published from the account used during partner registration.  
 
-**If you haven’t registered your company as a cloud partner click [here]((./cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md))** 
+**If you haven’t registered your company as a cloud partner [click here](./cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md)**
 
 **Publisher Profile**: Your publisher profile distinguishes your company on the Azure Marketplace and AppSource. It consists of your publisher ID, display name, and owner email(s). A well-managed profile will increase your visibility and help marketplace users easily identify and select an appropriate offer.
 
