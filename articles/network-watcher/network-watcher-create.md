@@ -46,7 +46,7 @@ FeatureName         ProviderName      RegistrationState
 AllowNetworkWatcher Microsoft.Network Registered
 ```
 
-### Instructions for CLI
+### Instructions for CLI 1.0
 
 To register
 
@@ -70,6 +70,9 @@ data:    Provider Name:      Microsoft.Network
 data:    Registration State: Registered
 info:    feature show command OK
 ```
+
+> [!NOTE]
+> As Network Watcher currently only supports CLI 1.0, the instructions to create a new Network Watcher instance is provided for CLI 1.0. To register the provider with CLI 2.0 use `az feature register -n AllowNetworkWatcher --namespace Microsoft.Network`.
 
 ## Create a Network Watcher in the portal
 
