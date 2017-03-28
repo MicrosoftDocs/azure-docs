@@ -19,7 +19,7 @@ ms.author: mobandyo;bryanla
 
 ---
 # Use Azure Billing APIs to programmatically get insight into your Azure usage
-Use Azure Billing APIs to pull usage and resource data into your preferred data analysis tools. The Azure Resource Usage and Ratecard APIs can help you accurately predict and manage your costs. The APIs are implemented as a Resource Provider and part of the family of APIs exposed by the Azure Resource Manager.  
+Use Azure Billing APIs to pull usage and resource data into your preferred data analysis tools. The Azure Resource Usage and RateCard APIs can help you accurately predict and manage your costs. The APIs are implemented as a Resource Provider and part of the family of APIs exposed by the Azure Resource Manager.  
 
 ## Azure Resource Usage API (Preview)
 Use the Azure Resource Usage API to get your estimated Azure consumption data. The API includes:
