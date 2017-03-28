@@ -15,6 +15,7 @@
 ## [PowerShell](sql-database-powershell-samples.md)
 # Tutorials
 ## [Design a database](sql-database-design-first-database.md)
+
 # Concepts
 ## DBs and servers
 ### [Databases](sql-database-overview.md)
