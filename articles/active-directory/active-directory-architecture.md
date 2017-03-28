@@ -112,6 +112,6 @@ If any Azure AD service is not working as expected, we immediately take action t
 
 We employ operational controls such as multi-factor authentication (MFA) for any operation, as well as auditing of all operations. In addition, we use a just-in-time elevation system to grant necessary temporary access for any operational task-on-demand on an ongoing basis. For more information, see [The Trusted Cloud](https://azure.microsoft.com/en-us/support/trust-center).
 
-##Next steps
+## Next steps
 [Azure Active Directory developer's guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
 
