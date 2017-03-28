@@ -66,9 +66,9 @@ These are limits for a single logic app run.
 
 |Name|Limit|Notes|
 |----|----|----|
-|ForEach items|5,000|You can use the [query action](../connectors/connectors-native-query.md) to filter larger arrays as needed|
+|ForEach items|100,000|You can use the [query action](../connectors/connectors-native-query.md) to filter larger arrays as needed|
 |Until iterations|5,000||
-|SplitOn items|5,000||
+|SplitOn items|100,000||
 |ForEach Parallelism|20|You can set to a sequential foreach by adding `"operationOptions": "Sequential"` to the `foreach` action|
 
 
@@ -78,8 +78,9 @@ These are limits for a single logic app instance.
 
 |Name|Limit|Notes|
 |----|----|----|
-|Actions executions per second (bursts)|1,000|Can distribute workload across multiple apps as needed|
-|Actions executions per hour (sustained)|1,000,000|Can distribute workload across multiple apps as needed|
+|Actions executions per 5 minutes |100,000|Can distribute workload across multiple apps as needed|
+
+If you expect to exceed this limit in normal processing or wish to run load testing that may exceed this limit for a period of time please [contact us](mailto://logicappsemail@microsoft.com) so that we can help with your requirements.
 
 ### Definition limits
 

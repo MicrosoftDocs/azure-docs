@@ -10,11 +10,12 @@ tags: azure-portal
 
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/24/2017
 ms.author: jeffstok
 
 ---
@@ -204,8 +205,9 @@ rxHadoopListFiles(weatherPath)
 # create a SparkR DataFrame for the airline data
 
 logmsg('create a SparkR DataFrame for the airline data') 
+# use inferSchema = "false" for more robust parsing
 airDF <- read.df(sqlContext, airPath, source = "com.databricks.spark.csv", 
-                 header = "true", inferSchema = "true")
+                 header = "true", inferSchema = "false")
 
 # Create a SparkR DataFrame for the weather data
 
@@ -236,6 +238,9 @@ airDF <- rename(airDF,
 # Select desired columns from the flight data. 
 varsToKeep <- c("ArrDel15", "Year", "Month", "DayofMonth", "DayOfWeek", "Carrier", "OriginAirportID", "DestAirportID", "CRSDepTime", "CRSArrTime")
 airDF <- select(airDF, varsToKeep)
+
+# Apply schema
+coltypes(airDF) <- c("character", "integer", "integer", "integer", "integer", "character", "integer", "integer", "integer", "integer")
 
 # Round down scheduled departure time to full hour.
 airDF$CRSDepTime <- floor(airDF$CRSDepTime / 100)
@@ -513,12 +518,12 @@ testDF <- head(testDS, 1000)
 saveRDS(testDF    , file = "testDF.rds"    )
 list.files()
 
+rxHadoopListFiles(file.path(inputDataDir,''))
+rxHadoopListFiles(dataDir)
+
 # stop the spark engine 
 rxStopEngine(sparkCC) 
 
-list.files() 
-rxHadoopListFiles(file.path(inputDataDir,''))
-rxHadoopListFiles(dataDir)
 logmsg('Done.')
 elapsed <- (proc.time() - t0)[3]
 logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
