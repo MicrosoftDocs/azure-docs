@@ -19,6 +19,10 @@ ms.author: parakhj
 ---
 # Azure Active Directory B2C: Provide sign-up and sign-in to consumers with Weibo accounts
 
+> [!NOTE]
+> This feature is still in preview.
+> 
+
 ## Create a Weibo application
 
 To use Weibo as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create a Weibo application and supply it with the right parameters. You need a Weibo account to do this. If you don’t have one, you can get one at [http://weibo.com/signup/signup.php?lang=en-us](http://weibo.com/signup/signup.php?lang=en-us).

@@ -19,6 +19,10 @@ ms.author: parakhj
 ---
 # Azure Active Directory B2C: Provide sign-up and sign-in to consumers with WeChat accounts
 
+> [!NOTE]
+> This feature is still in preview.
+> 
+
 ## Create a WeChat application
 
 To use WeChat as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create a WeChat application and supply it with the right parameters. You need a WeChat account to do this. If you don’t have one, you can get one by signing up through one of their mobile apps or by using your QQ number. After that, get your account registered with the WeChat developer program. You can find more information [here](http://kf.qq.com/faq/161220Brem2Q161220uUjERB.html).
