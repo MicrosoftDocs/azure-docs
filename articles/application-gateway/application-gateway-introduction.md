@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 03/28/2017
 ms.author: gwallace
 
 ---
@@ -34,7 +34,7 @@ The standard SKU offers SSL termination, cookie-based session affinity, round-ro
 
 ### Web Application Firewall (WAF)
 
-The WAF SKU provides all the capabilities that the standard SKU provides with the addition of the [web application firewall](application-gateway-webapplicationfirewall-overview.md). This provides attack detection rules that provide protection for your web applications against common web vulnerabilities and exploits.
+The WAF SKU provides all the capabilities that the standard SKU provides with the addition of the [web application firewall](application-gateway-web-application-firewall-overview.md). This provides attack detection rules that provide protection for your web applications against common web vulnerabilities and exploits.
 
 ## Features
 
