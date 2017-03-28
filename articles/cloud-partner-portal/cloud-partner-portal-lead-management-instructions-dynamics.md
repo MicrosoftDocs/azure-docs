@@ -20,7 +20,8 @@ ms.author: brdi
 
 This document provides you with instructions on how to setup your Dynamics CRM Online system so that Microsoft can provide you with sales leads.
 
-[!NOTE]**User permissions required for performing the following steps:**
+[!NOTE]
+**User permissions required for performing the following steps:**
 you need to be an admin on your Dynamics CRM Online instance to install a solution and 
 you need to be a tenant admin to create a new service account for lead service.
 
