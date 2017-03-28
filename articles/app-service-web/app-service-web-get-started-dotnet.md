@@ -137,6 +137,42 @@ When Visual Studio is finished, it launches the updated Azure web app in your br
 
 ![Updated ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
+## Manage your new Azure web app
+
+Go to the Azure portal to take a look at the web app you just created. 
+
+To do this, sign in to [https://portal.azure.com](https://portal.azure.com).
+
+From the left menu, click **App Service**, then click the name of your Azure web app.
+
+![Updated ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet/access-portal.png)
+
+You have landed in your web app's _blade_ (a portal page that opens horizontally), which looks like the following screenshot: 
+
+![Updated ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet/web-app-blade.png)
+
+The **Overview** page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. 
+
+The tabs on the left side of the blade shows the different configuration pages you can open. Here in the Azure portal, you can add many great features to your web app. Here are just a few of the possibilities:
+
+- Map a custom DNS name
+- Bind a custom SSL certificate
+- Configure continuous deployment
+- Scale up and out
+- Add user authentication
+
+## Clean up resources
+
+To delete your first Azure web app, you can click **Delete** in the **Overview** page. However, there's a better way to delete everything that you created in this quick start. From your web app's **Overview** page, click the resource group to open its blade. 
+
+![Updated ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet/access-resource-group.png)
+
+In the resource group blade, you can see both the App Service plan and the App Service app that Visual Studio created for you. At the top of the blade, click **Delete**. 
+
+![Updated ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet/delete-resource-group.png)
+
+In the confirmation blade, confirm by typing the resource group name **myResourceGroup** into the text box and click **Delete**.
+
 ## Next steps
 
 Explore pre-created [Web apps PowerShell scripts](app-service-powershell-samples.md).
