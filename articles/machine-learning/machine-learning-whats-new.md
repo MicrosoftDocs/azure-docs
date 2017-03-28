@@ -27,7 +27,7 @@ ms.author: v-donglo
 
 	Machine Learning Batch Pool processing uses the [Azure Batch](../batch/batch-technical-overview.md) service to provide customer-managed scale for the Azure Machine Learning Batch Execution Service. Batch Pool processing allows you to create Azure Batch pools on which you can submit batch jobs and have them execute in a predictable manner.
 
-	For more information, see [Azure Batch service for Machine Learning jobs](machine-learning/machine-learning-dedicated-capacity-for-bes-jobs.md).
+	For more information, see [Azure Batch service for Machine Learning jobs](machine-learning-dedicated-capacity-for-bes-jobs.md).
 
 
 ### The August 2016 release of Microsoft Azure Machine Learning updates provide the following features:
@@ -45,7 +45,7 @@ ms.author: v-donglo
 * Introduces new [pricing plans](https://azure.microsoft.com/pricing/details/machine-learning/) and plan management capabilities using the new Resource Manager RP for Billing.
   * You can now [deploy your web service to multiple regions](machine-learning-how-to-deploy-to-multiple-regions.md) without needing to create a subscription in each region.
 * Provides web service [usage statistics](machine-learning-manage-new-webservice.md).
-* Simplifies testing of Azure Machine Learning Remote-Request calls  using sample data.
+* Simplifies testing of Azure Machine Learning Remote-Request calls using sample data.
 * Provides a new Batch Execution Service test page with sample data and job submission history.
 
 In addition, the Machine Learning Studio has been updated to allow you to deploy to the new Web service model or continue to deploy to the classic Web service model. 

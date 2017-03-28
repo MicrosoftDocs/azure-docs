@@ -25,7 +25,7 @@ You must set up a training experiment and a predictive experiment as shown in [R
 
 > [!IMPORTANT]
 > The predictive experiment must be deployed as an Azure Resource Manager (New) based machine learning web service. 
-> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md). 
+> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information, see [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md). 
 
 For additional information on Deploying web services, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
 
