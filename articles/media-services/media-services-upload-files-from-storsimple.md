@@ -45,13 +45,12 @@ In Media Services, you upload your digital files into an asset. The Asset  can c
 
 [Use the .Net SDK to trigger jobs in the Data Manager](../storsimple/storsimple-data-manager-dotnet-jobs.md)
 
-## Next steps
-
-You can now encode your uploaded assets. For more information, see [Encode assets](media-services-portal-encode.md).
-
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
+## Next steps
+
+You can now encode your uploaded assets. For more information, see [Encode assets](media-services-portal-encode.md).
