@@ -45,7 +45,7 @@ In other cases, you may wish to read the entire table and may define the sqlRead
 },
 ```
 
-## Repeatable write at SqlSink
+## Repeatable write to SqlSink
 When copying data to **Azure SQL/SQL Server** from other data stores, you need to keep repeatability in mind to avoid unintended outcomes. 
 
 When copying data to Azure SQL/SQL Server Database, the copy activity appends data to the sink table by default. Say, you are copying data from a CSV (comma-separated values) file containing two records to the following table in an Azure SQL/SQL Server Database. When a slice runs, the two records are copied to the SQL table. 
