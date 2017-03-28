@@ -1,5 +1,5 @@
 ---
-title: Create Hadoop, HBase, or Storm clusters on Linux in HDInsight using the cross-platform Azure CLI | Microsoft Docs
+title: Create Azure HDInsight (Hadoop) using the command-line | Microsoft Docs
 description: Learn how to create HDInsight clusters using the cross-platform Azure CLI, Azure Resource Manager templates, and the Azure REST API. You can specify the cluster type (Hadoop, HBase, or Storm,) or use scripts to install custom components..
 services: hdinsight
 documentationcenter: ''
@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 50b01483-455c-4d87-b754-2229005a8ab9
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -20,7 +21,7 @@ ms.author: larryfr
 ---
 # Create HDInsight clusters using the Azure CLI
 
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 The Azure CLI is a cross-platform command-line utility that allows you to manage Azure Services. It can be used, along with Azure Resource Manager templates, to create an HDInsight cluster, along with associated storage accounts and other services.
 

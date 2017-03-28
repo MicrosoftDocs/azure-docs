@@ -55,7 +55,48 @@ This article provides you an example of how you can use System Center Configurat
 > [!NOTE]
 > Remember to replace the [CSIP] place holders in the below script with the actual values of the IP Address of your Configuration Server.
 
-  [!INCLUDE [site-recovery-sccm-windows-script](../../includes/site-recovery-sccm-windows-script.md)]
+```
+Time /t >> C:\Temp\logfile.log
+REM ==================================================
+REM ==== Clean up the folders ========================
+RMDIR /S /q %temp%\MobSvc
+MKDIR %Temp%\MobSvc
+REM ==================================================
+REM ==== Copy new files ==============================
+COPY M*.* %Temp%\MobSvc
+CD %Temp%\MobSvc
+REN Micro*.exe MobSvcInstaller.exe
+REM ==================================================
+REM ==== Extract the installer =======================
+MobSvcInstaller.exe /q /x:%Temp%\MobSvc\Extracted
+REM ==== Wait 10s for extraction to complete =========
+TIMEOUT /t 10
+REM =================================================
+REM ==== Extract the installer ======================
+CD %Temp%\MobSvc\Extracted
+REM ==================================================
+REM ==== Check if Mob Svc is already installed =======
+REM ==== If not installed run install command ========
+REM ==== Else run upgrade command =====================
+REM ==== {275197FC-14FD-4560-A5EB-38217F80CBD1} is ====
+REM ==== guid for Mob Svc Installer ====================
+whoami >> C:\temp\logfile.log
+REM SET PRODKEY=HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+REM REG QUERY %PRODKEY%\{275197FC-14FD-4560-A5EB-38217F80CBD1} >> C:\Temp\logfile.log 2>&1
+REM REG QUERY %PRODKEY%\{275197FC-14FD-4560-A5EB-38217F80CBD1}
+REM IF NOT %ERRORLEVEL% EQU 0 (GOTO :INSTALL) ELSE GOTO :UPDATE
+NET START | FIND "InMage Scout Application Service"
+IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UPDATE
+:INSTALL
+	echo "Install" >> c:\Temp\logfile.log
+ 	UnifiedAgent.exe /Role "Agent" /CSEndpoint "10.10.20.168" /PassphraseFilePath %Temp%\MobSvc\MobSvc.passphrase
+GOTO :ENDSCRIPT
+:UPDATE
+	echo "Update" >> C:\Temp\logfile.log
+	UnifiedAgent.exe /upgrade
+:ENDSCRIPT
+
+```
 
 ### Step 2: Create a Package
 
@@ -80,8 +121,10 @@ This article provides you an example of how you can use System Center Configurat
 | Command line | install.bat |
 | Program can run | Whether or not a user is logged on |
 9. In the next page, select the target operating systems. Mobility Service can be installed only on Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2.
+
   ![sccm-package-properties-page2](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)   
 10. Complete Next twice to complete the wizard.
+
 > [!NOTE]
 > The script supports both new installations of Mobility Service Agents and upgrade/update of already installed Agents.
 
@@ -136,7 +179,76 @@ You can monitor the deployment progress using the SCCM console by going to **Mon
 > [!NOTE]
 > Remember to replace the [CSIP] place holders in the below script with the actual values of the IP Address of your Configuration Server.
 
-  [!INCLUDE [site-recovery-sccm-linux-script](../../includes/site-recovery-sccm-linux-script.md)]
+```
+#!/bin/sh
+
+rm -rf /tmp/MobSvc
+
+mkdir -p /tmp/MobSvc
+
+if [ -f /etc/oracle-release ] && [ -f /etc/redhat-release ]; then
+    if grep -q 'Oracle Linux Server release 6.*' /etc/oracle-release; then
+        if uname -a | grep -q x86_64; then
+            OS="OL6-64"
+	    cp *OL6*.tar.gz /tmp/MobSvc
+        fi
+    fi
+elif [ -f /etc/redhat-release ]; then
+    if grep -q 'Red Hat Enterprise Linux Server release 6.* (Santiago)' /etc/redhat-release || \
+        grep -q 'CentOS Linux release 6.* (Final)' /etc/redhat-release || \
+        grep -q 'CentOS release 6.* (Final)' /etc/redhat-release; then
+        if uname -a | grep -q x86_64; then
+            OS="RHEL6-64"
+            cp *RHEL6*.tar.gz /tmp/MobSvc
+        fi
+    elif grep -q 'Red Hat Enterprise Linux Server release 7.* (Maipo)' /etc/redhat-release || \
+        grep -q 'CentOS Linux release 7.* (Core)' /etc/redhat-release; then
+        if uname -a | grep -q x86_64; then
+            OS="RHEL7-64"
+            cp *RHEL7*.tar.gz /tmp/MobSvc
+	fi
+    fi
+elif [ -f /etc/SuSE-release ] && grep -q 'VERSION = 11' /etc/SuSE-release; then
+    if grep -q "SUSE Linux Enterprise Server 11" /etc/SuSE-release && grep -q 'PATCHLEVEL = 3' /etc/SuSE-release; then
+        if uname -a | grep -q x86_64; then
+            OS="SLES11-SP3-64"
+	    echo $OS >> /tmp/MobSvc/sccm.log
+	    cp *SLES11*.tar.gz /tmp/MobSvc
+        fi
+    fi
+elif [ -f /etc/lsb-release ] ; then
+    if grep -q 'DISTRIB_RELEASE=14.04' /etc/lsb-release ; then
+       if uname -a | grep -q x86_64; then
+           OS="UBUNTU-14.04-64"
+	   cp *UBUNTU*.tar.gz /tmp/MobSvc
+       fi
+    fi
+else
+	exit 1
+fi
+if [ "${OS}" ==  "" ]; then
+	exit 1
+fi
+cp MobSvc.passphrase /tmp/MobSvc
+cd /tmp/MobSvc
+
+tar -zxvf *.tar.gz
+
+
+if [ -e /usr/local/.vx_version ];
+then
+	./install -A u
+	echo "Errorcode:$?"
+	Error=$?
+
+else
+	./install -t both -a host -R Agent -d /usr/local/ASR -i [CS IP] -p 443 -s y -c https -P MobSvc.passphrase >> /tmp/MobSvc/sccm.log 2>&1 && echo "Install Progress"
+	Error=$?
+fi
+cd /tmp
+rm -rf /tm/MobSvc
+exit ${Error}
+```
 
 ### Step 2: Create a Package
 
@@ -193,6 +305,30 @@ Read more about other ways to install mobility services.
 * [Manual Installation using command-line](http://aka.ms/mobsvcmanualinstallcli)
 * [Push Installation using Configuration Server ](http://aka.ms/pushinstall)
 * [Automated Installation using Azure Automation & Desired State Configuration ](http://aka.ms/mobsvcdscinstall)
+
+## Uninstall Mobility Service
+Just like installation you can create SCCM packages to uninstall Mobility Service. Use the below script to uninstall the Mobility Service.
+
+```
+Time /t >> C:\logfile.log
+REM ==================================================
+REM ==== Check if Mob Svc is already installed =======
+REM ==== If not installed no operation required ========
+REM ==== Else run uninstall command =====================
+REM ==== {275197FC-14FD-4560-A5EB-38217F80CBD1} is ====
+REM ==== guid for Mob Svc Installer ====================
+whoami >> C:\logfile.log
+NET START | FIND "InMage Scout Application Service"
+IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
+:NOOPERATION
+                echo "No Operation Required." >> c:\logfile.log
+                GOTO :ENDSCRIPT
+:UNINSTALL
+                echo "Uninstall" >> C:\logfile.log
+                MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
+:ENDSCRIPT
+
+```
 
 ## Next steps
 You are now ready to [Enable protection](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications) for your virtual machines.

@@ -1,15 +1,14 @@
 ---
 title: Deploy to Azure App Services using Visual Studio 2015 | Microsoft Docs
 description: This article describes how to deploy a Web App, API App or Mobile App to Azure Government using Visual Studio 2015 and Azure SDK.
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: sdubeymsft
 manager: zakramer
-editor: ''
 
 ms.assetid: 8f9a3700-b9ee-43b7-b64d-2e6c3b57d4c0
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -23,7 +22,7 @@ This article describes how to deploy an Azure App Services app (API App, Web App
 
 ## Prerequisites
 * See [Visual Studio prerequisites] (../app-service-api/app-service-api-dotnet-get-started.md#prerequisites) to install and configure Visual Studio 2015 and Azure SDK.
-* Follow [these instructions] (documentation-government-manage-subscriptions.md#connecting-via-visual-studio) to configure Visual Studio to connect to Azure Government account.
+* Follow [these instructions] (documentation-government-manage-subscriptions.md) to configure Visual Studio to connect to Azure Government account.
 
 ## Open App project in Visual Studio
 * Open existing app solution\project in Visual Studio, create a project by following [these instructions] (../app-service-web/web-sites-dotnet-get-started.md#create-a-web-application), or download sample app by following [these steps] (../app-service-api/app-service-api-dotnet-get-started.md#download-the-sample-application).

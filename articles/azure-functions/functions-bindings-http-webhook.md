@@ -31,6 +31,11 @@ Azure Functions provides the following bindings:
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+> [!TIP]
+>
+> We suggest reading this best practices document on [HTTPClient](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md).
+>
+
 <a name="httptrigger"></a>
 
 ## HTTP trigger

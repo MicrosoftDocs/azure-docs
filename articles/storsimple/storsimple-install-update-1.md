@@ -4,7 +4,7 @@ description: Explains how to install StorSimple 8000 Series Update 1.2 on your S
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: 7a513923-eb77-4078-b0ab-f8e90183796a
@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/22/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 
 ---
-# Install Update 1.2 on your StorSimple device
+# Install Update 1.2 on your StorSimple 8000 series device
 ## Overview
 This tutorial explains how to install Update 1.2 on a StorSimple device that is running a software version prior to Update 1. The tutorial also covers the additional steps required for the update when a gateway is configured on a network interface other than DATA 0 of the StorSimple device.
 

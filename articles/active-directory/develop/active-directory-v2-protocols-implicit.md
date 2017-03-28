@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2.0 Implicit Flow | Microsoft Docs
+title: Secure single page applications using the Azure AD v2.0 implicit flow | Microsoft Docs
 description: Building web applications using Azure AD's v2.0 implementation of the implicit flow for single page apps.
 services: active-directory
 documentationcenter: ''

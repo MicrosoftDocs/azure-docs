@@ -12,18 +12,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 03/14/2017
 ms.author: awills
 
 ---
 # Analytics in Application Insights
 [Analytics](app-insights-analytics.md) is the powerful search feature of 
 [Application Insights](app-insights-overview.md). These pages describe the
- Analytics query lanquage. 
+ Analytics query language. 
 
 * **[Watch the introductory video](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo)** if your app isn't sending data to Application Insights yet.
 * **[SQL-users' cheat sheet](https://aka.ms/sql-analytics)** translates the most common idioms.
+* **[Language Reference](app-insights-analytics-reference.md)** Learn how to use all the powerful features of the Analytics query language.
 
 ## Queries in Analytics
 A typical query is a *source* table followed by a series of *operators* separated by `|`. 
@@ -69,8 +70,12 @@ Open Analytics from your app's [overview blade](app-insights-dashboards.md) in A
 ![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics/001.png)
 
 
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
+
 
 ## Next steps
 * We recommend you start with the [language tour](app-insights-analytics-tour.md).

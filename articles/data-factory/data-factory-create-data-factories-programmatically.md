@@ -1,5 +1,5 @@
 ---
-title: Create, monitor, and manage Azure data factories by using Data Factory SDK | Microsoft Docs
+title: Create data pipelines by using Azure .NET SDK | Microsoft Docs
 description: Learn how to programmatically create, monitor, and manage Azure data factories by using Data Factory SDK.
 services: data-factory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 01/17/2017
 ms.author: spelluru
 
 ---
-# Create, monitor, and manage Azure data factories using Data Factory .NET SDK
+# Create, monitor, and manage Azure data factories using Azure Data Factory .NET SDK
 ## Overview
 You can create, monitor, and manage Azure data factories programmatically using Data Factory .NET SDK. This article contains a walkthrough that you can follow to create a sample .NET console application that creates and monitors a data factory. See [Data Factory Class Library Reference](https://msdn.microsoft.com/library/mt415893.aspx) for details about Data Factory .NET SDK.
 
@@ -310,7 +310,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
         throw new InvalidOperationException("Failed to acquire token");
     }
 	```
-12. Add the following code to the **Main** method to get the status of a data slice of the output dataset. There is only slice expected in this sample.
+12. Add the following code to the **Main** method to get the status of a data slice of the output dataset. There is only one slice expected in this sample.
 
 	```csharp
 	// Pulling status within a timeout threshold

@@ -1,6 +1,6 @@
 ---
-title: Manage Linux-based Hadoop clusters in HDInsight using Azure portal | Microsoft Docs
-description: Learn how to create and manage Linux-based HDInsight clusters using the Azure portal.
+title: Manage Hadoop clusters in HDInsight using Azure portal | Microsoft Docs
+description: Learn how to create and manage HDInsight clusters using the Azure portal.
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -10,18 +10,19 @@ tags: azure-portal
 
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 01/17/2017
 ms.author: jgao
 
 ---
 # Manage Hadoop clusters in HDInsight by using the Azure portal
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Using the [Azure portal][azure-portal], you can manage Linux-based clusters in Azure HDInsight. Use the tab selector for information on managing Hadoop clusters in HDInsight using other tools. 
+Using the [Azure portal][azure-portal], you can manage Hadoop clusters in Azure HDInsight. Use the tab selector for information on managing Hadoop clusters in HDInsight using other tools. 
 
 **Prerequisites**
 
@@ -40,6 +41,8 @@ Before you begin this article, you must have the following:
      
        ![Azure portal HDInsight cluster button](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
+       If you don't see HDInsight cluster, click **More services** on the bottom of the list, and then click **HDInsight clusters** under the **Intelligence + Analytics** section.
+
 ## Create clusters
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -54,14 +57,14 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
    
     ![Azure portal HDInsight cluster essentials](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)
    
-    **Overview menu**:
+    **Overview menu:**
 
-   * **Dashboard**, **Cluster Dashboard** and **URL: These are all ways to access the cluster dashboard, which is Ambari Web for Linux-based clusters.
+   * **Dashboard**: Opens the cluster dashboard, which is Ambari Web for Linux-based clusters.
    * **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection.
    * **Scale Cluster**: Allows you to change the number of worker nodes for this cluster.
    * **Delete**: Deletes the cluster.
 
-    **Left menu**
+    **Left menu:**
    
    * **Activity logs**: Show and query activity logs.
    * **Access control (IAM)**: Use role assignments.  See [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
@@ -74,7 +77,7 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
    * **Cluster Login**: Display the cluster login information.
    * **Subscription Core Usage**: Display the used and available cores for your subscription. 
    * **Scale Cluster**: Increase and decrease the number of cluster worker nodes. See[Scale clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
-   * **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection. See [Use SSH with Linux-based Hadoop on HDInsight from Windows with PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md) and [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+   * **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
    * **HDInsight Partner**: Add/remove the current HDInsight Partner.
    * **External Metastores**: View the Hive and Oozie metastores. The metastores can only be configured during the cluster creation process. See [use Hive/Oozie metastore](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
    * **Script Actions**: Run Bash scripts on the cluster. See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).

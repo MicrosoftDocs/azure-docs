@@ -13,14 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/08/2016
+ms.date: 03/27/2016
 ms.author: marsma
 
 ---
 # Get started with Azure Table storage using .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 ## Overview
 Azure Table storage is a service that stores structured NoSQL data in the cloud. Table storage is a key/attribute store with a schemaless design. Because Table storage is schemaless, it's easy to adapt your data as the needs of your application evolve. Access to data is fast and cost-effective for all kinds of applications. Table storage is typically significantly lower in cost than traditional SQL for similar volumes of data.
@@ -32,7 +32,7 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 
 **Prerequisites:**
 
-* [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
+* [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
 * [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * An [Azure storage account](storage-create-storage-account.md#create-a-storage-account)
@@ -48,8 +48,8 @@ For additional examples using Table storage, see [Getting Started with Azure Tab
 
 [!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-### Add namespace declarations
-Add the following **using** statements to the top of the `program.cs` file:
+### Add using directives
+Add the following **using** directives to the top of the `Program.cs` file:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager
@@ -279,9 +279,13 @@ TableResult retrievedResult = table.Execute(retrieveOperation);
 
 // Print the phone number of the result.
 if (retrievedResult.Result != null)
+{
     Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
+}
 else
+{
     Console.WriteLine("The phone number could not be retrieved.");
+}
 ```
 
 ## Replace an entity
@@ -332,7 +336,9 @@ if (updateEntity != null)
     Console.WriteLine("Entity updated.");
 }
 else
+{
     Console.WriteLine("Entity could not be retrieved.");
+}
 ```
 
 ## Insert-or-replace an entity
@@ -381,9 +387,10 @@ if (updateEntity != null)
 
     Console.WriteLine("Entity was updated.");
 }
-
 else
+{
     Console.WriteLine("Entity could not be retrieved.");
+}
 ```
 
 ## Query a subset of entity properties
@@ -450,9 +457,10 @@ if (deleteEntity != null)
 
     Console.WriteLine("Entity deleted.");
 }
-
 else
+{
     Console.WriteLine("Could not retrieve the entity.");
+}
 ```
 
 ## Delete a table

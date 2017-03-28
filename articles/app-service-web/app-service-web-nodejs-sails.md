@@ -4,7 +4,7 @@ description: Learn how to deploy a Node.js application Azure App Service. This t
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 8877ddc8-1476-45ae-9e7f-3c75917b4564
@@ -37,7 +37,7 @@ You should have working knowledge of Sails.js. This tutorial is not intended to 
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](app-service-web-nodejs-sails-cli-nodejs.md) – our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0 (Preview)](app-service-web-nodejs-sails.md) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](app-service-web-nodejs-sails.md) - our next generation CLI for the resource management deployment model
 
 ## Prerequisites
 * [Node.js](https://nodejs.org/)
@@ -49,7 +49,7 @@ You can complete the task using one of the following CLI versions:
   [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> You can [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) without an Azure account. Create a starter app and play with
+> You can [Try App Service](https://azure.microsoft.com/try/app-service/) without an Azure account. Create a starter app and play with
 > it for up to an hour--no credit card required, no commitments.
 > 
 > 

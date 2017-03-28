@@ -1,5 +1,5 @@
 ---
-title: Read messages persisted in Azure Table storage | Microsoft Docs
+title: 'Simulated device & Azure IoT Gateway - Lesson 4: Table storage | Microsoft Docs'
 description: Save messages from Intel NUC to your IoT hub, write them to Azure Table storage and then read them from the cloud.
 services: iot-hub
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

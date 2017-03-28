@@ -13,15 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2016
+ms.date: 02/27/2017
 ms.author: kgremban
+
+ms.custom: H1Hack27Feb2017
 ---
 
-# Single sign-on with Application Proxy
+# Provide single sign-on to your apps with Application Proxy
 Single sign-on is a key element of Azure AD Application Proxy. It provides the best user experience with the following steps:
 
-1. A user signs in to the cloud  
-2. All security validations happen in the cloud (preauthentication)  
+1. A user signs in to the cloud.  
+2. All security validations happen in the cloud (preauthentication).  
 3. When the request is sent to the on-prem application, the Application Proxy Connector impersonates the user. The backend application thinks this is a regular user coming from a domain-joined device.
 
 ![Access diagram from end user, through Application Proxy, to the corporate network](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
@@ -59,7 +61,7 @@ The Active Directory configuration varies, depending on whether your Application
 #### Connector and published server in the same domain
 1. In Active Directory, go to **Tools** > **Users and Computers**.
 2. Select the server running the Connector.
-3. Right-click and select **Properties** > **Delegation**.
+.3. Right-click and select **Properties** > **Delegation**.
 4. Select **Trust this computer for delegation to specified services only**. Under **Services to which this account can present delegated credentials** add the value for the SPN identity of the application server.
 5. This enables the Application Proxy Connector to impersonate users in AD against the applications defined in the list.
 
@@ -101,6 +103,8 @@ The Active Directory configuration varies, depending on whether your Application
 The Kerberos delegation flow in Azure AD Application Proxy starts when Azure AD authenticates the user in the cloud. Once the request arrives on-premises, the Azure AD Application Proxy Connector issues a Kerberos ticket on behalf of the user by interacting with the local Active Directory. This process is referred to as Kerberos Constrained Delegation (KCD). In the next phase, a request is sent to the backend application with this Kerberos ticket. There are several protocols that define how to send such requests. Most non-Windows servers expect Negotiate/SPNego that is now supported on Azure AD Application Proxy.
 
 ![Non-Windows SSO diagram](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
+
+For more information about Kerberos, see [All you want to know about Kerberos Constrained Delegation (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd).
 
 ### Delegated login identity
 Delegated login identity helps you handle two different login scenarios:

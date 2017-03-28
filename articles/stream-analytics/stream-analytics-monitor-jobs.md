@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 03/06/2017
 ms.author: jeffstok
 
 ---
@@ -26,7 +26,7 @@ ms.author: jeffstok
 ## Prerequisites
 Before you begin this article, you must have the following:
 
-* Visual Studio 2012 or 2013.
+* Visual Studio 2017 or 2015.
 * Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 * An existing Stream Analytics job that needs monitoring enabled.
 

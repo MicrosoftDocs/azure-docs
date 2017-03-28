@@ -3,7 +3,7 @@ title: How to use queue storage (C++) | Microsoft Docs
 description: Learn how to use the queue storage service in Azure. Samples are written in C++.
 services: storage
 documentationcenter: .net
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: dineshm
+ms.date: 02/28/2017
+ms.author: seguler
 
 ---
 # How to use Queue Storage from C++
@@ -52,8 +52,8 @@ Install-Package wastorage
 Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access queues:  
 
 ```cpp
-#include "was/storage_account.h"
-#include "was/queue.h"
+#include <was/storage_account.h>
+#include <was/queue.h>
 ```
 
 ## Set up an Azure storage connection string

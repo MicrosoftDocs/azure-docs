@@ -4,7 +4,7 @@ description: Describes the new features, issues, and workarounds for StorSimple 
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: 6c9aae87-6f77-44b8-b7fa-ebbdc9d8517c
@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/18/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 
 ---
-# StorSimple 8000 Series Update 1.2 release notes
+# Update 1.2 release notes for your StorSimple 8000 series device
+
 ## Overview
 The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 1.2. They also contain a list of the StorSimple software, driver and disk firmware updates included in this release. 
 

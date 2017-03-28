@@ -1,5 +1,5 @@
 ---
-title: Create an Azure IoT hub and register your device | Microsoft Docs
+title: 'Simulated device & Azure IoT Gateway - Lesson 2: Register device | Microsoft Docs'
 description:
 services: iot-hub
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/07/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

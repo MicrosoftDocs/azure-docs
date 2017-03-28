@@ -1,5 +1,5 @@
 ---
-title: Linux Agent User Guide | Microsoft Docs
+title: Azure Linux VM Agent Overview | Microsoft Docs
 description: Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -16,9 +16,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
-
+ms.custom: H1Hack27Feb2017
 ---
-# Azure Linux Agent User Guide
+# Understanding and using the Azure Linux Agent
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Introduction
@@ -305,5 +305,5 @@ Note that Ubuntu Cloud Images utilize [cloud-init](https://launchpad.net/ubuntu/
 * Please see the following resources to configure the resource disk mount point and swap space on Ubuntu Cloud Images during provisioning:
   
   * [Ubuntu Wiki: Configure Swap Partitions](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [Injecting Custom Data into an Azure Virtual Machine](virtual-machines-windows-classic-inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+  * [Injecting Custom Data into an Azure Virtual Machine](windows/classic/inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 

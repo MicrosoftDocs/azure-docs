@@ -4,7 +4,7 @@ description: Learn how to use the Microsoft Azure portal.
 services: ''
 documentationcenter: ''
 author: davidwrede
-manager: dwrede
+manager: erikre
 editor: jimbe
 
 ms.assetid: 53cb9df1-c96a-4f4e-b022-18336cd3d697

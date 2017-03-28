@@ -9,13 +9,13 @@ editor: ''
 tags: azure-service-management
 
 ms.assetid: 7ca7c423-8342-4175-a70b-d5101dfb7f23
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
+ms.workload: iaas-sql-server
 ms.date: 07/12/2016
-ms.author: MikeRayMSFT
+ms.author: mikeray
 
 ---
 # Extend on-premises Always On Availability Groups to Azure
@@ -81,7 +81,7 @@ This section shows you how to use the **Add Azure Replica Wizard** to extend you
 > 
 
 ## Create an availability group listener
-After the availability group has been created, you should create a listener for clients to connect to the replicas. Listeners direct incoming connections to either the primary or a read-only secondary replica. For more information on listeners, see [Configure an ILB listener for Always On Availability Groups in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+After the availability group has been created, you should create a listener for clients to connect to the replicas. Listeners direct incoming connections to either the primary or a read-only secondary replica. For more information on listeners, see [Configure an ILB listener for Always On Availability Groups in Azure](../classic/ps-sql-int-listener.md).
 
 ## Next steps
 In addition to using the **Add Azure Replica Wizard** to extend your Always On Availability Group to Azure, you might also move some SQL Server workloads completely to Azure. To get started, see [Provisioning a SQL Server Virtual Machine on Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).

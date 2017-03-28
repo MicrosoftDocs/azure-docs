@@ -13,11 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 1/09/2017
+ms.date: 2/15/2017
 ms.author: pratshar
 
 ---
 # Test Failover (VMM to VMM) in Site Recovery
+> [!div class="op_single_selector"]
+> * [Test Failover to Azure](./site-recovery-test-failover-to-azure.md)
+> * [Test Failover (VMM to VMM)](./site-recovery-test-failover-vmm-to-vmm.md)
+
 
 This article provides information and instructions for doing a test failover or a DR drill of virtual machines and physical servers that are protected with Site Recovery using a VMM managed on-premises site as the recovery site. 
 
@@ -25,21 +29,6 @@ Post any comments or questions at the bottom of this article, or on the [Azure R
 
 Test failover is run to validate your replication strategy or perform a disaster recovery drill without any data loss or downtime. Doing a test failover doesn't have any impact on the ongoing replication or on your production environment. Test failover can be done either on a virtual machine or a [recovery plan](site-recovery-create-recovery-plans.md). When triggering a test failover you need to specify the network to which test virtual machines would connect to. Once a test failover is triggered you can track progress in the **Jobs** page.  
 
-
-## Network options in site recovery
-
-When you run a test failover you'll be asked to select network settings for test replica machines. You have a number of options.  
-
-| **Test failover option** | **Description** | **Failover check** | **Details** |
-| --- | --- | --- | --- |
-| **Fail over to a secondary VMM site—without network** |Don't select a VM network |Failover checks that test machines are created.<br/><br/>The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located. |<p>The failed over machine won’t be connected to any network.<br/><br/>The machine can be connected to a VM network after it has been created |
-| **Fail over to a secondary VMM site—with network** |Select an existing VM network a |Failover checks that virtual machines are created |The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located.<br/><br/>Create a VM network that's isolated from your production network<br/><br/>If you're using a VLAN-based network we recommend you create a separate logical network (not used in production) in VMM for this purpose. This logical network is used to create VM networks for the purpose of test failover.<br/><br/>The logical network should be associated with at least one of the network adapters of all the Hyper-V servers hosting virtual machines.<br/><br/>For VLAN logical networks, the network sites you add to the logical network should be isolated.<br/><br/>If you’re using a Windows Network Virtualization–based logical network, Azure Site Recovery automatically creates isolated VM networks. |
-| **Fail over to a secondary VMM site—create a network** |A temporary test network will be created automatically based on the setting you specify in **Logical Network** and its related network sites |Failover checks that virtual machines are created |Use this option if the recovery plan uses more than one VM network. If you're using Windows Network Virtualization networks, this option can automatically create VM networks with the same settings (subnets and IP address pools) in the network of the replica virtual machine. These VM networks are cleaned up automatically after the test failover is complete.</p><p>The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located. |
-
-> [!TIP]
-> The IP address given to a virtual machine during test failover is same as the IP address it would receive when doing a planned or unplanned failover (presuming that the IP address is available in the test failover network. If the same IP address isn't available in the test failover network then virtual machine will receive another IP address available in the test failover network.
->
->
 
 ## Preparing infrastructure for test failover
 * If you want to run a test failover using an existing network, prepare Active Directory, DHCP, and DNS in that network.
@@ -79,21 +68,33 @@ Prepare a DNS server for the test failover as follows:
 ## Run a test failover
 This procedure describes how to run a test failover for a recovery plan. Alternatively you can run the failover for a single virtual machine or physical server on the **Virtual Machines** tab.
 
-1. Select **Recovery Plans** > *recoveryplan_name*. Click **Failover** > **Test Failover**.
-2. On the **Confirm Test Failover** page, specify how virtual machines should be connected to networks after the test failover.
-3. Track failover progress on the **Jobs** tab. When the failover reaches the** Complete testing** phase, click **Complete Test** to finish up the test failover.
-4. Click **Notes** to record and save any observations associated with the test failover.
-5. After it's complete verify that the virtual machines start successfully.
-6. After verifying that virtual machines start successfully, complete the test failover to clean up the isolated environment. If you chose to automatically create VM networks, cleanup deletes all the test virtual machines and test networks.
+![Test Failover](./media/site-recovery-test-failover-vmm-to-vmm/TestFailover.png)
 
-> [!IMPORTANT]
-> If a test failover continues for more than two weeks it'll be completed by force. Any elements or virtual machines created automatically during the test failover will be deleted.
+1. Select **Recovery Plans** > *recoveryplan_name*. Click **Failover** > **Test Failover**.
+1. On the **Test Failover** blade, specify how virtual machines should be connected to networks after the test failover. Look at [network options](#network-options-in-site-recovery) for more details.
+1. Track failover progress on the **Jobs** tab. 
+1. After it's complete verify that the virtual machines start successfully.
+1. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines and networks that were created during test failover. 
+
+
+## Network options in Site Recovery
+
+When you run a test failover you'll be asked to select network settings for test replica machines. You have a number of options.  
+
+| **Test failover option** | **Description** | **Failover check** | **Details** |
+| --- | --- | --- | --- |
+| **Fail over to a secondary VMM site—without network** |Don't select a VM network |Failover checks that test machines are created.<br/><br/>The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located. |<p>The failed over machine won’t be connected to any network.<br/><br/>The machine can be connected to a VM network after it has been created |
+| **Fail over to a secondary VMM site—with network** |Select an existing VM network a |Failover checks that virtual machines are created |The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located.<br/><br/>Create a VM network that's isolated from your production network<br/><br/>If you're using a VLAN-based network we recommend you create a separate logical network (not used in production) in VMM for this purpose. This logical network is used to create VM networks for the purpose of test failover.<br/><br/>The logical network should be associated with at least one of the network adapters of all the Hyper-V servers hosting virtual machines.<br/><br/>For VLAN logical networks, the network sites you add to the logical network should be isolated.<br/><br/>If you’re using a Windows Network Virtualization–based logical network, Azure Site Recovery automatically creates isolated VM networks. |
+| **Fail over to a secondary VMM site—create a network** |A temporary test network will be created automatically based on the setting you specify in **Logical Network** and its related network sites |Failover checks that virtual machines are created |Use this option if the recovery plan uses more than one VM network. If you're using Windows Network Virtualization networks, this option can automatically create VM networks with the same settings (subnets and IP address pools) in the network of the replica virtual machine. These VM networks are cleaned up automatically after the test failover is complete.</p><p>The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located. |
+
+> [!TIP]
+> The IP address given to a virtual machine during test failover is same as the IP address it would receive when doing a planned or unplanned failover (presuming that the IP address is available in the test failover network. If the same IP address isn't available in the test failover network then virtual machine will receive another IP address available in the test failover network.
 >
 >
 
 
 ## Test failover to a production network on recovery site 
-It is recommended that when you are doing a test failover you choose a network that is different from your production recovery site network that you provided in **Compute and Network** settings for the virtual machine. But if you really want to validate end to end network connectivity in a failed over virtual machine, please note the following points:
+It is recommended that when you are doing a test failover you choose a network that is different from your production recovery site network that you provided in **Network mapping**. But if you really want to validate end to end network connectivity in a failed over virtual machine, please note the following points:
 
 1. Make sure that the primary virtual machine is shutdown when you are doing the test failover. If you don't do so there will be two virtual machines with the same identity running in the same network at the same time and that can lead to undesired consequences. 
 1. Any changes that you make into the test failover virtual machines would be lost when you cleanup the test failover virtual machines. These changes will not be replicated back to the primary virtual machine.

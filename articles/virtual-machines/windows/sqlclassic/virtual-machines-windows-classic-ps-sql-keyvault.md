@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Key Vault Integration for SQL Server on Azure VMs (Classic)
+title: Integrate Key Vault with SQL Server on Windows VMs in Azure (Classic) | Microsoft Docs
 description: Learn how to automate the configuration of SQL Server encryption for use with Azure Key Vault. This topic explains how to use Azure Key Vault Integration with SQL Server virtual machines create in the classic deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -9,19 +9,19 @@ editor: ''
 tags: azure-service-management
 
 ms.assetid: ab8d41a7-1971-4032-ab71-eb435c455dc1
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 09/26/2016
+ms.workload: iaas-sql-server
+ms.date: 02/17/2017
 ms.author: jroth
-
+ms.custom: H1Hack27Feb2017
 ---
-# Configure Azure Key Vault Integration for SQL Server on Azure VMs (Classic)
+# Configure Azure Key Vault Integration for SQL Server on Azure Virtual Machines (Classic)
 > [!div class="op_single_selector"]
 > * [Resource Manager](../sql/virtual-machines-windows-ps-sql-keyvault.md)
-> * [Classic](virtual-machines-windows-classic-ps-sql-keyvault.md)
+> * [Classic](../classic/ps-sql-keyvault.md)
 > 
 > 
 
@@ -41,7 +41,7 @@ When this feature is enabled, it automatically installs the SQL Server Connector
 Use PowerShell to configure Azure Key Vault Integration. The following sections provide an overview of the required parameters and then a sample PowerShell script.
 
 ### Install the SQL Server IaaS Extension
-First, [install the SQL Server IaaS Extension](virtual-machines-windows-classic-sql-server-agent-extension.md).
+First, [install the SQL Server IaaS Extension](../classic/sql-server-agent-extension.md).
 
 ### Understand the input parameters
 The following table lists the parameters required to run the PowerShell script in the next section.
@@ -68,9 +68,9 @@ The **New-AzureVMSqlServerKeyVaultCredentialConfig** cmdlet creates a configurat
         $serviceName = "mycloudservicename"
 2. Then use the following script to configure and enable AKV Integration.
    
-     $secureakv =  $spSecret | ConvertTo-SecureString -AsPlainText -Force
-     $akvs = New-AzureVMSqlServerKeyVaultCredentialConfig -Enable -CredentialName $credname -AzureKeyVaultUrl $akvURL -ServicePrincipalName $spName -ServicePrincipalSecret $secureakv
-     Get-AzureVM -ServiceName $serviceName -Name $vmName | Set-AzureVMSqlServerExtension -KeyVaultCredentialSettings $akvs | Update-AzureVM
+        $secureakv =  $spSecret | ConvertTo-SecureString -AsPlainText -Force
+        $akvs = New-AzureVMSqlServerKeyVaultCredentialConfig -Enable -CredentialName $credname -AzureKeyVaultUrl $akvURL -ServicePrincipalName $spName -ServicePrincipalSecret $secureakv
+        Get-AzureVM -ServiceName $serviceName -Name $vmName | Set-AzureVMSqlServerExtension -KeyVaultCredentialSettings $akvs | Update-AzureVM
 
 The SQL IaaS Agent Extension will update the SQL VM with this new configuration.
 
