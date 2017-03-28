@@ -304,7 +304,7 @@ The Hero logo is optional. The publisher can choose not to upload a Hero logo. H
 
 #### Lead Management
 
-To fill out the lead management settings of the offer, follow instructions [here](./Cloud-partner-portal-make-offer-live-on-Azure-Marketplace.md)
+To fill out the lead management settings of the offer, follow instructions [here](./cloud-partner-portal-marketing-lead-management.md#how-to-connect-your-crm-system-with-the-cloud-partner-portal)
 
 ## Support Form
 The next form to fill out is the support form. This form asks for support contacts from your company like engineering contact information and customer support contact information. 
