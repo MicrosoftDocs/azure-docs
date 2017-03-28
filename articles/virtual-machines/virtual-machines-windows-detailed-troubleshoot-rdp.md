@@ -45,7 +45,7 @@ Before proceeding, it might help to mentally review what has changed since the l
 Before proceeding to the detailed troubleshooting,
 
 * Check the status of the virtual machine in the Azure classic portal or the Azure portal for any obvious issues.
-* Follow the [quick fix steps for common RDP errors in the basic troubleshooting guide](virtual-machines-windows-troubleshoot-rdp-connection.md#quick-troubleshooting-steps).
+* Follow the [quick fix steps for common RDP errors in the basic troubleshooting guide](windows/troubleshoot-rdp-connection.md#quick-troubleshooting-steps).
 
 Try reconnecting to the VM via Remote Desktop after these steps.
 
