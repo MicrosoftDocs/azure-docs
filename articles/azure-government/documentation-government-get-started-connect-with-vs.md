@@ -33,7 +33,7 @@ Create a file named **AadProvider.Configuration.json** with the following conten
           "AsmEndPoint": "https://management.core.usgovcloudapi.net/",
           "Authority": "https://login.microsoftonline.us/",
           "AzureResourceManagementEndpoint": "https://management.usgovcloudapi.net",
-          "AzureResourceManagementAudienceEndpoints": [ "https://management.usgovcloudapi.net" ],
+          "AzureResourceManagementAudienceEndpoints": [ "https://management.core.usgovcloudapi.net" ],
           "ClientIdentifier": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1",
           "EnvironmentName": "AzureUSGovernment",
           "GraphEndpoint": "https://graph.windows.net",
