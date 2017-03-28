@@ -19,7 +19,16 @@ ms.author: larryfr
 
 ---
 # Extend HDInsight capabilities by using Azure Virtual Network
-Azure Virtual Network allows you to extend your Hadoop solutions to incorporate on-premises resources such as SQL Server. It also allows you to combine multiple HDInsight cluster types, or to create secure private networks between resources in the cloud.
+
+Learn how to use Azure Virtual Networks with HDInsight to enable the following scenarios:
+
+* Restrict access to HDInsight. For example, prevent inbound traffic from the internet.
+
+* Directly access services on HDInsight that aren't exposed over the Internet. For example, directly work with Kafka brokers or use the HBase Java API.
+
+* Directly connect services to HDInsight. For example, use Oozie to import or export data to a SQL Server within your data center.
+
+* Create solutions that involve multiple HDInsight clusters. For example, use Spark or Storm to analyze data stored in Kafka.
 
 ## Prerequisites
 
@@ -64,20 +73,21 @@ For more information on Virtual Network features, benefits, and capabilities, se
 > [!NOTE]
 > Create the Azure Virtual Network before provisioning an HDInsight cluster, then specify the network when creating the cluster. For more information, see [Virtual Network configuration tasks](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-## Virtual Network requirements
+## What works, what doesn't
 
-> [!IMPORTANT]
-> Creating an HDInsight cluster on a Virtual Network requires specific Virtual Network configurations, which are described in this section.
+| Virtual Network feature/configuration | Linux-based HDInsight | Windows-based HDInsight |
+| ----- | ----- | ----- | For more information, see... |
+| Location-based virtual networks | no | no | &nbsp; |
+| Classic virtual networks | no | yes | [Classic and v2 Virtual Network](#classic-and-v2-virtual-networks) |
+| V2 virtual networks | yes | no | [Classic and v2 Virtual Network](#classic-and-v2-virtual-network) |
+| Custom DNS servers | yes | yes | [Custom DNS](#custom-dns)
+| Network security groups | yes | yes | [Secured virtual networks](#secured-virtual-networks) |
 
-### Location-based Virtual networks
+### Classic and v2 Virtual Networks
 
-Azure HDInsight supports only location-based virtual networks, and does not currently work with virtual networks based on affinity group.
+You can join the different network types, which allows you to access resources on an incompatible virtual network. Create the cluster in the network version that it requires, and it will be able to access resources in the other network since the two are joined.
 
-### Classic or v2 Virtual Network
-
-Linux-based clusters require an Azure Resource Manager Virtual Network (Windows-based clusters require a Classic Virtual Network). If you do not have the correct type of network, it can not be selected when you create the cluster.
-
-You can join the different network types, which allows you to access resources on an incompatible virtual network. Create the cluster in the network version that it requires, and it will be able to access resources in the other network since the two are joined. For more information on connecting classic and Resource Manager Virtual Networks, see [Connecting classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
+For more information on connecting classic and Resource Manager Virtual Networks, see [Connecting classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
 ### Custom DNS
 
