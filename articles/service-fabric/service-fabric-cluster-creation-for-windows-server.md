@@ -34,6 +34,7 @@ This article walks you through the steps for creating a Service Fabric standalon
 * Open a ticket for [Professional Support for Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Learn more about Professional Support from Microsoft [here](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * You can also get support for this package as a part of [Microsoft Premier Support](https://support.microsoft.com/en-us/premier).
 * For more details, please see [Azure Service Fabric support options](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support).
+* To collect logs for support purpose, run [Service Fabric Standalone Log collector] (https://go.microsoft.com/fwlink/?linkid=842487)
 
 <a id="downloadpackage"></a>
 
