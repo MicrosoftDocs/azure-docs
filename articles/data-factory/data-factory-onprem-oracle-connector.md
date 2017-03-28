@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 03/27/2017
 ms.author: jingwang
 
 ---
@@ -35,7 +35,11 @@ Oracle connector support two versions of drivers:
     > Currently Microsoft driver for Oracle only supports copying data from Oracle but not writing to Oracle. And note the test connection capability in Data Management Gateway Diagnostics tab does not support this driver. Alternatively, you can use the copy wizard to validate the connectivity.
     >
 
-- **Oracle Data Provider for .NET:** Data Management Gateway version 2.7 or higher includes this component, so you do not need to install it separately. If you are using a gateway of version lower than 2.7, we recommend that you install the latest version of gateway from [here](https://www.microsoft.com/download/details.aspx?id=39717). You can find the version of the gateway on the Help page of Data Management Gateway Configuration Manager (search for "Data Management Gateway").
+- **Oracle Data Provider for .NET:** you can also choose to use Oracle Data Provider to copy data from/to Oracle. This component is included in [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Install the appropriate version (32/64 bit) on the machine where the gateway is installed. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) can access to Oracle Database 10g Release 2 or later.
+
+	If you choose “XCopy Installation”, follow steps in the readme.htm. We recommend you choose the installer with UI (non-XCopy one).
+	
+	After installing the provider, **restart** the Data Management Gateway host service on your machine using Services applet (or) Data Management Gateway Configuration Manager.  
 
 ## Copy data wizard
 The easiest way to create a pipeline that copies data from/to an Oracle database to any of the supported sink data stores is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
@@ -47,11 +51,11 @@ This sample shows how to copy data from an on-premises Oracle database to an Azu
 
 The sample has the following data factory entities:
 
-1. A linked service of type [OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. An input [dataset](data-factory-create-datasets.md) of type [OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties).
-4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5. A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [OracleSource](data-factory-onprem-oracle-connector.md#oracle-copy-activity-type-properties) as source and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) as sink.
+1. A linked service of type [OnPremisesOracle](data-factory-onprem-oracle-connector.md#linked-service-properties).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [OracleTable](data-factory-onprem-oracle-connector.md#dataset-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [OracleSource](data-factory-onprem-oracle-connector.md#copy-activity-properties) as source and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) as sink.
 
 The sample copies data from a table in an on-premises Oracle database to a blob hourly. For more information on various properties used in the sample, see documentation in sections following the samples.
 
@@ -234,11 +238,11 @@ This sample shows how to copy data from an Azure Blob Storage to an on-premises 
 
 The sample has the following data factory entities:
 
-1. A linked service of type [OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4. An output [dataset](data-factory-create-datasets.md) of type [OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties).
-5. A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) as source [OracleSink](data-factory-onprem-oracle-connector.md#oracle-copy-activity-type-properties) as sink.
+1. A linked service of type [OnPremisesOracle](data-factory-onprem-oracle-connector.md#linked-service-properties).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type [OracleTable](data-factory-onprem-oracle-connector.md#dataset-properties).
+5. A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) as source [OracleSink](data-factory-onprem-oracle-connector.md#copy-activity-properties) as sink.
 
 The sample copies data from a blob to a table in an on-premises Oracle database every hour. For more information on various properties used in the sample, see documentation in sections following the samples.
 
@@ -401,7 +405,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 }
 ```
 
-## Oracle linked service properties
+## Linked service properties
 The following table provides description for JSON elements specific to Oracle linked service.
 
 | Property | Description | Required |
@@ -445,7 +449,7 @@ User Id=<username>;Password=<password>;",
 }
 ```
 
-## Oracle dataset type properties
+## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Oracle, Azure blob, Azure table, etc.).
 
 The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for the dataset of type OracleTable has the following properties:
@@ -454,7 +458,7 @@ The typeProperties section is different for each type of dataset and provides in
 | --- | --- | --- |
 | tableName |Name of the table in the Oracle Database that the linked service refers to. |No (if **oracleReaderQuery** of **OracleSource** is specified) |
 
-## Oracle copy activity type properties
+## Copy activity properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
 
 > [!NOTE]
