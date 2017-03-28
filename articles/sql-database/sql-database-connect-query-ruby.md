@@ -134,8 +134,9 @@ server = 'yourserver.database.windows.net'
 database = 'yourdatabase'
 username = 'yourusername'
 password = 'yourpassword'
-client = TinyTds::Client.new username: username, password: password, host: server, port: 1433, database: database
-
+client = TinyTds::Client.new username: username, password: password, 
+    host: server, port: 1433, database: database, azure: true
+    
 def update(name, listPrice, client)
     tsql = "UPDATE SalesLT.Product SET ListPrice = N'#{listPrice}' WHERE Name =N'#{name}'";
     result = client.execute(tsql)
@@ -155,7 +156,8 @@ server = 'yourserver.database.windows.net'
 database = 'yourdatabase'
 username = 'yourusername'
 password = 'yourpassword'
-client = TinyTds::Client.new username: username, password: password, host: server, port: 1433, database: database
+client = TinyTds::Client.new username: username, password: password, 
+    host: server, port: 1433, database: database, azure: true
 
 # settings for Azure
 result = client.execute("SET ANSI_NULLS ON")
