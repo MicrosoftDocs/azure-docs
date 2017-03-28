@@ -51,13 +51,13 @@ An IIS based web application typically follows one of the following deployment p
 **Deployment pattern 1 **
 An IIS based web farm  with Application Request Routing(ARR), IIS Server and Microsoft SQL Server. 
 
-![Deployment Pattern](./media/site-recovery-iis/Deployment-pattern1.png)
+![Deployment Pattern](./media/site-recovery-iis/deployment-pattern1.png)
 
 **Deployment pattern 2**
 An IIS based web farm with Application Request Routing(ARR), IIS Server, Application Server, and Microsoft SQL Server. 
 
 
-![Deployment Pattern](./media/site-recovery-iis/Deployment-pattern2.png)
+![Deployment Pattern](./media/site-recovery-iis/deployment-pattern2.png)
 
 ## Site Recovery support
 
@@ -77,7 +77,7 @@ Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating al
 
 If you are using a static IP then specify the IP that you want the virtual machine to take in the [**Target IP**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties) setting in Compute and Network settings. 
 
-![Target IP](./media/site-recovery-active-directory/DNS-Target-IP.png)
+![Target IP](./media/site-recovery-active-directory/dns-target-ip.png)
 
 
 ## Creating a recovery plan
@@ -123,13 +123,13 @@ Every site consists of binding information that includes the type of binding, th
 > 
 > If you have marked ‘all unassigned’ for the site binding as in the example below, you will not need to update this binding post failover. Also, if the IP address associated with a site is not changed post failover, the site binding need not be updated (Retention of the IP address depends on the network architecture and subnets assigned to the primary and recovery sites and hence may or may not be feasible for your organization.) 
 
-![SSL Binding](./media/site-recovery-iis/SSLBinding.png)
+![SSL Binding](./media/site-recovery-iis/sslbinding.png)
 
-If you have associated the IP address with a site, you will need to update all site bindings with the new IP address. You can add [IIS Web tier update script](https://aka.ms/asr-web-tier-update-scirpt-classsic) after Group 3 in recovery plan to change the site bindings. 
+If you have associated the IP address with a site, you will need to update all site bindings with the new IP address. You can add [IIS Web tier update script](https://aka.ms/asr-web-tier-update-runbook-classic) after Group 3 in recovery plan to change the site bindings. 
 
 
 #### Update load balancer IP address
-3. If you have  Application Request Routing virtual machine, add [IIS ARR  failover script](https://aka.ms/asr-iis-arrtier-failover-script-classic) after Group 4 to update the IP address.
+If you have  Application Request Routing virtual machine, add [IIS ARR  failover script](https://aka.ms/asr-iis-arrtier-failover-script-classic) after Group 4 to update the IP address.
 
 #### The SSL cert binding for an https connection
 Websites can have an associated SSL certificate that helps in ensuring a secure communication between the webserver and the user’s browser. If the website has an https connection and an associated https site binding to the IP address of the IIS server with an SSL cert binding, a new site binding will need to be added for the cert with the IP of the IIS virtual machine post failover. 
