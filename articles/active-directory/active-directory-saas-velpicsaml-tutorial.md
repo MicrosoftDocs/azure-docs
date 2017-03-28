@@ -110,12 +110,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 	![Configure Single Sign-On](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_certificate.png) 
 
 
-4. On the **Velpic SAML Configuration** section, click **Configure Velpic SAML** to open **Configure sign-on** window and copy the **SAML Entity ID** value.
-
-	![Configure Single Sign-On](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_configure.png) 
-
-	![Configure Single Sign-On](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_configuresignon.png)
-
+4. On the Velpic SAML Configuration section, click Configure Velpic SAML to open Configure sign-on window. Copy the SAML Entity ID from the Quick Reference section.
 
 5. In a different web browser window, log into your Velpic SAML company site as an administrator.
 
@@ -132,7 +127,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 	
 	![Plugin](./media/active-directory-saas-velpicsaml-tutorial/velpic_3.png)
 
-9. Enter the name of the new SAML plugin and click the **‘Add’** button. Following screen shows "Azure AD" as an example, you need to write your plug-in name.  
+9. Enter the name of the new SAML plugin and click the **‘Add’** button.
 
 	![Plugin](./media/active-directory-saas-velpicsaml-tutorial/velpic_4.png)
 
@@ -146,7 +141,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	c. In the **Provider Metadata Config** upload the metadata file saved from Azure portal.
 
-	d. You can also choose to enable SAML just in time provisioning by enabling the **‘Auto create new users’** checkbox. In cases when a user does not exist in Velpic attempts to log in from Azure, the login will fail if this flag is not enabled. If the flag is enabled the user will automatically be provisioned into Velpic at the time of login. 
+	d. You can also choose to enable SAML just in time provisioning by enabling the **‘Auto create new users’** checkbox. If a user doesn’t exist in Velpic and this flag is not enabled, the login from Azure will fail. If the flag is enabled the user will automatically be provisioned into Velpic at the time of login. 
 
 	e. Click on the text in the **‘Single sign on URL’** text box to copy the single sign on URL.
 	
@@ -159,7 +154,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
     a. In the **Sign-on URL** textbox, type the value as: `https://<sub-domain>.velpicsaml.net`
 
-	b. In the **Identifier** and  **Reply URL** textbox, paste the **‘Single sign on URL’** value you have copied above during the creation of new SAML plugin as `https://auth.velpic.com/saml/v2/<entity-id>/login
+	b. In the **Identifier** and  **Reply URL** textbox, paste the **‘Single sign on URL’** value you have copied above during the creation of new SAML plugin as `https://auth.velpic.com/saml/v2/<entity-id>/login`
 
 
 12. Click **Save** button.
@@ -200,11 +195,11 @@ The objective of this section is to create a test user in the Azure Management p
  
 ### Creating a Velpic SAML test user
 
-This step is usually not required as the application supports just in time user provisioning. If the automatic user provisioning is not enabled the manual creation is required as desribed below.
+This step is usually not required as the application supports just in time user provisioning. If the automatic user provisioning is not enabled then manual creation is required as described below.
 
 Log into your Velpic SAML company site as an administrator and perform following steps:
 	
-1. Click on **Manage** tab and go to **Users** section where you need to click on **New** button to add users.
+1. Click on Manage tab and go to Users section, then click on New button to add users.
 
 	![add user](./media/active-directory-saas-velpicsaml-tutorial/velpic_7.png)
 
