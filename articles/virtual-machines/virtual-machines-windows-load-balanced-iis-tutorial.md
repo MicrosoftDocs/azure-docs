@@ -42,7 +42,7 @@ New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location westeurope
 
 ## Step 3 - Create availability set
 
-Virtual machines can be created across logical fault and update domains. Each logical domain represents a portion of hardware in the underlying Azure datacenter. When you create two or more VMs, your compute and storage resources are distributed across these domains. This distribution maintains the availability of your app should a hardware component undergo maintenance. Availability sets let you define these logical fault and update domains.
+Virtual machines can be created across logical fault and update domains. Each logical domain represents a portion of hardware in the underlying Azure datacenter. When you create two or more VMs, your compute and storage resources are distributed across these domains. This distribution maintains the availability of your app if a hardware component needs maintenance. Availability sets let you define these logical fault and update domains.
 
 Create an availability set with [New-AzureRmAvailabilitySet](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermavailabilityset). The following example creates an availability set named `myAvailabilitySet`:
 
@@ -62,7 +62,7 @@ An Azure load balancer distributes traffic across a set of defined VMs using loa
 
 ### Create public IP address
 
-To access your app on the Internet, assign a public IP address to the load balancer. Create a public IP address with  [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermpublicipaddress). The following example creates a public IP address named `myPublicIP`:
+To access your app on the Internet, assign a public IP address to the load balancer. Create a public IP address with [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermpublicipaddress). The following example creates a public IP address named `myPublicIP`:
 
 ```powershell
 $pip = New-AzureRmPublicIpAddress `
@@ -205,7 +205,7 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 Load balancers function with the virtual NIC resource rather than the actual VM. The virtual NIC is connected to the load balancer, and then attached to a VM.
 
-Create a virtual NIC with  [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermnetworkinterface). The following example creates three virtual NICs. (One virtual NIC for each VM you create for your app in the following steps):
+Create a virtual NIC with [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermnetworkinterface). The following example creates three virtual NICs. (One virtual NIC for each VM you create for your app in the following steps):
 
 
 ```powershell
@@ -286,7 +286,7 @@ You may need to perform maintenance on the VMs running your app, such as install
 
 ### Remove a VM from the load balancer
 
-Remove a VM from the backend address pool by resetting the LoadBalancerBackendAddressPools property of the network interface card for the VM.
+Remove a VM from the backend address pool by resetting the LoadBalancerBackendAddressPools property of the network interface card.
 
 Get the network interface card with [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/get-azurermnetworkinterface):
 
@@ -308,7 +308,7 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 ### Add a VM to the load balancer
 
-After performing VM maintenance, or if you need to expand capacity, add a VM to the backend address pool with az network nic ip-config address-pool add.
+After performing VM maintenance, or if you need to expand capacity, adding the NIC of a VM to the backend address pool of the load balancer.
 
 Get the load balancer:
 
