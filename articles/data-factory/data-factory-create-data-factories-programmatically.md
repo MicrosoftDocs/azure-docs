@@ -67,6 +67,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 	```csharp
     using System.Configuration;
     using System.Collections.ObjectModel;
+    using System.Threading;
     using System.Threading.Tasks;
 
     using Microsoft.Azure;
@@ -279,6 +280,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 	```csharp
     public static async Task<string> GetAuthorizationHeader()
     {
+        var context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
         AuthenticationResult result = await context.AcquireTokenAsync(
             resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
             clientId: ConfigurationManager.AppSettings["AdfClientId"],
