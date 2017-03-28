@@ -145,9 +145,9 @@ For sensor pins, we will use the following wiring:
 
 | Start (Sensor)           | End (Board)           | Cable Color   |
 | -----------------------  | ---------------------- | ------------: |
-| VDD (Pin 31F)            | 3V (Pin 58H)           | Red cable     |
-| DATA (Pin 32F)           | GPIO 2 (Pin 46A)       | Blue cable    |
-| GND (Pin 34F)            | GND (PIn 56I)          | Black cable   |
+| VDD (Pin 27F)            | 3V (Pin 8A)           | Red cable     |
+| DATA (Pin 28F)           | GPIO 2 (Pin 9A)       | White cable    |
+| GND (Pin 30F)            | GND (Pin 7J)          | Black cable   |
 
 
 - For more information, see: [DHT22 sensor setup](http://cdn.sparkfun.com/datasheets/Sensors/Weather/RHT03.pdf) and [Sparkfun ESP8266 Thing Dev specification](https://www.sparkfun.com/products/13711)
