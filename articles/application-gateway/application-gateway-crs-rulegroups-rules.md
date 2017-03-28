@@ -27,7 +27,7 @@ The following tables are the Rule groups and rules that are available when using
 
 ##<a name="owasp30"></a> OWASP_3.0
 
-### <a name="crs910"></a>REQUEST-910-IP-REPUTATION
+### <a name="crs910"></a> REQUEST-910-IP-REPUTATION
 
 |RuleId|Description|
 |---|---|
@@ -48,7 +48,7 @@ The following tables are the Rule groups and rules that are available when using
 |910017|Rule 910017|
 |910018|Rule 910018|
 
-### <a name="crs911"></a>REQUEST-911-METHOD-ENFORCEMENT
+### <a name="crs911"></a> REQUEST-911-METHOD-ENFORCEMENT
 
 |RuleId|Description|
 |---|---|
@@ -62,7 +62,7 @@ The following tables are the Rule groups and rules that are available when using
 |911017|Rule 911017|
 |911018|Rule 911018|
 
-### <a name="crs912"></a>REQUEST-912-DOS-PROTECTION
+### <a name="crs912"></a> REQUEST-912-DOS-PROTECTION
 
 |RuleId|Description|
 |---|---|
@@ -83,7 +83,7 @@ The following tables are the Rule groups and rules that are available when using
 |912017|Rule 912017|
 |912018|Rule 912018|
 
-### <a name="crs913"></a>REQUEST-913-SCANNER-DETECTION
+### <a name="crs913"></a> REQUEST-913-SCANNER-DETECTION
 
 |RuleId|Description|
 |---|---|
@@ -101,7 +101,7 @@ The following tables are the Rule groups and rules that are available when using
 |913017|Rule 913017|
 |913018|Rule 913018|
 
-### <a name="crs920"></a>REQUEST-920-PROTOCOL-ENFORCEMENT
+### <a name="crs920"></a> REQUEST-920-PROTOCOL-ENFORCEMENT
 
 |RuleId|Description|
 |---|---|
@@ -155,7 +155,7 @@ The following tables are the Rule groups and rules that are available when using
 |920274|Invalid character in request headers (outside of very strict set)|
 |920460|Rule 920460|
 
-### <a name="crs921"></a>REQUEST-921-PROTOCOL-ATTACK
+### <a name="crs921"></a> REQUEST-921-PROTOCOL-ATTACK
 
 |RuleId|Description|
 |---|---|
@@ -178,7 +178,7 @@ The following tables are the Rule groups and rules that are available when using
 |921017|Rule 921017|
 |921018|Rule 921018|
 
-### <a name="crs930"></a>REQUEST-930-APPLICATION-ATTACK-LFI
+### <a name="crs930"></a> REQUEST-930-APPLICATION-ATTACK-LFI
 
 |RuleId|Description|
 |---|---|
@@ -195,7 +195,7 @@ The following tables are the Rule groups and rules that are available when using
 |930017|Rule 930017|
 |930018|Rule 930018|
 
-### <a name="crs931"></a>REQUEST-931-APPLICATION-ATTACK-RFI
+### <a name="crs931"></a> REQUEST-931-APPLICATION-ATTACK-RFI
 
 |RuleId|Description|
 |---|---|
@@ -212,7 +212,7 @@ The following tables are the Rule groups and rules that are available when using
 |931017|Rule 931017|
 |931018|Rule 931018|
 
-### <a name="crs932"></a>REQUEST-932-APPLICATION-ATTACK-RCE
+### <a name="crs932"></a> REQUEST-932-APPLICATION-ATTACK-RCE
 
 |RuleId|Description|
 |---|---|
@@ -231,7 +231,7 @@ The following tables are the Rule groups and rules that are available when using
 |932017|Rule 932017|
 |932018|Rule 932018|
 
-### <a name="crs933"></a>REQUEST-933-APPLICATION-ATTACK-PHP
+### <a name="crs933"></a> REQUEST-933-APPLICATION-ATTACK-PHP
 
 |RuleId|Description|
 |---|---|
@@ -255,7 +255,7 @@ The following tables are the Rule groups and rules that are available when using
 |933017|Rule 933017|
 |933018|Rule 933018|
 
-### <a name="crs941"></a>REQUEST-941-APPLICATION-ATTACK-XSS
+### <a name="crs941"></a> REQUEST-941-APPLICATION-ATTACK-XSS
 
 |RuleId|Description|
 |---|---|
@@ -288,7 +288,7 @@ The following tables are the Rule groups and rules that are available when using
 |941017|Rule 941017|
 |941018|Rule 941018|
 
-### <a name="crs942"></a>REQUEST-942-APPLICATION-ATTACK-SQLI
+### <a name="crs942"></a> REQUEST-942-APPLICATION-ATTACK-SQLI
 
 |RuleId|Description|
 |---|---|
@@ -316,7 +316,7 @@ The following tables are the Rule groups and rules that are available when using
 |942017|Rule 942017|
 |942018|Rule 942018|
 
-### <a name="crs943"></a>REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION
+### <a name="crs943"></a> REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION
 
 |RuleId|Description|
 |---|---|
@@ -334,7 +334,7 @@ The following tables are the Rule groups and rules that are available when using
 
 ##<a name="owasp229"></a> OWASP_2.2.9
 
-### <a name="crs20"></a>crs_20_protocol_violations
+### <a name="crs20"></a> crs_20_protocol_violations
 
 |RuleId|Description|
 |---|---|
@@ -360,7 +360,7 @@ The following tables are the Rule groups and rules that are available when using
 |960901|Invalid character in request|
 |960018|Invalid character in request|
 
-### <a name="crs21"></a>crs_21_protocol_anomalies
+### <a name="crs21"></a> crs_21_protocol_anomalies
 
 |RuleId|Description|
 |---|---|
@@ -373,7 +373,7 @@ The following tables are the Rule groups and rules that are available when using
 |960904|Request Containing Content but Missing Content-Type header|
 |960017|Host header is a numeric IP address|
 
-### <a name="crs23"></a>crs_23_request_limits
+### <a name="crs23"></a> crs_23_request_limits
 
 |RuleId|Description|
 |---|---|
@@ -384,7 +384,7 @@ The following tables are the Rule groups and rules that are available when using
 |960342|Uploaded file size too large|
 |960343|Total uploaded files size too large|
 
-### <a name="crs30"></a>crs_30_http_policy
+### <a name="crs30"></a> crs_30_http_policy
 
 |RuleId|Description|
 |---|---|
@@ -394,7 +394,7 @@ The following tables are the Rule groups and rules that are available when using
 |960035|URL file extension is restricted by policy|
 |960038|HTTP header is restricted by policy|
 
-### <a name="crs35"></a>crs_35_bad_robots
+### <a name="crs35"></a> crs_35_bad_robots
 
 |RuleId|Description|
 |---|---|
@@ -403,7 +403,7 @@ The following tables are the Rule groups and rules that are available when using
 |990902|Request Indicates a Security Scanner Scanned the Site|
 |990012|Rogue web site crawler|
 
-### <a name="crs40"></a>crs_40_generic_attacks
+### <a name="crs40"></a> crs_40_generic_attacks
 
 |RuleId|Description|
 |---|---|
@@ -432,7 +432,7 @@ The following tables are the Rule groups and rules that are available when using
 |958976|PHP Injection Attack|
 |958977|PHP Injection Attack|
 
-### <a name="crs41sql"></a>crs_41_sql_injection_attacks
+### <a name="crs41sql"></a> crs_41_sql_injection_attacks
 
 |RuleId|Description|
 |---|---|
@@ -469,7 +469,7 @@ The following tables are the Rule groups and rules that are available when using
 |981253|Detects MySQL and PostgreSQL stored procedure/function injections|
 |981251|Detects MySQL UDF injection and other data/structure manipulation attempts|
 
-### <a name="crs41xss"></a>crs_41_xss_attacks
+### <a name="crs41xss"></a> crs_41_xss_attacks
 
 |RuleId|Description|
 |---|---|
@@ -574,13 +574,13 @@ The following tables are the Rule groups and rules that are available when using
 |973329|IE XSS Filters - Attack Detected.|
 |973328|IE XSS Filters - Attack Detected.|
 
-### <a name="crs42"></a>crs_42_tight_security
+### <a name="crs42"></a> crs_42_tight_security
 
 |RuleId|Description|
 |---|---|
 |950103|Path Traversal Attack|
 
-### <a name="crs45"></a>crs_45_trojans
+### <a name="crs45"></a> crs_45_trojans
 
 |RuleId|Description|
 |---|---|
