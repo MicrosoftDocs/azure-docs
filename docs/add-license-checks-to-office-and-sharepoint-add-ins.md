@@ -271,6 +271,7 @@ Both methods allow an add-in to get the license the same way it would if it were
         ed="2012-06-30T21:58:13Z"
         sd="2012-01-12T00:00:00Z" 
         te="2012-06-30T02:49:34Z"
+        ts="0"
         test="true"/>
       <d>VNNAnf36IrkyUVZlihQJNdUUZl/YFEfJOeldWBtd3IM=</d>
     </r>
@@ -290,6 +291,7 @@ Both methods allow an add-in to get the license the same way it would if it were
         ed="2012-06-30T21:58:13Z"
         sd="2012-01-12T00:00:00Z"
         te="2012-06-30T02:49:34Z"
+        ts="0"
         test="true"/>
       <d>VNNAnf36IrkyUVZlihQJNdUUZl/YFEfJOeldWBtd3IM=</d>
     </r>
@@ -342,6 +344,7 @@ Both methods allow an add-in to get the license the same way it would if it were
         ed="2012-06-30T21:58:13Z"
         sd="2012-01-12T00:00:00Z"
         te="2012-06-30T02:49:34Z"
+        ts="0"
         test="true"/>
       <d>VNNAnf36IrkyUVZlihQJNdUUZl/YFEfJOeldWBtd3IM=</d>
     </r>
