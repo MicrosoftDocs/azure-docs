@@ -50,6 +50,7 @@ ms.author: renash
 
     ![Screenshot that shows how to upload files from the portal](media/storage-file/use-files-portal-upload-file2.png)
 
+<a id="connect"/></a>
 ## Connect to file share
 -  Click **Connect** to get the command line for mounting the file share from Windows and Linux. For Linux users, you could also refer to [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md) for more mounting instructions for other Linux distros.
 
