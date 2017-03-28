@@ -1,6 +1,6 @@
 ---
-title:Create a MEAN.js app in Azure | Microsoft Docs 
-description: Create a MEAN.js app in Azure. Learn how to get a MEAN.js app working in Azure, with connection to a DocumentDB database with a MongoDB connection string.
+title: Create a data-driven Node.js app in Azure with MongoDB | Microsoft Docs 
+description: Learn how to get a MEAN.js app working in Azure, with connection to a DocumentDB database with a MongoDB connection string.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -17,8 +17,8 @@ ms.date: 03/16/2017
 ms.author: cephalin
 
 ---
-# Create a MEAN.js app in Azure
-This tutorial shows you how to deploy a [MEAN.js](http://meanjs.org/) app to Azure App Service, complete with MongoDB access. MEAN.js is a popular MEAN (MongoDB, Express, AngularJS, and Node.js) framework.
+# Create a data-driven Node.js app in Azure with MongoDB
+This tutorial shows you how to deploy a Node.js web app to Azure and connect it to a MongoDB database in the cloud. MEAN.js is a popular MEAN (MongoDB, Express, AngularJS, and Node.js) framework.
 
 You should have working knowledge of Node.js. This tutorial is not intended to help you with issues related to developing Node.js apps in general.
 
