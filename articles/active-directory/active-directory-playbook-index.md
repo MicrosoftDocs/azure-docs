@@ -46,3 +46,76 @@ Azure AD provides identity and access solutions across multiple areas in the ent
 * Scale with Self Service 
 
 Defining a theme to frame the PoC helps to focus the efforts that resonates with business goals, which oftentimes are the triggers of the interest in a proof of concept in the first place. 
+
+### Environment
+
+
+
+### Target Users
+
+
+
+## PoC Implementation
+
+### Foundation - Syncing AD to Azure AD 
+
+
+
+#### Extending your on-premises identity to the cloud 
+
+
+
+#### Assigning Azure AD licenses using Groups 
+
+
+
+### Theme – Lots of apps, one identity
+
+
+
+#### Integrate SaaS Applications – Federated SSO 
+
+
+
+#### SSO and Identity Lifecycle Events
+
+
+
+#### Integrate SaaS Applications– Password SSO
+
+
+
+#### Secure Access to Shared Accounts 
+
+
+
+### Theme – Increase your security 
+
+
+
+#### Secure administrator account access
+
+
+
+#### Secure access to applications
+
+
+
+#### Enable Just in time (JIT) administration
+
+
+
+#### Protect Identities based on risk 
+
+
+
+### Theme – Scale with Self Service
+
+
+
+#### Self Service Password Reset 
+
+
+
+#### Self Service Access to Applications 
+
