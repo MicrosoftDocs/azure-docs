@@ -17,7 +17,7 @@ ms.date: 03/21/2017
 ms.author: renash
 ---
 # Use PowerShell to manage a file share
-Alternatively, you can use Azure PowerShell to create and manage file shares.
+You can use Azure PowerShell to create and manage file shares.
 
 ### Install the PowerShell cmdlets for Azure Storage
 To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for the install point and installation instructions.

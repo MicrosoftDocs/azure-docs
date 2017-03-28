@@ -25,11 +25,12 @@ Azure File storage is a service that offers file shares in the cloud using the s
 * [Automatically reconnecting after reboot - Pesisting credentials](#reconnect)
 * [Mount file share using net use command](#netuse)
 * [Mount Azure File Share using File Explorer on Windows 10](#win10)
+* [Troubleshoot mounting in Windows](#troubleshoot)
 
 <a id="prereq"/></a>
 ## Prerequisites for Mounting Azure File Share
 
-
+Azure File share can be mounted on Windows machine either on-premises orin Azure VM depending on OS version. Below table illustrates the 
 
 | Windows Version        | SMB Version |Mountable On Azure VM|Mountable On-Premisis|
 |------------------------|-------------|---------------------|---------------------|
@@ -41,7 +42,8 @@ Azure File storage is a service that offers file shares in the cloud using the s
 | Windows 10             | SMB 3.0     | Yes                 | Yes                 |
 
 <a id="reconnect"/></a>
-## Autmatically reconnecting after reboot - Pesisting credentials
+## Automatically reconnecting after reboot - Pesisting credentials
+
 Before mounting to the file share, first persist your storage account
 credentials on the virtual machine. This step allows Windows to automatically
 reconnect to the file share when the virtual machine reboots. To persist your
@@ -134,7 +136,16 @@ by remoting into the role.
     
     ![](media/storage-file/4_MountOnWindows10.png)
 
-**Note:**
+## Troubleshoot mounting in Windows
 
-Some Internet service providers may block port 445, so you may need to check
-with your service provider.
+** Q. Net use was successful but don't see the Azure file share mounted in Windows Explorer
+Cause **
+
+    By default, Windows Explorer does not run as Administrator. If you run net use from an Administrator command prompt, you map the network drive "As Administrator." Because mapped drives are user-centric, the user account that is logged in does not display the drives if they are mounted under a different user account. Solution is to mount the share from a non-administrator command line. Alternatively, you can follow this TechNet topic to configure the EnableLinkedConnections registry value.
+
+## Also See
+* [Manage Azure File Share using tools and scripts](storage-file-how-to-tooling-and-scripting)
+* [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md)
+* [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md)
+* [Using the Azure CLI with Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)
+* [Troubleshooting Azure File storage problems](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
