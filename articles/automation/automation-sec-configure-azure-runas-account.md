@@ -132,9 +132,9 @@ Perform a small test to confirm that you can successfully authenticate by using 
 
 3. Select the **AzureAutomationTutorialScript** runbook, and then click **Start** to start the runbook. The following events occur:
  * A [runbook job](automation-runbook-execution.md) is created, the **Job** blade is displayed, and the job status is displayed in the **Job Summary** tile.
- * The job status begins as *Queued*, indicating that it is waiting for a runbook worker in the cloud to become available.
- * The status becomes *Starting* when a worker claims the job.
- * The status becomes *Running* when the runbook starts running.
+ * The job status begins as **Queued**, indicating that it is waiting for a runbook worker in the cloud to become available.
+ * The status becomes **Starting** when a worker claims the job.
+ * The status becomes **Running** when the runbook starts running.
  * When the runbook job has finished running, you should see a status of **Completed**.
 
        ![Security Principal Runbook Test](media/automation-sec-configure-azure-runas-account/job-summary-automationtutorialscript.png)
@@ -155,9 +155,9 @@ Perform a similar small test to confirm that you can successfully authenticate b
 3. Select the **AzureClassicAutomationTutorialScript** runbook, and then click **Start** to  start the runbook. The following events occur:
 
  * A [runbook job](automation-runbook-execution.md) is created, the **Job** blade is displayed, and the job status is displayed in the **Job Summary** tile.
- * The job status begins as *Queued*, indicating that it is waiting for a runbook worker in the cloud to become available.
- * The status becomes *Starting* when a worker claims the job.
- * The status becomes *Running* when the runbook starts running.
+ * The job status begins as **Queued**, indicating that it is waiting for a runbook worker in the cloud to become available.
+ * The status becomes **Starting** when a worker claims the job.
+ * The status becomes **Running** when the runbook starts running.
  * When the runbook job has finished running, you should see a status of **Completed**.
 
     ![Security Principal Runbook Test](media/automation-sec-configure-azure-runas-account/job-summary-automationclassictutorialscript.png)<br>
