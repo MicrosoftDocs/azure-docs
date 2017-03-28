@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 03/27/2017
+ms.date: 03/28/2017
 ms.author: pajosh;markgal;trinadhk
 ms.custom: H1Hack27Feb2017
 
@@ -30,5 +30,33 @@ This article talks about steps to configure reports for Azure Backup using Recov
 2. [Create a Power BI account](https://powerbi.microsoft.com/landing/signin/) to view, customize and create your own reports.
 
 ## Configure storage account for reports
-Use the following steps to configure storage account for Recovery Services vault using Azure Portal. You can use the same storage account across multiple vaults, if you intend to view reports across vaults. 
-1. Navigate to recovery services vault. If there is no recovery services vault present, [create a recovery services vault](backup-azure-arm-vms-prepare.md#create-a-recovery-services-vault-for-a-vm). 
+Use the following steps to configure storage account for recovery services vault using Azure Portal. You can use the same storage account across multiple vaults, if you intend to view reports across vaults. 
+1. If you already have a Recovery Services vault open, proceed to next step. If you do not have a Recovery Services vault open, but are in the Azure portal, on the Hub menu, click **Browse**.
+
+   * In the list of resources, type **Recovery Services**.
+   * As you begin typing, the list filters based on your input. When you see **Recovery Services vaults**, click it.
+
+      ![Create Recovery Services Vault step 1](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
+
+     The list of Recovery Services vaults appears. From the list of Recovery Services vaults, select a vault.
+
+     The selected vault dashboard opens.
+2. From the list of items that appears under vault, click **Backup Reports** under Monitoring and Reports section to configure storage account for reports.
+3. On the Backup Reports blade, click **Configure** button and set the Status toggle button to **On**.
+4. Select **Export to Storage Account** check box so that reporting data can start flowing in to storage account.
+5. Click Storage Account picker and select storage account from the list for storing reporting data.
+6. Select **Azure Backup Reporting Data** check box and also move the slider to select retention period for this reporting data. Reporting data in storage account is kept for the period selected using this slider. 
+7. Review all the changes and click **Save** button on top. This ensures that all your changes are saved and storage account is now configured for storing reporting data.
+
+## Viewing reports in Power BI 
+After configuring storage account for reports using recovery services vault, it takes around 24 hours for reporting data to start flowing in. After 24 hours of setting up storage account, use the following steps to view reports in Power BI:
+1. [Sign in](https://powerbi.microsoft.com/landing/signin/) to Power BI.
+2. Click **Get Data** and click Get under **Services** in Content Pack Library. [Learn more](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-packs-services/) about Power BI content packs.
+3. Type **Azure Backup** in Search bar and click **Get it now**.
+4. Enter storage account name configured in step 5 above and click on Next button.
+5. Enter storage account key for this storage account. You can [view and copy storage access keys](../storage/storage-create-storage-account.md#manage-your-storage-account) by navigating to your storage account in Azure portal.
+6. Click **Sign in** button. After sign in is successful, you get **Importing data** notification.
+7. Once data is imported successfully, type **Azure Backup** in the navigation pane. This shows Azure Backup dashboard, reports and dataset with a yellow star indicating newly imported reports.
+8. Click **Azure Backup** under Dashboards, which shows a set of pinned key reports.
+9. Click on any report in the dashboard to navigate to the complete set of reports.
+10. Click on each tab in the reports to view reports in that area.
