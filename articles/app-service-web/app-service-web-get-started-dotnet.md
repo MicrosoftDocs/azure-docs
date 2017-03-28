@@ -67,7 +67,12 @@ Once signed in, you're ready to create all the resources you need for your Azure
 
 ## Create a resource group
 
-First, you need a _resource group_. A resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed.
+First, you need a _resource group_. 
+
+> [!NOTE] 
+> A resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed.
+>
+>
 
 Next to **Resource Group**, click **New**.
 
@@ -75,14 +80,19 @@ Name your resource group **myResourceGroup** and click **OK**.
 
 ## Create an App Service plan
 
-Your Azure web app also needs an _App Service plan_. An App Service plan represents the collection of physical resources used to host your apps. All apps assigned to an App Service plan share the resources defined by it, which enables you to save cost when hosting multiple apps. 
+Your Azure web app also needs an _App Service plan_. 
 
-App Service plans define:
-
-- Region (North Europe, East US, Southeast Asia)
-- Instance Size (Small, Medium, Large)
-- Scale Count (one, two or three instances, etc.) 
-- SKU (Free, Shared, Basic, Standard, Premium)
+> [!NOTE]
+> An App Service plan represents the collection of physical resources used to host your apps. All apps assigned to an App Service plan share the resources defined by it, which enables you to save cost when hosting multiple apps. 
+>
+> App Service plans define:
+>
+> - Region (North Europe, East US, Southeast Asia)
+> - Instance Size (Small, Medium, Large)
+> - Scale Count (one, two or three instances, etc.) 
+> - SKU (Free, Shared, Basic, Standard, Premium)
+>
+>
 
 Next to **App Service Plan**, click **New**. 
 
