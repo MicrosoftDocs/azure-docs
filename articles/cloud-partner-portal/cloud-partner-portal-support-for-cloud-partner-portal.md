@@ -1,5 +1,5 @@
 ---
-title: Support for the cloud partner portal | Microsoft Docs
+title: Azure support for the cloud partner portal | Microsoft Docs
 description: This article gives gives details around getting support for the cloud partner portal
 services: cloud-partner-portal
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.author: andalmia
 
 ---
 
-<span id="_Hlk477955830" class="anchor"></span>**Support for Cloud Partner Portal**
+#Support for Cloud Partner Portal
 
 Microsoft provides support for a wide variety of products and services. Ensuring that your query finds the right support team is important to ensure an appropriate and timely response. Please consider the following scenarios, which should help you route your query to the appropriate team:
 

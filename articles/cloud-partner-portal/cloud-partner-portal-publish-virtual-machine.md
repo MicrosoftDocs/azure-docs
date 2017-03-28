@@ -1,5 +1,5 @@
 ---
-title: Publish a virtual machine | Microsoft Docs
+title: Publish a virtual machine in Azure Marketplace | Microsoft Docs
 description: This article gives gives details around publishing a virtual machine via the cloud partner portal
 services: cloud-partner-portal
 documentationcenter: ''
@@ -15,11 +15,11 @@ ms.date: 03/22/2017
 ms.author: andalmia
 
 ---
-Publish a virtual machine
-=========================
+# Publish a virtual machine to Azure Marketplace
 
-What are pre-requisites for publishing a VM
--------------------------------------------
+This article lists the various steps involved in publishing a virtual machine to Azure Marketplace.
+
+## What are pre-requisites for publishing a VM
 
 Prerequisites to listing on Azure Marketplace
 
@@ -27,9 +27,7 @@ Prerequisites to listing on Azure Marketplace
 
 > Must have Azure compatible VHD-need link to testing tools for compatibility <https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites>
 
-
-
-1.  Non-technical (business requirements)
+2.  Non-technical (business requirements)
 
 -   Your company (or its subsidiary) must be located in a sell from country supported by ​the Azure Marketplace
 
@@ -45,17 +43,14 @@ Prerequisites to listing on Azure Marketplace
 
 *You must agree to comply with the [Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/) , [Microsoft Privacy Statement](http://www.microsoft.com/privacystatement/default.aspx) and [Microsoft Azure Certified Program Agreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).*
 
-How to create a new VM offer
-============================
+## How to create a new VM offer
 
 Once all the pre-requisites have been met, you are ready to start authoring your virtual machine (VM) offer. Before we begin, a quick overview of an offer and a SKU
 
-Offer
------
+### Offer
 A virtual machine offer corresponds to a class of product offering from a publisher. If you have a  new kind of product/virtual machine that you would like to be available in Azure Marketplace, a new offer would be the way to go. An offer is a collection of SKUs. Every offer appears as its own entity in Azure Marketplace. 
 
-SKU
----
+### SKU
 A SKU is the smallest purchasable unit of an offer. While within the same product class (offer), SKUs allow you to differentiate between different features supported, VM image types and billing models supported. 
 
 Add multiple SKUs if you would like to support different billing models like Bring Your Own License (BYOL), Pay as you Go (PAYG), etc. Add multiple SKUs when each SKU supports a different feature set and each of them is priced differently. Also add multiple SKUs if you have different VM images for public vs sovereign clouds. 
@@ -84,33 +79,23 @@ A SKU shows up under the parent offer in Azure Marketplace while it shows up as 
 
 -   Support
 
-How to fill out the Offer Settings form
-=======================================
-
+## How to fill out the Offer Settings form
 The offer settings form is a basic form to specify the offer settings. The different fields are described below.
 
-Offer ID
---------
-
+### Offer ID
 This is a unique identifier for the offer within a publisher profile. This ID will be visible in product URLs, ARM templates and billing reports. It can only be composed of lowercase alphanumeric characters or dashes (-). The ID cannot end in a dash and can have a maximum of 50 characters. Note that this field is locked once an offer goes live.
 
 For eg., if a publisher **contoso** publishers an offer with offer ID **sample-vm**, it will show up in Azure marketplace as **https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-vm?tab=Overview**
 
-Publisher ID
-------------
-
+### Publisher ID
 This dropdown allows you to choose the publisher profile you want to publish this offer under. Note that this field is locked once an offer goes live.
 
-Name
-----
-
+### Name
 This is the display name for your offer. This is the name that will show up in [Azure Marketplace](https://azuremarketplace.microsoft.com) and in [Azure Portal](https://portal.azure.com/). It can have a maximum of 50 characters. Guidance here is to include a recognizable brand name for your product. Dont include your company name here unless that is how it is marketed. If you are marketing this offer at your own website, ensure that the name is exactly how it shows up in your website.
 
 Click on “Save” to save your progress. Next step would be to add SKUs for your offer.
 
-How to create SKUs
-==================
-
+## How to create SKUs
 Click on the “SKUs” form. Here you can see an option to “Add a SKU” clicking on which will allow you to enter a “SKU ID”.
 
 ![publishvm4][4]
@@ -119,27 +104,21 @@ This is a unique identifier for the SKU within an offer. This ID will be visible
 
 Once a SKU has been added, it will appear in the list of SKUs within the “SKUs” form. Click on the SKU name to get into the details of that particular SKU. Here are some details for some of the fields.
 
-Hide this SKU
--------------
-
+### Hide this SKU
 This flag allows you to set if this specific SKU is visible in [Azure Marketplace](https://azuremarketplace.microsoft.com) and in [Azure Portal](https://portal.azure.com/) to customers. You may want to hide the SKU if you only want it available via solution templates and not for purchase individually.
 
-Cloud Availability 
--------------------
-
+### Cloud Availability 
 This field allows you to define the availability of your SKU in the different Azure Clouds.
 
-### Public Azure 
+#### Public Azure 
 
 This SKU will be deployable to customers in all public Azure regions that have Marketplace integration.
 
-### Azure Government Cloud 
+#### Azure Government Cloud 
 
 This SKU will be deployable in the Azure Government Cloud. Before publishing to [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), we recommend publishers test and validate their solution works as expected. To stage and test, request a trial account [here](https://azure.microsoft.com/offers/ms-azr-usgov-0044p). Please note that Microsoft Azure Government is a government-community cloud with controlled access for customers from the US Federal, State, local or tribal AND partners eligible to serve these entities.
 
-Country/Region availability
----------------------------
-
+### Country/Region availability
 This field determines the regions in which your SKU is going to be available for purchase. You need to carefully consider where you make your SKUs available. Some countries are classified as “Microsoft Tax Remitted Country”.
 
 -   In “Microsoft Tax Remitted Country”, Microsoft collects taxes from customers and pays (remits) taxes to the government.
@@ -148,41 +127,36 @@ This field determines the regions in which your SKU is going to be available for
 
 ![publishvm5][5]
 
-Pricing 
---------
-
+### Pricing 
 There are currently 2 kinds of pricing models supported.
 
-### Bring-Your-Own-License (BYOL)
+#### Bring-Your-Own-License (BYOL)
 
 You manage the licensing of the software running on the VM. Microsoft will only charge the infrastructure costs.
 
-### Usage based monthly billed SKU
+#### Usage based monthly billed SKU
 
 Customers get charged on a per-hour basis based on the rates set by the publishers on the VM sizes. In case of **hourly billing** model of the SKUs, the total price will be the summation of the software cost charged by the publisher and the infrastructure cost charged by Microsoft. This total cost will be displayed to the customer as an hourly and monthly price when they are considering the purchase. The billing in this case will be on a monthly basis.
 
 Within the Usage based model, there are additional settings required by you.
 
-#### Free Trial
+##### Free Trial
 
 You can specify if you want to provide a free trial for your customers. Here the customer doesn’t get charged for software cost for the first 30 days(Free) after deploying the VM. After 30 days they get charged on a per-hour basis based on the rates set by the publishers in the hourly model.
 
-#### Per Core Pricing
+##### Per Core Pricing
 
 You can set pricing per core for your SKU. For this, you just need to enter a base price for a single core and we auto-compute the prices for the rest of the cores. Enter the prices in USD in the portal and we will auto-calculate the prices for other regions. You can verify the prices in the other regions by using **Export Pricing Data**
 
 ![publishvm6][6]
 
-#### Discrete Pricing
+##### Discrete Pricing
 
 You can set the pricing for each sets of cores individually if you would like to price each core separately.
 
-**
-**
-
 ![publishvm7][7]
 
-#### Export-Import Pricing
+##### Export-Import Pricing
 
 You have the flexibility to export the pricing that has been configured via the portal to make changes via the excel interface. This also allows you to verify per-region pricing and pricing in local currencies. Clicking on **Export-Pricing** will download an excel file with pricing details pre-populated. You will be able to edit these within the excel and then use **Import-Pricing** to import the changes that were made. The imported pricing will reflect in the portal as well.
 
@@ -190,7 +164,7 @@ Within this pricing excel, the prices for the different regions are listed in lo
 
 ![publishvm8][8]
 
-#### Important notes about Pricing
+##### Important notes about Pricing
 
 -   Prices are not changeable once an offer goes live. You may still be able to add/remove supported regions.
 
@@ -200,9 +174,7 @@ Within this pricing excel, the prices for the different regions are listed in lo
 
 -   To set or view each region’s price individually, please export the pricing spreadsheet and import with custom pricing.
 
-VM Images
----------
-
+### VM Images
 The next section to complete will be the VM Images section. Before going to this section, you need to have the VHD that you want to publish ready. Here are some links helping you to create your VHD:
 
 -   [Technical prerequisites for creating a virtual machine image for the Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites)
@@ -220,43 +192,43 @@ The next section to complete will be the VM Images section. Before going to this
 
 Once you have your VHD ready, you can start filling out this section. Here are some details for some of the fields.
 
-### Recommended VM Sizes
+#### Recommended VM Sizes
 
 Select up to six recommended virtual machine sizes. These are recommendations that get displayed to the customer in Azure Marketplace and the Pricing tier blade in the Azure Portal when they decide to purchase and deploy your image. **These are only recommendations. The customer is able to select any VM size that accommodates the disks specified in your image.** Below is how recommended VM sizes will appear to the customer in Azure Portal.
 
 ![publishvm9][9]
 
-### Open Ports
+#### Open Ports
 
 Specify the ports that you would like made open and available. These ports are opened during this VMs deployment.
 
-### Adding VM Images
+#### Adding VM Images
 
 The next step would be to add a VM image for your SKU. You can add up to 8 disk versions per SKU. Only the highest disk version number for a particular SKU will show up in Azure Marketplace. Others will be visible via APIs. 
 
 Start by clicking the “+ New version” under the **Disk version** section. This will show a collection of fields that needs to be filled out.
 
-#### VM image version
+##### VM image version
 
 The VM image version needs to follow the [semantic version](http://semver.org/) format. Versions should be of the form X.Y.Z, where X, Y, and Z are integers. Images in different SKUs can have different major and minor versions. Versions within a SKU should only be incremental changes, which increase the patch version (Z from X.Y.Z).
 
-#### OS VHD URL
+##### OS VHD URL
 
 Enter the [shared access signature URI](https://github.com/Microsoft/azure-docs/blob/master/articles/marketplace-publishing/marketplace-publishing-vm-image-creation.md) created for the operating system VHD.
 
 If there are data disks associated with this SKU, you can choose to add this by clicking the “+ New data disk” link. This will bring up additional fields to fill out.
 
-#### LUN VHD URL
+##### LUN VHD URL
 
 Enter the [shared access signature URI](https://github.com/Microsoft/azure-docs/blob/master/articles/marketplace-publishing/marketplace-publishing-vm-image-creation.md) for your data disk.
 
-#### LUN Number
+##### LUN Number
 
 Assign this LUN a number. This number will be reserved for this data disk within this SKU.
 
 Note that once you publish a SKU with a given VM version and Data disks, these get locked and cannot be modified. For any additional VM versions that get added to the SKU, the number of data disks that it needs to support cannot change.
 
-#### Common SAS URL issues & fixes
+##### Common SAS URL issues & fixes
 
 | **Issue**                                                           | **Failure Message**                                                           | **Fix**                                                   | **Documentation Link**                                                                                    |
 |---------------------------------------------------------------------|-------------------------------------------------------------------------------|-----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
@@ -266,34 +238,34 @@ Note that once you publish a SKU with a given VM version and Data disks, these g
 | Failure in copying images - SAS url have white spaces in vhd name   | Failure: Copying Images. Not able to download blob using provided SAS Uri.    | Update the SAS Url without white spaces                   | <https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/> |
 | Failure in copying images – SAS Url Authorization error             | Failure: Copying Images. Not able to download blob due to authorization error | Regenerate the SAS Url                                    | <https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/> |
 
-Marketplace Form
-================
-
+## Marketplace Form
 The marketplace form within a virtual machine offer asks for fields that will show up on [Azure Marketplace](https://azuremarketplace.microsoft.com) and on [Azure Portal](https://portal.azure.com/). Here are some details for some of the fields.
 
-### Preview Subscription Ids
+#### Preview Subscription Ids
 
 Enter here a list of Azure Subscription IDs that you would like to have access to the offer once its published. These white-listed subscriptions will allow you to test the previewed offer before making it live.
 
-### Suggested Categories
+#### Suggested Categories
 
 Select up to 5 categories from the provided list that your offer can be best associated with. The selected categories will be used to map your offer to the product categories available in [Azure Marketplace](https://azuremarketplace.microsoft.com) and [Azure Portal](https://portal.azure.com/).
 
 Here are some of the places that the data you provide on this form shows up in.
 
-#### Azure Marketplace
+##### Azure Marketplace
 
 ![publishvm10][10]
 
 ![publishvm11][11]
 
-#### Azure Portal
+![publishvm15][15]
+
+##### Azure Portal
 
 ![publishvm12][12]
 
 ![publishvm13][13]
 
-#### Logo Guidelines
+##### Logo Guidelines
 
 All the logos uploaded in the Cloud Partner Portal should follow the below guidelines:
 
@@ -307,11 +279,11 @@ All the logos uploaded in the Cloud Partner Portal should follow the below guide
 
 -   The logo should not be stretched.
 
-#### Hero Logo
+##### Hero Logo
 
 The Hero logo is optional. The publisher can choose not to upload a Hero logo. However once uploaded the hero icon cannot be deleted. At that time, the partner must follow the Azure Marketplace guidelines for Hero icons.
 
-##### Guidelines for the Hero logo icon
+###### Guidelines for the Hero logo icon
 
 -   The Publisher Display Name, plan title and the offer long summary are displayed in white font color. Hence you should avoid keeping any light color in the background of the Hero Icon. Black, white and transparent background is not allowed for Hero icons.
 
@@ -319,19 +291,15 @@ The Hero logo is optional. The publisher can choose not to upload a Hero logo. H
 
 ![publishvm14][14]
 
-### Lead Management
+#### Lead Management
 
-&lt;Point to Bryan’s lead doc)
+To fill out the lead management settings of the offer, follow instructions [here](www.bing.com)
 
-Support Form
-============
-
+## Support Form
 The next form to fill out is the support form. This form asks for support contacts from your company like engineering contact information and customer support contact information. 
 
-How to publish an offer
-=======================
-
-&lt;Point to Dina’s doc&gt;
+## How to publish an offer
+Now that you have your offer drafted, the next step would be to publish the offer to Azure Marketplace. Follow instructions to [get your offer live in Azure Marketplace](./Cloud-partner-portal-make-offer-live-on-Azure-Marketplace.md) 
 
 [1]: ./media/cloud-partner-portal-publish-virtual-machine/publishvm1.png
 [2]: ./media/cloud-partner-portal-publish-virtual-machine/publishvm2.png
@@ -347,3 +315,4 @@ How to publish an offer
 [12]: ./media/cloud-partner-portal-publish-virtual-machine/publishvm12.png
 [13]: ./media/cloud-partner-portal-publish-virtual-machine/publishvm13.png
 [14]: ./media/cloud-partner-portal-publish-virtual-machine/publishvm14.png
+[15]: ./media/cloud-partner-portal-publish-virtual-machine/publishvm15.png
