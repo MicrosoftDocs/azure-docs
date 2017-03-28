@@ -122,13 +122,13 @@ Taking a disk snapshot creates a read only, point-in-time copy of the disk. In t
 
 ### Create snapshot
 
-Before creating a virtual machine disk snapshot, the Id or name of the disk is needed. Use the [az vm show](https://docs.microsoft.com/cli/azure/vm#show) command to get the disk id. In this example, the disk id is stored in a variable so that it can be used in a later step.
+Before creating a snapshot, the Id or name of the disk is needed. Use the [az vm show](https://docs.microsoft.com/cli/azure/vm#show) command to get the disk id. In this example, the disk id is stored in a variable and is used in a later step.
 
 ```azurecli
 osdiskid=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 ```
 
-Now that you have the id of the virtual machine disk, the following command creates a snapshot of the disk.
+Now that you have the id of the disk, the following command creates the snapshot.
 
 ```azurcli
 az snapshot create -g myResourceGroup --source "$osdiskid" --name osDisk-backup
@@ -152,7 +152,7 @@ az vm delete --resource-group myResourceGroup --name myVM
 
 When re-creating the virtual machine, the existing network interface will be re-used. This ensures that network security configurations are retained.
 
-Get the network interface name using the [az network nic list]https://docs.microsoft.com/cli/azure/network/nic#list) command. This example places the name in a variable named `nic`, which is used in the next step.
+Get the network interface name using the [az network nic list](https://docs.microsoft.com/cli/azure/network/nic#list) command. This example places the name in a variable named `nic`, which is used in the next step.
 
 ```azurecli
 nic=$(az network nic list --resource-group myResourceGroup --query "[].[name]" -o tsv)
@@ -182,7 +182,7 @@ Use the [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach)
 az vm disk attach –g myResourceGroup –-vm-name myVM –-disk $datadisk
 ```
 
-The disk also needs to be mounted to the operating system. To mount the disk, connect to the virtual machine and run `sudo mount /dev/sdc1 /datadrive` command, or your preferred disk mounting operation. 
+The disk also needs to be mounted to the operating system. To mount the disk, connect to the virtual machine and run `sudo mount /dev/sdc1 /datadrive`, or your preferred disk mounting operation. 
 
 ## Step 7 – Management tasks
 
