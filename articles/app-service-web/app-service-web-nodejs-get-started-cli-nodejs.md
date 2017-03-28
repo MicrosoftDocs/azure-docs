@@ -245,7 +245,7 @@ To enable Node-Inspector, follow these steps:
 
 <!-- URL List -->
 
-[Azure CLI]: ../xplat-cli-install.md
+[Azure CLI]:../cli-install-nodejs.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [activate your Visual Studio subscriber benefits]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Bower]: http://bower.io/

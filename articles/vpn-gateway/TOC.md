@@ -20,7 +20,6 @@
 ### [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 ### [Azure portal (classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-### [Classic portal (classic)](vpn-gateway-point-to-site-create.md)
 ## Configure a VNet-to-VNet connection
 ### [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -42,7 +41,9 @@
 ## [Modify local network gateway settings using PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ## [Verify a VPN gateway connection](vpn-gateway-verify-connection-resource-manager.md)
 ## [Reset a VPN gateway](vpn-gateway-resetgw-classic.md)
-## [Delete a VPN gateway](vpn-gateway-delete-vnet-gateway-powershell.md)
+## Delete a VPN gateway
+### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+### [PowerShell (classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Create self-signed root certificates for P2S connections](vpn-gateway-certificates-point-to-site.md)
 ## [Configure a VPN gateway (classic)](vpn-gateway-configure-vpn-gateway-mp.md)
 

@@ -37,7 +37,7 @@ When you create an Analysis Services server in Azure, you specify a unique name 
 
 ## Get the server name
 
-Before you connect, you need to get the server name. In **Azure portal** > server > **Overview** > **Server name**, copy the entire server name. If other users in your organization are connecting to this server too, you'll want to share this server name with them. When specifying a server name, the entire path must be used.
+Before you connect, you need to get the server name. In **Azure portal** > server > **Overview** > **Server name**, copy the entire server name. If other users in your organization are connecting to this server too, you can share this server name with them. When specifying a server name, the entire path must be used.
 
 ![Get server name in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
@@ -48,11 +48,11 @@ Before you connect, you need to get the server name. In **Azure portal** > serve
 > 
 > 
 
-1. In [Power BI Desktop](https://powerbi.microsoft.com/desktop/), click **Get Data** > **Databases** > **Azure Analysis Services**.
+1. In [Power BI Desktop](https://powerbi.microsoft.com/desktop/), click **Get Data** > **Azure** > **Microsoft Azure Analysis Services database**.
 2. In **Server**, paste the server name from the clipboard.
 3. In **Database**, if you know the name of the tabular model database or perspective you want to connect to, paste it here. Otherwise, you can leave this field blank. You can select a database or perspective on the next screen.
 4. Leave the default **Connect live** option selected, then press **Connect**. If you're prompted to enter an account, enter your organizational account.
-5. In **Navigator**, expand the server, then select the model or perspective you want to connect to, then click **Connect**. A single click on a model or perspective shows all the objects for that view.
+5. In **Navigator**, expand the server, then select the model or perspective you want to connect to, then click **Connect**. A click on a model or perspective shows all the objects for that view.
 
 ## Connect in Power BI
 
@@ -64,7 +64,7 @@ Before you connect, you need to get the server name. In **Azure portal** > serve
 Connecting to Azure Analysis Services server in Excel is supported by using Get Data in Excel 2016 or Power Query in earlier versions. [MSOLAP.7 provider](analysis-services-data-providers.md) is required. Connecting by using the Import Table Wizard in Power Pivot is not supported.
 
 > [!NOTE]
-> Some organizations deploy Office 365 updates on the Deferred Channel; meaning version updates are delayed up to four months from the current version. For Excel 2016 version build 1609.7369.2115 and earlier, or Excel 2013, you can create an Office Data Connection (.odc) file and manually update the MSOLAP.7 provider to connect to an Azure Analysis Services server. To learn more see [Create an .odc file](analysis-services-odc.md).
+> Some organizations deploy Office 365 updates on the Deferred Channel; meaning version updates are delayed up to four months from the current version. For Excel 2016 version 1609.7369.2115 and earlier, or Excel 2013, you can create an .odc file and manually update the MSOLAP.7 provider to connect to a server. To learn more, see [Create an .odc file](analysis-services-odc.md).
 > 
 > 
 
@@ -87,7 +87,7 @@ When connecting to Azure Analysis Services using the Tabular Object Model, use t
 ```
 "Provider=MSOLAP;Data Source=<Azure AS instance name>;"
 ```
-Integrated authentication will pick up the Azure Active Directory credential cache if available. If not, the Azure login window is shown.
+Integrated authentication picks up the Azure Active Directory credential cache if available. If not, the Azure login window is shown.
 
 ###### Azure Active Directory authentication with username and password
 
