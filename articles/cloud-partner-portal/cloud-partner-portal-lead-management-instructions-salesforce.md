@@ -1,5 +1,5 @@
 ---
-title: Lead Management Instructions for Salesforce  | Microsoft Docs
+title: Lead Management Instructions for Salesforce on Azure Marketplace  | Microsoft Docs
 description: This article guides publishers step by step as to how to set up their lead management with Salesforce.
 services: cloud-partner-portal
 documentationcenter: ''
@@ -17,6 +17,8 @@ ms.author: brdi
 ---
 
 # Lead Management Instructions for Salesforce
+
+This document provides you with instructions on how to setup your Salesforce system so that Microsoft can provide you with sales leads. 
 
 1.Go to Setup. <br/>
 ![Salesforce setup image](./media/cloud-partner-portal-lead-management-instructions-salesforce\salesforce1.png)

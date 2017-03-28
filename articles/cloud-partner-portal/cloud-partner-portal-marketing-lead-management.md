@@ -1,5 +1,5 @@
 ---
-title: Marketing Lead Management  | Microsoft Docs
+title: Marketing Lead Management for Azure  | Microsoft Docs
 description: This article explains all about Microsoft lead generation and how to connect your CRM system to integrate into your sales pipeline with the Cloud Partner Portal.
 services: cloud-partner-portal
 documentationcenter: ''
