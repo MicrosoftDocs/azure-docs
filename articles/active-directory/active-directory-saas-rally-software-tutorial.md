@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/03/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory Integration with Rally Software
 The objective of this tutorial is to show the integration of Azure and Rally Software.  
+
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
@@ -26,16 +27,17 @@ The scenario outlined in this tutorial assumes that you already have the followi
 The scenario outlined in this tutorial consists of the following building blocks:
 
 1. Enabling the application integration for Rally Software
-2. Configuring single sign-on
+2. Configuring single sign-on (SSO)
 3. Configuring user provisioning
 4. Assigning users
 
 ![Scenario](./media/active-directory-saas-rally-software-tutorial/IC769525.png "Scenario")
 
-## Enabling the application integration for Rally Software
+## Enable the application integration for Rally Software
 The objective of this section is to outline how to enable the application integration for Rally Software.
 
-### To enable the application integration for Rally Software, perform the following steps:
+**To enable the application integration for Rally Software, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-rally-software-tutorial/IC700993.png "Active Directory")
@@ -62,12 +64,14 @@ The objective of this section is to outline how to enable the application integr
    
     ![Rally Software](./media/active-directory-saas-rally-software-tutorial/IC769527.png "Rally Software")
    
-## Configuring single sign-on
+## Configure single sign-on
 
-The objective of this section is to outline how to enable users to authenticate to Rally Software with their account in Azure AD using federation based on the SAML protocol.  
+The objective of this section is to outline how to enable users to authenticate to Rally Software with their account in Azure AD using federation based on the SAML protocol.
+
 As part of this procedure, you are required to upload a certificate to Rally Software.
 
-### To configure single sign-on, perform the following steps:
+**To configure single sign-on, perform the following steps:**
+
 1. In the Azure classic portal, on the **Rally Software** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
     ![Configure single sign-on](./media/active-directory-saas-rally-software-tutorial/IC749323.png "Configure single sign-on")
@@ -96,21 +100,20 @@ As part of this procedure, you are required to upload a certificate to Rally Sof
    
     ![Authentication](./media/active-directory-saas-rally-software-tutorial/IC769542.png "Authentication")
    
-    1. Select **Rally or SSO authentication** from Authentication dropdown
- 
-    2. In the Azure classic portal, on the **Configure single sign-on at Rally Software** dialog page, copy the **Identity Provider ID** value, and then paste it into the **Identity Provider URL** textbox
-
-    3. In the Azure classic portal, on the **Configure single sign-on at Rally Software** dialog page, copy the **Remote Logout URL** value.
+  1. Select **Rally or SSO authentication** from Authentication dropdown.
+  2. In the Azure classic portal, on the **Configure single sign-on at Rally Software** dialog page, copy the **Identity Provider ID** value, and then paste it into the **Identity Provider URL** textbox.
+  3. In the Azure classic portal, on the **Configure single sign-on at Rally Software** dialog page, copy the **Remote Logout URL** value.
 
 9. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
     ![Configure single sign-on](./media/active-directory-saas-rally-software-tutorial/IC769547.png "Configure single sign-on")
    
-## Configuring user provisioning
+## Configure user provisioning
 
 For AAD users to be able to sign in, they must be provisioned to the Rally Software application using their Azure Active Directory user names.
 
-### To configure user provisioning, perform the following steps:
+**To configure user provisioning, perform the following steps:**
+
 1. Log in to your Rally Software tenant.
 
 2. Go to **Setup \> USERS**, and then click **+ Add New**.
@@ -123,21 +126,20 @@ For AAD users to be able to sign in, they must be provisioned to the Rally Softw
    
     ![Create User](./media/active-directory-saas-rally-software-tutorial/IC781040.png "Create User")
    
-    1. In the **User Name** textbox, type the name of the Azure AD user you want to provision.
+   1. In the **User Name** textbox, type the name of the Azure AD user you want to provision.
+   2. In the **Email Address** textbox, type the email address of the Azure AD user you want to provision.
+   3. Click **Save & Close**.
 
-    2. In the **Email Address** textbox, type the email address of the Azure AD user you want to provision.
-
-    3. Click **Save & Close**.
-
-> [!NOTE]
-> You can use any other Rally Software user account creation tools or APIs provided by Rally Software to provision AAD user accounts.
+>[!NOTE]
+>You can use any other Rally Software user account creation tools or APIs provided by Rally Software to provision AAD user accounts.
 > 
 > 
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to Rally Software, perform the following steps:
+**To assign users to Rally Software, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
 
 2. On the **Rally Software** application integration page, click **Assign users**.
@@ -148,5 +150,5 @@ To test your configuration, you need to grant the Azure AD users you want to all
    
     ![Yes](./media/active-directory-saas-rally-software-tutorial/IC767830.png "Yes")
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+If you want to test your SSO settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 

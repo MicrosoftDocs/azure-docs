@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/26/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 
 ---
@@ -27,7 +27,7 @@ After completing this tutorial, the Azure AD users you have assigned to NetDocum
 The scenario outlined in this tutorial consists of the following building blocks:
 
 1. Enabling the application integration for NetDocuments
-2. Configuring single sign-on
+2. Configuring single sign-on (SSO)
 3. Configuring user provisioning
 4. Assigning users
 
@@ -58,13 +58,13 @@ The objective of this section is to outline how to enable the application integr
    
    ![NetDocuments](./media/active-directory-saas-netdocuments-tutorial/IC795042.png "NetDocuments")
    
-## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to NetDocuments with their account in Azure AD using federation based on the SAML protocol.  
 
-Configuring single sign-on for NetDocuments requires you to retrieve a thumbprint value from a certificate. If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
+Configuring SSO for NetDocuments requires you to retrieve a thumbprint value from a certificate. If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
-**To configure single sign-on, perform the following steps:**
+**To configure SSO, perform the following steps:**
 
 1. In the Azure classic portal, on the **NetDocuments** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
@@ -79,10 +79,11 @@ Configuring single sign-on for NetDocuments requires you to retrieve a thumbprin
    1. In the **Sign On URL** textbox, type your URL used by your users to sign on to your NetDocuments application (e.g.: "*https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*").
    2. In the **NetDocuments Reply URL** textbox, type the same value you have typed into the the **Sign On URL** textbox.  
       
-      > [!NOTE]
-      > You can find the correct value at the end of the **Federated Identity** dialog (See the screenshot for step 9).
-      > 
-      
+      >[!NOTE]
+      >You can find the correct value at the end of the **Federated Identity** dialog (See the screenshot for step 9).
+      >
+      >
+     
    3. Click **Next**.
 4. On the **Configure single sign-on at NetDocuments** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
    
@@ -106,7 +107,7 @@ Configuring single sign-on for NetDocuments requires you to retrieve a thumbprin
     
     ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795050.png "Configure Single Sign-On")
     
-## Configuring user provisioning
+## Configure user provisioning
 
 In order to enable Azure AD users to log into NetDocuments, they must be provisioned into NetDocuments. In the case of NetDocuments, provisioning is a manual task.
 
@@ -123,16 +124,17 @@ In order to enable Azure AD users to log into NetDocuments, they must be provisi
    
    ![Email Address](./media/active-directory-saas-netdocuments-tutorial/IC795053.png "Email Address")
    
-   > [!NOTE]
-   > The Azure Active Directory account holder will get an email that includes a link to confirm the account before it becomes active.
+   >[!NOTE]
+   >The Azure Active Directory account holder will get an email that includes a link to confirm the account before it becomes active.
    > 
    > 
 
-> [!NOTE]
-> You can use any other NetDocuments user account creation tools or APIs provided by NetDocuments to provision AAD user accounts.
-> 
+>[!NOTE]
+>You can use any other NetDocuments user account creation tools or APIs provided by NetDocuments to provision AAD user accounts.
+>
+>
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
 **To assign users to NetDocuments, perform the following steps;**
@@ -145,5 +147,9 @@ To test your configuration, you need to grant the Azure AD users you want to all
    
    ![Yes](./media/active-directory-saas-netdocuments-tutorial/IC767830.png "Yes")
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+If you want to test your SSO settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
+## Additional resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)

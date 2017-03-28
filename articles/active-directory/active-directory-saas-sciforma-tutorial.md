@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/03/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure AD integration with Sciforma
 The objective of this tutorial is to show the integration of Azure and Sciforma.  
+
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
@@ -28,22 +29,21 @@ After completing this tutorial, the Azure AD users you have assigned to Sciforma
 The scenario outlined in this tutorial consists of the following building blocks:
 
 1. Enabling the application integration for Sciforma
-2. Configuring single sign-on
+2. Configuring single sign-on (SSO)
 3. Configuring user provisioning
 4. Assigning users
 
 ![Scenario](./media/active-directory-saas-sciforma-tutorial/IC777369.png "Scenario")
 
-## Enabling the application integration for Sciforma
+## Enable the application integration for Sciforma
 The objective of this section is to outline how to enable the application integration for Sciforma.
 
-### To enable the application integration for Sciforma, perform the following steps:
+**To enable the application integration for Sciforma, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-sciforma-tutorial/IC700993.png "Active Directory")
-
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
-
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
    
     ![Applications](./media/active-directory-saas-sciforma-tutorial/IC700994.png "Applications")
@@ -64,11 +64,12 @@ The objective of this section is to outline how to enable the application integr
    
     ![Sciforma](./media/active-directory-saas-sciforma-tutorial/IC777371.png "Sciforma")
    
-## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Sciforma with their account in Azure AD using federation based on the SAML protocol.
 
-### To configure single sign-on, perform the following steps:
+**To configure single sign-on, perform the following steps:**
+
 1. In the Azure classic portal, on the **Sciforma** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
     ![Configure single sign-on](./media/active-directory-saas-sciforma-tutorial/IC777372.png "Configure single sign-on")
@@ -91,22 +92,21 @@ The objective of this section is to outline how to enable users to authenticate 
    
     ![Configure single sign-on](./media/active-directory-saas-sciforma-tutorial/IC777376.png "Configure single sign-on")
    
-## Configuring user provisioning
+## Configure user provisioning
 
-There is no action item for you to configure user provisioning to Sciforma.  
-When an assigned user tries to log into Sciforma using the access panel, Sciforma checks whether the user exists.  
-If there is no user account available yet, it is automatically created by Sciforma.
+There is no action item for you to configure user provisioning to Sciforma. When an assigned user tries to log into Sciforma using the access panel, Sciforma checks whether the user exists.  
 
-## Assigning users
+* If there is no user account available yet, it is automatically created by Sciforma.
+
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to Sciforma, perform the following steps:
-1. In the Azure classic portal, create a test account.
+**To assign users to Sciforma, perform the following steps:**
 
+1. In the Azure classic portal, create a test account.
 2. On the **Sciforma **application integration page, click **Assign users**.
    
     ![Assign users](./media/active-directory-saas-sciforma-tutorial/IC777377.png "Assign users")
-
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
    
     ![Yes](./media/active-directory-saas-sciforma-tutorial/IC767830.png "Yes")
