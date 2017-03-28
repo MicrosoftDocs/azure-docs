@@ -170,12 +170,13 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AbortSession
 
  Only the last copy session, if terminated abnormally, can be aborted. Note that you cannot abort the first copy session for a drive. Instead you must restart the copy session with a new journal file.
 
-## See Also
- [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)
- [Setting Properties and Metadata during the Import Process](storage-import-export-tool-setting-properties-metadata-import-v1.md)
- [Sample Workflow to Prepare Hard Drives for an Import Job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
- [Quick Reference for Frequently Used Commands](storage-import-export-tool-quick-reference-v1.md) 
- [Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)
- [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)
- [Repairing an Export Job](storage-import-export-tool-repairing-an-export-job-v1.md)
- [Troubleshooting the Azure Import/Export Tool](storage-import-export-tool-troubleshooting-v1.md)
+## Next steps
+
+* [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)
+* [Setting Properties and Metadata during the Import Process](storage-import-export-tool-setting-properties-metadata-import-v1.md)
+* [Sample Workflow to Prepare Hard Drives for an Import Job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
+* [Quick Reference for Frequently Used Commands](storage-import-export-tool-quick-reference-v1.md) 
+* [Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)
+* [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)
+* [Repairing an Export Job](storage-import-export-tool-repairing-an-export-job-v1.md)
+* [Troubleshooting the Azure Import/Export Tool](storage-import-export-tool-troubleshooting-v1.md)

@@ -101,5 +101,6 @@ You must ship your drives to the address that you obtained from the previous ste
 ## Updating the Import Job with Your Shipping Information
 After you have your tracking number, call the [Update Job Properties](/api/storageimportexport/jobs#Jobs_Update) operation to update the shipping carrier name, the tracking number for the job, and the carrier account number for return shipping. You can optionally specify the number of drives and the shipping date as well.
 
-## See Also
-[Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md)
+## Next steps
+
+* [Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md)

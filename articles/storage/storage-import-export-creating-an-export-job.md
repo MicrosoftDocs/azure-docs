@@ -90,5 +90,6 @@ Follow the steps below to obtain the shipping location:
 ## Receiving the Package
  After your export job has been processed, your drives will be returned to you with your encrypted data. You can retrieve the BitLocker key for each of the drives by calling the [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) operation. You can then unlock the drive using the key. The drive manifest file on each drive contains the list of files on the drive, as well as the original blob address for each file.
 
-## See Also
- [Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md)
+## Next steps
+
+* [Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md)

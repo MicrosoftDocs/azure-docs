@@ -87,5 +87,6 @@ The following table describes the drive failure states and the actions taken for
 ## Faulted States
 When a job or drive fails to progress normally through its expected life cycle, the job or drive will be moved into a `Faulted` state. At that point, the operations team will contact the customer by email or phone. Once the issue is resolved, the faulted job or drive will be taken out of the `Faulted` state and moved into the appropriate state.
 
-## See Also
-[Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md)
+## Next steps
+
+* [Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md)

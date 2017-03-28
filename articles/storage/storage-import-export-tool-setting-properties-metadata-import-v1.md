@@ -65,5 +65,6 @@ When you run the Azure Import/Export Tool to prepare the import job, specify the
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp\BlueRay.ISO /dstblob:favorite/BlueRay.ISO /MetadataFile:c:\WAImportExport\SampleMetadata.txt /PropertyFile:c:\WAImportExport\SampleProperties.txt  
 ```
   
-## See Also  
-[Import/Export service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md)
+## Next steps
+
+* [Import/Export service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md)

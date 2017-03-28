@@ -492,7 +492,8 @@ Please refer to [Import PST files or SharePoint data to Office 365](https://tech
 
 Please refer to [Offline Backup workflow in Azure Backup](../backup/backup-azure-backup-import-export.md).
 
-## See also:
+## Next steps
+
 * [Setting up the WAImportExport tool](storage-import-export-tool-how-to.md)
 * [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
 * [Azure Import Export REST API Sample](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)

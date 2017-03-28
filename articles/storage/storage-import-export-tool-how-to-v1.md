@@ -32,3 +32,7 @@ In these articles, you will see how to use the tool to do the following:
 - Repair an import job. 
 - Repair an export job. 
 - Troubleshoot the Azure Import/Export Tool, in case you had a problem during process. 
+
+## Next steps
+
+* [Setting up the WAImportExport tool](storage-import-export-tool-how-to.md)

@@ -67,5 +67,6 @@ Number of drives needed:        3
         Drive #3:       blobs = 2, occupied space = 131.28 GB    
 ```  
   
-## See Also  
-[Azure Import/Export Tool Reference](storage-import-export-tool-how-to-v1.md)
+## Next steps
+
+* [Azure Import/Export Tool Reference](storage-import-export-tool-how-to-v1.md)

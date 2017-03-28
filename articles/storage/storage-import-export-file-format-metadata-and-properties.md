@@ -65,5 +65,7 @@ The format of a properties file is as follows:
 |`Content-Encoding`|String|Optional. The blob's content encoding.|  
 |`Content-Language`|String|Optional. The blob's content language.|  
 |`Cache-Control`|String|Optional. The cache control string for the blob.|  
-  
- See [Set Blob Properties](/rest/api/storageservices/fileservices/set-blob-properties), [Set Blob Metadata](/rest/api/storageservices/fileservices/set-blob-metadata), and [Setting and Retrieving Properties and Metadata for Blob Resources](/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) for detailed rules about setting blob metadata and properties.
+
+## Next steps
+
+See [Set Blob Properties](/rest/api/storageservices/fileservices/set-blob-properties), [Set Blob Metadata](/rest/api/storageservices/fileservices/set-blob-metadata), and [Setting and Retrieving Properties and Metadata for Blob Resources](/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) for detailed rules about setting blob metadata and properties.

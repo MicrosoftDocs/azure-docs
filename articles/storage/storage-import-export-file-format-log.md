@@ -354,5 +354,6 @@ The following error log for an export job indicates that the blob content has be
 </DriveLog>  
 ```
   
-## See Also  
-[Storage Import/Export REST](/rest/api/storageimportexport/)
+## Next steps
+ 
+* [Storage Import/Export REST API](/rest/api/storageimportexport/)

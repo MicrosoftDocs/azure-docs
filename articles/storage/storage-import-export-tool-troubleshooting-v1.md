@@ -34,9 +34,10 @@ The Microsoft Azure Import/Export Tool returns error messages if it runs into is
 ## I lost the journal file, can I still create the job?  
  The journal file for a drive contains the complete information of copying data to this drive, and it is needed to add more files to the drive and will be used to create an import job. If the journal file is lost, you will have to redo all the copy sessions for the drive.  
   
-## See Also  
- [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)   
- [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
- [Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)   
- [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)   
- [Repairing an Export Job](storage-import-export-tool-repairing-an-export-job-v1.md)
+## Next steps
+ 
+* [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)   
+* [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Repairing an Export Job](storage-import-export-tool-repairing-an-export-job-v1.md)

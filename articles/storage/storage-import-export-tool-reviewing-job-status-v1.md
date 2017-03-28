@@ -29,9 +29,10 @@ When the Microsoft Azure Import/Export service processes drives associated with 
   
  See [Import/Export service Log File Format](storage-import-export-file-format-log.md) for the format of copy logs and the full list of status codes.  
   
-## See Also  
- [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)   
- [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
- [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)   
- [Repairing an Export Job](storage-import-export-tool-repairing-an-export-job-v1.md)   
- [Troubleshooting the Azure Import/Export Tool](storage-import-export-tool-troubleshooting-v1.md)
+## Next steps
+ 
+ * [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)   
+ * [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+ * [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)   
+ * [Repairing an Export Job](storage-import-export-tool-repairing-an-export-job-v1.md)   
+ * [Troubleshooting the Azure Import/Export Tool](storage-import-export-tool-troubleshooting-v1.md)

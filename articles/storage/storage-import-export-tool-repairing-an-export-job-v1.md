@@ -146,9 +146,10 @@ G:\pictures\wild\canyon.jpg.properties
   
 Any component failing the verification will be downloaded by the tool and rewritten to the same file on the drive.  
   
-## See Also  
-[Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)   
-[Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-[Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)   
-[Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)   
-[Troubleshooting the Azure Import/Export Tool](storage-import-export-tool-troubleshooting-v1.md)
+## Next steps
+ 
+* [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)   
+* [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Troubleshooting the Azure Import/Export Tool](storage-import-export-tool-troubleshooting-v1.md)

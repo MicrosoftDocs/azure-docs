@@ -127,5 +127,6 @@ The data elements and attributes of the drive manifest XML format are specified 
 |`Blob/PropertiesPath`|String|Optional. Specifies the relative path of a properties file. During an import, the properties are set on the destination blob. During an export operation, the blob properties are stored in the properties file on the drive.|  
 |`Blob/PropertiesPath/@Hash`|Attribute, String|Specifies the Base16-encoded MD5 hash of the blob's properties file.|  
   
-## See Also  
-[Storage Import/Export REST](/rest/api/storageimportexport/)
+## Next steps
+ 
+* [Storage Import/Export REST](/rest/api/storageimportexport/)
