@@ -32,7 +32,6 @@ These leads are customers that are deploying your products from the Marketplace.
  ![Get it now button](./media/cloud-partner-portal-marketing-lead-management/get-it-now-button.png)
 
 3.	Customer clicks “Purchase” in the [Azure Portal](https://portal.azure.com/) when they are officially acquiring your product. This lead is an active lead, where we share a customer who has an Azure Subscription and has started to deploy your actual product.
- <alt text purchase button>
  ![Text purchase button](./media/cloud-partner-portal-marketing-lead-management/purchase-button.png) 
 
 ### AppSource
@@ -53,7 +52,8 @@ Each lead you receive will have data passed in these specific fields. Since you 
 |ProductIds|	“checkpoint.check-point-r77-10sg-byol”,<br/>“bitnami.openedxcypress”,<br/>“docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a”<br/> <br/> These are the assigned unique identifier for you and your specific offer. |
 |CustomerInfo|	{<br/>"FirstName":"John",<br/>"LastName":"Smith",<br/>"Email":"jsmith@microsoft.com",<br/>"Phone":"1234567890",<br/>"Country":"US",<br/>"Company":"Microsoft",<br/>"Title":"CTO"<br/>}<br/><br/>Note: Not all data will be available for each lead|
 |LeadSource|	“AzureMarketplace”,<br/>“AzurePortal”,<br/>“TestDrive”, <br/>“SPZA” (acronym for AppSource)|
-|ActionCode	|“INS” – Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product.<br/><br/>“PLT” –  Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button.<br/><br/>“DNC” – Stands for Do Not Contact. This is on AppSource whenever a Partner who was cross listed on your app page gets requested to be contacted. We are sharing the heads up that this customer was cross listed on your app, but they do not need to be contacted.<br/><br/>“Create” – This is inside Azure Portal only and is whenever a customer purchases your offer to their account.<br/><br/>“StartTestDrive” – This is for Test Drives only and is whenever a customer starts their test drive.<br/><br/>
+|ActionCode	|“INS” – Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product.<br/><br/>“PLT” –  Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button.<br/><br/>“DNC” – Stands for Do Not Contact. This is on AppSource whenever a Partner who was cross listed on your app page gets requested to be contacted. We are sharing the heads up that this customer was cross listed on your app, but they do not need to be contacted.<br/><br/>“Create” – This is inside Azure Portal only and is whenever a customer purchases your offer to their account.<br/><br/>“StartTestDrive” – This is for Test Drives only and is whenever a customer starts their test drive.<br/><br/>|
+
 We are actively working on enhancing leads, so if there is a data field that you do not see here but would like to have, please [send us your feedback](mailto:AzureMarketOnboard@microsoft.com).
 
 ## How to connect your CRM system with the Cloud Partner Portal 
