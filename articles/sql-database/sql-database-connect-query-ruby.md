@@ -63,18 +63,6 @@ make
 make install
 ```
 
-### **Windows**
-Install the [Microsoft ODBC Driver 13.1](https://www.microsoft.com/en-us/download/details.aspx?id=53339). FreeTDS uses the Microsoft ODBC Driver on Linux to connect to SQL Databases. 
-
-Then install FreeTDS using ???
-
-```ruby
-???
-```
-
-Instructions to enable the use ???
-
-
 ## Get connection information
 
 Get the connection string in the Azure portal. You use the connection string to connect to the Azure SQL database.
@@ -86,10 +74,6 @@ Get the connection string in the Azure portal. You use the connection string to 
     <img src="./media/sql-database-connect-query-dotnet/connection-strings.png" alt="connection strings" style="width: 780px;" />
 
 4. Click **Show database connection strings**.
-
-5. Review the complete**ADO.NET** connection string.
-
-    <img src="./media/sql-database-connect-query-odbc/odbc-connection-string.png" alt="ODBC connection string" style="width: 780px;" />
 
 ## Select Data
 Use the [TinyTDS::Client][https://github.com/rails-sqlserver/tiny_tds) function with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement, to query data in your Azure SQL database. The TinyTDS::Client function accepts a query and returns a result set. The results set is iterated over by using [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds).
