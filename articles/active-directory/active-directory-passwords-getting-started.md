@@ -371,7 +371,7 @@ Now that you have the Azure AD Connect tool downloaded, you are ready to enable 
 #### To enable Password Writeback using Windows PowerShell
 1. On your **Directory Sync computer**, open a new **elevated Windows PowerShell window**.
 2. If the module is not already loaded, type in the `import-module ADSync` command to load the Azure AD Connect cmdlets into your current session.
-3. Get the list of Azure AD Connectors in your system by running the `Get-ADSyncConnector` cmdlet and storing the results in `$aadConnectorName`, such as `$connectors = Get-ADSyncConnector | where-object {$_.name -like "*AAD"}`
+3. Get the list of Azure AD Connectors in your system by running the `Get-ADSyncConnector` cmdlet and storing the results in `$aadConnectorName`, such as `$aadConnectorName = Get-ADSyncConnector|where-object {$_.name -like "*AAD"}`
 4. To get the current status of writeback for the current connector by running the following cmdlet: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
 5. Enable Password Writeback by running the cmdlet: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
