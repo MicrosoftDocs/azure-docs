@@ -124,29 +124,22 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	b. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<sub domain>.filesanywhere.com/`
 
-	c. In the **Identifier** textbox, type the constant value provided by FilesAnywhere. 
-
 	> [!NOTE] 
-	> Please note that these are not the real values. You have to update these values with the actual Sign On URL and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [FilesAnywhere support team](support@FilesAnywhere.com) to get these values. 
+	> Please note that these are not the real values. You have to update these values with the actual Sign On URL and Reply URL. Contact [FilesAnywhere support team](support@FilesAnywhere.com) to get these values. 
 
 5. FilesAnywhere Software application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
 	
-	![Configure Single Sign-On](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_filesanywhere_1.png)
+	![Configure Single Sign-On](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_filesanywhere_attribute.png)
 	
-	- When the users signs up with FilesAnywhere they get the value of **ClientID** attribute from [FilesAnywhere team](support@FilesAnywhere.com). You have to add the "Client Id" attribute with the unique value provided by FilesAnywhere. All these attributes shown above are required.
+	When the users signs up with FilesAnywhere they get the value of **clientid** attribute from [FilesAnywhere team](support@FilesAnywhere.com). You have to add the "Client Id" attribute with the unique value provided by FilesAnywhere. All these attributes shown above are required.
 	> [!NOTE] 
-	> Please note that the value **2331** of **ClientID** is just an example. You need to provide the actual value.
+	> Please note that the value **2331** of **clientid** is just an example. You need to provide the actual value.
 
 
-6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and for each row shown in the table below, perform the following steps:
+6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
     
 	| Attribute Name | Attribute Value |
 	| ---------------| --------------- |    
-	| email          | user.mail       |
-	| name           | user.userprincipalname|
-	| first_name | user.givenname |
-	| last_name | user.surname |
-	| nameidentifier | user.userprincipalname |
 	| clientid | *"uniquevalue"* |
 
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
