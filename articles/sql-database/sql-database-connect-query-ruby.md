@@ -3,25 +3,25 @@ title: Connect Azure SQL Database by using Ruby | Microsoft Docs
 description: Use the sample code in this quick start to build a modern application with Ruby and backed by a powerful relational database in the cloud with Azure SQL Database.
 services: sql-database
 documentationcenter: ''
-author: stevestein
+author: ajlam
 manager: jhubbard
 editor: ''
 
-ms.assetid: 
+ms.assetid: 94fec528-58ba-4352-ba0d-25ae4b273e90
 ms.service: sql-database
 ms.custom: development
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 03/22/2017
-ms.author: sstein;carlrab
+ms.date: 03/28/2017
+ms.author: andrela;sstein;carlrab
 
 ---
 
 # Azure SQL Database: Use Ruby to connect and query data
 
-Use [Ruby](https://Ruby.org) to connect to and query an Azure SQL database. This guide {should be quick start?} details using Ruby to connect to an Azure SQL database, and then execute query, insert, update, and delete statements.
+Use [Ruby](https://Ruby.org) to connect to and query an Azure SQL database. This quick start details using Ruby to connect to an Azure SQL database, and then execute query, insert, update, and delete statements.
 
 This quick start uses as its starting point the resources created in one of these quick starts:
 
@@ -30,7 +30,8 @@ This quick start uses as its starting point the resources created in one of thes
 
 ## Configure Development Environment
 
-//please review this entire section
+The following sections detail configuring your existing Mac OS and Linux(Ubunto) development environments for working with Azure SQL Database.
+
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your Ruby script. Enter the following commands to install **brew**, **FreeTDS**, and **TinyTDS**.
 
@@ -86,6 +87,7 @@ result.each do |row|
     puts row
 end
 ```
+
 ## Insert data
 Use the [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) function with an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement to insert data into your Azure SQL database.
 
@@ -94,7 +96,6 @@ In this example you will see how to execute an [INSERT](https://msdn.microsoft.c
 To use TinyTDS with Azure, it is recommended that you execute several `SET` statements to change how the current session handles specific information. Recommended `SET` statements are provided in the code sample. For example, `SET ANSI_NULL_DFLT_ON` will allow new columns created to allow null values even if the nullability status of the column is not explicitly stated.  
   
 To align with the Microsoft SQL Server [datetime](http://msdn.microsoft.com/library/ms187819.aspx) format, use the [strftime](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) function to cast to the corresponding datetime format.
-
 
 ```ruby
 require 'tiny_tds'
@@ -146,7 +147,6 @@ end
 update('BrandNewProduct', 500, client)
 ```
 
-
 ## Delete data
 Use the [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) function with a [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
 
@@ -179,9 +179,6 @@ delete('BrandNewProduct', client)
 ```
 
 ## Next Steps
-* Review the [SQL Database Development Overview](sql-database-develop-overview.md)
-* More information on the [Ruby Driver for SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/)
-
-## Additional resources
-* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
-* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/)
+* Review the [SQL Database Development Overview](sql-database-develop-overview.md).
+* More information on the [Ruby Driver for SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/).
+* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
