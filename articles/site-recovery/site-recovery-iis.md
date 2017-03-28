@@ -119,7 +119,7 @@ You can update the connection string in web tier by adding [IIS connection updat
 #### Site bindings for the application
 Every site consists of binding information that includes the type of binding, the IP address at which the IIS server listens to the requests for the site, the port number and the host names for the site. At the time of a failover, these bindings might need to be updated if there is a change in the IP address associated with them. 
 
-> [NOTE!]
+> [!NOTE]
 > 
 > If you have marked ‘all unassigned’ for the site binding as in the example below, you will not need to update this binding post failover. Also, if the IP address associated with a site is not changed post failover, the site binding need not be updated (Retention of the IP address depends on the network architecture and subnets assigned to the primary and recovery sites and hence may or may not be feasible for your organization.) 
 
@@ -149,7 +149,7 @@ Follow [this guidance](site-recovery-test-failover-to-azure.md) to do a test fai
 
 1.	Go to Azure portal and select your Recovery Service vault.
 1.	Click on the recovery plan created for IIS web farm.
-1.	Click on ‘'est Failover'.
+1.	Click on 'Test Failover'.
 1.	Select recovery point and Azure virtual network to start the test failover process.
 1.	Once the secondary environment is up, you can perform your validations.
 1.	Once the validations are complete, you can select ‘Validations complete’ and the test failover environment will be cleaned.
@@ -159,7 +159,7 @@ Follow [this guidance](site-recovery-failover.md) when you are doing a failover.
 
 1.	Go to Azure portal and select your Recovery Service vault.
 1.	Click on the recovery plan created for IIS web farm.
-1.	Click on ‘'est Failover'.
+1.	Click on 'Failover'.
 1.	Select recovery point to start the failover process.
 
 ## Next steps
