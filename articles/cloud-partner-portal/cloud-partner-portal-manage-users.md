@@ -11,8 +11,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 03/28/2017
 ms.author: rupesk@microsoft.com
+ms.robots: NOINDEX, NOFOLLOW
 
 
 ---
@@ -29,7 +30,9 @@ To **add users and assign roles**for offer publishing, follow the steps below:-
 ![Users Tab](./media/cloud-partner-portal-how-to-manage-users/userstab.png)
 
 
-## Step 2. Click Add User     
+## Step 2. Click Add User    
+
+
 
 ![Select Adduser](./media/cloud-partner-portal-how-to-manage-users/adduser.png)
 
