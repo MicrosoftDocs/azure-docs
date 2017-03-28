@@ -116,6 +116,9 @@
 ## [Known issues](azure-stack-troubleshooting.md)
 ## [Diagnostics in Azure Stack](azure-stack-diagnostics.md)
 
+# Reference
+## [Manage API version profiles](azure-stack-version-profiles.md)
+
 # Resources
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
