@@ -1,7 +1,7 @@
 ---
 
 title: Azure Import/Export log file format | Microsoft Docs
-description: Learn about the format of the log files created when steps are executed for an Import-Export Service job
+description: Learn about the format of the log files created when steps are executed for an Import/Export Service job
 author: muralikk
 manager: syadav
 editor: tysonn

@@ -1,6 +1,6 @@
 ---
-title: Previewing drive usage for an Azure Import/Export export Job | Microsoft Docs
-description: Learn how to preview the list of blobs you've selected for an export job in the Azure Import/Export service
+title: Previewing drive usage for an Azure Import/Export export job | Microsoft Docs
+description: Learn how to preview the list of blobs you've selected for an export job in the Azure Import/Export service.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -68,4 +68,4 @@ Number of drives needed:        3
 ```  
   
 ## See Also  
-[Azure Import-Export Tool Reference](storage-import-export-tool-how-to-v1.md)
+[Azure Import/Export Tool Reference](storage-import-export-tool-how-to-v1.md)

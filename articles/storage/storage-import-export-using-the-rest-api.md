@@ -1,6 +1,6 @@
 ---
 title: Using the Azure Import/Export service REST API | Microsoft Docs
-description: Learn how to use the Azure Import/Export service REST API
+description: Learn where to find resources for using the Azure Import/Export service REST API, including both how-to and reference material.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -49,7 +49,7 @@ Requests to the Import/Export service must specify the `api-version` parameter a
 
 [Backing Up Drive Manifests](storage-import-export-backing-up-drive-manifests.md)
 
-[Diagnostics and Error Recovery for Import-Export Jobs](storage-import-export-diagnostics-and-error-recovery.md)
+[Diagnostics and Error Recovery for Import/Export jobs](storage-import-export-diagnostics-and-error-recovery.md)
 
 ## See Also
  [Storage Import/Export REST](/rest/api/storageimportexport)

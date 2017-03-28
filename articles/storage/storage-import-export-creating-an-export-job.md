@@ -77,7 +77,7 @@ Follow the steps below to obtain the shipping location:
 -   The list of blobs (or blob prefixes) to be exported.
 
 ## Shipping Your Drives
- Next, use the Azure Import/Export tool to determine the number of drives you need to send, based on the blobs you have selected to be exported and the drive size. See the [Azure Import-Export Tool Reference](storage-import-export-tool-how-to-v1.md) for details.
+ Next, use the Azure Import/Export tool to determine the number of drives you need to send, based on the blobs you have selected to be exported and the drive size. See the [Azure Import/Export Tool Reference](storage-import-export-tool-how-to-v1.md) for details.
 
  Package the drives in a single package and ship them to the address obtained in the earlier step. Note the tracking number of your package for the next step.
 

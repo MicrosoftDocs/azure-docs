@@ -1,6 +1,6 @@
 ---
-title: Setting up the Azure Import/Export tool | Microsoft Docs
-description: Learn how to set up the drive preparation and repair tool for the Azure Import/Export service
+title: Setting up the Azure Import/Export Tool | Microsoft Docs
+description: Learn how to set up the drive preparation and repair tool for the Azure Import/Export service.
 author: muralikk
 manager: syadav
 editor: tysonn

@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting the Azure Import-Export Tool | Microsoft Docs
-description: Learn about common issues users run into using the Import-Export Tool and how to handle them.
+title: Troubleshooting the Azure Import/Export Tool | Microsoft Docs
+description: Learn about some of the common issues seen when using the Azure Import/Export Tool, and how to handle them.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -18,7 +18,7 @@ ms.author: muralikk
 
 ---
 
-# Troubleshooting the Azure Import-Export tool
+# Troubleshooting the Azure Import/Export tool
 The Microsoft Azure Import/Export tool returns error messages if it runs into issues. This topic lists some common issues that users may run into.  
   
 ## A copy session fails, what I should do?  
@@ -35,7 +35,7 @@ The Microsoft Azure Import/Export tool returns error messages if it runs into is
  The journal file for a drive contains the complete information of copying data to this drive, and it is needed to add more files to the drive and will be used to create an import job. If the journal file is lost, you will have to redo all the copy sessions for the drive.  
   
 ## See Also  
- [Setting Up the Azure Import-Export Tool](storage-import-export-tool-setup-v1.md)   
+ [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)   
  [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
  [Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)   
  [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)   

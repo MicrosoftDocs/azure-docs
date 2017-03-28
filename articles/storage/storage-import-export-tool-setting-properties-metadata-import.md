@@ -1,6 +1,6 @@
 ---
 title: Setting properties and metadata using Azure Import/Export | Microsoft Docs
-description: Learn how to specify properties and metadata to be set on the destination blobs when running the Azure Import/Export tool to prepare your drives.
+description: Learn how to specify properties and metadata to be set on the destination blobs when running the Azure Import/Export Tool to prepare your drives.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -71,4 +71,4 @@ K:\Temp\FavoriteVideo.ISO,https://mystorageaccount.blob.core.windows.net/favorit
 
 ## Next steps
 
-[Import-Export Service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md)
+[Import/Export Service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md)
