@@ -14,7 +14,7 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/24/2017
+ms.date: 03/28/2017
 ms.author: sstein
 
 ---
@@ -27,7 +27,37 @@ This quick start uses as its starting point the resources created in one of thes
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
 
-Before you start, make sure you have configured your development environment for C#. See [Install Visual Studio Community for free](https://www.visualstudio.com/) or install the [ADO.NET driver for SQL Server](https://www.microsoft.com/net/download).
+## Configure Development Environment
+
+//please review this entire section
+### **Mac OS**
+Open your terminal and navigate to a directory where you plan on creating your ruby script. Enter the following commands to install **brew**, **OpenSSL**, and **.NET Core**. 
+
+```C#
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
+brew install openssl 
+```
+
+Install .NET Core on macOS. Download the [official installer](https://go.microsoft.com/fwlink/?LinkID=831679). This installer will install the tools and put them on your PATH so you can run dotnet from the Console
+
+### **Linux (Ubuntu)**
+Open your terminal and navigate to a directory where you plan on creating your ruby script. Enter the following commands to install **.NET Core**.
+
+```C#
+sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
+sudo apt-get update
+sudo apt-get install dotnet-dev-1.0.0-preview2-003131
+```
+
+### **Windows**
+Install Visual Studio 2015 Community Edition and .NET Framework. If you already have Visual Studio installed on your machine, skip the next few steps.
+
+Visual Studio 2015 Community is a fully-featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web & database applications and cloud services.
+
+1. Download the [installer](https://go.microsoft.com/fwlink/?LinkId=691978). 
+2. Run the installer and follow the installation prompts to complete the installation.
 
 ## Get connection information
 
