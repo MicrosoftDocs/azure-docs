@@ -141,7 +141,7 @@ by remoting into the role.
 ** Q. Net use was successful but don't see the Azure file share mounted in Windows Explorer
 Cause **
 
-    By default, Windows Explorer does not run as Administrator. If you run net use from an Administrator command prompt, you map the network drive "As Administrator." Because mapped drives are user-centric, the user account that is logged in does not display the drives if they are mounted under a different user account. Solution is to mount the share from a non-administrator command line. Alternatively, you can follow this TechNet topic to configure the EnableLinkedConnections registry value.
+    By default, Windows Explorer does not run as Administrator. If you run net use from an Administrator command prompt, you map the network drive "As Administrator." Because mapped drives are user-centric, the user account that is logged in does not display the drives if they are mounted under a different user account. Solution is to mount the share from a non-administrator command line.
 
 ## Also See
 * [Manage Azure File Share using tools and scripts](storage-file-how-to-tooling-and-scripting)
