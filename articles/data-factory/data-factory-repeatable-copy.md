@@ -119,3 +119,9 @@ Azure Data Factory populates this column as per its need to ensure the source an
 
 Similar to mechanism 1, Copy Activity automatically cleans up the data for the given slice from the destination SQL Table. It then inserts data from source in to the destination table. 
 
+## Next steps
+Review the following connector articles that for complete JSON examples: 
+
+- [Azure SQL Database](data-factory-azure-sql-connector.md)
+- [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
+- [SQL Server](data-factory-sqlserver-connector.md)

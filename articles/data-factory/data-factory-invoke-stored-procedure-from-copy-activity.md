@@ -84,3 +84,8 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 )
 ```
 
+## Next steps
+Review the following connector articles that for complete JSON examples: 
+
+- [Azure SQL Database](data-factory-azure-sql-connector.md)
+- [SQL Server](data-factory-sqlserver-connector.md)
