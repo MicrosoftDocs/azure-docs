@@ -119,7 +119,7 @@ The output of this command shows properties of the key vault that you've just cr
 Your Azure account is now authorized to perform any operations on this key vault. As yet, nobody else is.
 
 ## Add a key or secret to the key vault
-If you want Azure Key Vault to create a software-protected key for you, use the `azure key create` command, and type the following:
+If you want Azure Key Vault to create a software-protected key for you, use the `az key create` command, and type the following:
 ```
 az keyvault key create --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' --protection software
 ```
@@ -166,7 +166,7 @@ To register the application in Azure Active Directory:
 10. Copy the client ID value from this page, which you will use in the next step to set permissions on your vault.
 
 ## Authorize the application to use the key or secret
-To authorize the application to access the key or secret in the vault, use the `azure keyvault set-policy` command.
+To authorize the application to access the key or secret in the vault, use the `az keyvault set-policy` command.
 
 For example, if your vault name is ContosoKeyVault and the application you want to authorize has a client ID of 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, and you want to authorize the application to decrypt and sign with keys in your vault, then run the following:
 ```
@@ -206,7 +206,7 @@ az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSM
 For more detailed instructions about how to generate this BYOK package, see [How to use HSM-Protected Keys with Azure Key Vault](key-vault-hsm-protected-keys.md).
 
 ## Delete the key vault and associated keys and secrets
-If you no longer need the key vault and the key or secret that it contains, you can delete the key vault by using the azure keyvault delete command:
+If you no longer need the key vault and the key or secret that it contains, you can delete the key vault by using the `az keyvault delete` command:
 
 ```
 az keyvault delete --name 'ContosoKeyVault'
