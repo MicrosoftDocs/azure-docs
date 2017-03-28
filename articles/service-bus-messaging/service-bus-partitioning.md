@@ -20,7 +20,7 @@ ms.author: sethm;hillaryc
 # Partitioned queues and topics
 Azure Service Bus employs multiple message brokers to process messages and multiple messaging stores to store messages. A conventional queue or topic is handled by a single message broker and stored in one messaging store. Service Bus *partitions* enable queues or topics to be partitioned across multiple message brokers and messaging stores. This means that the overall throughput of a partitioned queue or topic is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store does not render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions.
 
-For more details about Service Bus internals, see the [Service Bus architecture][Service Bus architecture] article.
+For more information about Service Bus internals, see the [Service Bus architecture][Service Bus architecture] article.
 
 ## How it works
 Each partitioned queue or topic consists of multiple fragments. Each fragment is stored in a different messaging store and handled by a different message broker. When a message is sent to a partitioned queue or topic, Service Bus assigns the message to one of the fragments. The selection is done randomly by Service Bus or by using a partition key that the sender can specify.
@@ -44,13 +44,13 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Alternatively, you can create a partitioned queue or topic in Visual Studio or in the [Azure portal][Azure portal]. When you create a new queue or topic in the portal, set the **Enable Partitioning** option in the **General settings** blade of the queue or topic **Settings** window to **true**. In Visual Studio, click the **Enable Partitioning** checkbox in the **New Queue** or **New Topic** dialog box.
+Alternatively, you can create a partitioned queue or topic in Visual Studio or in the [Azure portal][Azure portal]. When you create a queue or topic in the portal, set the **Enable Partitioning** option in the **General settings** blade of the queue or topic **Settings** window to **true**. In Visual Studio, click the **Enable Partitioning** checkbox in the **New Queue** or **New Topic** dialog box.
 
 ## Use of partition keys
 When a message is enqueued into a partitioned queue or topic, Service Bus checks for the presence of a partition key. If it finds one, it selects the fragment based on that key. If it does not find a partition key, it selects the fragment based on an internal algorithm.
 
 ### Using a partition key
-Some scenarios, such as sessions or transactions, require messages to be stored in a specific fragment. All of these scenarios require the use of a partition key. All messages that use the same partition key are assigned to the same fragment. If the fragment is temporarily unavailable, Service Bus returns an error.
+Some scenarios, such as sessions or transactions, require messages to be stored in a specific fragment. All these scenarios require the use of a partition key. All messages that use the same partition key are assigned to the same fragment. If the fragment is temporarily unavailable, Service Bus returns an error.
 
 Depending on the scenario, different message properties are used as a partition key:
 
