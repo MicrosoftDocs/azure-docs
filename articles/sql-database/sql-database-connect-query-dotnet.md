@@ -14,7 +14,7 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/16/2017
+ms.date: 03/24/2017
 ms.author: sstein
 
 ---
@@ -29,7 +29,7 @@ This quick start uses as its starting point the resources created in one of thes
 
 Before you start, make sure you have configured your development environment for C#. See [Install Visual Studio Community for free](https://www.visualstudio.com/) or install the [ADO.NET driver for SQL Server](https://www.microsoft.com/net/download).
 
-## Connect to database and query data
+## Get connection information
 
 Get the connection string in the Azure portal. You use the connection string to connect to the Azure SQL database.
 
@@ -40,13 +40,24 @@ Get the connection string in the Azure portal. You use the connection string to 
 
     <img src="./media/sql-database-connect-query-dotnet/connection-strings.png" alt="connection strings" style="width: 780px;" />
 
-5. Open Visual Studio and create a console application.
-6. Add ```using System.Data.SqlClient``` to your code file ([System.Data.SqlClient namespace](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
+5. Copy the **ADO.NET** connection string.
 
-7. Use [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement, to query data in your Azure SQL database.
+    <img src="./media/sql-database-connect-query-dotnet/adonet-connection-string.png" alt="ADO.NET connection string" style="width: 780px;" />
+
+## Connect and query data
+
+1. In your development environment, open a blank code file.
+2. Add ```using System.Data.SqlClient``` to your code file ([System.Data.SqlClient namespace](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
+
+3. Use [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement, to query data in your Azure SQL database. Add the appropriate values for your server
 
     ```csharp
-    string strConn = "<connection string>";
+    string hostName = "{your_Server}";
+    string dbName = "{your_Database}";
+    string user = "{your_Username}";
+    string password = "{your_Password}";
+
+    string strConn = $"server=tcp:{hostName}.database.windows.net,1433;Database={dbName};Persist Security Info=False;User ID={user};Password={password};MultipleActiveResultSets=False;Encrypt=False;Connection Timeout=30;";
     using (var connection = new SqlConnection(strConn))
     {
        connection.Open();
@@ -150,7 +161,12 @@ namespace ConsoleApplication1
         static void Main(string[] args)
         {
 
-            string strConn = "<connection string>";
+            string hostName = "{your_Server}";
+            string dbName = "{your_Database}";
+            string user = "{your_Username}";
+            string password = "{your_Password}";
+
+            string strConn = $"server=tcp:{hostName}.database.windows.net,1433;Database={dbName};Persist Security Info=False;User ID={user};Password={password};MultipleActiveResultSets=False;Encrypt=False;Connection Timeout=30;";
 
             using (var connection = new SqlConnection(strConn))
             {
