@@ -60,7 +60,7 @@ This screenshot is of the SAP HANA backup console in SAP HANA Studio. It took ab
 
 This screenshot is of YaST on the SAP HANA test VM. One can see the 1-TB single disk for SAP HANA backup as mentioned before. It took about 42 minutes to backup 230 GB. In addition, five 200-GB disks were attached and software RAID md0 created, with striping on top of these five Azure data disks.
 
-![Repeating the same backup on software RAID with striping across five attached Azure standard storage data disks](./media/sap-hana-backup-guide/image025.png)
+![Repeating the same backup on software RAID with striping across five attached Azure standard storage data disks](./media/sap-hana-backup-file-level/image025.png)
 
 Repeating the same backup on software RAID with striping across five attached Azure standard storage data disks brought the backup time from 42 minutes down to 10 minutes. The disks were attached without caching to the VM. So it is obvious how important disk write throughput is for the backup time. One could then switch to Azure premium storage to further accelerate the process for optimal performance. In general, Azure premium storage should be used for production systems.
 
