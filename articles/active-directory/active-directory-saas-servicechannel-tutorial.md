@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/8/2017
 ms.author: jeedes
 
 ---
@@ -115,9 +115,11 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 	> [!NOTE] 
 	> Please note that these are not the real values. You have to update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [ServiceChannel support team](https://servicechannel.zendesk.com/hc/en-us) to get these values.
 
-4. ServiceChannel Software application expects the SAML assertions in a specific format. **Name ID** is the mandatory field which should be in **user_name@mydomain.com** format. If you want Just-In-Time user provisioning, you need to provide additional attributes as shown below. Please configure the following claims for this application. You can manage the values of these attributes from the "User Attributes" section on application integration page. The following screenshot shows an example for this.  
-	
-	![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/create_attribute_4.png)
+4. Your ServiceChannel application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. 	The following screenshot shows an example for this. The default value of **User Identifier** is **user.userprincipalname** but ServiceChannel expects this to be mapped with 		**user.mail**. You need to add another claim named **role** and the value needs to be mapped to **user.assignedroles** which contains the role of the user.  
+
+	You can refer ServiceChannel guide [here](https://servicechannel.zendesk.com/hc/en-us/articles/217514326-Azure-AD-Configuration-Example) for more guidance on claims.
+  	
+	![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_attribute.png)
 
 	> [!NOTE] 
 	> Please click [here](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/) to know how to configure **Role** in Azure AD
@@ -126,10 +128,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	| Attribute Name | Attribute Value |
 	| --- | --- |    
-	| Name | user.givenname |
 	| Role| user.assignedroles |
-	| Email | user.mail |
-	| Name ID | "user_name@mydomain.com" |
 
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
@@ -151,11 +150,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial_general_400.png)
 
-8. On the **ServiceChannel Configuration** section, click **Configure ServiceChannel** to open **Configure sign-on** window.
-
-	![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_06.png) 
-
-	![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_07.png)
+8. On the **ServiceChannel Configuration** section, click **Configure ServiceChannel** to open **Configure sign-on** window. Please note the **SAML Enitity ID** from the **Quick Reference** section.
 
 9. To configure single sign-on on **ServiceChannel** side, you need to send the downloaded **certificate (Base64)** and **SAML Entity ID** to [ServiceChannel support team](https://servicechannel.zendesk.com/hc/en-us). They will set this up in order to have the SAML SSO connection set properly on both sides.
 
