@@ -23,7 +23,7 @@ ms.author: ryanwi
 
 [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) are a great way to deploy groups of related resources. This tutorial builds on [Deploy a simple scale set](virtual-machine-scale-sets-mvss-start.md) and describes how to deploy a simple autoscaling application on a scale set using an Azure Resource Manager template.
 
-## Install new software on a platform image at deploy time
+## Two quickstart templates
 When you deploy a scale set you can install new software on a platform image using a [VM Extension](../virtual-machines/virtual-machines-windows-extensions-features.md). A VM extension is a small application that provides post-deployment configuration and automation tasks on Azure virtual machines, such as deploying an app. Two different sample templates are provided in [Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) which show how to deploy an autoscaling application onto a scale set using VM extensions.
 
 ### Python HTTP server on Linux
@@ -91,8 +91,8 @@ In the *azuredeploy.json* template, the `extensionProfile` property of the `Micr
           }
 ```
 
-## Deploy
-To deploy the [Python HTTP server on Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) or [ASP.NET MVC application on Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) autoscaling apps.  The simplest way is to use the **Deploy to Azure** buttons found in the in the readme files in github.  You can also use PowerShell or Azure CLI to deploy the sample templates.
+## Deploy the template
+The simplest way to deploy the [Python HTTP server on Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) or [ASP.NET MVC application on Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) template is to use the **Deploy to Azure** button found in the in the readme files in GitHub.  You can also use PowerShell or Azure CLI to deploy the sample templates.
 
 ### PowerShell
 Copy the [Python HTTP server on Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) or [ASP.NET MVC application on Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) files from the GitHub repo to a folder on your local computer.  Open the *azuredeploy.parameters.json* file and update the default values of the `vmssName`, `adminUsername`, and `adminPassword` parameters. Save the following PowerShell script to *deploy.ps1* in the sample folder as the *azuredeploy.json* template. To deploy the sample template run the *deploy.ps1* script from a PowerShell command window.
