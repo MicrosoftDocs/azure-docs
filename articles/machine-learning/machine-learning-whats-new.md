@@ -13,11 +13,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 03/28/2017
 ms.author: v-donglo
 
 ---
 # What's New in Azure Machine Learning
+
+### The March 2017 release of Microsoft Azure Machine Learning updates provides the following feature:
+
+
+
+* Dedicated Capacity for Azure Machine Learning BES Jobs
+
+	Machine Learning Batch Pool processing uses the [Azure Batch](../batch/batch-technical-overview.md) service to provide customer-managed scale for the Azure Machine Learning Batch Execution Service. Batch Pool processing allows you to create Azure Batch pools on which you can submit batch jobs and have them execute in a predictable manner.
+
+	For more information, see [Azure Batch service for Machine Learning jobs](machine-learning/machine-learning-dedicated-capacity-for-bes-jobs.md).
+
+
 ### The August 2016 release of Microsoft Azure Machine Learning updates provide the following features:
 * Classic Web services can now be managed in the new [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/) portal that provides one place to manage all aspects of your Web service.    
   * Which provides web service [usage statistics](machine-learning-manage-new-webservice.md).
