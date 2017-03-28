@@ -68,7 +68,7 @@ Use the following steps to configure your Azure Stack environment:
     Add-AzureStackAzureRmEnvironment -AadTenant $AadTenant -Name AzureStack
 
     # Use this command to access the tenant portal
-    Add-AzureStackAzureRmEnvironment -AadTenant $AadTenant -ArmEndpoint https://publicapi.local.azurestack.global -Name AzureStack
+    Add-AzureStackAzureRmEnvironment -AadTenant $AadTenant -ArmEndpoint https://publicapi.local.azurestack.external -Name AzureStack
     ```
     ![Get environment details](media/azure-stack-powershell-configure/getenvdetails.png)  
 
