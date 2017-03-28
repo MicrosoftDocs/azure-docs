@@ -116,7 +116,7 @@ Here is a representation of how the Microsoft Identity SDKs work with the broker
 |            | |            |   |    Else's   |
 |            | |            |   |     App     |
 +------------+ +------------+   +-------------+
-| Azure SDK  | | Azure SDK  |   | Azure SDK   |
+|  ADAL SDK  | |  ADAL SDK  |   |  ADAL SDK   |
 +-----+------+-+-----+------+-  +-------+-----+
       |              |                  |
       |       +------v------+           |

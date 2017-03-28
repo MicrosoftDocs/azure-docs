@@ -71,7 +71,7 @@ Here is a representation of how the Microsoft Identity SDKs work with the shared
 |            | |            |  |             |
 |            | |            |  |             |
 +------------+ +------------+  +-------------+
-| Azure SDK  | | Azure SDK  |  | Azure SDK   |
+| ADAL SDK  |  |  ADAL SDK  |  |  ADAK SDK   |
 +------------+-+------------+--+-------------+
 |                                            |
 |            App Shared Storage              |
