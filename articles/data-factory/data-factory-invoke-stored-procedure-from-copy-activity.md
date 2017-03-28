@@ -62,7 +62,7 @@ Define the **SqlSink** section in the copy activity JSON as follows. To invoke a
 ```
 
 ## Stored procedure definition 
-In your database, define the stored procedure with the same name as **SqlWriterStoredProcedureName**. The stored procedure handles input data from the source data store, and inserts data into a table in the destination database. The name of the first parameter of stored procedure must match the tableName defined in the dataset JSON (**Marketing**).
+In your database, define the stored procedure with the same name as **SqlWriterStoredProcedureName**. The stored procedure handles input data from the source data store, and inserts data into a table in the destination database. The name of the first parameter of stored procedure must match the tableName defined in the dataset JSON (Marketing).
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
