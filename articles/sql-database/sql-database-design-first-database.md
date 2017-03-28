@@ -185,4 +185,4 @@ Databases in Azure have [continuous backups](sql-database-automated-backups.md) 
 3. Click **OK** to restore the database to a point in time before the *Students* table was added.
 
 ## Next Steps 
-Samples - [SQL Database PowerShell samples](sql-database-powershell-samples.md)
+For PowerShell samples for common tasks, see [SQL Database PowerShell samples](sql-database-powershell-samples.md).
