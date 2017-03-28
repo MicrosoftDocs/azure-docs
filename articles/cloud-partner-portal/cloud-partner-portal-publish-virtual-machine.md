@@ -25,23 +25,34 @@ Prerequisites to listing on Azure Marketplace
 
 1.  Technical
 
-> Must have Azure compatible VHD-need link to testing tools for compatibility <https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites>
+    -   [Technical prerequisites for creating a virtual machine image for the Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites)
+
+    -   [Creating and uploading a Linux VHD](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json )
+
+    -   [Create & test a Linux VM from an image](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
+
+    -   [Creating and uploading a Windows VHD ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+
+    -   [Create & test a Windows VM from an image](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
+
+    -   [How to troubleshoot common issues encountered during VHD creation](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting )
+
 
 2.  Non-technical (business requirements)
 
--   Your company (or its subsidiary) must be located in a sell from country supported by ​the Azure Marketplace
+    -   Your company (or its subsidiary) must be located in a sell from country supported by ​the Azure Marketplace
 
--   Your product must be licensed in a way that is compatible with billing models supported ​by the Azure Marketplace
+    -   Your product must be licensed in a way that is compatible with billing models supported ​by the Azure Marketplace
 
--   You are responsible for making technical support available to customers in a commercially reasonable manner, whether free, paid, or through community support.
+    -   You are responsible for making technical support available to customers in a commercially reasonable manner, whether free, paid, or through community support.
 
--   You are responsible for licensing your software and any third-party software dependencies.
+    -   You are responsible for licensing your software and any third-party software dependencies.
 
--   You must provide content that meets criteria for your offering to be listed on Azure Marketplace and in the Azure Management Portal
+    -   You must provide content that meets criteria for your offering to be listed on Azure Marketplace and in the Azure Management Portal
 
--   You must agree to the terms of the Azure Marketplace Participation Policies and Publisher Agreement​
+    -   You must agree to the terms of the Azure Marketplace Participation Policies and Publisher Agreement​
 
-*You must agree to comply with the [Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/) , [Microsoft Privacy Statement](http://www.microsoft.com/privacystatement/default.aspx) and [Microsoft Azure Certified Program Agreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).*
+    - You must agree to comply with the [Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/) , [Microsoft Privacy Statement](http://www.microsoft.com/privacystatement/default.aspx) and [Microsoft Azure Certified Program Agreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## How to create a new VM offer
 
@@ -214,13 +225,13 @@ The VM image version needs to follow the [semantic version](http://semver.org/) 
 
 ##### OS VHD URL
 
-Enter the [shared access signature URI](https://github.com/Microsoft/azure-docs/blob/master/articles/marketplace-publishing/marketplace-publishing-vm-image-creation.md) created for the operating system VHD.
+Enter the [shared access signature URI](../marketplace-publishing/marketplace-publishing-vm-image-creation.md#52-get-the-shared-access-signature-uri-for-your-vm-images) created for the operating system VHD.
 
 If there are data disks associated with this SKU, you can choose to add this by clicking the “+ New data disk” link. This will bring up additional fields to fill out.
 
 ##### LUN VHD URL
 
-Enter the [shared access signature URI](https://github.com/Microsoft/azure-docs/blob/master/articles/marketplace-publishing/marketplace-publishing-vm-image-creation.md) for your data disk.
+Enter the [shared access signature URI](../marketplace-publishing/marketplace-publishing-vm-image-creation.md#52-get-the-shared-access-signature-uri-for-your-vm-images) for your data disk.
 
 ##### LUN Number
 
@@ -243,7 +254,7 @@ The marketplace form within a virtual machine offer asks for fields that will sh
 
 #### Preview Subscription Ids
 
-Enter here a list of Azure Subscription IDs that you would like to have access to the offer once its published. These white-listed subscriptions will allow you to test the previewed offer before making it live.
+Enter here a list of Azure Subscription IDs that you would like to have access to the offer once its published. These white-listed subscriptions will allow you to test the previewed offer before making it live. The partner portal allows you to white-list upto 100 subscriptions.
 
 #### Suggested Categories
 
