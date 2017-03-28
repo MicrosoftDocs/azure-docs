@@ -21,17 +21,15 @@ ms.author: cephalin
 
 [!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
-This Quickstart helps you deploy your first ASP.NET web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md) in just a few minutes. When you're finished, you'll have a simple web application up and running in the cloud.
+This Quickstart helps you deploy your first ASP.NET web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md) in just a few minutes. When you're finished, you'll have a simple web web app up and running in the cloud.
 
-![Updated ASP.NET application in Azure App Service](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
-
-This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.
+![Updated ASP.NET web app in Azure App Service](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
 ## Before you begin
 
 This tutorial demonstrates how to use Visual Studio 2017 to build and deploy an ASP.NET web app to Azure. If you don’t already have Visual Studio 2017 installed, you can download and use the free [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
-## Create an ASP.NET application
+## Create an ASP.NET web app
 
 In Visual Studio, create a new project with `Ctrl`+`Shift`+`N`.
 
@@ -41,7 +39,7 @@ Name the application **myFirstAzureWebApp**, and then click **OK**.
    
 ![New Project dialog box](./media/app-service-web-get-started-dotnet/new-project.png)
 
-You can deploy any type of ASP.NET application to Azure. For this tutorial, select the **MVC** template, and make sure authentication is set to **No Authentication**.
+You can deploy any type of ASP.NET web app to Azure. For this tutorial, select the **MVC** template, and make sure authentication is set to **No Authentication**.
       
 Click **OK**.
 
@@ -57,7 +55,7 @@ Make sure that **Microsoft Azure App Service** is selected and click **Publish**
 
 ![Publish from project overview page](./media/app-service-web-get-started-dotnet/publish-to-app-service.png)
 
-This opens the **Create App Service** dialog, which helps you create all the Azure resources you need to run your ASP.NET application in Azure App Service.
+This opens the **Create App Service** dialog, which helps you create all the Azure resources you need to run your ASP.NET web app in Azure.
 
 ## Sign in to Azure
 
@@ -71,7 +69,9 @@ Once signed in, you're ready to create all the resources you need for your Azure
 
 First, you need a _resource group_. A resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed.
 
-Next to **Resource Group**, click **New**. name your resource group **myResourceGroup** and click **OK**.
+Next to **Resource Group**, click **New**.
+
+Name your resource group **myResourceGroup** and click **OK**.
 
 ## Create an App Service plan
 
@@ -106,9 +106,9 @@ When you're finished, your **Create App Service** dialog should look like the fo
 
 Click **Create** to start creating the Azure resources.
 
-Once the wizard finishes creating the Azure resources, it automatically publishes your ASP.NET application to Azure for the first time, and then launches the published Azure web app in your default browser.
+Once the wizard finishes creating the Azure resources, it automatically publishes your ASP.NET web app to Azure for the first time, and then launches the published Azure web app in your default browser.
 
-![Published ASP.NET application in Azure App Service](./media/app-service-web-get-started-dotnet/published-azure-web-app.png)
+![Published ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet/published-azure-web-app.png)
 
 The URL uses the web app name that you specified earlier, with the format `http://<app_name>.azurewebsites.net`. 
 
@@ -116,7 +116,7 @@ Congratulations, your first ASP.NET web app is running live in Azure App Service
 
 ## Update the app and redeploy
 
-Whenever you make an update to your ASP.NET application, it is very easy to redeploy to Azure. Let's make an update to the homepage.
+It's very easy to redeploy an update to Azure. Let's make an update to the homepage.
 
 From the **Solution Explorer**, open **Views\Home\Index.cshtml**.
 
@@ -133,9 +133,9 @@ To redeploy to Azure, right-click youre **myFirstAzureWebApp** project in **Solu
 
 In the publish page, click **Publish**.
 
-When Visual Studio is finished, it launches the published Azure web app again in your browser.
+When Visual Studio is finished, it launches the updated Azure web app in your browser.
 
-![Updated ASP.NET application in Azure App Service](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
+![Updated ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
 ## Next steps
 
