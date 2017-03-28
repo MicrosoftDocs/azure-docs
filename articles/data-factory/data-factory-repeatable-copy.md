@@ -31,7 +31,7 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    2            2015-05-01 00:00:00
 ```
 
-Suppose you found errors in source file and updated the quantity of Down Tube from 2 to 4. If you re-run the data slice for that period manually or the slice reruns based on the retry policy of the dataset automatically, you’ll find two new records appended to Azure SQL/SQL Server Database. This example assumes that none of the columns in the table has the primary key constraint.
+Suppose you found errors in source file and updated the quantity of Down Tube from 2 to 4. If you rerun the data slice for that period manually, you’ll find two new records appended to Azure SQL/SQL Server Database. This example assumes that none of the columns in the table has the primary key constraint.
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -42,7 +42,7 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    4            2015-05-01 00:00:00
 ```
 
-To avoid this behavior, you need to specify UPSERT semantics by leveraging one of the following two mechanisms:
+To avoid this behavior, you need to specify UPSERT semantics by using one of the following two mechanisms:
 
 ### Mechanism 1: using sqlWriterCleanupScript
 You can use the **sqlWriterCleanupScript** property to clean up data from the sink table before inserting the data when a slice is run. 
@@ -72,7 +72,7 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    4            2015-05-01 00:00:00
 ```
 
-The copy activity ran the cleanup script to delete the corresponding data for that slice. Then it read the input from the csv (which then contained only 1 record) and inserted it into the Table. 
+The copy activity ran the cleanup script to delete the corresponding data for that slice. Then it read the input from the csv (which then contained only one record) and inserted it into the Table. 
 
 ### Mechanism 2: using sliceIdentifierColumnName
 > [!IMPORTANT]
