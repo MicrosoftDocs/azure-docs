@@ -80,6 +80,8 @@ These are limits for a single logic app instance.
 |----|----|----|
 |Actions executions per 5 minutes |100,000|Can distribute workload across multiple apps as needed|
 
+If you expect to exceed this limit in normal processing or wish to run load testing that may exceed this limit for a period of time please [contact us](mailto://logicappsemail@microsoft.com) so that we can help with your requirements.
+
 ### Definition limits
 
 These are limits for a single logic app definition.
