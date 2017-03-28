@@ -35,16 +35,17 @@ Get the connection string in the Azure portal. You use the connection string to 
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane for your database, locate and click **Show database connection strings**.
-4. Copy the **ADO.NET** connection string.
+3. In the **Essentials** pane for your database, review the fully qualified server name. 
 
     <img src="./media/sql-database-connect-query-dotnet/connection-strings.png" alt="connection strings" style="width: 780px;" />
 
-5. Copy the **ADO.NET** connection string.
+4. Click **Show database connection strings**.
+
+5. Review the complete**ADO.NET** connection string.
 
     <img src="./media/sql-database-connect-query-dotnet/adonet-connection-string.png" alt="ADO.NET connection string" style="width: 780px;" />
 
-## Connect and query data
+## Select data
 
 1. In your development environment, open a blank code file.
 2. Add ```using System.Data.SqlClient``` to your code file ([System.Data.SqlClient namespace](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
@@ -52,12 +53,12 @@ Get the connection string in the Azure portal. You use the connection string to 
 3. Use [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement, to query data in your Azure SQL database. Add the appropriate values for your server
 
     ```csharp
-    string hostName = "{your_Server}";
-    string dbName = "{your_Database}";
-    string user = "{your_Username}";
-    string password = "{your_Password}";
+    string hostName = 'yourserver.database.windows.net';
+    string dbName = 'yourdatabase';
+    string user = 'yourusername';
+    string password = 'yourpassword';
 
-    string strConn = $"server=tcp:{hostName}.database.windows.net,1433;Database={dbName};Persist Security Info=False;User ID={user};Password={password};MultipleActiveResultSets=False;Encrypt=False;Connection Timeout=30;";
+    string strConn = $"server=tcp:+hostName+,1433;Database=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=False;Connection Timeout=30;";
     using (var connection = new SqlConnection(strConn))
     {
        connection.Open();
