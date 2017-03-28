@@ -65,7 +65,7 @@
 #### [Backup and restore](service-fabric-reliable-services-backup-restore.md)
 #### [Communicate with Reliable Services](service-fabric-reliable-services-communication.md)
 #### [Secure communications with Reliable Services](service-fabric-reliable-services-secure-communication.md)
-##### [ASP.NET](service-fabric-reliable-services-communication-webapi.md)
+##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 ##### [Service Remoting](service-fabric-reliable-services-communication-remoting.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Reverse Proxy](service-fabric-reverseproxy.md)
@@ -91,6 +91,7 @@
 ## Migrate from Cloud Services
 ### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [Migrate to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+### [Recomended practices](/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ## Create and manage clusters
 

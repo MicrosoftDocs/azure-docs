@@ -111,7 +111,7 @@ The code supports Windows and Linux.
 For more information, see [Create or update a virtual machine scale set](https://msdn.microsoft.com/library/mt589035.aspx).
 
 
-### Example: Self-signed certificate
+### Example of Self-signed certificate
 
 1.  Create a self-signed certificate in a key vault.
 
