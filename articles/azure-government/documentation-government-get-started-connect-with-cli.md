@@ -25,13 +25,13 @@ To use Azure CLI, you need to connect to Azure Government instead of Azure publi
 ## Azure CLI 2.0
 There are multiple ways to [install the Azure CLI v2](https://docs.microsoft.com/cli/azure/install-az-cli2).  
 
-To connect to Azure Government you set the cloud:
+To connect to Azure Government, you set the cloud:
 
 ```
 az cloud set --name AzureUSGovernment
 ```
 
-After the cloud has been set you can continue logging in:
+After the cloud has been set, you can continue logging in:
 
 ```
 az login --username your-user-name@your-gov-tenant.onmicrosoft.com
