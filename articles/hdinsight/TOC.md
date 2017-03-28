@@ -65,6 +65,7 @@
 ### [Predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [Analyze website logs](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 ### [Use Caffe for deep learning](hdinsight-deep-learning-caffe-spark.md)
+### [Use with Microsoft Cognitive Toolkit](hdinsight-apache-spark-microsoft-cognitive-toolkit.md)
 ### [Use Zeppelin notebooks](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Jupyter notebook kernels](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 ### [Use external packages with Jupyter using cell magic](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
