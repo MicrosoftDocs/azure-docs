@@ -62,7 +62,8 @@ The following tables are the Rule groups and rules that are available when using
 |911017|Rule 911017|
 |911018|Rule 911018|
 
-### <a name="crs912"></a> REQUEST-912-DOS-PROTECTION
+<a name="crs912"></a> 
+### REQUEST-912-DOS-PROTECTION
 
 |RuleId|Description|
 |---|---|
