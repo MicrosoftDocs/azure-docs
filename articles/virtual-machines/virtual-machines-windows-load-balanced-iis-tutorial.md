@@ -116,7 +116,7 @@ Add-AzureRmLoadBalancerProbeConfig -Name myHealthProbe `
 
 A load balancer rule is used to define how traffic is distributed to the VMs.
 
-Create a load balancer rule with [Add-AzureRmLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v3.6.0/add-azurermloadbalancerruleconfig). The following example creates a load balancer named `myLoadBalancerRule` and balances traffic on port `80`:
+Create a load balancer rule with [Add-AzureRmLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v3.6.0/add-azurermloadbalancerruleconfig). The following example creates a load balancer rule named `myLoadBalancerRule` and balances traffic on port `80`:
 
 ```powershell
 Add-AzureRmLoadBalancerRuleConfig -Name myLoadBalancerRule `
@@ -273,7 +273,7 @@ for ($i=1; $i -le 3; $i++)
 Obtain the public IP address of your load balancer with [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/get-azurermpublicipaddress). The following example obtains the IP address for `myPublicIP` created earlier:
 
 ```powershell
-Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroup -Name myPublicIP
+Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroup -Name myPublicIP | select IpAddress
 ```
 
 Enter the public IP address in to a web browser. With the NSG rule in place, the default IIS website is displayed. 
