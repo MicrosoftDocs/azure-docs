@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machine Scale Sets Overview | Microsoft Docs
+title: Azure Virtual Machine Scale Sets overview | Microsoft Docs
 description: Learn more about Azure Virtual Machine Scale Sets
 services: virtual-machine-scale-sets
 documentationcenter: ''
