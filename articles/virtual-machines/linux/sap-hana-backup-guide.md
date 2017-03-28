@@ -35,7 +35,7 @@ There is also an SAP HANA hybrid solution available on Azure, where SAP HANA run
 
 General information about SAP products supported on Azure can be found in [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533).
 
-The following three figures give an overview of the SAP HANA backup options using native Azure capabilities currently, and also show three potential future backup scenarios. The related articles [SAP HANA Azure Backup on file level](./sap-hana-backup-file-level.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)and [SAP HANA backup based on storage snapshots](./sap-hana-backup-storage-snapshots.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) describe these options in more detail, including size and performance considerations for SAP HANA backups that are multi-terabytes in size.
+The following three figures give an overview of the SAP HANA backup options using native Azure capabilities currently, and also show three potential future backup scenarios. The related articles [SAP HANA Azure Backup on file level](./sap-hana-backup-file-level.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [SAP HANA backup based on storage snapshots](./sap-hana-backup-storage-snapshots.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) describe these options in more detail, including size and performance considerations for SAP HANA backups that are multi-terabytes in size.
 
 ![This figure shows two possibilities for saving the current VM state](./media/sap-hana-backup-guide/image001.png)
 
