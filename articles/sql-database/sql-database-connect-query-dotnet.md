@@ -58,7 +58,8 @@ Get the connection string in the Azure portal. You use the connection string to 
     string user = 'yourusername';
     string password = 'yourpassword';
 
-    string strConn = $"server=tcp:+hostName+,1433;Database=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=False;Connection Timeout=30;";
+    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+    
     using (var connection = new SqlConnection(strConn))
     {
        connection.Open();
@@ -87,9 +88,18 @@ Get the connection string in the Azure portal. You use the connection string to 
 Use [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement to insert data into your Azure SQL database.
 
 ```csharp
-SqlCommand insertCommand = new SqlCommand("", connection);
-insertCommand.CommandType = CommandType.Text;
-insertCommand.CommandText = @"INSERT INTO[SalesLT].[Product]
+    string hostName = 'yourserver.database.windows.net';
+    string dbName = 'yourdatabase';
+    string user = 'yourusername';
+    string password = 'yourpassword';
+
+    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+    using (var connection = new SqlConnection(strConn))
+
+    SqlCommand insertCommand = new SqlCommand("", connection);
+    insertCommand.CommandType = CommandType.Text;
+    insertCommand.CommandText = @"INSERT INTO[SalesLT].[Product]
             ( [Name]
             , [ProductNumber]
             , [Color]
@@ -122,14 +132,23 @@ Console.WriteLine($"Inserted {newrows.ToString()} row(s).");
 Use [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with an [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
 
 ```csharp
-SqlCommand updateCommand = new SqlCommand("", connection);
-updateCommand.CommandType = CommandType.Text;
-updateCommand.CommandText = @"UPDATE SalesLT.Product SET ListPrice = @ListPrice WHERE Name = @Name";
-updateCommand.Parameters.AddWithValue("@Name", "BrandNewProduct");
-updateCommand.Parameters.AddWithValue("@ListPrice", 500);
+    string hostName = 'yourserver.database.windows.net';
+    string dbName = 'yourdatabase';
+    string user = 'yourusername';
+    string password = 'yourpassword';
 
-int updatedrows = updateCommand.ExecuteNonQuery();
-Console.WriteLine($"Updated {updatedrows.ToString()} row(s).");
+    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+    using (var connection = new SqlConnection(strConn))
+
+    SqlCommand updateCommand = new SqlCommand("", connection);
+    updateCommand.CommandType = CommandType.Text;
+    updateCommand.CommandText = @"UPDATE SalesLT.Product SET ListPrice = @ListPrice WHERE Name = @Name";
+    updateCommand.Parameters.AddWithValue("@Name", "BrandNewProduct");
+    updateCommand.Parameters.AddWithValue("@ListPrice", 500);
+
+    int updatedrows = updateCommand.ExecuteNonQuery();
+    Console.WriteLine($"Updated {updatedrows.ToString()} row(s).");
 ```
 
 ## Delete data
@@ -137,6 +156,15 @@ Console.WriteLine($"Updated {updatedrows.ToString()} row(s).");
 Use [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with a [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
 
 ```csharp
+    string hostName = 'yourserver.database.windows.net';
+    string dbName = 'yourdatabase';
+    string user = 'yourusername';
+    string password = 'yourpassword';
+
+    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+    using (var connection = new SqlConnection(strConn))
+
 SqlCommand deleteCommand = new SqlCommand("", connection);
 deleteCommand.CommandType = CommandType.Text;
 deleteCommand.CommandText = @"DELETE FROM SalesLT.Product WHERE Name = @Name";
@@ -161,15 +189,15 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
+             string hostName = 'yourserver.database.windows.net';
+             string dbName = 'yourdatabase';
+             string user = 'yourusername';
+             string password = 'yourpassword';
 
-            string hostName = "{your_Server}";
-            string dbName = "{your_Database}";
-            string user = "{your_Username}";
-            string password = "{your_Password}";
+             string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
-            string strConn = $"server=tcp:{hostName}.database.windows.net,1433;Database={dbName};Persist Security Info=False;User ID={user};Password={password};MultipleActiveResultSets=False;Encrypt=False;Connection Timeout=30;";
+             using (var connection = new SqlConnection(strConn))
 
-            using (var connection = new SqlConnection(strConn))
             {
                 connection.Open();
 
