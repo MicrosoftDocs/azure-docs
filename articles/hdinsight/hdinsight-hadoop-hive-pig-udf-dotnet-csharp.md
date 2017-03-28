@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/23/2017
+ms.date: 03/28/2017
 ms.author: larryfr
 
 ---
@@ -46,11 +46,13 @@ Both Hive and Pig can pass data to external applications for processing. This pr
 
 ## .NET on HDInsight
 
-* __Linux-based HDInsight__ clusters using [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications.
+* __Linux-based HDInsight__ clusters using [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.5.
 
     For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/).
 
 * __Windows-based HDInsight__ clusters use the Microsoft .NET CLR to run .NET applications.
+
+For more information on the version of the .NET framework and Mono included with HDInsight versions, see [HDInsight component versions](hdinsight-component-versioning.md).
 
 ## Create the C\# projects
 
@@ -215,10 +217,7 @@ Both Hive and Pig can pass data to external applications for processing. This pr
 
 1. Use one of the following methods to connect to your HDInsight cluster:
 
-    * If you are using a __Linux-based__ HDInsight cluster, use SSH. For example, `ssh sshuser@mycluster-ssh.azurehdinsight.net`. For more information on using SSH with HDInsight, see the following documents:
-        
-        * [Use SSH with Linux-based HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
-        * [Use SSH with Linux-based HDInsight from PuTTY on Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * If you are using a __Linux-based__ HDInsight cluster, use SSH. For example, `ssh sshuser@mycluster-ssh.azurehdinsight.net`. For more information, see [Use SSH withHDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
     
     * If you are using a __Windows-based__ HDInsight cluster, [Connect to the cluster using Remote Desktop](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
 

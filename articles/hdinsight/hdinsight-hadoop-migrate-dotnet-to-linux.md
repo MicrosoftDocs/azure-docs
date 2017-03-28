@@ -8,13 +8,14 @@ manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: 'dotnet'
 ms.topic: article
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-ms.date: 03/17/2017
+ms.date: 03/38/2017
 ms.author: larryfr
 
 ---
@@ -24,12 +25,12 @@ Linux-based HDInsight clusters use [Mono (https://mono-project.com)](https://mon
 
 ## Mono compatibility with .NET
 
+Mono version 4.2.1 is included with HDInsight version 3.5. For more information on the version of Mono included with HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md).
+
 For detailed information on compatibility between Mono and .NET, see the [Mono compatibility (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) document.
 
 > [!IMPORTANT]
 > The SCP.NET framework is compatible with Mono. For more information on using SCP.NET with Mono, see [Use Visual Studio to develop C# topologies for Apache Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
-
-For more information on the version of Mono included with HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md).
 
 ## Automated portability analysis
 
