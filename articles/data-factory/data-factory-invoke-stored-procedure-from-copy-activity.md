@@ -18,7 +18,7 @@ ms.author: jingwang
 ---
 
 # Invoke stored procedure for SQL sink in copy activity
-When copying data into [SQL Server](data-factory-sqlserver-connector.md) or [Azure SQL Database](data-factory-azure-sql-connector.md), you can configure the **SqlSink** in copy activity to invoke a stored procedure. A stored procedure is is typically used when additional processing (merging columns, looking up additional values, insertion into multiple tables…) is required before the final insertion of data in to the destination table. This feature takes advantage of [Table-Valued Parameters](https://msdn.microsoft.com/library/bb675163.aspx). 
+When copying data into [SQL Server](data-factory-sqlserver-connector.md) or [Azure SQL Database](data-factory-azure-sql-connector.md), you can configure the **SqlSink** in copy activity to invoke a stored procedure. A stored procedure is typically used when additional processing (merging columns, looking up additional values, insertion into multiple tables…) is required before the final insertion of data in to the destination table. This feature takes advantage of [Table-Valued Parameters](https://msdn.microsoft.com/library/bb675163.aspx). 
 
 The following sample shows how to invoke a stored procedure in a SQL Server database from a Data Factory pipeline (copy activity):  
 
@@ -62,7 +62,7 @@ Define the **SqlSink** section in the copy activity JSON as follows. To invoke a
 ```
 
 ## Stored procedure definition 
-In your database, define the stored procedure with the same name as **SqlWriterStoredProcedureName**. The stored procedure handles input data from the source data store, and inserts data into a table in the destination database. The **name of the first stored procedure parameter** must match the **tableName** defined in the dataset JSON (**Marketing**).
+In your database, define the stored procedure with the same name as **SqlWriterStoredProcedureName**. The stored procedure handles input data from the source data store, and inserts data into a table in the destination database. The name of the first parameter of stored procedure must match the tableName defined in the dataset JSON (**Marketing**).
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)

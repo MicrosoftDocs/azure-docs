@@ -604,10 +604,11 @@ Notice that as your source and target table have different schema (target has an
 
 Then, you map columns from source dataset to columns in the destination dataset. See [Column mapping samples](#column-mapping-samples) section for an example.
 
-[!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
+## Repeatable copy
+When copying data to Azure SQL Database, the copy activity appends data to the sink table by default. To perform an UPSERT instead,  See [Repeatable copy in Azure Data Factory](data-factory-repeatable-copy.md) article. 
 
 ## Invoke stored procedure from SQL sink
-See [# Invoke stored procedure for SQL sink in copy activity](data-factory-invoke-stored-procedure-from-copy-activity.md) article for an example of invoking a stored procedure from SQL sink in a copy activity of a pipeline. 
+For an example of invoking a stored procedure from SQL sink in a copy activity of a pipeline, see [Invoke stored procedure for SQL sink in copy activity](data-factory-invoke-stored-procedure-from-copy-activity.md) article. 
 
 ## SQL Database to .NET type mapping
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article Copy activity performs automatic type conversions from source types to sink types with the following 2-step approach:
