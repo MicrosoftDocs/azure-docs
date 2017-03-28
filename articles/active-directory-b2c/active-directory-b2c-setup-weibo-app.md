@@ -42,8 +42,8 @@ To use Weibo as an identity provider in Azure Active Directory (Azure AD) B2C, y
 5. Upload the required photos and enter the necessary information.
 6. Click **保存以上信息** (save).
 7. Click **高级信息** (advanced information).
-8. Click **编辑** (edit) next to the field for OAuth2.0.
-9. Enter `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp` for the ?redirect URL?PARAKH . For example, if your `tenant_name` is contoso.onmicrosoft.com, set the ?redirect URL? to be `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+8. Click **编辑** (edit) next to the field for OAuth2.0 **授权设置** (redirect URL).
+9. Enter `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp` for OAuth2.0 **授权设置** (redirect URL). For example, if your `tenant_name` is contoso.onmicrosoft.com, set the URL to be `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
 10. Click **提交** (submit).  
 
 ## Configure Weibo as an identity provider in your tenant

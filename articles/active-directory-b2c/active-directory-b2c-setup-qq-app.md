@@ -27,7 +27,7 @@ To use QQ as an identity provider in Azure Active Directory (Azure AD) B2C, you 
 
 1. Go to the [QQ developer portal](http://open.qq.com) and sign in with your QQ account credentials.
 2. After signing in, go to [http://open.qq.com/reg](http://open.qq.com/reg) to register yourself as a developer.
-3. In the menu, select ?Individual developer? PARAKH.
+3. In the menu, select **个人** (individual developer).
 4. Enter the required information into the form and click **下一步** (next step).
 5. Complete the email verification process.
 
@@ -42,7 +42,7 @@ To use QQ as an identity provider in Azure Active Directory (Azure AD) B2C, you 
 4. Enter the necessary app information.
 5. Click on **创建应用** (create app).
 6. Enter the required information.
-7. For the callback URL, enter `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp`. For example, if your `tenant_name` is contoso.onmicrosoft.com, set the callback URL to be `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+7. For the **授权回调域** (callback URL) field, enter `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp`. For example, if your `tenant_name` is contoso.onmicrosoft.com, set the URL to be `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
 8. Click on **创建应用** (create app).
 9. On the confirmation page, click on **应用管理** (app management) to return to the app management page.
 10. Click on **查看** (view) next to the app you just created.
