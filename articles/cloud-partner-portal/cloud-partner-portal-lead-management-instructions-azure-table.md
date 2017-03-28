@@ -24,11 +24,11 @@ This document provides you with instructions on how to setup your Azure Table so
 
 2. Once your Azure account is ready, go log into the [Azure portal](https://portal.azure.com) and create a storage account. See screenshot below for instructions and go here to [learn more about storage pricing](https://azure.microsoft.com/pricing/details/storage/). <br/>
 
-![Azure storage create flow image](./media/cloud-partner-portal-lead-management-instructions-azure-table\azurestoragecreate.png)
+![Azure storage create flow image](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
 
 3. Next, copy the connection string for the key and paste it into the <b>Storage Account Connection String</b> field on the Cloud Partner Portal. <br/> 
 
-![Azure storage key image](./media/cloud-partner-portal-lead-management-instructions-azure-table\azurestoragekeys.png)
+![Azure storage key image](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 
   Sample final connection string: <br/>
 `{"connectionString":"DefaultEndpointsProtocol=https;AccountName=leadaccount;AccountKey=ObS0EW7tDmXrC8oNeG6IRHpx2IUioBQTQynQcR/MUMqrNqQ/RC6zctP8HfucNJO+ond7dJHTROO9ziiPNspjEg=="}`

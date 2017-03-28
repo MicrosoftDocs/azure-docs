@@ -30,7 +30,7 @@ If you are reading this section, you should have received an invitation email fr
 ### How the publishing process works
 The Cloud Partner Portal, makes it as easy as possible to take your pre-built solution and list it onto the Marketplace. It’s important to call out that we highly recommend you build your complete solution before coming to the publishing process, as it simplifies the work required and allows you to make your solution available faster.
 
-![Publishing flow diagram](./media/cloud-partner-portal-what-is-the-cloud-partner-portal\publishing-flow-diagram.png)
+![Publishing flow diagram](./media/cloud-partner-portal-what-is-the-cloud-partner-portal/publishing-flow-diagram.png)
 
 
 1.	To **build** a new offer you choose your type of product and construct an offer by adding technical and marketing information.
