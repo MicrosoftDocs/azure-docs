@@ -46,7 +46,8 @@ The top menu bar contains interactive actions for support and feedback, as well 
 2.	Feedback – Have something you want to say? Let us know here.
 3.	Publisher account – When you first visit the portal you will see the publisher agreement contract to accept becoming a publisher. From then on, this is where you can make edits to your publisher profile or revisit the contract. 
 
-[!NOTE] The Publisher profile is where you connect your registered [Dev Center](https://dev.windows.com/registration?accountProgram=Azure) account so that you are able to sell your offers. If you have not already done so, please go register your company with Dev Center to ensure that you will be able to publish your offer.
+[!NOTE]
+The Publisher profile is where you connect your registered [Dev Center](https://dev.windows.com/registration?accountProgram=Azure) account so that you are able to sell your offers. If you have not already done so, please go register your company with Dev Center to ensure that you will be able to publish your offer.
 
 ### Offer page 
 As you create or edit your offer, you will work heavily in our offer page. This is where you configure all settings for your offer and check its status. 
