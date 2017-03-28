@@ -92,11 +92,9 @@ In the **Configure App Service Plan** dialog, configure the new App Service plan
 - **Location**: Choose **West Europe**, or any other region you like.
 - **Size**: Choose **Free**, or any other [pricing tier](https://azure.microsoft.com/pricing/details/app-service/) you like.
 
-When you're finished, the dialog should look like the following screenshot:
+Click **OK**.
 
 ![Configure new App Service plan](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
-
-Click **OK**.
 
 ## Create and publish the web app
 
