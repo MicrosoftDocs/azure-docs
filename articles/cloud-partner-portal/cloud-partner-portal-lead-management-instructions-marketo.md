@@ -21,21 +21,21 @@ ms.author: brdi
 This document provides you with instructions on how to setup your Marketo system so that Microsoft can provide you with sales leads. 
 
 1. Go to “Design Studio” in Marketo. <br/>
-![Marketo setup image](./media/cloud-partner-portal-lead-management-instructions-marketo\marketo1.png)
+![Marketo setup image](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo1.png)
 
 2. Click on “New Form” <br/>
-![Marketo new form image](./media/cloud-partner-portal-lead-management-instructions-marketo\marketo2.png)
+![Marketo new form image](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo2.png)
 
 3. Fill the fields in the New Form pop-up <br/>
-![Marketo create form image](./media/cloud-partner-portal-lead-management-instructions-marketo\marketo3.png)
+![Marketo create form image](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo3.png)
 
 4. Click on “finish” in the next form. Don’t worry about the formatting or fields. <br/>
-![Marketo finish form image](./media/cloud-partner-portal-lead-management-instructions-marketo\marketo4.png)
+![Marketo finish form image](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo4.png)
 
 5. Approve and Close.
 
 6. On the next page, go to the Embed Code section.<br/>
-![Marketo embed code image](./media/cloud-partner-portal-lead-management-instructions-marketo\marketo5.png)
+![Marketo embed code image](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo5.png)
 
 7. You will see an embed code similar to this sample below: 
 
