@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Manage Linux virtual machines with the Azure CLI
 
-In this tutorial, you will create a virtual machine and perform many common management tasks such as adding a disk, automating software installation, managing firewall rules, and creating a virtual machine snapshot. 
+In this tutorial, you will create a virtual machine and perform common management tasks such as adding a disk, automating software installation, and creating a virtual machine snapshot. 
 
 To complete this tutorial, make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
@@ -96,6 +96,8 @@ Once the VM has been created, the Azure CLI outputs the following information. T
 }
 ```
 
+While the VM has been deployed, the **cloud-init** configuration may take a few minutes to complete. 
+
 ## Step 5 – Configure firewall
 
 An Azure [network security group](../virtual-network/virtual-networks-nsg.md) (NSG) controls inbound and outbound traffic for one or many virtual machines. Network security group rules allow or deny network traffic on a specific port or port range. These rules can also include a source address prefix so that only traffic originating at a predefined source can communicate with a virtual machine.
@@ -120,7 +122,7 @@ Taking a disk snapshot creates a read only, point-in-time copy of the disk. In t
 
 ### Create snapshot
 
-Before creating a virtual machine disk snapshot, the Id or name of the disk is needed. Use [az vm show](https://docs.microsoft.com/cli/azure/vm#show) to get the disk id. In this example, the disk id is stored in a variable so that it can be used in a later step.
+Before creating a virtual machine disk snapshot, the Id or name of the disk is needed. Use the [az vm show](https://docs.microsoft.com/cli/azure/vm#show) command to get the disk id. In this example, the disk id is stored in a variable so that it can be used in a later step.
 
 ```azurecli
 osdiskid=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
@@ -148,10 +150,18 @@ To demonstrate virtual machine recovery, delete the existing virtual machine.
 az vm delete --resource-group myResourceGroup --name myVM
 ```
 
-Create a new virtual machine from the snapshot disk. In this example, the existing network interface is being specified. This configuration applies all previously created NSG rules to the new virtual machine.
+When re-creating the virtual machine, the existing network interface will be re-used. This ensures that network security configurations are retained.
+
+Get the network interface name using the [az network nic list]https://docs.microsoft.com/cli/azure/network/nic#list) command. This example places the name in a variable named `nic`, which is used in the next step.
 
 ```azurecli
-az vm create --resource-group myResourceGroup --name myVM --attach-os-disk mySnapshotDisk --os-type linux --nics myVMVMNic
+nic=$(az network nic list --resource-group myResourceGroup --query "[].[name]" -o tsv)
+```
+
+Create a new virtual machine from the snapshot disk.
+
+```azurecli
+az vm create --resource-group myResourceGroup --name myVM --attach-os-disk mySnapshotDisk --os-type linux --nics $nic
 ```
 
 Take note of the new public ip address, and browser to this address with an internet browser. You will see that NGINX is running in the restored virtual machine. 
@@ -160,19 +170,19 @@ Take note of the new public ip address, and browser to this address with an inte
 
 The data disk can now be reattached to the virtual machine. 
 
-First find the data disks name using the [az disk list](https://docs.microsoft.com/cli/azure/disk#list) command. This outputs a list of all disks, copy the name of the disk with a size of 50GB. 
+First find the data disks name using the [az disk list](https://docs.microsoft.com/cli/azure/disk#list) command. This example places the name of the disk in a variable named `datadisk`, which is used in the next step.
 
 ```azurecli
-az disk list -g myResourceGroup --query "[].[name,diskSizeGb]" --out table
+datadisk=$(az disk list -g myResourceGroup --query "[?contains(name,'myVM')].[name]" -o tsv)
 ```
 
-Use the [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) command to attach the disk. Replace `myDataDisk` with the name collected in the previous step.
+Use the [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) command to attach the disk.
 
 ```azurecli
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk $datadisk
 ```
 
-The disk also needs to be mounted for the operating system. This can be completed by connecting with the virtual machine and running `sudo mount /dev/sdc1 /datadrive` command, or your preferred disk mounting operation. 
+The disk also needs to be mounted to the operating system. To mount the disk, connect to the virtual machine and run `sudo mount /dev/sdc1 /datadrive` command, or your preferred disk mounting operation. 
 
 ## Step 7 – Management tasks
 
