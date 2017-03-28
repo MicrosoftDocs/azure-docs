@@ -21,7 +21,7 @@ ms.author: muralikk
 
 Creating an import job for the Microsoft Azure Import/Export service using the REST API involves the following steps:
 
--   Preparing drives with the Azure Import/Export tool.
+-   Preparing drives with the Azure Import/Export Tool.
 
 -   Obtaining the location to which to ship the drive.
 
@@ -37,7 +37,7 @@ Creating an import job for the Microsoft Azure Import/Export service using the R
 
 The steps to prepare drives for an import job are the same whether you create the jobvia the portal or via the REST API.
 
-Below is a brief overview of drive preparation. Refer to the [Azure Import-ExportTool Reference](storage-import-export-tool-how-to-v1.md) for complete instructions. You can download the Azure Import/Export tool [here](http://go.microsoft.com/fwlink/?LinkID=301900).
+Below is a brief overview of drive preparation. Refer to the [Azure Import-ExportTool Reference](storage-import-export-tool-how-to-v1.md) for complete instructions. You can download the Azure Import/Export Tool [here](http://go.microsoft.com/fwlink/?LinkID=301900).
 
 Preparing your drive involves:
 
@@ -45,9 +45,9 @@ Preparing your drive involves:
 
 -   Identifying the destination blobs in Windows Azure Storage.
 
--   Using the Azure Import/Export tool to copy your data to one or more hard drives.
+-   Using the Azure Import/Export Tool to copy your data to one or more hard drives.
 
- The Azure Import/Export tool will also generate a manifest file for each of the drives as it is prepared. A manifest file contains:
+ The Azure Import/Export Tool will also generate a manifest file for each of the drives as it is prepared. A manifest file contains:
 
 -   An enumeration of all the files intended for upload and the mappings from these files to blobs.
 

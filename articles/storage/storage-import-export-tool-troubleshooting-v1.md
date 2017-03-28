@@ -18,8 +18,8 @@ ms.author: muralikk
 
 ---
 
-# Troubleshooting the Azure Import/Export tool
-The Microsoft Azure Import/Export tool returns error messages if it runs into issues. This topic lists some common issues that users may run into.  
+# Troubleshooting the Azure Import/Export Tool
+The Microsoft Azure Import/Export Tool returns error messages if it runs into issues. This topic lists some common issues that users may run into.  
   
 ## A copy session fails, what I should do?  
  When a copy session fails, there are two options:  

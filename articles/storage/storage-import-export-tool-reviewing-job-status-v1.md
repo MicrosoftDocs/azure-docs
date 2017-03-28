@@ -1,5 +1,5 @@
 ---
-title: Reviewing Azure Import/Export job status | Microsoft Docs
+title: Reviewing Azure Import/Export job status - v1 | Microsoft Docs
 description: Learn how to use the log files created when the import or export job was run to see the status of the Import/Export job. 
 author: muralikk
 manager: syadav
@@ -27,7 +27,7 @@ When the Microsoft Azure Import/Export service processes drives associated with 
   
  `http://myaccount.blob.core.windows.net/ImportExportStatesPath/waies/myjob_9WM45A6Q_20130921-042122-021_error.xml`  
   
- See [Import/Export Service Log File Format](storage-import-export-file-format-log.md) for the format of copy logs and the full list of status codes.  
+ See [Import/Export service Log File Format](storage-import-export-file-format-log.md) for the format of copy logs and the full list of status codes.  
   
 ## See Also  
  [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)   

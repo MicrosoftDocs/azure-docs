@@ -45,7 +45,7 @@ Next, to determine how many hard drives are needed, compute the size of the data
   
 `5TB + 30GB + 25GB + 10GB = 5TB + 65GB`  
   
-For this example, two 3TB hard drives should be sufficient. However, since the source directory `H:\Video` has 5TB of data and your single hard drive's capacity is only 3TB, it's necessary to break `H:\Video` into two smaller directories before running the Microsoft Azure Import/Export tool: `H:\Video1` and `H:\Video2`. This step yields the following source directories:  
+For this example, two 3TB hard drives should be sufficient. However, since the source directory `H:\Video` has 5TB of data and your single hard drive's capacity is only 3TB, it's necessary to break `H:\Video` into two smaller directories before running the Microsoft Azure Import/Export Tool: `H:\Video1` and `H:\Video2`. This step yields the following source directories:  
   
 |Location|Size|Destination virtual directory or blob|  
 |--------------|----------|-------------------------------------------|  
@@ -70,7 +70,7 @@ For this example, two 3TB hard drives should be sufficient. However, since the s
   
 In addition, you can set the following metadata for all files:  
   
--   **UploadMethod:** Windows Azure Import/Export Service  
+-   **UploadMethod:** Windows Azure Import/Export service  
   
 -   **DataSetName:** SampleData  
   
@@ -81,7 +81,7 @@ To set metadata for the imported files, create a text file, `c:\WAImportExport\S
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
 <Metadata>  
-    <UploadMethod>Windows Azure Import/Export Service</UploadMethod>  
+    <UploadMethod>Windows Azure Import/Export service</UploadMethod>  
     <DataSetName>SampleData</DataSetName>  
     <CreationDate>10/1/2013</CreationDate>  
 </Metadata>  
@@ -106,7 +106,7 @@ To set these properties, create a text file, `c:\WAImportExport\SampleProperties
 </Properties>  
 ```
   
-Now you are ready to run the Azure Import/Export tool to prepare the two hard drives. Note that:  
+Now you are ready to run the Azure Import/Export Tool to prepare the two hard drives. Note that:  
   
 -   The first drive is mounted as drive X.  
   
@@ -127,7 +127,7 @@ Now you are ready to run the Azure Import/Export tool to prepare the two hard dr
     WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:x:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt /skipwrite
 ```
 
-For the first drive, run the Azure Import/Export tool twice to copy the two source directories:  
+For the first drive, run the Azure Import/Export Tool twice to copy the two source directories:  
   
 ```
 ## First copy session for first drive  
@@ -139,7 +139,7 @@ WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:8
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Photo /srcdir:H:\Photo /dstdir:photo/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
 ```
   
-For the second drive, run the Azure Import/Export tool three times, once each for the source directories and once for the standalone Blu-Ray™ image file):  
+For the second drive, run the Azure Import/Export Tool three times, once each for the source directories and once for the standalone Blu-Ray™ image file):  
   
 ```
 ## First copy session  

@@ -1,5 +1,5 @@
 ---
-title: Repairing an Azure Import/Export import job | Microsoft Docs
+title: Repairing an Azure Import/Export import job - v1 | Microsoft Docs
 description: Learn how to repair an import job that was created and run using the Azure Import/Export service.
 author: muralikk
 manager: syadav
@@ -27,7 +27,7 @@ The Microsoft Azure Import/Export service may fail to copy some of your files or
   
 -   The storage account key changed while the file was being transferred.  
   
-You can run the Microsoft Azure Import/Export tool with the import job’s copy log files, and the tool will upload the missing files (or parts of a file) to your Windows Azure storage account to complete import job.  
+You can run the Microsoft Azure Import/Export Tool with the import job’s copy log files, and the tool will upload the missing files (or parts of a file) to your Windows Azure storage account to complete import job.  
   
 The command for repairing an import job is **RepairImport**. The following parameters can be specified:  
   
@@ -69,7 +69,7 @@ The following is an example of a copy log file. In this case, one 64K piece of a
 </DriveLog>  
 ```
   
-When this copy log is passed to the Azure Import/Export tool, the tool will try to finish the import for this file by copying the missing contents across the network. Following the example above, the tool will look for the original file `\animals\koala.jpg` within the two directories `C:\Users\bob\Pictures` and `X:\BobBackup\photos`. If the file `C:\Users\bob\Pictures\animals\koala.jpg` exists, the Azure Import/Export tool will copy the missing range of data to the corresponding blob `http://bobmediaaccount.blob.core.windows.net/pictures/animals/koala.jpg`.  
+When this copy log is passed to the Azure Import/Export Tool, the tool will try to finish the import for this file by copying the missing contents across the network. Following the example above, the tool will look for the original file `\animals\koala.jpg` within the two directories `C:\Users\bob\Pictures` and `X:\BobBackup\photos`. If the file `C:\Users\bob\Pictures\animals\koala.jpg` exists, the Azure Import/Export Tool will copy the missing range of data to the corresponding blob `http://bobmediaaccount.blob.core.windows.net/pictures/animals/koala.jpg`.  
   
 ## Resolving Conflicts When Using RepairImport  
 In some situations, the tool may not be able to find or open the necessary file for one of the following reasons: the file could not be found, the file is not accessible, the file name is ambiguous, or the content of the file is no longer correct.  

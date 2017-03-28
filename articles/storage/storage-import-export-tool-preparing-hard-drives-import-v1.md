@@ -1,6 +1,6 @@
 ---
 title: Preparing hard drives for an Azure Import/Export import job - v1 | Microsoft Docs
-description: Learn how to prepare hard drives using the WAImportExport (v1) tool to create an import job for the Azure Import/Export service.
+description: Learn how to prepare hard drives using the WAImportExport v1 tool to create an import job for the Azure Import/Export service.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -37,10 +37,10 @@ To prepare one or more hard drives for an import job, follow these steps:
 > [!NOTE]
 >  Since subdirectories are included recursively when a parent directory is included, specify only the parent directory. Do not also specify any of its subdirectories.
 >
->  Currently, the Microsoft Azure Import/Export tool has the following limitation: if a directory contains more data than a hard drive can contain, then the directory needs to be broken into smaller directories. For example, if a directory contains 2.5TB of data and the hard drive's capacity is only 2TB, then you need to break the 2.5TB directory into smaller directories. This limitation will be addressed in a later version of the tool.
+>  Currently, the Microsoft Azure Import/Export Tool has the following limitation: if a directory contains more data than a hard drive can contain, then the directory needs to be broken into smaller directories. For example, if a directory contains 2.5TB of data and the hard drive's capacity is only 2TB, then you need to break the 2.5TB directory into smaller directories. This limitation will be addressed in a later version of the tool.
 
 ##  <a name="PrepareHardDrives_IdentifytheDestinationLocationsintheBlobService"></a> Identify the Destination Locations in the Blob Service
- For each directory or file that will be imported, you need to identify a destination virtual directory or blob in the Azure Blob service. You will use these targets as inputs to the Azure Import/Export tool. Note that directories should be delimited with the forward slash character "/".
+ For each directory or file that will be imported, you need to identify a destination virtual directory or blob in the Azure Blob service. You will use these targets as inputs to the Azure Import/Export Tool. Note that directories should be delimited with the forward slash character "/".
 
  The following table shows some examples of blob targets:
 
@@ -61,7 +61,7 @@ To prepare one or more hard drives for an import job, follow these steps:
  Ensure that you have the number of hard drives you will need to store the data you are transferring.
 
 ##  <a name="PrepareHardDrives_CopyDatatoaSingleHardDrive"></a> Copy Data to Your Hard Drive
- This section describes how to call the Azure Import/Export tool to copy your data to one or more hard drives. Each time you call the Azure Import/Export tool, you create a new *copy session*. You create at least one copy session for each drive to which you copy data; in some cases, you may need more than one copy session to copy all of your data to single drive. Here are some reasons that you may need multiple copy sessions:
+ This section describes how to call the Azure Import/Export Tool to copy your data to one or more hard drives. Each time you call the Azure Import/Export Tool, you create a new *copy session*. You create at least one copy session for each drive to which you copy data; in some cases, you may need more than one copy session to copy all of your data to single drive. Here are some reasons that you may need multiple copy sessions:
 
 -   You must create a separate copy session for each drive that you copy to.
 
@@ -72,10 +72,10 @@ To prepare one or more hard drives for an import job, follow these steps:
 > [!NOTE]
 >  If you have multiple machines that meet the requirements outlined in [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md), you can copy data to multiple hard drives in parallel by running an instance of this tool on each machine.
 
- For each hard drive that you prepare with the Azure Import/Export tool, the tool will create a single journal file. You will need the journal files from all of your drives to create the import job. The journal file can also be used to resume drive preparation if the tool is interrupted.
+ For each hard drive that you prepare with the Azure Import/Export Tool, the tool will create a single journal file. You will need the journal files from all of your drives to create the import job. The journal file can also be used to resume drive preparation if the tool is interrupted.
 
 ### Azure Import/Export Tool Syntax for an Import Job
- To prepare drives for an import job, call the Azure Import/Export tool with the **PrepImport** command. Which parameters you include depends on whether this is the first copy session, or a subsequent copy session.
+ To prepare drives for an import job, call the Azure Import/Export Tool with the **PrepImport** command. Which parameters you include depends on whether this is the first copy session, or a subsequent copy session.
 
  The first copy session for a drive requires some additional parameters to specify the storage account key; the target drive letter; whether the drive must be formatted; whether the drive must be encrypted and if so, the BitLocker key; and the log directory. Here is the syntax for an initial copy session to copy a directory or a single file:
 
@@ -98,7 +98,7 @@ To prepare one or more hard drives for an import job, follow these steps:
  `WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]`
 
 ### Parameters for the First Copy Session for a Hard Drive
- Each time you run the Azure Import/Export tool to copy files to the hard drive, the tool creates a copy session. Each copy session copies a single directory or a single file to a hard drive. The state of the copy session is written to the journal file. If a copy session is interrupted (for example, due to a system power loss), it can be resumed by running the tool again and specifying the journal file on the command line.
+ Each time you run the Azure Import/Export Tool to copy files to the hard drive, the tool creates a copy session. Each copy session copies a single directory or a single file to a hard drive. The state of the copy session is written to the journal file. If a copy session is interrupted (for example, due to a system power loss), it can be resumed by running the tool again and specifying the journal file on the command line.
 
 > [!WARNING]
 >  If you specify the **/format** parameter for the first copy session, the drive will be formatted and all data on the drive will be erased. It's recommended that you use blank drives only for your copy session.
@@ -117,7 +117,7 @@ To prepare one or more hard drives for an import job, follow these steps:
 |**/logdir:**<LogDirectory\>|`Optional.` The log directory specifies a directory to be used to store verbose logs as well as temporary manifest files. If not specified, the current directory will be used as the log directory.|
 
 ### Parameters Required for All Copy Sessions
- The journal file contains the status for all copy sessions for a hard drive. It also contains the information needed to create the import job. You must always specify a journal file when running the Azure Import/Export tool, as well as a copy session ID:
+ The journal file contains the status for all copy sessions for a hard drive. It also contains the information needed to create the import job. You must always specify a journal file when running the Azure Import/Export Tool, as well as a copy session ID:
 
 |||
 |-|-|
@@ -134,8 +134,8 @@ To prepare one or more hard drives for an import job, follow these steps:
 |**/dstdir:**<DestinationBlobVirtualDirectory\>|`Required.` The path to the destination virtual directory in your Windows Azure storage account. The virtual directory may or may not already exist.<br /><br /> You can specify a container, or a blob prefix like `music/70s/`. The destination directory must begin with the container name, followed by a forward slash "/", and optionally may include a virtual blob directory that ends with "/".<br /><br /> When the destination container is the root container, you must explicitly specify the root container, including the forward slash, as `$root/`. Since blobs under the root container cannot include "/" in their names, any subdirectories in the source directory will not be copied when the destination directory is the root container.<br /><br /> Be sure to use valid container names when specifying destination virtual directories or blobs. Keep in mind that container names must be lowercase. For container naming rules, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/fileservices/naming-and-referencing-containers--blobs--and-metadata).|
 |**/Disposition:**<rename&#124;no-overwrite&#124;overwrite>|`Optional.` Specifies the behavior when a blob with the specified address already exists. Valid values for this parameter are: `rename`, `no-overwrite` and `overwrite`. Note that these values are case-sensitive. If no value is specified, the default is `rename`.<br /><br /> The value specified for this parameter affects all the files in the directory specified by the `/srcdir` parameter.|
 |**/BlobType:**<BlockBlob&#124;PageBlob>|`Optional.` Specifies the blob type for the destination blobs. Valid values are: `BlockBlob` and `PageBlob`. Note that these values are case-sensitive. If no value is specified, the default is `BlockBlob`.<br /><br /> In most cases, `BlockBlob` is recommended. If you specify `PageBlob`, the length of each file in the directory must be a multiple of 512, the size of a page for page blobs.|
-|**/PropertyFile:**<PropertyFile\>|`Optional.` Path to the property file for the destination blobs. See [Import/Export Service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md) for more information.|
-|**/MetadataFile:**<MetadataFile\>|`Optional.` Path to the metadata file for the destination blobs. See [Import/Export Service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md) for more information.|
+|**/PropertyFile:**<PropertyFile\>|`Optional.` Path to the property file for the destination blobs. See [Import/Export service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md) for more information.|
+|**/MetadataFile:**<MetadataFile\>|`Optional.` Path to the metadata file for the destination blobs. See [Import/Export service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md) for more information.|
 
 ### Parameters for Copying a Single File
  When copying a single file, the following required and optional parameters apply:
@@ -146,8 +146,8 @@ To prepare one or more hard drives for an import job, follow these steps:
 |**/dstblob:**<DestinationBlobPath\>|`Required.` The path to the destination blob in your Windows Azure storage account. The blob may or may not already exist.<br /><br /> Specify the blob name beginning with the container name. The blob name cannot start with "/" or the storage account name. For blob naming rules, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/fileservices/naming-and-referencing-containers--blobs--and-metadata).<br /><br /> When the destination container is the root container, you must explicitly specify `$root` as the container, such as `$root/sample.txt`. Note that blobs under the root container cannot include "/" in their names.|
 |**/Disposition:**<rename&#124;no-overwrite&#124;overwrite>|`Optional.` Specifies the behavior when a blob with the specified address already exists. Valid values for this parameter are: `rename`, `no-overwrite` and `overwrite`. Note that these values are case-sensitive. If no value is specified, the default is `rename`.|
 |**/BlobType:**<BlockBlob&#124;PageBlob>|`Optional.` Specifies the blob type for the destination blobs. Valid values are: `BlockBlob` and `PageBlob`. Note that these values are case-sensitive. If no value is specified, the default is `BlockBlob`.<br /><br /> In most cases, `BlockBlob` is recommended. If you specify `PageBlob`, the length of each file in the directory must be a multiple of 512, the size of a page for page blobs.|
-|**/PropertyFile:**<PropertyFile\>|`Optional.` Path to the property file for the destination blobs. See [Import/Export Service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md) for more information.|
-|**/MetadataFile:**<MetadataFile\>|`Optional.` Path to the metadata file for the destination blobs. See [Import/Export Service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md) for more information.|
+|**/PropertyFile:**<PropertyFile\>|`Optional.` Path to the property file for the destination blobs. See [Import/Export service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md) for more information.|
+|**/MetadataFile:**<MetadataFile\>|`Optional.` Path to the metadata file for the destination blobs. See [Import/Export service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md) for more information.|
 
 ### Resuming an Interrupted Copy Session
  If a copy session is interrupted for any reason, you can resume it by running the tool with only the journal file specified:
