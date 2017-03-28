@@ -23,7 +23,7 @@ ms.author: cephalin
 
 This Quickstart helps you deploy your first ASP.NET web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md) in just a few minutes. When you're finished, you'll have a simple web web app up and running in the cloud.
 
-![Updated ASP.NET web app in Azure App Service](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
+![ASP.NET web app in Azure App Service](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
 ## Before you begin
 
@@ -104,17 +104,15 @@ In the **Configure App Service Plan** dialog, configure the new App Service plan
 
 Click **OK**.
 
-![Configure new App Service plan](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
+![Create new App Service plan](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
 ## Create and publish the web app
 
 The only thing left to do now is to name your web app. In **Web App Name**, type a unique app name. You can also accept the automatically generated name, which is already unique.
 
-When you're finished, your **Create App Service** dialog should look like the following screenshot:
+Click **Create** to start creating the Azure resources.
 
 ![Configure web app name](./media/app-service-web-get-started-dotnet/web-app-name.png)
-
-Click **Create** to start creating the Azure resources.
 
 Once the wizard finishes creating the Azure resources, it automatically publishes your ASP.NET web app to Azure for the first time, and then launches the published Azure web app in your default browser.
 
@@ -155,13 +153,9 @@ To do this, sign in to [https://portal.azure.com](https://portal.azure.com).
 
 From the left menu, click **App Service**, then click the name of your Azure web app.
 
-![Updated ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet/access-portal.png)
+![Portal navigation to Azure web app](./media/app-service-web-get-started-dotnet/access-portal.png)
 
-You have landed in your web app's _blade_ (a portal page that opens horizontally), which looks like the following screenshot: 
-
-![Updated ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet/web-app-blade.png)
-
-The **Overview** page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. 
+You have landed in your web app's _blade_ (a portal page that opens horizontally). By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. 
 
 The tabs on the left side of the blade shows the different configuration pages you can open. Here in the Azure portal, you can add many great features to your web app. Here are just a few of the possibilities:
 
@@ -171,15 +165,17 @@ The tabs on the left side of the blade shows the different configuration pages y
 - Scale up and out
 - Add user authentication
 
+![App Service blade in Azure portal](./media/app-service-web-get-started-dotnet/web-app-blade.png)
+
 ## Clean up resources
 
 To delete your first Azure web app, you can click **Delete** in the **Overview** page. However, there's a better way to delete everything that you created in this quick start. From your web app's **Overview** page, click the resource group to open its blade. 
 
-![Updated ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet/access-resource-group.png)
+![Access resource group from App Service blade](./media/app-service-web-get-started-dotnet/access-resource-group.png)
 
 In the resource group blade, you can see both the App Service plan and the App Service app that Visual Studio created for you. At the top of the blade, click **Delete**. 
 
-![Updated ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet/delete-resource-group.png)
+![Delete resource group in Azure portal](./media/app-service-web-get-started-dotnet/delete-resource-group.png)
 
 In the confirmation blade, confirm by typing the resource group name **myResourceGroup** into the text box and click **Delete**.
 
