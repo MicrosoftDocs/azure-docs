@@ -20,10 +20,10 @@ ms.author: brdi
 
 This document provides you with instructions on how to setup your Dynamics CRM Online system so that Microsoft can provide you with sales leads.
 
-[!NOTE]
-**User permissions required for performing the following steps:**
-you need to be an admin on your Dynamics CRM Online instance to install a solution and 
-you need to be a tenant admin to create a new service account for lead service.
+> [!NOTE]
+> **User permissions required for performing the following steps:**
+> You need to be an admin on your Dynamics CRM Online instance to install a solution and 
+> you need to be a tenant admin to create a new service account for lead service.
 
 **Installing the solution:** <br/>
 1. Download [Microsoft Marketplace Lead Writer solution](https://testdriveaccount.blob.core.windows.net/testdrivecon/MicrosoftMarketplacesLeadIntegrationSolution_1_0_0_0_target_CRM_6.1_managed.zip) and save it locally.
