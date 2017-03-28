@@ -77,6 +77,7 @@
 #### [Lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
 #### [Polymorphism](service-fabric-reliable-actors-polymorphism.md)
 #### [Reentrancy](service-fabric-reliable-actors-reentrancy.md)
+#### [Events](service-fabric-reliable-actors-events.md) 
 #### [Timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
 #### [State management](service-fabric-reliable-actors-state-management.md)
 #### [Configure KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)

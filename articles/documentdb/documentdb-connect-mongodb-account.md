@@ -19,7 +19,7 @@ ms.author: anhoh
 
 ---
 
-# Connect a MongoDB app to a DocumentDB account using a MongoDB connection string
+# Connect an application to DocumentDB: API for MongoDB
 Learn how to connect your MongoDB app to an Azure DocumentDB account using a MongoDB connection string. By connecting your MongoDB app to an Azure DocumentDB database, you can use a DocumentDB database as the data store for your MongoDB app. 
 
 This tutorial provides two ways to retrieve connection string information:

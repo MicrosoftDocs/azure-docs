@@ -4,6 +4,7 @@
 # Get started
 ## [Create and manage account](media-services-portal-create-account.md)
 ## [Set up your dev environment](media-services-set-up-computer.md)
+###[Azure functions](media-services-dotnet-how-to-use-azure-functions.md)
 ###[.NET](media-services-dotnet-how-to-use.md)
 ###[REST](media-services-rest-how-to-use.md)  
 ## Connect programmatically
@@ -191,7 +192,7 @@
 ### [Licensing Microsoft Smooth Streaming Client Porting Kit](media-services-sspk.md)
 
 ## Integrate
-### [Azure Functions](https://github.com/azure-samples/media-services-dotnet-functions-integration)
+### [Azure functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
 
 ## Monitor
 ### Check job progress
