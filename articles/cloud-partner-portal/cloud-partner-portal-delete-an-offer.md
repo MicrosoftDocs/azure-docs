@@ -15,8 +15,11 @@ ms.date: 03/22/2017
 ms.author: andalmia
 
 ---
-Delete a live SKU from Azure Marketplace
-========================================
+# Delete an offer/SKU from Azure Marketplace
+
+There may be scenarios where you may delete a published offer or SKU from Azure Marketplace. This article talks about the different supported delete scenarios and the steps you can take for them.
+
+## Delete a live SKU from Azure Marketplace
 
 You can delete a live SKU from Azure Marketplace by following these steps:
 
@@ -32,8 +35,7 @@ You can delete a live SKU from Azure Marketplace by following these steps:
 
 After the offer is live on Azure Marketplace, the SKU will be deleted from Azure Marketplace and Azure portal.
 
-Rollback to a previous SKU version
-==================================
+## Rollback to a previous SKU version
 
 You can delete the current version of a live SKU from Azure Marketplace by following the steps here. When the process is complete, the SKU will be rolled back to its previous version.
 
@@ -49,8 +51,7 @@ You can delete the current version of a live SKU from Azure Marketplace by follo
 
 After the offer is live in Azure Marketplace, the current version of the listed SKU will be deleted from Azure Marketplace and the Azure portal. The SKU will be rolled back to its previous version.
 
-Delete a live offer
-===================
+## Delete a live offer
 
 There are various aspects that need to be taken care of in case of a request to remove a live offer. Please follow the steps below to get guidance from the support team to remove a live offer from Azure Marketplace:
 
