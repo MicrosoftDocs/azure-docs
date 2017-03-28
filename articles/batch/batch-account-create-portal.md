@@ -34,7 +34,7 @@ For background about Batch accounts and scenarios, see the [feature overview](ba
 
 ## Create a Batch account
 
-Use the portal to create a Batch account in one of the two *pool allocation modes*: *Batch service* pool allocation mode or the newer *user subscription* mode, which requires more configuration. For information about these two modes, see the [feature overview](batch-api-basics.md#account). For features of the user subscription mode, see also the [blog post](https://blogs.technet.microsoft.com/windowshpc/2017/03/17/azure-batch-vnet-and-custom-image-support-for-virtual-machine-pools/).
+Use the portal to create a Batch account in one of the two *pool allocation modes*: **Batch service** mode or the newer **user subscription** mode, which requires more configuration. For information about these two modes, see the [feature overview](batch-api-basics.md#account). For features of the user subscription mode, see also the [blog post](https://blogs.technet.microsoft.com/windowshpc/2017/03/17/azure-batch-vnet-and-custom-image-support-for-virtual-machine-pools/).
 
 ## Batch service mode
 
@@ -60,6 +60,10 @@ Use the portal to create a Batch account in one of the two *pool allocation mode
    
     e. **Storage account** (optional): A general-purpose Azure Storage account that you associate with your Batch account. This is recommended for most Batch accounts. See [Linked Azure Storage account](#linked-azure-storage-account) later in this article for more details.
 
+4. Click **Create** to create the account.
+   
+   The portal indicates deployment is in progress. Upon completion, a **Deployments succeeded** notification appears in **Notifications**.
+   
 ## User subscription mode
 
 ### Allow Azure Batch to access the subscription (one-time operation)
