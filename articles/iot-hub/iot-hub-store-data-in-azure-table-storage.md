@@ -197,7 +197,7 @@ By now, you have created the Function App. It stores messages that your IoT hub 
 
    You should see messages sent from your device to your IoT hub logged in the `deviceData` table.
 
-## Summary
+## Next steps
 
 You’ve successfully created your Azure storage account and Azure Function App to store messages that your IoT hub receives in your Azure table storage.
 
