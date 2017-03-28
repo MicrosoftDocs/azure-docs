@@ -86,6 +86,30 @@ Get the connection string in the Azure portal. You use the connection string to 
 Use a [connection]( https://docs.microsoft.com/sql/connect/jdbc/working-with-a-connection) with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement, to query data in your Azure SQL database using Java.
 
 ```java
+import java.sql.Connection;
+import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.DriverManager;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		System.out.println("Connect to SQL Server and demo Create, Read, Update and Delete operations.");
+
+        //Update the username and password below
+		String connectionUrl = "jdbc:sqlserver://localhost:1433;databaseName=master;user=sa;password=your_password";
+
+		try {
+			// Load SQL Server JDBC driver and establish connection.
+			System.out.print("Connecting to SQL Server ... ");
+			try (Connection connection = DriverManager.getConnection(connectionUrl)) {
+				System.out.println("Done.");
+
+
+
+```java
 
     // Connect to database and query data
 // Connect to database
@@ -121,12 +145,12 @@ ResultSet resultSet;
 try {
 
 	// Create and execute a SELECT SQL statement.
-	String selectSql = "SELECT TOP 10 Title, FirstName, LastName from SalesLT.Customer";
+	String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
 	statement = connection.createStatement();
 	resultSet = statement.executeQuery(selectSql);
 
 	// Print results from select statement
-	System.out.println("\nTop 10 customers:");
+	System.out.println("\nTop 20 categories:");
 	while (resultSet.next())
 	{
 		System.out.println(resultSet.getString(2) + " "
@@ -293,12 +317,12 @@ public class Main {
         try {
 
             // Create and execute a SELECT SQL statement.
-            String selectSql = "SELECT TOP 10 Title, FirstName, LastName from SalesLT.Customer";
+            String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
             statement = connection.createStatement();
             resultSet = statement.executeQuery(selectSql);
 
             // Print results from select statement
-            System.out.println("\nTop 10 customers:");
+            System.out.println("\nTop 20 categories:");
             while (resultSet.next())
             {
                 System.out.println(resultSet.getString(2) + " "
