@@ -22,29 +22,29 @@ This preview feature allows you to write an Open API 2.0 (Swagger) definition in
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-###### What is Open API (Swagger) metadata?
+### What is Open API (Swagger) metadata?
 [Swagger Metadata](http://swagger.io/) allows a function hosting a REST API to be consumed by a wide variety of other software. From 1st party offerings like PowerApps and [API Apps](https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-dotnet-get-started#a-idcodegena-generate-client-code-for-the-data-tier), to 3rd party developer tooling like [Postman](https://www.getpostman.com/docs/importing_swagger), and [many more packages](http://swagger.io/tools/).
 
 >[!TIP]
 >We recommend starting with the [getting started tutorial](#functions-api-definition-getting-started.md) and then returning to this document if you want to learn more about specific features.
 
-#### <a name="enable"></a>Enabling Open API definition Support
+## <a name="enable"></a>Enabling Open API definition Support
 * All Open API settings can be configured in the `API Definition (preview)` page below your Function App settings.
 * The `Swagger Source` toggle can be set to `Internal` to enable a hosted Open API (Swagger) definition and quickstart definition generation.
   * The `External` Swagger source setting allows your Function to use an Open API definition that is hosted elsewhere.
 
-### <a name="generate-defintion"></a>Generate a Swagger Skeleton from your Function Metadata
+## <a name="generate-defintion"></a>Generate a Swagger Skeleton from your Function Metadata
 A template is an awesome way to get started if it's your first time writing a Swagger file. The definition template feature creates a sparse Swagger document using all the metadata in the function.json for each of your HTTP trigger functions. You can fill in more information about your API from the [Swagger specification](http://swagger.io/specification/), such as request and response templates and additional security definitions.
 
-[Check out this getting started tutorial for step by step instructions](./functions-swagger-getting-started.md)
+[Check out this getting started tutorial for step by step instructions](./functions-api-definition-getting-started.md)
 
-##### <a name="templates"></a>Available templates
+### <a name="templates"></a>Available templates
 
 |Name| Description |
 |:-----|:-----|
 |Generated Definition|A Swagger file with the maximum amount of information that can be inferred from the Function's existing metadata|
 
-##### <a name="quickstart-details"></a>Included Metadata in Generated Definition
+### <a name="quickstart-details"></a>Included Metadata in Generated Definition
 
 The following table represents the portal settings and corresponding data in function.json as it is mapped to the generated skeleton Swagger.
 
