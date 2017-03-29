@@ -23,7 +23,7 @@ ms.author: janeng
 
 This sample PowerShell script imports a database from a bacpac.  
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install.md)]
+[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Sample script
 

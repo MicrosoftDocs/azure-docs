@@ -23,7 +23,7 @@ ms.author: janeng
 
 This sample PowerShell script creates a copy of an existing database in a new server. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install.md)]
+[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Copy a database to a new server
 

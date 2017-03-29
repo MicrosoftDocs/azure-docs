@@ -23,7 +23,7 @@ ms.author: janeng
 
 This sample PowerShell script configures Active Geo-Replication for a single database and fails it over to the secondary replica.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install.md)]
+[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Sample Scripts
 

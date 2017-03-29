@@ -23,7 +23,7 @@ ms.author: janeng
 
 This sample PowerShell script creates an Azure SQL database and configures a server-level firewall rule. Once the script has been successfully run, the SQL Database can be accessed from all Azure services and the configured IP address. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install.md)]
+[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Sample script
 

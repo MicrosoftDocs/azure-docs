@@ -23,7 +23,7 @@ ms.author: janeng
 
 This sample PowerShell script configures SQL Database auditing and threat detection. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install.md)]
+[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Sample script
 
