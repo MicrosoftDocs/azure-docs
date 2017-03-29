@@ -140,7 +140,7 @@ After the update completes, restart the VM.
  
  ##### Optional Silent Install without reboot may be performed via scripts as follows:
  > [!IMPORTANT]
- > Currently, this need not be required when using secure cuda-repo-ubuntu1604_8.0.61-1_amd64.deb for Azure NC VMs running Ubuntu Server 16.04 LTS.
+ > Currently, this need not be required when using secure cuda-repo-ubuntu1604_8.0.61-1_amd64.deb for Azure NC VMs running Ubuntu Server 16.04 LTS. **This is required only for NVIDIA Driver with DKMS (Dynamic Kernel Module Support).**
 
 ```bash 
     service lightdm stop 
