@@ -37,9 +37,9 @@ Below are some pre-requisites needed for any POC with Azure AD Premium.
 
 | Pre-requisite | Resources | 
 | --- | --- |
-| Azure AD tenant defined with a valid Azure subscription | [How to get an Azure Active Directory tenant](active-directory-howto-tenant.md)<br/>>[!Note]If you already have an environment with Azure AD Premium licenses, you can get a zero cap subscription by navigating to https://aka.ms/accessaad <br/>> Learn more at: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ and https://technet.microsoft.com/en-us/library/dn832618.aspx | 
-| Domains defined and verified | [Add a custom domain name to Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>>[!Note]Some workloads such as Power BI could have provisioned an azure AD tenant under the covers. To check if a given domain is associated to a tenant, navigate to https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. If you get a successful response, then the domain is already assigned to a tenant and take over might be needed. If this is the case, please contact Microsoft for further guidance. Learn more about the takeover options at: https://azure.microsoft.com/en-us/documentation/articles/active-directory-self-service-signup/ | 
-| Azure AD Premium or EMS trial Enabled | [Azure Active Directory Premium free for one month](https://azure.microsoft.com/en-us/trial/get-started-active-directory/) |
+| Azure AD tenant defined with a valid Azure subscription | [How to get an Azure Active Directory tenant](active-directory-howto-tenant.md)<br/>>[!Note]If you already have an environment with Azure AD Premium licenses, you can get a zero cap subscription by navigating to https://aka.ms/accessaad <br/>> Learn more at: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ and https://technet.microsoft.com/library/dn832618.aspx | 
+| Domains defined and verified | [Add a custom domain name to Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>>[!Note]Some workloads such as Power BI could have provisioned an azure AD tenant under the covers. To check if a given domain is associated to a tenant, navigate to https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. If you get a successful response, then the domain is already assigned to a tenant and take over might be needed. If this is the case, please contact Microsoft for further guidance. Learn more about the takeover options at: [What is Self-Service Signup for Azure?](active-directory-self-service-signup) | 
+| Azure AD Premium or EMS trial Enabled | [Azure Active Directory Premium free for one month](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | You have assigned Azure AD Premium or EMS licenses to PoC users | [License yourself and your users in Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) | 
 | Azure AD Global Admin credentials | [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) |
 | Optional but strongly recommended: Parallel lab environment as a fallback | [Prerequisites for Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) | 
@@ -50,8 +50,33 @@ Approximate time to Complete: 1 hour for less than 1,000 PoC users
 
 ### Pre-requisites
 
+| Pre-requisite | Resources |
+| --- | --- |
+| Server to Run Azure AD Connect | [Prerequisites for Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) |
+| Target POC users, in the same domain and part of a security group, and OU | [Custom installation of Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) |
+| 
+
+### Steps
+
+
+
+### Considerations
+
+
 
 ## Branding 
+
+
+
+### Pre-requisites
+
+
+
+### Steps
+
+
+
+### Considerations
 
 
 
@@ -59,7 +84,31 @@ Approximate time to Complete: 1 hour for less than 1,000 PoC users
 
 
 
+### Pre-requisites
+
+
+
+### Steps
+
+
+
+### Considerations
+
+
+
 ## SaaS Password SSO Configuration
+
+
+
+### Pre-requisites
+
+
+
+### Steps
+
+
+
+### Considerations
 
 
 
@@ -67,7 +116,31 @@ Approximate time to Complete: 1 hour for less than 1,000 PoC users
 
 
 
+### Pre-requisites
+
+
+
+### Steps
+
+
+
+### Considerations
+
+
+
 ## Groups – Delegated Ownership 
+
+
+
+### Pre-requisites
+
+
+
+### Steps
+
+
+
+### Considerations
 
 
 
@@ -75,7 +148,31 @@ Approximate time to Complete: 1 hour for less than 1,000 PoC users
 
 
 
+### Pre-requisites
+
+
+
+### Steps
+
+
+
+### Considerations
+
+
+
 ## Self Service Access to Application Management 
+
+
+
+### Pre-requisites
+
+
+
+### Steps
+
+
+
+### Considerations
 
 
 
@@ -83,7 +180,31 @@ Approximate time to Complete: 1 hour for less than 1,000 PoC users
 
 
 
+### Pre-requisites
+
+
+
+### Steps
+
+
+
+### Considerations
+
+
+
 ## MFA Conditional Access for SaaS applications 
+
+
+
+### Pre-requisites
+
+
+
+### Steps
+
+
+
+### Considerations
 
 
 
@@ -91,11 +212,47 @@ Approximate time to Complete: 1 hour for less than 1,000 PoC users
 
 
 
+### Pre-requisites
+
+
+
+### Steps
+
+
+
+### Considerations
+
+
+
 ## Discovering Risk Events
 
 
 
+### Pre-requisites
+
+
+
+### Steps
+
+
+
+### Considerations
+
+
+
 ## Deploying Sign-in risk policies 
+
+
+
+### Pre-requisites
+
+
+
+### Steps
+
+
+
+### Considerations
 
 
 
