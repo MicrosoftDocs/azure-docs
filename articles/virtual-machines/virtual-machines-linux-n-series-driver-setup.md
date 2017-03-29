@@ -141,8 +141,8 @@ After the update completes, restart the VM.
  ##### Optional Silent Install without reboot may be performed via scripts as follows:
  > [!IMPORTANT]
  > Currently, this need not be required when using secure cuda-repo-ubuntu1604_8.0.61-1_amd64.deb for Azure NC VMs running Ubuntu Server 16.04 LTS.
- 
-    ```bash 
+
+```bash 
     service lightdm stop 
     wget  http://us.download.nvidia.com/XFree86/Linux-x86_64/375.39/NVIDIA-Linux-x86_64-375.39.run&lang=us&type=Tesla
     DEBIAN_FRONTEND=noninteractive apt-mark hold walinuxagent
@@ -152,8 +152,7 @@ After the update completes, restart the VM.
     chmod +x NVIDIA-Linux-x86_64-375.39.run
     ./NVIDIA-Linux-x86_64-375.39.run  --silent --dkms
     DEBIAN_FRONTEND=noninteractive update-initramfs -u
-    
-     ```
+```
 
 #### Silent installation of CUDNN
 
