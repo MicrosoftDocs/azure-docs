@@ -49,7 +49,7 @@ By using Resource Groups, you have flexibility in how you design your virtual ne
 ### Cloud-only virtual networks
 If on-premises users and computers do not require ongoing connectivity to VMs in an Azure virtual network, your virtual network design is straight forward:
 
-![Basic cloud-only virtual network diagram](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
+![Basic cloud-only virtual network diagram](windows/media/infrastructure-example//vnet01.png)
 
 This approach is typically for Internet-facing workloads, such as an Internet-based web server. You can manage these VMs using SSH or point-to-site VPN connections.
 
