@@ -191,7 +191,5 @@ Open ports 80 (http) and 443 (https) for incoming traffic from these addresses:
 
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
-| Agent |
-agent.azureserviceprofiler.net<br/>
-| Portal |
-gateway.azureserviceprofiler.net<br/>
+| Agent | agent.azureserviceprofiler.net | dynamic | 443
+| Portal | gateway.azureserviceprofiler.net | dynamic | 443
