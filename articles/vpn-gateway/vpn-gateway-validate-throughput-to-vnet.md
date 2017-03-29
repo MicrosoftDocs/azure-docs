@@ -33,7 +33,7 @@ This article shows you how to validate the network throughput from the on-premis
 
 The VPN gateway connection involves the following components:
 
-- On-premises VPN device. View a list of [validated VPN devices](vpn-gateway-about-vpn-devices#devicetable).
+- On-premises VPN device. View a list of [validated VPN devices](vpn-gateway-about-vpn-devices.md#devicetable).
 - Public Internet
 - Azure VPN gateway
 - Azure virtual machine
@@ -68,67 +68,65 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). See
  >
  >
 
-### Run iPerf
+### Run iPerf (iperf3.exe)
 1. Enable NSG/ACL rule allowing the traffic (for public IP address testing on Azure VM).
 
 2. On both nodes enable a firewall exception for port 5001.
 
-	**Windows:** Run the following command (on cmd prompt) as an administrator:
+	**Windows:** Run the following command as an administrator:
 
-	```cmd
+	```CMD
 	netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
 	```
 
 	To remove the rule when testing is complete, run:
-
+    ```CMD
 		netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
+		```
 
 	**Azure Linux:**  Azure Linux images have permissive firewalls. If there is an application listening on a port the traffic will be allowed through. Custom images that are secured may need ports opened explicitly. Common Linux OS-layer firewalls include `iptables`, `ufw` or `firewalld`.
 
-3. On the server node, change to the directory where iperf tool is extracted and run the following command to execute as a server:
+3. On the server node, change to the directory where iperf3.exe is extracted, then  run iPerf in server mode and set it to listen on port 5001. To do this, refer the following commands:
 
-	 	iperf3 -s -p 5001
+	 ```CMD
+	 cd c:\iperf-3.1.2-win65
 
-	![Changing to the iperf directory](./media/vpn-gateway-validate-throughput-to-vnet/02perfdirectory.png)<br><br>
-
-	![Command for running as a server](./media/vpn-gateway-validate-throughput-to-vnet/03runasaserver.png)
+	 iperf3.exe -s -p 5001
+	 ```
 
 4. On the client node, change to the directory where iperf tool is extracted and run the following command:
-
-		iperf3.exe -c IPofTheServerToReach -t 30 -p 5001 -P 32
+    ```CMD
+	iperf3.exe -c <IP of the iperf Server> -t 30 -p 5001 -P 32
+		```
 
 	The client will be inducing traffic on port 5001 to the server for 30 seconds. The flag '-P 'indicates we are using 32 simultaneous connections to the server node.
-
-	![Change to client iperf](./media/vpn-gateway-validate-throughput-to-vnet/04clientperf.png)
-	![Run as a client](./media/vpn-gateway-validate-throughput-to-vnet/05runasaclient.png)
 
 	Below is the output from this example:
 
 	![Output](./media/vpn-gateway-validate-throughput-to-vnet/06theoutput.png)
 
 5. (OPTIONAL) To preserve the testing results, run:
-
+     ```CMD
 		iperf3.exe -c IPofTheServerToReach -t 30 -p 5001 -P 32  >> output.txt
+		```
 
-6. After completing the above steps, execute the same steps with reversed roles i.e. the server node will now be the client node and vice-versa.
+6. After completing the above steps, execute the same steps with reversed roles such as the server node will now be the client node and vice-versa.
 
-## 3. Addressing slow file copy issues
+## Address slow file copy issues
 Slow file copy issues may be experienced using Windows Explorer or drag and drop through an RDP session. This is normally caused by one or both of the following:
 
 1. File copy applications, such as, Windows Explorer and RDP do not use multiple threads when copying files. To have better performance use a multi-threaded file copy application such as [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx) to copy files using 16 or 32 threads.<br><br>
 ![Slow file copy issues](./media/vpn-gateway-validate-throughput-to-vnet/07slowfilecopyissue.png)<br>
 2. VM disk read/write speed can be the cause of slow file copy issues. See [Azure Storage Troubleshooting](../storage/storage-e2e-troubleshooting.md) for additional details.
 
-## 4. On-premises device external facing interface
+## On-premises device external facing interface
 If the on-premises VPN device internet facing IP address is included within the [local network](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) definition in Azure, you may experience inability to bring up the VPN, sporadic disconnects or performance issues.
 
-## 5. Checking latency
+## Checking latency
 Use tracert to trace up to Microsoft Azure Edge device to determine if there are any delays exceeding 100ms between hops.
 
 From the on-premises network, run *tracert* to the VIP of the Azure Gateway or VM. Once you see only * returned you know you have hit the Azure edge. When you see DNS names with MSN in them you know you have hit the Microsoft backbone.<br><br>
 ![Checking Latency](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
-
-## 6. [Optimize network throughput for Azure virutal machines](https://docs.microsoft.com/azure/virtual-network/virtual-network-optimize-network-bandwidth)
 
 ## Next steps
 For more information or help, check out the following links:
