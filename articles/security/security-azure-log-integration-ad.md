@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 03/22/2017
+ms.date: 03/29/2017
 ms.author: barclayn
 
 ---
@@ -45,7 +45,8 @@ Point the standard SIEM file forwarder connector to the appropriate folder to pi
 
 
 
-If you run into any issues during the installation and configuration, Please open a [support request](/azure-supportability/how-to-create-azure-support-request.md), select Log Integration' as the service for which you are requesting support.
+If you run into any issues during the installation and configuration, please open a [support request](/azure-supportability/how-to-create-azure-support-request.md), select **Log Integration** as the service for which you are requesting support.
+
 
 ## Next steps
 To learn more about Azure Log Integration, see the following documents:

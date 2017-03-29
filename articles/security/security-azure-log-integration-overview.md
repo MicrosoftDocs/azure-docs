@@ -51,7 +51,7 @@ The following table explains the Log category and SIEM integration detail
 
 Azure Log Integration is a free solution - you do not need to pay for the Azure Log Integration binaries. However, there will be costs related to Azure storage required for the log file information.
 
-If you run into any issues during the installation and configuration, Please open a [support request](/azure-supportability/how-to-create-azure-support-request.md), select **Log Integration** as the service for which you are requesting support.
+If you run into any issues during the installation and configuration, please open a [support request](/azure-supportability/how-to-create-azure-support-request.md), select **Log Integration** as the service for which you are requesting support.
 
 ## Next steps
 In this document, you were introduced to Azure log integration. To learn more about Azure log integration and the types of logs supported, see the following:
