@@ -1,21 +1,21 @@
 ---
-title: Azure SQL Database: Connect to Azure SQL Database by using Java | Microsoft Docs
-description: Presents a Python code sample you can use to connect to Azure SQL Database.
+title: Connect to Azure SQL Database by using Java | Microsoft Docs
+description: Presents a Java code sample you can use to connect to Azure SQL Database.
 services: sql-database
 documentationcenter: ''
 author: ajlam
 manager: jhubbard
 editor: ''
 
-ms.assetid: 08fc49b1-cd48-4dcc-a293-ff22a4d2d62c
+ms.assetid: 
 ms.service: sql-database
 ms.custom: quick start
 ms.workload: drivers
 ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: java
 ms.topic: article
-ms.date: 03/28/2017
-ms.author: andrela;sstein;carlrab
+ms.date: 03/27/2017
+ms.author: andrela;carlrab;sstein
 
 ---
 # Azure SQL Database: Use Java to connect and query data
@@ -29,7 +29,7 @@ This quick start uses as its starting point the resources created in one of thes
 
 ## Configure Development Environment
 
-// please review this entire section
+The following sections detail configuring your existing Mac OS, Linux(Ubunto), and Windows development environments for working with Azure SQL Database.
 
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your Java project. Enter the following commands to install **brew** and **Maven**. 
@@ -74,14 +74,8 @@ Get the connection string in the Azure portal. You use the connection string to 
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. In the **Essentials** pane for your database, review the fully qualified server name. 
 
-    <img src="./media/sql-database-connect-query-dotnet/connection-strings.png" alt="connection strings" style="width: 780px;" />
+    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="server name" style="width: 780px;" />
 
-4. Click **Show database connection strings**.
-
-5. Review the complete **JDBC** connection string.
-
-    <img src="./media/sql-database-connect-query-jdbc/jdbc-connection-string.png" alt="JDBC connection string" style="width: 780px;" />
-    
 ## Select data
 
 Use a [connection](https://docs.microsoft.com/sql/connect/jdbc/working-with-a-connection) with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement, to query data in your Azure SQL database using Java.
