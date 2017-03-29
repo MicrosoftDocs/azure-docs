@@ -264,6 +264,11 @@ In the `ServiceManifestImport` element, you can specify one or more services tha
 For guest executables, it is useful to be able to see console logs to find out if the application and configuration scripts show any errors.
 Console redirection can be configured in the `ServiceManifest.xml` file using the `ConsoleRedirection` element.
 
+> [!WARNING]
+> Never use the console redirection policy in an application that is deployed in production because this can affect the application failover. *Only* use this for local development and debugging purposes.  
+> 
+> 
+
 ```xml
 <EntryPoint>
   <ExeHost>

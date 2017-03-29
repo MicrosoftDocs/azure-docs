@@ -70,28 +70,28 @@ az disk create --resource-group myResourceGroup --name myManagedDisk \
   --source https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
 ```
 
-Obtain the URI of the managed disk you created with [az disk list](/cli/azure/disk/list):
+Obtain the details of the managed disk you created with [az disk list](/cli/azure/disk/list):
 
 ```azurecli
 az disk list --resource-group myResourceGroup \
-  --query '[].{Name:name,URI:creationData.sourceUri}' --output table
+  --query [].{Name:name,ID:id} --output table
 ```
 
 The output is similar to the following example:
 
 ```azurecli
-Name               URI
+Name               ID
 -----------------  ----------------------------------------------------------------------------------------------------
-myUMDiskFromVHD    https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
+myManagedDisk    /subscriptions/mySubscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk
 ```
 
-Now, create your VM with [az vm create](/cli/azure/vm#create) and specify the URI of your managed disk (`--image`). The following example creates a VM named `myVM` using the managed disk created from your uploaded VHD:
+Now, create your VM with [az vm create](/cli/azure/vm#create) and specify the name of your managed disk (`--attach-os-disk`). The following example creates a VM named `myVM` using the managed disk created from your uploaded VHD:
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
     --name myVM --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --attach-os-disk myUMDiskFromVHD
+    --attach-os-disk myManagedDisk
 ```
 
 ### Unmanaged disks
