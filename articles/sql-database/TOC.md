@@ -5,10 +5,12 @@
 ## [Create DB - Portal](sql-database-get-started-portal.md)
 ## [Create DB - Azure CLI](sql-database-get-started-cli.md)
 ## [Create DB - PowerShell](sql-database-get-started-powershell.md)
-## Connect
+## Manage
 ### [SSMS](sql-database-connect-query-ssms.md)
 ### [VS Code](sql-database-connect-query-vscode.md)
+## Connect
 ### [C#](sql-database-connect-query-dotnet.md)
+### [Jave](sql-database-connect-=query-java.md)
 # Samples
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
@@ -142,7 +144,6 @@
 ### [Sync data](sql-database-get-started-sql-data-sync.md)
 ## Connect applications
 ### [C and C++](sql-database-develop-cplusplus-simple.md)
-### [Java](sql-database-develop-java-simple.md)
 ### [Node.js](sql-database-develop-nodejs-simple.md)
 ### [PHP](sql-database-develop-php-simple.md)
 ### [Python](sql-database-develop-python-simple.md)
