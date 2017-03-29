@@ -146,7 +146,7 @@
 ### [Load data with ADF](../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 ### [Sync data](sql-database-get-started-sql-data-sync.md)
 ## Connect applications
-### [C and C++](sql-database-develop-cplusplus-simple.md)
+### [C and C ++](sql-database-develop-cplusplus-simple.md)
 ### [Node.js](sql-database-develop-nodejs-simple.md)
 ### [Excel](sql-database-connect-excel.md)
 ### [Guidance](sql-database-connectivity-issues.md)
