@@ -44,7 +44,7 @@
 #### [Securing PaaS web and mobile applications using App Services](security-paas-applications-using-app-services.md)
 
 ## Internet of Things
-### [Security your IoT deployment](../iot-suite/iot-suite-security-deployment.md)
+### [Secure your IoT deployment](../iot-suite/iot-suite-security-deployment.md)
 ### [IoT security best practices](../iot-suite/iot-security-best-practices.md)
 
 ## Security architecture
