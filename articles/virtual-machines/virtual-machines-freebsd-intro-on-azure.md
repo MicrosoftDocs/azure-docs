@@ -124,4 +124,4 @@ The [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.2
 
 ## Next steps
 * Go to [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) to create a FreeBSD VM.
-* If you want to bring your own FreeBSD to Azure, refer to [Create and upload a FreeBSD VHD to Azure](./virtual-machines-linux-classic-freebsd-create-upload-vhd.md).
+* If you want to bring your own FreeBSD to Azure, refer to [Create and upload a FreeBSD VHD to Azure](linux/classic/freebsd-create-upload-vhd.md).

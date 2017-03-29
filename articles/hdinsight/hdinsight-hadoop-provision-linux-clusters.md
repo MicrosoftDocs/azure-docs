@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 23a01938-3fe5-4e2e-8e8b-3368e1bbe2ca
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -144,7 +145,7 @@ Each HDInsight cluster is tied to one Azure subscription.
 With HDInsight clusters, you can configure two user accounts during cluster creation:
 
 * HTTP user. The default user name is *admin*. It uses the basic configuration on the Azure portal. Sometimes it is called "Cluster user."
-* SSH user (Linux clusters). This is used to connect to the cluster through SSH. You can create additional SSH user accounts after the cluster is created by following the steps in [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md) or [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-unix.md).
+* SSH user (Linux clusters). This is used to connect to the cluster through SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
   > [!NOTE]
   > For Windows-based clusters, you can create an RDP user to connect to the cluster by using RDP.
