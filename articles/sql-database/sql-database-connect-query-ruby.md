@@ -67,7 +67,7 @@ Get the connection string in the Azure portal. You use the connection string to 
     <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="connection strings" style="width: 780px;" />
     
 
-## Select Data
+## Select data
 Use the [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) function with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement, to query data in your Azure SQL database. The TinyTDS::Client function accepts a query and returns a result set. The results set is iterated over by using [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds).
 
 ```ruby
