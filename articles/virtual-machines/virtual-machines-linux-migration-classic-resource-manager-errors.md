@@ -26,3 +26,5 @@ Here's a list of migration articles that explain the process.
 
 * [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-linux-migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](virtual-machines-linux-migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
