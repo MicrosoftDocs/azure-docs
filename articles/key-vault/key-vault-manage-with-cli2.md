@@ -38,7 +38,7 @@ For overview information about Azure Key Vault, see [What is Azure Key Vault?](k
 To complete this tutorial, you must have the following:
 
 * A subscription to Microsoft Azure. If you do not have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
-* Command-Line Interface version 2.0 or later. To install the latest version and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface 2.0](../install-azure-cli.md).
+* Command-Line Interface version 2.0 or later. To install the latest version and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface 2.0](/cli/azure/install-azure-cli).
 * An application that will be configured to use the key or password that you create in this tutorial. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the accompanying Readme file.
 
 ## Getting help with Azure Cross-Platform Command-Line Interface
@@ -55,8 +55,8 @@ When in doubt about the parameters needed by a command, refer to help using --he
 
 You can also read the following tutorials to get familiar with Azure Resource Manager in Azure Cross-Platform Command-Line Interface:
 
-* [Install Azure CLI](../install-azure-cli.md)
-* [Get started with Azure CLI 2.0](../get-started-with-azure-cli.md)
+* [Install Azure CLI](/cli/azure/install-azure-cli)
+* [Get started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli)
 
 ## Connect to your subscriptions
 To log in using an organizational account, use the following command:
@@ -83,7 +83,7 @@ Then, to specify the subscription to use, type:
 az account set --subscription <subscription name or ID>
 ```
 
-For more information about configuring Azure Cross-Platform Command-Line Interface, see [Install Azure CLI](../install-azure-cli.md).
+For more information about configuring Azure Cross-Platform Command-Line Interface, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a new resource group
 When using Azure Resource Manager, all related resources are created inside a resource group. We will create a new resource group 'ContosoResourceGroup' for this tutorial.
