@@ -327,7 +327,7 @@ public class App {
 
 ## Next steps
 * Review the [SQL Database Development Overview](sql-database-develop-overview.md).
-* Github repository for pyodbc for Python](https://github.com/mkleehammer/pyodbc).
+* Github repository for [pyodbc for Python](https://github.com/mkleehammer/pyodbc).
 * [File issues/ask questions](https://github.com/Microsoft/msphpsql/issues).
 * Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
 
