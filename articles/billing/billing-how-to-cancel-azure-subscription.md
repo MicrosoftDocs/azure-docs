@@ -39,7 +39,7 @@ If you cancel a paid [Azure Support plan](https://azure.microsoft.com/support/pl
 3. Select the subscription that you want to cancel and click **Cancel Sub**.
 
     ![Screenshot that shows the Cancel button](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
-4. Enter the subscripton name and choose a cancellation reason. 
+4. Enter the subscription name and choose a cancellation reason. 
 5. Click the **Cancel Sub** button at the bottom.
 
 ## Cancel subscription by using the Azure Account Center
