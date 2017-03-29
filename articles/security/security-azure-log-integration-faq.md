@@ -25,7 +25,7 @@ Yes. There is no charge for the Azure Log Integration software.
 
 ## Where is Azure Log Integration available?
 
-It is currently available in Azure commercial and not available in Azure Government, China, or Germany.
+It is currently available in Azure commercial and Azure Government and not available in China, or Germany.
 
 ## How can I see the storage accounts from which Azure log integration is pulling Azure VM logs from?
 Run the command **azlog source list**.

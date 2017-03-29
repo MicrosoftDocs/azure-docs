@@ -79,7 +79,7 @@ You should see something like what appears in the figure below. </br></br>
     ``Set-AzlogAzureEnvironment -Name AzureCloud`` (for Azure commercial)
 
       >[!NOTE]
-      When the command succeeds, you will not receive any feedback to this effect.  If you want to use the US Government Azure cloud, you would use AzureUSGovernment for the USA government cloud.  
+      When the command succeeds, you will not receive any feedback to this effect.  If you want to use the US Government Azure cloud, you would use AzureUSGovernment for the USA government cloud. Other Azure clouds are not supported at this time.  
 4. Azure Windows Diagnostics needs to be configured on the monitored system. Move over to the monitored machine and confirm this by looking at the properties of the virtual machine in the Azure portal and choosing **Diagnostic Settings**.  By default only boot diagnostics is configured. You will need to specify the storage account that you will be using for Windows Event Log storage and then choose **Windows Event Security** Logs and change the level of logging to **All**.
 
   >[!NOTE]

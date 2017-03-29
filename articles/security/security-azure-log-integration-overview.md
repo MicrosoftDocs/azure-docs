@@ -21,12 +21,11 @@ ms.author: TomSh
 Learn about Azure log integration, its key capabilities, and how it works.
 
 ## Overview
-Platform as a Service (PaaS) and Infrastructure as a Service (IaaS) hosted in Azure generate a large amount of data in security logs. These logs contain vital information that can provide intelligence and powerful insights into policy violations, internal and external threats, regulatory compliance issues, and anomalies in network, host, and user activity.
 
-Azure log integration is a free solution that enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems. Azure log integration collects Windows Azure Diagnostics *(WAD)*  from your Windows virtual machines, [Azure Activity Logs](/monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [Azure Security Center alerts](/security-center/security-center-intro.md) and Azure Resource Provider logs. This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events.
+Azure log integration is a free solution that enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems. Azure log integration collects Windows Azure Diagnostics *(WAD)*  from your Windows virtual machines, [Azure Activity Logs](/monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [Azure Security Center alerts](/security-center/security-center-intro.md) and [Azure Diagnostic logs](/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) from azure resources. This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events.
 
 >[!NOTE]
-At this time the only supported clouds are Azure commercial and Azure government.
+At this time the only supported clouds are Azure commercial and Azure government. Other clouds are not supported at this time.
 
 ![Azure log integration][1]
 
@@ -49,7 +48,8 @@ The following table explains the Log category and SIEM integration detail
 | Diagnostics Logs (resource logs) | Yes | Needs end user to create FlexConnector JSON parser file. Please refer to ArcSight documentation on how to do that. | You must create a Log Source Extension. Please refer to the QRadar documentation for more information |
 | VM logs | Yes via Forwarded events and not thru JSON | Yes via Forwarded events | Yes via Forwarded events |
 
-Azure Log Integration is a free solution - you do not need to pay for the Azure Log Integration binaries. However, there will be costs related to Azure storage required for the log file information.
+>[!NOTE>
+While Azure Log Integration is a free solution there will be Azure storage costs resulting from the log file information storage.
 
 If you run into any issues during the installation and configuration, please open a [support request](/azure-supportability/how-to-create-azure-support-request.md), select **Log Integration** as the service for which you are requesting support.
 
