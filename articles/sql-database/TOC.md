@@ -9,7 +9,7 @@
 ### [SSMS](sql-database-connect-query-ssms.md)
 ### [VS Code](sql-database-connect-query-vscode.md)
 ## Connect
-### [C&#35;](sql-database-connect-query-dotnet.md)
+### [C #](sql-database-connect-query-dotnet.md)
 ### [PHP](sql-database-connect-query-php.md)
 ### [Java](sql-database-connect-query-java.md)
 ### [Python](sql-database-connect-query-python.md)
@@ -109,7 +109,7 @@
 ### [Portal](sql-database-elastic-pool-manage-portal.md)
 ### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 ### [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)
-### [C\#](sql-database-elastic-pool-manage-csharp.md)
+### [C #](sql-database-elastic-pool-manage-csharp.md)
 ## DB Access 
 ### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
 ### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
