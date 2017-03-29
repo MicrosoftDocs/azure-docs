@@ -37,21 +37,21 @@ The HDInsight Spark activity in a Data Factory [pipeline](data-factory-create-pi
 > If you are new to Azure Data Factory, we recommend you go through the [Build your first pipeline](data-factory-build-your-first-pipeline.md) tutorial before you read this article. For an overview of Data Factory service, see [Introduction to Azure Data Factory](data-factory-introduction.md). 
 
 ## Apache Spark cluster in Azure HDInsight
-First, create an Apache Spark cluster in Azure HDInsight by using the instructions in [Get started: Create Apache Spark cluster in Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). 
+First, create an Apache Spark cluster in Azure HDInsight by following instructions in the tutorial: [Create Apache Spark cluster in Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). 
 
 ## Create data factory 
-Here are the typical steps to create a data factory that invokes a Spark Activity.  
+Here are the typical steps to create a Data Factory pipeline with a Spark Activity.  
 
 1. Create a data factory.
-2. Create a linked service that links the Apache Spark cluster to your data factory.
-3. Currently, you must specify an output dataset for an activity even if there is no output being produced. Therefore do the following steps:
+2. Create a linked service that links the Apache Spark cluster in Azure HDInsight to your data factory.
+3. Currently, you must specify an output dataset for an activity even if there is no output being produced. To create an Azure Blob dataset, do the following steps:
 	1. Create a linked service that links your Azure Storage account to the data factory.
 	2. Create a dataset that refers to the Azure Storage linked service.  
-3. Create a pipeline with Spark Activity that refers to the linked service created in #2. The activity is configured with the output dataset. The output dataset is what drives the schedule (hourly, daily, etc.). Therefore, you must specify the output dataset even though the activity does not really produce an output.
+3. Create a pipeline with Spark Activity that refers to the Apache HDInsight linked service created in #2. The activity is configured with the dataset you created in the previous step as an output dataset. The output dataset is what drives the schedule (hourly, daily, etc.). Therefore, you must specify the output dataset even though the activity does not really produce an output.
 
 For detailed step-by-step instructions to create a data factory, see the tutorial: [Build your first pipeline](data-factory-build-your-first-pipeline.md). This tutorial uses a Hive Activity with a HDInsight Hadoop cluster but the steps are similar for using a Spark Activity with a HDInsight Spark cluster.   
 
-The following sections provide information about creating Data Factory entities to use Apache Spark cluster and Spark Activity in your data factory.   
+The following sections provide information about Data Factory entities to use Apache Spark cluster and Spark Activity in your data factory.   
 
 ## HDInsight linked service
 Before you use a Spark activity in a Data Factory pipeline, create a HDInsight (your own) linked service. The following JSON snippet shows the definition of a HDInsight linked service that points to an Azure HDInsight Spark cluster.   
@@ -62,7 +62,7 @@ Before you use a Spark activity in a Data Factory pipeline, create a HDInsight (
 	"properties": {
 		"type": "HDInsight",
 		"typeProperties": {
-			"clusterUri": "https://<name of your HDInsight Spark Cluster>.azurehdinsight.net/",
+			"clusterUri": "https://<nameofyoursparkcluster>.azurehdinsight.net/",
 	  		"userName": "admin",
 	  		"password": "password",
 	  		"linkedServiceName": "MyHDInsightStoragelinkedService"
@@ -72,12 +72,12 @@ Before you use a Spark activity in a Data Factory pipeline, create a HDInsight (
 ```
 
 > [!NOTE]
-> Currently, the Spark Activity does not support Spark clusters using Data Lake Store as primary storage or on-demand HDInsight linked service. 
+> Currently, the Spark Activity does not support Spark clusters that use an Azure Data Lake Store as a primary storage or an on-demand HDInsight linked service. 
 
 For details about the HDInsight linked service and other compute linked services, see [Data Factory compute linked services](data-factory-compute-linked-services.md) article. 
 
 ## Spark Activity JSON
-Here is the sample JSON definition of a Spark activity in a pipeline:    
+Here is the sample JSON definition of a pipeline with Spark Activity:    
 
 ```json
 {
@@ -111,6 +111,15 @@ Here is the sample JSON definition of a Spark activity in a pipeline:
 }
 ```
 
+Note the following points: 
+- The type property is set to HDInsightSpark. 
+- The rootPath is set to adfspark\\pyFiles where adfspark is the Azure Blob container and pyFiles is fine folder in that container. In this example, the Azure Blob Storage is the one that is associated with the Spark cluster. You can upload the file to a different Azure Storage. If you do so, create an Azure Storage linked service to link that storage account to the data factory. Then, specify the name of the linked service as a value for the sparkJobLinkedService property. See [Spark Activity properties](#spark-activity-properties) for details about this property and other properties supported by the Spark Activity.  
+- The entryFilePath is set to the test.py, which is the python file. 
+- The values for parameters for the Spark program are passed by using the arguments property. In this example, there are two arguments: arg1 and arg2. 
+- The getDebugInfo property is set to Always, which means the log files are always generated (success or failure). 
+- The sparkConfig section specifies one python environment setting: worker.memory. 
+- The outputs section has one output dataset. You must specify an output dataset even if the spark program does not produce any output. The output dataset drives the schedule for the pipline (hourly, daily, etc.).     
+
 The type properties (in the typeProperties section) are described later in this article in the [Spark Activity properties](#spark-activity-properties) section. 
 
 As mentioned earlier, you must specify an output dataset for the activity as that is what drives the schedule for the pipeline (hourly, daily, etc.). In this example, an Azure Blob dataset is used. To create an Azure Blob dataset, you need to create an Azure Storage linked service first. 
@@ -122,11 +131,9 @@ Here are the sample definitions of Azure Storage linked service and Azure Blob d
 {
     "name": "AzureStorageLinkedService",
     "properties": {
-        "description": "",
-        "hubName": "spsparkdf_hub",
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<storage account name>;AccountKey=<storage account key>"
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<storageaccountname>;AccountKey=<storageaccountkey>"
         }
     }
 }
@@ -138,7 +145,6 @@ Here are the sample definitions of Azure Storage linked service and Azure Blob d
 {
     "name": "OutputDataset",
     "properties": {
-        "published": false,
         "type": "AzureBlob",
         "linkedServiceName": "AzureStorageLinkedService",
         "typeProperties": {
@@ -165,16 +171,16 @@ The following table describes the JSON properties used in the JSON definition:
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
-| name | Name for the activity in the pipeline. | Yes |
+| name | Name of the activity in the pipeline. | Yes |
 | description | Text describing what the activity does. | No |
 | type | This property must be set to HDInsightSpark. | Yes |
-| linkedServiceName | Reference to a HDInsight linked service on which the Spark program runs. | Yes |
+| linkedServiceName | Name of the HDInsight linked service on which the Spark program runs. | Yes |
 | rootPath | The Azure Blob container and folder that contains the Spark file. The file name is case-sensitive. | Yes |
-| entryFilePath | Relative path to the root folder of the Spark code/package | Yes |
+| entryFilePath | Relative path to the root folder of the Spark code/package. | Yes |
 | className | Application's Java/Spark main class | No | 
 | arguments | A list of command-line arguments to the Spark program. | No | 
 | proxyUser | The user account to impersonate to execute the Spark program | No | 
-| sparkConfig | Spark configuration properties | No | 
+| sparkConfig | Spark configuration properties. | No | 
 | getDebugInfo | Specifies when the Spark log files are copied to the Azure storage used by HDInsight cluster (or) specified by sparkJobLinkedService. Allowed values: None, Always, or Failure. Default value: None. | No | 
 | sparkJobLinkedService | The Azure Storage linked service that holds the Spark job file, dependencies, and logs.  If you do not specify a value for this property, the storage associated with HDInsight cluster is used. | No |
 
