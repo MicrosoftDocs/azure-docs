@@ -36,9 +36,9 @@ When it comes to the production world, using DC/OS in our case, you want to make
 
 Assuming that you already [setup a file share inside your DC/OS](container-service-dcos-fileshare.md), we will leverage it by doing:
 
-### From any client machine [Recomanded Method]
+### From any client machine [Recommended Method]
 
-The following commands are runable on any environments (Windows/Mac/Linux)  :
+The following commands are runnable on any environments (Windows/Mac/Linux)  :
 
 1. Make sure that you are meeting the following prerequisites :
 * TAR tool
@@ -50,7 +50,7 @@ The following commands are runable on any environments (Windows/Mac/Linux)  :
   * [Others](https://www.docker.com/get-docker)
 * File share mounted inside your cluster, [with the following method](container-service-dcos-fileshare.md)
 
-2. Initiate the authentication to your ACR service by using the following command fron your favorite command line terminal: `sudo docker login --username=<USERNAME> --password=<PASSWORD> <ACR-REGISTRY-NAME>.azurecr.io`. You have to replace the 'USERNAME', 'PASSWORD'and 'ACR-REGISTRY-NAME' variables with the values provided on your Azure portal
+2. Initiate the authentication to your ACR service by using the following command with your favorite terminal: `sudo docker login --username=<USERNAME> --password=<PASSWORD> <ACR-REGISTRY-NAME>.azurecr.io`. You have to replace the 'USERNAME', 'PASSWORD'and 'ACR-REGISTRY-NAME' variables with the values provided on your Azure portal
 
 3. It is interesting to know that when you are doing a `docker login` operation, the values are stored locally on the machine under your home folder (`cd ~/.docker` on Mac and Linux or `cd %HOMEPATH%` on Windows). We will compress the contain of this folder by using the `tar czf` command.
 
@@ -76,9 +76,9 @@ tar czf docker.tar.gz .docker
 az storage file upload -s share --account-name anystorageaccountname --account-key aYGl6Nys4De5J3VPldT1rXxz2+VjgO7dgWytnoWClurZ/l8iO5c5N8xXNS6mpJhSc9xh+7zkT7Mr+xIT4OIVMg== --source %HOMEPATH%/docker.tar.gz
 ```
 
-### From the master [Not recomanded Method]
+### From the master [Not recommended Method]
 
-Executing operation from the master are not recomanded to avoid mistakes and impact on the whole environments.
+Executing operation from the master are not recommended to avoid mistakes and impact on the whole environments.
 
 1. First, SSH to the master (or the first master) of your DC/OS-based cluster. For example, `ssh userName@masterFQDN –A –p 22`, where the masterFQDN is the fully qualified domain name of the master VM. [More infos by clicking here](https://docs.microsoft.com/en-us/azure/container-service/container-service-connect#connect-to-a-dcos-or-swarm-cluster)
 
