@@ -18,7 +18,7 @@ ms.author: muralikk
 
 ---
 
-# Preparing Hard Drives for an Import Job
+# Preparing hard drives for an import job
 To prepare one or more hard drives for an import job, follow these steps:
 
 -   Identify the data to import into the Blob service
@@ -31,7 +31,7 @@ To prepare one or more hard drives for an import job, follow these steps:
 
  For a sample workflow, see [Sample Workflow to Prepare Hard Drives for an Import Job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).
 
-##  <a name="PrepareHardDrives_IdentifytheDatatoBeImported"></a> Identify the Data to Be Imported
+## Identify the data to be imported
  The first step to creating an import job is to determine which directories and files you are going to import. This can be a list of directories, a list of unique files, or a combination of those two. When a directory is included, all files in the directory and its subdirectories will be part of the import job.
 
 > [!NOTE]
@@ -39,7 +39,7 @@ To prepare one or more hard drives for an import job, follow these steps:
 >
 >  Currently, the Microsoft Azure Import/Export Tool has the following limitation: if a directory contains more data than a hard drive can contain, then the directory needs to be broken into smaller directories. For example, if a directory contains 2.5TB of data and the hard drive's capacity is only 2TB, then you need to break the 2.5TB directory into smaller directories. This limitation will be addressed in a later version of the tool.
 
-##  <a name="PrepareHardDrives_IdentifytheDestinationLocationsintheBlobService"></a> Identify the Destination Locations in the Blob Service
+## Identify the destination locations in the blob service
  For each directory or file that will be imported, you need to identify a destination virtual directory or blob in the Azure Blob service. You will use these targets as inputs to the Azure Import/Export Tool. Note that directories should be delimited with the forward slash character "/".
 
  The following table shows some examples of blob targets:
@@ -51,7 +51,7 @@ To prepare one or more hard drives for an import job, follow these steps:
 |K:\Temp\FavoriteVideo.ISO|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteVideo.ISO|
 |\\\myshare\john\music|https://mystorageaccount.blob.core.windows.net/music|
 
-##  <a name="PrepareHardDrives_DetermineHowManyDrivesAreNeeded"></a> Determine How Many Drives Are Needed
+## Determine how many drives are needed
  Next, you need to determine:
 
 -   The number of hard drives needed to store the data.
@@ -60,7 +60,7 @@ To prepare one or more hard drives for an import job, follow these steps:
 
  Ensure that you have the number of hard drives you will need to store the data you are transferring.
 
-##  <a name="PrepareHardDrives_CopyDatatoaSingleHardDrive"></a> Copy Data to Your Hard Drive
+## Copy data to your hard drive
  This section describes how to call the Azure Import/Export Tool to copy your data to one or more hard drives. Each time you call the Azure Import/Export Tool, you create a new *copy session*. You create at least one copy session for each drive to which you copy data; in some cases, you may need more than one copy session to copy all of your data to single drive. Here are some reasons that you may need multiple copy sessions:
 
 -   You must create a separate copy session for each drive that you copy to.
@@ -74,30 +74,30 @@ To prepare one or more hard drives for an import job, follow these steps:
 
  For each hard drive that you prepare with the Azure Import/Export Tool, the tool will create a single journal file. You will need the journal files from all of your drives to create the import job. The journal file can also be used to resume drive preparation if the tool is interrupted.
 
-### Azure Import/Export Tool Syntax for an Import Job
+### Azure Import/Export Tool syntax for an import job
  To prepare drives for an import job, call the Azure Import/Export Tool with the **PrepImport** command. Which parameters you include depends on whether this is the first copy session, or a subsequent copy session.
 
  The first copy session for a drive requires some additional parameters to specify the storage account key; the target drive letter; whether the drive must be formatted; whether the drive must be encrypted and if so, the BitLocker key; and the log directory. Here is the syntax for an initial copy session to copy a directory or a single file:
 
- **First Copy Session to Copy a Single Directory**
+ **First copy session to copy a single directory**
 
  `WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]`
 
- **First Copy Session to Copy a Single File**
+ **First copy session to copy a single file**
 
  `WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]`
 
  In subsequent copy sessions, you do not need to specify the initial parameters. Here is the syntax for a subsequent copy session to copy a directory or a single file:
 
- **Subsequent Copy Sessions to Copy a Single Directory**
+ **Subsequent copy sessions to copy a single directory**
 
  `WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]`
 
- **Subsequent Copy Sessions to Copy a Single File**
+ **Subsequent copy sessions to copy a single file**
 
  `WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]`
 
-### Parameters for the First Copy Session for a Hard Drive
+### Parameters for the first copy session for a hard drive
  Each time you run the Azure Import/Export Tool to copy files to the hard drive, the tool creates a copy session. Each copy session copies a single directory or a single file to a hard drive. The state of the copy session is written to the journal file. If a copy session is interrupted (for example, due to a system power loss), it can be resumed by running the tool again and specifying the journal file on the command line.
 
 > [!WARNING]
@@ -116,7 +116,7 @@ To prepare one or more hard drives for an import job, follow these steps:
 |**/bk:**<BitLockerKey\>|`Optional.` If `/encrypt` is specified, omit this parameter. If `/encrypt` is omitted, you need to have already have encrypted the drive with BitLocker. Use this parameter to specify the BitLocker key. BitLocker encryption is required for all hard drives for import jobs.|
 |**/logdir:**<LogDirectory\>|`Optional.` The log directory specifies a directory to be used to store verbose logs as well as temporary manifest files. If not specified, the current directory will be used as the log directory.|
 
-### Parameters Required for All Copy Sessions
+### Parameters required for all copy sessions
  The journal file contains the status for all copy sessions for a hard drive. It also contains the information needed to create the import job. You must always specify a journal file when running the Azure Import/Export Tool, as well as a copy session ID:
 
 |||
@@ -125,7 +125,7 @@ To prepare one or more hard drives for an import job, follow these steps:
 |**/j:**<JournalFile\>|`Required.` The path to the journal file. Each drive must have exactly one journal file. Note that the journal file must not reside on the target drive. The journal file extension is `.jrn`.|
 |**/id:**<SessionId\>|`Required.` The session ID identifies a copy session. It is used to ensure accurate recovery of an interrupted copy session. Files that are copied in a copy session are stored in a directory named after the session ID on the target drive.|
 
-### Parameters for Copying a Single Directory
+### Parameters for copying a single directory
  When copying a single directory, the following required and optional parameters apply:
 
 |Command line parameter|Description|
@@ -137,7 +137,7 @@ To prepare one or more hard drives for an import job, follow these steps:
 |**/PropertyFile:**<PropertyFile\>|`Optional.` Path to the property file for the destination blobs. See [Import/Export service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md) for more information.|
 |**/MetadataFile:**<MetadataFile\>|`Optional.` Path to the metadata file for the destination blobs. See [Import/Export service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md) for more information.|
 
-### Parameters for Copying a Single File
+### Parameters for copying a single file
  When copying a single file, the following required and optional parameters apply:
 
 |Command line parameter|Description|
@@ -149,7 +149,7 @@ To prepare one or more hard drives for an import job, follow these steps:
 |**/PropertyFile:**<PropertyFile\>|`Optional.` Path to the property file for the destination blobs. See [Import/Export service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md) for more information.|
 |**/MetadataFile:**<MetadataFile\>|`Optional.` Path to the metadata file for the destination blobs. See [Import/Export service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md) for more information.|
 
-### Resuming an Interrupted Copy Session
+### Resuming an interrupted copy session
  If a copy session is interrupted for any reason, you can resume it by running the tool with only the journal file specified:
 
 ```
@@ -161,7 +161,7 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /ResumeSession
 > [!IMPORTANT]
 >  When you resume a copy session, do not modify the source data files and directories by adding or removing files.
 
-### Aborting an Interrupted Copy Session
+### Aborting an interrupted copy session
  If a copy session is interrupted and it is not possible to resume (for example, if a source directory proved inaccessible), you must abort the current session so that it can be rolled back and new copy sessions can be started:
 
 ```

@@ -20,8 +20,10 @@ ms.author: muralikk
 
 # Reviewing Azure Import/Export job status with copy log files
 When the Microsoft Azure Import/Export service processes drives associated with an import or export job, it writes copy log files to the storage account to or from which you are importing or exporting blobs. The log file contains detailed status about each file that was imported or exported. The URL to each copy log file is returned when you query the status of a completed job; see [Get Job](/rest/api/storageservices/Get-Job3) for more information.  
-  
- The following are example URLs for copy log files for an import job with two drives:  
+
+## Example URLs
+
+The following are example URLs for copy log files for an import job with two drives:  
   
  `http://myaccount.blob.core.windows.net/ImportExportStatesPath/waies/myjob_9WM35C2V_20130921-034307-902_error.xml`  
   

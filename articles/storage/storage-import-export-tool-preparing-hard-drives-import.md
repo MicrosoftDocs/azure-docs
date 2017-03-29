@@ -18,20 +18,19 @@ ms.author: muralikk
 
 ---
 # Preparing hard drives for an Import Job
-## Overview
 
 The WAImportExport tool is the drive preparation and repair tool that you can use with the [Microsoft Azure Import/Export service](storage-import-export-service.md). You can use this tool to copy data to the hard drives you are going to ship to an Azure datacenter. After an import job has completed, you can use this tool to repair any blobs that were corrupted, were missing, or conflicted with other blobs. After you receive the drives from a completed export job, you can use this tool to repair any files that were corrupted or missing on the drives. In this article we will go over the working of this tool.
 
 ## Prerequisites
 
-### Prerequisites for running WAImportExport.exe
+### Requirements for WAImportExport.exe
 
 - **Machine configuration**
   - Windows 7, Windows Server 2008 R2, or a newer Windows operating system
   - .NET Framework 4 must be installed. See [FAQ](#faq) on how to check if .Net Framework is installed on the machine.
 - **Storage account key** - You need at least one of the account keys for the storage account.
 
-### Preparing disk for Import Job
+### Preparing disk for import job
 
 - **BitLocker -** BitLocker must be enabled on the machine which is running WAImportExport Tool. See [FAQ](#faq) for how to enable BitLocker
 - **Disks** accessible from machine on which WAImportExport Tool is run. See [FAQ](#faq) for disk specification.
@@ -48,7 +47,7 @@ The WAImportExport tool is the drive preparation and repair tool that you can us
 
 ## Download and install WAImportExport
 
-Download the [latest version of WAImportExport.exe](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip). Extract the zipped content to a directory on your computer.
+Download the [latest version of WAImportExport.exe](https://www.microsoft.com/download/details.aspx?id=42659). Extract the zipped content to a directory on your computer.
 
 Your next task is to create CSV files.
 
@@ -184,7 +183,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /AbortSession
 
 Only the last copy session, if terminated abnormally, can be aborted. Note that you cannot abort the first copy session for a drive. Instead you must restart the copy session with a new journal file.
 
-### Resume a latest interrupted session:
+### Resume a latest interrupted session
 
 If a copy session is interrupted for any reason, you can resume it by running the tool with only the journal file specified:
 
@@ -201,7 +200,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 > [!IMPORTANT] 
 > When you resume a copy session, do not modify the source data files and directories by adding or removing files.
 
-## WAImportExport Parameters
+## WAImportExport parameters
 
 | Parameters | Description |
 | --- | --- |
@@ -224,9 +223,9 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 |     /DataSet:&lt;dataset.csv&gt; | **Required**<br/> A CSV file that contains a list of directories and/or a list files to be copied to target drives.  |
 |     /silentmode  | **Optional**.<br/> If not specified, it will remind you the requirement of drives and need your confirmation to continue.  |
 
-## Tool Output
+## Tool output
 
-### Sample Drive Manifest file
+### Sample drive manifest file
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -266,7 +265,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 </DriveManifest>
 ```
 
-### Sample journal file for each drive: ending with .xml
+### Sample journal file (XML) for each drive
 
 ```xml
 [BeginUpdateRecord][2016/11/01 21:22:25.379][Type:ActivityRecord]
@@ -283,7 +282,7 @@ SaveCommandOutput: Completed
 [EndUpdateRecord]
 ```
 
-### Sample journal file for session: ended with .jrn  which records the trail of sessions
+### Sample journal file (JRN) for session which records the trail of sessions
 
 ```
 [BeginUpdateRecord][2016/11/02 18:24:14.735][Type:NewJournalFile]
@@ -315,7 +314,7 @@ If the data size is greater than the disk size, the WAImportExport tool will dis
 
 WAImportExport tool has all functionalities that WAImportExport V1 tool had. WAImportExport tool allows users to specify multiple source and write to multiple drives. Additionally, one can easily manage multiple source locations from which the data needs to be copied in a single CSV file. However, in case you need SAS support or want to copy single source to single disk, you can [download WAImportExport V1 Tool] (http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) and refer to [WAImportExport V1 Reference](storage-import-export-tool-how-to-v1.md) for help with WAImportExport V1 usage.
 
-#### What is a Session ID?
+#### What is a session ID?
 
 The tool expects the copy session (/id) parameter to be the same if the intent is to spread the data across multiple disks. Maintaining the same name of the copy session will enable user to copy data from one or multiple source locations into one or multiple destination disks/directories. Maintaining same session id enables the tool to pick up the copy of files from where it was left the last time.
 
@@ -364,15 +363,15 @@ In order to disable TPM in BitLocker, go through the following steps:<br/>
 3. Edit **Require additional authentication at startup** policy.
 4. Set the policy to **Enabled** and make sure **Allow BitLocker without a compatible TPM** is checked.
 
-####  How to check if .Net 4 or higher version is installed on my machine?
+####  How to check if .NET 4 or higher version is installed on my machine?
 
 All Microsoft .NET Framework versions are installed in following directory: %windir%\Microsoft.NET\Framework\
 
-Navigate to the above mentioned part on your target machine where the tool needs to run. Look for folder name starting with "v4". Absence of such a directory means .Net v4 is not installed on your machine. You can download .Net 4 on your machine using [Microsoft .NET Framework 4 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=17851).
+Navigate to the above mentioned part on your target machine where the tool needs to run. Look for folder name starting with "v4". Absence of such a directory means .NET 4 is not installed on your machine. You can download .Net 4 on your machine using [Microsoft .NET Framework 4 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=17851).
 
 ### Limits
 
-#### How many drives can I Prepare/send at the same time?
+#### How many drives can I prepare/send at the same time?
 
 There is no limit on the number of disks that the tool can prepare. However, the tool expects drive letters as inputs. That limits it to 25 simultaneous disk preparation. A single job can handle maximum of 10 disks at a time. If you prepare more than 10 disks targeting the same storage account, the disks can be distributed across multiple jobs.
 
@@ -398,13 +397,13 @@ The tool distributes data across the input disks based on the size of the input 
 
 WAImportExport Tool reads and writes files batch by batch, one batch contains max of 100000 files. This means that max 100000 files can be written parallel. Multile disks are written to simultaneously if these 100000 files are distributed to multi drives. However whether the tool writes to multiple disk simultaneously or a single disk depends on the cumulative size of the batch. For instance, in case of smaller files, if all of 10,0000 files are able to fit in a single drive, tool will write to only one disk during the processing of this batch.
 
-### WAImportExport Output
+### WAImportExport output
 
-#### There are two journal files. Which one should I upload to Azure Portal?
+#### There are two journal files, which one should I upload to Azure portal?
 
-**.xml** - For each hard drive that you prepare with the WAImportExport tool, the tool will create a single journal file with name "&lt;DriveID&gt;.xml" where drive Id is the serial number associated to the drive that the tool reads from the disk. You will need the journal files from all of your drives to create the import job in the Azure portal. This journal file can also be used to resume drive preparation if the tool is interrupted.
+**.xml** - For each hard drive that you prepare with the WAImportExport tool, the tool will create a single journal file with name `<DriveID>.xml` where DriveID is the serial number associated to the drive that the tool reads from the disk. You will need the journal files from all of your drives to create the import job in the Azure portal. This journal file can also be used to resume drive preparation if the tool is interrupted.
 
-**.jrn** - The journal file with suffix .jrn contains the status for all copy sessions for a hard drives. It also contains the information needed to create the import job. You must always specify a journal file when running the WAImportExport tool, as well as a copy session ID.
+**.jrn** - The journal file with suffix `.jrn` contains the status for all copy sessions for a hard drives. It also contains the information needed to create the import job. You must always specify a journal file when running the WAImportExport tool, as well as a copy session ID.
 
 ## Next steps
 

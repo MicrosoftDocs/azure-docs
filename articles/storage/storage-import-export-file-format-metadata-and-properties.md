@@ -37,7 +37,7 @@ The format of a metadata file is as follows:
 |`Metadata`|Root element|The root element of the metadata file.|  
 |`metadata-name`|String|Optional. The XML element specifies the name of the metadata for the blob, and its value specifies the value of the metadata setting.|  
   
-## Properties File Format  
+## Properties file format  
 The format of a properties file is as follows:  
   
 ```xml

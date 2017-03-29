@@ -18,12 +18,16 @@ ms.author: muralikk
 
 ---
 
-# Previewing Drive Usage for an Export Job
-Before you create an export job, you need to choose a set of blobs that are to be exported. The Microsoft Azure Import/Export service allows you to use a list of blob paths or blob prefixes to represent the blobs you have selected.  
+# Previewing drive usage for an export job
+Before you create an export job, you need to choose a set of blobs to be exported. The Microsoft Azure Import/Export service allows you to use a list of blob paths or blob prefixes to represent the blobs you've selected.  
   
- Next you need to determine how many drives you need to send. The Microsoft Azure Import/Export Tool provides the `PreviewExport` command to preview drive usage for the blobs you selected, based on the size of the drives you are going to use. You can specify the following parameters:  
-  
-|Command-line Option|Description|  
+Next, you need to determine how many drives you need to send. The Import/Export Tool provides the `PreviewExport` command to preview drive usage for the blobs you selected, based on the size of the drives you are going to use.
+
+## Command-line parameters
+
+You can use the following parameters when using the `PreviewExport` command of the Import/Export Tool.
+
+|Command-line parameter|Description|  
 |--------------------------|-----------------|  
 |**/logdir:**<LogDirectory\>|Optional. The log directory. Verbose log files will be written to this directory. If no log directory is specified, the current directory will be used as the log directory.|  
 |**/sn:**<StorageAccountName\>|Required. The name of the storage account for the export job.|  
@@ -31,7 +35,9 @@ Before you create an export job, you need to choose a set of blobs that are to b
 |**/csas:**<ContainerSas\>|Required if and only if a storage account key is not specified. The container SAS for listing the blobs to be exported in the export job.|  
 |**/ExportBlobListFile:**<ExportBlobListFile\>|Required. Path to the XML file containing list of blob paths or blob path prefixes for the blobs to be exported. The file format used in the `BlobListBlobPath` element in the [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operation of the Import/Export service REST API.|  
 |**/DriveSize:**<DriveSize\>|Required. The size of drives to use for an export job, *e.g.*, 500GB, 1.5TB.|  
-  
+
+## Command-line example
+
 The following example demonstrates the `PreviewExport` command:  
   
 ```  
