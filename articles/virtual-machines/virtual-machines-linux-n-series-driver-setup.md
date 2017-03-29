@@ -152,6 +152,7 @@ After the update completes, restart the VM.
     chmod +x NVIDIA-Linux-x86_64-375.39.run
     ./NVIDIA-Linux-x86_64-375.39.run  --silent --dkms
     DEBIAN_FRONTEND=noninteractive update-initramfs -u
+    
      ```
 
 #### Silent installation of CUDNN
