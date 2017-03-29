@@ -45,7 +45,7 @@
 ### [Tooling and Scripting](storage-file-how-to-tooling-and-scripting.md)
 #### [Powershell](storage-file-how-to-use-files-powershell.md)
 #### [CLI](storage-azure-cli.md#create-and-manage-file-shares)
-#### [Storage Explorer](vs-azure-tools-storage-explorer-files.md)
+#### [Storage Explorer](../vs-azure-tools-storage-explorer-files.md)
 ### Develop with Azure Files
 #### [.NET](storage-dotnet-how-to-use-files.md)
 #### [Java](storage-java-how-to-use-file-storage.md)
