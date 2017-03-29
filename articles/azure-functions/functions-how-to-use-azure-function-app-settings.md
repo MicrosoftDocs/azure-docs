@@ -28,7 +28,7 @@ You can manage Azure Function Apps settings by clicking the **Function App Setti
 
 ## Develop
 ### App Service Editor
-The App Service Editor is an advanced in-portal editor that you can use to modify Json configuration files and code files alike. Choosing this option launches a separate browser tab with a basic editor. This enables you to integrate with Github, run and debug code, and modify function app settings.
+The App Service Editor is an advanced in-portal editor that you can use to modify Json configuration files and code files alike. Choosing this option launches a separate browser tab with a basic editor. This enables you to integrate with GitHub, run and debug code, and modify function app settings.
 
 ![The App Service Editor](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
