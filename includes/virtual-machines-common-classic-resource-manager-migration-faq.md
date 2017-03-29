@@ -6,7 +6,7 @@ No. The VMs (classic) are fully supported services in general availability. You 
 
 **What happens to my VMs if I don’t plan on migrating in the near future?**
 
-We are not deprecating the existing classic APIs and resource model. We want to make migration easy, considering the advanced features that are available in the Resource Manager deployment model. We highly recommend that you review [some of the advancements](../azure-resource-manager/resource-manager-deployment-model.md) that are part of IaaS under Resource Manager.
+We are not deprecating the existing classic APIs and resource model. We want to make migration easy, considering the advanced features that are available in the Resource Manager deployment model. We highly recommend that you review [some of the advancements](../articles/azure-resource-manager/resource-manager-deployment-model.md) that are part of IaaS under Resource Manager.
 
 **What does this migration plan mean for my existing tooling?**
 
@@ -26,7 +26,7 @@ You cannot abort migration if the commit operation fails. All migration operatio
 
 **Do I have to buy another express route circuit if I have to use IaaS under Resource Manager?**
 
-No. We recently enabled [moving ExpressRoute circuits from the classic to the Resource Manager deployment model](../expressroute/expressroute-move.md). You don’t have to buy a new ExpressRoute circuit if you already have one.
+No. We recently enabled [moving ExpressRoute circuits from the classic to the Resource Manager deployment model](../articles/expressroute/expressroute-move.md). You don’t have to buy a new ExpressRoute circuit if you already have one.
 
 **What if I had configured Role-Based Access Control policies for my classic IaaS resources?**
 
@@ -34,7 +34,7 @@ During migration, the resources transform from classic to Resource Manager. So w
 
 **What if I’m using Azure Site Recovery or Azure Backup today?**
 
-To migrate your Virtual Machine that are enabled for backup, see [I have backed up my classic VMs in backup vault. Now I want to migrate my VMs from classic mode to Resource Manager mode. How Can I backup them in recovery services vault?](../backup/backup-azure-backup-ibiza-faq.md)i have backed up my classic VMs in backup vault. Now I want to migrate my VMs from classic mode to Resource Manager mode.  How Can I backup them in recovery services vault?
+To migrate your Virtual Machine that are enabled for backup, see [I have backed up my classic VMs in backup vault. Now I want to migrate my VMs from classic mode to Resource Manager mode. How Can I backup them in recovery services vault?](../articles/backup/backup-azure-backup-ibiza-faq.md)i have backed up my classic VMs in backup vault. Now I want to migrate my VMs from classic mode to Resource Manager mode.  How Can I backup them in recovery services vault?
 
 **Can I validate my subscription or resources to see if they're capable of migration?**
 
