@@ -1,5 +1,5 @@
 ---
-title: How to use Service Bus topics with Java | Microsoft Docs
+title: How to use Azure Service Bus topics with Java | Microsoft Docs
 description: Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Java applications.
 services: service-bus-messaging
 documentationcenter: java
@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 03/23/2017
 ms.author: sethm
 
 ---
@@ -51,7 +51,7 @@ applications.
 
 ## Create a service namespace
 To begin using Service Bus topics and subscriptions in Azure,
-you must first create a service namespace. A namespace provides
+you must first create a namespace, which provides
 a scoping container for addressing Service Bus resources within your
 application.
 
@@ -64,7 +64,7 @@ Make sure you have installed the [Azure SDK for Java][Azure SDK for Java] before
 
 ![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
-Add the following import statements to the top of the Java file:
+Add the following `import` statements to the top of the Java file:
 
 ```java
 import com.microsoft.windowsazure.services.servicebus.*;

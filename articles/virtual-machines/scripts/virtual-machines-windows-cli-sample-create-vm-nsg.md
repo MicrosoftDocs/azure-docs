@@ -32,7 +32,7 @@ This sample works in Bash shell. For options on running Azure CLI scripts on Win
 
 ## Clean up deployment 
 
-Run the following command to remove the Resource Group, VM, and all related resources.
+Run the following command to remove the resource group, VM, and all related resources.
 
 ```azurecli
 az group delete --name myResourceGroup --yes

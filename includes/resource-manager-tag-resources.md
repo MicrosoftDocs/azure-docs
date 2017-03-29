@@ -7,7 +7,7 @@
 3. To add a tag, type a key and value, or select an existing one from the dropdown menu. Select **Save**.
 
      ![Add new tag](./media/resource-manager-tag-resources/tag-resources.png)
-3. To view all the resources with a tag value, select **>** (More services), and filter by **Tags**. Select **Tags** from the available options.
+3. To view all the resources with a tag value, select **>** (More services), and enter the word **Tags** into the filter text box. Select **Tags** from the available options.
    
      ![Find tags via the Browse hub](./media/resource-manager-tag-resources/browse-tags.png)
 4. You see a summary of the tags in your subscriptions.

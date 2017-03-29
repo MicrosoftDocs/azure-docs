@@ -24,7 +24,7 @@ ms.author: carolz
         <div class="callout">
             <a href="https://azure.microsoft.com/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
                 <img src="media/index/pluralsight.svg" />
-                Free PluralSight video training Managing Infrastructure using Microsoft Azure
+                Free PluralSight video training - Managing Infrastructure using Microsoft Azure
             </a>
         </div>
     </div>
@@ -135,6 +135,7 @@ ms.author: carolz
                         <h3>Command-Line</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">PowerShell</a></p>
                         <p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">PowerShell (Elastic DB)</a></p>
+                        <p><a href="/cli/azure/sql">Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>

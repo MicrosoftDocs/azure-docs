@@ -65,7 +65,7 @@ If you only need or want to make textual updates to an existing article, you pro
 ### All other changes
 The GitHub UI does support creation of new files and dragging and dropping images. However, when you work in the UI, managing branches can be confusing so we typically recommend you install the tools and learn the commands for creating and managing articles. If you want to use the UI, see:
 
-* [Creating files on Github](https://github.com/blog/1327-creating-files-on-github)
+* [Creating files on GitHub](https://github.com/blog/1327-creating-files-on-github)
 * [Upload files to your repositories](https://github.com/blog/2105-upload-files-to-your-repositories)
 
 For the following sorts of work, we strongly recommend you install and learn to use the tools:

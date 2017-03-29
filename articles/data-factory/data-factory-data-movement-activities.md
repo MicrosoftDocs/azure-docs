@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 03/24/2017
 ms.author: jingwang
 
 ---
@@ -79,29 +79,31 @@ When both source and sink data stores are in the cloud, Data Factory uses a serv
 | Geography of the destination data store | Region of the destination data store | Region used for data movement |
 |:--- |:--- |:--- |
 | United States | East US | East US |
-| . | East US 2 | East US 2 |
-| . | Central US | Central US |
-| . | North Central US | North Central US |
-| . | South Central US | South Central US |
-| . | West Central US | West Central US |
-| . | West US | West US |
-| . | West US 2 | West US |
+| &nbsp; | East US 2 | East US 2 |
+| &nbsp; | Central US | Central US |
+| &nbsp; | North Central US | North Central US |
+| &nbsp; | South Central US | South Central US |
+| &nbsp; | West Central US | West Central US |
+| &nbsp; | West US | West US |
+| &nbsp; | West US 2 | West US |
 | Canada | Canada East | Canada Central |
-| . | Canada Central | Canada Central |
+| &nbsp; | Canada Central | Canada Central |
 | Brazil | Brazil South | Brazil South |
 | Europe | North Europe | North Europe |
-| . | West Europe | West Europe |
+| &nbsp; | West Europe | West Europe |
+| United Kingdom | UK West | UK South |
+| &nbsp; | UK South | UK South |
 | Asia Pacific | Southeast Asia | Southeast Asia |
-| . | East Asia | Southeast Asia |
+| &nbsp; | East Asia | Southeast Asia |
 | Australia | Australia East | Australia East |
-| . | Australia Southeast | Australia Southeast |
+| &nbsp; | Australia Southeast | Australia Southeast |
 | Japan | Japan East | Japan East |
-| . | Japan West | Japan East |
+| &nbsp; | Japan West | Japan East |
 | India | Central India | Central India |
-| . | West India | Central India |
-| . | South India | Central India |
+| &nbsp; | West India | Central India |
+| &nbsp; | South India | Central India |
 
-Alternatively, you can explicitly indicate the region of Data Factory service to be used to perform the copy by specifying `executionLocation` property under Copy Activity `typeProperties`. Supported values for this property are listed in above **Region used for data movement** column. Note your data will go through that region over the wire during copy. For example, to copy between Azure stores in UK, you can specify `"executionLocation": "North Europe"` to route through North Europe (see [sample JSON](#by-using-json-scripts) as reference).
+Alternatively, you can explicitly indicate the region of Data Factory service to be used to perform the copy by specifying `executionLocation` property under Copy Activity `typeProperties`. Supported values for this property are listed in above **Region used for data movement** column. Note your data will go through that region over the wire during copy. For example, to copy between Azure stores in Korea, you can specify `"executionLocation": "Japan East"` to route through Japan region (see [sample JSON](#by-using-json-scripts) as reference).
 
 > [!NOTE]
 > If the region of the destination data store is not in preceding list or undetectable, by default Copy Activity fails instead of going through an alternative region, unless `executionLocation` is specified. The supported region list will be expanded over time.
@@ -151,7 +153,7 @@ Here's a sample JSON definition:
           "sink": {
             "type": "SqlSink"
           },
-          "executionLocation": "North Europe"          
+          "executionLocation": "Japan East"          
         },
         "Policy": {
           "concurrency": 1,

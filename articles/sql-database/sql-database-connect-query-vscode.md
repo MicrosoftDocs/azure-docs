@@ -15,22 +15,19 @@ ms.custom: manage
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/15/2017
+ms.topic: hero-article
+ms.date: 03/17/2017
 ms.author: carlrab
 
 ---
 # Azure SQL Database: Use Visual Studio Code to connect and query data
 
-[Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows that supports extensions. With the [mssql extension](https://aka.ms/mssql-marketplace), you can use Visual Studio Code to connect to and query an Azure SQL database. This guide details using Visual Studio Code to connect to an Azure SQL database, and then execute query, insert, update, and delete statements.
+[Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows that supports extensions. Use Visual Studio Code With the [mssql extension](https://aka.ms/mssql-marketplace) to connect to and query an Azure SQL database. This quick start details using Visual Studio Code to connect to an Azure SQL database, and then execute query, insert, update, and delete statements.
 
 This quick start uses as its starting point the resources created in one of these quick starts:
 
-- [Create DB - Portal](sql-database-get-started.md)
+- [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
-- [Create DB - Powershell](sql-database-get-started-powershell.md) 
-
-If you are completing this quick start with a different IP address, you may need to create a new server-level firewall rule.
 
 Before you start, make sure you have installed the newest version of [Visual Studio Code](https://code.visualstudio.com/Download) and loaded the [mssql extension](https://aka.ms/mssql-marketplace). For installation guidance for the mssql extension, see [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code). 
 
@@ -81,9 +78,6 @@ Use Visual Studio Code to establish a connection to your Azure SQL Database serv
    | **[Optional] Enter a name for this profile** | Enter a connection profile name, such as **mySampleDatabase**. 
 
 6. Press the **ESC** key to close the info message that informs you that the profile is created and connected.
-
-   > [!TIP]
-   > If you get a connection failure, first attempt to diagnose the problem from the error message in the **Output** panel in VS Code (select **Output** on the **View** menu). Then review the [connection troubleshooting recommendations]. A common error is the absence of a firewall rule for your IP address.
 
 7. Verify your connection in the status bar.
 

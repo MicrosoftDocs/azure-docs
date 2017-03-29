@@ -26,7 +26,11 @@ Azure Function Apps uses the Azure App Service infrastructure. This topic shows 
 
 [!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
 
-After the function app is created, you can create individual functions in one or more different languages. Create new functions [by using the portal](functions-create-first-azure-function-azure-portal.md#create-a-function), [continuous deployment](functions-continuous-deployment.md), or by [uploading with FTP](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp).  
+When you create a function app, supply a valid **App name**, which can contain only letters, numbers, and hyphens. Underscore (**_**) is not an allowed character. 
+
+Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. Your storage account name must be unique within Azure. 
+
+After the function app is created, you can create individual functions in one or more different languages. Create functions [by using the portal](functions-create-first-azure-function-azure-portal.md#create-a-function), [continuous deployment](functions-continuous-deployment.md), or by [uploading with FTP](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp).  
 
 ## Service plans
 

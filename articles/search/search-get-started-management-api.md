@@ -39,7 +39,7 @@ You will need an Azure account to complete this tutorial.
 ## Download the sample application
 This tutorial is based on a Windows console application written in C#, which you can edit and run in either Visual Studio 2012 or 2013
 
-You can find the client application on Github at [Azure Search .NET Management API Demo](https://github.com/Azure-Samples/search-dotnet-management-api/).
+You can find the client application on GitHub at [Azure Search .NET Management API Demo](https://github.com/Azure-Samples/search-dotnet-management-api/).
 
 ## Configure the application
 Before you can run the sample application, you must enable authentication so that requests sent from the client application to the resource manager endpoint can be accepted. The authentication requirement originates with the [Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790568.aspx), which is the basis for all portal-related operations requested via an API, including those related to Search service management. The service management API for Azure Search is simply an extension of the Azure Resource Manager, and thus inherits its dependencies.  
@@ -107,7 +107,7 @@ The values that you will be adding appear near the top of Program.cs:
         private const string SubscriptionId = "<your subscription id>";
         private static readonly Uri RedirectUrl = new Uri("<your redirect url>");
 
-If you have not yet [downloaded the sample application from Github](https://github.com/Azure-Samples/search-dotnet-management-api/), you will need it for this step.
+If you have not yet [downloaded the sample application from GitHub](https://github.com/Azure-Samples/search-dotnet-management-api/), you will need it for this step.
 
 1. Open the **ManagementAPI.sln** in Visual Studio.
 2. Open Program.cs.

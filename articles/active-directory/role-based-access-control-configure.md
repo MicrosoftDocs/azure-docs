@@ -1,5 +1,5 @@
 ---
-title: Role-Based Access Control in the Azure classic portal | Microsoft Docs
+title: Role-Based Access Control in the Azure portal | Microsoft Docs
 description: Get started in access management with Role-Based Access Control in the Azure Portal. Use role assignments to assign permissions to your resources.
 services: active-directory
 documentationcenter: ''

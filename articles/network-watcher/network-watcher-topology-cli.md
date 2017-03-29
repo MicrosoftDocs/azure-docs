@@ -29,6 +29,8 @@ This capability makes the topology information more versatile as the data can be
 
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
+This article uses cross-platform Azure CLI 1.0, which is available for Windows, Mac and Linux. Network Watcher currently uses Azure CLI 1.0 for CLI support.
+
 The interconnection is modeled under two relationships.
 
 - **Containment** - Example: VNet contains a Subnet contains a NIC

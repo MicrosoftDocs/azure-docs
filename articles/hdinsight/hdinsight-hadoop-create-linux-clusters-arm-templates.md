@@ -10,6 +10,7 @@ editor: cgronlun
 
 ms.assetid: 00a80dea-011f-44f0-92a4-25d09db9d996
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -21,7 +22,7 @@ ms.author: jgao
 # Create Hadoop clusters in HDInsight using Azure Resource Management templates
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Learn how to create HDInsight clusters using Azure Resource Management templates. For more information, see [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). To learn other cluster creation tools and features, click the tab select on the top of this page or see [Cluster creation methods](hdinsight-provision-clusters.md#cluster-creation-methods).
+Learn how to create HDInsight clusters using Azure Resource Management templates. For more information, see [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). To learn other cluster creation tools and features, click the tab select on the top of this page or see [Cluster creation methods](hdinsight-hadoop-provision-linux-clusters.md#cluster-creation-methods).
 
 ## Prerequisites:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -46,7 +47,7 @@ For more information about Resource Manager template, see the following articles
 * [Author Azure Resource Management templates](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md)
 
-## Generate templates 
+## Generate templates
 
 Using the Azure portal, you can configure all the properties of a cluster and then save the template before deploying it.  So you can reuse the template.
 
@@ -68,7 +69,7 @@ Using the Azure portal, you can configure all the properties of a cluster and th
     To access a template in your library, click **More services** from the left menu, and then click **Templates** (under the **Other** category).
 
 > [!Note]
-> The templates must be used with the parameter files together.  Otherwise, you might get unexpected results.  For example, the default clusterKind property value is always hadoop despite what you have specified before you download the template. 
+> The templates must be used with the parameter files together.  Otherwise, you might get unexpected results.  For example, the default clusterKind property value is always hadoop despite what you have specified before you download the template.
 
 
 
