@@ -19,13 +19,13 @@ ms.author: genli
 
 ---
 # Resolve past due balance for your Azure subscription 
-If your payment isn't received when your Azure bill is due or we can't process your payment, you might get an email or see an alert in the [Azure Account Center](https://account.windowsazure.com) or the [Azure portal](https://portal.azure.com). If you aren't getting billing notifications in email and you're the Account Administrator, [check the the email address in Azure Account Administrator's profile](billing-how-to-change-azure-account-profile.md). We recommend that you specify a contact email address that you check regularly.
+If your payment isn't received or we can't process your payment, you might get an email or see an alert in the [Azure Account Center](https://account.windowsazure.com) or the [Azure portal](https://portal.azure.com). If you aren't getting billing notifications in email and you're the Account Administrator, [check the email address in Azure Account Administrator's profile](billing-how-to-change-azure-account-profile.md). We recommend that you use an email address that you check regularly.
 
 If we can't process your payment, you might receive an email with a message like:
 
 **We have been unable to charge your credit card for your subscription. To prevent any service interruptions, please update your payment information.**
 
-## What happens if you don't pay
+## If you forget to pay, what happens?
 The service is canceled and your resources are no longer available. Your Azure data is deleted 90 days after the service is terminated.
 
 ## How to resolve the issue
@@ -37,7 +37,7 @@ Pay your outstanding balance in full.
 
 * If you didn't see a bill because the Account Administrator has left the company or changed roles, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to resolve the issue.
 
-If after you know your payment has been processed but your subscription is still disabled, see [What do I do if my Azure subscription is disabled?](billing-subscription-become-disable.md).
+If after you know your payment has been processed but your subscription is still disabled, see [Reactivate disabled Azure subscription](billing-subscription-become-disable.md).
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
