@@ -294,7 +294,7 @@ Bolts handle the data processing. This topology uses two bolts:
 > [!NOTE]
 > Bolts can do literally anything, for example, computation, persistence, or talking to external components.
 
-Create two new files, `SplitSentence.java` and `WordCount.Java` in the `src\main\java\com\microsoft\example` directory. Use the following text as the contents for the files:
+Create two new files, `SplitSentence.java` and `WordCount.java` in the `src\main\java\com\microsoft\example` directory. Use the following text as the contents for the files:
 
 **SplitSentence**
 
