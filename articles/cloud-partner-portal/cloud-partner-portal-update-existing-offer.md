@@ -41,7 +41,7 @@ The VM image for a SKU of your offer may have been updated with additional featu
 3. Under the **SKUs** form, click on the SKU whos VM image you would like to update
 4. Under **Disk version**, click on **+New Disk Version** to add a new VM image
 5. Provide the new VM Images **Disk version**. The disk version needs to follow the [semantic version](http://semver.org/) format. Versions should be of the form X.Y.Z, where X, Y, and Z are integers. Make sure that the new version you provide is greater than the previous versions, else this will not show up in Azure portal or Azure marketplace upon republish.
-6. For **OS VHD URL**, enter the [shared access signature URI](https://github.com/Microsoft/azure-docs/blob/master/articles/marketplace-publishing/marketplace-publishing-vm-image-creation.md) created for the operating system VHD. Note that data disk count cannot change between different versions of the SKU. If previous versions had data disks configured, this new version must also have the data disks configured. 
+6. For **OS VHD URL**, enter the [shared access signature URI](../marketplace-publishing/marketplace-publishing-vm-image-creation.md#52-get-the-shared-access-signature-uri-for-your-vm-images) created for the operating system VHD. Note that data disk count cannot change between different versions of the SKU. If previous versions had data disks configured, this new version must also have the data disks configured. 
 7. Click on **Publish** to kick off the publish workflow to get your new VM version to go live onto Azure marketplace and Azure portal. 
 
 ## Changing regions a SKU is available in

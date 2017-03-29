@@ -32,7 +32,7 @@ You can delete a live SKU from Azure Marketplace by following these steps:
 
 4.  Select the SKU which you want to delete and click on the delete button for that SKU.
 
-5.  [Republish](https://www.bing.com) the offer to Azure Marketplace.
+5.  [Republish](./Cloud-partner-portal-make-offer-live-on-Azure-Marketplace.md) the offer to Azure Marketplace.
 
 After the offer is live on Azure Marketplace, the SKU will be deleted from Azure Marketplace and Azure portal.
 
@@ -48,7 +48,7 @@ You can delete the current version of a live SKU from Azure Marketplace by follo
 
 4.  Delete the latest **Disk Version** from the list of published disk versions.
 
-5.  [Republish](https://www.bing.com) the offer to Azure Marketplace.
+5.  [Republish](./Cloud-partner-portal-make-offer-live-on-Azure-Marketplace.md) the offer to Azure Marketplace.
 
 After the offer is live in Azure Marketplace, the current version of the listed SKU will be deleted from Azure Marketplace and the Azure portal. The SKU will be rolled back to its previous version.
 
