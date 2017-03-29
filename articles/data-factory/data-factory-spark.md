@@ -79,7 +79,7 @@ For details about the HDInsight linked service and other compute linked services
 ## Spark Activity JSON
 Here is the sample JSON definition of a Spark activity in a pipeline:    
 
-```
+```json
 {
     "name": "SparkPipeline",
     "properties": {
