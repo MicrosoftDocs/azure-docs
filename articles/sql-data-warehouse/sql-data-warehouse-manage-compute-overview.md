@@ -153,9 +153,9 @@ To resume a database, use any of these individual methods.
 
 To resume a database, use any of these individual methods.
 
-- [Check database state with T-SQL][]
-- [Check database state with PowerShell]
-- [Check database state with REST APIs]
+- [Check database state with T-SQL][Check database state with T-SQL]
+- [Check database state with PowerShell][Check database state with PowerShell]
+- [Check database state with REST APIs][Check database state with REST APIs]
 
 ## Permissions
 
