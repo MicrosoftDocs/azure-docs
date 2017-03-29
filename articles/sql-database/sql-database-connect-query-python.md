@@ -9,13 +9,13 @@ editor: ''
 
 ms.assetid: 452ad236-7a15-4f19-8ea7-df528052a3ad
 ms.service: sql-database
-ms.custom: development
+ms.custom: quick start
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 03/27/2017
-ms.author: meetb;carlrab
+ms.author: meetb;carlrab;sstein
 
 ---
 # Azure SQL Database: Use Python to connect and query data
