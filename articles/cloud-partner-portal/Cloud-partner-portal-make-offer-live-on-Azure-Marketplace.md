@@ -59,7 +59,7 @@ Once you’ve completed this step correctly, a pop-up will appear asking for an 
 
 **Certification (<5 days)**
 
-This step is where we run several tests to ensure your VM image meets the requirements for Azure Certified. All the guidance you will need to ensure you pass the certification requirements are [here](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites).
+This step is where we run several tests to ensure your VM image meets the requirements for Azure Certified. All the guidance you will need to ensure you pass the certification requirements are [here](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites).
 
 Since this step can take several days, you can log out of the Cloud Partner Portal. We will send you an email notification if there are any errors that you need to address. If everything passes with success, the process will automatically move on to the Provisioning step. 
 
@@ -77,7 +77,7 @@ Additionally, if you configured the Lead Generation feature, we will validate th
 
 You will get a notification email that your offer has successfully completed the steps required to access the offer in preview. During this step, you should preview your offer and make sure everything looks as it should be and that your VM properly deploys in the staging environment. 
 
-Note that only whitelisted subscriptions can do this verification.*
+**Only whitelisted subscriptions can do this verification.***
 
 **Publisher signoff**
 
@@ -96,7 +96,7 @@ During the publishing process, an error may be encountered. If an error is encou
 
 ![Offer Go Live Sequence](./media/cloud-partner-portal-offer-go-live-azure-marketplace/status3.png)
 
-If you encounter errors during the publishing process, you are required to fix these then click ‘Publish’ to restart the process. Note, you must start at the beginning of the publishing steps at Validate Pre-Requisites when re-publishing after any error fix.
+If you encounter errors during the publishing process, you are required to fix these then click ‘Publish’ to restart the process. You must start at the beginning of the publishing steps at Validate Pre-Requisites when re-publishing after any error fix.
 
 If you are having issues resolving an error, you should open a support request to get help from our support engineers.
 
