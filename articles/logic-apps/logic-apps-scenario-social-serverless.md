@@ -95,7 +95,7 @@ Once a solution has been developed, it can be captured and deployed via an Azure
 
 Azure Functions can also be incorporated in the deployment template - so the entire solution with all dependencies can be managed as a single template.  An example of a function deployment template can be found in the [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 
-## What's Next
+## Next steps
 
 * [See other examples and scenarios for Azure Logic Apps](logic-apps-examples-and-scenarios.md)
 * [Watch a video walkthrough on creating this solution end-to-end](http://aka.ms/logicappsdemo)
