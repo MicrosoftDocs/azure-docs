@@ -78,7 +78,7 @@ Get the connection string in the Azure portal. You use the connection string to 
     <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="connection strings" style="width: 780px;" />
     
 ## Select Data
-The [sqlsrv_query()](https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-query) function can be used to retrieve a result set from a query against SQL Database. This function essentially accepts any query and returns a result set that can be iterated over with the use of [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
+The [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) function can be used to retrieve a result set from a query against SQL Database. This function essentially accepts any query and returns a result set that can be iterated over with the use of [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
 ```PHP
 <?php
@@ -133,7 +133,7 @@ else{
 ```
 
 ## Update data
-The [sqlsrv_query()](https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-query) function can be used to do an [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
+The [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) function can be used to do an [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
 
 ```PHP
 <?php
@@ -159,7 +159,7 @@ else{
 ```
 
 ## Delete data
-The [sqlsrv_query()](https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-query) function can be used to do a [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
+The [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) function can be used to do a [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
 
 ```PHP
 <?php
