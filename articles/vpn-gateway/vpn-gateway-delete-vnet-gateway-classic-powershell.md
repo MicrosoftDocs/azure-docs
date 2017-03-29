@@ -60,7 +60,7 @@ In this example, the network configuration file is exported to C:\AzureNet.
 
 	 Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 
-Open the file with a text editor and view the name for your classic VNet. When you create a VNet in the Azure portal, the full name that Azure uses is not visible in the Azure portal. For example, a VNet that appears to be named 'ClassicVNet1' in the Azure portal, may have a much longer name in the network configuration file. The name might look something like: 'Group ClassicRG1 ClassicVNet1'. Virtual network names are listed as **VirtualNetworkSite name =**. Use the names in the network configuration file when running your PowerShell cmdlets.
+Open the file with a text editor and view the name for your classic VNet. When you create a VNet in the Azure portal, the full name that Azure uses is not visible in the portal. For example, a VNet that appears to be named 'ClassicVNet1' in the Azure portal, may have a much longer name in the network configuration file. The name might look something like: 'Group ClassicRG1 ClassicVNet1'. Virtual network names are listed as **VirtualNetworkSite name =**. Use the names in the network configuration file when running your PowerShell cmdlets.
 
 ## Step 3: Delete the virtual network gateway
 
@@ -146,7 +146,7 @@ Example:
 
 ### GatewaySubnet
 
-Delete the GatewaySubnet that corresponds to the VNet.
+Delete the **GatewaySubnet** that corresponds to the VNet.
 
 	<Subnets>
        <Subnet name="FrontEnd">
