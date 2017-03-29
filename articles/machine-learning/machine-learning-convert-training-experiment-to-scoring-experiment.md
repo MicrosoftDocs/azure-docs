@@ -1,6 +1,6 @@
 ---
-title: Convert to a predictive experiment in Azure Machine Learning | Microsoft Docs
-description: How to convert a Machine Learning training experiment, used for training your predictive analytics model, to a predictive experiment which can be deployed as a web service.
+title: How to prepare your model for deployment in Azure Machine Learning Studio | Microsoft Docs
+description: How to prepare your trained model for deployment as a web service by converting your Machine Learning Studio training experiment to a predictive experiment.
 services: machine-learning
 documentationcenter: ''
 author: garyericson
@@ -13,31 +13,38 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 03/28/2017
 ms.author: garye
 
 ---
-# Convert a Machine Learning training experiment to a predictive experiment
-Azure Machine Learning enables you to build, test, and deploy predictive analytics solutions.
+# How to prepare your model for deployment in Azure Machine Learning Studio
 
-Once you've created and iterated on a *training experiment* to train your predictive analytics model, and you're ready to use it to score new data, you need to prepare and streamline your experiment for scoring. You can then operationalize this *predictive experiment* as an Azure web service so that users can send data to your model and receive your model's predictions.
+Azure Machine Learning Studio gives you the tools you need to develop a predictive analytics model and then operationalize it by deploying it as an Azure web service.
 
-By converting to a predictive experiment, you're getting your trained model ready to be deployed as a web service. Users of the web service will send input data to your model and your model will send back the prediction results. So as you convert to a predictive experiment you will want to keep in mind how you expect your model to be used by others.
+To do this, you use Studio to create an experiment - called a *training experiment* - where you train, score, and edit your model. Once you're satisfied, you get your model ready to deploy by converting your training experiment to a *predictive experiment* that's configured to score user data.
+
+You can see an example of this process in [Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
+
+This article takes a deep dive into the details of how a training experiment gets converted into a predictive experiment, and how that predictive experiment is deployed. By understanding these details, you can learn how to configure your deployed model to make it more effective.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
+## Overview 
+
+In your training experiment, you've been concerned with training and scoring your model using your own data. But once deployed, users will send new data to your model and it will return prediction results. So, as you convert your training experiment to a predictive experiment to get it ready for deployment, you'll want to keep in mind how the model will be used by others.
+
 The process of converting a training experiment to a predictive experiment involves three steps:
 
-1. Save the machine learning model that you've trained, and then replace the machine learning algorithm and [Train Model][train-model] modules with your saved trained model.
-2. Trim the experiment to only those modules that are needed for scoring. A training experiment includes a number of modules that are necessary for training but are not needed once the model is trained and ready to use for scoring.
-3. Define where in your experiment you will accept data from the web service user, and what data will be returned.
+1. Replace the machine learning algorithm modules with your trained model.
+2. Trim the experiment to only those modules that are needed for scoring (a training experiment includes a number of modules that are necessary for training but are not needed once the model is trained).
+3. Define how your model will accept data from the web service user, and what data will be returned.
 
 ## Set Up Web Service button
-After you have run your experiment (**RUN** button at the bottom of the experiment canvas), the **Set Up Web Service** button (select the **Predictive Web Service** option) will perform for you the three steps of converting your training experiment to a predictive experiment:
+After you have run your experiment (**RUN** button at the bottom of the experiment canvas), the **Set Up Web Service** button (select the **Predictive Web Service** option) performs for you the three steps of converting your training experiment to a predictive experiment:
 
-1. It saves your trained model as a module in the **Trained Models** section of the module palette (to the left of the experiment canvas), then replaces the machine learning algorithm and [Train Model][train-model] modules with the saved trained model.
-2. It removes modules that are clearly not needed. In our example, this includes the [Split Data][split], 2<sup>nd</sup> [Score Model][score-model], and [Evaluate Model][evaluate-model] modules.
-3. It creates Web service input and output modules and adds them in default locations in your experiment.
+1. It saves your trained model in the **Trained Models** section of the module palette (to the left of the experiment canvas), then replaces the machine learning algorithm and [Train Model][train-model] modules with the saved trained model.
+2. It analyzes your experiment and removes modules that were clearly used only for training and are no longer needed.
+3. It inserts _Web service input_ and _output_ modules into default locations in your experiment (these modules accept and return user data).
 
 For example, the following experiment trains a two-class boosted decision tree model using sample census data:
 
@@ -47,14 +54,17 @@ The modules in this experiment perform basically four different functions:
 
 ![Module functions][figure2]
 
-When you convert this training experiment to a predictive experiment, some of these modules are no longer needed or they have a different purpose:
+When you convert this training experiment to a predictive experiment, some of these modules are no longer needed, or they now serve a different purpose:
 
-* **Data** - The data in this sample dataset is not used during scoring - the user of the web service will supply the data to be scored. However, the metadata from this dataset, such as data types, is used by the trained model. So you need to keep the dataset in the predictive experiment so that it can provide this metadata.
-* **Prep** - Depending on the data that will be submitted for scoring, these modules may or may not be necessary to process the incoming data.
+* **Data** - The data in this sample dataset is not used during scoring - the user of the web service will supply the data to be scored. However, the metadata from this dataset, such as data types, is used by the trained model. So you need to keep the dataset in the predictive experiment so that it can provide this metadata. The data itself isn't used.
+
+* **Prep** - Depending on the user data that will be submitted for scoring, these modules may or may not be necessary to process the incoming data. The **Set Up Web Service** button won't touch these - you'll need to decide how you want to handle them.
   
-    For instance, in this example the sample dataset may have missing values and it includes columns that are not needed to train the model. So a [Clean Missing Data][clean-missing-data] module was included to deal with missing values, and a [Select Columns in Dataset][select-columns] module was included to exclude those extra columns from the data flow. If you know that the data that will be submitted for scoring through the web service will not have missing values, then you can remove the [Clean Missing Data][clean-missing-data] module. However, since the [Select Columns in Dataset][select-columns] module helps define the set of features being scored, that module needs to remain.
-* **Train** - These modules are used to train the model. When you click **Set Up Web Service**, these modules are replaced with a single trained model module. This new module is saved in the **Trained Models** section of the module palette.
-* **Score** - In this example, the [Split Data][split] module is used to divide the data stream into a set of test data and training data. In the predictive experiment this isn't needed and can be removed. Similarly, the 2<sup>nd</sup> [Score Model][score-model] module and the [Evaluate Model][evaluate-model] module are used to compare results from the test data, so these modules are also not needed in the predictive experiment. The remaining [Score Model][score-model] module, however, is needed to return a score result through the web service.
+    For instance, in this example the sample dataset may have missing values, so a [Clean Missing Data][clean-missing-data] module was included to deal with them. Also, the sample dataset includes columns that are not needed to train the model, so a [Select Columns in Dataset][select-columns] module was included to exclude those extra columns from the data flow. If you know that the data that will be submitted for scoring through the web service will not have missing values, then you can remove the [Clean Missing Data][clean-missing-data] module. However, since the [Select Columns in Dataset][select-columns] module helps define what columns of data you expect from the user, that module needs to remain.
+
+* **Train** - These modules are used to train the model. When you click **Set Up Web Service**, these modules are replaced with a single module that contains the model you trained. This new module is saved in the **Trained Models** section of the module palette.
+
+* **Score** - In this example, the [Split Data][split] module is used to divide the data stream into test data and training data. In the predictive experiment we're not training anymore, so this can be removed. Similarly, the 2<sup>nd</sup> [Score Model][score-model] module and the [Evaluate Model][evaluate-model] module are used to compare results from the test data, so these modules are also not needed in the predictive experiment. The remaining [Score Model][score-model] module, however, is needed to return a score result through the web service.
 
 Here is how our example looks after clicking **Set Up Web Service**:
 
@@ -63,7 +73,7 @@ Here is how our example looks after clicking **Set Up Web Service**:
 This may be sufficient to prepare your experiment to be deployed as a web service. However, you may want to do some additional work specific to your experiment.
 
 ### Adjust input and output modules
-In your training experiment, you used a set of training data and then did some processing to get the data in a form that the machine learning algorithm needed. If the data you expect to receive through the web service will not need this processing, you can move the **Web service input module** to a different node in your experiment (click the output of the **Web service input module** and drag it to the input port of the appropriate module).
+In your training experiment, you used a set of training data and then did some processing to get the data in a form that the machine learning algorithm needed. If the data you expect to receive through the web service will not need this processing, you can bypass this processing by moving the **Web service input module** to a different node in your experiment (click the output of the **Web service input module** and drag it to the input port of the appropriate module). The user's data will now arrive in the model at this location.
 
 For example, by default **Set Up Web Service** puts the **Web service input** module at the top of your data flow, as in the figure above. However, if the input data will not need this processing, then you can manually position the **Web service input** past the data processing modules:
 
@@ -72,8 +82,9 @@ For example, by default **Set Up Web Service** puts the **Web service input** mo
 The input data provided through the web service will now pass directly into the Score Model module without any preprocessing.
 
 Similarly, by default **Set Up Web Service** puts the Web service output module at the bottom of your data flow. In this example, the web service will return to the user the output of the [Score Model][score-model] module which includes the complete input data vector plus the scoring results.
+However, if you would prefer to return something different, then you can add additional modules before the **Web service output** module. 
 
-However, if you would prefer to return something different, then you can add additional modules before the **Web service output** module. For example, if you want to return only the scoring results and not the entire vector of input data, then you can add a [Select Columns in Dataset][select-columns] module to exclude all columns except the scoring results. You then move the **Web service output** module to the output of the [Select Columns in Dataset][select-columns] module. The experiment would then look like this:
+For example, if you want to return only the scoring results and not the entire vector of input data, then you can add a [Select Columns in Dataset][select-columns] module to exclude all columns except the scoring results. You then move the **Web service output** module to the output of the [Select Columns in Dataset][select-columns] module. The experiment would then look like this:
 
 ![Moving the web service output][figure5]
 
@@ -94,7 +105,7 @@ A common example is setting up an [Import Data][import-data] module so that the 
 
 You can define Web Service Parameters and associate them with one or more module parameters, and you can specify whether they are required or optional. The user of the web service can then provide values for these parameters when the service is accessed, and the module actions will be modified accordingly.
 
-For more information about Web Service Parameters, see [Using Azure Machine Learning Web Service Parameters
+For more information about what Web Service Parameters are and how to use them, see [Using Azure Machine Learning Web Service Parameters
 ][webserviceparameters].
 
 [webserviceparameters]: machine-learning-web-service-parameters.md
