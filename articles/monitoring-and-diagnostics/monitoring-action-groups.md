@@ -2,7 +2,10 @@
 ## Overview ##
 This article shows you how to create and manage action groups in the Azure portal.
 
-[!NOTE] This feature is currently in private preview. Not all functionality may be available at this time.
+>[!NOTE]
+>This feature is currently in private preview. Not all functionality may be available at this time.
+>
+>
 
 Action groups enable you to configure a list of receivers. These groups can then be leveraged when defining activity log alerts; ensuring that a particular action group is notified when the activity log alert is triggered.
 
@@ -53,4 +56,4 @@ Learn more on [SMS alert behavior](monitoring-sms-alert-behavior.md)
 Get an [understanding of the activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md)  
 Learn more about [rate limiting](monitoring-alerts-rate-limiting.md) on alerts  
 Get an [overview of activity log alerts](monitoring-overview-alerts.md) and learn how to get alerted  
-How to [configure alerts whenever a service notification is posted](monitoring-activity-log-alerts-on-service-notifications.md)
+How to [configure alerts whenever a service health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md)
