@@ -91,39 +91,40 @@ These steps read settings at directory level, which apply to all Office groups i
 
 1. Read all existing directory settings:
 
-    `Get-AzureADDirectorySetting -All $True'
+    Get-AzureADDirectorySetting -All $True
 
 This cmdlet returns a list of all directory settings:
-'
-Id                                   DisplayName   TemplateId                           Values
---                                   -----------   ----------                           ------
-c391b57d-5783-4c53-9236-cefb5c6ef323 Group.Unified 62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...`
+
+    Id                                   DisplayName   TemplateId                           Values
+    --                                   -----------   ----------                           ------
+    c391b57d-5783-4c53-9236-cefb5c6ef323 Group.Unified 62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
 
 
 2. Read all settings for a specific group:
 
-    `Get-AzureADObjectSetting -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -TargetType Groups`
+   Get-AzureADObjectSetting -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -TargetType Groups
 
 3. Read all directory settings values of a specific directory settings object, using Settings Id GUID:
 
-    `(Get-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323).values'
+    (Get-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323).values
 
 This cmdlet returns the names and values in this settings object for this specific group:
-'
-Name                          Value
-----                          -----
-ClassificationDescriptions
-DefaultClassification
-PrefixSuffixNamingRequirement
-AllowGuestsToBeGroupOwner     False
-AllowGuestsToAccessGroups     True
-GuestUsageGuidelinesUrl
-GroupCreationAllowedGroupId
-AllowToAddGuests              True
-UsageGuidelinesUrl            <https://guideline.com>
-ClassificationList
-EnableGroupCreation           True`
-'
+
+
+    Name                          Value
+    ----                          -----
+    ClassificationDescriptions
+    DefaultClassification
+    PrefixSuffixNamingRequirement
+    AllowGuestsToBeGroupOwner     False
+    AllowGuestsToAccessGroups     True
+    GuestUsageGuidelinesUrl
+    GroupCreationAllowedGroupId
+    AllowToAddGuests              True
+    UsageGuidelinesUrl            <https://guideline.com>
+    ClassificationList
+    EnableGroupCreation           True
+
 
 ## Update settings for a specific group
 
@@ -154,6 +155,7 @@ EnableGroupCreation           True`
 
     $Setting["AllowToAddGuests"]=$False
 
+Note: Setting names are case sensitive
 
 6. Create the new setting for the required group in the directory:
 
@@ -172,26 +174,26 @@ These steps update settings at directory level, which apply to all Unified group
 
 1. Find the existing Settings object:
 
-    Get-AzureADDirectorySetting | Where-object -Property Displayname -Value "Group.Unified" -EQ`
+    Get-AzureADDirectorySetting | Where-object -Property Displayname -Value "Group.Unified" -EQ
 
     Id                                   DisplayName   TemplateId                           Values
     --                                   -----------   ----------                           ------
     c391b57d-5783-4c53-9236-cefb5c6ef323 Group.Unified 62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
 
-    $setting = Get-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323`
+    $setting = Get-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323
 
 3. Update the value:
 
-    $Setting["AllowToAddGuests"] = "false"`
+    $Setting["AllowToAddGuests"] = "false"
 
 4. Update the setting:
 
-    Set-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323 -DirectorySetting $Setting`
+    Set-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323 -DirectorySetting $Setting
 
 ## Remove settings at the directory level
 This step removes settings at directory level, which apply to all Office groups in the directory.
 
-    Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c`
+    Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
 
 ## Cmdlet syntax reference
 You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](https://docs.microsoft.com/en-us/powershell/azuread/).
