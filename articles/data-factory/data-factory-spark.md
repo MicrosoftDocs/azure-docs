@@ -100,10 +100,6 @@ Here is the sample JSON definition of a Spark activity in a pipeline:
                         "name": "OutputDataset"
                     }
                 ],
-                "scheduler": {
-                    "frequency": "Day",
-                    "interval": 1
-                },
                 "name": "MySparkActivity",
                 "description": "This activity invokes the Spark program",
                 "linkedServiceName": "HDInsightLinkedService"
@@ -117,7 +113,9 @@ Here is the sample JSON definition of a Spark activity in a pipeline:
 
 The type properties (in the typeProperties section) are described later in this article in the [Spark Activity properties](#spark-activity-properties) section. 
 
-As mentioned earlier, you must specify an output dataset for the activity as that is what drives the schedule of the pipeline (hourly, daily, etc.). In this example, an Azure Blob dataset is used. To create an Azure Blob dataset, you need to create an Azure Storage linked service first. Here are the sample definitions of Azure Storage linked service and Azure Blob dataset: 
+As mentioned earlier, you must specify an output dataset for the activity as that is what drives the schedule for the pipeline (hourly, daily, etc.). In this example, an Azure Blob dataset is used. To create an Azure Blob dataset, you need to create an Azure Storage linked service first. 
+
+Here are the sample definitions of Azure Storage linked service and Azure Blob dataset: 
 
 **Azure Storage Linked service:**
 ```json
@@ -159,7 +157,7 @@ As mentioned earlier, you must specify an output dataset for the activity as tha
 }
 ```
 
-This dataset is more of a dummy dataset. Data Factory uses the frequency and interval settings and runs the pipeline daily within the start and end times of a pipeline. 
+This dataset is more of a dummy dataset. Data Factory uses the frequency and interval settings and runs the pipeline daily within the start and end times of a pipeline. In the sample pipeline definition, the start and end times are only one day apart, so the pipeline runs only once. 
 
 ## Spark Activity properties
 
