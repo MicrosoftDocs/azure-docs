@@ -18,7 +18,7 @@ ms.author: andalmia
 ---
 # Delete an offer/SKU from Azure Marketplace
 
-For various reasons, you may decide to remove your offer from the Marketplace.  Offer Removal ensures that new customers may no longer purchase or deploy your offer, but has no impact on existing customers. Offer Termination is the process of terminating the service and/or licensing agreement between you and your existing customers.  Guidance and policies related to offer removal and termination are governed by [Microsoft Marketplace Publisher Agreement](http://go.microsoft.com/fwlink/?LinkID=699560) (see Section 7) and the [Participation Policies](https://azure.microsoft.com/en-us/support/legal/marketplace/participation-policies/) (see Section 6.2).   This article talks about the different supported delete scenarios and the steps you can take for them.
+For various reasons, you may decide to remove your offer from the Marketplace.  Offer Removal ensures that new customers may no longer purchase or deploy your offer, but has no impact on existing customers. Offer Termination is the process of terminating the service and/or licensing agreement between you and your existing customers.  Guidance and policies related to offer removal and termination are governed by [Microsoft Marketplace Publisher Agreement](http://go.microsoft.com/fwlink/?LinkID=699560) (see Section 7) and the [Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (see Section 6.2).   This article talks about the different supported delete scenarios and the steps you can take for them.
 
 ## Delete a live SKU from Azure Marketplace
 
