@@ -3,19 +3,19 @@ title: Connect to Azure SQL Database by using .NET (C#) | Microsoft Docs
 description: Use the sample code in this quick start to build a modern application with C# and backed by a powerful relational database in the cloud with Azure SQL Database.
 services: sql-database
 documentationcenter: ''
-author: stevestein
+author: ajlam
 manager: jhubbard
 editor: ''
 
 ms.assetid: 7faca033-24b4-4f64-9301-b4de41e73dfd
 ms.service: sql-database
-ms.custom: development
+ms.custom: quick start
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/28/2017
-ms.author: sstein
+ms.author: andrela;sstein;carlrab
 
 ---
 # Azure SQL Database: Use .NET (C#) to connect and query data
