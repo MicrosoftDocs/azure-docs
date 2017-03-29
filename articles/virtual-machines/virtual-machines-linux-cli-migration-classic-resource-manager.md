@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/30/2017
 ms.author: kasing
 
 ---
@@ -36,6 +36,13 @@ Here are a few best practices that we recommend as you evaluate migrating IaaS r
 
 * Read through the [list of unsupported configurations or features](virtual-machines-windows-migration-classic-resource-manager.md). If you have virtual machines that use unsupported configurations or features, we recommend that you wait for the feature/configuration support to be announced. Alternatively, you can remove that feature or move out of that configuration to enable migration if it suits your needs.
 * If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal.
+
+> [!IMPORTANT]
+> Application Gateways are not currently supported for migration from classic to Resource Manager. To migrate a classic virtual network with an Application gateway, remove the gateway before running a Prepare operation to move the network. After you complete the migration, reconnect the gateway in Azure Resource Manager. 
+>
+>ExpressRoute gateways connecting to ExpressRoute circuits in another subscription cannot be migrated automatically. In such cases, remove the ExpressRoute gateway, migrate the virtual network and recreate the gateway. Please see [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](../articles/expressroute/expressroute-migration-classic-resource-manager.md) for more information.
+> 
+> 
 
 ## Step 2: Set your subscription and register the provider
 For migration scenarios, you need to set up your environment for both classic and Resource Manager. [Install Azure CLI](../cli-install-nodejs.md) and [select your subscription](../xplat-cli-connect.md).
@@ -159,6 +166,6 @@ If the prepared configuration looks good, you can move forward and commit the re
     azure storage account commit-migration <storageAccountName>
 
 ## Next steps
-* [Platform-supported migration of IaaS resources from classic to Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
-* [Technical deep dive on platform-supported migration from classic to Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+* [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-linux-migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Technical deep dive on platform-supported migration from classic to Resource Manager](virtual-machines-linux-migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

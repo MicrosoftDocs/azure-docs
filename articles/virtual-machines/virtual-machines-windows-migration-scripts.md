@@ -32,10 +32,10 @@ This article catalogs the tools that have been provided by the community to assi
 > 
 > 
 
-## ASM2ARM
-This is a PowerShell script module for migrating your **single** Virtual Machine (VM) from classic to Azure Resource Manager deployment model. 
+## AsmMetadataParser
+This is a collection of helper tools created as part of enterprise migrations from ASM to ARM. This tool allows you to replicate your infrastructure into another subscription which can be used for testing migration and iron out any issues before running the migration on your Production subscription.
 
-[Link to the tool documentation](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/asm2arm)
+[Link to the tool documentation](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
 ## migAz
 migAz is an additional option to migrate a complete set of classic IaaS resources to Azure Resource Manager IaaS resources. The migration can occur within the same subscription or between different subscriptions and subscription types (ex: CSP subscriptions).
