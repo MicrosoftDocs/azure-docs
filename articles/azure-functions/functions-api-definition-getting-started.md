@@ -24,7 +24,7 @@ This document guides you through the step by step process of creating an Open AP
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ### What is Open API (Swagger)?
-[Swagger Metadata](http://swagger.io/) is a file that defines the functionality and operating modes of your API, and allows a function hosting a REST API to be consumed by a wide variety of other software. Microsoft offerings like PowerApps and [API Apps](https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-dotnet-get-started#a-idcodegena-generate-client-code-for-the-data-tier), as well as 3rd party developer tooling like [Postman](https://www.getpostman.com/docs/importing_swagger) and [many more packages](http://swagger.io/tools/) all allow your API to be consumed with a Swagger definition.
+[Swagger Metadata](http://swagger.io/) is a file that defines the functionality and operating modes of your API, and allows a function hosting a REST API to be consumed by a wide variety of other software. Microsoft offerings like PowerApps and [API Apps](https://docs.microsoft.com/azure/app-service-api/app-service-api-dotnet-get-started#a-idcodegena-generate-client-code-for-the-data-tier), as well as 3rd party developer tooling like [Postman](https://www.getpostman.com/docs/importing_swagger) and [many more packages](http://swagger.io/tools/) all allow your API to be consumed with a Swagger definition.
 
 ## <a name="prepare-function"></a>Creating a Function with a simple API
   To create an Open API definition, we first need to create a Function with a simple API. If you already have an API hosted on a Function App, you can skip straight to the next section
@@ -44,14 +44,15 @@ This document guides you through the step by step process of creating an Open AP
 1. Set `Swagger Source` to `Internal`
   1. This step enables a suite of Open API options for your Function App, including an endpoint to host a Swagger file from your Function App's domain, an inline copy of the [Swagger Editor](http://editor.swagger.io), and a quickstart definition generator.
 ![Enabled Definition](./media/functions-api-definition-getting-started/enabledefinition.png)
+
 ## <a name="create-definition"></a>Creating your API Definition from a template
 1. Click `Load Generated API Definition`
   1. This step scans your Function App for HTTP Trigger functions and use the info in functions.json to generate a Swagger document.
-1. Add an operation object to `paths: /api/yourfunctionroute post:`
+2. Add an operation object to `paths: /api/yourfunctionroute post:`
   1. The quickstart Swagger document is an outline of a full Swagger doc. It is lacking most of the metadata necessary for a useful Swagger definition, such as operation objects and response templates.
   1. The sample operation object below has a filled out produces/consumes section, a parameter object, and a response object.
   ```yaml
-  post:
+      post:
         operationId: /api/yourfunctionroute/post
         consumes: [application/json]
         produces: [application/json]
@@ -76,7 +77,7 @@ This document guides you through the step by step process of creating an Open AP
         security:
           - apikeyQuery: []
   ```
-1. Click `save` to save your changes
+3. Click `save` to save your changes
 
 ![Adding Template Definition](./media/functions-api-definition-getting-started/addingtemplate.png)
 
@@ -99,6 +100,10 @@ To test the API definition you just made you will need to follow the steps below
 1. You should see a SUCCESS result under `Pretty`
 ![API Definition test](./media/functions-api-definition-getting-started/definitionTest.png)
 
-## Learn more
-
-Check out the full [Open API Definition in Functions](functions-api-definition.md) doc for more info.
+## Next steps
+* [Azure Functions Github repository](https://github.com/Azure/Azure-Functions/)
+  * Check out the Functions Github to give us feedback on the API definition support preview! Make a github issue for anything you'd like to see updated.
+* [Open API Definition in Functions Overview](functions-api-definition.md)
+  * Read the full documentation for more info on Open API support.
+* [Azure Functions developer reference](functions-reference.md)  
+  * Programmer reference for coding functions and defining triggers and bindings.

@@ -58,6 +58,10 @@ The following table represents the portal settings and corresponding data in fun
 
 *Operation ID is only required for integrating with PowerApps + Flow
 
-## Learn more
-
-Try the [getting started tutorial](functions-api-definition-getting-started.md) to see on Open API definition in action!
+## Next steps
+* [Azure Functions Github repository](https://github.com/Azure/Azure-Functions/)
+  * Check out the Functions Github to give us feedback on the API definition support preview! Make a github issue for anything you'd like to see updated.
+* [Getting started tutorial](functions-api-definition-getting-started.md)
+  * Try the our walkthrough to see on Open API definition in action!
+* [Azure Functions developer reference](functions-reference.md)  
+  * Programmer reference for coding functions and defining triggers and bindings.
