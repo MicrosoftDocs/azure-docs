@@ -33,11 +33,11 @@ Pay your outstanding balance in full.
 
 * If you are on an invoice mode of payment, send your payment to the location listed at the bottom of your invoice. If you need help, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-* If the credit card on file is declined or expired, [change the credit card used to pay for the subscription](billing-how-to-change-credit-card.md) or contact your bank to resolve the issue. When you update the payment method, Azure immediately processes the payment for all outstanding charges. Payment is also process for any other Microsoft services where you have outstanding charges.
+* If the credit card on file is declined or expired, [change the credit card used to pay for the subscription](billing-how-to-change-credit-card.md) or contact your bank to resolve the issue. When you update the payment method, Azure immediately processes the payment for all outstanding charges. Payment is also processed for any other Microsoft services where you have outstanding charges.
 
 * If you didn't see a bill because the Account Administrator has left the company or changed roles, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to resolve the issue.
 
-If after you know your payment has been processed but your subscription is still disabled, see [Reactivate disabled Azure subscription](billing-subscription-become-disable.md).
+If you know your payment has been processed but your subscription is still disabled, see [Reactivate disabled Azure subscription](billing-subscription-become-disable.md).
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
