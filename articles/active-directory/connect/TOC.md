@@ -62,6 +62,7 @@
 ### [Errors during synchronization](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Object is not synchronized](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Password synchronization](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
+### [How to recover from LocalDB 10-GB limit](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Reference
 ## [Identity synchronization and duplicate attribute resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)

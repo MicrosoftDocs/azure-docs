@@ -59,7 +59,7 @@ After failover from the primary to secondary location, replicated virtual machin
 
 4. If data encryption is enabled for the cloud, in **Encryption Key** select the certificate that was issued when you enabled data encryption during Provider installation on the VMM server.
 5. Initiate the failover. You can follow the failover progress on the **Jobs** tab.
-6. If you selected the option to synchronize the data before the failover, once the initial data synchronization is complete and you're ready to shut down the virtual machines in Azure, click **Jobs** > <planned failover job name> **Complete Failover**. This shuts down the Azure machine, transfers the latest changes to the on-premises virtual machine, and starts the VM on-premises.
+6. If you selected the option to synchronize the data before the failover, once the initial data synchronization is complete and you're ready to shut down the virtual machines in Azure, click **Jobs** planned failover job name **Complete Failover**. This shuts down the Azure machine, transfers the latest changes to the on-premises virtual machine, and starts the VM on-premises.
 7. You can now log onto the virtual machine to validate it's available as expected.
 8. The virtual machine is in a commit pending state. Click **Commit** to commit the failover.
 9. Now in order to complete the failback click **Reverse Replicate** to start protecting the virtual machine in the primary site.

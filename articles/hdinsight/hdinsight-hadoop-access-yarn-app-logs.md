@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 
 ---
 # Access YARN application logs on Windows-based HDInsight

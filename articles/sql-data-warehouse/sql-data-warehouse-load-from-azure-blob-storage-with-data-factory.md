@@ -18,6 +18,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 11/22/2016
 ms.author: barbkess
+ms.custom: loading
 
 ---
 # Load data from Azure blob storage into Azure SQL Data Warehouse (Azure Data Factory)

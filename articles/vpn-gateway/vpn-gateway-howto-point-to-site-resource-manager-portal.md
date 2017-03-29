@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cherylmc
 
 ---
@@ -77,6 +77,9 @@ The screenshots in this section are provided as a reference example. Be sure to 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## <a name="dns"></a>Part 4 - Specify a DNS server (optional)
+
+DNS is not required for a Point-to-Site connection. However, if you want to have name resolution for resources that are deployed to your virtual network, you should specify a DNS server. This setting lets you specify the DNS server that you want to use for name resolution for this virtual network. It does not create a DNS server.
+
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="creategw"></a>Part 5 - Create a virtual network gateway
@@ -132,11 +135,11 @@ If you are using a self-signed root certificate, see [Generate a client certific
 
 
 ### <a name="exportclientcert"></a>Step 3 - Export the client certificate
-The following steps export help you export client certificates that you generated from your self-signed root. You will later install the exported client certificates on each computer that will connect to the VNet using P2S.
+If you generate a client certificate from a self-signed root certificate using the [PowerShell](vpn-gateway-certificates-point-to-site.md#clientcert) instructions, it's automatically installed on the computer that you used to generate it. If you want to install a client certificate on another client computer, you need to export it.
 
 1. To export a client certificate, open **certmgr.msc**. Right-click the client certificate that you want to export, click **all tasks**, and then click **export**. This opens the **Certificate Export Wizard**.
 2. In the Wizard, click **Next**, then select **Yes, export the private key**, and then click **Next**.
-3. On the **Export File Format** page, you can leave the defaults selected. Then click **Next**. 
+3. On the **Export File Format** page, leave the defaults selected. Make sure that **Include all certificates in the certification path if possible** is selected. Then click **Next**. 
 4. On the **Security** page, you must protect the private key. If you select to use a password, make sure to record or remember the password that you set for this certificate. Then click **Next**.
 5. On the **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then click **Next**.
 6. Click **Finish** to export the certificate.   
@@ -181,10 +184,7 @@ You can use the same VPN client configuration package on each client computer, p
     ![VPN client download 1](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/downloadvpnclient1.png)
 2. Select the correct package for your client, then click **Download**. Save the configuration package file. You will install this on each client computer that will connect to the virtual network.
 
-	![VPN client download 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/client.png)
-
-   * For 64-bit clients, select **AMD64**.
-   * For 32-bit clients, select **x86**.
+	![VPN client download 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpnclient.png)
 
 ### Step 2 - Install the client configuration package
 
@@ -197,8 +197,9 @@ You can use the same VPN client configuration package on each client computer, p
     ![VPN client](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpn.png)
 
 
-## <a name="installclientcert"></a>Part 10 - Install the client certificate
-Each client computer must have a client certificate in order to authenticate. When installing the client certificate, you will need the password that was created when the client certificate was exported.
+## <a name="installclientcert"></a>Part 10 - Install an exported client certificate
+
+If you want to create a P2S connection from a client computer other than the one you used to generate the client certificates, you need to install a client certificate. When installing a client certificate, you will need the password that was created when the client certificate was exported. 
 
 1. Locate and copy the *.pfx* file to the client computer. On the client computer, double-click the *.pfx* file to install. Leave the **Store Location** as **Current User**, then click **Next**.
 2. On the **File** to import page, don't make any changes. Click **Next**.

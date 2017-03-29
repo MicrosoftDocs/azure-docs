@@ -20,15 +20,16 @@ ms.author: sashan
 
 ---
 # Storing Azure SQL Database Backups for up to 10 years
-Many applications have regulatory, compliance, or other business purposes that require you to retain the automatic full database backups beyond the 7-35 days provided by SQL Database's [automatic backups](sql-database-automated-backups.md).
+Many applications have regulatory, compliance, or other business purposes that require you to retain the automatic full database backups beyond the 7-35 days provided by SQL Database's [automatic backups](sql-database-automated-backups.md). The **Long-Term Backup Retention** feature enables you to store your Azure SQL Database backups in an Azure Recovery Services vault for up to 10 years. You can store up to 1000 databases per vault. You can select any backup in the vault to restore it as a new database.
 
-The **Long-Term Backup Retention** feature enables you to store your Azure SQL Database backups in an Azure Recovery Services vault for up to 10 years. You can store up to 1000 databases per vault. You can select any backup in the vault to restore it as a new database.
+> [!IMPORTANT]
+> Long-Term Backup Retention is currently in preview and available in the following regions: Australia East, Australia Southeast, Brazil South, Central US, East Asia, East US, East US 2, India Central, India South, Japan East, Japan West, North Central US, North Europe, South Central US, Southeast Asia, West Europe, and West US.
+>
 
 > [!NOTE]
 > You can enable up to 200 databases per vault during a 24-hour period. Therefore, we recommend that you use a separate vault for each server to minimize the impact of this limit. 
 > 
 > 
-
 ## How does SQL Database long-term backup retention work?
 
 Long-term backup retention of backups allows you to associate an Azure SQL Database server with an Azure Recovery Services vault. 
@@ -36,7 +37,6 @@ Long-term backup retention of backups allows you to associate an Azure SQL Datab
 * The vault must be created in the same Azure subscription that created the SQL server and in the same geographic region and resource group. 
 * You then configure a retention policy for any database. The policy causes the weekly full database backups be copied to the Recovery Services vault and retained for the specified retention period (up to 10 years). 
 * You can then restore from any of these backups to a new database in any server in the subscription. The copy is performed by Azure storage from existing backups and has no performance impact on the existing database.
-
 
 > [!TIP]
 > For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery using the Azure portal](sql-database-get-started-backup-recovery-portal.md), or [Get Started with Backup and Restore for Data Protection and Recovery using PowerShell](sql-database-get-started-backup-recovery-powershell.md)
@@ -108,7 +108,7 @@ To remove long-term backup retention backups from the vault, see [Delete long-te
     A: No, the vault and server must be in the same region to minimize the copy time and avoid the traffic charges.
 5. Q: How many databases can I store in one vault?
 
-    A: Currently we only support up to 1000 databases per vault. 
+    A: Currently, we only support up to 1000 databases per vault. 
 6. Q. How many vaults can I create per subscription?
 
     A. You can create up to 25 vaults per subscription.
@@ -126,7 +126,7 @@ To remove long-term backup retention backups from the vault, see [Delete long-te
     A. Yes, TDE is supported. You can restore the database from the vault even if the original database no longer exists.
 11. Q. What happens with the backups in the vault if my subscription is suspended? 
 
-    A. If your subscription is suspended, we retain the existing databases and backups but the new backups are not be copied to the vault. After you reactivate the subscription, the service resumes copying backups to the vault. Your vault become accessibles to the restore operations using the backups that had been copied there before the subscription was suspended. 
+    A. If your subscription is suspended, we retain the existing databases and backups. New backups are not being copied to the vault. After you reactivate the subscription, the service resumes copying backups to the vault. Your vault become accessibles to the restore operations using the backups that had been copied there before the subscription was suspended. 
 12. Q: Can I get access to the SQL Database backup files so I can download / restore to SQL Server?
 
     A: No, not currently.

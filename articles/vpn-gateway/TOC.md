@@ -14,12 +14,12 @@
 ## Configure a Site-to-Site connection
 ### [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+### [Azure portal (classic)](vpn-gateway-howto-site-to-site-classic-portal.md)
 ### [Classic portal (classic)](vpn-gateway-site-to-site-create.md)
 ## Configure a Point-to-Site connection
 ### [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 ### [Azure portal (classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-### [Classic portal (classic)](vpn-gateway-point-to-site-create.md)
 ## Configure a VNet-to-VNet connection
 ### [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -39,9 +39,12 @@
 ## [Configure BGP for Azure VPN Gateways using PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Configure highly available active-active connections](vpn-gateway-activeactive-rm-powershell.md)
 ## [Modify local network gateway settings using PowerShell](vpn-gateway-modify-local-network-gateway.md)
-## [Verify a gateway connection](vpn-gateway-verify-connection-resource-manager.md)
-## [Reset an Azure VPN Gateway](vpn-gateway-resetgw-classic.md)
-## [How to work with self-signed certificates for Point-to-Site connections](vpn-gateway-certificates-point-to-site.md)
+## [Verify a VPN gateway connection](vpn-gateway-verify-connection-resource-manager.md)
+## [Reset a VPN gateway](vpn-gateway-resetgw-classic.md)
+## Delete a VPN gateway
+### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+### [PowerShell (classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+## [Create self-signed root certificates for P2S connections](vpn-gateway-certificates-point-to-site.md)
 ## [Configure a VPN gateway (classic)](vpn-gateway-configure-vpn-gateway-mp.md)
 
 # Reference

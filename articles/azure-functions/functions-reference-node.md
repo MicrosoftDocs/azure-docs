@@ -161,6 +161,8 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
+Node should have a `package.json` at the root of the Function App so Functions can shared cached packages. If there are version conflicts, you can add a `package.json` at a Function level. However, doing so should be avoided for performance reasons. 
+
 ## Environment variables
 To get an environment variable or an app setting value, use `process.env`, as shown in the following code example:
 

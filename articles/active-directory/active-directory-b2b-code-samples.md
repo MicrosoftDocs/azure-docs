@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 
 ---
@@ -23,7 +23,7 @@ ms.author: sasubram
 # Azure Active Directory B2B collaboration code and PowerShell samples
 
 ## Code Sample
-This sample illustrates how to call the invitation API, in "app-only" mode, to get the redemption URL for the resource to which you are inviting the B2B user. The goal is to send a custom invitation email. You'll see how the email can be composed with an HTTP client, so you can customize how it looks and send it through Graph API.
+Here we illustrate how to call the invitation API, in "app-only" mode, to get the redemption URL for the resource to which you are inviting the B2B user. The goal is to send a custom invitation email. The email can be composed with an HTTP client, so you can customize how it looks and send it through Graph API.
 
 ```
 namespace SampleInviteApp
@@ -159,10 +159,10 @@ namespace SampleInviteApp
 ```
 
 ## PowerShell example
-The following example will walk you through how you can bulk invite external users to an organization from email addresses that you may have stored in a .CSV file.
+You can bulk-invite external users to an organization from email addresses that you have stored in a .CSV file.
 
 1. Prepare the .CSV file
-  Create a new CSV file and name it invitations.csv. In this example, the file is saved in C:\data. Your CSV file could look like the following:
+  Create a new CSV file and name it invitations.csv. In this example, the file is saved in C:\data. Your CSV file could look like:
 
   ```
     InvitedUserEmailAddress
@@ -181,14 +181,17 @@ The following example will walk you through how you can bulk invite external use
     Connect-AzureAd and login
     ```
 
-4. Run the PowerShell cmdlt
+4. Run the PowerShell cmdlet
 
     ```
     $Invitations = import-csv C:\data\invitations.csv
     foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InviteRedirectUrl http://microsoft.com -SendInvitationMessage $true}
   ```
 
-This will send an invitation to the email address in invitations.csv. Additional features of this cmdlet include customized text in the email message, include a display name for the invited user, sending messages to CCs or suppressing email messages altogether.
+This cmdlet sends an invitation to the email addresses in invitations.csv. Additional features of this cmdlet include:
+- Customized text in the email message
+- Includingf a display name for the invited user
+- Sending messages to CCs or suppressing email messages altogether
 
 ## Next steps
 

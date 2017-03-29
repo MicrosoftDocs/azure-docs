@@ -1,3 +1,4 @@
+
 # Overview
 ## [What is Service Fabric?](service-fabric-overview.md)
 ## [Understand microservices](service-fabric-overview-microservices.md)
@@ -22,11 +23,13 @@
 ### [Patterns and scenarios](service-fabric-patterns-and-scenarios.md)
 ### Basics
 #### [Application model](service-fabric-application-model.md)
+#### [Package an application](service-fabric-package-apps.md)
 #### [Supported programming model](service-fabric-choose-framework.md)
 #### [Service state](service-fabric-concepts-state.md)
 #### [Service communication](service-fabric-connect-and-communicate-with-services.md)
 #### [Add a web front end](service-fabric-add-a-web-frontend.md)
 #### [Service manifest resources](service-fabric-service-manifest-resources.md)
+#### [Get started with Eclipse plugin for Java development](service-fabric-get-started-eclipse.md)
 #### [Manage apps in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 #### [Configure secure connections in Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
 #### Debug
@@ -62,7 +65,7 @@
 #### [Backup and restore](service-fabric-reliable-services-backup-restore.md)
 #### [Communicate with Reliable Services](service-fabric-reliable-services-communication.md)
 #### [Secure communications with Reliable Services](service-fabric-reliable-services-secure-communication.md)
-##### [ASP.NET](service-fabric-reliable-services-communication-webapi.md)
+##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 ##### [Service Remoting](service-fabric-reliable-services-communication-remoting.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Reverse Proxy](service-fabric-reverseproxy.md)
@@ -88,6 +91,7 @@
 ## Migrate from Cloud Services
 ### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [Migrate to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+### [Recomended practices](/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ## Create and manage clusters
 
@@ -100,6 +104,7 @@
 #### [Manage a cluster using Azure CLI](service-fabric-azure-cli.md) 
 #### [Secure a cluster](service-fabric-cluster-security.md)
 #### [Disaster recovery](service-fabric-disaster-recovery.md)
+#### [Feature differences between Linux and Windows](service-fabric-linux-windows-differences.md)
 
 ### Clusters on Azure
 #### Create a cluster on Azure
@@ -109,11 +114,11 @@
 #### [Cluster networking patterns](service-fabric-patterns-networking.md)
 #### [Node types and VM Scale Sets](service-fabric-cluster-nodetypes.md)
 #### [Scale a cluster](service-fabric-cluster-scale-up-down.md)
+#### [Scale a cluster programmatically](service-fabric-cluster-programmatic-scaling.md)
 #### [Upgrade a cluster](service-fabric-cluster-upgrade.md)
 #### [Delete a cluster](service-fabric-cluster-delete.md)
 #### [Access control](service-fabric-cluster-security-roles.md)
 #### [Configure a cluster](service-fabric-cluster-fabric-settings.md)
-#### [Secure a cluster using certs](service-fabric-windows-cluster-x509-security.md)
 #### [Add or rollover cluster certificates](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Try a Party Cluster for free](http://aka.ms/tryservicefabric)
 
@@ -131,7 +136,8 @@
 
 ## Manage application lifecycle
 ### [Overview](service-fabric-application-lifecycle.md)
-### [Set up continuous integration](service-fabric-set-up-continuous-integration.md)
+### [Set up continuous integration with VSTS](service-fabric-set-up-continuous-integration.md)
+### [Deploy your Linux Java app using Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 ### [Understand the ImageStoreConnectionString setting](service-fabric-image-store-connection-string.md)
 ### Deploy or remove applications
 #### [PowerShell](service-fabric-deploy-remove-applications.md)

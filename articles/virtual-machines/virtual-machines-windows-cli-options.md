@@ -55,5 +55,8 @@ Once completed, a bash session will start that is preloaded with the Azure CLI t
 
 ## Next Steps
 
-[Azure CLI script samples](./virtual-machines-linux-cli-samples.md).
+[CLI sample for Azure virtual machines](./virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
+[CLI samples for Azure Web Apps](../app-service-web/app-service-cli-samples.md)
+
+[CLI samples for Azure SQL](../sql-database/sql-database-cli-samples.md)

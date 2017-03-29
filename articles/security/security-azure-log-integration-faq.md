@@ -20,6 +20,9 @@ ms.author: TomSh
 # Azure log integration frequently asked questions (FAQ)
 This FAQ answers questions about Azure log integration, a service that enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems. This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events associated with your applications.
 
+## Is the Azure Log Integration software free?
+Yes. There is no charge for the Azure Log Integration software. 
+
 ## How can I see the storage accounts from which Azure log integration is pulling Azure VM logs from?
 Run the command **azlog source list**.
 

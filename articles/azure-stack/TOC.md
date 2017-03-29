@@ -32,11 +32,13 @@
 ### [Monitor health and alerts](azure-stack-monitor-health.md)
 ### [Manage network resources](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
 ### [Manage storage resources](azure-stack-manage-storage-accounts.md)
+### [Manage Windows Azure Pack VMs](azure-stack-manage-windows-azure-pack.md)
 
 # Security & compliance
 ## How to
-### [Manage user permissions](azure-stack-manage-permissions.md)
+### [Manage RBAC](azure-stack-manage-permissions.md)
 ### [Add users for AD FS](azure-stack-add-users-adfs.md)
+### [Create service principals](Azure-stack-create-service-principals.md)
 
 # Offer services
 ## Get started
@@ -55,6 +57,8 @@
 #### [Before you get started](azure-stack-app-service-before-you-get-started.md)
 #### [Deploy App Service resource provider](azure-stack-app-service-deploy.md)
 #### [Add more web worker roles](azure-stack-app-service-add-worker-roles.md)
+#### [Configure deployment sources](azure-stack-app-service-configure-deployment-sources.md)
+#### [Enable FTP in App Service on Azure Stack](azure-stack-app-service-enable-ftp.md)
 ### Populate the Marketplace
 #### [Marketplace overview](azure-stack-marketplace.md)
 #### [Download marketplace items](azure-stack-download-azure-marketplace-item.md)
@@ -84,7 +88,6 @@
 #### [Manage with portal](azure-stack-kv-manage-portal.md)
 #### [Manage with PowerShell](azure-stack-kv-manage-powershell.md)
 ### How to
-#### [Deploy a VM with a password](azure-stack-kv-deploy-vm-with-secret.md)
 #### [Create a VM with a certificate](azure-stack-kv-push-secret-into-vm.md)
 #### [Key Vault sample app](azure-stack-kv-sample-app.md)
 
@@ -110,6 +113,10 @@
 
 # Troubleshoot
 ## [Known issues](azure-stack-troubleshooting.md)
+## [Diagnostics in Azure Stack](azure-stack-diagnostics.md)
+
+# Reference
+## [Manage API version profiles](azure-stack-version-profiles.md)
 
 # Resources
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  

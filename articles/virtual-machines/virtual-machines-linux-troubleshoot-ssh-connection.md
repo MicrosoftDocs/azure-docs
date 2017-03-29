@@ -132,7 +132,7 @@ azure vm extension set myResourceGroup myVM \
 ```
 
 ## Use the Azure CLI 1.0
-If you haven't already, [install the Azure CLI 1.0 and connect to your Azure subscription](../xplat-cli-install.md). Make sure that you are using Resource Manager mode as follows:
+If you haven't already, [install the Azure CLI 1.0 and connect to your Azure subscription](../cli-install-nodejs.md). Make sure that you are using Resource Manager mode as follows:
 
 ```azurecli
 azure config mode arm
@@ -228,7 +228,7 @@ Try these steps to resolve the most common SSH connection failures for VMs that 
 * Redeploy the VM to a new Azure node. For information about how to redeploy a VM, see [Redeploy virtual machine to new Azure node](virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
     After this operation finishes, ephemeral disk data will be lost and dynamic IP addresses that are associated with the virtual machine will be updated.
-* Follow the instructions in [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-classic-reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) to:
+* Follow the instructions in [How to reset a password or SSH for Linux-based virtual machines](linux/classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) to:
   
   * Reset the password or SSH key.
   * Create a *sudo* user account.
@@ -239,5 +239,5 @@ Try these steps to resolve the most common SSH connection failures for VMs that 
 ## Additional resources
 * If you are still unable to SSH to your VM after following the after steps, see [more detailed troubleshooting steps](virtual-machines-linux-detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to review additional steps to resolve your issue.
 * For more information about troubleshooting application access, see [Troubleshoot access to an application running on an Azure virtual machine](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* For more information about troubleshooting virtual machines that were created by using the classic deployment model, see [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-classic-reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+* For more information about troubleshooting virtual machines that were created by using the classic deployment model, see [How to reset a password or SSH for Linux-based virtual machines](linux/classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/08/2017
 ms.author: syamk
 
 ---
@@ -37,7 +37,7 @@ After reading this article, you'll be able to answer the following questions:
 * What happens if I exceed request unit capacity for a collection?
 
 ## Request units and request charges
-DocumentDB delivers fast, predictable performance by *reserving* resources to satisfy your application's throughput needs.  Because application load and access patterns change over time, DocumentDB allows you to easily increase or decrease the amount of reserved throughput available to your application.
+DocumentDB and API for MongoDB delivers fast, predictable performance by *reserving* resources to satisfy your application's throughput needs.  Because application load and access patterns change over time, DocumentDB allows you to easily increase or decrease the amount of reserved throughput available to your application.
 
 With DocumentDB, reserved throughput is specified in terms of request units processing per second.  You can think of request units as throughput currency, whereby you *reserve* an amount of guaranteed request units available to your application on per second basis.  Each operation in DocumentDB - writing a document, performing a query, updating a document - consumes CPU, memory, and IOPS.  That is, each operation incurs a *request charge*, which is expressed in *request units*.  Understanding the factors which impact request unit charges, along with your application's throughput requirements, enables you to run your application as cost effectively as possible. 
 
@@ -47,7 +47,7 @@ We recommend getting started by watching the following video, where Aravind Rama
 > 
 > 
 
-## Specifying request unit capacity
+## Specifying request unit capacity in DocumentDB
 When creating a DocumentDB collection, you specify the number of request units per second (RU per second) you want reserved for the collection. Based on the provisioned throughput, DocumentDB allocates physical partitions to host your collection and splits/rebalances data across partitions as it grows.
 
 DocumentDB requires a partition key to be specified when a collection is provisioned with 10,000 request units or higher. A partition key is also required to scale your collection's throughput beyond 10,000 request units in the future. Therefore, it is highly recommended to configure a [partition key](documentdb-partition-data.md) when creating a collection regardless of your initial throughput. Since your data might have to be split across multiple partitions, it is necessary to pick a partition key that has a high cardinality (100s to millions of distinct values) so that your collection and requests can be scaled uniformly by DocumentDB. 
@@ -57,7 +57,7 @@ DocumentDB requires a partition key to be specified when a collection is provisi
 
 Here is a code snippet for creating a collection with 3,000 request units per second using the .NET SDK:
 
-```C#
+```csharp
 DocumentCollection myCollection = new DocumentCollection();
 myCollection.Id = "coll";
 myCollection.PartitionKey.Paths.Add("/deviceId");
@@ -72,7 +72,7 @@ DocumentDB operates on a reservation model on throughput. That is, you are bille
 
 Each collection is mapped to an `Offer` resource in DocumentDB, which has metadata about the collection's provisioned throughput. You can change the allocated throughput by looking up the corresponding offer resource for a collection, then updating it with the new throughput value. Here is a code snippet for changing the throughput of a collection to 5,000 request units per second using the .NET SDK:
 
-```C#
+```csharp
 // Fetch the resource to be updated
 Offer offer = client.CreateOfferQuery()
                 .Where(r => r.ResourceLink == collection.SelfLink)    
@@ -85,6 +85,13 @@ offer = new OfferV2(offer, 5000);
 // Now persist these changes to the database by replacing the original resource
 await client.ReplaceOfferAsync(offer);
 ```
+
+There is no impact to the availability of your collection when you change the throughput. Typically the new reserved throughput is effective within seconds on application of the new throughput.
+
+## Specifying request unit capacity in API for MongoDB
+API for MongoDB allows you to specify the number of request units per second (RU per second) you want reserved for the collection.
+
+API for MongoDB operates on the same reservation model based on throughput as DocumentDB. That is, you are billed for the amount of throughput *reserved* for the collection, regardless of how much of that throughput is actively *used*. As your application's load, data, and usage patterns change you can easily scale up and down the amount of reserved RUs through the [Azure Portal](https://portal.azure.com).
 
 There is no impact to the availability of your collection when you change the throughput. Typically the new reserved throughput is effective within seconds on application of the new throughput.
 
@@ -205,10 +212,42 @@ For example:
 5. Record the request unit charge of any custom scripts (stored procedures, triggers, user-defined functions) leveraged by the application
 6. Calculate the required request units given the estimated number of operations you anticipate to run each second.
 
+### <a id="GetLastRequestStatistics"></a>Use API for MongoDB's GetLastRequestStatistics command
+API for MongoDB supports a custom command, *getLastRequestStatistics*, for retrieving the request charge for specified operations.
+
+For example, in the Mongo Shell, execute the operation you want to verify the request charge for.
+```
+> db.sample.find()
+```
+
+Next, execute the command *getLastRequestStatistics*.
+```
+> db.runCommand({getLastRequestStatistics: 1})
+{
+    "_t": "GetRequestStatisticsResponse",
+    "ok": 1,
+    "CommandName": "OP_QUERY",
+    "RequestCharge": 2.48,
+    "RequestDurationInMilliSeconds" : 4.0048
+}
+```
+
+With this in mind, one method for estimating the amount of reserved throughput required by your application is to record the request unit charge associated with running typical operations against a representative document used by your application and then estimating the number of operations you anticipate performing each second.
+
+> [!NOTE]
+> If you have document types which will differ dramatically in terms of size and the number of indexed properties, then record the applicable operation request unit charge associated with each *type* of typical document.
+> 
+> 
+
+## Use API for MongoDB's portal metrics
+The simplest way to get a good estimation of request unit charges for your API for MongoDB database is to use the [Azure portal](https://portal.azure.com) metrics. With the *Number of requests* and *Request Charge* charts, you can get an estimation of how many request units each operation is consuming and how many request units they consume relative to one another.
+
+![API for MongoDB portal metrics][6]
+
 ## A request unit estimation example
 Consider the following ~1KB document:
 
-```JSON
+```json
 {
  "id": "08259",
   "description": "Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX",
@@ -297,7 +336,7 @@ With this information, we can estimate the RU requirements for this application 
 
 In this case, we expect an average throughput requirement of 1,275 RU/s.  Rounding up to the nearest 100, we would provision 1,300 RU/s for this application's collection.
 
-## <a id="RequestRateTooLarge"></a> Exceeding reserved throughput limits
+## <a id="RequestRateTooLarge"></a> Exceeding reserved throughput limits in DocumentDB
 Recall that request unit consumption is evaluated as a rate per second. For applications that exceed the provisioned request unit rate for a collection, requests to that collection will be throttled until the rate drops below the reserved level. When a throttle occurs, the server will preemptively end the request with RequestRateTooLargeException (HTTP status code 429) and return the x-ms-retry-after-ms header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
 
     HTTP Status 429
@@ -307,6 +346,9 @@ Recall that request unit consumption is evaluated as a rate per second. For appl
 If you are using the .NET Client SDK and LINQ queries, then most of the time you never have to deal with this exception, as the current version of the .NET Client SDK implicitly catches this response, respects the server-specified retry-after header, and retries the request. Unless your account is being accessed concurrently by multiple clients, the next retry will succeed.
 
 If you have more than one client cumulatively operating above the request rate, the default retry behavior may not suffice, and the client will throw a DocumentClientException with status code 429 to the application. In cases such as this, you may consider handling retry behavior and logic in your application's error handling routines or increasing the reserved throughput for the collection.
+
+## <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceeding reserved throughput limits in API for MongoDB
+Applications that exceed the provisioned request units for a collection will be throttled until the rate drops below the reserved level. When a throttle occurs, the backend will preemptively end the request with a *16500* error code - *Too Many Requests*. By default, API for MongoDB will automatically retry up to 10 times before returning a *Too Many Requests* error code. If you are receiving many *Too Many Requests* error codes, you may consider either adding retry behavior in your application's error handling routines or [increasing the reserved throughput for the collection](documentdb-set-throughput.md).
 
 ## Next steps
 To learn more about reserved throughput with Azure DocumentDB databases, explore these resources:
@@ -324,3 +366,4 @@ To get started with scale and performance testing with DocumentDB, see [Performa
 [3]: ./media/documentdb-request-units/RUEstimatorDocuments.png
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
+[6]: ./media/documentdb-request-units/api-for-mongodb-metrics.png

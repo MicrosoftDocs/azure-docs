@@ -54,6 +54,9 @@
 ### [Start/stop VMs during off-hours](automation-solution-vm-management.md)
 ### [Source control integration with GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Source control integration with VSTS](automation-scenario-source-control-integration-with-VSTS.md)
+## Solutions
+### [Change Tracking](../log-analytics/log-analytics-change-tracking.md)
+### [Update Management](../operations-management-suite/oms-solution-update-management.md)
 ## Monitor
 ### [Forward Azure Automation job data to Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Unlink Azure Automation account from Log Analytics](automation-unlink-from-log-analytics.md)
