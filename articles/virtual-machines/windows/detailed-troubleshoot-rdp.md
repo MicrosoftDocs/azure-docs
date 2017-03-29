@@ -35,7 +35,7 @@ If you need more help at any point in this article, you can contact the Azure ex
 ## Components of a Remote Desktop connection
 The following components are involved in an RDP connection:
 
-![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_0.png)
+![](./media/detailed-troubleshoot-rdp/tshootrdp_0.png)
 
 Before proceeding, it might help to mentally review what has changed since the last successful Remote Desktop connection to the VM. For example:
 
@@ -62,7 +62,7 @@ The Remote Desktop client may not be able to reach the Remote Desktop service on
 ## Source 1: Remote Desktop client computer
 Verify that your computer can make Remote Desktop connections to another on-premises, Windows-based computer.
 
-![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_1.png)
+![](./media/detailed-troubleshoot-rdp/tshootrdp_1.png)
 
 If you cannot, check for the following settings on your computer:
 
@@ -76,7 +76,7 @@ In all these cases, temporarily disable the software and try to connect to an on
 ## Source 2: Organization intranet edge device
 Verify that a computer directly connected to the Internet can make Remote Desktop connections to your Azure virtual machine.
 
-![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_2.png)
+![](./media/detailed-troubleshoot-rdp/tshootrdp_2.png)
 
 If you do not have a computer that is directly connected to the Internet, create and test with a new Azure virtual machine in a resource group or cloud service. For more information, see [Create a virtual machine running Windows in Azure](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). You can delete the virtual machine and the resource group or the cloud service, after the test.
 
@@ -91,7 +91,7 @@ Work with your network administrator to correct the settings of your organizatio
 ## Source 3: Cloud service endpoint and ACL
 For VMs created using the Classic deployment model, verify that another Azure VM that is in the same cloud service or virtual network can make Remote Desktop connections to your Azure VM.
 
-![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_3.png)
+![](./media/detailed-troubleshoot-rdp/tshootrdp_3.png)
 
 > [!NOTE]
 > For virtual machines created in Resource Manager, skip to [Source 4: Network Security Groups](#source-4-network-security-groups).
@@ -120,7 +120,7 @@ Network Security Groups allow more granular control of allowed inbound and outbo
 For more information, see [What is a Network Security Group (NSG)?](../../virtual-network/virtual-networks-nsg.md)
 
 ## Source 5: Windows-based Azure VM
-![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_5.png)
+![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
 
 Follow the instructions in [this article](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). This article resets the Remote Desktop service on the virtual machine:
 
