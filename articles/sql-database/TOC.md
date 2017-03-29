@@ -10,7 +10,7 @@
 ### [VS Code](sql-database-connect-query-vscode.md)
 ## Connect
 ### [C#](sql-database-connect-query-dotnet.md)
-### [Jave](sql-database-connect-=query-java.md)
+### [Jave](sql-database-connect-query-java.md)
 # Samples
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
