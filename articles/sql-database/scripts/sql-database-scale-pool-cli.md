@@ -25,8 +25,6 @@ This sample CLI script creates elastic pools, moves pooled databases, and change
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
-
 ## Sample script
 
 [!code-azurecli[main](../../../cli_scripts/sql-database/scale-pool/scale-pool.sh "Move database between pools")]

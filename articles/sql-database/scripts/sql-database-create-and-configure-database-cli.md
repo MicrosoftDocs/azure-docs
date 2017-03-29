@@ -25,8 +25,6 @@ This sample CLI script creates an Azure SQL database and configure a server-leve
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
-
 ## Sample script
 
 [!code-azurecli[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh?highlight=9-10 "Create SQL Database")]

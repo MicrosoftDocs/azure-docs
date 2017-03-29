@@ -25,8 +25,6 @@ This sample PowerShell script configures Active Geo-Replication for a single dat
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install.md)]
 
-Before running this script, ensure that a connection with Azure has been created using the `Add-AzureRmAccount` cmdlet.
-
 ## Sample Scripts
 
 [!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database.ps1 "Set up Active Geo-Replication for single database")]

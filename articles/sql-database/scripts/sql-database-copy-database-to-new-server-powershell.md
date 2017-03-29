@@ -25,8 +25,6 @@ This sample PowerShell script creates a copy of an existing database in a new se
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install.md)]
 
-Before running this script, ensure that a connection with Azure has been created using the `Add-AzureRmAccount` cmdlet.
-
 ## Copy a database to a new server
 
 [!code-powershell[main](../../../powershell_scripts/sql-database/copy-database-to-new-server/copy-database-to-new-server.ps1 "Copy database to new server")]
