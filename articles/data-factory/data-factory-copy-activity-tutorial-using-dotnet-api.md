@@ -131,9 +131,6 @@ You should have following four values from these steps:
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
     <configuration>
-        <startup>
-            <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
-        </startup>
         <appSettings>
             <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
             <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
@@ -150,16 +147,18 @@ You should have following four values from these steps:
 5. Add the following **using** statements to the source file (Program.cs) in the project.
 
     ```csharp
-    using System.Threading;
     using System.Configuration;
     using System.Collections.ObjectModel;
+    using System.Threading;
+    using System.Threading.Tasks;
 
+    using Microsoft.Azure;
     using Microsoft.Azure.Management.DataFactories;
     using Microsoft.Azure.Management.DataFactories.Models;
     using Microsoft.Azure.Management.DataFactories.Common.Models;
 
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Microsoft.Azure;
+
     ```
 
 6. Add the following code that creates an instance of **DataPipelineManagementClient** class to the **Main** method. You use this object to create a data factory, a linked service, input and output datasets, and a pipeline. You also use this object to monitor slices of a dataset at runtime.
@@ -169,10 +168,9 @@ You should have following four values from these steps:
     string resourceGroupName = "ADFTutorialResourceGroup";
     string dataFactoryName = "APITutorialFactory";
 
-    TokenCloudCredentials aadTokenCredentials =
-        new TokenCloudCredentials(
+    TokenCloudCredentials aadTokenCredentials = new TokenCloudCredentials(
             ConfigurationManager.AppSettings["SubscriptionId"],
-            GetAuthorizationHeader());
+            GetAuthorizationHeader().Result);
 
     Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 
@@ -196,7 +194,7 @@ You should have following four values from these steps:
             {
                 Name = dataFactoryName,
                 Location = "westus",
-                Properties = new DataFactoryProperties() { }
+                Properties = new DataFactoryProperties()
             }
         }
     );
@@ -314,7 +312,6 @@ You should have following four values from these steps:
                     {
                         TableName = "emp"
                     },
-
                     Availability = new Availability()
                     {
                         Frequency = SchedulePeriod.Hour,
@@ -344,8 +341,8 @@ You should have following four values from these steps:
                 {
                     Description = "Demo Pipeline for data transfer between blobs",
 
-            // Initial value for pipeline's active period. With this, you won't need to set slice status
-            Start = PipelineActivePeriodStartTime,
+                    // Initial value for pipeline's active period. With this, you won't need to set slice status
+                    Start = PipelineActivePeriodStartTime,
                     End = PipelineActivePeriodEndTime,
 
                     Activities = new List<Activity>()
@@ -376,7 +373,7 @@ You should have following four values from these steps:
                                 }
                             }
                         }
-                    },
+                    }
                 }
             }
         });
@@ -391,7 +388,7 @@ You should have following four values from these steps:
 
     while (DateTime.Now - start < TimeSpan.FromMinutes(5) && !done)
     {
-        Console.WriteLine("Pulling the slice status");
+        Console.WriteLine("Pulling the slice status");        
         // wait before the next status check
         Thread.Sleep(1000 * 12);
 
@@ -455,33 +452,18 @@ You should have following four values from these steps:
 14. Add the following helper method used by the **Main** method to the **Program** class.
 
     ```csharp
-    public static string GetAuthorizationHeader()
+    public static async Task<string> GetAuthorizationHeader()
     {
-        AuthenticationResult result = null;
-        var thread = new Thread(() =>
-        {
-            try
-            {
-                var context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
-
-                ClientCredential credential = new ClientCredential(ConfigurationManager.AppSettings["ApplicationId"], ConfigurationManager.AppSettings["Password"]);
-                result = context.AcquireToken(resource: ConfigurationManager.AppSettings["WindowsManagementUri"], clientCredential: credential);
-            }
-            catch (Exception threadEx)
-            {
-                Console.WriteLine(threadEx.Message);
-            }
-        });
-
-        thread.SetApartmentState(ApartmentState.STA);
-        thread.Name = "AcquireTokenThread";
-        thread.Start();
-        thread.Join();
+        AuthenticationContext context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+        ClientCredential credential = new ClientCredential(
+	        ConfigurationManager.AppSettings["ApplicationId"],
+	        ConfigurationManager.AppSettings["Password"]);
+        AuthenticationResult result = await context.AcquireTokenAsync(
+	        resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+	        clientCredential: credential);
 
         if (result != null)
-        {
             return result.AccessToken;
-        }
 
         throw new InvalidOperationException("Failed to acquire token");
     }
@@ -508,7 +490,4 @@ You should have following four values from these steps:
 | [Pipelines](data-factory-create-pipelines.md) |This article helps you understand pipelines and activities in Azure Data Factory. |
 | [Datasets](data-factory-create-datasets.md) |This article helps you understand datasets in Azure Data Factory. |
 | [Scheduling and execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of Azure Data Factory application model. |
-[Data Factory .NET API Reference](/dotnet/api/) | Provides details about Data Factory .NET SDK (look for Microsoft.Azure.Management.DataFactories.Models in the tree view). 
-
-
-
+[Data Factory .NET API Reference](/dotnet/api/) | Provides details about Data Factory .NET SDK (look for Microsoft.Azure.Management.DataFactories.Models in the tree view).
