@@ -131,8 +131,8 @@ public class App {
 				}
         	}
 		catch (Exception e) {
-		    e.printStackTrace();
-	    	}   
+		    	e.printStackTrace();
+		}
 	}
 }
 ```
@@ -161,34 +161,34 @@ public class App {
 		Connection connection = null;
 
 		try {
-			connection = DriverManager.getConnection(url);
-			String schema = connection.getSchema();
-			System.out.println("Successful connection - Schema: " + schema);
+				connection = DriverManager.getConnection(url);
+				String schema = connection.getSchema();
+				System.out.println("Successful connection - Schema: " + schema);
 
-			System.out.println("Insert data example:");
-		        System.out.println("=========================================");
+				System.out.println("Insert data example:");
+				System.out.println("=========================================");
 
-		        // Prepared statement to insert data
-			String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, )" 
-				+ " StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
+				// Prepared statement to insert data
+				String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, )" 
+					+ " StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
 
-			java.util.Date date = new java.util.Date();
-			java.sql.Timestamp sqlTimeStamp = new java.sql.Timestamp(date.getTime());
+				java.util.Date date = new java.util.Date();
+				java.sql.Timestamp sqlTimeStamp = new java.sql.Timestamp(date.getTime());
 
-			PreparedStatement prep = connection.prepareStatement(insertSql);
-			prep.setString(1, "BrandNewProduct");
-			prep.setInt(2, 200989);
-			prep.setString(3, "Blue");
-			prep.setDouble(4, 75);
-			prep.setDouble(5, 80);
-			prep.setTimestamp(6, sqlTimeStamp);
+				PreparedStatement prep = connection.prepareStatement(insertSql);
+				prep.setString(1, "BrandNewProduct");
+				prep.setInt(2, 200989);
+				prep.setString(3, "Blue");
+				prep.setDouble(4, 75);
+				prep.setDouble(5, 80);
+				prep.setTimestamp(6, sqlTimeStamp);
 
-			int count = prep.executeUpdate();
-			System.out.println("Inserted: " + count + " row(s)");
+				int count = prep.executeUpdate();
+				System.out.println("Inserted: " + count + " row(s)");
 		}
 		catch (Exception e) {
 		    	e.printStackTrace();
-	    	}   
+		}
 	}
 }
 ```
@@ -231,8 +231,8 @@ public class App {
 				prep.setString(2, "BrandNewProduct");
 
 				int count = prep.executeUpdate();
-				System.out.println("Updated: " + count + " row(s)");
-	    	}
+				System.out.println("Updated: " + count + " row(s)")
+		}
 		catch (Exception e) {
 		    	e.printStackTrace();
 		}
@@ -283,15 +283,15 @@ public class App {
 				System.out.println("Deleted: " + count + " row(s)");
         	}		
 		catch (Exception e) {
-				e.printStackTrace();
-	    	}   
+		    	e.printStackTrace();
+		}
 	}
 }
 ```
 
 ## Next steps
 * Review the [SQL Database Development Overview](sql-database-develop-overview.md).
-* Github repository for [pyodbc for Python](https://github.com/mkleehammer/pyodbc).
-* [File issues/ask questions](https://github.com/Microsoft/msphpsql/issues).
+* Github repository for [Microsoft JDBC Driver for SQL Server](https://github.com/microsoft/mssql-jdbc).
+* [File issues/ask questions](https://github.com/microsoft/mssql-jdbc/issues).
 * Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
 
