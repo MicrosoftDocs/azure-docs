@@ -38,7 +38,7 @@ This tutorial requires the following:
 * [Mobile Engagement Cordova Plugin](https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-engagement)
 
 > [!NOTE]
-> You can find the source code and the ReadMe for the Cordova plugin on [Github](https://github.com/Azure/azure-mobile-engagement-cordova)
+> You can find the source code and the ReadMe for the Cordova plugin on [GitHub](https://github.com/Azure/azure-mobile-engagement-cordova)
 > 
 > 
 
