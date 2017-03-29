@@ -28,7 +28,7 @@ ms.author: cherylmc
 
 You can delete a VPN gateway in the classic deployment model by using PowerShell. After the virtual network gateway has been deleted, modify the network configuration file to remove elements that you are no longer using.
 
-##Part 1. Connect to Azure
+##Step 1: Connect to Azure
 
 ### 1. Install the latest PowerShell cmdlets.
 
@@ -52,7 +52,7 @@ Next, use the following cmdlet to add your Azure subscription to PowerShell for 
 
 	Add-AzureAccount
 
-## Part 2. Export and view the network configuration file
+## Step 2: Export and view the network configuration file
 
 Create a directory on your computer and then export the network configuration file to the directory. You use this file to both view the current configuration information, and also to modify the network configuration.
 
@@ -62,7 +62,7 @@ In this example, the network configuration file is exported to C:\AzureNet.
 
 Open the file with a text editor and view the name for your classic VNet. When you create a VNet in the Azure portal, the full name that Azure uses is not visible in the Azure portal. For example, a VNet that appears to be named 'ClassicVNet1' in the Azure portal may have a much longer name in the network configuration file. The name might look something like: 'Group ClassicRG1 ClassicVNet1'. The VNet names are listed as 'VirtualNetworkSite name ='.<br>Use the names in the network configuration file when running your PowerShell cmdlets.
 
-## Part 3. Delete the virtual network gateway
+## Step 3: Delete the virtual network gateway
 
 When you delete a virtual network gateway, all connections to the VNet through the gateway are disconnected. If you have P2S clients connected to the VNet, they will be disconnected without warning.
 
@@ -74,7 +74,7 @@ If successful, the return shows:
 
 	Status : Successful
 
-## Part 4. Modify the network configuration file
+## Step 4: Modify the network configuration file
 
 When you delete a virtual network gateway, the cmdlet does not modify the network configuration file. You need to modify the file to remove the elements that are no longer being used. The following sections help you modify the network configuration file that you downloaded.
 
@@ -165,7 +165,7 @@ Example:
        </Subnet>
      </Subnets>
 
-## Part 5. Upload the network configuration file
+## Step 5: Upload the network configuration file
 
 Save your changes and upload the network configuration file to Azure. Make sure you change the file path as necessary for your environment.
 
