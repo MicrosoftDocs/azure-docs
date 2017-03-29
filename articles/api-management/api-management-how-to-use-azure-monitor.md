@@ -124,8 +124,8 @@ For more information about how to use Metrics, see [Overview of Diagnostic Logs]
 [Get Started with Azure Monitor]: ../monitoring-and-diagnostics/monitoring-get-started.md
 [Overview of Metrics]: ../monitoring-and-diagnostics/monitoring-overview-metrics.md
 [Overview of Activity Logs]: ../monitoring-and-diagnostics/monitoring-overview-activity-logs.md
-[Overview of Diagnostic Logs]: ../monitoring-and-diagnostics/monitoring-overview-diagnostic-logs.md
-[Overview of Alerts]: ../monitoring-and-diagnostics/insights-alerts-porta.md
+[Overview of Diagnostic Logs]: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md
+[Overview of Alerts]: ../monitoring-and-diagnostics/insights-alerts-portal.md
 
 
 
