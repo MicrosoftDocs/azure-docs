@@ -23,6 +23,8 @@ ms.author: janeng
 
 This sample PowerShell script configures Active Geo-Replication for a database in an elastic pool and fails it over to the secondary replica.
 
+[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install.md)]
+
 Before running this script, ensure that a connection with Azure has been created using the `Add-AzureRmAccount` cmdlet.
 
 ## Sample Scripts

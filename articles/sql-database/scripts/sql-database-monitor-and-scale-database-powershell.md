@@ -23,6 +23,8 @@ ms.author: janeng
 
 This sample PowerShell script monitors the performance metrics of a database, scales it to a higher performance level, and creates an alert rule on one of the performance metrics. 
 
+[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install.md)]
+
 Before running this script, ensure that a connection with Azure has been created using the `Add-AzureRmAccount` cmdlet.
 
 ## Sample script
