@@ -32,6 +32,26 @@ In this article, you do the following steps.
 
 * **Azure HDInsight Spark cluster**. For this article, create a Spark 2.0 cluster. For instructions, see [Create Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
+## How does this solution flow?
+
+This solution is divided between this article and a Jupyter notebook that you upload as part of this tutorial. In this article, you complete the following steps:
+
+* Run a script action on an HDInsight Spark cluster to install Microsoft Cognitive Toolkit and Python packages.
+* Upload the Jupyter notebook that runs the solution to the HDInsight Spark cluster.
+
+The following remaining steps are covered in the Jupyter notebook.
+
+- Load sample images into a Spark Resiliant Distributed Dataset or RDD
+   - Load modules and define presets
+   - Download the dataset locally on the Spark cluster
+   - Convert the dataset into an RDD
+- Score the images using a trained Cognitive Toolkit model
+   - Download the trained Cognitive Toolkit model to the Spark cluster
+   - Define functions to be used by worker nodes
+   - Score the images on worker nodes
+   - Evaluate model accuracy
+
+
 ## Install Microsoft Cognitive Toolkit
 
 You can install Microsoft Cognitive Toolkit on a Spark cluster using script action. Script action uses custom scripts to install components on the cluster that are not available by default. You can use the custom script from the Azure Portal, by using HDInsight .NET SDK, or by using Azure PowerShell. You can also use the script to install the toolkit either as part of cluster creation, or after the cluster is up and running. 
