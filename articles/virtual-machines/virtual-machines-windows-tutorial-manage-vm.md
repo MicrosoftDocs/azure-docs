@@ -32,224 +32,252 @@ First, log in to your Azure subscription with the Login-AzureRmAccount command a
 Login-AzureRmAccount
 ```
 
-## Step 2 - Create a resource group
+## Step 2 - Create resource group
 
-Create a resource group with the [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Resources/v2.0.3/new-azurermresourcegroup) command. 
+An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine.
 
-An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named `myResourceGroup` is created in the `westeurope` region. 
+Create a resource group with [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Resources/v2.0.3/new-azurermresourcegroup).  In this example, a resource group named `myResourceGroup` is created in the `westeurope` region: 
 
 ```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location westeurope
 ```
 
-### Create the virtual network
+## Step 3 - Create virtual machine
 
-Create a subnet with the [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermvirtualnetworksubnetconfig) command.
+### Create virtual network
 
-```powershell
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
-```
-
-Create a virtual network with the [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermvirtualnetwork) command.
+Create a subnet with [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermvirtualnetworksubnetconfig):
 
 ```powershell
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location westeurope -Name myVnet -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name mySubnet `
+  -AddressPrefix 192.168.1.0/24
 ```
-### Create the public IP address
 
-Create a public IP address with the [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermpublicipaddress) command.
+Create a virtual network [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermvirtualnetwork):
 
 ```powershell
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location westeurope -AllocationMethod Static -Name myPublicIPAddress
+$vnet = New-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroup `
+  -Location westeurope `
+  -Name myVnet `
+  -AddressPrefix 192.168.0.0/16 `
+  -Subnet $subnetConfig
 ```
+### Create public IP address
 
-Create a network interface card with the [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermnetworkinterface) command.
-
-### Create the network interface card
+Create a public IP address with [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermpublicipaddress):
 
 ```powershell
-$nic = New-AzureRmNetworkInterface -ResourceGroupName myResourceGroup -Location westeurope -Name myNic -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+$pip = New-AzureRmPublicIpAddress `
+  -ResourceGroupName myResourceGroup `
+  -Location westeurope `
+  -AllocationMethod Static `
+  -Name myPublicIPAddress
 ```
 
-### Create the network security group
+### Create network interface card
 
-An Azure [network security group](../virtual-network/virtual-networks-nsg.md) (NSG) controls inbound and outbound traffic for one or many virtual machines. Network security group rules allow or deny network traffic on a specific port or port range. These rules can also include a source address prefix so that only traffic originating at a predefined source can communicate with a virtual machine.
-
-Create an NSG rule to enable a Remote Desktop session with the [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermnetworksecurityruleconfig) command.  
+Create a network interface card with [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermnetworkinterface):
 
 ```powershell
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myRDPRule -Protocol Tcp -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 3389 -Access Allow
+$nic = New-AzureRmNetworkInterface `
+  -ResourceGroupName myResourceGroup `
+  -Location westeurope `
+  -Name myNic `
+  -SubnetId $vnet.Subnets[0].Id `
+  -PublicIpAddressId $pip.Id
 ```
 
-Create the NSG using the rule that you previously created with the [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermnetworksecuritygroup) command.
+### Create network security group
+
+An Azure [network security group](../virtual-network/virtual-networks-nsg.md) (NSG) controls inbound and outbound traffic for one or many virtual machines. Network security group rules allow or deny network traffic on a specific port or port range. These rules can also include a source address prefix so that only traffic originating at a predefined source can communicate with a virtual machine. To access the IIS webserver that you are installing, you must add an inbound NSG rule. 
+
+To create an inbound NSG rule, use [Add-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/add-azurermnetworksecurityruleconfig). The following example creates an NSG rule named `myNSGRule` that opens port `80` for the virtual machine:
 
 ```powershell
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location westeurope -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
+$nsgRule = New-AzureRmNetworkSecurityRuleConfig `
+  -Name myNSGRule `
+  -Protocol Tcp `
+  -Direction Inbound `
+  -Priority 1000 `
+  -SourceAddressPrefix * `
+  -SourcePortRange * `
+  -DestinationAddressPrefix * `
+  -DestinationPortRange 80 `
+  -Access Allow
 ```
 
-Add the NSG to the subnet in the virtual network with the [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/set-azurermvirtualnetworksubnetconfig) command.
+Create the NSG using `myNSGRule` with [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermnetworksecuritygroup):
 
 ```powershell
-Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name mySubnet -NetworkSecurityGroup $nsg -AddressPrefix 192.168.1.0/24
+$nsg = New-AzureRmNetworkSecurityGroup `
+  -ResourceGroupName myResourceGroup `
+  -Location westeurope `
+  -Name myNetworkSecurityGroup `
+  -SecurityRules $nsgRule
 ```
 
-Update the virtual network with the [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/set-azurermvirtualnetwork) command.
+Add the NSG to the subnet in the virtual network with [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/set-azurermvirtualnetworksubnetconfig):
+
+```powershell
+Set-AzureRmVirtualNetworkSubnetConfig -Name mySubnet `
+  -VirtualNetwork $vnet `
+  -NetworkSecurityGroup $nsg `
+  -AddressPrefix 192.168.1.0/24
+```
+
+Update the virtual network with [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/set-azurermvirtualnetwork):
 
 ```powershell
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 ```
 
-### Create the virtual machine
+### Create virtual machine
 
 When creating a virtual machine, several options are available such as operating system image, disk sizing, and administrative credentials. In this example, a virtual machine is created with a name of `myVM` running the latest version of Windows Server 2016 Datacenter. 
 
-Get the username and password needed for the administrator account on the virtual machine with the [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) command.
+Get the username and password needed for the administrator account on the virtual machine with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```powershell
 $cred = Get-Credential
 ```
 
-Create the initial configuration for the virtual machine with the [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermvmconfig) command.
+Create the initial configuration for the virtual machine with [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermvmconfig):
 
 ```powershell
 $vm = New-AzureRmVMConfig -VMName myVM -VMSize Standard_D1
 ```
 
-Add the operating system information to the virtual machine configuration with the [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmoperatingsystem) command.
+Add the operating system information to the virtual machine configuration with [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmoperatingsystem):
 
 ```powershell
-$vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName myVM -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+$vm = Set-AzureRmVMOperatingSystem -VM $vm `
+  -Windows `
+  -ComputerName myVM `
+  -Credential $cred `
+  -ProvisionVMAgent `
+  -EnableAutoUpdate
 ```
 
-Add the image information to the virtual machine configuration with the [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmsourceimage) command.
+Add the image information to the virtual machine configuration with [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmsourceimage):
 
 ```powershell
-$vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest
+$vm = Set-AzureRmVMSourceImage -VM $vm `
+  -PublisherName MicrosoftWindowsServer `
+  -Offer WindowsServer `
+  -Skus 2016-Datacenter `
+  -Version latest
 ```
 
-Add the operating system disk settings to the virtual machine configuration with the [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmosdisk) command.
+Add the operating system disk settings to the virtual machine configuration with [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmosdisk):
 
 ```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm -Name "myOsDisk" -StorageAccountType StandardLRS -DiskSizeInGB 128 -CreateOption FromImage -Caching ReadWrite
+$vm = Set-AzureRmVMOSDisk -VM $vm `
+  -Name myOsDisk `
+  -StorageAccountType StandardLRS `
+  -DiskSizeInGB 128 `
+  -CreateOption FromImage `
+  -Caching ReadWrite
 ```
 
-Add the network interface card that you previously created to the virtual machine configuration with the [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/add-azurermvmnetworkinterface) command.
+Add the network interface card that you previously created to the virtual machine configuration with [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/add-azurermvmnetworkinterface):
 
 ```powershell
 $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 ```
 
-Create the virtual machine with the [New-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermvm) command.
+Create the virtual machine with [New-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermvm):
 
 ```powershell
 New-AzureRmVM -ResourceGroupName myResourceGroup -Location westeurope -VM $vm
 ```
 
-## Step 2 – Add a data disk
+## Step 4 – Add data disk
 
 By default, Azure virtual machines are created with a single operating system disk. Additional disks can be added for multi-disk storage configuration, application installation, and data. 
 
-### Create and attach disk 
+### Create disk 
 
-The following example creates a disk named `myDataDisk` that is 50 gigabytes in size. This disk is also attached to the virtual machine.  
-
-Create the initial configuration of the data disk with the [New-AzureRmDiskConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermdiskconfig) command.
+Create the initial configuration of the data disk with [New-AzureRmDiskConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermdiskconfig). The following example creates a disk named `myDataDisk` that is 50 gigabytes in size:
 
 ```powershell
-$diskConfig = New-AzureRmDiskConfig -AccountType StandardLRS -Location westeurope -CreateOption Empty -DiskSizeGB 50
+$diskConfig = New-AzureRmDiskConfig `
+  -AccountType StandardLRS `
+  -Location westeurope `
+  -CreateOption Empty `
+  -DiskSizeGB 50
 ```
 
-Create the data disk with the [New-AzureRmDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermdisk) command.
+Create the data disk with [New-AzureRmDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermdisk):
 
 ```powershell
-$dataDisk = New-AzureRmDisk -ResourceGroupName myResourceGroup -DiskName myDataDisk -Disk $diskConfig
+$dataDisk = New-AzureRmDisk `
+  -ResourceGroupName myResourceGroup `
+  -DiskName myDataDisk `
+  -Disk $diskConfig
 ```
 
-Get the virtual machine that you want to add the data disk to with the [Get-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermvm) command.
+Get the virtual machine that you want to add the data disk to with [Get-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermvm):
 
 ```powershell
 $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
-Add the data disk to the virtual machine configuration with the [Add-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/add-azurermvmdatadisk) command.
+Add the data disk to the virtual machine configuration with [Add-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/add-azurermvmdatadisk):
 
 ```powershell
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name myDataDisk -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun 1
+$vm = Add-AzureRmVMDataDisk `
+  -VM $vm `
+  -Name myDataDisk `
+  -CreateOption Attach `
+  -ManagedDiskId $dataDisk.Id `
+  -Lun 1
 ```
 
-Update the virtual machine with the [Update-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/update-azurermvm) command.
+Update the virtual machine with [Update-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/update-azurermvm):
 
 ```powershell
 Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
 ```
 
-### Configure disk
+## Step 5 – Automate configuration
 
-Once the disk has been attached to the virtual machine, the operating system needs to be configured to use the disk.
+Azure virtual machine extensions are used to automate virtual machine configuration tasks such as installing applications and configuring the operating system. The [custom script extension for Windows](./virtual-machines-windows-extensions-customscript.md) is used to run any PowerShell script on the virtual machine. The script can be stored in Azure storage, any accessible HTTP endpoint, or embedded in the custom script extension configuration. In this tutorial, the configurations of two items are automated:
 
-Open a Remote Desktop session with the [Get-AzureRmRemoteDesktopFile](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermremotedesktopfile) command.
+- Installing IIS
+- Formatting a data disk on the VM
 
-```powershell
-Get-AzureRmRemoteDesktopFile -ResourceGroupName myResourceGroup -Name myVM -Launch
-```
-
-Open an elevated Windows PowerShell session on the virtual machine and initialize and format the data disk with these commands.
+Because the extension runs at VM deployment time, the **configure.ps1** file needs to be defined before creating the virtual machine. For this tutorial, the configure.ps1 file is located in the Azure PowerShell scripts repository. The file contains the following commands:
 
 ```powershell
+Add-WindowsFeature Web-Server
+
 Get-Disk | Where partitionstyle -eq 'raw' | Initialize-Disk -PartitionStyle MBR -PassThru | New-Partition -AssignDriveLetter -UseMaximumSize | Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 ```
 
-Close the Remote Desktop session. 
-
-## Step 3 – Automate configuration
-
-Azure virtual machine extensions are used to automate virtual machine configuration tasks such as installing monitoring agents, anti-virus agents, and configuring the operating system. The [custom script extension for Windows](./virtual-machines-windows-extensions-customscript.md) is used to run any PowerShell script on the virtual machine. The script can be stored in Azure storage, any accessible HTTP endpoint, or embedded in the custom script extension configuration. When using the custom script extension, the Azure VM agent manages the script execution.
-
-### Install software
-
-Use the [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmextension) command to install the custom script extension. 
-
-In this case, a simple script is embedded in the extension configuration. The extension runs `powershell Add-WindowsFeature Web-Server` to install the IIS webserver.
+Run the custom script extenstion to install IIS and format the data disk:
 
 ```powershell
-Set-AzureRmVMExtension -ResourceGroupName myResourceGroup -ExtensionName IIS -VMName myVM -Publisher Microsoft.Compute -ExtensionType CustomScriptExtension -TypeHandlerVersion 1.4 -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server"}' -Location westeurope
+Set-AzureRmVMCustomScriptExtension  -VMName myVM `
+  -ResourceGroupName myResourceGroup `
+  -Name myCustomScript ` 
+  -FileUri "https://azuresamples,...blob.core.windows.net/scripts/configure.ps1" `
+  -Run "configure.ps1" ` 
+  -Location westeurope
 ```
 
-Get the public IP address of the virtual machine with the [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/get-azurermpublicipaddress) command.
+Get the public IP address of the virtual machine with [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/get-azurermpublicipaddress):
 
 ```powershell
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroup -Name myPublicIPAddress | select IpAddress
-```
-
-Open an internet browser and enter the public IP address of the virtual machine into the address bar. Even though IIS has been installed, the default site is not accessible. Access to the webserver is addressed in the next section of this tutorial. 
-
-## Step 4 – Configure firewall
-
-An Azure [network security group](../virtual-network/virtual-networks-nsg.md) (NSG) controls inbound and outbound traffic for one or many virtual machines. Network security group rules allow or deny network traffic on a specific port or port range. These rules can also include a source address prefix so that only traffic originating at a predefined source can communicate with a virtual machine.
-
-In the previous section, the IIS webserver was installed. Without a network security group rule to allow inbound traffic on port 80, the webserver cannot be accessed from the internet. This step walks you through creating the NSG rule to allow inbound connections on port 80.
-
-### Create NSG rule
-
-To access the IIS webserver, you must add an inbound NSG rule to the NSG that you previously created. The following example opens port `80` for the virtual machine.
-
-To create an inbound NSG rule, use the [Add-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/add-azurermnetworksecurityruleconfig) command. The following example opens port `80` for the virtual machine.
-
-```powershell
-Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name myHTTPRule -Access Allow -Protocol Tcp -Direction Inbound -Priority 1010 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 80
-```
-
-Update the NSG with the [Set-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/set-azurermnetworksecuritygroup) command.
-
-```powershell
-Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
 ```
 
 Now browse to the public IP address of the virtual machine. With the NSG rule in place, the default IIS website is displayed.
 
 ![IIS default site](./media/virtual-machines-windows-tutorial-manage-vm/iis.png)  
 
-## Step 5 – Snapshot virtual machine
+## Step 6 – Snapshot virtual machine
 
 Taking a snapshot of a virtual machine creates a read only, point-in-time copy of the virtual machines operating system disk. With a snapshot, the virtual machine can be restored to a specific state, or the snapshot can be used to create a new virtual machine with an identical state. 
 
@@ -257,19 +285,19 @@ Taking a snapshot of a virtual machine creates a read only, point-in-time copy o
 
 Before creating a virtual machine disk snapshot, the Id of the operating system disk for the virtual machine is needed.
 
-Get the operating system disk with the [Get-AzureRmDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermdisk) command.
+Get the operating system disk with [Get-AzureRmDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermdisk):
 
 ```powershell
 $vmOSDisk = Get-AzureRmDisk -ResourceGroupName myResourceGroup -Name myOSDisk
 ```
 
-Create the configuration of the snapshot with the New-AzureRmSnapshotConfig command.
+Create the configuration of the snapshot with New-AzureRmSnapshotConfig:
 
 ```powershell
 $snapshotConfig = New-AzureRmSnapshotConfig -Location westeurope -CreateOption Copy -SourceResourceId $vmOSDisk.id
 ```
 
-Create the snapshot with the New-AzureRmSnapshot command.
+Create the snapshot with New-AzureRmSnapshot:
 
 ```powershell
 $snapshot = New-AzureRmSnapshot -ResourceGroupName myResourceGroup -SnapshotName mySnapshot -Snapshot $snapshotConfig
@@ -279,13 +307,13 @@ $snapshot = New-AzureRmSnapshot -ResourceGroupName myResourceGroup -SnapshotName
 
 This snapshot can then be converted into a disk, which can be used to recreate the virtual machine.
 
-Create the configuration of the disk with the [New-AzureRmDiskConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermdiskconfig) command.
+Create the configuration of the disk with [New-AzureRmDiskConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermdiskconfig):
 
 ```powershell
 $diskConfig = New-AzureRmDiskConfig -Location westeurope -CreateOption Copy -SourceResourceId $snapshot.id
 ```
 
-Create the disk with the [New-AzureRmDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermdisk) command.
+Create the disk with [New-AzureRmDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermdisk):
 
 ```powershell
 $disk = New-AzureRmDisk -ResourceGroupName myResourceGroup -DiskName myOSDiskFromSnapshot -Disk $diskConfig
@@ -301,25 +329,25 @@ Remove-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Force
 
 Create a new virtual machine from the snapshot disk. In this example, the existing network interface is being specified. This configuration applies all previously created NSG rules to the new virtual machine.
 
-Create the initial configuration for the virtual machine with the [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermvmconfig) command.
+Create the initial configuration for the virtual machine with [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermvmconfig):
 
 ```powershell
 $vm = New-AzureRmVMConfig -VMName myVM -VMSize Standard_D1
 ```
 
-Add the operating system disk with the [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmosdisk) command.
+Add the operating system disk with [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmosdisk):
 
 ```powershell
 $vm = Set-AzureRmVMOSDisk -VM $vm -CreateOption Attach -ManagedDiskId $disk.Id -Windows
 ```
 
-Add the network interface card with the [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/add-azurermvmnetworkinterface) command.
+Add the network interface card with [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/add-azurermvmnetworkinterface):
 
 ```powershell
 $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 ```
 
-Create the virtual machine with the [New-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermvm) command.
+Create the virtual machine with [New-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermvm):
 
 ```powershell
 New-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -Location westeurope
@@ -327,13 +355,13 @@ New-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -Location westeurope
 
 Enter the public IP address of the virtual machine into the address bar of the internet browser. You should see that IIS is running in the restored virtual machine. 
 
-## Step 6 – Management tasks
+## Step 7 – Management tasks
 
 During the lifecycle of a virtual machine, you may want to run management tasks such as starting, stopping, or deleting a virtual machine. Additionally, you may want to create scripts to automate repetitive or complex tasks. Using Azure PowerShell, many common management tasks can be run from the command line or in scripts. 
 
 ### Stop virtual machine
 
-Stop and deallocate a virtual machine with the [Stop-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/stop-azurermvm) command.
+Stop and deallocate a virtual machine with [Stop-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/stop-azurermvm):
 
 ```powershell
 Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Force
@@ -343,13 +371,13 @@ If you want to keep the virtual machine in a provisioned state, use the -StayPro
 
 ### Resize virtual machine
 
-To resize a stopped and deallocated virtual machine, you need the name of the sizes available in the chosen Azure region. These sizes can be found with the [Get-AzureRmVMSize](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermvmsize) command.
+To resize a stopped and deallocated virtual machine, you need the name of the sizes available in the chosen Azure region. These sizes can be found with[Get-AzureRmVMSize](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermvmsize):
 
 ```powershell
 Get-AzureRmVMSize -Location westeurope
 ```
 
-Get the virtual machine that you want to resize with the [Get-AzureRmDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermdisk) command.
+Get the virtual machine that you want to resize with [Get-AzureRmDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/get-azurermdisk):
 
 ```powershell
 $vm = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroup
@@ -361,7 +389,7 @@ Set the new size of the virtual machine by setting the vmSize property with the 
 $vm.HardwareProfile.vmSize = "Standard_F4s"
 ```
 
-Update the virtual machine with the [Update-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/update-azurermvm) command.
+Update the virtual machine with [Update-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/update-azurermvm):
 
 ```powershell
 Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
