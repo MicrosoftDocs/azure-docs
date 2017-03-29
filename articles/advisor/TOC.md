@@ -20,6 +20,4 @@
 ## [App Services](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
 
 # Resources
-## Videos
-### [Azure Advisor overview](https://azure.microsoft.com/en-us/resources/videos/azure-advisor-your-personalized-guide-to-optimal-resource-configuration/)
-### [Azure Advisor deep dive](http://azure.microsoft.com/en-us/documentation/videos/azure-advisor) 
+## [Azure Advisor videos](https://azure.microsoft.com/en-us/resources/videos/index/?services=advisor)
