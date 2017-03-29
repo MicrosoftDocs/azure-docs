@@ -29,7 +29,7 @@ This quick start uses as its starting point the resources created in one of thes
 
 ## Configure Development Environment
 
-// please review this entire section
+The following sections detail configuring your existing Mac OS, Linux(Ubunto), and Windows development environments for working with Azure SQL Database.
 
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your Java project. Enter the following commands to install **brew** and **Maven**. 
@@ -74,14 +74,8 @@ Get the connection string in the Azure portal. You use the connection string to 
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. In the **Essentials** pane for your database, review the fully qualified server name. 
 
-    <img src="./media/sql-database-connect-query-dotnet/connection-strings.png" alt="connection strings" style="width: 780px;" />
+    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="server name" style="width: 780px;" />
 
-4. Click **Show database connection strings**.
-
-5. Review the complete **JDBC** connection string.
-
-    <img src="./media/sql-database-connect-query-jdbc/jdbc-connection-string.png" alt="JDBC connection string" style="width: 780px;" />
-    
 ## Select data
 
 Use a [connection](https://docs.microsoft.com/sql/connect/jdbc/working-with-a-connection) with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement, to query data in your Azure SQL database using Java.
