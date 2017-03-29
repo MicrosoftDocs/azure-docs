@@ -118,6 +118,7 @@ For now, the services that enable moving to both a new resource group and subscr
 >
 > Currently a peered Virtual Network cannot be moved until VNet peering has been disabled. Once disabled, the Virtual Network can be moved successfully and the VNet peering can be enabled.
 >
+* VPN Gateway
  
 ## Services that do not enable move
 The services that currently do not enable moving a resource are:
@@ -141,7 +142,6 @@ The services that currently do not enable moving a resource are:
 * Snapshots created from Managed Disks
 * Virtual Machines Scale Sets
 * Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
-* VPN Gateway
 * Virtual Machines created from Marketplace resources - cannot be moved across subscriptions. Resource needs to be deprovisioned in the current subscription and deployed again in the new subscription
 
 ## App Service limitations
