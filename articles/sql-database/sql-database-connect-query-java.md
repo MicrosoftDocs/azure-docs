@@ -27,9 +27,9 @@ This quick start uses as its starting point the resources created in one of thes
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
 
-## Configure Development Environment
+## Configure development environment
 
-The following sections detail configuring your existing Mac OS, Linux(Ubunto), and Windows development environments for working with Azure SQL Database.
+The following sections detail configuring your existing Mac OS, Linux(Ubuntu), and Windows development environments for working with Azure SQL Database.
 
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your Java project. Enter the following commands to install **brew** and **Maven**. 
@@ -142,7 +142,7 @@ public class App {
 
 ## Insert data
 
-Use [Prepared Statements](https://docs.microsoft.com/en-us/sql/connect/jdbc/using-statements-with-sql) with an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transcat-SQL statement to insert data into your Azure SQL database.
+Use [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) with an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transcat-SQL statement to insert data into your Azure SQL database.
 
 ```java
 package com.sqldbsamples;
@@ -206,7 +206,7 @@ public class App {
 ```
 ## Update data
 
-Use [Prepared Statements](https://docs.microsoft.com/en-us/sql/connect/jdbc/using-statements-with-sql) with an [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
+Use [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) with an [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
 
 ```java
 package com.sqldbsamples;
@@ -265,7 +265,7 @@ public class App {
 
 ## Delete data
 
-Use [Prepared Statements](https://docs.microsoft.com/en-us/sql/connect/jdbc/using-statements-with-sql) with a [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
+Use [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) with a [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
 
 ```java
 package com.sqldbsamples;
