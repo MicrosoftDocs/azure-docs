@@ -4,7 +4,7 @@ Note that the UltraPerformance gateway SKU is not represented in this table. For
 
 |  | **VPN Gateway throughput (1)** | **VPN Gateway max IPsec tunnels (2)** | **ExpressRoute Gateway throughput** | **VPN Gateway and ExpressRoute coexist** |
 | --- | --- | --- | --- | --- |
-| **Basic SKU (3)(5)** |100 Mbps |10 |500 Mbps |No |
+| **Basic SKU (3)(5)(6)** |100 Mbps |10 |500 Mbps (6) |No |
 | **Standard SKU (4)(5)** |100 Mbps |10 |1000 Mbps |Yes |
 | **High Performance SKU (4)** |200 Mbps |30 |2000 Mbps |Yes |
 
@@ -13,4 +13,4 @@ Note that the UltraPerformance gateway SKU is not represented in this table. For
 * (3) BGP is not supported for the Basic SKU.
 * (4) PolicyBased VPNs are not supported for this SKU. They are supported for the Basic SKU only.
 * (5) Active-active S2S VPN Gateway connections are not supported for this SKU. Active-active is supported on the HighPerformance SKU only.
-
+* (6) Basic SKU is deprecated for use with Expressroute.
