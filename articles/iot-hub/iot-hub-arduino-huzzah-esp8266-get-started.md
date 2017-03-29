@@ -296,4 +296,5 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 
 - [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
 - [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
-
+- [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
+- [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
