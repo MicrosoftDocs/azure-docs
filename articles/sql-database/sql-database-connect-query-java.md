@@ -110,36 +110,27 @@ public class App {
 		try {
 			connection = DriverManager.getConnection(url);
 			String schema = connection.getSchema();
-			System.out.println("\nSuccessful connection - Schema: " + schema);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+			System.out.println("Successful connection - Schema: " + schema);
 
-		// Query data
-		System.out.println("\nQuery data example:");
-		System.out.println("=========================================\n");
+			System.out.println("Query data example:");
+				System.out.println("=========================================");
 
-		Statement statement;
-		ResultSet resultSet;
-
-		try {
-			// Create and execute a SELECT SQL statement.
+				    // Create and execute a SELECT SQL statement.
 			String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
-			statement = connection.createStatement();
-			resultSet = statement.executeQuery(selectSql);
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery(selectSql);
 
 			// Print results from select statement
 			System.out.println("\nTop 20 categories:");
 			while (resultSet.next())
 			{
-				System.out.println(resultSet.getString(1) + " "
-						+ resultSet.getString(2));
+			    System.out.println(resultSet.getString(1) + " "
+				    + resultSet.getString(2));
 			}
-		}
+        	}
 		catch (Exception e) {
-			e.printStackTrace();
-		}
+		    e.printStackTrace();
+	    	}   
 	}
 }
 ```
@@ -152,9 +143,7 @@ Use [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-stat
 package com.sqldbsamples;
 
 import java.sql.Connection;
-import java.sql.Statement;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.DriverManager;
 
 public class App {
@@ -172,39 +161,34 @@ public class App {
 		try {
 			connection = DriverManager.getConnection(url);
 			String schema = connection.getSchema();
-			System.out.println("\nSuccessful connection - Schema: " + schema);
+			System.out.println("Successful connection - Schema: " + schema);
+
+			System.out.println("Insert data example:");
+		        System.out.println("=========================================");
+
+		        // Prepared statement to insert data
+
+			    String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
+            
+			    java.util.Date date = new java.util.Date();
+			    java.sql.Timestamp sqlTimeStamp = new java.sql.Timestamp(date.getTime());
+			    
+			    PreparedStatement prep = connection.prepareStatement(insertSql);
+			    prep.setString(1, "BrandNewProduct");
+			    prep.setInt(2, 200989);
+			    prep.setString(3, "Blue");
+			    prep.setDouble(4, 75);
+			    prep.setDouble(5, 80);
+			    prep.setTimestamp(6, sqlTimeStamp);
+			    
+			    int count = prep.executeUpdate();
+			    System.out.println("Inserted: " + count + " row(s)");
 		}
 		catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		System.out.println("\nInsert data example:");
-		System.out.println("=========================================\n");
-
-		// Prepared statement to insert data
-		try {
-			String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
-			
-			java.util.Date date = new java.util.Date();
-            		java.sql.Timestamp sqlTimeStamp = new java.sql.Timestamp(date.getTime());
-			
-			PreparedStatement prep = connection.prepareStatement(insertSql);
-			prep.setString(1, "BrandNewProduct");
-			prep.setInt(2, 200989);
-			prep.setString(3, "Blue");
-			prep.setDouble(4, 75);
-			prep.setDouble(5, 80);
-			prep.setTimestamp(6, sqlTimeStamp);
-
-			int count = prep.executeUpdate();
-			System.out.println("Inserted: " + count + " row(s)");
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+		    e.printStackTrace();
+	    	}   
 	}
 }
-
 ```
 ## Update data
 
@@ -214,9 +198,7 @@ Use [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-stat
 package com.sqldbsamples;
 
 import java.sql.Connection;
-import java.sql.Statement;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.DriverManager;
 
 public class App {
@@ -230,21 +212,16 @@ public class App {
 		String password = "yourpassword";
 		String url = String.format("jdbc:sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
 		Connection connection = null;
- 
+
 		try {
 			connection = DriverManager.getConnection(url);
 			String schema = connection.getSchema();
-			System.out.println("\nSuccessful connection - Schema: " + schema);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		System.out.println("\nUpdate data example:");
-		System.out.println("=========================================\n");
-		
-		// Prepared statement to update data
-		try {
+			System.out.println("Successful connection - Schema: " + schema);
+
+			System.out.println("Update data example:");
+			System.out.println("=========================================");
+
+			// Prepared statement to update data
 			String updateSql = "UPDATE SalesLT.Product SET ListPrice = ? WHERE Name = ?";
 
 			PreparedStatement prep = connection.prepareStatement(updateSql);
@@ -253,9 +230,9 @@ public class App {
 
 			int count = prep.executeUpdate();
 			System.out.println("Updated: " + count + " row(s)");
-		}
+	    	}
 		catch (Exception e) {
-			e.printStackTrace();
+		    e.printStackTrace();
 		}
 	}
 }
@@ -271,9 +248,7 @@ Use [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-stat
 package com.sqldbsamples;
 
 import java.sql.Connection;
-import java.sql.Statement;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.DriverManager;
 
 public class App {
@@ -291,17 +266,12 @@ public class App {
 		try {
 			connection = DriverManager.getConnection(url);
 			String schema = connection.getSchema();
-			System.out.println("\nSuccessful connection - Schema: " + schema);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+			System.out.println("Successful connection - Schema: " + schema);
 
-		System.out.println("\nDelete data example:");
-		System.out.println("=========================================\n");
-		
-		// Prepared statement to delete data
-		try {
+			System.out.println("Delete data example:");
+			System.out.println("=========================================");
+
+			// Prepared statement to delete data
 			String deleteSql = "DELETE SalesLT.Product WHERE Name = ?";
 
 			PreparedStatement prep = connection.prepareStatement(deleteSql);
@@ -309,10 +279,10 @@ public class App {
 
 			int count = prep.executeUpdate();
 			System.out.println("Deleted: " + count + " row(s)");
-		}
+        	}		
 		catch (Exception e) {
 			e.printStackTrace();
-		}
+	    	}   
 	}
 }
 ```
