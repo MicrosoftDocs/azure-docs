@@ -50,6 +50,22 @@ sudo apt-get install maven
 ### **Windows**
 Install [Maven](https://maven.apache.org/download.cgi).  
 
+## Get connection information
+
+Get the connection string in the Azure portal. You use the connection string to connect to the Azure SQL database.
+
+1. Log in to the [Azure portal](https://portal.azure.com/).
+2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
+3. In the **Essentials** pane for your database, review the fully qualified server name. 
+
+    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="server name" style="width: 780px;" />
+
+4. Click **Show database connection strings**.
+
+5. Review the complete **JDBC** connection string.
+
+    <img src="./media/sql-database-connect-query-jdbc/jdbc-connection-string.png" alt="JDBC connection string" style="width: 780px;" />
+
 ### **Create Maven project**
 From the terminal, create a new Maven project. 
 ```
@@ -65,16 +81,6 @@ Add the **Microsoft JDBC Driver for SQL Server** to the dependencies in ***pom.x
 	<version>6.1.0.jre8</version>
 </dependency>
 ```
-
-## Get connection information
-
-Get the connection string in the Azure portal. You use the connection string to connect to the Azure SQL database.
-
-1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane for your database, review the fully qualified server name. 
-
-    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="server name" style="width: 780px;" />
 
 ## Select data
 
