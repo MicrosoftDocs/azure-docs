@@ -15,11 +15,13 @@ Below we describe how to create a Resource Manager template first for an action 
 To create an action group using a Resource Manager template, you create a resource of type `microsoft.insights/actiongroups` and fill in all related properties. Below is a template that creates an action group.
 
 ```json
-
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "location":{
+        "type":"string"
+    },
     "actionGroupName": {
       "type": "string",
       "metadata": {
@@ -31,24 +33,17 @@ To create an action group using a Resource Manager template, you create a resour
       "metadata": {
         "description": "Short name (maximum 12 characters) for the Action group."
       }
-    },
-    "actionGroupEnabled": {
-      "type": "bool",
-      "defaultValue": true,
-      "metadata": {
-        "description": "Indicates whether or not the action group is enabled."
-      }
     }
   },
   "resources": [
     {
       "type": "Microsoft.Insights/actiongroups",
       "apiVersion": "2017-03-01-preview",
-      "location": "[resourceGroup().location]",
+      "name": "[parameters('actionGroupName')]",
+      "location": "[parameters('location')]",
       "properties": {
-        "name": "[parameters('actionGroupName')]",
         "groupShortName": "[parameters('actionGroupShortName')]",
-        "actionGroupEnabled": "[variables('actionGroupEnabled')]",
+        "enabled": "True",
         "smsReceivers": [
           {
             "name": "contosoSMS",
@@ -78,12 +73,18 @@ To create an action group using a Resource Manager template, you create a resour
           },
           {
             "name": "contosoHook2",
-            "serviceUri": "http://requestb.in/1bq62iu1"
+            "serviceUri": "http://requestb.in/1bq62iu2"
           }
         ]
       }
-   }
-  ]
+    }
+  ],
+  "outputs":{
+      "actionGroupId":{
+          "type":"string",
+          "value":"[resourceId('Microsoft.Insights/actionGroups',parameters('actionGroupName'))]"
+      }
+  }
 }
 ```
 
