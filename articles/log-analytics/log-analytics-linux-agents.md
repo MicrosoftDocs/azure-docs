@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 03/29/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 
@@ -144,7 +144,7 @@ For Windows performance counters, you can choose a specific instance for each pe
 Similarly, the sample interval that you choose for a parent counter applies to all its child counters. In other words, all the child counter sample intervals and instances are tied together.
 
 ### Add and configure performance metrics with Linux
-Performance metrics to collect are controlled by the configuration in /etc/opt/microsoft/omsagent/&lt;workspace id&gt;conf/omsagent.conf. See [Available performance metrics](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#appendix-available-performance-metrics) for available classes and metrics for the OMS Agent for Linux.
+Performance metrics to collect are controlled by the configuration in /etc/opt/microsoft/omsagent/&lt;workspace id&gt;/conf/omsagent.conf. See [Available performance metrics](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#appendix-available-performance-metrics) for available classes and metrics for the OMS Agent for Linux.
 
 Each object, or category, of performance metrics to collect should be defined in the configuration file as a single `<source>` element. The syntax follows the pattern below.
 
@@ -332,7 +332,7 @@ To collect alerts from a Nagios server, you need to make the following configura
     ```
     sudo usermod –a -G nagios omsagent
     ```
-2. Modify the omsagent.confconfiguration file (/etc/opt/microsoft/omsagent&lt;workspace id&gt;/conf/omsagent.conf). Ensure the following entries are present and not commented out:
+2. Modify the omsagent.confconfiguration file (/etc/opt/microsoft/omsagent/&lt;workspace id&gt;/conf/omsagent.conf). Ensure the following entries are present and not commented out:
 
     ```
     <source>
@@ -534,7 +534,7 @@ If none of the troubleshooting information in this section helps you, you can al
 | --- | --- |
 | Syslog |`/etc/syslog-ng/syslog-ng.conf` or `/etc/rsyslog.conf` or `/etc/rsyslog.d/95-omsagent.conf` |
 | Performance, Nagios, Zabbix, OMS output and general agent |`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` |
-| Additional configurations |`/etc/opt/microsoft/omsagent/<workspace id>/conf.d/*.conf` |
+| Additional configurations |`/etc/opt/microsoft/omsagent/<workspace id>/omsagent.d/*.conf` |
 
 > [!NOTE]
 > Editing configuration files for performance counters and syslog are overwritten if OMS Portal Configuration is enabled. You can disable configuration in the OMS Portal (for all nodes) or for single nodes by running the following:
