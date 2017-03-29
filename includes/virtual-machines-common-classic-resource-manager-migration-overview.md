@@ -1,5 +1,5 @@
 # Platform-supported migration of IaaS resources from classic to Azure Resource Manager
-In this article, we describe how we're enabling migration of infrastructure as a service (IaaS) resources from the Classic to Resource Manager deployment models. You can read more about [Azure Resource Manager features and benefits](../azure-resource-manager/resource-group-overview.md). We detail how to connect resources from the two deployment models that coexist in your subscription by using virtual network site-to-site gateways.
+In this article, we describe how we're enabling migration of infrastructure as a service (IaaS) resources from the Classic to Resource Manager deployment models. You can read more about [Azure Resource Manager features and benefits](../articles/azure-resource-manager/resource-group-overview.md). We detail how to connect resources from the two deployment models that coexist in your subscription by using virtual network site-to-site gateways.
 
 ## Goal for migration
 Resource Manager enables deploying complex applications through templates, configures virtual machines by using VM extensions, and incorporates access management and tagging. Azure Resource Manager includes scalable, parallel deployment for virtual machines into availability sets. The new deployment model also provides lifecycle management of compute, network, and storage independently. Finally, there’s a focus on enabling security by default with the enforcement of virtual machines in a virtual network.
@@ -67,7 +67,7 @@ The following features are not currently supported. You can optionally remove th
 | Compute |Virtual machine images. |
 | Network |Endpoint ACLs. |
 | Network |ExpressRoute Gateways, Application gateway (VPN Gateways are supported). |
-| Network |Virtual networks using VNet Peering. (Migrate VNet to ARM, then peer) Learn more about [VNet Peering](../virtual-network/virtual-network-peering-overview.md). |
+| Network |Virtual networks using VNet Peering. (Migrate VNet to ARM, then peer) Learn more about [VNet Peering](../articles/virtual-network/virtual-network-peering-overview.md). |
 
 ### Unsupported configurations
 The following configurations are not currently supported.
@@ -102,7 +102,7 @@ Before you start the migration experience, the following is recommended:
 
 The migration workflow is as follows
 
-![Screenshot that shows the migration workflow](./media/virtual-machines-windows-migration-classic-resource-manager/migration-workflow.png)
+![Screenshot that shows the migration workflow](./articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/migration-workflow.png)
 
 > [!NOTE]
 > All the operations described in the following sections are idempotent. If you have a problem other than an unsupported feature or a configuration error, it is recommended that you retry the prepare, abort, or commit operation. The Azure platform tries the action again.
@@ -131,13 +131,13 @@ The Azure platform then starts the migration of metadata from classic to Resourc
 After the prepare operation is complete, you have the option of visualizing the resources in both classic and Resource Manager. For every cloud service in the classic deployment model, the Azure platform creates a resource group name that has the pattern `cloud-service-name>-Migrated`.
 
 > [!NOTE]
-> It is not possible to select the name of Resource Group created for migrated resources (i.e. "-Migrated") but after migration is complete, you can use Azure Resource Manager move feature to move resources to any Resource Group you want. To read more about this see [Move resources to new resource group or subscription](../resource-group-move-resources.md)
+> It is not possible to select the name of Resource Group created for migrated resources (i.e. "-Migrated") but after migration is complete, you can use Azure Resource Manager move feature to move resources to any Resource Group you want. To read more about this see [Move resources to new resource group or subscription](../articles/resource-group-move-resources.md)
 
 Here are two screens that show the result after a succesful Prepare operation. First screen shows a Resource Group that contains the original cloud service. Second screen shows the new "-Migrated" resource group that contains the equivalent Azure Resource Manager resources.
 
-![Screenshot that shows Portal classic cloud service](./media/virtual-machines-windows-migration-classic-resource-manager/portal-classic.png)
+![Screenshot that shows Portal classic cloud service](./articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/portal-classic.png)
 
-![Screenshot that shows Portal ARM resources in Prepare](./media/virtual-machines-windows-migration-classic-resource-manager/portal-arm.png)
+![Screenshot that shows Portal ARM resources in Prepare](./articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/portal-arm.png)
 
 > [!NOTE]
 > Virtual Machines that are not in a classic Virtual Network are stopped deallocated in this phase of migration.
@@ -173,4 +173,4 @@ After you finish the validation, you can commit the migration. Resources do not 
 <br>
 Here is a flowchart of the steps during a migration process
 
-![Screenshot that shows the migration steps](./media/virtual-machines-windows-migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](../articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/migration-flow.png)
