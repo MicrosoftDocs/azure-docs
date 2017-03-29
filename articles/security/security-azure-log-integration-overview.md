@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 03/29/2017
 ms.author: TomSh
 
 ---
@@ -24,6 +24,9 @@ Learn about Azure log integration, its key capabilities, and how it works.
 Platform as a Service (PaaS) and Infrastructure as a Service (IaaS) hosted in Azure generate a large amount of data in security logs. These logs contain vital information that can provide intelligence and powerful insights into policy violations, internal and external threats, regulatory compliance issues, and anomalies in network, host, and user activity.
 
 Azure log integration is a free solution that enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems. Azure log integration collects Windows Azure Diagnostics *(WAD)*  from your Windows virtual machines, [Azure Activity Logs](/monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [Azure Security Center alerts](/security-center/security-center-intro.md) and Azure Resource Provider logs. This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events.
+
+>[!NOTE]
+At this time the only supported clouds are Azure commercial and Azure government.
 
 ![Azure log integration][1]
 
@@ -48,7 +51,7 @@ The following table explains the Log category and SIEM integration detail
 
 Azure Log Integration is a free solution - you do not need to pay for the Azure Log Integration binaries. However, there will be costs related to Azure storage required for the log file information.
 
-If you have questions about Azure Log Integration, please send an email to [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
+If you run into any issues during the installation and configuration, Please open a [support request](/azure-supportability/how-to-create-azure-support-request.md), select **Log Integration** as the service for which you are requesting support.
 
 ## Next steps
 In this document, you were introduced to Azure log integration. To learn more about Azure log integration and the types of logs supported, see the following:

@@ -38,14 +38,14 @@ Example
 
 Check the following folders to confirm that the Azure Active Directory Audit log JSON files are created in:
 
-* C:\Users\azlog\AzureActiveDirectoryJson
-* C:\Users\azlog\AzureActiveDirectoryJsonLD
+* **C:\Users\azlog\AzureActiveDirectoryJson**
+* **C:\Users\azlog\AzureActiveDirectoryJsonLD**
 
 Point the standard SIEM file forwarder connector to the appropriate folder to pipe the data to the SIEM instance. You may need some field mappings based on the SIEM product you are using.
 
 
 
-If you run into any issues during the installation and configuration, Please open a [support request](/azure-supportability/how-to-create-azure-support-request.md), select 'Log Integration' as the service for which you are requesting support.
+If you run into any issues during the installation and configuration, Please open a [support request](/azure-supportability/how-to-create-azure-support-request.md), select Log Integration' as the service for which you are requesting support.
 
 ## Next steps
 To learn more about Azure Log Integration, see the following documents:
