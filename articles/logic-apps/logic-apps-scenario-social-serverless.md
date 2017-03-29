@@ -19,13 +19,13 @@ ms.author: jehollan
 ---
 # Create a real-time customer insights dashboard with Azure Logic Apps and Azure Functions
 
-Azure Serverless tools provide powerful capabilities to quickly build and host applications in the cloud, without having to think about infrastructure.  In this scenario, we will create a dashboard to trigger on customer feedback, analyze feedback with connectors provided out-of-the-box, enrich with Azure Functions, and publish to a source like Power BI, Azure Data Lake, or any other destination desired.
+Azure Serverless tools provide powerful capabilities to quickly build and host applications in the cloud, without having to think about infrastructure.  In this scenario, we will create a dashboard to trigger on customer feedback, analyze feedback with machine learning, and publish insights a source like Power BI or Azure Data Lake.
 
 ## Overview of the scenario and tools used
 
-In order to impliment this solution we will levarage the two key components of serverless apps in Azure - [Azure Functions](https://azure.microsoft.com/services/functions/) and [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
+In order to implement this solution, we will leverage the two key components of serverless apps in Azure: [Azure Functions](https://azure.microsoft.com/services/functions/) and [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
 
-Logic Apps is a serverless workflow engine in the cloud.  It provides orchestration across serverless components, and also connects to over 100 connectors out-of-the-box.  For this scenario, we will create a logic app to trigger on feedback from customers.  Some of the connectors that fit into this would include (but not be limited to) Outlook.com, Office 365, Survey Monkey, Twitter, and an HTTP Request [from a web form](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/).  For this scenario, we will monitor a brand on Twitter with the Twitter connector.  
+Logic Apps is a serverless workflow engine in the cloud.  It provides orchestration across serverless components, and also connects to over 100 services and APIs.  For this scenario, we will create a logic app to trigger on feedback from customers.  Some of the connectors that can assist in reacting to customer feedback include Outlook.com, Office 365, Survey Monkey, Twitter, and an HTTP Request [from a web form](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/).  For the workflow below, we will monitor a hashtag on Twitter.
 
 Functions provide serverless compute in the cloud.  In this scenario, we will use Azure Functions to flag tweets from customers based on a series of pre-defined key words.
 
@@ -33,9 +33,9 @@ The entire solution can be [build in Visual Studio](logic-apps-deploy-from-vs.md
 
 ## Building the logic app to trigger on customer data
 
-After [creating a logic app](logic-apps-create-a-logic-app.md) in Visual Studio or the Azure Portal:
+After [creating a logic app](logic-apps-create-a-logic-app.md) in Visual Studio or the Azure portal:
 
-1. Add a new trigger for **On New Tweets** from Twitter
+1. Add a trigger for **On New Tweets** from Twitter
 1. Configure the trigger to listen to tweets on a keyword or hashtag.
 
 > [!NOTE]
@@ -43,7 +43,7 @@ After [creating a logic app](logic-apps-create-a-logic-app.md) in Visual Studio 
 
 ![Example of Twitter trigger][1]
 
-This app will now fire on all new tweets.  The next step we will analyze sentiment from the tweets.  For this we can leverage the out-of-the-box [Azure Congitive Service](https://azure.microsoft.com/services/cognitive-services/) connector to leverage sentiment of text.
+This app will now fire on all new tweets.  We can then take that tweet data and understand more of the sentiment expressed.  For this we use the [Azure Cognitive Service](https://azure.microsoft.com/services/cognitive-services/) to detect sentiment of text.
 
 1. Click **New Step**
 1. Select or search for the **Text Analytics** connector
@@ -52,12 +52,12 @@ This app will now fire on all new tweets.  The next step we will analyze sentime
 1. Add the **Tweet Text** as the text to analyze.
 
 Now that we have the tweet data, and insights on the tweet, a number of other connectors may be relevant:
-* Power BI - Add Rows to Streaming Dataset: View tweets real-time on a Power BI dashboard.
-* Azure Data Lake - Append file: Add customer data to an Azure Data Lake dataset.
-* SQL - Add rows: store data in a database for later retreival.
+* Power BI - Add Rows to Streaming Dataset: View tweets real time on a Power BI dashboard.
+* Azure Data Lake - Append file: Add customer data to an Azure Data Lake dataset to include in analytics jobs.
+* SQL - Add rows: Store data in a database for later retrieval.
 * Slack - Send message: Alert a slack channel on negative feedback that requires actions.
 
-One other action we will add here is an Azure Function to process the tweet and flag it based on a pre-defined set of key words.
+An Azure Function can also be used to do more custom compute on top of the data.
 
 ## Enriching the data with an Azure Function
 
@@ -65,7 +65,7 @@ Before we can create a function, we need to have a function app in our Azure sub
 
 For a function to be called directly from a logic app, it needs to have an HTTP trigger binding.  We recommend using the **HttpTrigger** template.
 
-In this scenario, the request body of the Azure Function would be the tweet text.  Inside the function, simply define logic on if the tweet text contains a key word or phrase.  The function itself could be kept as simple or complex as needed for the scenario.
+In this scenario, the request body of the Azure Function would be the tweet text.  In the function code, simply define logic on if the tweet text contains a key word or phrase.  The function itself could be kept as simple or complex as needed for the scenario.
 
 At the end of the function, simply return a response to the logic app with some data.  This could be a simple boolean value (e.g. `containsKeyword`), or a complex object.
 
@@ -83,17 +83,17 @@ Once the function is saved, it can be added into the logic app created above.  I
 
 ## Running and monitoring the solution
 
-One of the benefits of authoring serverless orchestrations in Logic Apps is the rich debug and monitoring capabilities.  Any run (current or historic) can be viewed from within Visual Studio, the Azure Portal, or via the REST API and SDKs.
+One of the benefits of authoring serverless orchestrations in Logic Apps is the rich debug and monitoring capabilities.  Any run (current or historic) can be viewed from within Visual Studio, the Azure portal, or via the REST API and SDKs.
 
 One of the easiest ways to test a logic app is using the **Run** button in the designer.  Clicking **Run** will continue to poll the trigger every 5 seconds until an event is detected, and give a live view as the run progresses.
 
-Previous run histories can be viewed on the Overview blade in the Azure Portal, or using the Visual Studio Cloud Explorer.
+Previous run histories can be viewed on the Overview blade in the Azure portal, or using the Visual Studio Cloud Explorer.
 
 ## Creating a deployment template for automated deployments
 
 Once a solution has been developed, it can be captured and deployed via an Azure deployment template to any Azure region in the world.  This is useful for both modifying parameters for different versions of this workflow, but also for integrating this solution in a build and release pipeline.  Details on creating a deployment template can be found [in this article](logic-apps-create-deploy-template.md).
 
-Azure Functions can also be incorporated in the deployment template - so the entire solution with all dependencies can be managed as a single template.  An example of a function deployment template can be found in the [Azure Quickstart Template repo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic) page.
+Azure Functions can also be incorporated in the deployment template - so the entire solution with all dependencies can be managed as a single template.  An example of a function deployment template can be found in the [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 
 ## What's Next
 
