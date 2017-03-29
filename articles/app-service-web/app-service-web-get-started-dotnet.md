@@ -132,7 +132,7 @@ From the **Solution Explorer**, open **Views\Home\Index.cshtml**.
 
 Find the `<div class="jumbotron">` HTML tag near the top, and replace the entire tag with the following code:
 
-```html
+```HTML
 <div class="jumbotron">
     <h1>ASP.NET in Azure!</h1>
     <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
