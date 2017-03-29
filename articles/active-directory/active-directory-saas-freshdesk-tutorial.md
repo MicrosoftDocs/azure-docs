@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2017
+ms.date: 03/25/2017
 ms.author: jeedes
 
 ---
@@ -110,8 +110,8 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
     a. In the **Sign-on URL** textbox, type the value as: `https://<tenant-name>.freshdesk.com`
 
-    > [!NOTE] 
-    > Please note that this is not the real value. You have to update the value with the actual Sign-on URL. Contact [FreshDesk Client support team](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) to get this value.  
+> [!NOTE] 
+    > Please note that this is not the real value. You have to update the value with the actual Sign-on URL. Contact [FreshDesk Client support team](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) to get this value.  
 
 4. On the **SAML Signing Certificate** section, click **Certificate** and then save the certificate on your computer.
 
@@ -121,13 +121,12 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Configure Single Sign-On](./media/active-directory-saas-freshdesk-tutorial/tutorial_general_400.png)
 
-6. On the **FreshDesk Configuration** section, click **Configure FreshDesk** to open **Configure sign-on** window.
+6. On the **FreshDesk Configuration** section, click **Configure FreshDesk** to open Configure sign-on window. Copy the SAML Single Sign-On Service URL and Sign-Out URL from the **Quick Reference** section.
 
-	![Configure Single Sign-On](./media/active-directory-saas-freshdesk-tutorial/tutorial_freshdesk_configure.png) 
-
-	![Configure Single Sign-On](./media/active-directory-saas-freshdesk-tutorial/tutorial_freshdesk_configuresignon.png)
+	![Configure Single Sign-On](./media/active-directory-saas-freshdesk-tutorial/tutorial_freshdesk_configure.png)
 
 7. In a different web browser window, log into your Freshdesk company site as an administrator.
+
 8. In the menu on the top, click **Admin**.
    
    ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Admin")
@@ -145,11 +144,11 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
     3. In the Azure portal, on the **Configure FreshDesk for single sign on** dialog page, copy the **SAML Single Sign-On Service URL** value, and then paste it into the **SAML Login URL** textbox.
     4. In the Azure portal, on the **Configure FreshDesk for single sign on** dialog page, copy the **Sign-Out URL** value, and then paste it into the **Logout URL** textbox.
     5. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Security Certificate Fingerprint** textbox.  
-    
-       > [!TIP]
-       > For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI). 
-
-    6. Click **Save**.
+ 
+      >[!TIP]
+      >For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI). 
+      > 
+   6. Click **Save**.
 
 
 ### Creating an Azure AD test user
