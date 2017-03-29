@@ -22,7 +22,7 @@ ms.author: nepeters
 
 This script creates an Azure Virtual Machine running Windows Server 2016, and then uses the Azure Virtual Machine DSC Extension to install IIS. After running the script, you can access the default IIS website on the public IP address of the virtual machine.
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount` to create a connection with Azure.
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
 ## Sample script
 

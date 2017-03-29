@@ -22,7 +22,7 @@ ms.author: nepeters
 
 This script creates an Azure Virtual Machine running Windows Server 2016. After running the script, you can access the virtual machine over SSH.
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount` to create a connection with Azure.
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
 ## Sample script
 
