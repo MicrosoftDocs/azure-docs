@@ -193,7 +193,7 @@ public class App {
 			java.util.Date date = new java.util.Date();
             		java.sql.Timestamp sqlTimeStamp = new java.sql.Timestamp(date.getTime());
 
-			prep.setString(1, "test");
+			prep.setString(1, "BrandNewProduct");
 			prep.setInt(2, 200989);
 			prep.setString(3, "Blue");
 			prep.setDouble(4, 75);
@@ -254,7 +254,7 @@ public class App {
 			PreparedStatement prep = connection.prepareStatement(updateSql);
 
 			prep.setString(1, "500");
-			prep.setString(2, "test");
+			prep.setString(2, "BrandNewProduct");
 
 			int count = prep.executeUpdate();
 
@@ -271,7 +271,7 @@ public class App {
 
 ## Delete data
 
-Use [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with a [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
+Use [Prepared Statements](https://docs.microsoft.com/en-us/sql/connect/jdbc/using-statements-with-sql) with a [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
 
 ```java
 package com.sqldbsamples;
@@ -312,7 +312,7 @@ public class App {
 
 			PreparedStatement prep = connection.prepareStatement(deleteSql);
 
-			prep.setString(1, "test");
+			prep.setString(1, "BrandNewProduct");
 
 			int count = prep.executeUpdate();
 
@@ -326,13 +326,8 @@ public class App {
 ```
 
 ## Next steps
-
-
-
-
-
-
-
-
-
+* Review the [SQL Database Development Overview](sql-database-develop-overview.md).
+* Github repository for pyodbc for Python](https://github.com/mkleehammer/pyodbc).
+* [File issues/ask questions](https://github.com/Microsoft/msphpsql/issues).
+* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
 
