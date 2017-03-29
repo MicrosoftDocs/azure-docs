@@ -81,5 +81,5 @@ Pack head node by using the Resource Manager deployment model.
 * Try running a test workload on the cluster. For an example, see the HPC Pack [getting started guide](https://technet.microsoft.com/library/jj884144).
 
 <!--Image references-->
-[headnode]: ./media/virtual-machines-windows-hpcpack-cluster-headnode/headnode.png
-[marketplace]: ./media/virtual-machines-windows-hpcpack-cluster-headnode/marketplace.png
+[headnode]: ./media/hpcpack-cluster-headnode/headnode.png
+[marketplace]: ./media/hpcpack-cluster-headnode/marketplace.png
