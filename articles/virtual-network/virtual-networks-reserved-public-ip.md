@@ -37,7 +37,7 @@ To learn more about IP addresses in Azure, read the [IP addresses](virtual-netwo
 
 ## When do I need a reserved IP?
 * **You want to ensure that the IP is reserved in your subscription**. If you want to reserve an IP address that is not released from your subscription under any circumstance, you should use a reserved public IP.  
-* **You want your IP to stay with your cloud service even across stopped or deallocated state (VMs)**. If you want your service to be accessed by using an IP address that doesn't change, even when VMs in the cloud service are shutdown or stop (deallocated).
+* **You want your IP to stay with your cloud service even across stopped or deallocated state (VMs)**. If you want your service to be accessed by using an IP address that doesn't change, even when VMs in the cloud service are shut down or stop (deallocated).
 * **You want to ensure that outbound traffic from Azure uses a predictable IP address**. You may have your on-premises firewall configured to allow only traffic from specific IP addresses. By reserving an IP, you know the source IP address, and don't need to update your firewall rules due to an IP change.
 
 ## FAQ
@@ -50,7 +50,7 @@ To learn more about IP addresses in Azure, read the [IP addresses](virtual-netwo
 4. How do I reserve an IP address?
   You can use PowerShell, the [Azure Management REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx), or the [Azure portal](https://portal.azure.com) to reserve an IP address in an Azure region. A reserved IP address is associated to your subscription.
 5. Can I use a reserved IP with affinity group-based VNets?
-  No. Reserved IPs are only supported in regional VNets. Reserved IPs are not supported for VNets that are associated with affinity groups. See the [About Regional VNets and Affinity Groups](virtual-networks-migrate-to-regional-vnet.md) article for more information about associating a VNet with a region or affinity group.
+  No. Reserved IPs are only supported in regional VNets. Reserved IPs are not supported for VNets that are associated with affinity groups. For more information about associating a VNet with a region or affinity group, see the [About Regional VNets and Affinity Groups](virtual-networks-migrate-to-regional-vnet.md) article.
 
 ## Manage reserved VIPs
 
