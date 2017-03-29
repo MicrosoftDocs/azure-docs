@@ -36,14 +36,14 @@ This document guides you through the step by step process of creating an Open AP
 1. Go to the `Integrate` tab of your new HTTP Trigger function
   1. Toggle `Allowed HTTP methods` to `Selected methods`
   1. In `Selected HTTP methods` uncheck every verb except POST.
-    ![Selected HTTP Methods](./selectedHTTPmethods.png)
+    ![Selected HTTP Methods](./media/functions-api-definition-getting-started/selectedHTTPmethods.png)
   1. This step will simplify your API definition later on.
 
 ## <a name="enable"></a>Enabling API Definition Support
 1. Navigate to `API Definition (preview)`
 1. Set `Swagger Source` to `Internal`
   1. This step enables a suite of Open API options for your Function App, including an endpoint to host a Swagger file from your Function App's domain, an inline copy of the [Swagger Editor](http://editor.swagger.io), and a quickstart definition generator.
-![Enabled Definition](./enabledefinition.png)
+![Enabled Definition](./media/functions-api-definition-getting-started/enabledefinition.png)
 ## <a name="create-definition"></a>Creating your API Definition from a template
 1. Click `Load Generated API Definition`
   1. This step scans your Function App for HTTP Trigger functions and use the info in functions.json to generate a Swagger document.
@@ -78,7 +78,7 @@ This document guides you through the step by step process of creating an Open AP
   ```
 1. Click `save` to save your changes
 
-![Adding Template Definition](./addingtemplate.png)
+![Adding Template Definition](./media/functions-api-definition-getting-started/addingtemplate.png)
 
 ## <a name="use-definition"></a>Using Your API Definition
 1. Copy your Swagger URL and paste it into a new browser tab to view your raw Swagger document.
@@ -97,7 +97,7 @@ To test the API definition you just made you will need to follow the steps below
 1. select `/api/yourfunctionroute` > `POST`
 1. Click `Try it out` and enter a name to test
 1. You should see a SUCCESS result under `Pretty`
-![API Definition test](./definitionTest.png)
+![API Definition test](./media/functions-api-definition-getting-started/definitionTest.png)
 
 ## Learn more
 
