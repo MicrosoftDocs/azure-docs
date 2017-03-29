@@ -15,11 +15,95 @@ The webhook can authenticate using either of these methods:
 2. **Basic authorization** - The webhook URI is saved with a username and password, for example, `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
 
 ## Payload schema
-The POST operation contains the following JSON payload and schema for all Activity Log-based alerts. This schema is similar to the one used by metric-based alerts.
+The JSON payload contained in the POST operation is differs based on the payload's data.context.activityLog.eventSource field.
+
+###Common
+```json
+{
+    "schemaId": "unknown",
+    "data": {
+        "status": "Activated",
+        "context": {
+            "activityLog": {
+                "channels": "Operation",
+                "correlationId": "6ac88262-43be-4adf-a11c-bd2179852898",
+                "eventSource": "Administrative",
+                "eventTimestamp": "2017-03-29T15:43:08.0019532+00:00",
+                "eventDataId": "8195a56a-85de-4663-943e-1a2bf401ad94",
+                "level": "Informational",
+                "operationName": "microsoft.insights/actionGroups/write",
+                "operationId": "6ac88262-43be-4adf-a11c-bd2179852898",
+                "status": "Started",
+                "subStatus": "",
+                "subscriptionId": "52c65f65-0518-4d37-9719-7dbbfc68c57a",
+                "submissionTimestamp": "2017-03-29T15:43:20.3863637+00:00",
+                ...
+            }
+        },
+        "properties": {}
+    }
+}
+```
+###Administrative
+```json
+{
+    "schemaId": "unknown",
+    "data": {
+        "status": "Activated",
+        "context": {
+            "activityLog": {
+                "authorization": {
+                    "action": "microsoft.insights/actionGroups/write",
+                    "scope": "/subscriptions/52c65f65-0518-4d37-9719-7dbbfc68c57b/resourceGroups/CONTOSO-TEST/providers/microsoft.insights/actionGroups/IncidentActions"
+                },
+                "claims": "{...}",
+                "caller": "me@contoso.com",
+                "description": "",
+                "httpRequest": "{...}",
+                "resourceId": "/subscriptions/52c65f65-0518-4d37-9719-7dbbfc68c57b/resourceGroups/CONTOSO-TEST/providers/microsoft.insights/actionGroups/IncidentActions",
+                "resourceGroupName": "CONTOSO-TEST",
+                "resourceProviderName": "microsoft.insights",
+                "resourceType": "microsoft.insights/actionGroups"
+            }
+        },
+        "properties": {}
+    }
+}
 
 ```
-Duke to Provide
+###ServiceHealth
+```json
+{
+    "schemaId": "unknown",
+    "data": {
+        "status": "Activated",
+        "context": {
+            "activityLog": {
+                "properties": {
+                    "title": "...",
+                    "service": "...",
+                    "region": "...",
+                    "communication": "...",
+                    "incidentType": "Incident",
+                    "trackingId": "...",
+                    "groupId": "...",
+                    "impactStartTime": "3/29/2017 3:43:21 PM",
+                    "impactMitigationTime": "3/29/2017 3:43:21 PM",
+                    "eventCreationTime": "3/29/2017 3:43:21 PM",
+                    "impactedServices": "[{...}]",
+                    "defaultLanguageTitle": "...",
+                    "defaultLanguageContent": "...",
+                    "stage": "Active",
+                    "communicationId": "...",
+                    "version": "0.1"
+                },
+            }
+        },
+        "properties": {}
+    }
+}
 ```
+
 For specific schema details on Service Notification activity log alerts [click here](monitoring-service-notifications.md)
 For specific schema details on all other Activity Log alerts [click here](monitoring-overview-activity-logs.md)
 
