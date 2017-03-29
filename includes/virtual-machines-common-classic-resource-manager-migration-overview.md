@@ -52,7 +52,7 @@ The following features are not currently supported. You can optionally remove th
 | Compute |Unassociated virtual machine disks. |
 | Compute |Virtual machine images. |
 | Network |Endpoint ACLs. |
-| Network |ExpressRoute Gateways, Application gateway (VPN Gateways are supported). |
+| Network |ExpressRoute with authorization links (see FAQ), Application Gateway (VPN Gateways are supported).|
 | Network |Virtual networks using VNet Peering. (Migrate VNet to ARM, then peer) Learn more about [VNet Peering](../articles/virtual-network/virtual-network-peering-overview.md). |
 
 ### Unsupported configurations
