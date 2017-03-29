@@ -80,9 +80,10 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). See
 	```
 
 	To remove the rule when testing is complete, run:
-    ```CMD
-		netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
-		```
+
+  ```CMD
+	netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
+	```
 
 	**Azure Linux:**  Azure Linux images have permissive firewalls. If there is an application listening on a port the traffic will be allowed through. Custom images that are secured may need ports opened explicitly. Common Linux OS-layer firewalls include `iptables`, `ufw` or `firewalld`.
 
@@ -95,9 +96,10 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). See
 	 ```
 
 4. On the client node, change to the directory where iperf tool is extracted and run the following command:
-    ```CMD
+
+  ```CMD
 	iperf3.exe -c <IP of the iperf Server> -t 30 -p 5001 -P 32
-		```
+	```
 
 	The client will be inducing traffic on port 5001 to the server for 30 seconds. The flag '-P 'indicates we are using 32 simultaneous connections to the server node.
 
@@ -106,7 +108,8 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). See
 	![Output](./media/vpn-gateway-validate-throughput-to-vnet/06theoutput.png)
 
 5. (OPTIONAL) To preserve the testing results, run:
-     ```CMD
+
+    ```CMD
 		iperf3.exe -c IPofTheServerToReach -t 30 -p 5001 -P 32  >> output.txt
 		```
 
