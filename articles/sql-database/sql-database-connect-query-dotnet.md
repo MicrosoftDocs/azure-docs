@@ -66,6 +66,7 @@ Add System.Data.SqlClient to your project's ***csproj*** file
 <ItemGroup>
     <PackageReference Include="System.Data.SqlClient" Version="4.3.0" />
 </ItemGroup>
+```
 
 ## Get connection information
 
