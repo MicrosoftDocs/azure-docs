@@ -72,8 +72,8 @@ Using the Azure portal, you can configure all the properties of a cluster and th
 
     To access a template in your library, click **More services** from the left menu, and then click **Templates** (under the **Other** category).
 
-> [!Note]
-> The template and parameters file must be used together. Otherwise, you might get unexpected results. For example, the default **clusterKind** property value is always **hadoop**, despite what you specify before you download the template.
+    > [!Note]
+    > The template and parameters file must be used together. Otherwise, you might get unexpected results. For example, the default **clusterKind** property value is always **hadoop**, despite what you specify before you download the template.
 
 
 
@@ -171,7 +171,7 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 * To learn about the sections of the Azure Resource Manager template, see [Authoring templates](../azure-resource-manager/resource-group-authoring-templates.md).
 * For a list of the functions you can use in an Azure Resource Manager template, see [Template functions](../azure-resource-manager/resource-group-template-functions.md).
 
-## Appx-A: Resource Manager template
+## Appendix A: Resource Manager template
 The following Azure Resource Manager template creates a Linux-based Hadoop cluster with the dependent Azure storage account.
 
 > [!NOTE]
