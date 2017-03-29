@@ -8,7 +8,10 @@ Action groups enable you to configure a list of receivers. These groups can then
 
 This article covers the behavior of the SMS alerts and the response actions the user can take based on the locale of the user:
 
-[!NOTE] This feature is currently in private preview. Not all functionality may be available at this time.
+>[!NOTE]
+>This feature is currently in private preview. Not all functionality may be available at this time.
+>
+>
 
 ## USA/Canada SMS behavior ##
 ### Receiving an SMS Alert ###

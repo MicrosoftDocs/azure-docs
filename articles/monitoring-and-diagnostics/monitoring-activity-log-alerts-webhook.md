@@ -1,7 +1,10 @@
 # Webhooks for Azure Activity Log alerts
 As part of the definition of an Action Group you are able to configure Webhook endpoints to receive Activity Log Alerts notifications. Webhooks allow you to route these notification to other systems for post-processing or custom actions. This article shows what the payload for the HTTP POST to a webhook looks like.
 
-[!NOTE] This feature is currently in private preview. Not all functionality may be available at this time.
+>[!NOTE]
+>This feature is currently in public preview. Not all functionality may be available at this time.
+>
+>
 
 For information on the setup and schema for Azure Activity Log alerts, [see this page instead](monitoring-activity-log-alerts.md).
 
@@ -15,7 +18,7 @@ The webhook can authenticate using either of these methods:
 2. **Basic authorization** - The webhook URI is saved with a username and password, for example, `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
 
 ## Payload schema
-The JSON payload contained in the POST operation is differs based on the payload's data.context.activityLog.eventSource field.
+The JSON payload contained in the POST operation differs based on the payload's data.context.activityLog.eventSource field.
 
 ###Common
 ```json
@@ -104,7 +107,7 @@ The JSON payload contained in the POST operation is differs based on the payload
 }
 ```
 
-For specific schema details on Service Notification activity log alerts [click here](monitoring-service-notifications.md)
+For specific schema details on Service Health Notification activity log alerts [click here](monitoring-service-notifications.md)
 For specific schema details on all other Activity Log alerts [click here](monitoring-overview-activity-logs.md)
 
 | Element Name | Description |

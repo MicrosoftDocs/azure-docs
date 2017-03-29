@@ -2,11 +2,14 @@
 ## Overview ##
 This article shows you how to view service health notifications using the Azure portal.
 
-[!NOTE] This feature is currently in public preview. Not all functionality may be available at this time. 
+>[!NOTE]
+>This feature is currently in public preview. Not all functionality may be available at this time.
+>
+>
 
 Service health notifications enable you to view service health messages published by the Azure team that may be affecting resources under your subscription. These notifications are a sub-class of activity log events and can also be found on the activity log blade. Service health notifications can be informational or actionable depending on the class.
 
-There are five classes of service notifications:  
+There are five classes of service health notifications:  
 **Action Required:** From time to time we may notice something unusual happen on your account. We may need to work with you to remedy this. We will send you a notification either detailing the actions you will need to take or with details on how to contact Azure engineering or support.  
 **Assisted Recovery:** An event has occurred and engineers have confirmed that you are still experiencing impact. Engineering will need to work with you directly to bring your services to restoration.  
 **Incident:** A service impacting event is currently affecting one or more of the resources in your subscription.  

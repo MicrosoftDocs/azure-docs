@@ -1,7 +1,10 @@
 # Rate Limiting
 In order to ensure that communication around activity log alerts and service health alerts are manageable and actionable, rate limiting on SMS and Email alerts have been put in place.
 
-[!NOTE] This feature is currently in private preview. Not all functionality may be available at this time.
+>[!NOTE]
+>This feature is currently in public preview. Not all functionality may be available at this time.
+>
+>
 
 ## Rate Limit for SMS Alerts
 Rate limiting for SMS alerts is configured as follows:
@@ -21,4 +24,4 @@ There is no rate limiting in place for webhooks today.
 ## Next Steps ##
 Learn more on [SMS alert behavior](monitoring-sms-alert-behavior.md)  
 Get an [overview of activity log alerts](monitoring-overview-alerts.md) and learn how to get alerted  
-How to [configure alerts whenever a service notification is posted](monitoring-activity-log-alerts-on-service-notifications.md)
+How to [configure alerts whenever a service health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md)
