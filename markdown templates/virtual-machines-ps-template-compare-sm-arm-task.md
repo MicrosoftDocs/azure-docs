@@ -38,7 +38,7 @@ These command examples use the following variables:
 
 $FriendlyName"<Describe value>"
 
-<!-- if it makes more sense to present this in a table, use this. Otherwise, delete. The table won't render until it's in Github or published to Sandbox.-->
+<!-- if it makes more sense to present this in a table, use this. Otherwise, delete. The table won't render until it's in GitHub or published to Sandbox.-->
 
 | Service Management | Resource Manager |
 | --- | --- |

@@ -74,7 +74,6 @@ Download the latest version of the [WAImportExport tool](http://download.microso
 ### Hard disk drives
 Only 2.5 inch SSD or 2.5" or 3.5" SATA II or III internal hard drives are supported for use with the Import/Export service. You can use hard drives up to 10TB.
 For import jobs, only the first data volume on the drive will be processed. The data volume must be formatted with NTFS.
-When copying data to your hard drive, you can attach it directly using a 2.5 inch SSD or 2.5" or 3.5" SATA II or III connector or you can attach it externally using an external 2.5 inch SSD or 2.5" or 3.5" SATA II or III USB adaptor.
 
 > [!IMPORTANT]
 > External hard disk drives that come with a built-in USB adaptor are not supported by this service. Also, the disk inside the casing of an external HDD cannot be used; please do not send external HDDs.

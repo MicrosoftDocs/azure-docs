@@ -17,7 +17,7 @@ ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: larryfr
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
 # Use Maven to develop a Java-based word count topology for Storm on HDInsight
 

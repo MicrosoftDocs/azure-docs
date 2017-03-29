@@ -22,7 +22,7 @@ ms.author: kasing
 This article catalogs the tools that have been provided by the community to assist with migration of IaaS resources from classic to the Azure Resource Manager deployment model.
 
 > [!NOTE]
-> These tools are not officially supported by Microsoft Support. Therefore they are open sourced on Github and we're happy to accept PRs for fixes or additional scenarios. To report an issue, use the Github issues feature.
+> These tools are not officially supported by Microsoft Support. Therefore they are open sourced on GitHub and we're happy to accept PRs for fixes or additional scenarios. To report an issue, use the GitHub issues feature.
 > 
 > Migrating with these tools will cause downtime for your classic Virtual Machine. If you're looking for platform supported migration, visit 
 > 

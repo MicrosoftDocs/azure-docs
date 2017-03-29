@@ -52,11 +52,24 @@ After you download the sample code, open the Visual Studio .sln file to get star
 
 ### Update the Azure AD B2C configuration
 
-Our sample is configured to use the policies and client ID of our demo tenant. If you would like to use your own tenant, you will need to open `web.config` in the `TaskService` project and replace the values for
+Our sample is configured to use the policies and client ID of our demo tenant. If you would like to use your own tenant:
 
-* `ida:Tenant` with your tenant name
-* `ida:ClientId` with your web api application ID
-* `ida:SignUpSignInPolicyId` with your "Sign-up or Sign-in" policy name
+1. Open `web.config` in the `TaskService` project and replace the values for
+
+    * `ida:Tenant` with your tenant name
+    * `ida:ClientId` with your web api application ID
+    * `ida:SignUpSignInPolicyId` with your "Sign-up or Sign-in" policy name
+
+2. Open `web.config` in the `TaskWebApp` project and replace the values for
+
+    * `ida:Tenant` with your tenant name
+    * `ida:ClientId` with your web app application ID
+    * `ida:ClientSecret` with your web app secret key
+    * `ida:SignUpSignInPolicyId` with your "Sign-up or Sign-in" policy name
+    * `ida:EditProfilePolicyId` with your "Edit Profile" policy name
+    * `ida:ResetPasswordPolicyId` with your "Reset Password" policy name
+
+
 
 ## Requesting and saving an access token
 

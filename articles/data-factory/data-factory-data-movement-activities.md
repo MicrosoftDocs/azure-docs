@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 03/24/2017
 ms.author: jingwang
 
 ---
@@ -91,6 +91,8 @@ When both source and sink data stores are in the cloud, Data Factory uses a serv
 | Brazil | Brazil South | Brazil South |
 | Europe | North Europe | North Europe |
 | &nbsp; | West Europe | West Europe |
+| United Kingdom | UK West | UK South |
+| &nbsp; | UK South | UK South |
 | Asia Pacific | Southeast Asia | Southeast Asia |
 | &nbsp; | East Asia | Southeast Asia |
 | Australia | Australia East | Australia East |
@@ -101,7 +103,7 @@ When both source and sink data stores are in the cloud, Data Factory uses a serv
 | &nbsp; | West India | Central India |
 | &nbsp; | South India | Central India |
 
-Alternatively, you can explicitly indicate the region of Data Factory service to be used to perform the copy by specifying `executionLocation` property under Copy Activity `typeProperties`. Supported values for this property are listed in above **Region used for data movement** column. Note your data will go through that region over the wire during copy. For example, to copy between Azure stores in UK, you can specify `"executionLocation": "North Europe"` to route through North Europe (see [sample JSON](#by-using-json-scripts) as reference).
+Alternatively, you can explicitly indicate the region of Data Factory service to be used to perform the copy by specifying `executionLocation` property under Copy Activity `typeProperties`. Supported values for this property are listed in above **Region used for data movement** column. Note your data will go through that region over the wire during copy. For example, to copy between Azure stores in Korea, you can specify `"executionLocation": "Japan East"` to route through Japan region (see [sample JSON](#by-using-json-scripts) as reference).
 
 > [!NOTE]
 > If the region of the destination data store is not in preceding list or undetectable, by default Copy Activity fails instead of going through an alternative region, unless `executionLocation` is specified. The supported region list will be expanded over time.
@@ -151,7 +153,7 @@ Here's a sample JSON definition:
           "sink": {
             "type": "SqlSink"
           },
-          "executionLocation": "North Europe"          
+          "executionLocation": "Japan East"          
         },
         "Policy": {
           "concurrency": 1,

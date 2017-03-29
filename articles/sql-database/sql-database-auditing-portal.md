@@ -21,7 +21,7 @@ ms.author: ronitr;giladm
 
 # Configure and manage SQL database auditing in the Azure portal
 
-The following section describes how to configure and manage auditing using the Azure portal. To configure and manage auditing using PowerShell, see [Configure auditing with PowerShell](sql-database-auditing-powershell.md). 
+The following section describes how to configure and manage auditing using the Azure portal. To configure and manage auditing using PowerShell, see [Configure auditing with PowerShell](scripts/sql-database-create-and-configure-database-powershell.md). 
 
 For an overview of auditing, see [SQL Database auditing](sql-database-auditing.md).
 
@@ -184,6 +184,6 @@ In production, you are likely to refresh your storage keys periodically. When re
 
 ## Next steps
 
-* To configure and manage auditing using PowerShell, see [Configure database auditing using PowerShell](sql-database-auditing-powershell.md).
+* To configure and manage auditing using PowerShell, see [Configure database auditing using PowerShell](scripts/sql-database-create-and-configure-database-powershell.md).
 * For an overview of auditing, see [Database auditing](sql-database-auditing.md).
 

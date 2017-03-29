@@ -33,7 +33,7 @@ Azure provides the capability to monitor resources with logging and metrics. App
 Application gateway provides the capability to monitor the health of individual members of the backend pools through the portal, PowerShell, and CLI. Aggregated health summary of backend pools can also be found through the performance diagnostic logs. The backend health report reflects the output of the Application Gateway health probe to the backend instances. When probing is successful and the backend can be served traffic to, it is considered healthy, otherwise it is considered unhealthy.
 
 > [!important]
-> If there is a NSG on Application Gateway subnet, port ranges 65503-65534 should be opened on Application Gateway subnet to the backend pool members. These ports are required for backend health to work properly.
+> If there is an NSG on Application Gateway subnet, port ranges 65503-65534 should be opened on the Application Gateway subnet for Inbound traffic. These ports are required for the backend health API to work.
 
 ### View backend health through the portal
 
@@ -248,7 +248,7 @@ Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.
 You can also connect to your storage account and retrieve the JSON log entries for access and performance logs. Once you download the JSON files, you can convert them to CSV and view in Excel, PowerBI, or any other data visualization tool.
 
 > [!TIP]
-> If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from Github.
+> If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
 > 
 > 
 

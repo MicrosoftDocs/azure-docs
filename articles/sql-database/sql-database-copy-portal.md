@@ -23,7 +23,7 @@ ms.tgt_pltfrm: NA
 The following steps show you how to copy a SQL database with the [Azure portal](https://portal.azure.com) to the same server or a different server. 
 
 > [!NOTE]
-> You can also copy a SQL database using [PowerShell](sql-database-copy-powershell.md) or [Transact-SQL](sql-database-copy-transact-sql.md).
+> You can also copy a SQL database using [PowerShell](scripts/sql-database-copy-database-to-new-server-powershell.md) or [Transact-SQL](sql-database-copy-transact-sql.md).
 >
 
 To copy a SQL database, you need the following items:
@@ -66,8 +66,7 @@ To resolve logins after the copy operation completes, see [Resolve logins](sql-d
 * [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
 
 <!--Image references-->
-[1]: ./media/sql-database-copy-portal/copy.png
-[2]: ./media/sql-database-copy-portal/copy-ok.png
+
 [3]: ./media/sql-database-copy-portal/copy-notification.png
 [4]: ./media/sql-database-copy-portal/monitor-copy.png
 
