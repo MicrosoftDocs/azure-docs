@@ -33,8 +33,28 @@ ms.author: spelluru
 ## Introduction
 The HDInsight Spark activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes Spark programs on [your own](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) HDInsight cluster. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
+> [!IMPORTANT]
+> If you are new to Azure Data Factory, we recommend you go through the [Build your first pipeline](data-factory-build-your-first-pipeline.md) tutorial before you read this article. For an overview of Data Factory service, see [Introduction to Azure Data Factory](data-factory-introduction.md). 
+
+## Apache Spark cluster in Azure HDInsight
+First, create an Apache Spark cluster in Azure HDInsight. See [Get started: Create Apache Spark cluster in Azure HDInsight and run interactive queries using Spark SQL](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) to create an Apache Spark cluster and then Jupyter note book to run a couple of Spark SQL interactive queries to confirm that the cluster is working as expected.    
+
+## Create data factory 
+Here are the typical steps to create a data factory that invokes a Spark Activity.  
+
+1. Create a data factory.
+2. Create a linked service that links the Apache Spark cluster to your data factory.
+3. Currently, you must specify an output dataset for an activity even if there is no output being produced. Therefore do the following steps:
+	1. Create a linked service that links your Azure Storage account to the data factory.
+	2. Create a dataset that refers to the Azure Storage linked service.  
+3. Create a pipeline with Spark Activity that refers to the linked service created in #2. The activity is configured with the output dataset. The output dataset is what drives the schedule (hourly, daily, etc...). Therefore, you must specify the output dataset even though the activity does not really produce an output.
+
+For detailed step-by-step instructions to create a data factory, see the tutorial: [Build your first pipeline](data-factory-build-your-first-pipeline.md). This tutorial uses a Hive Activity with a HDInsight Hadoop cluster but the steps are similar for usign a Spark Activity with a HDInsight Spark cluster.   
+
+The following sections provide information about creating Data Factory entities to use Apache Spark cluster and Spark Activity in your data factory.   
+
 ## HDInsight linked service
-Before you use a Spark activity in a Data Factory pipeline, create a HDInsight (your own) linked service. The following JSON snippet shows the definition of a HDInsight linked service to point to your own Azure HDInsight Spark cluster.   
+Before you use a Spark activity in a Data Factory pipeline, create a HDInsight (your own) linked service. The following JSON snippet shows the definition of a HDInsight linked service that points to an Azure HDInsight Spark cluster.   
 
 ```json
 {
@@ -42,7 +62,7 @@ Before you use a Spark activity in a Data Factory pipeline, create a HDInsight (
 	"properties": {
 		"type": "HDInsight",
 		"typeProperties": {
-			"clusterUri": "https://MyHdinsightSparkcluster.azurehdinsight.net/",
+			"clusterUri": "https://<name of your HDInsight Spark Cluster>.azurehdinsight.net/",
 	  		"userName": "admin",
 	  		"password": "password",
 	  		"linkedServiceName": "MyHDInsightStoragelinkedService"
@@ -57,29 +77,92 @@ Before you use a Spark activity in a Data Factory pipeline, create a HDInsight (
 For details about the HDInsight linked service and other compute linked services, see [Data Factory compute linked services](data-factory-compute-linked-services.md) article. 
 
 ## Spark Activity JSON
-Here is the sample JSON definition of a Spark activity:    
+Here is the sample JSON definition of a Spark activity in a pipeline:    
 
-```json
+```
 {
-	"name": "MySparkActivity",
-	"description": "This activity invokes the Spark program",
-	"type": "HDInsightSpark",
-	"outputs": [
-    	{
-        	"name": "PlaceholderDataset"
-    	}
-	],
-	"linkedServiceName": "HDInsightLinkedService",
-	"typeProperties": {
-		"rootPath": "mycontainer\\myfolder",
-		"entryFilePath": "main.py",
-		"arguments": [ "arg1", "arg2" ],
-		"sparkConfig": {
-  			"spark.python.worker.memory": "512m"
-		}
-	}
+    "name": "SparkPipeline",
+    "properties": {
+        "activities": [
+            {
+                "type": "HDInsightSpark",
+                "typeProperties": {
+                    "rootPath": "adfspark\\pyFiles",
+                    "entryFilePath": "test.py",
+					"arguments": [ "arg1", "arg2" ],
+					"sparkConfig": {
+						"spark.python.worker.memory": "512m"
+					}
+                    "getDebugInfo": "Always"
+                },
+                "outputs": [
+                    {
+                        "name": "OutputDataset"
+                    }
+                ],
+                "scheduler": {
+                    "frequency": "Day",
+                    "interval": 1
+                },
+                "name": "MySparkActivity",
+                "description": "This activity invokes the Spark program",
+                "linkedServiceName": "HDInsightLinkedService"
+            }
+        ],
+        "start": "2017-02-01T00:00:00Z",
+        "end": "2017-02-02T00:00:00Z"
+    }
 }
 ```
+
+The type properties (in the typeProperties section) are described later in this article in the [Spark Activity properties](#spark-activity-properties) section. 
+
+As mentioned earlier, you must specify an output dataset for the activity as that is what drives the schedule of the pipeline (hourly, daily, etc.). In this example, an Azure Blob dataset is used. To create an Azure Blob dataset, you need to create an Azure Storage linked service first. Here are the sample definitions of Azure Storage linked service and Azure Blob dataset: 
+
+**Azure Storage Linked service:**
+```json
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "description": "",
+        "hubName": "spsparkdf_hub",
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<storage account name>;AccountKey=<storage account key>"
+        }
+    }
+}
+```
+ 
+
+**Azure Blob dataset:** 
+```json
+{
+    "name": "OutputDataset",
+    "properties": {
+        "published": false,
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+            "fileName": "sparkoutput.txt",
+            "folderPath": "spark/output/",
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": "\t"
+            }
+        },
+        "availability": {
+            "frequency": "Day",
+            "interval": 1
+        }
+    }
+}
+```
+
+This is more of a dummy dataset. Data Factory uses the frequency and interval settings and runs the pipeline daily within the start and end times of a pipeline. 
+
+## Spark Activity properties
+
 The following table describes the JSON properties used in the JSON definition: 
 
 | Property | Description | Required |
