@@ -1,10 +1,10 @@
-# Service Notifications #
+# Service Health Notifications #
 ## Overview ##
-This article shows you how to view service notifications using the Azure portal.
+This article shows you how to view service health notifications using the Azure portal.
 
-[!NOTE] This feature is currently in private preview. Not all functionality may be available at this time. 
+[!NOTE] This feature is currently in public preview. Not all functionality may be available at this time. 
 
-Service notifications enable you to view service health messages published by the Azure team that may be affecting resources under your subscription. These notifications are a sub-class of activity log events and can also be found on the activity log blade. Service notifications can be informational or actionable depending on the class.
+Service health notifications enable you to view service health messages published by the Azure team that may be affecting resources under your subscription. These notifications are a sub-class of activity log events and can also be found on the activity log blade. Service health notifications can be informational or actionable depending on the class.
 
 There are five classes of service notifications:  
 **Action Required:** From time to time we may notice something unusual happen on your account. We may need to work with you to remedy this. We will send you a notification either detailing the actions you will need to take or with details on how to contact Azure engineering or support.  
@@ -14,7 +14,7 @@ There are five classes of service notifications:
 **Information:** From time to time we may send you notifications that a communicate to you about potential optimizations that may help improve your resource utilization.  
 **Security:** Urgent security related information regarding your solution(s) running on Azure.
 
-Each service notification will carry details on the scope and impact to your resources. Details will include:
+Each service health notification will carry details on the scope and impact to your resources. Details will include:
 
 Property Name | Description
 -------- | -----------
@@ -22,7 +22,6 @@ channels | Is one of the following values: “Admin”, “Operation”
 correlationId | Is usually a GUID in the string format. Events with that belong to the same uber action usually share the same correlationId.
 eventDataId | Is the unique identifier of an event
 eventName | Is the title of the event
-id | ?
 level | Level of the event. One of the following values: “Critical”, “Error”, “Warning”, “Informational” and “Verbose”
 resourceProviderName | Name of the resource provider for the impacted resource
 resourceType| The type of resource of the impacted resource
@@ -45,7 +44,7 @@ Properties.stage | Possible values for AssistedRecovery, ActionRequired, Informa
 Properties.communicationId | The communication this event is associated.
 
 
-## Viewing your service notifications in the Azure portal ##
+## Viewing your service health notifications in the Azure portal ##
 1.	In the [portal](https://portal.azure.com), navigate to the **Monitor** service
 
     ![Monitor](./media/monitoring-service-notifications/Home-Monitor.png)
@@ -59,5 +58,5 @@ Properties.communicationId | The communication this event is associated.
 5. Click on the **+Add Activity Log Alert** operation to receive notifications to ensure you are notified for future service notifications of this type. To learn more on configuring alerts on service notifications [click here](monitoring-activity-log-alerts-on-service-notifications.md)
 
 ## Next Steps: ##
-Receive [alert notifications whenever a service notification](monitoring-activity-log-alerts-on-service-notifications.md) is posted  
+Receive [alert notifications whenever a service health notification](monitoring-activity-log-alerts-on-service-notifications.md) is posted  
 Learn more about [activity log alerts](monitoring-activity-log-alerts.md)
