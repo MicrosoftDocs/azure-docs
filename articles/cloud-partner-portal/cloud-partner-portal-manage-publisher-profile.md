@@ -42,6 +42,11 @@ If you haven’t registered your company as a cloud partner [click here](./cloud
 
 ![Publisher Profile Tab](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofilenew.png)
 
+
+
+![Publisher Profile Details](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofiledetails.png)
+
+
 **Link your Dev Center Account**: You can also link your existing Dev Center account with your publisher profile on the Cloud Partner Portal. First log on to the portal with the same email address used to register your Dev Center account. Once linked, your Dev Center account status, Dev Center account owner email, and Dev Center account name will display on your publisher profile page. 
 
 > [!NOTE]
