@@ -42,15 +42,15 @@ To learn more about IP addresses in Azure, read the [IP addresses](virtual-netwo
 
 ## FAQ
 1. Can I use a reserved IP for all Azure services?  
-  No. Reserved IPs can only be used for VMs and cloud service instance roles exposed through a VIP.
+- No. Reserved IPs can only be used for VMs and cloud service instance roles exposed through a VIP.
 2. How many reserved IPs can I have?  
-  For details, see the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
+- For details, see the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
 3. Is there a charge for reserved IPs?
-  Sometimes. For pricing details, see the [Reserved IP Address Pricing Details](http://go.microsoft.com/fwlink/?LinkID=398482) page.
+- Sometimes. For pricing details, see the [Reserved IP Address Pricing Details](http://go.microsoft.com/fwlink/?LinkID=398482) page.
 4. How do I reserve an IP address?
-  You can use PowerShell, the [Azure Management REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx), or the [Azure portal](https://portal.azure.com) to reserve an IP address in an Azure region. A reserved IP address is associated to your subscription.
+- You can use PowerShell, the [Azure Management REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx), or the [Azure portal](https://portal.azure.com) to reserve an IP address in an Azure region. A reserved IP address is associated to your subscription.
 5. Can I use a reserved IP with affinity group-based VNets?
-  No. Reserved IPs are only supported in regional VNets. Reserved IPs are not supported for VNets that are associated with affinity groups. For more information about associating a VNet with a region or affinity group, see the [About Regional VNets and Affinity Groups](virtual-networks-migrate-to-regional-vnet.md) article.
+- No. Reserved IPs are only supported in regional VNets. Reserved IPs are not supported for VNets that are associated with affinity groups. For more information about associating a VNet with a region or affinity group, see the [About Regional VNets and Affinity Groups](virtual-networks-migrate-to-regional-vnet.md) article.
 
 ## Manage reserved VIPs
 
@@ -84,7 +84,7 @@ Expected output:
     OperationStatus      : Succeeded
 
 >[!NOTE]
->When you create a reserved IP address with PowerShell, you cannot specify a resource group to create the reserved IP in. Azure places it into a resource group named *Default-Networking* automatically. If you create the reserved IP using the Azure portal, you can specify any resource group you choose. If you create the reserved IP in a resource group other than *Default-Networking* however, whenever you reference the reserved IP with commands such as `Get-AzureReservedIP` and `Remove-AzureReservedIP`, you must reference the name *Group resource-group-name reserved-ip-name*.  For example, if you create a reserved IP named *myReservedIP* in a resource group named *myResourceGroup*, you must reference the name of the reserved IP as *Group myResourceGroup myReservedIP*.   
+>When you create a reserved IP address with PowerShell, you cannot specify a resource group to create the reserved IP in. Azure places it into a resource group named *Default-Networking* automatically. If you create the reserved IP using the [Azure portal](http://portal.azure.com), you can specify any resource group you choose. If you create the reserved IP in a resource group other than *Default-Networking* however, whenever you reference the reserved IP with commands such as `Get-AzureReservedIP` and `Remove-AzureReservedIP`, you must reference the name *Group resource-group-name reserved-ip-name*.  For example, if you create a reserved IP named *myReservedIP* in a resource group named *myResourceGroup*, you must reference the name of the reserved IP as *Group myResourceGroup myReservedIP*.   
 
 Once an IP is reserved, it remains associated to your subscription until you delete it. To delete a reserved IP, run the following PowerShell command:
 
