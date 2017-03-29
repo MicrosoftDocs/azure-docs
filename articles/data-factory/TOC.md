@@ -25,10 +25,11 @@
 
 # How To
 ## Move Data
+### [Copy Activity Overview](data-factory-data-movement-activities.md)
 ### [Data Factory Copy Wizard](data-factory-azure-copy-wizard.md)
 #### [Load 1 TB in 15 minutes](data-factory-load-sql-data-warehouse.md)
-### [Copy Activity](data-factory-data-movement-activities.md)
-#### [Performance & Tuning Guide](data-factory-copy-activity-performance.md)
+### [Performance & Tuning Guide](data-factory-copy-activity-performance.md)
+### Connectors
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
 #### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
 #### [Azure Blob Storage](data-factory-azure-blob-connector.md)
@@ -52,16 +53,16 @@
 #### [PostgreSQL](data-factory-onprem-postgresql-connector.md)
 #### [Salesforce](data-factory-salesforce-connector.md)
 #### [SAP Business Warehouse](data-factory-sap-business-warehouse-connector.md)
-#### [SFTP](data-factory-sftp-connector.md)
 #### [SAP HANA](data-factory-sap-hana-connector.md)
+#### [SFTP](data-factory-sftp-connector.md)
 #### [SQL Server](data-factory-sqlserver-connector.md)
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Web table](data-factory-web-table-connector.md)
 ### [Data Management Gateway](data-factory-data-management-gateway.md)
 ### [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md)
-### [Map input and output dataset columns](data-factory-map-columns.md)
 ### [Supported file and compression formats](data-factory-supported-file-and-compression-formats.md)
+### [Map input and output dataset columns](data-factory-map-columns.md)
 ### [Invoked stored procedure from copy activity](data-factory-invoke-stored-procedure-from-copy-activity.md)
 ### [Repeatable copy](data-factory-repeatable-copy.md)
 
