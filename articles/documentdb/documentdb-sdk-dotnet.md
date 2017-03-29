@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 03/29/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -47,6 +47,9 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+
+### <a name="1.13.1"/>[1.13.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.13.1)
+* Fixed an issue which caused deadlocks in some of the async APIs when used inside ASP.NET context.
 
 ### <a name="1.13.0"/>[1.13.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.13.0)
 * Fixes to make SDK more resilient to automatic failover under certain conditions.
@@ -215,6 +218,7 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.13.1](#1.13.1) |March 29, 2017 |--- |
 | [1.13.0](#1.13.0) |March 24, 2017 |--- |
 | [1.12.2](#1.12.2) |March 20, 2017 |--- |
 | [1.12.1](#1.12.1) |March 14, 2017 |--- |
