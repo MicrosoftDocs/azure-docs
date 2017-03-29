@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/15/2017
+ms.date: 03/28/2017
 ms.author: cfowler
 ---
 # Create a Node.js Application on Web App
