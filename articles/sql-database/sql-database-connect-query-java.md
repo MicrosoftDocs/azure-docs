@@ -123,7 +123,7 @@ public class App {
 			ResultSet resultSet = statement.executeQuery(selectSql);
 
 			// Print results from select statement
-			System.out.println("\nTop 20 categories:");
+			System.out.println("Top 20 categories:");
 			while (resultSet.next())
 			{
 			    System.out.println(resultSet.getString(1) + " "
