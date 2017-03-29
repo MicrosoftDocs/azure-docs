@@ -17,171 +17,70 @@ ms.date: 3/28/2017
 ms.author: dstefan
 
 ---
-# Azure Active Directory Proof of Concept Playbook 
+# Azure Active Directory Proof of Concept Playbook: Implementation
 
-This article provides guidelines to explore different Azure AD capabilities in a Proof of Concept (PoC). The intended audience of this document is Identity Architects, IT Professionals, and System Integrators
+## Foundation - Syncing AD to Azure AD 
 
-## How to use this Playbook
 
-1. Use the [Theme](#theme) section and pick the area(s) of interest based on your needs.  
-2. Scope the PoC by choosing the scenarios that align with your business goals. The shorter the better. We recommend to do it as short and concise as possible to convey the value to the stakeholders while minimizing the complexity to realize it.  
-3. Use the PoC Implementation section to understand the scenarios, and what would they mean for your environment. In each scenario, we describe how to set it up (what we call building blocks), and how to navigate the scenarios. 
-4. Each building block explains the pre-requisites needed, as well as an approximate time to complete. This can help you during the planning process. 
-5. Based on 1-3 Above, define the environment in which to execute. We encourage to strive for a production environment to get a good feel of the experience for your users. 
-6. When having conflicting requirements, use this helpful tradeoff matrix 
-   * Theme-centric showing of value  
-   * Smoothness to prepare, to set up, and to execute the scenarios 
-   * Minimal time to execute the target scenarios 
-   * As close to production as feasible within your constraints 
->[!NOTE]
-> Throughout this article, you will see some specific third party applications and products mentioned as examples for convenience. Azure AD supports thousands of applications in our application gallery that you can use based on your needs and environment. 
 
-## PoC Ingredients 
+### Extending your on-premises identity to the cloud 
 
-### Theme
-Azure AD provides identity and access solutions across multiple areas in the enterprise. We classify the scenarios in the following areas: 
 
-* Lots of apps, one identity 
-* Increase your security 
-* Scale with Self Service 
 
-Defining a theme to frame the PoC helps to focus the efforts that resonates with business goals, which oftentimes are the triggers of the interest in a proof of concept in the first place. 
+### Assigning Azure AD licenses using Groups 
 
-### Environment
 
 
+## Theme – Lots of apps, one identity
 
-### Target Users
 
 
+### Integrate SaaS Applications – Federated SSO 
 
-## PoC Implementation
 
-### Foundation - Syncing AD to Azure AD 
 
+### SSO and Identity Lifecycle Events
 
 
-#### Extending your on-premises identity to the cloud 
 
+### Integrate SaaS Applications– Password SSO
 
 
-#### Assigning Azure AD licenses using Groups 
 
+### Secure Access to Shared Accounts 
 
 
-### Theme – Lots of apps, one identity
 
+## Theme – Increase your security 
 
 
-#### Integrate SaaS Applications – Federated SSO 
 
+### Secure administrator account access
 
 
-#### SSO and Identity Lifecycle Events
 
+### Secure access to applications
 
 
-#### Integrate SaaS Applications– Password SSO
 
+### Enable Just in time (JIT) administration
 
 
-#### Secure Access to Shared Accounts 
 
+### Protect Identities based on risk 
 
 
-### Theme – Increase your security 
 
+## Theme – Scale with Self Service
 
 
-#### Secure administrator account access
 
+### Self Service Password Reset 
 
 
-#### Secure access to applications
 
+### Self Service Access to Applications 
 
 
-#### Enable Just in time (JIT) administration
 
-
-
-#### Protect Identities based on risk 
-
-
-
-### Theme – Scale with Self Service
-
-
-
-#### Self Service Password Reset 
-
-
-
-#### Self Service Access to Applications 
-
-
-
-## PoC Building Blocks
-
-
-
-### Catalog of Actors
-
-
-
-### Common Prerequisites for all building blocks
-
-
-
-### Directory Synchronization – Password Hash Sync (PHS) – New Installation 
-
-
-
-### Branding 
-
-
-
-### SaaS Federated SSO Configuration 
-
-
-
-### SaaS Password SSO Configuration
-
-
-
-### SaaS Shared Accounts Configuration
-
-
-
-### Groups – Delegated Ownership 
-
-
-
-### Self Service Password Reset
-
-
-
-### Self Service Access to Application Management 
-
-
-
-### Azure Multi-Factor Authentication with Phone Calls
-
-
-
-### MFA Conditional Access for SaaS applications 
-
-
-
-### Privileged Identity Management (PIM) 
-
-
-
-### Discovering Risk Events
-
-
-
-### Deploying Sign-in risk policies 
-
-
-
+[!INCLUDE [active-directory-playbook-toc](../../includes/active-directory-playbook-toc.md)]

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory PoC Playbook | Microsoft Docs
+title: Azure Active Directory PoC Playbook Introduction| Microsoft Docs
 description: Explore and quickly implement Identity and Access Management scenarios 
 services: active-directory
 keywords: azure active directory, playbook, Proof of Concept, PoC
@@ -17,13 +17,13 @@ ms.date: 3/28/2017
 ms.author: dstefan
 
 ---
-# Azure Active Directory Proof of Concept Playbook 
+# Azure Active Directory Proof of Concept Playbook: Introduction
 
 This article provides guidelines to explore different Azure AD capabilities in a Proof of Concept (PoC). The intended audience of this document is Identity Architects, IT Professionals, and System Integrators
 
 ## How to use this Playbook
 
-1. Use the [Theme](#theme) section and pick the area(s) of interest based on your needs.  
+1. Use the [Theme](active-directory-playbook-ingredients.md#theme) section and pick the area(s) of interest based on your needs.  
 2. Scope the PoC by choosing the scenarios that align with your business goals. The shorter the better. We recommend to do it as short and concise as possible to convey the value to the stakeholders while minimizing the complexity to realize it.  
 3. Use the PoC Implementation section to understand the scenarios, and what would they mean for your environment. In each scenario, we describe how to set it up (what we call building blocks), and how to navigate the scenarios. 
 4. Each building block explains the pre-requisites needed, as well as an approximate time to complete. This can help you during the planning process. 
