@@ -27,24 +27,26 @@ To use Facebook as an identity provider in Azure Active Directory (Azure AD) B2C
 4. In the form, provide a **Display Name** and a valid **Contact Email**.
 5. Click **Create App ID**. This may require you to accept Facebook platform policies and complete an online security check.
 6. In the left column, click **Settings** and then select **Basic** if not selected already.
-7. Click **+ Add Platform** and select **Website**.
+7. Select a **Category**. 
+8. Click **+ Add Platform** and select **Website**.
    
     ![Facebook - Settings](./media/active-directory-b2c-setup-fb-app/fb-settings.png)
    
     ![Facebook - Settings - Website](./media/active-directory-b2c-setup-fb-app/fb-website.png)
-8. Enter `https://login.microsoftonline.com/` in the **Site URL** field and then click **Save Changes**.
+9. Enter `https://login.microsoftonline.com/` in the **Site URL** field and then click **Save Changes**.
    
     ![Facebook - Site URL](./media/active-directory-b2c-setup-fb-app/fb-site-url.png)
-8. Copy the value of **App ID**. Click **Show** and copy the value of **App Secret**. You will need both of them to configure Facebook as an identity provider in your tenant. **App Secret** is an important security credential.
+
+10. Copy the value of **App ID**. Click **Show** and copy the value of **App Secret**. You will need both of them to configure Facebook as an identity provider in your tenant. **App Secret** is an important security credential.
    
     ![Facebook - App ID & App Secret](./media/active-directory-b2c-setup-fb-app/fb-app-id-app-secret.png)
-9. Click **+ Add Product** on the left navigation and then the **Get Started** button next to **Facebook Login**.
+11. Click **+ Add Product** on the left navigation and then the **Get Started** button next to **Facebook Login**.
    
     ![Facebook - Facebook Login](./media/active-directory-b2c-setup-fb-app/fb-login.png)
-10. Enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Valid OAuth redirect URIs** field in the **Client OAuth Settings** section. Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com). Click **Save Changes** at the bottom of the page.
+12. Select **Website** and then enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Valid OAuth redirect URIs** field in the **Client OAuth Settings** section. Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com). Click **Save Changes** at the bottom of the page.
     
     ![Facebook - OAuth Redirect URI](./media/active-directory-b2c-setup-fb-app/fb-oauth-redirect-uri.png)
-11. To make your Facebook application usable by Azure AD B2C, you need to make it publicly available. You can do this by clicking **App Review** on the left navigation and by turning the switch at the top of the page to **YES** and clicking **Confirm**.
+13. To make your Facebook application usable by Azure AD B2C, you need to make it publicly available. You can do this by clicking **App Review** on the left navigation and by turning the switch at the top of the page to **YES** and clicking **Confirm**.
     
     ![Facebook - App public](./media/active-directory-b2c-setup-fb-app/fb-app-public.png)
 
