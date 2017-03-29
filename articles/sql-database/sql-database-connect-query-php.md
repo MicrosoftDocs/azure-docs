@@ -75,7 +75,7 @@ Get the connection string in the Azure portal. You use the connection string to 
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. In the **Essentials** pane for your database, review the fully qualified server name. 
 
-    <img src="./media/sql-database-connect-query-dotnet/server-names.png" alt="connection strings" style="width: 780px;" />
+    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="connection strings" style="width: 780px;" />
     
 ## Select Data
 The [sqlsrv_query()](https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-query) function can be used to retrieve a result set from a query against SQL Database. This function essentially accepts any query and returns a result set that can be iterated over with the use of [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
