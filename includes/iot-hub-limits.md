@@ -47,7 +47,7 @@ The IoT Hub service throttles requests when the following quotas are exceeded:
 
 | Throttle | Per-hub value |
 | --- | --- |
-| Identity registry operations <br/> (create, retrieve, list, update, delete), <br/> individual or bulk import/export |5000/min/unit (for S3) <br/> 100/min/unit (for S1 and S2). |
+| Identity registry operations <br/> (create, retrieve, list, update, delete), <br/> individual or bulk import/export |83.33/sec/unit (5000/min/unit) (for S3) <br/> 1.67/sec/unit (100/min/unit) (for S1 and S2). |
 | Device connections |6000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. |
 | Device-to-cloud sends |6000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. |
 | Cloud-to-device sends | 83.33/sec/unit (5000/min/unit) (for S3), 1.67/sec/unit (100/min/unit) (for S1 and S2). |
