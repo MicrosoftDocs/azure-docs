@@ -10,12 +10,14 @@
 ### [VS Code](sql-database-connect-query-vscode.md)
 ## Connect
 ### [C#](sql-database-connect-query-dotnet.md)
+### [Java](sql-database-connect-query-java.md)
+### [Python](sql-database-connect-query-python.md)
+### [Ruby](sql-database-connect-query-ruby.md)
 # Samples
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
 # Tutorials
 ## [Design a database](sql-database-design-first-database.md)
-
 # Concepts
 ## DBs and servers
 ### [Databases](sql-database-overview.md)
@@ -144,11 +146,8 @@
 ### [Sync data](sql-database-get-started-sql-data-sync.md)
 ## Connect applications
 ### [C and C++](sql-database-develop-cplusplus-simple.md)
-### [Java](sql-database-develop-java-simple.md)
 ### [Node.js](sql-database-develop-nodejs-simple.md)
 ### [PHP](sql-database-develop-php-simple.md)
-### [Python](sql-database-develop-python-simple.md)
-### [Ruby](sql-database-develop-ruby-simple.md)
 ### [Excel](sql-database-connect-excel.md)
 ### [Guidance](sql-database-connectivity-issues.md)
 ### [Issues](sql-database-troubleshoot-common-connection-issues.md)
