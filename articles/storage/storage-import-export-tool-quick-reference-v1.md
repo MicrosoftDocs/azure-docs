@@ -1,6 +1,6 @@
 ---
 title: Quick reference for Azure Import/Export Tool import job commands - v1 | Microsoft Docs
-description: Command reference for Azure Import/Export Tool commands frequently used for import jobs. This refers to v1 of the Import/Export Tool.
+description: Azure Import/Export Tool command reference for frequently used import job commands. This refers to v1 of the Import/Export Tool.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -58,4 +58,4 @@ WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:dvd /srcfile:d:\dvd\favorite
   
 ## Next steps
 
-* [Sample Workflow to Prepare Hard Drives for an Import Job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
+* [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)

@@ -408,10 +408,10 @@ WAImportExport Tool reads and writes files batch by batch, one batch contains ma
 ## Next steps
 
 * [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup.md)
-* [Setting Properties and Metadata during the Import Process](storage-import-export-tool-setting-properties-metadata-import.md)
-* [Sample Workflow to Prepare Hard Drives for an Import Job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
-* [Quick Reference for Frequently Used Commands](storage-import-export-tool-quick-reference.md) 
-* [Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)
-* [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)
-* [Repairing an Export Job](storage-import-export-tool-repairing-an-export-job-v1.md)
+* [Setting properties and metadata during the import process](storage-import-export-tool-setting-properties-metadata-import.md)
+* [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
+* [Quick reference for frequently used commands](storage-import-export-tool-quick-reference.md) 
+* [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md)
+* [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md)
+* [Repairing an export job](storage-import-export-tool-repairing-an-export-job-v1.md)
 * [Troubleshooting the Azure Import/Export Tool](storage-import-export-tool-troubleshooting-v1.md)

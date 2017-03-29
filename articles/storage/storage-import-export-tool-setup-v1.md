@@ -252,9 +252,9 @@ Examples:
   
 ## Next steps
 
-* [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [Previewing Drive Usage for an Export Job](storage-import-export-tool-previewing-drive-usage-export-v1.md)   
-* [Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [Repairing an Export Job](storage-import-export-tool-repairing-an-export-job-v1.md)   
+* [Preparing hard drives for an import job](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Previewing Drive usage for an export job](storage-import-export-tool-previewing-drive-usage-export-v1.md)   
+* [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Repairing an export job](storage-import-export-tool-repairing-an-export-job-v1.md)   
 * [Troubleshooting the Azure Import/Export Tool](storage-import-export-tool-troubleshooting-v1.md)

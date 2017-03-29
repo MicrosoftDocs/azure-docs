@@ -1,6 +1,6 @@
 ---
 title: Create an export Job for Azure Import/Export | Microsoft Docs
-description: Learn how to create an export job for the Microsoft Azure Import/Export service
+description: Learn how to create an export job for the Microsoft Azure Import/Export service.
 author: muralikk
 manager: syadav
 editor: tysonn

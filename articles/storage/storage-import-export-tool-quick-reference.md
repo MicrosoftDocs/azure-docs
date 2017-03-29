@@ -1,6 +1,6 @@
 ---
 title: Quick reference for Azure Import/Export Tool import job commands | Microsoft Docs
-description: Command reference for Azure Import/Export Tool commands frequently used for import jobs.
+description: Azure Import/Export Tool command reference for frequently used import job commands.
 author: muralikk
 manager: syadav
 editor: tysonn

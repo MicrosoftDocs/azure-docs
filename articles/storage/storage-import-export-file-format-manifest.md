@@ -1,6 +1,6 @@
 ---
 title: Azure Import/Export manifest file format | Microsoft Docs
-description: Learn about the format of the drive manifest file that describes the mapping between blobs in Azure Blob storage and file on the drive in an import or export job in the Import/Export service.
+description: Learn about the format of the drive manifest file that describes the mapping between blobs in Azure Blob storage and files on a drive in an import or export job in the Import/Export service.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -132,4 +132,4 @@ The data elements and attributes of the drive manifest XML format are specified 
   
 ## Next steps
  
-* [Storage Import/Export REST](/rest/api/storageimportexport/)
+* [Storage Import/Export REST API](/rest/api/storageimportexport/)
