@@ -190,10 +190,7 @@ else{
 ```
 
 ## Next steps
-* Review the [SQL Database Development Overview](sql-database-develop-overview.md)
-* More information on the [Microsoft PHP Driver for SQL Server](https://github.com/Microsoft/msphpsql/)
+* Review the [SQL Database Development Overview](sql-database-develop-overview.md).
+* More information on the [Microsoft PHP Driver for SQL Server](https://github.com/Microsoft/msphpsql/).
 * [File issues/ask questions](https://github.com/Microsoft/msphpsql/issues).
-
-## Additional resources
-* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/)
