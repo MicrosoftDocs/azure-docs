@@ -84,9 +84,9 @@ To create an App Service plan, click **[+] Create New**, type the **App Service 
 ## Move an app to a different App Service plan
 You can move an app to a different App Service plan in the [Azure portal](https://portal.azure.com). You can move apps between plans as long as the plans are in the same resource group and geographical region.
 
-To move an app to another plan, go to the app that you want to move. On the **Settings** menu, look for **Change App Service plan**.
+To move an app to another plan, navigate to the blade of your app and scroll down to **App Servie Plan** menu, look for **Change App Service plan**.
 
-**Change App Service plan** opens the **App Service plan** selector. At this point, you can either pick an existing plan or create a new one. Only valid plans (in the same resource group and geographical location) are shown.
+**Change App Service plan** opens the **App Service plan** selector. At this point, you can pick an existing plan. Only valid plans (in the same resource group and geographical location) are shown.
 
 ![App Service plan selector.][change]
 
@@ -97,7 +97,7 @@ If you want to move the app to a different region, one alternative is app clonin
 
  ![Clone an app.][appclone]
 
-You can find **Clone App** on the **Tools** menu.
+You can find **Clone App** on the **Development Tools** menu.
 
 Cloning has some limitations that you can read about at [Azure App Service App cloning using Azure portal](../app-service-web/app-service-web-app-cloning-portal.md).
 
