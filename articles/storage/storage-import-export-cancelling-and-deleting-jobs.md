@@ -1,5 +1,5 @@
 ---
-title: Cancel/delete an Azure Import/Export job | Microsoft Docs
+title: Cancel and delete an Azure Import/Export job | Microsoft Docs
 description: Learn how to cancel and delete jobs for the Microsoft Azure Import/Export service
 author: muralikk
 manager: syadav

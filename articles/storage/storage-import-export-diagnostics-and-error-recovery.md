@@ -25,9 +25,11 @@ For each drive processed, the Azure Import/Export service creates an error log i
 
  You can retrieve the URI of the logs for a job by calling the [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) operation. The URI for the verbose log is returned in the `VerboseLogUri` property for each drive, while the URI for the error log is returned in the `ErrorLogUri` property.
 
-You can use the logging data to identify the following issues:
+You can use the logging data to identify the following issues.
 
-**Drive Errors**
+## Drive errors
+
+The following items are classified as drive errors:
 
 -   Errors in accessing or reading the manifest file
 
@@ -35,7 +37,9 @@ You can use the logging data to identify the following issues:
 
 -   Drive read/write errors
 
-**Blob Errors**
+## Blob errors
+
+The following items are classified as blob errors:
 
 -   Incorrect or conflicting blob or names
 

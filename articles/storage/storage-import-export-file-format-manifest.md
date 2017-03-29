@@ -86,7 +86,10 @@ block-list ::=
       [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
        Hash="md5-hash"/>]  
     </BlockList>  
+
 ```
+
+## Manifest XML elements and attributes
 
 The data elements and attributes of the drive manifest XML format are specified in the following table.  
   
