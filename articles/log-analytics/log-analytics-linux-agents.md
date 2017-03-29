@@ -22,7 +22,7 @@ Using Log Analytics, you can collect and act on data generated from Linux comput
 
 You can view and manage data from all of those sources with Log Analytics in OMS with a single management portal. This reduces the need to monitor it using many different systems, makes it easy to consume, and you can export any data you like to whatever business analytics solution or system that you already have.
 
-This article is a quick start guide that will help you collect and manage data for your Linux computers using the OMS Agent for Linux. For more technical details such as proxy server configuration, information about CollectD metrics, and custom JSON data sources, you’ll find that information at [OMS Agent for Linux overview](https://github.com/Microsoft/OMS-Agent-for-Linux) and [OMS Agent for Linux full documentation](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md) on Github.
+This article is a quick start guide that will help you collect and manage data for your Linux computers using the OMS Agent for Linux. For more technical details such as proxy server configuration, information about CollectD metrics, and custom JSON data sources, you’ll find that information at [OMS Agent for Linux overview](https://github.com/Microsoft/OMS-Agent-for-Linux) and [OMS Agent for Linux full documentation](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md) on GitHub.
 
 Currently, you can collect the following types of data from Linux computers:
 

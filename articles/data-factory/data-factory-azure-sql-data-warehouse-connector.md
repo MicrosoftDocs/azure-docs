@@ -777,8 +777,6 @@ Data Factory creates the table in the destination store with the same table name
 | NVarChar | NVarChar (up to 4000) |
 | Xml | Varchar (up to 8000) |
 
-[!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
-
 ### Type mapping for Azure SQL Data Warehouse
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from source types to sink types with the following 2-step approach:
 
@@ -824,7 +822,13 @@ The mapping is same as the [SQL Server Data Type Mapping for ADO.NET](https://ms
 | varchar |String, Char[] |
 | xml |Xml |
 
-You can also map columns from source dataset to columns from sink dataset in the copy activity definition. For details, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
+## Map source to sink columns
+To learn about mapping columns in source dataset to columns in sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
+
+## Repeatable copy
+When copying data to SQL Server Database, the copy activity appends data to the sink table by default. To perform an UPSERT instead,  See [Repeatable write to SqlSink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink) article. 
+
+When copying data from relational data stores, keep repeatability in mind to avoid unintended outcomes. In Azure Data Factory, you can rerun a slice manually. You can also configure retry policy for a dataset so that a slice is rerun when a failure occurs. When a slice is rerun in either way, you need to make sure that the same data is read no matter how many times a slice is run. See [Repeatable read from relational sources](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.

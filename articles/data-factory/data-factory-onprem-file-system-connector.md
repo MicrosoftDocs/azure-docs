@@ -150,7 +150,7 @@ In this example, year, month, day, and time of SliceStart are extracted into sep
 ## Copy activity properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output datasets, and policies are available for all types of activities. Whereas, properties available in the **typeProperties** section of the activity vary with each activity type.
 
-For Copy activity, they vary depending on the types of sources and sinks. If you are moving data from an on-premises file system, you set the source type in the copy activity to **FileSystemSource**. Similarly, if you are moving data to an on-premsies file system, you set the sink type in the copy activity to **FileSystemSink**. This section provides a list of properties supported by FileSystemSource and FileSystemSink.
+For Copy activity, they vary depending on the types of sources and sinks. If you are moving data from an on-premises file system, you set the source type in the copy activity to **FileSystemSource**. Similarly, if you are moving data to an on-premises file system, you set the sink type in the copy activity to **FileSystemSink**. This section provides a list of properties supported by FileSystemSource and FileSystemSink.
 
 **FileSystemSource** supports the following properties:
 
