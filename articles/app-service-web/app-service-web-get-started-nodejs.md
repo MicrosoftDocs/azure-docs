@@ -253,7 +253,7 @@ To https://<app_name>.scm.azurewebsites.net:443/<app_name>.git
 
 ## Browse to the app
 
-Browse to the deployed application using your default browser, by running the [az appservice web browse](/cli/appservice/web#browse) command.
+Browse to the deployed application using your web browser.
 
 ```bash
 http://<app_name>.azurewebsites.net
