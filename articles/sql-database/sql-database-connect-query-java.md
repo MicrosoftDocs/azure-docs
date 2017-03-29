@@ -187,7 +187,7 @@ public class App {
 			System.out.println("Inserted: " + count + " row(s)");
 		}
 		catch (Exception e) {
-		    e.printStackTrace();
+		    	e.printStackTrace();
 	    	}   
 	}
 }
@@ -216,25 +216,25 @@ public class App {
 		Connection connection = null;
 
 		try {
-			connection = DriverManager.getConnection(url);
-			String schema = connection.getSchema();
-			System.out.println("Successful connection - Schema: " + schema);
+				connection = DriverManager.getConnection(url);
+				String schema = connection.getSchema();
+				System.out.println("Successful connection - Schema: " + schema);
 
-			System.out.println("Update data example:");
-			System.out.println("=========================================");
+				System.out.println("Update data example:");
+				System.out.println("=========================================");
 
-			// Prepared statement to update data
-			String updateSql = "UPDATE SalesLT.Product SET ListPrice = ? WHERE Name = ?";
+				// Prepared statement to update data
+				String updateSql = "UPDATE SalesLT.Product SET ListPrice = ? WHERE Name = ?";
 
-			PreparedStatement prep = connection.prepareStatement(updateSql);
-			prep.setString(1, "500");
-			prep.setString(2, "BrandNewProduct");
+				PreparedStatement prep = connection.prepareStatement(updateSql);
+				prep.setString(1, "500");
+				prep.setString(2, "BrandNewProduct");
 
-			int count = prep.executeUpdate();
-			System.out.println("Updated: " + count + " row(s)");
+				int count = prep.executeUpdate();
+				System.out.println("Updated: " + count + " row(s)");
 	    	}
 		catch (Exception e) {
-		    e.printStackTrace();
+		    	e.printStackTrace();
 		}
 	}
 }
@@ -266,24 +266,24 @@ public class App {
 		Connection connection = null;
 
 		try {
-			connection = DriverManager.getConnection(url);
-			String schema = connection.getSchema();
-			System.out.println("Successful connection - Schema: " + schema);
+				connection = DriverManager.getConnection(url);
+				String schema = connection.getSchema();
+				System.out.println("Successful connection - Schema: " + schema);
 
-			System.out.println("Delete data example:");
-			System.out.println("=========================================");
+				System.out.println("Delete data example:");
+				System.out.println("=========================================");
 
-			// Prepared statement to delete data
-			String deleteSql = "DELETE SalesLT.Product WHERE Name = ?";
+				// Prepared statement to delete data
+				String deleteSql = "DELETE SalesLT.Product WHERE Name = ?";
 
-			PreparedStatement prep = connection.prepareStatement(deleteSql);
-			prep.setString(1, "BrandNewProduct");
+				PreparedStatement prep = connection.prepareStatement(deleteSql);
+				prep.setString(1, "BrandNewProduct");
 
-			int count = prep.executeUpdate();
-			System.out.println("Deleted: " + count + " row(s)");
+				int count = prep.executeUpdate();
+				System.out.println("Deleted: " + count + " row(s)");
         	}		
 		catch (Exception e) {
-			e.printStackTrace();
+				e.printStackTrace();
 	    	}   
 	}
 }
