@@ -1,6 +1,6 @@
 ---
 title: Azure Functions Storage Table bindings | Microsoft Docs
-description: Understand how to use Azure Storage triggers and bindings in Azure Functions.
+description: Understand how to use Azure Storage bindings in Azure Functions.
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -22,7 +22,7 @@ ms.author: chrande
 # Azure Functions Storage table bindings
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-This article explains how to configure and code Azure Storage table triggers and bindings in Azure Functions. 
+This article explains how to configure and code Azure Storage table bindings in Azure Functions. 
 Azure Functions supports input and output bindings for Azure Storage tables.
 
 The Storage table binding supports the following scenarios:

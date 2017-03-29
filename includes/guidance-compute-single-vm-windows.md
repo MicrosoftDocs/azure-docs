@@ -151,7 +151,7 @@ A deployment for this reference architecture is available on [GitHub][github-fol
 3. Wait for the deployment to complete.
 4. The parameter files  include a hard-coded administrator user name and password, and it is strongly recommended that you immediately change both. Click on the VM named `ra-single-vm0 `in the Azure portal. Then, click on **Reset password** in the **Support + troubleshooting** blade. Select **Reset password** in the **Mode** dropdown box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password.
 
-For information on additional ways to deploy this reference architecture, see the readme file in the [guidance-single-vm][github-folder]] Github folder.
+For information on additional ways to deploy this reference architecture, see the readme file in the [guidance-single-vm][github-folder]] GitHub folder.
 
 ## Customize the deployment
 If you need to change the deployment to match your needs, follow the instructions in the [readme][github-folder].

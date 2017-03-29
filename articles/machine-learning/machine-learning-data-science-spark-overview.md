@@ -151,9 +151,9 @@ You can also browse to ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** to a
 
 ![Browse Jupyter Notebooks](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 
-Select PySpark to see a directory that contains a few examples of pre-packaged notebooks that use the PySpark API.The notebooks that contain the code samples for this suite of Spark topic are available at [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)
+Select PySpark to see a directory that contains a few examples of pre-packaged notebooks that use the PySpark API.The notebooks that contain the code samples for this suite of Spark topic are available at [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)
 
-You can upload the notebooks directly from [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) to the Jupyter notebook server on your Spark cluster. On the home page of your Jupyter, click the **Upload** button on the right part of the screen. It opens a file explorer. Here you can paste the Github (raw content) URL of the Notebook and click **Open**. 
+You can upload the notebooks directly from [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) to the Jupyter notebook server on your Spark cluster. On the home page of your Jupyter, click the **Upload** button on the right part of the screen. It opens a file explorer. Here you can paste the GitHub (raw content) URL of the Notebook and click **Open**. 
 
 You see the file name on your Jupyter file list with an **Upload** button again. Click this **Upload** button. Now you have imported the notebook. Repeat these steps to upload the other notebooks from this walkthrough.
 
