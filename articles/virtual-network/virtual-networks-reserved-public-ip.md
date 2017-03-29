@@ -100,7 +100,7 @@ New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US" -Ser
 ```
 
 ## Associate a reserved IP to a new cloud service
-The script below creates a new reserved IP, then associates it to a new cloud service named *TestService*.
+The following script creates a new reserved IP, then associates it to a new cloud service named *TestService*.
 
 ```powershell
 New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
@@ -113,7 +113,7 @@ New-AzureVMConfig -Name TestVM -InstanceSize Small -ImageName $image.ImageName `
 ```
 
 > [!NOTE]
-> When you create a reserved IP to use with a cloud service, you’ll still need to refer to the VM by using *VIP:&lt;port number>* for inbound communication. Reserving an IP does not mean you can connect to the VM directly. The reserved IP is assigned to the cloud service that the VM has been deployed to. If you want to connect to a VM by IP directly, you have to configure an instance-level public IP. An instance-level public IP is a type of public IP (called an ILPIP) that is assigned directly to your VM. It cannot be reserved. For more information, read the [Instance-level Public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) article.
+> When you create a reserved IP to use with a cloud service, you still refer to the VM by using *VIP:&lt;port number>* for inbound communication. Reserving an IP does not mean you can connect to the VM directly. The reserved IP is assigned to the cloud service that the VM has been deployed to. If you want to connect to a VM by IP directly, you have to configure an instance-level public IP. An instance-level public IP is a type of public IP (called an ILPIP) that is assigned directly to your VM. It cannot be reserved. For more information, read the [Instance-level Public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) article.
 > 
 
 ## Remove a reserved IP from a running deployment
@@ -128,7 +128,7 @@ Remove-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName Test
 > 
 
 ## Associate a reserved IP to a running deployment
-The following commands create a new cloud service named *TestService2* with a new VM named *TestVM2*, and then associates the existing reserved IP named *MyReservedIP* to the cloud service:
+The following commands create a cloud service named *TestService2* with a new VM named *TestVM2*. The existing reserved IP named *MyReservedIP* is then associated to the cloud service.
 
 ```powershell
 $image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
