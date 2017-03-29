@@ -30,7 +30,7 @@ This quick start uses as its starting point the resources created in one of thes
 
 ## Configure Development Environment
 
-The following sections detail configuring your existing Mac OS and Linux(Ubuntu) development environments for working with Azure SQL Database.
+The following sections detail configuring your existing Mac OS and Linux (Ubuntu) development environments for working with Azure SQL Database.
 
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your Ruby script. Enter the following commands to install **brew**, **FreeTDS**, and **TinyTDS**.
