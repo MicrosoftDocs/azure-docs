@@ -20,6 +20,7 @@ ms.author: cherylmc
 ---
 # Delete a virtual network gateway using PowerShell (classic)
 > [!div class="op_single_selector"]
+> * [Resource Manager - Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [Classic - PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >
