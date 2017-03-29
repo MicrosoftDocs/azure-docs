@@ -59,6 +59,14 @@ Visual Studio 2015 Community is a fully-featured, extensible, free IDE for creat
 1. Download the [installer](https://go.microsoft.com/fwlink/?LinkId=691978). 
 2. Run the installer and follow the installation prompts to complete the installation.
 
+### **Add System.Data.SqlClient as a dependency in .NET Core**
+Add System.Data.SqlClient to your project's ***csproj*** file
+
+```xml
+<ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.3.0" />
+</ItemGroup>
+
 ## Get connection information
 
 Get the connection string in the Azure portal. You use the connection string to connect to the Azure SQL database.
@@ -71,7 +79,7 @@ Get the connection string in the Azure portal. You use the connection string to 
 
 4. Click **Show database connection strings**.
 
-5. Review the complete**ADO.NET** connection string.
+5. Review the complete **ADO.NET** connection string.
 
     <img src="./media/sql-database-connect-query-dotnet/adonet-connection-string.png" alt="ADO.NET connection string" style="width: 780px;" />
 
