@@ -21,7 +21,7 @@ ms.author: josephd
 # Set up a web-based LOB application in a hybrid cloud for testing
 This topic steps you through creating a simulated hybrid cloud environment for testing a web-based line of business (LOB) application hosted in Microsoft Azure. Here is the resulting configuration.
 
-![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph3.png)
+![](./media/ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph3.png)
 
 This configuration consists of:
 
@@ -50,7 +50,7 @@ Create the [simulated hybrid cloud test environment](ps-hybrid-cloud-test-env-si
 
 This is your current configuration.
 
-![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph1.png)
+![](./media/ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph1.png)
 
 ## Phase 2: Configure the SQL server computer (SQL1)
 From the Azure portal, start the DC2 computer if needed.
@@ -137,7 +137,7 @@ Next, configure SQL Server 2014 to use the F: drive for new databases and for us
 
 This is your current configuration.
 
-![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph2.png)
+![](./media/ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph2.png)
 
 ## Phase 3: Configure the LOB server (LOB1)
 First, create a virtual machine for LOB1 with these commands at the Azure PowerShell command prompt on your local computer.
@@ -196,7 +196,7 @@ Next, configure LOB1 for IIS and test access from CLIENT1.
 
 This is your current configuration.
 
-![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph3.png)
+![](./media/ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph3.png)
 
 This environment is now ready for you to deploy your web-based application on LOB1 and test functionality from CLIENT1 on the Corpnet subnet.
 
