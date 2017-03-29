@@ -54,7 +54,7 @@ sudo pip install pyodbc==3.1.1
 ```
 
 ### **Windows**
-Install the [Microsoft ODBC Driver 13.1](https://www.microsoft.com/en-us/download/details.aspx?id=53339). pyodbc uses the Microsoft ODBC Driver on Linux to connect to SQL Databases. 
+Install the [Microsoft ODBC Driver 13.1](https://www.microsoft.com/download/details.aspx?id=53339). pyodbc uses the Microsoft ODBC Driver on Linux to connect to SQL Databases. 
 
 Then install pyodbc using pip
 
