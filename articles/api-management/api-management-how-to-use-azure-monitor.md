@@ -29,12 +29,12 @@ For more information about Azure Monitor, see [Get Started with Azure Monitor]()
 
 
 ## Metrics
-API Management currently emits 5 metrics and we plan to add more in the future. These metrics are emitted every minute, giving you near real-time visibility into the state and health of your APIs. Below is a summary of the metrics:
+API Management currently emits five metrics and we plan to add more in the future. These metrics are emitted every minute, giving you near real-time visibility into the state and health of your APIs. Following is a summary of the metrics:
 * Total Gateway Requests: the number of API requests in the period. 
 * Successful Gateway Requests: the number of API requests that received successful HTTP response codes including 304, 307 and anything smaller than 301 (for example, 200). 
-* Failed Gateway Requests: the number of API requests that received erroneus HTTP response codes including 400 and anything larger than 500.
+* Failed Gateway Requests: the number of API requests that received erroneous HTTP response codes including 400 and anything larger than 500.
 * Unauthorized Gateway Requests: the number of API requests that received HTTP response codes including 401, 403, and 429. 
-* Other Gateway Requests: the number of API requests that received HTTP response codes that do not belong to any of the above categories (for example, 418).
+* Other Gateway Requests: the number of API requests that received HTTP response codes that do not belong to any of the preceding categories (for example, 418).
 
 You can access metrics in your API Management service, or access metrics of all your Azure resources in Azure Monitor. To view metrics in your API Management service:
 1. Open the Azure portal.
