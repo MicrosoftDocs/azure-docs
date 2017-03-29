@@ -335,7 +335,7 @@ To test your function, you need to upload an MP4 file into the **input** contain
 
 At this point, you are ready to start developing a Media Services application. 
  
-For more details and complete samples/solutions of using Azure Functions and Logic Apps with Azure Media Services to create custom content creation workflows, see the [Media Services .NET Functions Integraiton Sample on Github](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
+For more details and complete samples/solutions of using Azure Functions and Logic Apps with Azure Media Services to create custom content creation workflows, see the [Media Services .NET Functions Integraiton Sample on GitHub](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
 
 Also, see [Use Azure WebHooks to monitor Media Services job notifications with .NET](media-services-dotnet-check-job-progress-with-webhooks.md). 
 

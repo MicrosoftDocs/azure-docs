@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/16/2017
+ms.date: 3/24/2017
 ms.author: msfussell
 
 ---
@@ -40,10 +40,20 @@ The capabilities include;
 ## Packaging a docker container with yeoman
 When packaging a container on Linux, you can choose either to use a yeoman template or [create the application package manually](#manually).
 
-A Service Fabric application can contain one or more containers, each with a specific role in delivering the application's functionality. The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your application and add a container image. Let's use Yeoman to create a new application with a single Docker container called *SimpleContainerApp*. You can add more services later by editing the generated manifest files.
+A Service Fabric application can contain one or more containers, each with a specific role in delivering the application's functionality. The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your application and add a container image. Let's use Yeoman to create an application with a single Docker container called *SimpleContainerApp*. You can add more services later by editing the generated manifest files.
+
+## Install Docker on your development box
+
+Run the following commands to install docker on your Linux development box (if you are using the vagrant image on OSX, docker is already installed):
+    ```bash
+    sudo apt-get install wget
+    wget -qO- https://get.docker.io/ | sh
+    ```
+
+
 
 ## Create the application
-1. In a terminal, type **yo azuresfguest**.
+1. In a terminal, type `yo azuresfguest`.
 2. For the framework, choose **Container**.
 3. Name your application - for example, SimpleContainerApp
 4. Provide the URL for the container image from a DockerHub repo. The image parameter takes the form [repo]/[image name]
@@ -70,7 +80,7 @@ Once the application is built, you can deploy it to the local cluster using the 
     ```bash
     ./uninstall.sh
     ```
-For an example application [checkout the Service Fabric container code samples on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+For an example application, [checkout the Service Fabric container code samples on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## Adding more services to an existing application
 
@@ -176,7 +186,7 @@ You can configure a host port used to communicate with the container by specifyi
 ```
 
 ## Configure container-to-container discovery and communication
-By using the `PortBinding` policy, you can map a container port to an `Endpoint` in the service manifest as shown in the following example. The endpoint `Endpoint1` can specify a fixed port (for example, port 80). It can also specify no port at all, in which case a random port from the cluster's application port range is chosen for you.
+By using the `PortBinding` policy, you can map a container port to an `Endpoint` in the service manifest. The endpoint `Endpoint1` can specify a fixed port (for example, port 80). It can also specify no port at all, in which case a random port from the cluster's application port range is chosen for you.
 
 If you specify an endpoint, using the `Endpoint` tag in the service manifest of a guest container, Service Fabric can automatically publish this endpoint to the Naming service. Other services that are running in the cluster can thus discover this container using the REST queries for resolving.
 
@@ -298,4 +308,4 @@ Now that you have deployed a containerized service, learn how to manage its life
 * [Interacting with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli.md)
 
 <!-- Images -->
-[sf-yeoman]: ./media/service-fabric-deploy-container-linux/sf-container-yeoman.png
+[sf-yeoman]: ./media/service-fabric-deploy-container-linux/sf-container-yeoman1.png

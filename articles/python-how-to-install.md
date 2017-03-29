@@ -117,7 +117,7 @@ For more information on developing and publishing Azure Websites, see the tutori
 
 ## Additional Software and Resources:
 * [Azure SDK for Python ReadTheDocs](http://azure-sdk-for-python.readthedocs.io/en/latest/)
-* [Azure SDK for Python Github](https://github.com/Azure/azure-sdk-for-python)
+* [Azure SDK for Python GitHub](https://github.com/Azure/azure-sdk-for-python)
 * [Official Azure samples for Python](https://azure.microsoft.com/documentation/samples/?platform=python)
 * [Continuum Analytics Python Distribution][Continuum Analytics Python Distribution]
 * [Enthought Python Distribution][Enthought Python Distribution]
