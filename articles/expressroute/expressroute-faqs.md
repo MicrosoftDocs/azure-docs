@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
+ms.date: 03/29/2017
 ms.author: cherylmc
 
 ---
@@ -105,7 +105,7 @@ Yes. You can have more than one ExpressRoute circuit in your subscription. The d
 Yes. You can have ExpressRoute circuits with many service providers. Each ExpressRoute circuit will be associated with one service provider only. 
 
 ### Can I have multiple ExpressRoute circuits in the same location?
-Yes. You can have multiple ExpressRoute circuits, with the same or different service providers in the same location. However it will not be possible for you to link more than one ExpressRoute circuit to the same Virtual Network.
+Yes. You can have multiple ExpressRoute circuits, with the same or different service providers in the same location. However it will not be possible for you to link more than one ExpressRoute circuit to the same Virtual Network from the same location.
 
 ### How do I connect my virtual networks to an ExpressRoute circuit
 The basic steps are outlined below.
