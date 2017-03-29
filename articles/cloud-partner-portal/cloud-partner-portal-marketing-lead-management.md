@@ -32,6 +32,7 @@ These leads are customers that are deploying your products from the Marketplace.
  ![Get it now button](./media/cloud-partner-portal-marketing-lead-management/get-it-now-button.png)
 
 3.	Customer clicks “Purchase” in the [Azure Portal](https://portal.azure.com/) when they are officially acquiring your product. This lead is an active lead, where we share a customer who has an Azure Subscription and has started to deploy your actual product.
+
  ![Text purchase button](./media/cloud-partner-portal-marketing-lead-management/purchase-button.png) 
 
 ### AppSource
