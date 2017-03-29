@@ -45,11 +45,11 @@ A Service Fabric application can contain one or more containers, each with a spe
 ## Install Docker on your development box
 
 Run the following commands to install docker on your Linux development box (if you are using the vagrant image on OSX, docker is already installed):
+
     ```bash
     sudo apt-get install wget
     wget -qO- https://get.docker.io/ | sh
     ```
-
 
 
 ## Create the application
@@ -68,11 +68,13 @@ Once the application is built, you can deploy it to the local cluster using the 
     ```bash
     azure servicefabric cluster connect
     ```
+
 2. Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
 
     ```bash
     ./install.sh
     ```
+
 3. Open a browser and navigate to Service Fabric Explorer at http://localhost:19080/Explorer (replace localhost with the private IP of the VM if using Vagrant on Mac OS X).
 4. Expand the Applications node and note that there is now an entry for your application type and another for the first instance of that type.
 5. Use the uninstall script provided in the template to delete the application instance and unregister the application type.
@@ -80,11 +82,13 @@ Once the application is built, you can deploy it to the local cluster using the 
     ```bash
     ./uninstall.sh
     ```
+
 For an example application, [checkout the Service Fabric container code samples on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## Adding more services to an existing application
 
 To add another container service to an application already created using `yo`, perform the following steps: 
+
 1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
 2. Run `yo azuresfguest:AddService`
 
