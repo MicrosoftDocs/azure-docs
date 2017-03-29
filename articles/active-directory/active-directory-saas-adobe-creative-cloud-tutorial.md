@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 03/27/2017
 ms.author: jeedes
 
 ---
@@ -133,24 +133,21 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Configure Single Sign-On](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_05.png) 
 
-6. On the **Adobe Creative Cloud Configuration** section, click **Configure Adobe Creative Cloud** to open **Configure sign-on** window.
+6. On the **Adobe Creative Cloud Configuration** section, click **Configure Adobe Creative Cloud** to open **Configure sign-on** window. Please copy the **SAML Entity Id** and **SAML SSO Service URL** from Quick Reference section.
 
 	![Configure Single Sign-On](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_06.png) 
-
-	![Configure Single Sign-On](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_07.png)
 
 7. In a different web browser window, sign-on to your Adobe Creative Cloud tenant as an administrator.
 
 8.  Go to **Identity** on the left navigation pane and click your domain. Then perform the following steps on **Single Sign On Configuration Required** section.
 
-
 	![Settings](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_001.png "Settings")
 
-9. Click **Browser** to upload the downloaded certificate from Azure AD to **IDP Certificate**.
+9. Click **Browse** to upload the downloaded certificate from Azure AD to **IDP Certificate**.
 
-10. In the **IDP issuer** textbox, put the value of **Issuer URL** from Azure AD application configuration wizard.
+10. In the **IDP issuer** textbox, put the value of **SAML Entity Id** which you copied from **Configure sign-on** section in Azure portal.
 
-11. In the **IDP Login URL** textbox, put the value of **SSO Service URL** from Azure AD application configuration wizard.
+11. In the **IDP Login URL** textbox, put the value of **SAML SSO Service URL** which you copied from **Configure sign-on** section in Azure portal.
 
 12. Select **HTTP - Redirect** as **IDP Binding**.
 
@@ -167,20 +164,6 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 	a. Use the EntityDescriptor value Adobe provided you for **Identifier** on the **Configure App Settings** dialog.
 
 	b. Use the AssertionConsumerService value Adobe provided you for **Reply URL** on the **Configure App Settings** dialog.
-
-16. Go to **Identity** and click your domain.
-
-17. Click **Edit Configuration**.
-
-18. Click **Browser** to upload the latest certificate from Azure AD to **IDP Certificate**.
-
-	![Configure Single Sign-On On App Side](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_004.png)
-
-	> [!NOTE] 
-	> If you need help configuring SAML with Adobe Creative Cloud then please refer this article [Configure SAML](https://helpx.adobe.com/creative-cloud/Configure_Microsoft_Azure_for_use_with_Adobe_SSO.html).
-
-
-
  
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure Management portal called Britta Simon.
