@@ -22,7 +22,7 @@ ms.author: carlrab
 ---
 # Azure SQL Database: Use SQL Server Management Studio to connect and query data
 
-Use [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) to create and manage SQL Server resources from the user interface or in scripts. This guide details using SSMS to connect to an Azure SQL database, and then execute query, insert, update, and delete statements.
+Use [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) to create and manage SQL Server resources from the user interface or in scripts. This quick start details using SSMS to connect to an Azure SQL database, and then execute query, insert, update, and delete statements.
 
 This quick start uses as its starting point the resources created in one of these quick starts:
 
