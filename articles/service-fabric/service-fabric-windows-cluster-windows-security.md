@@ -100,7 +100,7 @@ The sample *ClusterConfig.Windows.MultiMachine.JSON* configuration file download
 | Identity |Add the domain user, domain\username, for the client identity. |  
 | IsAdmin |Set to true to specify that the domain user has administrator client access or false for user client access. |  
 
-[Node to node security](service-fabric-cluster-security.md#node-to-node-security) is configured by setting using **ClusterIdentity** if you want to use a machine group within an Active Directory Domain. For more information, see [Create a Machine Group in Active Directory](https://msdn.microsoft.com/en-us/library/aa545347(v=cs.70).aspx).
+[Node to node security](service-fabric-cluster-security.md#node-to-node-security) is configured by setting using **ClusterIdentity** if you want to use a machine group within an Active Directory Domain. For more information, see [Create a Machine Group in Active Directory](https://msdn.microsoft.com/library/aa545347(v=cs.70).aspx).
 
 [Client-to-node security](service-fabric-cluster-security.md#client-to-node-security) is configured by using **ClientIdentities**. To establish trust between a client and the cluster, you must configure the cluster to know the client identities that the cluster can trust. You can establish trust in two different ways:
 
