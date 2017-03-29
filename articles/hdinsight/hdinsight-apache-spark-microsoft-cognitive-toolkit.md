@@ -66,7 +66,7 @@ To use the Microsoft Cognitive Toolkit with the Azure HDInsight Spark cluster, y
 
 4. Click **Upload** again.
 
-5. After the notebook is uploaded, click the name of the notebook and then follow the instructions on how to load the data set and perform the tutorial.  
+5. After the notebook is uploaded, click the name of the notebook and then follow the instructions in the notebook itself on how to load the data set and perform the tutorial.
 
 ## See also
 * [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
