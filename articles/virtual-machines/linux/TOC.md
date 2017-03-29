@@ -174,7 +174,7 @@
 ### [Overview of migration](../virtual-machines-windows-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Plan for migration](../virtual-machines-linux-migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Migrate using the CLI](../virtual-machines-linux-cli-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Common migration errors](../virtual-machines-migration-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Common migration errors](../virtual-machines-linux-migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Troubleshoot
 ### [Troubleshoot SSH connections](../virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

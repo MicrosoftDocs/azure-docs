@@ -19,10 +19,10 @@ ms.author: kasing
 
 ---
 
-[!INCLUDE [virtual-machines-common-migration-faq](../../includes/virtual-machines-common-classic-resource-manager-migration-common-errors.md)]
+[!INCLUDE [virtual-machines-common-migration-errors](../../includes/virtual-machines-common-classic-resource-manager-migration-common-errors.md)]
 
 ## Next steps
 Here's a list of migration articles that explain the process.
 
-* [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines/virtual-machines-linux-migration-classic-resource-manager-overview.md)
-* [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
+* [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-linux-migration-classic-resource-manager-overview.md)
+* [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md)
