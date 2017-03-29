@@ -29,7 +29,8 @@ This quick start uses as its starting point the resources created in one of thes
 
 ## Configure Development Environment
 
-//please review this entire section
+The following sections detail configuring your existing Mac OS, Linux(Ubuntu), and Windows development environments for working with Azure SQL Database.
+
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your .NET Core project. Enter the following commands to install **brew**, **OpenSSL**, and **.NET Core**. 
 
@@ -78,8 +79,8 @@ Get the connection string in the Azure portal. You use the connection string to 
 
     <img src="./media/sql-database-connect-query-dotnet/adonet-connection-string.png" alt="ADO.NET connection string" style="width: 780px;" />
     
-## **Add System.Data.SqlClient as a dependency in .NET Core**
-Add System.Data.SqlClient to your project's ***csproj*** file
+## Add System.Data.SqlClient
+When using .NET core, add System.Data.SqlClient to your project's ***csproj*** file as a dependency.
 
 ```xml
 <ItemGroup>
