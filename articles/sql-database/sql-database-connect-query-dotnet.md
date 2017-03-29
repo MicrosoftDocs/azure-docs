@@ -27,7 +27,7 @@ This quick start uses as its starting point the resources created in one of thes
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
 
-## Configure Development Environment
+## Configure development environment
 
 The following sections detail configuring your existing Mac OS, Linux(Ubuntu), and Windows development environments for working with Azure SQL Database.
 
