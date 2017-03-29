@@ -169,8 +169,8 @@ public class App {
 		        System.out.println("=========================================");
 
 		        // Prepared statement to insert data
-			String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, " 
-				+ "SellStartDate) VALUES (?,?,?,?,?,?);";
+			String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, )" 
+				+ " StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
 
 			java.util.Date date = new java.util.Date();
 			java.sql.Timestamp sqlTimeStamp = new java.sql.Timestamp(date.getTime());
