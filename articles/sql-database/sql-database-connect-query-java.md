@@ -108,27 +108,27 @@ public class App {
 		Connection connection = null;
 
 		try {
-			connection = DriverManager.getConnection(url);
-			String schema = connection.getSchema();
-			System.out.println("Successful connection - Schema: " + schema);
+				connection = DriverManager.getConnection(url);
+				String schema = connection.getSchema();
+				System.out.println("Successful connection - Schema: " + schema);
 
-			System.out.println("Query data example:");
-			System.out.println("=========================================");
+				System.out.println("Query data example:");
+				System.out.println("=========================================");
 
-			// Create and execute a SELECT SQL statement.
-			String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName " 
-			    + "FROM [SalesLT].[ProductCategory] pc "  
-			    + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(selectSql);
+				// Create and execute a SELECT SQL statement.
+				String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName " 
+				    + "FROM [SalesLT].[ProductCategory] pc "  
+				    + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
+				Statement statement = connection.createStatement();
+				ResultSet resultSet = statement.executeQuery(selectSql);
 
-			// Print results from select statement
-			System.out.println("Top 20 categories:");
-			while (resultSet.next())
-			{
-			    System.out.println(resultSet.getString(1) + " "
-				    + resultSet.getString(2));
-			}
+				// Print results from select statement
+				System.out.println("Top 20 categories:");
+				while (resultSet.next())
+				{
+				    System.out.println(resultSet.getString(1) + " "
+					    + resultSet.getString(2));
+				}
         	}
 		catch (Exception e) {
 		    e.printStackTrace();
