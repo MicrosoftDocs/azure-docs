@@ -182,5 +182,7 @@ delete('BrandNewProduct', client)
 
 ## Next Steps
 * Review the [SQL Database Development Overview](sql-database-develop-overview.md).
+* Github repository for [TinyTDS](https://github.com/rails-sqlserver/tiny_tds).
+* [File issues/ask questions](https://github.com/rails-sqlserver/tiny_tds/issues).		
 * More information on the [Ruby Driver for SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/).
 * Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
