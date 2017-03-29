@@ -24,5 +24,5 @@ ms.author: kasing
 ## Next steps
 Here's a list of migration articles that explain the process.
 
-* [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../articles/virtual-machines/virtual-machines-windows-migration-classic-resource-manager-overview.md)
-* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](../articles/virtual-machines/virtual-machines-windows-ps-migration-classic-resource-manager.md)
+* [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines/virtual-machines-windows-migration-classic-resource-manager-overview.md)
+* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines/virtual-machines-windows-ps-migration-classic-resource-manager.md)
