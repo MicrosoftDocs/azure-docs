@@ -14,99 +14,45 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/07/2016
+ms.date: 03/10/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 
 ---
-# Set up GPU drivers for N-series VMs
-To take advantage of the GPU capabilities of Azure N-series VMs running a supported Linux distribution, you must install NVIDIA graphics drivers on each VM after deployment. This article is also available for [Windows VMs](virtual-machines-windows-n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-For N-series VM specs, storage capacities, and disk details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+# Set up GPU drivers for N-series VMs running Linux
+
+To take advantage of the GPU capabilities of Azure N-series VMs running a supported Linux distribution, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is also available for [Windows VMs](virtual-machines-windows-n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+
+> [!IMPORTANT]
+> Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Server 16.04 LTS.
+> 
+
+For N-series VM specs, storage capacities, and disk details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). See also [General considerations for N-series VMs](#general-considerations-for-n-series-vms).
 
 
 
-## Supported GPU drivers
+## Install NVIDIA CUDA drivers
+
+Here are steps to install NVIDIA drivers on Linux NC VMs from the NVIDIA CUDA Toolkit 8.0. C and C++ developers can optionally install the full Toolkit to build GPU-accelerated applications. For more information, see the [CUDA Installation Guide](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
 
 > [!NOTE]
-> Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Server 16.04 LTS.
+> Driver download links provided here are current at time of publication. For the latest drivers, visit the [NVIDIA](http://www.nvidia.com/) website.
 
-### NVIDIA Tesla drivers for NC VMs
+To install CUDA Toolkit, make an SSH connection to each VM. To verify that the system has a CUDA-capable GPU, run the following command:
 
-* [Ubuntu 16.04 LTS](http://us.download.nvidia.com/XFree86/Linux-x86_64/375.39/NVIDIA-Linux-x86_64-375.39.run&lang=us&type=Tesla) (.run self-extracting installer)
+```bash
+lspci | grep -i NVIDIA
+```
+You will see output similar to the following example (showing an NVIDIA Tesla K80 card):
 
-## Tesla driver installation on Ubuntu 16.04 LTS
+![lspci command output](./media/virtual-machines-linux-n-series-driver-setup/lspci.png)
 
-1. Make an SSH connection to the Azure N-series VM.
+Then run commands specific for your distribution.
 
-2. To verify that the system has a CUDA-capable GPU, run the following command:
-
-    ```bash
-    lspci | grep -i NVIDIA
-    ```
-    You will see output similar to the following example (showing an NVIDIA Tesla K80 card):
-
-    ![lspci command output](./media/virtual-machines-linux-n-series-driver-setup/lspci.png)
-
-3. Download the .run file for the driver for your distribution. The following example command downloads the Ubuntu 16.04 LTS Tesla driver to the /tmp directory:
-
-    ```bash
-    wget -O /tmp/NVIDIA-Linux-x86_64-375.39.run http://us.download.nvidia.com/XFree86/Linux-x86_64/375.39/NVIDIA-Linux-x86_64-375.39.run&lang=us&type=Tesla
-    ```
-
-4. If you need to install `gcc` and `make` on your system (required for the Tesla drivers), type the following:
-
-    ```bash
-    sudo apt-get update
-    
-    sudo apt install gcc
-
-    sudo apt install make
-    ```
-
-4. Change to the directory containing the driver installer and run commands similar to the following:
-
-    ```bash
-    chmod +x NVIDIA-Linux-x86_64-375.39.run
-    
-    sudo sh ./NVIDIA-Linux-x86_64-375.39.run
-    ```
-6. Silent Install without reboot may be performed via scripts as follows:
- 
-    ```bash 
-    service lightdm stop 
-    wget  http://us.download.nvidia.com/XFree86/Linux-x86_64/375.39/NVIDIA-Linux-x86_64-375.39.run&lang=us&type=Tesla
-    chmod +x NVIDIA-Linux-x86_64-375.39.run
-    DEBIAN_FRONTEND=noninteractive apt-mark hold walinuxagent
-    DEBIAN_FRONTEND=noninteractive apt-get update -y
-    DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential gcc g++ make binutils linux-headers-`uname -r`
-    DEBIAN_FRONTEND=noninteractive ./NVIDIA-Linux-x86_64-375.39.run  --silent
-    DEBIAN_FRONTEND=noninteractive update-initramfs -u
-     ```
-7.  Options for NVIDIA kernel module availability post kernel upgrade
-
-       * Silent Installer option
-            ```bash
-               apt-get install -y dkms
-               DEBIAN_FRONTEND=noninteractive ./NVIDIA-Linux-x86_64-375.39.run  --silent --dkms
-            ```
-        * For kernel module loading after kernel upgrade when dkms option was not supplied during initial install of NVIDIA Driver
-            ```bash
-                dkms install -m nvidia -v 375.39 -k 'NEW_KERNEL_NAME'
-            ```
-            
-## Verify driver installation
-
-
-To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) command-line utility installed with the driver. 
-
-![NVIDIA device status](./media/virtual-machines-linux-n-series-driver-setup/smi.png)
-
-## Optional installation of NVIDIA CUDA Toolkit on Ubuntu 16.04 LTS
-
-You can optionally install NVIDIA CUDA Toolkit 8.0 on NC VMs running Ubuntu 16.04 LTS. In addition to GPU drivers, the Toolkit provides a comprehensive development environment for C and C++ developers building GPU-accelerated applications.
-
-To install the CUDA Toolkit, run commands similar to the following:
+### Ubuntu 16.04 LTS
 
 ```bash
 CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
@@ -120,11 +66,51 @@ rm -f /tmp/${CUDA_REPO_PKG}
 sudo apt-get update
 
 sudo apt-get install cuda-drivers
-```
 
+```
 The installation can take several minutes.
 
-## Silent and Secure installation of NVIDIA CUDA Toolkit on Ubuntu 16.04 LTS
+To optionally install the complete CUDA toolkit, type:
+
+```bash
+sudo apt-get install cuda
+```
+
+Reboot the VM and proceed to verify the installation.
+
+## Verify driver installation
+
+
+To query the GPU device state, SSH to the VM and run the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) command-line utility installed with the driver. 
+
+![NVIDIA device status](./media/virtual-machines-linux-n-series-driver-setup/smi.png)
+
+## CUDA driver updates
+
+We recommend that you periodically update CUDA drivers after deployment.
+
+### Ubuntu 16.04 LTS
+
+```bash
+sudo apt-get update
+
+sudo apt-get upgrade -y
+
+sudo apt-get dist-upgrade -y
+
+sudo apt-get install cuda-drivers
+```
+
+After the update completes, restart the VM.
+
+
+[!INCLUDE [virtual-machines-n-series-considerations](../../includes/virtual-machines-n-series-considerations.md)]
+
+* We don't recommend installing X server or other systems that use the nouveau driver on Ubuntu NC VMs. Before installing NVIDIA GPU drivers, you need to disable the nouveau driver.  
+
+* If you want to capture an image of a Linux VM on which you installed NVIDIA drivers, see [How to generalize and capture a Linux virtual machine](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+#### Silent and Secure installation of NVIDIA CUDA Toolkit on Ubuntu 16.04 LTS
  
  CUDA Toolkit may be silently and securely installed via scripts as follows
  
@@ -141,7 +127,7 @@ The installation can take several minutes.
  export PATH=/usr/local/cuda-8.0/bin:${PATH}
  ```
 
-### CUDA Samples Install
+##### CUDA Samples Install
  
  [CUDA Samples](http://docs.nvidia.com/cuda/cuda-samples/#new-features-in-cuda-toolkit-8-0) can be installed in a location as follows:
  
@@ -149,9 +135,26 @@ The installation can take several minutes.
  export SHARE_DATA="/data"
  export SAMPLES_USER="samplesuser"
  su -c "/usr/local/cuda-8.0/bin/./cuda-install-samples-8.0.sh $SHARE_DATA" $SAMPLES_USER
- ```
 
-## Silent installation of CUDNN
+ ```
+ 
+ ##### Optional Silent Install without reboot may be performed via scripts as follows:
+ > [!IMPORTANT]
+ > Currently, this need not be required when using secure cuda-repo-ubuntu1604_8.0.61-1_amd64.deb for Azure NC VMs running Ubuntu Server 16.04 LTS.
+ 
+    ```bash 
+    service lightdm stop 
+    wget  http://us.download.nvidia.com/XFree86/Linux-x86_64/375.39/NVIDIA-Linux-x86_64-375.39.run&lang=us&type=Tesla
+    DEBIAN_FRONTEND=noninteractive apt-mark hold walinuxagent
+    DEBIAN_FRONTEND=noninteractive apt-get update -y
+    apt-get install -y linux-image-virtual linux-tools-virtual linux-cloud-tools-virtual linux-virtual-lts-xenial linux-tools-virtual-lts-xenial linux-cloud-tools-virtual-lts-xenial 
+    DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential gcc gcc-multilib dkms g++ make binutils linux-headers-`uname -r` linux-headers-4.4.0-70-generic
+    chmod +x NVIDIA-Linux-x86_64-375.39.run
+    ./NVIDIA-Linux-x86_64-375.39.run  --silent --dkms
+    DEBIAN_FRONTEND=noninteractive update-initramfs -u
+     ```
+
+#### Silent installation of CUDNN
 
 The NVIDIA CUDA® Deep Neural Network library (cuDNN) is a GPU-accelerated library of primitives for deep neural networks. 
 cuDNN provides highly tuned implementations for standard routines such as forward and backward convolution, pooling, normalization, and activation layers.
@@ -164,6 +167,7 @@ cuDNN is part of the NVIDIA Deep Learning SDK and it can be installed silently a
     rm cudnn-8.0-linux-x64-v5.1.tgz && \
     ldconfig
   ```
+
 ## Next steps
 
 * For more information about the NVIDIA GPUs on the N-series VMs, see:
