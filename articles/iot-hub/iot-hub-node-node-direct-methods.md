@@ -140,7 +140,7 @@ In this section, you create a Node.js console app that calls a method in the sim
     ```
     var methodParams = {
         methodName: methodName,
-        payload: 'a line to be written',
+        payload: 'hello world',
         timeoutInSeconds: 30
     };
    
