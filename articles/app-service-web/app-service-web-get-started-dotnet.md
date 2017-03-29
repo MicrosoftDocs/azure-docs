@@ -108,7 +108,9 @@ Click **OK**.
 
 ## Create and publish the web app
 
-The only thing left to do now is to name your web app. In **Web App Name**, type a unique app name. You can also accept the automatically generated name, which is already unique.
+The only thing left to do now is to name your web app. In **Web App Name**, type a unique app name. This name will be used as part of the default DNS name for your app (`<app_name>.azurewebsites.net`), so it needs to be unique across all apps in Azure. You can later map a custom domain name to your app before you expose it to your users.
+
+You can also accept the automatically generated name, which is already unique.
 
 Click **Create** to start creating the Azure resources.
 
@@ -128,9 +130,9 @@ It's very easy to redeploy an update to Azure. Let's make an update to the homep
 
 From the **Solution Explorer**, open **Views\Home\Index.cshtml**.
 
-Find the `<div class="jumbotron">` XML element near the top, and replace the entire element with the following code:
+Find the `<div class="jumbotron">` HTML tag near the top, and replace the entire tag with the following code:
 
-```xml
+```html
 <div class="jumbotron">
     <h1>ASP.NET in Azure!</h1>
     <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
