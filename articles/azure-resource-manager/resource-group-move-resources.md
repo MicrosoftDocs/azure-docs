@@ -111,7 +111,7 @@ For now, the services that enable moving to both a new resource group and subscr
 * Traffic Manager
 * Virtual Machines - Does not support move to a new subscription when its certificates are stored in a Key Vault
 * Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
-* Virtual Networks - - Currently, a peered Virtual Network cannot be moved until VNet peering has been disabled. Once disabled, the Virtual Network can be moved successfully and the VNet peering can be enabled.
+* Virtual Networks - Currently, a peered Virtual Network cannot be moved until VNet peering has been disabled. Once disabled, the Virtual Network can be moved successfully and the VNet peering can be enabled.
 * VPN Gateway 
 
  
