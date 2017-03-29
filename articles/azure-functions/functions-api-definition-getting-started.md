@@ -60,7 +60,10 @@ This document guides you through the step by step process of creating an Open AP
             description: Your name
             required: true
             schema:
-              type: string
+              type: object
+              properties:
+                name:
+                  type: string
         description: >-
           Replace with Operation Object
           #http://swagger.io/specification/#operationObject
@@ -81,17 +84,15 @@ This document guides you through the step by step process of creating an Open AP
 
 
 ## <a name="test-definition"></a>Using the Swagger UI to test your API definition
-One method for testing an API definition is to use the smartbear [Swagger UI](http://petstore.swagger.io/). Replace the URL in the top right corner with your Swagger URL to explore your API definition visually and send sample requests using the request format specified in your API definition.
+There are testing tools built in to the UI view of the imbedded API definition editor. Add your API key, and then use the `Try this operation` button under each method. The tool will use your API Definition to format the requests and successful responses will indicate that your definition is correct.
 
 To test the API definition you just made you will need to follow the steps below:
 
-1. Enable CORS for your Function App. Because the Swagger UI is a web application, you need to allow calls from outside your Function's domain.
-  1. Head to `Function App Settings` and click `Configure CORS`
-  1. Add an `Allowed Origin` of "http://petstore.swagger.io"
-1. Navigate to the smartbear [Swagger UI](http://petstore.swagger.io/) and replace the URL in the top right corner with your Swagger URL
-  1. Test your API by adding your Function API key to the security object at the top
-  1. select `/api/yourfunctionroute` > `POST`
-  1. Click `Try it out` and enter a name to test
+1. Navigate to the `API Definition (preview)` page.
+1. Add your Function API key to the security object at the top.
+1. select `/api/yourfunctionroute` > `POST`
+1. Click `Try it out` and enter a name to test
+1. You should see a SUCCESS result under `Pretty`
 
 ## Learn more
 
