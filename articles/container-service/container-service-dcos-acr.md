@@ -41,16 +41,16 @@ Assuming that you already [setup a file share inside your DC/OS](container-servi
 The following commands are runnable on any environments (Windows/Mac/Linux)  :
 
 1. Make sure that you are meeting the following prerequisites :
-* TAR tool
-  * [Windows](http://gnuwin32.sourceforge.net/packages/gtar.htm)
-* Docker 
-  * [Windows](https://www.docker.com/docker-windows)
-  * [MAC](https://www.docker.com/docker-mac)
-  * [Ubuntu](https://www.docker.com/docker-ubuntu)
-  * [Others](https://www.docker.com/get-docker)
-* File share mounted inside your cluster, [with the following method](container-service-dcos-fileshare.md)
+  * TAR tool
+    * [Windows](http://gnuwin32.sourceforge.net/packages/gtar.htm)
+  * Docker 
+    * [Windows](https://www.docker.com/docker-windows)
+    * [MAC](https://www.docker.com/docker-mac)
+    * [Ubuntu](https://www.docker.com/docker-ubuntu)
+    * [Others](https://www.docker.com/get-docker)
+  * File share mounted inside your cluster, [with the following method](container-service-dcos-fileshare.md)
 
-2. Initiate the authentication to your ACR service by using the following command with your favorite terminal: `sudo docker login --username=<USERNAME> --password=<PASSWORD> <ACR-REGISTRY-NAME>.azurecr.io`. You have to replace the 'USERNAME', 'PASSWORD'and 'ACR-REGISTRY-NAME' variables with the values provided on your Azure portal
+2. Initiate the authentication to your ACR service by using the following command with your favorite terminal: `sudo docker login --username=<USERNAME> --password=<PASSWORD> <ACR-REGISTRY-NAME>.azurecr.io`. You have to replace the `USERNAME`, `PASSWORD`and `ACR-REGISTRY-NAME` variables with the values provided on your Azure portal
 
 3. It is interesting to know that when you are doing a `docker login` operation, the values are stored locally on the machine under your home folder (`cd ~/.docker` on Mac and Linux or `cd %HOMEPATH%` on Windows). We will compress the contain of this folder by using the `tar czf` command.
 
@@ -68,10 +68,13 @@ To wrap up, here is an example using the following setup (Using a windows enviro
 ```bash
 # Changing directory to the home folder of the default user
 cd %HOMEPATH%
+
 # Authentication into my ACR
 docker login --username=demodcos --password=+js+/=I1=L+D=+eRpU+/=wI/AjvDo=J0 demodcos.azurecr.io
+
 # Tar the contains of the .docker folder
 tar czf docker.tar.gz .docker
+
 # Upload the tar archive in the fileshare
 az storage file upload -s share --account-name anystorageaccountname --account-key aYGl6Nys4De5J3VPldT1rXxz2+VjgO7dgWytnoWClurZ/l8iO5c5N8xXNS6mpJhSc9xh+7zkT7Mr+xIT4OIVMg== --source %HOMEPATH%/docker.tar.gz
 ```
@@ -82,7 +85,7 @@ Executing operation from the master are not recommended to avoid mistakes and im
 
 1. First, SSH to the master (or the first master) of your DC/OS-based cluster. For example, `ssh userName@masterFQDN –A –p 22`, where the masterFQDN is the fully qualified domain name of the master VM. [More infos by clicking here](https://docs.microsoft.com/en-us/azure/container-service/container-service-connect#connect-to-a-dcos-or-swarm-cluster)
 
-2. Initiate the authentication to your ACR service by using the following command: `sudo docker login --username=<USERNAME> --password=<PASSWORD> <ACR-REGISTRY-NAME>.azurecr.io`. You have to replace the 'USERNAME', 'PASSWORD'and 'ACR-REGISTRY-NAME' variables with the values provided on your Azure portal
+2. Initiate the authentication to your ACR service by using the following command: `sudo docker login --username=<USERNAME> --password=<PASSWORD> <ACR-REGISTRY-NAME>.azurecr.io`. You have to replace the `USERNAME`, `PASSWORD`and `ACR-REGISTRY-NAME` variables with the values provided on your Azure portal
 
 3. It is interesting to know that when you are doing a `docker login` operation, the values are stored locally on the machine under your home folder `~/.docker`. We will compress the contain of this folder by using the `tar czf` command.
 
