@@ -7,7 +7,7 @@ author: ajlam
 manager: jhubbard
 editor: ''
 
-ms.assetid: 08fc49b1-cd48-4dcc-a293-ff22a4d2d62c
+ms.assetid: 
 ms.service: sql-database
 ms.custom: quick start
 ms.workload: drivers
@@ -16,8 +16,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: andrela;sstein;carlrab
-
 ---
+
 # Azure SQL Database: Use Java to connect and query data
 
 Use [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) to connect to and query an Azure SQL database. This guide details using Java to connect to an Azure SQL database, and then execute query, insert, update, and delete statements.
