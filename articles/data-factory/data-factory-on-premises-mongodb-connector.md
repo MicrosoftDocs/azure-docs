@@ -18,7 +18,7 @@ ms.author: jingwang
 
 ---
 # Move data From MongoDB using Azure Data Factory
-This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premsies MongoDB database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
+This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises MongoDB database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
 You can copy data from an on-premises MongoDB data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from a MongoDB data store to other data stores, but not for moving data from other data stores to an MongoDB datastore. 
 
@@ -249,8 +249,6 @@ The following table provides description for JSON elements specific to **OnPremi
 | gatewayName |Name of the gateway that accesses the data store. |Yes |
 | encryptedCredential |Credential encrypted by gateway. |Optional |
 
-See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for an on-premises MongoDB data source.
-
 ## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
@@ -348,9 +346,11 @@ Table “ExampleTable_Ratings”:
 | 2222 |0 |1 |
 | 2222 |1 |2 |
 
-> [!NOTE]
-> To map columns from source dataset to columns from sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
+## Map source to sink columns
+To learn about mapping columns in source dataset to columns in sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
 
+## Repeatable read from relational sources
+When copying data from relational data stores, keep repeatability in mind to avoid unintended outcomes. In Azure Data Factory, you can rerun a slice manually. You can also configure retry policy for a dataset so that a slice is rerun when a failure occurs. When a slice is rerun in either way, you need to make sure that the same data is read no matter how many times a slice is run. See [Repeatable read from relational sources](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
