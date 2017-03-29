@@ -1,10 +1,11 @@
 
 # Configure Activity Log Alerts on Service Notifications
 ## Overview
-This article shows you how to set up activity log alerts for service notifications using the Azure portal.
+This article shows you how to set up activity log alerts for service notifications using the Azure portal.  
 
-You can receive an alert based on service notifications for your Azure subscription.
+[!NOTE] This feature is currently in private preview. Not all functionality may be available at this time.
 
+You can receive an alert based on service notifications for your Azure subscription.  
 You can configure the alert based on:
 * The class of service notification (Incident, Maintenance, Information, etc.)
 - The status of the notification (Active vs. Resolved)
@@ -23,13 +24,18 @@ You can configure and get information about service notification alerts using
 ## Create an alert on a service notification for a new action group with the Azure Portal
 1.	In the [portal](https://portal.azure.com), navigate to the **Monitor** service
 
+    ![Monitor](./media/monitoring-activity-log-alerts-on-service-notifications/Home-Monitor.png)
 2.	Click the **Monitor** option to open the Monitor blade. It first opens to the **Activity log** section.
 
 3.	Now click on the **Alerts** section.
 
+    ![Alerts](./media/monitoring-activity-log-alerts-on-service-notifications/Alerts-Blades.png)
 4.	Select the **Add activity log alert** command and fill in the fields
 
+    ![Add-Alert](./media/monitoring-activity-log-alerts-on-service-notifications/Add-Activity-Log-Alert.png)
 5.	**Name** your activity log alert, and choose a **Description**. These will appear in the notifications sent when this alert fires.
+
+    ![Add-Alert-New-Action-Group](./media/monitoring-activity-log-alerts-on-service-notifications/Activity-Log-Alert-Service-Notification-New-Action-Group.png)
 
 6.	The **Subscription** should be auto filled to the subscription you are currently operating under.
 
@@ -49,18 +55,24 @@ You can configure and get information about service notification alerts using
 
 11.	Select **OK** when done to create the alert.
 
+Within a few minutes, the alert is active and triggers as previously described.
+
 ***Note:*** The action group defined in these steps will be reusable, as an existing action group, for all future alert definition.
 Create an alert on a service notification for an existing action group with the Azure Portal
 1.	In the [portal](https://portal.azure.com), navigate to the **Monitor** service
 
+    ![Monitor](./media/monitoring-activity-log-alerts-on-service-notifications/Home-Monitor.png)
 2.	Click the **Monitor** option to open the Monitor blade. It first opens to the **Activity log** section.
 
 3.	Now click on the **Alerts** section.
 
+    ![Alerts](./media/monitoring-activity-log-alerts-on-service-notifications/Alerts-Blades.png)
 4.	Select the **Add activity log alert** command and fill in the fields
 
+    ![Add-Alert](./media/monitoring-activity-log-alerts-on-service-notifications/Add-Activity-Log-Alert.png)
 5.	**Name** your activity log alert, and choose a **Description**. These will appear in the notifications sent when this alert fires.
 
+    ![Add-Alert-Existing-Action-Group](./media/monitoring-activity-log-alerts-on-service-notifications/Activity-Log-Alert-Service-Notification-Existing-Action-Group.png)
 6.	The **Subscription** should be auto filled to the subscription you are currently operating under.
 
 7.	Choose the **Resource Group** for this alert.
@@ -81,8 +93,6 @@ Once you have created an alert, it will be visible in the Alerts section of the 
 * **Disable** or **Enable** it if you want to temporarily stop of resume receiving notifications for the alert.
 
 ## Next Steps: ##
-Learn about [Service Notifications](monitoring-service-notifications.md)
-
-Get an [overview of activity log alerts](monitoring-overview-alerts.md) and learn how to get alerted
-
+Learn about [Service Notifications](monitoring-service-notifications.md)  
+Get an [overview of activity log alerts](monitoring-overview-alerts.md) and learn how to get alerted  
 Learn more about [action groups](monitoring-action-groups.md)

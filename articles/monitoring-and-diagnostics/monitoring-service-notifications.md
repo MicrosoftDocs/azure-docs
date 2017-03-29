@@ -2,50 +2,62 @@
 ## Overview ##
 This article shows you how to view service notifications using the Azure portal.
 
+[!NOTE] This feature is currently in private preview. Not all functionality may be available at this time. 
+
 Service notifications enable you to view service health messages published by the Azure team that may be affecting resources under your subscription. These notifications are a sub-class of activity log events and can also be found on the activity log blade. Service notifications can be informational or actionable depending on the class.
 
-There are five classes of service notifications:
-
-**Action Required:** From time to time we may notice something unusual happen on your account. We may need to work with you to remedy this. We will send you a notification either detailing the actions you will need to take or with details on how to contact Azure engineering or support.
-
-**Assisted Recovery:** An event has occurred and engineers have confirmed that you are still experiencing impact. Engineering will need to work with you directly to bring your services to restoration.
-
-**Incident:** A service impacting event is currently affecting one or more of the resources in your subscription.
-
-**Maintenance:** This is a notification informing you of a planned maintenance activity that may impact one or more of the resources under your subscription.
-
-**Information:** From time to time we may send you notifications that a communicate to you about potential optimizations that may help improve your resource utilization.
-
+There are five classes of service notifications:  
+**Action Required:** From time to time we may notice something unusual happen on your account. We may need to work with you to remedy this. We will send you a notification either detailing the actions you will need to take or with details on how to contact Azure engineering or support.  
+**Assisted Recovery:** An event has occurred and engineers have confirmed that you are still experiencing impact. Engineering will need to work with you directly to bring your services to restoration.  
+**Incident:** A service impacting event is currently affecting one or more of the resources in your subscription.  
+**Maintenance:** This is a notification informing you of a planned maintenance activity that may impact one or more of the resources under your subscription.  
+**Information:** From time to time we may send you notifications that a communicate to you about potential optimizations that may help improve your resource utilization.  
 **Security:** Urgent security related information regarding your solution(s) running on Azure.
 
 Each service notification will carry details on the scope and impact to your resources. Details will include:
 
-Metadata | Exposed | Description
--------- | ------- | -----------
-Title | Portal/JSON | Short descriptor of the event
-Status | Portal/JSON | **Active:** The event is still ongoing and so, you may still see impact or have actions to take. **Resolved:** The event is no longer impacting your subscription
-Incident Type | Portal/JSON	| One of the values described above: Incident, Maintenance, etc.
-Communication | Portal/JSON | Message from the Azure team describing the impact of the event
-Service | Portal/JSON | The Azure Service the event pertains to
-Region | Portal/JSON | The region(s) that the event pertains to
-Resource ID	| Portal/JSON | The Azure subscription the event pertains to
-Operation Name | Portal/JSON | The ARM operation name for this event
-Timestamp | Portal/JSON | The time the event was posted to Activity Logs
-Category | Portal/JSON | For service notifications, this will always say “Service Health”. Do note there are other event categories that are visible in the ‘Activity Log’.
-Level | Portal/JSON | The values are: **Informational, Warning** and **Critical.**
+Property Name | Description
+-------- | -----------
+channels | Is one of the following values: “Admin”, “Operation”
+correlationId | Is usually a GUID in the string format. Events with that belong to the same uber action usually share the same correlationId.
+eventDataId | Is the unique identifier of an event
+eventName | Is the title of the event
+id | ?
+level | Level of the event. One of the following values: “Critical”, “Error”, “Warning”, “Informational” and “Verbose”
+resourceProviderName | Name of the resource provider for the impacted resource
+resourceType| The type of resource of the impacted resource
+subStatus | Usually the HTTP status code of the corresponding REST call, but can also include other strings describing a substatus, such as these common values: OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), Gateway Timeout (HTTP Status Code: 504).
+eventTimestamp | Timestamp when the event was generated by the Azure service processing the request corresponding the event.
+submissionTimestamp | 	Timestamp when the event became available for querying.
+subscriptionId | The Azure subscription in which this event was logged
+status | String describing the status of the operation. Some common values are: Started, In Progress, Succeeded, Failed, Active, Resolved.
+operationName | Name of the operation.
+category | "ServiceHealth"
+resourceId | Resource id of the impacted resource.
+Properties.title | The localized title for this communication. English is the default language.
+Properties.communication | The localized details of the communication with HTML markup. English is the default.
+Properties.incidentType | Possible values: AssistedRecovery, ActionRequired, Information, Incident, Maintenance, Security
+Properties.trackingId | Identifies the incident this event is associated with. Use this to correlate the events related to an incident.
+Properties.impactedServices | An escaped JSON blob which describes the services and regions that are impacted by the incident. A list of Services, each of which has a ServiceName and a list of ImpactedRegions, each of which has a RegionName.
+Properties.defaultLanguageTitle | The communication in English
+Properties.defaultLanguageContent | The communication in English as either html markup or plain text
+Properties.stage | Possible values for AssistedRecovery, ActionRequired, Information, Incident, Security: are Active, Resolved. For Maintenance they are: Active, Planned, InProgress, Canceled, Rescheduled, Resolved, Complete
+Properties.communicationId | The communication this event is associated.
 
-A more detailed break down of the service notification schema can be found here(document needed here)
 
 ## Viewing your service notifications in the Azure portal ##
-1.	In the [portal](https://portal.azure.com), navigate to the Monitor service
+1.	In the [portal](https://portal.azure.com), navigate to the **Monitor** service
 
-2.	Click the Monitor option to open up the Monitor blade. This blade brings together all your monitoring settings and data into one consolidated view. It first opens to the Activity log section.
+    ![Monitor](./media/monitoring-service-notifications/Home-Monitor.png)
+2.	Click the **Monitor** option to open up the Monitor blade. This blade brings together all your monitoring settings and data into one consolidated view. It first opens to the **Activity log** section.
 
-3.	Now click on Service Notifications section
+3.	Now click on **Service Notifications** section
 
+    ![Monitor](./media/monitoring-service-notifications/Service-Health-Summary.png)
 4.	Click on any of the line items to view more details
 
-## Next Steps: ##
-Receive [alert notifications whenever a service notification](monitoring-activity-log-alerts-on-service-notifications.md) is posted
+5. Click on the **+Add Activity Log Alert** operation to receive notifications to ensure you are notified for future service notifications of this type. To learn more on configuring alerts on service notifications [click here](monitoring-activity-log-alerts-on-service-notifications.md)
 
+## Next Steps: ##
+Receive [alert notifications whenever a service notification](monitoring-activity-log-alerts-on-service-notifications.md) is posted  
 Learn more about [activity log alerts](monitoring-activity-log-alerts.md)

@@ -2,13 +2,14 @@
 ## Overview ##
 Action groups enable you to configure a list of receivers. These groups can then be leveraged when defining activity log alerts; ensuring that a particular action group is notified when the activity log alert is triggered. One of the alerting mechanisms supported is SMS; the alerts support bi-directional communication. A user can respond to an alert to:
 
-**Unsubscribe from alerts:** A user can unsubscribe from all SMS alerts for all action groups, or a singular action group.
-
-**Resubscribe to alerts:** A user can resubscribe to all SMS alerts for all action groups, or a singular action group.
-
+**Unsubscribe from alerts:** A user can unsubscribe from all SMS alerts for all action groups, or a singular action group.  
+**Resubscribe to alerts:** A user can resubscribe to all SMS alerts for all action groups, or a singular action group.  
 **Request help:** A user can ask for more information on the SMS. They will be redirected to this article
 
 This article covers the behavior of the SMS alerts and the response actions the user can take based on the locale of the user:
+
+[!NOTE] This feature is currently in private preview. Not all functionality may be available at this time.
+
 ## USA/Canada SMS behavior ##
 ### Receiving an SMS Alert ###
 An SMS receiver, who is configured as part of an action group, will receive an SMS when an alert fires. The SMS will carry the following information:
@@ -47,8 +48,6 @@ A user can ask for more information about the SMS they have received by respondi
 A response will be sent to the user with a link to this article.
 
 ## Next Steps ##
-Get an [overview of activity log alerts](monitoring-overview-alerts.md) and learn how to get alerted
-
-Learn more about [SMS rate limiting](monitoring-alerts-rate-limiting.md)
-
+Get an [overview of activity log alerts](monitoring-overview-alerts.md) and learn how to get alerted  
+Learn more about [SMS rate limiting](monitoring-alerts-rate-limiting.md)  
 Learn more about [action groups](monitoring-action-groups.md)
