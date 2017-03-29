@@ -104,6 +104,7 @@
 #### [Manage a cluster using Azure CLI](service-fabric-azure-cli.md) 
 #### [Secure a cluster](service-fabric-cluster-security.md)
 #### [Disaster recovery](service-fabric-disaster-recovery.md)
+#### [Feature differences between Linux and Windows](service-fabric-linux-windows-differences.md)
 
 ### Clusters on Azure
 #### Create a cluster on Azure

@@ -50,7 +50,7 @@ You also need the following for your development environment:
 * Mac or PC that is running Windows or Ubuntu.
 * Wireless network for Feather HUZZAH ESP8266 to connect to.
 * Internet connection to download the configuration tool.
-* [Arduino IDE](https://www.arduino.cc/en/main/software) version 1.6.8 (or newer), earlier versions will not work with the AzureIoT library).
+* [Arduino IDE](https://www.arduino.cc/en/main/software) version 1.6.8 (or newer), earlier versions will not work with the AzureIoT library.
 
 The following items are optional in case you don’t have a sensor. You also have the option of using simulated sensor data.
 
@@ -196,9 +196,9 @@ If you use Ubuntu, make sure a normal user has the permissions to operate on the
 
 In this section, you deploy and run a sample application on Feather HUZZAH ESP8266. The sample application blinks the LED on Feather HUZZAH ESP8266 and sends the temperature and humidity data collected from the DHT22 sensor to your IoT hub.
 
-### Get the sample application from Github
+### Get the sample application from GitHub
 
-The sample application is hosted on Github. Clone the sample repository that contains the sample application from GitHub. To clone the sample repository, follow these steps:
+The sample application is hosted on GitHub. Clone the sample repository that contains the sample application from GitHub. To clone the sample repository, follow these steps:
 
 1. Open a command prompt or a terminal window.
 1. Go to a folder where you want the sample application to be stored.
@@ -282,6 +282,12 @@ If you see the following output from the serial monitor window and the blinking 
 
 ![final output in arduino ide](media/iot-hub-arduino-huzzah-esp8266-get-started/14_arduino-ide-final-output.png)
 
-## Summary
+## Next steps
 
-You have successfully connected a Feather HUZZAH ESP8266 to your IoT hub and sent the captured sensor data to your IoT hub.
+You have successfully connected a Feather HUZZAH ESP8266 to your IoT hub and sent the captured sensor data to your IoT hub. 
+
+To continue getting started with IoT Hub and to explore other IoT scenarios, see:
+
+- [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+- [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
+
