@@ -38,6 +38,8 @@ Connect Sparkfun ESP8266 Thing Dev to an IoT hub you will create. Then run a sam
 
 ## What you will need
 
+![parts needed for the tutorial](media/iot-hub-sparkfun-thing-dev-get-started/2_parts-needed-for-the-tutorial.png)
+
 To complete this operation, you need the following parts from your Thing Dev Starter Kit:
 
 * The Sparkfun ESP8266 Thing Dev board.

@@ -21,7 +21,7 @@ ms.author: xshi
 # Use iothub-explorer to send and receive messages between your device and IoT Hub
 
 > [!NOTE]
-> Before you start this tutorial, make sure you’ve completed [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md). In [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md), you set up your IoT device and IoT hub, and deploy a sample application to run on your device. The application sends collected sensor data to your IoT hub.
+> Before you start this tutorial, make sure you’ve completed [Connect ESP8266 to Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md). In [Connect ESP8266 to Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md), you set up your IoT device and IoT hub, and deploy a sample application to run on your device. The application sends collected sensor data to your IoT hub.
 
 [iothub-explorer](https://github.com/azure/iothub-explorer) has a handful of commands that makes IoT Hub management easier. This tutorial focuses on how to use iothub-explorer to send and receive messages between your device and your IoT hub.
 
@@ -36,11 +36,11 @@ You learn how to use iothub-explorer to monitor device-to-cloud messages and to 
 
 ## What you need
 
-- Tutorial [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md) completed which covers the following requirements:
+- Tutorial [Connect ESP8266 to Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md) completed which covers the following requirements:
   - An active Azure subscription.
   - An Azure IoT hub under your subscription.
   - A client application that sends messages to your Azure IoT hub.
-- iothub-explorer. ([Download iothub-explorer](https://github.com/azure/iothub-explorer))
+- iothub-explorer. ([Install iothub-explorer](https://github.com/azure/iothub-explorer))
 
 ## Monitor device-to-cloud messages
 
@@ -54,9 +54,7 @@ To monitor messages that are sent from your device to your IoT hub, follow these
    ```
 
    > [!Note]
-   > Get `<device-id>` and `<IoTHubConnectionString>` from Tutorial 1.
-
-Here is the output:
+   > Get `<device-id>` and `<IoTHubConnectionString>` from your IoT hub. Make sure you've finished the previous tutorial.
 
 ## Send cloud-to-device messages
 
