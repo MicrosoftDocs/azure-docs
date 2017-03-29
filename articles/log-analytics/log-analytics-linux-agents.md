@@ -534,7 +534,7 @@ If none of the troubleshooting information in this section helps you, you can al
 | --- | --- |
 | Syslog |`/etc/syslog-ng/syslog-ng.conf` or `/etc/rsyslog.conf` or `/etc/rsyslog.d/95-omsagent.conf` |
 | Performance, Nagios, Zabbix, OMS output and general agent |`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` |
-| Additional configurations |`/etc/opt/microsoft/omsagent/<workspace id>/conf.d/*.conf` |
+| Additional configurations |`/etc/opt/microsoft/omsagent/<workspace id>/omsagent.d/*.conf` |
 
 > [!NOTE]
 > Editing configuration files for performance counters and syslog are overwritten if OMS Portal Configuration is enabled. You can disable configuration in the OMS Portal (for all nodes) or for single nodes by running the following:
