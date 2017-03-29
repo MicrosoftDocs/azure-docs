@@ -1,23 +1,3 @@
----
-title: Common errors during Classic to Azure Resource Manager migration | Microsoft Docs
-description: This article catalogs the most common errors and mitigations during the migration of IaaS resources from Azure Service Management to the Azure Resource Manager stack.
-services: virtual-machines-windows
-documentationcenter: ''
-author: singhkays
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 5bc03a1b-eb1c-438c-83d9-f0e9d61f1b6a
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
-ms.date: 10/13/2016
-ms.author: kasing
-
----
 # Common errors during Classic to Azure Resource Manager migration
 This article catalogs the most common errors and mitigations during the migration of IaaS resources from Azure classic deployment model to the Azure Resource Manager stack.
 
@@ -37,6 +17,8 @@ This article catalogs the most common errors and mitigations during the migratio
 | Migration is not allowed for HostedService {hosted-service-name} because it has VM {vm-name} in State: RoleStateUnknown. Migration is allowed only when the VM is in one of the following states - Running, Stopped, Stopped Deallocated. |The VM might be undergoing through a state transition which usually happens when during an update operation on the HostedService such as a reboot, extension installation etc. It is recommended for the update operation to complete on the HostedService before trying migration. |
 | Deployment {deployment-name} in HostedService {hosted-service-name} contains a VM {vm-name} with Data Disk {data-disk-name} whose physical blob size {size-of-the-vhd-blob-backing-the-data-disk} bytes does not match the VM Data Disk logical size {size-of-the-data-disk-specified-in-the-vm-api} bytes. Migration will proceed without specifying a size for the data disk for the Azure Resource Manager VM. If you'd like to correct the data disk size before proceeding with migration, visit https://aka.ms/vmdiskresize. | This error happen if you've resized the VHD blob without updating the size in the VM API model. Detailed mitigation steps are outlined [below](#vm-with-data-disk-whose-physical-blob-size-bytes-does-not-match-the-vm-data-disk-logical-size-bytes).|
 | A storage exception occurred while validating data disk {data disk name} with media link {data disk Uri} for VM {VM name} in Cloud Service {Cloud Service name}. Please ensure that the VHD media link is accessible for this virtual machine | This error can happen if the disks of the VM have been deleted or are not accessible anymore. Please make sure the disks for the VM exist.|
+| VM {vm-name} in HostedService {cloud-service-name} contains Disk with MediaLink {vhd-uri} which has blob name {vhd-blob-name}  that is not supported in Azure Resource Manager. | This error occurs when the name of the blob has a "/" in it which is not supported in Compute Resource Provider currently. |
+
 
 ## Detailed mitigations
 
@@ -182,4 +164,3 @@ Here's a list of migration articles that explain the process.
 * [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
 * [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-ps-migration-classic-resource-manager.md)
 * [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md)
-
