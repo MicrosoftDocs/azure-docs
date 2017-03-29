@@ -157,10 +157,3 @@ Update-AzureRmVM -ResourceGroupName "MyRG" -VM $vm
 ```bash
 az vm update -g "myrg" -n "myvm" --set osProfile.Secrets=[]
 ```
-
-## Next steps
-Here's a list of migration articles that explain the process.
-
-* [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
-* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-ps-migration-classic-resource-manager.md)
-* [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md)
