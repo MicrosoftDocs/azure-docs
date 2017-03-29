@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2017
+ms.date: 03/22/2017
 ms.author: awills
 
 ---
@@ -1036,9 +1036,13 @@ For example, the result of `reduce by city` might include:
 | Paris |27163 |
 
 ### render directive
-    T | render [ table | timechart  | barchart | piechart ]
+    T | render [ table | timechart  | barchart | piechart | areachart | scatterchart ] 
+        [kind= default|stacked|stacked100|unstacked]
 
 Render directs the presentation layer how to show the table. It should be the last element of the pipe. It's a convenient alternative to using the controls on the display, allowing you to save a query with a particular presentation method.
+
+For some types of chart, `kind` provides additional options. For example, a `stacked` barchart segments each bar by a chosen dimension, showing the contribution to the total from different values of the dimension. In a `stacked100` chart, every bar is the same height of 100%, so that you can compare the relative contributions.
+
 
 ### restrict clause
 Specifies the set of table names available to operators that follow. For example:
@@ -1769,6 +1773,12 @@ Check whether a string can be converted to a specific type:
     iff(notnull(todouble(customDimensions.myValue)),
        ..., ...)
 
+
+
+
+
+
+
 ### Scalar comparisons
 |  |  |
 | --- | --- |
@@ -2105,6 +2115,12 @@ The square root function.
 ## Date and time
 [ago](#ago) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) |  [dayofyear](#dayofyear) |[datepart](#datepart) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth)|  [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
+A timespan represents an interval of time such as 3 hours or 1 year.
+
+A datetime represents a specific calendar/clock date and time in UTC.
+
+There is no separate 'date' type. To remove the time from a datetime, use an expression such as `bin(timestamp, 1d)`.
+
 ### Date and time literals
 |  |  |
 | --- | --- |
@@ -2127,22 +2143,22 @@ The square root function.
 | `time("0.12:34:56.7")` |`0d+12h+34m+56.7s` |
 
 ### Date and time expressions
-| Expression | Result |
-| --- | --- |
-| `datetime("2015-01-02") - datetime("2015-01-01")` |`1d` |
-| `datetime("2015-01-01") + 1d` |`datetime("2015-01-02")` |
-| `datetime("2015-01-01") - 1d` |`datetime("2014-12-31")` |
-| `2h * 24` |`2d` |
-| `2d` / `2h` |`24` |
-| `datetime("2015-04-15T22:33") % 1d` |`timespan("22:33")` |
-| `bin(datetime("2015-04-15T22:33"), 1d)` |`datetime("2015-04-15T00:00")` |
-|  | |
-| `<` |Less |
-| `<=` |Less or Equals |
-| `>` |Greater |
-| `>=` |Greater or Equals |
-| `<>` |Not Equals |
-| `!=` |Not Equals |
+| Expression | Result |Effect|
+| --- | --- |---|
+| `datetime("2015-01-02") - datetime("2015-01-01")` |`1d` | Time difference|
+| `datetime("2015-01-01") + 1d` |`datetime("2015-01-02")` | Add days |
+| `datetime("2015-01-01") - 1d` |`datetime("2014-12-31")` | Subtract days|
+| `2h * 24` |`2d` |Timespan multiples|
+| `2d` / `2h` |`24` |Timespan division|
+| `datetime("2015-04-15T22:33") % 1d` |`timespan("22:33")` |Time from a datetime|
+| `bin(datetime("2015-04-15T22:33"), 1d)` |`datetime("2015-04-15T00:00")` |Date from a datetime|
+|  | ||
+| `<` ||Less |
+| `<=` ||Less or Equal |
+| `>` ||Greater |
+| `>=` ||Greater or Equal |
+| `<>` ||Not Equal |
+| `!=` ||Not Equal |
 
 ### ago
 Subtracts the given timespan from the current
