@@ -3,19 +3,19 @@ title: Azure SQL Database: Connect to Azure SQL Database by using Java | Microso
 description: Presents a Python code sample you can use to connect to Azure SQL Database.
 services: sql-database
 documentationcenter: ''
-author: stevestein
+author: ajlam
 manager: jhubbard
 editor: ''
 
 ms.assetid: 08fc49b1-cd48-4dcc-a293-ff22a4d2d62c
 ms.service: sql-database
-ms.custom: development
+ms.custom: quick start
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: sstein;carlrab
+ms.date: 03/28/2017
+ms.author: andrela;sstein;carlrab
 
 ---
 # Azure SQL Database: Use Java to connect and query data
