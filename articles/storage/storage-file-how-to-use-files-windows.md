@@ -49,7 +49,7 @@ credentials on the virtual machine. This step allows Windows to automatically
 reconnect to the file share when the virtual machine reboots. To persist your
 account credentials, run the cmdkey command from the PowerShell window on the
 virtual machine. Replace \<storage-account-name\> with the name of your storage
-account, and \<storage-account-key\> with your storage account key. Learn more about [how to find storage account and key from portal](storage-file-how-to-use-files-portal.md/#connect)
+account, and \<storage-account-key\> with your storage account key. Learn more about [how to find storage account and key from portal](storage-file-how-to-use-files-portal#connect)
 
 ```
 cmdkey /add:\<storage-account-name\>.file.core.windows.net
