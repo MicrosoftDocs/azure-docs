@@ -14,7 +14,7 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/16/2017
+ms.date: 03/24/2017
 ms.author: sstein
 
 ---
@@ -29,24 +29,37 @@ This quick start uses as its starting point the resources created in one of thes
 
 Before you start, make sure you have configured your development environment for C#. See [Install Visual Studio Community for free](https://www.visualstudio.com/) or install the [ADO.NET driver for SQL Server](https://www.microsoft.com/net/download).
 
-## Connect to database and query data
+## Get connection information
 
 Get the connection string in the Azure portal. You use the connection string to connect to the Azure SQL database.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane for your database, locate and click **Show database connection strings**.
-4. Copy the **ADO.NET** connection string.
+3. In the **Essentials** pane for your database, review the fully qualified server name. 
 
     <img src="./media/sql-database-connect-query-dotnet/connection-strings.png" alt="connection strings" style="width: 780px;" />
 
-5. Open Visual Studio and create a console application.
-6. Add ```using System.Data.SqlClient``` to your code file ([System.Data.SqlClient namespace](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
+4. Click **Show database connection strings**.
 
-7. Use [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement, to query data in your Azure SQL database.
+5. Review the complete**ADO.NET** connection string.
+
+    <img src="./media/sql-database-connect-query-dotnet/adonet-connection-string.png" alt="ADO.NET connection string" style="width: 780px;" />
+
+## Select data
+
+1. In your development environment, open a blank code file.
+2. Add ```using System.Data.SqlClient``` to your code file ([System.Data.SqlClient namespace](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
+
+3. Use [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement, to query data in your Azure SQL database. Add the appropriate values for your server
 
     ```csharp
-    string strConn = "<connection string>";
+    string hostName = 'yourserver.database.windows.net';
+    string dbName = 'yourdatabase';
+    string user = 'yourusername';
+    string password = 'yourpassword';
+
+    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+    
     using (var connection = new SqlConnection(strConn))
     {
        connection.Open();
@@ -75,9 +88,18 @@ Get the connection string in the Azure portal. You use the connection string to 
 Use [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement to insert data into your Azure SQL database.
 
 ```csharp
-SqlCommand insertCommand = new SqlCommand("", connection);
-insertCommand.CommandType = CommandType.Text;
-insertCommand.CommandText = @"INSERT INTO[SalesLT].[Product]
+    string hostName = 'yourserver.database.windows.net';
+    string dbName = 'yourdatabase';
+    string user = 'yourusername';
+    string password = 'yourpassword';
+
+    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+    using (var connection = new SqlConnection(strConn))
+
+    SqlCommand insertCommand = new SqlCommand("", connection);
+    insertCommand.CommandType = CommandType.Text;
+    insertCommand.CommandText = @"INSERT INTO[SalesLT].[Product]
             ( [Name]
             , [ProductNumber]
             , [Color]
@@ -110,14 +132,23 @@ Console.WriteLine($"Inserted {newrows.ToString()} row(s).");
 Use [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with an [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
 
 ```csharp
-SqlCommand updateCommand = new SqlCommand("", connection);
-updateCommand.CommandType = CommandType.Text;
-updateCommand.CommandText = @"UPDATE SalesLT.Product SET ListPrice = @ListPrice WHERE Name = @Name";
-updateCommand.Parameters.AddWithValue("@Name", "BrandNewProduct");
-updateCommand.Parameters.AddWithValue("@ListPrice", 500);
+    string hostName = 'yourserver.database.windows.net';
+    string dbName = 'yourdatabase';
+    string user = 'yourusername';
+    string password = 'yourpassword';
 
-int updatedrows = updateCommand.ExecuteNonQuery();
-Console.WriteLine($"Updated {updatedrows.ToString()} row(s).");
+    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+    using (var connection = new SqlConnection(strConn))
+
+    SqlCommand updateCommand = new SqlCommand("", connection);
+    updateCommand.CommandType = CommandType.Text;
+    updateCommand.CommandText = @"UPDATE SalesLT.Product SET ListPrice = @ListPrice WHERE Name = @Name";
+    updateCommand.Parameters.AddWithValue("@Name", "BrandNewProduct");
+    updateCommand.Parameters.AddWithValue("@ListPrice", 500);
+
+    int updatedrows = updateCommand.ExecuteNonQuery();
+    Console.WriteLine($"Updated {updatedrows.ToString()} row(s).");
 ```
 
 ## Delete data
@@ -125,6 +156,15 @@ Console.WriteLine($"Updated {updatedrows.ToString()} row(s).");
 Use [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with a [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
 
 ```csharp
+    string hostName = 'yourserver.database.windows.net';
+    string dbName = 'yourdatabase';
+    string user = 'yourusername';
+    string password = 'yourpassword';
+
+    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+    using (var connection = new SqlConnection(strConn))
+
 SqlCommand deleteCommand = new SqlCommand("", connection);
 deleteCommand.CommandType = CommandType.Text;
 deleteCommand.CommandText = @"DELETE FROM SalesLT.Product WHERE Name = @Name";
@@ -149,10 +189,15 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
+             string hostName = 'yourserver.database.windows.net';
+             string dbName = 'yourdatabase';
+             string user = 'yourusername';
+             string password = 'yourpassword';
 
-            string strConn = "<connection string>";
+             string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
-            using (var connection = new SqlConnection(strConn))
+             using (var connection = new SqlConnection(strConn))
+
             {
                 connection.Open();
 

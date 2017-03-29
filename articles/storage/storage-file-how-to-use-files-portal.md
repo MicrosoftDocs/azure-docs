@@ -18,6 +18,13 @@ ms.author: renash
 ---
 
 # How to use Azure Files from the Azure Portal
+The [Azure Portal](https://portal.azure.com) provides a user interface for managing Azure File Storage. You can perform the following actions from your web browser:
+
+* Create a File Share
+* Upload and download files to and from your file share.
+* Monitor the actual usage of each file share.
+* Adjust the file share size quota.
+* Copy the `net use` command to use to mount your file share from a Windows client.
 
 ## Create file share
 1. Sign in to the Azure portal.
@@ -50,6 +57,7 @@ ms.author: renash
 
     ![Screenshot that shows how to upload files from the portal](media/storage-file/use-files-portal-upload-file2.png)
 
+<a id="connect"/></a>
 ## Connect to file share
 -  Click **Connect** to get the command line for mounting the file share from Windows and Linux. For Linux users, you could also refer to [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md) for more mounting instructions for other Linux distros.
 

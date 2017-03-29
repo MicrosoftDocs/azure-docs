@@ -76,7 +76,7 @@ versions](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2
 | SUSE Linux Enterprise Server 12 (Premium Image) | SMB 2.1               |
 | Mac OS Sierra                                   | SMB 3.0               |
 
-## See Also
+## Also See
 * **[Inside Azure File Storage](https://azure.microsoft.com/en-us/blog/inside-azure-file-storage/)**
 * **[Migrate data to Azure File Storage](https://azure.microsoft.com/en-us/blog/migrating-data-to-microsoft-azure-files/)**
 

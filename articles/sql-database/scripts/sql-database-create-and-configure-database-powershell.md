@@ -27,7 +27,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/create-and-configure-database/create-and-configure-database.ps1 "Create SQL Database")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/create-and-configure-database/create-and-configure-database.ps1?highlight=7-8 "Create SQL Database")]
 
 ## Clean up deployment
 

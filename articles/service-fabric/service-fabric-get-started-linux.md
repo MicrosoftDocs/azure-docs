@@ -3,7 +3,7 @@ title: Set up your development environment on Linux | Microsoft Docs
 description: Install the runtime and SDK and create a local development cluster on Linux. After completing this setup, you will be ready to build applications.
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: mani-ramaswamy
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
-ms.author: seanmck
+ms.date: 03/23/2017
+ms.author: subramar
 
 ---
 # Prepare your development environment on Linux
@@ -32,7 +32,7 @@ ms.author: seanmck
 ### Supported operating system versions
 The following operating system versions are supported for development:
 
-* Ubuntu 16.04 ("Xenial Xerus")
+* Ubuntu 16.04 (i**"Xenial Xerus"**)
 
 ## Update your apt sources
 To install the SDK and the associated runtime package via apt-get, you must first update your apt sources.
@@ -43,7 +43,7 @@ To install the SDK and the associated runtime package via apt-get, you must firs
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ trusty main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
-3. Add the dotnet repo to your sources list.
+3. Add the **dotnet** repo to your sources list.
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -62,7 +62,7 @@ To install the SDK and the associated runtime package via apt-get, you must firs
     ```bash
     sudo apt-get update
     ```
-## Install and set up the SDK
+## Install and set up the SDK for containers and guest executables
 Once your sources are updated, you can install the SDK.
 
 1. Install the Service Fabric SDK package. You are asked to confirm the installation and to agree to a license agreement.
@@ -76,6 +76,21 @@ Once your sources are updated, you can install the SDK.
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
 
+Once you have run the steps to install the Common SDK package, creation of apps with guest executable or container services should be possible by running `yo azuresfguest`. You may need to set your **$NODE_PATH** environment variable to where the node modules are located. 
+
+    ```bash
+    export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules 
+    ```
+
+If you are using the environment as root, you may need to set the variable with the following command:
+
+    ```bash
+    export NODE_PATH=$NODE_PATH:/root/.node/lib/node_modules 
+    ```
+
+> [!TIP]
+> You may want to add these commands into your ~/.bashrc file so that you don't have to set the environment variable at every login.
+>
 
 ## Set up the Azure cross-platform CLI
 The [Azure cross-platform CLI][azure-xplat-cli-github] includes commands for interacting with Service Fabric entities, including clusters and applications. It is based on Node.js so [ensure that you have installed Node][install-node] before proceeding with the following instructions:
@@ -107,6 +122,7 @@ The [Azure cross-platform CLI][azure-xplat-cli-github] includes commands for int
 > [!NOTE]
 > Service Fabric commands are not yet available in Azure CLI 2.0.
 
+
 ## Set up a local cluster
 If everything has installed successfully, you should be able to start a local cluster.
 
@@ -125,9 +141,8 @@ At this point, you are able to deploy pre-built Service Fabric application packa
 > [!NOTE]
 > Stand alone clusters aren't supported in Linux - only one box and Azure Linux multi-machine clusters are supported in the preview.
 >
->
 
-## Install the Java SDK and Eclipse Neon plugin (optional)
+## Install the Java SDK (optional, if you wish to use the Java programming models)
 The Java SDK provides the libraries and templates required to build Service Fabric services using Java.
 
 1. Install the Java SDK package.
@@ -140,8 +155,13 @@ The Java SDK provides the libraries and templates required to build Service Fabr
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
     ```
+## Install the Eclipse Neon plugin (optional)
 
-You can install the Eclipse plugin for Service Fabric from within the **Eclipse IDE for Java Developers**.
+You can install the Eclipse plugin for Service Fabric from within the **Eclipse IDE for Java Developers**. You can use Eclipse to create Service Fabric guest executable applications and container applications in addition to Service Fabric Java applications.
+
+> [!NOTE]
+> Installing the Java SDK is a prerequisite to using the Eclipse plugin, even if you only use it to create and deploy guest executables and container applications.
+>
 
 1. In Eclipse, ensure that you have latest eclipse **Neon** and latest Buildship version (1.0.17 or later) installed. You can check the versions of installed components by choosing **Help > Installation Details**. You can update Buildship using the instructions [here][buildship-update].
 2. To install the Service Fabric plugin, choose **Help > Install New Software...**
@@ -151,11 +171,12 @@ You can install the Eclipse plugin for Service Fabric from within the **Eclipse 
 5. Choose the Service Fabric plugin and click next.
 6. Proceed through the installation and accept the end-user license agreement.
 
-If you already have the Service Fabric Eclipse plugin installed, make sure you are on the latest version. You can check if it can be updated any further be following - ``Help => Installation Details``. Then search for Service fabric in the list of installed plugin and click on update. If there is any pending update, it will be fetched and installed.
+If you already have the Service Fabric Eclipse plugin installed, make sure you are on the latest version. You can check by selecting ``Help => Installation Details`` and searching for Service Fabric in the list of installed plugins. Select update if a newer version is available. 
 
-For more details on how to use Service Fabric Eclipse plugin to create, build, deploy, upgrade a Service Fabric java application, please refer to our detailed guide - [Service fabric getting started with eclipse](service-fabric-get-started-eclipse.md).
+For more information, see [Service fabric getting started with eclipse](service-fabric-get-started-eclipse.md).
 
-## Install the .NET Core SDK (optional)
+
+## Install the .NET Core SDK (optional, if you wish to use the .NET Core programming models)
 The .NET Core SDK provides the libraries and templates required to build Service Fabric services using cross-platform .NET Core.
 
 1. Install the .NET Core SDK package.
@@ -179,7 +200,8 @@ To update to the latest version of the SDK and runtime, run the following steps 
    sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
    ```
 
-For updating the CLI, navigate to the directory where you cloned the CLI and run `git pull` for updating.
+For updating the CLI, navigate to the directory where you cloned the CLI and run `git pull` for updating.  If additional steps are needed for updating, the release notes will specify those steps. 
+
 
 ## Next steps
 * [Create and deploy your first Service Fabric Java application on Linux using Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
@@ -187,6 +209,7 @@ For updating the CLI, navigate to the directory where you cloned the CLI and run
 * [Create your first CSharp application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
 * [Use the Azure CLI to manage your Service Fabric applications](service-fabric-azure-cli.md)
+* [Service Fabric Windows/Linux differences](service-fabric-linux-windows-differences.md)
 
 <!-- Links -->
 

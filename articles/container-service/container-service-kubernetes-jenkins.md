@@ -115,7 +115,7 @@ az acs create \
 
 ### Prerequisites
 
-- Github account for code repo.
+- GitHub account for code repo.
 - Docker Hub account to store and update images.
 - Containerized application that can be rebuilt and updated. You can use this sample container app written in Golang: https://github.com/chzbrgr71/go-web 
 
@@ -150,7 +150,7 @@ az acs create \
     ```
 ### Step 2: Configure Jenkins system
 1. Click **Manage Jenkins** > **Configure System**.
-2. Under **GitHub**, select **Add Github Server**.
+2. Under **GitHub**, select **Add GitHub Server**.
 3. Leave **API URL** as default.
 4. Under **Credentials**, add a Jenkins credential using **Secret text**. We recommend using GitHub personal access tokens, which are configured in your GitHub user account settings. More details on this [here.](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)
 5. Click **Test connection** to ensure this is configured correctly.
@@ -163,7 +163,7 @@ az acs create \
 1. Create a Jenkins item.
 2. Provide a name (for example, "go-web") and select **Freestyle Project**. 
 3. Check **GitHub project** and provide the URL to your GitHub repo.
-4. In **Source Code Management**, provide the Github repo URL and credentials. 
+4. In **Source Code Management**, provide the GitHub repo URL and credentials. 
 5. Add a **Build Step** of type **Execute shell** and use the following text:
 
     ```bash

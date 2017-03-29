@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-/ms.date: 3/8/2017
+ms.date: 03/27/2017
 ms.author: renash
 ---
 
@@ -23,6 +23,7 @@ ms.author: renash
 [!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 ## About this tutorial
+
 This tutorial will demonstrate the basics of using .NET to develop applications or services that use Azure Files to store file data. In this tutorial, we will create a simple console application and show how to perform basic actions with .NET and Azure Files:
 
 * Get the contents of a file
@@ -31,22 +32,33 @@ This tutorial will demonstrate the basics of using .NET to develop applications 
 * Copy a file to another file in the same storage account.
 * Copy a file to a blob in the same storage account.
 * Use Azure Storage Metrics for troubleshooting
-
 > [!Note]  
 > Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure File share using the standard System.IO classes for File I/O. This article will describe how to write applications that use the Azure Storage .NET SDK, which uses the [Azure Files REST API](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure Files. 
 
 ### Create the console application and obtain the assembly
-To create a new console application in Visual Studio and install the NuGet package containing the Azure Storage Client Library:
+In Visual Studio, create a new Windows console application. The following steps show you how to create a console application in Visual Studio 2017, however, the steps are similar in other versions of Visual Studio.
 
-1. In Visual Studio, choose **File > New Project**, and then choose **Windows > Console Application** from the list of Visual C# templates.
-2. Provide a name for the console application, and then click **OK**.
-3. Once your project has been created, right-click the project in Solution Explorer and choose **Manage NuGet Packages**. Search online for "WindowsAzure.Storage" and click **Install** to install the Azure Storage Client Library for .NET package and dependencies.
+1. Select **File** > **New** > **Project**
+2. Select **Installed** > **Templates** > **Visual C#** > **Windows Classic Desktop**
+3. Select **Console App (.NET Framework)**
+4. Enter a name for your application in the **Name:** field
+5. Select **OK**
 
-The code examples in this article also use the [Microsoft Azure Configuration Manager Library](https://msdn.microsoft.com/library/azure/mt634646.aspx) to retrieve the storage connection string from an app.config file in the console application. With Azure Configuration Manager, you can retrieve your connection string at runtime regardless of whether your application is running in Microsoft Azure or from a desktop, mobile, or web application.
+All code examples in this tutorial can be added to the `Main()` method of your console application's `Program.cs` file.
 
-To install the Azure Configuration Manager package, right-click the project in Solution Explorer and choose **Manage NuGet Packages**. Search online for "ConfigurationManager" and click **Install** to install the package.
+You can use the Azure Storage Client Library in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
 
-Using Azure Configuration Manager is optional. You can also use an API such as the .NET Framework's [ConfigurationManager class](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx).
+### Use NuGet to install the required packages
+There are two packages you need to reference in your project to complete this tutorial:
+
+* [Microsoft Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): This package provides programmatic access to data resources in your storage account.
+* [Microsoft Azure Configuration Manager library for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): This package provides a class for parsing a connection string in a configuration file, regardless of where your application is running.
+
+You can use NuGet to obtain both packages. Follow these steps:
+
+1. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.
+2. Search online for "WindowsAzure.Storage" and click **Install** to install the Storage Client Library and its dependencies.
+3. Search online for "WindowsAzure.ConfigurationManager" and click **Install** to install the Azure Configuration Manager.
 
 ### Save your storage account credentials to the app.config file
 Next, save your credentials in your project's app.config file. Edit the app.config file so that it appears similar to the following example, replacing `myaccount` with your storage account name, and `mykey` with your storage account key.
@@ -66,8 +78,8 @@ Next, save your credentials in your project's app.config file. Edit the app.conf
 > [!NOTE]
 > The latest version of the Azure storage emulator does not support Azure Files. Your connection string must target an Azure Storage Account in the cloud to work with Azure Files.
 
-### Add namespace declarations
-Open the `program.cs` file from Solution Explorer, and add the following namespace declarations to the top of the file.
+### Add using directives
+Open the `Program.cs` file from Solution Explorer, and add the following using directives to the top of the file.
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
@@ -310,11 +322,13 @@ You can copy a blob to a file in the same way. If the source object is a blob, t
 ## Troubleshooting Azure Files using metrics
 Azure Storage Analytics now supports metrics for Azure Files. With metrics data, you can trace requests and diagnose issues.
 
+
 You can enable metrics for Azure Files from the [Azure Portal](https://portal.azure.com). You can also enable metrics programmatically by calling the Set File Service Properties operation via the REST API, or one of its analogues in the Storage Client Library.
+
 
 The following code example shows how to use the Storage Client Library for .NET to enable metrics for Azure Files.
 
-First, add the following `using` statements to your program.cs file, in addition to those you added above:
+First, add the following `using` directives to your `Program.cs` file, in addition to those you added above:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage.File.Protocol;

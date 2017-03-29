@@ -35,17 +35,16 @@ Azure File shares can be used to:
 Azure File Storage allows you to replace Windows Server, Linux, or NAS based file servers hosted on-premises or in the cloud, with an OS-free cloud file share. This has the following benefits:
 
 * **Simplicity**. Azure File shares can be created without the need to manage hardware or an OS. This means you don't have to deal with patching the server OS with critical security upgrades or replacing faulty hard disks.
-* **Compatibility**. Azure File shares support the industry standard SMB protocol, meaning you can seamlessly replace your on-premises file shares with Azure File shares without worrying about application compatibility.
-* **Programability**. Applications running in Azure can access data in the share via file [system I/O APIs](https://msdn.microsoft.com/en-us/library/system.io.file(v=vs.110).aspx). Developers can therefore leverage their existing code and skills to migrate existing applications. In addition to System IO APIs, one can use Azure Storage Client Libraries or the Azure Storage REST API.
-* **Scripting and Tooling**. PowerShell cmdlets and [Azure CLI](storage-file-how-to-use-files-cli)  can be used to create, mount, and manage File storage shares as part of the administration of Azure applications.You can create and mange Azure file shares using Azure Portal and Azure Storage Explorer. 
+* **Shared access:**. Azure File shares support the industry standard SMB protocol, meaning you can seamlessly replace your on-premises file shares with Azure File shares without worrying about application compatibility. Being able to share a file system across multiple applications/instances is a significant advantage with Azure File STprage for applications that need shareability. 
+* **Programmability**. Applications running in Azure can access data in the share via file [system I/O APIs](https://msdn.microsoft.com/en-us/library/system.io.file(v=vs.110).aspx). Developers can therefore leverage their existing code and skills to migrate existing applications. In addition to System IO APIs, one can use Azure Storage Client Libraries or the Azure Storage REST API.
+* **Scripting and Tooling**. PowerShell cmdlets and Azure CLI  can be used to create, mount, and manage File storage shares as part of the administration of Azure applications.You can create and manage Azure file shares using Azure Portal and Azure Storage Explorer. 
 * **Resiliency**. Azure File Storage has been built from the ground up to be always available. Replacing on-premises file shares with Azure File Storage means you no longer have to wake up to deal with local power outages or network issues. 
 
 ## How does it work?
 Managing Azure File shares is a lot simpler than managing file shares on-premises. The following diagram illustrates the Azure File Storage management constructs:
 
-|File Structure|File Capabilities|
-|-|-|
-|![File Structure](../../includes/media/storage-file-concepts-include/files-concepts.png)|![File Capabilities](../../includes/media/storage-file-concepts-include/AzureFileCapabilities.PNG)|
+
+![File Structure](../../includes/media/storage-file-concepts-include/files-concepts.png)
 
 * **Storage Account**: All access to Azure Storage is done through a storage account. See Azure Storage Scalability and Performance Targets for details about storage account capacity.
 * **Share**: A File storage share is an SMB file share in Azure. All directories and files must be created in a parent share. An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the 5 TB total capacity of the file share.
@@ -57,9 +56,9 @@ Managing Azure File shares is a lot simpler than managing file shares on-premise
     https://<storage account>.file.core.windows.net/<share>/<directory/directories>/<file>
     ```
 ## Next Steps if you are a first-time user of Azure File Storage
-* [Create File Share](storage-file-how-to-create-file-share)
-* [Connect and Mount File Share](storage-file-how-to-connect-and-mount)
-* [Manage Azure File Share using tools and scripts](storage-file-how-to-tooling-and-scripting)
+* [Create File Share](storage-file-how-to-create-file-share.md)
+* [Connect and Mount File Share](storage-file-how-to-connect-and-mount.md)
+* [Manage Azure File Share using tools and scripts](storage-file-how-to-tooling-and-scripting.md)
 
 ## See Also
 
