@@ -22,9 +22,12 @@ Azure File storage is a service that offers file shares in the cloud using the s
 
 On macOS, mounting is possible from the machines located at local datacenter or on-premises provided the [prereqisites](#prereq) below are met. UI mounting differs slightly in each OS. We will go over mounting Azure File Share form El Capitan UI.
 
+
+
 * [Prerequisites](#prereq)
 * [Mount Azure File Share using File Explorer on El Capitan](#elcapitan)
 * [Mount Azure file share using sudo mount command](#sudomount)
+* [Troubleshooting  Azure file share issues on macOS](#sudomount)
 
 
 # Prerequisites for mounting Azure File on macOS
@@ -71,4 +74,8 @@ account, and \<storage-account-key\> with your storage account key.
 ```
 mount -t smbfs //<storage-account-name\>@<storage-account-name\>.file.core.windows.net/sharename [mount point] -o vers=3.0
 ```
+##Troubleshooting  Azure file share issues on macOS
 
+
+## Also See
+* [Apple - How to connect with File Sharing on your Mac](https://support.apple.com/en-us/HT204445)
