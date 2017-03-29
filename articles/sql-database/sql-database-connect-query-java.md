@@ -29,7 +29,7 @@ This quick start uses as its starting point the resources created in one of thes
 
 ## Configure Development Environment
 
-The following sections detail configuring your existing Mac OS, Linux(Ubuntu), and Windows development environments for working with Azure SQL Database.
+The following sections detail configuring your existing Mac OS, Linux (Ubuntu), and Windows development environments for working with Azure SQL Database.
 
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your Java project. Enter the following commands to install **brew** and **Maven**. 
@@ -48,7 +48,7 @@ sudo apt-get install maven
 ```
 
 ### **Windows**
-Install [Maven](https://maven.apache.org/download.cgi).  
+Install [Maven](https://maven.apache.org/download.cgi) using the official installer.  
 
 ## Get connection information
 
@@ -108,7 +108,6 @@ public class App {
 		Connection connection = null;
 
 		try {
-
 			connection = DriverManager.getConnection(url);
 			String schema = connection.getSchema();
 			System.out.println("\nSuccessful connection - Schema: " + schema);
@@ -143,7 +142,6 @@ public class App {
 		}
 	}
 }
-
 ```
 
 ## Insert data
@@ -172,7 +170,6 @@ public class App {
 		Connection connection = null;
 
 		try {
-
 			connection = DriverManager.getConnection(url);
 			String schema = connection.getSchema();
 			System.out.println("\nSuccessful connection - Schema: " + schema);
@@ -188,11 +185,10 @@ public class App {
 		try {
 			String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
 			
-			PreparedStatement prep = connection.prepareStatement(insertSql);
-
 			java.util.Date date = new java.util.Date();
             		java.sql.Timestamp sqlTimeStamp = new java.sql.Timestamp(date.getTime());
-
+			
+			PreparedStatement prep = connection.prepareStatement(insertSql);
 			prep.setString(1, "BrandNewProduct");
 			prep.setInt(2, 200989);
 			prep.setString(3, "Blue");
@@ -252,12 +248,10 @@ public class App {
 			String updateSql = "UPDATE SalesLT.Product SET ListPrice = ? WHERE Name = ?";
 
 			PreparedStatement prep = connection.prepareStatement(updateSql);
-
 			prep.setString(1, "500");
 			prep.setString(2, "BrandNewProduct");
 
 			int count = prep.executeUpdate();
-
 			System.out.println("Updated: " + count + " row(s)");
 		}
 		catch (Exception e) {
@@ -303,7 +297,7 @@ public class App {
 			e.printStackTrace();
 		}
 
-		System.out.println("\nUpdate data example:");
+		System.out.println("\nDelete data example:");
 		System.out.println("=========================================\n");
 		
 		// Prepared statement to delete data
@@ -311,11 +305,9 @@ public class App {
 			String deleteSql = "DELETE SalesLT.Product WHERE Name = ?";
 
 			PreparedStatement prep = connection.prepareStatement(deleteSql);
-
 			prep.setString(1, "BrandNewProduct");
 
 			int count = prep.executeUpdate();
-
 			System.out.println("Deleted: " + count + " row(s)");
 		}
 		catch (Exception e) {
