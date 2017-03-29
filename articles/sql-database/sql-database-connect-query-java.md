@@ -116,7 +116,9 @@ public class App {
 				System.out.println("=========================================");
 
 				    // Create and execute a SELECT SQL statement.
-			String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
+			 String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName " 
+			    + "FROM [SalesLT].[ProductCategory] pc "  
+			    + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery(selectSql);
 
