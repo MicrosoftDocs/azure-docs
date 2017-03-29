@@ -194,7 +194,7 @@ Example:
 
 ## <a id="modify-failover-priority-cli"></a> Modify failover priority of a DocumentDB database account
 
-For multi-region database accounts, you can change the failover priority of the various regions which the DocumentDB database account exists in. For more information on failover in your DocumentDB database account, see [Distribute data globally with DocumentDB](distribute-data-globally.md).
+For multi-region database accounts, you can change the failover priority of the various regions which the DocumentDB database account exists in. For more information on failover in your DocumentDB database account, see [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md).
 
 ```
 Arguments
