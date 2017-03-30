@@ -177,7 +177,7 @@ Perform the following steps to create an Azure function.
     
     ```
 
-   1. Replace exact **STORAGE_CONNECTIONNAME** in line 12 with your storage account Connection (Refer point 8c).
+   1. Replace exact **STORAGE_CONNECTIONNAME** in line 11 with your storage account Connection (Refer point 8c).
    2. Click **Save** button from top left.
 
        ![Save function >](./media/storsimple-data-manager-change-default-blob-path/save-function.png)
