@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
+ms.date: 03/30/2017
 ms.author: bwren
 ---
 
@@ -31,7 +31,7 @@ There are no inbound firewall requirements to support Hybrid Runbook Workers. Th
 > [!NOTE]
 > In order to manage the configuration of your servers supporting the Hybrid Runbook Worker role with Desired State Configuration (DSC), you will need to add them as DSC nodes.  For further information about onboarding them for management with DSC, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md).           
 ><br>
->If you enable the [Update Management solution](../operations-management-suite/oms-solution-update-management.md), any Windows computer connected to your OMS workspace will  automatically be configured as a Hybrid Runbook Worker in order to support runbooks that are included in this solution.  However, it is not registered with any Hybrid Worker groups you may already have defined in your Automation account.  The computer can be added to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you are using the same account for both the solution and Hybrid Runbook Worker group membership.  This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.  
+>If you enable the [Update Management solution](../operations-management-suite/oms-solution-update-management.md), any Windows computer connected to your OMS workspace is  automatically configured as a Hybrid Runbook Worker to support runbooks included in this solution.  However, it is not registered with any Hybrid Worker groups already defined in your Automation account.  The computer can be added to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you are using the same account for both the solution and Hybrid Runbook Worker group membership.  This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.  
 
 
 ## Hybrid Runbook Worker groups
@@ -152,7 +152,7 @@ Use the **-Verbose** switch with **Add-HybridRunbookWorker** to receive detailed
 #### 5. Install PowerShell modules
 Runbooks can use any of the activities and cmdlets defined in the modules installed in your Azure Automation environment.  These modules are not automatically deployed to on-premises computers though, so you must install them manually.  The exception is the Azure module which is installed by default providing access to cmdlets for all Azure services and activities for Azure Automation.
 
-Since the primary purpose of the Hybrid Runbook Worker feature is to manage local resources, you will most likely need to install the modules that support these resources.  You can refer to  [Installing Modules](http://msdn.microsoft.com/library/dd878350.aspx) for information on installing Windows PowerShell modules.
+Since the primary purpose of the Hybrid Runbook Worker feature is to manage local resources, you will most likely need to install the modules that support these resources.  You can refer to [Installing Modules](http://msdn.microsoft.com/library/dd878350.aspx) for information on installing Windows PowerShell modules.  Modules that are installed must be in a location referenced by PSModulePath environment variable so that they are automatically imported by the Hybrid worker.  For further information, see [Modifying the PSModulePath Installation Path](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx). 
 
 ## Removing Hybrid Runbook Worker 
 You can remove one or more Hybrid Runbook Workers from a group or you can remove the group, depending on your requirements.  To remove a Hybrid Runbook Worker from an on-premises computer, perform the following steps.
@@ -217,6 +217,82 @@ Use the following procedure to specify a RunAs account for a Hybrid worker group
 4. Select **All settings** and then **Hybrid worker group settings**.
 5. Change **Run As** from **Default** to **Custom**.
 6. Select the credential and click **Save**.
+
+### Automation Run As account
+As part of your automated build process for deploying resources in Azure, you may require interrogating on-premise systems to support a task or set of steps in your deployment sequence.  To support authentication against Azure using the Run As account, you need to install the Run As account certificate.  
+
+The following PowerShell runbook, *Export-RunAsCertificateToHybridWorker*, exports the Run As certificate from your Azure Automation account and downloads and imports it into the local machine certificate store on a Hybrid worker connected to the same account.  Once that step is completed, it will verify the worker can successfully authenticate to Azure using the Run As account.
+
+    <#PSScriptInfo
+    .VERSION 1.0
+    .GUID 3a796b9a-623d-499d-86c8-c249f10a6986
+    .AUTHOR Azure Automation Team
+    .COMPANYNAME Microsoft
+    .COPYRIGHT 
+    .TAGS Azure Automation 
+    .LICENSEURI 
+    .PROJECTURI 
+    .ICONURI 
+    .EXTERNALMODULEDEPENDENCIES 
+    .REQUIREDSCRIPTS 
+    .EXTERNALSCRIPTDEPENDENCIES 
+    .RELEASENOTES
+    #>
+
+    <#  
+    .SYNOPSIS  
+    Exports the Run As certificate from an Azure Automation account to a hybrid worker in that account. 
+  
+    .DESCRIPTION  
+    This runbook exports the Run As certificate from an Azure Automation account to a hybrid worker in that account.
+    Run this runbook in the hybrid worker where you want the certificate installed.
+    This allows the use of the AzureRunAsConnection to authenticate to Azure and manage Azure resources from runbooks running in the hybrid worker.
+
+    .EXAMPLE
+    .\Export-RunAsCertificateToHybridWorker
+
+    .NOTES
+    AUTHOR: Azure Automation Team 
+    LASTEDIT: 2016.10.13
+    #>
+
+    [OutputType([string])] 
+
+    # Set the password used for this certificate
+    $Password = "YourStrongPasswordForTheCert"
+
+    # Stop on errors
+    $ErrorActionPreference = 'stop'
+
+    # Get the management certificate that will be used to make calls into Azure Service Management resources
+    $RunAsCert = Get-AutomationCertificate -Name "AzureRunAsCertificate"
+       
+    # location to store temporary certificate in the Automation service host
+    $CertPath = Join-Path $env:temp  "AzureRunAsCertificate.pfx"
+   
+    # Save the certificate
+    $Cert = $RunAsCert.Export("pfx",$Password)
+    Set-Content -Value $Cert -Path $CertPath -Force -Encoding Byte | Write-Verbose 
+
+    Write-Output ("Importing certificate into local machine root store from " + $CertPath)
+    $SecurePassword = ConvertTo-SecureString $Password -AsPlainText -Force
+    Import-PfxCertificate -FilePath $CertPath -CertStoreLocation Cert:\LocalMachine\My -Password $SecurePassword -Exportable | Write-Verbose
+
+    # Test that authentication to Azure ARM is working
+    $RunAsConnection = Get-AutomationConnection -Name "AzureRunAsConnection" 
+    
+    Add-AzureRmAccount `
+      -ServicePrincipal `
+      -TenantId $RunAsConnection.TenantId `
+      -ApplicationId $RunAsConnection.ApplicationId `
+      -CertificateThumbprint $RunAsConnection.CertificateThumbprint | Write-Verbose
+
+    Select-AzureRmSubscription -SubscriptionId $RunAsConnection.SubscriptionID | Write-Verbose
+
+    # List automation accounts to confirm ARM calls are working
+    Get-AzureRmAutomationAccount | Select AutomationAccountName
+
+Save the *Export-RunAsCertificateToHybridWorker* runbook to your computer with a `.ps1` extension.  Import it into you Automation account and edit the runbook, changing the value of the variable `$Password`  with your own password.  Publish and then run the runbook targeting the Hybrid Worker group that will be running and authenticating runbooks using the Run As account.  The job stream will report the attempt to import the certificate into the local machine store, and follows with multiple lines depending on how many Automation accounts are defined in your subscription and if authentication is successful.  
 
 ## Creating runbooks for Hybrid Runbook Worker
 There is no difference in the structure of runbooks that run in Azure Automation and those that run on a Hybrid Runbook Worker. Runbooks that you use with each will most likely differ significantly though since runbooks for Hybrid Runbook Worker will typically manage local resources in your data center while runbooks in Azure Automation typically manage resources in the Azure cloud.
