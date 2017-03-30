@@ -22,7 +22,7 @@ ms.robots: NOINDEX, NOFOLLOW
 
 The Cloud Partner Portal is your hub for publishing your Azure Certified Virtual Machine (VM) image to Microsoft Azure Marketplace or your Cortana Intelligence/Microsoft R Solutions application to Microsoft AppSource.  
 
-VM images are pre-configured images with a fully installed operating system and one or more applications. In order to publish your virtual machine image to Azure Marketplace, you must meet the [technical pre-requisites](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites) to certify your image.
+VM images are pre-configured images with a fully installed operating system and one or more applications. In order to publish your virtual machine image to Azure Marketplace, you must meet the [technical pre-requisites](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites) to certify your image.
 
 
 
