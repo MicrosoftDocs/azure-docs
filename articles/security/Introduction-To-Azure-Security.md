@@ -155,6 +155,8 @@ The built-in capabilities are organized in six (6) functional areas: Operations,
     <td><a href="" target="_blank"> </a></td>
     <td><a href="" target="_blank"> </a></td>
     <td><a href="" target="_blank"> </a></td>
+    <td><a href="" target="_blank"> </a></td>
+    <td><a href="" target="_blank"> </a></td>
 
   </tr>
   
