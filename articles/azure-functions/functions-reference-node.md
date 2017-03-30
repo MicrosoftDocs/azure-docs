@@ -128,18 +128,37 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 ## HTTP trigger binding options
 When working with HTTP triggers, there are three ways that you can access the HTTP request and response objects:
 
-+ From the named input and output bindings. In this way, the HTTP trigger and bindings work the same as any other binding. The following example sets the res object to 
-  	
-+ From the req and res context object   you can access the request and response objects by using the `req` and `res` for the HTTP request because it is such a common pattern to use and response objects, we decided to make it easy to access those on the context object, instead of forcing you to use the full `context.bindings.name` pattern.
++ From the named input and output bindings. In this way, the HTTP trigger and bindings work the same as any other binding. The following example sets the response object using the `response` binding. 
 
-	```javascript
-	// You can access your http request off of the context ...
-	if(context.req.body.emoji === ':pizza:') context.log('Yay!');
-	// and also set your http response
-	context.res = { status: 202, body: 'You successfully ordered more coffee!' };   
-	```
+    ```javascript
+    context.bindings.response = { status: 201, body: "Insert succeeded." };
+    ```
 
-+ $return 
++ From `req` and `res` fields on the `context` object. In this way, you can use the conventional pattern to access HTTP data from the context object, instead of having to use the full `context.bindings.name` pattern. The following example shows how to access the `req` and `res` objects on the `context`:
+
+    ```javascript
+    // You can access your http request off of the context ...
+    if(context.req.body.emoji === ':pizza:') context.log('Yay!');
+    // and also set your http response
+    context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
+    ```
+
++ Calling `context.done()`. There is a special kind of HTTP binding that returns the response that is passed to the `context.done()` method. The following HTTP output binding defines a `$return` output parameter:
+
+    ```json
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+    ``` 
+    This output binding expects you to supply the response when you call `done()` as follows:
+
+    ```javascript
+     // Define a valid response object.
+    res = { status: 201, body: "Insert succeeded." };
+    context.done(null, res);   
+    ```  
 
 ## Node Version & Package Management
 The node version is currently locked at `6.5.0`. We're investigating adding support for more versions and making it configurable.
