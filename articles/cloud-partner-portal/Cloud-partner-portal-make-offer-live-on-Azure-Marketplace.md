@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2017
+ms.date: 03/29/2017
 ms.author: rupesk@microsoft.com
 ms.robots: NOINDEX, NOFOLLOW
 
@@ -24,7 +24,7 @@ ms.robots: NOINDEX, NOFOLLOW
 Now that you’ve populated all the offer details, it’s time to publish your offer and make it live on Azure Marketplace.  There are a few stages the offer goes through, to make sure both your marketing content and your VM image meet the quality requirements to be Azure Certified and go live on the website.
 
 
-![Offer Go Live Sequence](./media/cloud-partner-portal-offer-go-live-azure-marketplace/makeanofferlive.png)
+![Offer Go Live Sequence 0](./media/cloud-partner-portal-offer-go-live-azure-marketplace/makeanofferlive.png)
 
 
 Let’s go through this process in more detail to better understand what is happening during each step, and at which points in this process you will need to act to ensure your offer continues to make progress. 
@@ -34,17 +34,17 @@ Let’s go through this process in more detail to better understand what is happ
 
 To start the Publish process, you will click “Publish” under the Editor tab. 
 
-![Offer Go Live Sequence](./media/cloud-partner-portal-offer-go-live-azure-marketplace/publish.png)
+![Offer Go Live Sequence 1](./media/cloud-partner-portal-offer-go-live-azure-marketplace/publish.png)
 
 
 Under the Status tab, you will see the Publishing Steps and where your offer is in the process. 
 
 
-![Offer Go Live Sequence](./media/cloud-partner-portal-offer-go-live-azure-marketplace/status.png)
+![Offer Go Live Sequence 2](./media/cloud-partner-portal-offer-go-live-azure-marketplace/status.png)
 
 At any point in the publishing process, you can also log in and click the All Offers tab to view the latest status for any of your offers. You can click directly on the status for your offer and see the details on where your offer is in the publishing process.
 
-![Offer Go Live Sequence](./media/cloud-partner-portal-offer-go-live-azure-marketplace/status2.png)
+![Offer Go Live Sequence 3](./media/cloud-partner-portal-offer-go-live-azure-marketplace/alloffersstatus.png)
 
 Let’s walk through each of the publishing steps, discuss what happens at each step and how long you should estimate each step will take. 
 
@@ -55,7 +55,7 @@ When you click “Publish”, an automated check will take place to ensure you�
 
 Once you’ve completed this step correctly, a pop-up will appear asking for an email address. This is the email to which you will receive publishing status notifications for the remainder of the publishing process. Once you submit your email address, this step is complete.
 
-![Offer Go Live Sequence](./media/cloud-partner-portal-offer-go-live-azure-marketplace/publishyouroffer.png)
+![Offer Go Live Sequence 4](./media/cloud-partner-portal-offer-go-live-azure-marketplace/publishyouroffer.png)
 
 **Certification (<5 days)**
 
@@ -83,7 +83,7 @@ You will get a notification email that your offer has successfully completed the
 
 Once you verify everything looks correct and works properly in preview, you are ready to go live. To do this, click Go Live under the status tab and we will begin steps to make your offer live in production and on the website. Typically, it will take several hours from the time you click Go Live and when the offer is live on the website. We will send you an email notification once your offer is officially live on the website.
 
-![Offer Go Live Sequence](./media/cloud-partner-portal-offer-go-live-azure-marketplace/golive.png)
+![Offer Go Live Sequence 5](./media/cloud-partner-portal-offer-go-live-azure-marketplace/golive.png)
 
 **Live**	
 
@@ -94,21 +94,23 @@ At any point, you can click on the All offers tab, and see the status for all yo
 
 During the publishing process, an error may be encountered. If an error is encountered, you will receive a notification email informing you that an error occurred with instructions on next steps. You can also see errors at any time during this process by clicking the Status tab. You will see which point in the process the error occurred along with an error message outlining what needs to be resolved. 
 
-![Offer Go Live Sequence](./media/cloud-partner-portal-offer-go-live-azure-marketplace/status3.png)
+![Offer Go Live Sequence 6](./media/cloud-partner-portal-offer-go-live-azure-marketplace/errormessage.png)
+
 
 If you encounter errors during the publishing process, you are required to fix these then click ‘Publish’ to restart the process. You must start at the beginning of the publishing steps at Validate Pre-Requisites when re-publishing after any error fix.
 
 If you are having issues resolving an error, you should open a support request to get help from our support engineers.
 
 
-![Offer Go Live Sequence](./media/cloud-partner-portal-offer-go-live-azure-marketplace/status4.png)
+![Offer Go Live Sequence 7](./media/cloud-partner-portal-offer-go-live-azure-marketplace/getsupport.png)
+
 
 
 ## Canceling the publishing request
 
 You might start the process of publishing and have a need to cancel your request. You can only cancel a publishing request once the publish request reaches the Publisher Signoff step. To cancel, click on ‘Cancel Publish’. The publishing status will reset to Step 1, and to publish again, you should click Publish and follow the steps in the status.
 
-![Offer Go Live Sequence](./media/cloud-partner-portal-offer-go-live-azure-marketplace/status5.png)
+![Offer Go Live Sequence 8](./media/cloud-partner-portal-offer-go-live-azure-marketplace/status5.png)
 
 
 
