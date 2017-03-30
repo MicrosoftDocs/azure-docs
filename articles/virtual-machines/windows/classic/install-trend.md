@@ -24,7 +24,7 @@ ms.author: iainfou
 
 This article shows you how to install and configure Trend Micro Deep Security as a Service on a new or existing virtual machine (VM) running Windows Server. Deep Security as a Service includes anti-malware protection, a firewall, an intrusion prevention system, and integrity monitoring.
 
-The client is installed as a security extension via the VM Agent. On a new virtual machine, you install the Deep Security Agent, as the VM Agent is created  automatically by the Azure portal.
+The client is installed as a security extension via the VM Agent. On a new virtual machine, you install the Deep Security Agent, as the VM Agent is created automatically by the Azure portal.
 
 An existing VM created using the classic portal, the Azure CLI, or PowerShell might not have a VM agent. For an existing virtual machine that doesn't have the VM Agent, you need to download and install it first. This article covers both situations.
 
@@ -48,12 +48,12 @@ When you get to the **Settings** blade of the wizard, do the following steps:
 
    ![Identify Deep Security Agent][2]
 
-3. Enter the **Tennat Identifier** and **Tenant Activation Password** for the extension. Optionally, you can enter a  **Security Policy Identifier**. Then, click **OK** to add the client.
+3. Enter the **Tenant Identifier** and **Tenant Activation Password** for the extension. Optionally, you can enter a **Security Policy Identifier**. Then, click **OK** to add the client.
 
    ![Provide extension details][3]
 
 ## Install the Deep Security Agent on an existing VM
-To install the agent on an existing VM, you need the following:
+To install the agent on an existing VM, you need the following items:
 
 * The Azure PowerShell module, version 0.8.2 or newer, installed on your local computer. You can check the version of Azure PowerShell that you have installed by using the **Get-Module azure | format-table version** command. For instructions and a link to the latest version, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). Log in to your Azure subscription using `Add-AzureAccount`.
 * The VM Agent installed on the target virtual machine.
