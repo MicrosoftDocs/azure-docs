@@ -23,7 +23,9 @@ This article explains how to use the Copy Activity in Azure Data Factory to move
 
 You can copy data from any supported source data store to Azure Blob Storage or from Azure Blob Storage to any supported sink data store. For a list of data stores supported as sources or sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table.
 
-The Copy Activity supports copying data from/to both general-purpose Azure Storage accounts and Hot/Cool Blob storage. The activity supports reading from block, append, or page blobs, but supports writing to only block blobs. Azure Premium Storage is not supported as a sink because it is backed by page blobs.
+> [!IMPORTANT]
+> The Copy Activity supports copying data from/to both general-purpose Azure Storage accounts and Hot/Cool Blob storage. The activity supports reading from block, append, or page blobs, but supports writing to only block blobs. Azure Premium Storage is not supported as a sink because it is backed by page blobs.
+>
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data to/from an Azure Blob Storage by using different tools/APIs.
