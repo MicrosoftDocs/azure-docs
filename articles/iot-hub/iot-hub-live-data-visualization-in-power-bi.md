@@ -21,7 +21,7 @@ ms.author: xshi
 # Visualize real-time sensor data from Azure IoT Hub using Power BI
 
 > [!NOTE]
-> Before you start this tutorial, make sure you’ve completed [Connect ESP8266 to Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md). In [Connect ESP8266 to Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md), you set up your IoT device and IoT hub, and deploy a sample application to run on your device. The application sends collected sensor data to your IoT hub.
+> Before you start this tutorial, make sure you’ve completed [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md). In [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md), you set up your IoT device and IoT hub, and deploy a sample application to run on your device. The application sends collected sensor data to your IoT hub.
 
 ## What you learn
 
