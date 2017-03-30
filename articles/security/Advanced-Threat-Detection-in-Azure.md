@@ -24,9 +24,9 @@ This white paper focuses on the technology of Azure platform and customer-facing
 
 # 2.0 Azure Active Directory Identity Protection
 
-<img src="https://raw.githubusercontent.com/unifycloud/azure-docs-pr/master/articles/security/media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig1.png" width ="400" height="340" alt ="" align ="right">
+<img src="media\Advanced-Threat-Detection-in-Azure-Fig1.png" width ="400" height="340" alt ="" align ="right">
 
-Azure Active Directory Identity Protection is a feature of the Azure AD Premium P2 edition that provides you with a consolidated view into the risk events and potential vulnerabilities affecting your organization’s identities. Microsoft has been securing cloud-based identities for over a decade, and with Azure AD Identity Protection, Microsoft is making these same protection systems available to enterprise customers. Identity Protection leverages existing Azure AD’s anomaly detection capabilities (available through [Azure AD’s Anomalous Activity Reports](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-view-access-usage-reports#anomalous-activity-reports), and introduces new risk event types that can detect anomalies in real-time.
+[Azure Active Directory Identity Protection](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection) is a feature of the [Azure AD Premium P2](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions) edition that provides you with a consolidated view into the risk events and potential vulnerabilities affecting your organization’s identities. Microsoft has been securing cloud-based identities for over a decade, and with Azure AD Identity Protection, Microsoft is making these same protection systems available to enterprise customers. Identity Protection leverages existing Azure AD’s anomaly detection capabilities (available through [Azure AD’s Anomalous Activity Reports](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-view-access-usage-reports#anomalous-activity-reports), and introduces new risk event types that can detect anomalies in real-time.
 
 Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk events that may indicate that an identity has been compromised. Using this data, Identity Protection generates reports and alerts that enable you to investigate these risk events and take appropriate remediation or mitigation action.
 
@@ -117,7 +117,7 @@ You can create and manage DSC resources hosted in Azure and apply them to cloud 
 # 4.0 Azure Security Center
 
 <img src="media\Advanced-Threat-Detection-in-Azure-Fig8.png" width ="300" height="230" alt ="" align ="right" >
-Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service you are able to define polices not only against your Azure subscriptions, but also against [Resource Groups](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview-resource-groups), so you can be more granular.
+Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service you are able to define polices not only against your Azure subscriptions, but also against [Resource Groups](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview-resource-groups) , so you can be more granular.
 
 Microsoft security researchers are constantly on the lookout for threats. They have access to an expansive set of telemetry gained from Microsoft’s global presence in the cloud and on-premises. This wide-reaching and diverse collection of datasets enables Microsoft to discover new attack patterns and trends across its on-premises consumer and enterprise products, as well as its online services.
 
@@ -211,7 +211,7 @@ SQL Database Threat Detectors use one of the following detection methodologies:
 ## 5.3 Application Gateway Web Application Firewall
 
 <img src="media\Advanced-Threat-Detection-in-Azure-Fig13.png" width ="400" height="230" alt ="" align ="right" >
-[Web application firewall (WAF)](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-web-application-firewall) is a feature of [Azure Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-webapplicationfirewall-overview) that provides protection to web applications that leverage application gateway for standard [Application Delivery Control (ADC)](https://kemptechnologies.com/in/application-delivery-controllers/) functions. Web application firewall does this by protecting them against most of the [OWASP top 10 common web vulnerabilities.](https://www.owasp.org/index.php/Top_10_2010-Main)
+[Web application firewall](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-web-application-firewall) is a feature of [Azure Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-webapplicationfirewall-overview) that provides protection to web applications that leverage application gateway for standard [Application Delivery Control (ADC)](https://kemptechnologies.com/in/application-delivery-controllers/)  functions. Web application firewall does this by protecting them against most of the [OWASP top 10 common web vulnerabilities](https://www.owasp.org/index.php/Top_10_2010-Main) 
 
 -	SQL injection protection
 -	Cross site scripting protection
