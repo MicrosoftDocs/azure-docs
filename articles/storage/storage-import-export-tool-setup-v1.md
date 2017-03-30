@@ -1,6 +1,6 @@
 ---
-title: Setting Up the Azure Import-Export Tool v1 | Microsoft Docs
-description: Learn how to set up the drive preparation and repair tool for Azure Import-Export 
+title: Setting Up the Azure Import/Export Tool v1 | Microsoft Docs
+description: Learn how to set up the drive preparation and repair tool for the Azure Import/Export service. This refers to v1 of the Import/Export Tool.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -18,8 +18,8 @@ ms.author: muralikk
 
 ---
 
-# Setting up the Azure Import/Export tool
-The Microsoft Azure Import/Export tool is the drive preparation and repair tool that you can use with the Microsoft Azure Import/Export Service. You can use the tool for the following functions:  
+# Setting up the Azure Import/Export Tool
+The Microsoft Azure Import/Export Tool is the drive preparation and repair tool that you can use with the Microsoft Azure Import/Export service. You can use the tool for the following functions:  
   
 -   Before creating an import job, you can use this tool to copy data to the hard drives you are going to ship to a Windows Azure data center.  
   
@@ -61,7 +61,7 @@ If you are attempting to repair an import that has partially failed, you will ne
 -   The storage account key  
   
 ## Installing the Azure Import/Export Tool  
- The Azure Import/Export tool consists of the following files:  
+ The Azure Import/Export Tool consists of the following files:  
   
 -   WAImportExport.exe  
   
@@ -80,7 +80,7 @@ If you are attempting to repair an import that has partially failed, you will ne
  To output help for the command, run the tool without parameters:  
   
 ```  
-WAImportExport, a client tool for Microsoft Azure Import/Export Service. Microsoft (c) 2013, 2014  
+WAImportExport, a client tool for Microsoft Azure Import/Export service. Microsoft (c) 2013, 2014  
   
 Copy a Directory:  
     WAImportExport.exe PrepImport  
@@ -196,7 +196,7 @@ Parameters:
     /ExportBlobListFile:<ExportBlobListFile>  
         - Required. Path to the XML file containing list of blob paths or blob path  
           prefixes for the blobs to be exported. The file format is the same as the  
-          blob list blob format in the Put Job operation of the Import/Export Service  
+          blob list blob format in the Put Job operation of the Import/Export service  
           REST API.  
     /DriveSize:<DriveSize>  
         - Required. Size of drives to be used for export. For example, 500GB, 1.5TB.  
@@ -250,10 +250,11 @@ Examples:
         es\drama /dstdir:movies/drama/ /skipwrite
 ```  
   
-## See Also  
- [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
- [Previewing Drive Usage for an Export Job](storage-import-export-tool-previewing-drive-usage-export-v1.md)   
- [Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)   
- [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)   
- [Repairing an Export Job](storage-import-export-tool-repairing-an-export-job-v1.md)   
- [Troubleshooting the Azure Import-Export Tool](storage-import-export-tool-troubleshooting-v1.md)
+## Next steps
+
+* [Preparing hard drives for an import job](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Previewing Drive usage for an export job](storage-import-export-tool-previewing-drive-usage-export-v1.md)   
+* [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Repairing an export job](storage-import-export-tool-repairing-an-export-job-v1.md)   
+* [Troubleshooting the Azure Import/Export Tool](storage-import-export-tool-troubleshooting-v1.md)
