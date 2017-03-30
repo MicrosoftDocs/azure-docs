@@ -27,6 +27,8 @@
       href: sql-database-connect-query-php.md
     - name: Java
       href: sql-database-connect-query-java.md
+    - name: Node.js
+      href: sql-database-develop-nodejs-simple.md
     - name: Python
       href: sql-database-connect-query-python.md
     - name: Ruby
@@ -297,8 +299,6 @@
     items:
     - name: C and C ++
       href: sql-database-develop-cplusplus-simple.md
-    - name: Node.js
-      href: sql-database-develop-nodejs-simple.md
     - name: Excel
       href: sql-database-connect-excel.md
     - name: Guidance
