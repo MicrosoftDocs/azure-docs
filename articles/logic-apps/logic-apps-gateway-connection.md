@@ -103,7 +103,7 @@ After you add the data gateway connection to your logic app,
 you might have to make changes so you can adjust settings specific to that connection. 
 You can find the connection in either of two places:
 
-* On the logic app blade, under **Dvelopment Tools**, select **API Connections**. 
+* On the logic app blade, under **Development Tools**, select **API Connections**. 
 This list shows you all API Connections associated with your logic app, 
 including your data gateway connection. To view and modify that connection's settings, 
 select that connection.
