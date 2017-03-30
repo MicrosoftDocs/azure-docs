@@ -13,9 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 03/17/2017
 ms.author: sdanie
-
+ROBOTS: NOINDEX
 ---
 # How to Use In-Role Cache for Azure Cache
 > [!IMPORTANT]
@@ -48,7 +48,7 @@ features:
 * Consistent development model across both Azure and Windows
   Server AppFabric.
 
-In-Role Cache provides a way to perform caching by using a portion of the memory of the virtual machines that host the role instances in your Azure cloud services (also known as hosted services). You have greater flexibility in terms of deployment options, the caches can be very large in size and have no cache specific quota restrictions.
+In-Role Cache provides a way to perform caching by using a portion of the memory of the virtual machines that host the role instances in your Azure cloud services (also known as hosted services). You have greater flexibility in terms of deployment options, the caches can be very large in size and have no cache-specific quota restrictions.
 
 > [!IMPORTANT]
 > Starting with Azure SDK 2.6, In-Role Cache is using Microsoft Azure Storage SDK version 4.3. In previous versions of the Azure SDK, In-Role Cache used Azure Storage SDK 1.7. Applications using In-Role Cache with versions of the Azure SDK before 2.6 should migrate to Azure SDK 2.6 before Azure Storage version 2011-08-18 is decommissioned on August 1, 2016. For more information, see [Azure SDK 2.6 Release Notes - In-Role Cache](../app-service-web/azure-sdk-dotnet-release-notes-2-6.md#in-role-cache-updates) and [Microsoft Azure Storage Service Version Removal Update: Extension to 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
@@ -147,7 +147,7 @@ Once the cache cluster is configured, you can configure the cache clients to all
 <a name="NuGet"></a>
 
 ## Configure the cache clients
-To access a In-Role Cache cache, the clients must be within the same deployment. If the cache cluster is a dedicated role cache cluster, then the clients are other roles in the deployment. If the cache cluster is a co-located role cache cluster, then the clients could be either  the other roles in the deployment, or the roles themselves that host the cache cluster. A NuGet package is provided that can be used to configure each client role that accesses the cache. To configure a role to access a cache cluster using the Caching NuGet package, right-click the role project in **Solution Explorer** and choose **Manage NuGet Packages**. 
+To access an In-Role Cache cache, the clients must be within the same deployment. If the cache cluster is a dedicated role cache cluster, then the clients are other roles in the deployment. If the cache cluster is a co-located role cache cluster, then the clients could be either the other roles in the deployment, or the roles themselves that host the cache cluster. A NuGet package is provided that can be used to configure each client role that accesses the cache. To configure a role to access a cache cluster using the Caching NuGet package, right-click the role project in **Solution Explorer** and choose **Manage NuGet Packages**. 
 
 ![RoleCache4][RoleCache4]
 
@@ -243,7 +243,7 @@ The steps in this section describe how to perform common tasks with caching.
 <a name="create-cache-object"></a>
 
 ## How To: Create a DataCache Object
-In order to programatically work with a cache, you need a reference to the cache. Add the following to the top of any file from which you want to use
+In order to programmatically work with a cache, you need a reference to the cache. Add the following to the top of any file from which you want to use
 In-Role Cache:
 
     using Microsoft.ApplicationServer.Caching;

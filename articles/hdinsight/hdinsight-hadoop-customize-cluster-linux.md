@@ -10,11 +10,12 @@ tags: azure-portal
 
 ms.assetid: 48e85f53-87c1-474f-b767-ca772238cc13
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/10/2017
 ms.author: larryfr
 
 ---
@@ -41,7 +42,7 @@ For more information on working with permissions with domain-joined HDInsight, s
 
 ## Access control
 
-If you use an Azure subscription where you are not the administrator/owner, such as a company owned subscription, you must verify that your Azure login has at least **Contributor** access to the Azure resource group that contains the HDInsight cluster.
+If you use an Azure subscription where you are not the administrator/owner, such as a company owned subscription, you must verify that your Azure account has at least **Contributor** access to the Azure resource group that contains the HDInsight cluster.
 
 Additionally, if you are creating an HDInsight cluster, someone with at least **Contributor** access to the Azure subscription must have previously registered the provider for HDInsight. Provider registration happens when a user with Contributor access to the subscription creates a resource for the first time on the subscription. It can also be accomplished without creating a resource by [registering a provider using REST](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
@@ -52,7 +53,7 @@ For more information on working with access management, see the following docume
 
 ## Understanding Script Actions
 
-A Script Action is simply a Bash script that you provide a URI to, and parameters for, and it is then ran on the HDInsight cluster nodes. The following are characteristics and features of script actions.
+A Script Action is simply a Bash script that you provide a URI to, and parameters for. The script runs on nodes in the HDInsight cluster. The following are characteristics and features of script actions.
 
 * Must be stored on a URI that is accessible from the HDInsight cluster. The following are possible storage locations:
 
@@ -63,12 +64,14 @@ A Script Action is simply a Bash script that you provide a URI to, and parameter
         > [!NOTE]
         > The service principal HDInsight uses to access Data Lake Store must have read access to the script.
 
-    * A **blob storage account** that is either the primary or additional storage account for the HDInsight cluster. Since HDInsight is granted access to both of these types of storage accounts during cluster creation, these provide a way to use a non-public script action.
+    * A blob in an **Azure Storage account** that is either the primary or additional storage account for the HDInsight cluster. Since HDInsight is granted access to both of these types of storage accounts during cluster creation, these provide a way to use a non-public script action.
 
-    * A https://docs.microsoft.com/en-us/azure/service-bus/ such as an Azure Blob, GitHub, OneDrive, Dropbox, etc.
+    * An public file sharing service such as an Azure Blob, GitHub, OneDrive, Dropbox, etc.
 
         For examples of the URI for scripts stored in blob container (publicly readable,) see the [Example script action scripts](#example-script-action-scripts) section.
 
+        > [!WARNING]
+        > HDInsight only supports __General purpose__ Azure Storage accounts. It does not currently support the __Blob storage__ account type.
 
 * Can be restricted to **run on only certain node types**, for example head nodes or worker nodes.
 
@@ -77,7 +80,7 @@ A Script Action is simply a Bash script that you provide a URI to, and parameter
 
 * Can be **persisted** or **ad hoc**.
 
-    **Persisted** scripts are scripts that are applied to worker nodes and are ran automatically on new nodes created when scaling up a cluster.
+    **Persisted** scripts are scripts that are applied to worker nodes and run automatically on new nodes created when scaling up a cluster.
 
     A persisted script might also apply changes to another node type, such as a head node, but from a functionality perspective the only reason to persist a script is so it applies to new worker nodes created when a cluster is scaled out.
 
@@ -92,7 +95,7 @@ A Script Action is simply a Bash script that you provide a URI to, and parameter
   > Scripts that fail are not persisted, even if you specifically indicate that they should be.
 
 * Can accept **parameters** that are used by the script during execution.
-* Are ran with **root level privileges** on the cluster nodes.
+* Run with **root level privileges** on the cluster nodes.
 * Can be used through the **Azure portal**, **Azure PowerShell**, **Azure CLI**, or **HDInsight .NET SDK**
 
 To assist in understanding what scripts have been applied to a cluster, and in determining the ID of scripts for promotion or demotion, the cluster keeps a history of all scripts that have been ran.
@@ -112,18 +115,18 @@ The following diagram illustrates when Script Action is executed during the crea
 
 ![HDInsight cluster customization and stages during cluster creation][img-hdi-cluster-states]
 
-The script is ran while HDInsight is being configured. At this stage, the script is ran in parallel on all the specified nodes in the cluster, and is ran with root privileges on the nodes.
+The script runs while HDInsight is being configured. At this stage, the script runs in parallel on all the specified nodes in the cluster, and runs with root privileges on the nodes.
 
 > [!NOTE]
-> Because the script is ran with root level privilege on the cluster nodes, you can perform operations like stopping and starting services, including Hadoop-related services. If you stop services, you must ensure that the Ambari service and other Hadoop-related services are up and running before the script finishes running. These services are required to successfully determine the health and state of the cluster while it is being created.
+> Because the script runs with root level privilege on the cluster nodes, you can perform operations like stopping and starting services, including Hadoop-related services. If you stop services, you must ensure that the Ambari service and other Hadoop-related services are up and running before the script finishes running. These services are required to successfully determine the health and state of the cluster while it is being created.
 
 
 During cluster creation, you can specify multiple script actions that are invoked in the order in which they were specified.
 
 > [!IMPORTANT]
-> Script actions must complete within 60 minutes, or timeout. During cluster provisioning, the script is ran concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
+> Script actions must complete within 60 minutes, or timeout. During cluster provisioning, the script runs concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
 >
-> To minimize the time it takes to run the script, avoid tasks such as downloading and compiling applications from source. Instead, pre-compile the application and store the binary in Azure Blob storage so that it can quickly be downloaded to the cluster.
+> To minimize the time it takes to run the script, avoid tasks such as downloading and compiling applications from source. Instead, pre-compile the application and store the binary in Azure Storage so that it can quickly be downloaded to the cluster.
 
 
 ### Script action on a running cluster
@@ -402,7 +405,7 @@ In this section, we use the [Add-AzureRmHDInsightScriptAction](https://msdn.micr
 
 Perform the following steps:
 
-1. Open the Azure PowerShell console and use the following to login to your Azure subscription and declare some PowerShell variables:
+1. Open the Azure PowerShell console and use the following to log in to your Azure subscription and declare some PowerShell variables:
 
         # LOGIN TO ZURE
         Login-AzureRmAccount
@@ -508,7 +511,7 @@ This section provides examples on the different ways you can apply script action
 
 Before proceeding, make sure you have installed and configured Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-1. Open the Azure PowerShell console and use the following to login to your Azure subscription and declare some PowerShell variables:
+1. Open the Azure PowerShell console and use the following to log in to your Azure subscription and declare some PowerShell variables:
 
         # LOGIN TO ZURE
         Login-AzureRmAccount
@@ -537,11 +540,11 @@ Before proceeding, make sure you have installed and configured Azure PowerShell.
 
 ### Apply a Script Action to a running cluster from the Azure CLI
 
-Before proceeding, make sure you have installed and configured the Azure CLI. For more information, see [Install the Azure CLI](../xplat-cli-install.md).
+Before proceeding, make sure you have installed and configured the Azure CLI. For more information, see [Install the Azure CLI](../cli-install-nodejs.md).
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-1. Open a shell session, terminal, command-prompt or other command-line for your system and use the following command to switch to Azure Resource Manager mode.
+1. Open a shell session, terminal, command-prompt or other command line for your system and use the following command to switch to Azure Resource Manager mode.
 
         azure config mode arm
 
@@ -678,7 +681,7 @@ The HDInsight service provides several ways to use custom components. Regardless
 
 ## Troubleshooting
 
-You can use Ambari web UI to view information logged by script actions. If the script was used during cluster creation, and cluster creation failed due to an error in the script, the logs are also available in the default storage account associated with the cluster. This section provides information on how to retrieve the logs using both these options.
+You can use Ambari web UI to view information logged by script actions. If the script is used during cluster creation, and cluster creation failed due to an error in the script, the logs are also available in the default storage account associated with the cluster. This section provides information on how to retrieve the logs using both these options.
 
 ### Using the Ambari Web UI
 
@@ -694,7 +697,7 @@ You can use Ambari web UI to view information logged by script actions. If the s
 
     ![Screenshot of operations](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
 
-    Select this entry, and drill down through the links to view the STDOUT and STDERR output generated when the script was ran on the cluster.
+    Select this run\customscriptaction entry and drill down through the links to view the STDOUT and STDERR output. This output is generated when the script runs, and may contain useful information.
 
 ### Access logs from the default storage account
 
@@ -724,7 +727,7 @@ If the cluster creation failed due to an error in script action, the script acti
 
 * If you create a script action cluster with the same name on the same day, you can use the unique prefix to identify the relevant log files.
 
-* If you create a cluster at the end of the day, it's possible that the log files span across two days. In such cases, you sees two different date folders for the same cluster.
+* If you create a cluster at the end of the day, it's possible that the log files span across two days. In such cases, you see two different date folders for the same cluster.
 
 * Uploading log files to the default container can take up to 5 mins, especially for large clusters. So, if you want to access the logs, you should not immediately delete the cluster if a script action fails.
 
@@ -735,7 +738,7 @@ If the cluster creation failed due to an error in script action, the script acti
 
 ### Cannot import name BlobService
 
-__Symtoms__: The script action fails, and an error similar to the following is displayed when you view the operation in Ambari:
+__Symptoms__: The script action fails, and an error similar to the following is displayed when you view the operation in Ambari:
 
 ```
 Traceback (most recent call list):
@@ -752,11 +755,7 @@ __Resolution__: To resolve this error, manually connect to each cluster node usi
 sudo pip install azure-storage==0.20.0
 ```
 
-For more information on connecting to the cluster using SSH, see the following documents:
-
-* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, OS X, or Windows](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-* [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+For information on connecting to the cluster with SSH, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ### History doesn't show scripts used during cluster creation
 

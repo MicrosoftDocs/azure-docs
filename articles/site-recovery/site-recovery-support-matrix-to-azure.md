@@ -46,7 +46,7 @@ This article summarizes supported configurations and components for Azure Site R
 **Hyper-V (with Virtual Machine Manager)** | System Center Virtual Machine Manager 2016 and System Center Virtual Machine Manager 2012 R2
 
   >[!Note]
-  > A System Center Virtual Machine Manager 2016 cloud with a mixture of Windows Server 2016 and 2012 R2 hosts isn't currently supported.
+  > A System Center Virtual Machine Manager 2016 cloud with a mixture of Windows Server 2016 and 2012 R2 hosts isn't currently supported. 
 
 ### Host servers
 
@@ -57,7 +57,7 @@ This article summarizes supported configurations and components for Azure Site R
 **Hyper-V (with Virtual Machine Manager)** | Windows Server 2016, Windows Server 2012 R2 with latest updates.<br/><br/> Windows Server 2016 hosts should be managed by System Center Virtual Machine Manager 2016.
 
   >[!Note]
-  >A Hyper-V site that mixes hosts running Windows Server 2016 and 2012 R2 isn't currently supported.
+  >A Hyper-V site that mixes hosts running Windows Server 2016 and 2012 R2 isn't currently supported. Recovery to an alternate location for VMs on a Windows Server 2016 host isn't currently supported.
 
 ## Support for replicated machine OS versions
 

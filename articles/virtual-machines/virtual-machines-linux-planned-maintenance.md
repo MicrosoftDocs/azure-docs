@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2016
+ms.date: 03/01/2017
 ms.author: drewm
 
 ---
 # Planned maintenance for Linux virtual machines in Azure
-Understand what Azure planned maintenance is and how it can affect the availability of your Linux virtual machines. This article is also available for [Windows virtual machines](virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
+Understand what Azure planned maintenance is and how it can affect the availability of your Linux virtual machines. This article is also available for [Windows virtual machines](windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 
 This article provides a background as to the Azure planned maintenance process. If you are wanting to troubleshoot why your VM rebooted, you can [read this blog post detailing viewing VM reboot logs](https://azure.microsoft.com/blog/viewing-vm-reboot-logs/).
 

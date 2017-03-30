@@ -19,21 +19,26 @@ ms.author: kasing
 
 ---
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI
-These steps show you how to use Azure command-line interface (CLI) commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model. The article requires the [Azure CLI](../xplat-cli-install.md).
+These steps show you how to use Azure command-line interface (CLI) commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model. The article requires the [Azure CLI](../cli-install-nodejs.md).
 
 > [!NOTE]
 > All the operations described here are idempotent. If you have a problem other than an unsupported feature or a configuration error, we recommend that you retry the prepare, abort, or commit operation. The platform will then try the action again.
 > 
 > 
 
+<br>
+Here is a flowchart to identify the order in which steps need to be executed during a migration process
+
+![Screenshot that shows the migration steps](windows/media/migration-classic-resource-manager/migration-flow.png)
+
 ## Step 1: Prepare for migration
 Here are a few best practices that we recommend as you evaluate migrating IaaS resources from classic to Resource Manager:
 
-* Read through the [list of unsupported configurations or features](virtual-machines-windows-migration-classic-resource-manager.md). If you have virtual machines that use unsupported configurations or features, we recommend that you wait for the feature/configuration support to be announced. Alternatively, you can remove that feature or move out of that configuration to enable migration if it suits your needs.
+* Read through the [list of unsupported configurations or features](windows/migration-classic-resource-manager.md). If you have virtual machines that use unsupported configurations or features, we recommend that you wait for the feature/configuration support to be announced. Alternatively, you can remove that feature or move out of that configuration to enable migration if it suits your needs.
 * If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal.
 
 ## Step 2: Set your subscription and register the provider
-For migration scenarios, you need to set up your environment for both classic and Resource Manager. [Install Azure CLI](../xplat-cli-install.md) and [select your subscription](../xplat-cli-connect.md).
+For migration scenarios, you need to set up your environment for both classic and Resource Manager. [Install Azure CLI](../cli-install-nodejs.md) and [select your subscription](../xplat-cli-connect.md).
 
 Sign-in to your account.
 
@@ -97,7 +102,7 @@ If you want to migrate the VMs to a platform-created virtual network, use the fo
 
 If you want to migrate to an existing virtual network in the Resource Manager deployment model, use the following command.
 
-    azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> subnetName <vnetName>
+    azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> <subnetName> <vnetName>
 
 After the prepare operation is successful, you can look through the verbose output to get the migration state of the VMs and ensure that they are in the `Prepared` state.
 
@@ -154,6 +159,6 @@ If the prepared configuration looks good, you can move forward and commit the re
     azure storage account commit-migration <storageAccountName>
 
 ## Next steps
-* [Platform-supported migration of IaaS resources from classic to Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
-* [Technical deep dive on platform-supported migration from classic to Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+* [Platform-supported migration of IaaS resources from classic to Resource Manager](windows/migration-classic-resource-manager.md)
+* [Technical deep dive on platform-supported migration from classic to Resource Manager](windows/migration-classic-resource-manager-deep-dive.md)
 

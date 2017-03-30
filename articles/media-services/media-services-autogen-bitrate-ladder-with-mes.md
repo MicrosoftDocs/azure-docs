@@ -17,7 +17,7 @@ ms.date: 11/29/2016
 ms.author: juliako
 
 ---
-#  Use Azure Media Standard to auto-generate a bitrate ladder
+#  Use Azure Media Encoder Standard to auto-generate a bitrate ladder
 
 ## Overview
 

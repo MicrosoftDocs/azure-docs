@@ -69,6 +69,7 @@
 
 ## Examples, scenarios, and walkthroughs
 ### [Overview](logic-apps-examples-and-scenarios.md)
+### [Create a serverless social dashboard](logic-apps-scenario-social-serverless.md)
 ### [Call logic apps with Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Add error and exception handling](logic-apps-scenario-error-and-exception-handling.md)
 ### [B2B processing](logic-apps-enterprise-integration-b2b.md)
@@ -78,8 +79,8 @@
 ### [Usage metering](logic-apps-pricing.md)
 
 # Reference
-## [Workflow definition language](https://docs.microsoft.com/rest/api/logic/definition-language)
-## [Workflow actions and triggers](https://docs.microsoft.com/rest/api/logic/actions-and-triggers)
+## [Workflow definition language](logic-apps-workflow-definition-language.md)
+## [Workflow actions and triggers](logic-apps-workflow-actions-triggers.md)
 ## [REST API](/rest/api/logic/)
 ## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
 ## Schema History

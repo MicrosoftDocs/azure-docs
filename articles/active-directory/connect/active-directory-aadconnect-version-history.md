@@ -50,6 +50,9 @@ Pass-through Authentication
 * Fixed an issue which causes Azure AD Connect wizard to fail if Pass Through Authentication is selected but registration of its connector fails.
 * Fixed an issue which causes Azure AD Connect wizard to bypass validation checks on sign-in method selected when Desktop SSO feature is enabled.
 
+Password Reset
+* Fixed an issue which may cause the Azure AAD Connect server to not attempt to re-connect if the connection was killed by a firewall or proxy.
+
 **New features/improvements:**
 
 Azure AD Connect sync
@@ -61,6 +64,10 @@ AD FS management
 * Added support for managing AD FS 2016.
 * You can now specify existing gMSA (Group Managed Service Account) during AD FS installation.
 * You can now configure SHA-256 as the signature hash algorithm for Azure AD relying party trust.
+
+Password Reset
+* Introduced improvements to allow the product to function in environments with more stringent firewall rules.
+* Improved connection reliability to Azure Service Bus.
 
 ## 1.1.380.0
 Released: December 2016

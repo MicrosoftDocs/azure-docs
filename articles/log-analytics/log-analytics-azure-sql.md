@@ -28,7 +28,7 @@ The Azure SQL Monitoring solution, like others available for Log Analytics, help
 
 ## Connected sources
 
-Unlike most other Log Analytics solutions, the Azure SQL Monitoring solution doesn't use agents to connect to the Log Analytics service.
+The Azure SQL Monitoring solution doesn't use agents to connect to the Log Analytics service.
 
 The following table describes the connected sources that are supported by this solution.
 
@@ -37,7 +37,8 @@ The following table describes the connected sources that are supported by this s
 | [Windows agents](log-analytics-windows-agents.md) | No | Direct Windows agents are not used by the solution. |
 | [Linux agents](log-analytics-linux-agents.md) | No | Direct Linux agents are not used by the solution. |
 | [SCOM management group](log-analytics-om-agents.md) | No | A direct connection from the SCOM agent to Log Analytics is not used by the solution. |
-| [Azure storage account](log-analytics-azure-storage.md) | Yes | Azure metric data is sent to Log Analytics using the storage account. |
+| [Azure storage account](log-analytics-azure-storage.md) | No | Log Analytics does not read the data from a storage account. |
+| [Azure diagnostics](log-analytics-azure-storage.md) | Yes | Azure metric data is sent to Log Analytics directly by Azure. |
 
 ## Prerequisites
 
@@ -49,7 +50,7 @@ The following table describes the connected sources that are supported by this s
 
 Perform the following steps to add the Azure SQL Monitoring solution to your workspace.
 
-1. Add the Azure SQL Monitoring solution to your workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+1. Add the Azure SQL Analytics solution to your workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 2. In the Azure portal, click **New** (the + symbol), then in the list of resources, select **Monitoring + Management**.  
     ![Monitoring + Management](./media/log-analytics-azure-sql/monitoring-management.png)
 3. In the **Monitoring + Management** list click **See all**.

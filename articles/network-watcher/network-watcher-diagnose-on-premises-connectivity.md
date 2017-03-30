@@ -49,13 +49,13 @@ One of the critical configuration steps is configuring the IPsec communication p
 | Hashing Algorithm |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
 | Phase 1 Security Association (SA) Lifetime (Time) |28,800 seconds |10,800 seconds |
  
-As a user, you would be required to configure your Cisco ASA, a sample configuration can be found on [Github](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Cisco/Current/ASA/ASA_9.1_and_above_Show_running-config.txt). Among other configurations, you would also need to specify the hashing algorithm. Cisco ASA supports more [encryption and hashing algorithms](http://www.cisco.com/c/en/us/about/security-center/next-generation-cryptography.html) than Azure VPN Gateway. Unknowingly you configured your Cisco ASA to use SHA-512 as the hashing algorithm. As this algorithm is not a supported algorithm for policy-based connections, your VPN connection does work.
+As a user, you would be required to configure your Cisco ASA, a sample configuration can be found on [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Cisco/Current/ASA/ASA_9.1_and_above_Show_running-config.txt). Among other configurations, you would also need to specify the hashing algorithm. Cisco ASA supports more [encryption and hashing algorithms](http://www.cisco.com/c/en/us/about/security-center/next-generation-cryptography.html) than Azure VPN Gateway. Unknowingly you configured your Cisco ASA to use SHA-512 as the hashing algorithm. As this algorithm is not a supported algorithm for policy-based connections, your VPN connection does work.
 
 These issues are hard to troubleshoot and root causes are often non-intuitive. In this case you can open a support ticket to get help on resolving the issue. But with Azure Network Watcher troubleshoot API, you can identify these issues on your own. 
 
 ## Troubleshooting using Azure Network Watcher
 
-To diagnose your connection, connect to Azure PowerShell and initiate the `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet. You can find the details on using this cmdlet at Troubleshoot Virtual Network Gateway and connections - PowerShell. This cmdlet may take up to few minutes to complete. 
+To diagnose your connection, connect to Azure PowerShell and initiate the `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet. You can find the details on using this cmdlet at [Troubleshoot Virtual Network Gateway and connections - PowerShell](network-watcher-troubleshoot-manage-powershell.md). This cmdlet may take up to few minutes to complete. 
 
 Once the cmdlet completes, you can navigate to the storage location specified in the cmdlet to get detailed information on about the issue and logs. Azure Network Watcher creates a zip folder that contains the following log files:
 

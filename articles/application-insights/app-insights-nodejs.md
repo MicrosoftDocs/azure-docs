@@ -1,5 +1,5 @@
 ---
-title: Monitor your Node.js app with Azure Application Insights SDK  | Microsoft Docs
+title: Monitor your Node.js app with Azure Application Insights  | Microsoft Docs
 description: Analyze usage, availability and performance of your on-premises or Microsoft Azure web application by using Application Insights.
 services: application-insights
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/23/2017
+ms.date: 03/14/2017
 ms.author: awills
 
 ---
@@ -82,10 +82,7 @@ Click through any chart to see more detailed metrics. [Learn more about metrics.
 Now deploy your application to IIS or to Azure and watch the data accumulate.
 
 #### No data after you publish to your server?
-Open these ports for outgoing traffic in your server's firewall:
-
-* `dc.services.visualstudio.com:443`
-* `f5.services.visualstudio.com:443`
+Check that [the necessary firewall ports are open](app-insights-ip-addresses.md).
 
 #### Trouble on your build server?
 Please see [this Troubleshooting item](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
@@ -180,6 +177,10 @@ server.on("listening", () => {
     appInsights.client.trackMetric("StartupTime", duration);
 });
 ```
+
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## Next steps
 * [Monitor your telemetry in the portal](app-insights-dashboards.md)

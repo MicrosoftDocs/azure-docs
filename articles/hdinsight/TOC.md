@@ -53,6 +53,7 @@
 ### [Storage options](hdinsight-hadoop-r-server-storage.md)
 ### [Install RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Compute contexts](hdinsight-hadoop-r-server-compute-contexts.md)
+### [ScaleR and SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Use Spark for in-memory processing
 ### [With Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [With BI tools](hdinsight-apache-spark-use-bi-tools.md)
@@ -194,16 +195,7 @@
 # Related
 ## Windows clusters
 ### [Migrate Windows clusters to Linux clusters](hdinsight-migrate-from-windows-to-linux.md)
-### [Start with Hadoop](hdinsight-hadoop-tutorial-get-started-windows.md)
-### [Start with Storm](hdinsight-apache-storm-tutorial-get-started.md)
-### [Start with HBase](hdinsight-hbase-tutorial-get-started.md)
 ### [Run Hadoop MapReduce samples](hdinsight-run-samples.md)
-### [Create Hadoop clusters](hdinsight-provision-clusters.md)
-#### [Use the Azure portal](hdinsight-hadoop-create-windows-clusters-portal.md)
-#### [Use .NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md)
-#### [Use Azure CLI](hdinsight-hadoop-create-windows-clusters-cli.md)
-#### [Use Azure PowerShell](hdinsight-hadoop-create-windows-clusters-powershell.md)
-#### [Use Resource Manager templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 ### [Use Solr on clusters](hdinsight-hadoop-solr-install-linux.md)
 ### [Use Giraph to process large-scale graphs](hdinsight-hadoop-giraph-install.md)
 ### [Use Oozie for workflows](hdinsight-use-oozie.md)
@@ -211,7 +203,6 @@
 ### [Use Maven to build Java applications](hdinsight-hbase-build-java-maven.md)
 ### [Use the Tez UI to debug Tez Jobs](hdinsight-debug-tez-ui.md)
 ### [Customize using Script Action](hdinsight-hadoop-customize-cluster.md)
-### [Availability and reliability](hdinsight-high-availability.md)
 ### [Access YARN application logs](hdinsight-hadoop-access-yarn-app-logs.md)
 ### [Use Apache Phoenix and SQuirreL](hdinsight-hbase-phoenix-squirrel.md)
 ### [Generate movie recommendations using Mahout](hdinsight-mahout.md)

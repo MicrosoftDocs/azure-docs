@@ -18,7 +18,7 @@ ms.date: 02/27/2017
 ms.author: anandy;billmath
 ms.custom: H1Hack27Feb2017
 ---
-# Deloying Active Directory Federation Services in Azure
+# Deploying Active Directory Federation Services in Azure
 AD FS provides simplified, secured identity federation and Web single sign-on (SSO) capabilities. Federation with Azure AD or O365 enables users to authenticate using on-premises credentials and access all resources in cloud. As a result, it becomes important to have a highly available AD FS infrastructure to ensure access to resources both on-premises and in the cloud. Deploying AD FS in Azure can help achieve the high availability required with minimal efforts.
 There are several advantages of deploying AD FS in Azure, a few of them are listed below:
 

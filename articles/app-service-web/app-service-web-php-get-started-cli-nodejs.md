@@ -48,7 +48,7 @@ You can complete the task using one of the following CLI versions:
 ## Prerequisites
 * [PHP 5.6.29](http://php.net/downloads.php)
 * [Composer](https://getcomposer.org/download/)
-* [Azure CLI](../xplat-cli-install.md)
+* [Azure CLI](../cli-install-nodejs.md)
 * [Git](http://www.git-scm.com/downloads)
 * A Microsoft Azure account. If you don't have an account, you can 
   [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) or 

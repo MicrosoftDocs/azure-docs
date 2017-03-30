@@ -4,7 +4,7 @@ description: 'Application Performance Monitoring for Java web apps with Applicat
 services: application-insights
 documentationcenter: java
 author: harelbr
-manager: douge
+manager: carmonm
 
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/02/2016
+ms.date: 03/14/2017
 ms.author: awills
 
 ---
@@ -371,6 +371,10 @@ You'll get charts of response times, plus email notifications if your site goes 
 
 ## Questions? Problems?
 [Troubleshooting Java](app-insights-java-troubleshoot.md)
+
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## Next steps
 * [Monitor dependency calls](app-insights-java-agent.md)

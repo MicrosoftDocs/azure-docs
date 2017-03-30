@@ -14,8 +14,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
-ms.author: markgal;trinadhk; 
+ms.date: 3/10/2017
+ms.author: markgal;trinadhk;
 
 ---
 # Prepare your environment to back up Azure virtual machines
@@ -60,34 +60,14 @@ If you know these conditions already exist in your environment then proceed to t
 ## Create a backup vault for a VM
 A backup vault is an entity that stores all the backups and recovery points that have been created over time. The backup vault also contains the backup policies that will be applied to the virtual machines being backed up.
 
+> [!IMPORTANT]
+> Starting March 2017, you can no longer use the classic portal to create Backup vaults. Existing Backup vaults are still supported, and it is possible to [use Azure PowerShell to create Backup vaults](./backup-client-automation-classic.md#create-a-backup-vault). However, Microsoft recommends you create Recovery Services vaults for all deployments because future enhancements apply to Recovery Services vaults, only.
+
+
 This image shows the relationships between the various Azure Backup entities:
     ![Azure Backup entities and relationships](./media/backup-azure-vms-prepare/vault-policy-vm.png)
 
-To create a backup vault:
 
-1. Sign in to the [Azure portal](http://manage.windowsazure.com/).
-2. In the Azure portal click **New** > **Hybrid Integration** > **Backup**. When you click **Backup**, you will automatically switch to the classic portal (shown after the Note).
-
-    ![Ibiza portal](./media/backup-azure-vms-prepare/Ibiza-portal-backup01.png)
-
-   > [!NOTE]
-   > If your subscription was last used in the classic portal, then your subscription may open in the classic portal. In this event, to create a backup vault, click **New** > **Data Services** > **Recovery Services** > **Backup Vault** > **Quick Create** (see the image below).
-   >
-   >
-
-    ![Create backup vault](./media/backup-azure-vms-prepare/backup_vaultcreate.png)
-3. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
-4. In **Region**, select the geographic region for the vault. The vault must be in the same region as the virtual machines that you want to protect. If you have virtual machines in multiple regions, you must create a backup vault in each region. There is no need to specify storage accounts to store the backup data--the backup vault and the Azure Backup service handle this automatically.
-5. In **Subscription** select the subscription you want to associate with the backup vault. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
-6. Click **Create Vault**. It can take a while for the backup vault to be created. Monitor the status notifications at the bottom of the portal.
-
-    ![Create vault toast notification](./media/backup-azure-vms-prepare/creating-vault.png)
-7. A message will confirm that the vault has been successfully created. It will be listed on the **recovery services** page as **Active**. Make sure to choose the appropriate storage redundancy option right after the vault has been created. Read more about [setting the storage redundancy option in the backup vault](backup-configure-vault.md#create-a-recovery-services-vault).
-
-    ![List of backup vaults](./media/backup-azure-vms-prepare/backup_vaultslist.png)
-8. Click the backup vault to go to the **Quick Start** page, where the instructions for backing up Azure virtual machines are shown.
-
-    ![Virtual machine backup instructions on the Dashboard page](./media/backup-azure-vms-prepare/vmbackup-instructions.png)
 
 ## Network connectivity
 In order to manage the VM snapshots, the backup extension needs connectivity to the Azure public IP addresses. Without the right Internet connectivity, the virtual machine's HTTP requests time out and the backup operation fails. If your deployment has access restrictions in place (through a network security group (NSG), for example), then choose one of these options for providing a clear path for backup traffic:

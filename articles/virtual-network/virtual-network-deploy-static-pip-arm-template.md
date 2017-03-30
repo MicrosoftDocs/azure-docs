@@ -22,11 +22,11 @@ ms.custom: H1Hack27Feb2017
 # Create a VM with a static public IP address using an Azure Resource Manager template
 
 > [!div class="op_single_selector"]
-- [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
-- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-- [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
-- [Template](virtual-network-deploy-static-pip-arm-template.md)
-- [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
+> * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
+> * [Template](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
@@ -167,7 +167,7 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 ## Deploy the template by using the Azure CLI
 To deploy the template by using the Azure CLI, complete the following steps:
 
-1. If you have never used Azure CLI, follow the steps in the [Install and Configure the Azure CLI](../xplat-cli-install.md) article to install and configure it.
+1. If you have never used Azure CLI, follow the steps in the [Install and Configure the Azure CLI](../cli-install-nodejs.md) article to install and configure it.
 2. Run the `azure config mode` command to switch to Resource Manager mode, as shown below.
 
 	```azurecli

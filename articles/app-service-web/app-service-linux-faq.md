@@ -58,6 +58,10 @@ If you have a question, please comment on the article and we'll answer it as soo
 
 **A:** No. You need to deploy compiled .NET Core apps with all the dependencies. We're planning a full deployment and build experience in a future release.
 
+**Q:** Do you support Composer as a dependency manager for PHP apps?
+
+**A:** No. You need to deploy your PHP apps with all the dependencies. We're planning a full deployment experience in a future release.
+
 ## Custom containers
 
 **Q:** I'm using my own custom container. My app resides in the \home\ directory, but I can't find my files when I browse the content by using the [SCM site](https://github.com/projectkudu/kudu) or an FTP client. Where are my files?

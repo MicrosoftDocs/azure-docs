@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 03/22/2017
 ms.author: awills
 
 ---
@@ -28,9 +28,9 @@ Additional sources of information:
  
 
 ## Index
-**Let** [let](#let-clause)
+**Let** [let](#let-clause) | [materialize](#materialize) 
 
-**Queries and operators** [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
+**Queries and operators** [as](#as-operator) | [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **Aggregations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -104,17 +104,74 @@ requests
 | summarize count() by client_City;
 ```
 
-Self-join:
+### materialize
 
-    let Recent = events | where timestamp > ago(7d);
-    Recent | where name contains "session_started" 
-    | project start = timestamp, session_id
-    | join (Recent 
-        | where name contains "session_ended" 
-        | project stop = timestamp, session_id)
-      on session_id
-    | extend duration = stop - start 
+Use materialize() to improve the performance where the result of a let clause is used more than once downstream. Materialize() evaluates and caches the result of a tabular let clause at the time of query execution, ensuring that the query isn't executed more than once.
 
+**Syntax**
+
+    materialize(expression)
+
+**Arguments**
+
+* `expresion`: Tabular expression to be evaluated and cached during query execution.
+
+**Tips**
+
+* Use materialize when you have join/union where their operands has mutual sub-queries that can be executed once (see the examples below).
+* Useful also in scenarios when we need to join/union fork legs.
+* Materialize is allowed to be used only in let statements by giving the cached result a name.
+* Materialze has a cache size limit which is 5 GB. This limit is per cluster node and is mutual for all the queries.
+
+**Example: self-join**
+
+
+```AIQL
+let totalPagesPerDay = pageViews
+| summarize by name, Day = startofday(timestamp)
+| summarize count() by Day;
+let materializedScope = pageViews
+| summarize by name, Day = startofday(timestamp);
+let cachedResult = materialize(materializedScope);
+cachedResult
+| project name, Day1 = Day
+| join kind = inner
+(
+    cachedResult
+    | project name, Day2 = Day
+)
+on name
+| where Day2 > Day1
+| summarize count() by Day1, Day2
+| join kind = inner
+    totalPagesPerDay
+on $left.Day1 == $right.Day
+| project Day1, Day2, Percentage = count_*100.0/count_1
+```
+
+The uncached version uses the result `scope` twice:
+
+```AIQL
+let totalPagesPerDay = pageViews
+| summarize by name, Day = startofday(timestamp)
+| summarize count() by Day;
+let scope = pageViews
+| summarize by name, Day = startofday(timestamp);
+scope      // First use of this table.
+| project name, Day1 = Day
+| join kind = inner
+(
+    scope  // Second use can cause evaluation twice.
+    | project name, Day2 = Day
+)
+on name
+| where Day2 > Day1
+| summarize count() by Day1, Day2
+| join kind = inner
+    totalPagesPerDay
+on $left.Day1 == $right.Day
+| project Day1, Day2, Percentage = count_*100.0/count_1
+```
 
 ## Queries and operators
 A query over your telemetry is made up of a reference to a source stream, followed by a pipeline of filters. For example:
@@ -145,6 +202,30 @@ A query may be prefixed by one or more [let clauses](#let-clause), which define 
 > `T` is used in query examples below to denote the preceding pipeline or source table.
 > 
 > 
+
+### as operator
+
+Temporarily binds a name to the input tabular expression.
+
+**Syntax**
+
+    T | as name
+
+**Arguments**
+
+* *name:* A temporary name for the table
+
+**Notes**
+
+* Use [let](#let-clause) instead of *as* if you want to use the name in a later subexpression.
+* Use *as* to specify the name of the table as it appears in the result of a [union](#union-operator), [find](#find-operator), or [search](#search-operator).
+
+**Example**
+
+```AIQL
+range x from 1 to 10 step 1 | as T1
+| union withsource=TableName (requests | take 10 | as T2)
+```
 
 ### count operator
 The `count` operator returns the number of records (rows) in the input record set.
@@ -461,7 +542,7 @@ Find rows that match a predicate across a set of tables.
 
 By default, the output table contains:
 
-* `source_` - An indicator of the source table for each row.
+* `source_` - An indicator of the source table for each row. Use [as](#as-operator) at the end of each table expression, if you want to specify the name that appears in this column.
 * Columns explicitly mentioned in the predicate
 * Non-empty columns common to all the input tables.
 * `pack_` - A property bag containing the data from the other columns.
@@ -502,7 +583,19 @@ Find most recent telemetry where any field contains the term 'test':
 * Add time-based terms to the `where` predicate.
 * Use `let` clauses rather than writing queries inline.
 
+### getschema operator
 
+   T | getschema
+   
+Yields a table that shows the column names and types of the input table.
+
+```AIQL
+requests
+| project appId, appName, customDimensions, duration, iKey, itemCount, success, timestamp 
+| getschema 
+```
+
+![Results of getschema](./media/app-insights-analytics-reference/getschema.png)
 
 ### join operator
     Table1 | join (Table2) on CommonColumn
@@ -590,6 +683,42 @@ Returns up to the specified number of rows from the input table. There is no gua
 `Take` is a simple and efficient way to see a sample of your results when you're working interactively. Be aware that it doesn't guarantee to produce any particular rows, or to produce them in any particular order.
 
 There's an implicit limit on the number of rows returned to the client, even if you don't use `take`. To lift this limit, use the `notruncation` client request option.
+
+### make-series operator
+
+Performs an aggregation. Unlike [summarize](#summarize-operator), there is one output row for each group. In the result columns, the values in each group are packed into arrays. 
+
+**Syntax**
+
+    T | 
+    make-series [Column =] Aggregation default = DefaultValue [, ...] 
+    on AxisColumn in range(start, stop, step) 
+    by [Column =] GroupExpression [, ...]
+
+
+**Arguments**
+
+* *Column:* Optional name for a result column. Defaults to a name derived from the expression.
+* *DefaultValue:* If there is no row with specific values of AxisColumn and GroupExpression then in the results the correponding element of the array will be assigned with a DefaultValue. 
+* *Aggregation:* A numeric expression using an [aggregation function](#aggregations). 
+* *AxisColumn:* A column on which the series is ordered. It can be considered as a timeline, but any numeric types are accepted.
+*start, stop, step:* Defines the list of values of AxisColumn for every row. Every other result aggregation column has an array of the same length. 
+* *GroupExpression:* An expression over the columns, that provides a set of distinct values. There is one row in the output for each value of the GroupExpression. Typically it's a column name that already provides a restricted set of values. 
+
+**Tip**
+
+The result arrays are rendered in an Analytics chart in the same way as the corresponding summarize operation.
+
+**Example**
+
+```AIQL
+requests
+| make-series sum(itemCount) default=0, avg(duration) default=0
+  on timestamp in range (ago(7d), now(), 1d)
+  by client_City
+```
+
+![Results of make-series](./media/app-insights-analytics-reference/make-series.png)
 
 ### mvexpand operator
     T | mvexpand listColumn 
@@ -909,9 +1038,13 @@ For example, the result of `reduce by city` might include:
 | Paris |27163 |
 
 ### render directive
-    T | render [ table | timechart  | barchart | piechart ]
+    T | render [ table | timechart  | barchart | piechart | areachart | scatterchart ] 
+        [kind= default|stacked|stacked100|unstacked]
 
 Render directs the presentation layer how to show the table. It should be the last element of the pipe. It's a convenient alternative to using the controls on the display, allowing you to save a query with a particular presentation method.
+
+For some types of chart, `kind` provides additional options. For example, a `stacked` barchart segments each bar by a chosen dimension, showing the contribution to the total from different values of the dimension. In a `stacked100` chart, every bar is the same height of 100%, so that you can compare the relative contributions.
+
 
 ### restrict clause
 Specifies the set of table names available to operators that follow. For example:
@@ -965,6 +1098,45 @@ Sample a population and do further computation knowing the summarize won't excee
 let sampleops = toscalar(requests | sample-distinct 10 of OperationName);
 requests | where OperationName in (sampleops) | summarize total=count() by OperationName
 ```
+### search operator
+
+Search for strings in multiple tables and columns.
+
+**Syntax**
+
+    search [kind=case_sensitive] [in (TableName, ...)] SearchToken
+
+    T | search [kind=case_sensitive] SearchToken
+
+    search [kind=case_sensitive] [in (TableName, ...)] SearchPredicate
+
+    T | search [kind=case_sensitive] SearchPredicate
+
+Finds occurrences of the given token string in any column of any table.
+ 
+* *TableName* Name of a table that is defined globally (requests, exceptions, ...) or by a [let clause](#let-clause). You can use wildcards such as r*.
+* *SearchToken:* A token string, which must match a whole word. You can use trailing wildcards. "Amster*" matches "Amsterdam", but "Amster" does not.
+* *SearchPredicate:* A Boolean expression over the columns in the tables. You can use "*" as a wildcard in column names.
+
+**Examples**
+
+```AIQL
+search "Amster*"  //All columns, all tables
+
+search name has "home"  // one column
+
+search * has "home"     // all columns
+
+search in (requests, exceptions) "Amster*"  // two tables
+
+requests | search "Amster*"
+
+requests | search name has "home"
+
+```
+
+
+
 
 ### sort operator
     T | sort by country asc, price desc
@@ -1031,6 +1203,32 @@ The result has as many rows as there are distinct combinations of `by` values. I
 > [!NOTE]
 > Although you can provide arbitrary expressions for both the aggregation and grouping expressions, it's more efficient to use simple column names, or apply `bin()` to a numeric column.
 
+### table operator
+
+    table('pageViews')
+
+The table named in the argument string.
+
+**Syntax**
+
+    table(tableName)
+
+**Arguments**
+
+* *tableName:* A string. The name of a table, which can either be static, or the result of a let clause.
+
+**Examples**
+
+    table('requests');
+
+
+    let size = (tableName: string) {
+        table(tableName) | summarize sum(itemCount)
+    };
+    size('pageViews');
+
+
+
 ### take operator
 Alias of [limit](#limit-operator)
 
@@ -1095,7 +1293,7 @@ Takes two or more tables and returns the rows of all of them.
   * `inner` - The result has the subset of columns that are common to all of the input tables.
   * `outer` - The result has all the columns that occur in any of the inputs. Cells that were not defined by an input row are set to `null`.
 * `withsource=`*ColumnName:* If specified, the output will include a column
-  called *ColumnName* whose value indicates which source table has contributed each row.
+  called *ColumnName* whose value indicates which source table has contributed each row. Use [as](#as-operator) at the end of each table expression, if you want to specify the name that appears in this column.
 
 **Returns**
 
@@ -1103,39 +1301,29 @@ A table with as many rows as there are in all the input tables, and as many colu
 
 There is no guaranteed ordering in the rows.
 
-**Example**
-
-Union of all tables whose names begin "tt":
-
-```AIQL
-
-    let ttrr = requests | where timestamp > ago(1h);
-    let ttee = exceptions | where timestamp > ago(1h);
-    union tt* | count
-```
 
 **Example**
 
 The number of distinct users that have produced
-either a `exceptions` event or a `traces` event over the past day. In the result, the 'SourceTable' column will indicate either "Query" or "Command":
+either a `exceptions` event or a `traces` event over the past 12h. In the result, the 'SourceTable' column will indicate either "exceptions" or "traces":
 
 ```AIQL
-
-    union withsource=SourceTable kind=outer Query, Command
-    | where Timestamp > ago(1d)
-    | summarize dcount(UserId)
+    
+    union withsource=SourceTable kind=outer exceptions, traces
+    | where timestamp > ago(12h)
+    | summarize dcount(user_Id) by SourceTable
 ```
 
 This more efficient version produces the same result. It filters each table before creating the union:
 
 ```AIQL
-
     exceptions
-    | where Timestamp > ago(12h)
-    | union withsource=SourceTable kind=outer 
-       (Command | where Timestamp > ago(12h))
-    | summarize dcount(UserId)
+    | where timestamp > ago(24h) | as exceptions
+    | union withsource=SourceTable kind=outer (requests | where timestamp > ago(12h) | as traces)
+    | summarize dcount(user_Id) by SourceTable 
 ```
+
+Use [as](#as-operator) to specify the name that will appear in the source column.
 
 #### Forcing an order of results
 
@@ -1587,6 +1775,12 @@ Check whether a string can be converted to a specific type:
     iff(notnull(todouble(customDimensions.myValue)),
        ..., ...)
 
+
+
+
+
+
+
 ### Scalar comparisons
 |  |  |
 | --- | --- |
@@ -1923,6 +2117,12 @@ The square root function.
 ## Date and time
 [ago](#ago) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) |  [dayofyear](#dayofyear) |[datepart](#datepart) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth)|  [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
+A timespan represents an interval of time such as 3 hours or 1 year.
+
+A datetime represents a specific calendar/clock date and time in UTC.
+
+There is no separate 'date' type. To remove the time from a datetime, use an expression such as `bin(timestamp, 1d)`.
+
 ### Date and time literals
 |  |  |
 | --- | --- |
@@ -1945,22 +2145,22 @@ The square root function.
 | `time("0.12:34:56.7")` |`0d+12h+34m+56.7s` |
 
 ### Date and time expressions
-| Expression | Result |
-| --- | --- |
-| `datetime("2015-01-02") - datetime("2015-01-01")` |`1d` |
-| `datetime("2015-01-01") + 1d` |`datetime("2015-01-02")` |
-| `datetime("2015-01-01") - 1d` |`datetime("2014-12-31")` |
-| `2h * 24` |`2d` |
-| `2d` / `2h` |`24` |
-| `datetime("2015-04-15T22:33") % 1d` |`timespan("22:33")` |
-| `bin(datetime("2015-04-15T22:33"), 1d)` |`datetime("2015-04-15T00:00")` |
-|  | |
-| `<` |Less |
-| `<=` |Less or Equals |
-| `>` |Greater |
-| `>=` |Greater or Equals |
-| `<>` |Not Equals |
-| `!=` |Not Equals |
+| Expression | Result |Effect|
+| --- | --- |---|
+| `datetime("2015-01-02") - datetime("2015-01-01")` |`1d` | Time difference|
+| `datetime("2015-01-01") + 1d` |`datetime("2015-01-02")` | Add days |
+| `datetime("2015-01-01") - 1d` |`datetime("2014-12-31")` | Subtract days|
+| `2h * 24` |`2d` |Timespan multiples|
+| `2d` / `2h` |`24` |Timespan division|
+| `datetime("2015-04-15T22:33") % 1d` |`timespan("22:33")` |Time from a datetime|
+| `bin(datetime("2015-04-15T22:33"), 1d)` |`datetime("2015-04-15T00:00")` |Date from a datetime|
+|  | ||
+| `<` ||Less |
+| `<=` ||Less or Equal |
+| `>` ||Greater |
+| `>=` ||Greater or Equal |
+| `<>` ||Not Equal |
+| `!=` ||Not Equal |
 
 ### ago
 Subtracts the given timespan from the current

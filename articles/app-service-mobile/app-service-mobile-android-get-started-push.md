@@ -3,7 +3,7 @@ title: Add push notifications to your Android app with Mobile Apps | Microsoft D
 description: Learn how to use Mobile Apps to send push notifications to your Android app.
 services: app-service\mobile
 documentationcenter: android
-manager: erikre
+manager: adrianha
 editor: ''
 author: ysxu
 

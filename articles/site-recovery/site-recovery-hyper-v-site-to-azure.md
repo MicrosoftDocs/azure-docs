@@ -25,7 +25,7 @@ ms.author: raynew
 >
 >
 
-This article describes how to replicate on-premises Hyper-V virtual machines to Azure, using [Azure Site Recovery[](site-recovery-overview.md) in the Azure portal.
+This article describes how to replicate on-premises Hyper-V virtual machines to Azure, using [Azure Site Recovery](site-recovery-overview.md) in the Azure portal.
 
 You replicate Hyper-V VMs to Azure storage, and fail VMs over to Azure if your primary site becomes unavailable. You can access workloads in Azure, and fail back to the on-premises when it returns to normal operations. You can also use the instructions in this article to migrate VMs to Azure. In a migration scenario, you replicate and fail over VMs, but you don't fail them back again.
 

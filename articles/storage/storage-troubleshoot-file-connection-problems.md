@@ -32,7 +32,7 @@ This article lists common problems that are related to Microsoft Azure File stor
 * [Slow performance when you access Azure File storage from Windows 8.1 or Windows Server 2012 R2](#windowsslow)
 * [Error 53 attempting to mount an Azure File Share](#error53)
 * [Error 87 The parameter is incorrect while attempting to mount an Azure File Share](#error87)
-* [Net use was successful but I don’t see the Azure file share mounted in Windows Explorer](#netuse)
+* [Net use was successful but I don’t see the Azure file share mounted or drive letter in Windows Explorer UI](#netuse)
 * [My storage account contains "/" and the net use command fails](#slashfails)
 * [My application/service cannot access mounted Azure Files drive.](#accessfiledrive)
 * [Additional recommendations to optimize performance](#additional)
@@ -43,11 +43,7 @@ This article lists common problems that are related to Microsoft Azure File stor
 * [Intermittent IO Error - "Host is down (Error 112)" on existing file shares, or the shell hangs when doing list commands on the mount point](#errorhold)
 * [Mount error 115 when attempting to mount Azure Files on the Linux VM](#error15)
 * [Azure file share mounted on Linux VM experiencing slow performance](#delayproblem)
-
-
-**Accessing from other applications**
-
-* [Can I reference the azure file share for my application through a webjob?](#webjobs)
+* [Mount error(11): Resource temporarily unavailable when mounting to Ubuntu 4.8+ kernel](#ubuntumounterror)
 
 <a id="quotaerror"></a>
 
@@ -274,11 +270,14 @@ dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=10
 
 If the cache=strict or serverino options are not present, unmount and mount Azure Files again by running the mount command from the [documentation](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share) and re-check that "/etc/fstab" entry has the correct options.
 
-<a id="webjobs"></a>
+<a id="ubuntumounterror"></a>
+## mount error(11): Resource temporarily unavailable when mounting to Ubuntu 4.8+ kernel
 
-## Accessing from other applications
-### Can I reference the azure file share for my application through a webjob?
-Mounting SMB shares in appservice sandbox isn’t possible. As a workaround, you can map the Azure file share as a mapped drive and allow the application to access it as a drive letter.
+### Cause
+Known issue in Ubuntu 16.10 kernel (v.4.8) where the client claims to support encryption but it doesn’t. 
+
+### Solution
+Until Ubuntu 16.10 is fixed, specify the “vers=2.1” mount option or use Ubuntu 16.04.
 ## Learn more
 * [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
 * [Get started with Azure File storage on Linux](storage-how-to-use-files-linux.md)
