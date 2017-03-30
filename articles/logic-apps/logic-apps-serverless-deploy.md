@@ -1,6 +1,6 @@
 ---
-title: Build a serverless app in the Azure portal | Microsoft Docs
-description: Get started with your first serverless app with this guide on creating, deploying, and managing the app in the Azure portal.
+title: Deploy a Serverless application in Azure | Microsoft Docs
+description: Overview of the tooling and deployment capabilities available for Azure Logic Apps and Azure Functions.
 keywords: ''
 services: logic-apps
 author: jeffhollan
@@ -17,5 +17,4 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: jehollan
 ---
-# Build a serverless app in the Azure portal with Logic Apps and Functions
-
+# Deploy a Serverless application in Azure
