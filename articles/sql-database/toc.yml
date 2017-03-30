@@ -25,10 +25,10 @@
       href: sql-database-connect-query-dotnet.md
     - name: PHP
       href: sql-database-connect-query-php.md
-    - name: Java
-      href: sql-database-connect-query-java.md
     - name: Node.js
       href: sql-database-develop-nodejs-simple.md
+    - name: Java
+      href: sql-database-connect-query-java.md
     - name: Python
       href: sql-database-connect-query-python.md
     - name: Ruby
@@ -237,7 +237,7 @@
       href: sql-database-aad-authentication-configure.md
     - name: Auditing
       href: sql-database-auditing-portal.md
-    - name: Treat detection
+    - name: Threat detection
       href: sql-database-threat-detection-portal.md
     - name: Encrypt - cert store
       href: sql-database-always-encrypted.md

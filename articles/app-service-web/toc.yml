@@ -26,21 +26,6 @@
   - name: PowerShell
     href: app-service-powershell-samples.md
 - name: Tutorials
-  items:
-  - name: Add functionality to web app
-    href: app-service-web-get-started-2.md
-  - name: ASP.NET app with SQL Database
-    href: web-sites-dotnet-get-started.md
-  - name: Laravel app with MySQL
-    href: app-service-web-php-get-started.md
-  - name: Sails.js app with NOSQL DB
-    href: app-service-web-nodejs-sails.md
-  - name: Java app with Eclipse
-    href: app-service-web-eclipse-create-hello-world-web-app.md
-  - name: Java app with IntelliJ
-    href: app-service-web-intellij-create-hello-world-web-app.md
-  - name: Django app with MySQL
-    href: web-sites-python-ptvs-django-mysql.md
 - name: Concepts
   items:
   - name: How App Service works
@@ -59,22 +44,32 @@
     items:
     - name: ASP.NET
       items:
+      - name: ASP.NET app with SQL Database
+        href: web-sites-dotnet-get-started.md
       - name: Develop an ASP.NET Core app with VS Code
         href: web-sites-create-web-app-using-vscode.md
     - name: PHP
       items:
+      - name: Laravel app with MySQL
+        href: app-service-web-php-get-started.md
       - name: Set up your PHP project
         href: web-sites-php-configure.md
       - name: Set up your WordPress Multisite
         href: web-sites-php-convert-wordpress-multisite.md
     - name: Node.js
       items:
+      - name: Sails.js app with NOSQL DB
+        href: app-service-web-nodejs-sails.md
       - name: Use io.js
         href: web-sites-nodejs-iojs.md
       - name: Debug Node.js app
         href: web-sites-nodejs-debug.md
     - name: Java
       items:
+      - name: Java app with Eclipse
+        href: app-service-web-eclipse-create-hello-world-web-app.md
+      - name: Java app with IntelliJ
+        href: app-service-web-intellij-create-hello-world-web-app.md
       - name: Use Azure SDK for Java
         href: java-create-azure-website-using-java-sdk.md
       - name: Upload existing app
@@ -83,6 +78,10 @@
         href: app-service-web-debug-java-web-app-in-eclipse.md
       - name: Remote debug IntelliJ
         href: app-service-web-debug-java-web-app-in-intellij.md
+    - name: Python
+      items:
+      - name: Django app with MySQL
+        href: web-sites-python-ptvs-django-mysql.md
     - name: Send emails with SendGrid
       href: sendgrid-dotnet-how-to-send-email.md
     - name: Configure runtime
@@ -136,6 +135,8 @@
       href: web-sites-migration-from-iis-server.md
     - name: Test in production
       href: app-service-web-test-in-production-get-start.md
+    - name: Add functionality to web app
+      href: app-service-web-get-started-2.md
   - name: Connect to DB/resources
     items:
     - name: Connect to on-premises data

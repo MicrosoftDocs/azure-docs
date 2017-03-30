@@ -19,20 +19,10 @@
     href: ../virtual-machines-linux-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
 - name: Tutorials
   items:
-  - name: Create highly available VMs
-    href: ../virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-  - name: Deploy an app with VM template
-    items:
-    - name: Tutorial overview
-      href: ../virtual-machines-linux-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: App architecture
-      href: ../virtual-machines-linux-dotnet-core-2-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Access and security
-      href: ../virtual-machines-linux-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Availability and scale
-      href: ../virtual-machines-linux-dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: App deployment
-      href: ../virtual-machines-linux-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Create and manage a VM
+    href: ../virtual-machines-linux-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Load balance VMs
+    href: ../virtual-machines-linux-tutorial-load-balance-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
 - name: Concepts
   items:
   - name: Azure-endorsed distributions
@@ -53,7 +43,7 @@
     - name: Deployment models
       href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Templates for VMs
-      href: ../virtual-machines-windows-template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Azure Linux agent
     href: ../virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Azure Security Center
@@ -121,6 +111,20 @@
       href: ../virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Move a VM between subscriptions
       href: ../virtual-machines-linux-move-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Create highly available VMs
+      href: ../virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Deploy an app with VM template
+      items:
+      - name: Tutorial overview
+        href: ../virtual-machines-linux-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: App architecture
+        href: ../virtual-machines-linux-dotnet-core-2-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Access and security
+        href: ../virtual-machines-linux-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Availability and scale
+        href: ../virtual-machines-linux-dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: App deployment
+        href: ../virtual-machines-linux-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Configure VMs
     items:
     - name: Use cloud-init
@@ -318,7 +322,7 @@
   - name: Migrate VMs
     items:
     - name: Overview of migration
-      href: ../virtual-machines-windows-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../windows/migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Plan for migration
       href: ../virtual-machines-linux-migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Migrate using the CLI
