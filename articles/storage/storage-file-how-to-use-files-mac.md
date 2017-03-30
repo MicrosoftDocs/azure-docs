@@ -103,7 +103,6 @@ Browse the Azure File Share using mountpoint.
 See these links for more information about Azure File storage.
 
 * [Apple Support Article - How to connect with File Sharing on your Mac](https://support.apple.com/en-us/HT204445)
-
 * [FAQ](storage-files-faq.md)
 * [Troubleshooting](storage-troubleshoot-file-connection-problems.md)
 

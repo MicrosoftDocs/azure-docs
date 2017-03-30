@@ -46,7 +46,8 @@
 ### [Security considerations](best-practices-resource-manager-security.md)
 ## Set resource policies
 ### [What are resource policies?](resource-manager-policy.md)
-### [Assign and manage policies](resource-manager-policy-create-assign.md)
+### [Portal policy assignment](resource-manager-policy-portal.md)
+### [Script policy assignment](resource-manager-policy-create-assign.md)
 ### [Resource tag policies](resource-manager-policy-tags.md)
 ### [Storage policies](resource-manager-policy-storage.md)
 ### [Linux VM policies](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
