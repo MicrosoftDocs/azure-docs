@@ -27,12 +27,12 @@ The API is uniform across all platforms, apart from a few small variations.
 | Method | Used for |
 | --- | --- |
 | [`TrackPageView`](#page-views) |Pages, screens, blades, or forms. |
-| [`TrackEvent`](#track-event) |User actions and other events. Used to track user behavior or to monitor performance. |
-| [`TrackMetric`](#track-metric) |Performance measurements such as queue lengths not related to specific events. |
-| [`TrackException`](#track-exception) |Logging exceptions for diagnosis. Trace where they occur in relation to other events and examine stack traces. |
-| [`TrackRequest`](#track-request) |Logging the frequency and duration of server requests for performance analysis. |
-| [`TrackTrace`](#track-trace) |Diagnostic log messages. You can also capture third-party logs. |
-| [`TrackDependency`](#track-dependency) |Logging the duration and frequency of calls to external components that your app depends on. |
+| [`TrackEvent`](#trackevent) |User actions and other events. Used to track user behavior or to monitor performance. |
+| [`TrackMetric`](#trackmetric) |Performance measurements such as queue lengths not related to specific events. |
+| [`TrackException`](#trackexception) |Logging exceptions for diagnosis. Trace where they occur in relation to other events and examine stack traces. |
+| [`TrackRequest`](#trackrequest) |Logging the frequency and duration of server requests for performance analysis. |
+| [`TrackTrace`](#tracktrace) |Diagnostic log messages. You can also capture third-party logs. |
+| [`TrackDependency`](#trackdependency) |Logging the duration and frequency of calls to external components that your app depends on. |
 
 You can [attach properties and metrics](#properties) to most of these telemetry calls.
 
@@ -113,44 +113,81 @@ To focus on specific events in either Search or Metrics Explorer, set the blade'
 ![Open Filters, expand Event name, and select one or more values](./media/app-insights-api-custom-events-metrics/06-filter.png)
 
 ## TrackMetric
-Use TrackMetric to send metrics that are not attached to particular events. For example, you can monitor a queue length at regular intervals.
 
-Metrics are displayed as statistical charts in Metrics Explorer. But unlike events, you can't search for individual occurrences in Diagnostic Search.
+Use TrackMetric to send metrics that are not attached to particular events. For example, you could monitor a queue length at regular intervals.
+
+Metrics are displayed as statistical charts in Metrics Explorer. But unlike events, you can't search for individual occurrences in Search. 
+
+To send metrics, you should aggregate your measurements locally in your app, and then send the aggregated values at regular intervals. Pre-aggregating in this way reduces telemetry traffic.
+
+Metrics are not subject to sampling.
 
 For metric values to be correctly displayed, they should be greater than or equal to 0.
 
-*JavaScript*
-
-    appInsights.trackMetric("Queue", queue.Length);
 
 *C#*
 
-    telemetry.TrackMetric("Queue", queue.Length);
-
-*Visual Basic*
-
-    telemetry.TrackMetric("Queue", queue.Length)
-
-*Java*
-
-    telemetry.trackMetric("Queue", queue.Length);
-
-In fact, you might do this in a background thread:
-
-*C#*
-
-    private void Run() {
-     var appInsights = new TelemetryClient();
-     while (true) {
-      Thread.Sleep(60000);
-      appInsights.TrackMetric("Queue", queue.Length);
-     }
+```C#
+    /// Accepts metric values and sends the aggregated values at 1-minute intervals.
+    class MetricAggregator
+    {
+        private List<double> measurements = new List<double>();
+        private string name;
+        private TelemetryClient telemetryClient;
+        private BackgroundWorker thread;
+        private Boolean stop = false;
+        public void TrackMetric (double value)
+        {
+            lock (this)
+            {
+                measurements.Add(value);
+            }
+        }
+        public MetricTelemetry Aggregate()
+        {
+            lock (this)
+            {
+                var sample = new MetricTelemetry();
+                sample.Count = measurements.Count;
+                sample.Max = measurements.Max();
+                sample.Min = measurements.Min();
+                sample.Sum = measurements.Sum();
+                var mean = sample.Sum / measurements.Count;
+                sample.StandardDeviation = Math.Sqrt(measurements.Sum(v => { var diff = v - mean; return diff * diff; }) / measurements.Count);
+                sample.Timestamp = DateTime.Now;
+                measurements.Clear();
+                return sample;
+            }
+        }
+        public MetricAggregator(string Name)
+        {
+            name = Name;
+            thread = new BackgroundWorker();
+            thread.DoWork += (o, e) => {
+                while (!stop)
+                {
+                    Thread.Sleep(60000); // 1 minute
+                    telemetryClient.TrackMetric(this.Aggregate());
+                }
+            };
+            thread.RunWorkerAsync();
+        }
     }
+```
+### Custom metrics in Metrics Explorer
 
+To see the results, open Metrics Explorer and add a new chart. Edit the chart to show your metric.
 
-To see the results, open Metrics Explorer and add a new chart. Set it to display your metric.
+> [!NOTE]
+> Your custom metric might take several minutes to appear in the list of available metrics.
+>
 
 ![Add a new chart or select a chart, and under Custom, select your metric](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
+
+### Custom metrics in Analytics
+
+The telemetry is available in the customMetrics table.
+
 
 
 ## Page views
