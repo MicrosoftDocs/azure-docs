@@ -31,7 +31,7 @@ This article takes a deep dive into the details of how a training experiment get
 
 ## Overview 
 
-In your training experiment, you've been concerned with training and scoring your model using your own data. But once deployed, users will send new data to your model and it will return prediction results. So, as you convert your training experiment to a predictive experiment to get it ready for deployment, you want to keep in mind how the model will be used by others.
+In your training experiment, you've been concerned with training and scoring your model using your own data. But once deployed, users will send new data to your model and it will return prediction results. So, as you convert your training experiment to a predictive experiment to get it ready for deployment, keep in mind how the model will be used by others.
 
 The process of converting a training experiment to a predictive experiment involves three steps:
 
@@ -40,7 +40,7 @@ The process of converting a training experiment to a predictive experiment invol
 3. Define how your model will accept data from the web service user, and what data will be returned.
 
 ## Set Up Web Service button
-After you run your experiment (**RUN** button at the bottom of the experiment canvas), click the **Set Up Web Service** button (select the **Predictive Web Service** option). **Set Up Web Service** performs for you the three steps of converting your training experiment to a predictive experiment:
+After you run your experiment (click **RUN** at the bottom of the experiment canvas), click the **Set Up Web Service** button (select the **Predictive Web Service** option). **Set Up Web Service** performs for you the three steps of converting your training experiment to a predictive experiment:
 
 1. It saves your trained model in the **Trained Models** section of the module palette (to the left of the experiment canvas). It then replaces the machine learning algorithm and [Train Model][train-model] modules with the saved trained model.
 2. It analyzes your experiment and removes modules that were clearly used only for training and are no longer needed.
@@ -56,7 +56,7 @@ The modules in this experiment perform basically four different functions:
 
 When you convert this training experiment to a predictive experiment, some of these modules are no longer needed, or they now serve a different purpose:
 
-* **Data** - The data in this sample dataset is not used during scoring - the user of the web service will supply the data to be scored. However, the metadata from this dataset, such as data types, is used by the trained model. So you need to keep the dataset in the predictive experiment so that it can provide this metadata. The data itself isn't used.
+* **Data** - The data in this sample dataset is not used during scoring - the user of the web service will supply the data to be scored. However, the metadata from this dataset, such as data types, is used by the trained model. So you need to keep the dataset in the predictive experiment so that it can provide this metadata.
 
 * **Prep** - Depending on the user data that will be submitted for scoring, these modules may or may not be necessary to process the incoming data. The **Set Up Web Service** button doesn't touch these - you need to decide how you want to handle them.
   
@@ -70,7 +70,7 @@ Here is how our example looks after clicking **Set Up Web Service**:
 
 ![Converted predictive experiment][figure3]
 
-This may be sufficient to prepare your experiment to be deployed as a web service. However, you may want to do some additional work specific to your experiment.
+The work done by **Set Up Web Service** may be sufficient to prepare your experiment to be deployed as a web service. However, you may want to do some additional work specific to your experiment.
 
 ### Adjust input and output modules
 In your training experiment, you used a set of training data and then did some processing to get the data in a form that the machine learning algorithm needed. If the data you expect to receive through the web service will not need this processing, you can bypass it: connect the output of the **Web service input module** to a different module in your experiment. The user's data will now arrive in the model at this location.
@@ -81,15 +81,15 @@ For example, by default **Set Up Web Service** puts the **Web service input** mo
 
 The input data provided through the web service will now pass directly into the Score Model module without any preprocessing.
 
-Similarly, by default **Set Up Web Service** puts the Web service output module at the bottom of your data flow. In this example, the web service will return to the user the output of the [Score Model][score-model] module which includes the complete input data vector plus the scoring results.
+Similarly, by default **Set Up Web Service** puts the Web service output module at the bottom of your data flow. In this example, the web service will return to the user the output of the [Score Model][score-model] module, which includes the complete input data vector plus the scoring results.
 However, if you would prefer to return something different, then you can add additional modules before the **Web service output** module. 
 
-For example, to return only the scoring results and not the entire vector of input data, add a [Select Columns in Dataset][select-columns] module to exclude all columns except the scoring results. Then move the **Web service output** module to the output of the [Select Columns in Dataset][select-columns] module. The experiment will look like this:
+For example, to return only the scoring results and not the entire vector of input data, add a [Select Columns in Dataset][select-columns] module to exclude all columns except the scoring results. Then move the **Web service output** module to the output of the [Select Columns in Dataset][select-columns] module. The experiment looks like this:
 
 ![Moving the web service output][figure5]
 
 ### Add or remove additional data processing modules
-If there are more modules in your experiment that you know will not be needed during scoring, these can be removed. For example, because we have moved the **Web service input** module to a point after the data processing modules, we can remove the [Clean Missing Data][clean-missing-data] module from the predictive experiment.
+If there are more modules in your experiment that you know will not be needed during scoring, these can be removed. For example, because we moved the **Web service input** module to a point after the data processing modules, we can remove the [Clean Missing Data][clean-missing-data] module from the predictive experiment.
 
 Our predictive experiment now looks like this:
 
@@ -101,12 +101,11 @@ Our predictive experiment now looks like this:
 ### Add optional Web Service Parameters
 In some cases, you may want to allow the user of your web service to change the behavior of modules when the service is accessed. *Web Service Parameters* allow you to do this.
 
-A common example is setting up an [Import Data][import-data] module so that the user of the deployed web service can specify a different data source when the web service is accessed. Or configuring an [Export Data][export-data] module so that a different destination can be specified.
+A common example is setting up an [Import Data][import-data] module so the user of the deployed web service can specify a different data source when the web service is accessed. Or configuring an [Export Data][export-data] module so that a different destination can be specified.
 
-You can define Web Service Parameters and associate them with one or more module parameters, and you can specify whether they are required or optional. The user of the web service  provides values for these parameters when the service is accessed, and the module actions are modified accordingly.
+You can define Web Service Parameters and associate them with one or more module parameters, and you can specify whether they are required or optional. The user of the web service provides values for these parameters when the service is accessed, and the module actions are modified accordingly.
 
-For more information about what Web Service Parameters are and how to use them, see [Using Azure Machine Learning Web Service Parameters
-][webserviceparameters].
+For more information about what Web Service Parameters are and how to use them, see [Using Azure Machine Learning Web Service Parameters][webserviceparameters].
 
 [webserviceparameters]: machine-learning-web-service-parameters.md
 
