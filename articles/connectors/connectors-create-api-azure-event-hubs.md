@@ -57,7 +57,7 @@ and check your **Claims** permissions.
 
     ![Manage permissions for your Event Hub namespace](./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png)
 
-6.  To copy the connection string for the Event Hubs namespace, 
+3.  To copy the connection string for the Event Hubs namespace, 
 choose **RootManageSharedAccessKey**. Next to your primary key connection string, 
 choose the copy button.
 
@@ -70,9 +70,11 @@ choose the copy button.
     > If you find this parameter, the connection string is for a specific 
     > Event Hub "entity", and is not the correct string to use with your logic app.
 
-5.  Now when you add an Event Hubs trigger or action to your logic app, 
-and you're prompted for credentials, give your connection a name, 
-enter the connection string string that you copied, and choose **Create**.
+4.  Now when you're prompted for credentials after adding 
+an Event Hubs trigger or action to your logic app, 
+you can connect to your Event Hubs namespace. 
+Give your connection a name, enter the connection string that you copied, 
+and choose **Create**.
 
     ![Enter connection string for Event Hubs namespace](./media/connectors-create-api-azure-event-hubs/event-hubs-connection.png)
 
@@ -98,7 +100,7 @@ Select this trigger: **When events are available in Event Hub**
     ![Select trigger for when your Event Hub receives new events](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
     If you don't already have a connection to your Event Hubs namespace, 
-    you're prompted to create this connection now by giving the connection a name,
+    you're prompted to create this connection now by giving your connection a name, 
     and entering the connection string for your Event Hubs namespace. 
     If necessary, learn [how to find your connection string](#permissions-connection-string).
 
