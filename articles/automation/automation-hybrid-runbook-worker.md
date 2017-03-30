@@ -278,7 +278,7 @@ The following PowerShell runbook, *Export-RunAsCertificateToHybridWorker*, expor
     $SecurePassword = ConvertTo-SecureString $Password -AsPlainText -Force
     Import-PfxCertificate -FilePath $CertPath -CertStoreLocation Cert:\LocalMachine\My -Password $SecurePassword -Exportable | Write-Verbose
 
-    # Test that authentication to Azure ARM is working
+    # Test that authentication to Azure Resource Manager is working
     $RunAsConnection = Get-AutomationConnection -Name "AzureRunAsConnection" 
     
     Add-AzureRmAccount `
@@ -289,10 +289,10 @@ The following PowerShell runbook, *Export-RunAsCertificateToHybridWorker*, expor
 
     Select-AzureRmSubscription -SubscriptionId $RunAsConnection.SubscriptionID | Write-Verbose
 
-    # List automation accounts to confirm ARM calls are working
+    # List automation accounts to confirm Azure Resource Manager calls are working
     Get-AzureRmAutomationAccount | Select AutomationAccountName
 
-Save the *Export-RunAsCertificateToHybridWorker* runbook to your computer with a `.ps1` extension.  Import it into you Automation account and edit the runbook, changing the value of the variable `$Password`  with your own password.  Publish and then run the runbook targeting the Hybrid Worker group that will be running and authenticating runbooks using the Run As account.  The job stream will report the attempt to import the certificate into the local machine store, and follows with multiple lines depending on how many Automation accounts are defined in your subscription and if authentication is successful.  
+Save the *Export-RunAsCertificateToHybridWorker* runbook to your computer with a `.ps1` extension.  Import it into you Automation account and edit the runbook, changing the value of the variable `$Password` with your own password.  Publish and then run the runbook targeting the Hybrid Worker group that will be running and authenticating runbooks using the Run As account.  The job stream will report the attempt to import the certificate into the local machine store, and follows with multiple lines depending on how many Automation accounts are defined in your subscription and if authentication is successful.  
 
 ## Creating runbooks for Hybrid Runbook Worker
 There is no difference in the structure of runbooks that run in Azure Automation and those that run on a Hybrid Runbook Worker. Runbooks that you use with each will most likely differ significantly though since runbooks for Hybrid Runbook Worker will typically manage local resources in your data center while runbooks in Azure Automation typically manage resources in the Azure cloud.
