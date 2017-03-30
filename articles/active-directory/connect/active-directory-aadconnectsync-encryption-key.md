@@ -27,17 +27,17 @@ The encryption key used is secured using [Windows Data Protection (DPAPI)](https
 
 ![Azure AD Connect Sync Encryption Key Utility](media/active-directory-aadconnectsync-encryption-key/key1.png)
 
-You can use the miiskmu.exe utility located in **Program Files\Microsoft Azure AD Sync\Bin** to do the following:
+You can use the miiskmu.exe utility, located in **Program Files\Microsoft Azure AD Sync\Bin**, to do the following:
 
 - **Export Key Set** - allows you to export and backup the keys used to encrypt data in Azure AD Connect to file.
-- **Add new key to key set** -  allows you to create a new encryption key and add it to the Azure AD Connect keyset.  The new data will be encrypted using this key.  Existing data will continue to be encrypted with the old keys.
+- **Add new key to key set** -  allows you to create a new encryption key and add it to the Azure AD Connect keyset.  The new data is encrypted using this key.  Existing data continues to be encrypted with the old keys.
 - **Abandon key set** - allows you to delete all encrypted data.  
 
 ### Command-line options
 Miiskmu.exe can be run from a command-line using the following:
 
 #### Syntax
-**miiskmu [/eFileName/u:UserName {Password | *} [/q]] | [/bBatchSize] **
+    miiskmu [/eFileName/u:UserName {Password | *} [/q]] | [/bBatchSize]
 
 |Parameter|Description|
 | ----- | ----- |
@@ -47,7 +47,7 @@ Miiskmu.exe can be run from a command-line using the following:
 |**UserName**|The Azure AD Connect service account name.|
 |**Password**|Specifies the password for the Azure AD Connect service account. Use * to prompt for the password.| 
 |**/q**|Specifies quiet mode| 
-|**/b**|Processes the objects in batches. If this parameter is not specified, all objects will be processed in one batch.| 
+|**/b**|Processes the objects in batches. If this parameter is not specified, all objects are processed in one batch.| 
 |**BatchSize**|The number of objects to process in each batch, specified as an integer.| 
 |**/a**|Used to abandon the key.|
 |**/?**|Displays help at the command prompt.|
@@ -61,14 +61,14 @@ Miiskmu.exe can be run from a command-line using the following:
 - Miiskmu.exe is located in the **Program Files\Microsoft Azure AD Sync\Bin** folder. 
 - Local Administrator privileges are required to run Miiskmu.exe. 
 - Encryption keys are only accessible by the Azure AD Connect service account, so you must specify the Azure AD Connect service account credentials. 
-- If you modify the encryption keys (that is, create new ones), it is strongly recommended that you update your backup copy of the encryption keys. 
-- The current key set ID can be found by typing miiskmu /?. 
+- If you modify the encryption keys, it is recommended that you update your backup copy of the encryption keys. 
+- The current key set ID can be found by typing `miiskmu /?`. 
 - If you are calling Miiskmu.exe from a batch file, prefix the command with cmd /c to have the ERRORLEVEL set to the success/error code of the operation. 
 
 ## Changing the Azure AD Connect sync service account password
-If you change the  Azure AD Connect sync dservice account password, the Synchronization Service can no longer start correctly.  You may see the following:
+If you change the  Azure AD Connect sync service account password, the Synchronization Service can no longer start correctly.  You may see the following:
 
-To resolve the issue you must abandon the encryption key.  You cannot simply change the password.  To do this, follow the procedures in [Abandoning the Azure AD Connect Sync encryption key](#abandoning-the-azure-ad-connect-sync-encryption-key)
+To resolve the issue, you must abandon the encryption key.  You cannot just change the password.  Use the procedures in [Abandoning the Azure AD Connect Sync encryption key](#abandoning-the-azure-ad-connect-sync-encryption-key) to change the service account password.
 
 ## Abandoning the Azure AD Connect Sync encryption key
 >[!IMPORTANT]
@@ -76,16 +76,16 @@ To resolve the issue you must abandon the encryption key.  You cannot simply cha
 
 Under specific conditions, if the password is updated, the Synchronization Service can no longer retrieve the encryption key via DPAPI. Without the encryption key, the Synchronization Service cannot decrypt the passwords required to synchronize to/from on-premises AD and Azure AD.
 
-When this occurs, you may see one or more of the following:
+You may see one or more of the following:
 
 - Under Windows Service Control Manager, if you try to start the Synchronization Service and it cannot retrieve the encryption key, it fails with error “Windows could not start the Microsoft Azure AD Sync on Local Computer. For more information, review the System Event log. If this is a non-Microsoft service, contact the service vendor, and refer to service-specific error code -21451857952.”
 - Under Windows Event Viewer, the application event log contains an error with Event ID 6028 and error message *“The server encryption key cannot be accessed.”*
-- If you try to start the Synchronization Service in Windows Service Control Manager, you will receive the error "Windows could not start the Microsoft Azure AD Sync service on Local Computer. Error 1069: The service did not start due to a logon failure."
+- If you try to start the Synchronization Service in Windows Service Control Manager, you receive the error "Windows could not start the Microsoft Azure AD Sync service on Local Computer. Error 1069: The service did not start due to a logon failure."
 - Under Windows Event Viewer, the system event log contains an error with Event ID 7038 and message “The ADSync service was unable to log on as with the currently configured password due to the following error: The user name or password is incorrect."
 
 ### What to do if you need to abandon the encryption key
 
-If you need to abandon the encryption key, use the following procedures below to accomplish this.
+If you need to abandon the encryption key, use the following procedures to accomplish this.
 
 1. [Abandon the existing encryption key](#abandon-the-existing-encryption-key)
 
@@ -128,7 +128,7 @@ You cannot directly provide the password of the Azure AD service account to the 
 2. Run cmdlet `Add-ADSyncAADServiceAccount`.
 3. In the pop-up dialog, provide the Azure AD Global admin credentials for your Azure AD tenant.
 ![Azure AD Connect Sync Encryption Key Utility](media/active-directory-aadconnectsync-encryption-key/key7.png)
-4. If it is successful, you will just see the PowerShell command prompt.
+4. If it is successful, you will see the PowerShell command prompt.
 
 #### Start the Synchronization Service
 Now that the Synchronization Service has access to the encryption key and all the passwords it needs, you can restart the service in the Windows Service Control Manager:
