@@ -72,11 +72,13 @@ To enable metrics and diagnostics logging using PowerShell, use the following co
 
    The Service Bus Rule ID is a string with this format:
 
-    ```{service bus resource ID}/authorizationrules/{key name}``` 
+    ```
+    {service bus resource ID}/authorizationrules/{key name}
+    ``` 
 
 - To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
 
-     ```Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true```
+    ```Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true```
 
 - You can obtain the resource id of your Log Analytics workspace using the following command:
 
@@ -84,28 +86,29 @@ To enable metrics and diagnostics logging using PowerShell, use the following co
 
    You can combine these parameters to enable multiple output options.
 
-
 ### CLI
 
 To enable metrics and diagnostics logging using the Azure CLI, use the following commands:
 
 - To enable storage of Diagnostic Logs in a Storage Account, use this command:
 
-   ```azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true```
+    ```azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true```
 
    The Storage Account ID is the resource id for the storage account to which you want to send the logs.
 
 - To enable streaming of Diagnostic Logs to an Event Hub, use this command:
 
-   ```azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true```
+    ```azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true```
 
    The Service Bus Rule ID is a string with this format:
 
-   ```{service bus resource ID}/authorizationrules/{key name}```
+    ```
+    {service bus resource ID}/authorizationrules/{key name}
+    ```
 
 - To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
 
-   ```azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true```
+    ```azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true```
 
    You can combine these parameters to enable multiple output options.
 
@@ -117,7 +120,7 @@ Read about how to [change Diagnostic settings using the Azure Monitor REST API](
 
 Read about how to [enable Diagnostic settings at resource creation using Resource Manager template](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md). 
 
-## Streaming Azure SQL Database metrics and diagnostics log in Log Analytics 
+## Streaming Azure SQL Database metrics and diagnostics logs into Log Analytics 
 Azure SQL Database metrics and diagnostic logs can be streamed into Log Analytics using the built-in “Export to Log Analytics” option in the portal, or by enabling Log Analytics in a diagnostic setting via Azure PowerShell cmdlets, Azure CLI or Azure Monitor REST API.
 
 To enable metrics and diagnostic logs collection, see [Enable metrics and diagnostic logging](sql-database-metrics-diag-logging.md#enable-metrics-and-diagnostics-logging).
@@ -152,6 +155,38 @@ In the Azure portal, navigate to your Azure SQL Database resource and click **Di
 2. On your OMS homepage a new tile called ‘Azure SQL DB Monitoring’ will appear. Selecting this tile you will navigate to the Azure SQL Database dashboard.
 
    <img src="./media/sql-database-metrics-diag-logging/dashboard.png" alt="dashboard" style="width: 780px;" />
+
+## Using Azure SQL Database Monitoring Solution
+
+Azure SQL Database Monitoring is a hierarchical dashboard that allows you to navigate through the hierarchy of Azure SQL Database resources. This capability enables you to do high-level monitoring but it also enables you to scope your monitoring to just the right set of resources.
+Reports for each hierarchical level can be logically separated into two sections:
+
+-	Resource monitoring
+-	Query monitoring
+
+### Resource monitoring section
+This section focuses on the general resource information. It contains the lists of different resources under the selected resource. For example, for a selected subscription you can see the all servers, elastic pools and databases that belong to the selected subscription. Additionally, for Elastic Pools and databases, you can see the resource usage metrics of that resource. This includes charts for DTU, CPU, IO, LOG, sessions, workers, connections, and storage in GB.
+### Query monitoring section
+This section focuses on the query behavior on all the databases under the selected resource. For example, for a selected server, you can see the aggregated statistical information for all queries executed on databases that belong to that server. In case the query with the same shape is executed on multiple databases it will be grouped into a single entry.
+
+Great thing about the query monitoring section is that allows you to drill down into more details. Selecting a significant query opens up another report that lists all the databases where a selected query was executed making it easy to compare the query performance across different databases. Selecting a single database from this list opens up the report with different query execution statistics and the query text for a selected query on a selected database.
+
+## Streaming Azure SQL Database metrics and diagnostic logs into Azure Event Hub
+
+Azure SQL Database metrics and diagnostic logs can be streamed into Event Hub using the built-in “Export to Event Hub” option in the portal, or by enabling Service Bus Rule Id in a diagnostic setting via Azure PowerShell Cmdlets, Azure CLI or Azure Monitor REST API. For more information, please read how to [Enable metrics and diagnostic logging](sql-database-metrics-diag-logging.md#enable-metrics-and-diagnostics-logging).
+
+### What to do with metrics and diagnostic logs in Event Hub?
+Once the selected data is streamed into Event Hub you are one step closer to enabling advanced monitoring scenarios. Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an Event Hub, it can be transformed and stored using any real-time analytics provider or batching/storage adapters. Event Hubs decouples the production of a stream of events from the consumption of those events, so that event consumers can access the events on their own schedule. For more information on Event Hub, see:
+
+- [What are Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)?
+- [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+
+
+Here are just a few ways you might use the streaming capability:
+
+-	View service health by streaming “hot path” data to PowerBI - Using Event Hubs, Stream Analytics, and PowerBI, you can easily transform your metrics and diagnostics data into near real-time insights on your Azure services. For an overview of how to set up an Event Hubs, process data with Stream Analytics, and use PowerBI as an output, see [Stream Anaytics and Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md).
+-	Stream logs to 3rd party logging and telemetry streams – Using Event Hubs streaming you can get your metrics and diagnostic logs into different third party monitoring and log analytics solutions. 
+-	Build a custom telemetry and logging platform – If you already have a custom-built telemetry platform or are just thinking about building one, the highly scalable publish-subscribe nature of Event Hubs allows you to flexibly ingest diagnostic logs. See [Dan Rosanova’s guide to using Event Hubs in a global scale telemetry platform](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
 ## 1-minute metrics
 
