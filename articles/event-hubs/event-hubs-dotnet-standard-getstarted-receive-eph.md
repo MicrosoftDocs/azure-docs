@@ -1,6 +1,6 @@
 ---
-title: Receive events from Azure Event Hubs by using .NET Standard | Microsoft Docs
-description: Get started receiving messages with EventProcessorHost in .NET Standard
+title: Receive events from Azure Event Hubs using .NET Standard | Microsoft Docs
+description: Get started receiving messages with the EventProcessorHost in .NET Standard
 services: event-hubs
 documentationcenter: na
 author: jtaubensee
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 03/27/2017
 ms.author: jotaub;sethm
 ---
 
@@ -26,7 +26,7 @@ This tutorial shows how to write a .NET Core console application that receives m
 
 ## Prerequisites
 
-* [Microsoft Visual Studio 2015 or 2017](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2015, but Visual Studio 2017 is also supported.
+* [Microsoft Visual Studio 2015 or 2017](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017, but Visual Studio 2015 is also supported.
 * [.NET Core Visual Studio 2015 or 2017 tools](http://www.microsoft.com/net/core).
 * An Azure subscription.
 * An Azure Event Hubs namespace.
@@ -49,32 +49,9 @@ The first step is to use the [Azure portal](https://portal.azure.com) to create 
 
 ## Create a console application
 
-1. Start Visual Studio. From the **File** menu, click **New**, and then click **Project**. Create a .NET Core console application.
+Start Visual Studio. From the **File** menu, click **New**, and then click **Project**. Create a .NET Core console application.
 
-	![New project][2]
-
-2. In Solution Explorer, double-click the **project.json** file to open it in the Visual Studio editor.
-3. Add the string `"portable-net45+win8"` to the `"imports"` declaration, within the `"frameworks"` section. That section should now appear as follows. This string is necessary due to the Azure Storage dependency on OData:
-
-	```json
-	"frameworks": {
-      "netcoreapp1.0": {
-        "imports": [
-          "dnxcore50",
-          "portable-net45+win8"
-        ]
-      }
-    }
-	```
-
-4. From the **File** menu, click **Save All**.
-
-Note that this tutorial shows how to write a .NET Core application. If you want to target the full .NET Framework, add the following line of code to the project.json file, in the `"frameworks"` section:
-
-```json
-"net451": {
-},
-```
+![New project][2]
 
 ## Add the Event Hubs NuGet package
 
@@ -89,9 +66,9 @@ Add the following NuGet packages to the project:
 2. Open the SimpleEventProcessor.cs file and add the following `using` statements to the top of the file.
 
     ```csharp
-	using System.Text;
     using Microsoft.Azure.EventHubs;
     using Microsoft.Azure.EventHubs.Processor;
+	using System.Threading.Tasks;
     ```
 
 3. Implement the `IEventProcessor` interface. Replace the entire contents of the `SimpleEventProcessor` class with the following code:
@@ -137,6 +114,7 @@ Add the following NuGet packages to the project:
     ```csharp
     using Microsoft.Azure.EventHubs;
     using Microsoft.Azure.EventHubs.Processor;
+	using System.Threading.Tasks;
     ```
 
 2. Add constants to the `Program` class for the event hub connection string, event hub name, storage account container name, storage account name, and storage account key. Add the following code, replacing the placeholders with their corresponding values.

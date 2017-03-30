@@ -42,6 +42,7 @@
 ## [Verify a VPN gateway connection](vpn-gateway-verify-connection-resource-manager.md)
 ## [Reset a VPN gateway](vpn-gateway-resetgw-classic.md)
 ## Delete a VPN gateway
+### [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Create self-signed root certificates for P2S connections](vpn-gateway-certificates-point-to-site.md)
