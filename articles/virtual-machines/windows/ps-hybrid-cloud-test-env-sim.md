@@ -21,7 +21,7 @@ ms.author: josephd
 # Set up a simulated hybrid cloud environment for testing
 This article steps you through creating a simulated hybrid cloud environment with Microsoft Azure using two Azure virtual networks. Here is the resulting configuration.
 
-![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph4.png)
+![](./media/ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph4.png)
 
 This simulates a hybrid cloud production environment and consists of:
 
@@ -102,7 +102,7 @@ From the Azure portal on your local computer, connect to DC1 with the CORP\User1
 
 This is your current configuration.
 
-![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph1.png)
+![](./media/ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph1.png)
 
 ## Phase 2: Create the TestVNET virtual network
 First, create the TestVNET virtual network and protect it with a network security group.
@@ -129,7 +129,7 @@ Next, request a public IP address to be allocated to the gateway for the TestVNE
 
 This is your current configuration.
 
-![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph2.png)
+![](./media/ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph2.png)
 
 ## Phase 3: Create the VNet-to-VNet connection
 First, obtain a random, cryptographically strong, 32-character pre-shared key from your network or security administrator. Alternately, use the information at [Create a random string for an IPsec preshared key](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) to obtain a pre-shared key.
@@ -146,7 +146,7 @@ After a few minutes, the connection should be established.
 
 This is your current configuration.
 
-![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph3.png)
+![](./media/ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph3.png)
 
 ## Phase 4: Configure DC2
 First, create a virtual machine for DC2. Run these commands at the Azure PowerShell command prompt on your local computer.
@@ -207,7 +207,7 @@ Now that the TestVNET virtual network has its own DNS server (DC2), you must con
 
 This is your current configuration. 
 
-![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph4.png)
+![](./media/ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph4.png)
 
 Your simulated hybrid cloud environment is now ready for testing.
 

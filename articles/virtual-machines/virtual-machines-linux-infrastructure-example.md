@@ -103,7 +103,7 @@ Adventure Works Cycles decided on the following names for their Azure VMs:
 
 Here is the resulting configuration.
 
-![Final application infrastructure deployed in Azure](./media/virtual-machines-common-infrastructure-service-guidelines/example-config.png)
+![Final application infrastructure deployed in Azure](./media/infrastructure-examples/example-config.png)
 
 This configuration incorporates:
 
