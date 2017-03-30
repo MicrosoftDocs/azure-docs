@@ -43,6 +43,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
     ![create database-1](./media/sql-database-get-started/create-database-1.png)
 
 3. Fill out the SQL Database form with the following information, as shown on the preceding image:     
+
    - Database name: **mySampleDatabase**
    - Resource group: **myResourceGroup**
    - Source: **Sample (AdventureWorksLT)**
