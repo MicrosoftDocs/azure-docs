@@ -777,302 +777,209 @@ There are four different ways of [collecting logs and metrics for Azure services
 <table>
 
 <tr>
-
 <th>Service </th>
 <th>Resource Type </th>
 <th>Logs </th>
 <th>Metrics </th>
 <th>Solution </th>
 </tr>
-
-
 <tr>
-
 <td>Application gateways </td>
 <td>Microsoft.Network/applicationGateways </td>
 <td>Diagnostics </td>
 <td> Diagnostics</td>
 <td> <a href="https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics" target="_blank">Azure Application Gateway Analytics</a></td>
 </tr>
-
-
 <tr>
-
 <td>Application insights </td>
 <td> </td>
 <td> Connector</td>
 <td> Connector</td>
 <td> <a href="https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/" target="_blank">Application Insights Connector (Preview)</a></td>
 </tr>
-
-
-
 <tr>
-
 <td>Automation accounts </td>
 <td>Microsoft.Automation/AutomationAccounts </td>
 <td>Diagnostics </td>
 <td> </td>
 <td> <a href="https://docs.microsoft.com/en-us/azure/automation/automation-manage-send-joblogs-log-analytics" target="_blank">More information</a></td>
 </tr>
-
-
-
 <tr>
-
 <td>Batch accounts </td>
 <td>Microsoft.Batch/batchAccounts </td>
 <td>Diagnostics </td>
 <td> Diagnostics</td>
 <td> </td>
 </tr>
-
-
 <tr>
-
 <td>Classic cloud services</td>
 <td> </td>
 <td>Storage </td>
 <td> Diagnostics</td>
 <td> <a href="https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage-iis-table" target="_blank">More information</a></td>
 </tr>
-
-
 <tr>
-
 <td>Cognitive services </td>
 <td>Microsoft.CognitiveServices/accounts </td>
 <td>Diagnostics </td>
 <td> </td>
 <td> </td>
 </tr>
-
-
-
 <tr>
-
 <td>Data Lake analytics </td>
 <td>Microsoft.DataLakeAnalytics/accounts </td>
 <td>Diagnostics </td>
 <td> </td>
 <td> </td>
 </tr>
-
-
-
 <tr>
-
 <td>Event Hub namespace </td>
 <td>Microsoft.EventHub/namespaces </td>
 <td>Diagnostics </td>
 <td>Diagnostics </td>
 <td> </td>
 </tr>
-
-
 <tr>
-
 <td>IoT Hubs </td>
 <td>Microsoft.Devices/IotHubs </td>
 <td>Diagnostics </td>
 <td> </td>
 <td> </td>
 </tr>
-
-
 <tr>
-
 <td>Key Vault </td>
 <td>	Microsoft.KeyVault/vaults </td>
 <td> Diagnostics</td>
 <td> </td>
 <td><a href="https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-key-vault" target="_blank">KeyVault Analytics</a></td>
 </tr>
-
-
 <tr>
-
 <td>Load Balancers </td>
 <td>Microsoft.Network/loadBalancers</td>
 <td>Diagnostics </td>
 <td> </td>
 <td> </td>
 </tr>
-
-
 <tr>
-
 <td>Logic Apps </td>
 <td>Microsoft.Logic/workflows </td>
 <td>Diagnostics </td>
 <td>Diagnostics </td>
 <td> </td>
 </tr>
-
-
 <tr>
-
 <td> </td>
 <td>Microsoft.Logic/integrationAccounts</td>
 <td> </td>
 <td> </td>
 <td> </td>
 </tr>
-
-
 <tr>
-
 <td>Network Security Groups </td>
 <td>Microsoft.Network/networksecuritygroups </td>
 <td>Diagnostics </td>
 <td> </td>
 <td><a href="https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics" target="_blank">Azure Network Security Group Analytics</a></td>
 </tr>
-
-
 <tr>
-
 <td>Recovery vaults </td>
 <td>Microsoft.RecoveryServices/vaults </td>
 <td>Diagnostics </td>
 <td> </td>
 <td><a href="https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/Solutions/recoveryservices" target="_blank">Azure Recovery Services Analytics (Preview)</a></td>
 </tr>
-
 <tr>
-
 <td>Search services </td>
 <td>Microsoft.RecoveryServices/vaults </td>
 <td>Diagnostics </td>
 <td>Diagnostics </td>
 <td> </td>
 </tr>
-
-
 <tr>
-
 <td>Service Bus namespace</td>
 <td>Microsoft.ServiceBus/namespaces</td>
 <td>Diagnostics </td>
 <td>Diagnostics </td>
 <td><a href="https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-service-fabric" target="_blank">Service Fabric Analytics (Preview)</a></td>
 </tr>
-
-
 <tr>
-
 <td>Service Fabric</td>
 <td></td>
 <td>Storage </td>
 <td> </td>
 <td><a href="https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-service-fabric" target="_blank">Service Fabric Analytics (Preview)</a></td>
 </tr>
-
-
 <tr>
-
 <td>SQL (v12)</td>
 <td>Microsoft.Sql/servers/databases</td>
 <td> </td>
 <td>Diagnostics </td>
 <td></td>
 </tr>
-
-
-
 <tr>
-
 <td></td>
 <td>Microsoft.Sql/servers/elasticPools</td>
 <td> </td>
 <td> </td>
 <td></td>
 </tr>
-
-
-
 <tr>
-
 <td>Storage</td>
 <td></td>
 <td> </td>
 <td>Script </td>
 <td><a href="https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution" target="_blank">Azure Storage Analytics (Preview)</a></td>
 </tr>
-
-
 <tr>
-
 <td>Virtual Machines</td>
 <td>Microsoft.Compute/virtualMachines</td>
 <td>	Extension </td>
 <td>	Extension </td>
 <td></td>
 </tr>
-
-
 <tr>
-
 <td></td>
 <td></td>
 <td> </td>
 <td>Diagnostics </td>
 <td></td>
 </tr>
-
-
 <tr>
-
 <td>Virtual Machines scale sets</td>
 <td>Microsoft.Compute/virtualMachines</td>
 <td>Diagnostics </td>
 <td>Diagnostics </td>
 <td></td>
 </tr>
-
-
 <tr>
-
 <td></td>
 <td>Microsoft.Compute/virtualMachineScaleSets/virtualMachines</td>
 <td> </td>
 <td> </td>
 <td></td>
 </tr>
-
-
 <tr>
-
 <td>Web Server farms</td>
 <td>Microsoft.Web/serverfarms</td>
 <td> </td>
 <td>Diagnostics </td>
 <td></td>
 </tr>
-
-
 <tr>
-
 <td>Web Sites</td>
 <td>Microsoft.Web/sites</td>
 <td> </td>
 <td>Diagnostics </td>
 <td></td>
 </tr>
-
-
 <tr>
-
 <td></td>
 <td></td>
-<td>Microsoft.Web/sites/slots	 </td>
-<td> </td>
+<td>Microsoft.Web/sites/slots	</td>
+<td></td>
 <td></td>
 </tr>
-
 </table>
-
-
 
 
 # 4.0 Log integration with on-premises Security Information and Event Management (SIEM) systems
