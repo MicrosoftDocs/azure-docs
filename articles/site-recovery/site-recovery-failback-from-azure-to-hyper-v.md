@@ -17,7 +17,7 @@ ms.date: 2/15/2017
 ms.author: ruturajd
 
 ---
-# Failback in Site Recovery
+# Failback in Site Recovery for Hyper-V virtual machines
 This article describes how to failback virtual machines protected by Site Recovery. 
 
 ## Prerequisites
