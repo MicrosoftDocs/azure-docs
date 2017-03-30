@@ -54,8 +54,8 @@ The features listed below are capabilities you can review to provide the assuran
 
     <th><a href="https://www.microsoft.com/en-us/trustcenter/Security/default.aspx" target="_blank">Secure Platform</a></th>
     <td><a href="https://www.microsoft.com/en-us/sdl/" target="_blank">Security Development Cycle,Internal audits </a></td>
-    <td><a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiwsOCpganRAhWqxVQKHUdiDsMQFghAMAE&url=https%3A%2F%2Fdownloads.cloudsecurityalliance.org%2Fstar%2Fself-assessment%2FStandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx&usg=AFQjCNEYvBky4zNeDQPN6YJGPFRZA7eeZg&sig2=2kkw1lOCP_kzLzgE9RS2Tg&bvm=bv.142059868,d.amc" target="_blank"> Mandatory Security training, back ground checks </a></td>
-    <td><a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiwsOCpganRAhWqxVQKHUdiDsMQFghAMAE&url=https%3A%2F%2Fdownloads.cloudsecurityalliance.org%2Fstar%2Fself-assessment%2FStandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx&usg=AFQjCNEYvBky4zNeDQPN6YJGPFRZA7eeZg&sig2=2kkw1lOCP_kzLzgE9RS2Tg&bvm=bv.142059868,d.amc" target="_blank">Penetration testing</a>,
+    <td> Mandatory Security training, back ground checks</td>
+    <td>Penetration testing,
     <a href="https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagemen" target="_blank">intrusion detection ,DDoS</a>,
     <a href="https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging" target="_blank">Audits and logging</a></td>
     <td><a href="https://www.microsoft.com/en-us/cloud-platform/global-datacenters" target="_blank">State of art datacenter </a>,
@@ -70,38 +70,6 @@ The features listed below are capabilities you can review to provide the assuran
   
 
 
-  <tr>
-
-    <th><a href="https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx" target="_blank">Privacy & Controls</a> </th>
-    <td><a href="https://www.microsoft.com/en-us/trustcenter/Privacy/You-own-your-data" target="_blank">Manage your data all the time</a></td>
-    <td><a href="https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located" target="_blank"> Control on data location </a></td>
-    <td><a href="https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms" target="_blank">Provide data access on your terms</a></td>
-    <td><a href="https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data" target="_blank">Responding to law enforcement</a></td>
-    <td><a href="https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards" target="_blank">Stringent privacy standards</a></td>
-
-  </tr>
-
-  <tr>
-
-    <th><a href="https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx" target="_blank">Compliance</a> </th>
-    <td><a href="https://www.microsoft.com/en-us/trustcenter/default.aspx" target="_blank">Trust Center</a></td>
-    <td><a href="https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub" target="_blank"> Common Controls Hub </a></td>
-    <td><a href="https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist" target="_blank">The Cloud Services Due Diligence Checklist</a></td>
-    <td><a href="https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx" target="_blank">Compliance by service, location & Industry</a></td>
-    <td><a href="" target="_blank"></a></td>
-
-  </tr>
-
-  <tr>
-
-    <th><a href="https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx" target="_blank">Transparency</a> </th>
-    <td><a href="(https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx" target="_blank">How Microsoft secures customer data in Azure services</a></td>
-    <td><a href="http://azuredatacentermap.azurewebsites.net/" target="_blank"> How Microsoft manage data location in Azure services</a></td>
-    <td><a href="https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms" target="_blank">Who in Microsoft can access your data on what terms</a></td>
-    <td><a href="https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data" target="_blank">How Microsoft respond to request for your data from Govt.</a></td>
-    <td><a href="(https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx" target="_blank">Review certification for Azure services, Transparency hub</a></td>
-
-  </tr>
 
 
 </table>
