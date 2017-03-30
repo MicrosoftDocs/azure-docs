@@ -570,7 +570,7 @@ For customers interested in storing their audit events for longer retention peri
 ## 2.4 Virtual Machine logs using Azure Diagnostics
 [Azure Diagnostics](https://docs.microsoft.com/en-us/azure/azure-diagnostics) is the capability within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from a number of different sources. Currently supported are [Azure Cloud Service Web and Worker Roles](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-choose-me), [Azure Virtual Machines](https://azure.microsoft.com/en-us/documentation/learning-paths/virtual-machines/) running Microsoft Windows and Service Fabric.
 
-<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig3.png" width ="350" height="300" alt ="" align ="right">
+<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig3.png" width ="300" height="280" alt ="" align ="right">
 
  You can enable Azure Diagnostic on a virtual machine using following:
 
@@ -1078,7 +1078,7 @@ There are four different ways of [collecting logs and metrics for Azure services
 # 4.0 Log integration with on-premises Security Information and Event Management (SIEM) systems
 [Azure log integration](https://www.microsoft.com/download/details.aspx?id=53324) enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems.
 
-<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig9.png" width ="350" height="080" alt ="" align ="right">
+<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig9.png" width ="400" height="280" alt ="" align ="right">
 
 Azure log integration collects Azure Diagnostics from your Windows (WAD) virtual machines, Azure Activity Logs, Azure Security Center alerts and Azure Resource Provider logs. This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events.
 
