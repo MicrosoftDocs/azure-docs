@@ -27,13 +27,13 @@ from your logic app. Learn more about [Azure Event Hubs](../event-hubs/event-hub
 
 ## Requirements
 
-* You have to have an existing [Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md) 
+* You have to have an [Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md) 
 in Azure. Learn 
-[how to create your Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md). 
+[how to create an Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md). 
 
 * To use [any connector](https://docs.microsoft.com/azure/connectors/apis-list) 
-in your logic app workflow, you have to create a logic app. Learn 
-[how to create a basic logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+in your logic app, you have to create a logic app first. Learn 
+[how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 <a name="permissions-connection-string"></a>
 ## Check Event Hubs namespace permissions and find the connection string
@@ -43,17 +43,17 @@ you have to create a [*connection*](./connectors-overview.md)
 between your logic app and the service, if you haven't already. 
 This connection authorizes your logic app to access data.
 For your logic app to access your Event Hub, 
-you have to have **Manage** permissions and the connection string for your Event Hubs namespace.
+you have to have **Manage** permissions and the 
+connection string for your Event Hubs namespace.
 
-To check your permissions and find the connection string, 
-follow these steps in the Azure portal.
+To check your permissions and get the connection string, 
+follow these steps.
 
 1.  Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
 
 2.  Go to your Event Hubs *namespace*, not the specific Event Hub. 
-Check that you have **Manage** permissions for that namespace. 
 On the namespace blade, under **Settings**, choose **Shared access policies**, 
-and check your **Claims** permissions.
+and under **Claims**, check that you have **Manage** permissions for that namespace.
 
     ![Manage permissions for your Event Hub namespace](./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png)
 
