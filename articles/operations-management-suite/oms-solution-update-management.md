@@ -13,29 +13,55 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 03/29/2017
 ms.author: magoedte
 
 ---
 # Update Management solution in OMS
 The Update Management solution in OMS allows you to manage updates for your Windows and Linux computers.  You can quickly assess the status of available updates on all agent computers and initiate the process of installing required updates for servers. 
 
+##Solution components
+
+Computers managed by OMS use the following for performing assessment and update deployments: 
+
+* OMS agent for Windows or Linux
+* PowerShell Desired State Configuration (DSC) for Linux 
+* Automation Hybrid Runbook Worker 
+* Microsoft Update or Windows Server Update Services
+
+The following diagrams shows a conceptual view of the behavior and data flow with how the solution assesses and applies updates to managed Windows Server and Linux computers.    
+
+#### Windows Server
+![Windows Server update management process flow](media/oms-solution-update-management/update-mgmt-windows-updateworkflow.png)
+
+#### Linux
+![Linux update management process flow](media/oms-solution-update-management/update-mgmt-linux-updateworkflow.png)
+
+After the Hybrid Runbook Worker on the managed computer starts a scan for update compliance, the OMS agent forwards the information in bulk to OMS. The compliance information is then processed and summarized in the dashboards included in the solution or searchable using user-defined or pre-defiend queries.  The solution reports how up-to-date the computer is based on what source you are configured to synchronize with.  If the Windows computer is configured to report to WSUS, depending on when WSUS last synchronized with Microsoft Update, the results may differ from what Microsoft Updates shows.  The same for Linux computers that are configured to report to a local repo versus a public repo.   
+
+You can deploy and install software updates on computers that require the updates by creating a scheduled deployment.  Updates classified as *Optional* are not included in the deployment scope for Windows computers, only required updates.  The scheduled deployment defines what target computers will receive the applicable updates, either by explicitly specifying computers or selecting a [computer group](..log-analytics/log-analytics-computer-groups.md) that is based off of log searches of a particular set of computers.  You also specify a schedule to approve and designate a period of time when updates are allowed to be installed within.  Updates are installed by runbooks in Azure Automation.  You cannot view these runbooks, and they don’t require any configuration.  When an Update Deployment is created, it creates a schedule that starts a master update runbook at the specified time for the included computers.  This master runbook starts a child runbook on each agent that performs installation of required updates.       
+
+At the date and time specified in the update deployment, the target computers executes the deployment in parallel.  A scan is first performed to verify the updates are still required and installs them.  It is important to note for WSUS client computers, if the updates are not approved in WSUS, the update deployment will fail.  The results of the applied updates are forwarded to OMS to be processed and summarized in the dashboards or by the searching the events.     
+
 ## Prerequisites
-* The solution only supports performing update assessments against Windows Server 2008 and higher, and update deployments against Windows Server 2012 and higher.  Server Core and Nano Server installation options are not supported.
+* The solution supports performing update assessments against Windows Server 2008 and higher, and update deployments against Windows Server 2012 and higher.  Server Core and Nano Server installation options are not supported.
 * Windows client operating systems are not supported.  
 * Windows agents must either be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update.  
   
-  > [!NOTE]
-  > The Windows agent cannot be managed concurrently by System Center Configuration Manager.  
-  > 
-  > 
+    > [!NOTE]
+    > The Windows agent cannot be managed concurrently by System Center Configuration Manager.  
+    >
+* Ubuntu 12.04 LTS and newer x86/x64 (verified on 16.04)
+* Red Hat Enterprise 5 and newer x86/x64 (verified on 7.3) 
 * Linux agents must have access to an update repository.  The OMS Agent for Linux can be downloaded from [GitHub](https://github.com/microsoft/oms-agent-for-linux). 
 
 ## Configuration
-Perform the following steps to add the Update Management solution to your OMS workspace and add Linux agents. Windows agents are added automatically with no additional configuration.
+Perform the following steps to add the Update Management solution to your OMS workspace and add Linux agents. Windows agents are added automatically with no additional configuration. 
+
+There are three different ways you can add this solution; from Azure Marketplace in the Azure portal by selecting either the Automation & Control offering or Update Management solution, or from the OMS Solutions Gallery in your OMS workspace.  If you choose to add the solution by selecting the Automation & Control offering, on the **Create new Solution** blade, confirm you want to install the other pre-selected recommended solutions. 
 
 > [!NOTE]
-> If you enable this solution, any Windows computer connected to your OMS workspace will automatically be configured as a Hybrid Runbook Worker in order to support runbooks that are included in this solution.  However, it is not registered with any Hybrid Worker groups you may already have defined in your Automation account.  It can be added to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you are using the same account for both the solution and Hybrid Runbook Worker group membership.  This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.   
+> After you enable this solution, any Windows computer connected to your OMS workspace are automatically configured as a Hybrid Runbook Worker in order to support the runbooks included in this solution.  However, it is not registered with any Hybrid Worker groups you  already have defined in your Automation account.  It can be added to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you are using the same account for both the solution and Hybrid Runbook Worker group membership.  This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook  Worker.   
 
 1. Add the Update Management solution to your OMS workspace using the process described in [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) from the Solutions Gallery.  
 2. In the OMS portal, select **Settings** and then **Connected Sources**.  Note the **Workspace ID** and either the **Primary Key** or **Secondary Key**.
@@ -46,10 +72,28 @@ Perform the following steps to add the Update Management solution to your OMS wo
         cd ~
         wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID>  -s <PrimaryKey> -d opinsights.azure.com 
 
-   b. To remove the agent, use the process described in the section [Uninstalling the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#uninstalling-the-oms-agent-for-linux).  
+   b. Copy and the following lines to `/etc/sudoers.d/omsagent` from the [installer/conf/sudoers](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/installer/conf/sudoers) configuration file on GitHub. 
+   > [!NOTE]
+   > For supported Ubuntu distros, you must run the following command for update data to start reporting: `sudo service omsagent restart`. 
+   >  
+   c. To remove the agent, use the process described in the section [Uninstalling the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#uninstalling-the-oms-agent-for-linux).  
+
+### Confirm OMS agents and Operations Manager management group connected to OMS
+
+To confirm the OMS Agent for Linux and Windows on directly connected computers are communicating with OMS, after a few minutes you can run the following log search:
+
+* Linux - `Type=Heartbeat OSType=Linux | top 500000 | dedup SourceComputerId | Sort Computer | display Table`.  
+
+* Windows - `Type=Heartbeat OSType=Windows | top 500000 | dedup SourceComputerId | Sort Computer | display Table`
+
+Alternatively, you can review your configuration on a Windows computer by opening Microsoft Monitoring Agent in Control Panel and on the **Azure Log Analytics (OMS)** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.   
+
+Newly added Linux agents will show as **Updated** after an assessment has been performed, and this process can take up to 6 hours. 
+
+To confirm an Operations Manager management group is communicating with OMS, see [Validate Operations Manager Integration with OMS](..log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
 ## Management packs
-If your System Center Operations Manager management group is connected to your OMS workspace, then the following management packs will be installed in Operations Manager when you add this solution. There is no configuration or maintenance of these management packs required. 
+If your System Center Operations Manager management group is connected to your OMS workspace, then the following management packs will be installed in Operations Manager after you add this solution. There is no configuration or maintenance of these management packs required. 
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -64,7 +108,7 @@ The following table describes the connected sources that are supported by this s
 | Connected Source | Supported | Description |
 | --- | --- | --- |
 | Windows agents |Yes |The solution collects information about system updates from Windows agents and initiates installation of required updates. |
-| Linux agents |Yes |The solution collects information about system updates from Linux agents. |
+| Linux agents |Yes |The solution collects information about system updates from Linux agents and initiates installation of required updates on supported distros. |
 | Operations Manager management group |Yes |The solution collects information about system updates from agents in a connected management group.<br>A direct connection from the Operations Manager agent to Log Analytics is not required. Data is forwarded from the management group to the OMS repository. |
 | Azure storage account |No |Azure storage does not include information about system updates. |
 
@@ -78,29 +122,17 @@ When you add the Update Management solution to your OMS workspace, the **Update 
 ![Update Management Summary Tile](media/oms-solution-update-management/update-management-summary-tile.png)  
 
 ## Viewing Update Assessments
-Click on the **Update Management** tile to open the **Update Management** dashboard. The dashboard includes the columns in the following table. Each column lists up to ten items matching that column's criteria for the specified scope and time range. You can run a log search that returns all records by clicking **See all** at the bottom of the column or by clicking the column header.
+Click on the **Update Management** tile to open the **Update Management** dashboard.<br><br> ![Update Management Summary Dashboard](./media/oms-solution-update-management/update-management-dashboard.png)<br> 
 
-| Column | Description |
-| --- | --- |
-| **Computers Missing Updates** | |
-| Critical or Security Updates |Lists the top ten computers that are missing updates sorted by the number of updates they're missing. Click on a computer name to run a log search returning all update records for that computer. |
-| Critical or Security Updates older than 30 days |Identifies number of computers that are missing critical or security updates grouped by the length of time since the update was published. Click on one of the entries to run a log search returning all missing and critical updates. |
-| **Required Missing Updates** | |
-| Critical or Security Updates |Lists classifications of updates that computers are missing sorted by the number of computers missing updates in the category. Click a classification to run a log search returning all update records for that classification. |
-| **Update Deployments** | |
-| Update Deployments |Number of currently scheduled update deployments and the duration until the next scheduled run.  Click on the tile to view schedules, currently running, and completed updates or to schedule a new deployment. |
+This dashboard provides a detailed breakdown of update status categorized by type of operating system and update classification - critical, security, or other (such as a definition update). The **Update Deployments** tile when selected, redirects you to the Update Deployments page where you can view schedules, deployments currently running, completed deployments, or schedule a new deployment.  
 
-<br>  
-![Update Management Summary Dashboard](./media/oms-solution-update-management/update-management-deployment-dashboard.png)<br>  
-<br>
-![Update Management Dashboard Computer View](./media/oms-solution-update-management/update-management-assessment-computer-view.png)<br>  
-<br>
-![Update Management Dashboard Package View](./media/oms-solution-update-management/update-management-assessment-package-view.png)<br>  
+You can run a log search that returns all records by clicking on the specific tile or to run a query of a particular category and pre-defined criteria , select one from the list  available under the **Common Update Queries** column.    
 
 ## Installing updates
-Once updates have been assessed for all of the Windows computers in your environment, you can have required updates installed by creating an *Update Deployment*.  An Update Deployment is a scheduled installation of required updates for one or more Windows computers.  You specify the date and time for the deployment in addition to a computer or group of computers that should be included.  
+Once updates have been assessed for all of the Linux and Windows computers in your workspace, you can have required updates installed by creating an *Update Deployment*.  An Update Deployment is a scheduled installation of required updates for one or more  computers.  You specify the date and time for the deployment in addition to a computer or group of computers that should be included in the scope of a deployment.  To learn more about computer groups, see [Computer groups in Log Analytics](../log-anlaytics/log-analytics-computer-groups.md).  
 
-Updates are installed by runbooks in Azure Automation.  You cannot view these runbooks, and they don’t require any configuration.  When an Update Deployment is created, it creates a schedule in that starts a master update runbook at the specified time for the included computers.  This master runbook starts a child runbook on each Windows agent that performs installation of required updates.  
+> [!NOTE]
+> Windows VMs deployed from the Azure Marketplace by default are set to receive automatic updates from Windows Update Service.  This behavior does not change after adding this solution or Windows VMs to your workspace.  If you do not actively managed updates with this solution, the default behavior (automatically apply updates) will apply.  
 
 For virtual machines created from the on-demand Red Hat Enterprise Linux (RHEL) images available in Azure Marketplace, they are registered to access the [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) deployed in Azure.  Any other Linux distribution must be updated from the distros online file repository following their supported methods.  
 
@@ -112,23 +144,25 @@ The properties displayed for each Update Deployment are described in the followi
 | Property | Description |
 | --- | --- |
 | Name |Name of the Update Deployment. |
-| Schedule |Type of schedule.  *OneTime* is currently the only possible value. |
+| Schedule |Type of schedule.  Options available are *One Time*, *Recurring Weekly*, or *Recurring Monthly*. |
 | Start Time |Date and time that the Update Deployment is scheduled to start. |
 | Duration |Number of minutes the Update Deployment is allowed to run.  If all updates are not installed within this duration, then the remaining updates must wait until the next Update Deployment. |
-| Servers |Number of computers affected by the Update Deployment. |
-| Status |Current status of the Update Deployment.<br><br>Possible values are:<br>-    Not Started<br>- Running<br>- Finished |
+| Servers |Number of computers affected by the Update Deployment.  |
+| Status |Current status of the Update Deployment.<br><br>Possible values are:<br>- Not Started<br>- Running<br>- Finished |
 
-Click on an Update Deployment to view its detail screen which includes the columns in the following table.  These columns will not be populated if the Update Deployment has not yet started.<br>
+Click on an Update Deployment to view its detail screen which includes the columns in the following table.  These columns will not be populated if the Update Deployment has not yet started.<br><br> !
 
 | Column | Description |
 | --- | --- |
-| **Computer Results** | |
-| Completed Successfully |Lists the number of computers in the Update Deployment by status.  Click on a status to run a log search returning all update records with that status for the Update Deployment. |
+| **Computers View** | |
+| Windows Computers |Lists the number of Windows computers in the Update Deployment by status.  Click on a status to run a log search returning all update records with that status for the Update Deployment. |
+| Linux Computers |Lists the number of Linux computers in the Update Deployment by status.  Click on a status to run a log search returning all update records with that status for the Update Deployment. |
 | Computer Installation Status |Lists the computers involved in the Update Deployment and the percentage of updates that successfully installed. Click on one of the entries to run a log search returning all missing and critical updates. |
-| **Update Instance Results** | |
-| Instance Installation Status |Lists classifications of updates that computers are missing sorted by the number of computers missing updates in the category. Click a computer to run a log search returning all update records for that computer. |
+| **Updates View** | |
+| Windows Updates |Lists Windows updates included in the Update Deployment and their installation status per each update.  Select an update to run a log search returning all update records for that specific update or click on the status to run a log search returning all update records for the deployment. | 
+| Linux Updates |Lists Linux updates included in the Update Deployment and their installation status per each update.  Select an update to run a log search returning all update records for that specific update or click on the status to run a log search returning all update records for the deployment. | 
 
-<br><br> ![Overview of Update Deployment Results](./media/oms-solution-update-management/update-la-updaterunresults-page.png)
+<br> ![Overview of Update Deployment Results](./media/oms-solution-update-management/update-management-deploymentresults-dashboard.png)
 
 ### Creating an Update Deployment
 Create a new Update Deployment by clicking the **Add** button at the top of the screen to open the **New Update Deployment** page.  You must provide values for the properties in the following table.
@@ -137,7 +171,8 @@ Create a new Update Deployment by clicking the **Add** button at the top of the 
 | --- | --- |
 | Name |Unique name to identify the update deployment. |
 | Time Zone |Time zone to use for the start time. |
-| Start Time |Date and time to start the update deployment. |
+| Schedule Type | Type of schedule.  Options available are *One Time*, *Recurring Weekly*, or *Recurring Monthly*.  
+| Start Time |Date and time to start the update deployment. **Note:** The soonest a deployment can run is 30 minutes from current time if you need to deploy immediately. |
 | Duration |Number of minutes the Update Deployment is allowed to run.  If all updates are not installed within this duration, then the remaining updates must wait until the next Update Deployment. |
 | Computers |Names of computers or computer groups to include in the Update Deployment.  Select one or more entries from the drop down list. |
 
@@ -157,7 +192,7 @@ A record with a type of **Update** is created for each update that is either ins
 | Property | Description |
 | --- | --- |
 | Type |*Update* |
-| SourceSystem |The source that approved installation of the update.<br>Possible values are:<br>- Microsoft Update<br>-    Windows Update<br>-    SCCM<br>- Linux Servers (Fetched from Package Managers) |
+| SourceSystem |The source that approved installation of the update.<br>Possible values are:<br>- Microsoft Update<br>- Windows Update<br>- SCCM<br>- Linux Servers (Fetched from Package Managers) |
 | Approved |Specifies whether the update has been approved for installation.<br> For Linux servers this is currently optional as patching is not managed by OMS. |
 | Classification for Windows |Classification of the update.<br>Possible values are:<br>-    Applications<br>- Critical Updates<br>- Definition Updates<br>- Feature Packs<br>- Security Updates<br>- Service Packs<br>- Update Rollups<br>- Updates |
 | Classification for Linux |Cassification of the update.<br>Possible values are:<br>-Critical Updates<br>- Security Updates<br>- Other Updates |
