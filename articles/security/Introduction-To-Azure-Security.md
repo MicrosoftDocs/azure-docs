@@ -62,38 +62,13 @@ The features listed below are capabilities you can review to provide the assuran
   
   <tr>
    <th><a href="https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx" target="_blank">Transparency</a></th>
-    <td><a href="(https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx" target="_blank">How Microsoft secures customer data in Azure services</a></td>
+    <td><a href="https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx" target="_blank">How Microsoft secures customer data in Azure services</a></td>
     <td><a href="http://azuredatacentermap.azurewebsites.net/" target="_blank"> How Microsoft manage data location in Azure services</a></td>
    <td><a href="https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms" target="_blank">Who in Microsoft can access your data on what terms</a></td>
     <td><a href="https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data" target="_blank">How Microsoft respond to request for your data from Govt.</a></td>
-    <td><a href="(https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx" target="_blank">Review certification for Azure services,Transparency hub</a></td>
+    <td><a href="https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx" target="_blank">Review certification for Azure services,Transparency hub</a></td>
   </tr>
     
-</table>
-
-
-
-
-
-<table style="width:100%">
-  <tr>
-
-    <th><a href="https://www.microsoft.com/en-us/trustcenter/Security/default.aspx" target="_blank">Secure Platform</a></th>
-    <td><a href="https://www.microsoft.com/en-us/sdl/" target="_blank">Security Development Cycle,Internal audits </a></td>
-    <td> Mandatory Security training, back ground checks</td>
-    <td>Penetration testing,
-    <a href="https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagemen" target="_blank">intrusion detection ,DDoS</a>,
-    <a href="https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging" target="_blank">Audits and logging</a></td>
-    <td><a href="https://www.microsoft.com/en-us/cloud-platform/global-datacenters" target="_blank">State of art datacenter </a>,
-<a href="https://docs.microsoft.com/en-us/azure/security/security-network-overview" target="_blank">Secure Network, physical security</a>
-    </td>
-
-    <td><a href="http://aka.ms/SecurityResponsepaper" target="_blank">Security Incident response </a>,
-<a href="http://aka.ms/sharedresponsibility" target="_blank">Shared Responsibility</a>
-
-    </td>
-  </tr>
-  
 </table>
 
 ## 2.2 Security Features Offered by Azure to Secure Data and Application
