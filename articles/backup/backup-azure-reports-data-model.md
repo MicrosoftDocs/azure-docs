@@ -24,10 +24,10 @@ This article describes Power BI data model used for creating Azure Backup report
 ## Creating new reports in Power BI
 Power BI provides customization features using which you can [create reports using data model](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/).
 
-## Using data model for Azure Backup
+## Using Azure Backup data model
 You can use the following fields provided as part of data model to create new reports and customize existing reports.
 
-### Alert Table
+### Alert
 This table provides basic fields and aggregations over various alert related fields.
 
 | Field | Data Type | Description |
@@ -40,7 +40,26 @@ This table provides basic fields and aggregations over various alert related fie
 | AlertStatus |String |Current status of the alert e.g. Active |
 | AlertType |String |Type of the generated alert e.g. Backup |
 | AlertUniqueId |String |Unique Id of the generated alert |
-| AsOnDateTime |Date |Time period to filter alerts related fields |
+| AsOnDateTime |Time |Latest refresh time for the selected row |
 | AvgResolutionTimeInMinsForAlertsCreatedInPeriod |Time |Average time it takes to resolve an alert in minutes for selected time period |
-| State |String |Current state of the alert object e.g. Active |
+| State |String |Current state of the alert object e.g. Active, Deleted |
 | VaultUniqueId |String |Unique Id of the vault for which alert is generated |
+
+### Backup Item
+This table provides basic fields and aggregations over various backup item related fields.
+
+| Field | Data Type | Description |
+| --- | --- | --- |
+| #BackupItems |Number |Number of backup items |
+| #UnprotectedBackupItems |Number |Number of backup items stopped for protection or with backups not started|
+| AsOnDateTime |Time |Latest refresh time for the selected row |
+| BackupItemId |String |Id of backup item |
+| BackupItemName |String |Name of backup item |
+| BackupItemType |String |Type of backup item e.g. VM, FileFolder |
+| BackupItemUniqueId |String |Unique Id to identify backup item |
+| LastBackupDateTime |Time |Time of last backup for selected backup item |
+| LastBackupState |String |State of last backup for selected backup item e.g. Successful, Failed |
+| LastSuccessfulBackupDateTime |Time |Time of last successful backup for selected backup item |
+| ProtectedServerName |String |Name of protected server to which backup item belongs |
+| ProtectionState |String |Current protection state of the backup item e.g. Protected, ProtectionStopped |
+| State |String |Current state of the backup item object e.g. Active, Deleted |
