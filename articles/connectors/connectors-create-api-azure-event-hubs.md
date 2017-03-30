@@ -83,10 +83,10 @@ enter the connection string string that you copied, and choose **Create**.
 
     ![Event Hubs namespace connection created](./media/connectors-create-api-azure-event-hubs/event-hubs-connection-created.png)
 
-## Start a workflow when your Event Hub receives new events
+## Start workflow when your Event Hub receives new events
 
 A [*trigger*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) 
-is an event that starts a logic app workflow. To start a workflow
+is an event that starts a workflow in your logic app. To start a workflow
 when new events are sent to your Event Hub, follow these steps for adding 
 the trigger that detects this event, if you haven't already.
 
