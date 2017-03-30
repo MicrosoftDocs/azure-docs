@@ -47,7 +47,7 @@ To convert your training experiment to a predictive experiment, click **Run** at
 
 ![Convert to scoring experiment](./media/machine-learning-publish-a-machine-learning-web-service/figure-1.png)
 
-For more information on how to perform this conversion, see [Convert a Machine Learning training experiment to a predictive experiment](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+For more information on how to perform this conversion, see [How to prepare your model for deployment in Azure Machine Learning Studio](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 
 The following steps describe deploying a predictive experiment as a New web service. You can also deploy the experiment as Classic web service.
 
