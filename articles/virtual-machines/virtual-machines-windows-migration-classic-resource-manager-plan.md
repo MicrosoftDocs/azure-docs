@@ -68,7 +68,7 @@ Successful customers have detailed plans where the above questions are discussed
 
 **Replicate your enviornment and do a test migration**
   > [!NOTE]
-  > Exact replication of your existing environment is executed by using a community-contributed tool which is not officially supported by Microsoft Support. Therefore, this it is **optional** but it is the best way to find out issues without touching your production environments. If using a community-contributed tool is not an option, then read about the Validate/Prepare/Abort Dry Run recommendation below.
+  > Exact replication of your existing environment is executed by using a community-contributed tool which is not officially supported by Microsoft Support. Therefore, it is an **optional** step but it is the best way to find out issues without touching your production environments. If using a community-contributed tool is not an option, then read about the Validate/Prepare/Abort Dry Run recommendation below.
   >
   
   Conducting a lab test of your exact scenario (compute, networking, and storage) is the best way to ensure a smooth migration. This will help ensure:
@@ -95,8 +95,8 @@ The following were issues discovered in many of the larger migrations. This is n
   - **Remediation Option 1**. If you know your VMs will not have outbound internet access, a working DNS service, and working Azure agents on the VMs, then uninstall all VM extensions as part of the migration before Prepare, then reinstall the VM Extensions after migration. 
   - **Remediation Option 2**. If VM extensions are too big of a hurdle, another option is to shutdown/deallocate all VMs before migration. Migrate the deallocated VMs, then restart them on the Azure Resource Manager side. The benefit here is that VM extensions will migrate. The downside is that all public facing Virtual IPs will be lost (this may be a non-starter), and obviously the VMs will shut down causing a much greater impact on working applications.
 
-  > [!NOTE] 
-  > If an Azure Security Center policy is configured against the running VMs being migrated, the security policy needs to be stopped before removing extensions, otherwise the security monitoring extension will be reinstalled automatically on the VM after removing it.
+    > [!NOTE] 
+    > If an Azure Security Center policy is configured against the running VMs being migrated, the security policy needs to be stopped before removing extensions, otherwise the security monitoring extension will be reinstalled automatically on the VM after removing it.
   
 - **Availability Sets** - For a virtual network (vNet) to be migrated to Azure Resource Manager, the Classic deployment (i.e. cloud service) contained VMs must all be in one availability set, or the VMs must all not be in any availability set. Having more than one availability set in the cloud service is not compatible with Azure Resource Manager and will halt migration.  Additionally, there cannot be some VMs in an availability set, and some VMs not in an availability set. To resolve this, you will need to remediate or reshuffle your cloud service.  Plan accordingly as this might be time consuming. 
 
@@ -108,13 +108,13 @@ The following were issues discovered in many of the larger migrations. This is n
     > These limits need to be raised in the same region as your current enviornment to be migrated.
     >
 
-    1. Network Interfaces
-    2. Load Balancers
-    3. Public IPs
-    4. Static Public IPs
-    5. Cores
-    6. Network Security Groups
-    7. Route Tables
+    - Network Interfaces
+    - Load Balancers
+    - Public IPs
+    - Static Public IPs
+    - Cores
+    - Network Security Groups
+    - Route Tables
 
 - **Provisioning Timed Out VM Status** - If any VM has the status of `provisioning timed out`, this needs to be resolved pre-migration. The only way to do this is with downtime by deprovisioning/reprovisioning the VM (delete it, keep the disk, and recreate the VM). 
 
@@ -137,7 +137,7 @@ For the real migrations, you might want to consider:
 
 1. Plan and schedule the virtual network (smallest unit of migration) with increasing priority.  Do the simple virtual networks first, and progress with the more complicated virtual networks.
 2. Most customers will have non-production and production environments.  Schedule production last.
-3. *(OPTIONAL)* Schedule a maintenance downtime with plenty of buffer.
+3. **(OPTIONAL)** Schedule a maintenance downtime with plenty of buffer in case unexpected issues arise.
 4. Communicate with and align with your support teams in case issues arise.
 
 ### Patterns of success
@@ -156,19 +156,19 @@ Now that you are in Azure Resource Manager, maximize the platform.  Read the [ov
 
 Things to consider:
 
-1. Bundling the migration with other activities.  Most customers opt for an application maintenance window.  If so, you might want to use this downtime to enable other Azure Resource Manager capabilities like encryption and migration to Managed Disks.
-2. Revisit the technical and business reasons for Azure Resource Manager; enable the additional services available only on Azure Resource Manager that apply to your environment.
-3. Modernize your environment with PaaS services.
+- Bundling the migration with other activities.  Most customers opt for an application maintenance window.  If so, you might want to use this downtime to enable other Azure Resource Manager capabilities like encryption and migration to Managed Disks.
+- Revisit the technical and business reasons for Azure Resource Manager; enable the additional services available only on Azure Resource Manager that apply to your environment.
+- Modernize your environment with PaaS services.
 
 ### Patterns of success
 
 Be purposeful on what services you now want to enable in Azure Resource Manager.  Many customers find the below compelling for their Azure environments:
 
-1. [Role Based Access Control](../azure-resource-manager/resource-group-overview.md#access-control).
-2. [Azure Resource Manager templates for easier and more controlled deployment](../azure-resource-manager/resource-group-overview.md#template-deployment).
-3. [Tags](../azure-resource-manager/resource-group-using-tags.md).
-4. [Activity Control](../azure-resource-manager/resource-group-audit.md)
-5. [Resource Policies](../azure-resource-manager/resource-manager-policy.md)
+- [Role Based Access Control](../azure-resource-manager/resource-group-overview.md#access-control).
+- [Azure Resource Manager templates for easier and more controlled deployment](../azure-resource-manager/resource-group-overview.md#template-deployment).
+- [Tags](../azure-resource-manager/resource-group-using-tags.md).
+- [Activity Control](../azure-resource-manager/resource-group-audit.md)
+- [Resource Policies](../azure-resource-manager/resource-manager-policy.md)
 
 ### Pitfalls to avoid
 
