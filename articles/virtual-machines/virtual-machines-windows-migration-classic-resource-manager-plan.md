@@ -22,7 +22,8 @@ ms.author: kasing
 # Planning for migration of IaaS resources from classic to Azure Resource Manager
 While Azure Resource Manager offers a lot of amazing features, it is critical to plan out your migration journey to make sure things go smoothly. Spending time on planning will ensure that you do not encounter issues while executing migration activities. 
 
-> [!NOTE] The following guidance was heavily contributed to by the Azure Customer Advisory team and Cloud Solution architects working with customers on migrating large enviornments. As such this document will continue to get updated as new patterns of success emerge, so check back from time to time to see if there are any new recommendations.
+> [!NOTE] 
+> The following guidance was heavily contributed to by the Azure Customer Advisory team and Cloud Solution architects working with customers on migrating large enviornments. As such this document will continue to get updated as new patterns of success emerge, so check back from time to time to see if there are any new recommendations.
 
 There are four general phases of the migration journey:
 ![Migration phases](media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
@@ -36,7 +37,7 @@ Depending on your technical requirements size, geographies and operational pract
 1. Why is Azure Resource Manager desired for your organization?  What are the business reasons for a migration?
 2. What are the technical reasons for Azure Resource Manager?  What (if any) additional Azure services would you like to leverage?
 3. Which application (or sets of virtual machines) is included in the migration?
-4. Which scenarios are supported with the migration API?  Review the [unsupported features and configurations](virtual-machines-windows-migration-classic-resource-manager-overview.md#unsupported-features-and-configurations?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+4. Which scenarios are supported with the migration API?  Review the [unsupported features and configurations](virtual-machines-windows-migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#unsupported-features-and-configurations).
 5. Will your operational teams now support applications/VMs in both Classic and Azure Resource Manager?
 6. How (if at all) does Azure Resource Manager change your VM deployment, management, monitoring, and reporting processes?  Do your deployment scripts need to be updated?
 7. What is the communications plan to alert stakeholders (end users, application owners, and infrastructure owners)?
@@ -59,7 +60,7 @@ Successful customers have detailed plans where the above questions are discussed
 ### Pitfalls to avoid
 
 - Failure to plan.  The technology steps of this migration are proven and the outcome is predictable.
-- Assumption that the platform supported migration API will account for all scenarios. Read the [unsupported features and configurations](virtual-machines-windows-migration-classic-resource-manager-overview.md#unsupported-features-and-configurations?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to understand what scenarios are supported.
+- Assumption that the platform supported migration API will account for all scenarios. Read the [unsupported features and configurations](virtual-machines-windows-migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#unsupported-features-and-configurations) to understand what scenarios are supported.
 - Not planning potential application outage for end users.  Plan enough buffer to adequately warn end users of potentially unavailable application time.
 
 
@@ -79,7 +80,7 @@ Successful customers have detailed plans where the above questions are discussed
 
 ### Patterns of success
 
-The following were issues discovered in many of the larger migrations. This is not an exhaustive list and you should refer to the [unsupported features and configurations](virtual-machines-windows-migration-classic-resource-manager-overview.md#unsupported-features-and-configurations?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for more detail.  You may or may not encounter these technical issues but if you do solving these before attempting migration will ensure a smoother experience.
+The following were issues discovered in many of the larger migrations. This is not an exhaustive list and you should refer to the [unsupported features and configurations](virtual-machines-windows-migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#unsupported-features-and-configurations) for more detail.  You may or may not encounter these technical issues but if you do solving these before attempting migration will ensure a smoother experience.
 
 - **Do a Validate/Prepare/Abort Dry Run** -  This is perhaps the most important step to ensure Classic to Azure Resource Manager migration success. The migration API has three main steps: Validate, Prepare and Commit. Validate will read the state of your classic environment and return a result of all issues. However, because some issues might exist in the Azure Resource Manager stack, Validate will not catch everything. The next step in migration process, Prepare will help expose those issues. Prepare will move the metadata from Classic to Azure Resource Manager, but will not commit the move, and will not remove or change anything on the Classic side. The dry run involves preparing the migration, then aborting (**not committing**) the migration prepare. The goal of validate/prepare/abort dry run is to see all of the metadata in the Azure Resource Manager stack, examine it (*programmatically or in Portal*), and verify that everything migrates correctly, and work through technical issues.  It will also give you a sense of migration duration so you can plan for downtime accordingly.  A validate/prepare/abort does not cause any user downtime; therefore, it is non-disruptive to application usage.
   - The items below will need to be solved before the dry run, but a dry run test will also safely flush out these preparation steps if they are missed. During enterprise migration, we've found the dry run to be a safe and invaluable way to ensure migration readiness.
@@ -94,7 +95,8 @@ The following were issues discovered in many of the larger migrations. This is n
   - **Remediation Option 1**. If you know your VMs will not have outbound internet access, a working DNS service, and working Azure agents on the VMs, then uninstall all VM extensions as part of the migration before Prepare, then reinstall the VM Extensions after migration. 
   - **Remediation Option 2**. If VM extensions are too big of a hurdle, another option is to shutdown/deallocate all VMs before migration. Migrate the deallocated VMs, then restart them on the Azure Resource Manager side. The benefit here is that VM extensions will migrate. The downside is that all public facing Virtual IPs will be lost (this may be a non-starter), and obviously the VMs will shut down causing a much greater impact on working applications.
 
-  > [!NOTE] If an Azure Security Center policy is configured against the running VMs being migrated, the security policy needs to be stopped before removing extensions, otherwise the security monitoring extension will be reinstalled automatically on the VM after removing it.
+  > [!NOTE] 
+  > If an Azure Security Center policy is configured against the running VMs being migrated, the security policy needs to be stopped before removing extensions, otherwise the security monitoring extension will be reinstalled automatically on the VM after removing it.
   
 - **Availability Sets** - For a virtual network (vNet) to be migrated to Azure Resource Manager, the Classic deployment (i.e. cloud service) contained VMs must all be in one availability set, or the VMs must all not be in any availability set. Having more than one availability set in the cloud service is not compatible with Azure Resource Manager and will halt migration.  Additionally, there cannot be some VMs in an availability set, and some VMs not in an availability set. To resolve this, you will need to remediate or reshuffle your cloud service.  Plan accordingly as this might be time consuming. 
 
