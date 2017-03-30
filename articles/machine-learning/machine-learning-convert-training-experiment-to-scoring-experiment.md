@@ -63,7 +63,7 @@ When you convert this training experiment to a predictive experiment, some of th
 
 * **Prep** - Depending on the user data that will be submitted for scoring, these modules may or may not be necessary to process the incoming data. The **Set Up Web Service** button doesn't touch these - you need to decide how you want to handle them.
   
-    For instance, in this example the sample dataset may have missing values, so a [Clean Missing Data][clean-missing-data] module was included to deal with them. Also, the sample dataset includes columns that are not needed to train the model. So a [Select Columns in Dataset][select-columns] module was included to exclude those extra columns from the data flow. If you know that the data that will be submitted for scoring through the web service will not have missing values, then you can remove the [Clean Missing Data][clean-missing-data] module. However, since the [Select Columns in Dataset][select-columns] module helps define what columns of data you expect from the user, that module needs to remain.
+    For instance, in this example the sample dataset may have missing values, so a [Clean Missing Data][clean-missing-data] module was included to deal with them. Also, the sample dataset includes columns that are not needed to train the model. So a [Select Columns in Dataset][select-columns] module was included to exclude those extra columns from the data flow. If you know that the data that will be submitted for scoring through the web service will not have missing values, then you can remove the [Clean Missing Data][clean-missing-data] module. However, since the [Select Columns in Dataset][select-columns] module helps define the columns of data that the trained model expects, that module needs to remain.
 
 * **Train** - These modules are used to train the model. When you click **Set Up Web Service**, these modules are replaced with a single module that contains the model you trained. This new module is saved in the **Trained Models** section of the module palette.
 
@@ -98,8 +98,6 @@ Our predictive experiment now looks like this:
 
 ![Removing additional module][figure6]
 
-> [!TIP]
-> Notice that we didn't remove the dataset or the [Select Columns in Dataset][select-columns] module. The model in the web service won't use the data in the original dataset, but it does use the metadata defined in the dataset, such as the data type of each column. Similarly, the [Select Columns in Dataset][select-columns] module identifies what columns of data will be used by the model. So both of these modules need to remain in the predictive experiment.
 
 ### Add optional Web Service Parameters
 In some cases, you may want to allow the user of your web service to change the behavior of modules when the service is accessed. *Web Service Parameters* allow you to do this.
