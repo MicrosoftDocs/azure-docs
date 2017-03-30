@@ -27,9 +27,9 @@ from your logic app. Learn more about [Azure Event Hubs](../event-hubs/event-hub
 
 ## Requirements
 
-* You have to have an existing [Event Hubs](https://azure.microsoft.com/services/event-hubs/) 
-namespace and an Event Hub in Azure. Learn 
-[how to create your Event Hubs namespace](../event-hubs/event-hubs-create.md). 
+* You have to have an existing [Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md) 
+in Azure. Learn 
+[how to create your Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md). 
 
 * To use [any connector](https://docs.microsoft.com/azure/connectors/apis-list) 
 in your logic app workflow, you have to create a logic app. Learn 
