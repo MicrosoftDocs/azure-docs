@@ -152,8 +152,12 @@ The built-in capabilities are organized in six (6) functional areas: Operations,
     <a href="https://aka.ms/aad-b2b-collaboration" target="_blank">Azure Active Directory B2B Collaboration </a>,
     <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-azureadjoin-overview/" target="_blank">Azure Active Directory Join </a>
     <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-get-started/" target="_blank">Azure Active Directory Application Proxy</a>
+    
 
     </td>
+    <td><a href="" target="_blank"> </a></td>
+    <td><a href="" target="_blank"> </a></td>
+    <td><a href="" target="_blank"> </a></td>
 
   </tr>
   
