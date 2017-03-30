@@ -23,7 +23,7 @@ ms.author: lbosq
 
 Use [Node.js](https://nodejs.org/en/) to connect to and query an Azure SQL database. This guide will describe how to connect to an Azure SQL database using Node.js and then execute query, insert, update, and delete statements from Windows, Ubuntu Linux, or Mac platforms.
 
-This quick start uses as its starting point the resources created in one of these quick starts:
+This quick start uses as its starting point the resources created in any of these guides:
 
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
