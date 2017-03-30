@@ -22,11 +22,11 @@ You can create Azure File shares using [Azure Portal](https://portal.azure.com/
 * [How to create Azure File share using Powershell](#powershell)
 * [How to create Azure File share using CLI](#cli)
 
-# Prerequisites
+## Prerequisites
  Before you can create an Azure File Share, you will need to [create an Azure Storage Account](storage-create-storage-account.md), unless you already have one. You will need Storage account key if you plan to use Powershell.
 
 <a id="portal"></a>
-# Create file share through the Portal
+## Create file share through the Portal
 1. **Go to Storage Account blade on Azure Portal**
     
     ![Storage Account Blade](media/storage-file/create-file-share-portal1.png)
