@@ -112,13 +112,17 @@ Select this trigger: **When events are available in Event Hub**
     ![Trigger settings for when your Event Hub receives new events](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger.png)
 
 3.  Enter or select the name for the Event Hub that you want to monitor. 
-Or to optionally select a consumer group for reading events, 
-choose **Show advanced options**.
+Select the frequency and interval for how often you want to check the Event Hub.
+
+    > [!TIP]
+    > To optionally select a consumer group for reading events, 
+    > choose **Show advanced options**. 
 
     ![Specify Event Hub or consumer group](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger-details.png)
 
     You've now set up a trigger to start a workflow for your logic app. 
-    When new events are available in the specified Event Hub, 
+    Your logic app checks the specified Event Hub based on the schedule that you set. 
+    If your app finds new events in the Event Hub, 
     the trigger runs other actions or triggers in your logic app.
 
 ## Send events to your Event Hub from your logic app
