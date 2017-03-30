@@ -92,7 +92,7 @@
 ### [Synchronize data from Dynamics to SQL](logic-apps-serverless-dynamics-sql.md)
 ### [B2B/EDI order processing](logic-apps-enterprise-integration-overview.md)
 ## Automate & Deploy
-### [Creating a deployment template](logic-apps-create-deploy-template.md)
+### [Deploy a serverless solution](logic-apps-serverless-deploy.md)
 
 # Reference
 ## [Workflow definition language](logic-apps-workflow-definition-language.md)
