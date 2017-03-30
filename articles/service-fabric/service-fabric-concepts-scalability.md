@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/30/2016
+ms.date: 5/30/2016
 ms.author: masnider
 
 ---
 # Scaling Service Fabric applications
-Azure Service Fabric makes it easy to build scalable applications by managing the services, partitions, and replicas on all the nodes in a cluster. This enables maximum resource utilization.
+Azure Service Fabric makes it easy to build scalable applications by managing the services, partitions, and replicas on all the nodes in a cluster. 
 
-High scale for Service Fabric applications can be achieved in two ways:
+Service Fabric applications are scaed in two ways:
 
 1. Scaling at the service partition level
 2. Scaling at the named service instance level
