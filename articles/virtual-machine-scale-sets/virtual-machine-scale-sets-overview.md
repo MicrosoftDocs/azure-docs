@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # What are virtual machine scale sets in Azure?
-Virtual machine scale sets are an Azure Cloud Services resource that you can use to deploy and manage a set of identical VMs. With all VMs configured the same, scale sets are designed to support true autoscale. No pre-provisioning of VMs is required. So it's easier to build large-scale services that target big compute, big data, and containerized workloads.
+Virtual machine scale sets are an Azure compute resource that you can use to deploy and manage a set of identical VMs. With all VMs configured the same, scale sets are designed to support true autoscale, and no pre-provisioning of VMs is required. So it's easier to build large-scale services that target big compute, big data, and containerized workloads.
 
 For applications that need to scale compute resources out and in, scale operations are implicitly balanced across fault and update domains. For a further introduction to scale sets, refer to the [Azure blog announcement](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
 
@@ -41,7 +41,7 @@ A button links to the portal deployment feature in the detail pages for these te
 ## Scaling a scale set out and in
 You can change the capacity of a scale set in the Azure portal by clicking the **Scaling** section under **Settings**. 
 
-To change scale set capacity on the command line, use the **scale** command in the [Azure CLI](https://github.com/Azure/azure-cli). For example, use this command to set a scale set to a capacity of 10 VMs:
+To change scale set capacity on the command line, use the **scale** command in [Azure CLI](https://github.com/Azure/azure-cli). For example, use this command to set a scale set to a capacity of 10 VMs:
 
 ```bash
 az vmss scale -g resourcegroupname -n scalesetname --new-capacity 10 
@@ -118,10 +118,10 @@ This section lists some typical scale set scenarios. Some higher-level Azure ser
    In [this example](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) of this approach, [Azure Container Service](https://azure.microsoft.com/services/container-service/) deploys a cluster based on scale sets with a container orchestrator.
 
 ## Scale set performance and scale guidance
-* A scale set supports up to 1,000 VMs. If you create and upload your own custom VM images, the limit is 100. For considerations for using large scale sets, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md).
+* A scale set supports up to 1,000 VMs. If you create and upload your own custom VM images, the limit is 100. For considerations in using large scale sets, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md).
 * You do not have to pre-create Azure storage accounts to use scale sets. Scale sets support Azure managed disks, which negate performance concerns about the number of disks per storage account. For more information, see [Azure virtual machine scale sets and managed disks](virtual-machine-scale-sets-managed-disks.md).
 * Consider using Azure Premium Storage instead of Azure Storage for faster, more predictable VM provisioning times and improved I/O performance.
-* The core quota in the region in which you are deploying limits the number of VMs you can create. You might need to contact Customer Support to increase your compute quota limit, even if you have a high limit of cores for use with Azure Cloud Services today. To query your quota, run this Azure CLI command: `azure vm list-usage`. Or, run this PowerShell command: `Get-AzureRmVMUsage`. (If you're using a version of PowerShell earlier than 1.0, use `Get-AzureVMUsage`.)
+* The core quota in the region in which you are deploying limits the number of VMs you can create. You might need to contact Customer Support to increase your compute quota limit, even if you have a high limit of cores for use with Azure Cloud Services today. To query your quota, run this Azure CLI command: `azure vm list-usage`. Or, run this PowerShell command: `Get-AzureRmVMUsage`.
 
 ## Frequently asked questions for scale sets
 **Q.** How many VMs can I have in a scale set?
@@ -130,7 +130,7 @@ This section lists some typical scale set scenarios. Some higher-level Azure ser
 
 **Q.** Are data disks supported within scale sets?
 
-**A.** Yes. A scale set can define a configuration of attached data drives that applies to all VMs in the set. For more information, see [Azure scale sets and attached data disks](virtual-machine-scale-sets-attached-disks.md). Other options for storing data include:
+**A.** Yes. A scale set can define an attached disks configuration that applies to all VMs in the set. For more information, see [Azure scale sets and attached data disks](virtual-machine-scale-sets-attached-disks.md). Other options for storing data include:
 
 * Azure files (SMB shared drives)
 * OS drive
