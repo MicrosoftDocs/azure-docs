@@ -21,8 +21,16 @@
       href: sql-database-connect-query-vscode.md
   - name: Connect
     items:
-    - name: C#
+    - name: C #
       href: sql-database-connect-query-dotnet.md
+    - name: PHP
+      href: sql-database-connect-query-php.md
+    - name: Java
+      href: sql-database-connect-query-java.md
+    - name: Python
+      href: sql-database-connect-query-python.md
+    - name: Ruby
+      href: sql-database-connect-query-ruby.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -213,7 +221,7 @@
       href: sql-database-elastic-pool-manage-powershell.md
     - name: Transact-SQL
       href: sql-database-elastic-pool-manage-tsql.md
-    - name: C#
+    - name: C #
       href: sql-database-elastic-pool-manage-csharp.md
   - name: DB Access
     items:
@@ -287,25 +295,17 @@
       href: sql-database-get-started-sql-data-sync.md
   - name: Connect applications
     items:
-    - name: C and C++
+    - name: C and C ++
       href: sql-database-develop-cplusplus-simple.md
-    - name: Java
-      href: sql-database-develop-java-simple.md
     - name: Node.js
       href: sql-database-develop-nodejs-simple.md
-    - name: PHP
-      href: sql-database-develop-php-simple.md
-    - name: Python
-      href: sql-database-develop-python-simple.md
-    - name: Ruby
-      href: sql-database-develop-ruby-simple.md
     - name: Excel
       href: sql-database-connect-excel.md
     - name: Guidance
       href: sql-database-connectivity-issues.md
     - name: Issues
       href: sql-database-troubleshoot-common-connection-issues.md
-    - name: Create DB with C#
+    - name: Create DB with C #
       href: sql-database-get-started-csharp.md
   - name: Configure In-Memory
     href: sql-database-in-memory-oltp-migration.md
