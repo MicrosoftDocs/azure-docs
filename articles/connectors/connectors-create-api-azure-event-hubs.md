@@ -103,6 +103,8 @@ Select this trigger: **When events are available in Event Hub**
     and entering the connection string for your Event Hubs namespace. 
     If necessary, learn [how to find your connection string](#permissions-connection-string).
 
+    ![Enter connection string for Event Hubs namespace](./media/connectors-create-api-azure-event-hubs/event-hubs-connection.png)
+
     After you create the connection, 
     the settings for the **When an event in available in an Event Hub** trigger appear.
 
