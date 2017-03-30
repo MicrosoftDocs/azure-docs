@@ -23,7 +23,7 @@ ms.tgt_pltfrm: NA
 The following steps show you how to copy a SQL database with Transact-SQL to the same server or a different server. The database copy operation uses the [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) statement. 
 
 > [!NOTE]
-> You can also copy a SQL database using the [Azure portal](sql-database-copy-portal.md) or [PowerShell](sql-database-copy-powershell.md).
+> You can also copy a SQL database using the [Azure portal](sql-database-copy-portal.md) or [PowerShell](scripts/sql-database-copy-database-to-new-server-powershell.md).
 >
 
 To complete the steps in this article, you need the following:

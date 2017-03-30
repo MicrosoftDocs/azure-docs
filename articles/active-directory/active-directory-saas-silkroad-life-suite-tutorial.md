@@ -13,16 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 3/10/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with SilkRoad Life Suite
-The objective of this tutorial is to show you how to integrate SilkRoad Life Suite with Azure Active Directory (Azure AD).  
+The objective of this tutorial is to show you how to integrate SilkRoad Life Suite with Azure Active Directory (Azure AD). 
+
 Integrating SilkRoad Life Suite with Azure AD provides you with the following benefits: 
 
 * You can control in Azure AD who has access to SilkRoad Life Suite 
-* You can enable your users to automatically get signed-on to SilkRoad Life Suite (Single Sign-On) with their Azure AD accounts
+* You can enable your users to automatically get signed-on to SilkRoad Life Suite single sign-on (SSO) with their Azure AD accounts
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -30,26 +31,26 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with SilkRoad Life Suite, you need the following items:
 
 * An Azure AD subscription
-* A SilkRoad Life Suite single-sign on enabled subscription
+* A SilkRoad Life Suite SSO enabled subscription
 
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-> 
+>[!NOTE]
+>To test the steps in this tutorial, we do not recommend using a production environment. 
 > 
 
 To test the steps in this tutorial, you should follow these recommendations:
 
 * You should not use your production environment, unless this is necessary.
-* If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/). 
+* If you don't have an Azure AD trial environment, you can get a [one-month trial](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## Scenario Description
-The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
+The objective of this tutorial is to enable you to test Azure AD SSO in a test environment.
+
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding SilkRoad Life Suite from the gallery 
-2. Configuring and testing Azure AD single sign-on
+2. Configuring and testing Azure AD SSO
 
-## Adding SilkRoad Life Suite from the gallery
+## Add SilkRoad Life Suite from the gallery
 To configure the integration of SilkRoad Life Suite into Azure AD, you need to add SilkRoad Life Suite from the gallery to your list of managed SaaS apps.
 
 **To add SilkRoad Life Suite from the gallery, perform the following steps:**
@@ -80,69 +81,64 @@ To configure the integration of SilkRoad Life Suite into Azure AD, you need to a
    
     ![Applications][50]
 
-## Configuring and testing Azure AD single sign-on
-The objective of this section is to show you how to configure and test Azure AD single sign-on with SilkRoad Life Suite based on a test user called "Britta Simon".
+## Configure and test Azure AD single sign-on
+The objective of this section is to show you how to configure and test Azure AD SSO with SilkRoad Life Suite based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in SilkRoad Life Suite to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in SilkRoad Life Suite needs to be established.  
+For SSO to work, Azure AD needs to know what the counterpart user in SilkRoad Life Suite to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in SilkRoad Life Suite needs to be established.
+
 This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in SilkRoad Life Suite.
 
 To configure and test Azure AD single sign-on with SilkRoad Life Suite, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+1. **[Configuring Azure AD single sign-on](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 3. **[Creating a SilkRoad Life Suite test user](#creating-a-silkroad-life-suite-test-user)** - to have a counterpart of Britta Simon in SilkRoad Life Suite that is linked to the Azure AD representation of her.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+5. **[Testing single sign-on](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD Single Sign-On
-The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your SilkRoad Life Suite application.
+### Configure Azure AD single sign-on
+The objective of this section is to enable Azure AD SSO in the Azure classic portal and to configure SSO in your SilkRoad Life Suite application.
 
 **To configure Azure AD single sign-on with SilkRoad Life Suite, perform the following steps:**
 
 1. Sign-on to your SilkRoad company site as administrator. 
 
-    > [!NOTE] 
-    > To obtain access to the SilkRoad Life Suite Authentication application for configuring federation with Microsoft Azure AD, please contact SilkRoad Support or your SilkRoad Services representative.
+  >[!NOTE] 
+  > To obtain access to the SilkRoad Life Suite Authentication application for configuring federation with Microsoft Azure AD, please contact SilkRoad Support or your SilkRoad Services representative.
+  > 
 
-1. Go to **Service Provider**, and then click **Federation Details**. 
+2. Go to **Service Provider**, and then click **Federation Details**. 
    
     ![Azure AD Single Sign-On][10] 
 
-2. Click **Download Federation Metadata**, and then save the metadata file on your computer.
+3. Click **Download Federation Metadata**, and then save the metadata file on your computer.
    
     ![Azure AD Single Sign-On][11] 
 
-3. In the Azure classic portal, on the **SilkRoad Life Suite** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+4. In the Azure classic portal, on the **SilkRoad Life Suite** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
    
     ![Configure Single Sign-On][6] 
 
-4. On the **How would you like users to sign on to SilkRoad Life Suite** page, select **Azure AD Single Sign-On**, and then click **Next**.
+5. On the **How would you like users to sign on to SilkRoad Life Suite** page, select **Azure AD Single Sign-On**, and then click **Next**.
    
     ![Azure AD Single Sign-On][7] 
 
-5. On the **Configure App Settings** dialog page, perform the following steps:
+6. On the **Configure App Settings** dialog page, perform the following steps:
    
-    ![Azure AD Single Sign-On][8] 
-   
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your SilkRoad Life Suite site (e.g.: *https://defcompanytest-test-redcarpet.silkroad-eng.com/Authentication/*).
-   
-    b. Open the downloaded **Silkroad** metadata file.
-   
-    c. Locate the **AssertionConsumerService** tag, and then copy the **Location** attribute.         
+    ![Azure AD Single Sign-On][8]   
+ 1. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your SilkRoad Life Suite site (e.g.: *https://defcompanytest-test-redcarpet.silkroad-eng.com/Authentication/*).  
+ 2. Open the downloaded **Silkroad** metadata file. 
+ 3. Locate the **AssertionConsumerService** tag, and then copy the **Location** attribute.         
    
     ![Azure AD Single Sign-On][21] 
-   
-    d. Paste the value into the **Reply URL** textbox.
-   
-    e. Click **Next**.
+ 4. Paste the value into the **Reply URL** textbox.  
+ 5. Click **Next**.
 
 6. On the **Configure single sign-on at SilkRoad Life Suite** page, perform the following steps:
    
-    ![Azure AD Single Sign-On][9] 
-   
-    a. Click Download certificate, and then save the file on your computer.
-   
-    b. Click **Next**.
+    ![Azure AD Single Sign-On][9]  
+ 1. Click Download certificate, and then save the file on your computer.  
+ 2. Click **Next**.
 
 7. In your **SilkRoad** application, click **Authentication Sources**.
    
@@ -154,11 +150,9 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 9. In the **Add Authentication Source** section, perform the following steps: 
    
-    ![Azure AD Single Sign-On][14] 
-   
-    a. Under **Option 2 - Metadata File**, click **Browse** to upload the downloaded metadata file.
-   
-    b. Click **Create Identity Provider using File Data**.
+    ![Azure AD Single Sign-On][14]  
+ 1. Under **Option 2 - Metadata File**, click **Browse** to upload the downloaded metadata file.  
+ 2. Click **Create Identity Provider using File Data**.
 
 10. In the **Authentication Sources** section, click **Edit**. 
     
@@ -167,14 +161,10 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 11. On the **Edit Authentication Source** dialog, perform the following steps: 
     
      ![Azure AD Single Sign-On][16] 
-    
-     a. As **Enabled**, select **Yes**.
-    
-     b. In the **IdP Description** textbox, type a description for your configuration (e.g.: *Azure AD SSO*).
-    
-     c. In the **IdP Name** textbox, type a name that is specific to your configuration (e.g.: *Azure SP*).
-    
-     d. Click **Save**.
+ 1. As **Enabled**, select **Yes**.   
+ 2. In the **IdP Description** textbox, type a description for your configuration (e.g.: *Azure AD SSO*).  
+ 3. In the **IdP Name** textbox, type a name that is specific to your configuration (e.g.: *Azure SP*).  
+ 4. Click **Save**.
 
 12. Disable all other authentication sources. 
     
@@ -188,7 +178,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     
      ![Azure AD Single Sign-On][19]
 
-### Creating an Azure AD test user
+### Create an Azure AD test user
 The objective of this section is to create a test user in the Azure classic portal called Britta Simon.
 
 ![Create Azure AD User][20]
@@ -212,26 +202,18 @@ The objective of this section is to create a test user in the Azure classic port
 5. On the **Tell us about this user** dialog page, perform the following steps: 
    
     ![Creating an Azure AD test user](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_05.png)  
-   
-    a. As Type Of User, select New user in your organization.
-   
-    b. In the User Name **textbox**, type **BrittaSimon**.
-   
-    c. Click **Next**.
+ 1. As Type Of User, select New user in your organization.  
+ 2. In the User Name **textbox**, type **BrittaSimon**. 
+ 3. Click **Next**.
 
 6. On the **User Profile** dialog page, perform the following steps: 
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_06.png) 
-   
-    a. In the **First Name** textbox, type **Britta**.  
-   
-    b. In the **Last Name** textbox, type, **Simon**.
-   
-    c. In the **Display Name** textbox, type **Britta Simon**.
-   
-    d. In the **Role** list, select **User**.
-
-    e. Click **Next**.
+    ![Creating an Azure AD test user](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_06.png)  
+ 1. In the **First Name** textbox, type **Britta**.    
+ 2. In the **Last Name** textbox, type, **Simon**. 
+ 3. In the **Display Name** textbox, type **Britta Simon**. 
+ 4. In the **Role** list, select **User**.
+ 5. Click **Next**.
 
 7. On the **Get temporary password** dialog page, click **create**.
    
@@ -239,21 +221,19 @@ The objective of this section is to create a test user in the Azure classic port
 
 8. On the **Get temporary password** dialog page, perform the following steps:
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_08.png) 
-   
-    a. Write down the value of the **New Password**.
-   
-    b. Click **Complete**.   
+    ![Creating an Azure AD test user](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_08.png)  
+ 1. Write down the value of the **New Password**. 
+ 2. Click **Complete**.   
 
-### Creating a SilkRoad Life Suite test user
+### Create a SilkRoad Life Suite test user
 The objective of this section is to create a user called Britta Simon in SilkRoad Life Suite. Britta's must have an SSO ID (sometimes referred to as an *AuthParam*) that matches Britta's **emailaddress** in Azure AD.
 
 **To create a user called Britta Simon in SilkRoad Life Suite, perform the following steps:**
 
 - Ask your SilkRoad Life Suite support team to create a user that has as **SSO ID** attribute the same value as the **emailaddress** of Britta Simon in Azure AD.
 
-### Assigning the Azure AD test user
-The objective of this section is to enable Britta Simon to use Azure single sign-on by granting her access to SilkRoad Life Suite.
+### Assign the Azure AD test user
+The objective of this section is to enable Britta Simon to use Azure SSO by granting her access to SilkRoad Life Suite.
 
 ![Assign User][200] 
 
@@ -277,8 +257,9 @@ The objective of this section is to enable Britta Simon to use Azure single sign
    
     ![Assign User][205]
 
-### Testing Single Sign-On
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
+### Test single sign-on
+The objective of this section is to test your Azure AD SSO configuration using the Access Panel.  
+
 When you click the SilkRoad Life Suite tile in the Access Panel, you should get automatically signed-on to your SilkRoad Life Suite application.
 
 ## Additional Resources
