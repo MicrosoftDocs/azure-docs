@@ -31,15 +31,21 @@ The features listed below are capabilities you can review to provide the assuran
 
 <table style="width:100%">
 <tr>
-  <th>Applications</th>
-  <td><a href="https://azure.microsoft.com/en-us/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/" target="_blank">Web Vulnerability Scanning</a></td>
-  <td><a href="https://security-forms.azure.com/penetration-testing/terms" target="_blank">Penetration Testing </a></td>
-  <td><a href="https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-webapplicationfirewall-overview) " target="_blank">Web Application Firewall</a></td>
-  <td><a href="https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview?toc=%2fazure%2fapp-service-web%2ftoc.json" target="_blank">App Service Authentication / Authorization</a></td>
-  <td><a href="https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-layered-security" target="_blank">Layer Security
-  </a>with <a href="https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources" target="_blank">ACL & NSG </a>
-  </td>
-  <td><a href="https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-enable-diagnostic-log" target="_blank"> Web server diagnostics and application diagnostics </a></td>
+  
+    <th><a href="https://www.microsoft.com/en-us/trustcenter/Security/default.aspx" target="_blank">Secure Platform</a></th>
+    <td><a href="https://www.microsoft.com/en-us/sdl/" target="_blank">Security Development Cycle,Internal audits </a></td>
+    <td> Mandatory Security training, back ground checks</td>
+    <td>Penetration testing,
+    <a href="https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagemen" target="_blank">intrusion detection ,DDoS</a>,
+    <a href="https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging" target="_blank">Audits and logging</a></td>
+    <td><a href="https://www.microsoft.com/en-us/cloud-platform/global-datacenters" target="_blank">State of art datacenter </a>,
+<a href="https://docs.microsoft.com/en-us/azure/security/security-network-overview" target="_blank">Secure Network, physical security</a>
+    </td>
+
+    <td><a href="http://aka.ms/SecurityResponsepaper" target="_blank">Security Incident response </a>,
+<a href="http://aka.ms/sharedresponsibility" target="_blank">Shared Responsibility</a>
+
+    </td>
 
 </tr>
 
@@ -68,10 +74,6 @@ The features listed below are capabilities you can review to provide the assuran
     </td>
   </tr>
   
-
-
-
-
 </table>
 
 ## 2.2 Security Features Offered by Azure to Secure Data and Application
