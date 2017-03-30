@@ -23,7 +23,7 @@ Before you start the migration experience, the following is recommended:
 
 The migration workflow is as follows
 
-![Screenshot that shows the migration workflow](../articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/migration-workflow.png)
+![Screenshot that shows the migration workflow](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-workflow.png)
 
 > [!NOTE]
 > All the operations described in the following sections are idempotent. If you have a problem other than an unsupported feature or a configuration error, it is recommended that you retry the prepare, abort, or commit operation. The Azure platform tries the action again.
@@ -56,9 +56,9 @@ After the prepare operation is complete, you have the option of visualizing the 
 
 Here are two screens that show the result after a succesful Prepare operation. First screen shows a Resource Group that contains the original cloud service. Second screen shows the new "-Migrated" resource group that contains the equivalent Azure Resource Manager resources.
 
-![Screenshot that shows Portal classic cloud service](../articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/portal-classic.png)
+![Screenshot that shows Portal classic cloud service](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-classic.png)
 
-![Screenshot that shows Portal Azure Resource Manager resources in Prepare](../articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/portal-arm.png)
+![Screenshot that shows Portal Azure Resource Manager resources in Prepare](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-arm.png)
 
 > [!NOTE]
 > Virtual Machines that are not in a classic Virtual Network are stopped deallocated in this phase of migration.
@@ -94,7 +94,7 @@ After you finish the validation, you can commit the migration. Resources do not 
 <br>
 Here is a flowchart of the steps during a migration process
 
-![Screenshot that shows the migration steps](../articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
 
 ## Translation of classic to Azure Resource Manager resources
 You can find the classic and Resource Manager representations of the resources in the following table. Other features and resources are not currently supported.
