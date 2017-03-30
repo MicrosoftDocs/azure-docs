@@ -30,7 +30,7 @@ If you want, you can also migrate resources by using the [Azure Command Line Int
 <br>
 Here is a flowchart to identify the order in which steps need to be executed during a migration process
 
-![Screenshot that shows the migration steps](./media/ps-migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](media/migration-classic-resource-manager/migration-flow.png)
 
 ## Step 1: Plan for migration
 Here are a few best practices that we recommend as you evaluate migrating IaaS resources from classic to Resource Manager:
