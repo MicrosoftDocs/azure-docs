@@ -60,6 +60,15 @@ The features listed below are capabilities you can review to provide the assuran
     <td><a href="" target="_blank"></a></td>
   </tr>
   
+  <tr>
+   <th><a href="https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx" target="_blank">Transparency</a></th>
+    <td><a href="(https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx" target="_blank">How Microsoft secures customer data in Azure services</a></td>
+    <td><a href="http://azuredatacentermap.azurewebsites.net/" target="_blank"> How Microsoft manage data location in Azure services</a></td>
+   <td><a href="https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms" target="_blank">Who in Microsoft can access your data on what terms</a></td>
+    <td><a href="https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data" target="_blank">How Microsoft respond to request for your data from Govt.</a></td>
+    <td><a href="(https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx" target="_blank">Review certification for Azure services,Transparency hub</a></td>
+  </tr>
+    
 </table>
 
 
