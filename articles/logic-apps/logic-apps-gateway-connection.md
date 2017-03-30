@@ -67,7 +67,9 @@ make sure that you installed the data gateway on an on-premises machine.
 After you install the gateway, you must associate your Azure subscription with the gateway.
 
 > [!IMPORTANT] 
-> Ensure that the gateway resource is created in the same Azure region as your Logic App. If you do not deploy it to the same region it will not be accessible in your Logic App. 
+> Ensure that the gateway resource is created in the same Azure region as your logic app. 
+> If you don't deploy the gateway resource to the same region, 
+> your logic app can't access the gateway. 
 > 
 
 1. Sign in to Azure using the same work or school email address that you used during gateway installation.
@@ -96,9 +98,19 @@ you can create a connection to the gateway from your logic app.
 Your connection is now configured for your logic app to use.
 
 ## Data Gateway Connection Modifications
-Once you've added the data gateway connection to your logic app, you may need to modify it to adjust settings specific to that connection. You can find the connection in either of two places:
-* On the main blade for the Logic App you should see a panel for API Connections in the Development Tools section. Select that will show you all API Connections associated with the Logic App, one of which will be your data gateway connection. Selecting it you can then view and modify the settings associated with the connection.
-* Selecting the API Connections main blade will show you all API Connections in the subscription. In this list will be your data gateway connection. Selecting it you can view and modify the settings associated with the connection.
+
+After you add the data gateway connection to your logic app, 
+you might have to make changes so you can adjust settings specific to that connection. 
+You can find the connection in either of two places:
+
+* On the logic app blade, under **Dvelopment Tools**, select **API Connections**. 
+This list shows you all API Connections associated with your logic app, 
+including your data gateway connection. To view and modify that connection's settings, 
+select that connection.
+
+* On the API Connections main blade, you can find all API Connections 
+associated with your Azure subscription, including your data gateway connection. 
+To view and modify the connection settings, select that connection.
 
 ## Next Steps
 
