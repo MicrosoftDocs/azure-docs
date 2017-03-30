@@ -141,7 +141,7 @@ Azure MFA Server stores one-time passcodes for 300 seconds (5 minutes) by defaul
 1. Go to HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor.
 2. Create a DWORD registry key called **pfsvc_pendingSmsTimeoutSeconds** and set the time in seconds that you want the Azure MFA Server to store one-time passcodes.
 
-For one-way text messages, MFA Server stores one-time passcodes for 300 seconds (five minutes), and cloud-based MFA in Azure AD stores them for 180 seconds (3 minutes). This setting is not configurable. 
+For one-way text messages, MFA Server stores one-time passcodes for 300 seconds, and cloud-based MFA in Azure AD stores them for 180 seconds. This setting is not configurable. 
 
 **Q: Can I use hardware tokens with Azure Multi-Factor Authentication Server?**
 
