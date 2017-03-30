@@ -165,8 +165,19 @@ The built-in capabilities are organized in six (6) functional areas: Operations,
 
 # 3.0 Operations
 The section provides a table with links to additional information regarding key features in security operations and summary information about these capabilities.   
-| Operations     | [Azure Operational Manager Suite](https://technet.microsoft.com/library/mt484091.aspx)     |[Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-deployment-model)|[Application Insight](https://docs.microsoft.com/en-us/azure/application-insights/)|[Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/)|[Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/)|[Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/)|[Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-planning-and-operations-guide)|
-| - |
+
+<table style="width:100%">
+  <tr>
+  <th>Operations</th>
+    <td><a href="https://technet.microsoft.com/library/mt484091.aspx" target="_blank">Azure Operational Manager Suite</a></td>
+    <td><a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-deployment-model" target="_blank">Azure Resource Manager</a></td>
+    <td><a href="https://docs.microsoft.com/en-us/azure/application-insights/" target="_blank">Application Insight</a></td>
+    <td><a href="https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/" target="_blank">Azure Monitor</a></td>
+    <td><a href="https://docs.microsoft.com/en-us/azure/log-analytics/" target="_blank">Log Analytics</a></td>
+    <td><a href="https://docs.microsoft.com/en-us/azure/advisor/" target="_blank">Azure Advisor</a></td>
+    <td><a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-data-security" target="_blank">Azure Security Center </a></td>
+  </tr>
+  </table>
 
 ## 3.1 Operations Management Suite Security and Audit Dashboard
 The [OMS Security and Audit solution](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-getting-started) provides a comprehensive view into your organization’s IT security posture with [built-in search queries](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) for notable issues that require your attention. The [Security and Audit](https://technet.microsoft.com/library/mt484091.aspx) dashboard is the home screen for everything related to security in OMS. It provides high-level insight into the Security state of your computers.
