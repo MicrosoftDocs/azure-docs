@@ -24,7 +24,7 @@ This white paper focuses on the technology of Azure platform and customer-facing
 
 # 2.0 Azure Active Directory Identity Protection
 
-<img src="media\Advanced-Threat-Detection-in-Azure-Fig1.png" width ="400" height="340" alt ="" align ="right">
+<img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig1.png" width ="400" height="340" alt ="" align ="right">
 
 [Azure Active Directory Identity Protection](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection) is a feature of the [Azure AD Premium P2](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions) edition that provides you with a consolidated view into the risk events and potential vulnerabilities affecting your organization’s identities. Microsoft has been securing cloud-based identities for over a decade, and with Azure AD Identity Protection, Microsoft is making these same protection systems available to enterprise customers. Identity Protection leverages existing Azure AD’s anomaly detection capabilities (available through [Azure AD’s Anomalous Activity Reports](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-view-access-usage-reports#anomalous-activity-reports), and introduces new risk event types that can detect anomalies in real-time.
 
