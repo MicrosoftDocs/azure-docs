@@ -162,7 +162,7 @@ Import/export service | No | No
 **Compute feature** | **VMware/physical server** | **Hyper-V (with/without Virtual Machine Manager)**
 --- | --- | --- | ---
 Availability sets | No | No
-HUB | Yes | Yes 
+HUB | Yes | Yes  
 
 ## Failed-over Azure VM requirements
 
