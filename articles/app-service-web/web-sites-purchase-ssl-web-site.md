@@ -49,9 +49,11 @@ Before you request an SSL certificate, first determine which domain names you wi
 ## <a name="bkmk_purchasecert"></a>Purchase an SSL certificate
 
 1. In the [Azure portal](https://portal.azure.com/), in the menu, select **Browse**. In the **Search** box, type **App Service Certificate**. In the search results, select **App Service Certificates**. 
+
   ![Create using browse](./media/app-service-web-purchase-ssl-web-site/browse.jpg)
    
 2. On the **App Service Certificates** page, select **Add**. 
+
   ![Add a certificate](./media/app-service-web-purchase-ssl-web-site/add.jpg)
 
 3. Enter a **name** for your SSL certificate.
@@ -88,13 +90,15 @@ Before you request an SSL certificate, first determine which domain names you wi
 
 ## <a name="bkmk_StoreKeyVault"></a>Store the certificate in Azure Key Vault
 
-1. When you've completed the SSL certificate purchase, in the Azure portal, go to the **App Service Certificates** blade.   
+1. When you've completed the SSL certificate purchase, in the Azure portal, go to the **App Service Certificates** blade.
+
   ![Certificate ready to store in Key Vault](./media/app-service-web-purchase-ssl-web-site/ReadyKV.jpg)
    
     Note that the certificate status is **Pending Issuance**. You need to complete a few steps before you can start using this certificate.
 
 2. On the **Certificate Properties** blade, select **Certificate Configuration**. To store this certificate in Key Vault, select **Step 1: Store**.
 3. On the **Key Vault Status** blade, to select an existing key vault to store this certificate, select **Key Vault Repository**.  To create a new key vault in the same subscription and resource group, select **Create New Key Vault**.
+
   ![Create new key vault](./media/app-service-web-purchase-ssl-web-site/NewKV.jpg)
    
    > [!NOTE]
@@ -138,14 +142,14 @@ With a custom domain, a verification email is sent to the email address associat
 1. Create an HTML file named starfield.html. The contents of this file should be the precise name of the domain verification token. (You can copy the token from the **Domain Verification Status** blade.)
 2. Upload this file to the root of the web server where you host your domain. For example, /.well-known/pki-validation/starfield.html.
 3.  When verification is finished, to update the certificate status, select **Refresh**. It might take a few minutes for verification to finish.
-          
-    For example, if you are buying a standard certificate for **contosocertdemo.com**, with a domain verification token **tgjgthq8d11ttaeah97s3fr2sh**, a web request made to **http://contosocertdemo.com/.well-known/pki-validation/starfield.html** should return **tgjgthq8d11ttaeah97s3fr2sh**.
+
+  For example, if you are buying a standard certificate for **contosocertdemo.com**, with a domain verification token **tgjgthq8d11ttaeah97s3fr2sh**, a web request made to **http://contosocertdemo.com/.well-known/pki-validation/starfield.html** should return **tgjgthq8d11ttaeah97s3fr2sh**.
 
 **DNS TXT record verification**
         
 1. Using your DNS manager, create a TXT record on the **@** subdomain with a value equal to the **domain verification token.**
 2. To update the certificate status when verification is finished, select **Refresh**. It might take few minutes for verification to finish.
-          
+ 
   For example, to perform validation for a wildcard certificate with host name **\*.contosocertdemo.com** or **\*.subdomain.contosocertdemo.com**, and domain verification token **tgjgthq8d11ttaeah97s3fr2sh**, create a TXT record on **contosocertdemo.com** that has the value **tgjgthq8d11ttaeah97s3fr2sh**.     
 
 ## <a name="bkmk_AssignCertificate"></a>Assign the certificate to an App Service app
@@ -158,9 +162,12 @@ With a custom domain, a verification email is sent to the email address associat
 1. In the [Azure portal](https://portal.azure.com/), in the menu, select **App Service**.
 2. Select the name of the app that you want to assign this certificate to. 
 3. Go to **Settings** > **SSL certificates** > **Import App Service Certificate**, and then select the certificate.
+
   ![Import certificate](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
+
 4. In the **SSL bindings** section, select **Add bindings**.
 5. On the **Add SSL Binding** blade, select the domain name that you want to secure with the SSL certificate. Select the certificate that you want to use. You might also want to select whether to use [Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication) or IP-based SSL.
+
   ![SSL bindings](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
    
     * To associate a certificate with a domain name, IP-based SSL maps the dedicated public IP address of the server to the domain name. When you use IP-based SSL, each domain name (for example, contoso.com or fabricam.com) associated with your service must have a dedicated IP address. This is the traditional method for associating an SSL certificate with a web server.
@@ -171,6 +178,7 @@ With a custom domain, a verification email is sent to the email address associat
 If you select **IP-based SSL** and your custom domain is configured using an A record, you must complete the following additional steps.
 
 * After you set up an IP-based SSL binding, a dedicated IP address is assigned to your app. To find the IP address, go to **Settings** > **Custom domain**. Right above the **Hostnames** section, your IP address is listed as **External IP Address**.
+
   ![IP-based SSL](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
     
   Note that this IP address is different from the virtual IP address you previously used to configure the A record for your domain. If your app is set up to use SNI-based SSL, or if it's not set up to use SSL, no IP address is listed here.
@@ -184,6 +192,7 @@ You can create a local PFX copy of an App Service certificate. When you have a l
 
 ## <a name="bkmk_Renew"></a>Auto renew your App Service certificate
 To set auto renew settings for your certificate, or to manually renew your certificate, on the **Certificate Properties** blade, select **Auto Renew Settings**. 
+
 ![Auto renew settings](./media/app-service-web-purchase-ssl-web-site/autorenew.png)
 
 To automatically renew your certificate before it expires, set **Auto Renew** to **On**. This is the default option. If auto renewal is turned on, we attempt to renew your certificate starting on the 90th day before the certificate expires. If you created SSL bindings on your App Service apps in the Azure portal, the bindings also are updated when the new certificate is ready (like in rekey and sync scenarios). 
@@ -194,6 +203,7 @@ If you want to handle renewals manually, set **Auto Renew** to **Off**. You can 
 
 1. If you ever need to rekey your certificate (for security reasons), on the **Certificate Properties** blade, select **Rekey and Sync**. 
 2. Select **Rekey**. The process might take up to 10 minutes to finish. 
+
   ![Rekey SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.jpg)
 
 Here's some additional information about rekeying:
