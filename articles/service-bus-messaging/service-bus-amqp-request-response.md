@@ -1,5 +1,5 @@
 ---
-title: AMQP 1.0 in Service Bus request-response-based operations | Microsoft Docs
+title: AMQP 1.0 in Azure Service Bus request-response-based operations | Microsoft Docs
 description: List of Microsoft Azure Service Bus request/response-based operations.
 services: service-bus-messaging
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 03/22/2017
 ms.author: sethm
 
 ---
@@ -492,7 +492,7 @@ The **correlation-filter** map must include at least one of the following entrie
 |session-id|string|No||  
 |reply-to-session-id|string|No||  
 |content-type|string|No||  
-|properties|map|No|Maps to Service Bus [BrokeredMessage.Properties](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.properties.aspx).|  
+|properties|map|No|Maps to Service Bus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties).|  
   
 The **sql-rule-action** map must include the following entries.  
   

@@ -264,6 +264,11 @@ In the `ServiceManifestImport` element, you can specify one or more services tha
 For guest executables, it is useful to be able to see console logs to find out if the application and configuration scripts show any errors.
 Console redirection can be configured in the `ServiceManifest.xml` file using the `ConsoleRedirection` element.
 
+> [!WARNING]
+> Never use the console redirection policy in an application that is deployed in production because this can affect the application failover. *Only* use this for local development and debugging purposes.  
+> 
+> 
+
 ```xml
 <EntryPoint>
   <ExeHost>
@@ -303,7 +308,7 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 ```
 
 >[!TIP]
-> [Compress the package](service-fabric-application-model.md#compress-a-package) before copying to the image store if the package is large or has many files. Read more [here](service-fabric-deploy-remove-applications.md#upload-the-application-package).
+> [Compress the package](service-fabric-package-apps.md#compress-a-package) before copying to the image store if the package is large or has many files. Read more [here](service-fabric-deploy-remove-applications.md#upload-the-application-package).
 >
 
 A Service Fabric service can be deployed in various "configurations." For example, it can be deployed as single or multiple instances, or it can be deployed in such a way that there is one instance of the service on each node of the Service Fabric cluster.

@@ -114,7 +114,6 @@
 #### [Use Hive queries](machine-learning-data-science-create-features-hive.md)
 #### [TDSP feature selection](machine-learning-data-science-select-features.md)
 ### Create and train models
-#### [Convert to scoring](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [Experiment lifecycle management](machine-learning-version-control.md)
 #### [Manage iterations](machine-learning-manage-experiment-iterations.md)
 #### [Use PowerShell to create models](machine-learning-create-models-and-endpoints-with-powershell.md)
@@ -133,19 +132,20 @@
 ##### [Author custom R modules](machine-learning-custom-r-modules.md)
 ##### [Execute Python scripts](machine-learning-execute-python-scripts.md)
 
-## Deploy and consume models
+## Operationalize models
 ### [Overview](machine-learning-deploy-consume-web-service-guide.md)
 ### Deploy models
-#### [How it works](machine-learning-model-progression-experiment-to-web-service.md)
 #### [Deploy a web service](machine-learning-publish-a-machine-learning-web-service.md)
+#### [How it works](machine-learning-model-progression-experiment-to-web-service.md)
+#### [Prepare for deployment](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [Use external data](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Deploy in multi-regions](machine-learning-how-to-deploy-to-multiple-regions.md)
 #### [Use web service parameters](machine-learning-web-service-parameters.md)
 #### [Enable logging](machine-learning-web-services-logging.md)
 ### Manage web services
-#### [Create endpoints](machine-learning-create-endpoint.md)
 #### [Use Web Services portal](machine-learning-manage-new-webservice.md)
 #### [Manage with APIs](machine-learning-manage-web-service-endpoints-using-api-management.md)
+#### [Create endpoints](machine-learning-create-endpoint.md)
 #### [Scaling](machine-learning-scaling-webservice.md)
 ### Retrain models
 #### [Overview](machine-learning-retrain-machine-learning-model.md)

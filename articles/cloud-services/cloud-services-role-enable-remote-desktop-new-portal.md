@@ -62,6 +62,10 @@ Once Remote Desktop is enabled on the roles, you can initiate a connection direc
 
 4. Click **Open** and then **Connect** to start the Remote Desktop connection.
 
-## Next steps
+>[!NOTE]
+> If your cloud service is sitting behind an NSG, you may need to create a rule to open up port **20000**.
+
+## Additional resources
 
 [How to Configure Cloud Services](cloud-services-how-to-configure.md)
+[Cloud services FAQ - Remote Desktop](cloud-services-faq.md#remote-desktop)
