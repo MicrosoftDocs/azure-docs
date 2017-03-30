@@ -30,12 +30,12 @@ This quick start uses as its starting point the resources created in one of thes
 
 ## Configure development environment
 
-The following sections detail configuring your existing Mac OS and Linux(Ubuntu) development environments for working with Azure SQL Database.
+The following sections detail configuring your existing Mac OS and Linux (Ubuntu) development environments for working with Azure SQL Database.
 
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your Ruby script. Enter the following commands to install **brew**, **FreeTDS**, and **TinyTDS**.
 
-```ruby
+```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew tap microsoft/msodbcsql https://github.com/Microsoft/homebrew-msodbcsql-preview
 brew update
@@ -46,7 +46,7 @@ gem install tiny_tds
 ### **Linux (Ubuntu)**
 Open your terminal and navigate to a directory where you plan on creating your Ruby script. Enter the following commands to install the **FreeTDS** and **TinyTDS**.
 
-```ruby
+```
 wget ftp://ftp.freetds.org/pub/freetds/stable/freetds-1.00.27.tar.gz
 tar -xzf freetds-1.00.27.tar.gz
 cd freetds-1.00.27
@@ -67,7 +67,7 @@ Get the connection string in the Azure portal. You use the connection string to 
     <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="connection strings" style="width: 780px;" />
     
 
-## Select Data
+## Select data
 Use the [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) function with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement, to query data in your Azure SQL database. The TinyTDS::Client function accepts a query and returns a result set. The results set is iterated over by using [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds).
 
 ```ruby
@@ -114,7 +114,7 @@ result = client.execute("SET CURSOR_CLOSE_ON_COMMIT OFF")
 result = client.execute("SET ANSI_NULL_DFLT_ON ON")
 result = client.execute("SET IMPLICIT_TRANSACTIONS OFF")
 result = client.execute("SET ANSI_PADDING ON")
-result = client.execute("SET QUOTED_IDENTIFIER ON"")
+result = client.execute("SET QUOTED_IDENTIFIER ON")
 result = client.execute("SET ANSI_WARNINGS ON")
 result = client.execute("SET CONCAT_NULL_YIELDS_NULL ON")
 
@@ -182,5 +182,7 @@ delete('BrandNewProduct', client)
 
 ## Next Steps
 * Review the [SQL Database Development Overview](sql-database-develop-overview.md).
+* Github repository for [TinyTDS](https://github.com/rails-sqlserver/tiny_tds).
+* [File issues/ask questions](https://github.com/rails-sqlserver/tiny_tds/issues).		
 * More information on the [Ruby Driver for SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/).
 * Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
