@@ -34,7 +34,7 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 4. In **Shutdown Options**, select **Shutdown**.
 5. Click **OK**.
    
-    ![Start Sysprep](./media/generalize-vhd/sysprepgeneral.png)
+    ![Start Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. When Sysprep completes, it shuts down the virtual machine. 
 
 > [!IMPORTANT]
