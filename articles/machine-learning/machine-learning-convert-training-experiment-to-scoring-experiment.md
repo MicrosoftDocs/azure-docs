@@ -31,13 +31,16 @@ This article takes a deep dive into the details of how a training experiment get
 
 ## Overview 
 
-In your training experiment, you've been concerned with training and scoring your model using your own data. But once deployed, users will send new data to your model and it will return prediction results. So, as you convert your training experiment to a predictive experiment to get it ready for deployment, keep in mind how the model will be used by others.
-
 The process of converting a training experiment to a predictive experiment involves three steps:
 
 1. Replace the machine learning algorithm modules with your trained model.
 2. Trim the experiment to only those modules that are needed for scoring. A training experiment includes a number of modules that are necessary for training but are not needed once the model is trained.
 3. Define how your model will accept data from the web service user, and what data will be returned.
+
+> [!TIP]
+> In your training experiment, you've been concerned with training and scoring your model using your own data. But once deployed, users will send new data to your model and it will return prediction results. So, as you convert your training experiment to a predictive experiment to get it ready for deployment, keep in mind how the model will be used by others.
+> 
+> 
 
 ## Set Up Web Service button
 After you run your experiment (click **RUN** at the bottom of the experiment canvas), click the **Set Up Web Service** button (select the **Predictive Web Service** option). **Set Up Web Service** performs for you the three steps of converting your training experiment to a predictive experiment:
@@ -64,7 +67,7 @@ When you convert this training experiment to a predictive experiment, some of th
 
 * **Train** - These modules are used to train the model. When you click **Set Up Web Service**, these modules are replaced with a single module that contains the model you trained. This new module is saved in the **Trained Models** section of the module palette.
 
-* **Score** - In this example, the [Split Data][split] module is used to divide the data stream into test data and training data. In the predictive experiment we're not training anymore, so [Split Data][split] can be removed. Similarly, the second [Score Model][score-model] module and the [Evaluate Model][evaluate-model] module are used to compare results from the test data, so these modules are not needed in the predictive experiment. The remaining [Score Model][score-model] module, however, is needed to return a score result through the web service.
+* **Score** - In this example, the [Split Data][split] module is used to divide the data stream into test data and training data. In the predictive experiment, we're not training anymore, so [Split Data][split] can be removed. Similarly, the second [Score Model][score-model] module and the [Evaluate Model][evaluate-model] module are used to compare results from the test data, so these modules are not needed in the predictive experiment. The remaining [Score Model][score-model] module, however, is needed to return a score result through the web service.
 
 Here is how our example looks after clicking **Set Up Web Service**:
 
