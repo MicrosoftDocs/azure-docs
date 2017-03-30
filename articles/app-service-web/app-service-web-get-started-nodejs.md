@@ -18,11 +18,11 @@ ms.author: cfowler
 ---
 # Create a Node.js Application on Web App
 
-This quickstart tutorial walks through how to develop and deploy a Node.js app to Azure.  We’ll run the app using a Linux-based Azure App Service, and create and configure a new Web App within it using the Azure CLI.  We’ll then use git to deploy our Node.js app to Azure.
+This quickstart tutorial walks through how to develop and deploy a Node.js app to Azure. We’ll run the app using a Linux-based Azure App Service, and create and configure a new Web App within it using the Azure CLI. We’ll then use git to deploy our Node.js app to Azure.
 
 ![hello-world-in-browser](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-You can follow the steps below using a Mac, Windows or Linux machine.  It should take you only about 5 minutes to complete all of the steps below.
+You can follow the steps below using a Mac, Windows or Linux machine. It should take you only about 5 minutes to complete all of the steps below.
 
 ## Before you begin
 
@@ -71,7 +71,7 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 ## Log in to Azure
 
-We are now going to use the Azure CLI 2.0 in a terminal window to create the resources needed to host our Node.js app in Azure.  Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
+We are now going to use the Azure CLI 2.0 in a terminal window to create the resources needed to host our Node.js app in Azure. Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
 
 ```azurecli
 az login
@@ -123,11 +123,11 @@ When the App Service Plan has been created, the Azure CLI shows information simi
 }
 ```
 
-## Create a Web App
+## Create a web app
 
-Now that an App Service plan has been created, create a Web App within the `quickStartPlan` App Service plan. The Web App gives us a hosting space to deploy our code as well as provides a url for us to view the deployed application. Use the [az appservice web create](/cli/azure/appservice/web#create) command to create the Web App.
+Now that an App Service plan has been created, create a Web App within the `quickStartPlan` App Service plan. The web app gives us a hosting space to deploy our code as well as provides a URL for us to view the deployed application. Use the [az appservice web create](/cli/azure/appservice/web#create) command to create the Web App.
 
-In the command below please substitute your own unique app name where you see the <app_name> placeholder.  The <app_name> will be used as the default DNS site for the web app, and so the name needs to be unique across all apps in Azure.  You can later map any custom DNS entry to the web app before you expose it to your users.
+In the command below please substitute your own unique app name where you see the <app_name> placeholder. The <app_name> will be used as the default DNS site for the web app, and so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users.
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
@@ -139,7 +139,7 @@ When the Web App has been created, the Azure CLI shows information similar to th
 {
     "clientAffinityEnabled": true,
     "defaultHostName": "<app_name>.azurewebsites.net",
-    "id": "/subscriptions/5d6c94cd-6781-43e3-8a94-ceef4c28850e/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app_name>",
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app_name>",
     "isDefaultContainer": null,
     "kind": "app",
     "location": "West Europe",
@@ -147,7 +147,7 @@ When the Web App has been created, the Azure CLI shows information similar to th
     "repositorySiteName": "<app_name>",
     "reserved": true,
     "resourceGroup": "myResourceGroup",
-    "serverFarmId": "/subscriptions/5d6c94cd-6781-43e3-8a94-ceef4c28850e/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
+    "serverFarmId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
     "state": "Running",
     "type": "Microsoft.Web/sites",
 }
@@ -161,7 +161,7 @@ http://<app_name>.azurewebsites.net
 
 ![app-service-web-service-created](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
 
-We’ve now created an empty new Web App in Azure.  Let’s now deploy our Web App to use Node.js and deploy our app to it.
+We’ve now created an empty new Web App in Azure. Let’s now deploy our Web App to use Node.js and deploy our app to it.
 
 ## Configure to use Node.js
 
