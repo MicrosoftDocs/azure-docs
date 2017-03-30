@@ -186,7 +186,7 @@ Perform the following steps to create an Azure function.
 
    1. Click **View files** from right corner.
 
-    ![View files](./media/storsimple-data-manager-change-default-blob-path/view-files.png)
+       ![View files](./media/storsimple-data-manager-change-default-blob-path/view-files.png)
 
    2. Click **+ Add**. Type **project.json** and press **Enter**.
    3. Copy and paste the following code in **project.json** file.
