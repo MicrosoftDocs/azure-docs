@@ -83,7 +83,7 @@ Azure AD provisions users to SaaS apps by connecting to provisioning endpoints p
 For more information on how attributes are mapped between Azure AD and your SaaS app, see the article on [Customizing Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md).
 
 ## List of Apps that Support Automated User Provisioning
-All of the "Featured" apps in the Azure AD application gallery support automated user provisioning. [The list of featured apps can be viewed here.](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured#)
+All of the "Featured" apps in the Azure AD application gallery support automated user provisioning. [The list of featured apps can be viewed here.](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)
 
 In order for an application to support automated user provisioning, it must first provide the necessary endpoints that allow for external programs to automate the creation, maintenance, and removal of users. Therefore, not all SaaS apps are compatible with this feature. For apps that do support this, the Azure AD engineering team will then be able to build a provisioning connector to those apps, and this work is prioritized by the needs of current and prospective customers.
 
