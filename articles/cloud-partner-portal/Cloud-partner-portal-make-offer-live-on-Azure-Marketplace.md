@@ -19,61 +19,98 @@ ms.robots: NOINDEX, NOFOLLOW
 ---
 
 
-# How do I make my offer live on Azure marketplace?
+# Make your Virtual Machine offer live on Azure Marketplace
 
-Now that you’ve populated all the offer details, it’s time to publish your offer and make it live on Azure Marketplace.  There are a few stages the offer goes through, to make sure both your marketing content and your VM image meet the quality requirements to be Azure Certified and go live on the website. 
-
-To start the Publish process, you will click “Publish” under the Editor tab  . This will start the validation process.
+Now that you’ve populated all the offer details, it’s time to publish your offer and make it live on Azure Marketplace.  There are a few stages the offer goes through, to make sure both your marketing content and your VM image meet the quality requirements to be Azure Certified and go live on the website.
 
 
-![Offer Go Live Sequence](./media/Cloud-partner-portal-how-to-offer-go-live-Azure-Marketplace/image1.png)
-
->If there are any errors , you will see  warning  next to the fields that require correction. You will need to resolve these prior to clicking the Publish button again.You can follow the progress of your offer getting published under the Status tab:
+![Offer Go Live Sequence](./media/cloud-partner-portal-offer-go-live-azure-marketplace/makeanofferlive.png)
 
 
-![Offer Go Live Sequence](./media/Cloud-partner-portal-how-to-offer-go-live-Azure-Marketplace/image2.png)
-
-Under the Status tab, you will see the Publishing Steps and where your offer is in the process. Let’s walk through each of the publishing steps and discuss what happens at each step and how long you should estimate each step will take. 
-
-##Validating prerequisites (<1 day) 	
-When you click “Publish”, an automated check will take place to ensure you’ve populated all the required fields on your offer. If any fields are not populated, a     will appear next to the field and you will need to populate it accurately then click ‘Publish’ again.  
-
-Once you’ve completed this step correctly, a pop-up will appear asking for an email address. This is the email that you will receive publishing status notifications for the remainder of the publishing process. Once you submit your email address, this step is complete.
+Let’s go through this process in more detail to better understand what is happening during each step, and at which points in this process you will need to act to ensure your offer continues to make progress. 
 
 
-![Offer Go Live Sequence](./media/Cloud-partner-portal-how-to-offer-go-live-Azure-Marketplace/image3.png)
+## Publishing Process
+
+To start the Publish process, you will click “Publish” under the Editor tab. 
+
+![Offer Go Live Sequence](./media/cloud-partner-portal-offer-go-live-azure-marketplace/publish.png)
 
 
-##Certifying virtual machines (<5 days)
+Under the Status tab, you will see the Publishing Steps and where your offer is in the process. 
+
+
+![Offer Go Live Sequence](./media/cloud-partner-portal-offer-go-live-azure-marketplace/status.png)
+
+At any point in the publishing process, you can also log in and click the All Offers tab to view the latest status for any of your offers. You can click directly on the status for your offer and see the details on where your offer is in the publishing process.
+
+![Offer Go Live Sequence](./media/cloud-partner-portal-offer-go-live-azure-marketplace/status2.png)
+
+Let’s walk through each of the publishing steps, discuss what happens at each step and how long you should estimate each step will take. 
+
+**Validate Pre-Requisites (<1 day)**
+
+When you click “Publish”, an automated check will take place to ensure you’ve populated all the required fields on your offer. If any fields are not populated, a warning will appear next to the field and you will need to populate it accurately then click ‘Publish’ again. 
+
+
+Once you’ve completed this step correctly, a pop-up will appear asking for an email address. This is the email to which you will receive publishing status notifications for the remainder of the publishing process. Once you submit your email address, this step is complete.
+
+![Offer Go Live Sequence](./media/cloud-partner-portal-offer-go-live-azure-marketplace/publishyouroffer.png)
+
+**Certification (<5 days)**
+
 This step is where we run several tests to ensure your VM image meets the requirements for Azure Certified. All the guidance you will need to ensure you pass the certification requirements are [here](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites).
 
-![Offer Go Live Sequence](./media/Cloud-partner-portal-how-to-offer-go-live-Azure-Marketplace/image4.png)
+Since this step can take several days, you can log out of the Cloud Partner Portal. We will send you an email notification if there are any errors that you need to address. If everything passes with success, the process will automatically move on to the Provisioning step. 
 
-Since this step can take several days, you can log out of the Cloud Partner Portal. We will send you an email notification if there are any failures or errors that you need to address. If everything passes with success, the process will automatically move on to the Validating Content Step. 
+**Provisioning (<1 day)**
 
+During this stage, we are replicating your images to all global Azure data centers, and can take up to a day to complete.
 
-## Validating content (<1 day)
-Once your VM image is certified, we review all your marketing content to ensure that all URLs are valid and the content does not contain any explicit material. Again, no action is needed from you unless we send an email notification to you with actions you need to address.
+**Packaging and Lead Generation Registration (<1 hour)**
 
-Replication & Packaging (<3 days)	
-During this stage, we are replicating your images to all global Azure data centers. 
+During this stage, we are combining the technical and marketing content into what will be the product page on the website. 
 
-Offer Available in Preview	
-You will get a notification that your offer has completed the replication/packaging steps and is available to preview. During this step, you should preview your offer and make sure everything looks as it should be and that your VM properly deploys in the staging  environment. Note that only whitelisted offers  can do this verification. 
+Additionally, if you configured the Lead Generation feature, we will validate that your CRM integration is working by sending a test lead to your CRM. You will see a record with fake data populate in your CRM or Azure Table after this step is complete. All documentation for Lead Generation is located here.
 
-##Publisher sign-off
-<2 days	Click Go Live and we will begin the replication and packaging steps to make your offer live in production and on the website. You will see the following status pipeline that you can follow your offer being pushed live globally. 
+**Offer Available in Preview**
 
-![Offer Go Live Sequence](./media/Cloud-partner-portal-how-to-offer-go-live-Azure-Marketplace/image5.png)
+You will get a notification email that your offer has successfully completed the steps required to access the offer in preview. During this step, you should preview your offer and make sure everything looks as it should be and that your VM properly deploys in the staging environment. 
 
+**Only whitelisted subscriptions can do this verification.***
 
-## Live		
+**Publisher signoff**
+
+Once you verify everything looks correct and works properly in preview, you are ready to go live. To do this, click Go Live under the status tab and we will begin steps to make your offer live in production and on the website. Typically, it will take several hours from the time you click Go Live and when the offer is live on the website. We will send you an email notification once your offer is officially live on the website.
+
+![Offer Go Live Sequence](./media/cloud-partner-portal-offer-go-live-azure-marketplace/golive.png)
+
+**Live**	
+
 Your offer is now Live on Azure Marketplace and Azure Portal, and customers will be able to view and deploy your virtual machine in their Azure subscriptions.
 At any point, you can click on the All offers tab, and see the status for all your offers listed on the right column. You can click on the status to see the publishing flow status in detail for your offer.
 
-![Offer Go Live Sequence](./media/Cloud-partner-portal-how-to-offer-go-live-Azure-Marketplace/image6.png)
+## Error Handling
 
-Once live the offer will be available on Azure marketplace and portal.azure.com
+During the publishing process, an error may be encountered. If an error is encountered, you will receive a notification email informing you that an error occurred with instructions on next steps. You can also see errors at any time during this process by clicking the Status tab. You will see which point in the process the error occurred along with an error message outlining what needs to be resolved. 
+
+![Offer Go Live Sequence](./media/cloud-partner-portal-offer-go-live-azure-marketplace/status3.png)
+
+If you encounter errors during the publishing process, you are required to fix these then click ‘Publish’ to restart the process. You must start at the beginning of the publishing steps at Validate Pre-Requisites when re-publishing after any error fix.
+
+If you are having issues resolving an error, you should open a support request to get help from our support engineers.
+
+
+![Offer Go Live Sequence](./media/cloud-partner-portal-offer-go-live-azure-marketplace/status4.png)
+
+
+## Canceling the publishing request
+
+You might start the process of publishing and have a need to cancel your request. You can only cancel a publishing request once the publish request reaches the Publisher Signoff step. To cancel, click on ‘Cancel Publish’. The publishing status will reset to Step 1, and to publish again, you should click Publish and follow the steps in the status.
+
+![Offer Go Live Sequence](./media/cloud-partner-portal-offer-go-live-azure-marketplace/status5.png)
+
+
 
 
 

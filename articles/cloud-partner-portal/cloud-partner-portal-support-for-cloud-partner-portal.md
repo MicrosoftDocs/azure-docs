@@ -21,7 +21,7 @@ ms.author: andalmia
 
 Microsoft provides support for a wide variety of products and services. Ensuring that your query finds the right support team is important to ensure an appropriate and timely response. Please consider the following scenarios, which should help you route your query to the appropriate team:
 
--   If you are a publisher via Cloud Partner Portal and have a question from a customer, please tell your customer to request support via the support links at <https://portal.azure.com/>.
+-   If you are a publisher via Cloud Partner Portal and have a question from a customer, please tell your customer to request support via the support links at [Azure Portal](https://portal.azure.com/)
 
 -   If you are a publisher via Cloud Partner Portal and have a question relating to your app or service, continue reading below.
 
