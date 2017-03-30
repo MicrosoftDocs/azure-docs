@@ -1,6 +1,6 @@
 ---
-title:                    | Microsoft Docs
-description:
+title: What are Service Health Notifications | Microsoft Docs
+description: Service health notifications allow you to view service health messages publish by Microsoft Azure.
 author: anirudhcavale
 manager: carmonm
 editor: ''
@@ -27,7 +27,7 @@ This article shows you how to view service health notifications using the Azure 
 >
 >
 
-Service health notifications enable you to view service health messages published by the Azure team that may be affecting resources under your subscription. These notifications are a sub-class of activity log events and can also be found on the activity log blade. Service health notifications can be informational or actionable depending on the class.
+Service health notifications allow you to view service health messages published by the Azure team that may be affecting the resources under your subscription. These notifications are a sub-class of activity log events and can also be found on the activity log blade. Service health notifications can be informational or actionable depending on the class.
 
 There are five classes of service health notifications:  
 
