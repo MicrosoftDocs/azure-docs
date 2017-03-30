@@ -359,7 +359,7 @@ Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethern
 ## 6.5 Application Gateway
 [Microsoft Azure Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-introduction) provides an [Application Delivery Controller (ADC)](https://en.wikipedia.org/wiki/Application_delivery_controller) as a service, offering various layer 7 load balancing capabilities for your application.
 
-<img src="media/Introduction-To-Azure-Security/Introduction-To-Azure-Security-Fig2.png" width ="300" height="300" alt ="" align ="right">
+<img src="media/Introduction-To-Azure-Security/Introduction-To-Azure-Security-Fig2.png" width ="300" height="280" alt ="" align ="right">
 
 It allows you to optimize web farm productivity by offloading CPU intensive SSL termination to the Application Gateway (also known as “SSL offload” or “SSL bridging”). It also provides other Layer 7 routing capabilities including round-robin distribution of incoming traffic, cookie based session affinity, URL path based routing, and the ability to host multiple websites behind a single Application Gateway.
 Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, [Secure Sockets Layer (SSL)](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-web-application-firewall-powershell) offload, custom health probes, support for multi-site, and many others.
@@ -369,13 +369,12 @@ Azure Application Gateway is a layer-7 load balancer. It provides failover, perf
 Web Application Firewall is a feature of [Azure Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-introduction) that provides protection to web applications that leverage application gateway for standard Application Delivery Control (ADC) functions. Web application firewall does this by protecting them against most of the OWASP top 10 common web vulnerabilities.
 - SQL injection protection
 - Cross site scripting protection
+<img src="media/Introduction-To-Azure-Security/Introduction-To-Azure-Security-Fig3.png" width ="300" height="250" alt ="" align ="right">
 - Common Web Attacks Protection such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion attack
 - Protection against HTTP protocol violations
 - Protection against HTTP protocol anomalies such as missing host user-agent and accept headers
 - Prevention against bots, crawlers, and scanners
 - Detection of common application misconfigurations (i.e. Apache, IIS, etc.)
-
-<img src="media/Introduction-To-Azure-Security/Introduction-To-Azure-Security-Fig3.png" width ="300" height="300" alt ="" align ="right">
 
 A centralized web application firewall to protect against web attacks makes security management much simpler and gives better assurance to the application against the threats of intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications. Existing application gateways can be converted to an application gateway with web application firewall easily.
 ## 6.7 Traffic Manager
