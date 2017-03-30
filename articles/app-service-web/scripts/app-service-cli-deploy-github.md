@@ -17,8 +17,6 @@ ms.topic: article
 ms.date: 03/20/2017
 ms.author: cephalin
 ---
-
-
 # Create a web app with deployment from GitHub
 
 This sample script creates a web app in App Service with its related resources, and then deploys your web app code from a public GitHub repository (without continuous deployment). For GitHub deployment with continuous deployment, see [Create a web app with continuous deployment from GitHub](app-service-cli-continuous-deployment-github.md).

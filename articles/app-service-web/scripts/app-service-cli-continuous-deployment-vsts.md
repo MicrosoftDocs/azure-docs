@@ -17,7 +17,6 @@ ms.topic: article
 ms.date: 03/20/2017
 ms.author: cfowler
 ---
-
 # Create a web app with continuous deployment from Visual Studio Team Services
 
 This sample script creates a web app in App Service with its related resources, and then sets up continuous deployment from a Visual Studio Team Services repository. For this sample, you will need:

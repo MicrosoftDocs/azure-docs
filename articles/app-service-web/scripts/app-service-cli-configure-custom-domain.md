@@ -17,10 +17,9 @@ ms.topic: article
 ms.date: 03/20/2017
 ms.author: cephalin
 ---
-
 # Map a custom domain to a web app
 
-This sample script creates a web app in App Service with its related resources, and then maps `www.<yourdomain>` to it. 
+This sample script creates a web app in App Service with its related resources, and then maps `www.<yourdomain>` to it.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 

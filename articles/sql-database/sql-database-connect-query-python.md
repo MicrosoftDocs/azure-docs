@@ -27,7 +27,7 @@ This quick start uses as its starting point the resources created in one of thes
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
 
-## Configure Development Environment
+## Configure development environment
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your python script. Enter the following commands to install **brew**, **Microsoft ODBC Driver for Mac** and **pyodbc**. pyodbc uses the Microsoft ODBC Driver on Linux to connect to SQL Databases.
 

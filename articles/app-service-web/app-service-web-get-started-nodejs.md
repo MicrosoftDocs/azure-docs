@@ -215,7 +215,7 @@ Push to the Azure remote to deploy your application. You will be prompted for th
 git push azure master
 ```
 
-During deployment, Azure Web App will communicate it's progress with Git.
+During deployment, Azure App Service will communicate it's progress with Git.
 
 ```bash
 Counting objects: 23, done.
@@ -259,7 +259,7 @@ Browse to the deployed application using your web browser.
 http://<app_name>.azurewebsites.net
 ```
 
-This time, the page that displays the Hello World message is running using our Node.js code running as an Azure App Service Web App.
+This time, the page that displays the Hello World message is running using our Node.js code running as an Azure App Service web app.
 
 ## Updating and Deploying the Code
 
@@ -280,7 +280,7 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 ![hello-world-in-browser](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-**Congratulations!** You've deployed your first Node.js app to App Service Web App.
+**Congratulations!** You've deployed your first Node.js app to App Service.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
