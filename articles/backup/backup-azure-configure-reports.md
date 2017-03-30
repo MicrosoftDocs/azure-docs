@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 03/28/2017
-ms.author: pajosh;markgal;trinadhk
+ms.date: 03/30/2017
+ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 
 ---
