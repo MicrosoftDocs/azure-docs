@@ -23,8 +23,7 @@ ms.author: LADocs; estfan
 
 To set up an event monitor so that your logic app can detect events, receive events, and send events, 
 connect to an [Azure Event Hub](https://azure.microsoft.com/services/event-hubs) 
-from your logic app. Learn more about 
-the [Azure Event Hubs service](../event-hubs/event-hubs-what-is-event-hubs.md).
+from your logic app. Learn more about [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md).
 
 ## Requirements
 
