@@ -28,7 +28,7 @@ This tutorial shows you how to create a virtual machine scale set **without** us
 
 ## Sign in to Azure
 
-If you're using Azure CLI or Azure PowerShell to create a scale set, you first need to sign in to your subscription.
+If you're using Azure CLI 2.0 or Azure PowerShell to create a scale set, you first need to sign in to your subscription.
 
 For more information about how to install, set up, and sign in to Azure with Azure CLI or PowerShell, see [Getting Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md) or [Get started with Azure PowerShell cmdlets](/powershell/resourcemanager/).
 
@@ -57,7 +57,7 @@ New-AzureRmResourceGroup -Location westus2 -Name vmss-test-1
 With Azure CLI, you can create a virtual machine scale set with minimal effort. If you omit default values, the are provided for you. For example, if you don't specify any virtual network information, a virtual network is created for you. If you omit the following parts, they are created for you: 
 - A load balancer
 - A virtual network
--  A public IP address
+- A public IP address
 
 When choosing the virtual machine image that you want to use on the virtual machine scale set, you have a few choices:
 
@@ -85,9 +85,9 @@ To create a virtual machine scale set, you must specify the following:
 - Resource group 
 - Name
 - Operating system image
- - Authentication information 
+- Authentication information 
  
- The following example creates a basic virtual machine scale set (this step might take a few minutes).
+The following example creates a basic virtual machine scale set (this step might take a few minutes).
 
 ```azurecli
 az vmss create --resource-group vmss-test-1 --name MyScaleSet --image UbuntuLTS --authentication-type password --admin-username azureuser --admin-password P@ssw0rd!
@@ -97,9 +97,9 @@ az vmss create --resource-group vmss-test-1 --name MyScaleSet --image UbuntuLTS 
 
 PowerShell is more complicated to use than Azure CLI. While Azure CLI provides defaults for networking-related resources (such as load balancers, IP addresses, and virtual networks), PowerShell does not. Referencing an image with PowerShell is a slightly more complicated too. You can get images with the following cmdlets:
 
-- Get-AzureRMVMImagePublisher
-- Get-AzureRMVMImageOffer
-- Get-AzureRmVMImageSku
+1. Get-AzureRMVMImagePublisher
+2. Get-AzureRMVMImageOffer
+3. Get-AzureRmVMImageSku
 
 The cmdlets work can be piped in sequence. Here is an example of how to get all images for the **West US 2** region with a publisher that has the name **microsoft** in it.
 
