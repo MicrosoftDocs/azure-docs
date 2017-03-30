@@ -17,10 +17,10 @@ ms.date: 01/30/2017
 ms.author: jotaub;sethm
 
 ---
-# Send events to Azure event hubs using Java
+# Send events to Azure Event Hubs using Java
 
 ## Introduction
-Event Hubs is a highly scalable ingestion system that can intake millions of events per second, enabling an application to process and analyze the massive amounts of data produced by your connected devices and applications. Once collected into event hubs, you can transform and store data using any real-time analytics provider or storage cluster.
+Event Hubs is a highly scalable ingestion system that can intake millions of events per second, enabling an application to process and analyze the massive amounts of data produced by your connected devices and applications. Once collected into Event Hubs, you can transform and store data using any real-time analytics provider or storage cluster.
 
 For more information, see the [Event Hubs overview][Event Hubs overview].
 
@@ -31,7 +31,7 @@ In order to complete this tutorial, you will need the following:
 * A Java development environment. For this tutorial, we will assume [Eclipse](https://www.eclipse.org/).
 * An active Azure account. <br/>If you don't have an account, you can create a free account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
 
-## Send messages to event hubs
+## Send messages to Event Hubs
 The Java client library for Event Hubs is available for use in Maven projects from the [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22), and can be referenced using the following dependency declaration inside your Maven project file:    
 
 ``` XML

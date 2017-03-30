@@ -20,11 +20,11 @@ ms.author: jotaub;sethm
 # Receive events from Azure Event Hubs using the .NET Framework
 
 ## Introduction
-Event Hubs is a service that processes large amounts of event data (telemetry) from connected devices and applications. After you collect data into event hubs, you can store the data using a storage cluster or transform it using a real-time analytics provider. This large-scale event collection and processing capability is a key component of modern application architectures including the Internet of Things (IoT).
+Event Hubs is a service that processes large amounts of event data (telemetry) from connected devices and applications. After you collect data into Event Hubs, you can store the data using a storage cluster or transform it using a real-time analytics provider. This large-scale event collection and processing capability is a key component of modern application architectures including the Internet of Things (IoT).
 
 This tutorial shows how to write a .NET Framework console application that receives messages from an event hub using the **[Event Processor Host][EventProcessorHost]**. To send events using the .NET Framework, see the [Send events to Azure Event Hubs using the .NET Framework](event-hubs-dotnet-framework-getstarted-send.md) article, or click the appropriate sending language in the left-hand table of contents.
 
-The [Event Processor Host][EventProcessorHost] is a .NET class that simplifies receiving events from event hubs by managing persistent checkpoints and parallel receives from those event hubs. Using the [Event Processor Host][Event Processor Host], you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use the [Event Processor Host][EventProcessorHost] for a single receiver. The [Scale out event processing][Scale out Event Processing with event hubs] sample shows how to use the [Event Processor Host][EventProcessorHost] with multiple receivers.
+The [Event Processor Host][EventProcessorHost] is a .NET class that simplifies receiving events from event hubs by managing persistent checkpoints and parallel receives from those event hubs. Using the [Event Processor Host][Event Processor Host], you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use the [Event Processor Host][EventProcessorHost] for a single receiver. The [Scale out event processing][Scale out Event Processing with Event Hubs] sample shows how to use the [Event Processor Host][EventProcessorHost] with multiple receivers.
 
 ## Prerequisites
 
