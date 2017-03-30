@@ -52,7 +52,7 @@ We recommend that you read the both [Overview of metrics in Microsoft Azure](../
 
 ### Azure portal
 
-To  enable metrics and diagnostic logs collection in the Azure Portal, go to the Azure portal page for your Azure SQL database or elastic pool and then click Diagnostic configuration.
+To  enable metrics and diagnostic logs collection in the Azure portal, go to the Azure portal page for your Azure SQL database or elastic pool and then click Diagnostic configuration.
 
    <img src="./media/sql-database-metrics-diag-logging/enable-portal.png" alt="enable in the Azure portal" style="width: 780px;" />
 
@@ -123,8 +123,6 @@ Read about how to [enable Diagnostic settings at resource creation using Resourc
 ## Streaming Azure SQL Database metrics and diagnostics logs into Log Analytics 
 Azure SQL Database metrics and diagnostic logs can be streamed into Log Analytics using the built-in “Export to Log Analytics” option in the portal, or by enabling Log Analytics in a diagnostic setting via Azure PowerShell cmdlets, Azure CLI or Azure Monitor REST API.
 
-To enable metrics and diagnostic logs collection, see [Enable metrics and diagnostic logging](sql-database-metrics-diag-logging.md#enable-metrics-and-diagnostics-logging).
-
 ### Installation overview
 
 Monitoring Azure SQL Database fleet is very simple with Log Analytics. Three steps are required:
@@ -144,7 +142,7 @@ Monitoring Azure SQL Database fleet is very simple with Log Analytics. Three ste
 
 ### Configure databases to record metrics and diagnostic logs
 
-In the Azure portal, navigate to your Azure SQL Database resource and click **Diagnostics**. For more information, please read how to [Enable metrics and diagnostic logging](sql-database-metrics-diag-logging.md#enable-metrics-and-diagnostics-logging).
+The easiest way to configure where databases will record their metrics is through the Azure portal. In the Azure portal, navigate to your Azure SQL Database resource and click **Diagnostics**. 
 
 ### Install the Azure SQL DB Monitoring solution from gallery  
 
@@ -165,15 +163,18 @@ Reports for each hierarchical level can be logically separated into two sections
 -	Query monitoring
 
 ### Resource monitoring section
+
 This section focuses on the general resource information. It contains the lists of different resources under the selected resource. For example, for a selected subscription you can see the all servers, elastic pools and databases that belong to the selected subscription. Additionally, for Elastic Pools and databases, you can see the resource usage metrics of that resource. This includes charts for DTU, CPU, IO, LOG, sessions, workers, connections, and storage in GB.
+
 ### Query monitoring section
+
 This section focuses on the query behavior on all the databases under the selected resource. For example, for a selected server, you can see the aggregated statistical information for all queries executed on databases that belong to that server. In case the query with the same shape is executed on multiple databases it will be grouped into a single entry.
 
 Great thing about the query monitoring section is that allows you to drill down into more details. Selecting a significant query opens up another report that lists all the databases where a selected query was executed making it easy to compare the query performance across different databases. Selecting a single database from this list opens up the report with different query execution statistics and the query text for a selected query on a selected database.
 
 ## Streaming Azure SQL Database metrics and diagnostic logs into Azure Event Hub
 
-Azure SQL Database metrics and diagnostic logs can be streamed into Event Hub using the built-in “Export to Event Hub” option in the portal, or by enabling Service Bus Rule Id in a diagnostic setting via Azure PowerShell Cmdlets, Azure CLI or Azure Monitor REST API. For more information, please read how to [Enable metrics and diagnostic logging](sql-database-metrics-diag-logging.md#enable-metrics-and-diagnostics-logging).
+Azure SQL Database metrics and diagnostic logs can be streamed into Event Hub using the built-in “Export to Event Hub” option in the portal, or by enabling Service Bus Rule Id in a diagnostic setting via Azure PowerShell Cmdlets, Azure CLI or Azure Monitor REST API. 
 
 ### What to do with metrics and diagnostic logs in Event Hub?
 Once the selected data is streamed into Event Hub you are one step closer to enabling advanced monitoring scenarios. Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an Event Hub, it can be transformed and stored using any real-time analytics provider or batching/storage adapters. Event Hubs decouples the production of a stream of events from the consumption of those events, so that event consumers can access the events on their own schedule. For more information on Event Hub, see:
@@ -187,6 +188,45 @@ Here are just a few ways you might use the streaming capability:
 -	View service health by streaming “hot path” data to PowerBI - Using Event Hubs, Stream Analytics, and PowerBI, you can easily transform your metrics and diagnostics data into near real-time insights on your Azure services. For an overview of how to set up an Event Hubs, process data with Stream Analytics, and use PowerBI as an output, see [Stream Anaytics and Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md).
 -	Stream logs to 3rd party logging and telemetry streams – Using Event Hubs streaming you can get your metrics and diagnostic logs into different third party monitoring and log analytics solutions. 
 -	Build a custom telemetry and logging platform – If you already have a custom-built telemetry platform or are just thinking about building one, the highly scalable publish-subscribe nature of Event Hubs allows you to flexibly ingest diagnostic logs. See [Dan Rosanova’s guide to using Event Hubs in a global scale telemetry platform](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
+
+## Streaming Azure SQL Database metrics and diagnostics into Azure Storage
+
+Azure SQL Database metrics and diagnostic logs can be stored into Azure Storage using the built-in “Export to Azure Storage” option in the portal, or by enabling Azure Storage in a diagnostic setting via Azure PowerShell Cmdlets, Azure CLI or Azure Monitor REST API.
+
+### Schema of metrics and diagnostic logs in the storage account
+
+Once you have set up metrics and diagnostic logs collection, a storage container is created in the storage account you selected as soon as the first rows of data are available. The structure of these blobs is:
+
+    ```
+    insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ databases/{database_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+    ```
+Or, more simply:
+
+    ```
+    insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+    ```
+For example, a blob name for 1-minute metrics might be:
+
+   ```
+   insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
+   ```
+
+Another example, a blob name for Query Store logs might be:
+
+    ```
+    insights-logs-querystore/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
+    ```
+In case you want to record the data from the Elastic Pool, blob name will be a bit different:
+
+    ```
+    insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ elasticPools/{elastic_pool_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+    ```
+
+To see the format for all metrics and diagnostic logs available please take a look at: Azure SQL Database metrics and diagnostics logging.
+
+### Download metrics and logs from Azure storage
+
+See [Download metrics and diagnostic logs from Azure Storage](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs.md)
 
 ## 1-minute metrics
 
@@ -269,8 +309,6 @@ Azure SQL Database Query Store Logs contain execution statistics of the queries 
 ||||
 
 ## Next steps
-Take a look at the examples of how you can best use the different stores for you Azure SQL Database metrics and diagnostic logs.
--	Enable collection of metrics and diagnostic logs for Azure SQL Database [ADD LINK]
--	Monitor Azure SQL Database resources using Log Analytics [ADD LINK]
--	Streaming Azure SQL Database metrics and diagnostic logs into Azure Event Hub [ADD LINK]
--	Storing Azure SQL Database metrics and diagnostics into Azure Storage [ADD LINK]
+
+
+- See [Download metrics and diagnostic logs from Azure Storage](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs.md)
