@@ -22,7 +22,7 @@ ms.author: cfowler
 
 In this scenario you will learn how to create an Azure storage account and an Azure web app. Then you will link the storage account to the web app using app settings.
 
-[!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample script
 
