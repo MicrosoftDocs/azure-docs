@@ -6,11 +6,30 @@ Resource Manager enables deploying complex applications through templates, confi
 
 Almost all the features from the classic deployment model are supported for compute, network, and storage under Azure Resource Manager. To benefit from the new capabilities in Azure Resource Manager, you can migrate existing deployments from the Classic deployment model.
 
-## Supported scopes of migration
-There are three migration scopes that primarily target compute, network, and storage.
+## Supported resources for migration
+These classic IaaS resources are supported during migration
 
-### Migration of virtual machines (not in a virtual network)
-In the Resource Manager deployment model, security is enforced for your applications by default. All VMs need to be in a virtual network in the Resource Manager model. The Azure platform restarts (`Stop`, `Deallocate`, and `Start`) the VMs as part of the migration. You have two options for the virtual networks:
+* Virtual Machines
+* Availability Sets
+* Cloud Services
+* Storage Accounts
+* Virtual Networks
+* VPN Gateways
+* Express Route Gateways _(in the same subscription as Virtual Network only)_
+* Network Security Groups 
+* Route Tables 
+* Reserved IPs 
+
+## Supported scopes of migration
+There are 4 different ways to complete migration of compute, network, and storage resources. These are 
+
+* Migration of virtual machines (NOT in a virtual network)
+* Migration of virtual machines (in a virtual network)
+* Storage accounts migration
+* Unattached resources (Network Security Groups, Route Tables & Reserved IPs)
+
+### Migration of virtual machines (NOT in a virtual network)
+In the Resource Manager deployment model, security is enforced for your applications by default. All VMs need to be in a virtual network in the Resource Manager model. The Azure platform restarts (`Stop`, `Deallocate`, and `Start`) the VMs as part of the migration. You have two options for the virtual networks that the Virtual Machines will be migrated to:
 
 * You can request the platform to create a new virtual network and migrate the virtual machine into the new virtual network.
 * You can migrate the virtual machine into an existing virtual network in Resource Manager.
@@ -41,19 +60,24 @@ To allow seamless migration, you can deploy Resource Manager VMs in a classic st
 >
 >
 
+### Unattached resources (Network Security Groups, Route Tables & Reserved IPs)
+Network Security Groups, Route Tables & Reserved IPs that are not attached to any Virtual Machines and Virtual Networks can be migrated independently.
+
+<br>
+
 ## Unsupported features and configurations
 We do not currently support some features and configurations. The following sections describe our recommendations around them.
 
 ### Unsupported features
 The following features are not currently supported. You can optionally remove these settings, migrate the VMs, and then re-enable the settings in the Resource Manager deployment model.
 
-| Resource provider | Feature |
-| --- | --- |
-| Compute |Unassociated virtual machine disks. |
-| Compute |Virtual machine images. |
-| Network |Endpoint ACLs. |
-| Network |ExpressRoute with authorization links (see FAQ), Application Gateway (VPN Gateways are supported).|
-| Network |Virtual networks using VNet Peering. (Migrate VNet to ARM, then peer) Learn more about [VNet Peering](../articles/virtual-network/virtual-network-peering-overview.md). |
+| Resource provider | Feature | Recommendation |
+| --- | --- | --- |
+| Compute |Unassociated virtual machine disks. | The VHD blobs behind these disks will get migrated when the Storage Account is migrated |
+| Compute |Virtual machine images. | The VHD blobs behind these disks will get migrated when the Storage Account is migrated |
+| Network |Endpoint ACLs. | Remove Endpoint ACLs and retry migration. |
+| Network |ExpressRoute with authorization links (see FAQ), Application Gateway | Remove the Gateway before beginning migration and then recreate once migration is complete. |
+| Network |Virtual networks using VNet Peering. | Migrate Virtual Network to Resource Manager, then peer. Learn more about [VNet Peering](../articles/virtual-network/virtual-network-peering-overview.md). | 
 
 ### Unsupported configurations
 The following configurations are not currently supported.
@@ -75,5 +99,4 @@ The following configurations are not currently supported.
 | Azure RemoteApp |Virtual networks that contain Azure RemoteApp deployments |This is currently not supported. |
 | Azure API Management |Virtual networks that contain Azure API Management deployments |This is currently not supported. To migrate the IaaS VNET, please change the VNET of the API Management deployment which is a no downtime operation. |
 | Compute |Azure Security Center extensions with a VNET that has a VPN gateway in transit connectivity or ExpressRoute gateway with on-prem DNS server |Azure Security Center automatically installs extensions on your Virtual Machines to monitor their security and raise alerts. These extensions usually get installed automatically if the Azure Security Center policy is enabled on the subscription. ExpressRoute gateway migration is not supported currently, and VPN gateways with transit connectivity loses on-premises access. Deleting ExpressRoute gateway or migrating VPN gateway with transit connectivity causes internet access to VM storage account to be lost when proceeding with committing the migration. The migration will not proceed when this happens as the guest agent status blob cannot be populated. It is recommended to disable Azure Security Center policy on the subscription 3 hours before proceeding with migration. |
-
 
