@@ -69,6 +69,7 @@
 
 ## Examples, scenarios, and walkthroughs
 ### [Overview](logic-apps-examples-and-scenarios.md)
+### [Create a serverless social dashboard](logic-apps-scenario-social-serverless.md)
 ### [Call logic apps with Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Add error and exception handling](logic-apps-scenario-error-and-exception-handling.md)
 ### [B2B processing](logic-apps-enterprise-integration-b2b.md)

@@ -121,7 +121,7 @@ Azure Managed Disks currently only supports locally-redundant storage (LRS).
 
 **Why do customers have to unblock outbound traffic on port 8443 for VMs using Azure Managed Disks?**
 
-The Azure VM Agent uses port 8443 to report the status of each VM extension to the Azure platform. Without this port being unblocked, the VM agent won't be able to report the status of any VM extension. For more information about the VM agent, please see [Azure Virtual Machine Agent overview](../virtual-machines/virtual-machines-windows-agent-user-guide.md).
+The Azure VM Agent uses port 8443 to report the status of each VM extension to the Azure platform. Without this port being unblocked, the VM agent won't be able to report the status of any VM extension. For more information about the VM agent, please see [Azure Virtual Machine Agent overview](../virtual-machines/windows/agent-user-guide.md).
 
 **What happens if a VM is deployed with extensions and the port is not unblocked?**
 
