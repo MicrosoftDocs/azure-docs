@@ -67,7 +67,7 @@ Azure AD Privileged Identity Management helps you:
 
 # 3.0 Microsoft Operations Management Suite (OMS)
 
-[Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Since OMS is implemented as a cloud-based service, you can have it up and running quickly with minimal investment in infrastructure services. New security features are delivered automatically, saving your ongoing maintenance and upgrade costs.
+[Microsoft Operations Management Suite](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Since OMS is implemented as a cloud-based service, you can have it up and running quickly with minimal investment in infrastructure services. New security features are delivered automatically, saving your ongoing maintenance and upgrade costs.
 
 In addition to providing valuable services on its own, OMS can integrate with System Center components such as [System Center Operations Manager](https://technet.microsoft.com/en-us/library/hh205987(v=sc.12).aspx) to extend your existing security management investments into the cloud. System Center and OMS can work together to provide a full hybrid management experience.
 
