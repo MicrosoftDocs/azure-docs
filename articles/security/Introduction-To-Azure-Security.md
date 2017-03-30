@@ -50,18 +50,14 @@ The features listed below are capabilities you can review to provide the assuran
     <td><a href="https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms" target="_blank">Provide data access on your terms</a></td>
     <td><a href="https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data" target="_blank">Responding to law enforcement</a></td>
     <td><a href="https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards" target="_blank">Stringent privacy standards</a></td>
-
-  </tr>
-  
+  </tr>  
  <tr>
-
-    <th><a href="https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx" target="_blank">Compliance</a> </th>
+   <th><a href="https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx" target="_blank">Compliance</a></th>
     <td><a href="https://www.microsoft.com/en-us/trustcenter/default.aspx" target="_blank">Trust Center</a></td>
-    <td><a href="https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub" target="_blank"> Common Controls Hub </a></td>
+    <td><a href="https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub" target="_blank">Common Controls Hub</a></td>
     <td><a href="https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist" target="_blank">The Cloud Services Due Diligence Checklist</a></td>
-    <td><a href="https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx" target="_blank">Compliance by service, location & Industry</a></td>
+    <td><a href="https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx" target="_blank">Compliance by service,location and Industry</a></td>
     <td><a href="" target="_blank"></a></td>
-
   </tr>
   
 </table>
