@@ -31,20 +31,12 @@ The features listed below are capabilities you can review to provide the assuran
 
 <table style="width:100%">
 <tr>
-  
-    <th>Secure Platform</th>
-    <td>Security Development Cycle,Internal audits</td>
-    <td> Mandatory Security training, back ground checks</td>
-    <td>Penetration testing,
-    <a href="https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagemen" target="_blank">intrusion detection ,DDoS</a>,
-    <a href="https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging" target="_blank">Audits and logging</a></td>
-    <td><a href="https://www.microsoft.com/en-us/cloud-platform/global-datacenters" target="_blank">State of art datacenter </a>,
-<a href="https://docs.microsoft.com/en-us/azure/security/security-network-overview" target="_blank">Secure Network, physical security</a>
+      <td>Security Development Cycle,Internal audits</td>
+     <td> Mandatory Security training, back ground checks</td>
+    <td>Penetration testing    
     </td>
-
     <td>Security Incident response
-       <a href="http://aka.ms/sharedresponsibility" target="_blank">Shared Responsibility</a>
-
+       Shared Responsibility
     </td>
 
 </tr>
