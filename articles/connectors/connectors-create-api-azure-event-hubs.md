@@ -150,6 +150,10 @@ Select this action: **Send event**
 such as the name for the Event Hub where you want to send the event. 
 Enter any other optional details about the event, such as content for that event.
 
+    > [!TIP]
+    > To optionally specify the Event Hub partition where to send the event, 
+    > choose **Show advanced options**. 
+
     ![Enter Event Hub name and optional event details](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
 6.  Save your changes.
