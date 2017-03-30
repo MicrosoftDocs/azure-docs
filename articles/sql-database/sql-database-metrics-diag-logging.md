@@ -222,7 +222,7 @@ To see the format for all metrics and diagnostic logs available please take a lo
 
 ### Download metrics and logs from Azure storage
 
-See [Download metrics and diagnostic logs from Azure Storage](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs.md)
+See [Download metrics and diagnostic logs from Azure Storage](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
 
 ## 1-minute metrics
 
@@ -306,5 +306,8 @@ Azure SQL Database Query Store Logs contain execution statistics of the queries 
 
 ## Next steps
 
-
-- See [Download metrics and diagnostic logs from Azure Storage](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs.md)
+- Read the both [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) and [Overview of Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) articles to gain an understanding of not only how to enable logging, but the metrics and log categories supported by the various Azure services.
+- Read these articles to learn about event hubs:
+   - [What are Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)?
+   - [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+- See [Download metrics and diagnostic logs from Azure Storage](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
