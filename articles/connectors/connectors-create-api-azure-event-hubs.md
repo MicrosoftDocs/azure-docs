@@ -114,9 +114,9 @@ choose **Show advanced options**.
 
     ![Specify Event Hub or consumer group](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger-details.png)
 
-    You've now set up a trigger to start your logic app. 
+    You've now set up a trigger to start a workflow for your logic app. 
     When new events are available in the specified Event Hub, 
-    the trigger runs other actions or triggers in your logic app workflow.
+    the trigger runs other actions or triggers in your logic app.
 
 ## Send events to your Event Hub from your logic app
 
