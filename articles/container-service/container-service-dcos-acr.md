@@ -25,7 +25,7 @@ In this article, we'll explore how to use a private container register such as A
 
 Before working through this example, you need: 
 * A DC/OS cluster that is configured in Azure Container Service. See [Deploy an Azure Container Service cluster](container-service-deployment.md).
-* A Azure Container Service deployed. See [Create a private Docker container registry using the Azure portal](https://docs.microsoft.com/en-ca/azure/container-registry/container-registry-get-started-portal) or [Create a private Docker container registry using the Azure CLI 2.0](https://docs.microsoft.com/en-ca/azure/container-registry/container-registry-get-started-azure-cli)
+* A Azure Container Service deployed. See [Create a private Docker container registry using the Azure portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal) or [Create a private Docker container registry using the Azure CLI 2.0](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)
 * A File share that is configured inside your DC/OS cluster. See [Create and mount a file share to a DC/OS cluster](container-service-dcos-fileshare.md)
 * To understand how to deploy a Docker image in a DC/OS cluster by using the [Web UI](container-service-mesos-marathon-ui.md) or the [REST API](container-service-mesos-marathon-rest.md)
 
@@ -83,7 +83,7 @@ az storage file upload -s share --account-name anystorageaccountname --account-k
 
 Executing operation from the master are not recommended to avoid mistakes and impact on the whole environments.
 
-1. First, SSH to the master (or the first master) of your DC/OS-based cluster. For example, `ssh userName@masterFQDN –A –p 22`, where the masterFQDN is the fully qualified domain name of the master VM. [More infos by clicking here](https://docs.microsoft.com/en-us/azure/container-service/container-service-connect#connect-to-a-dcos-or-swarm-cluster)
+1. First, SSH to the master (or the first master) of your DC/OS-based cluster. For example, `ssh userName@masterFQDN –A –p 22`, where the masterFQDN is the fully qualified domain name of the master VM. [More infos by clicking here](https://docs.microsoft.com/azure/container-service/container-service-connect#connect-to-a-dcos-or-swarm-cluster)
 
 2. Initiate the authentication to your ACR service by using the following command: `sudo docker login --username=<USERNAME> --password=<PASSWORD> <ACR-REGISTRY-NAME>.azurecr.io`. You have to replace the `USERNAME`, `PASSWORD`and `ACR-REGISTRY-NAME` variables with the values provided on your Azure portal
 
@@ -114,7 +114,7 @@ sudo cp docker.tar.gz /mnt/share
 
 ## Deploy an image from ACR with Marathon
 
-Supposedly you already pushed the images that you want to deploy inside your container registry. See [Push your first image to a private Docker container registry using the Docker CLI](https://docs.microsoft.com/en-ca/azure/container-registry/container-registry-get-started-docker-cli)
+Supposedly you already pushed the images that you want to deploy inside your container registry. See [Push your first image to a private Docker container registry using the Docker CLI](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli)
 
 Let's say we want to deploy the **simple-web** image, with the **2.1** tag, from our private registry hosted on Azure (ACR), we will use the following configuration:
 
