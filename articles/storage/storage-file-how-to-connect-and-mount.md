@@ -77,8 +77,8 @@ versions](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2
 | Mac OS Sierra                                   | SMB 3.0               |
 
 ## Also See
-* **[Inside Azure File Storage](https://azure.microsoft.com/en-us/blog/inside-azure-file-storage/)**
-* **[Migrate data to Azure File Storage](https://azure.microsoft.com/en-us/blog/migrating-data-to-microsoft-azure-files/)**
+* [Inside Azure File Storage](https://azure.microsoft.com/en-us/blog/inside-azure-file-storage/)
+* [Migrate data to Azure File Storage](https://azure.microsoft.com/en-us/blog/migrating-data-to-microsoft-azure-files/)
 
 
 

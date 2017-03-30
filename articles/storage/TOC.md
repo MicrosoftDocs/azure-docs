@@ -36,13 +36,14 @@
 ### [PHP](storage-php-how-to-use-table-storage.md)
 ### [Ruby](storage-ruby-how-to-use-table-storage.md)
 
-## [File Storage](storage-file-storage.md)
+## [File Storage]
+### About Azure File Storage(storage-file-storage.md)
 ### [Create Azure File Share](storage-file-how-to-create-file-share.md)
 ### [Connect and Mount](storage-file-how-to-connect-and-mount.md)
 #### [Windows](storage-file-how-to-use-files-windows.md)
 #### [Linux](storage-how-to-use-files-linux.md)
 #### [macOS](storage-file-how-to-use-files-mac.md)
-### [Tooling and Scripting](storage-file-how-to-tooling-and-scripting.md)
+### [Tooling and Scripting]
 #### [Powershell](storage-file-how-to-use-files-powershell.md)
 #### [CLI](storage-azure-cli.md#create-and-manage-file-shares)
 #### [Storage Explorer](../vs-azure-tools-storage-explorer-files.md)

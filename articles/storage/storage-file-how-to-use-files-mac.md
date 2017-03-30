@@ -27,7 +27,8 @@ On macOS, mounting is possible from the machines located at local datacenter or 
 * [Prerequisites](#prereq)
 * [Mount Azure File Share using File Explorer on El Capitan](#elcapitan)
 * [Mount Azure file share using sudo mount command](#sudomount)
-* [Troubleshooting  Azure file share issues on macOS](#sudomount)
+* [Mount file share using command line on El Capitan](#sudomount)
+* [Troubleshooting  Azure file share issues on macOS](#tsg)
 
 
 # Prerequisites for mounting Azure File on macOS
@@ -66,16 +67,36 @@ SMB 3.0 is supported starting macOS Sierra. There are known bugs affecting macOS
 
 
 <a id="sudomount"/></a>
-## Mount file share using sudo mount command
+## Mount file share using command line on El Capitan
 
-Replace \<storage-account-name\> with the name of your storage
-account, and \<storage-account-key\> with your storage account key. 
+* **Step 1**: [Turn off packet signing for SMB 2 and SMB 3 connections](https://support.apple.com/en-us/HT205926)
 
 ```
-mount -t smbfs //<storage-account-name\>@<storage-account-name\>.file.core.windows.net/sharename [mount point] -o vers=3.0
+sudo -s
+echo "[default]" >> /etc/nsmb.conf
+echo "signing_required=no" >> /etc/nsmb.conf
+exit
 ```
-##Troubleshooting  Azure file share issues on macOS
+* **Step 2**: Replace \<storage-account-name\> with the name of your storage
+account. Provide Storage Account Key as password when prompted. 
 
+```
+mount_smbfs //<storage-account-name\>@<storage-account-name\>.file.core.windows.net/sharename [mount point] -o vers=3.0
+```
+
+* **Step 3**: 
+Browse the Azure File Share using mountpoint.
+    ![](./media/storage-file/1_mac_mount_azure_file_commandline1.png)
+
+<a id="tsg"/></a>
+## Troubleshooting  Azure file share issues on macOS
+
+* **Q.** Azure File Storage is very slow on macOS
+    When you use an SMB 2 or SMB 3 connection, packet signing is turned on by default. You might want to turn off packet signing if:
+    Performance decreases when you connect to a third-party server.
+
+    Follow the instructions to [turn off packet signing for SMB 2 and SMB 3 connections](https://support.apple.com/en-us/HT205926) published by Apple Support.
+    
 
 ## Also See
-* [Apple - How to connect with File Sharing on your Mac](https://support.apple.com/en-us/HT204445)
+* [Apple Support Article - How to connect with File Sharing on your Mac](https://support.apple.com/en-us/HT204445)
