@@ -84,6 +84,9 @@ versions](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2
 ## Also See
 See these links for more information about Azure File storage.
 
+* [FAQ](storage-files-faq.md)
+* [Troubleshooting](storage-troubleshoot-file-connection-problems.md)
+
 ### Conceptual articles and videos
 * [Azure Files Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 * [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md)

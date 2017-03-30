@@ -60,9 +60,20 @@ Managing Azure File shares is a lot simpler than managing file shares on-premise
     https://<storage account>.file.core.windows.net/<share>/<directory/directories>/<file>
     ```
 ## Next Steps if you are a first-time user of Azure File Storage
-* [Create File Share](storage-file-how-to-create-file-share.md)
-* [Connect and Mount File Share](storage-file-how-to-connect-and-mount.md)
-* [Manage Azure File Share using tools and scripts](storage-file-how-to-tooling-and-scripting.md)
+* [Create Azure File Share](storage-file-how-to-create-file-share.md)
+* [Connect and Mount](storage-file-how-to-connect-and-mount.md)
+* [Connect and Mount on Windows](storage-file-how-to-use-files-windows.md)
+* [Connect and Mount on Linux](storage-how-to-use-files-linux.md)
+* [Connect and Mount on macOS](storage-file-how-to-use-files-mac.md)
+* [Tooling and Scripting - Powershell](storage-file-how-to-use-files-powershell.md)
+* [Tooling and Scripting - CLI](storage-azure-cli.md#create-and-manage-file-shares)
+* [Tooling and Scripting - Storage Explorer](../vs-azure-tools-storage-explorer-files.md)
+* [Develop with Azure Files in .NET](storage-dotnet-how-to-use-files.md)
+* [Develop with Azure Files in Java](storage-java-how-to-use-file-storage.md)
+* [Develop with Azure Files in C++](storage-c-plus-plus-how-to-use-files.md)
+* [Develop with Azure Files in Python](storage-python-how-to-use-file-storage.md)
+* [FAQ](storage-files-faq.md)
+* [Troubleshooting](storage-troubleshoot-file-connection-problems.md)
 
 ## Also See
 See these links for more information about Azure File storage.
