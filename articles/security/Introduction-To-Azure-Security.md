@@ -109,7 +109,22 @@ The built-in capabilities are organized in six (6) functional areas: Operations,
     <td><a href="https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services" target="_blank"> Enabling Browser-Based Clients using CORS </a></td>
     <td><a href="" target="_blank">  </a></td>
   </tr>
-
+<tr>
+    <th>Networking</th>
+    <td><a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg" target="_blank">Network Security Groups</a>, <a href="https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-forced-tunneling" target="_blank"> Forced Tunneling</a></td>
+    <td><a href="https://azure.microsoft.com/marketplace/" target="_blank"> Virtual Network Security Appliances </a></td>
+    <td><a href="https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design" target="_blank">VPN Gateway </a>,<a href="https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction" target="_blank">Express route</a></td>
+    <td><a href="https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-introduction" target="_blank">Application Gate way</a>,
+    <a href="https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-webapplicationfirewall-overview" target="_blank"> Web Application Firewall</a>,
+    <a href="https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview" target="_blank">Load Balancer</a>,
+    <a href="https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview" target="_blank">Traffic Manager</a></td>
+    <td><a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-manage-dns-in-vnet" target="_blank">Internal DNS </a>,
+    <a href="https://docs.microsoft.com/en-us/azure/dns/dns-overview" target="_blank"> Azure DNS</a>,
+    <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log" target="_blank">Log Analytics NSGs</a>
+    </td>
+    <td><a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-intro" target="_blank">Security Center </a></td>
+    <td><a href="" target="_blank"> </a></td>
+  </tr>
 </table>
 
 # 3.0 Operations
