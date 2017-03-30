@@ -71,7 +71,7 @@ ms.author: carolz
     </div>
     <div class="column50">
         <h2>Video Training</h2>
-        <a href="https://openedx.microsoft.com/courses/course-v1:Microsoft+AZURE206x+2016_T4/about"><img src="/media/logos/logo_pluralsight.svg" height="160" width="360" alt="">
+        <a href="https://openedx.microsoft.com/courses/course-v1:Microsoft+AZURE206x+2016_T4/about"><img src="media/index/logo_pluralsight.svg" height="160" width="360" alt="">
         <p>Free Pluralsight video training – Using Microsoft Azure App Service</a></p>
     </div>
     <div class="column50">

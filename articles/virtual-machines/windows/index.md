@@ -53,8 +53,9 @@ ms.author: carolz
     </div>
     <div class="column50">
         <h2>Video Training</h2>
-        <img src="/media/logos/logo_pluralsight.svg" height="160" width="360" alt="" />
-        <p><a href="https://azure.microsoft.com/en-us/community/training/courses/azure-vms-getting-started/">Free Pluralsight video training – Managing Microsoft Azure Virtual Machines </a></p>
+        <a href="https://azure.microsoft.com/en-us/community/training/courses/azure-vms-getting-started/">
+        <img src="media/index/logo_pluralsight.svg" height="160" width="360" alt="" />
+        <p>Free Pluralsight video training – Managing Microsoft Azure Virtual Machines</a></p>
     </div>
     <div class="column50">
         <h2>Samples</h2>
