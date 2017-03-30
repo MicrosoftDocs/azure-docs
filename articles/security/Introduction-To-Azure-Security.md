@@ -494,55 +494,39 @@ To enhance your Azure Active Directory, you can add paid capabilities using the 
 
 <table style="width:100%">
   <tr>
-    <th>Free / Common Features</th>
+    <th>Free/Common Features</th>
     <th>Basic Features</th>
-    <th>Features	Premium P1 Features</th>
+    <th>Features Premium P1 Features</th>
     <th>Premium P2 Features</th>
     <th>Azure Active Directory Join – Windows 10 only related features</th>
-
   </tr>
 
   <tr>
-
-    <td><a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#directory-objects" target="_blank">Directory Objects </a>,
-    <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#usergroup-management-addupdatedelete-user-based-provisioning-device-registration" target="_blank">User/Group Management (add/update/delete)/ User-based provisioning, Device registration</a>,
-    <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#single-sign-on-sso" target="_blank">Single Sign-On (SSO) </a>,
+ <td><a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#directory-objects" target="_blank">Directory Objects </a>,
+   <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#usergroup-management-addupdatedelete-user-based-provisioning-device-registration" target="_blank">User/Group Management (add/update/delete)/User-based provisioning, Device registration</a>,
+   <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#single-sign-on-sso" target="_blank">Single Sign-On (SSO)</a>,
     <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#self-service-password-change-for-cloud-users" target="_blank"> Self-Service Password Change for cloud users</a>,
     <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#connect-sync-engine-that-extends-on-premises-directories-to-azure-active-directory" target="_blank">Connect (Sync engine that extends on-premises directories to Azure Active Directory)</a>,
-    <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#securityusage-reports" target="_blank">Security / Usage Reports</a>
-    </td>
+    <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#securityusage-reports" target="_blank">Security / Usage Reports</a></td>
 
     <td><a href="(https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#group-based-access-managementprovisioning" target="_blank"> Group-based access management / provisioning</a>,
     <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#self-service-password-reset-for-cloud-users" target="_blank">Self-Service Password Reset for cloud users</a>,
     <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#company-branding-logon-pagesaccess-panel-customization" target="_blank">Company Branding (Logon Pages/Access Panel customization)</a>,
     <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#application-proxy" target="_blank">Application Proxy </a>,
     <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#sla-999" target="_blank">SLA 99.9%</a>
-
-
-
-    </td>
-
-    <td><a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#self-service-group" target="_blank">Self-Service Group and app Management/Self-Service application additions/Dynamic Groups </a>,
+</td>
+<td><a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#self-service-group" target="_blank">Self-Service Group and app Management/Self-Service application additions/Dynamic Groups </a>,
     <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#self-service-password-resetchangeunlock-with-on-premises-write-back)" target="_blank">Self-Service Password Reset/Change/Unlock with on-premises write-back</a>,
     <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#multi-factor-authentication-cloud-and-on-premises-mfa-server" target="_blank">Multi-Factor Authentication (Cloud and On-premises (MFA Server)) </a>,
     <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#mim-cal-mim-server" target="_blank">MIM CAL + MIM Server </a>,
     <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#cloud-app-discovery" target="_blank">Cloud App Discovery</a>,
     <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#connect-health" target="_blank">Connect Health</a>,
-    <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#automatic-password-rollover-for-group-accounts" target="_blank">Automatic password rollover for group accounts</a>
-
-
-    </td>
+    <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#automatic-password-rollover-for-group-accounts" target="_blank">Automatic password rollover for group accounts</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection" target="_blank">Identity Protection </a>,
-    <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-privileged-identity-management-configure" target="_blank">Privileged Identity Management</a>
-    </td>
-
-
-    <td><a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery" target="_blank">Join a device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator Bitlocker recovery  </a>,
-    <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#mdm-auto-enrollment" target="_blank">MDM auto-enrollment, Self-Service Bitlocker recovery, Additional local administrators to Windows 10 devices via Azure AD Join </a>
-
-    </td>
+    <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-privileged-identity-management-configure" target="_blank">Privileged Identity Management</a></td>
+ <td><a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery" target="_blank">Join a device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator Bitlocker recovery </a>,
+    <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#mdm-auto-enrollment" target="_blank">MDM auto-enrollment, Self-Service Bitlocker recovery, Additional local administrators to Windows 10 devices via Azure AD Join </a></td>
   </tr>
-
 </table>
 
 
