@@ -19,7 +19,7 @@ ms.author: genli
 
 ---
 # Cancel your subscription for Azure
-You can cancel your Azure subscription as the Account Administrator. After you cancel the subscription, your access to Azure services and resources ends. To find out who is the account administrator of the subscription, see the [Frequently asked questions](billing-subscription-transfer.md#faq).
+You can cancel your Azure subscription as the [Account Administrator](billing-subscription-transfer.md#whoisaa). After you cancel the subscription, your access to Azure services and resources ends.
 
 Before you cancel your subscription:
 
