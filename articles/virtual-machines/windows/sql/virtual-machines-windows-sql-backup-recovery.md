@@ -20,7 +20,7 @@ ms.author: jroth
 ---
 # Backup and Restore for SQL Server in Azure Virtual Machines
 ## Overview
-Backing up data in SQL Server databases is an important part of the strategy in protecting against data loss due to application or user errors. This is equally true for SQL Server running on Azure Virtual Machines (VMs).
+Azure Storage maintains 3 copies of every Azure VM disk to guarantee protection against data loss or physical data corruption. Thus, unlike on-premises, you don't need to worry about these. However, you should still backup your SQL Server databases to protect against application or user errors (e.g inserting wrong data or deleting a table) and being able to restore to a point in time.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
