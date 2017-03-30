@@ -36,6 +36,7 @@ namespace and an Event Hub in Azure. Learn
 in your logic app workflow, you have to create a logic app. Learn how to 
 [create a basic logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
+<a name="permissions-connection-string"></a>
 ## Check Event Hubs namespace permissions and find the connection string
 
 For your logic app to access any service, 
@@ -61,7 +62,7 @@ and check your **Claims** permissions.
 choose **RootManageSharedAccessKey**. Next to your primary key connection string, 
 choose the copy button.
 
-    ![Copy Event Hubs namespace connection string](./media/connectiors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png)
+    ![Copy Event Hubs namespace connection string](./media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png)
 
     > [!TIP]
     > To confirm whether your connection string is 
@@ -98,13 +99,16 @@ Select this trigger: **When events are available in Event Hub**
     ![Select trigger for when your Event Hub receives new events](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
     If you don't already have a connection to your Event Hubs namespace, 
-    you're prompted to create this connection now. in with your Event Hubs connection string. 
+    you're prompted to create this connection now by giving the connection a name,
+    and entering the connection string for your Event Hubs namespace. 
+    If necessary, learn [how to find your connection string](#permissions-connection-string).
 
-    The settings for the **When an event in available in an Event Hub** trigger appear.
+    After you create the connection, 
+    the settings for the **When an event in available in an Event Hub** trigger appear.
 
     ![Trigger settings for when your Event Hub receives new events](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger.png)
 
-3.  Enter the name for the Event Hub that you want to monitor. 
+3.  Enter or select the name for the Event Hub that you want to monitor. 
 Or to optionally select a consumer group for reading events, 
 choose **Show advanced options**.
 
@@ -137,8 +141,8 @@ Select this action: **Send event**
     ![Select "Event Hubs - Send event" action](./media/connectors-create-api-azure-event-hubs/find-event-hubs-action.png)
 
 3.  Enter the required details for the event, 
-like the name for the Event Hub where you want to send the event. 
-Enter any other optional details about the event.
+such as the name for the Event Hub where you want to send the event. 
+Enter any other optional details about the event, such as content for that event.
 
     ![Enter Event Hub name and optional event details](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
