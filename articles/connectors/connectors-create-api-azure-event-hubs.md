@@ -52,8 +52,8 @@ follow these steps.
 1.  Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
 
 2.  Go to your Event Hubs *namespace*, not the specific Event Hub. 
-On the namespace blade, under **Settings**, choose **Shared access policies**, 
-and under **Claims**, check that you have **Manage** permissions for that namespace.
+On the namespace blade, under **Settings**, choose **Shared access policies**. 
+Under **Claims**, check that you have **Manage** permissions for that namespace.
 
     ![Manage permissions for your Event Hub namespace](./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png)
 
