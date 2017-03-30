@@ -6,6 +6,8 @@ D-series VMs are designed to run applications that demand higher compute power a
 
 Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
 
+> [!NOTE]
+> All Azure virtual machine sizes will support at least 2 network interfaces (NICs) starting April 15th. For specific region information stay tuned for a [service update.](https://azure.microsoft.com/en-us/updates/)
 
 ## GS-series*
 
