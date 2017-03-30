@@ -114,6 +114,7 @@
 #### [Use Hive queries](machine-learning-data-science-create-features-hive.md)
 #### [TDSP feature selection](machine-learning-data-science-select-features.md)
 ### Create and train models
+#### [Convert to scoring](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [Experiment lifecycle management](machine-learning-version-control.md)
 #### [Manage iterations](machine-learning-manage-experiment-iterations.md)
 #### [Use PowerShell to create models](machine-learning-create-models-and-endpoints-with-powershell.md)
@@ -137,7 +138,6 @@
 ### Deploy models
 #### [How it works](machine-learning-model-progression-experiment-to-web-service.md)
 #### [Deploy a web service](machine-learning-publish-a-machine-learning-web-service.md)
-#### [Prepare for deployment](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [Use external data](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Deploy in multi-regions](machine-learning-how-to-deploy-to-multiple-regions.md)
 #### [Use web service parameters](machine-learning-web-service-parameters.md)
