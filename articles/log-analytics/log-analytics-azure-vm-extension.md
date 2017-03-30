@@ -26,7 +26,7 @@ The easiest way to install the Log Analytics agent on Azure virtual machines is 
 For Windows virtual machines, you enable the *Microsoft Monitoring Agent* virtual machine extension.
 For Linux virtual machines, you enable the *OMS Agent For Linux* virtual machine extension.
 
-Learn more about [Azure virtual machine extensions](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and the [Linux agent](../virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Learn more about [Azure virtual machine extensions](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and the [Linux agent](../virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 When you use agent-based collection for log data, you must configure [data sources in Log Analytics](log-analytics-data-sources.md) to specify the logs and metrics that you want to collect.
 
@@ -380,7 +380,7 @@ If the *Microsoft Monitoring Agent* VM agent extension is not installing or repo
 1. Check if the Azure VM agent is installed and working correctly by using the steps in [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
    * You can also review the VM agent log file `C:\WindowsAzure\logs\WaAppAgent.log`
    * If the log does not exist, the VM agent is not installed.
-     * [Install the Azure VM Agent on classic VMs](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+     * [Install the Azure VM Agent on classic VMs](../virtual-machines/windows/classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 2. Confirm the Microsoft Monitoring Agent extension heartbeat task is running using the following steps:
    * Log in to the virtual machine
    * Open task scheduler and find the `update_azureoperationalinsight_agent_heartbeat` task
@@ -392,7 +392,7 @@ If the *Microsoft Monitoring Agent* VM agent extension is not installing or repo
 6. View the status of the Microsoft Monitoring Agent by typing the following in an elevated PowerShell window on the virtual machine `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
 7. Review the Microsoft Monitoring Agent setup log files in `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
 
-For more information, refer to [troubleshooting Windows extensions](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For more information, refer to [troubleshooting Windows extensions](../virtual-machines/windows/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Troubleshooting Linux Virtual Machines
 If the *OMS Agent for Linux* VM agent extension is not installing or reporting you can perform the following steps to troubleshoot the issue.

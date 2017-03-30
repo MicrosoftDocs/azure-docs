@@ -42,11 +42,7 @@ Azure Event Hubs allows you to process massive amounts of data from websites, ap
   > [!NOTE]
   > Your editor or IDE may have specific functionality for working with Maven that is not addressed in this document. For information about the capabilities of your editing environment, see the documentation for the product you are using.
   
-  * An SSH client. For more information, see one of the following documents:
-    
-    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, OS X, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-    * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+  * An SSH client. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * An SCP client. The `scp` command is provided with all Linux, Unix, and OS X systems (including Bash on Windows 10.) For Windows systems that do not have the `scp` command, we recommend PSCP. PSCP is available from the [PuTTY download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 

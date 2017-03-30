@@ -191,10 +191,7 @@ To verify that you have restricted access, use the following methods:
 * For **Windows-based** HDInsight clusters, use Remote Desktop to connect to the cluster. For more information, see [Connect to HDInsight using RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
   
     Once connected, use the **Hadoop Command-Line** icon on the desktop to open a command prompt.
-* For **Linux-based** HDInsight clusters, use SSH to connect to the cluster. See one of the following documents for information on using SSH with Linux-based clusters:
-  
-  * [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, Unix, or Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
-  * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* For **Linux-based** HDInsight clusters, use SSH to connect to the cluster. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Once connected to the cluster, use the following steps to verify that you can only read and list items on the SAS storage account:
 

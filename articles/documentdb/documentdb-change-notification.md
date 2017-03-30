@@ -729,7 +729,7 @@ Your last step is to send an email notification
 
 In this action you send an email notification.  You are using [SendGrid](https://sendgrid.com/marketing/sendgrid-services?cvosrc=PPC.Bing.sendgrib&cvo_cid=SendGrid%20-%20US%20-%20Brand%20-%20&mc=Paid%20Search&mcd=BingAds&keyword=sendgrib&network=o&matchtype=e&mobile=&content=&search=1&utm_source=bing&utm_medium=cpc&utm_term=%5Bsendgrib%5D&utm_content=%21acq%21v2%2134335083397-8303227637-1649139544&utm_campaign=SendGrid+-+US+-+Brand+-+%28English%29).   
 
-The code for this was generated using a template for Logic App and SendGrid that is in the [101-logic-app-sendgrid Github repository](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid).
+The code for this was generated using a template for Logic App and SendGrid that is in the [101-logic-app-sendgrid GitHub repository](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid).
 
 The HTTP operation is a POST. 
 
@@ -1109,7 +1109,7 @@ In this walkthrough, you've learned the following:
 The key is to plan ahead and model your workflow.
 
 ## Next steps
-Please download and use the Logic App code provided on [Github](https://github.com/HEDIDIN/DocDbNotifications). I invite you to build on the application and submit changes to the repo. 
+Please download and use the Logic App code provided on [GitHub](https://github.com/HEDIDIN/DocDbNotifications). I invite you to build on the application and submit changes to the repo. 
 
 To learn more about DocumentDB, visit the [Learning Path](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 

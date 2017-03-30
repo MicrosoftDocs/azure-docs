@@ -61,7 +61,7 @@ The following procedure uses an Azure Resource Manager template to create a vers
 > 
 
 ## Create tables and insert data
-You can use SSH to connect to HBase clusters and then use HBase Shell to create HBase tables, insert data and query data. For information on using SSH, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md) and [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+You can use SSH to connect to HBase clusters and then use HBase Shell to create HBase tables, insert data and query data. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 For most people, data appears in the tabular format:
 

@@ -23,7 +23,7 @@ ms.tgt_pltfrm: NA
 This article discusses exporting either your Azure SQL database or a SQL Server database to a BACPAC file. 
 
 > [!IMPORTANT]
-> Azure SQL Database Automated Export is now in preview and will be retired on March 1, 2017. Starting December 1, 2016, you will no longer be able to configure automated export on any SQL database. All your existing automated export jobs will continue to work until March 1, 2017. After December 1, 2016, you can use [long-term backup retention](sql-database-long-term-retention.md) or [Azure Automation](../automation/automation-intro.md) to archive SQL databases periodically using PowerShell periodically according to a schedule of your choice. For a sample script, you can download the [sample script from Github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 
+> Azure SQL Database Automated Export is now in preview and will be retired on March 1, 2017. Starting December 1, 2016, you will no longer be able to configure automated export on any SQL database. All your existing automated export jobs will continue to work until March 1, 2017. After December 1, 2016, you can use [long-term backup retention](sql-database-long-term-retention.md) or [Azure Automation](../automation/automation-intro.md) to archive SQL databases periodically using PowerShell periodically according to a schedule of your choice. For a sample script, you can download the [sample script from GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 
 >
 
 ## Overview
@@ -56,4 +56,4 @@ When you need to export a database for archiving or for moving to another platfo
 
 * For a discussion of the entire SQL Server database migration process, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
 * For an overview of copying a database within Azure, see also [Copying an Azure SQL database](sql-database-copy.md).
-* You can copy your Azure SQL database within Azure using the [Azure portal](sql-database-copy-portal.md), [PowerShell](sql-database-copy-powershell.md), or [Transact-SQL](sql-database-copy-transact-sql.md). 
+* You can copy your Azure SQL database within Azure using the [Azure portal](sql-database-copy-portal.md), [PowerShell](scripts/sql-database-copy-database-to-new-server-powershell.md), or [Transact-SQL](sql-database-copy-transact-sql.md). 

@@ -75,7 +75,7 @@ The following example walks you through the process of creating new 'A' record. 
 
 ## View records
 
-In the lower part of the DNS zone blade, you can see the records for the DNS zone. You should see the default NS and SOA records, which are created in every zone, plus any new records you have created.
+In the lower part of the DNS zone blade, you can see the records for the DNS zone. You should see the default DNS and SOA records, which are created in every zone, plus any new records you have created.
 
 ![zone](./media/dns-getstarted-portal/viewzone500.png)
 

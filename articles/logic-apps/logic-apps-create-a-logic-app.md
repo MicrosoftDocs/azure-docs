@@ -49,7 +49,7 @@ Sign in with the user name and password for your Twitter account.
 
 6. Now type in a search term to trigger your logic app.
 
-    ![Twitter search](media/logic-apps-create-a-logic-app/twittersearch.png)
+   ![Twitter search](media/logic-apps-create-a-logic-app/twittersearch.png)
 
 	The **Frequency** and **Interval** determine 
 	how often your logic app checks for new tweets, 
@@ -60,26 +60,38 @@ Sign in with the user name and password for your Twitter account.
 	When you select **Add an Action**, 
 	you can search [available connectors](../connectors/apis-list.md) to choose an action. 
 
-8.	In the search box, search for **outlook**, and select **Send an email** 
+8. In the search box, search for **outlook**, and select **Send an email** 
 to send email from your Outlook account to any specified email address.
 
-    ![Actions](media/logic-apps-create-a-logic-app/actions.png)
+   ![Actions](media/logic-apps-create-a-logic-app/actions.png)
 
 9. Now you have to fill out the parameters for the email you want:
 
-    ![Parameters](media/logic-apps-create-a-logic-app/parameters.png)
+   ![Parameters](media/logic-apps-create-a-logic-app/parameters.png)
 
 10. Finally, you can select **Save** to make your logic app live.
 
 ## Manage your logic app after creation
+
 Now your logic app is up and running. It will periodically check for tweets with the search term entered. When it finds a matching tweet, it will send you an email. Finally, you'll see how to disable the app, or see how it’s doing.
 
-1. Go to the [Azure Portal](https://portal.azure.com)
-2. Click **Browse** on the left side of the screen and select **Logic Apps**.
-3. Click the new logic app that you just created to see current status and general information.
-4. To edit your new logic app, click **Edit**.
-5. To turn off the app, click **Disable** in the command bar.
-6. View run and trigger histories to monitor when your logic app is running.  You can click **Refresh** to see the latest data.
+1. Go to the [Azure portal](https://portal.azure.com).
+
+2. On the left menu, click **More services**. Under **Enterprise Integration**, 
+choose **Logic Apps**. Select your logic app.
+
+	*	To view your app's status, execution history, and general information, 
+	on the logic app menu, choose **Overview**. If you don't find the
+	data that you expect, on the command bar, choose **Refresh**.
+
+	*	To edit your app, on the logic app menu, choose **Logic App Designer**.
+
+	*	To turn off your app temporarily, on the logic app menu, 
+	choose **Overview**. On the command bar, choose **Disable**.
+
+	*	To delete your app, on the logic app menu, choose **Overview**. 
+	On the command bar, choose **Delete**. Enter your logic app's name, 
+	and choose **Delete**.
 
 In less than 5 minutes you were able to set up a simple logic app running in the cloud. To learn more about using Logic Apps features, see [Use logic app features]. To learn about the Logic App definitions themselves, see [author Logic App definitions](../logic-apps/logic-apps-author-definitions.md).
 

@@ -39,11 +39,7 @@ To complete the steps in this article, you will need the following:
   > [!IMPORTANT]
   > The text editor must use LF as the line ending. If it uses CRLF, this will cause errors when running the MapReduce job on Linux-based HDInsight clusters. If you are not sure, use the optional step in the [Run MapReduce](#run-mapreduce) section to convert any CRLF to LF.
 
-* **Familiarity with SSH and SCP**. For more information on using SSH and SCP with HDInsight, see the following:
-  
-  * **Linux, Unix or OS X clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X or Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-  * **Windows clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* **Familiarity with SSH and SCP**. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## Word count
 

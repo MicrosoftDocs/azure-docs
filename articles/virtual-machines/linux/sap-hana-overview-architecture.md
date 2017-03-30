@@ -46,7 +46,7 @@ Several common definitions are widely used in the Architecture and Technical Dep
 
 There are a variety of additional resources that have been published on the topic of deploying SAP workload on Microsoft Azure public cloud. It is highly recommended that anyone planning a deployment of SAP HANA in Azure be experienced and aware of the principals of Azure IaaS, and the deployment of SAP workloads on Azure IaaS. The following resources provide more information and should be referenced before continuing:
 
-- [Using SAP on Windows virtual machines (VMs)](../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Using SAP on Windows virtual machines (VMs)](../windows/sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Using SAP solutions on Microsoft Azure virtual machines](../virtual-machines-linux-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Certification
@@ -88,7 +88,7 @@ The above architecture is divided into three sections:
 <br />Azure Networking is used to group SAP systems together with other applications into Azure Virtual Networks (VNets). These VNets connect to on-premises systems as well as to SAP HANA on Azure (Large Instances).
 <br />For SAP NetWeaver applications and databases that are supported to run in Microsoft Azure, see [SAP Support Note #1928533 – SAP Applications on Azure: Supported Products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533). For documentation on deploying SAP solutions on Azure please review:
 
-  -  [Using SAP on Windows virtual machines (VMs)](../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  -  [Using SAP on Windows virtual machines (VMs)](../windows/sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   -  [Using SAP solutions on Microsoft Azure virtual machines](../virtual-machines-linux-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 - **Left:** Shows the SAP HANA TDI certified hardware in the Azure Large Instance stamp. The HANA Large Instance units are connected to the Azure VNets of your subscription using the same technology as the connectivity from on-premises into Azure.
