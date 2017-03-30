@@ -14,12 +14,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 03/30/2017
 ms.author: genli
 
 ---
 # Change the credit card used to pay for an Azure subscription
-You can add, change, or remove a credit card that’s associated with your Azure account when you sign in to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the [account administrator](billing-add-change-azure-subscription-administrator.md). 
+You can add, change, or remove a credit card that’s associated with your Azure account when you sign in to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the [account administrator](billing-subscription-transfer.md#whoisaa). 
  
 <a id="addcard"></a>
 ## Add a credit card as a payment method
