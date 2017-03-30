@@ -37,7 +37,7 @@ Currently, Azure HDInsight provides five different types of clusters, each with 
 | [Storm](hdinsight-storm-overview.md) |Real-time event processing |
 | [Spark](hdinsight-apache-spark-overview.md) |In-memory processing, interactive queries, micro-batch stream processing |
 | [Interactive Hive (Preview)](hdinsight-hadoop-use-interactive-hive.md) |In-memory caching for interactive and faster Hive queries |
-| [R Server on Spark (Preview)](hdinsight-hadoop-r-server-overview.md) |A variety of big data statistics, predictive modeling, and machine learning capabilities |
+| [R Server on Spark](hdinsight-hadoop-r-server-overview.md) |A variety of big data statistics, predictive modeling, and machine learning capabilities |
 | [Kafka (Preview)](hdinsight-apache-kafka-introduction.md) | A distributed streaming platform that can be used to build real-time streaming data pipelines and applications |
 
 Each cluster type has its own number of nodes within the cluster, terminology for nodes within the cluster, and default VM size for each node type. In the following table, the number of nodes for each node type is in parentheses.
