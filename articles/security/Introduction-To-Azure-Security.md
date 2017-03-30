@@ -42,7 +42,19 @@ The features listed below are capabilities you can review to provide the assuran
 <a href="https://docs.microsoft.com/en-us/azure/security/security-network-overview" target="_blank">Secure Network</a></td>
  <td><a href="http://aka.ms/SecurityResponsepaper" target="_blank">Security Incident response </a>,
 <a href="http://aka.ms/sharedresponsibility" target="_blank">Shared Responsibility</a> </td>
+  </tr>  
+    <tr>
+   <th><a href="https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx" target="_blank">Privacy & Controls</a> </th>
+    <td><a href="https://www.microsoft.com/en-us/trustcenter/Privacy/You-own-your-data" target="_blank">Manage your data all the time</a></td>
+    <td><a href="https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located" target="_blank"> Control on data location </a></td>
+    <td><a href="https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms" target="_blank">Provide data access on your terms</a></td>
+    <td><a href="https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data" target="_blank">Responding to law enforcement</a></td>
+    <td><a href="https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards" target="_blank">Stringent privacy standards</a></td>
+
   </tr>
+  
+ 
+  
 </table>
 
 
