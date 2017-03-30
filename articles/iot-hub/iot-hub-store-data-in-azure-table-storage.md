@@ -21,7 +21,7 @@ ms.author: xshi
 # Save IoT Hub messages that contain information like sensor data to Azure table storage
 
 > [!Note]
-> Before you start this tutorial, make sure you’ve completed [Connect ESP8266 to Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md). In [Connect ESP8266 to Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md), you set up your IoT device and IoT hub, and deploy a sample application to run on your device. The application sends collected sensor data to your IoT hub.
+> Before you start this tutorial, make sure you’ve completed [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md). In [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md), you set up your IoT device and IoT hub, and deploy a sample application to run on your device. The application sends collected sensor data to your IoT hub.
 
 ## What you will learn
 
@@ -35,7 +35,7 @@ You learn how to create an Azure storage account and an Azure Function App to st
 
 ## What you will need
 
-- Tutorial [Connect ESP8266 to Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md) completed which covers the following requirements:
+- Tutorial [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md) completed which covers the following requirements:
   - An active Azure subscription.
   - An Azure IoT hub under your subscription.
   - A running application that sends messages to your Azure IoT hub.
@@ -77,7 +77,7 @@ IoT Hub exposes a built-in Event Hub-compatible endpoint to enable applications 
 1. Make a note of the **Primary key** value.
 1. Make up the connection string of your IoT hub endpoint as follows:
 
-   Endpoint=<Event Hub-compatible endpoint>;SharedAccessKeyName=iothubowner;SharedAccessKey=<Primary key>
+   `Endpoint=<Event Hub-compatible endpoint>;SharedAccessKeyName=iothubowner;SharedAccessKey=<Primary key>`
 
    > [!Note]
    > Replace `<Event Hub-compatible endpoint>` and `<Primary key>` with the values you noted down.

@@ -49,12 +49,10 @@ Before you request an SSL certificate, first determine which domain names you wi
 ## <a name="bkmk_purchasecert"></a>Purchase an SSL certificate
 
 1. In the [Azure portal](https://portal.azure.com/), in the menu, select **Browse**. In the **Search** box, type **App Service Certificate**. In the search results, select **App Service Certificates**. 
-   
-   ![Create using browse](./media/app-service-web-purchase-ssl-web-site/browse.jpg)
+  ![Create using browse](./media/app-service-web-purchase-ssl-web-site/browse.jpg)
    
 2. On the **App Service Certificates** page, select **Add**. 
-    
-   ![Add a certificate](./media/app-service-web-purchase-ssl-web-site/add.jpg)
+  ![Add a certificate](./media/app-service-web-purchase-ssl-web-site/add.jpg)
 
 3. Enter a **name** for your SSL certificate.
 4. Enter the **host name**.
@@ -78,9 +76,7 @@ Before you request an SSL certificate, first determine which domain names you wi
    You can choose from two SKUS in App Service:
    * **S1**: Standard certificate with one-year validity and auto renewal  
    * **W1**: Wildcard certificate with one-year validity and auto renewal       
-   
-
-
+  
    ![Certificate SKU](./media/app-service-web-purchase-ssl-web-site/SKU.jpg)
 
     For more information, see [App Service pricing](https://azure.microsoft.com/pricing/details/web-sites/).
@@ -93,15 +89,13 @@ Before you request an SSL certificate, first determine which domain names you wi
 ## <a name="bkmk_StoreKeyVault"></a>Store the certificate in Azure Key Vault
 
 1. When you've completed the SSL certificate purchase, in the Azure portal, go to the **App Service Certificates** blade.   
-   
-   ![Certificate ready to store in Key Vault](./media/app-service-web-purchase-ssl-web-site/ReadyKV.jpg)
+  ![Certificate ready to store in Key Vault](./media/app-service-web-purchase-ssl-web-site/ReadyKV.jpg)
    
     Note that the certificate status is **Pending Issuance**. You need to complete a few steps before you can start using this certificate.
 
 2. On the **Certificate Properties** blade, select **Certificate Configuration**. To store this certificate in Key Vault, select **Step 1: Store**.
 3. On the **Key Vault Status** blade, to select an existing key vault to store this certificate, select **Key Vault Repository**.  To create a new key vault in the same subscription and resource group, select **Create New Key Vault**.
-   
-   ![Create new key vault](./media/app-service-web-purchase-ssl-web-site/NewKV.jpg)
+  ![Create new key vault](./media/app-service-web-purchase-ssl-web-site/NewKV.jpg)
    
    > [!NOTE]
    > Azure Key Vault offers minimal charges for storing the certificate. 
@@ -164,13 +158,10 @@ With a custom domain, a verification email is sent to the email address associat
 1. In the [Azure portal](https://portal.azure.com/), in the menu, select **App Service**.
 2. Select the name of the app that you want to assign this certificate to. 
 3. Go to **Settings** > **SSL certificates** > **Import App Service Certificate**, and then select the certificate.
-
-   ![Import certificate](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
-
+  ![Import certificate](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 4. In the **SSL bindings** section, select **Add bindings**.
 5. On the **Add SSL Binding** blade, select the domain name that you want to secure with the SSL certificate. Select the certificate that you want to use. You might also want to select whether to use [Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication) or IP-based SSL.
-   
-    ![SSL bindings](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
+  ![SSL bindings](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
    
     * To associate a certificate with a domain name, IP-based SSL maps the dedicated public IP address of the server to the domain name. When you use IP-based SSL, each domain name (for example, contoso.com or fabricam.com) associated with your service must have a dedicated IP address. This is the traditional method for associating an SSL certificate with a web server.
     * SNI-based SSL is an extension to SSL and [Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS). When you use SNI-based SSL, multiple domains can share the same IP address. Each domain has a separate security certificate. Most modern browsers, including Internet Explorer, Chrome, Firefox, and Opera, support SNI. Older browsers might not support SNI. For more information about SNI, see [Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication) in Wikipedia.
@@ -180,7 +171,6 @@ With a custom domain, a verification email is sent to the email address associat
 If you select **IP-based SSL** and your custom domain is configured using an A record, you must complete the following additional steps.
 
 * After you set up an IP-based SSL binding, a dedicated IP address is assigned to your app. To find the IP address, go to **Settings** > **Custom domain**. Right above the **Hostnames** section, your IP address is listed as **External IP Address**.
-    
   ![IP-based SSL](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
     
   Note that this IP address is different from the virtual IP address you previously used to configure the A record for your domain. If your app is set up to use SNI-based SSL, or if it's not set up to use SSL, no IP address is listed here.
@@ -194,8 +184,7 @@ You can create a local PFX copy of an App Service certificate. When you have a l
 
 ## <a name="bkmk_Renew"></a>Auto renew your App Service certificate
 To set auto renew settings for your certificate, or to manually renew your certificate, on the **Certificate Properties** blade, select **Auto Renew Settings**. 
-
-  ![Auto renew settings](./media/app-service-web-purchase-ssl-web-site/autorenew.png)
+![Auto renew settings](./media/app-service-web-purchase-ssl-web-site/autorenew.png)
 
 To automatically renew your certificate before it expires, set **Auto Renew** to **On**. This is the default option. If auto renewal is turned on, we attempt to renew your certificate starting on the 90th day before the certificate expires. If you created SSL bindings on your App Service apps in the Azure portal, the bindings also are updated when the new certificate is ready (like in rekey and sync scenarios). 
 
@@ -205,7 +194,6 @@ If you want to handle renewals manually, set **Auto Renew** to **Off**. You can 
 
 1. If you ever need to rekey your certificate (for security reasons), on the **Certificate Properties** blade, select **Rekey and Sync**. 
 2. Select **Rekey**. The process might take up to 10 minutes to finish. 
-   
   ![Rekey SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.jpg)
 
 Here's some additional information about rekeying:
