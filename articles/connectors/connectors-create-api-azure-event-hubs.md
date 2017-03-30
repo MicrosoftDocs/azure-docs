@@ -32,7 +32,7 @@ the [Azure Event Hubs service](../event-hubs/event-hubs-what-is-event-hubs.md).
 you must first have a logic app. Learn how to 
 [create a basic logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
-* You must already created an [Event Hubs](https://azure.microsoft.com/services/event-hubs/) 
+* You must have already created an [Event Hubs](https://azure.microsoft.com/services/event-hubs/) 
 namespace and an Event Hub in Azure. You also need **Manage** permissions 
 and the connection string for your Event Hubs namespace. 
 Learn [how to create your Event Hubs namespace and find the connection string](../event-hubs/event-hubs-create.md). 
@@ -67,7 +67,7 @@ On the namespace blade, under **General**, choose **Shared access policies**.
 
     ![Manage permissions for your Event Hub namespace](./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png)
 
-6.  To copy the connection string for your Event Hubs namspace, 
+6.  To copy the connection string for your Event Hubs namespace, 
 choose **RootManageSharedAccessKey**. Next to your primary key connection string, 
 choose the copy button.
 
@@ -75,7 +75,7 @@ choose the copy button.
     > To confirm whether your connection string is 
     > associated with your Event Hubs namespace or with a specific entity, 
     > check the connection string for the `EntityPath` parameter. 
-    > If you find this paramter, the connection string is not the 
+    > If you find this parameter, the connection string is not the 
     > correct string for your logic app.
 
 5.  After you find the connection string for your Event Hubs namespace, 
@@ -99,7 +99,7 @@ the trigger that detects this event, if you haven't already.
 1.  In the Azure portal, go to your logic app, and open Logic App Designer.
 
 2.  In the search box for the designer, enter `event hubs` for your filter. 
-Select the **When events are available in Event Hub** trigger.
+Select this trigger: **When events are available in Event Hub**
 
     ![Select trigger for when your Event Hub receives new events](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
@@ -138,7 +138,7 @@ choose **New step** > **Add an action**.
     we want the Event Hubs action to send events.
 
 2.  In the search box, enter `event hubs` for your filter.
-Select **Send event**.
+Select this action: **Send event**
 
     ![Select "Event Hubs - Send event" action](./media/connectors-create-api-azure-event-hubs/find-event-hubs-action.png)
 
