@@ -9,7 +9,8 @@
 ### [SSMS](sql-database-connect-query-ssms.md)
 ### [VS Code](sql-database-connect-query-vscode.md)
 ## Connect
-### [C#](sql-database-connect-query-dotnet.md)
+### [C #](sql-database-connect-query-dotnet.md)
+### [PHP](sql-database-connect-query-php.md)
 ### [Java](sql-database-connect-query-java.md)
 ### [Python](sql-database-connect-query-python.md)
 ### [Ruby](sql-database-connect-query-ruby.md)
@@ -108,7 +109,7 @@
 ### [Portal](sql-database-elastic-pool-manage-portal.md)
 ### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 ### [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)
-### [C#](sql-database-elastic-pool-manage-csharp.md)
+### [C #](sql-database-elastic-pool-manage-csharp.md)
 ## DB Access 
 ### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
 ### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
@@ -145,13 +146,12 @@
 ### [Load data with ADF](../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 ### [Sync data](sql-database-get-started-sql-data-sync.md)
 ## Connect applications
-### [C and C++](sql-database-develop-cplusplus-simple.md)
+### [C and C ++](sql-database-develop-cplusplus-simple.md)
 ### [Node.js](sql-database-develop-nodejs-simple.md)
-### [PHP](sql-database-develop-php-simple.md)
 ### [Excel](sql-database-connect-excel.md)
 ### [Guidance](sql-database-connectivity-issues.md)
 ### [Issues](sql-database-troubleshoot-common-connection-issues.md)
-### [Create DB with C#](sql-database-get-started-csharp.md)
+### [Create DB with C #](sql-database-get-started-csharp.md)
 ## [Configure In-Memory](sql-database-in-memory-oltp-migration.md)
 ## Manage multiple DBs
 ### [Create sharded app](sql-database-elastic-scale-get-started.md)
