@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/28/2017
+ms.date: 03/30/2017
 ms.author: davidmu
 ---
 
 # Build a highly available application on Windows virtual machines in Azure
 
-In this tutorial, you create a highly available application that is resilient to maintenance events. The app uses a load balancer, an availability set, and three Windows virtual machines (VMs). This tutorial installs IIS, though you can use this tutorial to deploy a different application framework using the same high availability components and guidelines.
+In this tutorial, you create a highly available application that is resilient to maintenance events. The app uses a load balancer, an availability set, and three Windows virtual machines (VMs). This tutorial installs IIS, though you can use this tutorial to deploy a different application framework using the same high availability components and guidelines. 
 
-To complete this tutorial, make sure that you have installed the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module. 
+## Step 1 - Azure prerequisites
 
-## Step 1 - Log in to Azure
+To complete this tutorial, make sure that you have installed the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module.
 
 First, log in to your Azure subscription with the Login-AzureRmAccount command and follow the on-screen directions.
 
@@ -32,15 +32,13 @@ First, log in to your Azure subscription with the Login-AzureRmAccount command a
 Login-AzureRmAccount
 ```
 
-## Step 2 - Create resource group
-
 An Azure resource group is a logical container into which Azure resources are deployed and managed. Before you can create any other Azure resources, you need to create a resource group with [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Resources/v2.0.3/new-azurermresourcegroup). The following example creates a resource group named `myResourceGroup` in the `westeurope` region: 
 
 ```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location westeurope
 ```
 
-## Step 3 - Create availability set
+## Step 2 - Create availability set
 
 Virtual machines can be created across logical fault and update domains. Each logical domain represents a portion of hardware in the underlying Azure datacenter. When you create two or more VMs, your compute and storage resources are distributed across these domains. This distribution maintains the availability of your app if a hardware component needs maintenance. Availability sets let you define these logical fault and update domains.
 
@@ -56,7 +54,7 @@ $availabilitySet = New-AzureRmAvailabilitySet `
   -PlatformUpdateDomainCount 2
 ```
 
-## Step 4 - Create load balancer
+## Step 3 - Create load balancer
 
 An Azure load balancer distributes traffic across a set of defined VMs using load balancer rules. A health probe monitors a given port on each VM and only distributes traffic to an operational VM.
 
@@ -97,7 +95,7 @@ $lb = New-AzureRmLoadBalancer `
   -BackendAddressPool $backendPool
 ```
 
-### Create a health probe
+### Create health probe
 
 To allow the load balancer to monitor the status of your app, you use a health probe. The health probe dynamically adds or removes VMs from the load balancer rotation based on their response to health checks. By default, a VM is removed from the load balancer distribution after two consecutive failures at 15-second intervals.
 
@@ -134,7 +132,7 @@ Update the load balancer with [Set-AzureRmLoadBalancer](https://docs.microsoft.c
 Set-AzureRmLoadBalancer -LoadBalancer $lb
 ```
 
-## Step 5 - Configure networking
+## Step 4 - Configure networking
 
 Each VM has one or more virtual network interface cards (NICs) that connect to a virtual network. This virtual network is secured to filter traffic based on defined access rules.
 
@@ -220,7 +218,7 @@ for ($i=1; $i -le 3; $i++)
 
 ```
 
-## Step 6 - Create virtual machines
+## Step 5 - Create virtual machines
 
 With all the underlying components in place, you can now create highly available VMs to run your app. 
 
@@ -246,7 +244,7 @@ for ($i=1; $i -le 3; $i++)
 
 ```
 
-It takes a few minutes to create and configure all three VMs. The load balancer health probe automatically detects when the app is running on each VM. Once the app is running, the load balancer rule starts to distribute traffic.
+It takes a several minutes to create and configure all three VMs. The load balancer health probe automatically detects when the app is running on each VM. Once the app is running, the load balancer rule starts to distribute traffic.
 
 ### Install the app 
 
@@ -280,7 +278,7 @@ Enter the public IP address in to a web browser. With the NSG rule in place, the
 
 ![IIS default site](./media/virtual-machines-windows-tutorial-manage-vm/iis.png)
 
-## Step 7 – Management tasks
+## Step 6 – Management tasks
 
 You may need to perform maintenance on the VMs running your app, such as installing OS updates. To deal with increased traffic to your app, you may need to add additional VMs. This section shows you how to remove or add a VM from the load balancer. 
 

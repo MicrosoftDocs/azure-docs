@@ -44,6 +44,8 @@ New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location westeurope
 
 ## Step 3 - Create virtual machine
 
+A virtual machine must be connected to a virtual network. You communicate with the virtual machine using a public IP address through a network interface card.
+
 ### Create virtual network
 
 Create a subnet with [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermvirtualnetworksubnetconfig):
@@ -54,7 +56,7 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
   -AddressPrefix 192.168.1.0/24
 ```
 
-Create a virtual network [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermvirtualnetwork):
+Create a virtual network with [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermvirtualnetwork):
 
 ```powershell
 $vnet = New-AzureRmVirtualNetwork `
@@ -137,7 +139,7 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 When creating a virtual machine, several options are available such as operating system image, disk sizing, and administrative credentials. In this example, a virtual machine is created with a name of `myVM` running the latest version of Windows Server 2016 Datacenter. 
 
-Get the username and password needed for the administrator account on the virtual machine with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Set the username and password needed for the administrator account on the virtual machine with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```powershell
 $cred = Get-Credential
@@ -257,14 +259,14 @@ Because the extension runs at VM deployment time, the **install-iis-format-disk.
 Add the extension with [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmextension):
 
 ```powershell
-Set-AzureRmVMExtension -Name myScript 
+Set-AzureRmVMExtension -Name myScript `
   -ResourceGroupName myResourceGroup `
   -Location westeurope `
   -VMName myVM `
-  -Publisher Microsoft.Computer `
+  -Publisher Microsoft.Compute `
   -ExtensionType CustomScriptExtension `
   -TypeHandlerVersion 1.4 `
-  -SettingString '{"fileUris":"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/virtual-machine/install-iis-format-disk/install-iis-format-disk.ps1?token=ABlGkLjzVTdZGoCRbu1pCXjvSDRMHnUlks5Y5nbZwA%3D%3D"], "commandToExecute":"powershell.exe -ExecutionPolicy Unrestricted -File install-iis-format-disk.ps1" }'
+  -SettingString '{"fileUris":["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/virtual-machine/install-iis-format-disk/install-iis-format-disk.ps1?token=ABlGkLjzVTdZGoCRbu1pCXjvSDRMHnUlks5Y5nbZwA%3D%3D"], "commandToExecute":"powershell.exe -ExecutionPolicy Unrestricted -File install-iis-format-disk.ps1" }'
 ```
 
 Get the public IP address of the virtual machine with [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/get-azurermpublicipaddress):
