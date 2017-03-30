@@ -509,7 +509,7 @@ To enhance your Azure Active Directory, you can add paid capabilities using the 
     <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#connect-sync-engine-that-extends-on-premises-directories-to-azure-active-directory" target="_blank">Connect (Sync engine that extends on-premises directories to Azure Active Directory)</a>,
     <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#securityusage-reports" target="_blank">Security / Usage Reports</a></td>
 
-    <td><a href="(https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#group-based-access-managementprovisioning" target="_blank"> Group-based access management / provisioning</a>,
+    <td><a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#group-based-access-managementprovisioning" target="_blank"> Group-based access management/provisioning</a>,
     <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#self-service-password-reset-for-cloud-users" target="_blank">Self-Service Password Reset for cloud users</a>,
     <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#company-branding-logon-pagesaccess-panel-customization" target="_blank">Company Branding (Logon Pages/Access Panel customization)</a>,
     <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#application-proxy" target="_blank">Application Proxy </a>,
