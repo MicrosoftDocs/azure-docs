@@ -27,7 +27,7 @@ To perform the following management operations, you must have **Manage** permiss
 
 ### Create
 ```csharp
-// Create the Event Hub
+// Create the event hub
 var ehd = new EventHubDescription(eventHubName);
 ehd.PartitionCount = SampleManager.numPartitions;
 await namespaceManager.CreateEventHubAsync(ehd);
