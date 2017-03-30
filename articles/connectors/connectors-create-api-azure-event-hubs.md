@@ -28,83 +28,77 @@ the [Azure Event Hubs service](../event-hubs/event-hubs-what-is-event-hubs.md).
 
 ## Requirements
 
-* To use [any connector](https://docs.microsoft.com/azure/connectors/apis-list), 
-you must first have a logic app. Learn how to 
+* You have to have an existing [Event Hubs](https://azure.microsoft.com/services/event-hubs/) 
+namespace and an Event Hub in Azure. Learn 
+[how to create your Event Hubs namespace](../event-hubs/event-hubs-create.md). 
+
+* To use [any connector](https://docs.microsoft.com/azure/connectors/apis-list) 
+in your logic app workflow, you have to create a logic app. Learn how to 
 [create a basic logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
-* You must have already created an [Event Hubs](https://azure.microsoft.com/services/event-hubs/) 
-namespace and an Event Hub in Azure. You also need **Manage** permissions 
-and the connection string for your Event Hubs namespace. 
-Learn [how to create your Event Hubs namespace and find the connection string](../event-hubs/event-hubs-create.md). 
+## Check Event Hubs namespace permissions and find the connection string
 
-## Connect to your Event Hubs namespace
-
-Before your logic app can access any service, 
+For your logic app to access any service, 
 you have to create a [*connection*](./connectors-overview.md) 
 between your logic app and the service, if you haven't already. 
-You must also authorize your logic app to connect and access your Event Hub. 
-Fortunately, you can set up authorization from your logic app in the Azure portal.
+This connection authorizes your logic app to access data.
+For your logic app to access your Event Hub, 
+you have to have **Manage** permissions and the connection string for your Event Hubs namespace.
 
-To connect and authorize your logic app to access your Event Hub, 
-follow these steps.
+To check your permissions and find the connection string, 
+follow these steps in the Azure portal.
 
-1.  Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). Go to your logic app, 
-and open Logic App Designer.
+1.  Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
 
-2.  In the search box for the designer, enter `event hubs` for your filter. 
-Select any Event Hubs trigger or action.
-
-    ![Find the Event Hubs trigger](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
-
-4.  If you didn't previously connect to your Event Hub, 
-you're prompted to provide your Event Hubs credentials.
-
-    Your credentials authorize your logic app 
-    to connect and access your Event Hub data. 
-
-5.  Check that you have **Manage** permissions for your Event Hubs namespace. 
-On the namespace blade, under **General**, choose **Shared access policies**.
+2.  Go to your Event Hubs *namespace*, not the specific Event Hub. 
+Check that you have **Manage** permissions for that namespace. 
+On the namespace blade, under **Settings**, choose **Shared access policies**, 
+and check your **Claims** permissions.
 
     ![Manage permissions for your Event Hub namespace](./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png)
 
-6.  To copy the connection string for your Event Hubs namespace, 
+6.  To copy the connection string for the Event Hubs namespace, 
 choose **RootManageSharedAccessKey**. Next to your primary key connection string, 
 choose the copy button.
 
+    ![Find Event Hub namespace connection string](./media/connectiors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png)
+
     > [!TIP]
     > To confirm whether your connection string is 
-    > associated with your Event Hubs namespace or with a specific entity, 
+    > associated with your Event Hubs namespace or with a specific Event Hub, 
     > check the connection string for the `EntityPath` parameter. 
-    > If you find this parameter, the connection string is not the 
-    > correct string for your logic app.
+    > If you find this parameter, the connection string is for a specific 
+    > Event Hub "entity", and is not the correct string to use with your logic app.
 
-5.  After you find the connection string for your Event Hubs namespace, 
-give your connection a name, enter that string as 
-the API connection in your logic app, and choose **Create**.
+5.  Now when you add an Event Hubs trigger or action to your logic app, 
+and you're prompted for credentials, give your connection a name, 
+enter the connection string string that you copied, and choose **Create**.
 
     ![Enter connection string for Event Hubs namespace](./media/connectors-create-api-azure-event-hubs/event-hubs-connection.png)
 
-    Now that you created your connection, 
-    you can continue with the other steps for your logic app.
+    After you create your connection, 
+    the connection name should appear in the Event Hubs trigger or action. 
+    You can then continue with the other steps in your logic app.
 
     ![Event Hubs namespace connection created](./media/connectors-create-api-azure-event-hubs/event-hubs-connection-created.png)
 
-## Start your logic app when your Event Hub receives new events
+## Start a workflow when your Event Hub receives new events
 
 A [*trigger*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) 
-is the event that starts your logic app workflow. To start your workflow
+is an event that starts a logic app workflow. To start a workflow
 when new events are sent to your Event Hub, follow these steps for adding 
 the trigger that detects this event, if you haven't already.
 
-1.  In the Azure portal, go to your logic app, and open Logic App Designer.
+1.  In the [Azure portal](https://portal.azure.com "Azure portal"), 
+go to your logic app, and open Logic App Designer.
 
 2.  In the search box for the designer, enter `event hubs` for your filter. 
 Select this trigger: **When events are available in Event Hub**
 
     ![Select trigger for when your Event Hub receives new events](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
-    If you don't already have a connection to Azure Event Hubs, 
-    you're prompted to sign in with your Event Hubs connection string.
+    If you don't already have a connection to your Event Hubs namespace, 
+    you're prompted to create this connection now. in with your Event Hubs connection string. 
 
     The settings for the **When an event in available in an Event Hub** trigger appear.
 
