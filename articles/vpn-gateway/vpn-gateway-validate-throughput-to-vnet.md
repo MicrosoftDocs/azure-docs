@@ -81,9 +81,7 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). For
 
 	To remove the rule when testing is complete, run this command:
 
-  ```CMD
-	netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
-	```
+	`netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001`
 
 	**Azure Linux:**  Azure Linux images have permissive firewalls. If there is an application listening on a port the traffic will be allowed through. Custom images that are secured may need ports opened explicitly. Common Linux OS-layer firewalls include `iptables`, `ufw` or `firewalld`.
 
