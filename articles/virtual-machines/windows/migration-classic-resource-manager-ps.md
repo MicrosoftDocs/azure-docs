@@ -21,7 +21,7 @@ ms.author: kasing
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell
 These steps show you how to use Azure PowerShell commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model. 
 
-If you want, you can also migrate resources by using the [Azure Command Line Interface (Azure CLI)](../migration-classic-resource-manager-cli.md).
+If you want, you can also migrate resources by using the [Azure Command Line Interface (Azure CLI)](../linux/migration-classic-resource-manager-cli.md).
 
 * For background on supported migration scenarios, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-overview.md). 
 * For detailed guidance and a migration walkthrough, see [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md).
