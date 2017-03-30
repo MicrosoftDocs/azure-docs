@@ -34,9 +34,9 @@ If you are using a **Windows** device, you should should check the following:
 
 
 
-## Are you using a supported browser?
+## Supported browser
 
-When your administrator has configured a conditional access policy, you can only access your organization's resources by using a supported browser. On a Windows device, only **Internet Explorer** and **Edge** are supported.
+If your administrator has configured a conditional access policy, you can only access your organization's resources by using a supported browser. On a Windows device, only **Internet Explorer** and **Edge** are supported.
 
 You can easily identify whether you can't access a resource due to an unsupported browser by looking at the details section of the error page:
 
@@ -45,7 +45,7 @@ You can easily identify whether you can't access a resource due to an unsupporte
 The only remediation is to use a browser that the application supports for your device platform. For a complete list of supported browsers, see [supported browsers](active-directory-conditional-access-supported-apps.md#supported-browsers).  
 
 
-## Are you running a supported version of Windows on your device?
+## Supported versions of Windows
 
 The following must be true about the Windows operating system on your device: 
 
@@ -53,7 +53,7 @@ The following must be true about the Windows operating system on your device:
 - If you are running a Windows server operating system on your devive, it needs to be Windows Server 2008 R2 or later. 
 
 
-## Is your device compliant?
+## Compliant device
 
 You administration might have configured a conditional access policy that allows access to your organization's resources from compliant devices. To be compliant, your device must be either joined to your on-premises Active Directory or joined to your Azure Active Directory.
 
