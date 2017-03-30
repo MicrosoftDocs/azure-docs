@@ -48,7 +48,7 @@ For information about migrating your existing VMs to Premium Storage, see [Conve
 > Premium Storage is available in most regions. For the list of available regions, in [Azure services by region](https://azure.microsoft.com/regions/#services), look at the regions in which supported Premium Support size-series VMs (DS-series, DSV2-series, GS-series, and Fs-series VMs) are supported.
 > 
 
-## Premium Storage features
+## Features
 
 Here are some of the features of Premium Storage:
 
@@ -78,7 +78,7 @@ Here are some of the features of Premium Storage:
 
     Azure uses your storage account as a container for your unmanaged disks. When you create an Azure DS-series, DSv2-series, GS-series, or Fs-series VM with unmanaged disks, and you select a premium storage account, your operating system and data disks are stored in that storage account.
 
-## Premium Storage-supported VMs
+## Supported VMs
 Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series VMs. You can use standard and premium storage disks with these VM types. You cannot use premium storage disks with VM series that are not Premium Storage-compatible.
 
 For information about VM types and sizes in Azure for Windows, see [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For information about VM types and sizes in Azure for Linux, see [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -126,7 +126,7 @@ These are some of the features of the DS-series, DSv2-series, GS-series, and Fs-
 
     For more information about premium storage disks and their IOPS and throughput limits, see the table in the next section.
 
-## Premium Storage scalability and performance targets
+## Scalability and performance targets
 In this section, we describe the scalability and performance targets to consider when you use Premium Storage.
 
 Premium storage accounts have the following scalability targets:
@@ -143,7 +143,7 @@ For more information, see [Azure Storage scalability and performance targets](st
 
 If you are using premium storage accounts for unmanaged disks and your application exceeds the scalability targets of a single storage account, you might want to migrate to managed disks. If you don't want to migrate to managed disks, build your application to use multiple storage accounts. Then, partition your data across those storage accounts. For example, if you want to attach 51-TB disks across multiple VMs, spread them across two storage accounts. 35 TB is the limit for a single premium storage account. Make sure that a single premium storage account never has more than 35 TB of provisioned disks.
 
-### Premium storage disk limits
+### Premium Storage disk limits
 When you provision a premium storage disk, the size of the disk determines the maximum IOPS and throughput (bandwidth). Azure offers three types of premium storage disks: P10, P20, and P30. Each premium storage disk type has specific limits for IOPS and throughput. Limits for the disk types are described in the following table:
 
 |Premium storage disk type | P10 | P20 | P30 |
