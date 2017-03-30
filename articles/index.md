@@ -756,6 +756,17 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </div>
                             </li>
+                            <button style="
+                                position: absolute;
+                                bottom: 0;
+                                right: 0;
+                                background: transparent;
+                                border: none;
+                                font-size: 1rem;
+                                color: #0050c5;
+                                cursor: pointer;
+                                ">View all &gt;
+                            </button>
                         </ul>
                     </li>
                     <li>
