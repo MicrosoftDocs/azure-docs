@@ -249,7 +249,7 @@ You can use the same script with different recovery plans and provide different 
 ## Sample scripts
 Deploy sample scripts into your Automation account using the Deploy to Azure button below.
 
-![Deploy to Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)
+[![Deploy to Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 Also view a quick video about recovering a two tier WordPress application to Azure.
 
