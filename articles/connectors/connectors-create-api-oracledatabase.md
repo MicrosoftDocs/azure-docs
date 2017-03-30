@@ -33,7 +33,7 @@ This topic shows you how to use the Oracle Database connector in a logic app.
     * Oracle 9 and later
     * Oracle client software 8.1.7 and later
 
-* Install the on-premises data gateway. [Connect to on-premises data from logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection) lists the steps. The gateway is required to connect to an on-premises Oracle Database, or an Azure VM with Oracle DB installed. 
+* Install the on-premises data gateway. [Connect to on-premises data from logic apps](../logic-apps/logic-apps-gateway-connection.md) lists the steps. The gateway is required to connect to an on-premises Oracle Database, or an Azure VM with Oracle DB installed. 
 
     > [!NOTE]
     > The on-premises data gateway acts as a bridge, and provides a secure data transfer between on-premises data (data that is not in the cloud) and your logic apps. The same gateway can be used with multiple services, and multiple data sources. So, you may only need to install the gateway once.
