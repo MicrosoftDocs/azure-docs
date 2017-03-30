@@ -81,7 +81,11 @@ You can configure and get information about service health notification alerts u
 
 Within a few minutes, the alert is active and triggers as previously described.
 
-***Note:*** The action group defined in these steps will be reusable, as an existing action group, for all future alert definition.
+>[!NOTE]
+>The action group defined in these steps will be reusable, as an existing action group, for all future alert definition.
+>
+>
+
 ## Create an alert on a service health notification for an existing action group with the Azure Portal
 1.	In the [portal](https://portal.azure.com), navigate to the **Monitor** service
 
@@ -109,14 +113,14 @@ Within a few minutes, the alert is active and triggers as previously described.
 
 Within a few minutes, the alert is active and triggers as previously described.
 
-## Managing your alerts ##
+## Managing your alerts
 
 Once you have created an alert, it will be visible in the Alerts section of the Monitor service. Select the alert you wish to manage, you will be able to:
 * **Edit** it.
 * **Delete** it.
 * **Disable** or **Enable** it if you want to temporarily stop of resume receiving notifications for the alert.
 
-## Next Steps: ##
+## Next Steps:
 Learn about [Service Health Notifications](monitoring-service-notifications.md)  
 Get an [overview of activity log alerts](monitoring-overview-alerts.md) and learn how to get alerted  
 Learn more about [action groups](monitoring-action-groups.md)

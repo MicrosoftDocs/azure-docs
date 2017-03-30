@@ -77,9 +77,8 @@ You can always receive help for commands by typing a command and putting -help a
 
    ```
 3. To create a rule, you need to have several important pieces of information first.
-
-   * The **Resource ID** for the resource you want to set an alert for
-   * The **metric definitions** available for that resource
+  * The **Resource ID** for the resource you want to set an alert for
+  * The **metric definitions** available for that resource
 
      One way to get the Resource ID is to use the Azure portal. Assuming the resource is already created, select it in the portal. Then in the next blade, select *Properties* under the *Settings* section. The *RESOURCE ID* is a field in the next blade. Another way is to use the [Azure Resource Explorer](https://resources.azure.com/).
 
