@@ -27,7 +27,7 @@ If needed, install the Azure CLI using the instruction found in the [Azure CLI i
 - The application code is in a public or private GitHub repository that you own.
 - You have [created an access token in your GitHub account](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/windows/cli-options.md).
 
 ## Create app sample
 
