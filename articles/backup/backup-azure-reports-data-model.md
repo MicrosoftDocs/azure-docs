@@ -44,3 +44,19 @@ This table provides basic fields and aggregations over various alert related fie
 | AvgResolutionTimeInMinsForAlertsCreatedInPeriod |Time |7 |Average time it takes to resolve an alert in minutes for selected time period |
 | State |String |Active |Current state of the alert object |
 | VaultUniqueId |String |2519125716922179999_0_0736664c-d142-4e6d-a696-df7a8f469014 |Unique Id of the vault for which alert is generated |
+
+
+| Field | Data Type | Description |
+| --- | --- | --- |
+| #AlertsCreatedInPeriod |Number |Number of alerts created in selected time period |
+| %ActiveAlertsCreatedInPeriod |Percentage |Percentage of active alerts in selected time period |
+| %CriticalAlertsCreatedInPeriod |Percentage |Percentage of critical alerts in selected time period |
+| AlertOccurenceDate |Date |Date when alert was created |
+| AlertSeverity |String |Severity of the alert e.g. Critical |
+| AlertStatus |String |Current status of the alert e.g. Active |
+| AlertType |String |Type of the generated alert e.g. Backup |
+| AlertUniqueId |String |Unique Id of the generated alert |
+| AsOnDateTime |Date |Time period to filter alerts related fields |
+| AvgResolutionTimeInMinsForAlertsCreatedInPeriod |Time |Average time it takes to resolve an alert in minutes for selected time period |
+| State |String |Current state of the alert object e.g. Active |
+| VaultUniqueId |String |Unique Id of the vault for which alert is generated |
