@@ -37,7 +37,7 @@
 ## Manage with Docker Swarm
 ### [Docker and Docker Compose](container-service-docker-swarm.md)
 ### [Docker Swarm continuous integration](container-service-docker-swarm-setup-ci-cd.md)
-## Secure containers
+## [Secure containers](container-service-security.md)
 # Reference
 ## [Azure CLI 2.0](/cli/azure/acs)
 ## [REST](/rest/api/compute/containerservices)
