@@ -117,7 +117,7 @@ You can create and manage DSC resources hosted in Azure and apply them to cloud 
 # 4.0 Azure Security Center
 
 <img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig8.png" width ="300" height="230" alt ="" align ="right" >
-Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service you are able to define polices not only against your Azure subscriptions, but also against [Resource Groups](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview-resource-groups) , so you can be more granular.
+Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service you are able to define polices not only against your Azure subscriptions, but also against [Resource Groups](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal) , so you can be more granular.
 
 Microsoft security researchers are constantly on the lookout for threats. They have access to an expansive set of telemetry gained from Microsoft’s global presence in the cloud and on-premises. This wide-reaching and diverse collection of datasets enables Microsoft to discover new attack patterns and trends across its on-premises consumer and enterprise products, as well as its online services.
 
@@ -211,7 +211,8 @@ SQL Database Threat Detectors use one of the following detection methodologies:
 ## 5.3 Application Gateway Web Application Firewall
 
 <img src="media/Advanced-Threat-Detection-in-Azure/Advanced-Threat-Detection-in-Azure-Fig13.png" width ="400" height="230" alt ="" align ="right" >
-[Web Application Firewall](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-web-application-firewall) is a feature of [Azure Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-webapplicationfirewall-overview) that provides protection to web applications that leverage application gateway for standard [Application Delivery Control](https://kemptechnologies.com/in/application-delivery-controllers/) functions. Web application firewall does this by protecting them against most of the [OWASP top 10 common web vulnerabilities](https://www.owasp.org/index.php/Top_10_2010-Main) 
+
+[Web Application Firewall](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-web-application-firewall) is a feature of [Azure Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-webapplicationfirewall-overview) that provides protection to web applications that leverage application gateway for standard [Application Delivery Control](https://kemptechnologies.com/in/application-delivery-controllers) functions. Web application firewall does this by protecting them against most of the [OWASP top 10 common web vulnerabilities](https://www.owasp.org/index.php/Top_10_2010-Main) 
 
 -	SQL injection protection
 -	Cross site scripting protection
