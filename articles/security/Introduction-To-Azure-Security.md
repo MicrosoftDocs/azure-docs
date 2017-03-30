@@ -78,111 +78,15 @@ The built-in capabilities are organized in six (6) functional areas: Operations,
 
 <table style="width:100%">
   <tr>
-    <th>Operations</th>
+  <th>Operations</th>
     <td><a href="https://technet.microsoft.com/library/mt484091.aspx" target="_blank">Azure Operational Manager Suite</a></td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-deployment-model" target="_blank"> Azure Resource Manager</a></td>
+    <td><a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-deployment-model" target="_blank">Azure Resource Manager</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/application-insights/" target="_blank">Application Insight</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/" target="_blank">Azure Monitor</a></td>
     <td><a href="https://docs.microsoft.com/en-us/azure/log-analytics/" target="_blank">Log Analytics</a></td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/advisor/" target="_blank"> Azure Advisor</a></td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-data-security" target="_blank"> Azure Security Center </a></td>
+    <td><a href="https://docs.microsoft.com/en-us/azure/advisor/" target="_blank">Azure Advisor</a></td>
+    <td><a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-data-security" target="_blank">Azure Security Center </a></td>
   </tr>
-
-
-  <tr>
-    <th>Applications</th>
-    <td><a href="https://azure.microsoft.com/en-us/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/" target="_blank">Web Vulnerability Scanning</a></td>
-    <td><a href="https://security-forms.azure.com/penetration-testing/terms" target="_blank">Penetration Testing </a></td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-webapplicationfirewall-overview) " target="_blank">Web Application Firewall</a></td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview?toc=%2fazure%2fapp-service-web%2ftoc.json" target="_blank">App Service Authentication / Authorization</a></td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-layered-security" target="_blank">Layer Security
-    </a>with <a href="https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources" target="_blank">ACL & NSG </a>
-    </td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-enable-diagnostic-log" target="_blank"> Web server diagnostics and application diagnostics </a></td>
-    <td><a href="" target="_blank">  </a></td>
-  </tr>
-
-
-
-  <tr>
-    <th>Storage</th>
-    <td>Using<a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-deployment-model" target="_blank"> ARM </a>,
-    <a href="https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure" target="_blank">RBAC</a> to secure storage account
-    </td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1" target="_blank">Using Shared Access Signature  </a> and
-    <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-acl" target="_blank">store access policies </a> to secure data</td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-configure-ssl-certificate" target="_blank">Encryption in Transit</a></td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/storage/storage-security-guide#encryption-at-rest" target="_blank">Encryption at Rest</a></td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/storage/storage-analytics" target="_blank">Storage Analytics</a></td>
-    <td><a href="https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services" target="_blank"> Enabling Browser-Based Clients using CORS </a></td>
-    <td><a href="" target="_blank">  </a></td>
-  </tr>
-
-
-
-  <tr>
-    <th>Networking</th>
-    <td><a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg" target="_blank">Network Security Groups</a>, <a href="https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-forced-tunneling" target="_blank"> Forced Tunneling</a>
-    </td>
-    <td><a href="https://azure.microsoft.com/marketplace/" target="_blank"> Virtual Network Security Appliances </a></td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design" target="_blank">VPN Gateway </a>, <a href="https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction" target="_blank">Express route</a>
-
-    </td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-introduction" target="_blank">Application Gate way</a>,
-    <a href="https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-webapplicationfirewall-overview" target="_blank"> Web Application Firewall</a>,
-    <a href="https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview" target="_blank">Load Balancer</a>,
-    <a href="https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview" target="_blank">Traffic Manager</a>
-    </td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-manage-dns-in-vnet" target="_blank">Internal DNS </a>,
-    <a href="https://docs.microsoft.com/en-us/azure/dns/dns-overview" target="_blank"> Azure DNS</a>,
-    <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log" target="_blank">Log Analytics NSGs</a>
-    </td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-intro" target="_blank">Security Center </a></td>
-    <td><a href="" target="_blank">  </a></td>
-  </tr>
-
-
-  <tr>
-    <th>Compute</th>
-    <td><a href="https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware" target="_blank">Antimalware & Antivirus</a></td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis" target="_blank"> Hardware Security Module(Key Vault) </a></td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup" target="_blank">VM Backup and Site recovery</a></td>
-    <td><a href="https://msdn.microsoft.com/en-us/library/bb934049.aspx" target="_blank">SQL VM TDE</a>, <a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-disk-encryption" target="_blank">VM disk encryption</a></td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/security/azure-security-best-practices-software-updates-iaas
-    " target="_blank">Patch Updates</a></td>
-    <td><a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-vulnerability-assessment-recommendations" target="_blank"> Vulnerability scanning Policy Management </a>,
-    <a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-intro" target="_blank">Security center</a></td>
-  </tr>
-
-
-
-  <tr>
-    <th>Identity and access management</th>
-    <td><a href="https://azure.microsoft.com/en-us/services/multi-factor-authentication/" target="_blank">Multi-Factor Authentication   </a>,
-    <a href="https://aka.ms/authenticator" target="_blank">Microsoft Authenticator</a>,
-    <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-passwords-policy/" target="_blank">Password policy enforcement </a>,
-    <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-authentication-scenarios/" target="_blank">Token-based authentication </a>,
-    <a href="https://azure.microsoft.com/en-us/documentation/articles/role-based-access-built-in-roles/" target="_blank">Role-based access control</a>,
-    <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/" target="_blank">Integrated identity management</a>
-    </td>
-    <td><a href="https://azure.microsoft.com/en-us/services/active-directory/" target="_blank"> Azure Active Directory    </a>,
-    <a href="https://azure.microsoft.com/en-us/updates/general-availablity-cloud-app-discovery/" target="_blank">Cloud App Discovery</a>,
-    <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-identityprotection/" target="_blank">Azure Active Directory Identity Protection</a>,
-    <a href="https://azure.microsoft.com/en-us/services/active-directory-ds/" target="_blank">Azure Active Directory Domain Services </a>,
-    <a href="https://azure.microsoft.com/en-us/services/active-directory-b2c/" target="_blank">Azure Active Directory B2C </a>,
-    <a href="https://aka.ms/aad-b2b-collaboration" target="_blank">Azure Active Directory B2B Collaboration </a>,
-    <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-azureadjoin-overview/" target="_blank">Azure Active Directory Join </a>
-    <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-get-started/" target="_blank">Azure Active Directory Application Proxy</a>
-
-    </td>
-
-  </tr>
-
-
-
-
-
-
 
 </table>
 
