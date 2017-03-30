@@ -31,16 +31,18 @@ The features listed below are capabilities you can review to provide the assuran
 
 <table style="width:100%">
 <tr>
-      <td>Security Development Cycle,Internal audits</td>
-     <td> Mandatory Security training, back ground checks</td>
-    <td>Penetration testing    
+    <th><a href="https://www.microsoft.com/en-us/trustcenter/Security/default.aspx" target="_blank">Secure Platform</a></th>
+    <td><a href="https://www.microsoft.com/en-us/sdl/" target="_blank">Security Development Cycle, </a> Internal audits</td>
+    <td><a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiwsOCpganRAhWqxVQKHUdiDsMQFghAMAE&url=https%3A%2F%2Fdownloads.cloudsecurityalliance.org%2Fstar%2Fself-assessment%2FStandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx&usg=AFQjCNEYvBky4zNeDQPN6YJGPFRZA7eeZg&sig2=2kkw1lOCP_kzLzgE9RS2Tg&bvm=bv.142059868,d.amc" target="_blank"> Mandatory Security training, back ground checks </a></td>
+  <td><a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiwsOCpganRAhWqxVQKHUdiDsMQFghAMAE&url=https%3A%2F%2Fdownloads.cloudsecurityalliance.org%2Fstar%2Fselfassessment%2FStandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx&usg=AFQjCNEYvBky4zNeDQPN6YJGPFRZA7eeZg&sig2=2kkw1lOCP_kzLzgE9RS2Tg&bvm=bv.142059868,d.amc" target="_blank">Penetration testing</a>,
+    <a href="https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagemen" target="_blank">intrusion detection ,DDoS</a>
+    <a href="https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging" target="_blank">Audits & logging</a>
     </td>
-    <td>Security Incident response
-       Shared Responsibility
-    </td>
-
-</tr>
-
+    <td><a href="https://www.microsoft.com/en-us/cloud-platform/global-datacenters" target="_blank">State of art datacenter</a>,physical security
+<a href="https://docs.microsoft.com/en-us/azure/security/security-network-overview" target="_blank">Secure Network</a></td>
+ <td><a href="http://aka.ms/SecurityResponsepaper" target="_blank">Security Incident response </a>,
+<a href="http://aka.ms/sharedresponsibility" target="_blank">Shared Responsibility</a> </td>
+  </tr>
 </table>
 
 
