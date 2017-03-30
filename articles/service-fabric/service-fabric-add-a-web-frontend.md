@@ -78,7 +78,7 @@ We will start by creating the interface to act as the contract between the state
 5. In the class library, create an interface with a single method, `GetCountAsync`, and extend the interface from IService.
    
     ```c#
-    namespace MyStatefulService.Interfaces
+    namespace MyStatefulService.Interface
     {
         using Microsoft.ServiceFabric.Services.Remoting;
    
@@ -98,7 +98,7 @@ Now that we have defined the interface, we need to implement it in the stateful 
 2. Locate the class that inherits from `StatefulService`, such as `MyStatefulService`, and extend it to implement the `ICounter` interface.
    
     ```c#
-    using MyStatefulService.Interfaces;
+    using MyStatefulService.Interface;
    
     ...
    
@@ -160,7 +160,7 @@ Our stateful service is now ready to receive traffic from other services. So all
 4. In the **Controllers** folder, open the `ValuesController` class. Note that the `Get` method currently just returns a hard-coded string array of "value1" and "value2"--which matches what we saw earlier in the browser. Replace this implementation with the following code:
    
     ```c#
-    using MyStatefulService.Interfaces;
+    using MyStatefulService.Interface;
     using Microsoft.ServiceFabric.Services.Remoting.Client;
    
     ...
