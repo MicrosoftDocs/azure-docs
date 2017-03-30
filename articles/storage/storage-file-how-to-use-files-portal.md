@@ -67,3 +67,29 @@ The [Azure Portal](https://portal.azure.com) provides a user interface for manag
 
 **Tip:**  
 To find the storage account access key for mounting, click on **View access keys for this storage account** at the bottom of the connect page.
+
+## Also See
+See these links for more information about Azure File storage.
+
+* [FAQ](storage-files-faq.md)
+* [Troubleshooting](storage-troubleshoot-file-connection-problems.md)
+
+### Conceptual articles and videos
+* [Azure Files Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md)
+
+### Tooling support for File storage
+* [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md)
+* [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md)
+* [Using the Azure CLI with Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)
+* [Troubleshooting Azure File storage problems](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
+
+### Blog posts
+* [Azure File storage is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Inside Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+* [Migrating data to Azure File ](https://azure.microsoft.com/en-us/blog/migrating-data-to-microsoft-azure-files/)
+
+### Reference
+* [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+* [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
