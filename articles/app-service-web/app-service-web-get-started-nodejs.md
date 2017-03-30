@@ -56,10 +56,10 @@ az appservice web create --name <app_name> --resource-group myResourceGroup --pl
 ```
 
 ## Configure the Linux container
-Configure the Linux container to use the default Node.js 6.9.3 image.
+Configure the Linux container to use the default Node.js 6.6.0 image.
 
 ```azurecli
-az appservice web config update --node-version 6.9.3 --name <app_name> --resource-group myResourceGroup
+az appservice web config update --node-version 6.6.0 --name <app_name> --resource-group myResourceGroup
 ```
 
 ## Deploy sample application

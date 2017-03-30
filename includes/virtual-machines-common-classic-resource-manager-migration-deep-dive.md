@@ -37,7 +37,7 @@ You select the virtual network or the hosted service (if it’s not a virtual ne
 
 * If the resource is not capable of migration, the Azure platform lists all the reasons for why it’s not supported for migration.
 
-When validating storage services you will find the migrated account in a resource group named the same as your storage account with "-Migrated" appended.  For example if your storage account is named "mystorage" you will find the ARM enabled resource in a resource group named "mystorage-Migrated" and it will contain a storage account named "mystorage".
+When validating storage services you will find the migrated account in a resource group named the same as your storage account with "-Migrated" appended.  For example if your storage account is named "mystorage" you will find the Azure Resource Manager enabled resource in a resource group named "mystorage-Migrated" and it will contain a storage account named "mystorage".
 
 ### Prepare
 The prepare operation is the second step in the migration process. The goal of this step is to simulate the transformation of the IaaS resources from classic to Resource Manager resources and present this side by side for you to visualize.
@@ -58,7 +58,7 @@ Here are two screens that show the result after a succesful Prepare operation. F
 
 ![Screenshot that shows Portal classic cloud service](../articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/portal-classic.png)
 
-![Screenshot that shows Portal ARM resources in Prepare](../articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/portal-arm.png)
+![Screenshot that shows Portal Azure Resource Manager resources in Prepare](../articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/portal-arm.png)
 
 > [!NOTE]
 > Virtual Machines that are not in a classic Virtual Network are stopped deallocated in this phase of migration.
@@ -88,7 +88,7 @@ Abort is an optional step that you can use to revert your changes to the classic
 After you finish the validation, you can commit the migration. Resources do not appear anymore in classic and are available only in the Resource Manager deployment model. The migrated resources can be managed only in the new portal.
 
 > [!NOTE]
-> This is an idempotent operation. If it fails, it is recommended that you retry the operation. If it continues to fail, create a support ticket or create a forum post with a ClassicIaaSMigration tag on our [VM forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows).
+> This is an idempotent operation. If it fails, it is recommended that you retry the operation. If it continues to fail, create a support ticket or create a forum post with a ClassicIaaSMigration tag on our [VM forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows).
 >
 >
 <br>
