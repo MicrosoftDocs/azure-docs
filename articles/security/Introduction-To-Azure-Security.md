@@ -508,13 +508,11 @@ To enhance your Azure Active Directory, you can add paid capabilities using the 
     <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#self-service-password-change-for-cloud-users" target="_blank"> Self-Service Password Change for cloud users</a>,
     <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#connect-sync-engine-that-extends-on-premises-directories-to-azure-active-directory" target="_blank">Connect (Sync engine that extends on-premises directories to Azure Active Directory)</a>,
     <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#securityusage-reports" target="_blank">Security / Usage Reports</a></td>
-
-    <td><a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#group-based-access-managementprovisioning" target="_blank"> Group-based access management/provisioning</a>,
-    <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#self-service-password-reset-for-cloud-users" target="_blank">Self-Service Password Reset for cloud users</a>,
-    <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#company-branding-logon-pagesaccess-panel-customization" target="_blank">Company Branding (Logon Pages/Access Panel customization)</a>,
-    <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#application-proxy" target="_blank">Application Proxy </a>,
-    <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#sla-999" target="_blank">SLA 99.9%</a>
-</td>
+<td><a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#group-based-access managementprovisioning" target="_blank">Group-based access management/provisioning</a>,
+ <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#self-service-password-reset-for-cloud-users" target="_blank">Self-Service Password Reset for cloud users</a>,
+ <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#company-branding-logon-pagesaccess-panel-customization" target="_blank">Company Branding(Logon Pages/Access Panel customization)</a>,
+    <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#application-proxy" target="_blank">Application Proxy</a>,
+ <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#sla-999" target="_blank">SLA 99.9%</a></td>
 <td><a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#self-service-group" target="_blank">Self-Service Group and app Management/Self-Service application additions/Dynamic Groups </a>,
     <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#self-service-password-resetchangeunlock-with-on-premises-write-back)" target="_blank">Self-Service Password Reset/Change/Unlock with on-premises write-back</a>,
     <a href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions#multi-factor-authentication-cloud-and-on-premises-mfa-server" target="_blank">Multi-Factor Authentication (Cloud and On-premises (MFA Server)) </a>,
