@@ -77,8 +77,8 @@ choose the copy button.
     > correct string for your logic app.
 
 5.  After you find the connection string for your Event Hubs namespace, 
-give your connection a name, and enter that string as 
-the API connection in your logic app.
+give your connection a name, enter that string as 
+the API connection in your logic app, and choose **Create**.
 
     ![Enter connection string for Event Hubs namespace](./media/connectors-create-api-azure-event-hubs/event-hubs-connection.png)
 
@@ -148,7 +148,82 @@ Enter any other optional details about the event.
 
     ![Save your logic app](./media/connectors-create-api-azure-event-hubs/save-logic-app.png)
 
+    You've now set up an action to send events from your logic app. 
+
 ## Technical Details
 
-Here are the details about the triggers, actions, 
-and responses that this connection supports.
+Here are more details about the triggers, actions, 
+and responses that this connection supports. 
+An asterisk (*) indicates a required property.
+
+### Event Hubs triggers
+
+| Trigger | Description |
+| --- | --- |
+| [When events are available in Event Hub](#available-events) | This operation triggers a workflow when events are available in the specified Event Hub. |
+
+### Trigger details
+
+<a name="available-events"></a>
+#### When events are available in Event Hub
+
+| Property name | Display name | Description |
+| --- | --- | --- |
+| EventHubName* | Event Hub name | The name for the Event Hub to monitor for events |
+
+These advanced parameters are also available:
+
+| Property name | Display name | Description |
+| --- | --- | --- |
+| ConsumerGroupName | Consumer group name | The name for the consumer group that reads events |
+
+##### Output details
+
+Event: This object has the content and properties for an event from an Event Hub.
+
+| Property name | Data type | Description |
+| --- | --- | --- |
+| ContentData | string | Content for the event |
+| Properties | object | Key-value pairs for each application property |
+| SystemProperties | object | System properties for the Event Hub |
+
+### Event Hubs actions
+
+The Event Hubs connector comes with one possible action. 
+Here is information about this action, required and optional input fields, 
+and corresponding outputs.
+
+| Action | Description |
+| --- | --- |
+| [Send an event](#send-event) | Send an event to the specified Event Hub |
+
+### Action details
+
+<a name="send-event"></a>
+#### Send an event
+
+| Property name | Display name | Description |
+| --- | --- | --- |
+| EventHubName* | Event Hub name | The name for the Event Hub where to send the event |
+| ContentData | Content | Content for the event to send |
+| Properties | Properties | Key-value pairs for each application property |
+
+These advanced parameters are also available: 
+
+| Property name | Display name | Description |
+| --- | --- | --- |
+| PartitionKey | Partition Key  | The key for the specific Event Hub partition where you want to send the event  |
+
+## HTTP responses
+
+The preceding triggers and actions can return one or more of these HTTP status codes:
+
+| Name | Description |
+| --- | --- |
+| 200 | OK |
+| default | Operation failed |
+
+
+## Next steps
+
+*  [Find other connectors for Azure Logic apps](./apis-list.md)
