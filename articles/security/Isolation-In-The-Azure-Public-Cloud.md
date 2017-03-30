@@ -134,7 +134,7 @@ Azure tenancy (Azure Subscription) refers to a “customer/billing” relationsh
 Users, groups, and applications from that directory can manage resources in the Azure subscription. You can assign these access rights using the Azure portal, Azure command-line tools, and Azure Management APIs. An Azure AD tenant is logically isolated using security boundaries so that no customer can access or compromise co-tenants, either maliciously or accidentally. Azure AD runs on “bare metal” servers isolated on a segregated network segment, where host-level packet filtering and Windows Firewall block unwanted connections and traffic.
 
 - Access to data in Azure AD requires user authentication via a [security token service (STS)](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-authentication-authorization). Information on the user’s existence, enabled state, and role is used by the authorization system to determine whether the requested access to the target tenant is authorized for this user in this session.
-<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig1.png" width ="400" height="340" alt ="" align ="right">
+<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig1.png" width ="400" height="300" alt ="" align ="right">
 - Tenants are discrete containers and there is no relationship between these.
 - No access across tenants unless tenant admin grants it through federation or provisioning user accounts from other tenants.
 - Physical access to servers that comprise the Azure AD service, and direct access to Azure AD’s back-end systems, is restricted.
@@ -145,7 +145,7 @@ For diagnostics and maintenance needs, an operational model that employs a just-
 Azure Active Directory hosts each tenant in its own protected container, with policies and permissions to and within the container solely owned and managed by the tenant.
 
 The concept of tenant containers is deeply ingrained in the directory service at all layers, from portals all the way to persistent storage.
-<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig2.png" width ="400" height="340" alt ="" align ="right">
+<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig2.png" width ="300" height="300" alt ="" align ="right">
 Even when metadata from multiple Azure Active Directory tenants is stored on the same physical disk, there is no relationship between the containers other than what is defined by the directory service, which in turn is dictated by the tenant administrator.
 ## 2.2 Azure Role-Based Access Control (RBAC)
 [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-what-is) helps you to share various components available within an Azure subscription by providing fine-grained access management for Azure. Azure RBAC enables you to segregate duties within your organization and grant access based on what users need to perform their jobs. Instead of giving everybody unrestricted permissions in Azure subscription or resources, you can allow only certain actions.
@@ -184,7 +184,7 @@ Microsoft Azure provides a variety of cloud-based computing services that includ
 
 ## 3.1 Hyper-V & Root OS Isolation Between Root VM & Guest VMs
 Azure’s compute platform is based on machine virtualization—meaning that all customer code executes in a Hyper-V virtual machine. On each Azure node (or network endpoint), there is a Hypervisor that runs directly over the hardware and divides a node into a variable number of Guest Virtual Machines (VMs).
-<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig4.png" width ="400" height="340" alt ="" align ="right">
+<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig4.jpg" width ="400" height="340" alt ="" align ="right">
 Each node also has one special Root VM, which runs the Host OS. A critical boundary is the isolation of the root VM from the guest VMs and the guest VMs from one another, managed by the hypervisor and the root OS. The hypervisor/root OS pairing leverages Microsoft's decades of operating system security experience, as well as more recent learning from Microsoft's Hyper-V, to provide strong isolation of guest VMs.
 
 The Azure platform uses a virtualized environment. User instances operate as standalone virtual machines that do not have access to a physical host server, and this isolation is enforced by using physical processor (ring-0/ring-3) privilege levels.
@@ -196,7 +196,7 @@ The Azure hypervisor acts like a micro-kernel and passes all hardware access req
 Any cross-VM attack involves two steps: placing an adversary controlled VM on the same host as one of the victim VMs, and then breaching the isolation boundary to either steal sensitive victim information or affect its performance for greed or vandalism. Microsoft Azure provides protection at both steps by using an advanced VM placement algorithm and protection from all known side channel attacks including noisy neighbor VMs.
 ## 3.3 The Azure Fabric Controller
 The Azure Fabric Controller is responsible for allocating infrastructure resources to tenant workloads, and it manages unidirectional communications from the host to virtual machines. The VM placing algorithm of the Azure fabric controller is highly sophisticated and nearly impossible to predict as physical host level.
-<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig5.png" width ="400" height="340" alt ="" align ="right">
+<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig5.png" width ="400" height="300" alt ="" align ="right">
 
 The Azure hypervisor enforces memory and process separation between virtual machines, and it securely routes network traffic to guest OS tenants. This eliminates possibility of and side channel attack at VM level.
 In Azure, the root VM is special: it runs a hardened operating system called the root OS that hosts a fabric agent (FA). FAs are used in turn to manage guest agents (GA) within guest OSes on customer VMs. FAs also manage storage nodes.
@@ -237,7 +237,7 @@ Consequently, Azure Storage runs on separate hardware with no network connectivi
 **Access to Azure Storage data (including Tables)** can be controlled through a [SAS (Shared Access Signature)](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1) token, which grants scoped access. The SAS is created through a query template (URL), signed with the [SAK (Storage Account Key)](https://msdn.microsoft.com/en-us/library/azure/ee460785.aspx). That [signed URL](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1) can be given to another process (i.e., delegated), which can then fill in the details of the query and make the request of the storage service. A SAS enables you to grant time-based access to clients without revealing the storage account’s secret key.
 
 Figure 9: Storage Account Access
-<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig9.png" width ="400" height="340" alt ="" align ="right">
+<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig9.jpg" width ="400" height="340" alt ="" align ="right">
 The SAS means that we can grant a client limited permissions, to objects in our storage account for a specified period of time and with a specified set of permissions. We can grant these limited permissions without having to share your account access keys.
 ## 4.3 IP Level Storage Isolation
 You can establish firewalls and define an IP address range for your trusted clients. With an IP address range, only clients that have an IP address within the defined range can connect to [Azure Storage](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
@@ -297,7 +297,7 @@ From an application perspective SQL Azure provides the following hierarchy. Each
 
 The account and subscription are Microsoft Azure platform concepts to associate billing and management.
 
-<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig10.png" width ="400" height="340" alt ="" align ="right">
+<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig10.png" width ="350" height="300" alt ="" align ="right">
 
 Logical servers and databases are SQL Azure specific concepts and are managed by using SQL Azure, provided OData and TSQL interfaces or via SQL Azure portal that integrated into Azure portal.
 
@@ -307,7 +307,7 @@ SQL Azure servers are not physical or VM instances, instead they are collections
 -	SQL logins used to connect to the server
 -	Firewall rules
 
-<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig11.png" width ="400" height="340" alt ="" align ="right">
+<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig11.png" width ="350" height="300" alt ="" align ="right">
 
 Billing and usage related information for SQL Azure databases from the same logical server are not guaranteed to be on the same physical instance in SQL Azure cluster, instead applications must provide the target database name when connecting.
 
@@ -321,7 +321,7 @@ Behind the VIP (virtual IP address), we have a collection of stateless gateway s
 -	CREATE/ALTER/DROP login/user operations
 -	Logical server management operations via OData API
 
-<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig12.png" width ="400" height="340" alt ="" align ="right">
+<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig12.png" width ="400" height="300" alt ="" align ="right">
 
 The tier behind the gateways is called “back-end”. This is where all the data is stored in a highly available fashion. Each piece of data is said to belong to a “partition” or “failover unit”, each of them having at least 3 replicas. Replicas are stored and replicated by SQL Server engine and managed by a failover system often referred to as “fabric”.
 
