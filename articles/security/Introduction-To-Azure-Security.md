@@ -350,7 +350,7 @@ To send network traffic between your Azure Virtual Network and your on-premises 
 ## 6.4 Express Route
 Microsoft Azure [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction) is a dedicated WAN link that lets you extend your on-premises networks into the Microsoft cloud over a dedicated private connection facilitated by a connectivity provider.
 
-<img src="media/Introduction-To-Azure-Security/Introduction-To-Azure-Security-Fig1.png" width ="300" height="300" alt ="" align ="right">
+<img src="media/Introduction-To-Azure-Security/Introduction-To-Azure-Security-Fig1.png" width ="300" height="230" alt ="" align ="right">
 
 With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and CRM Online.
 Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility. ExpressRoute connections do not go over the public Internet and thus can be considered more secure than VPN-based solutions. This allows ExpressRoute connections to offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the Internet.
