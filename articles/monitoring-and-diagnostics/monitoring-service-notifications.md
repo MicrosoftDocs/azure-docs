@@ -1,4 +1,23 @@
-# Service Health Notifications #
+---
+title:                    | Microsoft Docs
+description:
+author: anirudhcavale
+manager: carmonm
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+
+ms.assetid:
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/31/2017
+ms.author: ancav
+
+---
+# Service Health Notifications
 ## Overview ##
 This article shows you how to view service health notifications using the Azure portal.
 
@@ -10,12 +29,13 @@ This article shows you how to view service health notifications using the Azure 
 Service health notifications enable you to view service health messages published by the Azure team that may be affecting resources under your subscription. These notifications are a sub-class of activity log events and can also be found on the activity log blade. Service health notifications can be informational or actionable depending on the class.
 
 There are five classes of service health notifications:  
-**Action Required:** From time to time we may notice something unusual happen on your account. We may need to work with you to remedy this. We will send you a notification either detailing the actions you will need to take or with details on how to contact Azure engineering or support.  
-**Assisted Recovery:** An event has occurred and engineers have confirmed that you are still experiencing impact. Engineering will need to work with you directly to bring your services to restoration.  
-**Incident:** A service impacting event is currently affecting one or more of the resources in your subscription.  
-**Maintenance:** This is a notification informing you of a planned maintenance activity that may impact one or more of the resources under your subscription.  
-**Information:** From time to time we may send you notifications that a communicate to you about potential optimizations that may help improve your resource utilization.  
-**Security:** Urgent security related information regarding your solution(s) running on Azure.
+
+- **Action Required:** From time to time we may notice something unusual happen on your account. We may need to work with you to remedy this. We will send you a notification either detailing the actions you will need to take or with details on how to contact Azure engineering or support.  
+- **Assisted Recovery:** An event has occurred and engineers have confirmed that you are still experiencing impact. Engineering will need to work with you directly to bring your services to restoration.  
+- **Incident:** A service impacting event is currently affecting one or more of the resources in your subscription.  
+- **Maintenance:** This is a notification informing you of a planned maintenance activity that may impact one or more of the resources under your subscription.  
+- **Information:** From time to time we may send you notifications that a communicate to you about potential optimizations that may help improve your resource utilization.  
+- **Security:** Urgent security related information regarding your solution(s) running on Azure.
 
 Each service health notification will carry details on the scope and impact to your resources. Details will include:
 
@@ -50,12 +70,12 @@ Properties.communicationId | The communication this event is associated.
 ## Viewing your service health notifications in the Azure portal ##
 1.	In the [portal](https://portal.azure.com), navigate to the **Monitor** service
 
-    ![Monitor](./media/monitoring-service-notifications/Home-Monitor.png)
+    ![Monitor](./media/monitoring-service-notifications/home-monitor.png)
 2.	Click the **Monitor** option to open up the Monitor blade. This blade brings together all your monitoring settings and data into one consolidated view. It first opens to the **Activity log** section.
 
 3.	Now click on **Service Notifications** section
 
-    ![Monitor](./media/monitoring-service-notifications/Service-Health-Summary.png)
+    ![Monitor](./media/monitoring-service-notifications/service-health-summary.png)
 4.	Click on any of the line items to view more details
 
 5. Click on the **+Add Activity Log Alert** operation to receive notifications to ensure you are notified for future service notifications of this type. To learn more on configuring alerts on service notifications [click here](monitoring-activity-log-alerts-on-service-notifications.md)

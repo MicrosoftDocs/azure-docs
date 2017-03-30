@@ -1,10 +1,29 @@
-# SMS Alert Behavior #
+---
+title: SMS Alert behavior in Action Groups | Microsoft Docs
+description: SMS message format and responding to SMS messages to unsubscribe, resubscribe or request help.
+author: anirudhcavale
+manager: carmonm
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+
+ms.assetid:
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/31/2017
+ms.author: ancav
+
+---
+# SMS Alert Behavior in Action Groups
 ## Overview ##
 Action groups enable you to configure a list of receivers. These groups can then be leveraged when defining activity log alerts; ensuring that a particular action group is notified when the activity log alert is triggered. One of the alerting mechanisms supported is SMS; the alerts support bi-directional communication. A user can respond to an alert to:
 
-**Unsubscribe from alerts:** A user can unsubscribe from all SMS alerts for all action groups, or a singular action group.  
-**Resubscribe to alerts:** A user can resubscribe to all SMS alerts for all action groups, or a singular action group.  
-**Request help:** A user can ask for more information on the SMS. They will be redirected to this article
+- **Unsubscribe from alerts:** A user can unsubscribe from all SMS alerts for all action groups, or a singular action group.  
+- **Resubscribe to alerts:** A user can resubscribe to all SMS alerts for all action groups, or a singular action group.  
+- **Request help:** A user can ask for more information on the SMS. They will be redirected to this article
 
 This article covers the behavior of the SMS alerts and the response actions the user can take based on the locale of the user:
 
@@ -13,8 +32,8 @@ This article covers the behavior of the SMS alerts and the response actions the 
 >
 >
 
-## USA/Canada SMS behavior ##
-### Receiving an SMS Alert ###
+## USA/Canada SMS behavior
+### Receiving an SMS Alert
 An SMS receiver, who is configured as part of an action group, will receive an SMS when an alert fires. The SMS will carry the following information:
 * Shortname of the action group this alert was sent to
 - Title of the alert

@@ -1,7 +1,26 @@
+---
+title: Create Activity Log Alerts | Microsoft Docs
+description: Be notified via SMS, webhook, and email when certain events occur in the Activity log.
+author: anirudhcavale
+manager: carmonm
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-# Configure Activity Log Alerts
+ms.assetid:
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/31/2017
+ms.author: ancav
+
+---
+# Create Activity Log Alerts
+
 ## Overview
-This article shows you how to set up activity log alerts for activity log events using the Azure portal.
+This article shows you how to use the Azure portal to set up alerts on activity log events.
 
 >[!NOTE]
 >This feature is currently in public preview. Not all functionality may be available at this time.
@@ -33,20 +52,22 @@ You can configure and get information about service health notification alerts u
 ## Create an alert on an activity log event with a new action group with the Azure Portal
 1.	In the [portal](https://portal.azure.com), navigate to the **Monitor** service
 
-    ![Monitor](./media/monitoring-activity-log-alerts/Home-Monitor.png)
+    ![Monitor](./media/monitoring-activity-log-alerts/home-monitor.png)
 2.	Click the **Monitor** option to open the Monitor blade. It first opens to the **Activity log** section.
 
 3.	Now click on the **Alerts** section.
 
-    ![Alerts](./media/monitoring-activity-log-alerts/Alerts-Blades.png)
+    ![Alerts](./media/monitoring-activity-log-alerts/alerts-blades.png)
 4.	Select the **Add activity log alert** command and fill in the fields
 
 5.	**Name** your activity log alert, and choose a **Description**. These will appear in the notifications sent when this alert fires.
 
-    ![Add-Alert](./media/monitoring-activity-log-alerts/Add-Activity-Log-Alert.png)
+    ![Add-Alert](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
+
 6.	The **Subscription** should be auto filled to the subscription you are currently operating under.
 
-    ![Add-Alert-New-Action-Group](./media/monitoring-activity-log-alerts/Activity-Log-Alert-New-Action-Group.png)
+    ![Add-Alert-New-Action-Group](./media/monitoring-activity-log-alerts/activity-log-alert-new-action-group.png)
+
 7.	Choose the **Resource Group** for this alert.
 
 8.	Provide the **Event Category**, **Resource Group**, **Resource**, **Resource Type**, **Operation Name**, **Level**, **Status** and **Event intiated by** values to scope for what events this alert should apply.
@@ -69,20 +90,20 @@ Within a few minutes, the alert is active and triggers as previously described.
 ## Create an alert on an activity log event for an existing action group with the Azure Portal
 1.	In the [portal](https://portal.azure.com), navigate to the **Monitor** service
 
-    ![Monitor](./media/monitoring-activity-log-alerts/Home-Monitor.png)
+    ![Monitor](./media/monitoring-activity-log-alerts/home-monitor.png)
 2.	Click the **Monitor** option to open the Monitor blade. It first opens to the **Activity log** section.
 
 3.	Now click on the **Alerts** section.
 
-    ![Alerts](./media/monitoring-activity-log-alerts/Alerts-Blades.png)
+    ![Alerts](./media/monitoring-activity-log-alerts/alerts-blades.png)
 4.	Select the **Add activity log alert** command and fill in the fields
 
 5.	**Name** your activity log alert, and choose a **Description**. These will appear in the notifications sent when this alert fires.
 
-    ![Add-Alert](./media/monitoring-activity-log-alerts/Add-Activity-Log-Alert.png)
+    ![Add-Alert](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
 6.	The **Subscription** should be auto filled to the subscription you are currently operating under.
 
-    ![Add-Alert-Existing-Action-Group](./media/monitoring-activity-log-alerts/Activity-Log-Alert-Existing-Action-Group.png)
+    ![Add-Alert-Existing-Action-Group](./media/monitoring-activity-log-alerts/activity-log-alert-existing-action-group.png)
 7.	Choose the **Resource Group** for this alert.
 
 8.	Provide the **Event Category**, **Resource Group**, **Resource**, **Resource Type**, **Operation Name**, **Level**, **Status** and **Event intiated by** values to scope for what events this alert should apply.

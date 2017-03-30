@@ -1,5 +1,24 @@
-# Create an action group with a Resource Manager Template #
-This article shows how you can use an [Azure Resource Manager template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) to configure action groups. This enables you to automatically set up action groups on your resources when they are created to ensure that all the correct parties are notified for resource updates.
+---
+title: Create Action Groups with Resource Manager Templates | Microsoft Docs
+description: Action groups allow you to notify email, SMS or call webhooks when certain events occur.
+author: anirudhcavale
+manager: carmonm
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+
+ms.assetid:
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/31/2017
+ms.author: ancav
+
+---
+# Create an action group with a Resource Manager Template
+This article shows how you can use an [Azure Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) to configure action groups. This enables you to automatically set up action groups on your resources when they are created to ensure that all the correct parties are notified for resource updates.
 
 >[!NOTE]
 >This feature is currently in public preview. Not all functionality may be available at this time.
@@ -9,7 +28,7 @@ This article shows how you can use an [Azure Resource Manager template](https://
 The basic steps are as follows:
 
 1.	Create a template as a JSON file that describes how to create the action group.
-2.	[Deploy the template using any deployment method.](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy)
+2.	[Deploy the template using any deployment method.](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 
 Below we describe how to create a Resource Manager template first for an action group alone, then for an action group during the creation of another resource.
 
