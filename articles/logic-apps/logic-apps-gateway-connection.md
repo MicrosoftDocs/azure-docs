@@ -97,7 +97,7 @@ you can create a connection to the gateway from your logic app.
 
 Your connection is now configured for your logic app to use.
 
-## Data Gateway Connection Modifications
+## Edit your data gateway connection settings
 
 After you add the data gateway connection to your logic app, 
 you might have to make changes so you can adjust settings specific to that connection. 
