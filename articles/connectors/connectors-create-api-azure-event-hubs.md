@@ -62,7 +62,7 @@ and check your **Claims** permissions.
 choose **RootManageSharedAccessKey**. Next to your primary key connection string, 
 choose the copy button.
 
-    ![Copy Event Hubs namespace connection string](./media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png)
+    ![Copy Event Hubs namespace connection string](media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png)
 
     > [!TIP]
     > To confirm whether your connection string is 
