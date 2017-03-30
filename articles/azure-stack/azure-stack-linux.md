@@ -46,7 +46,7 @@ You can deploy Linux virtual machines on the Azure Stack POC by adding a Linux-b
    
     Follow the instructions below to install the Azure Linux agent manually -
    
-   * First, download the latest Azure Linux agent from [Github](https://github.com/Azure/WALinuxAgent/releases), example:
+   * First, download the latest Azure Linux agent from [GitHub](https://github.com/Azure/WALinuxAgent/releases), example:
      
             # wget https://github.com/Azure/WALinuxAgent/archive/v2.2.0.tar.gz
    * Unpack the Azure agent:

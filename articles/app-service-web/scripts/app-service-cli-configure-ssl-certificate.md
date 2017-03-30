@@ -27,7 +27,7 @@ If needed, install the Azure CLI using the instruction found in the [Azure CLI i
 - You have access to your domain registrar's DNS configuration page.
 - You have a valid .PFX file and its password for the SSL certificate you want to upload and bind.
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/windows/cli-options.md).
 
 ## Sample script
 

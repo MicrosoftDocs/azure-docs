@@ -18,25 +18,25 @@ ms.author: magoedte;banders
 
 # Connect computers without Internet access to OMS using the OMS Gateway
 
-This document describes how your OMS-managed and System Center Operations Manager (SCOM)-monitored computers can send data to the OMS service when they do not have Internet access. The OMS Gateway, which is a HTTP forward proxy that supports HTTP tunneling using the HTTP CONNECT command, can collect the data and send it to the OMS service on their behalf.  
+This document describes how your OMS-managed and System Center Operations Manager monitored computers can send data to the OMS service when they do not have Internet access. The OMS Gateway, which is an HTTP forward proxy that supports HTTP tunneling using the HTTP CONNECT command, can collect data and send it to the OMS service on their behalf.  
 
-The OMS Gateway supports the following:
+The OMS Gateway supports:
 
 1. Azure Automation Hybrid Runbook Workers  
 2. Windows computers with the Microsoft Monitoring Agent directly connected to an OMS workspace
-3. System Center Operations Manager 2012 SP1 with UR7,  Operations Manager 2012 R2 with UR3, or Operations Manager 2016 management group integrated with OMS.  
+3. System Center Operations Manager 2012 SP1 with UR7, Operations Manager 2012 R2 with UR3, or Operations Manager 2016 management group integrated with OMS.  
 
-If your IT security policies do not allow computers on your network to connect to the Internet, such as point of sale (POS) devices, or servers supporting IT services, but you need to connect them to OMS to manage and monitor them, they can be configured to communicate directly with the OMS Gateway to receive configuration and forward data on their behalf.  If these computers are configured with the OMS agent to directly connect to an OMS workspace, all of these computers will instead communicate with the OMS Gateway, which has an Internet connection.  The gateway transfers data from the agents to OMS directly; the gateway does not analyze any of the data that is transferred.
+If your IT security policies do not allow computers on your network to connect to the Internet, such as point of sale (POS) devices, or servers supporting IT services, but you need to connect them to OMS to manage and monitor them, they can be configured to communicate directly with the OMS Gateway to receive configuration and forward data on their behalf.  If these computers are configured with the OMS agent to directly connect to an OMS workspace, all computers will instead communicate with the OMS Gateway.  The gateway transfers data from the agents to OMS directly, it does not analyze any of the data in transit.
 
-In the case of an Operations Manager management group integrated with OMS, the management servers will be configured to connect to the OMS Gateway to receive configuration information and send collected data depending on the solution you have enabled.  Operations Manager agents send some data such as Operations Manager alerts, configuration assessment, instance space, and capacity data to the management server. Other high-volume data, such as IIS logs, performance, Service Mapping solution, and security events are sent directly to the OMS Gateway.   If you have one or more Operations Manager Gateway servers deployed in a DMZ or other isolated network to monitor untrusted systems, it cannot communicate with an OMS Gateway since it can only report to an Operations Manager management server.  When the Operations Manager management group is configured to communicate with the OMS Gateway, the proxy configuration information is automatically distributed to every agent-managed computer that is configured to collect data for Log Analytics, even if the setting is empty.    
+When an Operations Manager management group is integrated with OMS, the management servers can be configured to connect to the OMS Gateway to receive configuration information and send collected data depending on the solution you have enabled.  Operations Manager agents send some data such as Operations Manager alerts, configuration assessment, instance space, and capacity data to the management server. Other high-volume data, such as IIS logs, performance, and security events are sent directly to the OMS Gateway.  If you have one or more Operations Manager Gateway servers deployed in a DMZ or other isolated network to monitor untrusted systems, it cannot communicate with an OMS Gateway.  Operations Manager Gateway servers can only report to a management server.  When an Operations Manager management group is configured to communicate with the OMS Gateway, the proxy configuration information is automatically distributed to every agent-managed computer that is configured to collect data for Log Analytics, even if the setting is empty.    
 
-To provide high availability for direct connected or Operations Management groups that communicate with OMS through the gateway, you can use network load balancing to redirect and and distribute the traffic across multiple gateway servers.  If one gateway server goes down, the traffic is redirected to another available node.  
+To provide high availability for direct connected or Operations Management groups that communicate with OMS through the gateway, you can use network load balancing to redirect and distribute the traffic across multiple gateway servers.  If one gateway server goes down, the traffic is redirected to another available node.  
 
-It is recommended that you install the OMS agent on the computer where the gateway is also installed. Doing so allows you to monitor the OMS Gateway and analyze performance or event data for the server where it is installed. Additionally, the agent helps the OMS Gateway identify the service end points that it needs to communicate with.
+It is recommended that you install the OMS agent on the computer running the OMS Gateway software to monitor the OMS Gateway and analyze performance or event data. Additionally, the agent helps the OMS Gateway identify the service end points that it needs to communicate with.
 
 Each agent must have network connectivity to its gateway so that agents can automatically transfer data to and from the gateway. Installing the gateway on a domain controller is not recommended.
 
-The following diagram shows data flow from direct agents to OMS using the gateway server.  Note that the agents must have their proxy configuration match the same port the OMS Gateway is configured to communicate with to OMS.  
+The following diagram shows data flow from direct agents to OMS using the gateway server.  Agents must have their proxy configuration match the same port the OMS Gateway is configured to communicate with to OMS.  
 
 ![direct agent communication with OMS diagram](./media/log-analytics-oms-gateway/oms-omsgateway-agentdirectconnect.png)
 
@@ -48,7 +48,7 @@ The following diagram shows data flow from an Operations Manager management grou
 
 When designating a computer to run the OMS Gateway, this computer must have the following:
 
-* Windows 10 , Windows 7, Windows 8.1, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012, or Windows Server 2012 R2 operating system
+* Windows 10, Windows 7, Windows 8.1, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012, or Windows Server 2012 R2 operating system
 * .Net Framework 4.5
 * Minimum of a 4-core processor and 8 GB of memory 
 
@@ -81,7 +81,7 @@ There are three ways to get the latest version of the OMS Gateway Setup file.
 
 2. Download from the OMS portal.  After you sign in to your OMS workspace, navigate to **Settings** > **Connected Sources** > **Windows Servers** and click **Download OMS Gateway**.
 
-3. Download from the the [Azure portal](https://portal.azure.com).  After you sign in:  
+3. Download from the [Azure portal](https://portal.azure.com).  After you sign in:  
 
    1. Browse the list of services, and then select **Log Analytics**.  
    2. Select a workspace.
@@ -92,15 +92,15 @@ There are three ways to get the latest version of the OMS Gateway Setup file.
 
 ## Install the OMS Gateway
 
-Perform the following steps to install the gateway.  If you installed a previous version, formerly called *Log Analytics Forwarder*, it will be upgraded to this release.  
+To install a gateway, perform the following steps.  If you installed a previous version, formerly called *Log Analytics Forwarder*, it will be upgraded to this release.  
 
 1. From the destination folder, double-click **OMS Gateway.msi**.
 2. On the **Welcome** page, click **Next**.<br><br> ![Gateway Setup wizard](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br> 
 3. On the **License Agreement** page, select **I accept the terms in the License Agreement** to agree to the EULA and then click **Next**.
 4. On the **Port and proxy address** page:
-   1. Type the TCP port number to be used for the gateway. Setup configures an inbound rule with this port number on Windows firewall. The default value is 8080.
+   1. Type the TCP port number to be used for the gateway. Setup configures an inbound rule with this port number on Windows firewall.  The default value is 8080.
       The valid range of the port number is 1 - 65535. If the input does not fall into this range, an error message appears.
-   2. Optionally, if the server where the gateway is installed needs to communicate through a proxy, type the proxy address where the gateway needs to connect. For example, `http://myorgname.corp.contoso.com:80` If blank, the gateway will try to connect to the Internet directly.  If your proxy server requires authentication, type your username and password.<br><br> ![Gateway Wizard proxy configuration](./media/log-analytics-oms-gateway/gateway-wizard02.png)<br>   
+   2. Optionally, if the server where the gateway is installed needs to communicate through a proxy, type the proxy address where the gateway needs to connect. For example, `http://myorgname.corp.contoso.com:80`.  If blank, the gateway will try to connect to the Internet directly.  If your proxy server requires authentication, enter a username and password.<br><br> ![Gateway Wizard proxy configuration](./media/log-analytics-oms-gateway/gateway-wizard02.png)<br>   
    3. Click **Next**.
 5. If you do not have Microsoft Update enabled, the Microsoft Update page appears where you can choose to enable it. Make a selection and then click **Next**. Otherwise, continue to the next step.
 6. On the **Destination Folder** page, either leave the default folder C:\Program Files\OMS Gateway or type the location where you want to install gateway and then click **Next**.
@@ -108,24 +108,24 @@ Perform the following steps to install the gateway.  If you installed a previous
 8. After Setup completes, click **Finish**. You can verify that the service is running by opening the services.msc snap-in and verify that **OMS Gateway** appears in the list of services and it status is **Running**.<br><br> ![Services – OMS Gateway](./media/log-analytics-oms-gateway/gateway-service.png)  
 
 ## Configure network load balancing 
-You can configure the gateway for high availability using network load balancing (NLB). This can be done by installing Microsoft Network Load Balancing (NLB) or using a hardware-based load balancers.  The load balancer manages traffic from your agents by redirecting the requested connections from the OMS Agents or Operations Manager management servers across its nodes. If one Gateway server goes down, the traffic gets redirected to other nodes.
+You can configure the gateway for high availability using network load balancing (NLB) using either Microsoft Network Load Balancing (NLB) or hardware-based load balancers.  The load balancer manages traffic by redirecting the requested connections from the OMS Agents or Operations Manager management servers across its nodes. If one Gateway server goes down, the traffic gets redirected to other nodes.
 
-To learn how to design and deploy a Windows Server 2016 network load balancing cluster, please see the topic [Network load balancing](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).   The following steps describe how to configure the OMS Gateway with the IP address of the NLB cluster.  
+To learn how to design and deploy a Windows Server 2016 network load balancing cluster, see [Network load balancing](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  The following steps describe how to configure a  Microsoft network load balancing cluster.  
 
-1.  Log onto the Windows server that is a member of the NLB cluster with an administrative account.  
+1.  Sign onto the Windows server that is a member of the NLB cluster with an administrative account.  
 2.  Open Network Load Balancing Manager in Server Manager, click **Tools**, and then click **Network Load Balancing Manager**.
 3. To connect an OMS Gateway server with the Microsoft Monitoring Agent installed, right-click the cluster's IP address, and then click **Add Host to Cluster**.<br><br> ![Network Load Balancing Manager – Add Host To Cluster](./media/log-analytics-oms-gateway/nlb02.png)<br> 
-4. Enter the IP address of the Gateway's server that you want to connect.<br><br> ![Network Load Balancing Manager – Add Host To Cluster: Connect](./media/log-analytics-oms-gateway/nlb03.png) 
+4. Enter the IP address of the gateway server that you want to connect.<br><br> ![Network Load Balancing Manager – Add Host To Cluster: Connect](./media/log-analytics-oms-gateway/nlb03.png) 
     
 ## Configure OMS agent and Operations Manager management group
-The following section includes steps on how to configure directly connected OMS agents, an Operations Manager management group, or Azure Automation Hybrid Runbook Workes with the OMS Gateway in order to communicate with OMS.  
+The following section includes steps on how to configure directly connected OMS agents, an Operations Manager management group, or Azure Automation Hybrid Runbook Workers with the OMS Gateway to communicate with OMS.  
 
-To understand requirements and steps on how to install the OMS agent on Windows computers that will directly connect to OMS, see [Connect Windows computers to OMS](log-analytics-windows-agents.md) or for Linux computers see [Connect Linux computers to OMS](log-analytics-linux-agents.md). 
+To understand requirements and steps on how to install the OMS agent on Windows computers directly connecting to OMS, see [Connect Windows computers to OMS](log-analytics-windows-agents.md) or for Linux computers see [Connect Linux computers to OMS](log-analytics-linux-agents.md). 
 
 ### Configuring the OMS agent and Operations Manager to use the OMS Gateway as a proxy server
 
 ### Configure standalone OMS agent
-See [Configure proxy and firewall settings with the Microsoft Monitoring Agent](log-analytics-proxy-firewall.md) for information about configuring an agent to use a proxy server, which in this case is the gateway.  If you have deployed multiple gateway servers behind a network load balancer, the OMS agent proxy configuration will be the virtual IP address of the NLB:<br><br> ![Microsoft Monitoring Agent Properties – Proxy Settings](./media/log-analytics-oms-gateway/nlb04.png)
+See [Configure proxy and firewall settings with the Microsoft Monitoring Agent](log-analytics-proxy-firewall.md) for information about configuring an agent to use a proxy server, which in this case is the gateway.  If you have deployed multiple gateway servers behind a network load balancer, the OMS agent proxy configuration is the virtual IP address of the NLB:<br><br> ![Microsoft Monitoring Agent Properties – Proxy Settings](./media/log-analytics-oms-gateway/nlb04.png)
 
 ### Configure Operations Manager - all agents use the same proxy server
 You configure Operations Manager to add the gateway server.  The Operations Manager proxy configuration is automatically applied to all agents reporting to Operations Manager, even if the setting is empty.
@@ -144,16 +144,16 @@ To use the Gateway to support Operations Manager, you must have:
 3. Click **Finish**. Your Operations Manager server is connected to your OMS workspace.
 
 ### Configure Operations Manager - specific agents use proxy server
-For large or complex environments, you may only want specific servers (or groups) to use the OMS Gateway server.  For these servers, you cannot update the Operations Manager agent directly as this value will be overwritten by the global value for the management group.  Instead you need to override the rule used to push these values.
+For large or complex environments, you may only want specific servers (or groups) to use the OMS Gateway server.  For these servers, you cannot update the Operations Manager agent directly as this value is overwritten by the global value for the management group.  Instead you need to override the rule used to push these values.
 
 > [!NOTE] 
 > This same configuration technique can be used to allow the use of multiple OMS Gateway servers in your environment.  For example, you may require specific OMS Gateway servers to be specified on a per-region basis.
 
 1. Open the Operations Manager console and select the **Authoring** workspace.  
-2. In the Authoring workspace, select **Rules** and click the **Scope** button on the Operations Manager toolbar. If this button is not available, check to make sure that you have an object, not a folder, selected in the Monitoring pane. The **Scope Management Pack Objects** dialog box displays a list of common targeted classes, groups or objects. 
+2. In the Authoring workspace, select **Rules** and click the **Scope** button on the Operations Manager toolbar. If this button is not available, check to make sure that you have an object, not a folder, selected in the Monitoring pane. The **Scope Management Pack Objects** dialog box displays a list of common targeted classes, groups, or objects. 
 3. Type **Health Service** in the **Look for** field and select it from the list.  Click **OK**.  
 4. Search for the rule **Advisor Proxy Setting Rule** and in the Operations console toolbar, click **Overrides** and then point to **Override the Rule\For a specific object of class: Health Service** and select a specific object from the list.  Optionally, you can create a custom group containing the health service object of the servers you wish to apply this override to and then apply the override to that group.
-5. In the **Override Properties** dialog box, click to place a check mark in the **Override** column next to the **WebProxyAddress** parameter and in the **Override Value** field, enter the URL of the OMS Gateway server ensuring that you start with the `http://` prefix.
+5. In the **Override Properties** dialog box, click to place a check mark in the **Override** column next to the **WebProxyAddress** parameter.  In the **Override Value** field, enter the URL of the OMS Gateway server ensuring that you start with the `http://` prefix.
    >[!NOTE]
    > You do not need to enable the rule as it is already managed automatically with an override contained in the Microsoft System Center Advisor Secure Reference Override management pack targeting the Microsoft System Center Advisor Monitoring Server Group.
    > 
@@ -237,15 +237,13 @@ If you get an error in step 3, the module wasn't imported. The error might occur
 | `Get-OMSGatewayRelayProxy` | |Gets the address of relay (upstream) proxy |`Get-OMSGatewayRelayProxy` |
 | `Add-OMSGatewayAllowedHost` |Host (required) |Adds the host to the allowed list |`Add-OMSGatewayAllowedHost -Host www.test.com` |
 | `Remove-OMSGatewayAllowedHost` |Host (required) |Removes the host from the allowed list |`Remove-OMSGatewayAllowedHost -Host www.test.com` |
-| `Get-OMSGatewayAllowedHost` | |Gets the currently allowed host (only the locally configured allowed host, do not include automatically downloaded allowed hosts) |`Get-OMSGatewayAllowedHost` |
+| `Get-OMSGatewayAllowedHost` | |Gets the currently allowed host (only the locally configured allowed host, does not include automatically downloaded allowed hosts) |`Get-OMSGatewayAllowedHost` |
 | `Add-OMSGatewayAllowedClientCertificate` |Subject (required) |Adds the client certificate subject to the allowed list |`Add-OMSGatewayAllowedClientCertificate -Subject mycert` |
 | `Remove-OMSGatewayAllowedClientCertificate` |Subject (required) |Removes the client certificate subject from the allowed list |`Remove- OMSGatewayAllowedClientCertificate -Subject mycert` |
-| `Get-OMSGatewayAllowedClientCertificate` | |Gets the  currently allowed client certificate subjects (only the locally configured allowed subjects, do not include automatically downloaded allowed subjects) |`Get-OMSGatewayAllowedClientCertificate` |
+| `Get-OMSGatewayAllowedClientCertificate` | |Gets the currently allowed client certificate subjects (only the locally configured allowed subjects, does not include automatically downloaded allowed subjects) |`Get-OMSGatewayAllowedClientCertificate` |
 
 ## Troubleshooting
-You must install the OMS agent on computers that have the gateway installed. You can then use the agent to collect the events that are logged by the gateway.
-
-![Event Viewer – OMS Gateway Log](./media/log-analytics-oms-gateway/event-viewer.png)
+To collect events logged by the gateway, you need to also have the OMS agent installed.<br><br> ![Event Viewer – OMS Gateway Log](./media/log-analytics-oms-gateway/event-viewer.png)
 
 **OMS Gateway Event IDs and descriptions**
 

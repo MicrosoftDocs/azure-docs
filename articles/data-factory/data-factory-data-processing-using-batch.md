@@ -888,10 +888,10 @@ You can extend this sample to learn more about Azure Data Factory and Azure Batc
 ### Next steps: Consume the data
 After you process data, you can consume it with online tools like **Microsoft Power BI**. Here are links to help you understand Power BI and how to use it in Azure:
 
-* [Explore a dataset in Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-data/)
-* [Getting started with the Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/)
-* [Refresh data in Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-refresh-data/)
-* [Azure and Power BI - basic overview](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)
+* [Explore a dataset in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
+* [Getting started with the Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
+* [Refresh data in Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
+* [Azure and Power BI - basic overview](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## References
 * [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)

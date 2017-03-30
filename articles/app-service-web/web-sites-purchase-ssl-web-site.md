@@ -82,15 +82,15 @@ In this Step, you will learn how to place an Order for an SSL Certificate of you
 > 
 
 ## <a name="bkmk_StoreKeyVault"></a>Step 1: Store the certificate in Azure Key Vault
-In this Step, you will learn how to place an Store an SSL Certificate that you purchased to Azure Key Vault of your choice.
+In this step, you will learn how to store an SSL Certificate that you purchased in the Azure Key Vault of your choice.
 
-1. Once the SSL Certificate purchase is complete You will need to manually open **App Service Certificates** Resource blade by browsing to it again (See Step 1 above)   
+1. Once the SSL Certificate purchase is complete you will need to manually open **App Service Certificates** Resource blade by browsing to it again (See Step 1 above)   
    
    ![insert image of ready to store in KV](./media/app-service-web-purchase-ssl-web-site/ReadyKV.jpg)
    
-   You will notice that Certificate status is **“Pending Issuance”** as there are few more steps you need to complete before you can start using this certificates.
-2. Click on **“Certificate Configuration”** inside Certificate Properties blade and Click on **“Step 1: Store”** to store this certificate in Azure Key Vault.
-3. From **“Key Vault Status”** Blade click on **“Key Vault Repository”** to choose an existing Key Vault to store this certificate **OR “Create New Key Vault”** to create new Key Vault inside same subscription and resource group.
+   You will notice that Certificate status is **“Pending Issuance”** as there are a few more steps you need to complete before you can start using this certificate.
+2. Click on **“Certificate Configuration”** inside the Certificate Properties blade and Click on **“Step 1: Store”** to store this certificate in Azure Key Vault.
+3. From **“Key Vault Status”** Blade click on **“Key Vault Repository”** to choose an existing Key Vault to store this certificate **OR “Create New Key Vault”** to create new Key Vault inside the same subscription and resource group.
    
    ![insert image of create new KV](./media/app-service-web-purchase-ssl-web-site/NewKV.jpg)
    
