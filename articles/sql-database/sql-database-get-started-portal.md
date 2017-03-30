@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/13/2017
+ms.date: 03/29/2017
 ms.author: carlrab
 
 ---
@@ -39,10 +39,10 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 
     ![create database-1](./media/sql-database-get-started/create-database-1.png)
 
-3. Fill out the SQL Database form with the following information, as shown on the preceding image: 
-   - Database name: Use **mySampleDatabase**
-   - Resource group: Use **myResourceGroup**
-   - Source: Select **Sample (AdventureWorksLT)**
+3. Fill out the SQL Database form with the following information, as shown on the preceding image:     
+   - Database name: **mySampleDatabase**
+   - Resource group: **myResourceGroup**
+   - Source: **Sample (AdventureWorksLT)**
 
 4. Click **Server** to create and configure a new server for your new database. Fill out the **New server form** specifying a globally unique server name, provide a name for the Server admin login, and then specify the password of your choice. 
 
@@ -99,7 +99,7 @@ When we created our SQL database, we populated it with the **AdventureWorksLT** 
 5. After you are authenticated, type the following query in the query editor pane.
 
    ```
-   SELECT pc.Name as CategoryName, p.name as ProductName
+   SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p
    ON pc.productcategoryid = p.productcategoryid;
