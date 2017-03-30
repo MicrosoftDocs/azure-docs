@@ -183,6 +183,7 @@ Perform the following steps to create an Azure function.
        ![Save function >](./media/storsimple-data-manager-change-default-blob-path/save-function.png)
 
 10.  As a last step, you need to add one more file to the function to complete it.
+
    1. Click **View files** from right corner.
 
        ![View files](./media/storsimple-data-manager-change-default-blob-path/view-files.png)
