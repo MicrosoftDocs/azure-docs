@@ -1078,7 +1078,7 @@ There are four different ways of [collecting logs and metrics for Azure services
 # 4.0 Log integration with on-premises Security Information and Event Management (SIEM) systems
 [Azure log integration](https://www.microsoft.com/download/details.aspx?id=53324) enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems.
 
-<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig9.png" width ="400" height="280" alt ="" align ="right">
+<img src="media/Logging-And-Auditing-In-Microsoft -Azure/Logging-And-Auditing-In-Microsoft -Azure-Fig9.png" width ="350" height="250" alt ="" align ="right">
 
 Azure log integration collects Azure Diagnostics from your Windows (WAD) virtual machines, Azure Activity Logs, Azure Security Center alerts and Azure Resource Provider logs. This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events.
 
