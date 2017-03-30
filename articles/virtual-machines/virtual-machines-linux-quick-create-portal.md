@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create SSH key pair
 
-You need an SSH key pair to complete this quick start. If you have an existing SSH key pair, this step can be skipped. If you are using a Windows machine, follow the instructions found [here](./virtual-machines-linux-ssh-from-windows.md). 
+You need an SSH key pair to complete this quick start. If you have an existing SSH key pair, this step can be skipped. If you are using a Windows machine, follow the instructions found [here](virtual-machines-linux-ssh-from-windows.md). 
 
 From a Bash shell, run this command and follow the on-screen directions. The command output includes the file name of the public key file. The contents of this file are needed when creating the virtual machine.
 
@@ -64,7 +64,7 @@ After the deployment has completed, create an SSH connection with the virtual ma
 
 1. Click the **Connect** button on the virtual machine blade. The connect button displays an SSH connection string that can be used to connect to the virtual machine.
 
-    ![Portal 9](media/quick-create-portal/portal-quick-start-9.png) 
+    ![Portal 9](windows/media/quick-create-portal/portal-quick-start-9.png) 
 
 2. Run the following command to create an SSH session. Replace the connection string with the one you copied from the Azure portal.
 
