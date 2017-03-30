@@ -1,3 +1,24 @@
+---
+title: Frequently asked questions about Classic to Azure Resource Manager migration | Microsoft Docs
+description: Frequently asked questions about Classic to Azure Resource Manager migration
+services: virtual-machines-linux
+documentationcenter: ''
+author: singhkays
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 04/01/2017
+ms.author: kasing
+
+---
+
 # Planning for migration of IaaS resources from classic to Azure Resource Manager
 While Azure Resource Manager offers a lot of amazing features, it is critical to plan out your migration journey to make sure things go smoothly. Spending time on planning will ensure that you do not encounter issues while executing migration activities. There are four general phases of the migration journey.
 
@@ -12,7 +33,7 @@ Depending on your technical requirements size, geographies and operational pract
 1. Why is Azure Resource Manager desired for your organization?  What are the business reasons for a migration?
 2. What are the technical reasons for Azure Resource Manager?  What (if any) additional Azure services would you like to leverage?
 3. Which application (or sets of virtual machines) is included in the migration?
-4. Which scenarios are supported with the migration API?  Review the supported scenarios [here](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-migration-classic-resource-manager/#unsupported-features-and-configurations).
+4. Which scenarios are supported with the migration API?  Review the [unsupported features and configurations](virtual-machines-linux-migration-classic-resource-manager-overview/#unsupported-features-and-configurations?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 5. Will your operational teams now support applications/VMs in both Classic and Azure Resource Manager?
 6. How (if at all) does Azure Resource Manager change your VM deployment, management, monitoring, and reporting processes?  Do your deployment scripts need to be updated?
 7. What is the communications plan to alert stakeholders (end users, application owners, and infrastructure owners)?
@@ -25,12 +46,17 @@ Depending on your technical requirements size, geographies and operational pract
 
 Successful customers have detailed plans where the above questions are discussed, documented and governed.  Ensure the migration plans are broadly communicated to sponsors and stakeholders.  Equip yourself with knowledge about your migration options; reading through this migration document set below is highly recommended.
 
-[TODO all migration articles]
+* [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-linux-migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](virtual-machines-linux-migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-ps-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Review most common migration errors and mitigations](virtual-machines-linux-migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### Pitfalls to avoid
 
 - Failure to plan.  The technology steps of this migration are proven and the outcome is predictable.
-- Assumption that the platform supported migration API will account for all scenarios.  Read this [paper](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-migration-classic-resource-manager/#unsupported-features-and-configurations) to understand what scenarios are supported.
+- Assumption that the platform supported migration API will account for all scenarios. Read the [unsupported features and configurations](virtual-machines-linux-migration-classic-resource-manager-overview/#unsupported-features-and-configurations?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to understand what scenarios are supported.
 - Not planning potential application outage for end users.  Plan enough buffer to adequately warn end users of potentially unavailable application time.
 
 
@@ -49,7 +75,7 @@ Successful customers have detailed plans where the above questions are discussed
 
   This can be accomplished by using the AsmMetadataParser tool. [Read more about this tool here](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
-The following were issues discovered in many of the larger migrations.  This is not an exhaustive list and you should refer to the [unsupported scenarios](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-migration-classic-resource-manager/#unsupported-features-and-configurations) for more detail.  You may or may not encounter these technical issues.
+The following were issues discovered in many of the larger migrations. This is not an exhaustive list and you should refer to the [unsupported features and configurations](virtual-machines-linux-migration-classic-resource-manager-overview/#unsupported-features-and-configurations?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more detail.  You may or may not encounter these technical issues.
 
 - **Do a Validate/Prepare/Abort Dry Run** -  This is perhaps the most important step to ensure Classic to Azure Resource Manager migration success. The migration API has three main steps: Validate, Prepare and Commit. Validate will read the state of your classic environment and return a result of all issues. However, because some issues might exist in the Azure Resource Manager stack, Validate will not catch everything. The next step in migration process, Prepare will help expose those issues. Prepare will move the metadata from Classic to Azure Resource Manager, but will not commit the move, and will not remove or change anything on the Classic side. The dry run involves preparing the migration, then aborting (**not committing**) the migration prepare. The goal of validate/prepare/abort dry run is to see all of the metadata in the Azure Resource Manager stack, examine it (*programmatically or in Portal*), and verify that everything migrates correctly, and work through technical issues.  It will also give you a sense of migration duration so you can plan for downtime accordingly.  A validate/prepare/abort does not cause any user downtime; therefore, it is non-disruptive to application usage.
   - The items below will need to be solved before the dry run, but a dry run test will also safely flush out these preparation steps if they are missed. During enterprise migration, we've found the dry run to be a safe and invaluable way to ensure migration readiness.
@@ -67,14 +93,21 @@ The following were issues discovered in many of the larger migrations.  This is 
 
 - **Availability Sets** - For a virtual network (vNet) to be migrated to Azure Resource Manager, the Classic deployment (i.e. cloud service) contained VMs must all be in one availability set, or the VMs must all not be in any availability set. Having more than one availability set in the cloud service is not compatible with Azure Resource Manager and will halt migration.  Additionally, there cannot be some VMs in an availability set, and some VMs not in an availability set. To resolve this, you will need to remediate or reshuffle your cloud service.  Plan accordingly as this might be time consuming. 
 
-- **Web/Worker Role Deployments** -  Cloud Services containing web and worker roles cannot migrate to Azure Resource Manager. The web/worker roles must first be removed from the virtual network before migration can start.  A typical solution is to just move web/worker role instances to a separate Classic virtual network that is also linked to an ExpressRoute circuit, or to migrate the code to newer PaaS App Services (this discussion is beyond the scope of this document). In the former redeploy case, create a new Classic virtual network, move/redeploy the web/worker roles to that new virtual network, then delete the deployments from the virtual network being moved. No code changes required. The new [Virtual Network Peering](https://azure.microsoft.com/en-us/documentation/articles/virtual-network-peering-overview/) capability can be used to peer together the classic virtual network containing the web/worker roles and other virtual networks in the same Azure region such as the virtual network being migrated (**after virtual network migration is completed as peered virtual networks cannot be migrated**), hence providing the same capabilities with no performance loss and no latency/bandwidth penalties. Given the addition of [Virtual Network Peering](https://azure.microsoft.com/en-us/documentation/articles/virtual-network-peering-overview/), web/worker role deployments can now easily be mitigated and not block the migration to Azure Resource Manager.
+- **Web/Worker Role Deployments** -  Cloud Services containing web and worker roles cannot migrate to Azure Resource Manager. The web/worker roles must first be removed from the virtual network before migration can start.  A typical solution is to just move web/worker role instances to a separate Classic virtual network that is also linked to an ExpressRoute circuit, or to migrate the code to newer PaaS App Services (this discussion is beyond the scope of this document). In the former redeploy case, create a new Classic virtual network, move/redeploy the web/worker roles to that new virtual network, then delete the deployments from the virtual network being moved. No code changes required. The new [Virtual Network Peering](../virtual-network/virtual-network-peering-overview/) capability can be used to peer together the classic virtual network containing the web/worker roles and other virtual networks in the same Azure region such as the virtual network being migrated (**after virtual network migration is completed as peered virtual networks cannot be migrated**), hence providing the same capabilities with no performance loss and no latency/bandwidth penalties. Given the addition of [Virtual Network Peering](../virtual-network/virtual-network-peering-overview/), web/worker role deployments can now easily be mitigated and not block the migration to Azure Resource Manager.
 
-- **Azure Resource Manager Quotas** - Azure regions have separate quotas/limits for both Classic and Azure Resource Manager. Even though in a migration scenario new hardware isn't being consumed *(we're swapping existing VMs from Classic to Azure Resource Manager)*, Azure Resource Manager quotas still need to be in place with enough capacity before migration can start. Listed below are the four major limits we've seen cause problems.  Open a quota support ticket to raise the limits.
-  1. Azure Resource Manager network limit – this represents the number of NICs needed in Azure Resource Manager after migration is complete. The number should be raised to cover the total number of NICs used in the Classic vNet being migrated.
-  2. Azure Resource Manager maxloadbalancers – the number of load balancers needed.
-  3. Azure Resource Manager public IP addresses – the number of public IPs needed in Azure Resource Manager. Should be raised to the same number of VIPs used in Classic.
-  4. Azure Resource Manager static public IP addresses - the number of static public IPs in Azure Resource Manager. This is equivalent to the reserved IPs in Classic.
-  5. Azure Resource Manager cores – should be raised to the same number of cores used in Classic.
+- **Azure Resource Manager Quotas** - Azure regions have separate quotas/limits for both Classic and Azure Resource Manager. Even though in a migration scenario new hardware isn't being consumed *(we're swapping existing VMs from Classic to Azure Resource Manager)*, Azure Resource Manager quotas still need to be in place with enough capacity before migration can start. Listed below are the major limits we've seen cause problems.  Open a quota support ticket to raise the limits. 
+
+> [!NOTE]
+> These limits need to be raised in the same region as your current enviornment to be migrated.
+>
+
+  1. Network Interfaces
+  2. Load Balancers
+  3. Public IPs
+  4. Static Public IPs
+  5. Cores
+  6. Network Security Groups
+  7. Route Tables
 
 - **Provisioning Timed Out VM Status** - If any VM has the status of `provisioning timed out`, this needs to be resolved pre-migration. The only way to do this is with downtime by deprovisioning/reprovisioning the VM (delete it, keep the disk, and recreate the VM). 
 
@@ -112,7 +145,7 @@ Not fully testing may cause issues and delay in the migration.
 
 ### Technical considerations and tradeoffs
 
-Now that you are in Azure Resource Manager, maximize the platform.  Read the [overview of Azure Resource Manager](../articles/resource-group-overview/) to find out about additional benefits.
+Now that you are in Azure Resource Manager, maximize the platform.  Read the [overview of Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) to find out about additional benefits.
 
 Things to consider:
 
@@ -124,10 +157,22 @@ Things to consider:
 
 Be purposeful on what services you now want to enable in Azure Resource Manager.  Many customers find the below compelling for their Azure environments:
 
-1. RBAC – role based access control, [getting started](https://blogs.msdn.microsoft.com/cloud_solution_architect/2015/03/17/rbac-and-the-azure-resource-manager/).
-2. Azure Resource Manager templates for easier and more controlled deployment.
-3. Azure Resource Manager only available services.
+1. [Role Based Access Control](../azure-resource-manager/resource-group-overview.md#access-control).
+2. [Azure Resource Manager templates for easier and more controlled deployment](../azure-resource-manager/resource-group-overview.md#template-deployment).
+3. [Tags](../azure-resource-manager/resource-group-using-tags.md).
+4. [Activity Control](../azure-resource-manager/resource-group-audit.md)
+5. [Resource Policies](../azure-resource-manager/resource-manager-policy.md)
 
 ### Pitfalls to avoid
 
 Remember why you started this Classic to Azure Resource Manager migration journey.  What were the original business reasons? Did you achieve the business reason?
+
+
+## Next steps
+Now that you know the frequently asked questions about migration of classic IaaS resources to Resource Manager, you can start migrating resources.
+
+* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-ps-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-linux-migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Review most common migration errors](virtual-machines-linux-migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
