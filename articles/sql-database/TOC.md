@@ -11,6 +11,7 @@
 ## Connect
 ### [C #](sql-database-connect-query-dotnet.md)
 ### [PHP](sql-database-connect-query-php.md)
+### [Node.js](sql-database-develop-nodejs-simple.md)
 ### [Java](sql-database-connect-query-java.md)
 ### [Python](sql-database-connect-query-python.md)
 ### [Ruby](sql-database-connect-query-ruby.md)
@@ -147,7 +148,6 @@
 ### [Sync data](sql-database-get-started-sql-data-sync.md)
 ## Connect applications
 ### [C and C ++](sql-database-develop-cplusplus-simple.md)
-### [Node.js](sql-database-develop-nodejs-simple.md)
 ### [Excel](sql-database-connect-excel.md)
 ### [Guidance](sql-database-connectivity-issues.md)
 ### [Issues](sql-database-troubleshoot-common-connection-issues.md)
