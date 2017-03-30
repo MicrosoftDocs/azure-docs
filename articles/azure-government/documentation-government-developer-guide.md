@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 02/13/2017
+ms.date: 03/19/2017
 ms.author: stemi
 
 ---
@@ -53,14 +53,17 @@ To learn about mapping public Azure and SQL Database endpoints to Azure Governme
 | ResourceManagerUrl | https://management.usgovcloudapi.net/ |
 | SqlDatabaseDnsSuffix | .database.usgovcloudapi.net |
 | StorageEndpointSuffix | core.usgovcloudapi.net |
-| ActiveDirectoryAuthority | https://login-us.microsoftonline.com/ |
+| ActiveDirectoryAuthority | https://login.microsoftonline.us/ |
 | GraphUrl | https://graph.windows.net/ |
 | GraphEndpointResourceId | https://graph.windows.net/ |
 | TrafficManagerDnsSuffix | usgovtrafficmanager.net |
 | AzureKeyVaultDnsSuffix | vault.usgovcloudapi.net |
 | AzureKeyVaultServiceEndpointResourceId | https://vault.usgovcloudapi.net |
 
-
+> [!NOTE]
+> The **ActiveDirectoryAuthority** for Azure Government has changed from https://login-us.microsoftonline.com to https://login.microsoftonline.us.  The original URL will continue to work but all applications should be updated to the new authority URL.
+>
+>
 
 ## Next steps
 For more information about Azure Government, see the following resources:

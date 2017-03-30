@@ -32,10 +32,7 @@ HDInsight clusters provide a set of MapReduce samples that can be used to famili
   > [!IMPORTANT]
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-* **An SSH client**: For information on using SSH with HDInsight, see the following articles:
-  
-  * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-  * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* **An SSH client**: For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## The samples
 **Location**: The samples are located on the HDInsight cluster at  **/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar**
@@ -73,10 +70,8 @@ HDInsight clusters provide a set of MapReduce samples that can be used to famili
 > 
 
 ## How to run the samples
-1. Connect to HDInsight using SSH as described in the following articles:
-   
-   * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+1. Connect to HDInsight using SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
 2. From the `username@#######:~$` prompt, use the following command to list the samples:
    
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar

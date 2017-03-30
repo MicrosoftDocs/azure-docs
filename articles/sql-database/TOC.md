@@ -5,20 +5,20 @@
 ## [Create DB - Portal](sql-database-get-started-portal.md)
 ## [Create DB - Azure CLI](sql-database-get-started-cli.md)
 ## [Create DB - PowerShell](sql-database-get-started-powershell.md)
-## Connect
+## Manage
 ### [SSMS](sql-database-connect-query-ssms.md)
 ### [VS Code](sql-database-connect-query-vscode.md)
-### [C#](sql-database-connect-query-dotnet.md)
+## Connect
+### [C #](sql-database-connect-query-dotnet.md)
+### [PHP](sql-database-connect-query-php.md)
+### [Java](sql-database-connect-query-java.md)
+### [Python](sql-database-connect-query-python.md)
+### [Ruby](sql-database-connect-query-ruby.md)
 # Samples
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
 # Tutorials
-## Access
-### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
-### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
-## Recovery
-### [Portal](sql-database-get-started-backup-recovery-portal.md)
-### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+## [Design a database](sql-database-design-first-database.md)
 # Concepts
 ## DBs and servers
 ### [Databases](sql-database-overview.md)
@@ -109,7 +109,10 @@
 ### [Portal](sql-database-elastic-pool-manage-portal.md)
 ### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 ### [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)
-### [C#](sql-database-elastic-pool-manage-csharp.md)
+### [C #](sql-database-elastic-pool-manage-csharp.md)
+## DB Access 
+### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
+### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
 ## Secure data
 ### [Azure AD auth](sql-database-aad-authentication-configure.md)
 ### [Auditing](sql-database-auditing-portal.md)
@@ -117,11 +120,13 @@
 ### [Encrypt - cert store](sql-database-always-encrypted.md)
 ### [Encrypt - key vault](sql-database-always-encrypted-azure-key-vault.md)
 ### [Configure masking](sql-database-dynamic-data-masking-get-started-portal.md)
-## Back up and restore
-### [Restore - Portal](sql-database-restore-database-portal.md)
+## Recovery
+### [Portal](sql-database-get-started-backup-recovery-portal.md)
+### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+### [Single table](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
+## Retention
 ### [Retention - Portal](sql-database-manage-long-term-backup-retention-portal.md)
 ### [Retention - PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
-### [Recover single table](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
 ## Geo-replicate data
 ### [Portal](sql-database-geo-replication-portal.md)
 ### [T-SQL - Configure](sql-database-geo-replication-transact-sql.md)
@@ -141,16 +146,12 @@
 ### [Load data with ADF](../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 ### [Sync data](sql-database-get-started-sql-data-sync.md)
 ## Connect applications
-### [C and C++](sql-database-develop-cplusplus-simple.md)
-### [Java](sql-database-develop-java-simple.md)
+### [C and C ++](sql-database-develop-cplusplus-simple.md)
 ### [Node.js](sql-database-develop-nodejs-simple.md)
-### [PHP](sql-database-develop-php-simple.md)
-### [Python](sql-database-develop-python-simple.md)
-### [Ruby](sql-database-develop-ruby-simple.md)
 ### [Excel](sql-database-connect-excel.md)
 ### [Guidance](sql-database-connectivity-issues.md)
 ### [Issues](sql-database-troubleshoot-common-connection-issues.md)
-### [Create DB with C#](sql-database-get-started-csharp.md)
+### [Create DB with C #](sql-database-get-started-csharp.md)
 ## [Configure In-Memory](sql-database-in-memory-oltp-migration.md)
 ## Manage multiple DBs
 ### [Create sharded app](sql-database-elastic-scale-get-started.md)

@@ -289,7 +289,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 ```
 
 
-**A copy activity in a pipeline with File System source and Blob sink:**
+**Copy activity in a pipeline with Amazon S3 source (File System source) and Blob sink:**
 
 The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **FileSystemSource** and **sink** type is set to **BlobSink**.
 
@@ -338,7 +338,9 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
     }
 }
 ```
-You can also map columns from source dataset to columns from sink dataset in the copy activity definition. For details, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
+> [!NOTE]
+> To map columns from source dataset to columns from sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
+
 
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.

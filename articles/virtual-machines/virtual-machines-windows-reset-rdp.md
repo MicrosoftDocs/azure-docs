@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 03/24/2017
 ms.author: iainfou
 
 ---
 # How to reset the Remote Desktop service or its login password in a Windows VM
-If you can't connect to a Windows virtual machine (VM), you can reset the local administrator password or reset the Remote Desktop service configuration. You can use either the Azure portal or the VM Access extension in Azure PowerShell to reset the password. If you are using PowerShell, make sure that you have the [latest PowerShell module installed and configured](/powershell/azureps-cmdlets-docs) and are signed in to your Azure subscription. You can also [perform these steps for VMs created with the Classic deployment model](virtual-machines-windows-classic-reset-rdp.md).
+If you can't connect to a Windows virtual machine (VM), you can reset the local administrator password or reset the Remote Desktop service configuration. You can use either the Azure portal or the VM Access extension in Azure PowerShell to reset the password. If you are using PowerShell, make sure that you have the [latest PowerShell module installed and configured](/powershell/azureps-cmdlets-docs) and are signed in to your Azure subscription. You can also [perform these steps for VMs created with the Classic deployment model](windows/classic/reset-rdp.md).
 
 ## Ways to reset configuration or credentials
 You can reset Remote Desktop services and credentials in a few different ways, depending on your needs:
@@ -38,11 +38,17 @@ Select your Windows virtual machine then click **Support + Troubleshooting** > *
 
 ![Password reset page](./media/virtual-machines-windows-reset-rdp/Portal-RM-PW-Reset-Windows.png)
 
-Enter the username and a new password, then click **Update**. Try connecting to your VM again.
+Enter the username and a new password, and then click **Update**. Try connecting to your VM again.
+
+> [!NOTE] 
+> - After you change the password, and the operation is complete in the portal, it could take 3–5 minutes before this change takes effect on the VM. However, if the change does not take effect, try restarting the VM.
+> - The VMAccess extension works only against the built-in local administrator account and will not do anything on any other local ID or domain ID.
+> - If the target computer is a domain controller, the extension resets or renames the domain administrator account.
+
 
 ### **Reset the Remote Desktop service configuration**
 
-Select your Windows virtual machine then click **Support + Troubleshooting** > **Reset password**. The password reset blade is displayed. 
+Select your Windows virtual machine, and then click **Support + Troubleshooting** > **Reset password**. The password reset blade is displayed as follows:
 
 ![Reset RDP configuration](./media/virtual-machines-windows-reset-rdp/Portal-RM-RDP-Reset.png)
 
