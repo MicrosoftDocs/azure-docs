@@ -35,7 +35,7 @@ To learn more about the following Azure Virtual Network capabilities, click the 
 
 ## <a name = "isolation"></a>Network isolation and segmentation
 
-You can implement multiple VNets within each Azure [subscription](../azure-glossary-cloud-terminology.md#subscription) and Azure [region](../azure-glossary-cloud-terminology.md#region). Each VNet is isolated from other VNets. For each VNet you can:
+You can implement multiple VNets within each Azure [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) and Azure [region](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region). Each VNet is isolated from other VNets. For each VNet you can:
 - Specify a custom private IP address space using public and private (RFC 1918) addresses. Azure assigns resources connected to the VNet a private IP address from the address space you assign.
 - Segment the VNet into one or more subnets and allocate a portion of the VNet address space to each subnet.
 - Use Azure-provided name resolution or specify your own DNS server for use by resources connected to a VNet. To learn more about name resolution in VNets, read the [Name resolution for VMs and Cloud Services](virtual-networks-name-resolution-for-vms-and-role-instances.md) article.
