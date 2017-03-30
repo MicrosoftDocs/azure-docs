@@ -77,7 +77,7 @@ IoT Hub exposes a built-in Event Hub-compatible endpoint to enable applications 
 1. Make a note of the **Primary key** value.
 1. Make up the connection string of your IoT hub endpoint as follows:
 
-   Endpoint=<Event Hub-compatible endpoint>;SharedAccessKeyName=iothubowner;SharedAccessKey=<Primary key>
+   `Endpoint=<Event Hub-compatible endpoint>;SharedAccessKeyName=iothubowner;SharedAccessKey=<Primary key>`
 
    > [!Note]
    > Replace `<Event Hub-compatible endpoint>` and `<Primary key>` with the values you noted down.
