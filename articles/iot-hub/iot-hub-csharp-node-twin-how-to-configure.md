@@ -13,14 +13,14 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 03/30/2017
 ms.author: elioda
 
 ---
 # Use desired properties to configure devices
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
-At the end of this tutorial, you will have two Node.js console apps:
+At the end of this tutorial, you will have two console apps:
 
 * **SimulateDeviceConfiguration.js**, a simulated device app that waits for a desired configuration update and reports the status of a simulated configuration update process.
 * **SetDesiredConfigurationAndQuery**, a .NET back-end app, which sets the desired configuration on a device and queries the configuration update process.
@@ -32,11 +32,11 @@ At the end of this tutorial, you will have two Node.js console apps:
 
 To complete this tutorial you need the following:
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 or Visual Studio 2017.
 * Node.js version 0.10.x or later.
-* An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
+* An active Azure account. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
 
-If you followed the [Get started with device twins][lnk-twin-tutorial] tutorial, you already have an IoT hub and a device identity called **myDeviceId**; and you can skip to the [Create the simulated device app][lnk-how-to-configure-createapp] section.
+If you followed the [Get started with device twins][lnk-twin-tutorial] tutorial, you already have an IoT hub and a device identity called **myDeviceId**. In that case, you can skip to the [Create the simulated device app][lnk-how-to-configure-createapp] section.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -45,12 +45,12 @@ If you followed the [Get started with device twins][lnk-twin-tutorial] tutorial,
 ## Create the simulated device app
 In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, waits for a desired configuration update and then reports updates on the simulated configuration update process.
 
-1. Create a new empty folder called **simulatedeviceconfiguration**. In the **simulatedeviceconfiguration** folder, create a new package.json file using the following command at your command prompt. Accept all the defaults:
+1. Create a new empty folder called **simulatedeviceconfiguration**. In the **simulatedeviceconfiguration** folder, create a new package.json file using the following command at your command prompt. Accept all the defaults.
    
     ```
     npm init
     ```
-2. At your command prompt in the **simulatedeviceconfiguration** folder, run the following command to install the **azure-iot-device**, and **azure-iot-device-mqtt** package:
+2. At your command prompt in the **simulatedeviceconfiguration** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** packages:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
@@ -90,12 +90,12 @@ In this section, you create a Node.js console app that connects to your hub as *
             }
         });
    
-    The **Client** object exposes all the methods required to interact with device twins from the device. The previous code, after it initializes the **Client** object, retrieves the device twin for **myDeviceId**, and attaches a handler for the update on desired properties. The handler verifies that there is an actual configuration change request by comparing the configIds, then invokes a method that starts the configuration change.
+    The **Client** object exposes all the methods required to interact with device twins from the device. This code initializes the **Client** object, retrieves the device twin for **myDeviceId**, and then attaches a handler for the update on *desired properties*. The handler verifies that there is an actual configuration change request by comparing the configIds, then invokes a method that starts the configuration change.
    
-    Note that for the sake of simplicity, the previous code uses a hard-coded default for the inital configuration. A real app would probably load that configuration from a local storage.
+    Note that for the sake of simplicity, this code uses a hard-coded default for the inital configuration. A real app would probably load that configuration from a local storage.
    
    > [!IMPORTANT]
-   > Desired property change events are always emitted once at device connection, make sure to check that there is an actual change in the desired properties before performing any action.
+   > Desired property change events are always emitted once at device connection. Make sure to check that there is an actual change in the desired properties before performing any action.
    > 
    > 
 5. Add the following methods before the `client.open()` invocation:
@@ -144,7 +144,7 @@ In this section, you create a Node.js console app that connects to your hub as *
     Note that, to save bandwidth, reported properties are updated by specifying only the properties to be modified (named **patch** in the above code), instead of replacing the whole document.
    
    > [!NOTE]
-   > This tutorial does not simulate any behavior for concurrent configuration updates. Some configuration update processes might be able to accommodate changes of target configuration while the update is running, others might have to queue them, and others could reject them with an error condition. Make sure to consider the desired behavior for your specific configuration process, and add the appropriate logic before initiating the configuration change.
+   > This tutorial does not simulate any behavior for concurrent configuration updates. Some configuration update processes might be able to accommodate changes of target configuration while the update is running, some might have to queue them, and some could reject them with an error condition. Make sure to consider the desired behavior for your specific configuration process, and add the appropriate logic before initiating the configuration change.
    > 
    > 
 6. Run the device app:
@@ -159,7 +159,7 @@ In this section, you will create a .NET console app that updates the *desired pr
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **SetDesiredConfigurationAndQuery**.
    
     ![New Visual C# Windows Classic Desktop project][img-createapp]
-2. In Solution Explorer, right-click the **SetDesiredConfigurationAndQuery** project, and then click **Manage NuGet Packages**.
+2. In Solution Explorer, right-click the **SetDesiredConfigurationAndQuery** project, and then click **Manage NuGet Packages...**.
 3. In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.
    
     ![NuGet Package Manager window][img-servicenuget]
@@ -206,8 +206,8 @@ In this section, you will create a .NET console app that updates the *desired pr
             }
         }
    
-    The **Registry** object exposes all the methods required to interact with device twins from the service. The previous code, after it initializes the **Registry** object, retrieves the device twin for **myDeviceId**, and updates its desired properties with a new telemetry configuration object.
-    After that, every 10 seconds, it queries the device twins stored in the IoT hub and prints the desired and reported telemetry configurations. Refer to the [IoT Hub query language][lnk-query] to learn how to generate rich reports across all your devices.
+    The **Registry** object exposes all the methods required to interact with device twins from the service. This code initializes the **Registry** object, retrieves the device twin for **myDeviceId**, and then updates its desired properties with a new telemetry configuration object.
+    After that, it queries the device twins stored in the IoT hub every 10 seconds, and prints the desired and reported telemetry configurations. Refer to the [IoT Hub query language][lnk-query] to learn how to generate rich reports across all your devices.
    
    > [!IMPORTANT]
    > This application queries IoT Hub every 10 seconds for illustrative purposes. Use queries to generate user-facing reports across many devices, and not to detect changes. If your solution requires real-time notifications of device events use [device-to-cloud messages][lnk-d2c].
@@ -219,7 +219,10 @@ In this section, you will create a .NET console app that updates the *desired pr
         SetDesiredConfigurationAndQuery();
         Console.WriteLine("Press any key to quit.");
         Console.ReadLine();
+8. In the Solution Explorer, open the **Set StartUp projects...** and make sure the **Action** for **SetDesiredConfigurationAndQuery** project is **Start**. Build the solution.
 8. With **SimulateDeviceConfiguration.js** running, run the .NET application from Visual Studio using **F5** and you should see the reported configuration change from **Success** to **Pending** to **Success** again with the new active send frequency of five minutes instead of 24 hours.
+
+ ![Device configured successfully][img-deviceconfigured]
    
    > [!IMPORTANT]
    > There is a delay of up to a minute between the device report operation and the query result. This is to enable the query infrastructure to work at very high scale. To retrieve consistent views of a single device twin use the **getDeviceTwin** method in the **Registry** class.
@@ -238,6 +241,7 @@ Use the following resources to learn how to:
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-node-twin-getstarted/servicesdknuget.png
 [img-createapp]: media/iot-hub-csharp-node-twin-getstarted/createnetapp.png
+[img-deviceconfigured]: media/iot-hub-csharp-node-twin-getstarted/deviceconfigured.png
 
 <!-- links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
