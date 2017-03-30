@@ -203,13 +203,16 @@ In Azure, the root VM is special: it runs a hardened operating system called the
 
 The collection of Azure hypervisor, root OS/FA, and customer VMs/GAs comprises a compute node. FAs are managed by a fabric controller (FC), which exists outside of compute and storage nodes (compute and storage clusters are managed by separate FCs). If a customer updates their application’s configuration file while it’s running, the FC communicates with the FA, which then contacts GAs, which notifies the application of the configuration change. In the event of a hardware failure, the FC will automatically find available hardware and restart the VM there.
 
+<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig6.jpg" width ="400" height="250" alt ="" >
+
 Communication from a Fabric Controller to an agent is unidirectional. The agent implements an SSL-protected service that only responds to requests from the controller. It cannot initiate connections to the controller or other privileged internal nodes. The FC treats all responses as if they were untrusted.
-<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig6.jpg" width ="400" height="340" alt ="" align ="right">
+
 Isolation extends from the Root VM from Guest VMs, and the Guest VMs from one another. Compute nodes are also isolated from storage nodes for increased protection.
+
+<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig7.png" width ="400" height="340" alt ="" align ="right">
 
 The hypervisor and the host OS provide network packet - filters to help assure that untrusted virtual machines cannot generate spoofed traffic or receive traffic not addressed to them, direct traffic to protected infrastructure endpoints, or send/receive inappropriate broadcast traffic.
 
-<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig7.png" width ="400" height="340" alt ="" align ="right">
 
 ## 3.4 Additional Rules Configured by Fabric Controller Agent to Isolate VM
 By default, all traffic is blocked when a virtual machine is created, and then the fabric controller agent configures the packet filter to add rules and exceptions to allow authorized traffic.
@@ -237,7 +240,7 @@ Consequently, Azure Storage runs on separate hardware with no network connectivi
 **Access to Azure Storage data (including Tables)** can be controlled through a [SAS (Shared Access Signature)](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1) token, which grants scoped access. The SAS is created through a query template (URL), signed with the [SAK (Storage Account Key)](https://msdn.microsoft.com/en-us/library/azure/ee460785.aspx). That [signed URL](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1) can be given to another process (i.e., delegated), which can then fill in the details of the query and make the request of the storage service. A SAS enables you to grant time-based access to clients without revealing the storage account’s secret key.
 
 Figure 9: Storage Account Access
-<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig9.jpg" width ="400" height="340" alt ="" align ="right">
+<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig9.png" width ="400" height="340" alt ="" align ="right">
 The SAS means that we can grant a client limited permissions, to objects in our storage account for a specified period of time and with a specified set of permissions. We can grant these limited permissions without having to share your account access keys.
 ## 4.3 IP Level Storage Isolation
 You can establish firewalls and define an IP address range for your trusted clients. With an IP address range, only clients that have an IP address within the defined range can connect to [Azure Storage](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
@@ -307,9 +310,9 @@ SQL Azure servers are not physical or VM instances, instead they are collections
 -	SQL logins used to connect to the server
 -	Firewall rules
 
-<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig11.png" width ="280" height="280" alt ="" align ="right">
-
 Billing and usage related information for SQL Azure databases from the same logical server are not guaranteed to be on the same physical instance in SQL Azure cluster, instead applications must provide the target database name when connecting.
+
+<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig11.png" width ="280" height="280" alt ="" align ="right">
 
 From a customer perspective, a logical server is created in a geo-graphical region while the actual creation of the server will happen in one of the clusters in the region.
 ## 5.2 Isolation through Network Topology
