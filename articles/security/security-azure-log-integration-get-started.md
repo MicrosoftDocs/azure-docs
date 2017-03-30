@@ -20,7 +20,7 @@ ms.author: TomSh
 # Azure log integration and Windows Diagnostic logging
 Azure log integration (Azlog) enables you to integrate raw logs from your Azure resources in to your on-premises Security Information and Event Management (SIEM) systems. This integration makes it possible to have a unified security dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events associated with your applications.
 >[!NOTE]
-For more information on Azure Log Integration, you can review the [Azure Log integration overview](https://docs.microsoft.com/en-us/azure/security/security-azure-log-integration-overview).
+For more information on Azure Log Integration, you can review the [Azure Log integration overview](https://docs.microsoft.com/azure/security/security-azure-log-integration-overview).
 
 This article will help you get started with Azure Log Integration by focusing on the installation of the Azlog service and integrating the service with Windows Azure Diagnostics (WAD). The Azure Log Integration service will then be able to collect Event Log information from the Windows Security Event Channel from virtual machines deployed in Azure IaaS. This is very similar to “Event Forwarding” that you may have used on-premises.
 

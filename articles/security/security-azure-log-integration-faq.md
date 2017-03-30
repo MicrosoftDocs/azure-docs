@@ -107,7 +107,7 @@ The following example is a configuration where only EventID 4624 and EventId 462
 
 After making changes, check the storage account to ensure that the correct events are collected.
 
-If you run into any issues during the installation and configuration, please open a [support request](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request), select **Log Integration** as the service for which you are requesting support.
+If you run into any issues during the installation and configuration, please open a [support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request), select **Log Integration** as the service for which you are requesting support.
 
 
 <!--Image references-->
