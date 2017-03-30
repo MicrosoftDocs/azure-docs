@@ -46,6 +46,9 @@
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md)
 
+### [Manage encryption key and service account](active-directory-aadconnectsync-encryption-key.md)
+### [Enable AD recycle bin](active-directory-aadconnectsync-recycle-bin.md)
+
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
 #### [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md)
 #### [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md)
