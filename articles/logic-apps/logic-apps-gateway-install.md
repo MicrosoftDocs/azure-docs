@@ -64,7 +64,7 @@ with your Azure Active Directory-based account.
 
 	If you are using a Microsoft account, like @outlook.com, 
 	you can use your Azure account to 
-	[create a work or school email address](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
+	[create a work or school email address](../virtual-machines/windows/create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
 
 ### Install the gateway
 
