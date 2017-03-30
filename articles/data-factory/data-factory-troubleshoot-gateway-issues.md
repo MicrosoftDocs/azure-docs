@@ -35,7 +35,7 @@ The machine on which you are trying to install the gateway has failed to downloa
 #### Resolution
 Check your firewall proxy server settings to see whether the settings block the network connection from the computer to the [download center](https://download.microsoft.com/), and update the settings accordingly.
 
-Alternatively, you can download the installation file for the latest gateway from the [download center](https://www.microsoft.com/en-US/download/details.aspx?id=39717) on other machines that can access the download center. You can then copy the installer file to the gateway host computer and run it manually to install and update the gateway.
+Alternatively, you can download the installation file for the latest gateway from the [download center](https://www.microsoft.com/download/details.aspx?id=39717) on other machines that can access the download center. You can then copy the installer file to the gateway host computer and run it manually to install and update the gateway.
 
 ### 2. Problem
 You see this error when you're attempting to install a gateway by clicking **install directly on this computer** in the Azure portal.
