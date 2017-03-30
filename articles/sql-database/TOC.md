@@ -116,7 +116,7 @@
 ## Secure data
 ### [Azure AD auth](sql-database-aad-authentication-configure.md)
 ### [Auditing](sql-database-auditing-portal.md)
-### [Treat detection](sql-database-threat-detection-portal.md)
+### [Threat detection](sql-database-threat-detection-portal.md)
 ### [Encrypt - cert store](sql-database-always-encrypted.md)
 ### [Encrypt - key vault](sql-database-always-encrypted-azure-key-vault.md)
 ### [Configure masking](sql-database-dynamic-data-masking-get-started-portal.md)
