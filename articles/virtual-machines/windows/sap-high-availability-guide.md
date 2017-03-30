@@ -89,10 +89,10 @@ ms.custom: H1Hack27Feb2017
 [dbms-guide-5.6]:../virtual-machines-windows-sap-dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8
 [dbms-guide-5.8]:../virtual-machines-windows-sap-dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30
 [dbms-guide-5]:../virtual-machines-windows-sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737
-[dbms-guide-8.4.1]:../virtual-machines-windows-sap-dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573
-[dbms-guide-8.4.2]:../virtual-machines-windows-sap-dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d
-[dbms-guide-8.4.3]:../virtual-machines-windows-sap-dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c
-[dbms-guide-8.4.4]:../virtual-machines-windows-sap-dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818
+[dbms-guide-8.4.1]:sap-dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573
+[dbms-guide-8.4.2]:sap-dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d
+[dbms-guide-8.4.3]:sap-dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c
+[dbms-guide-8.4.4]:sap-dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818
 [dbms-guide-900-sap-cache-server-on-premises]:../virtual-machines-windows-sap-dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
 
 [dbms-guide-figure-100]:./media/virtual-machines-shared-sap-dbms-guide/100_storage_account_types.png
@@ -105,50 +105,50 @@ ms.custom: H1Hack27Feb2017
 [dbms-guide-figure-800]:./media/virtual-machines-shared-sap-dbms-guide/800-azure-vm-sap-content-server.png
 [dbms-guide-figure-900]:./media/virtual-machines-shared-sap-dbms-guide/900-sap-cache-server-on-premises.png
 
-[deployment-guide]:../sap-deployment-guide.md
-[deployment-guide-2.2]:../sap-deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94
-[deployment-guide-3.1.2]:../sap-deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab
-[deployment-guide-3.2]:../sap-deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281
-[deployment-guide-3.3]:../sap-deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2
-[deployment-guide-3.4]:../sap-deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1
-[deployment-guide-3]:../sap-deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e
-[deployment-guide-4.1]:../sap-deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7
-[deployment-guide-4.2]:../sap-deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e
-[deployment-guide-4.3]:../sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc
-[deployment-guide-4.4.2]:../sap-deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542
-[deployment-guide-4.4]:../sap-deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d
-[deployment-guide-4.5.1]:../sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4
-[deployment-guide-4.5.2]:../sap-deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f
-[deployment-guide-4.5]:../sap-deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca
-[deployment-guide-5.1]:../sap-deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2
-[deployment-guide-5.2]:../sap-deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1
-[deployment-guide-5.3]:../sap-deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8
+[deployment-guide]:sap-deployment-guide.md
+[deployment-guide-2.2]:sap-deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94
+[deployment-guide-3.1.2]:sap-deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab
+[deployment-guide-3.2]:sap-deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281
+[deployment-guide-3.3]:sap-deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2
+[deployment-guide-3.4]:sap-deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1
+[deployment-guide-3]:sap-deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e
+[deployment-guide-4.1]:sap-deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7
+[deployment-guide-4.2]:sap-deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e
+[deployment-guide-4.3]:sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc
+[deployment-guide-4.4.2]:sap-deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542
+[deployment-guide-4.4]:sap-deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d
+[deployment-guide-4.5.1]:sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4
+[deployment-guide-4.5.2]:sap-deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f
+[deployment-guide-4.5]:sap-deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca
+[deployment-guide-5.1]:sap-deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2
+[deployment-guide-5.2]:sap-deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1
+[deployment-guide-5.3]:sap-deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8
 
-[deployment-guide-configure-monitoring-scenario-1]:../sap-deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b
-[deployment-guide-configure-proxy]:../sap-deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d
+[deployment-guide-configure-monitoring-scenario-1]:sap-deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b
+[deployment-guide-configure-proxy]:sap-deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d
 [deployment-guide-figure-100]:./media/virtual-machines-shared-sap-deployment-guide/100-deploy-vm-image.png
 [deployment-guide-figure-1000]:./media/virtual-machines-shared-sap-deployment-guide/1000-service-properties.png
-[deployment-guide-figure-11]:../sap-deployment-guide.md#figure-11
+[deployment-guide-figure-11]:sap-deployment-guide.md#figure-11
 [deployment-guide-figure-1100]:./media/virtual-machines-shared-sap-deployment-guide/1100-azperflib.png
 [deployment-guide-figure-1200]:./media/virtual-machines-shared-sap-deployment-guide/1200-cmd-test-login.png
 [deployment-guide-figure-1300]:./media/virtual-machines-shared-sap-deployment-guide/1300-cmd-test-executed.png
-[deployment-guide-figure-14]:../sap-deployment-guide.md#figure-14
+[deployment-guide-figure-14]:sap-deployment-guide.md#figure-14
 [deployment-guide-figure-1400]:./media/virtual-machines-shared-sap-deployment-guide/1400-azperflib-error-servicenotstarted.png
 [deployment-guide-figure-300]:./media/virtual-machines-shared-sap-deployment-guide/300-deploy-private-image.png
 [deployment-guide-figure-400]:./media/virtual-machines-shared-sap-deployment-guide/400-deploy-using-disk.png
-[deployment-guide-figure-5]:../sap-deployment-guide.md#figure-5
+[deployment-guide-figure-5]:sap-deployment-guide.md#figure-5
 [deployment-guide-figure-50]:./media/virtual-machines-shared-sap-deployment-guide/50-forced-tunneling-suse.png
 [deployment-guide-figure-500]:./media/virtual-machines-shared-sap-deployment-guide/500-install-powershell.png
-[deployment-guide-figure-6]:../sap-deployment-guide.md#figure-6
+[deployment-guide-figure-6]:sap-deployment-guide.md#figure-6
 [deployment-guide-figure-600]:./media/virtual-machines-shared-sap-deployment-guide/600-powershell-version.png
-[deployment-guide-figure-7]:../sap-deployment-guide.md#figure-7
+[deployment-guide-figure-7]:sap-deployment-guide.md#figure-7
 [deployment-guide-figure-700]:./media/virtual-machines-shared-sap-deployment-guide/700-install-powershell-installed.png
 [deployment-guide-figure-760]:./media/virtual-machines-shared-sap-deployment-guide/760-azure-cli-version.png
 [deployment-guide-figure-900]:./media/virtual-machines-shared-sap-deployment-guide/900-cmd-update-executed.png
-[deployment-guide-figure-azure-cli-installed]:../sap-deployment-guide.md#402488e5-f9bb-4b29-8063-1c5f52a892d0
-[deployment-guide-figure-azure-cli-version]:../sap-deployment-guide.md#0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda
-[deployment-guide-install-vm-agent-windows]:../sap-deployment-guide.md#b2db5c9a-a076-42c6-9835-16945868e866
-[deployment-guide-troubleshooting-chapter]:../sap-deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b
+[deployment-guide-figure-azure-cli-installed]:sap-deployment-guide.md#402488e5-f9bb-4b29-8063-1c5f52a892d0
+[deployment-guide-figure-azure-cli-version]:sap-deployment-guide.md#0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda
+[deployment-guide-install-vm-agent-windows]:sap-deployment-guide.md#b2db5c9a-a076-42c6-9835-16945868e866
+[deployment-guide-troubleshooting-chapter]:sap-deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b
 
 [deploy-template-cli]:../../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows
 [deploy-template-portal]:../../resource-group-template-deploy.md#deploy-with-the-preview-portal
@@ -156,17 +156,17 @@ ms.custom: H1Hack27Feb2017
 
 [dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
 
-[getting-started]:../virtual-machines-windows-sap-get-started.md
-[getting-started-dbms]:../virtual-machines-windows-sap-get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
-[getting-started-deployment]:../virtual-machines-windows-sap-get-started.md#6aadadd2-76b5-46d8-8713-e8d63630e955
-[getting-started-planning]:../virtual-machines-windows-sap-get-started.md#3da0389e-708b-4e82-b2a2-e92f132df89c
+[getting-started]:sap-get-started.md
+[getting-started-dbms]:sap-get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
+[getting-started-deployment]:sap-get-started.md#6aadadd2-76b5-46d8-8713-e8d63630e955
+[getting-started-planning]:sap-get-started.md#3da0389e-708b-4e82-b2a2-e92f132df89c
 
-[getting-started-windows-classic]:../virtual-machines-windows-classic-sap-get-started.md
-[getting-started-windows-classic-dbms]:../virtual-machines-windows-classic-sap-get-started.md#c5b77a14-f6b4-44e9-acab-4d28ff72a930
-[getting-started-windows-classic-deployment]:../virtual-machines-windows-classic-sap-get-started.md#f84ea6ce-bbb4-41f7-9965-34d31b0098ea
-[getting-started-windows-classic-dr]:../virtual-machines-windows-classic-sap-get-started.md#cff10b4a-01a5-4dc3-94b6-afb8e55757d3
-[getting-started-windows-classic-ha-sios]:../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
-[getting-started-windows-classic-planning]:../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
+[getting-started-windows-classic]:classic/sap-get-started.md
+[getting-started-windows-classic-dbms]:classic/sap-get-started.md#c5b77a14-f6b4-44e9-acab-4d28ff72a930
+[getting-started-windows-classic-deployment]:classic/sap-get-started.md#f84ea6ce-bbb4-41f7-9965-34d31b0098ea
+[getting-started-windows-classic-dr]:classic/sap-get-started.md#cff10b4a-01a5-4dc3-94b6-afb8e55757d3
+[getting-started-windows-classic-ha-sios]:classic/sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
+[getting-started-windows-classic-planning]:classic/sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
 [ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
 
