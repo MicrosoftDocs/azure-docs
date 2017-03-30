@@ -78,6 +78,22 @@
 ### [Pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [Usage metering](logic-apps-pricing.md)
 
+# Serverless
+## Overview
+### [Serverless in Azure](logic-apps-serverless-overview.md)
+## Get Started
+### [Create a serverless app in the Azure portal](logic-apps-serverless-get-started-portal.md)
+### [Create a serverless app in Visual Studio](logic-apps-serverless-get-started-vs.md)
+## Scenarios and Walkthroughs
+### [Gather customer feedback](logic-apps-scenario-social-serverless.md)
+### [Send automated emails](https://channel9.msdn.com/Blogs/Microsoft-Integration/Build-and-Deploy-Serverless-Part-1)
+### [Route files from an FTP server](logic-apps-serverless-ftp-process.md)
+### [Process IOT Messages](logic-apps-serverless-iot-process.md)
+### [Synchronize data from Dynamics to SQL](logic-apps-serverless-dynamics-sql.md)
+### [B2B/EDI order processing](logic-apps-enterprise-integration-overview.md)
+## Automate & Deploy
+### [Creating a deployment template](logic-apps-create-deploy-template.md)
+
 # Reference
 ## [Workflow definition language](logic-apps-workflow-definition-language.md)
 ## [Workflow actions and triggers](logic-apps-workflow-actions-triggers.md)
