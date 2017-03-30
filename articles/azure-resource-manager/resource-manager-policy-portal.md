@@ -32,7 +32,7 @@ Policies are evaluated when creating and updating resources (PUT and PATCH opera
 
    ![select policies](./media/resource-manager-policy-portal/select-policies.png)
 
-2. To create a new policy assignment for this scope, select **Add assignment**.
+2. To create a policy assignment for this scope, select **Add assignment**.
 
    ![add assignment](./media/resource-manager-policy-portal/add-assignment.png)
 
@@ -48,7 +48,7 @@ Policies are evaluated when creating and updating resources (PUT and PATCH opera
 
    ![select parameter values](./media/resource-manager-policy-portal/select-parameters.png)
 
-6. Provide values for the other parameters. The scope is automatically assigned based on the blade you had selected when starting the policy assignment. Select **OK** when done.
+6. Provide values for the other parameters. The scope is automatically assigned based on the blade you selected when starting the policy assignment. Select **OK** when done.
 
    ![define parameters](./media/resource-manager-policy-portal/define-parameters.png)
 
@@ -66,7 +66,7 @@ The **Assignment rule** tab shows the JSON for the policy definition.
 
 ## Change an existing policy assignment
 
-To change a policy, select **Edit assignnment** or **Delete**
+To change a policy, select **Edit assignment** or **Delete**
 
 ![edit or delete assignment](./media/resource-manager-policy-portal/edit-delete-policy.png)
 
