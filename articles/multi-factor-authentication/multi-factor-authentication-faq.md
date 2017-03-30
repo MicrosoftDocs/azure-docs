@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 03/26/2017
 ms.author: kgremban
 
 ms.custom: H1Hack27Feb2017
@@ -134,14 +134,14 @@ If you must use text messages, we recommend using one-way SMS rather than two-wa
 
 **Q: Can I change the amount of time my users have to enter the verification code from a text message before the system times out?**
 
-It depends. This setting is configurable in Azure MFA Server 7.0 and higher, but not in earlier versions of the server or Azure MFA in the cloud.
+In some cases, yes. You can configure the timeout setting for two-way text messages in Azure MFA Server 7.0 and higher. 
 
 Azure MFA Server stores one-time passcodes for 300 seconds (5 minutes) by default. If the user enters their code after the 300 seconds have passed, their authentication is denied. You can adjust the timeout by setting a registry key. 
 
 1. Go to HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor.
 2. Create a DWORD registry key called **pfsvc_pendingSmsTimeoutSeconds** and set the time in seconds that you want the Azure MFA Server to store one-time passcodes.
 
-Cloud-based MFA in Azure AD stores one-time passcodes for 120 seconds (2 minutes), and this setting is not configurable. 
+For one-way text messages, MFA Server stores one-time passcodes for 300 seconds (five minutes), and cloud-based MFA in Azure AD stores them for 180 seconds (3 minutes). This setting is not configurable. 
 
 **Q: Can I use hardware tokens with Azure Multi-Factor Authentication Server?**
 
