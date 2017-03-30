@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/09/2017
+ms.date: 03/29/2017
 ms.author: magoedte
 ---
 
 # Connect your Linux Computers to Operations Management Suite (OMS) 
 
-With OMS, you can collect and act on data generated from Linux computers and container solutions like Docker, regardless of where your computers are located.  They might reside in your on-premises data center as physical servers or virtual machines, virtual machines in a cloud-hosted service like Amazon Web Services (AWS) or Microsoft Azure, or even a laptop on your desk. 
+With OMS, you can collect and act on data generated from Linux computers and container solutions like Docker, residing in your on-premises data center as physical servers or virtual machines, virtual machines in a cloud-hosted service like Amazon Web Services (AWS) or Microsoft Azure. 
 
-You can view and manage data from all of those sources with Log Analytics and leverage management solutions available in OMS to track configuration changes and manage software  updates, all from a single management portal. This reduces the need to manage them using many different systems or solutions.
+You can view and manage data from all of those sources with Log Analytics and leverage management solutions available in OMS such as Change Tracking, to identify configuration changes, and Update Management to manage software updates, all from a single management portal. 
 
 This article is a guide that will help you configure your Linux computers using the OMS Agent for Linux.
 
