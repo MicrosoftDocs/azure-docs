@@ -151,3 +151,8 @@ This figure shows that it took about 929 seconds to copy 19 SAP HANA backup file
 In this screenshot, one can see that the source directory structure on the SAP HANA VM was copied to the Azure file share: one directory (hana\_backup\_fsl\_15gb) and 19 individual backup files.
 
 Storing SAP HANA backup files on Azure files could be an interesting option in the future when SAP HANA file backups support it directly. Or when it becomes possible to mount Azure files via NFS and the maximum quota limit is considerably higher than 5 TB.
+
+## Next steps
+* [Backup guide for SAP HANA on Azure Virtual Machines](./sap-hana-backup-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) gives an overview and information on getting started.
+* [SAP HANA backup based on storage snapshots](./sap-hana-backup-storage-snapshots.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) describes the storage snapshot-based backup option.
+* To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](./sap-hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
