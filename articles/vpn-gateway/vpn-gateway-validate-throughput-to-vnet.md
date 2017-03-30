@@ -45,10 +45,10 @@ The following diagram shows the logical connectivity of an on-premises network t
 ## Calculate the maximum expected ingress/egress
 
 1.	Determine your application's baseline throughput requirements.
-2.	Determine your Azure VPN gateway throughput limits. For help, see the "Aggregate throughput by SKU and VPN type" section of [Planning and design for VPN Gatewaye](vpn-gateway-plan-design.md).
+2.	Determine your Azure VPN gateway throughput limits. For help, see the "Aggregate throughput by SKU and VPN type" section of [Planning and design for VPN Gateway](vpn-gateway-plan-design.md).
 3.	Determine the [Azure VM throughput guidance](../virtual-machines/virtual-machines-windows-sizes.md) for your VM size.
 4.	Determine your Internet Service Provider (ISP) bandwidth.
-5.	Calculate your expected throughput - Least bandwidth of (VM, Gateway, ISP) * .80.
+5.	Calculate your expected throughput - Least bandwidth of (VM, Gateway, ISP) * 0.8.
 
 If your calculated throughput does not meet your application's baseline throughput requirements, you will need to increase the bandwidth of the resource that you identified as the bottleneck. To resize an Azure VPN Gateway, see [Changing a gateway SKU](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). To resize a virtual machine, see [Resize a VM](../virtual-machines/virtual-machines-windows-resize-vm.md). You may also want to contact your ISP if you are not experiencing expected Internet bandwidth.
 
@@ -118,9 +118,9 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). For
 ## Address slow file copy issues
 You may experience slow file coping when using Windows Explorer or dragging and dropping through an RDP session. This is normally due to one or both of the following factors:
 
-1. File copy applications, such as Windows Explorer and RDP, do not use multiple threads when copying files. For better performance, use a multi-threaded file copy application such as  [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx) to copy files by using 16 or 32 threads.<br><br>
-![Slow file copy issues](./media/vpn-gateway-validate-throughput-to-vnet/07slowfilecopyissue.png)<br>
-2. Insufficient VM disk read/write speed. See [Azure Storage Troubleshooting](../storage/storage-e2e-troubleshooting.md) for additional details.
+- File copy applications, such as Windows Explorer and RDP, do not use multiple threads when copying files. For better performance, use a multi-threaded file copy application such as  [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx) to copy files by using 16 or 32 threads. To change the thread number for file copy in Richcopy, click **Action** > **Copy options** > **File copy**.<br><br>
+![Slow file copy issues](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
+- Insufficient VM disk read/write speed. See [Azure Storage Troubleshooting](../storage/storage-e2e-troubleshooting.md) for additional details.
 
 ## On-premises device external facing interface
 If the on-premises VPN device Internet-facing IP address is included in the [local network](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) definition in Azure, you may experience inability to bring up the VPN, sporadic disconnects, or performance issues.
@@ -132,7 +132,7 @@ From the on-premises network, run *tracert* to the VIP of the Azure Gateway or V
 ![Checking Latency](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
 
 ## Next steps
-For more information or help, check out the following:
+For more information or help, check out the following links:
 
 - [Optimize network throughput for Azure virtual machines](../virtual-network/virtual-network-optimize-network-bandwidth.md)
 - [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
