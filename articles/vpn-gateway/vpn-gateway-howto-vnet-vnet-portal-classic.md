@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2017
+ms.date: 03/29/2017
 ms.author: cherylmc
 
 ---
@@ -72,7 +72,7 @@ The following table shows an example of how to define your VNets. Use the ranges
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |East US |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |West US |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
-## Step 2 - Create the virtual networks
+## <a name="vnetvalues"></a>Step 2 - Create the virtual networks
 Create two virtual networks in the [Azure portal](https://portal.azure.com). For the steps to create classic virtual networks, see [Create a classic virtual network](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). If you are using this article as an exercise, you can use the following example values:
 
 **Values for TestVNet1**
@@ -83,6 +83,7 @@ Subnet name: default<br>
 Subnet address range: 10.11.0.1/24<br>
 Resource group: ClassicRG<br>
 Location: East US<br>
+GatewaySubnet: 10.11.1.0/27
 
 **Values for TestVNet4**
 
@@ -92,6 +93,7 @@ Subnet name: default<br>
 Subnet address range: 10.41.0.1/24<br>
 Resource group: ClassicRG<br>
 Location: West US<br>
+GatewaySubnet: 10.41.1.0/27
 
 **When creating your VNets, keep in mind the following settings:**
 
@@ -140,7 +142,7 @@ Each virtual network must have a virtual network gateway. The virtual network ga
 
 1. On the **New VPN Connection** blade, select the checkbox **Create gateway immediately**.
 2. Click **Subnet, size and routing type**. On the **Gateway configuration** blade, click **Subnet**.
-3. The gateway subnet name is filled in automatically with the required name 'GatewaySubnet'. The **Address range** contains the IP addresses that are allocated to the VPN gateway services. Some configurations allow a gateway subnet of /29, but it's best to use a /28 or /27 to accommodate future configurations that may require more IP addresses for the gateway services. Adjust the address space, then click **OK**.
+3. The gateway subnet name is filled in automatically with the required name 'GatewaySubnet'. The **Address range** contains the IP addresses that are allocated to the VPN gateway services. Some configurations allow a gateway subnet of /29, but it's best to use a /28 or /27 to accommodate future configurations that may require more IP addresses for the gateway services. In our example settings, we use 10.11.1.0/27. Adjust the address space, then click **OK**.
 4. Configure the **Gateway Size**. This setting refers to the [Gateway SKU](vpn-gateway-about-vpngateways.md#gateway-skus).
 5. Configure the **Routing Type**. The routing type for this configuration must be **Dynamic**. You can't change the routing type later unless you tear down the gateway and create a new one.
 6. Click **OK**. 
@@ -148,7 +150,7 @@ Each virtual network must have a virtual network gateway. The virtual network ga
 
 ## Step 5 - Configure TestVNet4 settings
 
-Repeat the steps to [Create a local site](#localsite) and [Create the virtual network gateway](#gw) to configure TestVNet4, substituting the values when necessary.
+Repeat the steps to [Create a local site](#localsite) and [Create the virtual network gateway](#gw) to configure TestVNet4, substituting the values when necessary. If you are doing this as an exercise, use the [Example values](#vnetvalues).
 
 ## Step 6 - Update the local sites
 
