@@ -1,6 +1,6 @@
 ---
 title: Azure Import/Export metadata and properties file format | Microsoft Docs
-description: Learn how to specify metadata and properties for one or more blobs that are part of an import or export job
+description: Learn how to specify metadata and properties for one or more blobs that are part of an import or export job.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -20,7 +20,7 @@ ms.author: muralikk
 # Azure Import/Export service metadata and properties file format
 You can specify metadata and properties for one or more blobs as part of an import job or an export job. To set metadata or properties for blobs being created as part of an import job, you provide a metadata or properties file on the hard drive containing the data to be imported. For an export job, metadata and properties are written to a metadata or properties file that is included on the hard drive returned to you.  
   
-## Metadata File Format  
+## Metadata file format  
 The format of a metadata file is as follows:  
   
 ```xml
@@ -37,7 +37,7 @@ The format of a metadata file is as follows:
 |`Metadata`|Root element|The root element of the metadata file.|  
 |`metadata-name`|String|Optional. The XML element specifies the name of the metadata for the blob, and its value specifies the value of the metadata setting.|  
   
-## Properties File Format  
+## Properties file format  
 The format of a properties file is as follows:  
   
 ```xml
@@ -65,5 +65,7 @@ The format of a properties file is as follows:
 |`Content-Encoding`|String|Optional. The blob's content encoding.|  
 |`Content-Language`|String|Optional. The blob's content language.|  
 |`Cache-Control`|String|Optional. The cache control string for the blob.|  
-  
- See [Set Blob Properties](/rest/api/storageservices/fileservices/set-blob-properties), [Set Blob Metadata](/rest/api/storageservices/fileservices/set-blob-metadata), and [Setting and Retrieving Properties and Metadata for Blob Resources](/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) for detailed rules about setting blob metadata and properties.
+
+## Next steps
+
+See [Set blob properties](/rest/api/storageservices/fileservices/set-blob-properties), [Set Blob Metadata](/rest/api/storageservices/fileservices/set-blob-metadata), and [Setting and retrieving properties and metadata for blob resources](/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) for detailed rules about setting blob metadata and properties.

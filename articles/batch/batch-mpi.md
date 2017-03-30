@@ -74,7 +74,7 @@ StartTask startTask = new StartTask
 {
     CommandLine = "cmd /c MSMpiSetup.exe -unattend -force",
     ResourceFiles = new List<ResourceFile> { new ResourceFile("https://mystorageaccount.blob.core.windows.net/mycontainer/MSMpiSetup.exe", "MSMpiSetup.exe") },
-    RunElevated = true,
+    UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin)),
     WaitForSuccess = true
 };
 myCloudPool.StartTask = startTask;
@@ -233,7 +233,7 @@ await subtasks.ForEachAsync(async (subtask) =>
     Console.WriteLine("subtask: {0}", subtask.Id);
     Console.WriteLine("exit code: {0}", subtask.ExitCode);
 
-    if (subtask.State == TaskState.Completed)
+    if (subtask.State == SubtaskState.Completed)
     {
         ComputeNode node =
             await batchClient.PoolOperations.GetComputeNodeAsync(subtask.ComputeNodeInformation.PoolId,
