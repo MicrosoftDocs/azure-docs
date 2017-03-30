@@ -21,7 +21,7 @@ ms.author: markvi
 
 During an attempt to, for example, access your organization's SharePoint Online intranet you might run into a page that states that *you can't get there from here*. You are seeing this page, because your administrator has configured a conditional access policy that prevents access to your organization's resources under certain conditions. While it might be necessary to contact helpdesk or your administrator to get this problem solved, there are a few things you can try out yourself, first.
 
-If you are using a **Windows** device, you should should check the following:
+If you are using a **Windows** device, you should check the following:
 
 1. Are you using a supported browser?
 
@@ -50,12 +50,12 @@ The only remediation is to use a browser that the application supports for your 
 The following must be true about the Windows operating system on your device: 
 
 - If you are running a Windows desktop operating system on your device, it needs to be Windows 7 or later.
-- If you are running a Windows server operating system on your devive, it needs to be Windows Server 2008 R2 or later. 
+- If you are running a Windows server operating system on your device, it needs to be Windows Server 2008 R2 or later. 
 
 
 ## Compliant device
 
-You administration might have configured a conditional access policy that allows access to your organization's resources from compliant devices. To be compliant, your device must be either joined to your on-premises Active Directory or joined to your Azure Active Directory.
+Your administrator might have configured a conditional access policy that allows access to your organization's resources only from compliant devices. To be compliant, your device must be either joined to your on-premises Active Directory or joined to your Azure Active Directory.
 
 You can easily identify whether you can't access a resource due to a device that is not compliant by looking at the details section of the error page:
  
