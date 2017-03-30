@@ -92,7 +92,7 @@ The following diagram illustrates this configuration:
 
 For this scenario, every VM in the backend pool has three network interfaces:
 
-* DIP: a Virtual NIC associated with the VM (Azure's NIC resource)
+* DIP: a Virtual NIC associated with the VM (IP configuration of Azure's NIC resource)
 * VIP1: a loopback interface within guest OS that is configured with IP address of VIP1
 * VIP2: a loopback interface within guest OS that is configured with IP address of VIP2
 

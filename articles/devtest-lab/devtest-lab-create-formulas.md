@@ -65,7 +65,7 @@ The following steps guide you through the process of creating a formula from a c
 	* **Advanced settings** - Select to open the **Advanced** blade where you configure the following settings:
 		* **Virtual network** - Specify the desired virtual network.
 		* **Subnet** - Specify the desired subnet.    
-		* **IP address configuration** - Specify if you want the Public, Private, or Shared IP addresses. For information about shared IP addresses, see Understand shared IP addresses in Azure DevTest Labs.
+		* **IP address configuration** - Specify if you want the Public, Private, or Shared IP addresses. For more information about shared IP addresses, see [Understand shared IP addresses in Azure DevTest Labs](./devtest-lab-shared-ip.md).
 		* **Make this machine claimable** - Making a machine "claimable" means that it will not be assigned ownership at the time of creation. Instead lab users will be able to take ownership ("claim") the machine in the lab's blade.     
 	* **Image** - This field displays name of the base image you selected on the previous blade. 
      

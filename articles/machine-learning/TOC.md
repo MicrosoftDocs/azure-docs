@@ -159,6 +159,7 @@
 #### [Use Excel](machine-learning-consuming-from-excel.md)
 #### [Use Excel add-in](machine-learning-excel-add-in-for-web-services.md)
 #### [Use web app template](machine-learning-consume-web-service-with-web-app-template.md)
+#### [Use Batch Pool](machine-learning-dedicated-capacity-for-bes-jobs.md)
 
 ## Examples
 ### [Sample experiments](machine-learning-sample-experiments.md)

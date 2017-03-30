@@ -11,6 +11,7 @@ tags: azure-portal
 
 ms.assetid: 2c10f989-7636-41bf-b7f7-c4b67ec0814f
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -133,7 +134,7 @@ These statements perform the following actions:
 > 
 > ```set hive.execution.engine=tez;```
 > 
-> This can be submitted on a per-query basis by placing it at the beginning of your query. You can also set this to be on by default on a cluster by setting the configuration value when you create the cluster. You can find more details in [Provisioning HDInsight Clusters](hdinsight-provision-clusters.md).
+> This can be submitted on a per-query basis by placing it at the beginning of your query. You can also set this to be on by default on a cluster by setting the configuration value when you create the cluster. You can find more details in [Provisioning HDInsight Clusters](hdinsight-hadoop-provision-linux-clusters.md).
 > 
 > 
 
@@ -174,8 +175,6 @@ Now that you've learned what Hive is and how to use it with Hadoop in HDInsight,
 
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Use Pig with HDInsight][hdinsight-use-pig]
-* [Use Sqoop with HDInsight](hdinsight-use-sqoop.md)
-* [Use Oozie with HDInsight](hdinsight-use-oozie.md)
 * [Use MapReduce jobs with HDInsight][hdinsight-use-mapreduce]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx

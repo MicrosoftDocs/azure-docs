@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 03/10/2017
 ms.author: jeedes
 
 ---
@@ -145,43 +145,31 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 	
 	d. Click **Ok**
 
-6. On the **SAML Signing Certificate** section, click **Create new certificate**.
-
-	![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_06.png) 	
-
-7. On the **Create New Certificate** dialog, click the calendar icon and select an **expiry date**. Then click **Save** button.
-
-	![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_general_300.png)
-
-8. On the **SAML Signing Certificate** section, select **Make new certificate active** and click **Save** button.
-
-	![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_07.png)
-
-9. On the pop-up **Rollover certificate** window, click **OK**.
-
-	![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_general_400.png)
-
-10. On the **SAML Signing Certificate** section, click **Certificate (base64)** and then save the certificate file on your computer.
+6. On the **SAML Signing Certificate** section, click **Certificate (base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_08.png) 
 
-11. On the **OfficeSpace Software Configuration** section, click **Configure OfficeSpace Software** to open **Configure sign-on** window.
+7. Click **Save**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_general_400.png)
+
+8. On the **OfficeSpace Software Configuration** section, click **Configure OfficeSpace Software** to open **Configure sign-on** window.
 
 	![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_09.png) 
 
 	![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_10.png)
 
-12. In a different web browser window, log into your OfficeSpace Software tenant as an administrator.
+9. In a different web browser window, log into your OfficeSpace Software tenant as an administrator.
 
-13. Go to **Settings** and click **Connectors**.
+10. Go to **Settings** and click **Connectors**.
 
 	![Configure Single Sign-On On App Side](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_002.png)
 
-14. Click **SAML Authorization**.
+11. Click **SAML Authentication**.
 
 	![Configure Single Sign-On On App Side](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_003.png)
 
-15. In the **SAML Authorization** section, perform the following steps:
+12. In the **SAML Authentication** section, perform the following steps:
 
 	![Configure Single Sign-On On App Side](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_004.png)
 

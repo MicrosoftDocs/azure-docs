@@ -36,6 +36,7 @@ This article catalogs the most common errors and mitigations during the migratio
 | Storage account/HostedService/Virtual Network {virtual-network-name} is in the process of being migrated and hence cannot be changed |This error happens when the "Prepare" migration operation has been completed on the resource and an operation that would make a change to the resource is triggered. Because of the lock on the management plane after "Prepare" operation, any changes to the resource are blocked. To unlock the management plane you can run the "Commit" migration operation to complete migration or the "Abort" migration operation to roll back the "Prepare" operation. |
 | Migration is not allowed for HostedService {hosted-service-name} because it has VM {vm-name} in State: RoleStateUnknown. Migration is allowed only when the VM is in one of the following states - Running, Stopped, Stopped Deallocated. |The VM might be undergoing through a state transition which usually happens when during an update operation on the HostedService such as a reboot, extension installation etc. It is recommended for the update operation to complete on the HostedService before trying migration. |
 | Deployment {deployment-name} in HostedService {hosted-service-name} contains a VM {vm-name} with Data Disk {data-disk-name} whose physical blob size {size-of-the-vhd-blob-backing-the-data-disk} bytes does not match the VM Data Disk logical size {size-of-the-data-disk-specified-in-the-vm-api} bytes. Migration will proceed without specifying a size for the data disk for the Azure Resource Manager VM. If you'd like to correct the data disk size before proceeding with migration, visit https://aka.ms/vmdiskresize. | This error happen if you've resized the VHD blob without updating the size in the VM API model. Detailed mitigation steps are outlined [below](#vm-with-data-disk-whose-physical-blob-size-bytes-does-not-match-the-vm-data-disk-logical-size-bytes).|
+| A storage exception occurred while validating data disk {data disk name} with media link {data disk Uri} for VM {VM name} in Cloud Service {Cloud Service name}. Please ensure that the VHD media link is accessible for this virtual machine | This error can happen if the disks of the VM have been deleted or are not accessible anymore. Please make sure the disks for the VM exist.|
 
 ## Detailed mitigations
 
@@ -157,6 +158,22 @@ Add-AzureDataDisk -Import -DiskName $diskName -LUN 0 -VM $vm -HostCaching ReadWr
 OperationDescription OperationId                          OperationStatus
 -------------------- -----------                          ---------------
 Update-AzureVM       b0ad3d4c-4v68-45vb-xxc1-134fd010d0f8 Succeeded      
+```
+
+### Moving a VM to a different subscription after completing migration
+
+After you complete the migration process, you may want to move the VM to a another subscription. However, if you have a secret/certificate on the VM that references a Key Vault resource, the move is currently not supported. The below instructions will allow you to workaround the issue. 
+
+#### PowerShell
+```powershell
+$vm = Get-AzureRmVM -ResourceGroupName "MyRG" -Name "MyVM"
+Remove-AzureRmVMSecret -VM $vm
+Update-AzureRmVM -ResourceGroupName "MyRG" -VM $vm
+```
+#### Azure CLI 2.0
+
+```bash
+az vm update -g "myrg" -n "myvm" --set osProfile.Secrets=[]
 ```
 
 ## Next steps

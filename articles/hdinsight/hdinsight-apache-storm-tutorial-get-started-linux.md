@@ -14,10 +14,10 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 03/17/2017
 ms.author: larryfr
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
 #Get started with the Storm Starter samples for big data analytics on Linux-based HDInsight
 
@@ -32,11 +32,7 @@ Apache Storm is a scalable, fault-tolerant, distributed, real-time computation s
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **Familiarity with SSH and SCP**. For more information on using SSH and SCP with HDInsight, see the following documents:
-  
-    * [Use SSH with Linux-based Hadoop on HDInsight from Bash on Windows 10, Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-    
-    * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* **Familiarity with SSH and SCP**. For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ### Access control requirements
 
@@ -96,15 +92,11 @@ Use the following steps to create a Storm on HDInsight cluster:
    
     If you used a password to secure your SSH user account, you are prompted to enter it. If you used a public key, you may need use the `-i` parameter to specify the matching private key. For example, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
    
-    For more information on using SSH with Linux-based HDInsight, see the following articles:
-   
-    * [Use SSH with Linux-based Hadoop on HDInsight from Bash on Windows 10, Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use the following command to start an example topology:
    
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm jar org.apache.storm.starter.WordCountTopology wordcount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
    
     > [!NOTE]
     > On previous versions of HDInsight, the class name of the topology is `storm.starter.WordCountTopology` instead of `org.apache.storm.starter.WordCountTopology`.

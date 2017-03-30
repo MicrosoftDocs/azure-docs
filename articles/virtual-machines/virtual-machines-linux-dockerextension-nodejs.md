@@ -40,7 +40,7 @@ Azure Resource Manager templates define the entire structure of your environment
 ## Deploy a template with the Azure Docker VM extension
 Let's use an existing quickstart template to create an Ubuntu VM that uses the Azure Docker VM extension to install and configure the Docker host. You can view the template here: [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). 
 
-You need the [latest Azure CLI](../xplat-cli-install.md) installed and logged in using the Resource Manager mode as follows:
+You need the [latest Azure CLI](../cli-install-nodejs.md) installed and logged in using the Resource Manager mode as follows:
 
 ```azurecli
 azure config mode arm

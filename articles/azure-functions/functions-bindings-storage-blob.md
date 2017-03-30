@@ -102,7 +102,7 @@ For example:
 This path would find a blob named *{20140101}-soundfile.mp3* in the *images* container, and the `name` variable value in the function code 
 would be *soundfile.mp3*. 
 
-<a name"receipts"></a>
+<a name="receipts"></a>
 
 ### Blob receipts
 The Azure Functions runtime makes sure that no blob trigger function gets called more than once for the same new or updated blob. 

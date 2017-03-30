@@ -105,8 +105,8 @@ The DoD regions for Azure Government are available through the Azure Government 
 ### What services are part of your Impact Level 5 accreditation scope? 
 Azure is an evergreen service where new services and capabilities are being added every week, the number of services in scope is regularly expanding.  For the most up-to-date information, please visit our<a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA"> Microsoft Trust Center.
 
+## <a name="Next-steps"></a>Next steps:
 
-## Next steps:
 <a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA"> Microsoft Trust Center - DoD web page </a>
 
 <a href="http://iasecontent.disa.mil/cloud/SRG/index.html"> The DoD Cloud Computing Security Requirements Guide, Version 1, Release 2 </a>

@@ -75,7 +75,7 @@ See [this article](https://technet.microsoft.com/library/mt723354.aspx) for the 
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/SP2016Farm.png)
 
 ## Managing the SharePoint farms
-You can administer the servers of these farms through Remote Desktop connections. For more information, see [Log on to the virtual machine](virtual-machines-windows-hero-tutorial.md#connect-to-the-virtual-machine-and-sign-on).
+You can administer the servers of these farms through Remote Desktop connections. For more information, see [Log on to the virtual machine](virtual-machines-windows-quick-create-portal.md#connect-to-virtual-machine).
 
 From the Central Administration SharePoint site, you can configure My sites, SharePoint applications, and other functionality. For more information, see [Configure SharePoint](http://technet.microsoft.com/library/ee836142.aspx).
 

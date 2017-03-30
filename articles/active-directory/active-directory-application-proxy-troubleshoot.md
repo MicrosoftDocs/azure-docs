@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/07/2017
 ms.author: kgremban
 
 ms.custom: H1Hack27Feb2017
@@ -29,7 +29,7 @@ If errors occur in accessing a published application or in publishing applicatio
 * Open Event Viewer and look for Application Proxy connector events in **Applications and Services Logs** > **Microsoft** > **AadApplicationProxy** > **Connector** > **Admin**.
 * If needed, more detailed logs are available by turning on analytics and debugging logs, and turning on the Application Proxy connector session log.
 
-For more information about the Azure AD Troubleshooting tool, see [Troubleshooting tool to validate connector networking prerequisites}(https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites).
+For more information about the Azure AD Troubleshooting tool, see [Troubleshooting tool to validate connector networking prerequisites](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites).
 
 ## The page is not rendered correctly
 You may have problems with your application rendering or functioning incorrectly without receiving specific error messages. This can occur if you published the article path, but the application requires content that exists outside that path.

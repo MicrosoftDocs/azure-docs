@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2017
+ms.date: 03/14/2017
 ms.author: awills
 
 ---
@@ -79,9 +79,10 @@ Open your Application Insights resource. Either sign in to the [Azure portal](ht
 ![Screenshot of Visual Studio, showing how to open the Application Insights portal](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
 > [!NOTE]
-> If you receive an access error, you might have more than one set of Microsoft credentials, and you might be signed in with the wrong set. In the portal, sign out and sign in again.
+> If you get an access error: Do you have more than one set of Microsoft credentials, and are you signed in with the wrong set? In the portal, sign out and sign in again.
 
 The portal opens on a view of the telemetry from your app.
+
 ![Screenshot of Application Insights overview page](./media/app-insights-asp-net/66.png)
 
 Click any tile or chart to see more detail.
@@ -194,6 +195,10 @@ However, notice that the build version number is generated only by the Microsoft
 If you use Visual Studio Team Services, you can [get an annotation marker](app-insights-annotations.md) added to your charts whenever you release a new version. The following image shows how this marker appears.
 
 ![Screenshot of sample release annotation on a chart](./media/app-insights-asp-net/release-annotation.png)
+
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## Next steps
 **[Working with Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Includes information about debugging with telemetry, diagnostic search, and drill through to code.

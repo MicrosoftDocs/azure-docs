@@ -111,4 +111,4 @@ Once an Azure Resource Manager template repository has been configured in the la
 
 ## Next steps
 * Once a VM has been created, you can connect to the VM by selecting **Connect** on the VM's blade.
-* Explore the [Azure Resource Manager templates from Azure QuickStart template gallery](https://github.com/Azure/azure-quickstart-templates)
+* Explore the [Azure Resource Manager templates from Azure Quickstart template gallery](https://github.com/Azure/azure-quickstart-templates)
