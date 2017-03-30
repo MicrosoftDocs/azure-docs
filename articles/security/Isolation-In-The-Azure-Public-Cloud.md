@@ -145,7 +145,7 @@ For diagnostics and maintenance needs, an operational model that employs a just-
 Azure Active Directory hosts each tenant in its own protected container, with policies and permissions to and within the container solely owned and managed by the tenant.
 
 The concept of tenant containers is deeply ingrained in the directory service at all layers, from portals all the way to persistent storage.
-<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig2.png" width ="300" height="300" alt ="" align ="right">
+<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig2.png" width ="300" height="250" alt ="" align ="right">
 Even when metadata from multiple Azure Active Directory tenants is stored on the same physical disk, there is no relationship between the containers other than what is defined by the directory service, which in turn is dictated by the tenant administrator.
 ## 2.2 Azure Role-Based Access Control (RBAC)
 [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-what-is) helps you to share various components available within an Azure subscription by providing fine-grained access management for Azure. Azure RBAC enables you to segregate duties within your organization and grant access based on what users need to perform their jobs. Instead of giving everybody unrestricted permissions in Azure subscription or resources, you can allow only certain actions.
@@ -203,13 +203,13 @@ In Azure, the root VM is special: it runs a hardened operating system called the
 
 The collection of Azure hypervisor, root OS/FA, and customer VMs/GAs comprises a compute node. FAs are managed by a fabric controller (FC), which exists outside of compute and storage nodes (compute and storage clusters are managed by separate FCs). If a customer updates their application’s configuration file while it’s running, the FC communicates with the FA, which then contacts GAs, which notifies the application of the configuration change. In the event of a hardware failure, the FC will automatically find available hardware and restart the VM there.
 
-<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig6.jpg" width ="400" height="250" alt ="" >
+<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig6.jpg" width ="500" height="200" alt ="" >
 
 Communication from a Fabric Controller to an agent is unidirectional. The agent implements an SSL-protected service that only responds to requests from the controller. It cannot initiate connections to the controller or other privileged internal nodes. The FC treats all responses as if they were untrusted.
 
 Isolation extends from the Root VM from Guest VMs, and the Guest VMs from one another. Compute nodes are also isolated from storage nodes for increased protection.
 
-<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig7.png" width ="400" height="340" alt ="" align ="right">
+<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig7.png" width ="500" height="280" alt ="" align ="right">
 
 The hypervisor and the host OS provide network packet - filters to help assure that untrusted virtual machines cannot generate spoofed traffic or receive traffic not addressed to them, direct traffic to protected infrastructure endpoints, or send/receive inappropriate broadcast traffic.
 
@@ -225,9 +225,10 @@ There are three VLANs in each cluster:
 -	The main VLAN – interconnects untrusted customer nodes
 -	The FC VLAN – contains trusted FCs and supporting systems
 -	The device VLAN – contains trusted network and other infrastructure devices
-Communication is permitted from the FC VLAN to the main VLAN, but cannot be initiated from the main VLAN to the FC VLAN. Communication is also blocked from the main VLAN to the device VLAN. This assures that even if a node running customer code is compromised, it cannot attack nodes on either the FC or device VLANs.
 
-<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig8.jpg" width ="400" height="340" alt ="" align ="right">
+<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig8.jpg" width ="300" height="300" alt ="" align ="right">
+
+Communication is permitted from the FC VLAN to the main VLAN, but cannot be initiated from the main VLAN to the FC VLAN. Communication is also blocked from the main VLAN to the device VLAN. This assures that even if a node running customer code is compromised, it cannot attack nodes on either the FC or device VLANs.
 
 # 4.0 Storage Isolation
 ## 4.1 Logical Isolation Between Compute and Storage
@@ -236,11 +237,11 @@ As part of its fundamental design, Microsoft Azure separates VM-based computatio
 Consequently, Azure Storage runs on separate hardware with no network connectivity to Azure Compute except logically.. [This](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf) means that when a virtual disk is created, disk space is not allocated for its entire capacity. Instead, a table is created that maps addresses on the virtual disk to areas on the physical disk and that table is initially empty. **The first time a customer writes data on the virtual disk, space on the physical disk is allocated, and a pointer to it is placed in the table.**
 ## 4.2 Isolation Using Storage Access control
 **Access Control in Azure Storage** Azure Storage has a simple access control model. Each Azure subscription can create one or more Storage Accounts. Each Storage Account has a single secret key that is used to control access to all data in that Storage Account.
-
+<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig9.png" width ="400" height="340" alt ="" align ="right">
 **Access to Azure Storage data (including Tables)** can be controlled through a [SAS (Shared Access Signature)](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1) token, which grants scoped access. The SAS is created through a query template (URL), signed with the [SAK (Storage Account Key)](https://msdn.microsoft.com/en-us/library/azure/ee460785.aspx). That [signed URL](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1) can be given to another process (i.e., delegated), which can then fill in the details of the query and make the request of the storage service. A SAS enables you to grant time-based access to clients without revealing the storage account’s secret key.
 
 Figure 9: Storage Account Access
-<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig9.png" width ="400" height="340" alt ="" align ="right">
+
 The SAS means that we can grant a client limited permissions, to objects in our storage account for a specified period of time and with a specified set of permissions. We can grant these limited permissions without having to share your account access keys.
 ## 4.3 IP Level Storage Isolation
 You can establish firewalls and define an IP address range for your trusted clients. With an IP address range, only clients that have an IP address within the defined range can connect to [Azure Storage](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
