@@ -1,5 +1,25 @@
+---
+title: What are Service Health Notifications | Microsoft Docs
+description: Service health notifications allow you to view service health messages publish by Microsoft Azure.
+author: anirudhcavale
+manager: carmonm
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+
+ms.assetid:
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/31/2017
+ms.author: ancav
+
+---
 # Service Health Notifications
 ## Overview
+
 This article shows you how to view service health notifications using the Azure portal.
 
 >[!NOTE]
@@ -7,15 +27,16 @@ This article shows you how to view service health notifications using the Azure 
 >
 >
 
-Service health notifications enable you to view service health messages published by the Azure team that may be affecting resources under your subscription. These notifications are a sub-class of activity log events and can also be found on the activity log blade. Service health notifications can be informational or actionable depending on the class.
+Service health notifications allow you to view service health messages published by the Azure team that may be affecting the resources under your subscription. These notifications are a sub-class of activity log events and can also be found on the activity log blade. Service health notifications can be informational or actionable depending on the class.
 
 There are five classes of service health notifications:  
-**Action Required:** From time to time we may notice something unusual happen on your account. We may need to work with you to remedy this. We will send you a notification either detailing the actions you will need to take or with details on how to contact Azure engineering or support.  
-**Assisted Recovery:** An event has occurred and engineers have confirmed that you are still experiencing impact. Engineering will need to work with you directly to bring your services to restoration.  
-**Incident:** A service impacting event is currently affecting one or more of the resources in your subscription.  
-**Maintenance:** This is a notification informing you of a planned maintenance activity that may impact one or more of the resources under your subscription.  
-**Information:** From time to time we may send you notifications that a communicate to you about potential optimizations that may help improve your resource utilization.  
-**Security:** Urgent security related information regarding your solution(s) running on Azure.
+
+- **Action Required:** From time to time we may notice something unusual happen on your account. We may need to work with you to remedy this. We will send you a notification either detailing the actions you will need to take or with details on how to contact Azure engineering or support.  
+- **Assisted Recovery:** An event has occurred and engineers have confirmed that you are still experiencing impact. Engineering will need to work with you directly to bring your services to restoration.  
+- **Incident:** A service impacting event is currently affecting one or more of the resources in your subscription.  
+- **Maintenance:** This is a notification informing you of a planned maintenance activity that may impact one or more of the resources under your subscription.  
+- **Information:** From time to time we may send you notifications that a communicate to you about potential optimizations that may help improve your resource utilization.  
+- **Security:** Urgent security related information regarding your solution(s) running on Azure.
 
 Each service health notification will carry details on the scope and impact to your resources. Details will include:
 

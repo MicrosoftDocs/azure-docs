@@ -1,4 +1,23 @@
-# Action Groups #
+---
+title: Create and Manager Action Groups in Azure Portal | Microsoft Docs
+description:
+author: anirudhcavale
+manager: carmonm
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+
+ms.assetid:
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/31/2017
+ms.author: ancav
+
+---
+# Create and Manager Action Groups in Azure Portal
 ## Overview ##
 This article shows you how to create and manage action groups in the Azure portal.
 
@@ -15,7 +34,7 @@ An action group can have up to 10 of each action type. An action is defined by t
 **Action Type:** This defines the action that will be performed. Options are send SMS, send Email, or call a Webhook.  
 **Details:** Based on the action type, the corresponding phone number, email address or webhook URI needs to be provided.
 
-You can configure and get information about service health otification alerts using:
+You can configure and get information about service health notification alerts using:
 * [Azure Portal](monitoring-action-groups.md)
 - [Resource Manager templates](monitoring-create-action-group-with-resource-manager-template.md)
 

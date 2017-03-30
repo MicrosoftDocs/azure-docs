@@ -1,5 +1,24 @@
+---
+title: Create an activity log alert with a Resource Manager Template  | Microsoft Docs
+description: Get notified when your Azure resources are created.
+author: anirudhcavale
+manager: carmonm
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+
+ms.assetid:
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/31/2017
+ms.author: ancav
+
+---
 # Create an activity log alert with a Resource Manager Template
-This article shows how you can use an [Azure Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) to configure activity log alerts. This enables you to automatically set up alerts on your resources when they are created to ensure that you are notified when certain actions are taken on your resources.
+This article shows how you can use an [Azure Resource Manager template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) to configure activity log alerts. This enables you to automatically set up alerts on your resources when they are created as part of your automated deployment process.
 
 >[!NOTE]
 >This feature is currently in public preview. Not all functionality may be available at this time.

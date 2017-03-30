@@ -1,7 +1,26 @@
+---
+title: Create Activity Log Alerts | Microsoft Docs
+description: Be notified via SMS, webhook, and email when certain events occur in the Activity log.
+author: anirudhcavale
+manager: carmonm
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-# Configure Activity Log Alerts
+ms.assetid:
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/31/2017
+ms.author: ancav
+
+---
+# Create Activity Log Alerts
+
 ## Overview
-This article shows you how to set up activity log alerts for activity log events using the Azure portal.
+This article shows you how to use the Azure portal to set up alerts on activity log events.
 
 >[!NOTE]
 >This feature is currently in public preview. Not all functionality may be available at this time.
@@ -44,9 +63,11 @@ You can configure and get information about service health notification alerts u
 5.	**Name** your activity log alert, and choose a **Description**. These will appear in the notifications sent when this alert fires.
 
     ![Add-Alert](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
+
 6.	The **Subscription** should be auto filled to the subscription you are currently operating under.
 
     ![Add-Alert-New-Action-Group](./media/monitoring-activity-log-alerts/activity-log-alert-new-action-group.png)
+
 7.	Choose the **Resource Group** for this alert.
 
 8.	Provide the **Event Category**, **Resource Group**, **Resource**, **Resource Type**, **Operation Name**, **Level**, **Status** and **Event intiated by** values to scope for what events this alert should apply.

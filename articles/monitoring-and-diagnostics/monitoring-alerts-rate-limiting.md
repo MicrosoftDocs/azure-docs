@@ -1,22 +1,39 @@
-# Rate Limiting
-In order to ensure that communication around activity log alerts and service health alerts are manageable and actionable, rate limiting on SMS and Email alerts have been put in place.
+---
+title: Rate Limiting for SMS, Emails and Webhooks | Microsoft Docs
+description: Be notified via SMS, webhook, and email when certain events occur in the Activity log.
+author: anirudhcavale
+manager: carmonm
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+
+ms.assetid:
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/31/2017
+ms.author: ancav
+
+---
+
+# Rate Limiting for SMS, Emails and Webhooks
+Rate limiting is a suspension of notifications that occurs when too many are sent to a particular phone number or email. Limiting ensures that communication around activity log alerts and service health alerts are manageable and actionable
 
 >[!NOTE]
 >This feature is currently in public preview. Not all functionality may be available at this time.
 >
 >
 
-## Rate Limit for SMS Alerts
-Rate limiting for SMS alerts is configured as follows:
-* A particular phone number will be rate limited if they receive more than 10 SMS alerts over the period of an hour
-- It is important to note that the rate limiting is applied across all subscriptions. So if a particular phone number is part of action groups across many subscriptions. As soon as 10 SMS alerts are sent to that number, from any combination of subscriptions, rate limiting will kick in
-- When a phone number is rate limited an SMS will be sent to communicate the rate limiting. The SMS will carry details as to when the rate limiting will expire.
+The rules for SMS and Email are the same. The rate limit threshold for
+ - SMS - 10 messages in an hour
+ - Email - 100 messages in and hour
 
-## Rate Limit for Email Alerts
-Rate limiting for email alerts is configured as follows:
-* A particular email address will be rate limited if they receive more than 100 email alerts over the period of an hour
-- It is important to note that the rate limiting is applied across all subscriptions. So if a particular email address is part of action groups across many subscriptions. As soon as 100 email alerts are sent to that address, from any combination of subscriptions, rate limiting will kick in
-- When an email address is rate limited an email will be sent to communicate the rate limiting. The email will carry details as to when the rate limiting will expire.
+## Rate Limit rules
+- A particular phone number or email is rate limited when it receives more than the threshold
+- A phone number or email can be part of action groups across many subscriptions. Rate limiting applies across all subscriptions, that is, it applies as soon as the threshold is reached even if sent from multiple subscriptions.  
+- When a phone number or email is rate limited, an additional message of the same type is sent to communicate the rate limiting. The SMS or email states when the rate limiting expires.
 
 ## Rate Limit of Webhooks ##
 There is no rate limiting in place for webhooks today.
