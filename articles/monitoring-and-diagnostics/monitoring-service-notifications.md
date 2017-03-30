@@ -1,5 +1,5 @@
-# Service Health Notifications #
-## Overview ##
+# Service Health Notifications
+## Overview
 This article shows you how to view service health notifications using the Azure portal.
 
 >[!NOTE]
@@ -47,19 +47,19 @@ Properties.stage | Possible values for AssistedRecovery, ActionRequired, Informa
 Properties.communicationId | The communication this event is associated.
 
 
-## Viewing your service health notifications in the Azure portal ##
+## Viewing your service health notifications in the Azure portal
 1.	In the [portal](https://portal.azure.com), navigate to the **Monitor** service
 
-    ![Monitor](./media/monitoring-service-notifications/Home-Monitor.png)
+    ![Monitor](./media/monitoring-service-notifications/home-monitor.png)
 2.	Click the **Monitor** option to open up the Monitor blade. This blade brings together all your monitoring settings and data into one consolidated view. It first opens to the **Activity log** section.
 
 3.	Now click on **Service Notifications** section
 
-    ![Monitor](./media/monitoring-service-notifications/Service-Health-Summary.png)
+    ![Monitor](./media/monitoring-service-notifications/service-health-summary.png)
 4.	Click on any of the line items to view more details
 
 5. Click on the **+Add Activity Log Alert** operation to receive notifications to ensure you are notified for future service notifications of this type. To learn more on configuring alerts on service notifications [click here](monitoring-activity-log-alerts-on-service-notifications.md)
 
-## Next Steps: ##
+## Next Steps:
 Receive [alert notifications whenever a service health notification](monitoring-activity-log-alerts-on-service-notifications.md) is posted  
 Learn more about [activity log alerts](monitoring-activity-log-alerts.md)

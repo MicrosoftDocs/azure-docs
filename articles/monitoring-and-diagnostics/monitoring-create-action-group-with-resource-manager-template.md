@@ -1,5 +1,5 @@
-# Create an action group with a Resource Manager Template #
-This article shows how you can use an [Azure Resource Manager template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) to configure action groups. This enables you to automatically set up action groups on your resources when they are created to ensure that all the correct parties are notified for resource updates.
+# Create an action group with a Resource Manager Template
+This article shows how you can use an [Azure Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) to configure action groups. This enables you to automatically set up action groups on your resources when they are created to ensure that all the correct parties are notified for resource updates.
 
 >[!NOTE]
 >This feature is currently in public preview. Not all functionality may be available at this time.
@@ -9,11 +9,11 @@ This article shows how you can use an [Azure Resource Manager template](https://
 The basic steps are as follows:
 
 1.	Create a template as a JSON file that describes how to create the action group.
-2.	[Deploy the template using any deployment method.](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy)
+2.	[Deploy the template using any deployment method.](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 
 Below we describe how to create a Resource Manager template first for an action group alone, then for an action group during the creation of another resource.
 
-## Resource Manager template for an action group ##
+## Resource Manager template for an action group
 
 To create an action group using a Resource Manager template, you create a resource of type `microsoft.insights/actiongroups` and fill in all related properties. Below is a template that creates an action group.
 
@@ -92,7 +92,7 @@ To create an action group using a Resource Manager template, you create a resour
 ```
 
 
-## Next Steps ##
+## Next Steps
 Learn more about [Action Groups](monitoring-action-groups.md)  
 Learn more about [Alerts](monitoring-overview-alerts.md)  
 How to add [Alerts using a Resource Manager template](monitoring-create-activity-log-alerts-with-resource-manager-template.md)

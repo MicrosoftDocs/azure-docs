@@ -27,18 +27,18 @@ You can configure and get information about service health notification alerts u
 ## Create an alert on a service health notification for a new action group with the Azure Portal
 1.	In the [portal](https://portal.azure.com), navigate to the **Monitor** service
 
-    ![Monitor](./media/monitoring-activity-log-alerts-on-service-notifications/Home-Monitor.png)
+    ![Monitor](./media/monitoring-activity-log-alerts-on-service-notifications/home-monitor.png)
 2.	Click the **Monitor** option to open the Monitor blade. It first opens to the **Activity log** section.
 
 3.	Now click on the **Alerts** section.
 
-    ![Alerts](./media/monitoring-activity-log-alerts-on-service-notifications/Alerts-Blades.png)
+    ![Alerts](./media/monitoring-activity-log-alerts-on-service-notifications/alerts-blades.png)
 4.	Select the **Add activity log alert** command and fill in the fields
 
-    ![Add-Alert](./media/monitoring-activity-log-alerts-on-service-notifications/Add-Activity-Log-Alert.png)
+    ![Add-Alert](./media/monitoring-activity-log-alerts-on-service-notifications/add-activity-log-alert.png)
 5.	**Name** your activity log alert, and choose a **Description**. These will appear in the notifications sent when this alert fires.
 
-    ![Add-Alert-New-Action-Group](./media/monitoring-activity-log-alerts-on-service-notifications/Activity-Log-Alert-Service-Notification-New-Action-Group.png)
+    ![Add-Alert-New-Action-Group](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-service-notification-new-action-group.png)
 
 6.	The **Subscription** should be auto filled to the subscription you are currently operating under.
 
@@ -60,22 +60,26 @@ You can configure and get information about service health notification alerts u
 
 Within a few minutes, the alert is active and triggers as previously described.
 
-***Note:*** The action group defined in these steps will be reusable, as an existing action group, for all future alert definition.
+>[!NOTE]
+>The action group defined in these steps will be reusable, as an existing action group, for all future alert definition.
+>
+>
+
 ## Create an alert on a service health notification for an existing action group with the Azure Portal
 1.	In the [portal](https://portal.azure.com), navigate to the **Monitor** service
 
-    ![Monitor](./media/monitoring-activity-log-alerts-on-service-notifications/Home-Monitor.png)
+    ![Monitor](./media/monitoring-activity-log-alerts-on-service-notifications/home-monitor.png)
 2.	Click the **Monitor** option to open the Monitor blade. It first opens to the **Activity log** section.
 
 3.	Now click on the **Alerts** section.
 
-    ![Alerts](./media/monitoring-activity-log-alerts-on-service-notifications/Alerts-Blades.png)
+    ![Alerts](./media/monitoring-activity-log-alerts-on-service-notifications/alerts-blades.png)
 4.	Select the **Add activity log alert** command and fill in the fields
 
-    ![Add-Alert](./media/monitoring-activity-log-alerts-on-service-notifications/Add-Activity-Log-Alert.png)
+    ![Add-Alert](./media/monitoring-activity-log-alerts-on-service-notifications/add-activity-log-alert.png)
 5.	**Name** your activity log alert, and choose a **Description**. These will appear in the notifications sent when this alert fires.
 
-    ![Add-Alert-Existing-Action-Group](./media/monitoring-activity-log-alerts-on-service-notifications/Activity-Log-Alert-Service-Notification-Existing-Action-Group.png)
+    ![Add-Alert-Existing-Action-Group](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-service-notification-existing-action-group.png)
 6.	The **Subscription** should be auto filled to the subscription you are currently operating under.
 
 7.	Choose the **Resource Group** for this alert.
@@ -88,14 +92,14 @@ Within a few minutes, the alert is active and triggers as previously described.
 
 Within a few minutes, the alert is active and triggers as previously described.
 
-## Managing your alerts ##
+## Managing your alerts
 
 Once you have created an alert, it will be visible in the Alerts section of the Monitor service. Select the alert you wish to manage, you will be able to:
 * **Edit** it.
 * **Delete** it.
 * **Disable** or **Enable** it if you want to temporarily stop of resume receiving notifications for the alert.
 
-## Next Steps: ##
+## Next Steps:
 Learn about [Service Health Notifications](monitoring-service-notifications.md)  
 Get an [overview of activity log alerts](monitoring-overview-alerts.md) and learn how to get alerted  
 Learn more about [action groups](monitoring-action-groups.md)

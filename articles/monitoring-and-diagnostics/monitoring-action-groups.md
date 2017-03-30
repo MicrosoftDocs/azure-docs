@@ -22,18 +22,18 @@ You can configure and get information about service health otification alerts us
 ## Creating an action group for the Azure portal ##
 1.	In the [portal](https://portal.azure.com), navigate to the **Monitor** service
 
-    ![Monitor](./media/monitoring-action-groups/Home-Monitor.png)
+    ![Monitor](./media/monitoring-action-groups/home-monitor.png)
 2.	Click the **Monitor** option to open up the Monitor blade. This blade brings together all your monitoring settings and data into one consolidated view. It first opens to the **Activity log** section.
 
 3.	Now click on **Action groups** section
 
-    ![Action-Group](./media/monitoring-action-groups/Action-Groups-Blade.png)
+    ![Action-Group](./media/monitoring-action-groups/action-groups-blade.png)
 4.	Click on the **Add** action group command and fill in the fields
 
-    ![Add-Action-Group](./media/monitoring-action-groups/Add-Action-Group.png)
+    ![Add-Action-Group](./media/monitoring-action-groups/add-action-group.png)
 5.	Provide a **Name** and **Short Name** for the action group; The Short Name will be referenced in notifications sent to this group
 
-      ![Action-Group-Define](./media/monitoring-action-groups/Action-Group-Define.png)
+      ![Action-Group-Define](./media/monitoring-action-groups/action-group-define.png)
 
 6.	The **Subscription** is the one the Action group will be saved in. It will be auto filled to the subscription you are currently operating under.
 
