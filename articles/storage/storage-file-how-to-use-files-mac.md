@@ -31,20 +31,20 @@ On macOS, mounting is possible from the machines located at local datacenter or 
 * [Troubleshooting  Azure file share issues on macOS](#tsg)
 
 
-# Prerequisites for mounting Azure File on macOS
+## Prerequisites for mounting Azure File on macOS
 
-## Azure File Share URL
+### Azure File Share URL
 In the portal, find the URL to the share in the Connect pane – just the
     \\\\computer\\share part.
 
 ![](media/storage-file/portal_netuse_connect.PNG)
-## Storage Account Key
+### Storage Account Key
 You will need access to your subscription in Azure Portal or your primary or secondary storage account name and key. SAS key is not supported for mounting.
 
-## Open SMB over TCP port 445
+### Open SMB over TCP port 445
 If you are connecting to a Azure FIle Share, check to see if your firewall is not blocking TCP ports 445 from client machine.
 
-## Operating support for SMB 2.1 or 3.0
+### Operating support for SMB 2.1 or 3.0
 SMB 3.0 is supported starting macOS Sierra. There are known bugs affecting macOS performance over SMB.
 
 <a id="elcapitan"/></a>
