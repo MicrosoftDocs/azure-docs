@@ -125,6 +125,38 @@ The built-in capabilities are organized in six (6) functional areas: Operations,
     <td><a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-intro" target="_blank">Security Center </a></td>
     <td><a href="" target="_blank"> </a></td>
   </tr>
+  <tr>
+    <th>Compute</th>
+    <td><a href="https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware" target="_blank">Antimalware & Antivirus</a></td>
+    <td><a href="https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis" target="_blank"> Hardware Security Module(Key Vault) </a></td>
+    <td><a href="https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup" target="_blank">VM Backup and Site recovery</a></td>
+    <td><a href="https://msdn.microsoft.com/en-us/library/bb934049.aspx" target="_blank">SQL VM TDE</a>, <a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-disk-encryption" target="_blank">VM disk encryption</a></td>
+    <td><a href="https://docs.microsoft.com/en-us/azure/security/azure-security-best-practices-software-updates-iaas
+    " target="_blank">Patch Updates</a></td>
+    <td><a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-vulnerability-assessment-recommendations" target="_blank"> Vulnerability scanning Policy Management </a>,
+    <a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-intro" target="_blank">Security center</a></td>
+  </tr>
+    <tr>
+    <th>Identity and access management</th>
+    <td><a href="https://azure.microsoft.com/en-us/services/multi-factor-authentication/" target="_blank">Multi-Factor Authentication   </a>,
+    <a href="https://aka.ms/authenticator" target="_blank">Microsoft Authenticator</a>,
+    <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-passwords-policy/" target="_blank">Password policy enforcement </a>,
+    <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-authentication-scenarios/" target="_blank">Token-based authentication </a>,
+    <a href="https://azure.microsoft.com/en-us/documentation/articles/role-based-access-built-in-roles/" target="_blank">Role-based access control</a>,
+    <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/" target="_blank">Integrated identity management</a></td>
+    <td><a href="https://azure.microsoft.com/en-us/services/active-directory/" target="_blank"> Azure Active Directory</a>,
+    <a href="https://azure.microsoft.com/en-us/updates/general-availablity-cloud-app-discovery/" target="_blank">Cloud App Discovery</a>,
+    <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-identityprotection/" target="_blank">Azure Active Directory Identity Protection</a>,
+    <a href="https://azure.microsoft.com/en-us/services/active-directory-ds/" target="_blank">Azure Active Directory Domain Services </a>,
+    <a href="https://azure.microsoft.com/en-us/services/active-directory-b2c/" target="_blank">Azure Active Directory B2C </a>,
+    <a href="https://aka.ms/aad-b2b-collaboration" target="_blank">Azure Active Directory B2B Collaboration </a>,
+    <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-azureadjoin-overview/" target="_blank">Azure Active Directory Join </a>
+    <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-get-started/" target="_blank">Azure Active Directory Application Proxy</a>
+
+    </td>
+
+  </tr>
+  
 </table>
 
 # 3.0 Operations
