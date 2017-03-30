@@ -29,7 +29,7 @@ Before you can enable and use Application Proxy services, you need to have:
 * A server running Windows Server 2012 R2, or Windows 8.1 or higher, on which you can install the Application Proxy Connector. The server sends requests to the Application Proxy services in the cloud, and it needs an HTTP or HTTPS connection to the applications that you are publishing.
   
   * For single sign-on to your published applications, this machine should be domain-joined in the same AD domain as the applications that you are publishing. For information, see [Single sign-on with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
-* If your organization uses proxy servers to connect to the internet, please take a look at the blog post [Work with existing on-premises proxy servers](https://blogs.technet.microsoft.com/applicationproxyblog/2016/03/07/working-with-existing-on-prem-proxy-servers-configuration-considerations-for-your-connectors/) for details on how to configure them.
+* If your organization uses proxy servers to connect to the internet, read [Work with existing on-premises proxy servers](application-proxy-working-with-proxy-servers.md) for details on how to configure them.
 
 ## Open your ports
 
@@ -41,9 +41,9 @@ If there is a firewall in the path, make sure that it's open so that the Connect
 | 443 |Enable user authentication against Azure AD (required only for the Connector registration process)<br>Enable the connector bootstrap sequence and automatic updates<br>Enable communication between the connector and the Azure service for incoming requests  |
 | 10100–10120 |Enable LOB HTTP responses sent back to the proxy |
 | 9350 |Optional, to enable better performance for incoming requests |
-| 8080 |Enable the Connector bootstrap sequence and Connector automatic update |
-| 9090 |Enable Connector registration (required only for the Connector registration process) |
-| 9091 |Enable Connector trust certificate automatic renewal |
+| 8080 |Enable the connector bootstrap sequence and connector automatic update |
+| 9090 |Enable connector registration (required only for the connector registration process) |
+| 9091 |Enable connector trust certificate automatic renewal |
 
 > [IMPORTANT]
 > The table reflects the port requirements for the most recent version of the connector. If you still have a connector that's older than version 1.5, you also need to enable 9350, 9352, and 5671. These ports enable communication between the older connectors and the Azure service for incoming requests. 
@@ -62,12 +62,12 @@ Use the [Azure AD Application Proxy Connector Ports Test Tool](https://aadap-por
 4. Toggle **Enable Application Proxy Services for this Directory** to **Enabled**.
    
     ![Enable Application Proxy](./media/active-directory-application-proxy-enable/app_proxy_enable.png)
-5. Select **Download now**. This takes you to the **Azure AD Application Proxy Connector Download**. Read and accept the license terms and click **Download** to save the Windows Installer file (.exe) for the connector.
+5. Select **Download now**. The **Azure AD Application Proxy Connector Download** opens. Read and accept the license terms and click **Download** to save the Windows Installer file (.exe) for the connector.
 
 ## Install and register the Connector
 1. Run **AADApplicationProxyConnectorInstaller.exe** on the server you prepared according to the prerequisites.
 2. Follow the instructions in the wizard to install.
-3. During installation, you will are prompted to register the connector with the Application Proxy of your Azure AD tenant.
+3. During installation, you are prompted to register the connector with the Application Proxy of your Azure AD tenant.
    
    * Provide your Azure AD global administrator credentials. Your global administrator tenant may be different from your Microsoft Azure credentials.
    * Make sure the admin who registers the connector is in the same directory where you enabled the Application Proxy service. For example, if the tenant domain is contoso.com, the admin should be admin@contoso.com or any other alias on that domain.
@@ -84,7 +84,7 @@ Use the [Azure AD Application Proxy Connector Ports Test Tool](https://aadap-por
 
 For information about connectors, see [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md). 
 
-For high availability purposes, you should deploy at least two connectors. To deploy more connectors, repeat steps 2 and 3, above. Each connector must be registered separately.
+For high availability purposes, you should deploy at least two connectors. To deploy more connectors, repeat steps 2 and 3. Each connector must be registered separately.
 
 If you want to uninstall the Connector, uninstall both the Connector service and the Updater service. Restart your computer to fully remove the service.
 
