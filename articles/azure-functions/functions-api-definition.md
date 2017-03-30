@@ -23,7 +23,7 @@ This preview feature allows you to write an Open API 2.0 (Swagger) definition in
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ### What is Open API (Swagger) metadata?
-[Swagger Metadata](http://swagger.io/) allows a function hosting a REST API to be consumed by a wide variety of other software. From 1st party offerings like PowerApps and [API Apps](https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-dotnet-get-started#a-idcodegena-generate-client-code-for-the-data-tier), to 3rd party developer tooling like [Postman](https://www.getpostman.com/docs/importing_swagger), and [many more packages](http://swagger.io/tools/).
+[Swagger Metadata](http://swagger.io/) allows a function hosting a REST API to be consumed by a wide variety of other software. From 1st party offerings like PowerApps and [API Apps](https://docs.microsoft.com/azure/app-service-api/app-service-api-dotnet-get-started#a-idcodegena-generate-client-code-for-the-data-tier), to 3rd party developer tooling like [Postman](https://www.getpostman.com/docs/importing_swagger), and [many more packages](http://swagger.io/tools/).
 
 >[!TIP]
 >We recommend starting with the [getting started tutorial](#functions-api-definition-getting-started.md) and then returning to this document if you want to learn more about specific features.

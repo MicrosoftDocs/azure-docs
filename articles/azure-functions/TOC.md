@@ -22,6 +22,7 @@
 #### [Mobile Apps bindings](functions-bindings-mobile-apps.md)
 #### [Notification Hub output binding](functions-bindings-notification-hubs.md)
 #### [Service Bus triggers and bindings for queues and topics](functions-bindings-service-bus.md)
+
 #### Storage bindings
 ##### [Blob bindings](functions-bindings-storage-blob.md)
 ##### [Queue bindings](functions-bindings-storage-queue.md)
@@ -33,6 +34,8 @@
 ### [Develop and debug locally](functions-run-local.md)
 ### [Best practices for Azure Functions](functions-best-practices.md)
 ### [Use Azure Functions to perform a scheduled clean-up task](functions-scenario-database-table-cleanup.md)
+### [Create an Open API definition (preview)](functions-api-definition-getting-started.md)
+####[Open API 2.0 in Functions reference](functions-api-definition.md)
 
 ## Manage
 ### [Configure settings for a function app](functions-how-to-use-azure-function-app-settings.md)
