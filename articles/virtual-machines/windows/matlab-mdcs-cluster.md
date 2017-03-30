@@ -55,7 +55,7 @@ Currently, the cluster creation script and template enable you to create a singl
 ### MATLAB client and cluster in Azure
 The MATLAB client node, MATLAB Job Scheduler node, and MATLAB Distributed Computing Server "worker" nodes are all configured as Azure VMs in a virtual network, as shown in the following figure. 
 
-![Cluster topology](./media/matlab-mdcs-cluster/matlab-mdcs-cluster.mdcs_cluster.png)
+![Cluster topology](./media/matlab-mdcs-cluster/mdcs_cluster.png)
 
 * To use the cluster, connect by Remote Desktop to the client node. The client node runs the MATLAB client. 
 * The client node has a file share that can be accessed by all workers.
