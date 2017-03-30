@@ -687,31 +687,31 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="cardText">
                                                 <h3>Develop apps</h3>
                                                 <div class="ico48Link">
-                                                    <a href="http://microsoft.com">
+                                                    <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
                                                         <img src="media/index/logo_NET.svg" alt="">
                                                         <span>ASP.NET</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="http://microsoft.com">
+                                                    <a href="/azure/app-service-web/app-service-web-php-get-started">
                                                         <img src="media/index/logo_PHP.svg" alt="">
                                                         <span>PHP</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="http://microsoft.com">
+                                                    <a href="/azure/app-service-web/app-service-web-nodejs-get-started">
                                                         <img src="media/index/logo_nodejs.svg" alt="">
                                                         <span>Node.js</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="http://microsoft.com">
+                                                    <a href="/azure/app-service-web/app-service-web-get-started-java">
                                                         <img src="media/index/logo_java.svg" alt="">
                                                         <span>Java</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="http://microsoft.com">
+                                                    <a href="/azure/app-service-web/app-service-web-get-started-python">
                                                         <img src="media/index/logo_python.svg" alt="">
                                                         <span>Python</span>
                                                     </a>
@@ -740,13 +740,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="cardText">
                                                 <h3>Command line automation</h3>
                                                 <div class="ico48Link">
-                                                    <a href="http://microsoft.com">
+                                                    <a href="/cli/azure">
                                                         <img src="media/index/logo_java.svg" alt="">
                                                         <span>Java</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="http://microsoft.com">
+                                                    <a href="/cli/azure">
                                                         <img src="media/index/logo_python.svg" alt="">
                                                         <span>Python</span>
                                                     </a>
