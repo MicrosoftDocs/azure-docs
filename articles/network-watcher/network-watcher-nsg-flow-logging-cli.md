@@ -31,6 +31,8 @@ Network Security Group flow logs are a feature of Network Watcher that allows yo
 
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
+This article uses cross-platform Azure CLI 1.0, which is available for Windows, Mac and Linux. Network Watcher currently uses Azure CLI 1.0 for CLI support.
+
 ## Enable Network Security Group Flow logs
 
 The command to enable flow logs is shown in the following example:

@@ -50,7 +50,7 @@
 ### [Resource tag policies](resource-manager-policy-tags.md)
 ### [Storage policies](resource-manager-policy-storage.md)
 ### [Linux VM policies](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Windows VM policies](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Windows VM policies](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Audit and Troubleshoot
 ### [Troubleshoot common deployment errors](resource-manager-common-deployment-errors.md)
 ### [View activity logs](resource-group-audit.md)

@@ -49,7 +49,7 @@ Sign in with the user name and password for your Twitter account.
 
 6. Now type in a search term to trigger your logic app.
 
-    ![Twitter search](media/logic-apps-create-a-logic-app/twittersearch.png)
+   ![Twitter search](media/logic-apps-create-a-logic-app/twittersearch.png)
 
 	The **Frequency** and **Interval** determine 
 	how often your logic app checks for new tweets, 
@@ -60,14 +60,14 @@ Sign in with the user name and password for your Twitter account.
 	When you select **Add an Action**, 
 	you can search [available connectors](../connectors/apis-list.md) to choose an action. 
 
-8.	In the search box, search for **outlook**, and select **Send an email** 
+8. In the search box, search for **outlook**, and select **Send an email** 
 to send email from your Outlook account to any specified email address.
 
-    ![Actions](media/logic-apps-create-a-logic-app/actions.png)
+   ![Actions](media/logic-apps-create-a-logic-app/actions.png)
 
 9. Now you have to fill out the parameters for the email you want:
 
-    ![Parameters](media/logic-apps-create-a-logic-app/parameters.png)
+   ![Parameters](media/logic-apps-create-a-logic-app/parameters.png)
 
 10. Finally, you can select **Save** to make your logic app live.
 
