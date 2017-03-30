@@ -1,6 +1,6 @@
 ---
 title: Set up event monitor with Azure Event Hubs for Azure Logic Apps | Microsoft Docs
-description: Monitor data streams to receive events and send events for Azure Logic Apps with the Azure Event Hubs connector
+description: Monitor data streams to receive events and send events for Azure Logic Apps with Azure Event Hubs
 services: logic-apps
 author: ecfan
 manager: anneta
@@ -19,11 +19,11 @@ ms.date: 03/31/2017
 ms.author: LADocs; estfan
 ---
 
-# Monitor, receive, and send events with the Azure Event Hubs connector
+# Monitor, receive, and send events with the Event Hubs connector
 
 To set up an event monitor so that your logic app can detect events, receive events, and send events, 
 connect to an [Azure Event Hub](https://azure.microsoft.com/services/event-hubs) 
-from your logic app workflow. Learn more about 
+from your logic app. Learn more about 
 the [Azure Event Hubs service](../event-hubs/event-hubs-what-is-event-hubs.md).
 
 ## Requirements
