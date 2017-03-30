@@ -27,7 +27,7 @@ Azure SQL Database resources can emit metrics and diagnostic logs for easier mon
 
     <img src="./media/sql-database-metrics-diag-logging/architecture.png" alt="architecture" style="width: 780px;" />
 
-## Enable metrics and diagnostics logging
+## Enable logging
 
 Metrics and diagnostics logging is not enabled by default. You can enable and manage metrics and diagnostics logging using one of the following methods:
 - Azure portal
@@ -52,7 +52,7 @@ We recommend that you read the both [Overview of metrics in Microsoft Azure](../
 
 ### Azure portal
 
-To  enable metrics and diagnostic logs collection in the Azure portal, go to the Azure portal page for your Azure SQL database or elastic pool and then click Diagnostic configuration.
+To enable metrics and diagnostic logs collection in the Azure portal, navigate to your Azure SQL database or elastic pool page, and then click **Diagnostic configuration**.
 
    <img src="./media/sql-database-metrics-diag-logging/enable-portal.png" alt="enable in the Azure portal" style="width: 780px;" />
 
@@ -72,9 +72,7 @@ To enable metrics and diagnostics logging using PowerShell, use the following co
 
    The Service Bus Rule ID is a string with this format:
 
-    ```
-    {service bus resource ID}/authorizationrules/{key name}
-    ``` 
+    ```{service bus resource ID}/authorizationrules/{key name}``` 
 
 - To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
 
@@ -102,9 +100,7 @@ To enable metrics and diagnostics logging using the Azure CLI, use the following
 
    The Service Bus Rule ID is a string with this format:
 
-    ```
-    {service bus resource ID}/authorizationrules/{key name}
-    ```
+    ```{service bus resource ID}/authorizationrules/{key name}```
 
 - To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
 
@@ -120,7 +116,7 @@ Read about how to [change Diagnostic settings using the Azure Monitor REST API](
 
 Read about how to [enable Diagnostic settings at resource creation using Resource Manager template](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md). 
 
-## Streaming Azure SQL Database metrics and diagnostics logs into Log Analytics 
+## Streaming into Log Analytics 
 Azure SQL Database metrics and diagnostic logs can be streamed into Log Analytics using the built-in “Export to Log Analytics” option in the portal, or by enabling Log Analytics in a diagnostic setting via Azure PowerShell cmdlets, Azure CLI or Azure Monitor REST API.
 
 ### Installation overview
@@ -172,7 +168,7 @@ This section focuses on the query behavior on all the databases under the select
 
 Great thing about the query monitoring section is that allows you to drill down into more details. Selecting a significant query opens up another report that lists all the databases where a selected query was executed making it easy to compare the query performance across different databases. Selecting a single database from this list opens up the report with different query execution statistics and the query text for a selected query on a selected database.
 
-## Streaming Azure SQL Database metrics and diagnostic logs into Azure Event Hub
+## Stream into Azure Event Hub
 
 Azure SQL Database metrics and diagnostic logs can be streamed into Event Hub using the built-in “Export to Event Hub” option in the portal, or by enabling Service Bus Rule Id in a diagnostic setting via Azure PowerShell Cmdlets, Azure CLI or Azure Monitor REST API. 
 
@@ -189,7 +185,7 @@ Here are just a few ways you might use the streaming capability:
 -	Stream logs to 3rd party logging and telemetry streams – Using Event Hubs streaming you can get your metrics and diagnostic logs into different third party monitoring and log analytics solutions. 
 -	Build a custom telemetry and logging platform – If you already have a custom-built telemetry platform or are just thinking about building one, the highly scalable publish-subscribe nature of Event Hubs allows you to flexibly ingest diagnostic logs. See [Dan Rosanova’s guide to using Event Hubs in a global scale telemetry platform](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
-## Streaming Azure SQL Database metrics and diagnostics into Azure Storage
+## Stream into Azure Storage
 
 Azure SQL Database metrics and diagnostic logs can be stored into Azure Storage using the built-in “Export to Azure Storage” option in the portal, or by enabling Azure Storage in a diagnostic setting via Azure PowerShell Cmdlets, Azure CLI or Azure Monitor REST API.
 
