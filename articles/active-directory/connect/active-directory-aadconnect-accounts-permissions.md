@@ -112,9 +112,10 @@ The sync service can run under different accounts. It can run under a **Virtual 
 | --- | --- | --- |
 | [Virtual Service Account](#virtual-service-account) | Express and custom, 2017 April and later | This is the option used for all express installations. For custom it is the default option unless another option is used. |
 | [Group Managed Service Account](#group-managed-service-account) | Custom, 2017 April and later | If you use a remote SQL server, then we recommend to use a group managed service account. |
+| [User account](#user-account) | Express and custom, 2017 April and later | A user account prefixed with AAD_ is only created during installation when installed on Windows Server 2008. | 
 | [User account](#user-account) | Express and custom, 2017 March and earlier | A local account prefixed with AAD_ is created during installation. When using custom installation, another account can be specified. |
 
-If you originally installed Connect with a build from 2017 March or earlier, then you should not reset the password on the service account since Windows will then destroy the encryption keys for security reasons. You cannot change the account to any other account without reinstalling Azure AD Connect.
+If you use Connect with a build from 2017 March or earlier, then you should not reset the password on the service account since Windows destroys the encryption keys for security reasons. You cannot change the account to any other account without reinstalling Azure AD Connect. If you upgrade to a build from 2017 April or later, then it is supported to change the password on the service account.
 
 If you originally installed Connect with a build from 2017 April or later, then it is supported to change the account to another account. You can create another type of account and simply change the account in services. The encryption keys used to access the passwords for the other accounts are managed by the server. This continues to be the case even if you change the service account to another account, making this a supported scenario.
 
