@@ -28,6 +28,7 @@ If you are a new ISV and haven’t done so already, go ahead and
 
 Once your application is approved to onboard your solution, you will receive an invitation email from us to visit the [Cloud Partner Portal](https://cloudpartner.azure.com/) and get started.
 
+
 ### How the publishing process works
 The Cloud Partner Portal, makes it as easy as possible to take your pre-built solution and list it onto the Marketplace. It’s important to call out that we highly recommend you build your complete solution before coming to the publishing process, as it simplifies the work required and allows you to make your solution available faster.
 
