@@ -40,7 +40,7 @@ The VPN gateway connection involves the following components:
 
 The following diagram shows the logical connectivity of an on-premises network to an Azure virtual network through VPN.
 
-![Logical Connectivity of Customer Network to MSFT Network using VPN](./media/vpn-gateway-validate-throughput-to-vnet/01OverviewDiagram.png)
+![Logical Connectivity of Customer Network to MSFT Network using VPN](./media/vpn-gateway-validate-throughput-to-vnet/VPNPerf.png)
 
 ## Calculate the maximum expected ingress/egress
 
