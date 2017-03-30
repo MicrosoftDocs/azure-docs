@@ -127,5 +127,5 @@ The [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home
 You can help improve Logic Apps and connectors by voting and submitting your ideas at [http://aka.ms/logicapps-wish](http://aka.ms/logicapps-wish). 
 
 
-## Next step
+## Next steps
 [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md), and explore the available connectors in Logic Apps at our [APIs list](apis-list.md).
