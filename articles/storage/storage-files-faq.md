@@ -140,13 +140,13 @@ See these links for more information about Azure File storage.
 * [Using the Azure CLI with Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)
 * [Troubleshooting Azure File storage problems](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
 
-### Reference
-* [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)
-* [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
-
 ### Blog posts
 * [Azure File storage is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
 * [Inside Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+* [Migrating data to Azure File ](https://azure.microsoft.com/en-us/blog/migrating-data-to-microsoft-azure-files/)
+
+### Reference
+* [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+* [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 
