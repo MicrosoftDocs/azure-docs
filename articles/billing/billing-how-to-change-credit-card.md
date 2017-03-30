@@ -33,10 +33,10 @@ You can add, change, or remove a credit card that’s associated with your Azure
 
 If the card is valid, it's added to the list of available payment methods.
 
-If you get an error after you add the credit card, see [Credit card declined at Azure sign up](billing-credit-card-fails-during-azure-sign-up.md).
+If you get an error after you add the credit card, see [Credit card declined at Azure sign-up](billing-credit-card-fails-during-azure-sign-up.md).
 
 ## Edit payment information for an existing credit card
-  If your credit card gets renewed and the number remains the same, update the existing credit card details like the expiration date. If your credit card number changes because the card is lost, stolen or expired, follow the steps in the [Add a credit card as a payment method](#addcard) section. 
+  If your credit card gets renewed and the number remains the same, update the existing credit card details like the expiration date. If your credit card number changes because the card is lost, stolen, or expired, follow the steps in the [Add a credit card as a payment method](#addcard) section. 
 
 1. Sign in to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the account administrator.
 2. Select the subscription that's linked to the credit card.</br> ![Screenshot that shows an example subscription selected.](./media/billing-how-to-change-credit-card/selectsub.png)
@@ -54,7 +54,7 @@ If you get an error after you add the credit card, see [Credit card declined at 
 4. Click **Use Instead** and select the credit card that you want to use.
 
 ## Remove a credit card from the account
-If your credit card is associated with other active Microsoft subscriptions, you can't remove it. You must first remove it from all active subscriptions that you have with Microsoft.
+If your credit card is associated with other active Microsoft subscriptions, you can't remove it from your Azure account. You must remove it from all active subscriptions that you have with Microsoft.
 1. Sign in to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the account administrator.
 2. Select the subscription.
 3. On the right side of the page, select **Manage payment methods**.
