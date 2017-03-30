@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/30/2017
 ms.author: billmath
 
 ---
@@ -103,14 +103,50 @@ If you use express settings, then an account is created in Active Directory that
 
 ![AD account](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
-### Azure AD Connect sync service accounts
+If you use custom settings, then you are responsible for creating the account before you start the installation.
+
+### Azure AD Connect sync service account
+The sync service can run under different accounts. It can run under a **Virtual Service Account** (VSA), a **Group Managed Service Account** (gMSA/sMSA), or a regular user account. The supported options were changed with the 2017 April release of Connect when you do a fresh installation. If you upgrade from an earlier release of Azure AD Connect, these additional options are not available.
+
+| Type of account | Installation option | Description |
+| --- | --- | --- |
+| [Virtual Service Account](#virtual-service-account) | Express and custom, 2017 April and later | This is the option used for all express installations. For custom it is the default option unless another option is used. |
+| [Group Managed Service Account](#group-managed-service-account) | Custom, 2017 April and later | If you use a remote SQL server, then we recommend to use a group managed service account. |
+| [User account](#user-account) | Express and custom, 2017 March and earlier | A local account prefixed with AAD_ is created during installation. When using custom installation, another account can be specified. |
+
+If you originally installed Connect with a build from 2017 March or earlier, then you should not reset the password on the service account since Windows will then destroy the encryption keys for security reasons. You cannot change the account to any other account without reinstalling Azure AD Connect.
+
+If you originally installed Connect with a build from 2017 April or later, then it is supported to change the account to another account. You can create another type of account and simply change the account in services. The encryption keys used to access the passwords for the other accounts are managed by the server. This continues to be the case even if you change the service account to another account, making this a supported scenario.
+
+> [!Important]
+> An upgrade from a build from before 2017 April does not add Virtual Service Accounts and Managed Service Accounts to the supported options. These options are only available on fresh installations.
+
+#### Virtual service account
+A virtual service account is a special type of account that does not have a password and is managed by Windows.
+
+![VSA](./media/active-directory-aadconnect-accounts-permissions/aadsyncvsa.png)
+
+The VSA is intended to be used with scenarios where the sync engine and SQL are on the same server. If you use remote SQL, then we recommend to use a [Group Managed Service Account](#managed-service-account) instead.
+
+This feature requires Windows Server 2008 R2 or later. If you install Azure AD Connect on Windows Server 2008, then the installation falls back to using a [user account](#user-account) instead.
+
+#### Group managed service account
+If you use a remote SQL server, then we recommend to use a **Group Managed Service Account**. For more information on how to prepare your Active Directory for Group Managed Service account, see [Group Managed Service Accounts Overview](https://technet.microsoft.com/library/hh831782.aspx).
+
+To use this option, on the [Install required components](active-directory-aadconnect-get-started-custom.md#install-required-components) page, select **Use an existing service account**, and select **Managed Service Account**.  
+![VSA](./media/active-directory-aadconnect-accounts-permissions/serviceaccount.png)  
+It is also supported to use a [standalone managed service account](https://technet.microsoft.com/library/dd548356.aspx). However, since these can only be used on the local machine, there is no practical benefit to use these over the default virtual service account.
+
+This feature requires Windows Server 2012 or later. If you need to use an older operating system and use remote SQL, then you must use a [user account](#user-account).
+
+#### User account
 A local service account is created by the installation wizard (unless you specify the account to use in custom settings). The account is prefixed **AAD_** and used for the actual sync service to run as. If you install Azure AD Connect on a Domain Controller, the account is created in the domain. If you use a remote server running SQL server or if you use a proxy that requires authentication, the **AAD_** service account must be located in the domain.
 
 ![Sync Service Account](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
 The account is created with a long complex password that does not expire.
 
-This account is used to store the passwords for the other accounts in a secure way. These other accounts passwords are stored encrypted in the database. The private keys for the encryption keys are protected with the cryptographic services secret-key encryption using Windows Data Protection API (DPAPI). You should not reset the password on the service account since Windows will then destroy the encryption keys for security reasons.
+This account is used to store the passwords for the other accounts in a secure way. These other accounts passwords are stored encrypted in the database. The private keys for the encryption keys are protected with the cryptographic services secret-key encryption using Windows Data Protection API (DPAPI).
 
 If you use a full SQL Server, then the service account is the DBO of the created database for the sync engine. The service will not function as intended with any other permissions. A SQL login is also created.
 
@@ -129,4 +165,3 @@ The service account is created with a long complex password that does not expire
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](../active-directory-aadconnect.md).
-
