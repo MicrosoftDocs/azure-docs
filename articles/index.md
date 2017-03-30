@@ -756,7 +756,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </div>
                             </li>
-                            <a href="#all">
+                            <a href="#pivot=services&panel=all">
                             <button style="
                                 position: absolute;
                                 bottom: 0;
