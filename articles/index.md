@@ -756,6 +756,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </div>
                             </li>
+                            <a href="#all">
                             <button style="
                                 position: absolute;
                                 bottom: 0;
@@ -767,6 +768,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 cursor: pointer;
                                 ">View all &gt;
                             </button>
+                            </a>
                         </ul>
                     </li>
                     <li>
