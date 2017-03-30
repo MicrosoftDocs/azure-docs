@@ -137,13 +137,21 @@ Monitoring Azure SQL Database fleet is very simple with Log Analytics. Three ste
 3. Click **Log Analytics**
 4. Fill in the Log Analytics form with the additional information required: workspace name, subscription, resource group, location, and pricing tier.
 
-   <img src="./media/sql-database-monitoring-log-analytics/log-analytics.png" alt="log analytics" style="width: 780px;" />
+   <img src="./media/sql-database-metrics-diag-logging/log-analytics.png" alt="log analytics" style="width: 780px;" />
 
 ### Configure databases to record metrics and diagnostic logs
 
 In the Azure portal, navigate to your Azure SQL Database resource and click **Diagnostics**. For more information, please read how to [Enable metrics and diagnostic logging](sql-database-metrics-diag-logging.md#enable-metrics-and-diagnostics-logging).
 
-Install the Azure SQL DB Monitoring solution from gallery  
+### Install the Azure SQL DB Monitoring solution from gallery  
+
+1. Once the Log Analytics resource is created and your data is flowing into it, install Azure SQL DB Monitoring solution. This can be done through the ‘Solutions Gallery’ that you can find on the OMS homepage and in the side menu. In the gallery find and click ‘Azure SQL DB Monitoring’ solution and click ‘Add’.
+
+   <img src="./media/sql-database-metrics-diag-logging/monitoring-solution.png" alt="monitoring solution" style="width: 780px;" />
+
+2. On your OMS homepage a new tile called ‘Azure SQL DB Monitoring’ will appear. Selecting this tile you will navigate to the Azure SQL Database dashboard.
+
+   <img src="./media/sql-database-metrics-diag-logging/dashboard.png" alt="dashboard" style="width: 780px;" />
 
 ## 1-minute metrics
 
