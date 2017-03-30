@@ -746,15 +746,15 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="cardText">
                                                 <h3>Command line automation</h3>
                                                 <div class="ico48Link">
-                                                    <a href="/cli/azure">
-                                                        <img src="media/index/logo_java.svg" alt="">
-                                                        <span>Java</span>
+                                                    <a href="/powershell/azureps-cmdlets-docs/index">
+                                                        <img src="media/index/azure_dev-8.svg" alt="">
+                                                        <span>PowerShell</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/cli/azure">
-                                                        <img src="media/index/logo_python.svg" alt="">
-                                                        <span>Python</span>
+                                                    <a href="/cli/azure/get-started-with-azure-cli">
+                                                        <img src="media/index/azure_dev-7.svg" alt="">
+                                                        <span>Azure CLI</span>
                                                     </a>
                                                 </div>
                                             </div>
