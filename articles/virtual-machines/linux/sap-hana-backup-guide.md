@@ -227,3 +227,9 @@ Based on the test results the following tables show pros and cons of solutions t
 |---------------------------------------------------|-------------------------------------|--------------------------------------|
 |Azure Backup Service                               | Allows VM backup based on blob snapshots | When not using file level restore, it requires the creation of a new VM for the restore process, which then implies the need of a new SAP HANA license key|
 |Manual blob snapshots                              | Flexibility to create and restore specific VM disks without changing the unique VM ID|All manual work, which has to be done by the customer|
+
+## Next steps
+* [SAP HANA Azure Backup on file level](./sap-hana-backup-file-level.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) describes the file-based backup option.
+* [SAP HANA backup based on storage snapshots](./sap-hana-backup-storage-snapshots.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) describes the storage snapshot-based backup option.
+ hana-overview-high-availability-disaster-recovery.md
+* To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](./sap-hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
