@@ -243,28 +243,28 @@ Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
 
 ## Step 5 – Automate configuration
 
-Azure virtual machine extensions are used to automate virtual machine configuration tasks such as installing applications and configuring the operating system. The [custom script extension for Windows](./virtual-machines-windows-extensions-customscript.md) is used to run any PowerShell script on the virtual machine. The script can be stored in Azure storage, any accessible HTTP endpoint, or embedded in the custom script extension configuration. In this tutorial, the configurations of two items are automated:
+Azure virtual machine extensions are used to automate virtual machine configuration tasks such as installing applications and configuring the operating system. The [custom script extension for Windows](./virtual-machines-windows-extensions-customscript.md) is used to run any PowerShell script on the virtual machine. The script can be stored in Azure storage, any accessible HTTP endpoint, or embedded in the custom script extension configuration. In this tutorial, two actions are automated:
 
 - Installing IIS
 - Formatting a data disk on the VM
 
-Because the extension runs at VM deployment time, the **configure.ps1** file needs to be defined before creating the virtual machine. For this tutorial, the configure.ps1 file is located in the Azure PowerShell scripts repository. The file contains the following commands:
+Because the extension runs at VM deployment time, the **install-iis-format-disk.ps1** file needs to be defined before creating the virtual machine. For this tutorial, the file is located in the Azure PowerShell scripts repository. The file contains the following commands:
+
+**Add-WindowsFeature Web-Server**
+
+**Get-Disk | Where partitionstyle -eq 'raw' | Initialize-Disk -PartitionStyle MBR -PassThru | New-Partition -AssignDriveLetter -UseMaximumSize | Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false**
+
+Add the extension with [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmextension):
 
 ```powershell
-Add-WindowsFeature Web-Server
-
-Get-Disk | Where partitionstyle -eq 'raw' | Initialize-Disk -PartitionStyle MBR -PassThru | New-Partition -AssignDriveLetter -UseMaximumSize | Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
-```
-
-Run the custom script extenstion to install IIS and format the data disk:
-
-```powershell
-Set-AzureRmVMCustomScriptExtension  -VMName myVM `
+Set-AzureRmVMExtension -Name myScript 
   -ResourceGroupName myResourceGroup `
-  -Name myCustomScript ` 
-  -FileUri "https://azuresamples,...blob.core.windows.net/scripts/configure.ps1" `
-  -Run "configure.ps1" ` 
-  -Location westeurope
+  -Location westeurope `
+  -VMName myVM `
+  -Publisher Microsoft.Computer `
+  -ExtensionType CustomScriptExtension `
+  -TypeHandlerVersion 1.4 `
+  -SettingString '{"fileUris":"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/virtual-machine/install-iis-format-disk/install-iis-format-disk.ps1?token=ABlGkLjzVTdZGoCRbu1pCXjvSDRMHnUlks5Y5nbZwA%3D%3D"], "commandToExecute":"powershell.exe -ExecutionPolicy Unrestricted -File install-iis-format-disk.ps1" }'
 ```
 
 Get the public IP address of the virtual machine with [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/get-azurermpublicipaddress):
