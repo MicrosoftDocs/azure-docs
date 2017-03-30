@@ -182,9 +182,10 @@ Perform the following steps to create an Azure function.
 
        ![Save function >](./media/storsimple-data-manager-change-default-blob-path/save-function.png)
 
-10. As a last step, you need to add one more file to the function to complete it.
+9. Click **+ New Function**. Select **C#** from **Language** dropdown. Select **QueueTrigger-CSharp** option from list of templates. Enter all inputs.
 
-   1. Click **View files** from right corner.
+   1. Name - Supply a name for your function.
+   2. Queue name - Enter your **Data Transformation Job Definition name**.
 
 ## Next steps
 
