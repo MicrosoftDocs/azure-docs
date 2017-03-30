@@ -204,7 +204,7 @@ In Azure, the root VM is special: it runs a hardened operating system called the
 The collection of Azure hypervisor, root OS/FA, and customer VMs/GAs comprises a compute node. FAs are managed by a fabric controller (FC), which exists outside of compute and storage nodes (compute and storage clusters are managed by separate FCs). If a customer updates their application’s configuration file while it’s running, the FC communicates with the FA, which then contacts GAs, which notifies the application of the configuration change. In the event of a hardware failure, the FC will automatically find available hardware and restart the VM there.
 
 Communication from a Fabric Controller to an agent is unidirectional. The agent implements an SSL-protected service that only responds to requests from the controller. It cannot initiate connections to the controller or other privileged internal nodes. The FC treats all responses as if they were untrusted.
-<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig6.png" width ="400" height="340" alt ="" align ="right">
+<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig6.jpg" width ="400" height="340" alt ="" align ="right">
 Isolation extends from the Root VM from Guest VMs, and the Guest VMs from one another. Compute nodes are also isolated from storage nodes for increased protection.
 
 The hypervisor and the host OS provide network packet - filters to help assure that untrusted virtual machines cannot generate spoofed traffic or receive traffic not addressed to them, direct traffic to protected infrastructure endpoints, or send/receive inappropriate broadcast traffic.
@@ -224,7 +224,7 @@ There are three VLANs in each cluster:
 -	The device VLAN – contains trusted network and other infrastructure devices
 Communication is permitted from the FC VLAN to the main VLAN, but cannot be initiated from the main VLAN to the FC VLAN. Communication is also blocked from the main VLAN to the device VLAN. This assures that even if a node running customer code is compromised, it cannot attack nodes on either the FC or device VLANs.
 
-<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig8.png" width ="400" height="340" alt ="" align ="right">
+<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig8.jpg" width ="400" height="340" alt ="" align ="right">
 
 # 4.0 Storage Isolation
 ## 4.1 Logical Isolation Between Compute and Storage
@@ -297,7 +297,7 @@ From an application perspective SQL Azure provides the following hierarchy. Each
 
 The account and subscription are Microsoft Azure platform concepts to associate billing and management.
 
-<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig10.png" width ="350" height="300" alt ="" align ="right">
+<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig10.png" width ="280" height="280" alt ="" align ="right">
 
 Logical servers and databases are SQL Azure specific concepts and are managed by using SQL Azure, provided OData and TSQL interfaces or via SQL Azure portal that integrated into Azure portal.
 
@@ -307,7 +307,7 @@ SQL Azure servers are not physical or VM instances, instead they are collections
 -	SQL logins used to connect to the server
 -	Firewall rules
 
-<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig11.png" width ="350" height="300" alt ="" align ="right">
+<img src="media/Isolation-In-The-Azure-Public-Cloud/Isolation-In-The-Azure-Public-Cloud-Fig11.png" width ="280" height="280" alt ="" align ="right">
 
 Billing and usage related information for SQL Azure databases from the same logical server are not guaranteed to be on the same physical instance in SQL Azure cluster, instead applications must provide the target database name when connecting.
 
