@@ -252,7 +252,7 @@ To discover which API versions are available for resource types, use the [List a
 The following example shows how to get the available API versions for a particular resource type.
 
 ```powershell
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
 The output is similar to:
