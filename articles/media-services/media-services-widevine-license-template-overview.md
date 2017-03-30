@@ -60,7 +60,7 @@ Widevine license request is formatted as a JSON message.
 | --- | --- | --- |
 | payload |Base64 encoded string |The license request sent by a client. |
 | content_id |Base64 encoded string |Identifier used to derive KeyId(s) and Content Key(s) for each content_key_specs.track_type. |
-| provider |string |Used to look up content keys and policies. Required. |
+| provider |string |Used to look up content keys and policies. If MS key delivery is used for Widevine license delivery, this parameter is ignored. |
 | policy_name |string |Name of a previously registered policy. Optional |
 | allowed_track_types |enum |SD_ONLY or SD_HD. Controls which content keys should be included in a license |
 | content_key_specs |array of JSON structures, see **Content Key Specs** below |A finer grained control on what content keys to return. See Content Key Spec below for details.  Only one of allowed_track_types and content_key_specs can be specified. |
