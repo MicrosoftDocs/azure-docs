@@ -100,8 +100,8 @@ Select this trigger: **When events are available in Event Hub**
     ![Select trigger for when your Event Hub receives new events](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
     If you don't already have a connection to your Event Hubs namespace, 
-    you're prompted to create this connection now by giving your connection a name, 
-    and entering the connection string for your Event Hubs namespace. 
+    you're prompted to create this connection now. Give your connection a name, 
+    and enter the connection string for your Event Hubs namespace. 
     If necessary, learn [how to find your connection string](#permissions-connection-string).
 
     ![Enter connection string for Event Hubs namespace](./media/connectors-create-api-azure-event-hubs/event-hubs-connection.png)
