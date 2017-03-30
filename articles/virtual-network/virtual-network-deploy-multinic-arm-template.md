@@ -1,10 +1,10 @@
 ---
-title: Create a VM with multiple NICs using a template | Microsoft Docs
-description: Create a VM with multiple NICs using a template through Azure Resource Manager.
+title: Create a VM with multiple NICs - Azure Resource Manager template | Microsoft Docs
+description: Create a VM with multiple NICs using an Azure Resource Manager template.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
 # Create a VM with multiple NICs using a template
@@ -278,7 +279,7 @@ Expected output:
 ## Deploy the template by using the Azure CLI
 To deploy the template by using the Azure CLI, follow the steps below.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **`azure config mode`** command to switch to Resource Manager mode, as shown below.
 
 	```azurecli

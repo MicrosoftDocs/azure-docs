@@ -13,12 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2016
+ms.date: 01/07/2017
 ms.author: TomSh
 
 ---
 # Azure log integration frequently asked questions (FAQ)
 This FAQ answers questions about Azure log integration, a service that enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems. This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events associated with your applications.
+
+## Is the Azure Log Integration software free?
+Yes. There is no charge for the Azure Log Integration software. 
 
 ## How can I see the storage accounts from which Azure log integration is pulling Azure VM logs from?
 Run the command **azlog source list**.
@@ -46,7 +49,6 @@ If your proxy setting does not allow Azure storage access directly, open the **A
 Append the **subscriptionid** to the friendly name while adding the source.
 
     Azlog source add <sourcefriendlyname>.<subscription id> <StorageName> <StorageKey>  
-
 The event XML has the metadata as shown below, including the subscription id.
 
 ![Event XML][1]
@@ -101,7 +103,8 @@ The following example is a configuration where only EventID 4624 and EventId 462
 
 After making changes, check the storage account to ensure that the correct events are collected.
 
-If you have questions about Azure Log Integration, please send an email to [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
+If you run into any issues during the installation and configuration, Please open a [support request](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request), select 'Log Integration' as the service for which you are requesting support.
+
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png

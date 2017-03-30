@@ -4,7 +4,7 @@ description: How to Use the Engagement API on Windows Universal
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: bb501fca-9cfe-4495-81df-b5efd6e0137b

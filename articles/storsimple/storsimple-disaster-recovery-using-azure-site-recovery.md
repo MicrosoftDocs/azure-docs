@@ -1,6 +1,6 @@
 ---
-title: Automate DR for file shares on StorSimple using Azure Site Recovery| Microsoft Docs
-description: Describes the steps and best practices for creating a disaster recovery solution for file shares hosted on StorSimple storage.
+title: Automate StorSimple fileshare DR with Azure Site Recovery | Microsoft Docs
+description: Describes the steps and best practices for creating a disaster recovery solution for file shares hosted on Microsoft Azure StorSimple storage.
 services: storsimple
 documentationcenter: NA
 author: vidarmsft

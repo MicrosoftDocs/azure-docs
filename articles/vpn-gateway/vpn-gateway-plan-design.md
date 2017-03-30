@@ -1,10 +1,10 @@
 ---
-title: VPN Gateway planning and design| Microsoft Docs
+title: 'Planning and design for cross-premises connections: Azure VPN Gateway| Microsoft Docs'
 description: Learn about VPN Gateway planning and design for cross-premises, hybrid, and VNet-to-VNet connections
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-service-management,azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/25/2017
 ms.author: cherylmc
 
 ---
@@ -114,7 +114,7 @@ Without forced tunneling, Internet-bound traffic from your VMs in Azure will alw
 
 **Forced tunneling diagram**
 
-![Forced Tunneling connection](./media/vpn-gateway-plan-design/forced-tunnel.png "forced tunneling")
+![Azure VPN Gateway forced tunneling diagram](./media/vpn-gateway-plan-design/forced-tunneling-diagram.png)
 
 A forced tunneling connection can be configured in both deployment models and by using different tools. See the following table for more information. We update this table as new articles, new deployment models, and additional tools become available for this configuration. When an article is available, we link directly to it from the table.
 

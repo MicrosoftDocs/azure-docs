@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 
 ---
@@ -23,7 +23,7 @@ The objective of this tutorial is to show you how to integrate MOVEit Transfer w
 Integrating MOVEit Transfer with Azure AD provides you with the following benefits:
 
 * You can control in Azure AD who has access to MOVEit Transfer
-* You can enable your users to automatically get signed-on to MOVEit Transfer (Single Sign-On) with their Azure AD accounts
+* You can enable your users to automatically get signed-on to MOVEit Transfer single sign-on (SSO) with their Azure AD accounts
 * You can manage your accounts in one central location - the Azure classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -32,7 +32,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with MOVEit Transfer, you need the following items:
 
 * An Azure AD subscription
-* A MOVEit Transfer single-sign on enabled subscription
+* A MOVEit Transfer SSO enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -50,7 +50,7 @@ The objective of this tutorial is to enable you to test Azure AD single sign-on 
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding MOVEit Transfer from the gallery
-2. Configuring and testing Azure AD single sign-on
+2. Configuring and testing Azure AD SSO
 
 ## Adding MOVEit Transfer from the gallery
 To configure the integration of MOVEit Transfer into Azure AD, you need to add MOVEit Transfer from the gallery to your list of managed SaaS apps.
@@ -77,23 +77,23 @@ To configure the integration of MOVEit Transfer into Azure AD, you need to add M
    
     ![Selecting the app in the gallery](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_0001.png)
 
-## Configuring and testing Azure AD single sign-on
-The objective of this section is to show you how to configure and test Azure AD single sign-on with MOVEit Transfer based on a test user called "Britta Simon".
+## Configure and test Azure AD SSO
+The objective of this section is to show you how to configure and test Azure AD SSO with MOVEit Transfer based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in MOVEit Transfer to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in MOVEit Transfer needs to be established.
+For SSO to work, Azure AD needs to know what the counterpart user in MOVEit Transfer to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in MOVEit Transfer needs to be established.
 
 This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in MOVEit Transfer.
 
-To configure and test Azure AD single sign-on with MOVEit Transfer, you need to complete the following building blocks:
+To configure and test Azure AD SSO with MOVEit Transfer, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+1. **[Configuring Azure AD single sign-on](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 3. **[Creating a MOVEit Transfer test user](#creating-a-moveit-transfer-test-user)** - to have a counterpart of Britta Simon in MOVEit Transfer that is linked to the Azure AD representation of her.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+5. **[Testing single sign-on](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD single sign-on
-In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your MOVEit Transfer application.
+### Configuring Azure AD SSO
+In this section, you enable Azure AD single sign-on in the classic portal and configure SSO in your MOVEit Transfer application.
 
 **To configure Azure AD single sign-on with MOVEit Transfer, perform the following steps:**
 
@@ -106,71 +106,58 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 3. On the **Configure App Settings** dialog page, perform the following steps and click **Next**:
    
     ![Configure Single Sign-On](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_04.png)
+  1. In the **Sign On URL** textbox, type sign in URL with your own domain.
+  2. In the **Identifier** textbox, type a entity ID URL.
+  3. In the **REPLY URL** textbox, type a enebled Assertion Consumer Interface URL.
+  4. Click **Next**.
    
-    a. In the **Sign On URL** textbox, type sign in URL with your own domain.
-   
-    b. In the **Identifier** textbox, type a entity ID URL.
-   
-    c. In the **REPLY URL** textbox, type a enebled Assertion Consumer Interface URL.
-   
-    d. Click **Next**
-   
-   > [!NOTE]
-   > Please note that you have to update these values with the actual Sign On URL and Identifier. To get these values, you can refer step 8 for more details or contact [MOVEit Transfer](https://www.ipswitch.com/support/technical-support).
-   > 
-   > 
+   >[!NOTE]
+   >Please note that you have to update these values with the actual Sign On URL and Identifier. To get these values, you can refer step 8 for more details or contact [MOVEit Transfer](https://www.ipswitch.com/support/technical-support).
+   >  
 4. On the **Configure single sign-on at MOVEit Transfer** page, perform the following steps and click **Next**:
    
-    ![Configure Single Sign-On](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_05.png)
-   
-    a. Click **Download metadata**, and then save the file on your computer.
-   
-    b. Click **Next**.
+  ![Configure Single Sign-On](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_05.png)  
+  1. Click **Download metadata**, and then save the file on your computer.
+  2. Click **Next**.
 5. Sign-on to your MOVEit Transfer tenant as an administrator.
 6. On the left navigation pane, click **Settings**.
    
-    ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_000.png)
+  ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_000.png)
 7. Click **Single Signon** link which is under **Security Policies -> User Auth**.
    
-    ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_001.png)
+  ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_001.png)
 8. Click the Metadata URL link to download the metadata document.
    
-    ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_002.png)
-   
-   * Verify **entityID** matches **Identifier** in step3.
-   * Verify **AssertionConsumerService** Location URL matches **REPLY URL** in step3.
+  ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_002.png)   
+  * Verify **entityID** matches **Identifier** in step3.
+  * Verify **AssertionConsumerService** Location URL matches **REPLY URL** in step3.
      
-     ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_007.png)
+    ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_007.png)
 9. Click **Add Identity Provider** button to add a new Federated Identity Provider.
    
-    ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_003.png)
+  ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_003.png)
 10. Click **Browse...** to select the metadata file which you downloaded in step 4,then click **Add Identity Provider** to upload the downloaded file. 
     
-    ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_004.png)
+  ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_004.png)
 11. Select "**Yes**" as **Enabled** in the **Edit Federated Identity Provider Settings...** page and click **Save**.
     
-     ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_005.png)
-12. In the **Edit Federated Identity Provider User Settings** page perform the following actions and click **Save**.
-    
-    a. Select **SAML NameID** as **Login name**.
-    
-    b. Select **Other** as **Full name** and in the **Attribute name** textbox put the value: http://schemas.microsoft.com/identity/claims/displayname.
-    
-    c. Select **Other** as **Email** and in the **Attribute name** textbox put the value: http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress.
-    
-    d. Select **Yes** as **Auto-create account on signon**.
-    
-    e. Click **Save** button.
-    
-    ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_006.png)
+   ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_005.png)
+12. In the **Edit Federated Identity Provider User Settings** page perform the following actions and click **Save**.0   
+  1. Select **SAML NameID** as **Login name**. 
+  2. Select **Other** as **Full name** and in the **Attribute name** textbox put the value: http://schemas.microsoft.com/identity/claims/displayname. 
+  3. Select **Other** as **Email** and in the **Attribute name** textbox put the value: http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress. 
+  4. Select **Yes** as **Auto-create account on signon**. 
+  5. Click **Save** button.
+ 
+   ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_006.png)
 13. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
     
     ![Azure AD Single Sign-On][10]
 14. On the **Single sign-on confirmation** page, click **Complete**.  
     
-    ![Azure AD Single Sign-On][11]
+   ![Azure AD Single Sign-On][11]
 
-### Creating an Azure AD test user
+### Create an Azure AD test user
 The objective of this section is to create a test user in the classic portal called Britta Simon.
 
 ![Create Azure AD User][20]
@@ -190,48 +177,37 @@ The objective of this section is to create a test user in the classic portal cal
 5. On the **Tell us about this user** dialog page, perform the following steps:
    
     ![Creating an Azure AD test user](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_05.png)
-   
-    a. As Type Of User, select New user in your organization.
-   
-    b. In the User Name **textbox**, type **BrittaSimon**.
-   
-    c. Click **Next**.
+  1. As Type Of User, select New user in your organization.
+  2. In the User Name **textbox**, type **BrittaSimon**.
+  3. Click **Next**.
 6. On the **User Profile** dialog page, perform the following steps:
    
    ![Creating an Azure AD test user](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_06.png)
-   
-   a. In the **First Name** textbox, type **Britta**.  
-   
-   b. In the **Last Name** textbox, type, **Simon**.
-   
-   c. In the **Display Name** textbox, type **Britta Simon**.
-   
-   d. In the **Role** list, select **User**.
-   
-   e. Click **Next**.
+  1. In the **First Name** textbox, type **Britta**.  
+  2. In the **Last Name** textbox, type, **Simon**.
+  3. In the **Display Name** textbox, type **Britta Simon**.
+  4. In the **Role** list, select **User**.
+  5. Click **Next**.
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_07.png)
 8. On the **Get temporary password** dialog page, perform the following steps:
    
     ![Creating an Azure AD test user](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_08.png)
-   
-    a. Write down the value of the **New Password**.
-   
-    b. Click **Complete**.   
+  1. Write down the value of the **New Password**.
+  2. Click **Complete**.   
 
-### Creating a MOVEit Transfer test user
+### Create a MOVEit Transfer test user
 The objective of this section is to create a user called Britta Simon in MOVEit Transfer. MOVEit Transfer supports just-in-time provisioning, which you have enabled.
 
 There is no action item for you in this section. A new user will be created during an attempt to access MOVEit Transfer if it doesn't exist yet.
 
-> [!NOTE]
-> If you need to create an user manually, you need to contact the MOVEit Transfer support team.
-> 
+>[!NOTE]
+>If you need to create an user manually, you need to contact the MOVEit Transfer support team.
 > 
 
-### Assigning the Azure AD test user
-The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to MOVEit Transfer.
+### Assign the Azure AD test user
+The objective of this section is to enabling Britta Simon to use Azure SSO by granting her access to MOVEit Transfer.
 
 ![Assign User][200]
 
@@ -251,8 +227,8 @@ The objective of this section is to enabling Britta Simon to use Azure single si
    
     ![Assign User][205]
 
-### Testing single sign-on
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
+### Test single sign-on
+The objective of this section is to test your Azure AD SSO configuration using the Access Panel.
 
 When you click the MOVEit Transfer tile in the Access Panel, you should get automatically signed-on to your MOVEit Transfer application.
 

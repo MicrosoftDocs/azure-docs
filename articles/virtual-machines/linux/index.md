@@ -1,10 +1,33 @@
 ---
-layout: LandingPage
+title: Azure Linux Virtual Machine Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to create a virtual machine using the Linux distribution of your choice. Documentation shows different ways to create VM templates.
+services: virtual-machines\linux
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: virtual-machines\linux
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Linux Virtual Machine Documentation
 
-Learn how to run Virtual Machines on Azure using the Linux distribution of your choice. Documentation, API references, and samples show you different ways to create and deploy VM templates.
+<div class="introHolder">
+    <div class="intro">
+        Learn how to run Virtual Machines on Azure using the Linux distribution of your choice. Documentation, API references, and samples show you different ways to create and deploy VM templates.
+    </div>
+    <div class="calloutHolder">
+        <div class="callout">
+            <a href="https://azure.microsoft.com/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
+                <img src="media/index/pluralsight.svg" />
+                Free PluralSight video training - Managing Infrastructure using Microsoft Azure
+            </a>
+        </div>
+    </div>
+</div>
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -18,7 +41,7 @@ Learn how to run Virtual Machines on Azure using the Linux distribution of your 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Linux VM using the Azure CLI 2.0 (Preview)</h3>
+                        <h3>Create a Linux VM using the Azure CLI 2.0</h3>
                     </div>
                 </div>
             </div>
@@ -91,8 +114,8 @@ Learn how to run Virtual Machines on Azure using the Linux distribution of your 
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
                         <p><a href="/cli/azure/vm">Azure CLI</a></p>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -127,11 +150,4 @@ Learn how to run Virtual Machines on Azure using the Linux distribution of your 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/linux.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Linux Virtual Machine Documentation
-        </div>
-    </a>
-</div>
+

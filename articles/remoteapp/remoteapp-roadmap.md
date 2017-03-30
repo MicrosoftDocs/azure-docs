@@ -12,7 +12,7 @@ ms.workload: compute
 ms.tgt_pltfrm: NA
 ms.devlang: NA
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/07/2017
 ms.author: mbaldwin
 
 ---

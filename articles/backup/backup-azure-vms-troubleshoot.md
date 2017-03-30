@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure virtual machine backup | Microsoft Docs
+title: Troubleshoot backup errors with Azure virtual machine | Microsoft Docs
 description: Troubleshoot backup and restore of Azure virtual machines
 services: backup
 documentationcenter: ''
@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
-ms.author: trinadhk;jimpark;
+ms.date: 01/18/2017
+ms.author: trinadhk;markgal;jpallavi;
 
 ---
 # Troubleshoot Azure virtual machine backup
@@ -44,6 +44,7 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Virtual machine agent is not present on the virtual machine - Please install any prerequisite and the VM agent, and then restart the operation. |[Read more](#vm-agent) about VM agent installation, and how to validate the VM agent installation. |
 | Snapshot operation failed due to VSS Writers in bad state |You need to restart VSS(Volume Shadow copy Service) writers that are in bad state. To achieve this, from an elevated command prompt, run _vssadmin list writers_. Output contains all VSS writers and their state. For every VSS writer whose state is not "[1] Stable", restart VSS writer by running following commands from an elevated command prompt<br> _net stop serviceName_ <br> _net start serviceName_|
 | Snapshot operation failed due to a parsing failure of the configuration |This happens due to changed permissions on the MachineKeys directory: _%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br>Please run below command and verify that permissions on MachineKeys directory are default-ones:<br>_icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br><br> Default permissions are:<br>Everyone:(R,W) <br>BUILTIN\Administrators:(F)<br><br>If you see permissions on MachineKeys directory different than default, please follow below steps to correct permissions, delete the certificate and trigger the backup.<ol><li>Fix permissions on MachineKeys directory.<br>Using Explorer Security Properties and Advanced Security Settings on the directory, reset permissions back to the default values, remove any extra (than default) user object from the directory, and ensure that the ‘Everyone’ permissions had special access for:<br>-List folder / read data <br>-Read attributes <br>-Read extended attributes <br>-Create files / write data <br>-Create folders / append data<br>-Write attributes<br>-Write extended attributes<br>-Read permissions<br><br><li>Delete certificate with field ‘Issued To’ = Windows Azure Service Management for Extensions<ul><li>[Open Certificates console](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx)<li>Delete certificate (under Personal -> Certificates) with field ‘Issued To’ = “Windows Azure Service Management for Extensions”</ul><li>Trigger VM backup. </ol>|
+| Validation failed as virtual machine is encrypted with BEK alone. Backups can be enabled only for virtual machines encrypted with both BEK and KEK. |Virtual machine should be encrypted using both BitLocker Encryption Key and Key Encryption Key. After that, backup should be enabled. |
 
 ## Jobs
 | Error details | Workaround |
@@ -66,6 +67,7 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Type of Storage Account specified for restore operation is not online - Make sure that the storage account specified in restore operation is online |This might happen because of a transient error in Azure Storage or due to an outage. Please choose another storage account. |
 | Resource Group Quota has been reached - Please delete some resource groups from Azure portal or contact Azure support to increase the limits. |None |
 | Selected subnet does not exist - Please select a subnet which exists |None |
+| Backup Service does not have authorization to access resources in your subscription. |To resolve this, first Restore Disks using steps mentioned in section **Restore backed up disks** in [Choosing VM restore configuration](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration). After that, use PowerShell steps mentioned in [Create a VM from restored disks](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) to create full VM from restored disks. |
 
 ## Policy
 | Error details | Workaround |
@@ -94,7 +96,7 @@ For Windows VMs:
 For Linux VMs:
 
 * Follow the instructions on [Updating Linux VM Agent](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-We **strongly recommend** updating agent only through distribution repository. We do not recommend downloading the agent code from directly github and updating it. If latest agent is not available for your distribution, please reach out to distribution support for instructions on how to install latest agent. You can check latest [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) information in github repository. 
+We **strongly recommend** updating agent only through distribution repository. We do not recommend downloading the agent code from directly github and updating it. If latest agent is not available for your distribution, please reach out to distribution support for instructions on how to install latest agent. You can check latest [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) information in github repository.
 
 ### Validating VM Agent installation
 How to check for the VM Agent version on Windows VMs:

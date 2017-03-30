@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 
 ---
@@ -36,9 +36,9 @@ To browse for collections in the Gallery, open the [Gallery](http://gallery.cort
 collections.
  Click **See all** to view all
 collections.
- From this page you can browse all the
+ From this page, you can browse all the
 collections
- in the Gallery, or you can search by selecting filter criteria on the left of the page and entering search terms at the top.
+ in the Gallery. You also can search by selecting filter criteria on the left of the page and entering search terms at the top.
 
  Click any
 collection
@@ -64,20 +64,20 @@ Follow these steps to create and contribute a collection to the Cortana Intellig
 
 1. Sign in to the Gallery using your Microsoft account
 
-* Click your image at the top of the window and then click your name
+2.  Click your image at the top of the window and then click your name
   
     ![Click your account name](media/machine-learning-gallery-collections/click-account-name.png)
 
-1. Click **New Item**
+3. Click **New Item**
    
     ![Click "New Item"](media/machine-learning-gallery-collections/click-new-item.png)
-2. Select **Collection** for **Item Type**, then give the collection a name, a brief summary, a description, and any tags that will help users find the collection
+4. Select **Collection** for **Item Type**, then give the collection a name, a brief summary, a description, and any tags that will help users find the collection
    
     ![Enter information for new collection](media/machine-learning-gallery-collections/create-collection-page-1.png)
-3. Click **Next** - you can upload an image file, or select a stock image, that will be displayed with the collection; choose something that will help users identify the content and purpose of the collection
+5. Click **Next** - you can upload an image file, or select a stock image, that will be displayed with the collection; choose something that will help users identify the content and purpose of the collection
    
     ![Enter information for new collection](media/machine-learning-gallery-collections/create-collection-page-2.png)
-4. Click **Next** - you can decide whether the collection is **Public** (it can be viewed by anyone) or **Unlisted** (only people with a direct link can view the collection)
+6. Click **Next** - you can decide whether the collection is **Public** (it can be viewed by anyone) or **Unlisted** (only people with a direct link can view the collection)
    
    > [!IMPORTANT]
    > Once you set a collection to **Public**, you can not set it to **Unlisted**.
@@ -85,7 +85,7 @@ Follow these steps to create and contribute a collection to the Cortana Intellig
    > 
    
     ![Select Public or Unlisted](media/machine-learning-gallery-collections/create-collection-page-3.png)
-5. Click **Create**
+7. Click **Create**
 
 Your collection is now part of the Cortana Intelligence Gallery. It will be listed on your account page under the **Collection** tab.
 

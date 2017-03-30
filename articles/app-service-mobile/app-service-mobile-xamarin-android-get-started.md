@@ -4,7 +4,7 @@ description: Follow this tutorial to get started using Azure Mobile Apps for Xam
 services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: ''
 
 ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
@@ -39,7 +39,7 @@ To complete this tutorial, you need the following prerequisites:
 
 > [!NOTE]
 > If you want to get started with Azure App Service before signing up for an Azure account, go to
-> [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile).  You can immediately create a short-lived starter Mobile
+> [Try App Service](https://azure.microsoft.com/try/app-service/mobile/).  You can immediately create a short-lived starter Mobile
 > App in App Service. No credit cards required; no commitments.
 > 
 > 

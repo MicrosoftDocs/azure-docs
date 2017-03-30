@@ -1,5 +1,5 @@
 ---
-title: Platform-supported migration of IaaS resources from classic to Azure Resource Manager | Microsoft Docs
+title: Migrate classic resources to Azure Resource Manager - Overview  | Microsoft Docs 
 description: This article walks through the platform-supported migration of resources from classic to Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 01/23/2017
 ms.author: kasing
 
 ---
@@ -86,9 +86,8 @@ The following features are not currently supported. You can optionally remove th
 | Compute |Unassociated virtual machine disks. |
 | Compute |Virtual machine images. |
 | Network |Endpoint ACLs. |
-| Network |Virtual network gateways (Azure ExpressRoute Gateways, Application gateway). |
+| Network |ExpressRoute Gateways, Application gateway (VPN Gateways are supported). |
 | Network |Virtual networks using VNet Peering. (Migrate VNet to ARM, then peer) Learn more about [VNet Peering](../virtual-network/virtual-network-peering-overview.md). |
-| Network |Traffic Manager profiles. |
 
 ### Unsupported configurations
 The following configurations are not currently supported.
@@ -107,6 +106,8 @@ The following configurations are not currently supported.
 | Azure HDInsight |Virtual networks that contain HDInsight services |This is currently not supported. |
 | Microsoft Dynamics Lifecycle Services |Virtual networks that contain virtual machines that are managed by Dynamics Lifecycle Services |This is currently not supported. |
 | Azure AD Domain Services |Virtual networks that contain Azure AD Domain services |This is currently not supported. |
+| Azure RemoteApp |Virtual networks that contain Azure RemoteApp deployments |This is currently not supported. |
+| Azure API Management |Virtual networks that contain Azure API Management deployments |This is currently not supported. To migrate the IaaS VNET, please change the VNET of the API Management deployment which is a no downtime operation. |
 | Compute |Azure Security Center extensions with a VNET that has a VPN gateway in transit connectivity or ExpressRoute gateway with on-prem DNS server |Azure Security Center automatically installs extensions on your Virtual Machines to monitor their security and raise alerts. These extensions usually get installed automatically if the Azure Security Center policy is enabled on the subscription. ExpressRoute gateway migration is not supported currently, and VPN gateways with transit connectivity loses on-premises access. Deleting ExpressRoute gateway or migrating VPN gateway with transit connectivity causes internet access to VM storage account to be lost when proceeding with committing the migration. The migration will not proceed when this happens as the guest agent status blob cannot be populated. It is recommended to disable Azure Security Center policy on the subscription 3 hours before proceeding with migration. |
 
 ## The migration experience
@@ -135,6 +136,8 @@ You select the virtual network or the hosted service (if it’s not a virtual ne
 
 * If the resource is not capable of migration, the Azure platform lists all the reasons for why it’s not supported for migration.
 
+When validating storage services you will find the migrated account in a resource group named the same as your storage account with "-Migrated" appended.  For example if your storage account is named "mystorage" you will find the ARM enabled resource in a resource group named "mystorage-Migrated" and it will contain a storage account named "mystorage".
+
 ### Prepare
 The prepare operation is the second step in the migration process. The goal of this step is to simulate the transformation of the IaaS resources from classic to Resource Manager resources and present this side by side for you to visualize.
 
@@ -145,7 +148,16 @@ You select the virtual network or the hosted service (if it’s not a virtual ne
 
 The Azure platform then starts the migration of metadata from classic to Resource Manager for the migrating resources.
 
-After the prepare operation is complete, you have the option of visualizing the resources in both classic and Resource Manager. For every cloud service in the classic deployment model, the Azure platform creates a resource group name that has the pattern `cloud-service-name>-migrated`.
+After the prepare operation is complete, you have the option of visualizing the resources in both classic and Resource Manager. For every cloud service in the classic deployment model, the Azure platform creates a resource group name that has the pattern `cloud-service-name>-Migrated`.
+
+> [!NOTE]
+> It is not possible to select the name of Resource Group created for migrated resources (i.e. "-Migrated") but after migration is complete, you can use Azure Resource Manager move feature to move resources to any Resource Group you want. To read more about this see [Move resources to new resource group or subscription](../resource-group-move-resources.md)
+
+Here are two screens that show the result after a succesful Prepare operation. First screen shows a Resource Group that contains the original cloud service. Second screen shows the new "-Migrated" resource group that contains the equivalent Azure Resource Manager resources.
+
+![Screenshot that shows Portal classic cloud service](./media/virtual-machines-windows-migration-classic-resource-manager/portal-classic.png)
+
+![Screenshot that shows Portal ARM resources in Prepare](./media/virtual-machines-windows-migration-classic-resource-manager/portal-arm.png)
 
 > [!NOTE]
 > Virtual Machines that are not in a classic Virtual Network are stopped deallocated in this phase of migration.
@@ -178,6 +190,11 @@ After you finish the validation, you can commit the migration. Resources do not 
 > This is an idempotent operation. If it fails, it is recommended that you retry the operation. If it continues to fail, create a support ticket or create a forum post with a ClassicIaaSMigration tag on our [VM forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows).
 >
 >
+<br>
+Here is a flowchart of the steps during a migration process
+
+![Screenshot that shows the migration steps](./media/virtual-machines-windows-migration-classic-resource-manager/migration-flow.png)
+
 
 ## Frequently asked questions
 **Does this migration plan affect any of my existing services or applications that run on Azure virtual machines?**

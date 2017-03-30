@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Backup Documentation - Tutorials, API Reference | Microsoft Docs
 description: Use Backup documentation to learn how to back up to the cloud. See tutorials and videos for application, Windows server, and Azure virtual machine backup.
+services: backup
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: backup
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #Backup Documentation
 
@@ -129,11 +140,4 @@ Learn how to use Azure Backup in the cloud to protect data for long-term retenti
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/backup.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Backup Documentation
-        </div>
-    </a>
-</div>
+

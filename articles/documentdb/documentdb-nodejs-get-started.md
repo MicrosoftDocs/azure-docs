@@ -22,8 +22,9 @@ ms.author: anhoh
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [Node.js for MongoDB](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -403,7 +404,7 @@ The following diagram illustrates how the DocumentDB SQL query syntax is called 
 
 ![Node.js tutorial - Diagram illustrating the scope and meaning of the query - Node database](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
 
-The [FROM](documentdb-sql-query.md#from-clause) keyword is optional in the query because DocumentDB queries are already scoped to a single collection. Therefore, "FROM Families f" can be swapped with "FROM root r", or any other variable name you choose. DocumentDB will infer that Families, root, or the variable name you chose, reference the current collection by default.
+The [FROM](documentdb-sql-query.md#FromClause) keyword is optional in the query because DocumentDB queries are already scoped to a single collection. Therefore, "FROM Families f" can be swapped with "FROM root r", or any other variable name you choose. DocumentDB will infer that Families, root, or the variable name you chose, reference the current collection by default.
 
 Copy and paste the code below the call to **getFamilyDocument** to execute the **queryCollection** function.
 
@@ -599,7 +600,7 @@ You should see the output of your get started app. The output should match the e
 Congratulations! You've created you've completed the Node.js tutorial and have your first DocumentDB console application!
 
 ## <a id="GetSolution"></a>Get the complete Node.js tutorial solution
-If you didn't have time to complete the steps in this tutorial, or just want to download the code, you can get it from [Github](https://github.com/Azure-Samples/documentdb-node-getting-started).
+If you didn't have time to complete the steps in this tutorial, or just want to download the code, you can get it from [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started).
 
 To run the GetStarted solution that contains all the samples in this article, you will need the following:
 
@@ -623,6 +624,4 @@ That's it, build it and you're on your way!
 * Learn more about the programming model in the Develop section of the [DocumentDB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
-
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png

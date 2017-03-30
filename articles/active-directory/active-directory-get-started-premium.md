@@ -4,8 +4,7 @@ description: A topic that explains how to sign up for Azure Active Directory Pre
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
-editor: ''
+manager: curtand
 
 ms.assetid: 391764e5-c4eb-4ae6-b8a9-3d09f0de04a6
 ms.service: active-directory
@@ -13,8 +12,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2016
-ms.author: markvi
+ms.date: 01/24/2017
+ms.author: curtand
 
 ---
 # Getting started with Azure Active Directory Premium

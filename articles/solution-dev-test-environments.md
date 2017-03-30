@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/azure-resource-manager/solution-dev-test-environments
+redirect_url: /azure/devtest-lab/devtest-lab-overview
 ---

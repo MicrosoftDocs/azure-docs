@@ -12,13 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 01/26/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with NetDocuments
-The objective of this tutorial is to show the integration of Azure and NetDocuments.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+The objective of this tutorial is to show the integration of Azure and NetDocuments. The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
 * A NetDocuments tenant
@@ -37,7 +36,8 @@ The scenario outlined in this tutorial consists of the following building blocks
 ## Enabling the application integration for NetDocuments
 The objective of this section is to outline how to enable the application integration for NetDocuments.
 
-### To enable the application integration for NetDocuments, perform the following steps:
+**To enable the application integration for NetDocuments, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-netdocuments-tutorial/IC700993.png "Active Directory")
@@ -58,14 +58,15 @@ The objective of this section is to outline how to enable the application integr
    
    ![NetDocuments](./media/active-directory-saas-netdocuments-tutorial/IC795042.png "NetDocuments")
    
-   ## Configuring single sign-on
+## Configuring single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to NetDocuments with their account in Azure AD using federation based on the SAML protocol.  
-Configuring single sign-on for NetDocuments requires you to retrieve a thumbprint value from a certificate.  
-If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
-### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **NetDocuments** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+Configuring single sign-on for NetDocuments requires you to retrieve a thumbprint value from a certificate. If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
+
+**To configure single sign-on, perform the following steps:**
+
+1. In the Azure classic portal, on the **NetDocuments** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795043.png "Configure Single Sign-On")
 2. On the **How would you like users to sign on to NetDocuments** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -81,8 +82,8 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
       > [!NOTE]
       > You can find the correct value at the end of the **Federated Identity** dialog (See the screenshot for step 9).
       > 
-      > 
-   3. Click **Next**
+      
+   3. Click **Next**.
 4. On the **Configure single sign-on at NetDocuments** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
    
    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795046.png "Configure Single Sign-On")
@@ -105,12 +106,12 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
     
     ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795050.png "Configure Single Sign-On")
     
-    ## Configuring user provisioning
+## Configuring user provisioning
 
-In order to enable Azure AD users to log into NetDocuments, they must be provisioned into NetDocuments.  
-In the case of NetDocuments, provisioning is a manual task.
+In order to enable Azure AD users to log into NetDocuments, they must be provisioned into NetDocuments. In the case of NetDocuments, provisioning is a manual task.
 
-### To configure user provisioning, perform the following steps:
+**To configure user provisioning, perform the following steps:**
+
 1. Sing on to your **NetDocuments** company site as administrator.
 2. In the menu on the top, click **Admin**.
    
@@ -130,12 +131,12 @@ In the case of NetDocuments, provisioning is a manual task.
 > [!NOTE]
 > You can use any other NetDocuments user account creation tools or APIs provided by NetDocuments to provision AAD user accounts.
 > 
-> 
 
 ## Assigning users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to NetDocuments, perform the following steps:
+**To assign users to NetDocuments, perform the following steps;**
+
 1. In the Azure classic portal, create a test account.
 2. On the **NetDocuments **application integration page, click **Assign users**.
    

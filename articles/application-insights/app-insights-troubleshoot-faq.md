@@ -21,7 +21,7 @@ ms.author: awills
 *I'm having trouble setting up my:*
 
 * [.NET app](app-insights-asp-net-troubleshoot-no-data.md)
-* [Monitoring an already-running app](app-insights-monitor-performance-live-website-now.md#troubleshooting)
+* [Monitoring an already-running app](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
 * [Azure diagnostics](app-insights-azure-diagnostics.md)
 * [Java web app](app-insights-java-troubleshoot.md)
 * [Other platforms](app-insights-platforms.md)
@@ -37,7 +37,7 @@ ms.author: awills
 
 ## Is it free?
 
-Yes, for experimental use. In the default pricing plan, your application can send a certain allowance of data each month free of charge. The free allowance is large enough to cover development, and publishing an app for a small number of users. You can set a cap to prevent more than a specified amount of data from being processed.
+Yes, for experimental use. In the basic pricing plan, your application can send a certain allowance of data each month free of charge. The free allowance is large enough to cover development, and publishing an app for a small number of users. You can set a cap to prevent more than a specified amount of data from being processed.
 
 You need to use the Enterprise plan to get certain features such as Continuous Export. That incurs a daily charge.
 
@@ -48,20 +48,20 @@ You need to use the Enterprise plan to get certain features such as Continuous E
 The details depend on the type of project. For a web application:
 
 * Adds these files to your project:
-  
+
   * ApplicationInsights.config.
   * ai.js
 * Installs these NuGet packages:
-  
+
   * *Application Insights API* - the core API
   * *Application Insights API for Web Applications* - used to send telemetry from the server
   * *Application Insights API for JavaScript Applications* - used to send telemetry from the client
-    
+
     The packages include these assemblies:
   * Microsoft.ApplicationInsights
   * Microsoft.ApplicationInsights.Platform
 * Inserts items into:
-  
+
   * Web.config
   * packages.config
 * (New projects only - if you [add Application Insights to an existing project][start], you have to do this manually.) Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into the master page Views/Shared/_Layout.cshtml
@@ -87,7 +87,7 @@ See [Data Retention and Privacy][data].
 | What you should see | How to get it | Why you want it |
 | --- | --- | --- |
 | Availability charts |[Web tests](app-insights-monitor-web-app-availability.md) |Know your web app is up |
-| Server app perf: response times, ... |[Add Application Insights to your project](app-insights-asp-net.md) or [Install AI Status Monitor on server](app-insights-monitor-performance-live-website-now.md) (or write your own code to [track dependencies](app-insights-api-custom-events-metrics.md#track-dependency)) |Detect perf issues |
+| Server app perf: response times, ... |[Add Application Insights to your project](app-insights-asp-net.md) or [Install AI Status Monitor on server](app-insights-monitor-performance-live-website-now.md) (or write your own code to [track dependencies](app-insights-api-custom-events-metrics.md#trackdependency)) |Detect perf issues |
 | Dependency telemetry |[Install AI Status Monitor on server](app-insights-monitor-performance-live-website-now.md) |Diagnose issues with databases or other external components |
 | Get stack traces from exceptions |[Insert TrackException calls in your code](app-insights-search-diagnostic-logs.md#exceptions) (but some are reported automatically) |Detect and diagnose exceptions |
 | Search log traces |[Add a logging adapter](app-insights-search-diagnostic-logs.md) |Diagnose exceptions, perf issues |

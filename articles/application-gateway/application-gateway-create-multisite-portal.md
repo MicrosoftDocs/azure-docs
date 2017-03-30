@@ -1,5 +1,5 @@
 ---
-title: Configure an existing application gateway for hosting multiple sites in the Azure portal | Microsoft Docs
+title: Host multiple sites with Azure Application Gateway | Microsoft Docs
 description: This page provides instructions to configure an existing Azure application gateway for hosting multiple web applications on the same gateway with the Azure portal.
 documentationcenter: na
 services: application-gateway
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 
 ---

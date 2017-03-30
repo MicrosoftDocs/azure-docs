@@ -4,7 +4,7 @@ description: Learn how to use PowerShell to back up and restore an app in Azure 
 services: app-service
 documentationcenter: ''
 author: NKing92
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 7ea8661e-aefb-4823-9626-6bff980cdebf

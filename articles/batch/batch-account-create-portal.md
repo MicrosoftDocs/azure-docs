@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Batch account | Microsoft Docs
+title: Create a Batch account in the Azure Portal | Microsoft Docs
 description: Learn how to create an Azure Batch account in the Azure portal to run large-scale parallel workloads in the cloud
 services: batch
 documentationcenter: ''
@@ -13,11 +13,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/19/2016
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 
 ---
-# Create an Azure Batch account using the Azure portal
+# Create a Batch account with the Azure portal
+
 > [!div class="op_single_selector"]
 > * [Azure portal](batch-account-create-portal.md)
 > * [Batch Management .NET](batch-management-dotnet.md)
@@ -54,7 +56,7 @@ Once the account has been created, you can open the **Batch account blade** to a
 
 ![Batch account blade in Azure portal][account_blade]
 
-* **Batch account URL**: When you develop an application with the [Batch APIs](batch-technical-overview.md#batch-development-apis), you'll need an account URL to access your Batch resources. A Batch account URL has the following format:
+* **Batch account URL**: When you develop an application with the [Batch APIs](batch-apis-tools.md#batch-development-apis), you'll need an account URL to access your Batch resources. A Batch account URL has the following format:
   
     `https://<account_name>.<region>.batch.azure.com`
 
@@ -101,7 +103,7 @@ Additionally, many of these quotas can be increased simply with a free product s
 In addition to using the Azure portal, you can also create and manage Batch accounts with the following:
 
 * [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
-* [Azure CLI](../xplat-cli-install.md)
+* [Azure CLI](../cli-install-nodejs.md)
 * [Batch Management .NET](batch-management-dotnet.md)
 
 ## Next steps

@@ -50,8 +50,8 @@ The following issues are specific to debugging .NET Framework web and console ap
 #### Prerequisites
 
 1. Visual Studio 2017 RC (or later) with the .NET Core and Docker Preview workload must be installed.
-2. Windows 10 Anniversary Update with the latest Windows Update patches must be installed.
-3. [Docker for Windows (Beta)](https://docs.docker.com/docker-for-windows/) (build 1.12.2-beta28 7813 or later) must be installed.
+2. Windows 10 Anniversary Update with that latest Windows Update patches. Specifically [KB3194798](https://support.microsoft.com/en-us/help/3194798/cumulative-update-for-windows-10-version-1607-and-windows-server-2016-october-11,-2016) must be installed. 
+3. [Docker for Windows](https://docs.docker.com/docker-for-windows/) (build 1.13.0 or later) must be installed.
 4. **Switch to Windows containers** must be selected. In the notification area, click **Docker for Windows**, and then select **Switch to Windows containers**. After the machine restarts, ensure that this setting is retained.
 
 #### Console output does not appear in Visual Studio's output window while debugging a console application
@@ -65,11 +65,6 @@ To work around this issue, open web.release.config in the solution and comment o
 ```
 <compilation xdt:Transform="RemoveAttributes(debug)" />
 ```
-
-#### When switching to windows containers, you see an error stating, "Error response from daemon: i/o timeout"
-
-This issue in Docker for Windows can be tracked at https://github.com/docker/for-win/issues/178.
-
 
 ## Visual Studio 2015
 
@@ -135,58 +130,6 @@ docker info
 ```
 
 If this returns an error, then attempt to start the **Docker for Windows** desktop app. If the desktop app is running, then **Moby** should be visible in the notification area. Right-click **Moby** and open **Settings**. Click **Reset**, and then restart Docker.
-
-## Manually upgrading from version 0.31 to 0.40
-To manually upgrade Docker for Windows:
-
-1. Back up the project.
-1. Delete the following files in the project:
-
-    ```
-      Dockerfile
-      Dockerfile.debug
-      DockerTask.ps1
-      docker-compose-yml
-      docker-compose.debug.yml
-      .dockerignore
-      Properties\Docker.props
-      Properties\Docker.targets
-    ```
-
-1. Close the solution and remove the following lines from the .xproj file:
-
-    ```
-      <DockerToolsMinVersion>0.xx</DockerToolsMinVersion>
-      <Import Project="Properties\Docker.props" />
-      <Import Project="Properties\Docker.targets" />
-    ```
-
-1. Reopen the solution.
-1. Remove the following lines from the Properties\launchSettings.json file:
-
-    ```
-      "Docker": {
-        "executablePath": "%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-        "commandLineArgs": "-ExecutionPolicy RemoteSigned .\\DockerTask.ps1 -Run -Environment $(Configuration) -Machine '$(DockerMachineName)'"
-      }
-    ```
-
-1. Remove the following files related to Docker from project.json in the publishOptions:
-
-    ```
-    "publishOptions": {
-      "include": [
-        ...
-        "docker-compose.yml",
-        "docker-compose.debug.yml",
-        "Dockerfile.debug",
-        "Dockerfile",
-        ".dockerignore"
-      ]
-    },
-    ```
-
-1. Uninstall the previous version and install Docker Tools 0.40. Then go to **Add > Docker Support** from the context menu for your ASP.NET Core web or console application. This adds the new required Docker artifacts back to your project.
 
 ## An error dialog occurs when attempting to add Docker Support or debug (F5) an ASP.NET Core application in a container
 

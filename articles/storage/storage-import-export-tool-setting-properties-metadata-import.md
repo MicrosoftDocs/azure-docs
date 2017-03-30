@@ -1,8 +1,8 @@
 ---
-title: Setting properties and metadata during the Azure Import/Export import process | Microsoft Docs
-description: Learn how to specify properties and metadata to be set on the destination blobs when running the Azure Import/Export tool to prepare your drives.
-author: renashahmsft
-manager: aungoo
+title: Setting properties and metadata using Azure Import/Export | Microsoft Docs
+description: Learn how to specify properties and metadata to be set on the destination blobs when running the Azure Import/Export Tool to prepare your drives.
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: renash
+ms.date: 01/23/2017
+ms.author: muralikk
 
 ---
 
 # Setting properties and metadata during the import process
 
-When you run the Microsoft Azure Import/Export tool to prepare your drives, you can specify properties and metadata to be set on the destination blobs. Follow these steps:
+When you run the Microsoft Azure Import/Export Tool to prepare your drives, you can specify properties and metadata to be set on the destination blobs. Follow these steps:
 
 1.  To set blob properties, create a text file on your local computer that specifies property names and values.
 2.  To set blob metadata, create a text file on your local computer that specifies metadata names and values.
-3.  Pass the full path to one or both of these files to the Azure Import/Export tool as part of the `PrepImport` operation.
+3.  Pass the full path to one or both of these files to the Azure Import/Export Tool as part of the `PrepImport` operation.
 
 > [!NOTE]
 >  When you specify a properties or metadata file as part of a copy session, those properties or metadata are set for every blob that is imported as part of that copy session. If you want to specify a different set of properties or metadata for some of the blobs being imported, you'll need to create a separate copy session with different properties or metadata files.
@@ -51,7 +51,7 @@ Similarly, to specify blob metadata, create a local text file that specifies met
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Metadata>
-    <UploadMethod>Windows Azure Import/Export Service</UploadMethod>
+    <UploadMethod>Windows Azure Import/Export service</UploadMethod>
     <DataSetName>SampleData</DataSetName>
     <CreationDate>10/1/2013</CreationDate>
 </Metadata>
@@ -71,4 +71,4 @@ K:\Temp\FavoriteVideo.ISO,https://mystorageaccount.blob.core.windows.net/favorit
 
 ## Next steps
 
-[Import-Export Service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md)
+* [Import/Export service metadata and properties file format](storage-import-export-file-format-metadata-and-properties.md)

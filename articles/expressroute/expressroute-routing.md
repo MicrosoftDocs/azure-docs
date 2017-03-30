@@ -1,5 +1,5 @@
 ---
-title: Routing requirements for ExpressRoute | Microsoft Docs
+title: Routing requirements for Azure ExpressRoute | Microsoft Docs
 description: This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits.
 documentationcenter: na
 services: expressroute
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/03/2017
+ms.date: 03/03/2017
 ms.author: osamam
 
 ---
@@ -158,6 +158,9 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 | India South |12076:51019 |
 | India West |12076:51018 |
 | India Central |12076:51017 |
+| **Korea** | |
+| Korea South |12076:51028 |
+| Korea Central |12076:51029 |
 
 All routes advertised from Microsoft will be tagged with the appropriate community value. 
 
@@ -186,8 +189,12 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | **National Clouds Azure Region**| **BGP community value** |
 | --- | --- |
 | **US Government** |  |
+| US Gov Arizona | 12076:51106 |
 | US Gov Iowa | 12076:51109 |
 | US Gov Virginia | 12076:51105 |
+| US Gov Texas | 12076:51108 |
+| US DoD Central | 12076:51209 |
+| US DoD East | 12076:51205 |
 
 
 | **Service in National Clouds** | **BGP community value** |

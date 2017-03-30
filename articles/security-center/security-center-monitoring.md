@@ -1,5 +1,5 @@
 ---
-title: Security health monitoring in Azure Security Center | Microsoft Docs
+title: Security monitoring in Azure Security Center | Microsoft Docs
 description: This article helps you to get started with monitoring capabilities in Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 01/30/2017
 ms.author: yurid
 
 ---
@@ -30,7 +30,7 @@ For more information about how to apply recommendations, read [Implementing secu
 
 On the **Resources security health** tile, you can monitor the security state of your resources. In the following example, you can see that a number of issues have high and medium severity and require attention. The security policies that are enabled will impact the types of controls that are monitored.
 
-![Resources security health tile](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
+![Resources security health tile](./media/security-center-monitoring/security-center-monitoring-fig1-new4-2017.png)
 
 If Security Center identifies a vulnerability that needs to be addressed, such as a virtual machine that has missing security updates or a subnet without a [network security group](/virtual-network/virtual-networks-nsg.md), it will be listed here.
 
@@ -57,8 +57,8 @@ This section has a set of [recommendations for each virtual machine](security-ce
 
 > [!NOTE]
 > Only virtual machines that have at least one public endpoint are shown in the **Networking Health** blade in the **Network topology** list.
-> 
-> 
+>
+>
 
 Each recommendation has a set of actions that you can perform after you click it. For example, if you click **Missing system updates**, the **Missing system updates** blade opens. It lists the virtual machines that are missing patches and the severity of the missing update as shown in the following screenshot.
 
@@ -84,8 +84,8 @@ To view the recommendation details, click the name of the virtual machine. A new
 
 > [!NOTE]
 > The security recommendations here are the same as those in the **Recommendations** blade. See the [Implementing security recommendations in Azure Security Center](security-center-recommendations.md) article for more information about how to resolve recommendations. This is applicable not only for virtual machines but also for all resources that are available in the **Resource Health** tile.
-> 
-> 
+>
+>
 
 #### Virtual machines section
 The virtual machines section gives you an overview of all virtual machines and recommendations. Each column represents one set of recommendations as shown in the following screenshot:
@@ -166,7 +166,8 @@ In this topology view, the first level has [virtual networks](../virtual-network
 The bottom part of this blade has the recommendations for this virtual machine, which is similar to what is described previously. You can click a recommendation to learn more or apply the needed security control or configuration.
 
 ### Monitor data
-When you click **Data** in the **Resources security health** tile, the **Data Resources** blade opens with recommendations for SQL and Storage. It also has [recommendations](security-center-sql-service-recommendations.md) for the general health state of the database. For more information about storage encryption, read Enable encryption for Azure storage account in Azure Security Center.
+
+When you click **SQL & Data** in the **Resources security health** tile, the **Data Resources** blade opens with recommendations for SQL and Storage. It also has [recommendations](security-center-sql-service-recommendations.md) for the general health state of the database. For more information about storage encryption, read [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
 
 ![Data Resources](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
 
@@ -210,4 +211,3 @@ In this article, you learned how to use monitoring capabilities in Azure Securit
 * [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md): Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQ](security-center-faq.md): Find frequently asked questions about using the service.
 * [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.
-

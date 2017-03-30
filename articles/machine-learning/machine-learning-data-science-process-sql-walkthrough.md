@@ -1,5 +1,5 @@
 ---
-title: 'The Team Data Science Process in action: using SQL Server | Microsoft Docs'
+title: Build and deploy a machine learning model using SQL Server on an Azure VM | Microsoft Docs'
 description: Advanced Analytics Process and Technology in Action
 services: machine-learning
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 01/29/2017
 ms.author: fashah;bradsev
 
 ---
@@ -67,7 +67,7 @@ To set up your Azure Data Science environment:
 
 1. [Create a storage account](../storage/storage-create-storage-account.md)
 2. [Create an Azure Machine Learning workspace](machine-learning-create-workspace.md)
-3. [Provision a Data Science Virtual Machine](machine-learning-data-science-setup-sql-server-virtual-machine.md), which will serve as a SQL Server as well an IPython Notebook server.
+3. [Provision a Data Science Virtual Machine](machine-learning-data-science-setup-sql-server-virtual-machine.md), which provides a SQL Server and an IPython Notebook server.
    
    > [!NOTE]
    > The sample scripts and IPython notebooks will be downloaded to your Data Science virtual machine during the setup process. When the VM post-installation script completes, the samples will be in your VM's Documents library:  

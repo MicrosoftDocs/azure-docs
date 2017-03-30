@@ -13,22 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 
 ---
 
 # Third-party software compatible with Azure AD Domain Services
 
-## Quest One Identity Authentication Services
+## One Identity Authentication Services
 
-![Quest One Identity](./media/compatible-software-icons/OneIdentity.png)
+![One Identity](./media/compatible-software-icons/OneIdentity.png)
 
 One Identity Authentication Services enables Unix, Linux, and Mac OS X systems to use the access, authentication, and authorization of an organization’s existing Active Directory (AD) infrastructure. Authentication Services now supports Azure Active Directory Domain Services enabling non-Windows resources to utilize the same next-generation platform that your existing SaaS solutions already use.
 
-[Quest One Identity](https://www.quest.com/products/authentication-services/)
+[One Identity Authentication Services](https://www.quest.com/products/authentication-services/)
 
-[KB Article - Use Quest Authentication Services with Azure AD Domain Services](https://support.quest.com/authentication-services/kb/208427)
+[KB Article - Use One Identity Authentication Services with Azure AD Domain Services](https://support.quest.com/authentication-services/kb/208427)
 
 
 ## RedHat Enterprise Linux

@@ -1,7 +1,19 @@
 ---
-layout: LandingPage
+title: Azure Multi-factor Authentication Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to deploy multi-factor authentication with a range of verification methods that provide a simple sign-in process. Tutorials, an SDK, and more.
+services: multi-factor-authentication
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: multi-factor-authentication
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
+
 # Multi-factor Authentication Documentation
 
 Learn how to deploy and manage Azure Multi-Factor Authentication, a two-step identity verification system. Tutorials, an SDK, and other documentation show you how to deliver strong authentication with a range of verification methods while providing a simple sign-in process.
@@ -101,11 +113,4 @@ Learn how to deploy and manage Azure Multi-Factor Authentication, a two-step ide
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/multi-factor-authentication.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Multi-factor Authentication Documentation
-        </div>
-    </a>
-</div>
+

@@ -41,7 +41,7 @@ The Notification Hubs queue and topic triggers to a function use the following J
         "name" : "<Name of input parameter in function signature>",
         "queueName" : "<Name of the queue>",
         "connection" : "<Name of app setting that has your queue's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>"
+        "accessRights" : "<Access rights for the connection string - see below>",
         "type" : "serviceBusTrigger",
         "direction" : "in"
     }
@@ -55,7 +55,7 @@ The Notification Hubs queue and topic triggers to a function use the following J
         "topicName" : "<Name of the topic>",
         "subscriptionName" : "<Name of the subscription>",
         "connection" : "<Name of app setting that has your topic's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>"
+        "accessRights" : "<Access rights for the connection string - see below>",
         "type" : "serviceBusTrigger",
         "direction" : "in"
     }
@@ -76,7 +76,7 @@ Note the following:
 
 ## Trigger behavior
 * **Single-threading** - By default, the Functions runtime processes multiple messages concurrently. To direct the runtime 
-  to process only a single queue or topic message at a time, set `serviceBus.maxConcurrrentCalls` to 1 in *host.json*. 
+  to process only a single queue or topic message at a time, set `serviceBus.maxConcurrentCalls` to 1 in *host.json*. 
   For information about *host.json*, see [Folder Structure](functions-reference.md#folder-structure) and 
   [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 * **Poison message handling** - Service Bus does its own poison message handling, which can't be controlled or configured 

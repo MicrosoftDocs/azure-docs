@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: hero-article
-ms.date: 08/30/2016
+ms.date: 01/07/2017
 ms.author: brandwe
 
 ---
@@ -277,7 +277,7 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 `policyName`: The policy that you want to validate the tokens coming in to your server. This policy should be the same policy that you use on the client application for sign-in.
 
 > [!NOTE]
-> For our B2C preview, use the same policies across both client and server setup. If you have already completed a walk-through and created these policies, you don't need to do so again. Because you completed the walk-through, you shouldn't need to set up new policies for client walk-throughs on the site.
+> For now, use the same policies across both client and server setup. If you have already completed a walk-through and created these policies, you don't need to do so again. Because you completed the walk-through, you shouldn't need to set up new policies for client walk-throughs on the site.
 >
 >
 

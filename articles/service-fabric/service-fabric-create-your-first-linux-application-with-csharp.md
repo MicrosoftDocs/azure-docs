@@ -1,5 +1,5 @@
 ---
-title: Create your first Service Fabric application on Linux using C#| Microsoft Docs
+title: Create your first Azure microservices app on Linux using C#| Microsoft Docs
 description: Create and deploy a Service Fabric application using C#
 services: service-fabric
 documentationcenter: csharp
@@ -13,7 +13,7 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2016
+ms.date: 03/02/2017
 ms.author: subramar
 
 ---

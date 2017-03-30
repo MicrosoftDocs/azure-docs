@@ -32,7 +32,7 @@ This tutorial uses the Azure portal to create a SQL Data Warehouse that contains
 To get started, you need:
 
 * **Azure account**: Visit [Azure Free Trial][Azure Free Trial] or [MSDN Azure Credits][MSDN Azure Credits] to create an account.
-* **Azure SQL server**:  See [Create an Azure SQL Database logical server with the Azure portal][Create an Azure SQL Database logical server with the Azure portal] for more details.
+* **Azure SQL server**:  See [Create an Azure SQL database with the Azure portal][Create an Azure SQL database in the Azure portal] for more details.
 
 > [!NOTE]
 > Creating a SQL Data Warehouse might result in a new billable service.  See [SQL Data Warehouse pricing][SQL Data Warehouse pricing] for more details.
@@ -41,7 +41,7 @@ To get started, you need:
 
 ## Create a SQL Data Warehouse
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **+ New** > **Data + Storage** > **SQL Data Warehouse**.
+2. Click **+ New** > **Databases** > **SQL Data Warehouse**.
 
     ![Create](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 3. In the **SQL Data Warehouse** blade, fill in the information needed, then press 'Create' to create.
@@ -79,11 +79,11 @@ Firewall rules can also be configured using Transact-SQL. For more information, 
 It's also a great idea to look at the [Best practices][Best practices].
 
 <!--Article references-->
-[Create an Azure SQL Database logical server with the Azure portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
-[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[Create an Azure SQL database in the Azure portal]: ../sql-database/sql-database-get-started.md
+[Create an Azure SQL database with PowerShell]: ../sql-database/sql-database-create-and-configure-database-powershell
 [resource groups]: ../azure-resource-manager/resource-group-template-deploy-portal.md
 [Best practices]: sql-data-warehouse-best-practices.md
-[DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[DWU]: sql-data-warehouse-overview-what-is.md
 [subscription]: ../azure-glossary-cloud-terminology.md#subscription
 [resource group]: ../azure-glossary-cloud-terminology.md#resource-group
 [T-SQL]: ./sql-data-warehouse-get-started-create-database-tsql.md
