@@ -10,7 +10,7 @@ tags: azure-resource-manager
 
 ms.assetid: 5452a0b8-21a6-4699-8d6a-e2d8faf32c25
 ms.service: virtual-network
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
