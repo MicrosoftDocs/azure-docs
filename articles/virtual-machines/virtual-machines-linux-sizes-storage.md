@@ -28,7 +28,7 @@ ms.author: cynthn
 
 
 ## Other sizes
-- [General purpose](virtual-machines-linux-sizes-general.md)
+- [General purpose](linux/sizes-general.md)
 - [Compute optimized](linux/sizes-compute.md)
 - [Memory optimized](virtual-machines-linux-sizes-memory.md)
 - [GPU](virtual-machines-linux-sizes-gpu.md)

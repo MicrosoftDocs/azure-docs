@@ -25,7 +25,7 @@ ms.author: cynthn
 
 
 Here are links to more information about the different sizes:
-- [General-purpose](../virtual-machines-linux-sizes-general.md)
+- [General-purpose](sizes-general.md)
 - [Memory optimized](../virtual-machines-linux-sizes-memory.md)
 - [Compute optimized](sizes-compute.md)
 - [GPU optimized](../virtual-machines-linux-sizes-gpu.md)
