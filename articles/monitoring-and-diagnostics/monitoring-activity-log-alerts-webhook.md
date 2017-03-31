@@ -1,11 +1,6 @@
 # Webhooks for Azure Activity Log alerts
 As part of the definition of an Action Group you are able to configure Webhook endpoints to receive Activity Log Alerts notifications. Webhooks allow you to route these notification to other systems for post-processing or custom actions. This article shows what the payload for the HTTP POST to a webhook looks like.
 
->[!NOTE]
->This feature is currently in public preview. Not all functionality may be available at this time.
->
->
-
 For information on the setup and schema for Azure Activity Log alerts, [see this page instead](monitoring-activity-log-alerts.md).
 
 For information on the setup and schema for Action Groups, [see this page instead](monitoring-action-groups.md)

@@ -33,8 +33,6 @@ This article uses cross-platform Azure CLI 1.0, which is available for Windows, 
 
 This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher or have an existing instance of Network Watcher. The scenario also assumes that a Resource Group with a valid virtual machine exists to be used.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## Scenario
 
 This scenario uses IP Flow Verify to verify if a virtual machine can talk to a known Bing IP address. If the traffic is denied, it returns the security rule that is denying that traffic. To learn more about IP Flow Verify, visit [IP Flow Verify Overview](network-watcher-ip-flow-verify-overview.md)
