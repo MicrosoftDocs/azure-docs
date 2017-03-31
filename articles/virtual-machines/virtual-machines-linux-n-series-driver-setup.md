@@ -113,7 +113,8 @@ After the update completes, restart the VM.
 #### Installation of NVIDIA CUDA Toolkit
  Installation of NVIDIA CUDA Toolkit.
  
-	##### Ubuntu 16.04-LTS
+##### Ubuntu 16.04-LTS
+
 	 ```bash
 	 CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
 	 DEBIAN_FRONTEND=noninteractive apt-mark hold walinuxagent
@@ -126,7 +127,7 @@ After the update completes, restart the VM.
 	 export LIBRARY_PATH=/usr/local/cuda-8.0/lib64/:${LIBRARY_PATH}  && export LIBRARY_PATH=/usr/local/cuda-8.0/lib64/stubs:${LIBRARY_PATH} && \
 	 export PATH=/usr/local/cuda-8.0/bin:${PATH}
 	 ```
-	 ##### CentOS 7.3
+##### CentOS 7.3
 	  ```bash
 		wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-repo-rhel7-8.0.61-1.x86_64.rpm
 		rpm -i cuda-repo-rhel7-8.0.61-1.x86_64.rpm
@@ -137,15 +138,16 @@ After the update completes, restart the VM.
  
  [CUDA Samples](http://docs.nvidia.com/cuda/cuda-samples/#new-features-in-cuda-toolkit-8-0) can be installed in a location as follows:
  
-	###### Ubuntu 16.04-LTS
+###### Ubuntu 16.04-LTS
+	
 		 ```bash
 		 export SHARE_DATA="/data"
 		 export SAMPLES_USER="samplesuser"
 		 su -c "/usr/local/cuda-8.0/bin/./cuda-install-samples-8.0.sh $SHARE_DATA" $SAMPLES_USER
-
 		 ```
 
-	###### Centos 7.3
+###### Centos 7.3
+	
 		 In /usr/local/cuda-8.0/samples for CentOS 7.3. 
 
 		 * Just a make within each would suffice post successful provisioning.
@@ -177,11 +179,11 @@ After the update completes, restart the VM.
 	```
 	###### CentOS 7.3
 
-	 > :grey_exclamation:
+> :grey_exclamation:
 
-	 > Successful Installation happens on reboot.
+> Successful Installation happens on reboot.
 
-	 > **This is required  for NVIDIA Driver with DKMS (Dynamic Kernel Module Support) for driver load surviving kernel updates.**
+> **This is required  for NVIDIA Driver with DKMS (Dynamic Kernel Module Support) for driver load surviving kernel updates.**
 
 	```bash 
 		wget http://us.download.nvidia.com/XFree86/Linux-x86_64/375.39/NVIDIA-Linux-x86_64-375.39.run&lang=us&type=Tesla
