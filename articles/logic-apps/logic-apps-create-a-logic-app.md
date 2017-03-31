@@ -133,17 +133,17 @@ Now we add an action that sends email when new items appear in the website's RSS
 
 2. Based on your email account, follow the steps for Outlook or Gmail.
 
-   * To send email from your Outlook account, in the search box, 
-   enter `outlook`. Under **Services**, choose **Outlook.com** for personal Microsoft accounts, 
-   or choose **Office 365 Outlook** for Azure work or school accounts. 
-   Under **Actions**, select **Send an email**.
+  * To send email from your Outlook account, in the search box, 
+  enter `outlook`. Under **Services**, choose **Outlook.com** for personal Microsoft accounts, 
+  or choose **Office 365 Outlook** for Azure work or school accounts. 
+  Under **Actions**, select **Send an email**.
 
-      ![Select Outlook "Send an email" action](media/logic-apps-create-a-logic-app/actions.png)
+    ![Select Outlook "Send an email" action](media/logic-apps-create-a-logic-app/actions.png)
 
-   * To send email from your Gmail account, in the search box, enter `gmail`. 
-   Under **Actions**, select **Send email**.
+ * To send email from your Gmail account, in the search box, enter `gmail`. 
+ Under **Actions**, select **Send email**.
 
-      ![Choose "Gmail - Send email"](media/logic-apps-create-a-logic-app/actions-gmail.png)
+    ![Choose "Gmail - Send email"](media/logic-apps-create-a-logic-app/actions-gmail.png)
 
 3. When you're prompted for credentials, 
 sign in with the username and password for your email account. 
