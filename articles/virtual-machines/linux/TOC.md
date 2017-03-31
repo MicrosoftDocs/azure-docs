@@ -69,7 +69,7 @@
 ## Configure VMs
 ### [Use cloud-init](../virtual-machines-linux-using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Add a user to a VM](add-user.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Resize a VM](../virtual-machines-linux-change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Resize a VM](change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Use tags](../../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Tag a VM](../virtual-machines-linux-tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Optimize your Linux VM](../virtual-machines-linux-optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
