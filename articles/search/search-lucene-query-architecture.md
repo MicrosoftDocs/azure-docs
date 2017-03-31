@@ -171,28 +171,28 @@ Further assume that this index contains the following four documents:
 
 ~~~~
 { 
-  "value":[ 
-    {         
-    "id": "1",         
-    "title": "Hotel Atman",         
-    "description": "Spacious rooms, ocean view, walking distance to the beach."   
-    },       
-    {         
-    "id": "2",         
-    "title": "Beach Resort",        
-    "description": "Located on the north shore of the island of Kauaʻi. Ocean view."     
-    },       
-    {         
-     "id": "3",         
-     "title": "Playa Hotel",         
-     "description": "Comfortable, air-conditioned rooms with ocean view."
-    },       
-    {         
-     "id": "4",         
-     "title": "Ocean Retreat",         
-     "description": "Quiet and secluded"
-    }    
-  ]
+    "value": [
+        {         
+            "id": "1",         
+            "title": "Hotel Atman",         
+            "description": "Spacious rooms, ocean view, walking distance to the beach."   
+        },       
+        {         
+            "id": "2",         
+            "title": "Beach Resort",        
+            "description": "Located on the north shore of the island of Kauaʻi. Ocean view."     
+        },       
+        {         
+            "id": "3",         
+            "title": "Playa Hotel",         
+            "description": "Comfortable, air-conditioned rooms with ocean view."
+        },       
+        {         
+            "id": "4",         
+            "title": "Ocean Retreat",         
+            "description": "Quiet and secluded"
+        }    
+    ]
 }
 ~~~~
 
