@@ -31,7 +31,7 @@ Get started by downloading the Spark to DocumentDB connector (preview) from the 
 
 The connector involves the following components:
 
-* [Azure DocumentDB](http://documentdb.com) is Microsoft’s multi-tenant, [globally distributed database system](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-distribute-data-globally) designed for the cloud. DocumentDB allows customers to provision and elastically scale both, throughput and storage across any number of geographical regions. The service offers guaranteed low latency at the 99th percentile, a guaranteed 99.99% high availability, and [multiple well-defined consistency models](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-consistency-levels) to developers.
+* [Azure DocumentDB](http://documentdb.com) is Microsoft’s multi-tenant, [globally distributed database system](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-distribute-data-globally) designed for the cloud. DocumentDB enables customers to provision and elastically scale both throughput and storage across any number of geographical regions. The service offers guaranteed low latency at the 99th percentile, a guaranteed 99.99% high availability, and [multiple well-defined consistency models](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-consistency-levels) to developers.
 
 * [Apache Spark](http://spark.apache.org/) is a powerful open source processing engine built around speed, ease of use, and sophisticated analytics. 
 
@@ -53,18 +53,18 @@ There are two approaches to connect Apache Spark and Azure DocumentDB:
 - Use `pyDocumentDB` via the [Azure DocumentDB Python SDK](https://github.com/Azure/azure-documentdb-python).
 - Create a Java-based Spark to DocumentDB connector utilizing the [Azure DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java).
 
-## pyDocumentDB
+## pyDocumentDB implementation 
 The current [`pyDocumentDB SDK`](https://github.com/Azure/azure-documentdb-python) enables us to connect `Spark` to `DocumentDB` as shown in the following diagram:
 
 ![Spark to DocumentDB data flow via pyDocumentDB](./media/documentdb-spark-connector/azure-documentdb-spark-pydocumentdb.png)
 
 
-## Data flow of the pyDocumentDB implementation
+### Data flow of the pyDocumentDB implementation
 
 The data flow is as follows:
 
 1. Connection is made from Spark master node to DocumentDB gateway node via `pyDocumentDB`.  Note, user only specifies Spark and DocumentDB connections, the fact that it connects to the respective master and gateway nodes is transparent to the user.
-2. Query is made against DocuemntDB (via the gateway node) where the query subsequently runs the query against the collection's partitions in the data nodes. The response for those queries is sent back to the gateway node and that resultset is returned to Spark master node.
+2. Query is made against DocumentDB (via the gateway node) where the query subsequently runs the query against the collection's partitions in the data nodes. The response for those queries is sent back to the gateway node and that resultset is returned to Spark master node.
 3. Any subsequent queries (for example, against a Spark DataFrame) is sent to the Spark worker nodes for processing.
 
 The important call out is that communication between Spark and DocumentDB is limited to the Spark master node and DocumentDB gateway nodes.  The queries go as fast as the transport layer is between these two nodes.
@@ -145,7 +145,7 @@ Connecting Spark to DocumentDB using `pyDocumentDB` is typically for scenarios w
 * You want to use `python`.
 * You are returning a relatively small result set from DocumentDB to Spark.  Note that the underlying dataset within DocumentDB can be quite large. It is more that you are applying filters - that is running predicate filters - against your DocumentDB source.  
 
-## Data flow in the Spark to DocumentDB connector
+## Spark to DocumentDB connector
 
 The Spark to DocumentDB connector utilizes the [Azure DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java) and moves data between the Spark worker nodes and DocumentDB as shown in the following diagram:
 
@@ -191,7 +191,7 @@ If you are using a notebook service such as Azure HDInsight Jupyter notebook ser
 }
 ```
 
-The `jars` command allows you to include the two jars needed for `azure-documentdb-spark` (itself and the Azure DocumentDB Java SDK) and excludes `scala-reflect` so it does not interfere with the Livy calls made (Jupyter notebook > Livy > Spark).
+The `jars` command enables you to include the two jars needed for `azure-documentdb-spark` (itself and the Azure DocumentDB Java SDK) and excludes `scala-reflect` so it does not interfere with the Livy calls made (Jupyter notebook > Livy > Spark).
 
 ### Connecting Spark to DocumentDB using the connector
 While the communication transport is a little more complicated, executing a query from Spark to DocumentDB using `azure-documentdb-spark` is significantly faster.
