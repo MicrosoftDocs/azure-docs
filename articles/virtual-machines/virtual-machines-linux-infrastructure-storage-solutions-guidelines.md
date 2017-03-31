@@ -77,7 +77,7 @@ If you are using disk striping for Azure data disks, consider the following guid
 * Use LVM.
 * Avoid using Azure data disk caching options (caching policy = None).
 
-For more information, see [Configuring LVM on a Linux VM](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information, see [Configuring LVM on a Linux VM](linux/configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Multiple storage accounts
 This section does not apply to [Azure Managed Disks](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), as you do not create separate storage accounts. 

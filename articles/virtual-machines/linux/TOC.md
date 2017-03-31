@@ -107,7 +107,7 @@
 ### [Detach a disk](../virtual-machines-linux-detach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Expand the OS disk](../virtual-machines-linux-expand-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Configure software RAID](../virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Configure LVM](../virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Configure LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Mount Azure File Storage using SMB](../virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## VM networking
