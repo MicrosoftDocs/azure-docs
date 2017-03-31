@@ -23,8 +23,6 @@ ms.author: gwallace
 
 Gaining deep insights on your network performance is critical to provide reliable services to customers. It is therefore critical to detect network outage conditions quickly and take corrective action to mitigate the outage condition. Azure Automation enables you to implement and run a task in a programmatic fashion through runbooks. Using Azure Automation creates a perfect recipe for performing continuous and proactive network monitoring and alerting.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## Scenario
 
 The scenario in the following image is a multi-tiered application, with on premises connectivity established using a VPN Gateway and tunnel. Ensuring the VPN Gateway is up and running is critical to the applications performance.

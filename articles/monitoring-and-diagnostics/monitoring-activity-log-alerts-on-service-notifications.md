@@ -21,11 +21,6 @@ ms.author: ancav
 ## Overview
 This article shows you how to set up activity log alerts for service health notifications using the Azure portal.  
 
->[!NOTE]
->This feature is currently in public preview. Not all functionality may be available at this time.
->
->
-
 You can receive an alert based on service health notifications for your Azure subscription.  
 You can configure the alert based on:
 - The class of service health notification (Incident, Maintenance, Information, etc.)
