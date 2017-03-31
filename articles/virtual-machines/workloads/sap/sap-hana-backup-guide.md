@@ -24,28 +24,28 @@ The backup guide for SAP HANA running on Azure virtual Machines will only descri
 
 The focus of this article is on two major backup possibilities for SAP HANA on Azure virtual machines:
 
-- HANA backup to the file system in an Azure Linux Virtual Machine (see [SAP HANA Azure Backup on file level](./sap-hana-backup-file-level.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json))
-- HANA backup based on storage snapshots using the Azure storage blob snapshot feature manually or Azure Backup Service (see [SAP HANA backup based on storage snapshots](./sap-hana-backup-storage-snapshots.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json))
+- HANA backup to the file system in an Azure Linux Virtual Machine (see [SAP HANA Azure Backup on file level](sap-hana-backup-file-level.md))
+- HANA backup based on storage snapshots using the Azure storage blob snapshot feature manually or Azure Backup Service (see [SAP HANA backup based on storage snapshots](sap-hana-backup-storage-snapshots.md))
 
 SAP HANA offers a backup API, which allows third-party backup tools to integrate directly with SAP HANA. (That is not within the scope of this guide.) There is no direct integration of SAP HANA with Azure Backup service available right now based on this API.
 
 SAP HANA is officially supported on Azure VM type GS5 as single instance with an additional restriction to OLAP workloads (see [Find Certified IaaS Platforms](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html) on the SAP website). This article will be updated as new offerings for SAP HANA on Azure become available.
 
-There is also an SAP HANA hybrid solution available on Azure, where SAP HANA runs non-virtualized on physical servers. However, this SAP HANA Azure backup guide covers a pure Azure environment where SAP HANA runs in an Azure VM, not SAP HANA running on &quot;large instances.&quot; See [SAP HANA (large instances) overview and architecture on Azure](./sap-hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information about this backup solution on &quot;large instances&quot; based on storage snapshots.
+There is also an SAP HANA hybrid solution available on Azure, where SAP HANA runs non-virtualized on physical servers. However, this SAP HANA Azure backup guide covers a pure Azure environment where SAP HANA runs in an Azure VM, not SAP HANA running on &quot;large instances.&quot; See [SAP HANA (large instances) overview and architecture on Azure](hana-overview-architecture.md) for more information about this backup solution on &quot;large instances&quot; based on storage snapshots.
 
 General information about SAP products supported on Azure can be found in [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533).
 
-The following three figures give an overview of the SAP HANA backup options using native Azure capabilities currently, and also show three potential future backup scenarios. The related articles [SAP HANA Azure Backup on file level](./sap-hana-backup-file-level.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [SAP HANA backup based on storage snapshots](./sap-hana-backup-storage-snapshots.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) describe these options in more detail, including size and performance considerations for SAP HANA backups that are multi-terabytes in size.
+The following three figures give an overview of the SAP HANA backup options using native Azure capabilities currently, and also show three potential future backup scenarios. The related articles [SAP HANA Azure Backup on file level](sap-hana-backup-file-level.md) and [SAP HANA backup based on storage snapshots](sap-hana-backup-storage-snapshots.md) describe these options in more detail, including size and performance considerations for SAP HANA backups that are multi-terabytes in size.
 
-![This figure shows two possibilities for saving the current VM state](./media/sap-hana-backup-guide/image001.png)
+![This figure shows two possibilities for saving the current VM state](media/sap-hana-backup-guide/image001.png)
 
 This figure shows the possibility of saving the current VM state, either via Azure Backup service or manual snapshot of VM disks. With this approach, one doesn&#39;t have to manage SAP HANA backups. The challenge of the disk snapshot scenario is file system consistency, and an application-consistent disk state. The consistency topic is discussed in the section _SAP HANA data consistency when taking storage snapshots_ later in this article. Capabilities and restrictions of Azure Backup service related to SAP HANA backups are also discussed later in this article.
 
-![This figure shows options for taking an SAP HANA file backup inside the VM](./media/sap-hana-backup-guide/image002.png)
+![This figure shows options for taking an SAP HANA file backup inside the VM](media/sap-hana-backup-guide/image002.png)
 
 This figure shows options for taking an SAP HANA file backup inside the VM, and then storing it HANA backup files somewhere else using different tools. Taking a HANA backup requires more time than a snapshot-based backup solution, but it has advantages regarding integrity and consistency. More details are provided later in this article.
 
-![This figure shows a potential future SAP HANA backup scenario](./media/sap-hana-backup-guide/image003.png)
+![This figure shows a potential future SAP HANA backup scenario](media/sap-hana-backup-guide/image003.png)
 
 This figure shows a potential future SAP HANA backup scenario. If SAP HANA allowed taking backups from a replication secondary, it would add additional options for backup strategies. Currently it isn't possible according to a post in the SAP HANA Wiki:
 
@@ -68,7 +68,7 @@ is enabled, after takeover to the secondary side, the log backups will automatic
 
 ### Why SAP HANA backup?
 
-Azure storage offers availability and reliability out of the box (see [Introduction to Microsoft Azure Storage](../../storage/storage-introduction.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information about Azure storage).
+Azure storage offers availability and reliability out of the box (see [Introduction to Microsoft Azure Storage](../../../storage/storage-introduction.md) for more information about Azure storage).
 
 The minimum for &quot;backup&quot; is to rely on the Azure SLAs, keeping the SAP HANA data and log files on Azure VHDs attached to the SAP HANA server VM. This approach covers VM failures, but not potential damage to the SAP HANA data and log files, or logical errors like deleting data or files by accident. Backups are also required for compliance or legal reasons. In short, there is always a need for SAP HANA backups.
 
@@ -111,7 +111,7 @@ Recommendation is to use the procedure above in all cases to be on the safe side
 
 It is important to confirm the HANA snapshot. Due to the &quot;Copy-on-Write,&quot; SAP HANA might not require additional disk space while in this snapshot-prepare mode. It&#39;s also not possible to start new backups until the SAP HANA snapshot is confirmed.
 
-Azure Backup service uses Azure VM extensions to take care of the file system consistency. These VM extensions are not available for standalone usage. One still has to manage SAP HANA consistency. See the related article [SAP HANA Azure Backup on file level](./sap-hana-backup-file-level.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information.
+Azure Backup service uses Azure VM extensions to take care of the file system consistency. These VM extensions are not available for standalone usage. One still has to manage SAP HANA consistency. See the related article [SAP HANA Azure Backup on file level](sap-hana-backup-file-level.md) for more information.
 
 ### SAP HANA backup scheduling strategy
 
@@ -146,15 +146,15 @@ If standard HANA backups are going to a dedicated HANA backup file system, one c
 
 SAP HANA Cockpit offers the possibility of monitoring and managing SAP HANA via a browser. It also allows handling of SAP HANA backups, and therefore can be used as an alternative to SAP HANA Studio and ABAP DBACOCKPIT (see [SAP HANA Cockpit](https://help.sap.com/saphelp_hanaplatform/helpdata/en/73/c37822444344f3973e0e976b77958e/content.htm) for more information).
 
-![This figure shows the SAP HANA Cockpit Database Administration Screen](./media/sap-hana-backup-guide/image004.png)
+![This figure shows the SAP HANA Cockpit Database Administration Screen](media/sap-hana-backup-guide/image004.png)
 
 This figure shows the SAP HANA Cockpit Database Administration Screen, and the backup tile on the left. Seeing the backup tile requires appropriate user permissions for login account.
 
-![Backups can be monitored in SAP HANA Cockpit while they are ongoing](./media/sap-hana-backup-guide/image005.png)
+![Backups can be monitored in SAP HANA Cockpit while they are ongoing](media/sap-hana-backup-guide/image005.png)
 
 Backups can be monitored in SAP HANA Cockpit while they are ongoing and, once it is finished, all the backup details are available.
 
-![An example using Firefox on an Azure SLES 12 VM with Gnome desktop](./media/sap-hana-backup-guide/image006.png)
+![An example using Firefox on an Azure SLES 12 VM with Gnome desktop](media/sap-hana-backup-guide/image006.png)
 
 The previous screenshots were made from an Azure Windows VM. This one is an example using Firefox on an Azure SLES 12 VM with Gnome desktop. It shows the option to define SAP HANA backup schedules in SAP HANA Cockpit. As one can also see, it suggests date/time as a prefix for the backup files. In SAP HANA Studio, the default prefix is &quot;COMPLETE\_DATA\_BACKUP&quot; when doing a full file backup. Using a unique prefix is recommended.
 
@@ -164,9 +164,9 @@ SAP HANA offers encryption of data and log. If SAP HANA data and log are not enc
 
 On Microsoft Azure, a customer could use the IaaS VM encryption feature to encrypt. For example, one could use dedicated data disks attached to the VM, which are used to store SAP HANA backups, then make copies of these disks.
 
-Azure Backup service can handle encrypted VMs/disks (see [How to back up and restore encrypted virtual machines with Azure Backup](../../backup/backup-azure-vms-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)).
+Azure Backup service can handle encrypted VMs/disks (see [How to back up and restore encrypted virtual machines with Azure Backup](../../../backup/backup-azure-vms-encryption.md)).
 
-Another option would be to maintain the SAP HANA VM and its disks without encryption, and store the SAP HANA backup files in a storage account for which encryption was enabled (see [Azure Storage Service Encryption for Data at Rest](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)).
+Another option would be to maintain the SAP HANA VM and its disks without encryption, and store the SAP HANA backup files in a storage account for which encryption was enabled (see [Azure Storage Service Encryption for Data at Rest](../../../storage/storage-service-encryption.md)).
 
 ## Test setup
 
@@ -174,13 +174,13 @@ Another option would be to maintain the SAP HANA VM and its disks without encryp
 
 An SAP HANA installation in an Azure GS5 VM was used for the following backup/restore tests.
 
-![This figure shows part of the Azure portal overview for the HANA test VM](./media/sap-hana-backup-guide/image007.png)
+![This figure shows part of the Azure portal overview for the HANA test VM](media/sap-hana-backup-guide/image007.png)
 
 This figure shows part of the Azure portal overview for the HANA test VM.
 
 ### Test backup size
 
-![This figure was taken from the backup console in HANA Studio and shows the backup file size of 229 GB for the HANA index server](./media/sap-hana-backup-guide/image008.png)
+![This figure was taken from the backup console in HANA Studio and shows the backup file size of 229 GB for the HANA index server](media/sap-hana-backup-guide/image008.png)
 
 A dummy table was filled up with data to get a total data backup size of over 200 GB to derive realistic performance data. The figure was taken from the backup console in HANA Studio and shows the backup file size of 229 GB for the HANA index server. For the tests, the default backup prefix "COMPLETE_DATA_BACKUP" in SAP HANA Studio was used. In real production systems, a more useful prefix should be defined. SAP HANA Cockpit suggests date/time.
 
@@ -194,15 +194,15 @@ It is important to estimate the backup size of SAP HANA. This estimate helps to 
 
 Fortunately, there is a simple SQL statement that estimates the size of the backup files: **select \* from M\_BACKUP\_SIZE\_ESTIMATIONS** (see [Estimate the Space Needed in the File System for a Data Backup](https://help.sap.com/saphelp_hanaplatform/helpdata/en/7d/46337b7a9c4c708d965b65bc0f343c/content.htm)).
 
-![The output of this SQL statement matches almost exactly the real size of the full data backup on disk](./media/sap-hana-backup-guide/image009.png)
+![The output of this SQL statement matches almost exactly the real size of the full data backup on disk](media/sap-hana-backup-guide/image009.png)
 
 For the test system, the output of this SQL statement matches almost exactly the real size of the full data backup on disk.
 
 ### Test HANA backup file size
 
-![The HANA Studio backup console allows one to restrict the max file size of HANA backup files](./media/sap-hana-backup-guide/image010.png)
+![The HANA Studio backup console allows one to restrict the max file size of HANA backup files](media/sap-hana-backup-guide/image010.png)
 
-The HANA Studio backup console allows one to restrict the max file size of HANA backup files. In the sample environment, that feature makes it possible to get multiple smaller backup files instead of one 230-GB backup file. Smaller file size has a significant impact on performance (see the related article [SAP HANA Azure Backup on file level](./sap-hana-backup-file-level.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)).
+The HANA Studio backup console allows one to restrict the max file size of HANA backup files. In the sample environment, that feature makes it possible to get multiple smaller backup files instead of one 230-GB backup file. Smaller file size has a significant impact on performance (see the related article [SAP HANA Azure Backup on file level](sap-hana-backup-file-level.md)).
 
 ## Summary
 
@@ -229,6 +229,6 @@ Based on the test results the following tables show pros and cons of solutions t
 |Manual blob snapshots                              | Flexibility to create and restore specific VM disks without changing the unique VM ID|All manual work, which has to be done by the customer|
 
 ## Next steps
-* [SAP HANA Azure Backup on file level](./sap-hana-backup-file-level.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) describes the file-based backup option.
-* [SAP HANA backup based on storage snapshots](./sap-hana-backup-storage-snapshots.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) describes the storage snapshot-based backup option.
-* To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](./sap-hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [SAP HANA Azure Backup on file level](sap-hana-backup-file-level.md) describes the file-based backup option.
+* [SAP HANA backup based on storage snapshots](sap-hana-backup-storage-snapshots.md) describes the storage snapshot-based backup option.
+* To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](sap-hana-overview-high-availability-disaster-recovery.md).
