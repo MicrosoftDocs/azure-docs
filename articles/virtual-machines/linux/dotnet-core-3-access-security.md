@@ -134,5 +134,5 @@ For in-depth information on Network Security Groups, see [What is a Network Secu
 ## Next step
 <hr>
 
-[Step 3 - Availability and Scale in Azure Resource Manager Templates](../virtual-machines-linux-dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Step 3 - Availability and Scale in Azure Resource Manager Templates](dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
