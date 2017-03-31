@@ -74,7 +74,7 @@ Whe you click Start, these updates are made to the Web App's Application Setting
 
 To view data click on the performance tab in the overview blade or the first chart in the overview timeline.
 
-![How to open the Performance blade](./media/app-insights-serviceprofiler/performance-blade.png)
+![How to open the Performance blade](./media/app-insights-profiler/performance-blade.png)
 
 When a row has an icon in the last column this means there are traces 
 available for that operation name. Clicking on this icon will bring you to our trace explorer where you can view several different samples 
