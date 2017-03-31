@@ -31,7 +31,7 @@ Several different Azure VM extensions are available, each with a specific use ca
 - Apply PowerShell Desired State configurations to a virtual machine using the DSC extension for Linux. For more information, see [Azure Desired State configuration extension](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
 - Configure monitoring of a virtual machine with the Microsoft Monitoring Agent VM extension. For more information, see [Enable or disable VM monitoring](virtual-machines-linux-vm-monitoring.md).
 - Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see the [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
-- Configure a Docker host on an Azure virtual machine using the Docker VM extension. For more information, see [Docker VM extension](virtual-machines-linux-dockerextension.md).
+- Configure a Docker host on an Azure virtual machine using the Docker VM extension. For more information, see [Docker VM extension](linux/dockerextension.md).
 
 In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Linux allows any Bash script to be run on a virtual machine. Custom scripts are useful for designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Linux VM Custom Script extension](virtual-machines-linux-extensions-customscript.md).
 
@@ -236,7 +236,7 @@ You can remove an extension by using the following steps in the Azure portal:
 | Extension name | Description | More information |
 | --- | --- | --- |
 | Custom Script extension for Linux |Run scripts against an Azure virtual machine |[Custom Script extension for Linux](virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Docker extension |Install the Docker daemon to support remote Docker commands. |[Docker VM extension](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Docker extension |Install the Docker daemon to support remote Docker commands. |[Docker VM extension](linux/dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
 | VM Access extension |Regain access to an Azure virtual machine |[VM Access extension](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure Diagnostics extension |Manage Azure Diagnostics |[Azure Diagnostics extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM Access extension |Manage users and credentials |[VM Access extension for Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |

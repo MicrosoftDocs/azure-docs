@@ -2,7 +2,7 @@ Azure cloud solutions are built on virtual machines (emulation of physical compu
 
 Azure offers the following Docker values:
 
-* [Many](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) [different](../articles/virtual-machines/virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ways to create Docker hosts for containers to suit your situation
+* [Many](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) [different](../articles/virtual-machines/linux/dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ways to create Docker hosts for containers to suit your situation
 * The [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/) creates clusters of container hosts using orchestrators such as **marathon** and **swarm**.
 * [Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md) and [resource group templates](../articles/resource-group-authoring-templates.md) to simplify deploying and updating complex distributed applications
 * integration with a large array of both proprietary and open-source configuration management tools
@@ -144,7 +144,7 @@ Docker tools:
 
 Docker on Microsoft Azure:
 
-* [Docker VM Extension for Linux on Azure](../articles/virtual-machines/virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Docker VM Extension for Linux on Azure](../articles/virtual-machines/linux/dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure Docker VM Extension User Guide](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
 * [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](../articles/virtual-machines/linux/classic/cli-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Using the Docker VM Extension from the Azure portal](../articles/virtual-machines/linux/classic/portal-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
