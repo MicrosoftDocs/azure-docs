@@ -21,19 +21,16 @@ ms.author: carolz
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
-            <img src="media/index/portal.svg" alt="">
             <span>Portal</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
-            <img src="media/index/cli.svg" alt="">
             <span>Azure CLI</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
-            <img src="media/index/logo_powershell.svg" alt="">
             <span>PowerShell</span>
         </a>
     </div>

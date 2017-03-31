@@ -24,20 +24,17 @@ ms.author: carolz
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
-            <img alt="" src="media/index/portal.svg" />
-            <span>Create VM - Portal</span>
+            <span>Portal</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
-            <img alt="" src="media/index/cli.svg" />
-            <span>Create VM - Azure CLI</span>
+            <span>Azure CLI</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
-            <img alt="" src="media/index/logo_powershell.svg" />
-            <span>Create VM - PowerShell</span>
+            <span>PowerShell</span>
         </a>
     </div>
 </div>
