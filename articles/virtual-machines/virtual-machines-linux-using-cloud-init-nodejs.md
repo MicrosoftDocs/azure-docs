@@ -80,7 +80,7 @@ On Azure, there are a three different ways to make changes onto a Linux VM as it
 * Inject scripts using cloud-init.
 * Inject scripts using the Azure [VMAccess Extension](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * An Azure template using cloud-init.
-* An Azure template using [CustomScriptExtention](virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* An Azure template using [CustomScriptExtention](linux/extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 To inject scripts at any time after boot:
 

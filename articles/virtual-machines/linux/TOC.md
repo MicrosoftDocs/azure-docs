@@ -142,7 +142,7 @@
 
 ## Use VM extensions
 ### [VM Extension overview](../virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Custom Script Extension](../virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Custom Script Extension](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [OMS Agent Extension](../virtual-machines-linux-extensions-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Run applications
