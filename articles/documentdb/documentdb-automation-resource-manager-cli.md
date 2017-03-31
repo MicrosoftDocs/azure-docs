@@ -177,6 +177,20 @@ Example:
 
     az documentdb list-keys -g rg-test -n docdb-test
 
+## <a id="list-connection-strings-cli"></a> List connection strings
+
+For MongoDB accounts, the connection string to connect your MongoDB app to the database account can be retrieved using the following command.
+
+```
+Arguments
+    --name -n           [Required]: Name of the DocumentDB database account.
+    --resource-group -g [Required]: Name of the resource group.
+```
+
+Example:
+
+    az documentdb list-connection-strings -g rg-test -n docdb-test
+
 ## <a id="regenerate-account-key-cli"></a> Regenerate account key
 
 You should change the access keys to your DocumentDB account periodically to help keep your connections more secure. Two access keys are assigned to enable you to maintain connections to the DocumentDB account using one access key while you regenerate the other access key.
