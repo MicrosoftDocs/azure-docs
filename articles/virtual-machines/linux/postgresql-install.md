@@ -28,7 +28,7 @@ In this article, you will learn how to install and configure PostgreSQL on an Az
 ## Install PostgreSQL
 > [!NOTE]
 > You must already have an Azure virtual machine running Linux in order to complete this tutorial. To create and set up a Linux VM before proceeding, see the
-> [Azure Linux VM tutorial](../virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [Azure Linux VM tutorial](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 

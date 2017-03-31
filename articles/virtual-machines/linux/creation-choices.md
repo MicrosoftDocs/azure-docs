@@ -25,7 +25,7 @@ The [Azure CLI 2.0](/cli/azure/install-az-cli2) is available across platforms vi
 
 The following examples use the Azure CLI 2.0. Read each article for more details on the commands shown. You can also find examples on Linux creation choices using the [Azure CLI 1.0](creation-choices-nodejs.md).
 
-* [Create a Linux VM using the Azure CLI 2.0](../virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a Linux VM using the Azure CLI 2.0](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * This example uses [az group create](/cli/azure/group#create) to create a resource group named `myResourceGroup`: 
 -    
@@ -137,6 +137,6 @@ If you require specific customizations, you can use an image based on an existin
     ```
 
 ## Next steps
-* Create a Linux VM from the [portal](../virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), with the [CLI](../virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), or using an [Azure Resource Manager template](../windows/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Create a Linux VM from the [portal](../virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), with the [CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), or using an [Azure Resource Manager template](../windows/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * After creating a Linux VM, [add a data disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Quick steps to [reset a password or SSH keys and manage users](../virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
