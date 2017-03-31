@@ -189,7 +189,7 @@
 ### [Redeploy VM to a new Azure node](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### Attach virtual hard disk for troubleshooting
 #### [Azure CLI](troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
-#### [Azure portal](../virtual-machines-linux-troubleshoot-recovery-disks-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure portal](troubleshoot-recovery-disks-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 # Reference
 ## [Azure CLI](/cli/azure/vm)
