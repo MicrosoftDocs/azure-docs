@@ -166,15 +166,11 @@ Enter any other optional details about the event, such as content for that event
 
 ### Event Hubs triggers
 
-The Event Hubs connector has only one trigger. 
-
 | Trigger | Description |
 | --- | --- |
 | When events are available in Event Hub | Trigger a workflow when events are available in the specified Event Hub. |
 
 ### Event Hubs actions
-
-The Event Hubs connector has only one action. 
 
 | Action | Description |
 | --- | --- |
