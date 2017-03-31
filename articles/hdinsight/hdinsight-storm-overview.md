@@ -138,7 +138,7 @@ The following are some common scenarios for which you might use Apache storm on 
 
 For information about real-world scenarios, see the [How companies are using Storm](https://storm.apache.org/documentation/Powered-By.html) document.
 
-## Development: C\#
+## Development: C#
 
 The Data Lake Tools for Visual Studio allow .NET developers to design and implement a topology in C#. You can also create hybrid topologies that use Java and C# components.
 
