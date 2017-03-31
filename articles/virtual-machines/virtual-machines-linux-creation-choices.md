@@ -48,7 +48,7 @@ az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  –
 
     * If you wish to use unmanaged disks, add the `--use-unmanaged-disks` flag to the above command. A storage account is created for you. For more information, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md).
 
-* [Create a secured Linux VM using an Azure template](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a secured Linux VM using an Azure template](linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * The following example uses [az group deployment create](/cli/azure/group/deployment#create) to create a VM using a template stored on GitHub:
     
