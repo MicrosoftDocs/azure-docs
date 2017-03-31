@@ -5,7 +5,7 @@ services: site-recovery
 documentationcenter: ''
 author: Rajani-Janaki-Ram
 manager: rochakm
-editor: ''
+editor: '' 
 
 ms.assetid:
 ms.service: site-recovery
