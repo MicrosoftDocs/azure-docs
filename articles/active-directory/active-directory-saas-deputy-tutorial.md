@@ -208,7 +208,11 @@ In order to enable Azure AD users to log into Deputy, they must be provisioned i
   2. In the **Email** textbox, type the email address of an Azure AD account you want to provision.
   3. In the **Work at** textbox, type the bussniess name.
   4. Click **Save & Invite** button.
-    * The AAD account holder will receive an email and follow a link to confirm their account before it becomes active. You can use any other Deputy user account creation tools or APIs provided by Deputy to provision AAD user accounts.
+
+>!NOTE]
+>The AAD account holder will receive an email and follow a link to confirm their account before it becomes active. You can use any other Deputy user account creation tools or APIs provided by Deputy to provision AAD user accounts.
+>
+>
     
 ### Assign the Azure AD test user
 The objective of this section is to enabling Britta Simon to use Azure SSO by granting her access to Deputy.
