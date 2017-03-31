@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/10/2017
+ms.date: 03/30/2017
 ms.author: nepeters
 ---
 
@@ -62,12 +62,40 @@ When the VM has been created, the Azure CLI shows information similar to the fol
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
-  "publicIpAddress": "52.174.34.95",
+  "publicIpAddress": "40.68.254.142",
   "resourceGroup": "myResourceGroup"
 }
 ```
 
-## Connect to virtual machine
+## Use a CustomScript extension to install NGINX
+
+Use the following command to use the Azure custom script extension to remotely execute two commands in order to install NGINX. 
+
+```azurecli 
+az vm extension set \
+  --publisher Microsoft.Azure.Extensions \
+  --version 2.0 \
+  --name CustomScript \
+  --vm-name myVM \
+  --resource-group myResourceGroup \
+  --settings '{"commandToExecute":"apt-get -y update && apt-get -y install nginx"}'
+```
+
+## Open port 80 to allow web traffic 
+
+By default only SSH connections are allowed into Linux virtual machines. You need to open port 80 from the Internet in order to make the web server visible.
+ 
+ ```azurecli 
+az vm open-port --port 80 --resource-group myResourceGroup --name myVM
+```
+
+## View the default webpage of your VM
+
+With NGINX installed and port 80 open on your VM from the internet - you can use a web browser of your choice to view the default NGINX webpage. Be sure to use the public IP Address you documented above in order to visit the correct webpage. 
+
+![NGINX default site](./media/virtual-machines-linux-quick-create-cli/nginx.png) 
+
+## (Optional) SSH into your VM
 
 Use the following command to create an SSH session with the virtual machine. Replace the IP address with the public IP address of your virtual machine.
 
