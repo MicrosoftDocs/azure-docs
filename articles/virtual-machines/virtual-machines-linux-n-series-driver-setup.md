@@ -108,7 +108,7 @@ After the update completes, restart the VM.
 
 * We don't recommend installing X server or other systems that use the nouveau driver on Ubuntu NC VMs. Before installing NVIDIA GPU drivers, you need to disable the nouveau driver.  
 
-* If you want to capture an image of a Linux VM on which you installed NVIDIA drivers, see [How to generalize and capture a Linux virtual machine](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* If you want to capture an image of a Linux VM on which you installed NVIDIA drivers, see [How to generalize and capture a Linux virtual machine](linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Next steps
 

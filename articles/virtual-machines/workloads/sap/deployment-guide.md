@@ -256,9 +256,9 @@ ms.author: sedusch
 [virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines-windows-ps-manage.md (Manage virtual machines by using Azure Resource Manager and PowerShell)
 [virtual-machines-linux-agent-user-guide]:../../linux/agent-user-guide.md
 [virtual-machines-linux-agent-user-guide-command-line-options]:../../linux/agent-user-guide.md#command-line-options
-[virtual-machines-linux-capture-image]:../../virtual-machines-linux-capture-image.md
-[virtual-machines-linux-capture-image-resource-manager]:../../virtual-machines-linux-capture-image.md
-[virtual-machines-linux-capture-image-resource-manager-capture]:../../virtual-machines-linux-capture-image.md#step-2-capture-the-vm
+[virtual-machines-linux-capture-image]:../../linux/capture-image.md
+[virtual-machines-linux-capture-image-resource-manager]:../../linux/capture-image.md
+[virtual-machines-linux-capture-image-resource-manager-capture]:../../linux/capture-image.md#step-2-capture-the-vm
 [virtual-machines-linux-configure-raid]:../../virtual-machines-linux-configure-raid.md
 [virtual-machines-linux-configure-lvm]:../../virtual-machines-linux-configure-lvm.md
 [virtual-machines-linux-classic-create-upload-vhd-step-1]:../../virtual-machines-linux-classic-create-upload-vhd.md#step-1-prepare-the-image-to-be-uploaded

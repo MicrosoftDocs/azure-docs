@@ -256,9 +256,9 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines-windows-ps-manage.md
 [virtual-machines-linux-agent-user-guide]:../../linux/agent-user-guide.md
 [virtual-machines-linux-agent-user-guide-command-line-options]:../../linux/agent-user-guide.md#command-line-options
-[virtual-machines-linux-capture-image]:../../virtual-machines-linux-capture-image.md
-[virtual-machines-linux-capture-image-resource-manager]:../../virtual-machines-linux-capture-image.md
-[virtual-machines-linux-capture-image-resource-manager-capture]:../../virtual-machines-linux-capture-image.md#step-2-capture-the-vm
+[virtual-machines-linux-capture-image]:../../linux/capture-image.md
+[virtual-machines-linux-capture-image-resource-manager]:../../linux/capture-image.md
+[virtual-machines-linux-capture-image-resource-manager-capture]:../../linux/capture-image.md#step-2-capture-the-vm
 [virtual-machines-windows-capture-image]:../../virtual-machines-windows-generalize-vhd.md
 [virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture]:../../virtual-machines-windows-generalize-vhd.md
 [virtual-machines-linux-configure-raid]:../../virtual-machines-linux-configure-raid.md

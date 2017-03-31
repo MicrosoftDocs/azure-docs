@@ -106,7 +106,7 @@ Managed Disks also support creating a managed custom image. You can create an im
 
 For information on creating images, please check out the following articles:
 * [How to capture a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md)
-* [How to generalize and capture a Linux virtual machine using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-capture-image.md)
+* [How to generalize and capture a Linux virtual machine using the Azure CLI 2.0](../virtual-machines/linux/capture-image.md)
 
 ## Images versus snapshots
 
