@@ -13,14 +13,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/29/2017
+ms.date: 03/31/2017
 ms.author: magoedte
 
 ---
 # Update Management solution in OMS
 The Update Management solution in OMS allows you to manage updates for your Windows and Linux computers.  You can quickly assess the status of available updates on all agent computers and initiate the process of installing required updates for servers. 
 
-##Solution components
+## Solution components
 
 Computers managed by OMS use the following for performing assessment and update deployments: 
 
