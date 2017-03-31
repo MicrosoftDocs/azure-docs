@@ -56,7 +56,8 @@ There are two approaches to connect Apache Spark and Azure DocumentDB:
 ## pyDocumentDB
 The current [`pyDocumentDB SDK`](https://github.com/Azure/azure-documentdb-python) enables us to connect `Spark` to `DocumentDB` as shown in the following diagram.
 
-![Spark to DocumentDB Data Flow via pyDocumentDB](https://github.com/Azure/azure-documentdb-spark/blob/master/docs/images/Azure-DocumentDB-Spark_pyDocumentDB.png)
+![Spark to DocumentDB data flow via pyDocumentDB](./media/documentdb-spark-connector/azure-documentdb-spark-pydocumentdb.png)
+
 
 ## Data flow of the pyDocumentDB implementation
 
@@ -118,7 +119,6 @@ collectionId = 'codes'
 dbLink = 'dbs/' + databaseId
 collLink = dbLink + '/colls/' + collectionId
 
-
 # Set query parameter
 querystr = "SELECT c.City FROM c WHERE c.State='WA'"
 
@@ -145,16 +145,16 @@ Connecting Spark to DocumentDB using `pyDocumentDB` is typically for scenarios w
 * You want to use `python`.
 * You are returning a relatively small result set from DocumentDB to Spark.  Note, the underlying dataset within DocumentDB can be quite large. It is more that you are applying filters - i.e. running predicate filters - against your DocumentDB source.  
 
-## Data flow of the connector
+## Data flow in the Spark to DocumentDB connector
 
 The Spark to DocumentDB connector utilizes the [Azure DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java) and moves data between the Spark worker nodes and DocumentDB as shown in the following diagram:
 
-![](https://github.com/Azure/azure-documentdb-spark/blob/master/docs/images/Azure-DocumentDB-Spark_Connector.png)
+![Data flow in the Spark to DocumentDB connector](./media/documentdb-spark-connector/azure-documentdb-spark-connector.png)
 
 The data flow is as follows:
 
-1. Connection is made from Spark master node to DocumentDB gateway node to obtain the partition map.  Note, user only specifies Spark and DocumentDB connections, the fact that it connects to the respective master and gateway nodes is transparent to the user.
-2. This information is provided back to the Spark master node.  At this point, we should be able to parse the query to determine which partitions (and their locations) within DocumentDB we need to access.
+1. A connection is made from the Spark master node to the DocumentDB gateway node to obtain the partition map.  Note, the user only specifies the Spark and DocumentDB connections, the fact that it connects to the respective master and gateway nodes is transparent to the user.
+2. This information is provided back to the Spark master node.  At this point, you should be able to parse the query to determine which partitions (and their locations) within DocumentDB you need to access.
 3. This information is transmitted to the Spark worker nodes ...
 4. Thus allowing the Spark worker nodes to connect directly to the DocumentDB partitions directly to extract the data that is needed and bring the data back to the Spark partitions within the Spark worker nodes.
 
@@ -193,7 +193,7 @@ If you are using a notebook service such as Azure HDInsight Jupyter notebook ser
 
 The `jars` command allows you to include the two jars needed for `azure-documentdb-spark` (itself and the Azure DocumentDB Java SDK) and excludes `scala-reflect` so it does not interfere with the Livy calls made (Jupyter notebook > Livy > Spark).
 
-### Connecting Spark to DocumentDB via the azure-documentdb-spark
+### Connecting Spark to DocumentDB using the connector
 While the communication transport is a little more complicated, executing a query from Spark to DocumentDB using `azure-documentdb-spark` is significantly faster.
 
 Below is a code snippet on how to use `azure-documentdb-spark` within a Spark context.
@@ -224,9 +224,9 @@ As noted in the code snippet:
 - `azure-documentdb-spark` contains the all the necessary connection parameters including the preferred locations (i.e. choosing which read replica in what priority order).
 - Just import the necessary libraries and configure your masterKey and host to create the DocumentDB client.
 
-### Executing Spark Queries via azure-documentdb-spark
+### Executing Spark queries via the connector
 
-Below is an example using the above DocumentDB instance via the specified read-only keys. This code snippet below connects to the DepartureDelays.flights_pcoll collection (in the DoctorWho account as specified earlier) running a query to extract the flight delay information of flights departing from Seattle.
+The following example shows uses the DocumentDB instance from above via the specified read-only keys. The code snippet below connects to the DepartureDelays.flights_pcoll collection (in the DoctorWho account as specified earlier) running a query to extract the flight delay information of flights departing from Seattle.
 
 ```
 // Queries
@@ -242,7 +242,7 @@ df.show()
 
 ### Why use the the Spark to DocumentDB connector implementation?
 
-Connecting Spark to DocumentDB using `azure-documentdb-spark` is typically for scenarios where:
+Connecting Spark to DocumentDB using the connector is typically for scenarios where:
 
 * You want to use Scala (we will update it to include a Python wrapper as noted in [Issue 3: Add Python wrapper and examples](https://github.com/Azure/azure-documentdb-spark/issues/3).
 * You have a large amount of data to transfer between Apache Spark and DocumentDB.
@@ -252,7 +252,7 @@ To give you an idea of the query performance difference, please see the [Query T
 ## Distributed aggregation example
 This section provides some examples of how you can do distributed aggregations and analytics using Apache Spark and Azure DocumentDB together.  Note, Azure DocumentDB already has support for aggregations, as discussed in the [Planet scale aggregates with Azure DocumentDB blog](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/), so here is how you can take it to the next level with Apache Spark.
 
-Note, these aggregations are in reference to the [Spark to DocumentDB Connector notebook](https://github.com/Azure/azure-documentdb-spark/blob/master/samples/notebooks/Spark-to-DocumentDB_Connector.ipynb)
+Note, these aggregations are in reference to the [Spark to DocumentDB Connector notebook](https://github.com/Azure/azure-documentdb-spark/blob/master/samples/notebooks/Spark-to-DocumentDB_Connector.ipynb).
 
 ### Connecting to flights sample data
 For these aggregations examples, we are accessing some flight performance data stored in our **DoctorWho** DocumentDB database.  To connect to it, you need to utilize the following code snippet:
@@ -289,13 +289,11 @@ The results below are from running the queries using Jupyter notebook service.  
 ### Running LIMIT and COUNT queries
 Just like you're used to in SQL/Spark SQL, let's start off with a `LIMIT` query:
 
-<img src="https://github.com/Azure/azure-documentdb-spark/blob/master/docs/images/aggregations/1.%20Spark%20SQL%20Query.png" width=650px>
-
+![Spark LIMIT query](./media/documentdb-spark-connector/azure-documentdb-spark-sql-query.png)
 
 The next query being a simple and fast `COUNT` query:
 
-<img src="https://github.com/Azure/azure-documentdb-spark/blob/master/docs/images/aggregations/2.%20Count%20Query.png" width=650px>
-
+![Spark COUNT query](./media/documentdb-spark-connector/azure-documentdb-spark-count-query.png)
 
 ### GROUP BY query
 In this next set, now we can easily run `GROUP BY` queries against our DocumentDB database:
@@ -306,14 +304,13 @@ from originSEA
 group by destination 
 order by sum(delay) desc limit 10
 ```
-<img src="https://github.com/Azure/azure-documentdb-spark/blob/master/docs/images/aggregations/4.%20Group%20By%20Query%20Graph.png" width=650px>
 
+![Spark GROUP BY query graph](./media/documentdb-spark-connector/azure-documentdb-group-by-query-graph.png)
 
 ### DISTINCT, ORDER BY query
 And here is a `DISTINCT, ORDER BY` query:
 
-<img src="https://github.com/Azure/azure-documentdb-spark/blob/master/docs/images/aggregations/5.%20Order%20By%20Query.png" width=650px>
-
+![Spark GROUP BY query graph](./media/documentdb-spark-connector/azure-documentdb-order-by-query.png)
 
 ### Continue the flight data analysis
 You can use the following example queries to continue analysis of the flight data:
@@ -326,7 +323,7 @@ where delay < 0
 group by destination 
 order by sum(delay) limit 5
 ```
-<img src="https://github.com/Azure/azure-documentdb-spark/blob/master/docs/images/aggregations/7.%20Top%205%20Delays%20Seattle%20Graph.png" width=650px>
+![Spark top delays graph](./media/documentdb-spark-connector/azure-documentdb-top-delays-graph.png)
 
 
 #### Calculate median delays by destination cities departing from Seattle
@@ -338,8 +335,7 @@ group by destination
 order by percentile_approx(delay, 0.5)
 ```
 
-<img src="https://github.com/Azure/azure-documentdb-spark/blob/master/docs/images/aggregations/9.%20Median%20Delay%20Graph.png" width=650px>
-
+![Spark median delays graph](./media/documentdb-spark-connector/azure-documentdb-median-delays-graph.png)
 
 ## Next steps
 
