@@ -268,7 +268,7 @@
         tocHref: /azure/virtual-machines/workloads/
         topicHref: /azure/virtual-machines/workloads/sap/get-started
         items:
-          - name: sap
+          - name: SAP
             tocHref: /azure/virtual-machines/workloads/sap/
             topicHref: /azure/virtual-machines/workloads/sap/get-started
       - name: Linux
