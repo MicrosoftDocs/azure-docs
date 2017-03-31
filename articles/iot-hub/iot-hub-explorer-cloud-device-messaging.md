@@ -85,3 +85,6 @@ You’ve learned how to monitor device-to-cloud messages and send cloud-to-devic
 To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 
 - [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
+- [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
+- [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+- [Weather forecast using the sensor data from your IoT hub in Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
