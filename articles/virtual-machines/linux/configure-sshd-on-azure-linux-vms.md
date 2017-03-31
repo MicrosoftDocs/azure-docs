@@ -176,6 +176,6 @@ Now that you have configured and locked down the SSH server on your Linux VM the
 
 * [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](../virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-* [Encrypt disks on a Linux VM using the Azure CLI](../virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Encrypt disks on a Linux VM using the Azure CLI](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 * [Access and security in Azure Resource Manager templates](dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

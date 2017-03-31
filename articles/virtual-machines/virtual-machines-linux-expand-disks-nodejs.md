@@ -69,4 +69,4 @@ In the following samples, replace example parameter names with your own values. 
     ```
 
 ## Next steps
-If you need additional storage, you also [add data disks to a Linux VM](linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). For more information about disk encryption, see [Encrypt disks on a Linux VM using the Azure CLI](virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you need additional storage, you also [add data disks to a Linux VM](linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). For more information about disk encryption, see [Encrypt disks on a Linux VM using the Azure CLI](linux/encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
