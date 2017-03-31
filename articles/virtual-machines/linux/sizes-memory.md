@@ -1,6 +1,6 @@
 ---
-title: Azure Linux VM sizes - GPU | Microsoft Docs
-description: Lists the different GPU optimized sizes available for Linux virtual machines in Azure.
+title: Linux Azure VM sizes - Memory | Microsoft Docs
+description: Lists the different memory optimized sizes available for Linux virtual machines in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -19,18 +19,19 @@ ms.author: cynthn
 
 ---
 
-# GPU Linux VM sizes
+# Memory optimized Linux VM sizes
 
-[!INCLUDE [virtual-machines-common-sizes-gpu](../../../includes/virtual-machines-common-sizes-gpu.md)]
+
+[!INCLUDE [virtual-machines-common-sizes-memory](../../../includes/virtual-machines-common-sizes-memory.md)]
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## Other sizes
 - [General purpose](../windows/sizes-general.md)
 - [Compute optimized](../windows/sizes-compute.md)
-- [Memory optimized](sizes-memory.md)
 - [Storage optimized](../virtual-machines-linux-sizes-storage.md)
-- [High performance compute](sizes-hpc.md)
+- [GPU](../windows/sizes-gpu.md)
+- [High performance compute](../windows/sizes-hpc.md)
 
 ## Next steps
 Learn more about how [Azure compute units (ACU)](../windows/acu.md) can help you compare compute performance across Azure SKUs.

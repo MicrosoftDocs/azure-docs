@@ -34,7 +34,7 @@
 ### [VM sizes overview](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [General purpose](sizes-general.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Compute optimized](sizes-compute.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-#### [Memory optimized](../virtual-machines-linux-sizes-memory.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Memory optimized](sizes-memory.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Storage optimized](../virtual-machines-linux-sizes-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [GPU](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [High performance compute](sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
