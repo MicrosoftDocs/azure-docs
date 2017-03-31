@@ -29,8 +29,6 @@ Network Watcher packet capture allows you to create capture sessions to track tr
 
 This article uses cross-platform Azure CLI 1.0, which is available for Windows, Mac and Linux. Network Watcher currently uses Azure CLI 1.0 for CLI support.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 This article takes you through the different management tasks that are currently available for packet capture.
 
 - [**Start a packet capture**](#start-a-packet-capture)
