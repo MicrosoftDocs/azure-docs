@@ -25,10 +25,10 @@ ms.author: tomfitz
 > 
 > 
 
-When you have an app or script that needs to access resources, you can set up an identity for the app and authenticate it with its own credentials. This approach enables you to:
+When you have an app or script that needs to access resources, you can set up an identity for the app and authenticate the app with its own credentials. This approach enables you to:
 
 * Assign permissions to the app identity that are different than your own permissions. Typically, these permissions are restricted to exactly what the app needs to do.
-* Use a certificate to automate authentication when executing an unattended script.
+* Use a certificate for authentication when executing an unattended script.
 
 This article shows you how to use [Azure CLI 1.0](../cli-install-nodejs.md) to set up an application to run under its own credentials and identity. Install the latest version of [Azure CLI 1.0](../cli-install-nodejs.md) to make sure your environment matches the examples in this article.
 
@@ -57,18 +57,18 @@ Let's go through these steps.
      
    The new service principal is returned. The Object Id is needed when granting permissions. The guid listed with the Service Principal Names is needed when logging in. This guid is the same value as the app id. In the sample applications, this value is referred to as the `Client ID`. 
      
-     ```azurecli
-     info:    Executing command ad sp create
+   ```azurecli
+   info:    Executing command ad sp create
      
-     Creating application exampleapp
-       / Creating service principal for application 7132aca4-1bdb-4238-ad81-996ff91d8db+
-       data:    Object Id:               ff863613-e5e2-4a6b-af07-fff6f2de3f4e
-       data:    Display Name:            exampleapp
-       data:    Service Principal Names:
-       data:                             7132aca4-1bdb-4238-ad81-996ff91d8db4
-       data:                             https://www.contoso.org/example
-       info:    ad sp create command OK
-      ```
+   Creating application exampleapp
+     / Creating service principal for application 7132aca4-1bdb-4238-ad81-996ff91d8db+
+     data:    Object Id:               ff863613-e5e2-4a6b-af07-fff6f2de3f4e
+     data:    Display Name:            exampleapp
+     data:    Service Principal Names:
+     data:                             7132aca4-1bdb-4238-ad81-996ff91d8db4
+     data:                             https://www.contoso.org/example
+     info:    ad sp create command OK
+   ```
 
 3. Grant the service principal permissions on your subscription. In this example, you add the service principal to the Reader role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). For the objectid parameter, provide the Object Id that you used when creating the application. Before running this command, you must allow some time for the new service principal to propagate throughout Active Directory. When you run these commands manually, usually enough time has elapsed between tasks. In a script, you should add a step to sleep between the commands (like `sleep 15`). If you see an error stating the principal does not exist in the directory, rerun the command.
    
@@ -87,7 +87,7 @@ Now, you need to log in as the application to perform operations.
    azure account show
    ```
    
-     Which returns:
+   Which returns:
    
    ```azurecli
    info:    Executing command account show
@@ -157,36 +157,39 @@ To complete these steps, you must have [OpenSSL](http://www.openssl.org/) instal
    ```
    openssl req -x509 -days 3650 -newkey rsa:2048 -out cert.pem -nodes -subj '/CN=exampleapp'
    ```
+
 2. The preceding step created two files - privkey.pem and cert.pem. Combine the public and private keys into a single file.
-   
+
    ```
    cat privkey.pem cert.pem > examplecert.pem
    ```
+
 3. Open the **examplecert.pem** file and look for the long sequence of characters between **-----BEGIN CERTIFICATE-----** and **-----END CERTIFICATE-----**. Copy the certificate data. You pass this data as a parameter when creating the service principal.
+
 4. Sign in to your account.
-   
+
    ```azurecli
    azure login
    ```
 5. To create the service principal, provide the name of the app and the certificate data, as shown in the following command:
      
-     ```azurecli
-     azure ad sp create -n exampleapp --cert-value {certificate data}
-     ```
+   ```azurecli
+   azure ad sp create -n exampleapp --cert-value {certificate data}
+   ```
      
-     The new service principal is returned. The Object Id is needed when granting permissions. The guid listed with the Service Principal Names is needed when logging in. This guid is the same value as the app id. In the sample applications, this value is referred to as the Client ID. 
+   The new service principal is returned. The Object Id is needed when granting permissions. The guid listed with the Service Principal Names is needed when logging in. This guid is the same value as the app id. In the sample applications, this value is referred to as the Client ID. 
      
-     ```azurecli
-     info:    Executing command ad sp create
+   ```azurecli
+   info:    Executing command ad sp create
      
-     Creating service principal for application 4fd39843-c338-417d-b549-a545f584a74+
-       data:    Object Id:        7dbc8265-51ed-4038-8e13-31948c7f4ce7
-       data:    Display Name:     exampleapp
-       data:    Service Principal Names:
-       data:                      4fd39843-c338-417d-b549-a545f584a745
-       data:                      https://www.contoso.org/example
-       info:    ad sp create command OK
-     ```
+   Creating service principal for application 4fd39843-c338-417d-b549-a545f584a74+
+     data:    Object Id:        7dbc8265-51ed-4038-8e13-31948c7f4ce7
+     data:    Display Name:     exampleapp
+     data:    Service Principal Names:
+     data:                      4fd39843-c338-417d-b549-a545f584a745
+     data:                      https://www.contoso.org/example
+     info:    ad sp create command OK
+   ```
 6. Grant the service principal permissions on your subscription. In this example, you add the service principal to the Reader role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). For the objectid parameter, provide the Object Id that you used when creating the application. Before running this command, you must allow some time for the new service principal to propagate throughout Active Directory. When you run these commands manually, usually enough time has elapsed between tasks. In a script, you should add a step to sleep between the commands (like `sleep 15`). If you see an error stating the principal does not exist in the directory, rerun the command.
    
    ```azurecli
@@ -202,7 +205,7 @@ Now, you need to log in as the application to perform operations.
    azure account show
    ```
    
-     Which returns:
+   Which returns:
    
    ```azurecli
    info:    Executing command account show
@@ -214,7 +217,7 @@ Now, you need to log in as the application to perform operations.
    ...
    ```
    
-     If you need to get the tenant id of another subscription, use the following command:
+   If you need to get the tenant id of another subscription, use the following command:
    
    ```azurecli
    azure account show -s {subscription-id}
@@ -236,7 +239,7 @@ Now, you need to log in as the application to perform operations.
    azure ad sp show -c exampleapp
    ```
    
-     The value to use for logging in is the guid listed in the service principal names.
+   The value to use for logging in is the guid listed in the service principal names.
      
    ```azurecli
    [
@@ -280,9 +283,9 @@ azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-val
 
 You may encounter the following errors when creating a service principal:
 
-* "Authentication_Unauthorized" or "No subscription found in the context." - You see this error when your account does not have the [required permissions](#required-permissions) on the Active Directory to register an app. Typically, you see this error when only admin users in your Active Directory can register apps, and your account is not an admin. Ask your administrator to either assign you to an administrator role, or to enable users to register apps.
+* **"Authentication_Unauthorized"** or **"No subscription found in the context."** - You see this error when your account does not have the [required permissions](#required-permissions) on the Active Directory to register an app. Typically, you see this error when only admin users in your Active Directory can register apps, and your account is not an admin. Ask your administrator to either assign you to an administrator role, or to enable users to register apps.
 
-* Your account "does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'." - You see this error when your account does not have sufficient permissions to assign a role to an identity. Ask your subscription administrator to add you to User Access Administrator role.
+* Your account **"does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'."** - You see this error when your account does not have sufficient permissions to assign a role to an identity. Ask your subscription administrator to add you to User Access Administrator role.
 
 ## Sample applications
 The following sample applications show how to log in as the service principal.
