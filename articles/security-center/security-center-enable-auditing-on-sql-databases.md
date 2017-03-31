@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 03/30/2017
 ms.author: terrylan
 
 ---
@@ -35,10 +35,9 @@ This recommendation applies to the Azure SQL service only; it doesn't include SQ
    ![Enable auditing on SQL databases][1]
 2. Select a SQL database to enable auditing on. This opens the **Auditing & Threat Detection** blade.
 
-   ![Auditing and threat detection][2]
 3. On the **Auditing & Threat Detection** blade, select **ON** under **Auditing**.
 
-   ![Turn on auditing and threat detection][3]
+   ![Turn on auditing and threat detection][2]
 4. Follow the steps in [SQL Database Threat Detection in the Azure portal](../sql-database/sql-database-threat-detection-portal.md) to turn on and configure Threat Detection and to configure the list of emails that will receive security alerts upon detection of anomalous activities.
 
 ## See also
@@ -58,5 +57,4 @@ To learn more about Security Center, see the following:
 
 <!--Image references-->
 [1]: ./media/security-center-enable-auditing-on-sql-databases/enable-auditing-on-sql-databases.png
-[2]:./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection.png
-[3]: ./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection-blade.png
+[2]: ./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection-blade.png

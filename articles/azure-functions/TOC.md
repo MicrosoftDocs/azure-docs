@@ -15,8 +15,8 @@
 ## [PowerShell](functions-powershell-samples.md)
 
 # Tutorials
-### [Use Azure Functions to perform a scheduled clean-up task](functions-scenario-database-table-cleanup.md)
-### [Create an Open API definition (preview)](functions-api-definition-getting-started.md)
+## [Use Azure Functions to perform a scheduled clean-up task](functions-scenario-database-table-cleanup.md)
+## [Create an OpenAPI definition (preview)](functions-api-definition-getting-started.md)
 
 # Concepts
 ## [Hosting plans](functions-scale.md)
