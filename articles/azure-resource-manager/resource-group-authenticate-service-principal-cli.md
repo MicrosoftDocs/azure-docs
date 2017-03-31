@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 03/31/2017
 ms.author: tomfitz
 
 ---
@@ -31,19 +31,14 @@ When you have an app or script that needs to access resources, you can set up an
 * You do not have to change the app's credentials if your responsibilities change. 
 * You can use a certificate to automate authentication when executing an unattended script.
 
-This topic shows you how to use [Azure CLI for Mac, Linux, and Windows](../cli-install-nodejs.md) to set up an application to run under its own credentials and identity.
+This article shows you how to use [Azure CLI 1.0](../cli-install-nodejs.md) to set up an application to run under its own credentials and identity. Install the latest version of [Azure CLI 1.0](../cli-install-nodejs.md) to make sure your environment matches the examples in this article.
 
-With Azure CLI, you have two options for authenticating your AD application:
+With Azure CLI 1.0, you have two options for authenticating your AD application:
 
 * password
 * certificate
 
-This topic shows how to use both options in Azure CLI. If you intend to log in to Azure from a programming framework (such Python, Ruby, or Node.js), password authentication might be your best option. Before deciding whether to use a password or certificate, see the [Sample applications](#sample-applications) section for examples of authenticating in the different frameworks.
-
-## Active Directory concepts
-In this article, you create two objects - the Active Directory (AD) application and the service principal. The AD application is the global representation of your application. It contains the credentials (an application id and either a password or certificate). The service principal is the local representation of your application in an Active Directory. It contains the role assignment. This topic focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization. In a single-tenant application, you have one AD app and one service principal.
-
-You may be wondering - why do I need both objects? This approach makes more sense when you consider multi-tenant applications. You typically use multi-tenant applications for software-as-a-service (SaaS) applications, where your application runs in many different subscriptions. For multi-tenant applications, you have one AD app and multiple service principals (one in each Active Directory that grants access to the app). To set up a multi-tenant application, see [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md).
+This article shows how to use both options in Azure CLI. If you intend to log in to Azure from a programming framework (such Python, Ruby, or Node.js), password authentication might be your best option. Before deciding whether to use a password or certificate, see the [Sample applications](#sample-applications) section for examples of authenticating in the different frameworks.
 
 ## Required permissions
 To complete this topic, you must have sufficient permissions in both your Azure Active Directory and your Azure subscription. Specifically, you must be able to create an app in the Active Directory, and assign the service principal to a role. 
@@ -62,35 +57,15 @@ Let's go through these steps.
    ```azurecli
    azure login
    ```
-2. You have two options for creating the AD application. You can either create the AD application and the service principal in one step, or create them separately. Create them in one step if you do not need specify a home page and identifier URIs for your app. Create them separately if you need to set these values for a web app. Both options are shown in this step.
-   
-   * To create the AD application and service principal in one step, provide the name of the app and a password, as shown in the following command:
+2. To create the AD application and service principal in one step, provide the name of the app and a password, as shown in the following command:
      
-     ```azurecli
-     azure ad sp create -n exampleapp -p {your-password}
-     ```
-   * To create the AD application separately, provide:
-
-      * name of the app
-      * URL for the app's home page
-      * comma-delimited list of URIs that identify the app
-      * password
-
-      As shown in the following command:
+   ```azurecli
+   azure ad sp create -n exampleapp -p {your-password}
+   ```
      
-     ```azurecli
-     azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example -p {Your_Password}
-     ```
-
-       The preceding command returns an AppId value. To create a service principal, provide that value as a parameter in the following command:
+   If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context."
      
-     ```azurecli
-     azure ad sp create -a {AppId}
-     ```
-     
-     If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context."
-     
-     For both options, the new service principal is returned. The `Object Id` is needed when granting permissions. The guid listed with the `Service Principal Names` is needed when logging in. This guid is the same value as the app id. In the sample applications, this value is referred to as the `Client ID`. 
+   The new service principal is returned. The `Object Id` is needed when granting permissions. The guid listed with the `Service Principal Names` is needed when logging in. This guid is the same value as the app id. In the sample applications, this value is referred to as the `Client ID`. 
      
      ```azurecli
      info:    Executing command ad sp create
@@ -111,7 +86,7 @@ Let's go through these steps.
    azure role assignment create --objectId ff863613-e5e2-4a6b-af07-fff6f2de3f4e -o Reader -c /subscriptions/{subscriptionId}/
    ```
    
-     If your account does not have sufficient permissions to assign a role, you see an error message. The message states your account "does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'."
+   If your account does not have sufficient permissions to assign a role, you see an error message. The message states your account "does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'."
 
 That's it! Your AD application and service principal are set up. The next section shows you how to log in with the credential through Azure CLI. If you want to use the credential in your code application, you do not need to continue with this topic. You can jump to the [Sample applications](#sample-applications) for examples of logging in with your application id and password. 
 
@@ -194,7 +169,7 @@ To complete these steps, you must have [OpenSSL](http://www.openssl.org/) instal
    ```
    openssl req -x509 -days 3650 -newkey rsa:2048 -out cert.pem -nodes -subj '/CN=exampleapp'
    ```
-2. Combine the public and private keys.
+2. The preceding step created two files - privkey.pem and cert.pem. Combine the public and private keys into a single file.
    
    ```
    cat privkey.pem cert.pem > examplecert.pem
@@ -205,35 +180,15 @@ To complete these steps, you must have [OpenSSL](http://www.openssl.org/) instal
    ```azurecli
    azure login
    ```
-5. You have two options for creating the AD application. You can either create the AD application and the service principal in one step, or create them separately. Create them in one step if you do not need specify a home page and identifier URIs for your app. Create them separately if you need to set these values for a web app. Both options are shown in this step.
-   
-   * To create the AD application and service principal in one step, provide the name of the app and the certificate data, as shown in the following command:
+5. To create the service principal, provide the name of the app and the certificate data, as shown in the following command:
      
      ```azurecli
      azure ad sp create -n exampleapp --cert-value {certificate data}
      ```
-   * To create the AD application separately, provide:
-      
-      * name of the app
-      * URL for the app's home page
-      * comma-delimited list of URIs that identify the app
-      * the certificate data
-
-      As shown in the following command:
-
-     ```azurecli
-     azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example --cert-value {certificate data}
-     ```
-     
-       The preceding command returns an AppId value. To create a service principal, provide that value as a parameter in the following command:
-     
-     ```azurecli
-     azure ad sp create -a {AppId}
-     ```
      
      If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context."
      
-     For both options, the new service principal is returned. The Object Id is needed when granting permissions. The guid listed with the `Service Principal Names` is needed when logging in. This guid is the same value as the app id. In the sample applications, this value is referred to as the `Client ID`. 
+     The new service principal is returned. The Object Id is needed when granting permissions. The guid listed with the `Service Principal Names` is needed when logging in. This guid is the same value as the app id. In the sample applications, this value is referred to as the `Client ID`. 
      
      ```azurecli
      info:    Executing command ad sp create
@@ -252,7 +207,7 @@ To complete these steps, you must have [OpenSSL](http://www.openssl.org/) instal
    azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
    ```
    
-     If your account does not have sufficient permissions to assign a role, you see an error message. The message states your account "does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'."
+   If your account does not have sufficient permissions to assign a role, you see an error message. The message states your account "does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'."
 
 ### Provide certificate through automated Azure CLI script
 Now, you need to log in as the application to perform operations.
@@ -286,7 +241,7 @@ Now, you need to log in as the application to perform operations.
    openssl x509 -in "C:\certificates\examplecert.pem" -fingerprint -noout | sed 's/SHA1 Fingerprint=//g'  | sed 's/://g'
    ```
    
-     Which returns a thumbprint value similar to:
+   Which returns a thumbprint value similar to:
    
    ```
    30996D9CE48A0B6E0CD49DBB9A48059BF9355851
