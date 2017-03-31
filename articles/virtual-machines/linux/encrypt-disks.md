@@ -19,7 +19,7 @@ ms.author: iainfou
 
 ---
 # How to encrypt virtual disks on a Linux VM
-For enhanced virtual machine (VM) security and compliance, virtual disks in Azure can be encrypted. Disks are encrypted using cryptographic keys that are secured in an Azure Key Vault. You control these cryptographic keys and can audit their use. This article details how to encrypt virtual disks on a Linux VM using the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](../virtual-machines-linux-encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For enhanced virtual machine (VM) security and compliance, virtual disks in Azure can be encrypted. Disks are encrypted using cryptographic keys that are secured in an Azure Key Vault. You control these cryptographic keys and can audit their use. This article details how to encrypt virtual disks on a Linux VM using the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Quick commands
 If you need to quickly accomplish the task, the following section details the base commands to encrypt virtual disks on your VM. More detailed information and context for each step can be found the rest of the document, [starting here](#overview-of-disk-encryption).
