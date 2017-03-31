@@ -43,7 +43,8 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location westeurope
 
 ## Create networking resources
 
-Create a virtual network, subnet, and a public IP address. These resources are used to provide network connectivity to the virtual machine and connect it to the internet.
+### Create a virtual network, subnet, and a public IP address. 
+These resources are used to provide network connectivity to the virtual machine and connect it to the internet.
 
 ```powershell
 # Create a subnet configuration
@@ -58,7 +59,8 @@ $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location w
 -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
 ```
 
-Create a network security group and a network security group rule. The network security group secures the virtual machine using inbound and outbound rules. In this case, an inbound rule is created for port 3389, which allows incoming remote desktop connections.  We also want to create an inbound rule for port 80, which allows incoming web traffic.
+### Create a network security group and a network security group rule. 
+The network security group secures the virtual machine using inbound and outbound rules. In this case, an inbound rule is created for port 3389, which allows incoming remote desktop connections.  We also want to create an inbound rule for port 80, which allows incoming web traffic.
 
 ```powershell
 # Create an inbound network security group rule for port 3389
@@ -76,7 +78,8 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Locat
 -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 ```
 
-Create a network card for the virtual machine. The network card connects the virtual machine to a subnet, network security group, and public IP address.
+### Create a network card for the virtual machine. 
+The network card connects the virtual machine to a subnet, network security group, and public IP address.
 
 ```powershell
 # Create a virtual network card and associate with public IP address and NSG
@@ -109,16 +112,16 @@ New-AzureRmVM -ResourceGroupName myResourceGroup -Location westeurope -VM $vmCon
 
 After the deployment has completed, create a remote desktop connection with the virtual machine.
 
-Run the following commands to return the public IP address of the virtual machine.  Make note of this IP Address so you can connect to it with your browser to test web connectivity in a future step.
+Run the following commands to return the public IP address of the virtual machine.  Take note of this IP Address so you can connect to it with your browser to test web connectivity in a future step.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Use the following command to create a remote desktop session with the virtual machine. Replace the IP address with the public IP address of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
+Use the following command to create a remote desktop session with the virtual machine. Replace the IP address with the `publicIPAddress` of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
 
 ```bash 
-mstsc /v:<Public IP Address>
+mstsc /v:<publicIpAddress>
 ```
 
 ## Install IIS via PowerShell
