@@ -22,11 +22,6 @@ ms.author: ancav
 ## Overview
 This article shows you how to use the Azure portal to set up alerts on activity log events.
 
->[!NOTE]
->This feature is currently in public preview. Not all functionality may be available at this time.
->
->
-
 You can receive an alert based on operations that were performed on resources in your subscription
 
 You can configure the alert based on:
