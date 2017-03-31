@@ -162,6 +162,31 @@ Enter any other optional details about the event, such as content for that event
 
     You've now set up an action to send events from your logic app. 
 
+## Event Hubs triggers
+
+The Event Hubs connector has only one trigger. 
+
+| Trigger | Description |
+| --- | --- |
+| When events are available in Event Hub | Trigger a workflow when events are available in the specified Event Hub. |
+
+## Event Hubs actions
+
+The Event Hubs connector has only one action. 
+
+| Action | Description |
+| --- | --- |
+| Send an event | Sends an event to the specified Event Hub. |
+
+## HTTP responses
+
+This connector's triggers and actions can return one or more of these HTTP status codes:
+
+| Name | Description |
+| --- | --- |
+| 200 | OK |
+| default | Operation failed |
+
 ## Next steps
 
 *  [Find other connectors for Azure Logic apps](./apis-list.md)
