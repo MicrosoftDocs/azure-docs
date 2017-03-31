@@ -16,6 +16,8 @@
 
 # Tutorials
 ### [Use Azure Functions to perform a scheduled clean-up task](functions-scenario-database-table-cleanup.md)
+### [Create an Open API definition (preview)](functions-api-definition-getting-started.md)
+#### [Open API 2.0 in Functions reference](functions-api-definition.md)
 
 # Concepts
 ## [Hosting plans](functions-scale.md)

@@ -29,8 +29,8 @@ Azure stores the image under **VM images (classic)**, a **Compute** service that
 ## Before you begin
 These steps assume that you've already created an Azure virtual machine and configured the operating system, including attaching any data disks. If you haven't done this yet, see the following articles for information on creating and preparing the virtual machine:
 
-* [Create a virtual machine from an image](createportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [How to attach a data disk to a virtual machine](attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Create a virtual machine from an image](createportal.md)
+* [How to attach a data disk to a virtual machine](attach-disk.md)
 * Make sure the server roles are supported with Sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
 > [!WARNING]
@@ -69,7 +69,7 @@ Prior to capturing an image of an Azure virtual machine, it is recommended the t
     ![Image capture successful](./media/capture-image/VMCapturedImageAvailable.png)
 
 ## Next steps
-The image is ready to be used to create virtual machines. To do this, you'll create a virtual machine by selecting the **More services** menu item at the bottom of the services menu, then **VM images (classic)** in the **Compute** group. For instructions, see [Create a virtual machine from an image](createportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+The image is ready to be used to create virtual machines. To do this, you'll create a virtual machine by selecting the **More services** menu item at the bottom of the services menu, then **VM images (classic)** in the **Compute** group. For instructions, see [Create a virtual machine from an image](createportal.md).
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx

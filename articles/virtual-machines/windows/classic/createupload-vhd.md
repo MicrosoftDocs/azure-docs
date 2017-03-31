@@ -100,4 +100,4 @@ Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountN
 ```
 
 ## Next steps
-You can now [create a custom VM](createportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) using the image you uploaded.
+You can now [create a custom VM](createportal.md) using the image you uploaded.

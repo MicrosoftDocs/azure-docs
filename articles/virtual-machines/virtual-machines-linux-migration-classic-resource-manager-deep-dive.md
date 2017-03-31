@@ -19,7 +19,7 @@ ms.author: kasing
 
 ---
 # Technical deep dive on platform-supported migration from classic to Azure Resource Manager
-In this article, we do a technical deep dive on migration at a resource and feature level to help you understand how the platform migrates resources from the classic deployment model to the Azure Resource Manager deployment model. For more information, please read the service announcement article: [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md).
+In this article, we do a technical deep dive on migration at a resource and feature level to help you understand how the platform migrates resources from the classic deployment model to the Azure Resource Manager deployment model. For more information, please read the service announcement article: [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](windows/migration-classic-resource-manager.md).
 
 ## Detailed guidance on migration at a resource and feature level
 You can find the classic and Resource Manager representations of the resources in the following table. Features and resources not listed in this table are not supported at this time.
@@ -38,7 +38,7 @@ You can find the classic and Resource Manager representations of the resources i
 | Load-balanced endpoint set |Load balancer |In the classic deployment model, the platform assigned an implicit load balancer for every cloud service. During migration, we create a new load-balancer resource, and the load-balancing endpoint set becomes load-balancer rules. |
 | Inbound NAT rules |Inbound NAT rules |Input endpoints defined on the VM are converted to inbound Network Access Translation rules under the load balancer during the migration. |
 | VIP address |Public IP address with DNS name |The virtual IP address becomes a public IP address and is associated with the load balancer. |
-| Virtual network |Virtual network |The virtual network is migrated, with all its properties, to the Resource Manager deployment model. A new resource group is created with the name `-migrated`. Note the [unsupported configurations](virtual-machines-windows-migration-classic-resource-manager.md). |
+| Virtual network |Virtual network |The virtual network is migrated, with all its properties, to the Resource Manager deployment model. A new resource group is created with the name `-migrated`. Note the [unsupported configurations](windows/migration-classic-resource-manager.md). |
 | Reserved IPs |Public IP address with static allocation method |Reserved IPs associated with the load balancer are migrated, along with the migration of the cloud service or the virtual machine. Unassociated reserved IP migration is not supported at this time. |
 | Public IP address per VM |Public IP address with dynamic allocation method |The public IP address associated with the VM is converted as a public IP address resource, with the allocation method set to static. |
 | NSGs |NSGs |Network security groups associated with a subnet are cloned as part of the migration to the Resource Manager deployment model. Note that the NSG in the classic deployment model is not removed during the migration. However, the management-plane operations for the NSG are be blocked when the migration is in progress. |
@@ -51,14 +51,14 @@ You can find the classic and Resource Manager representations of the resources i
 ## Illustration of a simple migration walkthrough
 In the following example screenshots, you can see the representation of a cloud service with a VM (not in a virtual network) after the preparation phase.
 
-![Screenshot that shows the Classic representation after prepare](./media/virtual-machines-windows-migration-classic-resource-manager/classic-migration-prepare-portal.png)
-![Screenshot that shows the Resource Manager representation after prepare](./media/virtual-machines-windows-migration-classic-resource-manager/resourcemanager-migration-prepare-portal.png)
+![Screenshot that shows the Classic representation after prepare](media/virtual-machines-windows-classic-resource-manager-deep-dive/classic-migration-prepare-portal.png)
+![Screenshot that shows the Resource Manager representation after prepare](media/virtual-machines-windows-classic-resource-manager-deep-dive/resourcemanager-migration-prepare-portal.png)
 
 ## Next steps
 Now that you understand the migration of classic IaaS resources to Resource Manager, you can start migrating resources.
 
-* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-ps-migration-classic-resource-manager.md)
+* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](windows/ps-migration-classic-resource-manager.md)
 * [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md)
-* [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
-* [Clone a classic virtual machine to Azure Resource Manager by using community PowerShell scripts](virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](windows/migration-classic-resource-manager.md)
+* [Clone a classic virtual machine to Azure Resource Manager by using community PowerShell scripts](windows/migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

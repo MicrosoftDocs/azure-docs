@@ -168,7 +168,7 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 <!-- links -->
 
 [audit-logs]: https://azure.microsoft.com/en-us/blog/analyze-azure-audit-logs-in-powerbi-more/
-[availability-set]: ../articles/virtual-machines/virtual-machines-windows-create-availability-set.md
+[availability-set]:../articles/virtual-machines/windows/create-availability-set.md
 [azure-cli]: /cli/azure/get-started-with-az-cli2
 [azure-linux]: ../articles/virtual-machines/virtual-machines-linux-azure-overview.md
 [azure-storage]: ../articles/storage/storage-introduction.md
@@ -209,7 +209,7 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
-[vm-size-tables]: ../articles/virtual-machines/virtual-machines-windows-sizes.md#size-tables
+[vm-size-tables]:../articles/virtual-machines/windows/sizes.md#size-tables
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
 [components]: #Solution-components

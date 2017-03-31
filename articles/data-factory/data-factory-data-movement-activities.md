@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 03/29/2017
 ms.author: jingwang
 
 ---
@@ -61,14 +61,16 @@ You can also move data from/to supported data stores that are hosted on Azure Ia
 If you need to move data to/from a data store that Copy Activity doesn't support, use a **custom activity** in Data Factory with your own logic for copying/moving data. For details on creating and using a custom activity, see [Use custom activities in an Azure Data Factory pipeline](data-factory-use-custom-activities.md).
 
 ### Supported file formats
-You can use Copy Activity to **copy files as-is** between two file-based data stores, such as Azure Blob, Azure Data Lake Store, Amazon S3, FTP, File System, and HDFS. To do so, you can skip the [format section](data-factory-create-datasets.md) in both the input and output dataset definitions. The data is copied efficiently without any serialization/deserialization.
+You can use Copy Activity to **copy files as-is** between two file-based data stores, you can skip the [format section](data-factory-create-datasets.md) in both the input and output dataset definitions. The data is copied efficiently without any serialization/deserialization.
 
-Copy Activity also reads from and writes to files in specified formats: **text, Avro, ORC, Parquet, and JSON**, and compression codec **GZip, Deflate, BZip2, and ZipDeflate** are supported. You can do the following copy activities, for example:
+Copy Activity also reads from and writes to files in specified formats: **Text, JSON, Avro, ORC, and Parquet**, and compression codec **GZip, Deflate, BZip2, and ZipDeflate** are supported. See [Supported file and compression formats](data-factory-supported-file-and-compression-formats.md) with details.
 
-* Copy data in GZip compressed text (CSV) format from Azure Blob and write to Azure SQL Database.
-* Copy files in text (CSV) format from on-premises File System and write to Azure Blob in Avro format.
+For example, you can do the following copy activities:
+
 * Copy data in on-premises SQL Server and write to Azure Data Lake Store in ORC format.
+* Copy files in text (CSV) format from on-premises File System and write to Azure Blob in Avro format.
 * Copy zipped files from on-premises File System and decompress then land to Azure Data Lake Store.
+* Copy data in GZip compressed text (CSV) format from Azure Blob and write to Azure SQL Database.
 
 ## <a name="global"></a>Globally available data movement
 Azure Data Factory is available only in the West US, East US, and North Europe regions. However, the service that powers Copy Activity is available globally in the following regions and geographies. The globally available topology ensures efficient data movement that usually avoids cross-region hops. See [Services by region](https://azure.microsoft.com/regions/#services) for availability of Data Factory and Data Movement in a region.
@@ -91,6 +93,8 @@ When both source and sink data stores are in the cloud, Data Factory uses a serv
 | Brazil | Brazil South | Brazil South |
 | Europe | North Europe | North Europe |
 | &nbsp; | West Europe | West Europe |
+| United Kingdom | UK West | UK South |
+| &nbsp; | UK South | UK South |
 | Asia Pacific | Southeast Asia | Southeast Asia |
 | &nbsp; | East Asia | Southeast Asia |
 | Australia | Australia East | Australia East |
@@ -101,7 +105,7 @@ When both source and sink data stores are in the cloud, Data Factory uses a serv
 | &nbsp; | West India | Central India |
 | &nbsp; | South India | Central India |
 
-Alternatively, you can explicitly indicate the region of Data Factory service to be used to perform the copy by specifying `executionLocation` property under Copy Activity `typeProperties`. Supported values for this property are listed in above **Region used for data movement** column. Note your data will go through that region over the wire during copy. For example, to copy between Azure stores in UK, you can specify `"executionLocation": "North Europe"` to route through North Europe (see [sample JSON](#by-using-json-scripts) as reference).
+Alternatively, you can explicitly indicate the region of Data Factory service to be used to perform the copy by specifying `executionLocation` property under Copy Activity `typeProperties`. Supported values for this property are listed in above **Region used for data movement** column. Note your data will go through that region over the wire during copy. For example, to copy between Azure stores in Korea, you can specify `"executionLocation": "Japan East"` to route through Japan region (see [sample JSON](#by-using-json-scripts) as reference).
 
 > [!NOTE]
 > If the region of the destination data store is not in preceding list or undetectable, by default Copy Activity fails instead of going through an alternative region, unless `executionLocation` is specified. The supported region list will be expanded over time.
@@ -151,7 +155,7 @@ Here's a sample JSON definition:
           "sink": {
             "type": "SqlSink"
           },
-          "executionLocation": "North Europe"          
+          "executionLocation": "Japan East"          
         },
         "Policy": {
           "concurrency": 1,
