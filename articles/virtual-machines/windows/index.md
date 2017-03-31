@@ -19,7 +19,7 @@ ms.author: carolz
 <div class="intro">
     Learn how to create Windows virtual machines. Tutorials, API references, and other documentation help you plan, deploy, and manage a virtual machine computing environment in the cloud.
 </div>
-<h2>Quickstarts</h2>
+<h3>Quickstarts</h3>
 <p>Create your first virtual machine using the language and tools of your choice.</p>
 <div class="ico48Case">
     <div class="ico48Link">
