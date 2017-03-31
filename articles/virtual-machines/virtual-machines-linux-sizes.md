@@ -25,7 +25,7 @@ This article describes the available sizes and options for the Azure virtual mac
 > * For information about pricing of the various sizes, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux). 
 > * For availability of VM sizes in Azure regions, see [Products available by region](https://azure.microsoft.com/regions/services/).
 > * To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
-> * Learn more about how [Azure compute units (ACU)](virtual-machines-linux-acu.md) can help you compare compute performance across Azure SKUs.
+> * Learn more about how [Azure compute units (ACU)](linux/acu.md) can help you compare compute performance across Azure SKUs.
 > 
 > 
 
@@ -43,7 +43,7 @@ This article describes the available sizes and options for the Azure virtual mac
 
 <br>
 
-Learn more about how [Azure compute units (ACU)](virtual-machines-linux-acu.md) can help you compare compute performance across Azure SKUs.
+Learn more about how [Azure compute units (ACU)](linux/acu.md) can help you compare compute performance across Azure SKUs.
 
 Learn more about the different VM sizes that are available:
 - [General purpose](virtual-machines-linux-sizes-general.md)

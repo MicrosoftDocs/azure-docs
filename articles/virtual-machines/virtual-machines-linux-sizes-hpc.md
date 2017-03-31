@@ -38,7 +38,7 @@ ms.author: cynthn
 
 - For information and considerations about using these sizes, see [About the H-series and compute-intensive A-series VMs](linux/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-- Learn more about how [Azure compute units (ACU)](virtual-machines-linux-acu.md) can help you compare compute performance across Azure SKUs.
+- Learn more about how [Azure compute units (ACU)](linux/acu.md) can help you compare compute performance across Azure SKUs.
 
 
 
