@@ -282,7 +282,6 @@ of your workflow.
 > [!NOTE] 
 > If your logic app doesn't include a **Response**, 
 > the HTTP endpoint responds *immediately* with a **202 Accepted** status. 
-> 
 > Also, for the original request to get the response, 
 > all steps required for the response must finish 
 > within the [request timeout limit](./logic-apps-limits-and-config.md) 
