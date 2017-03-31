@@ -67,7 +67,7 @@ In the example, the search query consists of phrases and terms: `"Spacious, air-
 
 In this example, the search query goes against an index of hotel listings, scanning the description and title fields for documents that contain "Ocean view", and additionally on the term "spacious", or on terms that start with the prefix "air-condition".  
 
-From the list of matching documents, the search engine filters out documents where the price is at least $60 and less than $300. The resulting set of hotels are ordered by proximity to a given geography location, and then returned to the calling application. 
+From the list of matching documents, the search engine filters out documents where the price is at least $60 and less than $300. The resulting set of hotels are ordered by proximity to a given geographic location, and then returned to the calling application. 
 
 This article refers to the example request to explain processing of the *search query*. Filtering and ordering are out of scope for this article. 
 
