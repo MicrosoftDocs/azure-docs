@@ -593,7 +593,7 @@ To achieve SAP application high availability, such as for SAP software component
 * SAP ASCS/SCS instance
 * DBMS server
 
-For more information about protecting SAP components in high-availability scenarios, see [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide-11].
+For more information about protecting SAP components in high-availability scenarios, see [Azure Virtual Machines planning and implementation for SAP NetWeaver](planning-guide.md).
 
 ### <a name="93faa747-907e-440a-b00a-1ae0a89b1c0e"></a> High-availability SAP Application Server
 You usually don't need a specific high-availability solution for the SAP Application Server and dialog instances. You achieve high availability by redundancy, and you'll configure multiple dialog instances in different instances of Azure Virtual Machines. You should have at least two SAP application instances installed in two instances of Azure Virtual Machines.

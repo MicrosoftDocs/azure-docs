@@ -716,12 +716,7 @@ There is a requirement to manage the backups on your own. Since the expectation 
 * Microsoft Visual Studio with Azure SDK installed (<https://azure.microsoft.com/downloads/>)
 * Microsoft Azure Storage Explorer (<https://azure.microsoft.com/downloads/>)
 * 3rd party tools
-
-[comment]: <> (Not yet supported on ARM)
-[comment]: <> (#### Azure VM backup)
-[comment]: <> (VMs within the SAP system can be backed up using Azure Virtual Machine Backup functionality. Azure Virtual Machine Backup got introduced early in the year 2015 and meanwhile is a standard method to backup a complete VM in Azure. Azure Backup stores the backups in Azure and allows a restore of a VM again.) 
-[comment]: <> (VMs that run databases can be backed up in a consistent manner as well if the DBMS systems supports the Windows VSS (Volume Shadow Copy Service - <https://msdn.microsoft.com/library/windows/desktop/bb968832.aspx>) as e.g. SQL Server does. So using Azure VM backup could be a way to get to a restorable backup of a SAP database. However, be aware that based on Azure VM backups point-in-time restores of databases is not possible. Therefore, the recommendation is to perform backups of databases with DBMS functionality instead of relying on Azure VM Backup.)
-[comment]: <> (To get familiar with Azure Virtual Machine Backup please start here <https://azure.microsoft.com/documentation/services/backup/>)
+FOr a more complete discussion of Backup and SAP on Azure, please refer to [the SAP Backup Guide](../../linux/sap-hana-backup-guide.md) for more information.
 
 ### <a name="1b353e38-21b3-4310-aeb6-a77e7c8e81c8"></a>Using a SQL Server images out of the Microsoft Azure Marketplace
 Microsoft offers VMs in the Azure Marketplace which already contain versions of SQL Server. For SAP customers who require licenses for SQL Server and Windows, this might be an opportunity to basically cover the need for licenses by spinning up VMs with SQL Server already installed. In order to use such images for SAP, the following considerations need to be made:
