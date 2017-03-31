@@ -203,7 +203,7 @@ During indexing, the search engine creates an inverted index for each searchable
 As with query parsing, indexing extracts terms, only during indexing the terms are extracted from documents instead of a query string. Text inputs are passed to an analyzer. Often the same analyzers used during indexing are also used for queries so that a query input can be processed to look like the terms stored inside the index.  
 
 > [!Note]
-> Azure Search lets you specify different analyzers for indexing and search via an additional `indexAnalyzer` and `searchAnalyzer` field parameters. Unspecified, the analyzer set with the `analyzer` property is used for both indexing and searching.  
+> Azure Search lets you specify different analyzers for indexing and search via additional `indexAnalyzer` and `searchAnalyzer` field parameters. Unspecified, the analyzer set with the `analyzer` property is used for both indexing and searching.  
 
 For the title field, the inverted index looks like this:
 
