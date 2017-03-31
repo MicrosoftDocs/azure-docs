@@ -179,11 +179,10 @@ In this section, you enable Azure AD SSO in the Azure portal and configure SSO i
   3. Open the downloaded certificate file in Notepad, copy the content, and then paste it in the **Public Certificate** box.
   4. Configure the preceding three settings as appropriate for your Slack team. For more information about the settings, see the [Guide to single sign-on with Slack](https://get.slack.help/hc/en-us/articles/220403548-Guide-to-single-sign-on-with-Slack).
   5. Click **Save Configuration**.
-
-	<!-- Deselect **Allow users to change their email address**.
-  6. Select **Allow users to choose their own username**.
-  7. As **Authentication for your team must be used by**, select **It’s optional**. -->
-
+  6. Deselect **Allow users to change their email address**.
+  7. Select **Allow users to choose their own username**.
+  8. As **Authentication for your team must be used by**, select **It’s optional**.
+  
 ### Create an Azure AD test user
 In this section, you create a test user in the Azure portal called Britta Simon by doing the following:
 
