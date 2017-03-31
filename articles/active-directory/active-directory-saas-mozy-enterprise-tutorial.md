@@ -136,10 +136,10 @@ In the case of Mozy Enterprise, provisioning is a manual task.
   5. Select **Send user instruction email**.
   6. Click **Add User(s)**.
 
-    >[!NOTE]
-    > After creating the user, an email will be sent to the Azure AD user that includes a link to confirm the account before it becomes active.
-    > 
-    > 
+     >[!NOTE]
+     > After creating the user, an email will be sent to the Azure AD user that includes a link to confirm the account before it becomes active.
+     > 
+     > 
 
 >[!NOTE]
 >You can use any other Mozy Enterprise user account creation tools or APIs provided by Mozy Enterprise to provision AAD user accounts.
