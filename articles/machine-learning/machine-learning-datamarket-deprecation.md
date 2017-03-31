@@ -19,23 +19,22 @@ ms.author: LuisCa
 
 # DataMarket is now deprecated
 
-The [Microsoft DataMarket](https://datamarket.azure.com/datasets) is now deprecated. As such, the Machine Learning APIs
-that were hosted there are also deprecated.
+The [Microsoft DataMarket](https://datamarket.azure.com/datasets) is now deprecated, and so the Machine Learning APIs that were hosted there are also now deprecated.
 
 ## Text analytics API
 
-Previous DataMarket Text Analytics API customers should start using the Cognitive Services Text Analytics API.
-The [Cognitive Services Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)
-supports all the scenarios that the earlier DataMarket version did, as well as additional scenarios such as
+Previous DataMarket Text Analytics API customers should start using the [Cognitive Services Text Analytics API](https://www.microsoft.com/cognitive-services/text-analytics-api).
+The Cognitive Services Text Analytics API supports all the scenarios that the earlier DataMarket version did, as well as additional scenarios such as
 language detection and topic detection.
 
 
 ## Recommendations API 
 
-Previous DataMarket Recommendations API customers should start using the Cognitive Services Recommendations API.
-The [Cognitive Services Recommendations API](https://www.microsoft.com/cognitive-services/en-us/recommendations-api)
-supports all the scenarios that the earlier DataMarket version did, as well as additional scenarios, such as 
+Previous DataMarket Recommendations API customers should start using the [Cognitive Services Recommendations API](https://www.microsoft.com/cognitive-services/recommendations-api).
+The Cognitive Services Recommendations API supports all the scenarios that the earlier DataMarket version did, as well as additional scenarios, such as 
 batch support and better offline metrics to evaluate the quality of models. 
+
+## Start using the new API
 
 For more information about how to start using the new API, please visit the [Migrate to Azure Cognitive Services
 Recommendations API]((http://aka.ms/recomigrate)) page. 
