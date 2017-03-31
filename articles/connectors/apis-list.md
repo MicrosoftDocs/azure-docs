@@ -25,7 +25,7 @@ Select a connector to learn how to build workflows quickly.
 
 | Connectors |  |  |  |
 | --- | --- | --- | --- |
-|[![API Icon][API/Web-Appicon]<br/> **API/Web App**][API/Web-Appdoc]|![API Icon][appFiguresicon]<br/>**appFigures**|![API Icon][Asanaicon]<br/>**Asana**|![API Icon][Azure-Automation-icon]<br/>**Azure Automation**]|
+|[![API Icon][API/Web-Appicon]<br/> **API/Web App**][API/Web-Appdoc]|![API Icon][appFiguresicon]<br/>**appFigures**|![API Icon][Asanaicon]<br/>**Asana**|![API Icon][Azure-Automation-icon]<br/>**Azure Automation**|
 |[![API Icon][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc]|![API Icon][Azure-Data-Lake-icon]<br/>**Azure Data<br/>Lake**|![API Icon][Azure-DocumentDBicon]<br/>**Azure DocumentDB**|[![API Icon][Azure-Functionsicon]<br/>**Azure<br/>Functions**][Azure-Functionsdoc]|
 |![API Icon][Azure-MLicon]<br/>**Azure ML**|![API Icon][Azure-Resource-Manager-icon]<br/>**Azure Resource<br/>Manager**|![API Icon][Azure-Queues-icon]<br/>**Azure Queues**|![API Icon][Basecamp-3icon]<br/>**Basecamp 3**|
 |![API Icon][Bitbucket-icon]<br/>**Bitbucket**|![API Icon][Bitlyicon]<br/>**Bitly**|![API Icon][BizTalk-Servericon]<br/>**BizTalk Server**|![API Icon][Bloggericon]<br/>**Blogger**|
