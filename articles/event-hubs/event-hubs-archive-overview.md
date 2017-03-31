@@ -18,7 +18,7 @@ ms.author: darosa;sethm
 
 ---
 # Azure Event Hubs Archive
-Azure Event Hubs Archive enables you to automatically deliver the streaming data in your event hubs to a Blob storage account of your choice with added flexibility to specify a time or size interval of your choosing. Setting up Archive is fast, there are no administrative costs to run it, and it scales automatically with your Event Hubs [throughput units](event-hubs-what-is-event-hubs.md#capacity). Event Hubs Archive is the easiest way to load streaming data into Azure and enables you to focus on data processing rather than on data capture.
+Azure Event Hubs Archive enables you to automatically deliver the streaming data in Event Hubs to a Blob storage account of your choice with added flexibility to specify a time or size interval of your choosing. Setting up Archive is fast, there are no administrative costs to run it, and it scales automatically with Event Hubs [throughput units](event-hubs-what-is-event-hubs.md#capacity). Event Hubs Archive is the easiest way to load streaming data into Azure and enables you to focus on data processing rather than on data capture.
 
 Event Hubs Archive enables you to process real-time and batch-based pipelines on the same stream. This enables you to build solutions that can grow with your needs over time. Whether you're building batch-based systems today with an eye towards future real-time processing, or you want to add an efficient cold path to an existing real-time solution, Event Hubs Archive makes working with streaming data easier.
 
