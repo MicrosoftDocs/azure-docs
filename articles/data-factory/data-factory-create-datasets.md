@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 1/30/2017
 ms.author: shlo
 
 ---
@@ -35,31 +35,33 @@ In Azure Data Factory, you can get data from a dataset by using copy activity in
 ## Define datasets
 A dataset in Azure Data Factory is defined as follows:
 
-    {
-        "name": "<name of dataset>",
-        "properties": {
-            "type": "<type of dataset: AzureBlob, AzureSql etc...>",
-            "external": <boolean flag to indicate external data. only for input datasets>,
-            "linkedServiceName": "<Name of the linked service that refers to a data store.>",
-            "structure": [
-                {
-                    "name": "<Name of the column>",
-                    "type": "<Name of the type>"
-                }
-            ],
-            "typeProperties": {
-                "<type specific property>": "<value>",
-                "<type specific property 2>": "<value 2>",
-            },
-            "availability": {
-                "frequency": "<Specifies the time unit for data slice production. Supported frequency: Minute, Hour, Day, Week, Month>",
-                "interval": "<Specifies the interval within the defined frequency. For example, frequency set to 'Hour' and interval set to 1 indicates that new data slices should be produced hourly>"
-            },
-           "policy":
-            {      
+```json
+{
+    "name": "<name of dataset>",
+    "properties": {
+        "type": "<type of dataset: AzureBlob, AzureSql etc...>",
+        "external": <boolean flag to indicate external data. only for input datasets>,
+        "linkedServiceName": "<Name of the linked service that refers to a data store.>",
+        "structure": [
+            {
+                "name": "<Name of the column>",
+                "type": "<Name of the type>"
             }
+        ],
+        "typeProperties": {
+            "<type specific property>": "<value>",
+            "<type specific property 2>": "<value 2>",
+        },
+        "availability": {
+            "frequency": "<Specifies the time unit for data slice production. Supported frequency: Minute, Hour, Day, Week, Month>",
+            "interval": "<Specifies the interval within the defined frequency. For example, frequency set to 'Hour' and interval set to 1 indicates that new data slices should be produced hourly>"
+        },
+       "policy":
+        {      
         }
     }
+}
+```
 
 The following table describes properties in the above JSON:   
 
@@ -76,42 +78,46 @@ The following table describes properties in the above JSON:
 ## Dataset example
 In the following example, the dataset represents a table named **MyTable** in an **Azure SQL database**.
 
-    {
-        "name": "DatasetSample",
-        "properties": {
-            "type": "AzureSqlTable",
-            "linkedServiceName": "AzureSqlLinkedService",
-            "typeProperties":
-            {
-                "tableName": "MyTable"
-            },
-            "availability":
-            {
-                "frequency": "Day",
-                "interval": 1
-            }
+```json
+{
+    "name": "DatasetSample",
+    "properties": {
+        "type": "AzureSqlTable",
+        "linkedServiceName": "AzureSqlLinkedService",
+        "typeProperties":
+        {
+            "tableName": "MyTable"
+        },
+        "availability":
+        {
+            "frequency": "Day",
+            "interval": 1
         }
     }
+}
+```
 
 Note the following points:
 
 * type is set to AzureSqlTable.
 * tableName type property (specific to AzureSqlTable type) is set to MyTable.
-* linkedServiceName refers to a linked service of type AzureSqlDatabase. See the definition of the following linked service.
+* linkedServiceName refers to a linked service of type AzureSqlDatabase, which is defined in the following JSON snippet.
 * availability frequency is set to Day and interval is set to 1, which means that the slice is produced daily.  
 
 AzureSqlLinkedService is defined as follows:
 
-    {
-        "name": "AzureSqlLinkedService",
-        "properties": {
-            "type": "AzureSqlDatabase",
-            "description": "",
-            "typeProperties": {
-                "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
-            }
+```json
+{
+    "name": "AzureSqlLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "description": "",
+        "typeProperties": {
+            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
         }
     }
+}
+```
 
 In the above JSON:
 
@@ -129,45 +135,72 @@ As you can see, the linked service defines how to connect to an Azure SQL databa
 The supported data sources and dataset types are aligned. See topics referenced in the [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores-and-formats) article for information on types and configuration of datasets. For example, if you are using data from an Azure SQL database, click Azure SQL Database in the list of supported data stores to see detailed information.  
 
 ## <a name="Structure"></a>Dataset Structure
-The **structure** section defines the schema of the dataset. It contains a collection of names and data types of columns.  In the following example, the dataset has three columns slicetimestamp, projectname, and pageviews and they are of type: String, String, and Decimal respectively.
+The **structure** section is an **optional** section that defines the schema of the dataset. It contains a collection of names and data types of columns. You use the structure section for either providing type information for **type conversions** or doing **column mappings**. In the following example, the dataset has three columns `slicetimestamp`, `projectname`, and `pageviews` and they are of type: String, String, and Decimal respectively.
 
-    structure:  
-    [
-        { "name": "slicetimestamp", "type": "String"},
-        { "name": "projectname", "type": "String"},
-        { "name": "pageviews", "type": "Decimal"}
-    ]
+```json
+structure:  
+[
+    { "name": "slicetimestamp", "type": "String"},
+    { "name": "projectname", "type": "String"},
+    { "name": "pageviews", "type": "Decimal"}
+]
+```
+
+Each column contains the following properties:
+
+| Property | Description | Required |
+| --- | --- | --- |
+| name |Name of the column. |Yes |
+| type |Data type of the column.  |No |
+| culture |.NET based culture to be used when type is specified and is .NET type `Datetime` or `Datetimeoffset`. Default is “en-us”. |No |
+| format |Format string to be used when type is specified and is .NET type `Datetime` or `Datetimeoffset`. |No |
+
+Use the following guidelines for when to include “structure” information and what to include in the **structure** section.
+
+* **For structured data sources** that store data schema and type information along with the data itself (sources like SQL Server, Oracle, Azure table etc.), you should specify the “structure” section only if you want map source columns to sink columns and their names are not the same. 
+  
+    As type information is already available for structured data sources, you should not include type information when you do include the “structure” section.
+* **For schema on read data sources (specifically Azure blob)**, you can choose to store data without storing any schema or type information with the data. For these types of data sources, include “structure” when you want to map source columns to sink columns (or) when the dataset is an input dataset for a copy activity and data types of source dataset need to be converted to native types for the sink. 
+	
+	Data factory supports the following CLS-compliant .NET based type values for providing type information in “structure” for schema on read data sources like Azure blob: Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset, Timespan.
+
+Data Factory automatically performs type conversions when moving data from a source data store to a sink data store. 
+  
 
 ## <a name="Availability"></a> Dataset Availability
 The **availability** section in a dataset defines the processing window (hourly, daily, weekly etc.) or the slicing model for the dataset. See [Scheduling and Execution](data-factory-scheduling-and-execution.md) article for more details on the dataset slicing and dependency model.
 
 The following availability section specifies that the output dataset is either produced hourly (or) input dataset is available hourly:
 
-    "availability":    
-    {    
-        "frequency": "Hour",        
-        "interval": 1    
-    }
+```json
+"availability":    
+{    
+    "frequency": "Hour",        
+    "interval": 1    
+}
+```
 
 The following table describes properties you can use in the availability section:
 
 | Property | Description | Required | Default |
 | --- | --- | --- | --- |
-| frequency |Specifies the time unit for dataset slice production.<br/><br/>**Supported frequency**: Minute, Hour, Day, Week, Month |Yes |NA |
-| interval |Specifies a multiplier for frequency<br/><br/>”Frequency x interval” determines how often the slice is produced.<br/><br/>If you need the dataset to be sliced on an hourly basis, you set **Frequency** to **Hour**, and **interval** to **1**.<br/><br/>**Note:** If you specify Frequency as Minute, we recommend that you set the interval to no less than 15 |Yes |NA |
+| frequency |Specifies the time unit for dataset slice production.<br/><br/><b>Supported frequency</b>: Minute, Hour, Day, Week, Month |Yes |NA |
+| interval |Specifies a multiplier for frequency<br/><br/>”Frequency x interval” determines how often the slice is produced.<br/><br/>If you need the dataset to be sliced on an hourly basis, you set <b>Frequency</b>to <b>Hour</b>, and <b>interval</b> to <b>1</b>.<br/><br/><b>Note</b>: If you specify Frequency as Minute, we recommend that you set the interval to no less than 15 |Yes |NA |
 | style |Specifies whether the slice should be produced at the start/end of the interval.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>If Frequency is set to Month and style is set to EndOfInterval, the slice is produced on the last day of month. If the style is set to StartOfInterval, the slice is produced on the first day of month.<br/><br/>If Frequency is set to Day and style is set to EndOfInterval, the slice is produced in the last hour of the day.<br/><br/>If Frequency is set to Hour and style is set to EndOfInterval, the slice is produced at the end of the hour. For example, for a slice for 1 PM – 2 PM period, the slice is produced at 2 PM. |No |EndOfInterval |
-| anchorDateTime |Defines the absolute position in time used by scheduler to compute dataset slice boundaries. <br/><br/>**Note:** If the AnchorDateTime has date parts that are more granular than the frequency then the more granular parts are ignored. <br/><br/>For example, if the **interval** is **hourly** (frequency: hour and interval: 1) and the **AnchorDateTime** contains **minutes and seconds**, then the **minutes and seconds** parts of the AnchorDateTime are ignored. |No |01/01/0001 |
-| offset |Timespan by which the start and end of all dataset slices are shifted. <br/><br/>**Note:** If both anchorDateTime and offset are specified, the result is the combined shift. |No |NA |
+| anchorDateTime |Defines the absolute position in time used by scheduler to compute dataset slice boundaries. <br/><br/><b>Note</b>: If the AnchorDateTime has date parts that are more granular than the frequency then the more granular parts are ignored. <br/><br/>For example, if the <b>interval</b> is <b>hourly</b> (frequency: hour and interval: 1) and the <b>AnchorDateTime</b> contains <b>minutes and seconds</b>then the <b>minutes and seconds</b> parts of the AnchorDateTime are ignored. |No |01/01/0001 |
+| offset |Timespan by which the start and end of all dataset slices are shifted. <br/><br/><b>Note</b>: If both anchorDateTime and offset are specified, the result is the combined shift. |No |NA |
 
 ### offset example
 Daily slices that start at 6 AM instead of the default midnight.
 
-    "availability":
-    {
-        "frequency": "Day",
-        "interval": 1,
-        "offset": "06:00:00"
-    }
+```json
+"availability":
+{
+    "frequency": "Day",
+    "interval": 1,
+    "offset": "06:00:00"
+}
+```
 
 The **frequency** is set to **Day** and **interval** is set to **1** (once a day):
 If you want the slice to be produced at 6 AM instead of at the default time: 12 AM. Remember that this time is an UTC time.
@@ -175,33 +208,36 @@ If you want the slice to be produced at 6 AM instead of at the default time: 12 
 ## anchorDateTime example
 **Example:** 23 hours dataset slices that start on 2007-04-19T08:00:00
 
-    "availability":    
-    {    
-        "frequency": "Hour",        
-        "interval": 23,    
-        "anchorDateTime":"2007-04-19T08:00:00"    
-    }
+```json
+"availability":    
+{    
+    "frequency": "Hour",        
+    "interval": 23,    
+    "anchorDateTime":"2007-04-19T08:00:00"    
+}
+```
 
 ## offset/style Example
 If you need dataset on monthly basis on specific date and time (suppose on 3rd of every month at 8:00 AM), use the **offset** tag to set the date and time it should run.
 
-    {
-      "name": "MyDataset",
-      "properties": {
-        "type": "AzureSqlTable",
-        "linkedServiceName": "AzureSqlLinkedService",
-        "typeProperties": {
-          "tableName": "MyTable"
-        },
-        "availability": {
-          "frequency": "Month",
-          "interval": 1,
-          "offset": "3.08:10:00",
-          "style": "StartOfInterval"
-        }
-      }
+```json
+{
+  "name": "MyDataset",
+  "properties": {
+    "type": "AzureSqlTable",
+    "linkedServiceName": "AzureSqlLinkedService",
+    "typeProperties": {
+      "tableName": "MyTable"
+    },
+    "availability": {
+      "frequency": "Month",
+      "interval": 1,
+      "offset": "3.08:00:00",
+      "style": "StartOfInterval"
     }
-
+  }
+}
+```
 
 ## <a name="Policy"></a>Dataset Policy
 The **policy** section in dataset definition defines the criteria or the condition that the dataset slices must fulfill.
@@ -215,24 +251,28 @@ The **policy** section in dataset definition defines the criteria or the conditi
 #### Examples
 **minimumSizeMB:**
 
-    "policy":
+```json
+"policy":
 
+{
+    "validation":
     {
-        "validation":
-        {
-            "minimumSizeMB": 10.0
-        }
+        "minimumSizeMB": 10.0
     }
+}
+```
 
 **minimumRows**
 
-    "policy":
+```json
+"policy":
+{
+    "validation":
     {
-        "validation":
-        {
-            "minimumRows": 100
-        }
+        "minimumRows": 100
     }
+}
+```
 
 ### External datasets
 External datasets are the ones that are not produced by a running pipeline in the data factory. If the dataset is marked as **external**, the **ExternalData** policy may be defined to influence the behavior of the dataset slice availability.
@@ -254,91 +294,93 @@ You can create datasets that are scoped to a pipeline by using the **datasets** 
 >
 >
 
-    {
-        "name": "CopyPipeline-rdc",
-        "properties": {
-            "activities": [
-                {
-                    "type": "Copy",
-                    "typeProperties": {
-                        "source": {
-                            "type": "BlobSource",
-                            "recursive": false
-                        },
-                        "sink": {
-                            "type": "BlobSink",
-                            "writeBatchSize": 0,
-                            "writeBatchTimeout": "00:00:00"
-                        }
+```json
+{
+    "name": "CopyPipeline-rdc",
+    "properties": {
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource",
+                        "recursive": false
                     },
-                    "inputs": [
-                        {
-                            "name": "InputDataset-rdc"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "OutputDataset-rdc"
-                        }
-                    ],
-                    "scheduler": {
-                        "frequency": "Day",
-                        "interval": 1,
-                        "style": "StartOfInterval"
-                    },
-                    "name": "CopyActivity-0"
-                }
-            ],
-            "start": "2016-02-28T00:00:00Z",
-            "end": "2016-02-28T00:00:00Z",
-            "isPaused": false,
-            "pipelineMode": "OneTime",
-            "expirationTime": "15.00:00:00",
-            "datasets": [
-                {
-                    "name": "InputDataset-rdc",
-                    "properties": {
-                        "type": "AzureBlob",
-                        "linkedServiceName": "InputLinkedService-rdc",
-                        "typeProperties": {
-                            "fileName": "emp.txt",
-                            "folderPath": "adftutorial/input",
-                            "format": {
-                                "type": "TextFormat",
-                                "rowDelimiter": "\n",
-                                "columnDelimiter": ","
-                            }
-                        },
-                        "availability": {
-                            "frequency": "Day",
-                            "interval": 1
-                        },
-                        "external": true,
-                        "policy": {}
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
                     }
                 },
-                {
-                    "name": "OutputDataset-rdc",
-                    "properties": {
-                        "type": "AzureBlob",
-                        "linkedServiceName": "OutputLinkedService-rdc",
-                        "typeProperties": {
-                            "fileName": "emp.txt",
-                            "folderPath": "adftutorial/output",
-                            "format": {
-                                "type": "TextFormat",
-                                "rowDelimiter": "\n",
-                                "columnDelimiter": ","
-                            }
-                        },
-                        "availability": {
-                            "frequency": "Day",
-                            "interval": 1
-                        },
-                        "external": false,
-                        "policy": {}
+                "inputs": [
+                    {
+                        "name": "InputDataset-rdc"
                     }
+                ],
+                "outputs": [
+                    {
+                        "name": "OutputDataset-rdc"
+                    }
+                ],
+                "scheduler": {
+                    "frequency": "Day",
+                    "interval": 1,
+                    "style": "StartOfInterval"
+                },
+                "name": "CopyActivity-0"
+            }
+        ],
+        "start": "2016-02-28T00:00:00Z",
+        "end": "2016-02-28T00:00:00Z",
+        "isPaused": false,
+        "pipelineMode": "OneTime",
+        "expirationTime": "15.00:00:00",
+        "datasets": [
+            {
+                "name": "InputDataset-rdc",
+                "properties": {
+                    "type": "AzureBlob",
+                    "linkedServiceName": "InputLinkedService-rdc",
+                    "typeProperties": {
+                        "fileName": "emp.txt",
+                        "folderPath": "adftutorial/input",
+                        "format": {
+                            "type": "TextFormat",
+                            "rowDelimiter": "\n",
+                            "columnDelimiter": ","
+                        }
+                    },
+                    "availability": {
+                        "frequency": "Day",
+                        "interval": 1
+                    },
+                    "external": true,
+                    "policy": {}
                 }
-            ]
-        }
+            },
+            {
+                "name": "OutputDataset-rdc",
+                "properties": {
+                    "type": "AzureBlob",
+                    "linkedServiceName": "OutputLinkedService-rdc",
+                    "typeProperties": {
+                        "fileName": "emp.txt",
+                        "folderPath": "adftutorial/output",
+                        "format": {
+                            "type": "TextFormat",
+                            "rowDelimiter": "\n",
+                            "columnDelimiter": ","
+                        }
+                    },
+                    "availability": {
+                        "frequency": "Day",
+                        "interval": 1
+                    },
+                    "external": false,
+                    "policy": {}
+                }
+            }
+        ]
     }
+}
+```

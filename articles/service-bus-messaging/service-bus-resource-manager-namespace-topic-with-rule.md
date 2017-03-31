@@ -1,5 +1,5 @@
 ---
-title: Create a Service Bus namespace with topic, subscription, and rule using an Azure Resource Manager template | Microsoft Docs
+title: Create Azure Service Bus topic subscription and rule using template | Microsoft Docs
 description: Create a Service Bus namespace with topic, subscription, and rule using Azure Resource Manager template
 services: service-bus-messaging
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 01/18/2017
 ms.author: sethm;shvija
 
 ---
@@ -22,7 +22,7 @@ This article shows how to use an Azure Resource Manager template that creates a 
 
 For more information about creating templates, see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
 
-For more information on practice and patterns on Azure Resources naming conventions, see [Azure Resources Naming Conventions][Azure Resources Naming Conventions].
+For more information about practice and patterns on Azure resources naming conventions, see [Recommended naming conventions for Azure resources][Recommended naming conventions for Azure resources].
 
 For the complete template, see the [Service Bus namespace with topic, subscription, and rule][Service Bus namespace with topic, subscription, and rule] template.
 
@@ -58,7 +58,7 @@ The template defines the following parameters:
 ### serviceBusNamespaceName
 The name of the Service Bus namespace to create.
 
-```
+```json
 "serviceBusNamespaceName": {
 "type": "string"
 }
@@ -67,7 +67,7 @@ The name of the Service Bus namespace to create.
 ### serviceBusTopicName
 The name of the topic created in the Service Bus namespace.
 
-```
+```json
 "serviceBusTopicName": {
 "type": "string"
 }
@@ -76,7 +76,7 @@ The name of the topic created in the Service Bus namespace.
 ### serviceBusSubscriptionName
 The name of the subscription created in the Service Bus namespace.
 
-```
+```json
 "serviceBusSubscriptionName": {
 "type": "string"
 }
@@ -84,7 +84,7 @@ The name of the subscription created in the Service Bus namespace.
 ### serviceBusRuleName
 The name of the rule(filter) created in the Service Bus namespace.
 
-```
+```json
    "serviceBusRuleName": {
    "type": "string",
   }
@@ -92,7 +92,7 @@ The name of the rule(filter) created in the Service Bus namespace.
 ### serviceBusApiVersion
 The Service Bus API version of the template.
 
-```
+```json
 "serviceBusApiVersion": {
 "type": "string"
 }
@@ -100,7 +100,7 @@ The Service Bus API version of the template.
 ## Resources to deploy
 Creates a standard Service Bus namespace of type **Messaging**, with topic and subscription and rules.
 
-```
+```json
  "resources": [{
         "apiVersion": "[variables('sbVersion')]",
         "name": "[parameters('serviceBusNamespaceName')]",
@@ -153,12 +153,12 @@ Creates a standard Service Bus namespace of type **Messaging**, with topic and s
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## PowerShell
-```
+```powershell
 New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<resource-group-name\> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-subscription-rule/azuredeploy.json>
 ```
 
 ## Azure CLI
-```
+```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-subscription-rule/azuredeploy.json>
@@ -169,14 +169,14 @@ Now that you've created and deployed resources using Azure Resource Manager, lea
 
 * [Manage Azure Service Bus using Azure Automation](service-bus-automation-manage.md)
 * [Manage Service Bus with PowerShell](service-bus-powershell-how-to-provision.md)
-* [Manage Service Bus resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+* [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Authoring Azure Resource Manager templates]: ../resource-group-authoring-templates.md
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 [Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
-[Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
-[Azure Resources Naming Conventions]: https://azure.microsoft.com/en-us/documentation/articles/guidance-naming-conventions/
+[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+[Recommended naming conventions for Azure resources]: ../guidance/guidance-naming-conventions.md
 [Service Bus namespace with topic, subscription, and rule]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-subscription-rule/
-[Service Bus queues, topics, and subscriptions]:service-bus-queues-topics-subscriptions.md
+[Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 

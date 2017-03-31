@@ -1,9 +1,21 @@
 ---
+title: Azure Application Gateway Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to deploy a cloud application delivery controller. Documentation shows how to set up application-level routing and load balancing for a web front end.
+services: application-gateway
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid:
+ms.service: application-gateway
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
-#Application Gateway Documentation
+# Application Gateway Documentation
 
-Azure Application Gateway provides Application Deliver Controller (ADC) as a service.  It allows customers to optimize web farm productivity by offloading CPU-intensive SSL termination to the application geateway.  It is a dedicated virtual appliance for your application with scalability and high availability as well as a rich set of diagnostics and logging for better manageability.
+Learn how to deploy Application Gateway, an application delivery controller (ADC) as a service. Tutorials, API references, and other documentation show you how to set up application-level routing and load balancing services that let you build a scalable and highly-available web front end.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -109,7 +121,7 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
                     <div class="cardText">
                         <h3>Command-Line</h3>
                         <p><a href="/powershell/resourcemanager">PowerShell</a></p>
-                        <p><a href="/cli/azure/network/application-gateway">Azure CLI 2​.0 preview</a></p>
+                        <p><a href="/cli/azure/network/application-gateway">Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -146,11 +158,4 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
     </li>
 </ul>	
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-gateway.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Application Gateway Documentation
-        </div>
-    </a>
-</div>
+

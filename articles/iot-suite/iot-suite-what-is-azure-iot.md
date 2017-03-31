@@ -1,6 +1,6 @@
 ---
-title: Azure solutions for Internet of Things | Microsoft Docs
-description: A overview of IoT on Azure including a sample solution architecture and how it relates to Azure IoT Suite, and preconfigured solutions
+title: Azure solutions for Internet of Things (IoT Suite) | Microsoft Docs
+description: A overview of IoT on Azure including a sample solution architecture and how it relates to Azure IoT Suite, and the preconfigured solutions.
 services: ''
 suite: iot-suite
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/09/2017
 ms.author: dobett
 
 ---

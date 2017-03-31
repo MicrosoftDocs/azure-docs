@@ -1,6 +1,6 @@
 ---
-title: Configure Azure SQL Database server-level firewall rules by using PowerShell | Microsoft Docs
-description: Learn how to configure the firewall for IP addresses that access Azure SQL databases.
+title: 'PowerShell: Configure Azure SQL Database firewall rules | Microsoft Docs'
+description: Learn how to configure server-level firewall rules for IP addresses that access Azure SQL databases uisng PowerShell.
 services: sql-database
 documentationcenter: ''
 author: stevestein
@@ -9,24 +9,16 @@ editor: ''
 
 ms.assetid: 30dcea72-61c1-48b6-8e1d-b1db2eb61567
 ms.service: sql-database
-ms.custom: auth and access
+ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: article
 ms.date: 08/09/2016
 ms.author: sstein
 
 ---
 # Configure Azure SQL Database server-level firewall rules by using PowerShell
-> [!div class="op_single_selector"]
-> * [Overview](sql-database-firewall-configure.md)
-> * [Azure portal](sql-database-configure-firewall-settings.md)
-> * [TSQL](sql-database-configure-firewall-settings-tsql.md)
-> * [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-> * [REST API](sql-database-configure-firewall-settings-rest.md)
-> 
-> 
 
 Azure SQL Database uses firewall rules to allow connections to your servers and databases. You can define server-level and database-level firewall settings for the master database or a user database in your SQL Database server to selectively allow access to the database.
 
@@ -46,11 +38,11 @@ To create a new server-level firewall rule, execute the [New-AzureRmSqlServerFir
 
 To modify an existing server-level firewall rule, execute the [Set-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603789\(v=azure.300\).aspx) cmdlet. The following example changes the range of acceptable IP addresses for the rule named ContosoFirewallRule.
 
-    Set-AzureRmSqlServerFirewallRule -ResourceGroupName 'resourcegroup1' –StartIPAddress 192.168.1.4 –EndIPAddress 192.168.1.10 –FirewallRuleName 'ContosoFirewallRule' –ServerName 'Contoso'
+    Set-AzureRmSqlServerFirewallRule -ResourceGroupName 'resourcegroup1' -StartIPAddress 192.168.1.4 -EndIPAddress 192.168.1.10 -FirewallRuleName 'ContosoFirewallRule' -ServerName 'Contoso'
 
 To delete an existing server-level firewall rule, execute the [Remove-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603588\(v=azure.300\).aspx) cmdlet. The following example deletes the rule named ContosoFirewallRule.
 
-    Remove-AzureRmSqlServerFirewallRule –FirewallRuleName 'ContosoFirewallRule' –ServerName 'Contoso'
+    Remove-AzureRmSqlServerFirewallRule -FirewallRuleName 'ContosoFirewallRule' -ServerName 'Contoso'
 
 
 ## Manage firewall rules by using PowerShell
@@ -69,12 +61,12 @@ For information about how to create server-level firewall rules using other meth
 * [Configure Azure SQL Database server-level firewall rules using the Azure portal](sql-database-configure-firewall-settings.md)
 * [Configure Azure SQL Database server-level firewall rules using the REST API](sql-database-configure-firewall-settings-rest.md)
 
-For a tutorial on creating a database, see [Create a SQL database in minutes using the Azure portal](sql-database-get-started.md).
+For a tutorial on creating a database, see [Your first Azure SQL database](sql-database-get-started.md).
 For help connecting to an Azure SQL database from open source or third-party applications, see [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 To understand how to navigate to databases, see [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 ## Additional resources
-* [Securing your database](sql-database-security.md)
+* [Securing your database](sql-database-security-overview.md)
 * [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->

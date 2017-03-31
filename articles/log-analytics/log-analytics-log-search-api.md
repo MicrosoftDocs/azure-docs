@@ -4,26 +4,25 @@ description: This guide provides a basic tutorial describing how you can use the
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: ''
-
 ms.assetid: b4e9ebe8-80f0-418e-a855-de7954668df7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/2/2016
+ms.date: 01/02/2017
 ms.author: banders
 
 ---
 # Log Analytics log search REST API
-This guide provides a basic tutorial, including examples, of how you can use the Log Analytics Search REST API. Log Analytics is part of the Operations Management Suite (OMS). 
+This guide provides a basic tutorial, including examples, of how you can use the Log Analytics Search REST API. Log Analytics is part of the Operations Management Suite (OMS).
 
 > [!NOTE]
 > Log Analytics was previously called Operational Insights, which is why it is the name used in the resource provider.
-> 
-> 
+>
+>
 
 ## Overview of the Log Search REST API
 The Log Analytics Search REST API is RESTful and can be accessed via the Azure Resource Manager API. This article provides examples of accessing the API through [ARMClient](https://github.com/projectkudu/ARMClient), an open source command-line tool that simplifies invoking the Azure Resource Manager API. The use of ARMClient is one of many options to access the Log Analytics Search API. Another option is to use the Azure PowerShell module for OperationalInsights, which includes cmdlets for accessing search. With these tools, you can utilize the Azure Resource Manager API to make calls to OMS workspaces and perform search commands within them. The API outputs search results in JSON format, allowing you to use the search results in many different ways programmatically.
@@ -32,31 +31,31 @@ The Azure Resource Manager can be used via a [Library for .NET](https://msdn.mic
 
 > [!NOTE]
 > If you use an aggregation command such as `|measure count()` or `distinct`, each call to search can return upto 500,000 records. Searches that do not include an aggregation command return upto 5,000 records.
-> 
-> 
+>
+>
 
 ## Basic Log Analytics Search REST API tutorial
 ### To use ARMClient
 1. Install [Chocolatey](https://chocolatey.org/), which is an Open Source Package Manager for Windows. Open a command prompt window as administrator and then run the following command:
-   
+
     ```
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
     ```
 2. Install ARMClient by running the following command:
-   
+
     ```
     choco install armclient
     ```
 
 ### To perform a search using ARMClient
 1. Log in using your Microsoft account or your work or school account:
-   
+
     ```
     armclient login
     ```
-   
+
     A successful login lists all subscriptions tied to the given account:
-   
+
     ```
     PS C:\Users\SampleUserName> armclient login
     Welcome YourEmail@ORG.com (Tenant: zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz)
@@ -67,13 +66,13 @@ The Azure Resource Manager can be used via a [Library for .NET](https://msdn.mic
     Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (Example Name 3)
     ```
 2. Get the Operations Management Suite workspaces:
-   
+
     ```
     armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2015-03-20
     ```
-   
+
     A successful Get call would output all workspaces tied to the subscription:
-   
+
     ```
     {
     "value": [
@@ -91,12 +90,12 @@ The Azure Resource Manager can be used via a [Library for .NET](https://msdn.mic
     }
     ```
 3. Create your search variable:
-   
+
     ```
     $mySearch = "{ 'top':150, 'query':'Error'}";
     ```
 4. Search using your new search variable:
-   
+
     ```
     armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2015-03-20 $mySearch
     ```
@@ -199,8 +198,8 @@ The following table describes the properties that are available.
 
 > [!NOTE]
 > If the search returns with a ‘Pending’ status, then polling the updated results can be done through this API. After 6 min, the result of the search will be dropped from the cache and HTTP Gone will be returned. If the initial search request returns a ‘Successful’ status immediately, the results are not added to the cache causing this API to return HTTP Gone if queried. The contents of an HTTP 200 result are in the same format as the initial search request just with updated values.
-> 
-> 
+>
+>
 
 ### Saved searches
 **Request List of Saved Searches:**
@@ -225,8 +224,8 @@ The following table describes the properties that are available.
 
 > [!NOTE]
 > The Log Analytics search API currently returns user-created saved searches when polled for saved searches in a workspace. The API does not return saved searches provided by solutions.
-> 
-> 
+>
+>
 
 ### Create saved searches
 **Request:**
@@ -409,4 +408,3 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 
 ## Next steps
 * Learn about [log searches](log-analytics-log-searches.md) to build queries using custom fields for criteria.
-

@@ -1,5 +1,5 @@
 ---
-title: Create an Azure function app and storage account | Microsoft Docs
+title: 'Connect Intel Edison (Node) to Azure IoT - Lesson 3: Create function app | Microsoft Docs'
 description: The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure Table storage.
 services: iot-hub
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---
@@ -60,7 +60,7 @@ Update the `arm-template-param.json` file in Visual Studio Code.
 After you update the `arm-template-param.json` file, deploy the resources to Azure by running the following command:
 
 ```bash
-az resource group deployment create --template-file arm-template.json --parameters @arm-template-param.json -g iot-sample
+az group deployment create --template-file arm-template.json --parameters @arm-template-param.json -g iot-sample
 ```
 
 It takes about five minutes to create these resources. While the resource creation is in progress, you can move on to the next article.

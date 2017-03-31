@@ -1,9 +1,21 @@
 ---
+title: Azure Application Insights Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to use Application Insights an extensible application performance management to detect, triage, and diagnose issues in web apps and services.
+services: application-insights
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid:
+ms.service: application-insights
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Application Insights Documentation
 
-Application Insights is an extensible Application Performance Management (APM) service for web developers. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app. It's designed to help you continuously improve performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It also integrates with your devOps process, and has connection points to a wide variety of other tools.
+Learn how to use Application Insights, an extensible application performance management service for web developers. Tutorials, API references, and other documentation show you how to detect, triage, and diagnose issues in web apps and services.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -147,11 +159,4 @@ Application Insights is an extensible Application Performance Management (APM) s
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-insights.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Application Insights Documentation
-        </div>
-    </a>
-</div>
+

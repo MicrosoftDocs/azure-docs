@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 03/20/2017
 ms.author: garye
 
 ---
@@ -43,15 +43,15 @@ After the new Machine Learning workspace is created, you can sign in to Machine 
 
 **To delete browser cookies**
 
-If you use Internet Explorer, click the **Tools** button in the upper-right corner and select **Internet options**.  
+1. If you use Internet Explorer, click the **Tools** button in the upper-right corner and select **Internet options**.  
 
 ![Internet options][screen4]
 
-Under the **General** tab, click **Delete…**
+2. Under the **General** tab, click **Delete…**
 
 ![General tab][screen5]
 
-In the **Delete Browsing History** dialog box, make sure **Cookies and website data** is selected, and click **Delete**.
+3. In the **Delete Browsing History** dialog box, make sure **Cookies and website data** is selected, and click **Delete**.
 
 ![Delete cookies][screen6]
 

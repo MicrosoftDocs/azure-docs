@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/10/2016
+ms.date: 02/06/2017
 ms.author: raynew
 
 ---
@@ -127,6 +127,18 @@ Use Site Recovery to protect your SAP deployment, as follows:
 
 [Learn more](http://aka.ms/asr-sap) about protecting SAP.
 
-## Next steps
-[Prepare for Site Recovery deployment](site-recovery-best-practices.md) 
+## Protect IIS
+Use Site Recovery to protect your IIS deployment, as follows:
 
+Azure Site Recovery provides disaster recovery by replicating the critical components in your environment to a cold remote site or a public cloud like Microsoft Azure. Since the virtual machine with the web server and the database are being replicated to the recovery site, there is no requirement to backup configuration files or certificates separately. The application mappings and bindings dependent on environment variables that are changed post failover can be updated through scripts integrated into the disaster recovery plans. Virtual Machines are brought up on the recovery site only in the event of a failover. Not only this, Azure Site Recovery also helps you orchestrate the end to end failover by providing you the following capabilities:
+
+-	Sequencing the shutdown and startup of virtual machines in the various tiers.
+-	Adding scripts to allow update of application dependencies and bindings on the virtual machines after they have been started up. The scripts can also be used to update the DNS server to point to the recovery site.
+-	Allocate IP addresses to virtual machines pre-failover by mapping the primary and recovery networks and hence use scripts that do not need to be updated post failover.
+-	Ability for a one-click failover for multiple web applications on the web servers, thus eliminating the scope for confusion in the event of a disaster.
+-	Ability to test the recovery plans in an isolated environment for DR drills.
+
+[Learn more](https://aka.ms/asr-iis) about protecting IIS web farm.
+
+## Next steps
+[Check prerequisites](site-recovery-prereq.md) 

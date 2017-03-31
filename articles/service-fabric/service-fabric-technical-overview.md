@@ -1,5 +1,5 @@
 ---
-title: Service Fabric terminology overview | Microsoft Docs
+title: Learn Azure Service Fabric terminology | Microsoft Docs
 description: A terminology overview of Service Fabric. Discusses key terminology concepts and terms used in the rest of the documentation.
 services: service-fabric
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/01/2016
+ms.date: 2/17/2017
 ms.author: ryanwi
 
 ---
@@ -72,6 +72,8 @@ There are system services that are created in every cluster that provide the pla
 Read [Communicate with services](service-fabric-connect-and-communicate-with-services.md) for more information on the client and service communication APIs that work with the Naming service.
 
 **Image Store Service**: Each Service Fabric cluster has an Image Store service where deployed, versioned application packages are kept. Copy an application package to the Image Store and then register the application type contained within that application package. After the application type is provisioned, you create a named applications from it. You can unregister an application type from the Image Store service after all its named applications have been deleted.
+
+Read [Understand the ImageStoreConnectionString setting](service-fabric-image-store-connection-string.md) for more information about the Image Store service.
 
 Read the [Deploy an application](service-fabric-deploy-remove-applications.md) article for more information on deploying applications to the Image store service.
 

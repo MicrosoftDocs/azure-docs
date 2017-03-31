@@ -1,5 +1,5 @@
 ---
-title: Get started with Raspberry Pi 3 | Microsoft Docs
+title: Connect Raspberry Pi (C) to Azure IoT - Get started | Microsoft Docs
 description: Get started with Raspberry Pi 3, create your Azure IoT hub, and connect Pi to the IoT hub.
 services: iot-hub
 documentationcenter: ''
@@ -14,16 +14,20 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
+ms.custom: H1Hack27Feb2017
 
 ---
-# Get started with Raspberry Pi 3 (C)
+# Connect your Raspberry Pi 3 device to your IoT hub using C
 > [!div class="op_single_selector"]
 > * [Node.JS](iot-hub-raspberry-pi-kit-node-get-started.md)
 > * [C](iot-hub-raspberry-pi-kit-c-get-started.md)
 
 In this tutorial, you begin by learning the basics of working with Raspberry Pi 3 that's running Raspbian. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](iot-hub-what-is-iot-hub.md). For Windows 10 IoT Core samples, go to the [Windows Dev Center](http://www.windowsondevices.com/).
+
+> [!NOTE]
+> Do you love Docker or do you prefer to build source code on your host machine? If yes, try out the Docker based solution on [GitHub](https://github.com/Azure-Samples/iot-hub-c-raspberrypi-docker).
 
 ## Lesson 1: Configure your device
 ![Lesson 1 end-to-end diagram](media/iot-hub-raspberry-pi-lessons/e2e-lesson1.png)

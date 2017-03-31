@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 02/27/2017
 ms.author: owend
 
 ---
@@ -99,18 +99,19 @@ Azure Analysis Services currently supports Tabular mode for tabular models at th
 ##### Data sources
 For preview, the following data sources are supported in tabular 1200 models deployed to an Azure Analysis Services server.
 
-| **Cloud** | **On-premises** |
+| **Cloud** | **On-premises (requires data gateway)** |
 | --- | --- |
 | SQL database |SQL Server |
 | SQL Data Warehouse |APS |
-| Oracle | |
+| Oracle | Oracle |
 | Teradata | |
 
 ### Data source providers
 Data models in Azure Analysis Services may require different data providers to connect to data sources than data models in SQL Server Analysis Services. Data provider requirements depend on the data source being in the cloud or on-premises, and the type of data model; in-memory or Direct Query. To learn more, see [Datasource connections](analysis-services-datasource.md).
 
 ### Client connections
-Power BI Embedded is not yet supported in preview.
+
+Client applications require the latest client [data providers](analysis-services-data-providers.md) to connect to Azure Analysis Services.
 
 Excel workbooks with live connections to an Azure Analysis Services server and saved on OneDrive or SharePoint Online are not supported.
 

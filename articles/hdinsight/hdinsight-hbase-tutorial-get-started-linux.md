@@ -1,5 +1,5 @@
 ---
-title: 'HBase tutorial: Get started with Linux-based HBase clusters in Hadoop | Microsoft Docs'
+title: Get started with HBase on Azure HDInsight | Microsoft Docs
 description: Follow this HBase tutorial to get started using Apache HBase with Hadoop in HDInsight. Create tables from the HBase shell and query them using Hive.
 keywords: apache hbase,hbase,hbase shell,hbase tutorial
 services: hdinsight
@@ -10,20 +10,18 @@ editor: cgronlun
 
 ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/23/2016
+ms.date: 03/22/2017
 ms.author: jgao
 
 ---
-# HBase tutorial: Get started using Apache HBase with Linux-based Hadoop in HDInsight
-[!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
+# HBase tutorial: Get started using Apache HBase in HDInsight
 
 Learn how to create an HBase cluster in HDInsight, create HBase tables, and query tables by using Hive. For general HBase information, see [HDInsight HBase overview][hdinsight-hbase-overview].
-
-The information in this document is specific to Linux-based HDInsight clusters. For information on Windows-based clusters, use the tab selector on the top of the page to switch.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -42,7 +40,7 @@ The following procedure uses an Azure Resource Manager template to create a vers
 
 1. Click the following image to open the template in the Azure portal. The template is located in a public blob container. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. From the **Custom deployment** blade, enter the following:
    
    * **Subscription**: Select your Azure subscription that will be used to create the cluster.
@@ -54,7 +52,7 @@ The following procedure uses an Azure Resource Manager template to create a vers
      
      Other parameters are optional.  
      
-     Each cluster has an Azure Blob storage account dependency. After you delete a cluster, the data retains in the storage account. The cluster default storage account name is the cluster name with "store" appended. It is hardcoded in the template variables section.
+     Each cluster has an Azure Storage account dependency. After you delete a cluster, the data retains in the storage account. The cluster default storage account name is the cluster name with "store" appended. It is hardcoded in the template variables section.
 3. Select **I agree to the terms and conditions stated above**, and then click **Purchase**. It takes about 20 minutes to create a cluster.
 
 > [!NOTE]
@@ -63,7 +61,7 @@ The following procedure uses an Azure Resource Manager template to create a vers
 > 
 
 ## Create tables and insert data
-You can use SSH to connect to HBase clusters and then use HBase Shell to create HBase tables, insert data and query data. For information on using SSH, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md) and [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+You can use SSH to connect to HBase clusters and then use HBase Shell to create HBase tables, insert data and query data. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 For most people, data appears in the tabular format:
 
@@ -140,7 +138,7 @@ You can create a text file and upload the file to your own storage account if yo
 You can query data in HBase tables by using Hive. This section creates a Hive table that maps to the HBase table and uses it to query the data in your HBase table.
 
 > [!NOTE]
-> If Hive and HBase are on different cluters in the same VNet, you need to pass zookeeper quorum while invoking the Hive shell:
+> If Hive and HBase are on different clusters in the same VNet, you need to pass zookeeper quorum while invoking the Hive shell:
 >
 >       hive --hiveconf hbase.zookeeper.quorum=zk0-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk1-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk2-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net --hiveconf zookeeper.znode.parent=/hbase-unsecure  
 >
@@ -204,7 +202,7 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
         -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
         -H "Accept: application/json" \
         -H "Content-Type: application/json" \
-        -d "{\"Row\":{\"key\":\"MTAwMA==\",\"Cell\":{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}}}" \
+        -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
         -v
    
     You must base64 encode the values specified in the -d switch.  In the exmaple:
@@ -222,6 +220,11 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
         -v
 
 For more information about HBase Rest, see [Apache HBase Reference Guide](https://hbase.apache.org/book.html#_rest).
+
+>
+> [!NOTE]
+> Thrift is not supported by HBase in HDInsight.
+>
 
 ## Check cluster status
 HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI, you can request statistics or information about regions.

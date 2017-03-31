@@ -13,18 +13,19 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2016
+ms.date: 03/16/2017
 ms.author: dobett
+ms.custom: H1Hack27Feb2017
 
 ---
-# Get started with Azure IoT Hub (.NET)
+# Connect your simulated device to your IoT hub using .NET
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 At the end of this tutorial, you have three .NET console apps:
 
 * **CreateDeviceIdentity**, which creates a device identity and associated security key to connect your simulated device app.
 * **ReadDeviceToCloudMessages**, which displays the telemetry sent by your simulated device app.
-* **SimulatedDevice**, which connects to your IoT hub with the device identity created earlier, and sends a telemetry message every second by using the AMQP protocol.
+* **SimulatedDevice**, which connects to your IoT hub with the device identity created earlier, and sends a telemetry message every second by using the MQTT protocol.
 
 > [!NOTE]
 > For information about the Azure IoT SDKs that you can use to build both applications to run on devices, and your solution back end, see [Azure IoT SDKs][lnk-hub-sdks].
@@ -33,7 +34,7 @@ At the end of this tutorial, you have three .NET console apps:
 
 To complete this tutorial, you need the following:
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 or Visual Studio 2017.
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -43,7 +44,7 @@ You have now created your IoT hub, and you have the host name and IoT Hub connec
 ## Create a device identity
 In this section, you create a .NET console app that creates a device identity in the identity registry in your IoT hub. A device cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the "Identity registry" section of the [IoT Hub developer guide][lnk-devguide-identity]. When you run this console app, it generates a unique device ID and key that your device can use to identify itself when it sends device-to-cloud messages to IoT Hub.
 
-1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Make sure the .NET Framework version is 4.5.1 or later. Name the project **CreateDeviceIdentity**.
+1. In Visual Studio, add a Visual C# Windows Classic Desktop project to a new solution by using the **Console App (.NET Framework)** project template. Make sure the .NET Framework version is 4.5.1 or later. Name the project **CreateDeviceIdentity** and name the solution **IoTHubGetStarted**.
    
     ![New Visual C# Windows Classic Desktop project][10]
 2. In Solution Explorer, right-click the **CreateDeviceIdentity** project, and then click **Manage NuGet Packages**.
@@ -91,16 +92,16 @@ In this section, you create a .NET console app that creates a device identity in
 > 
 
 ## Receive device-to-cloud messages
-In this section, you create a .NET console app that reads device-to-cloud messages from IoT Hub. An IoT hub exposes an [Azure Event Hubs][lnk-event-hubs-overview]-compatible endpoint to enable you to read device-to-cloud messages. To keep things simple, this tutorial creates a basic reader that is not suitable for a high throughput deployment. To learn how to process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial. For further information about how to process messages from Event Hubs, see the [Get Started with Event Hubs][lnk-eventhubs-tutorial] tutorial. (This tutorial is applicable to the IoT Hub Event Hub-compatible endpoints.)
+In this section, you create a .NET console app that reads device-to-cloud messages from IoT Hub. An IoT hub exposes an [Azure Event Hubs][lnk-event-hubs-overview]-compatible endpoint to enable you to read device-to-cloud messages. To keep things simple, this tutorial creates a basic reader that is not suitable for a high throughput deployment. To learn how to process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial. For more information about how to process messages from Event Hubs, see the [Get Started with Event Hubs][lnk-eventhubs-tutorial] tutorial. (This tutorial is applicable to the IoT Hub Event Hub-compatible endpoints.)
 
 > [!NOTE]
 > The Event Hub-compatible endpoint for reading device-to-cloud messages always uses the AMQP protocol.
 > 
 > 
 
-1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution, by using the **Console Application** project template. Make sure the .NET Framework version is 4.5.1 or later. Name the project **ReadDeviceToCloudMessages**.
+1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution, by using the **Console App (.NET Framework)** project template. Make sure the .NET Framework version is 4.5.1 or later. Name the project **ReadDeviceToCloudMessages**.
    
-    ![New Visual C# Windows Classic Desktop project][10]
+    ![New Visual C# Windows Classic Desktop project][10a]
 2. In Solution Explorer, right-click the **ReadDeviceToCloudMessages** project, and then click **Manage NuGet Packages**.
 3. In the **NuGet Package Manager** window, search for **WindowsAzure.ServiceBus**, select **Install**, and accept the terms of use. This procedure downloads, installs, and adds a reference to [Azure Service Bus][lnk-servicebus-nuget], with all its dependencies. This package enables the application to connect to the Event Hub-compatible endpoint on your IoT hub.
 4. Add the following `using` statements at the top of the **Program.cs** file:
@@ -128,7 +129,7 @@ In this section, you create a .NET console app that reads device-to-cloud messag
             }
         }
    
-    This method uses an **EventHubReceiver** instance to receive messages from all the IoT hub device-to-cloud receive partitions. Notice how you pass a `DateTime.Now` parameter when you create the **EventHubReceiver** object, so that it only receives messages sent after it starts. This filter is useful in a test environment so you can see the current set of messages. In a production environment your code should make sure that it processes all the messages. For more information, see the [How to process IoT Hub device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
+    This method uses an **EventHubReceiver** instance to receive messages from all the IoT hub device-to-cloud receive partitions. Notice how you pass a `DateTime.Now` parameter when you create the **EventHubReceiver** object, so that it only receives messages sent after it starts. This filter is useful in a test environment so you can see the current set of messages. In a production environment, your code should make sure that it processes all the messages. For more information, see the [How to process IoT Hub device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
 7. Finally, add the following lines to the **Main** method:
    
         Console.WriteLine("Receive messages. Ctrl-C to exit.\n");
@@ -155,9 +156,9 @@ In this section, you create a .NET console app that reads device-to-cloud messag
 ## Create a simulated device app
 In this section, you create a .NET console app that simulates a device that sends device-to-cloud messages to an IoT hub.
 
-1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution, by using the **Console Application** project template. Make sure the .NET Framework version is 4.5.1 or later. Name the project **SimulatedDevice**.
+1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution, by using the **Console App (.NET Framework)** project template. Make sure the .NET Framework version is 4.5.1 or later. Name the project **SimulatedDevice**.
    
-    ![New Visual C# Windows Classic Desktop project][10]
+    ![New Visual C# Windows Classic Desktop project][10b]
 2. In Solution Explorer, right-click the **SimulatedDevice** project, and then click **Manage NuGet Packages**.
 3. In the **NuGet Package Manager** window, select **Browse**, search for **Microsoft.Azure.Devices.Client**, select **Install** to install the **Microsoft.Azure.Devices.Client** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT device SDK NuGet package][lnk-device-nuget] and its dependencies.
 4. Add the following `using` statement at the top of the **Program.cs** file:
@@ -199,12 +200,12 @@ In this section, you create a .NET console app that simulates a device that send
 7. Finally, add the following lines to the **Main** method:
    
         Console.WriteLine("Simulated device\n");
-        deviceClient = DeviceClient.Create(iotHubUri, new DeviceAuthenticationWithRegistrySymmetricKey("myFirstDevice", deviceKey));
+        deviceClient = DeviceClient.Create(iotHubUri, new DeviceAuthenticationWithRegistrySymmetricKey("myFirstDevice", deviceKey), TransportType.Mqtt);
    
         SendDeviceToCloudMessagesAsync();
         Console.ReadLine();
    
-   By default, the **Create** method creates a **DeviceClient** instance that uses the AMQP protocol to communicate with IoT Hub. To use the HTTP protocol, use the override of the **Create** method that enables you to specify the protocol. If you use the HTTP protocol, you should also add the **Microsoft.AspNet.WebApi.Client** NuGet package to your project to include the **System.Net.Http.Formatting** namespace.
+   By default, the **Create** method creates a **DeviceClient** instance that uses the AMQP protocol to communicate with IoT Hub. To use the MQTT or HTTP protocol, use the override of the **Create** method that enables you to specify the protocol. If you use the HTTP protocol, you should also add the **Microsoft.AspNet.WebApi.Client** NuGet package to your project to include the **System.Net.Http.Formatting** namespace.
 
 This tutorial takes you through the steps to create an IoT Hub simulated device app. You can also use the [Connected Service for Azure IoT Hub][lnk-connected-service] Visual Studio extension to add the necessary code to your device app.
 
@@ -242,6 +243,8 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
 [10]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp1.png
+[10a]: ./media/iot-hub-csharp-csharp-getstarted/create-receive-csharp1.png
+[10b]: ./media/iot-hub-csharp-csharp-getstarted/create-device-csharp1.png
 [11]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp2.png
 [12]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp3.png
 

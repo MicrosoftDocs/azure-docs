@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/19/2016
+ms.date: 02/10/2017
 ms.author: vturecek
 
 ---
@@ -27,6 +27,13 @@ In this example, the following actor interface defines a method that returns a c
 public interface IVoiceMailBoxActor : IActor
 {
     Task<VoicemailBox> GetMailBoxAsync();
+}
+```
+
+```Java
+public interface VoiceMailBoxActor extends Actor
+{
+    CompletableFuture<VoicemailBox> getMailBoxAsync();
 }
 ```
 
@@ -44,6 +51,23 @@ public class VoiceMailBoxActor : Actor, IVoicemailBoxActor
     public Task<VoicemailBox> GetMailboxAsync()
     {
         return this.StateManager.GetStateAsync<VoicemailBox>("Mailbox");
+    }
+}
+
+```
+
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+public class VoiceMailBoxActorImpl extends FabricActor implements VoicemailBoxActor
+{
+    public VoiceMailBoxActorImpl(ActorService actorService, ActorId actorId)
+    {
+         super(actorService, actorId);
+    }
+
+    public CompletableFuture<VoicemailBox> getMailBoxAsync()
+    {
+         return this.stateManager().getStateAsync("Mailbox");
     }
 }
 
@@ -70,6 +94,19 @@ public class Voicemail
     public DateTime ReceivedAt { get; set; }
 }
 ```
+```Java
+public class Voicemail implements Serializable
+{
+    private static final long serialVersionUID = 42L;
+
+    private UUID id;                    //getUUID() and setUUID()
+
+    private String message;             //getMessage() and setMessage()
+
+    private GregorianCalendar receivedAt; //getReceivedAt() and setReceivedAt()
+}
+```
+
 
 ```csharp
 [DataContract]
@@ -87,6 +124,22 @@ public class VoicemailBox
     public string Greeting { get; set; }
 }
 ```
+```Java
+public class VoicemailBox implements Serializable
+{
+    static final long serialVersionUID = 42L;
+    
+    public VoicemailBox()
+    {
+        this.messageList = new ArrayList<Voicemail>();
+    }
+
+    private List<Voicemail> messageList;   //getMessageList() and setMessageList()
+
+    private String greeting;               //getGreeting() and setGreeting()
+}
+```
+
 
 ## Next steps
 * [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)

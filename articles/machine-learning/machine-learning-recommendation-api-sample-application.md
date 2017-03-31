@@ -61,7 +61,7 @@ To enable the previous scenario, do the following in the Machine Learning recomm
 You will usually invoke Get Recommendation for a certain period of time. During that period of time, you can redirect usage data to the Machine Learning recommendation system, which adds this data to the specified model container. When you have enough usage data, you can build a new recommendation model that incorporates the additional usage data. 
 
 ## Prerequisites
-* Visual Studio 2013
+* Visual Studio 2013 or later
 * Internet access 
 * Subscription to the Recommendations API (https://datamarket.azure.com/dataset/amla/recommendations).
 

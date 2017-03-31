@@ -1,5 +1,5 @@
 ---
-title: Networking Infrastructure Guidelines | Microsoft Docs
+title: Azure networking infrastructure guidelines - Linux | Microsoft Docs
 description: Learn about the key design and implementation guidelines for deploying virtual networking in Azure infrastructure services.
 documentationcenter: ''
 services: virtual-machines-linux
@@ -14,11 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 03/17/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 
 ---
-# Networking infrastructure guidelines
+# Azure networking infrastructure guidelines for Linux VMs
+
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 This article focuses on understanding the required planning steps for virtual networking within Azure and connectivity between existing on-prem environments.
@@ -47,7 +49,7 @@ By using Resource Groups, you have flexibility in how you design your virtual ne
 ### Cloud-only virtual networks
 If on-premises users and computers do not require ongoing connectivity to VMs in an Azure virtual network, your virtual network design is straight forward:
 
-![Basic cloud-only virtual network diagram](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
+![Basic cloud-only virtual network diagram](windows/media/infrastructure-networking-guidelines/vnet01.png)
 
 This approach is typically for Internet-facing workloads, such as an Internet-based web server. You can manage these VMs using SSH or point-to-site VPN connections.
 
@@ -56,7 +58,7 @@ Because they do not connect to your on-premises network, Azure-only virtual netw
 ### Cross-premises virtual networks
 If on-premises users and computers require ongoing connectivity to VMs in an Azure virtual network, create a cross-premises virtual network. Connect the virtual network to your on-premises network with an ExpressRoute or site-to-site VPN connection.
 
-![Cross-premises virtual network diagram](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
+![Cross-premises virtual network diagram](windows/media/infrastructure-networking-guidelines/vnet02.png)
 
 In this configuration, the Azure virtual network is essentially a cloud-based extension of your on-premises network.
 

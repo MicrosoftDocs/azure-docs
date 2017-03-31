@@ -22,7 +22,6 @@ ms.author: seasa
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [REST API](search-get-started-management-api.md)
 > 
 > 
 
@@ -39,7 +38,7 @@ First, you must login to Azure with this command:
 
 Specify the email address of your Azure account and its password in the Microsoft Azure login dialog.
 
-Alternatively you can [login non-interactively with a service principal](../resource-group-authenticate-service-principal.md).
+Alternatively you can [login non-interactively with a service principal](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
 If you have multiple Azure subscriptions, you need to set your Azure subscription. To see a list of your current subscriptions, run this command.
 

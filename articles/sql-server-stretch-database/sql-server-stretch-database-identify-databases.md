@@ -1,5 +1,5 @@
 ---
-title: Identify databases and tables for Stretch Database by running Stretch Database Advisor | Microsoft Docs
+title: Identify databases & tables for Stretch Database - Azure | Microsoft Docs
 description: Learn how to identify databases and tables that are candidates for Stretch Database.
 services: sql-server-stretch-database
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2016
+ms.date: 01/05/2017
 ms.author: douglasl
 
 ---
@@ -33,10 +33,10 @@ Download and install Upgrade Advisor from [here](http://go.microsoft.com/fwlink/
 
 ## Review the results
 1. When the analysis is finished, on the **Analyzed databases** blade, select one of the databases that you analyzed to display the **Analysis results** blade.
-   
+
    The **Analysis results** blade lists recommended tables in the selected database that match the default recommendation criteria.
 2. In the list of tables on the **Analysis results** blade, select one of the recommended tables to display the **Table results** blade.
-   
+
    If there are blocking issues, the **Table results** blade lists the blocking issues for the selected table. For information about blocking issues detected by Stretch Database Advisor, see [Limitations for Stretch Database](sql-server-stretch-database-limitations.md).
 3. In the list of blocking issues on the **Table results** blade, select one of the issues to display more info about the selected issue and proposes mitigation steps. Implement the suggested mitigation steps if you want to configure the selected table for Stretch Database.
 
@@ -52,6 +52,3 @@ Enable Stretch Database.
 [Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md)
 
 [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md)
-
-[All topics for Azure SQL Server Stretch Database service](sql-server-stretch-database-index-all-articles.md)
-

@@ -1,5 +1,5 @@
 ---
-title: Create an Internet facing load balancer with IPv6 in Azure Resource Manager using the Azure CLI | Microsoft Docs
+title: Create an Internet-facing load balancer with IPv6 - Azure CLI | Microsoft Docs
 description: Learn how to create an Internet facing load balancer with IPv6 in Azure Resource Manager using the Azure CLI
 services: load-balancer
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 01/23/2017
 ms.author: kumud
 ---
 
@@ -59,7 +59,7 @@ For more information, see [Azure Resource Manager support for Load Balancer](loa
 
 For this example, we are running the CLI tools in a PowerShell command window. We are not using the Azure PowerShell cmdlets but we use PowerShell's scripting capabilities to improve readability and reuse.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to Resource Manager mode.
 
     ```azurecli

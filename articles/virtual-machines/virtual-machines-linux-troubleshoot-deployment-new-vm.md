@@ -23,12 +23,12 @@ ms.author: cjiang
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Collect audit logs
-To start troubleshooting, collect the audit logs to identify the error associated with the issue. The following links contain detailed information on the process to follow.
+## Collect activity logs
+To start troubleshooting, collect the activity logs to identify the error associated with the issue. The following links contain detailed information on the process to follow.
 
-[Troubleshoot resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md)
+[View deployment operations](../azure-resource-manager/resource-manager-deployment-operations.md)
 
-[Audit operations with Resource Manager](../resource-group-audit.md)
+[View activity logs to manage Azure resources](../azure-resource-manager/resource-group-audit.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 

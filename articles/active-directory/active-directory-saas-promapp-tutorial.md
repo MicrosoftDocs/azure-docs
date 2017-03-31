@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/20/2017
 ms.author: jeedes
 
 ---
@@ -44,8 +44,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 * If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## Scenario Description
-The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
-The scenario outlined in this tutorial consists of two main building blocks:
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Promapp from the gallery 
 2. Configuring and testing Azure AD single sign-on
@@ -104,17 +103,16 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
    
     ![Azure AD Single Sign-On][8] 
    
-     a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Promapp site (e.g.: *https://companyname.promapp.com/instancename*).
-
-     b. Click **Next**.
+   1. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Promapp site (e.g.: *https://companyname.promapp.com/instancename*).
+   2. Click **Next**.
 
 1. On the **Configure single sign-on at Promapp** page, perform the following steps:
    
     ![Azure AD Single Sign-On][9] 
    
-    a. Click Download certificate, and then save the file on your computer.
+   1. Click Download certificate, and then save the file on your computer.
+   2. Click **Next**.
    
-    b. Click **Next**.
 2. Sign-on to your Promapp company site as administrator. 
 3. In the menu on the top, click **Admin**. 
    
@@ -126,11 +124,9 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
    
     ![Azure AD Single Sign-On][14] 
    
-    a. In the Azure classic portal, on the **Configure single sign-on at Promapp** dialog, copy the **Remote Login URL**, paste it into the **SSO-Login URL** textbox, and then click **Save**.
-   
-    b. As **SSO - Single Sign-on Mode**, select **Optional**, and then click **Save**.
-   
-    c. Open the downloaded certificate in notepad, copy the certificate content without the first line (*-----BEGIN CERTIFICATE-----*) and the last line (*-----END CERTIFICATE-----*), paste it into the **SSO-x.509 Certificate** textbox, and then click **Save**.
+   1. In the Azure classic portal, on the **Configure single sign-on at Promapp** dialog, copy the **Remote Login URL**, paste it into the **SSO-Login URL** textbox, and then click **Save**.
+   2. As **SSO - Single Sign-on Mode**, select **Optional**, and then click **Save**.
+   3. Open the downloaded certificate in notepad, copy the certificate content without the first line (*-----BEGIN CERTIFICATE-----*) and the last line (*-----END CERTIFICATE-----*), paste it into the **SSO-x.509 Certificate** textbox, and then click **Save**.
 6. On the Azure AD classic portal, select the single sign-on configuration confirmation, and then click **Next**. 
    
     ![Azure AD Single Sign-On][10]
@@ -159,23 +155,20 @@ The objective of this section is to create a test user in the Azure classic port
    
     ![Creating an Azure AD test user](./media/active-directory-saas-promapp-tutorial/create_aaduser_05.png)  
    
-    a. As Type Of User, select New user in your organization.
+   1. As Type Of User, select New user in your organization.
+   2. In the User Name **textbox**, type **BrittaSimon**.
+   3. Click **Next**.
    
-    b. In the User Name **textbox**, type **BrittaSimon**.
-   
-    c. Click **Next**.
 6. On the **User Profile** dialog page, perform the following steps: 
    
    ![Creating an Azure AD test user](./media/active-directory-saas-promapp-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+   1. In the **First Name** textbox, type **Britta**.   
+   2. In the **Last Name** textbox, type, **Simon**.
+   3. In the **Display Name** textbox, type **Britta Simon**.
+   4. In the **Role** list, select **User**.
+   5. Click **Next**.
    
-   b. In the **Last Name** textbox, type, **Simon**.
-   
-   c. In the **Display Name** textbox, type **Britta Simon**.
-   
-   d. In the **Role** list, select **User**.
-   e. Click **Next**.
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-promapp-tutorial/create_aaduser_07.png) 
@@ -183,9 +176,8 @@ The objective of this section is to create a test user in the Azure classic port
    
     ![Creating an Azure AD test user](./media/active-directory-saas-promapp-tutorial/create_aaduser_08.png) 
    
-    a. Write down the value of the **New Password**.
-   
-    b. Click **Complete**.   
+   1. Write down the value of the **New Password**.
+   2. Click **Complete**.   
 
 ### Creating a Promapp test user
 The Promapp application supports Just-in-Time provisioning.

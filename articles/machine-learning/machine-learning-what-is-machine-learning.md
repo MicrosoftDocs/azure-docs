@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/11/2016
+ms.date: 02/13/2017
 ms.author: cgronlun;tedway;olgali
 
 ---
-# Introduction to machine learning in the cloud
+# Introduction to Azure Machine Learning in the cloud
 ## What is machine learning?
 Machine learning is a technique of data science that helps computers learn from existing data in order to forecast future behaviors, outcomes, and trends.  
 
@@ -34,8 +34,6 @@ You can work from a ready-to-use library of algorithms, use them to create model
 ![What is machine learning? Basic workflow to operationalize predictive analytics on Azure Machine Learning.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
 Azure Machine Learning not only provides tools to model predictive analytics, but also provides a fully managed service you can use to deploy your predictive models as ready-to-consume web services.
-
-[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## What is predictive analytics?
 Predictive analytics uses math formulas called algorithms that analyze historical or current data to identify patterns or trends in order to forecast future events.
@@ -57,7 +55,7 @@ In [Machine Learning Studio](machine-learning-what-is-ml-studio.md), you can qui
 The following tutorials show you how to operationalize your predictive analytics models:
 
  * [Deploy web services](machine-learning-publish-a-machine-learning-web-service.md)
- * [Train and retrain models through APIs](machine-learning-retrain-models-programmatically.md)
+ * [Retrain models through APIs](machine-learning-retrain-models-programmatically.md)
  * [Manage web service endpoints](machine-learning-create-endpoint.md)
  * [Scale a web service](machine-learning-scaling-webservice.md)
  * [Consume web services](machine-learning-consume-web-services.md)
@@ -66,7 +64,10 @@ The following tutorials show you how to operationalize your predictive analytics
 Machine learning terms can be confusing. Here are definitions of key terms to help you. Use comments following to tell us about any other term you'd like defined.
 
 ### Data exploration, descriptive analytics, and predictive analytics
-**Data exploration** is the process of gathering information about a large and often unstructured data set in order to find characteristics for focused analysis. **Data mining** refers to automated data exploration.
+
+**Data exploration** is the process of gathering information about a large and often unstructured data set in order to find characteristics for focused analysis.
+
+**Data mining** refers to automated data exploration.
 
 **Descriptive analytics** is the process of analyzing a data set in order to summarize what happened. The vast majority of business analytics - such as sales reports, web metrics, and social networks analysis - are descriptive.
 

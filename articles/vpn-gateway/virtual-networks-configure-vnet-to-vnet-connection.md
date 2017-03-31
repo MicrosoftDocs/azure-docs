@@ -1,10 +1,10 @@
 ---
-title: Configure a VNet-to-VNet connection for the classic deployment model| Microsoft Docs
+title: 'Connect an Azure virtual network to another VNet: Classic | Microsoft Docs'
 description: How to connect Azure virtual networks together using PowerShell and the Azure classic portal.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-service-management
 
@@ -22,9 +22,10 @@ ms.author: cherylmc
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Classic - Azure Portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Classic - Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 > 
-> 
+>  
 
 This article walks you through the steps to create and connect virtual networks together using the classic deployment model (also known as Service Management). The following steps use the Azure classic portal to create the VNets and gateways, and PowerShell to configure the VNet-to-VNet connection. You cannot configure the connection in the portal.
 
@@ -57,7 +58,7 @@ You may want to connect virtual networks for the following reasons:
   * If you have multiple Azure subscriptions, you can connect workloads from different subscriptions together securely between virtual networks.
   * For enterprises or service providers, you can enable cross-organization communication with secure VPN technology within Azure.
 
-### VNet-to-VNet FAQ for classic VNets
+### VNet-to-VNet considerations for classic VNets
 * The virtual networks can be in the same or different subscriptions.
 * The virtual networks can be in the same or different Azure regions (locations).
 * A cloud service or a load balancing endpoint can't span across virtual networks, even if they are connected together.

@@ -1,5 +1,5 @@
 ---
-title: DocumentDB Node.js API & SDK | Microsoft Docs
+title: Azure DocumentDB Node.js API, SDK & Resources | Microsoft Docs
 description: Learn all about the Node.js API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Node.js SDK.
 services: documentdb
 documentationcenter: nodejs
@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 03/16/2017
 ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
 
 ---
-# DocumentDB APIs and SDKs
+# DocumentDB Node.js SDK: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -30,7 +31,6 @@ ms.author: rnagpal
 > 
 > 
 
-## DocumentDB Node.js API and SDK
 <table>
 
 <tr><td>**Download SDK**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
@@ -51,6 +51,23 @@ ms.author: rnagpal
 </table></br>
 
 ## Release notes
+
+### <a name="1.11.0"/>1.11.0</a>
+* Added the support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG).
+* Added the option for controlling degree of parallelism for cross partition queries.
+* Added the option for disabling SSL verification when running against DocumentDB Emulator.
+* Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
+* Fixed the continuation token bug for single partition collection (github #107).
+* Fixed the executeStoredProcedure bug in handling 0 as single param (github #155).
+
+### <a name="1.10.2"/>1.10.2</a>
+* Fixed user-agent header to include the SDK version.
+* Minor code cleanup.
+
+### <a name="1.10.1"/>1.10.1</a>
+* Disabling SSL verification when using the SDK to target the emulator(hostname=localhost).
+* Added support for enabling script logging during stored procedure execution.
+
 ### <a name="1.10.0"/>1.10.0</a>
 * Added support for cross partition parallel queries.
 * Added support for TOP/ORDER BY queries for partitioned collections.
@@ -133,15 +150,13 @@ New features and functionality and optimizations are only added to the current S
 
 Any request to DocumentDB using a retired SDK will be rejected by the service.
 
-> [!WARNING]
-> All versions of the Azure DocumentDB SDK for Node.js prior to version **1.0.0** will be retired on **February 29, 2016**.
-> 
-> 
-
 <br/>
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.11.0](#1.11.0) |March 16, 2017 |--- |
+| [1.10.2](#1.10.2) |January 27, 2017 |--- |
+| [1.10.1](#1.10.1) |December 22, 2016 |--- |
 | [1.10.0](#1.10.0) |October 03, 2016 |--- |
 | [1.9.0](#1.9.0) |July 07, 2016 |--- |
 | [1.8.0](#1.8.0) |June 14, 2016 |--- |
@@ -164,11 +179,6 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 | [1.0.2](#1.0.2) |May 23, 2015 |--- |
 | [1.0.1](#1.0.1) |May 15, 2015 |--- |
 | [1.0.0](#1.0.0) |April 08, 2015 |--- |
-| 0.9.4-prerelease |April 06, 2015 |February 29, 2016 |
-| 0.9.3-prerelease |January 14, 2015 |February 29, 2016 |
-| 0.9.2-prerelease |December 18, 2014 |February 29, 2016 |
-| 0.9.1-prerelease |August 22, 2014 |February 29, 2016 |
-| 0.9.0-prerelease |August 21, 2014 |February 29, 2016 |
 
 ## FAQ
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]

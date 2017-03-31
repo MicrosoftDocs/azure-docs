@@ -9,12 +9,12 @@ editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: overview
+ms.custom: servers
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 11/28/2016
+ms.date: 02/01/2017
 ms.author: carlrab
 
 ---
@@ -23,7 +23,7 @@ ms.author: carlrab
 This topic provides considerations and guidelines for working with Azure SQL logical servers. For information about Azure SQL databases, see [SQL databases](sql-database-overview.md).
 
 ## What is an Azure SQL Database logical server?
-An Azure SQL Database logical server acts as a central administrative point for multiple databases. In SQL Database, a server is a logical construct that is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, the SQL Database service makes no guarantees regarding location of the databases in relation to their logical servers, and exposes no instance-level access or features. For more information about Azure SQL logical servers, see [Logical servers](sql-database-server-overview.md). 
+An Azure SQL Database logical server acts as a central administrative point for multiple databases. In SQL Database, a server is a logical construct that is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, the SQL Database service makes no guarantees regarding location of the databases in relation to their logical servers, and exposes no instance-level access or features.  
 
 An Azure Database logical server:
 
@@ -77,6 +77,6 @@ You can manage Azure SQL Database logical servers using several methods:
 - For an overview of Azure SQL databases, see [SQL database overview](sql-database-overview.md)
 - For information about Transact-SQL support and differences, see [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md).
 - For information about specific resource quotas and limitations based on your **service tier**. For an overview of service tiers, see [SQL Database service tiers](sql-database-service-tiers.md).
-- For security-related guidelines, see [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md).
+- For an overview of security, see [Azure SQL Database Security Overview](sql-database-security-overview.md).
 - For information on driver availability and support for SQL Database, see [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md).
 

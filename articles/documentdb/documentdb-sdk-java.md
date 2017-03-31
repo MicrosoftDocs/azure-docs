@@ -1,5 +1,5 @@
 ---
-title: DocumentDB Java API & SDK | Microsoft Docs
+title: Azure DocumentDB Java API, SDK & Resources | Microsoft Docs
 description: Learn all about the Java API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK.
 services: documentdb
 documentationcenter: java
@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 10/28/2016
-ms.author: rnagpal
+ms.date: 03/16/2017
+ms.author: khdang
+ms.custom: H1Hack27Feb2017
 
 ---
-# DocumentDB APIs and SDKs
+# DocumentDB Java SDK: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -30,7 +31,6 @@ ms.author: rnagpal
 > 
 > 
 
-## DocumentDB Java API and SDK
 <table>
 
 <tr><td>**SDK Download**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
@@ -39,12 +39,50 @@ ms.author: rnagpal
 
 <tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
 
-<tr><td>**Get started**</td><td>[Get started with the Java SDK](documentdb-java-application.md)</td></tr>
+<tr><td>**Get started**</td><td>[Get started with the Java SDK](documentdb-java-get-started.md)</td></tr>
+
+<tr><td>**Web app tutorial**</td><td>[Web application development with DocumentDB](documentdb-java-application.md)</td></tr>
 
 <tr><td>**Current supported runtime**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
 ## Release Notes
+
+### <a name="1.10.0"/>[1.10.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.10.0)
+* Enabled support for partitioned collection with as low as 2,500 RU/sec and scale in increments of 100 RU/sec.
+* Fixed a bug in the native assembly which can cause NullRef exception in some queries.
+
+### <a name="1.9.6"/>[1.9.6](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.6)
+* Fixed a bug in the query engine configuration that may cause exceptions for queries in Gateway mode.
+* Fixed a few bugs in the session container that may cause an "Owner resource not found" exception for requests immediately after collection creation.
+
+### <a name="1.9.5"/>[1.9.5](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.5)
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](documentdb-sql-query.md#Aggregates).
+* Added support for change feed.
+* Added support for collection quota information through RequestOptions.setPopulateQuotaInfo.
+* Added support for stored procedure script logging through RequestOptions.setScriptLoggingEnabled.
+* Fixed a bug where query in DirectHttps mode may hang when encountering throttle failures.
+* Fixed a bug in session consistency mode.
+* Fixed a bug which may cause NullReferenceException in HttpContext when request rate is high.
+* Improved performance of DirectHttps mode.
+
+### <a name="1.9.4"/>[1.9.4](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.4)
+* Added simple client instance-based proxy support with ConnectionPolicy.setProxy() API.
+* Added DocumentClient.close() API to properly shutdown DocumentClient instance.
+* Improved query performance in direct connectivity mode by deriving the query plan from the native assembly instead of the Gateway.
+* Set FAIL_ON_UNKNOWN_PROPERTIES = false so users don't need to define JsonIgnoreProperties in their POJO.
+* Refactored logging to use SLF4J.
+* Fixed a few other bugs in consistency reader.
+
+### <a name="1.9.3"/>[1.9.3](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.3)
+* Fixed a bug in the connection management to prevent connection leaks in direct connectivity mode.
+* Fixed a bug in the TOP query where it may throw NullReferenece exception.
+* Improved performance by reducing the number of network call for the internal caches.
+* Added status code, ActivityID and Request URI in DocumentClientException for better troubleshooting.
+
+### <a name="1.9.2"/>[1.9.2](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.2)
+* Fixed an issue in the connection management for stability.
+
 ### <a name="1.9.1"/>[1.9.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.1)
 * Added support for BoundedStaleness consistency level.
 * Added support for direct connectivity for CRUD operations for partitioned collections.
@@ -119,7 +157,13 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [1.9.1](#1.9.1) |October 28, 2016 |--- |
+| [1.10.0](#1.10.0) |March 11, 2017 |--- |
+| [1.9.6](#1.9.6) |February 21, 2017 |--- |
+| [1.9.5](#1.9.5) |January 31, 2017 |--- |
+| [1.9.4](#1.9.4) |November 24, 2016 |--- |
+| [1.9.3](#1.9.3) |October 30, 2016 |--- |
+| [1.9.2](#1.9.2) |October 28, 2016 |--- |
+| [1.9.1](#1.9.1) |October 26, 2016 |--- |
 | [1.9.0](#1.9.0) |October 03, 2016 |--- |
 | [1.8.1](#1.8.1) |June 30, 2016 |--- |
 | [1.8.0](#1.8.0) |June 14, 2016 |--- |

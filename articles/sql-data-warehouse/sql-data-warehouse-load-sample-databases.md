@@ -15,6 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
+ms.custom: loading
 
 ---
 # Load sample data into SQL Data Warehouse

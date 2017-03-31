@@ -1,5 +1,5 @@
 ---
-title: Get the tools (macOS 10.10) | Microsoft Docs
+title: 'Connect Raspberry Pi (C) to Azure IoT - Lesson 1: Get tools (macOS) | Microsoft Docs'
 description: Download and install the necessary tools and software for the first sample application for Pi on macOS.
 services: iot-hub
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

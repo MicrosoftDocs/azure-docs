@@ -1,10 +1,10 @@
 ---
-title: Using Analytics - the powerful search tool of Application Insights | Microsoft Docs
+title: Using Analytics - the powerful search tool of Azure Application Insights | Microsoft Docs
 description: 'Using the Analytics, the powerful diagnostic search tool of Application Insights. '
 services: application-insights
 documentationcenter: ''
 author: danhadari
-manager: douge
+manager: carmonm
 
 ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 03/14/2017
 ms.author: awills
 
 ---
@@ -153,10 +153,10 @@ but when you pin it to a dashboard, it looks like this:
 ![Chart with limited bins](./media/app-insights-analytics-using/pin-08.png)
 
 ## Export to Excel
-After you've run a query, you can download a .csv file. Click **Export, to Excel**.
+After you've run a query, you can download a .csv file. Click **Export,  Excel**.
 
 ## Export to Power BI
-Put the cursor in a query and choose **Export to Power BI**.
+Put the cursor in a query and choose **Export, Power BI**.
 
 ![Export from Analytics to Power BI](./media/app-insights-analytics-using/240.png)
 
@@ -166,10 +166,22 @@ With Power BI, you can create dashboards that bring together data from a wide va
 
 [Learn more about export to Power BI](app-insights-export-power-bi.md)
 
+## Deep link
+
+Get a link under **Export, Share link** that you can send to another user. Provided the user has [access to your resource group](app-insights-resources-roles-access-control.md), the query will open in the Analytics UI.
+
+(In the link, the query text appears after "?q=", gzip compressed and base-64 encoded. You could write code to generate deep links that you provide to users. However, the recommended way to run Analytics from code is by using the [REST API](https://dev.applicationinsights.io/).)
+
 
 ## Automation
 
-You can run Analytics queries through the  [Data Access REST API](https://dev.applicationinsights.io/), for example using PowerShell.
+Use the  [Data Access REST API](https://dev.applicationinsights.io/) to run Analytics queries. [For example](https://dev.applicationinsights.io/apiexplorer/query?appId=DEMO_APP&apiKey=DEMO_KEY&query=requests%0A%7C%20where%20timestamp%20%3E%3D%20ago%2824h%29%0A%7C%20count) (using PowerShell):
+
+```PS
+curl "https://api.applicationinsights.io/beta/apps/DEMO_APP/query?query=requests%7C%20where%20timestamp%20%3E%3D%20ago(24h)%7C%20count" -H "x-api-key: DEMO_KEY"
+```
+
+Unlike the Analytics UI, the REST API does not automatically add any timestamp limitation to your queries. Remember to add your own where-clause, to avoid getting huge responses.
 
 
 
@@ -209,7 +221,9 @@ The resulting table of requests has an additional column, `realName`.
 
 If you use [LogStash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html), you can use Analytics to query your logs. Use the [plugin that pipes data into Analytics](https://github.com/Microsoft/logstash-output-application-insights). 
 
+## Video
 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 

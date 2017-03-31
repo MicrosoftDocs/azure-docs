@@ -13,22 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 12/13/2016
 ms.author: anhoh
 
 ---
 # Request increased DocumentDB account quotas
-[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) has a set of default quotas that can be adjusted by contacting Azure support.  This article shows how to request a quota increase.
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) is a global scale database in which throughput and storage can be scaled to handle whatever you application requires. If you have any questions about the scale DocumentDB provides, please send an email to askdocdb@microsoft.com.
 
-After reading this article, you'll be able to answer the following questions:  
-
-* Which DocumentDB database quotas can be adjusted by contacting Azure support?
-* How can I request a DocumentDB account quota adjustment?
-
-## <a id="Quotas"></a> DocumentDB account quotas
-The following table describes the DocumentDB quotas. The quotas that have an asterisk (*) can be adjusted by contacting Azure support:
-
-[!INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
+This article shows how to request a quota increase by Azure support.
 
 ## <a id="RequestQuotaIncrease"></a> Request a quota adjustment
 The following steps show how to request a quota adjustment.

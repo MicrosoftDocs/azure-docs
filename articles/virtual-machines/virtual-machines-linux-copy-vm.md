@@ -1,6 +1,6 @@
----
-title: Create a copy of your Azure Linux VM | Microsoft Docs
-description: Learn how to create a copy of your Azure Linux virtual machine in the Resource Manager deployment model
+--- 
+title: Copy a Linux VM by using Azure CLI 2.0 | Microsoft Docs 
+description: Learn how to create a copy of your Azure Linux VM by using Azure CLI 2.0 and Managed Disks. 
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -13,103 +13,143 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
+ms.date: 03/10/2017
 ms.author: cynthn
 
----
-# Create a copy of a Linux virtual machine running on Azure
-This article shows you how to create a copy of your Azure virtual machine (VM) running Linux using the Resource Manager deployment model. First you copy over the operating system and data disks to a new container, then set up the network resources and create the new virtual machine.
+---                    
+			   
+# Create a copy of a Linux VM by using Azure CLI 2.0 and Managed Disks
 
-You can also [upload and create a VM from custom disk image](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## Before you begin
-Ensure that you meet the following prerequisites before you start the steps:
+This article shows you how to create a copy of your Azure virtual machine (VM)
+running Linux using the Azure CLI 2.0 and the Azure Resource Manager deployment
+model. You can also perform these steps with the [Azure CLI
+1.0](virtual-machines-linux-copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-* You have the [Azure CLI](../xplat-cli-install.md) downloaded and installed on your machine. 
-* You also need some information about your existing Azure Linux VM:
+You can also [upload and create a VM from a VHD](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-| Source VM information | Where to get it |
-| --- | --- |
-| VM name |`azure vm list` |
-| Resource Group name |`azure vm list` |
-| Location |`azure vm list` |
-| Storage Account name |`azure storage account list -g <resourceGroup>` |
-| Container name |`azure storage container list -a <sourcestorageaccountname>` |
-| Source VM VHD file name |`azure storage blob list --container <containerName>` |
+## Prerequisites
 
-* You will need to make some choices about your new VM: 
-     <br> -Container name
-     <br> -VM name 
-     <br> -VM size 
-     <br> -vNet name 
-     <br> -SubNet name 
-     <br> -IP Name 
-     <br> -NIC name
 
-## Login and set your subscription
-1. Login to the CLI.
+-   Install [Azure CLI 2.0](/cli/azure/install-az-cli2)
+
+-   Sign in to an Azure account with [az login](/cli/azure/#login).
+
+-   Have an Azure VM to use as the source for your copy.
+
+## Step 1: Stop the source VM
+
+
+Deallocate the source VM by using [az vm deallocate](/cli/azure/vm#deallocate).
+The following example deallocates the VM named **myVM** in the resource group
+**myResourceGroup**:
 
 ```azurecli
-azure login
+az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-2. Make sure you are in Resource Manager mode.
+## Step 2: Copy the source VM
+
+
+To copy a VM, you create a copy of the underlying virtual hard disk. This
+process creates a specialized VHD as a Managed Disk that contains the same configuration and
+settings as the source VM.
+
+For more information about Azure Managed Disks, see [Azure Managed Disks
+overview](../storage/storage-managed-disks-overview.md). 
+
+1.  List each VM and the name of its OS disk with [az vm
+    list](/cli/azure/vm#list). The following example lists all VMs in the
+    resource group named **myResourceGroup**:
+	
+	```azurecli
+	az vm list -g myTestRG --query '[].{Name:name,DiskName:storageProfile.osDisk.name}' --output table
+	```
+
+    The output is similar to the following example:
+
+	```azurecli
+	Name    DiskName
+	------  --------
+	myVM    myDisk
+	```
+
+1.  Copy the disk by creating a new managed disk using [az disk
+    create](/cli/azure/disk#create). The following example creates a disk named
+    **myCopiedDisk** from the managed disk named **myDisk**:
+
+	```azurecli
+	az disk create --resource-group myResourceGroup --name myCopiedDisk --source myDisk
+	``` 
+
+1.  Verify the managed disks now in your resource group by using [az disk
+    list](/cli/azure/disk#list). The following example lists the managed disks
+    in the resource group named **myResourceGroup**:
+
+	```azurecli
+	az disk list --resource-group myResourceGroup --output table
+	```
+
+1.  Skip to ["Step 3: Set up a virtual
+    network"](#step-3-set-up-a-virtual-network).
+
+
+## Step 3: Set up a virtual network
+
+
+The following optional steps create a new virtual network, subnet, public IP
+address, and virtual network interface card (NIC).
+
+If you are copying a VM for troubleshooting purposes or additional deployments,
+you might not want to use a VM in an existing virtual network.
+
+If you want to create a virtual network infrastructure for your copied VMs,
+follow the next few steps. If you don't want to create a virtual network, skip
+to [Step 4: Create a VM](#step-4-create-a-vm).
+
+1.  Create the virtual network by using [az network vnet
+    create](/cli/azure/network/vnet#create). The following example creates a
+    virtual network named **myVnet** and a subnet named **mySubnet**:
+
+	```azurecli
+	az network vnet create --resource-group myResourceGroup --location westus --name myVnet \
+		--address-prefix 192.168.0.0/16 --subnet-name mySubnet --subnet-prefix 192.168.1.0/24
+	```
+
+1.  Create a public IP by using [az network public-ip
+    create](/cli/azure/network/public-ip#create). The following example creates
+    a public IP named **myPublicIP** with the DNS name of **mypublicdns**. (The DNS
+    name must be unique, so provide a unique name.)
+
+	```azurecli
+	az network public-ip create --resource-group myResourceGroup --location westus \
+		--name myPublicIP --dns-name mypublicdns --allocation-method static --idle-timeout 4
+	```
+
+1.  Create the NIC using [az network nic create](/cli/azure/network/nic#create).
+    The following example creates a NIC named **myNic** that's attached to the
+    **mySubnet** subnet:
+
+	```azurecli
+	az network nic create --resource-group myResourceGroup --location westus --name myNic \
+		--vnet-name myVnet --subnet mySubnet --public-ip-address myPublicIP
+	```
+
+## Step 4: Create a VM
+
+You can now create a VM by using [az vm create](/cli/azure/vm#create).
+
+Specify the copied managed disk to use as the OS disk (--attach-os-disk), as
+follows:
 
 ```azurecli
-azure config mode arm
+az vm create --resource-group myResourceGroup --name myCopiedVM \
+    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
+    --nics myNic --size Standard_DS1_v2 --os-type Linux \
+    --attach-os-disk myCopiedDisk
 ```
-
-3. Set the correct subscription. You can use 'azure account list' to see all of your subscriptions.
-
-```azurecli
-azure account set mySubscriptionID
-```
-
-## Stop the VM
-Stop and deallocate the source VM. You can use 'azure vm list' to get a list of all of the VMs in your subscription and their resource group names.
-
-```azurecli
-azure vm stop myResourceGroup myVM
-azure vm deallocate myResourceGroup MyVM
-```
-
-
-## Copy the VHD
-You can copy the VHD from the source storage to the destination using the `azure storage blob copy start`. In this example, we are going to copy the VHD to the same storage account, but a different container.
-
-To copy the VHD to another container in the same storage account, type:
-
-```azurecli
-azure storage blob copy start \
-        https://mystorageaccountname.blob.core.windows.net:8080/mycontainername/myVHD.vhd \
-        myNewContainerName
-```
-
-## Set up the virtual network for your new VM
-Set up a virtual network and NIC for your new VM. 
-
-```azurecli
-azure network vnet create myResourceGroup myVnet -l myLocation
-
-azure network vnet subnet create -a <address.prefix.in.CIDR/format> myResourceGroup myVnet mySubnet
-
-azure network public-ip create myResourceGroup myPublicIP -l myLocation
-
-azure network nic create myResourceGroup myNic -k mySubnet -m myVnet -p myPublicIP -l myLocation
-```
-
-
-## Create the new VM
-You can now create a VM from your uploaded virtual disk [using a resource manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) or through the CLI by specifying the URI to your copied disk by typing:
-
-```azurecli
-azure vm create -n myVM -l myLocation -g myResourceGroup -f myNic \
-        -z Standard_DS1_v2 -y Linux \
-        https://mystorageaccountname.blob.core.windows.net:8080/mycontainername/myVHD.vhd 
-```
-
-
 
 ## Next steps
-To learn how to use Azure CLI to manage your new virtual machine, see [Azure CLI commands for the Azure Resource Manager](azure-cli-arm-commands.md).
 
+To learn how to use Azure CLI to manage your new VM, see [Azure CLI commands for
+the Azure Resource Manager](azure-cli-arm-commands.md).

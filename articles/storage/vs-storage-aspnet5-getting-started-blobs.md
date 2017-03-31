@@ -1,6 +1,6 @@
 ---
-title: Get started with blob storage and Visual Studio connected services (ASP.NET 5) | Microsoft Docs
-description: How to get started using Azure Blob storage in a Visual Studio ASP.NET 5 project after you have created a storage account using Visual Studio connected services
+title: Get started with blob storage and Visual Studio connected services (ASP.NET Core) | Microsoft Docs
+description: How to get started using Azure Blob storage in a Visual Studio ASP.NET Core project after you have created a storage account using Visual Studio connected services
 services: storage
 documentationcenter: ''
 author: TomArcher
@@ -17,18 +17,18 @@ ms.date: 12/02/2016
 ms.author: tarcher
 
 ---
-# Get started with Azure Blob storage and Visual Studio connected services (ASP.NET 5)
+# Get started with Azure Blob storage and Visual Studio connected services (ASP.NET Core)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Overview
-This article describes how to get started using Azure Blob storage in Visual Studio after you have created or referenced an Azure storage account in an ASP.NET 5 project by using the Visual Studio Add Connected Services dialog.
+This article describes how to get started using Azure Blob storage in Visual Studio after you have created or referenced an Azure storage account in an ASP.NET Core project by using the Visual Studio Add Connected Services dialog.
 
-Azure Blob storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. A single blob can be any size. Blobs can be things like images, audio and video files, raw data, and document files. This article describes how to get started with blob storage after you create an Azure storage account by using the Visual Studio **Add Connected Services** dialog in an ASP.NET 5 project.
+Azure Blob storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. A single blob can be any size. Blobs can be things like images, audio and video files, raw data, and document files. This article describes how to get started with blob storage after you create an Azure storage account by using the Visual Studio **Add Connected Services** dialog in an ASP.NET Core project.
 
 Just as files live in folders, storage blobs live in containers. After you have created a storage, you create one or more containers in the storage. For example, in a storage called “Scrapbook,” you can create containers in the storage called “images” to store pictures and another called “audio” to store audio files. After you create the containers, you can upload individual blob files to them. See [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md) for more information on programmatically manipulating blobs.
 
 ## Access blob containers in code
-To programmatically access blobs in ASP.NET 5 projects, you need to add the following items, if they're not already present.
+To programmatically access blobs in ASP.NET Core projects, you need to add the following items, if they're not already present.
 
 1. Add the following code namespace declarations to the top of any C# file in which you want to programmatically access Azure storage.
    
@@ -37,10 +37,12 @@ To programmatically access blobs in ASP.NET 5 projects, you need to add the foll
         using Microsoft.WindowsAzure.Storage.Blob;
         using System.Threading.Tasks;
         using LogLevel = Microsoft.Extensions.Logging.LogLevel;
-2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the your storage connection string and storage account information from the Azure service configuration.
+2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get your storage connection string and storage account information from the Azure service configuration.
    
-         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+         CloudStorageAccount storageAccount = new CloudStorageAccount(
+            new Microsoft.WindowsAzure.Storage.Auth.StorageCredentials(
+            "<storage-account-name>",
+            "<access-key>"), true);
    
     **NOTE:** Use all of the above code in front of the code in the following sections.
 3. Use a **CloudBlobClient** object to get a **CloudBlobContainer** reference to an existing container in your storage account.
@@ -64,7 +66,7 @@ You can also use the **CloudBlobClient** to create a container in your storage a
     await container.CreateIfNotExistsAsync();
 
 
-**NOTE:** The APIs that perform calls to Azure storage in ASP.NET 5 are asynchronous. See [Asynchronous programming with Async and Await](http://msdn.microsoft.com/library/hh191443.aspx) for more information. The code below assumes async programming methods are being used.
+**NOTE:** The APIs that perform calls to Azure storage in ASP.NET Core are asynchronous. See [Asynchronous programming with Async and Await](http://msdn.microsoft.com/library/hh191443.aspx) for more information. The code below assumes async programming methods are being used.
 
 To make the files within the container available to everyone, you can set the container to be public by using the following code.
 

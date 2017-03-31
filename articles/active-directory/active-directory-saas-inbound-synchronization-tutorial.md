@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2016
+ms.date: 01/19/2017
 ms.author: jeedes
 
 ---
@@ -65,7 +65,8 @@ The objective of this section is to outline how to enable the application integr
    
    ![create user](./media/active-directory-saas-inbound-synchronization-tutorial/IC750979.png "create user")  
 2. Complete the Create Integration System User task by supplying a user name and password for a new Integration System User.  Leave the Require New Password at Next Sign In option unchecked, because this user will be logging on programmatically.    
-   Leave the Session Timeout Minutes with its default value of 0, which will prevent the user’s sessions from timing out prematurely.    
+
+ Leave the Session Timeout Minutes with its default value of 0, which will prevent the user’s sessions from timing out prematurely.    
    
    ![Create Integration System User](./media/active-directory-saas-inbound-synchronization-tutorial/IC750980.png "Create Integration System User")  
 
@@ -83,7 +84,7 @@ For the scenario outlined in this tutorial, you need to create an unconstrained 
 1. Enter edit security group in the search box, and then click on the link,  **Edit Security Group**.     
    
    ![Edit Security Group](./media/active-directory-saas-inbound-synchronization-tutorial/IC750983.png "Edit Security Group")  
-2. Search for, and select the new integration security group by name    
+2. Search for, and select the new integration security group by name.    
    
    ![Edit Security Group](./media/active-directory-saas-inbound-synchronization-tutorial/IC750984.png "Edit Security Group")  
 3. Add the new integration system user to the new security group.       
@@ -137,7 +138,7 @@ In this step, you grant to the new security group permissions for Get and Put op
    ![Activate Pending Security](./media/active-directory-saas-inbound-synchronization-tutorial/IC750994.png "Activate Pending Security")  
 
 ## Configuring user import in Microsoft Azure AD
-The objective of this section is to outline how to configure Microsoft Azure AD to import people from Workday.    
+The objective of this section is to outline how Microsoft Azure AD to import people from Workday.    
 
 ### To configure user import in Microsoft Azure AD, perform the following steps:
 1. On the **Workday** application integration page, click **Configure user import** to open the **Configure Provisioning** dialog.    
@@ -145,9 +146,9 @@ The objective of this section is to outline how to configure Microsoft Azure AD 
    
    ![Settings and admin credentials](./media/active-directory-saas-inbound-synchronization-tutorial/IC750995.png "Settings and admin credentials")    
    
-   1. In the **Workday admin user name** textbox, type the name of the user you have created in the [Creating an integration system user](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser) section.    
-   2. In the **Workday admin password** textbox, type the password of the user you have created in the [Creating an integration system user](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser) section.    
-   3. In the **Workday tenant URL** textbox, type the URL or your Workday tenant.    
+ * In the **Workday admin user name** textbox, type the name of the user you have created in the [Creating an integration system user](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser) section.    
+ * In the **Workday admin password** textbox, type the password of the user you have created in the [Creating an integration system user](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser) section.    
+ * In the **Workday tenant URL** textbox, type the URL or your Workday tenant.    
 3. On the **Test connection** page, click **Start test** to confirm connectivity, and then click **Next**.    
    
    ![Test connection](./media/active-directory-saas-inbound-synchronization-tutorial/IC750996.png "Test connection")  

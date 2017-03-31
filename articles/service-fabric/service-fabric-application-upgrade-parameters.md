@@ -1,5 +1,5 @@
 ---
-title: Application upgrade: upgrade parameters | Microsoft Docs
+title: 'Application upgrade: upgrade parameters | Microsoft Docs'
 description: Describes parameters related to upgrading a Service Fabric application, including health checks to perform and policies to automatically undo the upgrade.
 services: service-fabric
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/15/2016
+ms.date: 03/02/2017
 ms.author: subramar
 
 ---
@@ -61,9 +61,12 @@ The MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService, and Ma
 
 [Upgrading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
 
+[Upgrading your Application using Azure CLI on Linux](service-fabric-azure-cli.md#upgrading-your-application) walks you through an application upgrade using Azure CLI.
+
+[Upgrading your application using Service Fabric Eclipse Plugin](service-fabric-get-started-eclipse.md#upgrade-your-service-fabric-java-application)
+
 Make your application upgrades compatible by learning how to use [Data Serialization](service-fabric-application-upgrade-data-serialization.md).
 
 Learn how to use advanced functionality while upgrading your application by referring to [Advanced Topics](service-fabric-application-upgrade-advanced.md).
 
 Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades](service-fabric-application-upgrade-troubleshooting.md).
-

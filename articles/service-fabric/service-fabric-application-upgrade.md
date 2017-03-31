@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/15/2016
+ms.date: 03/02/2017
 ms.author: subramar
 
 ---
@@ -40,6 +40,18 @@ The application health is an aggregation of the child entities of the applicatio
 The mode that we recommend for application upgrade is the monitored mode, which is the commonly used mode. Monitored mode performs the upgrade on one update domain, and if all health checks pass (per the policy specified), moves on to the next update domain automatically.  If health checks fail and/or time-outs are reached, the upgrade is either rolled back for the update domain, or the mode is changed to unmonitored manual. You can configure the upgrade to choose one of those two modes for failed upgrades. 
 
 Unmonitored manual mode needs manual intervention after every upgrade on an update domain, to kick off the upgrade on the next update domain. No Service Fabric health checks are performed. The administrator performs the health or status checks before starting the upgrade in the next update domain.
+
+## Upgrade default services
+Default services within Service Fabric application can be upgraded during the upgrade process of an application. Default services are defined in the [application manifest](service-fabric-application-model.md#describe-an-application). The standard rules of upgrading default services are:
+
+1. Default services in the new [application manifest](service-fabric-application-model.md#describe-an-application) that do not exist in the cluster are created.
+> [!TIP]
+> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md#fabric-settings-that-you-can-customize) needs to be set to true to enable the following rules. This feature is supported from v5.5.
+
+2. Default services existing in both previous [application manifest](service-fabric-application-model.md#describe-an-application) and new version are updated. Service descriptions in the new version would overwrite those already in the cluster. Application upgrade would rollback automatically upon updating default service failure.
+3. Default services in the previous [application manifest](service-fabric-application-model.md#describe-an-application) but not in the new version are deleted. **Note that this deleting default services can not be reverted.**
+
+In case of an application upgrade is rolled back, default services are reverted to the status before upgrade started. But deleted services can never be created.
 
 ## Application upgrade flowchart
 The flowchart following this paragraph can help you understand the upgrade process of a Service Fabric application. In particular, the flow describes how the time-outs, including *HealthCheckStableDuration*, *HealthCheckRetryTimeout*, and *UpgradeHealthCheckInterval*, help control when the upgrade in one update domain is considered a success or a failure.

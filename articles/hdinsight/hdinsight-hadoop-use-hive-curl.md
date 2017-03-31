@@ -10,11 +10,12 @@ tags: azure-portal
 
 ms.assetid: 6ce18163-63b5-4df6-9bb6-8fcbd4db05d8
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/07/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 
 ---
@@ -27,13 +28,12 @@ Curl is used to demonstrate how you can interact with HDInsight by using raw HTT
 
 > [!NOTE]
 > If you are already familiar with using Linux-based Hadoop servers, but are new to HDInsight, see [What you need to know about Hadoop on Linux-based HDInsight](hdinsight-hadoop-linux-information.md).
-> 
-> 
+
 
 ## <a id="prereq"></a>Prerequisites
 To complete the steps in this article, you will need the following:
 
-* A Hadoop on HDInsight cluster (Linux or Windows-based)
+* A Hadoop on HDInsight cluster
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)
 
@@ -119,7 +119,7 @@ To complete the steps in this article, you will need the following:
    > 
 4. Once the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, **wasbs:///example/curl**. This address stores the output of the job in the **example/curl** directory on the default storage container used by your HDInsight cluster.
    
-    You can list and download these files by using the [Azure CLI](../xplat-cli-install.md). For example, to list files in **example/curl**, use the following command:
+    You can list and download these files by using the [Azure CLI](../cli-install-nodejs.md). For example, to list files in **example/curl**, use the following command:
    
         azure storage blob list <container-name> example/curl
    
@@ -146,14 +146,17 @@ To complete the steps in this article, you will need the following:
    * **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
    * **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain **[ERROR]**, then inserts the data into the **errorLogs** table.
    * **SELECT** - Selects all rows from the new **errorLogs** table.
-6. Use the job ID returned to check the status of the job. Once it has succeeded, use Azure CLI for Mac, Linux and Windows as described previously to download and view the results. The output should contain three lines, all of which contain **[ERROR]**.
+
+6. Use the job ID returned to check the status of the job. Once it has succeeded, use the Azure CLI as described previously to download and view the results. The output should contain three lines, all of which contain **[ERROR]**.
 
 ## <a id="summary"></a>Summary
+
 As demonstrated in this document, you can use a raw HTTP request to run, monitor, and view the results of Hive jobs on your HDInsight cluster.
 
 For more information on the REST interface used in this article, see the <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference" target="_blank">WebHCat Reference</a>.
 
 ## <a id="nextsteps"></a>Next steps
+
 For general information on Hive with HDInsight:
 
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
@@ -165,7 +168,6 @@ For information on other ways you can work with Hadoop on HDInsight:
 
 If you are using Tez with Hive, see the following documents for debugging information:
 
-* [Use the Tez UI on Windows-based HDInsight](hdinsight-debug-tez-ui.md)
 * [Use the Ambari Tez view on Linux-based HDInsight](hdinsight-debug-ambari-tez-view.md)
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx

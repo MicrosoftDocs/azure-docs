@@ -10,23 +10,22 @@ tags: azure-portal
 
 ms.assetid: 303649a5-4be5-4933-bf1d-4b232083c354
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 
 ---
 # Use Sqoop with Hadoop in HDInsight (SSH)
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
-Learn how to use Sqoop to import and export between a Linux-based HDInsight cluster and Azure SQL Database or SQL Server database.
+Learn how to use Sqoop to import and export between an HDInsight cluster and Azure SQL Database or SQL Server database.
 
-> [!NOTE]
-> The steps in this article use SSH to connect to a Linux-based HDInsight cluster. Windows clients can also use Azure PowerShell and HDInsight .NET SDK to work with Sqoop on Linux-based clusters. Use the tab selector to open those articles.
->
->
+> [!IMPORTANT]
+> The steps in this document only work with HDInsight clusters that use Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Prerequisites
 Before you begin this tutorial, you must have the following:
@@ -37,10 +36,8 @@ Before you begin this tutorial, you must have the following:
 ## Install FreeTDS
 1. Use SSH to connect to the Linux-based HDInsight cluster. The address to use when connecting is `CLUSTERNAME-ssh.azurehdinsight.net` and the port is `22`.
 
-    For more information on using SSH to connect to HDInsight, see the following documents:
+    For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-   * **Linux, Unix or OS X clients**: See [Connect to a Linux-based HDInsight cluster from Linux, OS X or Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * **Windows clients**: See [Connect to a Linux-based HDInsight cluster from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 2. Use the following command to install FreeTDS:
 
         sudo apt-get --assume-yes install freetds-dev freetds-bin

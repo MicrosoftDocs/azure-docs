@@ -1,5 +1,5 @@
 ---
-title: Understanding Service Fabric application and service security policies | Microsoft Docs
+title: Learn about Azure microservices security policies | Microsoft Docs
 description: An overview of how to run a Service Fabric application under system and local security accounts, including the SetupEntry point where an application needs to perform some privileged action before it starts
 services: service-fabric
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/22/2016
+ms.date: 01/05/2017
 ms.author: mfussell
 
 ---
@@ -169,7 +169,7 @@ In the PowerShell file, add the following to set a system environment variable:
 ## Use console redirection for local debugging
 Occasionally, it's useful to see the console output from running a script for debugging purposes. To do this, you can set a console redirection policy, which writes the output to a file. The file output is written to the application folder called **log** on the node where the application is deployed and run. (See where to find this in the preceding example.)
 
-> [!NOTE]
+> [!WARNING]
 > Never use the console redirection policy in an application that is deployed in production because this can affect the application failover. *Only* use this for local development and debugging purposes.  
 > 
 > 

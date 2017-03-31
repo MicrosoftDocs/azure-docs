@@ -1,6 +1,6 @@
 ---
-title: Monitor dependencies, exceptions and execution times in Java web apps
-description: Extended monitoring of your Java website with Application Insights
+title: Performance monitoring for Java web apps in Azure Application Insights | Microsoft Docs
+description: Extended performance and usage monitoring of your Java website with Application Insights.
 services: application-insights
 documentationcenter: java
 author: harelbr

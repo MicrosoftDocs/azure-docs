@@ -11,10 +11,10 @@ ms.assetid: d1a46fa4-53d2-4d25-a0a7-92e8f9d70828
 ms.service: sql-database
 ms.custom: overview
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 11/28/2016
+ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 
 ---
@@ -27,7 +27,7 @@ An Azure SQL Database logical server acts as a central administrative point for 
 ## What is an Azure SQL database?
 Each database in Azure SQL Database is associated with a logical server. The database can be:
 
-- A standalone database with its [own set of resources](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTUs)
+- A single database with its [own set of resources](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTUs)
 - Part of a [pool of databases](sql-database-elastic-pool.md) that [shares a set of resources](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTUs)
 - Part of a [scaled-out set of sharded databases](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), which can be either single or pooled databases
 - Part of a set of databases participating in a [multitenant SaaS design pattern](sql-database-design-patterns-multi-tenancy-saas-applications.md), and whose databases can either be single or pooled databases (or both) 
@@ -36,7 +36,7 @@ For more information about Azure SQL databases, see [SQL databases](sql-database
 
 ## What features are supported?
 
-The following tables lists the major features of Azure SQL Database and SQL Server, specifies its supportability, and provides a link to more information about the feature on each platform. For Transact-SQL features, follow the link in the table for the category of the feature. See also [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md) for more background on the reasons for lack of support for certain types of features.
+The following tables list the major features of Azure SQL Database and SQL Server, specifies its supportability, and provides a link to more information about the feature on each platform. For Transact-SQL features, follow the link in the table for the category of the feature. See also [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md) for more background on the reasons for lack of support for certain types of features.
 
 We continue to add features to V12. So we encourage you to visit our Service Updates webpage for Azure, and to use its filters:
 
@@ -44,7 +44,7 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 * Filtered to General Availability [(GA) announcements](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
 
 > [!TIP]
-> To test an existing database for compatibility with Azure SQL Database, see [Validate Azure SQL Database compatibility](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md).
+> To test an existing database for compatibility with Azure SQL Database, see [Migrate a SQL Server database to Azure](sql-database-cloud-migrate.md).
 >
 
 | **Feature** | **SQL Server** | **Azure SQL Database** | 
@@ -54,12 +54,12 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 | AlwaysOn Availability Groups | [Supported](https://msdn.microsoft.com/library/hh510230.aspx) | Not supported - See [Active Geo-Replication](sql-database-geo-replication-overview.md) |
 | Attach a database | [Supported](https://msdn.microsoft.com/library/ms190209.aspx) | Not supported |
 | Application roles | [Supported](https://msdn.microsoft.com/library/ms190998.aspx) | [Supported](https://msdn.microsoft.com/library/ms190998.aspx) |
-| Auto scale | Not supported | [Supported](sql-database-scale-up.md) |
+| Auto scale | Not supported | [Supported](sql-database-service-tiers.md) |
 | Azure Active Directory | Not supported | [Supported](sql-database-aad-authentication.md) |
-| Azure Data Factory | Not supported - see [SQL Server Integration Services (SSIS)](https://msdn.microsoft.com/library/ms141026.aspx) | [Supported](https://azure.microsoft.com/services/data-factory/) |
-| Auditing | [Supported](https://msdn.microsoft.com/library/cc280386.aspx) | [Supported](sql-database-auditing-get-started.md) |
+| Azure Data Factory | [Supported](../data-factory/data-factory-introduction.md) | [Supported](../data-factory/data-factory-introduction.md) |
+| Auditing | [Supported](https://msdn.microsoft.com/library/cc280386.aspx) | [Supported](sql-database-auditing.md) |
 | BACPAC file (export) | [Supported](https://msdn.microsoft.com/library/hh213241.aspx) | [Supported](sql-database-export.md) |
-| BACPAC file (import) | [Supported](https://msdn.microsoft.com/library/hh710052.aspx) | [Supported](sql-database-import.md) |
+| BACPAC file (import) | [Supported](https://msdn.microsoft.com/library/hh710052.aspx) | [Supported](sql-database-import-portal.md) |
 | BACKUP and RESTORE statements | [Supported](https://msdn.microsoft.com/library/ff848768.aspx) | Not supported |
 | Built-in functions | [Supported](https://msdn.microsoft.com/library/ms174318.aspx) | [Most](https://msdn.microsoft.com/library/ms174318.aspx) |
 | Change data capture | [Supported](https://msdn.microsoft.com/library/cc645937.aspx) | Not supported |
@@ -114,7 +114,8 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 | Polybase | [Supported](https://msdn.microsoft.com/library/mt143171.aspx) | [Not supported]
 | Policy-based management | [Supported](https://msdn.microsoft.com/library/bb510667.aspx) | Not supported |
 | Predicates | [Supported](https://msdn.microsoft.com/library/ms189523.aspx) | [Most](https://msdn.microsoft.com/library/ms189523.aspx)
-| Resource governor | [Supported](https://msdn.microsoft.com/library/bb933866.aspx) | [Built-in](sql-database-service-tiers.md) |
+| R Services | [Supported](https://msdn.microsoft.com/library/mt604845.aspx)
+| Resource governor | [Supported](https://msdn.microsoft.com/library/bb933866.aspx) | Not supported |
 | Restore database from backup | [Supported](https://msdn.microsoft.com/library/ms187048.aspx#anchor_6) | [From built-in backups only](sql-database-recovery-using-backups.md) |
 | Row Level Security | [Supported](https://msdn.microsoft.com/library/dn765131.aspx) | [Supported](https://msdn.microsoft.com/library/dn765131.aspx) |
 | Security statements | [Supported](https://msdn.microsoft.com/library/ff848791.aspx) | [Some](https://msdn.microsoft.com/library/ff848791.aspx) |
@@ -129,7 +130,7 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 | SQL Server Integration Services (SSIS) | [Supported](https://msdn.microsoft.com/library/ms141026.aspx) | Not supported - see [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |
 | SQL Server PowerShell | [Supported](https://msdn.microsoft.com/library/hh245198.aspx) | [Supported](https://msdn.microsoft.com/library/hh245198.aspx) |
 | SQL Server Profiler | [Supported](https://msdn.microsoft.com/library/ms181091.aspx) | Not supported - see [Extended events](https://msdn.microsoft.com/library/ms181091.aspx) |
-| SQL Server Replication | [Supported](https://msdn.microsoft.com/library/ms151198.aspx) | [Transactional and snapshot replication subscriber only](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
+| SQL Server Replication | [Supported](https://msdn.microsoft.com/library/ms151198.aspx) | [Transactional and snapshot replication subscriber only](sql-database-cloud-migrate.md) |
 | SQL Server Reporting Services (SSRS) | [Supported](https://msdn.microsoft.com/library/ms159106.aspx) | Not supported |
 | Stored procedures | [Supported](https://msdn.microsoft.com/library/ms190782.aspx) | [Supported](https://msdn.microsoft.com/library/ms190782.aspx) |
 | System stored functions | [Supported](https://msdn.microsoft.com/library/ff848780.aspx) | [Some](https://msdn.microsoft.com/library/ff848780.aspx) |
@@ -153,5 +154,5 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 - For an overview of Azure SQL databases, see [SQL Database overview](sql-database-overview.md)
 - For information about Transact-SQL support and differences, see [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md).
 - For information about specific resource quotas and limitations based on your **service tier**. For an overview of service tiers, see [SQL Database service tiers](sql-database-service-tiers.md).
-- For security related guidelines, see [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md).
+- For an overview of security, see [Azure SQL Database Security Overview](sql-database-security-overview.md).
 - For information on driver availability and support for SQL Database, see [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md).

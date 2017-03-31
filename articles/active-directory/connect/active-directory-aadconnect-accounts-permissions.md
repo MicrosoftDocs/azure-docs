@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 02/07/2017
 ms.author: billmath
 
 ---
@@ -26,11 +26,13 @@ The Azure AD Connect installation wizard offers two different paths:
 ## Related documentation
 If you did not read the documentation on [Integrating your on-premises identities with Azure Active Directory](../active-directory-aadconnect.md), the following table provides links to related topics.
 
-| Topic |
+|Topic |Link|  
 | --- | --- |
-| Install using Express settings |
-| Install using Customized settings |
-| Upgrade from DirSync |
+|Download Azure AD Connect | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Install using Express settings | [Express installation of Azure AD Connect](./active-directory-aadconnect-get-started-express.md)|
+|Install using Customized settings | [Custom installation of Azure AD Connect](./active-directory-aadconnect-get-started-custom.md)|
+|Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
+|After installation | [Verify the installation and assign licenses ](active-directory-aadconnect-whats-next.md)|
 
 ## Express settings installation
 In Express settings, the installation wizard asks for AD DS Enterprise Admin credentials so your on-premises Active Directory can be configured with required permissions for Azure AD Connect. If you are upgrading from DirSync, the AD DS Enterprise Admins credentials are used to reset the password for the account used by DirSync. You also need Azure AD Global Administrator credentials.
@@ -81,9 +83,9 @@ Which permissions you require depends on the optional features you enable. If yo
 | Feature | Permissions |
 | --- | --- |
 | Password sync |<li>Replicate Directory Changes</li>  <li>Replicate Directory Changes All |
-| Exchange hybrid deployment |Write permissions to the attributes documented in [Exchange hybrid writeback](../active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) for users, groups, and contacts. |
+| Exchange hybrid deployment |Write permissions to the attributes documented in [Exchange hybrid writeback](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) for users, groups, and contacts. |
 | Password writeback |Write permissions to the attributes documented in [Getting started with password management](../active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) for users. |
-| Device writeback |Permissions granted with a PowerShell script as described in [device writeback](../active-directory-aadconnect-feature-device-writeback.md). |
+| Device writeback |Permissions granted with a PowerShell script as described in [device writeback](active-directory-aadconnect-feature-device-writeback.md). |
 | Group writeback |Read, Create, Update, and Delete group objects in the OU where the distributions groups should be located. |
 
 ## Upgrade

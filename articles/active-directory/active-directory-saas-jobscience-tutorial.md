@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/02/2017
 ms.author: jeedes
 
 ---
+
 # Tutorial: Azure Active Directory integration with Jobscience
 The objective of this tutorial is to show the integration of Azure and Jobscience.  
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
-* A Jobscience Single Sign-On enabled subscription
+* A Jobscience single sign-on (SSO) enabled subscription
 
 After completing this tutorial, the Azure AD users you have assigned to Jobscience will be able to single sign into the application at your Jobscience company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
@@ -34,10 +35,10 @@ The scenario outlined in this tutorial consists of the following building blocks
 
 ![Scenario](./media/active-directory-saas-jobscience-tutorial/IC784341.png "Scenario")
 
-## Enabling the application integration for Jobscience
+## Enable the application integration for Jobscience
 The objective of this section is to outline how to enable the application integration for Jobscience.
 
-### To enable the application integration for Jobscience, perform the following steps:
+**To enable the application integration for Jobscience, perform the following steps:**
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-jobscience-tutorial/IC700993.png "Active Directory")
@@ -58,13 +59,14 @@ The objective of this section is to outline how to enable the application integr
    
    ![Jobscience](./media/active-directory-saas-jobscience-tutorial/IC784357.png "Jobscience")
    
-   ## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Jobscience with their account in Azure AD using federation based on the SAML protocol.  
-Configuring single sign-on for Jobscience requires you to retrieve a thumbprint value from a certificate.  
-If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
-### To configure single sign-on, perform the following steps:
+Configuring single sign-on for Jobscience requires you to retrieve a thumbprint value from a certificate. If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
+
+**To configure single sign-on, perform the following steps:**
+
 1. Log in to your Jobscience company site as an administrator.
 2. Go to **Setup**.
    
@@ -102,13 +104,13 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
     ![SAML Single Sign-On Setting](./media/active-directory-saas-jobscience-tutorial/IC784365.png "SAML Single Sign-On Setting")
     
     1. In the **Name** textbox, type a name for your configuration.
-    2. In the Azure classic portal, on the **Configure single sign-on at Jobscience** dialogue page, copy the **Issuer URL** value, and then paste it into the **Issuer** textbox
+    2. In the Azure classic portal, on the **Configure single sign-on at Jobscience** dialogue page, copy the **Issuer URL** value, and then paste it into the **Issuer** textbox.
     3. In the **Entity Id** textbox, type **https://salesforce-jobscience.com**
     4. Click **Browse** to upload your Azure AD certificate.
     5. As **SAML Identity Type**, select **Assertion contains the Federation ID from the User object**.
     6. As **SAML Identity Location**, select **Identity is in the NameIdentfier element of the Subject statement**.
-    7. In the Azure classic portal, on the **Configure single sign-on at Jobscience** dialogue page, copy the **Remote Login URL** value, and then paste it into the **Identity Provider Login URL** textbox
-    8. In the Azure classic portal, on the **Configure single sign-on at Jobscience** dialogue page, copy the **Remote Logout URL** value, and then paste it into the **Identity Provider Logout URL** textbox
+    7. In the Azure classic portal, on the **Configure single sign-on at Jobscience** dialogue page, copy the **Remote Login URL** value, and then paste it into the **Identity Provider Login URL** textbox.
+    8. In the Azure classic portal, on the **Configure single sign-on at Jobscience** dialogue page, copy the **Remote Logout URL** value, and then paste it into the **Identity Provider Logout URL** textbox.
     9. Click **Save**.
 13. On the left navigation pane, in the **Administer** section, click **Domain Management** to expand the related section, and then click **My Domain** to open the **My Domain** page. 
     
@@ -127,16 +129,16 @@ To get the SP initiated Single Sign on Login URL click on the **Single Sign On s
 
 ![Security Controls](./media/active-directory-saas-jobscience-tutorial/IC784368.png "Security Controls")
 
-Click the SSO profile you have created in the step above.  
-This page shows the Single Sign on URL for your company (e.g. *https://companyname.my.salesforce.com?so=companyid*).
+Click the SSO profile you have created in the step above. This page shows the Single Sign on URL for your company (e.g. *https://companyname.my.salesforce.com?so=companyid*).
 
-## Configuring user provisioning
+## Configure user provisioning
 In order to enable Azure AD users to log into Jobscience, they must be provisioned into Jobscience.  
 In the case of Jobscience, provisioning is a manual task.
 
-### To configure user provisioning, perform the following steps:
+**To configure user provisioning, perform the following steps:**
+
 1. Log in to your **Jobscience** company site as administrator.
-2. Go to Setup
+2. Go to Setup.
    
    ![Setup](./media/active-directory-saas-jobscience-tutorial/IC784358.png "Setup")
 3. Go to **Manage Users \> Users**.
@@ -152,22 +154,21 @@ In the case of Jobscience, provisioning is a manual task.
    1. Type the first name, last name, alias, email, user name and nickname properties of the Azure AD user you want to provision into the related textboxes.
    2. Click **Save**.
    
-   > [!NOTE]
-   > The Azure AD account holder will get an email that includes a link to confirm the account before it is activated.
-   > 
+   >[!NOTE]
+   >The Azure AD account holder will get an email that includes a link to confirm the account before it is activated.
    > 
 
-> [!NOTE]
-> You can use any other Jobscience user account creation tools or APIs provided by Jobscience to provision AAD user accounts.
-> 
-> 
+>[!NOTE]
+>You can use any other Jobscience user account creation tools or APIs provided by Jobscience to provision AAD user accounts.
+>  
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to Jobscience, perform the following steps:
+**To assign users to Jobscience, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
-2. On the **Jobscience **application integration page, click **Assign users**.
+2. On the **Jobscience** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-jobscience-tutorial/IC784372.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.

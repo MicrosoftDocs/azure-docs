@@ -1,5 +1,5 @@
 ---
-title: Dynamic packaging overview | Microsoft Docs
+title: Azure Media Services dynamic packaging overview | Microsoft Docs
 description: The topic gives and overview of dynamic packaging.
 author: Juliako
 manager: erikre
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 01/25/2017
 ms.author: juliako
 
 ---
@@ -31,10 +31,6 @@ The following diagram shows the dynamic packaging workflow.
 
 ![Dynamic Encoding](./media/media-services-dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
-> [!NOTE]
-> To take advantage of dynamic packaging, you must first get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale Media Services](media-services-portal-manage-streaming-endpoints.md).
-> 
-> 
 
 ## Common scenario
 1. Upload an input file (called a mezzanine file). For example, H.264, MP4, or WMV (for the list of supported formats see [Formats Supported by the Media Encoder Standard](media-services-media-encoder-standard-formats.md).

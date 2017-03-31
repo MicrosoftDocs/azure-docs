@@ -1,10 +1,34 @@
 ---
+title: Azure SQL Database Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn SQL Database, a database-as-a-service in the cloud. Tutorials, videos, and other documentation show how to set up, connect, and manage a relational database.
+services: sql-database
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 
 # SQL Database Documentation
 
-Azure SQL Database is a relational database service in the cloud with mission-critical capabilities based on the Microsoft SQL Server engine. It delivers predictable performance, scalability with no downtime, business continuity and data protection - all with minimal administration. Because it's based on the SQL Server engine, SQL Database supports existing SQL Server tools, libraries, and APIs, making it easier to move and extend to the cloud.
+<div class="introHolder">
+    <div class="intro">
+        Learn how to use SQL Database, a relational database-as-a-service in the cloud built on the Microsoft SQL Server engine. Tutorials, videos, and other documentation show you how to set up, connect, and manage a SQL database.
+    </div>
+    <div class="calloutHolder">
+        <div class="callout">
+            <a href="https://azure.microsoft.com/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
+                <img src="media/index/pluralsight.svg" />
+                Free PluralSight video training - Managing Infrastructure using Microsoft Azure
+            </a>
+        </div>
+    </div>
+</div>
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -111,6 +135,7 @@ Azure SQL Database is a relational database service in the cloud with mission-cr
                         <h3>Command-Line</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">PowerShell</a></p>
                         <p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">PowerShell (Elastic DB)</a></p>
+                        <p><a href="/cli/azure/sql">Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -122,7 +147,7 @@ Azure SQL Database is a relational database service in the cloud with mission-cr
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="https://docs.microsoft.com/">.NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p>
@@ -146,13 +171,37 @@ Azure SQL Database is a relational database service in the cloud with mission-cr
             </div>
         </div>
     </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3><a href="https://msdn.microsoft.com/library/mt238365.aspx">SQL Server Tools</a></h3>
+                        <p><a href="https://msdn.microsoft.com/library/mt238290.aspx">SQL Server Management Studio (SSMS)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt204009.aspx">SQL Server Data Tools (SSDT)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/ms162802.aspx">BCP</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/ms162773.aspx">SQLCMD</a></p>
+                        <p><a href="https://msdn.microsoft.com/hh550080.aspx">SqlPackage</a></p>
+                        <p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Sql">SQL Database Management Library package</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3><a href="https://msdn.microsoft.com/library/mt654049.aspx">SQL Server Drivers</a></h3>
+                        <p><a href="https://msdn.microsoft.com/library/mt657768.aspx">ADO.NET</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt484311.aspx">JDBC</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt654048.aspx">ODBC</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-database.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download SQL Database Documentation
-        </div>
-    </a>
-</div>
+

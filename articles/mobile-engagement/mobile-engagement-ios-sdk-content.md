@@ -4,7 +4,7 @@ description: Latest updates and procedures for iOS SDK for Azure Mobile Engageme
 services: mobile-engagement
 documentationcenter: mobile
 author: MehrdadMzfr
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 2566eeb6-be82-4d83-aaf6-ebdcb8841189
