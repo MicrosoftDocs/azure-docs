@@ -49,7 +49,8 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 | Integrate SaaS Applications – Federated SSO | SaaS Federated SSO Configuration <br/>Groups - Delegated Ownership |
 | Integrate SaaS Applications– Password SSO | SaaS Password SSO Configuration |
 | SSO and Identity Lifecycle Events | SaaS and Identity Lifecycle |
-| Secure Access to Shared Accounts | SaaS Shared Accounts Configuration |
+| Secure Access to Shared Accounts | SaaS Shared Accounts Configuration |
+
 ### Integrate SaaS Applications – Federated SSO 
 
 1. Bob is the Azure AD Global Admin and receives a request from the Marketing department to enable access to their ServiceNow Instance. Bob finds the step-by-step tutorial in Azure AD documentation and follows it, and delegates the assignment of users to the app to Kevin, the head of Marketing team. 
@@ -84,7 +85,10 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 | Scenario | Building Blocks| 
 | --- | --- |  
 | Secure administrator account access | Azure MFA with Phone Calls |
-| Secure access for applications | Conditional Access for SaaS applications || Enable Just In Time administration | Privileged Identity Management || Protect identities based on risk | Discovering risk events <br/>Deploying Sign-in risk policies |
+| Secure access for applications | Conditional Access for SaaS applications |
+| Enable Just In Time administration | Privileged Identity Management |
+| Protect identities based on risk | Discovering risk events <br/>Deploying Sign-in risk policies |
+
 ### Secure administrator account access
 
 1. Bob is the Azure AD Global Administrator. He has identified Stuart as a co-administrator of the service. 
@@ -116,7 +120,8 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 | Scenario | Building Blocks| 
 | --- | --- |  
 | Self Service Password Reset | Self Service Password Reset |
-| Self Service Access to Applications | Self Service Access to Applications |
+| Self Service Access to Applications | Self Service Access to Applications |
+
 ### Self Service Password Reset 
 
 1. Bob is the Azure AD Global admin and enables Self Service Password Management to a subset of users, including Susie. 
