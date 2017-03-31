@@ -699,15 +699,15 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/azure/app-service-web/app-service-web-php-get-started">
-                                                        <img src="media/index/logo_PHP.svg" alt="">
-                                                        <span>PHP</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
                                                     <a href="/azure/app-service-web/app-service-web-nodejs-get-started">
                                                         <img src="media/index/logo_nodejs.svg" alt="">
                                                         <span>Node.js</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a href="/azure/app-service-web/app-service-web-php-get-started">
+                                                        <img src="media/index/logo_PHP.svg" alt="">
+                                                        <span>PHP</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
@@ -733,7 +733,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Manage data</h3>
-                                                <a class="barLink" href="/azure/sql-database/index">SQL Database</a>
+                                                <a class="barLink" href="/azure/sql-database/index">SQL Database as a Service</a>
                                             </div>
                                         </div>
                                     </div>
@@ -744,7 +744,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3>Command line automation</h3>
+                                                <h3>Command line tools</h3>
                                                 <div class="ico48Link">
                                                     <a href="/powershell/azureps-cmdlets-docs/index">
                                                         <img src="media/index/azure_dev-8.svg" alt="">
@@ -767,12 +767,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 position: absolute;
                                 bottom: 0;
                                 right: 0;
-                                background: transparent;
+                                background: #fcfcfc;
                                 border: none;
                                 font-size: 1rem;
                                 color: #0050c5;
                                 cursor: pointer;
-                                ">View all &gt;
+                                ">View all services &gt;
                             </button>
                             </a>
                         </ul>
