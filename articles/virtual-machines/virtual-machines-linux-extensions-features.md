@@ -123,7 +123,7 @@ For more information, see the full [Resource Manager template](https://github.co
 }
 ```
 
-For more information, see [Authoring Azure Resource Manager templates with Linux VM extensions](virtual-machines-linux-extensions-authoring-templates.md).
+For more information, see [Authoring Azure Resource Manager templates with Linux VM extensions](linux/extensions-authoring-templates.md).
 
 ## Secure VM extension data
 
