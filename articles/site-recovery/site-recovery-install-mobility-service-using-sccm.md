@@ -18,19 +18,19 @@ ms.author: anoopkv
 ---
 # Automate Mobility Service installation by using software deployment tools
 
-This article provides you an example of how you can use System Center Configuration Manager (SCCM) to deploy the Azure Site Recovery Mobility Service in your datacenter. Using a software deployment tool like SCCM has the following advantages:
-* Scheduling deployment of fresh installations and upgrades, during your planned maintenance window for software updates.
-* Scaling deployment to hundreds of servers simultaneously.
+This article provides you an example of how you can use System Center Configuration Manager to deploy the Azure Site Recovery Mobility Service in your datacenter. Using a software deployment tool like Configuration Manager has the following advantages:
+* Scheduling deployment of fresh installations and upgrades, during your planned maintenance window for software updates
+* Scaling deployment to hundreds of servers simultaneously
 
 
 > [!NOTE]
 > This article uses System Center Configuration Manager 2012 R2 to demonstrate the deployment activity. You could also automate Mobility Service installation by using [Azure Automation and Desired State Configuration](site-recovery-automate-mobility-service-install.md).
 
 ## Prerequisites
-1. A software deployment tool, like SCCM, that is already deployed in your environment.
-  Create two [Device Collections](https://technet.microsoft.com/library/gg682169.aspx), one for all **Windows servers**, and another for all **Linux servers**, that you want to protect by using Site Recovery.
-3. A Configuration Server that is already registered with Site Recovery.
-4. A secure network file share (Server Message Block share) that can be accessed by the SCCM Server.
+1. A software deployment tool, like Configuration Manager, that is already deployed in your environment.
+  Create two [device collections](https://technet.microsoft.com/library/gg682169.aspx), one for all **Windows servers**, and another for all **Linux servers**, that you want to protect by using Site Recovery.
+3. A configuration server that is already registered with Site Recovery.
+4. A secure network file share (Server Message Block share) that can be accessed by the Configuration Manager server.
 
 ## Deploy Mobility Service on computers running Windows
 > [!NOTE]
@@ -38,21 +38,22 @@ This article provides you an example of how you can use System Center Configurat
 
 ### Step 1: Prepare for deployment
 1. Create a folder on the network share, and name it **MobSvcWindows**.
-2. Sign in to your Configuration Server, and open an Administrative command prompt.
+2. Sign in to your configuration server, and open an administrative command prompt.
 3. Run the following commands to generate a passphrase file:
 
     `cd %ProgramData%\ASR\home\svsystems\bin`
 
     `genpassphrase.exe -v > MobSvc.passphrase`
 4. Copy the **MobSvc.passphrase** file into the **MobSvcWindows** folder on your network share.
-5. Browse to the installer repository on the Configuration Server by running the following command:
+5. Browse to the installer repository on the configuration server by running the following command:
 
    `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
 
 6. Copy the **Microsoft-ASR\_UA\_*version*\_Windows\_GA\_*date*\_Release.exe** to the **MobSvcWindows** folder on your network share.
 7. Copy the following code, and save it as **install.bat** into the **MobSvcWindows** folder.
+
    > [!NOTE]
-   > Replace the [CSIP] placeholders in this script with the actual values of the IP address of your Configuration Server.
+   > Replace the [CSIP] placeholders in this script with the actual values of the IP address of your configuration server.
 
 ```
 Time /t >> C:\Temp\logfile.log
@@ -99,7 +100,7 @@ GOTO :ENDSCRIPT
 
 ### Step 2: Create a package
 
-1. Sign in to your SCCM console.
+1. Sign in to your Configuration Manager console.
 2. Browse to **Software Library** > **Application Management** > **Packages**.
 3. Right-click **Packages**, and select **Create Package**.
 4. Provide values for the name, description, manufacturer, language, and version.
@@ -133,12 +134,12 @@ GOTO :ENDSCRIPT
 > The script supports both new installations of Mobility Service agents and updates to agents that are already installed.
 
 ### Step 3: Deploy the package
-1. In the SCCM console, right-click your package, and select **Distribute Content**.
-  ![Screenshot of SCCM console](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
+1. In the Configuration Manager console, right-click your package, and select **Distribute Content**.
+  ![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
 2. Select the **[distribution points](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** on to which the packages should be copied.
 3. Complete the wizard. The package then starts replicating to the specified distribution points.
-4. Once the package distribution is done, right-click the package, and select **Deploy**.
-  ![Screenshot of SCCM console](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
+4. After the package distribution is done, right-click the package, and select **Deploy**.
+  ![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
 5. Select the Windows Server device collection you created in the prerequisites section as the target collection for deployment.
 
   ![Screenshot of Deploy Software wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection.png)
@@ -149,13 +150,14 @@ GOTO :ENDSCRIPT
   ![Screenshot of Deploy Software wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
 
 8. On the **Specify the schedule for this deployment** page, specify a schedule. For more information, see [scheduling packages](https://technet.microsoft.com/library/gg682178.aspx).
-9. On the **Distribution Points** page, configure the properties as per the needs of your datacenter. Then complete the wizard.
+9. On the **Distribution Points** page, configure the properties according to the needs of your datacenter. Then complete the wizard.
 
 > [!TIP]
 > To avoid unnecessary reboots, schedule the package installation during your monthly maintenance window or software updates window.
 
-You can monitor the deployment progress by using the SCCM console. Go to **Monitoring** > **Deployments** > *[your package name]*.
-  ![Screenshot of SCCM option to monitor deployments](./media/site-recovery-install-mobility-service-using-sccm/report.PNG)
+You can monitor the deployment progress by using the Configuration Manager console. Go to **Monitoring** > **Deployments** > *[your package name]*.
+
+  ![Screenshot of Configuration Manager option to monitor deployments](./media/site-recovery-install-mobility-service-using-sccm/report.PNG)
 
 ## Deploy Mobility Service on computers running Linux
 > [!NOTE]
@@ -163,14 +165,14 @@ You can monitor the deployment progress by using the SCCM console. Go to **Monit
 
 ### Step 1: Prepare for deployment
 1. Create a folder on the network share, and name it as **MobSvcLinux**.
-2. Sign in to your Configuration Server, and open an Administrative command prompt.
+2. Sign in to your configuration server, and open an administrative command prompt.
 3. Run the following commands to generate a passphrase file:
 
     `cd %ProgramData%\ASR\home\svsystems\bin`
 
     `genpassphrase.exe -v > MobSvc.passphrase`
 4. Copy the **MobSvc.passphrase** file into the **MobSvcLinux** folder on your network share.
-5. Browse to the installer repository on the Configuration Server by running the command:
+5. Browse to the installer repository on the configuration server by running the command:
 
    `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
 
@@ -182,7 +184,7 @@ You can monitor the deployment progress by using the SCCM console. Go to **Monit
 
 7. Copy the following code, and save it as **install_linux.sh** into the **MobSvcLinux** folder.
    > [!NOTE]
-   > Replace the [CSIP] placeholders in this script with the actual values of the IP address of your Configuration Server.
+   > Replace the [CSIP] placeholders in this script with the actual values of the IP address of your configuration server.
 
 ```
 #!/bin/sh
@@ -257,7 +259,7 @@ exit ${Error}
 
 ### Step 2: Create a package
 
-1. Sign in  to your SCCM console.
+1. Sign in  to your Configuration Manager console.
 2. Browse to **Software Library** > **Application Management** > **Packages**.
 3. Right-click **Packages**, and select **Create Package**.
 4. Provide values for the name, description, manufacturer, language, and version.
@@ -289,12 +291,12 @@ exit ${Error}
 > The script supports both new installations of Mobility Service agents and updates to agents that are already installed.
 
 ### Step 3: Deploy the package
-1. In the SCCM console, right-click your package, and select **Distribute Content**.
-  ![Screenshot of SCCM console](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
+1. In the Configuration Manager console, right-click your package, and select **Distribute Content**.
+  ![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
 2. Select the **[distribution points](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** on to which the packages should be copied.
 3. Complete the wizard. The package then starts replicating to the specified distribution points.
-4. Once the package distribution is done, right-click the package, and select **Deploy**.
-  ![Screenshot of SCCM console](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
+4. After the package distribution is done, right-click the package, and select **Deploy**.
+  ![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
 5. Select the Linux Server device collection you created in the prerequisites section as the target collection for deployment.
 
   ![Screenshot of Deploy Software wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection-linux.png)
@@ -305,19 +307,19 @@ exit ${Error}
   ![Screenshot of Deploy Software wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
 
 8. On the **Specify the schedule for this deployment** page, specify a schedule. For more information, see [scheduling packages](https://technet.microsoft.com/library/gg682178.aspx).
-9. On the **Distribution Points** page, configure the properties as per the needs of your datacenter. Then complete the wizard.
+9. On the **Distribution Points** page, configure the properties according to the needs of your datacenter. Then complete the wizard.
 
-Mobility Service gets installed on the Linux Server Device Collection, as per the schedule you configured.
+Mobility Service gets installed on the Linux Server Device Collection, according to the schedule you configured.
 
 ## Other methods to install Mobility Service
 Here are some other options for installing Mobility Service:
 * [Manual Installation using GUI](http://aka.ms/mobsvcmanualinstall)
 * [Manual Installation using command-line](http://aka.ms/mobsvcmanualinstallcli)
-* [Push Installation using Configuration Server ](http://aka.ms/pushinstall)
+* [Push Installation using configuration server ](http://aka.ms/pushinstall)
 * [Automated Installation using Azure Automation & Desired State Configuration ](http://aka.ms/mobsvcdscinstall)
 
 ## Uninstall Mobility Service
-You can create SCCM packages to uninstall Mobility Service. Use the following script to do so:
+You can create Configuration Manager packages to uninstall Mobility Service. Use the following script to do so:
 
 ```
 Time /t >> C:\logfile.log
