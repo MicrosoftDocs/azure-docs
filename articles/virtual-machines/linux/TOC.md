@@ -71,7 +71,7 @@
 ### [Add a user to a VM](add-user.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Resize a VM](change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Use tags](../../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-#### [Tag a VM](../virtual-machines-linux-tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Tag a VM](tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Optimize your Linux VM](optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Update Azure Linux agent](../virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Backup using Recovery Services](../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
