@@ -79,7 +79,7 @@ In the example, the query string is the first line of the request:
  "search": "Spacious, air-condition* +\"Ocean view\"", 
 ~~~~
 
-The query parser separates operators (such as `*` and `+` in the example) from search terms, and deconstructs the search query into *subqueries* of a supported types: 
+The query parser separates operators (such as `*` and `+` in the example) from search terms, and deconstructs the search query into *subqueries* of a supported type: 
 
 + *term query* for standalone terms (like spacious)
 + *phrase query* for quoted terms (like ocean view)
