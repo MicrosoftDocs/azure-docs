@@ -28,7 +28,9 @@ To create HTTP endpoints, you can add these triggers
 so that your logic apps can receive incoming requests:
 
 * [Request](../connectors/connectors-native-reqres.md)
-* [API Connection webhook](logic-apps-workflow-actions-triggers.md#api-connection)
+
+* [API Connection Webhook](logic-apps-workflow-actions-triggers.md#api-connection)
+
 * [HTTP Webhook](../connectors/connectors-native-http.md)
 
    > [!NOTE]
@@ -283,8 +285,9 @@ of your workflow.
 > 
 > Also, for the original request to get the response, 
 > all steps required for the response must finish 
-> within *60 seconds* unless you call the workflow as a nested logic app. 
-> If no response happens within 60 seconds, 
+> within the [request timeout limit](./logic-apps-limits-and-config.md) 
+> unless you call the workflow as a nested logic app. 
+> If no response happens within this limit, 
 > the incoming request times out and receives the HTTP response **408 Client timeout**. 
 > For nested logic apps, the parent logic app continues to wait for a 
 > response until completed, regardless of how much time is required.
