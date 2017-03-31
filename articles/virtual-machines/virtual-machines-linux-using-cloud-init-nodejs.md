@@ -29,7 +29,7 @@ This article shows how to make a cloud-init script to set the hostname, update i
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#quick-commands) – our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](virtual-machines-linux-using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](linux/using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ## Quick Commands
 Create a cloud-init.txt script that sets the hostname, updates all packages, and adds a sudo user to Linux.

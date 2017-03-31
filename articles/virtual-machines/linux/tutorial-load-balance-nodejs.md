@@ -155,7 +155,7 @@ done
 
 
 ## Step 5 - Build your app
-**cloud-init** is a widely used approach to customizing a VM. You can use **cloud-init** to install packages and write files. As **cloud_init** runs during the initial deployment, there are no additional steps to get your app running. The load balancer starts to distribute traffic once the VM has finished deploying and the app is running. For more information about using **cloud-init**, see [Use cloud-init to customize a Linux VM during creation](../virtual-machines-linux-using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+**cloud-init** is a widely used approach to customizing a VM. You can use **cloud-init** to install packages and write files. As **cloud_init** runs during the initial deployment, there are no additional steps to get your app running. The load balancer starts to distribute traffic once the VM has finished deploying and the app is running. For more information about using **cloud-init**, see [Use cloud-init to customize a Linux VM during creation](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 The following **cloud-init** configuration installs **nodejs** and **npm**, then installs and configures **nginx** as a web proxy for your app. The configuration also creates a simple 'Hello World' Node.js app, then initializes and starts the app with **Express**. If you want to use a different application framework, adjust the packages and deployed application accordingly.
 
