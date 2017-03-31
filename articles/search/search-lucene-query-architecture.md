@@ -11,7 +11,7 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 03/14/2017
+ms.date: 03/31/2017
 ms.author: jlembicz
 ---
 
@@ -40,7 +40,7 @@ The diagram below illustrates processing and execution of a search request.
 | Key components | Functional description | 
 |----------------|------------------------|
 |**Query parsers** | Separate query terms from query operators. Creates the query structure (a query tree) to be sent to the search engine. Azure Search supports two kinds of query syntax (simple and full) for different types of queries.|
-|**Analyzers** | Perform lexical analysis on query terms. This proces can involve transforming, removing, or expanding of query terms. Azure Search offers a collection of predefined analyzers, inluding language analyzers, and allows defining custom analyzers.|
+|**Analyzers** | Perform lexical analysis on query terms. This process can involve transforming, removing, or expanding of query terms. Azure Search offers a collection of predefined analyzers, including language analyzers, and allows defining custom analyzers.|
 |**Inverted index** | An efficient data structure used to store and organize searchable terms extracted from indexed documents. |
 |**Search engine** | Retrieves and scores matching documents based on the contents of the inverted index. |
 
@@ -61,19 +61,18 @@ POST /indexes/hotels/docs/search?api-version=2016-09-01
  } 
 ~~~~
 
-The entire statement is the *search request*. The first line of the request body is the *search query*. 
+For this request, the search engine does the following:
 
-In the example, the search query consists of phrases and terms: `"Spacious, air-condition* +\"Ocean view\""`. The remaining instructions (`searchFields`, `filter`, `orderby`) are parameters for scoping and ordering the results.  
+1. Filters out documents where the price is at least $60 and less than $300.
+2. Executes the query. In this example, the search query consists of phrases and terms: `"Spacious, air-condition* +\"Ocean view\""` (users typically don't enter punctuation, but including it in the example allows us to explain how analyzers handle it). For this query, the search engine scans the description and title fields specified in `searchFields` for documents that contain "Ocean view", and additionally on the term "spacious", or on terms that start with the prefix "air-condition". 
+3. Orders the resulting set of hotels by proximity to a given geography location, and then returned to the calling application. 
 
-In this example, the search query goes against an index of hotel listings, scanning the description and title fields for documents that contain "Ocean view", and additionally on the term "spacious", or on terms that start with the prefix "air-condition".  
+The majority of this article is about processing of the *search query*: `"Spacious, air-condition* +\"Ocean view\""`. Filtering and ordering, in this case by geographic location, are out of scope. For more information, see [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-From the list of matching documents, the search engine filters out documents where the price is at least $60 and less than $300. The resulting set of hotels are ordered by proximity to a given geographic location, and then returned to the calling application. 
-
-This article refers to the example request to explain processing of the *search query*. Filtering and ordering are out of scope for this article. 
-
+<a name="stage1"></a>
 ## Stage 1: Query parsing 
 
-In the example, the query string is the first line of the request: 
+As noted, the query string is the first line of the request: 
 
 ~~~~
  "search": "Spacious, air-condition* +\"Ocean view\"", 
@@ -92,7 +91,7 @@ The query parser restructures the subqueries into a *query tree* (an internal st
  ![Boolean query searchmode any][2]
 
 > [!Note]
-> A search query is executed independently against all searchable fields in the Azure Search index unless you limit the fields set with the `searchFields` parameter, as illustrated in the example search request, per the title and description fields.  
+> A search query is executed independently against all searchable fields in the Azure Search index unless you limit the fields set with the `searchFields` parameter, as illustrated in the example search request.  
 
 ### Supported parsers: Simple and Full Lucene 
 
@@ -110,24 +109,25 @@ Spacious,|air-condition*+"Ocean view"
 
 Explicit operators, such as `+` in `+"Ocean view"`, are unambiguous in boolean query construction (the term *must* match). Less obvious is how to interpret the remaining terms: spacious and air-condition. Should the search engine find matches on ocean view *and* spacious *and* air-condition? Or should it find ocean view plus *either one* of the remaining terms? 
 
-Using the default `searchMode=any`, the second interpretation prevails, where ocean view plus either term defines the match criteria. The initial query tree illustrated previously, with the two "should" operations, reflects the "or" semantics.  
+By default (`searchMode=any`), the search engine assumes the broader interpretation. Either field *should* be matched, reflecting "or" semantics. The initial query tree illustrated previously, with the two "should" operations, shows the default.  
 
-Suppose that we now set `searchMode= all`. In this case, the space is interpreted as an "and" operation. Each of the remaining terms must be present in the document to qualify as a match. The resulting sample query would be interpreted as follows: 
+Suppose that we now set `searchMode= all`. In this case, the space is interpreted as an "and" operation. Each of the remaining terms must both be present in the document to qualify as a match. The resulting sample query would be interpreted as follows: 
 
 ~~~~
 +Spacious,+air-condition*+"Ocean view"  
 ~~~~
 
-A modified query tree for this query would look like this, where a matching document is the intersection of all three subqueries: 
+A modified query tree for this query would be as follows, where a matching document is the intersection of all three subqueries: 
 
  ![Boolean query searchmode all][3]
 
 > [!Note] 
 > Choosing`searchMode=any` over `searchMode=all` is a decision best arrived at by running representative queries. Users who are likely to include operators (common when searching document stores) might find results more intuitive if `searchMode=all` informs boolean query constructs. For more about the interplay between `searchMode` and operators, see [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search).
 
+<a name="stage2"></a>
 ## Stage 2: Lexical analysis 
 
-Lexical analyzers process *term queries* and *phrase queries* after the query tree is structured. An analyzer accepts the text inputs given to it by the parser, analyzes the text, and then sends back analyzed terms to be incorporated into the query tree. 
+Lexical analyzers process *term queries* and *phrase queries* after the query tree is structured. An analyzer accepts the text inputs given to it by the parser, processes the text, and then sends back tokenized terms to be incorporated into the query tree. 
 
 The most common form of lexical analysis is *linguistic analysis* which transforms query terms based on rules specific to a given language: 
 
@@ -136,8 +136,7 @@ The most common form of lexical analysis is *linguistic analysis* which transfor
 * Breaking a composite word into component parts 
 * Lower casing an upper case word 
 
-All of these operations tend to erase differences between the text input provided by the user and the terms stored in the index. Such operations go beyond text processing and require in-depth knowledge of the language itself. 
-Azure Search supports a long list of [language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) from both Lucene and Microsoft.
+All of these operations tend to erase differences between the text input provided by the user and the terms stored in the index. Such operations go beyond text processing and require in-depth knowledge of the language itself. To add this layer of linguistic awareness, Azure Search supports a long list of [language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) from both Lucene and Microsoft.
 
 > [!Note]
 > Analysis requirements can range from minimal to elaborate depending on your scenario. You can control complexity of lexical analysis by the selecting one of the predefined analyzers or by creating your own [custom analyzer](https://docs.microsoft.com/en-us/rest/api/searchservice/Custom-analyzers-in-Azure-Search?redirectedfrom=MSDN). Analyzers are scoped to searchable fields and are specified as part of a field definition. This allows you to vary lexical analysis on a per field basis. Unspecified, the *standard* Lucene analyzer is used.
@@ -152,6 +151,7 @@ When the default analyzer processes the term, it will lowercase "ocean view" and
 
 Lexical analysis applies only to query types that require complete terms – either a term query or a phrase query. It doesn’t apply to query types with incomplete terms – prefix query, wildcard query, regex query – or to a fuzzy query. Those query types, including the prefix query (air-condition\*) in our example, are added directly to the query tree, bypassing the analysis stage. 
 
+<a name="stage3"></a>
 ## Stage 3: Document retrieval 
 
 Document retrieval refers to finding documents with matching terms in the index. This stage is understood best through example. Let's start with a hotels index having the following simple schema: 
@@ -196,16 +196,16 @@ Further assume that this index contains the following four documents:
 }
 ~~~~
 
-**Constructing an inverted index from the sample documents**
+**How the inverted index is created**
 
-During indexing, the search engine creates an inverted index for each searchable field independently. An inverted index is a sorted list of all terms from all documents. Each term maps to the list of documents where it occurs.
+To understand retrieval, it helps to know a few basics about how terms are stored. During indexing, the search engine creates an inverted index for each searchable field independently. An inverted index is a sorted list of all terms from all documents. Each term maps to the list of documents where it occurs.
 
-As with query parsing, indexing extracts terms, only during indexing the terms are extracted from documents instead of a query string. Text inputs are passed to an analyzer. Often the same analyzers used during indexing are also used for queries so that a query input can be processed to look like the terms stored inside the index.  
+Indexing and query parsing share some similarities. For example, both query parsing and indexing extracts terms, except during indexing the terms are extracted from *documents* instead of a query string. Analyzers and analysis are another shared component. Text inputs are passed to an analyzer during indexing. Often the same analyzers used during indexing are also used for queries so that a query input can be processed to look like the terms stored inside the index. The transformation of strings-to-terms in an index is roughly the same [lexical analysis](#stage2) performed during querying. 
 
 > [!Note]
-> Azure Search lets you specify different analyzers for indexing and search via additional `indexAnalyzer` and `searchAnalyzer` field parameters. If unspecified, the analyzer set with the `analyzer` property is used for both indexing and searching.  
+> In contrast with Lucene, Azure Search lets you specify different analyzers for indexing and search via additional `indexAnalyzer` and `searchAnalyzer` field parameters. If unspecified, the analyzer set with the `analyzer` property is used for both indexing and searching.  
 
-For the title field, the inverted index looks like this:
+Returning to our example: For the title field, the inverted index looks like this:
 
 | Term | Document list |
 |------|---------------|
@@ -276,7 +276,7 @@ Scoring is part of full text search that includes analysis. Given a full text se
 Scoring is not applied in unspecified queries (search=*) or in specialized query types that bypass analysis. Specifically, wildcard search, prefix, regex, and fuzzy search queries are routed through an internal query rewriting process and thus return constant scores of 1.0. Whenever you see a constant of 1.0, you know that scoring was not applied. 
 
 > [!Note]
-> Although scoring is not used for full-syntax-only query types (such as wildcard, fuzzy, prefix, regex searches), you can use field or tag boosting to customize rank scores. For more information, see [Full Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+> Although scoring is not used for full-syntax-only query types (such as wildcard, fuzzy, prefix, regex searches), you can use field or tag boosting to customize rank scores. For more information, see [Full Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) and [Scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index).
 >
 
 ### Scoring example
