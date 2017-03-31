@@ -98,9 +98,9 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). For
 
 4. On the client node, change to the directory where iperf tool is extracted and then run the following command:
 
-	```CMD
+	`
 	iperf3.exe -c <IP of the iperf Server> -t 30 -p 5001 -P 32
-	```
+	`
 
 	The client will be inducing traffic on port 5001 to the server for 30 seconds. The flag '-P ' that indicates we are using 32 simultaneous connections to the server node.
 
