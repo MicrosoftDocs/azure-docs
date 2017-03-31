@@ -150,7 +150,7 @@ When the default analyzer processes the term, it will lowercase "ocean view" and
 
 ### Exceptions to lexical analysis 
 
-Lexical analysis applies only to query types that require complete terms – either a term query or a phrase query. It doesn’t apply to query types with incomplete terms – prefix query, wildcard query, regex query – or to a fuzzy query. Those query types, including prefix query (air-condition*) in our example, are added directly to the query tree, bypassing the analysis stage. 
+Lexical analysis applies only to query types that require complete terms – either a term query or a phrase query. It doesn’t apply to query types with incomplete terms – prefix query, wildcard query, regex query – or to a fuzzy query. Those query types, including the prefix query (air-condition\*) in our example, are added directly to the query tree, bypassing the analysis stage. 
 
 ## Stage 3: Document retrieval 
 
