@@ -157,8 +157,7 @@ The objective of this section is to create a test user in the classic portal cal
     ![Creating an Azure AD test user](./media/active-directory-saas-deputy-tutorial/create_aaduser_09.png)
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 3. To display the list of users, in the menu on the top, click **Users**.
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-deputy-tutorial/create_aaduser_03.png)
+       ![Creating an Azure AD test user](./media/active-directory-saas-deputy-tutorial/create_aaduser_03.png)
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-deputy-tutorial/create_aaduser_04.png)
@@ -168,8 +167,7 @@ The objective of this section is to create a test user in the classic portal cal
 
    1. As Type Of User, select New user in your organization.
    2. In the User Name **textbox**, type **BrittaSimon**.
-   3. Click **Next**.
-6. On the **User Profile** dialog page, perform the following steps:
+   3. Click **Next**.6. On the **User Profile** dialog page, perform the following steps:
    
    ![Creating an Azure AD test user](./media/active-directory-saas-deputy-tutorial/create_aaduser_06.png)
    
@@ -209,10 +207,7 @@ In order to enable Azure AD users to log into Deputy, they must be provisioned i
   3. In the **Work at** textbox, type the bussniess name.
   4. Click **Save & Invite** button.
 
->!NOTE]
->The AAD account holder will receive an email and follow a link to confirm their account before it becomes active. You can use any other Deputy user account creation tools or APIs provided by Deputy to provision AAD user accounts.
->
->
+5. The AAD account holder will receive an email and follow a link to confirm their account before it becomes active. You can use any other Deputy user account creation tools or APIs provided by Deputy to provision AAD user accounts.
     
 ### Assign the Azure AD test user
 The objective of this section is to enabling Britta Simon to use Azure SSO by granting her access to Deputy.
