@@ -1,3 +1,5 @@
+- name: Windows Virtual Machines Documentation
+  href: index.md
 - name: Overview
   items:
   - name: About Virtual Machines

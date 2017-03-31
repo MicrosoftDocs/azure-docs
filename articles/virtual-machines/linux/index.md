@@ -13,7 +13,7 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ---
-# Linux Virtual Machine Documentation
+# Linux Virtual Machines Documentation
 
 Learn how to run Virtual Machines on Azure using the Linux distribution of your choice.
 

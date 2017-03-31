@@ -1,3 +1,5 @@
+- name: Web Apps Documentation
+  href: index.md
 - name: Overview
   items:
   - name: About Web Apps

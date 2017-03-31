@@ -1,3 +1,5 @@
+- name: SQL Database Documentation
+  href: index.md
 - name: Overview
   items:
   - name: About SQL DB
