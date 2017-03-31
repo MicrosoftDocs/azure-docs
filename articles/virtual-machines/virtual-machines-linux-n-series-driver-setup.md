@@ -113,7 +113,7 @@ After the update completes, restart the VM.
 #### Installation of NVIDIA CUDA Toolkit
  Installation of NVIDIA CUDA Toolkit.
  
-	 ##### Ubuntu 16.04-LTS
+	##### Ubuntu 16.04-LTS
 	 ```bash
 	 CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
 	 DEBIAN_FRONTEND=noninteractive apt-mark hold walinuxagent
@@ -137,7 +137,7 @@ After the update completes, restart the VM.
  
  [CUDA Samples](http://docs.nvidia.com/cuda/cuda-samples/#new-features-in-cuda-toolkit-8-0) can be installed in a location as follows:
  
-		 ###### Ubuntu 16.04-LTS
+	###### Ubuntu 16.04-LTS
 		 ```bash
 		 export SHARE_DATA="/data"
 		 export SAMPLES_USER="samplesuser"
@@ -145,12 +145,13 @@ After the update completes, restart the VM.
 
 		 ```
 
-		 ###### Centos 7.3
+	###### Centos 7.3
 		 In /usr/local/cuda-8.0/samples for CentOS 7.3. 
 
 		 * Just a make within each would suffice post successful provisioning.
  
  ##### Optional Unattended, silent NVIDIA Tesla Driver Install:
+  
   NVIDIA Tesla Driver Silent Install is as follows:
   
  > :grey_exclamation:
@@ -158,6 +159,7 @@ After the update completes, restart the VM.
  > Currently, this need not be required when using secure cuda-repo-ubuntu1604_8.0.61-1_amd64.deb for Azure NC VMs running Ubuntu Server 16.04 LTS.
  
  > **This is required  for NVIDIA Driver with DKMS (Dynamic Kernel Module Support) for driver load surviving kernel updates.**
+	
 	###### Ubuntu 16.04-LTS
 	```bash 
 		service lightdm stop 
@@ -202,7 +204,7 @@ After the update completes, restart the VM.
 		chmod +x /etc/rc.d/rc.local
 	```
 #### Secure Installation of CUDNN
-	##### Both Ubuntu 16.04-LTS and CentOS 7.3
+ ##### Both Ubuntu 16.04-LTS and CentOS 7.3
 
 	The NVIDIA CUDA® Deep Neural Network library (cuDNN) is a GPU-accelerated library of primitives for deep neural networks. 
 	cuDNN provides highly tuned implementations for standard routines such as forward and backward convolution, pooling, normalization, and activation layers.
