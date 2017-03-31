@@ -135,7 +135,7 @@
 ## [Service updates](https://azure.microsoft.com/updates/?product=documentdb)
 ## [Community portal](documentdb-community.md)
 ## [Query Playground](https://www.documentdb.com/sql/demo)
-## [Table Storage (standard)](https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts)
+## [Table storage](https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts)
 ## [Schema agnostic indexing paper](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)
 ## [Data consistency explained through baseball](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
 ## [Book: Using Microsoft Azure DocumentDB in a Node.js Application](https://go.microsoft.com/fwlink/?LinkId=828428&clcid=0x409)
