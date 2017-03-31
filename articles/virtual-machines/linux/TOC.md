@@ -8,7 +8,7 @@
 
 # Samples
 ## [Azure CLI](cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [PowerShell](../virtual-machines-linux-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [PowerShell](powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 # Tutorials
 ## [Create and manage a VM](../virtual-machines-linux-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
