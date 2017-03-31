@@ -21,14 +21,14 @@ ms.author: arijitt
 # Spark Troubleshooting Guide: Solutions to common problems with Spark on Azure HDInsight
 Use the Spark troubleshooting guide for solving common Spark problems on Azure HDInsight platform.
 
-##### Why did my Spark application fail with OutOfMemoryError?
+#### [Why did my Spark application fail with OutOfMemoryError?](spark-application-failure-with-outofmemoryerror.md)
 
-##### How do I configure through Ambari the amount of memory and number of cores that a Spark application can use on HDInsight Spark clusters? 
+#### [How do I configure through Ambari the amount of memory and number of cores that a Spark application can use on HDInsight clusters?](spark-application-configuration-through-ambari.md) 
 
-##### How do I configure the amount of memory and number of cores that spark-shell can use at launch time on HDInsight Spark clusters? 
+#### How do I configure the amount of memory and number of cores that spark-shell can use at launch time on HDInsight clusters? 
 
-##### How do I configure at submit time through spark-submit the amount of memory and number of cores that a Spark application can use? 
+#### How do I configure at submit time through spark-submit the amount of memory and number of cores that a Spark application can use on HDInsight clusters? 
 
-##### How do I configure at submit time through LIVY the amount of memory and number of cores that a Spark application can use? 
+#### How do I configure at submit time through LIVY the amount of memory and number of cores that a Spark application can use on HDInsight clusters? 
 
-##### How do I configure the amount of memory and number of cores that a Spark application can use when using Jupyter notebook? 
+#### How do I configure the amount of memory and number of cores that a Spark application can use when using Jupyter notebook on HDInsight clusters? 

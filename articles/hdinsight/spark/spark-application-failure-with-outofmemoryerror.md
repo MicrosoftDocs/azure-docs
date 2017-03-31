@@ -1,7 +1,7 @@
 ---
 title: Why did my Spark application fail with OutOfMemoryError? | Microsoft Docs
 description: Use the Spark troubleshooting guide for solving common Spark problems on Azure HDInsight platform.
-keywords: Azure HDInsight, Spark, troubleshooting guide, common problems, job failure, OutOfMemoryError
+keywords: Azure HDInsight, Spark, troubleshooting guide, common problems, application failure, OutOfMemoryError
 services: Azure HDInsight
 documentationcenter: na
 author: arijitt
@@ -69,7 +69,7 @@ java.lang.OutOfMemoryError
     at java.lang.Thread.run(Unknown Source) 
 ~~~~
 
-#### Resolution Steps
+#### Probable Cause
 
 The most likely cause of this exception is not enough heap memory allocated to the Java Virtual Machine (JVM) that are launched as executors or driver as part of the Spark application. 
 
@@ -79,7 +79,7 @@ The most likely cause of this exception is not enough heap memory allocated to t
 
 2. Make sure that the HDInsight cluster to be used has enough resources in terms of memory and also cores to accommodate the Spark application. This can be determined by viewing the Cluster Metrics section of the YARN UI of the cluster for the values of Memory Used vs. Memory Total and VCores Used vs. VCores Total.
 
-![Alt text](../media/spark/spark-job-failure-with-outofmemoryerror/yarn-core-memory-view.png)
+![Alt text](../media/spark/spark-application-failure-with-outofmemoryerror/yarn-core-memory-view.png)
 
 3. Set the following Spark configurations to appropriate values that do not exceed 90% of the available memory and cores as viewed by YARN yet well within the memory requirement of the Spark application: 
 
@@ -102,7 +102,7 @@ Total memory used by driver =
 spark.driver.memory + spark.yarn.driver.memoryOverhead
 ~~~~
 
-### Further Reading
+#### Further Reading
 
-[Spark memory management overview] (http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
-[Debugging spark application on HDInsight] (https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
+1. [Spark memory management overview](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
+2. [Debugging Spark application on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
