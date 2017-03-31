@@ -767,10 +767,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 position: absolute;
                                 bottom: 0;
                                 right: 0;
-                                background: #fcfcfc;
+                                background: transparent;
                                 border: none;
                                 font-size: 1rem;
-                                color: #0050c5;
+                                color: #0078d7;
                                 cursor: pointer;
                                 ">View all services &gt;
                             </button>
