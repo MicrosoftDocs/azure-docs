@@ -118,7 +118,7 @@ Next, head to the [Azure Portal](https://portal.azure.com) to retrieve your URI 
 
 In the Azure Portal, navigate to your DocumentDB account, and then click **Keys**.
 
-Copy the URI from the portal and paste it into `<your endpoint URI>` in the program.cs file. Then copy the PRIMARY KEY from the portal and paste it into `<your key>`. If you are using the Azure DocumentDB Emulator, use `https://localhost:443` as the endpoint, and the well-defined authorization key from [How to develop using the DocumentDB Emulator](documentdb-nosql-local-emulator.md). Make sure to remove the < and > but leave the double quotes around your endpoint and key.
+Copy the URI from the portal and paste it into `<your endpoint URI>` in the program.cs file. Then copy the PRIMARY KEY from the portal and paste it into `<your key>`. If you are using the Azure DocumentDB Emulator, use `https://localhost:8081` as the endpoint, and the well-defined authorization key from [How to develop using the DocumentDB Emulator](documentdb-nosql-local-emulator.md). Make sure to remove the < and > but leave the double quotes around your endpoint and key.
 
 ![Screen shot of the Azure Portal used by the NoSQL tutorial to create a C# console application. Shows a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
 
