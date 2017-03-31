@@ -101,7 +101,7 @@ First, SSH to your VM. The following example connects to the VM named `myvm.west
 ssh ops@myvm.westus.cloudapp.azure.com ~/.ssh/id_rsa.pub
 ```
 
-If you are using Windows and need more information on using SSH, see [How to use SSH keys with Windows](virtual-machines-linux-ssh-from-windows.md).
+If you are using Windows and need more information on using SSH, see [How to use SSH keys with Windows](linux/ssh-from-windows.md).
 
 Next, install xfce using `apt` as follows:
 
@@ -210,5 +210,5 @@ If you do not receive any response in your remote desktop client and do not see 
 ## Next steps
 For more information about creating and using SSH keys with Linux VMs, see [Create SSH keys for Linux VMs in Azure](linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-For information on using SSH from Windows, see [How to use SSH keys with Windows](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For information on using SSH from Windows, see [How to use SSH keys with Windows](linux/ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
