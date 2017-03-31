@@ -1,12 +1,3 @@
-<?CommonMark:Metadata
-Title: Introduction To Azure Security
-Author: Tom Shinder
-Heading: h1
-Heading: H1
-Headings: h1
-Headings: H1
-?>
-
 # 1.0 Introduction
 
 ## 1.1 Overview
