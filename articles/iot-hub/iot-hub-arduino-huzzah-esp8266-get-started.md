@@ -25,7 +25,7 @@ ms.author: xshi
 ## What you do
 
 
-Connect Adafruit Feather HUZZAH ESP8266 to an IoT hub that you'll create. Then run a sample application on ESP8266 to collect the temperature and humidity data from a DHT22 sensor. Finally, send the sensor data to your IoT hub.
+Connect Adafruit Feather HUZZAH ESP8266 to an IoT hub that you create. Then you run a sample application on ESP8266 to collect the temperature and humidity data from a DHT22 sensor. Finally, you send the sensor data to your IoT hub.
 
 > [!NOTE]
 > If you're using other ESP8266 boards, you can still follow these steps to connect it to your IoT hub. Depending on the ESP8266 board you're using, you may need to reconfigure the `LED_PIN`. For example, if you're using ESP8266 from AI-Thinker, you may change it from `0` to `2`. Don't have a kit yet?: Click [here](http://azure.com/iotstarterkits).
@@ -133,7 +133,7 @@ To register a device for Feather HUZZAH ESP8266, follow these steps:
 
    * Ubuntu 16.04 or later:
 
-     Open a terminal by using the keyboard shortcut Ctrl + Alt + T, and then run the following command:
+     Open a terminal by using the keyboard shortcut Ctrl+Alt+T, and then run the following command:
 
      ```bash
      sudo npm install -g iothub-explorer
@@ -204,7 +204,7 @@ As shown next, use the Micro USB to Type A USB cable to connect Feather HUZZAH E
 ### Add serial port permissions (Ubuntu only)
 
 
-If you use Ubuntu, make sure you have the permissions to operate on the USB port of Feather HUZZAH ESP826. To add serial port permissions, follow these steps:
+If you use Ubuntu, make sure you have the permissions to operate on the USB port of Feather HUZZAH ESP8266. To add serial port permissions, follow these steps:
 
 
 1. Run the following commands at a terminal:
@@ -247,10 +247,10 @@ The sample application is hosted on GitHub. Clone the sample repository that con
    git clone https://github.com/Azure-Samples/iot-hub-feather-huzzah-client-app.git
    ```
 
-Install the package for Feather HUZZAH ESP8266 in Arduino IDE:
+Install the package for Feather HUZZAH ESP8266 in the Arduino IDE:
 
 1. Open the folder where the sample application is stored.
-1. Open the app.ino file in the app folder in Arduino IDE.
+1. Open the app.ino file in the app folder in the Arduino IDE.
 
    ![Open the sample application in Arduino IDE](media/iot-hub-arduino-huzzah-esp8266-get-started/10_arduino-ide-open-sample-app.png)
 
@@ -305,7 +305,7 @@ The sample application can simulate temperature and humidity data in case you do
 After the upload completes successfully, follow these steps to enter your credentials:
 
 1. In the Arduino IDE, click **Tools** > **Serial Monitor**.
-1. In the serial monitor window, notice the two drop-down lists on the lower-right corner.
+1. In the serial monitor window, notice the two drop-down lists in the lower-right corner.
 1. Select **No line ending** for the left drop-down list.
 1. Select **115200 baud** for the right drop-down list.
 1. In the input box located at the top of the serial monitor window, enter the following information if you are asked to provide them, and then click **Send**.
@@ -324,11 +324,11 @@ If you see the following output from the serial monitor window and the blinking 
 
 ## Next steps
 
-You have successfully connected a Feather HUZZAH ESP8266 to your IoT hub and sent the captured sensor data to your IoT hub. 
+You have successfully connected a Feather HUZZAH ESP8266 to your IoT hub, and sent the captured sensor data to your IoT hub. 
 
 To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 
 - [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
 - [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
-- [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
-- [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+- [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md)
+- [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md)
