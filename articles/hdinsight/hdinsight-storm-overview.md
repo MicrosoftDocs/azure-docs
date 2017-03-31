@@ -43,7 +43,7 @@ Apache Storm on HDInsight provides the following key benefits:
 
 * Easy customization by running scripts against the cluster during or after creation. For more information, see [Customize HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md).
 
-* Use the language of your choice: Storm components can be written in a variety of languages, such as **Java**, **C#**, and **Python**.
+* Use the language of your choice: Storm components can be written in various languages, such as **Java**, **C#**, and **Python**.
 
     * Visual Studio integration with HDInsight for the development, management, and monitoring of C# topologies. For more information, see [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
@@ -136,7 +136,7 @@ The following are some common scenarios for which you might use Apache storm on 
 * Search
 * Mobile engagement
 
-For information about real-world scenarios, see [How companies are using Storm](https://storm.apache.org/documentation/Powered-By.html).
+For information about real-world scenarios, see the [How companies are using Storm](https://storm.apache.org/documentation/Powered-By.html) document.
 
 ## Development: C\#
 
@@ -192,7 +192,7 @@ In-memory caching is often used as a mechanism for speeding up processing becaus
 
 ### Streaming top N
 
-When your topology depends on calculating a "top N" value, you should calculate the top N value in parallel and then merge the output from those calculations into a global value. This can be done by using [fieldsGrouping](http://javadox.com/org.apache.storm/storm-core/0.9.1-incubating/backtype/storm/topology/InputDeclarer.html#fieldsGrouping%28java.lang.String,%20backtype.storm.tuple.Fields%29) to route by field for parallel processing, and then route to a bolt that globally determines the top N value.
+When your topology depends on calculating a "top N" value, you should calculate the top N value in parallel. Then merge the output from those calculations into a global value. This operation can be done by using [fieldsGrouping](http://javadox.com/org.apache.storm/storm-core/0.9.1-incubating/backtype/storm/topology/InputDeclarer.html#fieldsGrouping%28java.lang.String,%20backtype.storm.tuple.Fields%29) to route by field for parallel processing, and then route to a bolt that globally determines the top N value.
 
 For an example of calculating a "top N" value, see the [RollingTopWords](https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/RollingTopWords.java) example.
 
