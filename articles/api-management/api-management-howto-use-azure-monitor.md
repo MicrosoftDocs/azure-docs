@@ -92,6 +92,7 @@ API Management currently provides diagnostics logs (batched hourly) about indivi
       "properties": "{
           "ApiId": "",
           "OperationId": "",
+          "ProductId": "",
           "SubscriptionId": "",
           "Method": "",
           "Url": "",
@@ -103,7 +104,7 @@ API Management currently provides diagnostics logs (batched hourly) about indivi
           "ResponseCode": ,
           "ResponseSize": ,
           "Cache": "",
-          "Tags": ""
+          "UserId"
       }"
  }
 ```
