@@ -46,8 +46,8 @@ Here are the typical steps to create a Data Factory pipeline with a Spark Activi
 3. Create a pipeline with Spark Activity that refers to the Apache HDInsight linked service created in #2. The activity is configured with the dataset you created in the previous step as an output dataset. The output dataset is what drives the schedule (hourly, daily, etc.). Therefore, you must specify the output dataset even though the activity does not really produce an output.
 
 ### Prerequisites
-1. Create an **Apache Spark cluster** in Azure HDInsight by following instructions in the tutorial: [Create Apache Spark cluster in Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Note the name of the Azure Storage account that is associaed with the spark cluster. 
-2. Create a python file named **test.py** with the following content. 
+1. Create an **Apache Spark cluster** in Azure HDInsight by following instructions in the tutorial: [Create Apache Spark cluster in Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Note the name of the Azure Storage account that is associated with the spark cluster. 
+2. Create a python file named **test.py** with the following content: 
 	```python
 	from pyspark import SparkContext
 	from pyspark.sql import *
@@ -101,7 +101,7 @@ Let's start with creating the data factory in this step.
 In this step, you link your Azure HDInsight Spark cluster and Azure Storage to your data factory. The HDInsight linked service is used to run the Spark program specified in the Spark activity of the pipeline in this sample. You create the Azure Storage linked service so that you can create an Azure Blob dataset later in this walkthrough.  
 
 #### Create Azure Storage linked service
-In this step, you link your Azure Storage account to your data factory. When you created HDInsight Spark cluster, this is the storage account you associated with the cluster. A dataset you create in a step later in this walkthrough refers to this linked service. The HDInsight linked service that you define in the next step refers to this linked service too.  
+In this step, you link your Azure Storage account that is associated with the HDInsight spark cluster to your data factory. A dataset you create in a step later in this walkthrough refers to this linked service. The HDInsight linked service that you define in the next step refers to this linked service too.  
   
 1. Click **Author and deploy** on the **DATA FACTORY** blade for **GetStartedDF**. You should see the Data Factory Editor.
 2. Click **New data store** and choose **Azure storage**.
@@ -145,7 +145,7 @@ In this step, you create Azure HDInsight linked service to link your HDInsight S
 The output dataset is what drives the schedule (hourly, daily, etc.). Therefore, you must specify an output dataset for the spark activity in the pipeline even though the activity does not really produce any output.
 
 1. In the **Data Factory Editor**, click **... More** on the command bar, click **New dataset**, and select **Azure Blob storage**.  
-2. Copy and paste the following snippet to the Draft-1 window. The JSON snippet defines a dataset called **OutputDataset**. In addition, you specify that the results are stored in the blob container called **adfspark** and the folder called **pyFiles/output**. As mentioned earlier, this dataset is a dummy dataset. The Spark program in this example does not produce any output. The **availability** section specifies that the output dataset is produced on a daily basis.
+2. Copy and paste the following snippet to the Draft-1 window. The JSON snippet defines a dataset called **OutputDataset**. In addition, you specify that the results are stored in the blob container called **adfspark** and the folder called **pyFiles/output**. As mentioned earlier, this dataset is a dummy dataset. The Spark program in this example does not produce any output. The **availability** section specifies that the output dataset is produced daily.
 
 	```JSON
 	{
