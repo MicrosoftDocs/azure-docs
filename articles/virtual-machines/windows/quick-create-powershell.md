@@ -58,7 +58,7 @@ $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location w
 -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
 ```
 
-Create a network security group and a network security group rule. The network security group secures the virtual machine using inbound and outbound rules. In this case, an inbound rule is created for port 3389, which allows incoming remote desktop connections.
+Create a network security group and a network security group rule. The network security group secures the virtual machine using inbound and outbound rules. In this case, an inbound rule is created for port 3389, which allows incoming remote desktop connections.  We also want to create an inbound rule for port 80, which allows incoming web traffic.
 
 ```powershell
 # Create an inbound network security group rule for port 3389
@@ -66,9 +66,14 @@ $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupR
 -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
 -DestinationPortRange 3389 -Access Allow
 
+# Create an inbound network security group rule for port 80
+$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
+-Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+-DestinationPortRange 80 -Access Allow
+
 # Create a network security group
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location westeurope `
--Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
+-Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 ```
 
 Create a network card for the virtual machine. The network card connects the virtual machine to a subnet, network security group, and public IP address.
@@ -104,7 +109,7 @@ New-AzureRmVM -ResourceGroupName myResourceGroup -Location westeurope -VM $vmCon
 
 After the deployment has completed, create a remote desktop connection with the virtual machine.
 
-Run the following commands to return the public IP address of the virtual machine.
+Run the following commands to return the public IP address of the virtual machine.  Make note of this IP Address so you can connect to it with your browser to test web connectivity in a future step.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
@@ -115,6 +120,20 @@ Use the following command to create a remote desktop session with the virtual ma
 ```bash 
 mstsc /v:<Public IP Address>
 ```
+
+## Install IIS via PowerShell
+
+Now that you have logged into the Azure VM, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic.  Open a PowerShell prompt and run the following command:
+
+```powershell
+Install-WindowsFeature -name Web-Server -IncludeManagementTools
+```
+
+## View the IIS welcome page
+
+With IIS installed and port 80 now open on your VM from the Internet, you can use a web browser of your choice to view the default IIS welcome page. Be sure to use the `publicIpAddress` you documented above to visit the default page. 
+
+![IIS default site](./media/quick-create-powershell/default-iis-website.png) 
 
 ## Delete virtual machine
 
