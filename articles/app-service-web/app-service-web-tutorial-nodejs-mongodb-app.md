@@ -88,7 +88,7 @@ To see what possible values you can use for `---location`, use the `az appservic
 
 Create a DocumentDB account with the [az documentdb create](/cli/azure/documentdb#create) command.
 
-The following command, please substitute your own unique DocumentDB name where you see the `<documentdb_name>` placeholder. This unique name will be used as the part of your DocumentDB endpoint (`https://<documentdb_name>.documents.azure.com/`), so the name needs to be unique across all DocumentDB accounts in Azure. 
+In the following command, please substitute your own unique DocumentDB name where you see the `<documentdb_name>` placeholder. This unique name will be used as the part of your DocumentDB endpoint (`https://<documentdb_name>.documents.azure.com/`), so the name needs to be unique across all DocumentDB accounts in Azure. 
 
 ```azurecli
 az documentdb create --name <documentdb_name> --resource-group myResourceGroup --kind MongoDB
