@@ -20,7 +20,7 @@ ms.author: radwiv;chadmat
 ---
 # How to validate VPN throughput to a virtual network
 
-A VPN gateway connection enables you to establish secure, cross-premises connectivity between your Virtual Network within Azure and your on-premises IT infrastructure.111
+A VPN gateway connection enables you to establish secure, cross-premises connectivity between your Virtual Network within Azure and your on-premises IT infrastructure.1112
 
 This article shows how to validate network throughput from the on-premises resources to an Azure virtual machine. It also provides troubleshooting guidance.
 
@@ -109,7 +109,7 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). For
 
 5. (OPTIONAL) To preserve the testing results, run this command:
 
-  ```CMD
+	```CMD
 	iperf3.exe -c IPofTheServerToReach -t 30 -p 5001 -P 32  >> output.txt
 	```
 
