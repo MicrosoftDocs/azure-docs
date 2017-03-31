@@ -97,7 +97,7 @@ Azure provides name resolution for Azure services that are installed in an Azure
 
 For more information on using a custom DNS server, see the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) document.
 
-## Secured Virtual Networks
+## Secured virtual networks
 
 The HDInsight service is a managed service, and requires access to Azure management services during provisioning and while running. Azure management performs the following services:
 
