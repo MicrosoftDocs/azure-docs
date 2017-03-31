@@ -53,7 +53,7 @@
 
 # How-to guides
 ## Create VMs
-### [VM creation overview](../virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [VM creation overview](creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Create a VM with CLI](../virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Create a VM with template](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Copy a VM](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
