@@ -1,7 +1,7 @@
 # Overview
 ## [About Functions](functions-overview.md)
 ## [Compare Serverless options](functions-compare-serverless-options.md)
-### [Choose between Flow, Logic Apps, Functions, and WebJobs](functions-compare-logic-apps-ms-flow-webjobs.md)
+## [Choose between Flow, Logic Apps, Functions, and WebJobs](functions-compare-logic-apps-ms-flow-webjobs.md)
 
 # Quickstarts
 ## [Create a function app from the Azure portal](functions-create-function-app-portal.md)
@@ -17,7 +17,6 @@
 # Tutorials
 ### [Use Azure Functions to perform a scheduled clean-up task](functions-scenario-database-table-cleanup.md)
 ### [Create an Open API definition (preview)](functions-api-definition-getting-started.md)
-#### [Open API 2.0 in Functions reference](functions-api-definition.md)
 
 # Concepts
 ## [Hosting plans](functions-scale.md)
@@ -36,7 +35,8 @@
 
 # Reference
 ## [Develop function apps](functions-reference.md)
-### [Best practices for Azure Functions](functions-best-practices.md)
+### [Open API 2.0](functions-api-definition.md)
+## [Best practices for Azure Functions](functions-best-practices.md)
 ## Bindings
 ### [DocumentDB bindings](functions-bindings-documentdb.md)
 ### [Event Hub bindings](functions-bindings-event-hubs.md)
@@ -52,7 +52,6 @@
 ### [SendGrid bindings](functions-bindings-sendgrid.md)
 ### [Timer trigger](functions-bindings-timer.md)
 ### [Twilio output binding](functions-bindings-twilio.md)
-
 ## Frameworks
 ### [C#](functions-reference-csharp.md)
 ### [F#](functions-reference-fsharp.md)
