@@ -63,7 +63,7 @@ The data flow is as follows:
 
 1. Connection is made from Spark master node to DocumentDB gateway node via pyDocumentDB.  Note, user only specifies Spark and DocumentDB connections, the fact that it connects to the respective master and gateway nodes is transparent to the user.
 2. Query is made against DocumentDB (via the gateway node) where the query subsequently runs the query against the collection's partitions in the data nodes. The response for those queries is sent back to the gateway node and that resultset is returned to Spark master node.
-3. Any subsequent queries (for example, against a Spark DataFrame) is sent to the Spark worker nodes for processing.
+3. Any subsequent queries (for example, against a Spark DataFrame) are sent to the Spark worker nodes for processing.
 
 The important call out is that communication between Spark and DocumentDB is limited to the Spark master node and DocumentDB gateway nodes.  The queries go as fast as the transport layer is between these two nodes.
 
@@ -102,11 +102,11 @@ client = document_client.DocumentClient(host, {'masterKey': masterKey}, connecti
 As noted in the code snippet:
 
 * The DocumentDB Python SDK contains the all the necessary connection parameters including the preferred locations (that is, choosing which read replica in what priority order).
-*  Just import the necessary libraries and configure your **masterKey** and **host** to create the DocumentDB *client* (**pydocumentdb.document_client**).
+*  Import the necessary libraries and configure your **masterKey** and **host** to create the DocumentDB *client* (**pydocumentdb.document_client**).
 
 
 ### Executing Spark Queries via pyDocumentDB
-The following examples use the DocumentDB instance created above via the specified read-only keys.  The following code snippet connects to the **airports.codes** collection (in the DoctorWho account as specified earlier) running a query to extract the airport cities in Washington state. 
+The following examples use the DocumentDB instance created in the previous snippet using the specified read-only keys.  The following code snippet connects to the **airports.codes** collection (in the DoctorWho account as specified earlier) running a query to extract the airport cities in Washington state. 
 
 ```
 # Configure Database and Collections
@@ -130,7 +130,7 @@ query = client.QueryDocuments(collLink, querystr, options=None, partition_key=No
 elements = list(query)
 ```
 
-Once the query has been executed via **query**, the result is a **query_iterable.QueryIterable** that is converted into a Python list. A Python list can be easily converted into a Spark DataFrame using the following code.
+Once the query has been executed via **query**, the result is a **query_iterable.QueryIterable** that is converted into a Python list. A Python list can be easily converted into a Spark DataFrame using the following code:
 
 ```
 # Create `df` Spark DataFrame from `elements` Python list
@@ -224,7 +224,7 @@ As noted in the code snippet:
 
 ### Executing Spark queries via the connector
 
-The following example uses the DocumentDB instance created above via the specified read-only keys. The following code snippet connects to the DepartureDelays.flights_pcoll collection (in the DoctorWho account as specified earlier) running a query to extract the flight delay information of flights departing from Seattle.
+The following example uses the DocumentDB instance created in the previous snippet using the specified read-only keys. The following code snippet connects to the DepartureDelays.flights_pcoll collection (in the DoctorWho account as specified earlier) running a query to extract the flight delay information of flights departing from Seattle.
 
 ```
 // Queries
@@ -342,6 +342,6 @@ If you haven't already, download the Spark to DocumentDB connector from the [azu
 * [Distributed Aggregations Examples](https://github.com/Azure/azure-documentdb-spark/wiki/Aggregations-Examples)
 * [Sample Scripts and Notebooks](https://github.com/Azure/azure-documentdb-spark/tree/master/samples)
 
-You may also want to review the [Apache Spark SQL, DataFrames and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Apache Spark on Azure HDInsight] article(https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql).
+You may also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Apache Spark on Azure HDInsight] article(https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql).
 
 
