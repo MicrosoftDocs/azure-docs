@@ -93,6 +93,12 @@ The following example creates a basic virtual machine scale set (this step might
 az vmss create --resource-group vmss-test-1 --name MyScaleSet --image UbuntuLTS --authentication-type password --admin-username azureuser --admin-password P@ssw0rd!
 ```
 
+Once the command finishes you will now have your virtual machine scale set created. You may need to get the IP address of the virtual machine so that you can connect to it. You can get a lot of different information about the virtual machine (including the IP address) with the following command. 
+
+```azurecli
+az vmss list-instance-connection-info --resource-group vmss-test-1 --name MyScaleSet
+```
+
 ## Create from PowerShell
 
 PowerShell is more complicated to use than Azure CLI. While Azure CLI provides defaults for networking-related resources (such as load balancers, IP addresses, and virtual networks), PowerShell does not. Referencing an image with PowerShell is a slightly more complicated too. You can get images with the following cmdlets:
@@ -168,3 +174,9 @@ With Visual Studio, you can create an Azure resource group project and add a vir
 ## Create from the Azure portal
 
 The Azure portal provides a convenient way to quickly create a scale set. For more information, see [How to create a virtual machine scale set with the Azure portal](virtual-machine-scale-sets-portal-create.md).
+
+## Next steps
+
+Learn more about [data disks](virtual-machine-scale-sets-attached-disks.md).
+
+Learn how to [manage your apps](virtual-machine-scale-sets-deploy-app.md).
