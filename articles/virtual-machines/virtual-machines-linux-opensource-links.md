@@ -66,7 +66,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 * [How to: Use CoreOS on Azure](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
 ## Planning
-* [Azure infrastructure services implementation guidelines](virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure infrastructure services implementation guidelines](linux/infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Selecting Linux Usernames](virtual-machines-linux-usernames.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [How to configure an availability set for virtual machines in the classic deployment model](linux/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [How to Schedule Planned Maintenance on Azure VMs](virtual-machines-linux-planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

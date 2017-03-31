@@ -1,6 +1,6 @@
 The full series of guidelines helps you understand all the different design considerations for building our your application infrastructure in Azure:
 
-* [Azure Subscription and Accounts Guidelines](../articles/virtual-machines/virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure Subscription and Accounts Guidelines](../articles/virtual-machines/linux/infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure Infrastructure Naming Guidelines](../articles/virtual-machines/linux/infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure Resource Groups Guidelines](../articles/virtual-machines/linux/infrastructure-resource-groups-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure Storage Guidelines](../articles/virtual-machines/linux/infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
