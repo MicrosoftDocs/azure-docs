@@ -57,7 +57,7 @@ Using Virtual Network to link Azure services with Azure HDInsight enables the fo
 
 ### Connect cloud resources to a local datacenter network
 
-Site-to-site configuration allows you to connect multiple resources in your datacenter to the Azure virtual network. The connectaion can be made using a hardware VPN device or the Routing and Remote Access service.
+Site-to-site configuration allows you to connect multiple resources in your datacenter to the Azure virtual network. The connection can be made using a hardware VPN device or the Routing and Remote Access service.
 
 ![diagram of site-to-site configuration](media/hdinsight-extend-hadoop-virtual-network/site-to-site.png)
 
@@ -76,26 +76,20 @@ For more information on Virtual Network features, benefits, and capabilities, se
 > [!NOTE]
 > Create the Azure Virtual Network before provisioning an HDInsight cluster, then specify the network when creating the cluster. For more information, see [Virtual Network configuration tasks](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-## Location-based virtual network
+### HDInsight requirements with Azure Virtual Networks
 
-Location-based virtual networks are not supported with HDInsight.
+* __Location-based__ virtual networks are not supported with HDInsight.
 
-## Classic and v2 virtual network
+* __Classic and v2 virtual networks__: Use the following table to determine the type of network to use based on the cluster operating system:
 
-Before creating an Azure Virtual Network, use the following table to determine the type of network to use based on the cluster operating system:
+    | HDInsight operating system | Classic Virtual Network | v2 Virtual Network |
+    | ---- | ---- | ---- |
+    | Linux | no | yes |
+    | Windows | yes | no |
 
-| HDInsight operating system | Classic Virtual Network | V2 Virtual Network |
-| ---- | ---- | ---- |
-| Linux | no | yes |
-| Windows | yes | no |
+    To access resources in an incompatible virtual network, join the two networks. For more information on connecting classic and Resource Manager Virtual Networks, see [Connecting classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
-To access resources in an incompatible virtual network, join the two networks. For more information on connecting classic and Resource Manager Virtual Networks, see [Connecting classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
-
-## Custom DNS
-
-Azure provides name resolution for Azure services that are installed in an Azure Virtual Network. However you need to use a custom DNS server for situations such as cross network domain name resolution. For example, when communicating between services located in two joined virtual networks. HDInsight supports both the default Azure name resolution and custom DNS when used with Azure Virtual Network.
-
-For more information on using a custom DNS server, see the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) document.
+* __Custom DNS__: Azure provides name resolution for Azure services that are installed in an Azure Virtual Network. This name resolution does not extend outside the virtual network. To enable name resolution for resources outside the virtual network, you must use a custom DNS server. For more information on using a custom DNS server, see the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) document.
 
 ## Secured virtual networks
 
@@ -120,7 +114,7 @@ The IP addresses that should be allowed are specific to the region that the HDIn
 | United States | West Central US | 52.161.23.15</br>52.161.10.167 | 443 |
 | &nbsp; | West US 2 | 52.175.211.210</br>52.175.222.222 | 443 |
 
-__If your region is not listed in the table__, use allow traffic to port __443__ on the following IP addresses.
+__If your region is not listed in the table__, allow traffic to port __443__ on the following IP addresses:
 
 * 168.61.49.99
 * 23.99.5.239
@@ -132,44 +126,11 @@ __If your region is not listed in the table__, use allow traffic to port __443__
 
 ### Working with HDInsight in secured virtual networks
 
-If you block internet access, you cannot use HDInsight services that are normally exposed through the public gateway for a cluster. These include Ambari and SSH. Instead, you must access these using the internal IP address of the cluster head nodes.
+If you block internet access, you cannot use HDInsight services that are normally exposed through the public gateway for a cluster. These include Ambari and SSH. Instead, you must access services using the internal IP address of the cluster head nodes.
 
 To find the internal IP address of the head nodes, use the scripts in the [Internal IPs and FQDNs](#internal-ips-and-fqdns) section.
 
-## Internal IPs and FQDNs
-
-When connecting to HDInsight using a virtual network, you can connect directly to the nodes in the cluster. Use the following scripts to determine the internal IP address and fully qualified domain names (FQDN) for the nodes in the cluster:
-
-**Azure PowerShell**
-
-```powershell
-$resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
-
-$clusterNICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName | where-object {$_.Name -like "*node*"}
-
-$nodes = @()
-foreach($nic in $clusterNICs) {
-    $node = new-object System.Object
-    $node | add-member -MemberType NoteProperty -name "Type" -value $nic.Name.Split('-')[1]
-    $node | add-member -MemberType NoteProperty -name "InternalIP" -value $nic.IpConfigurations.PrivateIpAddress
-    $node | add-member -MemberType NoteProperty -name "InternalFQDN" -value $nic.DnsSettings.InternalFqdn
-    $nodes += $node
-}
-$nodes | sort-object Type
-```
-
-__Azure CLI__
-
-```azurecli
-az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
-```
-
-> [!IMPORTANT]
-> In the Azure CLI 2.0 example, replace `<resourcegroupname>` with the name of the resource group that contains the virtual network.
-
-The scripts work by querying the virtual network interface cards (NICs) for the cluster. These exist in the resource group that contains the virtual network used by HDInsight.
-
-## Example: Secured virtual network
+### Example: Secured virtual network
 
 The following examples demonstrate how to create a Network Security Group that allows inbound traffic on port 443 from the following IP addresses:
 
@@ -179,14 +140,14 @@ The following examples demonstrate how to create a Network Security Group that a
 * 138.91.141.162
 
 > [!IMPORTANT]
-> These addresses are for regions that do not have specific IP addresses listed. Use the information in the [Secured Virtual Networks](#secured-virtual-networks) section to find the IP addresses for the region you are using.
+> These addresses are for regions that do not have specific IP addresses listed. To find the IP addresses for your region, use the information in the [Secured Virtual Networks](#secured-virtual-networks) section.
 
 These steps assume that you have already created a Virtual Network and subnet that you want to install HDInsight into. See [Create a virtual network using the Azure portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
 > [!WARNING]
 > Rules are tested against network traffic in order by __priority__. Once a rule matches the test criteria, it is applied and no more rules are tested for that request. If you have a rule that broadly blocks inbound traffic (such as a **deny all** rule), it __must__ come after the rules that allow traffic.
 >
-> For more information on Network Security Group rules, see [What is a Network Security Group?](../virtual-network/virtual-networks-nsg.md).
+> For more information on Network Security Group rules, see the [What is a Network Security Group](../virtual-network/virtual-networks-nsg.md) document.
 
 **Example: Azure Resource Management template**
 
@@ -208,7 +169,7 @@ $vnet = Get-AzureRmVirtualNetwork `
 $location = $vnet.Location
 # Get the subnet object
 $subnet = $vnet.Subnets | Where-Object Name -eq $subnetName
-# Create a new Network Security Group.
+# Create a Network Security Group.
 # And add exemptions for the HDInsight health and management services.
 $nsg = New-AzureRmNetworkSecurityGroup `
     -Name "hdisecure" `
@@ -270,7 +231,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 
 **Example: Azure CLI**
 
-1. Use the following command to create a new network security group named `hdisecure`. Replace **RESOURCEGROUPNAME** with the resource group that contains the Azure Virtual Network. Replace **LOCATION** with the location (region,) that the group was created in.
+1. Use the following command to create a new network security group named `hdisecure`. Replace **RESOURCEGROUPNAME** with the resource group that contains the Azure Virtual Network. Replace **LOCATION** with the location (region) that the group was created in.
 
     ```azurecli
     az network nsg create -g RESOURCEGROUPNAME -n hdisecure -l LOCATION
@@ -308,7 +269,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
     Once this command completes, you can successfully install HDInsight into the secured Virtual Network on the subnet used in these steps.
 
 > [!IMPORTANT]
-> Using the preceding steps only open access to the HDInsight health and management service on the Azure cloud. Any other access to the HDInsight cluster from outside the Virtual Network is blocked. You need to add additional Network Security Group rules if you wish to enable access from outside the Virtual Network.
+> Using the preceding steps only open access to the HDInsight health and management service on the Azure cloud. Any other access to the HDInsight cluster from outside the Virtual Network is blocked. To enable access from outside the virtual network, you must add additional Network Security Group rules.
 >
 > The following example demonstrates how to enable SSH access from the Internet:
 >
@@ -322,6 +283,38 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 
 For more information on Network Security Groups, see [Network Security Groups overview](../virtual-network/virtual-networks-nsg.md). For information on controlling routing in an Azure Virtual Network, see [User-defined Routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).
 
+## Retrieve internal IPs and FQDNs
+
+When connecting to HDInsight using a virtual network, you can connect directly to the nodes in the cluster. Use the following scripts to determine the internal IP address and fully qualified domain names (FQDN) for the nodes in the cluster:
+
+**Azure PowerShell**
+
+```powershell
+$resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
+
+$clusterNICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName | where-object {$_.Name -like "*node*"}
+
+$nodes = @()
+foreach($nic in $clusterNICs) {
+    $node = new-object System.Object
+    $node | add-member -MemberType NoteProperty -name "Type" -value $nic.Name.Split('-')[1]
+    $node | add-member -MemberType NoteProperty -name "InternalIP" -value $nic.IpConfigurations.PrivateIpAddress
+    $node | add-member -MemberType NoteProperty -name "InternalFQDN" -value $nic.DnsSettings.InternalFqdn
+    $nodes += $node
+}
+$nodes | sort-object Type
+```
+
+__Azure CLI__
+
+```azurecli
+az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
+```
+
+> [!IMPORTANT]
+> In the Azure CLI 2.0 example, replace `<resourcegroupname>` with the name of the resource group that contains the virtual network.
+
+The scripts work by querying the virtual network interface cards (NICs) for the cluster. The NICs exist in the resource group that contains the virtual network used by HDInsight.
 
 ## <a id="nextsteps"></a>Next steps
 
