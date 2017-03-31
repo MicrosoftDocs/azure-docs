@@ -115,10 +115,10 @@ D. *Panel D*: this panel provides data relating to each individual subscription.
   1. Select 'Monthly View'.
   2. Order Summary Details are shown by channel - CSP, Direct Enterprise, Indirect Enterprise, and Web Direct.
   3. For the 'Monthly View', the 'Order Summary' panel provides chart views of:
-    * Top 10 Orders by Market
-    * Top 10 Orders by Offer Type
-    * Orders by Azure License Type
-    * Orders by Marketplace License Type
+    - Top 10 Orders by Market
+    - Top 10 Orders by Offer Type
+    - Orders by Azure License Type
+    - Orders by Marketplace License Type
 
 ![Orders monthly view panel b][15]
 
@@ -171,10 +171,10 @@ D. *Panel D*: this panel provides data relating to each individual subscription.
   1. Select 'Monthly View'.
   2. Usage Summary Details are shown, in hours.
   3. For the 'Monthly View', the 'Usage Summary' panel provides chart views of:
-    * Top 10 Usage by Market
-    * Top 10 Usage by Offer Type
-    * Usage by Azure License Type
-    * Usage by Marketplace License Type
+    - Top 10 Usage by Market
+    - Top 10 Usage by Offer Type
+    - Usage by Azure License Type
+    - Usage by Marketplace License Type
 >Data shown will reflect filters applied using the slicers in Panel A - for instance, charts are shown for Normalized Usage.
 
 ![Usage monthly view panel b][22]
@@ -189,7 +189,7 @@ D. *Panel D*: this panel provides data relating to each individual subscription.
   ![Usage monthly view panel c subject area dropdown][17]
   3. Use the filter symbol to select 'All' data or 'Top 10' for all of your selections.  Default is 'Top 10'.
 
-    ![Usage monthly view panel c filter symbol][18]
+  ![Usage monthly view panel c filter symbol][18]
   4. Roll-over each bar in the charts you have selected to reveal the underlying data.
   5. Toggle the '+' symbol to show data beneath each of the charts you have selected to view.
 
@@ -203,7 +203,7 @@ D. *Panel D*: this panel provides data relating to each individual subscription.
   1. The 'Usage Detail' panel presents detailed order data.
   2. Use the filters at the top of each column to filter the data using a wide range of commands and values.
 
-    ![Usage monthly view panel d filters][20]
+  ![Usage monthly view panel d filters][20]
   3. Select the number of items per page you wish to view - 10, 20, or 50.
   4. Download the data in Excel or csv format for offline analysis.
 
