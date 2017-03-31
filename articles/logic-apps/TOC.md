@@ -47,7 +47,7 @@
 ### [X12 enterprise integration](logic-apps-enterprise-integration-x12.md)
 ### [X12 encoding](logic-apps-enterprise-integration-x12-encode.md)
 ### [X12 decoding](logic-apps-enterprise-integration-x12-decode.md)
-### [Cross region DR](logic-apps-enterprise-integration-b2b-business-continuity.md)
+### [Disaster recovery](logic-apps-enterprise-integration-b2b-business-continuity.md)
 
 ## Access on-premises data
 ### [Connect to on-premises data](logic-apps-gateway-connection.md)
