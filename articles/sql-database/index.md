@@ -43,7 +43,7 @@ Learn how to use SQL Database, a relational database-as-a-service in the cloud b
     <div class="column50">
         <h2>Video Training</h2>
         <a href="https://azure.microsoft.com/en-us/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
-        <img src="media/index/i_video.svg" height="160" width="360" alt="" />
+        <img src="media/index/video-training-sql.png" height="160" width="360" alt="" />
         <p>Free Pluralsight video training – Manage Azure SQL Databases</a></p>
     </div>
 </div>

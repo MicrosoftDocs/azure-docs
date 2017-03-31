@@ -744,7 +744,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3>Command line tools</h3>
+                                                <h3>Command-Line Tools</h3>
                                                 <div class="ico48Link">
                                                     <a href="/cli/azure/get-started-with-azure-cli">
                                                         <img src="media/index/azure_dev-7.svg" alt="">
@@ -772,7 +772,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 padding:8px 16px;
                                 color:white;
                                 cursor: pointer;
-                                font-size: 14px;">View all services &gt;
+                                font-size: 14px;">View all services <span class="font-size: 18px;"&gt;</span>
                             </button>
                             </a>
                         </ul>
@@ -2739,7 +2739,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                             </li>
                             <li>
                                 <div class="container">
-                                    <h2>Command Line Interface (CLI)</h2>
+                                    <h2>Command-Line Interface (CLI)</h2>
                                 </div>
                             </li>
                             <li>
