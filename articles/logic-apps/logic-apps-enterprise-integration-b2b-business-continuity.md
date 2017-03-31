@@ -37,7 +37,7 @@ B2B workloads involve money transactions like orders, invoices.  For business, i
     >
 
 ## Establish a connection from primary to secondary 
-Create a Logic App in the secondary region to pull the primary region run status.  It should have a **trigger** and an **action**.  The trigger should connect to primary region integration account and the action should connect to secondary region integration account.  Based on the time interval, the trigger polls the primary region run status table pulls the new records if any and action updates them to secondary region integration account. This helps to get incremental runtime status from primary region to secondary region.
+To pull the run status from the primary region, create a Logic App in the secondary region.  It should have a **trigger** and an **action**.  The trigger should connect to primary region integration account and the action should connect to secondary region integration account.  Based on the time interval, the trigger polls the primary region run status table pulls the new records if any and action updates them to secondary region integration account. This helps to get incremental runtime status from primary region to secondary region.
 
 Business continuity in Logic Apps integration account is designed to support based on B2B protocols - X12, AS2, and EDIFACT.  To find detailed steps, select respective links.
 
@@ -46,7 +46,7 @@ Business continuity in Logic Apps integration account is designed to support bas
 * EDIFACT (coming soon)
 
 ## Fail over to secondary region during a disaster event
-The recommendation is to deploy all primary region resources (for example SQL DB, APIM, Logic Apps etc.) in the secondary region as well.  During a disaster event, when the primary region is not available for business continuity, direct traffic to the secondary region. Secondary region helps recover business functions quickly to meet recovery time/point objectives (RPO/RTO) as agreed with their partners.  Also, minimizes efforts to fail over from one region to another region. 
+The recommendation is to deploy all primary region resources (for example SQL Azure or DocumentDB databases, or Service Bus / Event Hubs used for messaging, APIM, Logic Apps) in the secondary region as well.  During a disaster event, when the primary region is not available for business continuity, direct traffic to the secondary region. Secondary region helps recover business functions quickly to meet recovery time/point objectives (RPO/RTO) as agreed with their partners.  Also, minimizes efforts to fail over from one region to another region. 
 
 There is an expected latency while copying control numbers from primary to secondary region.  To avoid sending duplicate generated control numbers to partners during a disaster event, it is recommended to bump up control numbers in the **secondary region agreements** using [PowerShell cmdlets](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery).
  
@@ -63,7 +63,7 @@ Business continuity for EDI X12 documents is designed based on control numbers
 * Control numbers generated (outbound messages) and send to partners  
     
     > [!Note]
-    > You can also use [X12 quick start template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-x12-disaster-recovery-replication) to create Logic Apps.  The prerequisites are, you should create primary integration account and secondary integration account.  The template helps create 2 Logic Apps, one for received control number and another for generated control number.  Respective triggers and actions are created in the Logica Apps, connects the trigger to primary integration account and action to secondary integration account.
+    > You can also use [X12 quick start template](https://azure.microsoft.com/en-us/resources/templates/201-logic-app-x12-disaster-recovery-replication/) to create Logic Apps.  Creating primary and secondary integration accounts are prerequisites to use the template.  The template helps create 2 Logic Apps, one for received control number and another for generated control number.  Respective triggers and actions are created in the Logic Apps, connects the trigger to primary integration account and action to secondary integration account.
     > 
     >
 
@@ -122,4 +122,4 @@ Business continuity for EDI X12 documents is designed based on control numbers
 9. Based on the time interval, the trigger polls the primary region received control number table, pulls the new records and actions updates them to secondary region integration account.  If they are no updates, the trigger status shows as skipped.  
 ![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN8.png)
 
-Based on the time interval, the inremental runtime status replicates from primary region to secondary region.  During a disaster event, when the primary region is not available, direct traffic to the secondary region for for business continuity.
+Based on the time interval, the incremental runtime status replicates from primary region to secondary region.  During a disaster event, when the primary region is not available, direct traffic to the secondary region for business continuity.
