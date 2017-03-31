@@ -39,7 +39,7 @@ The following diagrams shows a conceptual view of the behavior and data flow wit
 
 After the Hybrid Runbook Worker on the managed computer starts a scan for update compliance, the OMS agent forwards the information in bulk to OMS. The compliance information is then processed and summarized in the dashboards included in the solution or searchable using user-defined or pre-defiend queries.  The solution reports how up-to-date the computer is based on what source you are configured to synchronize with.  If the Windows computer is configured to report to WSUS, depending on when WSUS last synchronized with Microsoft Update, the results may differ from what Microsoft Updates shows.  The same for Linux computers that are configured to report to a local repo versus a public repo.   
 
-You can deploy and install software updates on computers that require the updates by creating a scheduled deployment.  Updates classified as *Optional* are not included in the deployment scope for Windows computers, only required updates.  The scheduled deployment defines what target computers will receive the applicable updates, either by explicitly specifying computers or selecting a [computer group](..log-analytics/log-analytics-computer-groups.md) that is based off of log searches of a particular set of computers.  You also specify a schedule to approve and designate a period of time when updates are allowed to be installed within.  Updates are installed by runbooks in Azure Automation.  You cannot view these runbooks, and they don’t require any configuration.  When an Update Deployment is created, it creates a schedule that starts a master update runbook at the specified time for the included computers.  This master runbook starts a child runbook on each agent that performs installation of required updates.       
+You can deploy and install software updates on computers that require the updates by creating a scheduled deployment.  Updates classified as *Optional* are not included in the deployment scope for Windows computers, only required updates.  The scheduled deployment defines what target computers will receive the applicable updates, either by explicitly specifying computers or selecting a [computer group](../log-analytics/log-analytics-computer-groups.md) that is based off of log searches of a particular set of computers.  You also specify a schedule to approve and designate a period of time when updates are allowed to be installed within.  Updates are installed by runbooks in Azure Automation.  You cannot view these runbooks, and they don’t require any configuration.  When an Update Deployment is created, it creates a schedule that starts a master update runbook at the specified time for the included computers.  This master runbook starts a child runbook on each agent that performs installation of required updates.       
 
 At the date and time specified in the update deployment, the target computers executes the deployment in parallel.  A scan is first performed to verify the updates are still required and installs them.  It is important to note for WSUS client computers, if the updates are not approved in WSUS, the update deployment will fail.  The results of the applied updates are forwarded to OMS to be processed and summarized in the dashboards or by the searching the events.     
 
@@ -90,7 +90,7 @@ Alternatively, you can review your configuration on a Windows computer by openin
 
 Newly added Linux agents will show as **Updated** after an assessment has been performed, and this process can take up to 6 hours. 
 
-To confirm an Operations Manager management group is communicating with OMS, see [Validate Operations Manager Integration with OMS](..log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
+To confirm an Operations Manager management group is communicating with OMS, see [Validate Operations Manager Integration with OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
 ## Management packs
 If your System Center Operations Manager management group is connected to your OMS workspace, then the following management packs will be installed in Operations Manager after you add this solution. There is no configuration or maintenance of these management packs required. 
@@ -118,8 +118,16 @@ For each managed Windows computer, a scan is performed twice per day.  When an u
 For each managed Linux computer, a scan is performed every 3 hours.  
 
 ## Using the solution
-When you add the Update Management solution to your OMS workspace, the **Update Management** tile will be added to your OMS dashboard. This tile displays a count and graphical representation of the number of computers in your environment currently requiring system updates.<br><br>
+When you add the Update Management solution to your OMS workspace, the **Update Management** tile will be added to your OMS dashboard. This tile displays a count and graphical representation of the number of computers in your environment and their update compliance.<br><br>
 ![Update Management Summary Tile](media/oms-solution-update-management/update-management-summary-tile.png)  
+
+The **Not Assessed** status returns how many agent-managed computers are sending a heartbeat to the OMS serice, but have not sent or are not sending update assessment data.  This can happen for a number of reasons:
+
+* No computers connected or sending heartbeat
+* At least one computer is connected, but hasn't sent Update Assessment data yet
+* At least one computer sending Update Assessment data
+
+This status can be influenced by latency between when you add a new computer and when the completed compliance assessment is forwarded to the service.  When you add a new computer, it sends a heartbeat within the first 10 minutes, but the first compliance assessment scan may occur within 2 hours.  
 
 ## Viewing Update Assessments
 Click on the **Update Management** tile to open the **Update Management** dashboard.<br><br> ![Update Management Summary Dashboard](./media/oms-solution-update-management/update-management-dashboard.png)<br> 
@@ -129,7 +137,7 @@ This dashboard provides a detailed breakdown of update status categorized by typ
 You can run a log search that returns all records by clicking on the specific tile or to run a query of a particular category and pre-defined criteria , select one from the list  available under the **Common Update Queries** column.    
 
 ## Installing updates
-Once updates have been assessed for all of the Linux and Windows computers in your workspace, you can have required updates installed by creating an *Update Deployment*.  An Update Deployment is a scheduled installation of required updates for one or more  computers.  You specify the date and time for the deployment in addition to a computer or group of computers that should be included in the scope of a deployment.  To learn more about computer groups, see [Computer groups in Log Analytics](../log-anlaytics/log-analytics-computer-groups.md).  
+Once updates have been assessed for all of the Linux and Windows computers in your workspace, you can have required updates installed by creating an *Update Deployment*.  An Update Deployment is a scheduled installation of required updates for one or more  computers.  You specify the date and time for the deployment in addition to a computer or group of computers that should be included in the scope of a deployment.  To learn more about computer groups, see [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md).  
 
 > [!NOTE]
 > Windows VMs deployed from the Azure Marketplace by default are set to receive automatic updates from Windows Update Service.  This behavior does not change after adding this solution or Windows VMs to your workspace.  If you do not actively managed updates with this solution, the default behavior (automatically apply updates) will apply.  
@@ -215,7 +223,6 @@ A record with a type of **Update** is created for each update that is either ins
 | UpdateID |GUID to uniquely identify the update. |
 | UpdateState |Specifies whether the update is installed on this computer.<br>Possible values are:<br>- Installed - The update is installed on this computer.<br>- Needed - The update is not installed and is needed on this computer. |
 
-<br>
 When you perform any log search that returns records with a type of **Update** you can select the **Updates** view which displays a set of tiles summarizing the updates returned by the search. You can click on the entries in the **Missing and applied updates** and **Required and optional updates** tiles to scope the view to that set of updates. Select the **List** or **Table** view to return the individual records.<br> 
 
 ![Log Search Update View with Record Type Update](./media/oms-solution-update-management/update-la-view-updates.png)  
