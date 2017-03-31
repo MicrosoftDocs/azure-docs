@@ -1,5 +1,5 @@
 ---
-title: 'NoSQL tutorial: Stellar graph | Microsoft Docs'
+title: 'NoSQL tutorial: Azure Stellar graph | Microsoft Docs'
 description: A NoSQL tutorial that creates an online database and C# console application using the DocumentDB .NET SDK. DocumentDB is a NoSQL database for JSON.
 keywords: nosql tutorial, online database, c# console application
 services: documentdb

@@ -1,5 +1,5 @@
 ---
-title: What are Stellar graph databases? | Microsoft Docs
+title: What are Azure Stellar graph databases? | Microsoft Docs
 description: Learn about Azure Stellar graph databases.
 services: documentdb
 author: mimig1

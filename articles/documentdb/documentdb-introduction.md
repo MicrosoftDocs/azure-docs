@@ -1,6 +1,6 @@
 ---
-title: Introduction to DocumentDB, a JSON database | Microsoft Docs
-description: Learn about Azure DocumentDB, a NoSQL JSON database. This document database is built for big data, elastic scalability, and high availability.
+title: Introduction to Azure Stellar | Microsoft Docs
+description: Learn about Azure Stellar. This document database is built for big data, elastic scalability, and high availability.
 keywords: json database, document database
 services: documentdb
 author: mimig1
@@ -23,8 +23,6 @@ ms.author: mimig
 Stellar is a fully managed NoSQL database service built for fast and predictable performance, high availability, elastic scaling, global distribution, and ease of development. Stellar is a multi-model NoSQL database that provides the capabilities previously offered in Azure DocumentDB, in addition to premium tables for key/value storage (in preview), and graph database support (in preview). 
 
 *To be reworked: As a schema-free NoSQL database, DocumentDB provides rich and familiar SQL query capabilities with consistent low latencies on JSON data - ensuring that 99% of your reads are served under 10 milliseconds and 99% of your writes are served under 15 milliseconds. These unique benefits make DocumentDB a great fit for web, mobile, gaming, and IoT, and many other applications that need seamless scale and global replication.*
-
-## 
 
 ## How can I learn about DocumentDB?
 A quick way to learn about DocumentDB and see it in action is to follow these three steps: 

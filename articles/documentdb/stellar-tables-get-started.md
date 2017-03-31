@@ -1,5 +1,5 @@
 ---
-title: 'NoSQL tutorial: Key/Value table database | Microsoft Docs'
+title: 'NoSQL tutorial: Azure Stellar Key/Value table database | Microsoft Docs'
 description: A NoSQL tutorial that creates an online database and C# console application using the DocumentDB .NET SDK. DocumentDB is a NoSQL database for JSON.
 keywords: nosql tutorial, online database, c# console application
 services: documentdb
