@@ -412,7 +412,7 @@ For more information, see the following documentation:
 * SAP Note with information about SAPOSCOL on Linux: [SAP Note 1102124](https://launchpad.support.sap.com/#/notes/1102124/E).
 * Key monitoring metrics for SAP on Microsoft Azure: [SAP Note 2178632](https://launchpad.support.sap.com/#/notes/2178632/E).
 * Information about Azure Resource Manager: [Azure Resource Manager overview](../../../azure-resource-manager/resource-group-overview.md).
-* Information about deploying Linux VMs by using templates: [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../../virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Information about deploying Linux VMs by using templates: [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../../linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Comparison of Azure Resource Manager and classic deployment models: [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../../../resource-manager-deployment-model.md).
 
 ## SAP software downloads

@@ -254,7 +254,7 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-azure-resource-manager-architecture]:../../resource-manager-deployment-model.md
 [virtual-machines-azurerm-versus-azuresm]:../../resource-manager-deployment-model.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../virtual-machines-windows-classic-configure-oracle-data-guard.md
-[virtual-machines-linux-cli-deploy-templates]:../virtual-machines-linux-cli-deploy-templates.md (Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI)
+[virtual-machines-linux-cli-deploy-templates]:../linux/cli-deploy-templates.md (Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI)
 [virtual-machines-deploy-rmtemplates-powershell]:../virtual-machines-windows-ps-manage.md (Manage virtual machines using Azure Resource Manager and PowerShell)
 [virtual-machines-linux-agent-user-guide]:../linux/agent-user-guide.md
 [virtual-machines-linux-agent-user-guide-command-line-options]:../linux/agent-user-guide.md#command-line-options
