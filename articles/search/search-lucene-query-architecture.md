@@ -40,7 +40,7 @@ The diagram below illustrates processing and execution of a search request.
 | Key components | Functional description | 
 |----------------|------------------------|
 |**Query parsers** | Separate query terms from query operators. Creates the query structure (a query tree) to be sent to the search engine. Azure Search supports two kinds of query syntax (simple and full) for different types of queries.|
-|**Analyzers** | Perform lexical analysis on query terms. This proces can involve transforming, removing, or expanding of query terms. Azure Search offers a collection predefined analyzers, inluding language analyzers, and allows defining custom analyzers.|
+|**Analyzers** | Perform lexical analysis on query terms. This proces can involve transforming, removing, or expanding of query terms. Azure Search offers a collection of predefined analyzers, inluding language analyzers, and allows defining custom analyzers.|
 |**Inverted index** | An efficient data structure used to store and organize searchable terms extracted from indexed documents. |
 |**Search engine** | Rtrieves and scores matching documents based on the contents of the inverted index. |
 
