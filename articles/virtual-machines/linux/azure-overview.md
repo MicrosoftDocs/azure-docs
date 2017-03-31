@@ -129,7 +129,7 @@ The VM is now running on Azure and you are ready to log in.  Using passwords to 
 * [Create a Fully Qualified Domain Name in the Azure portal](../virtual-machines-linux-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Containers
-* [Virtual Machines and Containers in Azure](../virtual-machines-linux-containers.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Virtual Machines and Containers in Azure](containers.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure Container Service introduction](../../container-service/container-service-intro.md)
 * [Deploy an Azure Container Service cluster](../../container-service/container-service-deployment.md)
 
