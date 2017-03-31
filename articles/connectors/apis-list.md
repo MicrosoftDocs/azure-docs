@@ -95,6 +95,23 @@ More specifically, you can look up customer data from a SQL database when proces
 Or, you might need to write, update, or delete data in a destination table. 
 Actions map to operations that are defined in the Swagger metadata.
 
+## Custom connectors and certification for Microsoft Azure
+
+Don't see a connector that you want to use, or want to create your own? You can 
+[extend the Logic Apps platform](../logic-apps/logic-apps-create-api-app.md) 
+and create API Apps that call into APIs or systems that aren't available as out-of-the-box connectors. 
+Also, you can submit your API Apps for Microsoft Azure certification, 
+and then make them available through Azure. Learn more about getting your solutions 
+[Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
+
+## Get help
+
+To ask questions, answer questions, and see what other Azure Logic Apps users are doing, visit the 
+[Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
+To help improve Logic Apps and connectors, vote on or submit ideas at the 
+[Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+
 ## Next Steps
 * [Create your first logic app](../logic-apps/logic-apps-create-a-logic-app.md)
 * [Create custom APIs for logic apps](../logic-apps/logic-apps-create-api-app.md)

@@ -187,10 +187,11 @@ This connector's triggers and actions can return one or more of these HTTP statu
 
 ## Get help
 
-To ask questions, answer questions, and see what other Azure Logic Apps users are doing, 
-visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+To ask questions, answer questions, and see what other Azure Logic Apps users are doing, visit the 
+[Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-To help improve Logic Apps and connectors, vote on or submit ideas at the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+To help improve Logic Apps and connectors, vote on or submit ideas at the 
+[Logic Apps user feedback site](http://aka.ms/logicapps-wish).
 
 ## Next steps
 
