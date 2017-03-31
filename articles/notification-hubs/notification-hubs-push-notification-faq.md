@@ -61,7 +61,7 @@ Go to the **[Azure portal]** > **Notification Hubs Namespaces** or **Notificatio
 * If your device count exceeds the limit of the tier you're downgrading to, you need to delete devices before you downgrade.
 
 
-## Design and Development
+## Design and development
 ### Which server-side platforms do you support?
 Server SDKs are available for .NET, Java, Node.js, PHP, and Python. Notification Hubs APIs are based on REST interfaces, so you can work directly with REST APIs if you're using different platforms or do not want extra dependency. For more information, go to the [Notification Hubs REST APIs] page.
 
@@ -178,7 +178,7 @@ There will be a time period when devices with unopened apps won't receive notifi
 ### Is there audit log capability?
 All Notification Hubs management operations go to operation logs, which are exposed in the [Azure classic portal].
 
-## Monitoring and Troubleshooting
+## Monitoring and troubleshooting
 ### What troubleshooting capabilities are available?
 Azure Notification Hubs provides several features for troubleshooting, particularly for the most common scenario of dropped notifications. For details, see the [Notification Hubs troubleshooting] white paper.
 
