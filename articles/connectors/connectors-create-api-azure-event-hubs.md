@@ -2,6 +2,7 @@
 title: Set up event monitor with Azure Event Hubs for Azure Logic Apps | Microsoft Docs
 description: Monitor data streams to receive events and send events for Azure Logic Apps with Azure Event Hubs
 services: logic-apps
+keywords: data stream, event monitor, event hubs
 author: ecfan
 manager: anneta
 editor: ''
@@ -13,8 +14,7 @@ ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: integration
-keywords: data stream, event monitor, event hubs
+ms.workload: na
 ms.date: 03/31/2017
 ms.author: estfan; LADocs
 ---
