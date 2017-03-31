@@ -1,5 +1,5 @@
 ---
-title: High-performance Premium Storage and Azure Managed Disks for VMs | Microsoft Docs
+title: High-performance Premium Storage and Azure managed disks for VMs | Microsoft Docs
 description: Learn about high-performance Premium Storage and managed disks for Azure VMs. Azure DS-series, DSv2-series, GS-series, and Fs-series VMs support Premium Storage.
 services: storage
 documentationcenter: ''
@@ -314,7 +314,7 @@ For regional disaster recovery, you must back up your VM disks in a different re
 To create a backup job with time-based backups, easy VM restoration, and backup retention policies, use Azure Backup. You can use Backup both with unmanaged and managed disks. For more information, see [Azure Backup for VMs with unmanaged disks](../backup/backup-azure-vms-first-look-arm.md) and [Azure Backup for VMs with managed disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
 
 ## Next steps
-For more information about Premium Storage, see the following articles:
+For more information about Premium Storage, see the following articles.
 
 ### Design and implement with Premium Storage
 * [Design for performance with Premium Storage](storage-premium-storage-performance.md)
