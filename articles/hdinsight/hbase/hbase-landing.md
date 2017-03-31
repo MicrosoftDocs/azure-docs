@@ -16,7 +16,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: arijitt
-
 ---
+
 # HBase Troubleshooting Guide: Solutions to common problems with HBase on Azure HDInsight
 Use the HBase troubleshooting guide for solving common HBase problems on Azure HDInsight platform.
+
+#### [Why is the HBase Master (HMaster) failing to startup?](hbase-master-not-starting-up.md)

@@ -25,10 +25,10 @@ Use the Spark troubleshooting guide for solving common Spark problems on Azure H
 
 #### [How do I configure through Ambari the amount of memory and number of cores that a Spark application can use on HDInsight clusters?](spark-application-configuration-through-ambari.md) 
 
-#### How do I configure the amount of memory and number of cores that spark-shell can use at launch time on HDInsight clusters? 
+#### [How do I configure the amount of memory and number of cores that spark-shell can use at launch time on HDInsight clusters?](spark-shell-configuration.md)
 
-#### How do I configure at submit time through spark-submit the amount of memory and number of cores that a Spark application can use on HDInsight clusters? 
+#### [How do I configure at submit time through spark-submit the amount of memory and number of cores that a Spark application can use on HDInsight clusters?](spark-application-configuration-through-spark-submit.md)
 
-#### How do I configure at submit time through LIVY the amount of memory and number of cores that a Spark application can use on HDInsight clusters? 
+#### [How do I configure at submit time through LIVY the amount of memory and number of cores that a Spark application can use on HDInsight clusters?](spark-application-configuration-through-livy.md)
 
-#### How do I configure the amount of memory and number of cores that a Spark application can use when using Jupyter notebook on HDInsight clusters? 
+#### [How do I configure the amount of memory and number of cores that a Spark application can use when using Jupyter notebook on HDInsight clusters?](spark-application-configuration-through-jupyter.md)
