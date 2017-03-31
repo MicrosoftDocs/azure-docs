@@ -76,11 +76,10 @@ The objective of this section is to outline how to enable users to authenticate 
   1. In the **Replicon Sign On URL** textbox, type your Replicon tenant URL (e.g.: *https://na2.replicon.com/company/saml2/sp-sso/post*).
   2. In the **Replicon Reply URL** textbox, type your Replicon **AssertionConsumerService** URL(e.g.: *https://global.replicon.com/!/saml2/company/sso/post*).  
       
-    >[!NOTE]
-    >You can get the URL from the Replicon metadata at:
-    >**https://global.replicon.com/!/saml2/\<YourCompanyKey\>**.
-    > 
-    > 
+     >[!NOTE]
+     >You can get the URL from the Replicon metadata at: **https://global.replicon.com/!/saml2/\<YourCompanyKey\>**.
+     > 
+     > 
  
   3. Click **Next**.
 
