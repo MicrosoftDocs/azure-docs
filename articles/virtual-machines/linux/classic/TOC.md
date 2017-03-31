@@ -10,7 +10,7 @@
 ## [Create SSH keys](../../virtual-machines-linux-mac-create-ssh-keys.md)
 
 # How to
-## [Compute](../../virtual-machines-linux-intro-on-azure.md)
+## [Compute](../intro-on-azure.md)
 ### [Create a custom VM](create-custom.md)
 ### [Capture a VM](capture-image.md)
 ### [Use Remote Desktop with a Linux VM](remote-desktop.md)
