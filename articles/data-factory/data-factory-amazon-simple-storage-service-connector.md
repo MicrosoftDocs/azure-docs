@@ -159,7 +159,7 @@ For a full list of sections & properties available for defining activities, see 
 | recursive |Specifies whether to recursively list S3 objects under the directory. |true/false |No |
 
 ## Supported file and compression formats
-See [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) article.
+See [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md) article on details.
 
 ## JSON example: Copy data from Amazon S3 to Azure Blob
 This sample shows how to copy data from an Amazon S3 to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.

@@ -159,7 +159,7 @@ For Copy Activity, when source is of type **FileSystemSource** the following pro
 | recursive |Indicates whether the data is read recursively from the sub folders or only from the specified folder. |True, False (default) |No |
 
 ## Supported file and compression formats
-See [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) article.
+See [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md) article on details.
 
 ## JSON example: Copy data from on-premises HDFS to Azure Blob
 This sample shows how to copy data from an on-premises HDFS to Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.  

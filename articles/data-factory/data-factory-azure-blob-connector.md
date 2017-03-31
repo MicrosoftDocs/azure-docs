@@ -24,7 +24,7 @@ This article explains how to use the Copy Activity in Azure Data Factory to move
 You can copy data from any supported source data store to Azure Blob Storage or from Azure Blob Storage to any supported sink data store. For a list of data stores supported as sources or sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table.
 
 > [!IMPORTANT]
-> The Copy Activity supports copying data from/to both general-purpose Azure Storage accounts and Hot/Cool Blob storage. The activity supports reading from block, append, or page blobs, but supports writing to only block blobs. Azure Premium Storage is not supported as a sink because it is backed by page blobs.
+> The Copy Activity supports copying data from/to both general-purpose Azure Storage accounts and Hot/Cool Blob storage. The activity supports **reading from block, append, or page blobs**, but supports **writing to only block blobs**. Azure Premium Storage is not supported as a sink because it is backed by page blobs.
 >
 
 ## Getting started
@@ -148,7 +148,7 @@ This section describes the resulting behavior of the Copy operation for differen
 | false |mergeFiles |For a source folder Folder1 with the following structure:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>the target folder Folder1 is created with the following structure<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 contents are merged into one file with auto-generated file name. auto-generated name for File1<br/><br/>Subfolder1 with File3, File4, and File5 are not picked up. |
 
 ## Supported file and compression formats
-See [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) article.
+See [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md) article on details.
 
 ## JSON examples
 The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure Blob Storage and Azure SQL Database. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
