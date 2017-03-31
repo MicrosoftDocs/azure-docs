@@ -34,10 +34,10 @@ Under specific conditions, if the password is updated, the Synchronization Servi
 
 You may see one or more of the following:
 
-- Under Windows Service Control Manager, if you try to start the Synchronization Service and it cannot retrieve the encryption key, it fails with error “Windows could not start the Microsoft Azure AD Sync on Local Computer. For more information, review the System Event log. If this is a non-Microsoft service, contact the service vendor, and refer to service-specific error code -21451857952.”
-- Under Windows Event Viewer, the application event log contains an error with Event ID 6028 and error message *“The server encryption key cannot be accessed.”*
-- If you try to start the Synchronization Service in Windows Service Control Manager, you receive the error "Windows could not start the Microsoft Azure AD Sync service on Local Computer. Error 1069: The service did not start due to a logon failure."
-- Under Windows Event Viewer, the system event log contains an error with Event ID 7038 and message “The ADSync service was unable to log on as with the currently configured password due to the following error: The user name or password is incorrect."
+- Under Windows Service Control Manager, if you try to start the Synchronization Service and it cannot retrieve the encryption key, it fails with error “**Windows could not start the Microsoft Azure AD Sync on Local Computer. For more information, review the System Event log. If this is a non-Microsoft service, contact the service vendor, and refer to service-specific error code **-21451857952****.”
+- Under Windows Event Viewer, the application event log contains an error with **Event ID 6028** and error message *“**The server encryption key cannot be accessed.**”*
+- If you try to start the Synchronization Service in Windows Service Control Manager, you receive the error "**Windows could not start the Microsoft Azure AD Sync service on Local Computer**". **Error 1069: The service did not start due to a logon failure.**"
+- Under Windows Event Viewer, the system event log contains an error with **Event ID 7038** and message “**The ADSync service was unable to log on as with the currently configured password due to the following error: The user name or password is incorrect.**"
 
 ### What to do if you need to abandon the encryption key
 
