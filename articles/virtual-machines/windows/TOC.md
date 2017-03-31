@@ -21,8 +21,8 @@
 
 # Concepts
 ## [Regions and availability](regions-and-availability.md)
-## [VM storage](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [VM networking](network-overview.md)
+## [Storage](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Setworking](network-overview.md)
 ## [VM Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Containers](containers.md)
 ## [Resource Manager](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -31,7 +31,9 @@
 ## [Azure Windows agent](agent-user-guide.md)
 ## [Azure Security Center](../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Disaster recovery](../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Azure planned maintenance](planned-maintenance.md)
+## [Planned maintenance](planned-maintenance.md)
+### [Preserving maintenance](preserving-maintenance.md)
+### [Restarting maintenance](impactful-maintenance.md)
 ### [Schedule](planned-maintenance-schedule.md)
 ## [VM sizes](sizes.md)
 ### [General purpose](sizes-general.md)
