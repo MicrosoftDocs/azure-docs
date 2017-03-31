@@ -48,7 +48,7 @@ The two new regions of Canada Central and Canada East are not automatically regi
 Yes, this is now possible. The VM first needs to be stopped deallocated. Then you can add or remove a NIC (unless it's the last NIC on the VM). 
 
 ## Are there any computer name requirements?
-Yes. The computer name can be a maximum of 64 characters in length. See [Infrastructure naming guidelines](../virtual-machines-linux-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information around naming your resources.
+Yes. The computer name can be a maximum of 64 characters in length. See [Infrastructure naming guidelines](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information around naming your resources.
 
 ## What are the username requirements when creating a VM?
 Usernames must be 1 - 64 characters in length.
