@@ -81,7 +81,7 @@
 ### [Create SSH keys on Linux and Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Detailed steps](create-ssh-keys-detailed.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Use SSH keys with Windows for Linux VMs](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Install and configure Remote Desktop to connect to a Linux VM](../virtual-machines-linux-use-remote-desktop.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Install and configure Remote Desktop to connect to a Linux VM](use-remote-desktop.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Manage VM images
 ### [Find marketplace VM images](cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
