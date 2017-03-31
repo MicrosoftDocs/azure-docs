@@ -23,7 +23,7 @@ ms.author: chrande; glenga
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and code Azure Service Bus bindings in Azure Functions. 
-Azure Functions supports trigger and output bindings for Notification Hubs queues and topics.
+Azure Functions supports trigger and output bindings for Service Bus queues and topics.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -32,7 +32,7 @@ Azure Functions supports trigger and output bindings for Notification Hubs queue
 ## Service Bus trigger
 Use the Service Bus trigger to respond to messages from a Service Bus queue or topic. 
 
-The Notification Hubs queue and topic triggers to a function use the following JSON objects in the `bindings` array of function.json:
+The Service Bus queue and topic triggers to a function use the following JSON objects in the `bindings` array of function.json:
 
 * *queue* trigger:
 
@@ -63,7 +63,7 @@ The Notification Hubs queue and topic triggers to a function use the following J
 
 Note the following:
 
-* For `connection`, [create an app setting in your function app]() that contains the connection string to your Service Hub namespace, then specify the 
+* For `connection`, [create an app setting in your function app]() that contains the connection string to your Service Bus namespace, then specify the 
   name of the app setting in the `connection` property in your trigger. You obtain the connection string by following the steps shown at 
   [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
   The connection string must be for a Service Bus namespace, not limited to a specific queue or topic.
@@ -89,7 +89,7 @@ Note the following:
 <a name="triggerusage"></a>
 
 ## Trigger usage
-This section shows you how to use your Service Hub trigger in your function code. 
+This section shows you how to use your Service Bus trigger in your function code. 
 
 In C# and F#, the Service Bus trigger message can be deserialized to any of the following input types:
 
@@ -164,7 +164,7 @@ module.exports = function(context, myQueueItem) {
 <a name="output"></a>
 
 ## Service Bus output binding
-The Notification Hubs queue and topic output for a function use the following JSON objects in the `bindings` array of function.json:
+The Service Bus queue and topic output for a function use the following JSON objects in the `bindings` array of function.json:
 
 * *queue* output:
 
@@ -194,7 +194,7 @@ The Notification Hubs queue and topic output for a function use the following JS
 
 Note the following:
 
-* For `connection`, [create an app setting in your function app]() that contains the connection string to your Service Hub namespace, then specify the 
+* For `connection`, [create an app setting in your function app]() that contains the connection string to your Service Bus namespace, then specify the 
   name of the app setting in the `connection` property in your output binding. You obtain the connection string by following the steps shown at 
   [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
   The connection string must be for a Service Bus namespace, not limited to a specific queue or topic.
