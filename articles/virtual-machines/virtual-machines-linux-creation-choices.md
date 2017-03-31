@@ -58,7 +58,7 @@ az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  –
       --parameters @myparameters.json
     ```
     
-* [Create a complete Linux environment using the Azure CLI](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a complete Linux environment using the Azure CLI](linux/create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * Includes creating a load balancer and multiple VMs in an availability set.
 

@@ -114,6 +114,6 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-[Create highly available virtual machines tutorial](./virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Create highly available virtual machines tutorial](linux/create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Explore VM deployment CLI samples](linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
