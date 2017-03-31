@@ -74,7 +74,7 @@ To configure the integration of Slack with Azure AD, add Slack from the gallery 
 
 6. In the results pane, select **Slack**, and then click the **Add** button to add the application.
 
-	![Select "Slack" in the results pane](./media/active-directory-saas-slack-tutorial/tutorial_slack_0001.png)
+ 	![Select "Slack" in the results pane](./media/active-directory-saas-slack-tutorial/tutorial_slack_0001.png)
 
 ## Configure and test Azure AD SSO
 In this section, you configure and test Azure AD SSO with Slack by using the test user "Britta Simon."
@@ -107,10 +107,10 @@ In this section, you enable Azure AD SSO in the Azure portal and configure SSO i
   1. In the **Sign on URL** box, type a URL that uses the naming convention _https://<company name>.slack.com_.
   2. In the **Identifier** box, type **https://slack.com**.
 
-	>[!NOTE]
-	>The preceding values are not real values. Here we recommend that you use unique values for the URL and identifier. Later, you will update the values with the actual URL and identifier. To obtain the values, contact the [Slack support team](https://slack.com/help/contact).
-	>
-	>
+     >[!NOTE]
+     >The preceding values are not real values. Here we recommend that you use unique values for the URL and identifier. Later, you will update the values with the actual URL and identifier. To obtain the values, contact the [Slack support team](https://slack.com/help/contact).
+     >
+     >
 
 4. The Slack application expects the Security Assertion Markup Language (SAML) assertions to be displayed in a specific format. Configure the claims and manage the values of the attributes in the **User Attributes** section of the Slack application integration page, as shown in the following screenshot:
 
