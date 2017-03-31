@@ -119,7 +119,7 @@ The VM is now running on Azure and you are ready to log in.  Using passwords to 
 ## Related Azure components
 ## Storage
 * [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md)
-* [Add a disk to a Linux VM using the azure-cli](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Add a disk to a Linux VM using the azure-cli](linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [How to attach a data disk to a Linux VM in the Azure portal](virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Networking

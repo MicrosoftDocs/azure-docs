@@ -138,7 +138,7 @@ If you add the parameter *--dry-run* you can test the update, but it does not ac
 ### Disk setup
 The root file system in a Linux VM on Azure is of limited size. Therefore, it's necessary to attach additional disk space to a VM for running SAP. If the SAP app server VM is used in a pure prototype or demo environment, it's fine to use Azure standard storage disks. For SAP HANA DB data and log files, use Azure premium storage disks even in a non-production landscape.
 
-For more information, see [how to attach disks to a Linux VM](../../virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information, see [how to attach disks to a Linux VM](../../linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 For Azure disk caching, enter **None** for disks that are to be used to store the
 HANA transaction logs. For HANA data files, it's OK to use read caching. Because HANA is an in-memory database, how much the read cache on Azure disk level might improve performance (for example, starting HANA and reading data from the disk into memory) depends on the overall usage pattern.

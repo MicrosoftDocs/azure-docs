@@ -19,7 +19,7 @@ ms.author: iainfou
 ---
 
 # Expand OS disk on a Linux VM using the Azure CLI with the Azure CLI 1.0
-The default virtual hard disk size for the operating system (OS) is typically 30 GB on a Linux virtual machine (VM) in Azure. You can [add data disks](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to provide for additional storage space, but you may also wish to expand the OS disk. This article details how to expand the OS disk for a Linux VM using unmanaged disks with the Azure CLI 1.0
+The default virtual hard disk size for the operating system (OS) is typically 30 GB on a Linux virtual machine (VM) in Azure. You can [add data disks](linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to provide for additional storage space, but you may also wish to expand the OS disk. This article details how to expand the OS disk for a Linux VM using unmanaged disks with the Azure CLI 1.0
 
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
@@ -69,4 +69,4 @@ In the following samples, replace example parameter names with your own values. 
     ```
 
 ## Next steps
-If you need additional storage, you also [add data disks to a Linux VM](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). For more information about disk encryption, see [Encrypt disks on a Linux VM using the Azure CLI](virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you need additional storage, you also [add data disks to a Linux VM](linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). For more information about disk encryption, see [Encrypt disks on a Linux VM using the Azure CLI](virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

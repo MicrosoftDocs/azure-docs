@@ -71,7 +71,7 @@ az vm create -g myResourceGroup -n myVM --image OpenLogic:CentOS:7.2n:7.2.201606
   --data-disk-sizes-gb 5
 ```
 
-SSH to your VM. Create a partition and filesystem, then mount the data disk. For more information, see [Connect to a Linux VM to mount the new disk](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Close your SSH session.
+SSH to your VM. Create a partition and filesystem, then mount the data disk. For more information, see [Connect to a Linux VM to mount the new disk](linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Close your SSH session.
 
 Encrypt your VM with [az vm encryption enable](/cli/azure/vm/encryption#enable). The following example uses the `$sp_id` and `$sp_password` variables from the preceding `ad sp create-for-rbac` command:
 
@@ -199,7 +199,7 @@ az vm create -g myResourceGroup -n myVM --image OpenLogic:CentOS:7.2n:7.2.201606
   --data-disk-sizes-gb 5
 ```
 
-SSH to your VM with to create a partition and filesystem, then mount the data disk. For more information, see [Connect to a Linux VM to mount the new disk](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Close your SSH session.
+SSH to your VM with to create a partition and filesystem, then mount the data disk. For more information, see [Connect to a Linux VM to mount the new disk](linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Close your SSH session.
 
 
 ## Encrypt virtual machine

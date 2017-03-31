@@ -37,7 +37,7 @@ Ensure that you meet the following prerequisites:
 
 * **Azure VM created in the Resource Manager deployment model** - If you haven't created a Linux VM, you can use the [portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), the [Azure CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), or [Resource Manager templates](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
   
-    Configure the VM as needed. For example, [add data disks](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), apply updates, and install applications. 
+    Configure the VM as needed. For example, [add data disks](linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), apply updates, and install applications. 
 * **Azure CLI** - Install the [Azure CLI](../cli-install-nodejs.md) on a local computer.
 
 ## Step 1: Remove the Azure Linux agent

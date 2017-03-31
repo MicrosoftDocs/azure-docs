@@ -62,7 +62,7 @@ az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  –
   
   * Includes creating a load balancer and multiple VMs in an availability set.
 
-* [Add a disk to a Linux VM](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Add a disk to a Linux VM](linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * The following example uses [az vm disk attach-new](/cli/azure/vm/disk#attach-new) to add a 50 Gb managed disk to an existing VM named `myVM`:
   
@@ -138,5 +138,5 @@ If you require specific customizations, you can use an image based on an existin
 
 ## Next steps
 * Create a Linux VM from the [portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), with the [CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), or using an [Azure Resource Manager template](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* After creating a Linux VM, [add a data disk](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* After creating a Linux VM, [add a data disk](linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Quick steps to [reset a password or SSH keys and manage users](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

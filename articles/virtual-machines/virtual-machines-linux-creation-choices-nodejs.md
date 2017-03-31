@@ -48,7 +48,7 @@ The Azure CLI 1.0 is available across platforms via an npm package, distro-provi
 * [Create a complete Linux environment using the Azure CLI](virtual-machines-linux-create-cli-complete-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * Includes creating a load balancer and multiple VMs in an availability set.
-* [Add a disk to a Linux VM](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Add a disk to a Linux VM](linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * The following example adds a 5Gb disk to an existing VM named `TestVM`:
     
@@ -125,6 +125,6 @@ If you require specific customizations, you can use an image based on an existin
 
 ## Next steps
 * Create a Linux VM from the [portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), with the [CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), or using an [Azure Resource Manager template](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* After creating a Linux VM, [add a data disk](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* After creating a Linux VM, [add a data disk](linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Quick steps to [reset a password or SSH keys and manage users](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

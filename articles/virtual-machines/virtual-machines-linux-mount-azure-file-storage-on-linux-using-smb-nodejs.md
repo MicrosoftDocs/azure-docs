@@ -128,5 +128,5 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
 ## Next steps
 
 - [Using cloud-init to customize a Linux VM during creation](virtual-machines-linux-using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Add a disk to a Linux VM](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Add a disk to a Linux VM](linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Encrypt disks on a Linux VM by using the Azure CLI](virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

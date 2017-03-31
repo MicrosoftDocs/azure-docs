@@ -404,8 +404,8 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-linux-classic-create-upload-vhd-step-1]:../virtual-machines-linux-classic-create-upload-vhd.md#step-1-prepare-the-image-to-be-uploaded
 [virtual-machines-linux-create-upload-vhd-suse]:../virtual-machines-linux-suse-create-upload-vhd.md
 [virtual-machines-linux-redhat-create-upload-vhd]:../virtual-machines-linux-redhat-create-upload-vhd.md
-[virtual-machines-linux-how-to-attach-disk]:../virtual-machines-linux-add-disk.md
-[virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../virtual-machines-linux-add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk
+[virtual-machines-linux-how-to-attach-disk]:../linux/add-disk.md
+[virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk
 [virtual-machines-linux-tutorial]:../virtual-machines-linux-quick-create-cli.md
 [virtual-machines-linux-update-agent]:../virtual-machines-linux-update-agent.md
 [virtual-machines-manage-availability]:../virtual-machines-windows-manage-availability.md
