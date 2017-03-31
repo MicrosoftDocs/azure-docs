@@ -46,15 +46,9 @@ For more information, see [Site Recovery public documentation](../site-recovery/
 
 ### Variations
 The following Site Recovery features are not currently available in Azure Government:
-
-* Azure Resource Manager Site Recovery vaults
 * Email notification
 
-| Site Recovery | Classic | Resource Manager |
-| --- | --- | --- |
-| VMWare/Physical  | GA | GA |
-| Hyper-V | GA | GA |
-| Site to Site | GA | GA |
+
 
 >[!NOTE]
 >Table applies to US Gov Virginia and US Gov Iowa.
