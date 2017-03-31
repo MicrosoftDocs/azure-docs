@@ -69,7 +69,7 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 
 ## Open port 80 for web traffic 
 
-By default only SSH connections are allowed into Linux virtual machines deployed in Azure. If this VM is going to be a simple webserver, we will need to open port 80 from the Internet.  A single command is required in order to open the desired port.  
+By default only SSH connections are allowed into Linux virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 from the Internet.  A single command is required to open the desired port.  
  
  ```azurecli 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -85,7 +85,7 @@ ssh <Public IP Address>
 
 ## Install NGINX
 
-Use the following simple bash script will run an update and install the latest NGINX package. 
+Use the following bash script to update package sources and install the latest NGINX package. 
 
 ```bash 
 #!/bin/bash
@@ -97,9 +97,9 @@ apt-get -y update
 apt-get -y install nginx
 ```
 
-## View the default webpage of your VM
+## View the default webpage
 
-With NGINX installed and port 80 open on your VM from the internet - you can use a web browser of your choice to view the default NGINX webpage. Be sure to use the public IP Address you documented above in order to visit the correct webpage. 
+With NGINX installed and port 80 open on your VM from the Internet - you can use a web browser of your choice to view the default NGINX webpage. Be sure to use the public IP Address you documented above to visit the default webpage. 
 
 ![NGINX default site](./media/virtual-machines-linux-quick-create-cli/nginx.png) 
 
