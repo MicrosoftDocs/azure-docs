@@ -25,7 +25,7 @@ ms.author: tomfitz
 > 
 > 
 
-When you have an app or script that needs to access resources, you can set up an identity for the app and authenticate the app with its own credentials. This approach enables you to:
+When you have an app or script that needs to access resources, you can set up an identity for the app and authenticate the app with its own credentials. This identity is known as a service principal. This approach enables you to:
 
 * Assign permissions to the app identity that are different than your own permissions. Typically, these permissions are restricted to exactly what the app needs to do.
 * Use a certificate for authentication when executing an unattended script.
@@ -41,8 +41,6 @@ Now, proceed to a section for either [password](#create-service-principal-with-p
 
 ## Create service principal with password
 In this section, you perform the steps to create the AD application with a password, and assign the Reader role to the service principal.
-
-Let's go through these steps.
 
 1. Sign in to your account.
    
