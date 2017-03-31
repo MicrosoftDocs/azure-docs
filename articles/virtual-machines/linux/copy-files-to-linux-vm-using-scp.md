@@ -74,4 +74,4 @@ The `-r` cli flag instructs SCP to recursively copy the files and directories fr
 ## Next steps
 
 * [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](../virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Disable SSH passwords on your Linux VM by configuring SSHD](../virtual-machines-linux-mac-disable-ssh-password-usage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Disable SSH passwords on your Linux VM by configuring SSHD](mac-disable-ssh-password-usage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
