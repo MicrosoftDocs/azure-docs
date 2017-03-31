@@ -10,16 +10,19 @@ Learn how to use SQL Database, a relational database-as-a-service in the cloud b
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/sql-database/sql-database-get-started-portal">
+            <img src="media/index/portal.svg" alt="">
             <span>Create DB - Portal</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/sql-database/sql-database-get-started-cli">
+            <img src="media/index/cli.svg" alt="">
             <span>Create DB - Azure CLI</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/sql-database/sql-database-get-started-powershell">
+            <img src="media/index/logo_powershell.svg" alt="">
             <span>Create DB - PowerShell</span>
         </a>
     </div>
