@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync:  Understanding the Azure AD Sync Encryption Key | Microsoft Docs'
+title: 'Azure AD Connect sync:  Changing the Azure AD Connect Sync service account | Microsoft Docs'
 description: This topic document describes the encryption key and how to abandon it after the password is changed.
 services: active-directory
 keywords: Azure AD sync service account, password
@@ -13,59 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 03/31/2017
 ms.author: billmath
 
 ---
-# Azure AD Sync Encryption Key
-
-Azure AD Connect, as part of the Synchronization Services uses an encryption key to store the passwords of the AD DS and Azure AD service accounts.  These accounts are encrypted before they are stored in the database. 
-
-The encryption key used is secured using [Windows Data Protection (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx). DPAPI protects the encryption key using the **password of the Azure AD Connect sync service account**. 
-
-## Azure ADSync Key Management Utility
-
-![Azure AD Connect Sync Encryption Key Utility](media/active-directory-aadconnectsync-encryption-key/key1.png)
-
-You can use the miiskmu.exe utility, located in **Program Files\Microsoft Azure AD Sync\Bin**, to do the following:
-
-- **Export Key Set** - allows you to export and backup the keys used to encrypt data in Azure AD Connect to file.
-- **Add new key to key set** -  allows you to create a new encryption key and add it to the Azure AD Connect keyset.  The new data is encrypted using this key.  Existing data continues to be encrypted with the old keys.
-- **Abandon key set** - allows you to delete all encrypted data.  
-
-### Command-line options
-Miiskmu.exe can be run from a command-line using the following:
-
-#### Syntax
-    miiskmu [/eFileName/u:UserName {Password | *} [/q]] | [/bBatchSize]
-
-|Parameter|Description|
-| ----- | ----- |
-|**/e**|Exports the key set to a file.| 
-|**FileName**|Specifies the file name, including the path.| 
-|**/u:**|Specifies the Microsoft Forefront Identity Manager 2010 R2 service account credentials.| 
-|**UserName**|The Azure AD Connect service account name.|
-|**Password**|Specifies the password for the Azure AD Connect service account. Use * to prompt for the password.| 
-|**/q**|Specifies quiet mode| 
-|**/b**|Processes the objects in batches. If this parameter is not specified, all objects are processed in one batch.| 
-|**BatchSize**|The number of objects to process in each batch, specified as an integer.| 
-|**/a**|Used to abandon the key.|
-|**/?**|Displays help at the command prompt.|
-
-![Azure AD Connect Sync Encryption Key Utility](media/active-directory-aadconnectsync-encryption-key/key4.png)
-
- 
-#### Remarks
-
-
-- Miiskmu.exe is located in the **Program Files\Microsoft Azure AD Sync\Bin** folder. 
-- Local Administrator privileges are required to run Miiskmu.exe. 
-- Encryption keys are only accessible by the Azure AD Connect service account, so you must specify the Azure AD Connect service account credentials. 
-- If you modify the encryption keys, it is recommended that you update your backup copy of the encryption keys. 
-- The current key set ID can be found by typing `miiskmu /?`. 
-- If you are calling Miiskmu.exe from a batch file, prefix the command with cmd /c to have the ERRORLEVEL set to the success/error code of the operation. 
-
-## Changing the Azure AD Connect sync service account password
+# Changing the Azure AD Connect sync service account password
 If you change the  Azure AD Connect sync service account password, the Synchronization Service can no longer start correctly.  You may see the following:
 
 To resolve the issue, you must abandon the encryption key.  You cannot just change the password.  Use the procedures in [Abandoning the Azure AD Connect Sync encryption key](#abandoning-the-azure-ad-connect-sync-encryption-key) to change the service account password.
