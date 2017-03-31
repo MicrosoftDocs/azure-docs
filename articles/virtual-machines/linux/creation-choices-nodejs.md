@@ -29,7 +29,7 @@ You can create VMs in Azure using one of the following CLI versions:
 
 The Azure CLI 1.0 is available across platforms via an npm package, distro-provided packages, or Docker container. You can read more about [how to install and configure the Azure CLI](../../cli-install-nodejs.md). The following tutorials provide examples on using the Azure CLI 1.0. Read each article for more details on the CLI quick-start commands shown:
 
-* [Create a Linux VM from the Azure CLI for dev and test](../virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a Linux VM from the Azure CLI for dev and test](quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * The following example creates a CoreOS VM using a public key named `azure_id_rsa.pub`:
     
