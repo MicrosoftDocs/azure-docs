@@ -20,7 +20,7 @@ ms.author: radwiv;chadmat
 ---
 # How to validate VPN throughput to a virtual network
 
-A VPN gateway connection enables you to establish secure, cross-premises connectivity between your Virtual Network within Azure and your on-premises IT infrastructure.1112
+A VPN gateway connection enables you to establish secure, cross-premises connectivity between your Virtual Network within Azure and your on-premises IT infrastructure.
 
 This article shows how to validate network throughput from the on-premises resources to an Azure virtual machine. It also provides troubleshooting guidance.
 
