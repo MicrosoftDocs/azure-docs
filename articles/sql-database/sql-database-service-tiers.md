@@ -123,9 +123,10 @@ When creating a P11/P15 database, you can set the maxsize value to either 1 TB (
 
 For existing P11 and P15 databases located in one of the supported regions, you can increase the maxsize storage to 4 TB. This can be done in the Azure Portal, in PowerShell or with Transact-SQL. The following example shows the maxsize being changed using the ALTER DATABASE command:
 
-```ALTER DATABASE <DatabaseName> 
-MODIFY (MAXSIZE = 4096 GB);
-```
+    ```
+    ALTER DATABASE <DatabaseName> 
+    MODIFY (MAXSIZE = 4096 GB);
+    ```
 
 Upgrading an existing P11 or P15 database can only be performed by a server-level principal login or by members of the dbmanager database role. 
 If executed in a supported region the configuration will be updated immediately. This can be checked using the [SELECT DATABASEPROPERTYEX](https://msdn.microsoft.com/library/ms186823.aspx) or by inspecting the database size in the Azure portal. The database will remain online during the upgrade process. However, you will not be able to utilize the full 4 TB of storage until the actual database files have been upgraded to the new maxsize. The length of time required depends upon on the size of the database being upgraded.  

@@ -35,6 +35,8 @@
 ### [Develop and debug locally](functions-run-local.md)
 ### [Best practices for Azure Functions](functions-best-practices.md)
 ### [Use Azure Functions to perform a scheduled clean-up task](functions-scenario-database-table-cleanup.md)
+### [Create an OpenAPI definition (preview)](functions-api-definition-getting-started.md)
+#### [OpenAPI 2.0 in Functions reference](functions-api-definition.md)
 
 ## Manage
 ### [Configure settings for a function app](functions-how-to-use-azure-function-app-settings.md)

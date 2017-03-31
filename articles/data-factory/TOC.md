@@ -61,10 +61,6 @@
 #### [Web table](data-factory-web-table-connector.md)
 ### [Data Management Gateway](data-factory-data-management-gateway.md)
 ### [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md)
-### [Supported file and compression formats](data-factory-supported-file-and-compression-formats.md)
-### [Map input and output dataset columns](data-factory-map-columns.md)
-### [Invoked stored procedure from copy activity](data-factory-invoke-stored-procedure-from-copy-activity.md)
-### [Repeatable copy](data-factory-repeatable-copy.md)
 
 ## [Transform Data](data-factory-data-transformation-activities.md)
 ### [HDInsight Hive Activity](data-factory-hive-activity.md)

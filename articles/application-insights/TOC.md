@@ -111,7 +111,7 @@
 ### [Manage pricing and quota](app-insights-pricing.md)
 ### [Application Performance Monitoring using Application Insights for SCOM](app-insights-scom.md)
 
-##Export
+## Export
 ### [Continuous export](app-insights-export-telemetry.md)
 ### [Export data model](app-insights-export-data-model.md)
 ### [Export to Power BI](app-insights-export-power-bi.md)
