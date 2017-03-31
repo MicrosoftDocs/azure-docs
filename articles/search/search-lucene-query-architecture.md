@@ -96,19 +96,19 @@ The query parser restructures the subqueries into a *query tree* (an internal st
 
 ### Supported parsers: Simple and Full Lucene 
 
- Azure Search exposes two different query languages, *simple* (default) and *full*. By setting the `queryType` parameter with your search request, you tell the query parser which query language you choose so that it knows how to interpret the operators and syntax. The Full Lucene query language, which you get by setting `queryType=full`, extends the default Simple query language by adding support for more operators and query types like: wildcard, fuzzy, regex, and field-scoped queries. For example, a regular expression sent in Simple query syntax would be interpreted as a query string and not an expression. The example request in this article uses `queryType=full`.
+ Azure Search exposes two different query languages, *simple* (default) and *full*. By setting the `queryType` parameter with your search request, you tell the query parser which query language you choose so that it knows how to interpret the operators and syntax. The Full Lucene query language, which you get by setting `queryType=full`, extends the default Simple query language by adding support for more operators and query types like wildcard, fuzzy, regex, and field-scoped queries. For example, a regular expression sent in Simple query syntax would be interpreted as a query string and not an expression. The example request in this article uses `queryType=full`.
 
 ### Impact of searchMode on the parser 
 
 Another search request parameter that affects parsing is the `searchMode` parameter. It controls the default operator for Boolean queries: any (default) or all.  
 
-When `searchMode=any`, which is the default, the space delimiter between spacious and air-condition is OR'd (`|`), making the sample query text equivalent to: 
+When `searchMode=any`, which is the default, the space delimiter between spacious and air-condition is OR (`|`), making the sample query text equivalent to: 
 
 ~~~~
 Spacious,|air-condition*+"Ocean view" 
 ~~~~
 
-Explicit operators, such as `+` in `+"Ocean view"`, are unambiguous in boolean query construction (the term "must" match). Less obvious is how to interpret the remaining terms: spacious and air-condition. Should the search engine find matches on ocean view *and* spacious *and* air-condition? Or should if find ocean view plus *either one* of the remaining terms? 
+Explicit operators, such as `+` in `+"Ocean view"`, are unambiguous in boolean query construction (the term *must* match). Less obvious is how to interpret the remaining terms: spacious and air-condition. Should the search engine find matches on ocean view *and* spacious *and* air-condition? Or should if find ocean view plus *either one* of the remaining terms? 
 
 Using the default `searchMode=any`, the second interpretation prevails, where ocean view plus either term defines the match criteria. The initial query tree illustrated previously, with the two "should" operations, reflects the "or" semantics.  
 
