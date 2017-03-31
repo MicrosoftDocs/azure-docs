@@ -112,18 +112,58 @@ To focus on specific events in either Search or Metrics Explorer, set the blade'
 
 ![Open Filters, expand Event name, and select one or more values](./media/app-insights-api-custom-events-metrics/06-filter.png)
 
-## TrackMetric
 
-Use TrackMetric to send metrics that are not attached to particular events. For example, you could monitor a queue length at regular intervals.
+## Send metrics
 
-Metrics are displayed as statistical charts in Metrics Explorer. But unlike events, you can't search for individual occurrences in Search. 
+Application Insights can chart metrics that are not attached to particular events. For example, you could monitor a queue length at regular intervals. With metrics, the individual measurements are of less interest than the variations and trends, and so statistical charts are useful.
 
-To send metrics, you should aggregate your measurements locally in your app, and then send the aggregated values at regular intervals. Pre-aggregating in this way reduces telemetry traffic.
+There are two ways to send metrics:
 
-Metrics are not subject to sampling.
+* **MetricManager** is available in ASP.NET from version 2.4. This is recommended because it reduces bandwidth. It aggregates your metrics in your app, sending the aggregated statistics to the portal at intervals of one minute.
+* **TrackMetric** sends metric statistics to the portal. You can send a single metric value, but we recommend you send pre-aggregated metrics.
 
-For metric values to be correctly displayed, they should be greater than or equal to 0.
+### MetricManager
 
+(ASP.NET v2.4.0+)
+
+Create an instance of MetricManager and then use it as a factory for metrics:
+
+*C#*
+```C#
+    // Initially:
+    var manager = new Microsoft.ApplicationInsights.Extensibility.MetricManager(tc);
+
+    // For each metric that you want to use:
+    var metric1 = mgr.CreateMetric("m1");
+
+    // Each time you want to record a measurement:
+    metric1.Track(value);
+
+```
+
+### TrackMetric
+
+TrackMetric is the basic method for sending aggregated metrics. 
+
+To send a single metric value:
+
+*JavaScript*
+
+ ```Javascript
+     appInsights.trackMetric("queueLength", 42.0);
+ ```
+
+*C#, Java*
+
+```C#
+    var sample = new MetricTelemetry();
+    sample.Name = "metric name";
+    sample.Value = 42.3;
+    telemetryClient.TrackMetric(sample);
+```
+
+However, it is recommended to aggregate metrics before sending them from your app, to reduce bandwidth.
+If you are using the latest version of the SDK for ASP.NET, you can use [`MetricManager`](#metricmanager) to do this. Otherwise, here is an example of aggregating code:
 
 *C#*
 
@@ -148,6 +188,7 @@ For metric values to be correctly displayed, they should be greater than or equa
             lock (this)
             {
                 var sample = new MetricTelemetry();
+                sample.Name = "metric name";
                 sample.Count = measurements.Count;
                 sample.Max = measurements.Max();
                 sample.Min = measurements.Min();
@@ -186,7 +227,10 @@ To see the results, open Metrics Explorer and add a new chart. Edit the chart to
 
 ### Custom metrics in Analytics
 
-The telemetry is available in the customMetrics table.
+The telemetry is available in the customMetrics table. Each row represents a call to trackMetric() in your app. Therefore, if you have used MetricManager or your own aggregation code, each row will not represent a single measurement. 
+
+* `valueSum` - This is the sum of the measurements. To get the mean value, divide by `valueCount`.
+* `valueCount` - The number of measurements that were aggregated into this trackMetric call.
 
 
 
@@ -242,30 +286,16 @@ The server SDK uses TrackRequest to log HTTP requests.
 
 You can also call it yourself if you want to simulate requests in a context where you don't have the web service module running.
 
-*C#*
-
-    // At start of processing this request:
-
-    // Operation Id and Name are attached to all telemetry and help you identify
-    // telemetry associated with one request:
-    telemetry.Context.Operation.Id = Guid.NewGuid().ToString();
-    telemetry.Context.Operation.Name = requestName;
-
-    var stopwatch = System.Diagnostics.Stopwatch.StartNew();
-
-    // ... process the request ...
-
-    stopwatch.Stop();
-    telemetry.TrackRequest(requestName, DateTime.Now,
-       stopwatch.Elapsed,
-       "200", true);  // Response code, success
-
-
+However, the recommended way to send request telemetry is where the request acts as an <a href="#operation-context">operation context</a>.
 
 ## Operation context
 You can associate telemetry items together by attaching to them a common operation ID. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](app-insights-diagnostic-search.md) and [Analytics](app-insights-analytics.md), you can use the ID to easily find any events associated with the request.
 
 The easiest way to set the ID is to set an operation context by using this pattern:
+
+*C#*
+
+```C#
 
     // Establish an operation context and associated telemetry item:
     using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
@@ -281,6 +311,7 @@ The easiest way to set the ID is to set an operation context by using this patte
         telemetry.StopOperation(operation);
 
     } // When operation is disposed, telemetry item is sent.
+```
 
 Along with setting an operation context, `StartOperation` creates a telemetry item of the type that you specify. It sends the telemetry item when you dispose the operation, or if you explicitly call `StopOperation`. If you use `RequestTelemetry` as the telemetry type, its duration is set to the timed interval between start and stop.
 
