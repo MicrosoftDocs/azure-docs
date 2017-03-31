@@ -35,7 +35,7 @@ Several different Azure VM extensions are available, each with a specific use ca
 
 In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Linux allows any Bash script to be run on a virtual machine. Custom scripts are useful for designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Linux VM Custom Script extension](virtual-machines-linux-extensions-customscript.md).
 
-To work through an example where a VM extension is used in an end-to-end application deployment, see [Automating application deployments to Azure virtual machines](virtual-machines-linux-dotnet-core-1-landing.md).
+To work through an example where a VM extension is used in an end-to-end application deployment, see [Automating application deployments to Azure virtual machines](linux/dotnet-core-1-landing.md).
 
 ## Prerequisites
 
