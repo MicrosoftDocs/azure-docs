@@ -135,7 +135,7 @@
 ## Manage VM security
 ### [Disable SSH passwords by configuring SSHD](mac-disable-ssh-password-usage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Reset SSH access, manage users, and check disks](../virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Use root privileges](../virtual-machines-linux-use-root-privileges.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Use root privileges](use-root-privileges.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Encrypt a VM disk](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Apply policies to VMs](policy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Set up Key Vault](key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

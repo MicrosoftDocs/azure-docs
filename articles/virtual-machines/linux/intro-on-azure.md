@@ -34,7 +34,7 @@ The user account that is specified during virtual machine instance deployment on
 
 You can optionally obtain a root shell using **sudo -s**.
 
-* See [Using root privileges on Linux virtual machines in Azure](../virtual-machines-linux-use-root-privileges.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* See [Using root privileges on Linux virtual machines in Azure](use-root-privileges.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Firewall Configuration
 Azure provides an inbound packet filter that restricts connectivity to ports specified in the Azure classic portal. By default, the only allowed port is SSH. You may open up access to additional ports on your Linux virtual machine by configuring endpoints in the Azure classic portal:
