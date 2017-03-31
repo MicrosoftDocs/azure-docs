@@ -52,7 +52,7 @@ The following example creates a VM named `myVM` and creates SSH keys if they do 
 az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the public IP address. This address is used to access the VM.
+When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the `publicIpAddress`. This address is used to access the VM.
 
 ```azurecli
 {
@@ -77,10 +77,10 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## SSH into your VM
 
-Use the following command to create an SSH session with the virtual machine. Make sure to replace `<Public IP Address>` with the correct public IP address of your virtual machine.  In our example above our IP address was 40.68.254.142.
+Use the following command to create an SSH session with the virtual machine. Make sure to replace `<publicIpAddress>` with the correct public IP address of your virtual machine.  In our example above our IP address was `40.68.254.142`.
 
 ```bash 
-ssh <Public IP Address>
+ssh <publicIpAddress>
 ```
 
 ## Install NGINX
@@ -97,9 +97,9 @@ apt-get -y update
 apt-get -y install nginx
 ```
 
-## View the default webpage
+## View the NGIX welcome page
 
-With NGINX installed and port 80 open on your VM from the Internet - you can use a web browser of your choice to view the default NGINX webpage. Be sure to use the public IP Address you documented above to visit the default webpage. 
+With NGINX installed and port 80 now open on your VM from the Internet - you can use a web browser of your choice to view the default NGINX welcome page. Be sure to use the `publicIpAddress` you documented above to visit the default page. 
 
 ![NGINX default site](./media/virtual-machines-linux-quick-create-cli/nginx.png) 
 
