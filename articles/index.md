@@ -70,7 +70,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                 <a href="#services">Services</a>
                 <ul id="services">
                     <li>
-                        <a name="all" href="#all">All</a>
+                        <a href="#all">All</a>
                         <ul id="all" class="directory">
                             <li>
                                 <div class="group">
@@ -762,7 +762,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </div>
                             </li>
-                            <a href="#all">
+                            <a href="#pivot=services&panel=all">
                             <button style="
                                 position: absolute;
                                 bottom: 0;
