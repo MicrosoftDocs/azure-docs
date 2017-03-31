@@ -21,11 +21,6 @@ ms.author: ancav
 ## Overview ##
 This article shows you how to create and manage action groups in the Azure portal.
 
->[!NOTE]
->This feature is currently in public preview. Not all functionality may be available at this time.
->
->
-
 Action groups enable you to configure a list of receivers. These groups can then be leveraged when defining activity log alerts; ensuring that a particular action group is notified when the activity log alert is triggered.
 
 An action group can have up to 10 of each action type. An action is defined by the combination of:
