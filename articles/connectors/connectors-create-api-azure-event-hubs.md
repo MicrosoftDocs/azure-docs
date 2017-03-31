@@ -13,10 +13,10 @@ ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: na
+ms.workload: integration
 keywords: data stream, event monitor, event hubs
 ms.date: 03/31/2017
-ms.author: LADocs; estfan
+ms.author: estfan; LADocs
 ---
 
 # Monitor, receive, and send events with the Event Hubs connector
