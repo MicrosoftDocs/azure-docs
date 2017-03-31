@@ -303,5 +303,5 @@ az group deployment create --resource-group myNewResourceGroup \
 
 
 ## Next steps
-After you have prepared and uploaded your custom virtual disk, you can read more about [using Resource Manager and templates](../azure-resource-manager/resource-group-overview.md). You may also want to [add a data disk](linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to your new VMs. If you have applications running on your VMs that you need to access, be sure to [open ports and endpoints](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+After you have prepared and uploaded your custom virtual disk, you can read more about [using Resource Manager and templates](../azure-resource-manager/resource-group-overview.md). You may also want to [add a data disk](linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to your new VMs. If you have applications running on your VMs that you need to access, be sure to [open ports and endpoints](linux/nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

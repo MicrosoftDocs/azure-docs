@@ -125,7 +125,7 @@ The VM is now running on Azure and you are ready to log in.  Using passwords to 
 ## Networking
 * [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md)
 * [IP addresses in Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-* [Opening ports to a Linux VM in Azure](../virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Opening ports to a Linux VM in Azure](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Create a Fully Qualified Domain Name in the Azure portal](../virtual-machines-linux-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Containers
