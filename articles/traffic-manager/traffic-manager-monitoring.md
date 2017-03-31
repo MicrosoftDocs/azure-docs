@@ -1,5 +1,5 @@
 ---
-title: Traffic Manager endpoint monitoring and failover | Microsoft Docs
+title: Azure Traffic Manager endpoint monitoring | Microsoft Docs
 description: This article can help you understand how Traffic Manager uses endpoint monitoring and automatic endpoint failover to help Azure customers deploy high-availability applications
 services: traffic-manager
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 03/16/2017
 ms.author: kumud
 ---
 
-# Traffic Manager endpoint monitoring and failover
+# Traffic Manager endpoint monitoring
 
 Azure Traffic Manager includes built-in endpoint monitoring and automatic endpoint failover. This feature helps you deliver high-availability applications that are resilient to endpoint failure, including Azure region failures.
 

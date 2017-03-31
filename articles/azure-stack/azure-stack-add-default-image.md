@@ -26,6 +26,8 @@ Before you can provision virtual machines, you must add the Windows Server VM im
 3. Open PowerShell ISE as an administrator.
 4. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 5. [Download the Azure Stack tools from GitHub](azure-stack-powershell-download.md).
+    > [!NOTE]
+    > Make sure that you download and extract the Azure Stack tool repository to a folder that is NOT under the C:\Windows\System32 directory.  
 6. Import the Azure Stack Connect and Compute Modules by using the following script:
 
     ```powershell

@@ -121,7 +121,7 @@ While your topology is running, you can monitor it in the Storm user interface. 
 Here are a few common troubleshooting scenarios.
 * **Many tuples are timing out.** Look at each node in the topology to determine where the bottleneck is. The most common reason for this is that the bolts are not able to keep up with the spouts. This leads to tuples clogging the internal buffers while waiting to be processed. Consider increasing the timeout value or decreasing the max spout pending.
 
-* **There is a high total process execution latency, but a low bolt process latency.** In this case, the tuples might not be being processed fast enough. Check that there's a sufficient number of ackers. Another possibility is that they are waiting in the queue for too long before the bolts start processing them. Decrease the max spout pending.
+* **There is a high total process execution latency, but a low bolt process latency.** In this case, it is possible that the tuples are not being acknowledged fast enough. Check that there are a sufficient number of acknowledgers. Another possibility is that they are waiting in the queue for too long before the bolts start processing them. Decrease the max spout pending.
 
 * **There is a high bolt execute latency.** This means that the execute() method of your bolt is taking too long. Optimize the code, or look at write sizes and flush behavior.
 

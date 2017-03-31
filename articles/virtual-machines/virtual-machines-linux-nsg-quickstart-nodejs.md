@@ -28,7 +28,7 @@ You can complete the task using one of the following CLI versions:
 
 
 ## Quick commands
-To create a Network Security Group and rules you need [the Azure CLI 1.0](../xplat-cli-install.md) installed and using Resource Manager mode:
+To create a Network Security Group and rules you need [the Azure CLI 1.0](../cli-install-nodejs.md) installed and using Resource Manager mode:
 
 ```azurecli
 azure config mode arm

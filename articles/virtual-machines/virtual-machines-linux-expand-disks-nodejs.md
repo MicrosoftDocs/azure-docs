@@ -28,7 +28,7 @@ You can complete the task using one of the following CLI versions:
 - [Azure CLI 2.0](virtual-machines-linux-expand-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ## Prerequisites
-You need the [latest Azure CLI 1.0](../xplat-cli-install.md) installed and logged in to an [Azure account](https://azure.microsoft.com/pricing/free-trial/) using the Resource Manager mode as follows:
+You need the [latest Azure CLI 1.0](../cli-install-nodejs.md) installed and logged in to an [Azure account](https://azure.microsoft.com/pricing/free-trial/) using the Resource Manager mode as follows:
 
 ```azurecli
 azure config mode arm

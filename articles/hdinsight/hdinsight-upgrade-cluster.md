@@ -9,6 +9,7 @@ editor: bhanupr
 
 ms.assetid: 60eb573c-e639-4815-9fc6-ea8b106d8dbc
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -49,7 +50,6 @@ actions:
 
 ## Next Steps
 * [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
-* [Connect to a Linux-based cluster using SSH from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md)
-* [Connect to a Linux-based cluster using SSH from a Linux, Unix, or Mac client](hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Connect to HDInsight using SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Manage a Linux-based cluster using Ambari](hdinsight-hadoop-manage-ambari.md)
 

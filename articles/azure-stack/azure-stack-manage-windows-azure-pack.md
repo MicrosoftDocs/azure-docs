@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 03/21/2017
 ms.author: walterov
 
 ---
@@ -62,7 +62,7 @@ In the single-node Azure Stack environment, Windows Azure Pack and Azure Stack h
 ## Prerequisites
 
 ### Download the Windows Azure Pack Connector
-On the [Microsoft Download Center](https://aka.ms/wapconnectorazurestackdlc), download the zip file and extract it to your local computer. Later, you copy the contents to a computer that can access your Windows Azure Pack environment.
+On the [Microsoft Download Center](https://aka.ms/wapconnectorazurestackdlc), download the .exe file and extract it to your local computer. Later, you copy the contents to a computer that can access your Windows Azure Pack environment.
 
 ### Deployment option requirement
 To integrate with Windows Azure Pack, you can deploy Azure Stack by using the AD FS option or the Azure Active Directory option.
@@ -132,7 +132,7 @@ For this preview release only, Windows Azure Pack requires manual configuration.
 >[!IMPORTANT]
 For this preview release, use the Windows Azure Pack Connector only in test environments, and not in production deployments.
 
-1.	Install Connector MSI files on the tenant portal virtual machine, and install certificates. (If you have multiple tenant portal virtual machines, you must complete this step on each virtual machine.)
+1.	Install Connector MSI files on the Windows Azure Pack tenant portal virtual machine, and install certificates. (If you have multiple tenant portal virtual machines, you must complete this step on each virtual machine.)
 
     a. In File Explorer, copy the **WAPConnector** folder (what you downloaded earlier) to a folder named **c:\temp** in the tenant portal virtual machine.
 
@@ -167,7 +167,7 @@ For this preview release, use the Windows Azure Pack Connector only in test envi
     | -------- | ------------- | ------- |  
     | TenantPortalFQDN | The Windows Azure Pack tenant portal FQDN. | tenant.contoso.com | 
     | TenantAPIFQDN | The Windows Azure Pack Tenant API FQDN. | tenantapi.contoso.com  |
-    | AzureStackPortalFQDN | The Azure Stack portal FQDN | publicportal.local.azurestack.external |
+    | AzureStackPortalFQDN | The Azure Stack user portal FQDN. | publicportal.local.azurestack.external |
     | | |
     
      ```powershell
@@ -177,15 +177,17 @@ For this preview release, use the Windows Azure Pack Connector only in test envi
     ```
     g. If you have multiple tenant portal virtual machines, repeat step 1 for each of these virtual machines.
 
-2. Install the new Tenant API MSI on each Tenant API virtual machine.
+2. Install the new Tenant API MSI on each Windows Azure Pack Tenant API virtual machine.
 
     a. If a load balancer is in use, you may want to mark the virtual machine as offline.
 
-    b. Copy the **WAPConnector** folder to a folder named **c:\temp** on each Tenant API machine.
+    b. In File Explorer, copy the **WAPConnector** folder to a folder named **c:\temp** on each Tenant API machine.
 
     c. Copy the AzurePackConnectorOutput.txt file that you saved earlier, to **c:\temp\WAPConnector**.
 
-    d. Open a Console or RDP connection to the Tenant API VM you copied the files to. Change directories to **c:\temp\wapconnector\setup\scripts**, and run **Update-TenantAPI.ps1**. This new version of the WAP Tenant API contains a change to enable a trust relationship not only with the current STS, but also with the instance of AD FS in Azure Stack.
+    d. Open a Console or RDP connection to the Tenant API VM you copied the files to.
+    
+    e. Change directories to **c:\temp\wapconnector\setup\scripts**, and run **Update-TenantAPI.ps1**. This new version of the WAP Tenant API contains a change to enable a trust relationship not only with the current STS, but also with the instance of AD FS in Azure Stack.
 
      ```powershell
     cd C:\temp\wapconnector\setup\packages\
@@ -193,7 +195,7 @@ For this preview release, use the Windows Azure Pack Connector only in test envi
     .\Update-TenantAPI.ps1
     ```
 
-    e.	Repeat step 2 on any other virtual machine running the Tenant API.
+    f.	Repeat step 2 on any other virtual machine running the Tenant API.
 3. From **only one** of the Tenant API VMs, run the Configure-TrustAzureStack.ps1 script to add a trust relationship between the Tenant API and the AD FS instance on Azure Stack. You must use an account with sysadmin access to the Microsoft.MgmtSvc.Store database. This script has the following parameters:
 
     | Parameter | Description | Example |
@@ -223,7 +225,7 @@ cd C:\CloudDeployment\Setup\Activation\AzurePackConnector\
      -AzureStackCloudName "Azure_Stack" `
      -EnableMultiCloud $true 
 ```
-Download the zip file from the [Microsoft Download Center](https://aka.ms/wapconnectorazurestackdlc), extract it, and copy the WAPConnector folder to a **c:\temp** folder on the Windows Azure Pack computer. Copy the file "AzurePackConnectorOutput.txt" that was generated as output in the previous script to the **c:\temp\WAPConnector** folder, and then run the following script:
+Download the .exe file from the [Microsoft Download Center](https://aka.ms/wapconnectorazurestackdlc), extract it, and copy the WAPConnector folder to a **c:\temp** folder on the Windows Azure Pack computer. Copy the file "AzurePackConnectorOutput.txt" that was generated as output in the previous script to the **c:\temp\WAPConnector** folder, and then run the following script:
 
  ```powershell
 # Install Connector components
@@ -253,4 +255,4 @@ cd C:\temp\WAPConnector\Setup\Scripts
 4. For known issues, see [Microsoft Azure Stack troubleshooting](azure-stack-troubleshooting.md).
 
   ## Next steps
-[Using the administrator and user portals in Azure Stack](/azure-stack-manage-portals.md)
+[Using the administrator and user portals in Azure Stack](azure-stack-manage-portals.md)

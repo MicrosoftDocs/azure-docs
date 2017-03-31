@@ -1,5 +1,5 @@
 ---
-title: 'Azure CLI: Create and query a single SQL database | Microsoft Docs'
+title: 'Azure CLI: Create a SQL database | Microsoft Docs'
 description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases using the Azure CLI. 
 keywords: sql database tutorial, create a sql database
 services: sql-database
@@ -13,13 +13,13 @@ ms.service: sql-database
 ms.custom: quick start
 ms.workload: data-management
 ms.tgt_pltfrm: na
-ms.devlang: cli
+ms.devlang: azurecli
 ms.topic: hero-article
 ms.date: 03/13/2017
 ms.author: carlrab
 ---
 
-# Create and query a single Azure SQL database with the Azure CLI
+# Create a single Azure SQL database using the Azure CLI
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy an Azure SQL database in an [Azure resource group](../azure-resource-manager/resource-group-overview.md) in an [Azure SQL Database logical server](sql-database-features.md).
 
@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location westeurope
 ```
 ## Create a logical server
 
-Create an [Azure SQL Database logical server](sql-database-features.md) with the [az sql server create](/cli/azure/sql/server#create) command. A logical server contains a group of databases managed as a group. The following example creates a randomly-named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
+Create an [Azure SQL Database logical server](sql-database-features.md) with the [az sql server create](/cli/azure/sql/server#create) command. A logical server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
 
 ```azurecli
 servername=server-$RANDOM
@@ -59,18 +59,18 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 	-n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
-## Create a database in the server
+## Create a database in the server with sample data
 
-Create a database with an [S0 performance level](sql-database-service-tiers.md) in the server with the [az sql db create](/cli/azure/sql/db#create) command. The following example creates an empty database called `mySampleDatabase`. Replace this predefined value as desired.
+Create a database with an [S0 performance level](sql-database-service-tiers.md) in the server with the [az sql db create](/cli/azure/sql/db#create) command. The following example creates a database called `mySampleDatabase` and loads the AdventureWorksLT sample data into this database. Replace these predefined values as desired (other quick starts in this collection build upon the values in this quick start).
 
 ```azurecli
 az sql db create --resource-group myResourceGroup --server $servername \
-	--name mySampleDatabase --service-objective S0
+	--name mySampleDatabase --sample-name AdventureWorksLT --service-objective S0
 ```
 
 ## Clean up resources
 
-Some of the quick starts in this collection and in the tutorial collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following command to delete all resources created by this quick start.
+Other quick starts in this collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following command to delete all resources created by this quick start.
 
 ```azurecli
 az group delete --name myResourceGroup
