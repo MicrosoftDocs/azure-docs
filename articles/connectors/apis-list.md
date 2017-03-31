@@ -21,7 +21,6 @@ ms.author: mandia
 # Connectors list
 Select a connector to learn how to build workflows quickly.
 
-<!-- TODO: Add App Service icons -->
 ## Standard connectors
 
 | Connectors |  |  |  |
@@ -75,9 +74,8 @@ include these enterprise connectors.
 ## Connectors as triggers
 
 Some connectors provide triggers that can notify your app when specific events happen. 
-For example, the FTP connector has the OnUpdatedFile trigger. 
-You can build a logic app, PowerApp, or Flow that listens 
-to this trigger and performs an action whenever the trigger fires.
+For example, the FTP connector has the OnUpdatedFile trigger that notifies your app when a file is updated. 
+You can build a logic app, PowerApp, or Flow that listens to this trigger and performs an action whenever the trigger fires.
 
 There are two types of triggers:  
 
@@ -92,10 +90,9 @@ then triggers a new instance of your app. The Twitter connector is one such exam
 ## Connectors as actions
 
 Connectors also provide actions that you can use in your app's workflow. 
-Actions are useful for looking up data, which can then be used in running your app. 
-For example, you might need to look up customer data from a SQL database when processing an order. 
+For example, your app can look up data that you can then use when running your app. 
+More specifically, you can look up customer data from a SQL database when processing an order. 
 Or, you might need to write, update, or delete data in a destination table. 
-You can perform these tasks using the actions provided by the connectors. 
 Actions map to operations that are defined in the Swagger metadata.
 
 ## Next Steps
