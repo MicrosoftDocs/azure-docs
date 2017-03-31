@@ -4,7 +4,7 @@ description: Insert a few lines of code in your device or desktop app, webpage, 
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 80400495-c67b-4468-a92e-abf49793a54d
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 03/31/2017
 ms.author: awills
 
 ---
@@ -28,7 +28,7 @@ The API is uniform across all platforms, apart from a few small variations.
 | --- | --- |
 | [`TrackPageView`](#page-views) |Pages, screens, blades, or forms. |
 | [`TrackEvent`](#trackevent) |User actions and other events. Used to track user behavior or to monitor performance. |
-| [`TrackMetric`](#trackmetric) |Performance measurements such as queue lengths not related to specific events. |
+| [`TrackMetric`](#send-metrics) |Performance measurements such as queue lengths not related to specific events. |
 | [`TrackException`](#trackexception) |Logging exceptions for diagnosis. Trace where they occur in relation to other events and examine stack traces. |
 | [`TrackRequest`](#trackrequest) |Logging the frequency and duration of server requests for performance analysis. |
 | [`TrackTrace`](#tracktrace) |Diagnostic log messages. You can also capture third-party logs. |
@@ -119,27 +119,29 @@ Application Insights can chart metrics that are not attached to particular event
 
 There are two ways to send metrics:
 
-* **MetricManager** is available in ASP.NET from version 2.4. This is recommended because it reduces bandwidth. It aggregates your metrics in your app, sending the aggregated statistics to the portal at intervals of one minute.
-* **TrackMetric** sends metric statistics to the portal. You can send a single metric value, but we recommend you send pre-aggregated metrics.
+* **MetricManager** is recommended as a convenient way to send metrics while reducing bandwidth. It aggregates your metrics in your app, sending the aggregated statistics to the portal at intervals of one minute. MetricManager is available from version 2.4 of the Application Insights SDK for ASP.NET.
+* **TrackMetric** sends metric statistics to the portal. You can either send single metric values, or perform your own aggregation and use TrackMetric to send the statistics.
 
 ### MetricManager
 
-(ASP.NET v2.4.0+)
+(Application Insights for ASP.NET v2.4.0+)
 
 Create an instance of MetricManager and then use it as a factory for metrics:
 
 *C#*
 ```C#
     // Initially:
-    var manager = new Microsoft.ApplicationInsights.Extensibility.MetricManager(tc);
+    var manager = new Microsoft.ApplicationInsights.Extensibility.MetricManager(telemetryClient);
 
     // For each metric that you want to use:
-    var metric1 = mgr.CreateMetric("m1");
+    var metric1 = mgr.CreateMetric("m1", dimensions);
 
     // Each time you want to record a measurement:
     metric1.Track(value);
 
 ```
+
+`dimensions` is an optional string dictionary. Use it if you want to attach [properties](#properties) to your metric so that you can segment by different property values. 
 
 ### TrackMetric
 
