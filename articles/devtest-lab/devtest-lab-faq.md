@@ -212,10 +212,10 @@ In addition to deleting VMs from your lab in the Azure portal, you can delete al
 
 
 ### What are artifacts?
-Artifacts are customizable elements that can be used to deploy your latest bits or your dev tools onto a VM. They are attached to your VM during creation with a few simple clicks, and once the VM is provisioned, the artifacts deploy and configure your VM. There are various pre-existing artifacts in our [public Github repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), but you can also easily [author your own artifacts](devtest-lab-artifact-author.md).
+Artifacts are customizable elements that can be used to deploy your latest bits or your dev tools onto a VM. They are attached to your VM during creation with a few simple clicks, and once the VM is provisioned, the artifacts deploy and configure your VM. There are various pre-existing artifacts in our [public GitHub repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), but you can also easily [author your own artifacts](devtest-lab-artifact-author.md).
 
 ### How do I create a lab from an Azure Resource Manager template?
-We have provided a [Github repository of lab Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) that you can deploy as-is or modify to create custom templates for your labs. Each of these templates has a link that you can click to deploy the lab as-is under your own Azure subscription, or you can customize the template and [deploy using PowerShell or Azure CLI](../azure-resource-manager/resource-group-template-deploy.md).
+We have provided a [GitHub repository of lab Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) that you can deploy as-is or modify to create custom templates for your labs. Each of these templates has a link that you can click to deploy the lab as-is under your own Azure subscription, or you can customize the template and [deploy using PowerShell or Azure CLI](../azure-resource-manager/resource-group-template-deploy.md).
 
 ### Why are my VMs created in different resource groups with arbitrary names? Can I rename or modify these resource groups?
 Resource groups are created this way in order for Azure DevTest Labs to manage the user permissions and access to virtual machines. While you can move the VM to another resource group with your desired name, doing so is not recommended. We are working on improving this experience to allow more flexibility.   
