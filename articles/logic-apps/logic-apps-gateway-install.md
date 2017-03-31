@@ -19,17 +19,18 @@ ms.author: jehollan
 ---
 # Install an on-premises data gateway for Azure Logic Apps
 
-The on-premises data gateway supports these data source connections:
+The on-premises data gateway supports these connections:
 
 *   BizTalk Server
-*	DB2  
+*   DB2  
 *   File System
 *   Informix
 *   MQ
-*	Oracle Database 
+*   Oracle Database 
 *   SAP Application Server 
 *   SAP Message Server
-*	SQL Server
+*   SharePoint for HTTP only, not HTTPS
+*   SQL Server
 
 For more information about these connections, see 
 [Connectors for Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
