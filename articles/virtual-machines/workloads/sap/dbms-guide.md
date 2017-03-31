@@ -20,7 +20,7 @@ ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 
 ---
-# SAP NetWeaver on Azure Linux Virtual Machines (VMs) – DBMS Deployment Guide
+# SAP NetWeaver on Azure Virtual Machines – DBMS Deployment Guide
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -74,7 +74,7 @@ ms.custom: H1Hack27Feb2017
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
 
-[dbms-guide]:dbms-guide.md (SAP NetWeaver on Linux virtual machines (VMs) – DBMS Deployment Guide)
+[dbms-guide]:dbms-guide.md (SAP NetWeaver on virtual machines  – DBMS Deployment Guide)
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (Caching for VMs and VHDs)
 [dbms-guide-2.2]:dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 (Software RAID)
 [dbms-guide-2.3]:dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 (Microsoft Azure Storage)
@@ -101,7 +101,7 @@ ms.custom: H1Hack27Feb2017
 [dbms-guide-figure-800]:media/virtual-machines-shared-sap-dbms-guide/800-azure-vm-sap-content-server.png
 [dbms-guide-figure-900]:media/virtual-machines-shared-sap-dbms-guide/900-sap-cache-server-on-premises.png
 
-[deployment-guide]:deployment-guide.md (SAP NetWeaver on Linux virtual machines (VMs) – Deployment Guide)
+[deployment-guide]:deployment-guide.md (SAP NetWeaver on  virtual machines – Deployment Guide)
 [deployment-guide-2.2]:deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 (SAP Resources)
 [deployment-guide-3.1.2]:deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab (Deploying a VM with a custom image)
 [deployment-guide-3.2]:deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281 (Scenario 1: Deploying a VM out of the Azure Marketplace for SAP)
@@ -173,7 +173,7 @@ ms.custom: H1Hack27Feb2017
 
 [msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
 
-[planning-guide]:planning-guide.md (SAP NetWeaver on Linux virtual machines (VMs) – Planning and Implementation Guide)
+[planning-guide]:planning-guide.md (SAP NetWeaver on virtual machines  – Planning and Implementation Guide)
 [planning-guide-1.2]:planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (Resources)
 [planning-guide-11]:planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058 (High Availability (HA) and Disaster Recovery (DR) for SAP NetWeaver running on Azure Virtual Machines)
 [planning-guide-11.4.1]:planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 (High Availability for SAP Application Servers)

@@ -19,7 +19,7 @@ ms.date: 11/08/2016
 ms.author: sedusch
 
 ---
-# Azure Virtual Machines deployment for SAP on Linux
+# Azure Virtual Machines deployment for SAP
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -74,7 +74,7 @@ ms.author: sedusch
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
 
-[dbms-guide]:dbms-guide.md (Azure Virtual Machines DBMS deployment for SAP on Linux)
+[dbms-guide]:dbms-guide.md (Azure Virtual Machines DBMS deployment for SAP)
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (Caching for VMs and VHDs)
 [dbms-guide-2.2]:dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 (Software RAID)
 [dbms-guide-2.3]:dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 (Microsoft Azure Storage)
@@ -101,7 +101,7 @@ ms.author: sedusch
 [dbms-guide-figure-800]:media/virtual-machines-shared-sap-dbms-guide/800-azure-vm-sap-content-server.png
 [dbms-guide-figure-900]:media/virtual-machines-shared-sap-dbms-guide/900-sap-cache-server-on-premises.png
 
-[deployment-guide]:deployment-guide.md (Azure Virtual Machines deployment for SAP on Linux)
+[deployment-guide]:deployment-guide.md (Azure Virtual Machines deployment for SAP)
 [deployment-guide-2.2]:deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 (SAP resources)
 [deployment-guide-3.1.2]:deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab (Deploying a VM by using a custom image)
 [deployment-guide-3.2]:deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281 (Scenario 1: Deploying a VM from the Azure Marketplace for SAP)
@@ -173,7 +173,7 @@ ms.author: sedusch
 
 [msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
 
-[planning-guide]:planning-guide.md (Azure Virtual Machines planning and implementation for SAP on Linux)
+[planning-guide]:planning-guide.md (Azure Virtual Machines planning and implementation for SAP)
 [planning-guide-1.2]:planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (Resources)
 [planning-guide-11]:planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058 (High availability and disaster recovery for SAP NetWeaver running on Azure Virtual Machines)
 [planning-guide-11.4.1]:planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 (High availability for SAP Application Servers)
