@@ -138,25 +138,15 @@ The following are some common scenarios for which you might use Apache storm on 
 
 For information about real-world scenarios, see the [How companies are using Storm](https://storm.apache.org/documentation/Powered-By.html) document.
 
-## Development: C#
+## Development
 
-The Data Lake Tools for Visual Studio allow .NET developers to design and implement a topology in C#. You can also create hybrid topologies that use Java and C# components.
+The __Data Lake Tools for Visual Studio__ allow .NET developers to design and implement a topology in __C#__. You can also create hybrid topologies that use Java and C# components.
 
-For more information, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+For more information, see [Develop C# topologies for Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
-## Development: Java
+You can also develop __Java__ solutions using the IDE of your choice. For more information, see [Develop Java topologies for Storm on HDInsight](hdinsight-storm-develop-java-topology.md).
 
-Most Java examples you encounter are plain Java or Trident. Trident is a high-level abstraction that makes it easier to do things such as joins, aggregations, grouping, and filtering. However, Trident acts on batches of tuples, whereas a raw Java solution processes a stream one tuple at a time.
-
-For more information about Trident, see the [Trident tutorial](https://storm.apache.org/documentation/Trident-tutorial.html) at apache.org.
-
-For examples of Java and Trident topologies, see the [list of example Storm topologies](hdinsight-storm-example-topology.md) or the storm-starter examples on your HDInsight cluster.
-
-The storm-starter examples are located in the **/usr/hdp/current/storm-client/contrib/storm-starter** directory on your HDInsight cluster.
-
-## Development: Python
-
-For an example of using Python components, see [Develop Storm topologies using Python on HDInsight](hdinsight-storm-develop-python-topology.md).
+Python can also be used to develop Storm components. For more information, see [Develop Storm topologies using Python on HDInsight](hdinsight-storm-develop-python-topology.md).
 
 ## Common development patterns
 
