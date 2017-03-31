@@ -31,7 +31,7 @@ ms.author: cynthn
 ## Other sizes
 - [Compute optimized](../windows/sizes-compute.md)
 - [Memory optimized](sizes-memory.md)
-- [Storage optimized](../virtual-machines-linux-sizes-storage.md)
+- [Storage optimized](sizes-storage.md)
 - [GPU](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
 

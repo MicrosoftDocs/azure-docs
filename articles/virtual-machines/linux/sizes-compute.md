@@ -29,7 +29,7 @@ ms.author: cynthn
 ## Other sizes
 - [General purpose](sizes-general.md)
 - [Memory optimized](sizes-memory.md)
-- [Storage optimized](../virtual-machines-linux-sizes-storage.md)
+- [Storage optimized](sizes-storage.md)
 - [GPU](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
 
