@@ -25,7 +25,7 @@ The Azure Docker VM extension installs and configures the Docker daemon, Docker 
 
 For more information about the different deployment methods, including using Docker Machine and Azure Container Services, see the following articles:
 
-* To quickly prototype an app, you can create a single Docker host using [Docker Machine](../virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* To quickly prototype an app, you can create a single Docker host using [Docker Machine](docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * To build production-ready, scalable environments that provide additional scheduling and management tools, you can deploy a [Docker Swarm cluster on Azure Container Services](../../container-service/container-service-deployment.md).
 
 ## Deploy a template with the Azure Docker VM extension
@@ -133,7 +133,7 @@ You may wish to [configure the Docker daemon TCP port](https://docs.docker.com/e
 
 Read more information about the additional Docker deployment options in Azure:
 
-* [Use Docker Machine with the Azure driver](../virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
+* [Use Docker Machine with the Azure driver](docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
 * [Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine](docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * [Deploy an Azure Container Service cluster](../../container-service/container-service-deployment.md)
 
