@@ -72,5 +72,6 @@ Get information about alert rules and configuring them by using:
 * Learn more about [Activity Log](monitoring-overview-activity-logs.md)
 * Configure [Activity Log Alerts via Azure portal](monitoring-activity-log-alerts.md)
 * Configure [Activity Log Alerts via Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+* Review the [activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md)
 * Learn more about [Service Notifications](monitoring-service-notifications.md)
 * Learn more about [Action Groups](monitoring-action-groups.md)
