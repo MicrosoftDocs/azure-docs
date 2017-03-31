@@ -180,7 +180,7 @@ Further assume that this index contains the following four documents:
     {         
     "id": "2",         
     "title": "Beach Resort",        
-    "description": "Located on the north shore of the island of Kauai. Ocean view."     
+    "description": "Located on the north shore of the island of Kauaʻi. Ocean view."     
     },       
     {         
      "id": "3",         
