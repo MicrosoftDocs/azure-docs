@@ -61,7 +61,9 @@ Arguments
                                     address ranges in CIDR form to be included as the allowed list
                                     of client IPs for a given database account. IP addresses/ranges
                                     must be comma separated and must not contain any spaces.
-                                    To enable portal access, include 104.42.195.92.
+                                    To enable portal access, include the IP address for the Azure 
+                                    portal for your region, as specified in [Configuring the IP 
+                                    access control policy](documentdb-firewall-support.md#configure-ip-policy).
     --kind                        : The type of DocumentDB database account to create.  Allowed
                                     values: GlobalDocumentDB, MongoDB, Parse.  Default:
                                     GlobalDocumentDB.
