@@ -42,7 +42,7 @@ We recommend that you choose managed disks, to take advantage of their many feat
 
 To get started with Premium Storage, [create your free Azure account](https://azure.microsoft.com/pricing/free-trial/). 
 
-For information about migrating your existing VMs to Premium Storage, see [Convert a Windows VM from unmanaged disks to managed disks](../virtual-machines/virtual-machines-windows-convert-unmanaged-to-managed-disks.md) or [Convert a Linux VM from unmanaged disks to managed disks](../virtual-machines/virtual-machines-linux-convert-unmanaged-to-managed-disks.md).
+For information about migrating your existing VMs to Premium Storage, see [Convert a Windows VM from unmanaged disks to managed disks](../virtual-machines/virtual-machines-windows-convert-unmanaged-to-managed-disks.md) or [Convert a Linux VM from unmanaged disks to managed disks](../virtual-machines/linux/convert-unmanaged-to-managed-disks.md).
 
 > [!NOTE]
 > Premium Storage is available in most regions. For the list of available regions, in [Azure services by region](https://azure.microsoft.com/regions/#services), look at the regions in which supported Premium Support size-series VMs (DS-series, DSV2-series, GS-series, and Fs-series VMs) are supported.
