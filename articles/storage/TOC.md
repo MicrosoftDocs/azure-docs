@@ -46,9 +46,9 @@
 ## Disk Storage 
 ### [Create a VM using Resource Manager and PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 ### [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
-### [Attach a managed disk to a Windows VM using PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
+### [Attach a managed disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md)
 ### [Add a managed disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md)
-### [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
+### [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 ### [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
 
 # How To
@@ -74,8 +74,8 @@
 ### [Disks and VHDs for Windows VMs](storage-about-disks-and-vhds-windows.md)
 ### [Disks and VHDs for Linux VMs](storage-about-disks-and-vhds-linux.md)
 ### [Azure Managed Disks Overview](storage-managed-disks-overview.md)
-### [Migrate Azure VMs to Azure Managed Disks](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
-### [Migrate from AWS and other platforms to Managed Disks](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+### [Migrate Azure VMs to Azure Managed Disks](../virtual-machines/windows/migrate-to-managed-disks.md)
+### [Migrate from AWS and other platforms to Managed Disks](../virtual-machines/windows/on-prem-to-azure.md)
 ### [Frequently Asked Questions about Azure IaaS VM Disks](storage-faq-for-disks.md)
 ### Premium Storage
 #### [High-performance Premium Storage for VM Disks](storage-premium-storage.md)

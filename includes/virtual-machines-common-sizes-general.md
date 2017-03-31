@@ -9,6 +9,9 @@ Dv2-series, a follow-on to the original D-series, features a more powerful CPU. 
 
 The basic tier sizes are primarily for development workloads and other applications that don't require load balancing, auto-scaling, or memory-intensive virtual machines. For information about VM sizes that are more appropriate for production applications, see (Sizes for virtual machines)[virtual-machines-size-specs.md] and for VM pricing information, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
+> [!NOTE]
+> All Azure virtual machine sizes will support at least 2 network interfaces (NICs) starting April 15th. For specific region information stay tuned for a [service update.](https://azure.microsoft.com/en-us/updates/)
+
 ## DSv2-series*
 
 ACU: 210-250
