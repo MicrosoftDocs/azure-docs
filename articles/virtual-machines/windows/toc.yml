@@ -21,27 +21,17 @@
     href: powershell-samples.md
 - name: Tutorials
   items:
-  - name: Install and run IIS
-    href: hero-role.md
-  - name: Deploy an app with VM template
-    items:
-    - name: Tutorial overview
-      href: dotnet-core-1-landing.md
-    - name: App architecture
-      href: dotnet-core-2-architecture.md
-    - name: Access and security
-      href: dotnet-core-3-access-security.md
-    - name: Availability and scale
-      href: dotnet-core-4-availability-scale.md
-    - name: App deployment
-      href: dotnet-core-5-app-deployment.md
+  - name: Create and manage a VM
+    href: ../virtual-machines-windows-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: Load balance VMs
+    href: ../virtual-machines-windows-load-balanced-iis-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
 - name: Concepts
   items:
   - name: Regions and availability
     href: regions-and-availability.md
-  - name: VM storage
+  - name: Storage
     href: ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: VM networking
+  - name: Setworking
     href: network-overview.md
   - name: VM Scale Sets
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
@@ -60,9 +50,13 @@
     href: ../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Disaster recovery
     href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Azure planned maintenance
+  - name: Planned maintenance
     href: planned-maintenance.md
     items:
+    - name: Preserving maintenance
+      href: preserving-maintenance.md
+    - name: Restarting maintenance
+      href: impactful-maintenance.md
     - name: Schedule
       href: planned-maintenance-schedule.md
   - name: VM sizes
@@ -198,7 +192,7 @@
       href: expand-os-disk.md
     - name: Expand data disk
       href: expand-data-disks.md
-    - name: Use D:\ as data disk
+    - name: Use D as data disk
       href: change-drive-letter.md
     - name: Create VMs using unmanaged disks
       items:

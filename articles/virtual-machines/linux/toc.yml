@@ -31,9 +31,9 @@
     href: ../virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Regions and availability
     href: ../virtual-machines-linux-regions-and-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-  - name: VM storage
+  - name: Storage
     href: ../virtual-machines-linux-azure-vm-storage-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-  - name: VM networking
+  - name: Networking
     href: ../virtual-machines-linux-azure-vm-network-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: VM Scale Sets
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
@@ -52,11 +52,13 @@
     href: ../../security-center/security-center-linux-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Disaster recovery
     href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-  - name: Azure planned maintenance
+  - name: Planned maintenance
     href: ../virtual-machines-linux-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     items:
-    - name: Schedule
-      href: ../virtual-machines-linux-planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Preserving maintenance
+      href: ../virtual-machines-linux-maintenance-in-place.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Restarting maintenance
+      href: ../virtual-machines-linux-impactful-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: VM sizes
     items:
     - name: VM sizes overview
