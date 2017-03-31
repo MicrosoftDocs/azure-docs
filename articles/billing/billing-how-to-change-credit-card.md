@@ -54,11 +54,12 @@ If you get an error after you add the credit card, see [Credit card declined at 
 4. Click **Use Instead** and select the credit card that you want to use.
 
 ## Remove a credit card from the account
-If your credit card is associated with other active Microsoft subscriptions, you can't remove it from your Azure account. You must remove it from all active subscriptions that you have with Microsoft.
 1. Sign in to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the account administrator.
 2. Select the subscription.
 3. On the right side of the page, select **Manage payment methods**.
 4. Click **Delete** for the credit card that you want to delete.
+
+If your credit card is associated with other active Microsoft subscriptions, you can't remove it from your Azure account. Remove the credit card from all active subscriptions that you have with Microsoft.
 
 ##  How to make payments
 
