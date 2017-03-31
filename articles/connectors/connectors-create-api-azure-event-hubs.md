@@ -178,7 +178,7 @@ The Event Hubs connector has only one action.
 
 | Action | Description |
 | --- | --- |
-| Send an event | Sends an event to the specified Event Hub. |
+| Send an event | Send an event to the specified Event Hub. |
 
 ### HTTP responses
 
