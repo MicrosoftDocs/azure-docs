@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
-ms.date: 03/30/2017
-ms.author: jehollan
+ms.date: 03/31/2017
+ms.author: jehollan; LADocs
 ---
 
 # Call, trigger, or nest workflows with HTTP endpoints in logic apps
