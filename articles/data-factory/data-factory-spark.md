@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/31/2017
 ms.author: spelluru
 
 ---
@@ -31,23 +31,24 @@ ms.author: spelluru
 > * [.NET Custom Activity](data-factory-use-custom-activities.md)
 
 ## Introduction
-This article describes the HDInsight Spark Activity that you can use in a Data Factory pipeline. The Spark Activity is one of the [data transformation activities](data-factory-data-transformation-activities.md) supported by Azure Data Factory. The activity runs the specified spark program on your Apache spark cluster in Azure HDInsight.    
+Spark Activity is one of the [data transformation activities](data-factory-data-transformation-activities.md) supported by Azure Data Factory. This activity runs the specified Spark program on your Apache Spark cluster in Azure HDInsight.    
 
 > [!NOTE]
-> For an overview of Data Factory service, see [Introduction to Azure Data Factory](data-factory-introduction.md). 
+> If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md). 
 
-## Walkthrough: create a pipeline with Spark Activity
-Here are the typical steps to create a Data Factory pipeline with a Spark Activity.  
+## Walkthrough: create a pipeline with Spark activity
+Here are the typical steps to create a Data Factory pipeline with a Spark activity.  
 
 1. Create a data factory.
-2. Create a linked service to link your Azure Storage to the data factory. This is the storage that is associated with your Apache Spark cluster in Azure HDInsight.    
-2. Create a linked service that links the Apache Spark cluster in Azure HDInsight to your data factory.
+2. Create an Azure Storage linked service to link your Azure storage that is associated with your Apache Spark cluster in HDInsight to the data factory.     
+2. Create an Azure HDInsight linked service to link your Apache Spark cluster in Azure HDInsight to the data factory.
 3. Create a dataset that refers to the Azure Storage linked service. Currently, you must specify an output dataset for an activity even if there is no output being produced.  
-3. Create a pipeline with Spark Activity that refers to the Apache HDInsight linked service created in #2. The activity is configured with the dataset you created in the previous step as an output dataset. The output dataset is what drives the schedule (hourly, daily, etc.). Therefore, you must specify the output dataset even though the activity does not really produce an output.
+4. Create a pipeline with Spark activity that refers to the HDInsight linked service created in #2. The activity is configured with the dataset you created in the previous step as an output dataset. The output dataset is what drives the schedule (hourly, daily, etc.). Therefore, you must specify the output dataset even though the activity does not really produce an output.
 
 ### Prerequisites
-1. Create an **Apache Spark cluster** in Azure HDInsight by following instructions in the tutorial: [Create Apache Spark cluster in Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Note the name of the Azure Storage account that is associated with the spark cluster. 
-2. Create a python file named **test.py** with the following content: 
+1. Create a **general-purpose Azure Storage Account** by following instructions in the walkthrough: [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account).  
+2. Create an **Apache spark cluster** in Azure HDInsight by following instructions in the tutorial: [Create Apache Spark cluster in Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) if you do not have one. Associate the Azure storage account you created in step #1 with this cluster.  
+3. Create a python file named **test.py** with the following content: 
 	```python
 	from pyspark import SparkContext
 	from pyspark.sql import *
@@ -74,7 +75,7 @@ Here are the typical steps to create a Data Factory pipeline with a Spark Activi
 	dfw = DataFrameWriter(hvacTable)
 	dfw.saveAsTable('hvac')	
 	```
-3.  Upload **test.py** to the **pyFiles** folder of the **adfspark** container. Create the container and the folder if they do not exist. 
+3.  Upload **test.py** to the **pyFiles** folder of the **adfspark** container in your Azure Blob storage. Create the container and the folder if they do not exist. 
  
 ### Create data factory
 Let's start with creating the data factory in this step.
@@ -82,14 +83,12 @@ Let's start with creating the data factory in this step.
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Click **NEW** on the left menu, click **Data + Analytics**, and click **Data Factory**.
 3. In the **New data factory** blade, enter **SparkDF** for the Name.
-
    > [!IMPORTANT]
    > The name of the Azure data factory must be **globally unique**. If you see the error: **Data factory name “SparkDF” is not available**. Change the name of the data factory (for example, yournameSparkDFdate, and try creating again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.   
 4. Select the **Azure subscription** where you want the data factory to be created.
-5. Select existing **resource group** or create a resource group.
+5. Select existing **resource group** or create a Azure resource group.
 6. Select **Pin to dashboard** option.  
 6. Click **Create** on the **New data factory** blade.
-
    > [!IMPORTANT]
    > To create Data Factory instances, you must be a member of the [Data Factory Contributor](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
 7. You see the data factory being created in the **dashboard** of the Azure portal as follows:   
@@ -98,33 +97,33 @@ Let's start with creating the data factory in this step.
     ![Data Factory blade](./media/data-factory-spark/data-factory-blade.png)
 
 ### Create linked services
-In this step, you link your Azure HDInsight Spark cluster and Azure Storage to your data factory. The HDInsight linked service is used to run the Spark program specified in the Spark activity of the pipeline in this sample. You create the Azure Storage linked service so that you can create an Azure Blob dataset later in this walkthrough.  
+In this step, two linked services, one to link your HDInsight Spark cluster to your data factory, and the other to link your Azure storage to your data factory.  
 
 #### Create Azure Storage linked service
 In this step, you link your Azure Storage account that is associated with the HDInsight spark cluster to your data factory. A dataset you create in a step later in this walkthrough refers to this linked service. The HDInsight linked service that you define in the next step refers to this linked service too.  
   
 1. Click **Author and deploy** on the **DATA FACTORY** blade for **GetStartedDF**. You should see the Data Factory Editor.
 2. Click **New data store** and choose **Azure storage**.
-
    ![New data store - Azure Storage - menu](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
-3. You should see the JSON script for creating an Azure Storage linked service in the editor.
-
+3. You should see the **JSON script** for creating an Azure Storage linked service in the editor.
    ![Azure Storage linked service](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 4. Replace **account name** with the name of your Azure storage account and **account key** with the access key of the Azure storage account. To learn how to get your storage access key, see the information about how to view, copy, and regenerate storage access keys in [Manage your storage account](../storage/storage-create-storage-account.md#manage-your-storage-account).
-5. Click **Deploy** on the command bar to deploy the linked service. After the linked service is deployed successfully, the **Draft-1** window should disappear and you see **AzureStorageLinkedService** in the tree view on the left.
+5. To deploy the linked service, click **Deploy** on the command bar. After the linked service is deployed successfully, the **Draft-1** window should disappear and you see **AzureStorageLinkedService** in the tree view on the left.
 
 #### Create HDInsight linked service
-In this step, you create Azure HDInsight linked service to link your HDInsight Spark cluster to the data factory. 
+In this step, you create Azure HDInsight linked service to link your HDInsight Spark cluster to the data factory. The HDInsight cluster is used to run the Spark program specified in the Spark activity of the pipeline in this sample.  
 
 1. Click **... More** on the toolbar, click **New compute**, and then click **HDInsight cluster**.
-
 	![Create HDInsight linked service](media/data-factory-spark/new-hdinsight-linked-service.png)
-2. Copy and paste the following snippet to the **Draft-1** window. Specify the URI for the HDInsight Spark cluster, name of the user, and password. For linkedServiceName, specify the name of the Azure Storage linked service you created earlier. See [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) for details about the HDInsight linked service. 	
-
-
+2. Copy and paste the following snippet to the **Draft-1** window. In the JSON editor, do the following steps: 
+	1. Specify the **URI** for the HDInsight Spark cluster. For example: "https://<sparkclustername>.azurehdinsight.net/". 
+	2. Specify the name of the **user** who has access to the Spark cluster. 
+	3. Specify the **password** for user. 
+	4. Specify the **Azure Storage linked service** that is associated with the HDInsight Spark cluster. For the purpose of this sample, it is: **AzureStorageLinkedService**. 
+	
 	```json
 	{
-	    "name": "HDInsightLinkedService",
+		"name": "HDInsightLinkedService",
 	    "properties": {
 	        "type": "HDInsight",
 	        "typeProperties": {
@@ -135,18 +134,18 @@ In this step, you create Azure HDInsight linked service to link your HDInsight S
 	        }
 	    }
 	}
-
+	```
 	> [!NOTE]
 	> Currently, the Spark Activity does not support Spark clusters that use an Azure Data Lake Store as a primary storage or an on-demand HDInsight linked service. 
 
-3.  Click **Deploy** on the command bar to deploy the linked service.  
+	See [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) for details about the HDInsight linked service. 
+3.  To deploy the linked service, click **Deploy** on the command bar.  
 
 ### Create output dataset
-The output dataset is what drives the schedule (hourly, daily, etc.). Therefore, you must specify an output dataset for the spark activity in the pipeline even though the activity does not really produce any output.
+The output dataset is what drives the schedule (hourly, daily, etc.). Therefore, you must specify an output dataset for the spark activity in the pipeline even though the activity does not really produce any output. Specifying an input dataset for the activity is optional. 
 
 1. In the **Data Factory Editor**, click **... More** on the command bar, click **New dataset**, and select **Azure Blob storage**.  
-2. Copy and paste the following snippet to the Draft-1 window. The JSON snippet defines a dataset called **OutputDataset**. In addition, you specify that the results are stored in the blob container called **adfspark** and the folder called **pyFiles/output**. As mentioned earlier, this dataset is a dummy dataset. The Spark program in this example does not produce any output. The **availability** section specifies that the output dataset is produced daily.
-
+2. Copy and paste the following snippet to the Draft-1 window. The JSON snippet defines a dataset called **OutputDataset**. In addition, you specify that the results are stored in the blob container called **adfspark** and the folder called **pyFiles/output**. As mentioned earlier, this dataset is a dummy dataset. The Spark program in this example does not produce any output. The **availability** section specifies that the output dataset is produced daily. 
 	```JSON
 	{
 	    "name": "OutputDataset",
@@ -168,13 +167,13 @@ The output dataset is what drives the schedule (hourly, daily, etc.). Therefore,
 	    }
 	}
 	```
-3. Click **Deploy** on the command bar to deploy the newly created dataset.
-4. Verify that the dataset is created successfully.
+3. To deploy the dataset, click **Deploy** on the command bar.
+
 
 ### Create pipeline
 In this step, you create a pipeline with a **HDInsightSpark** activity. Currently, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset. Therefore, no input dataset is specified in this example. 
 
-1. In the **Data Factory Editor**, click **Ellipsis (…) More commands** and then click **New pipeline**.
+1. In the **Data Factory Editor**, click **… More** on the command bar, and then click **New pipeline**.
 2. Replace the script in the Draft-1 window with the following script:
 
 	```json
@@ -204,23 +203,43 @@ In this step, you create a pipeline with a **HDInsightSpark** activity. Currentl
 	}
 	```
 	Note the following points: 
-	- The type property is set to HDInsightSpark. 
-	- The rootPath is set to adfspark\\pyFiles where adfspark is the Azure Blob container and pyFiles is fine folder in that container. In this example, the Azure Blob Storage is the one that is associated with the Spark cluster. You can upload the file to a different Azure Storage. If you do so, create an Azure Storage linked service to link that storage account to the data factory. Then, specify the name of the linked service as a value for the sparkJobLinkedService property. See [Spark Activity properties](#spark-activity-properties) for details about this property and other properties supported by the Spark Activity.  
-	- The entryFilePath is set to the test.py, which is the python file. 
-	- The values for parameters for the Spark program are passed by using the arguments property. In this example, there are two arguments: arg1 and arg2. 
-	- The **getDebugInfo** property is set to **Always**, which means the log files are always generated (success or failure). 
-	
+	- The **type** property is set to **HDInsightSpark**. 
+	- The **rootPath** is set to **adfspark\\pyFiles** where adfspark is the Azure Blob container and pyFiles is fine folder in that container. In this example, the Azure Blob Storage is the one that is associated with the Spark cluster. You can upload the file to a different Azure Storage. If you do so, create an Azure Storage linked service to link that storage account to the data factory. Then, specify the name of the linked service as a value for the **sparkJobLinkedService** property. See [Spark Activity properties](#spark-activity-properties) for details about this property and other properties supported by the Spark Activity.  
+	- The **entryFilePath** is set to the **test.py**, which is the python file. 
+	- The **getDebugInfo** property is set to **Always**, which means the log files are always generated (success or failure).	
 		> [!IMPORTANT]
 		> We recommend that you do not set this property to Always in a production environment unless you are troubleshooting an issue. 
-	- The sparkConfig section specifies one python environment setting: worker.memory. 
-	- The outputs section has one output dataset. You must specify an output dataset even if the spark program does not produce any output. The output dataset drives the schedule for the pipline (hourly, daily, etc.).  
-
-3. Click **Deploy** on the command bar to deploy the pipeline.
+	- The **outputs** section has one output dataset. You must specify an output dataset even if the spark program does not produce any output. The output dataset drives the schedule for the pipeline (hourly, daily, etc.).  
+		
+		For details about the properties supported by Spark activity, see [Spark activity properties](#spark-activity-properties) section.
+3. To deploy the pipeline, click **Deploy** on the command bar.
 
 ### Monitor pipeline
-1. Click **X** to close Data Factory Editor blades and to navigate back to the Data Factory blade, and click **Monitor and Manage**. This launches an application in another tab. 
-2. Change the **Start time** and **End time** filters at the top so that you see the dataset slice. 
-3. You should see only one slice as there is only one day between the start and end times of the pipeline. Confirm that the data slice is in ready state. If it is in error state, you should see error details in the right pane.    
+1. Click **X** to close Data Factory Editor blades and to navigate back to the Data Factory home page. Click **Monitor and Manage**. This launches the monitoring application in another tab. 
+	![Monitor and Manage tile](media/data-factory-spark/monitor-and-manage-tile.png)
+2. Change the **Start time** filter at the top to **2/1/2017**, and click **Apply**. 
+3. You should see only one activity window as there is only one day between the start (2017-02-01) and end times (2017-02-02) of the pipeline. Confirm that the data slice is in **ready** state. 
+
+	![Monitor the pipeline](media/data-factory-spark/monitor-and-manage-app.png)    
+4. Select the **activity window** to see details about the activity run. If there is an error, you see details about it in the right pane.
+ 
+### Verify the results
+
+1. Launch Jupyter notebook for your HDInsight Spark cluster by navigating to: https://CLUSTERNAME.azurehdinsight.net/jupyter. You can also launch cluster dashboard for your HDInsight Spark cluster, and then launch **Jupyter Notebook**.
+2. Click **New** -> **PySpark** to start a new notebook.
+	![Jupyter new notebook](media/data-factory-spark/jupyter-new-book.png)
+3. Run the following command by copy/pasting the text and pressing **SHIFT + ENTER** at the end of the second statement.  
+	```sql
+	%%sql
+	SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
+	```
+4. You see imported data from the hvac table:  
+	![Jupyter query results](media/data-factory-spark/jupyter-notebook-results.png)
+
+See [Run a Spark SQL query](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md#run-a-spark-sql-query) for detailed instructions. 
+
+### Troubleshooting
+Since you had **getDebugInfo** set to **Always**, you see a **log** subfolder in the **pyFiles** folder in your Azure Blob container. The log file in the log folder provides additional details. This log file is especially useful when there is an error. In a production environment, you may want to set it to **Failure**. 
 
 The following sections provide information about Data Factory entities to use Apache Spark cluster and Spark Activity in your data factory.    
 
