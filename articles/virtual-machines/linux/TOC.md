@@ -181,7 +181,7 @@
 ### [FAQ](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Troubleshoot
-### [Troubleshoot SSH connections](../virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Troubleshoot SSH connections](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Detailed troubleshooting steps](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Troubleshoot access to applications](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Troubleshoot allocation failures](allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
