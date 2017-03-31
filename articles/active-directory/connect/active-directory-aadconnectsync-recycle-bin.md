@@ -22,6 +22,7 @@ It is recommended that you enable the AD Recycle Bin feature for your on-premise
 
 If you accidentally deleted an on-premises AD user object and restore it using the feature, Azure AD restores the corresponding Azure AD user object.  For information about the AD Recycle Bin feature, refer to article [Scenario Overview for Restoring Deleted Active Directory Objects](https://technet.microsoft.com/library/dd379542.aspx).
 
+## Benefits of enabling the AD recycle bin
 This feature helps with restoring Azure AD user objects by doing the following:
 
 * If you accidentally deleted an on-premises AD user object, the corresponding Azure AD user object will be deleted in the next sync cycle. By default, Azure AD keeps the deleted Azure AD user object in soft-deleted state for 30 days.

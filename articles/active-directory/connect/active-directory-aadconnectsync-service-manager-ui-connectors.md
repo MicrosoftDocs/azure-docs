@@ -83,10 +83,8 @@ To resolve the issue, update the AD DS user account using the following:
 7. The User name indicates the AD DS account used for synchronization.
 8. Enter the new password of the AD DS account in the Password textbox
 ![Azure AD Connect Sync Encryption Key Utility](media/active-directory-aadconnectsync-encryption-key/key6.png)
-9. Click OK to save the new password and close the pop-up dialog.
-10. Restart the Synchronization Service to remove the old password from memory cache:
-	1. Go to Windows Service Control Manager (START → Services).
-	2. Select **Microsoft Azure AD Sync** and click Restart.
+9. Click OK to save the new password and restart the Synchronization Service to remove the old password from memory cache.
+
 
 
 ## Next steps
