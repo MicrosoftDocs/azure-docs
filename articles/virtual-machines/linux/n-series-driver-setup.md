@@ -29,7 +29,7 @@ To take advantage of the GPU capabilities of Azure N-series VMs running a suppor
 > Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Server 16.04 LTS.
 > 
 
-For N-series VM specs, storage capacities, and disk details, see [Sizes for virtual machines](../virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). See also [General considerations for N-series VMs](#general-considerations-for-n-series-vms).
+For N-series VM specs, storage capacities, and disk details, see [Sizes for virtual machines](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). See also [General considerations for N-series VMs](#general-considerations-for-n-series-vms).
 
 
 

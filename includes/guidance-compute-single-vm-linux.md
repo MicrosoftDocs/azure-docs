@@ -205,7 +205,7 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-account-limits]: ../articles/azure-subscription-service-limits.md#storage-limits
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
-[virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-linux-sizes.md
+[virtual-machine-sizes]:../articles/virtual-machines/linux/sizes.md
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]:../articles/virtual-machines/linux/change-vm-size.md
