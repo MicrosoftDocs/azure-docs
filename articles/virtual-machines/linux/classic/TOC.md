@@ -4,7 +4,7 @@
 ## [Availability](configure-availability.md)
 ## [FAQ](faq.md)
 
-# [Get Started](../../virtual-machines-linux-opensource-links.md)
+# [Get Started](../opensource-links.md)
 ## [Create a Linux VM with the portal](createportal.md)
 ## [Install Azure CLI](../../../cli-install-nodejs.md)
 ## [Create SSH keys](../mac-create-ssh-keys.md)
