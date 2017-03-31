@@ -997,7 +997,7 @@ Read more about [managing the availability of VMs](../virtual-machines-linux-man
 ## Create the Linux VMs
 You've created the network resources to support Internet-accessible VMs. Now let's create those VMs and secure them with an SSH key that doesn't have a password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We locate that image information by using [az vm image list](/cli/azure/vm/image#list), as described in [finding Azure VM images](linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-We also specify an SSH key to use for authentication. If you do not have any SSH keys, you can create them by using [these instructions](../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Alternatively, you can use the `--admin-password` method to authenticate your SSH connections after the VM is created. This method is typically less secure.
+We also specify an SSH key to use for authentication. If you do not have any SSH keys, you can create them by using [these instructions](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Alternatively, you can use the `--admin-password` method to authenticate your SSH connections after the VM is created. This method is typically less secure.
 
 We create the VM by bringing all our resources and information together with the [az vm create](/cli/azure/vm#create) command. The following example creates a VM named `myVM1` using Azure Managed Disks. If you wish to use unmanaged disks, see the additional note below.
 

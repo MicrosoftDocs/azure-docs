@@ -87,7 +87,7 @@ You have now created a Linux VM with LAMP already installed on it. If you wish, 
 
 ## Deploy LAMP on existing VM walkthrough
 If you need help creating a Linux VM, you can head [here to learn how to create a Linux VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-cli). 
-Next, you need to SSH into the Linux VM. If you need help with creating an SSH key, you can head [here to learn how to create an SSH key on Linux/Mac](../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Next, you need to SSH into the Linux VM. If you need help with creating an SSH key, you can head [here to learn how to create an SSH key on Linux/Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 If you have an SSH key already, go ahead and SSH from your command line into your Linux VM with `ssh azureuser@mypublicdns.westus.cloudapp.azure.com`.
 
 Now that you are working within your Linux VM, we can walk through installing the LAMP stack on Debian-based distributions. The exact commands might differ for other Linux distros.

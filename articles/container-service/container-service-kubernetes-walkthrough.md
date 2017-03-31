@@ -31,7 +31,7 @@ and run your containers. All VMs are in the same private virtual network and are
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-walkthrough/kubernetes.png)
 
 ## Prerequisites
-This walkthrough assumes that you have installed and set up the [Azure CLI v. 2.0](/cli/azure/install-az-cli2). You also must have an SSH RSA public key at `~/.ssh/id_rsa.pub`. If you don't have one, see the steps for [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md).
+This walkthrough assumes that you have installed and set up the [Azure CLI v. 2.0](/cli/azure/install-az-cli2). You also must have an SSH RSA public key at `~/.ssh/id_rsa.pub`. If you don't have one, see the steps for [OS X and Linux](../virtual-machines/linux/mac-create-ssh-keys.md) or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md).
 
 
 

@@ -99,7 +99,7 @@ The first step in using the Azure Cloud is to sign up for an Azure account.  Go 
 With your new Azure account, you can get started immediately using the Azure portal, which is a web-based admin panel.  To manage the Azure Cloud via the command-line, you install the `azure-cli`.  Install the [Azure CLI 2.0](/cli/azure/install)on your Mac or Linux workstation.
 
 ### Create an SSH key pair
-Now you have an Azure account, the Azure web portal, and the Azure CLI.  The next step is to create an SSH key pair that is used to SSH into Linux without using a password.  [Create SSH keys on Linux and Mac](../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to enable password-less logins and better security.
+Now you have an Azure account, the Azure web portal, and the Azure CLI.  The next step is to create an SSH key pair that is used to SSH into Linux without using a password.  [Create SSH keys on Linux and Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to enable password-less logins and better security.
 
 ### Create a VM using the CLI
 Creating a Linux VM using the CLI is a quick way to deploy a VM without leaving the terminal you are working in.  Everything you can specify on the web portal is available via a command-line flag or switch.  

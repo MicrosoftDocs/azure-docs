@@ -230,4 +230,4 @@ You can read more about using your Linux VM in the following articles:
 
 <!--Link references-->
 [Agent]:../agent-user-guide.md
-[Logon]:../../virtual-machines-linux-mac-create-ssh-keys.md
+[Logon]:../mac-create-ssh-keys.md

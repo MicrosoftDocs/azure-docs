@@ -7,7 +7,7 @@
 # [Get Started](../../virtual-machines-linux-opensource-links.md)
 ## [Create a Linux VM with the portal](createportal.md)
 ## [Install Azure CLI](../../../cli-install-nodejs.md)
-## [Create SSH keys](../../virtual-machines-linux-mac-create-ssh-keys.md)
+## [Create SSH keys](../mac-create-ssh-keys.md)
 
 # How to
 ## [Compute](../intro-on-azure.md)

@@ -25,7 +25,7 @@ This article shows you how to set static internal DNS names for Linux VMs using 
 The requirements are:
 
 * [an Azure account](https://azure.microsoft.com/pricing/free-trial/)
-* [SSH public and private key files](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [SSH public and private key files](linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Quick commands
 If you need to quickly accomplish the task, the following section details the commands needed. More detailed information and context for each step can be found in the rest of the document, [starting here](#detailed-walkthrough). To perform these steps, you need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).

@@ -1264,7 +1264,7 @@ info:    vm show command OK
 >
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Task: Log on to a Linux-based virtual machine
-Typically Linux machines are connected to through SSH. For more information, see [How to use SSH with Linux on Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Typically Linux machines are connected to through SSH. For more information, see [How to use SSH with Linux on Azure](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a id="stop-a-virtual-machine"></a>Task: Stop a VM
 Run this command:

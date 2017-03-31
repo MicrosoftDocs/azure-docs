@@ -29,7 +29,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 * [Frequently asked question about Azure Virtual Machines created with the classic deployment model](linux/classic/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [About images for virtual machines](linux/classic/about-images.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Uploading your own Distro Image](linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) (and also instructions using an [Azure-Endorsed Distribution](linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json))
-* [Log on to a Linux VM Using the Azure classic portal](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Log on to a Linux VM Using the Azure classic portal](linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Set up
 * [Install Azure Command-Line Interface (Azure CLI)](../cli-install-nodejs.md)
@@ -79,7 +79,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 * [Information for Non-Endorsed Distributions](linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Management
-* [SSH](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [SSH](linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [How to Reset a Password or SSH Properties for Linux](linux/classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Using Root](virtual-machines-linux-use-root-privileges.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

@@ -208,7 +208,7 @@ If you do not receive any response in your remote desktop client and do not see 
 
 
 ## Next steps
-For more information about creating and using SSH keys with Linux VMs, see [Create SSH keys for Linux VMs in Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information about creating and using SSH keys with Linux VMs, see [Create SSH keys for Linux VMs in Azure](linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 For information on using SSH from Windows, see [How to use SSH keys with Windows](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

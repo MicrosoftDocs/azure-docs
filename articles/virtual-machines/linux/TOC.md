@@ -78,7 +78,7 @@
 ### [Join a RedHat VM to an Azure Active Directory Domain Service](join-redhat-linux-vm-to-azure-active-directory-domain-service.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Connect with SSH
-### [Create SSH keys on Linux and Mac](../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Create SSH keys on Linux and Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Detailed steps](create-ssh-keys-detailed.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Use SSH keys with Windows for Linux VMs](../virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Install and configure Remote Desktop to connect to a Linux VM](../virtual-machines-linux-use-remote-desktop.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -23,7 +23,7 @@ ms.author: nepeters
 
 The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This guide details using PowerShell to create and Azure virtual machine running Ubuntu 14.04 LTS.
 
-Before you start, a public SSH key with the name `id_rsa.pub` needs to be stored in the `.ssh` directory of your Windows user profile. For detailed information on creating SSH keys for Azure, see [Create SSH keys for Azure](./virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Before you start, a public SSH key with the name `id_rsa.pub` needs to be stored in the `.ssh` directory of your Windows user profile. For detailed information on creating SSH keys for Azure, see [Create SSH keys for Azure](linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Log in to Azure
 

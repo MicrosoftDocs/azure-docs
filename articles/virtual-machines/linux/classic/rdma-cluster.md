@@ -81,7 +81,7 @@ Where:
 
 
 ### Customize the VM
-After the VM finishes provisioning, SSH to the VM by using the VM's external IP address (or DNS name) and the external port number you configured, and then customize it. For connection details, see [How to log on to a virtual machine running Linux](../../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Perform commands as the user you configured on the VM, unless root access is required to complete a step.
+After the VM finishes provisioning, SSH to the VM by using the VM's external IP address (or DNS name) and the external port number you configured, and then customize it. For connection details, see [How to log on to a virtual machine running Linux](../mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Perform commands as the user you configured on the VM, unless root access is required to complete a step.
 
 > [!IMPORTANT]
 > Microsoft Azure does not provide root access to Linux VMs. To gain administrative access when connected as a user to the VM, run commands by using `sudo`.

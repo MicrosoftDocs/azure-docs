@@ -51,7 +51,7 @@ Azure Container Service is an SLA-backed Azure service with features in the Azur
 
 ### How do I create SSH keys for my cluster?
 
-You can use standard tools on your operating system to create an SSH RSA public and private key pair for authentication against the Linux virtual machines for your cluster. For steps, see the [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) guidance. 
+You can use standard tools on your operating system to create an SSH RSA public and private key pair for authentication against the Linux virtual machines for your cluster. For steps, see the [OS X and Linux](../virtual-machines/linux/mac-create-ssh-keys.md) or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) guidance. 
 
 If you use [Azure CLI 2.0 commands](container-service-create-acs-cluster-cli.md) to deploy a container service cluster, SSH keys can be automatically generated for your cluster.
 

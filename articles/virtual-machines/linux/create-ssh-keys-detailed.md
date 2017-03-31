@@ -20,7 +20,7 @@ ms.author: rasquill
 ---
 
 # Detailed walk through to create an SSH key pair and additional certificates for a Linux VM in Azure
-With an SSH key pair, you can create Virtual Machines on Azure that default to using SSH keys for authentication, eliminating the need for passwords to log in. Passwords can be guessed, and open your VMs up to relentless brute force attempts to guess your password. VMs created with the Azure CLI or Resource Manager templates can include your SSH public key as part of the deployment, removing a post deployment configuration step of disabling password logins for SSH. This article provides detailed steps and additional examples of generating certificates such as for use with the Classic portal. If you want to quickly create and use an SSH key pair, see [How to create an SSH public and private key pair for Linux VMs in Azure](../virtual-machines-linux-mac-create-ssh-keys.md).
+With an SSH key pair, you can create Virtual Machines on Azure that default to using SSH keys for authentication, eliminating the need for passwords to log in. Passwords can be guessed, and open your VMs up to relentless brute force attempts to guess your password. VMs created with the Azure CLI or Resource Manager templates can include your SSH public key as part of the deployment, removing a post deployment configuration step of disabling password logins for SSH. This article provides detailed steps and additional examples of generating certificates such as for use with the Classic portal. If you want to quickly create and use an SSH key pair, see [How to create an SSH public and private key pair for Linux VMs in Azure](mac-create-ssh-keys.md).
 
 ## Understanding SSH keys
 

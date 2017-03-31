@@ -28,7 +28,7 @@ The article requires:
 
 - [an Azure account](https://azure.microsoft.com/pricing/free-trial/)
 
-- [SSH public and private key files](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SSH public and private key files](linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 
 You can also quickly deploy a Linux VM by using the [Azure portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

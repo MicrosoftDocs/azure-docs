@@ -30,7 +30,7 @@ Azure stores the image under **Images**, along with any images you've uploaded. 
 These steps assume that you've already created an Azure VM using the Classic deployment model and configured the operating system, including attaching any data disks. If you need to create a VM, read [How to Create a Linux Virtual Machine][How to Create a Linux Virtual Machine].
 
 ## Capture the virtual machine
-1. [Connect to the VM](../../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) using an SSH client of your choice.
+1. [Connect to the VM](../mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) using an SSH client of your choice.
 2. In the SSH window, type the following command. The output from `waagent` may vary slightly depending on the version of this utility:
 
     ```bash

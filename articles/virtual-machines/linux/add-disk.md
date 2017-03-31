@@ -102,7 +102,7 @@ az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM
 
 ## Connect to the Linux VM to mount the new disk
 > [!NOTE]
-> This topic connects to a VM using usernames and passwords. To use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+> This topic connects to a VM using usernames and passwords. To use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 > 
 > 
 

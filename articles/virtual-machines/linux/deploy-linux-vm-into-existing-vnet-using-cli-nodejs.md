@@ -24,7 +24,7 @@ ms.author: v-livech
 This article shows you how to use CLI flags to deploy a VM into an existing Virtual Network (VNet).  The requirements are:
 
 - [an Azure account](https://azure.microsoft.com/pricing/free-trial/)
-- [SSH public and private key files](../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SSH public and private key files](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 
 ## CLI versions to complete the task

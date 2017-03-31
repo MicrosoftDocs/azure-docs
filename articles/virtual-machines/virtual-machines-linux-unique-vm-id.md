@@ -33,7 +33,7 @@ To access Azure Unique VM ID from within the VM:
 For more information, see [Create a Virtual Machine](linux/creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Connect to the VM
-For more information, see [SSH from Linux](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+For more information, see [SSH from Linux](linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Query VM Unique ID
 Command (example uses **Ubuntu**):

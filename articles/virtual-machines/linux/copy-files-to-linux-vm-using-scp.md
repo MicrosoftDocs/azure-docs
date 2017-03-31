@@ -27,7 +27,7 @@ For this article, the requirements are:
 
 - [an Azure account](https://azure.microsoft.com/pricing/free-trial/)
 
-- [SSH public and private key files](../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SSH public and private key files](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Quick commands
 
@@ -51,7 +51,7 @@ Moving files back and forth between your workstation and a Linux VM, quickly and
 
 SCP uses SSH for the transport layer.  By using SSH for the transport, SSH handles the authentication on the destination host while also moving the file in an encrypted tunnel provided by default with SSH.  For SSH authentication, usernames and passwords can be used but SSH public and private key authentication are strongly recommended as a security best practice. Once SSH has authenticated the connection, SCP then begins the process of copying the file.  Using a properly configured `~/.ssh/config` and SSH public and private keys, the SCP connection can be established without using a username and just using a server name.  If you only have one SSH key, SCP will look for it in the `~/.ssh/` directory, and use it by default to login to the VM.
 
-For more information on configuring your `~/.ssh/config` and SSH public and private keys, follow this article, [Create SSH keys](../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information on configuring your `~/.ssh/config` and SSH public and private keys, follow this article, [Create SSH keys](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## SCP a file to a Linux VM
 
