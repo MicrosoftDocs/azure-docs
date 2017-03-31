@@ -63,7 +63,7 @@ Business continuity for EDI X12 documents is designed based on control numbers
 * Control numbers generated (outbound messages) and send to partners  
     
     > [!Tip]
-    > You can also use [X12 quick start template](https://azure.microsoft.com/en-us/resources/templates/201-logic-app-x12-disaster-recovery-replication/) to create Logic Apps.  Creating primary and secondary integration accounts are prerequisites to use the template.  The template helps create 2 Logic Apps, one for received control number and another for generated control number.  Respective triggers and actions are created in the Logic Apps, connects the trigger to primary integration account and action to secondary integration account.
+    > You can also use [X12 quick start template](https://azure.microsoft.com/documentation/templates/201-logic-app-x12-disaster-recovery-replication/) to create Logic Apps.  Creating primary and secondary integration accounts are prerequisites to use the template.  The template helps create 2 Logic Apps, one for received control number and another for generated control number.  Respective triggers and actions are created in the Logic Apps, connects the trigger to primary integration account and action to secondary integration account.
     > 
     >
 
@@ -122,4 +122,7 @@ Business continuity for EDI X12 documents is designed based on control numbers
 9. Based on the time interval, the trigger polls the primary region received control number table, pulls the new records and actions updates them to secondary region integration account.  If they are no updates, the trigger status shows as skipped.  
 ![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN8.png)
 
-Based on the time interval, the incremental runtime status replicates from primary region to secondary region.  During a disaster event, when the primary region is not available, direct traffic to the secondary region for business continuity.
+Based on the time interval, the incremental runtime status replicates from primary region to secondary region.  During a disaster event, when the primary region is not available, direct traffic to the secondary region for business continuity. 
+
+## Next Steps
+* Learn more about [monitoring B2B messages](logic-apps-monitor-b2b-message.md).   
