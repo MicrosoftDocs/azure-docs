@@ -19,11 +19,11 @@ ms.author: padmavc
 ---
 
 # Logic Apps B2B cross region disaster recovery
-B2B workloads involve money transactions like orders, invoices, etc.  For business, it is critical to quickly recover to meet business level SLAs as agreed with their partners during a disaster event.  This topic demonstrates building a business continuity plan for B2B workloads.  It covers
+B2B workloads involve money transactions like orders, invoices.  For business, it is critical to quickly recover to meet business level SLAs as agreed with their partners during a disaster event.  This topic demonstrates building a business continuity plan for B2B workloads.  It covers
 
 * Create an integration account in secondary region
 * Establish a connection from primary region to secondary region 
-* Failover to secondary region during a disaster event
+* Fail over to secondary region during a disaster event
 * Fall back to primary region post-disaster event
 
 ## Create an integration account in secondary region
@@ -37,28 +37,28 @@ B2B workloads involve money transactions like orders, invoices, etc.  For busine
     >
 
 ## Establish a connection from primary to secondary 
-Create a Logic App in the secondary region to pull the primary region run status.  It should have a **trigger** and a **action**.  The trigger should connect to primary region integration account and the action should connect to secondary region integration account.  Based on the time interval, the trigger polls the primary region run status table pulls the new records if any and action updates them to secondary region integration account. This helps to get incremental runtime status from primary region to secondary region.
+Create a Logic App in the secondary region to pull the primary region run status.  It should have a **trigger** and an **action**.  The trigger should connect to primary region integration account and the action should connect to secondary region integration account.  Based on the time interval, the trigger polls the primary region run status table pulls the new records if any and action updates them to secondary region integration account. This helps to get incremental runtime status from primary region to secondary region.
 
-Business continuity in Logic Apps integration account is designed to support based on B2B protocols - X12, AS2, and EDIFACT.  To find detailed steps select respective links given below.
+Business continuity in Logic Apps integration account is designed to support based on B2B protocols - X12, AS2, and EDIFACT.  To find detailed steps, select respective links.
 
 * X12 
 * AS2 
-* EDIFACT  (coming soon)
+* EDIFACT (coming soon)
 
-## Failover to secondary region during a disaster event
-The recommendation is to deploy all primary region resources in the secondary region as well.  During a disaster event when the primary region is not available for business continuity, direct traffic to the secondary region. This helps recover business functions quickly to meet recovery time/point objectives (RPO/RTO) as agreed with their partners.  Also, minimizes efforts to fail over from one region to another region. 
+## Fail over to secondary region during a disaster event
+The recommendation is to deploy all primary region resources in the secondary region as well.  During a disaster event, when the primary region is not available for business continuity, direct traffic to the secondary region. Secondary region helps recover business functions quickly to meet recovery time/point objectives (RPO/RTO) as agreed with their partners.  Also, minimizes efforts to fail over from one region to another region. 
 
-There is an expected latency while copying control numbers from primary to secondary region.  To avoid sending duplicate generated control numbers to partners during dister event, it is recommended to bump up control numbers in the **secondary region agreements** using [PowerShell cmdlets](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery).
+There is an expected latency while copying control numbers from primary to secondary region.  To avoid sending duplicate generated control numbers to partners during a disaster event, it is recommended to bump up control numbers in the **secondary region agreements** using [PowerShell cmdlets](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery).
  
 ## Fall back to primary region post-disaster event
-When primary region is available, to fall back to primary region follow below steps
+When primary region is available, to fall back to primary region follow below steps     
 * Stop accepting messages from partners in the **secondary region**
 * Bump up generated control numbers for all the **primary region agreements** using [PowerShell cmdlets](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery)
 * Direct traffic from secondary to primary region
 * Check the Logic App created in the secondary region to pull run status from the primary is enabled 
 
 ## X12 
-These are 2 types based on control numbers 
+Business continuity for EDI X12 documents are designed based on control numbers   
 * Control numbers received (Inbound messages) from partners  
 * Control numbers generated (outbound messages) and send to partners  
 
@@ -68,10 +68,10 @@ These are 2 types based on control numbers
 2. Search **X12** and select **X12 - When a received control number is modified**    
 ![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN1.png)
 
-3. Selecting the trigger prompts to establish a connection to integration account. Trigger needs to be connected to primary region integration account.  Give a connection name, select your **primary region integration account** from the list and click create.   
+3. Selecting the trigger prompts to establish a connection to integration account. Trigger to be connected to primary region integration account.  Give a connection name, select your **primary region integration account** from the list and click create.   
 ![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN2.png)
 
-4. DateTime to start control number sync is optional.  Frequency can be set to **Day**, **Hour**, **Minute** or **Second** with an interval.    
+4. DateTime to start control number sync is optional.  Frequency can be set to **Day**, **Hour**, **Minute**, or **Second** with an interval.    
 ![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN3.png)
 
 5. Click **New step** and **Add an action**    
@@ -80,7 +80,7 @@ These are 2 types based on control numbers
 6. Search **X12** and select **X12 - Add or update a received control number**   
 ![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN5.png)
 
-7. Action needs to be connected to secondary integration account.  Select **Change connection** and **Add new connection** lists the available integration accounts.  Give a connection name, select your **secondary region integration account** from the list and click create.     
+7. Action to be connected to secondary integration account.  Select **Change connection** and **Add new connection** lists the available integration accounts.  Give a connection name, select your **secondary region integration account** from the list and click create.     
 ![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN6.png)
 
 8. Select the dynamic content and save the logic app   
@@ -96,10 +96,10 @@ These are 2 types based on control numbers
 2. Search **X12** and select **X12 - When a generated control number is modified**   
 ![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN1.png)
 
-3. Selecting the trigger prompts to establish a connection to integration account. Trigger needs to be connected to primary region integration account.  Give a connection name, select your **primary region integration account** from the list and click create.   
+3. Selecting the trigger prompts to establish a connection to integration account. Trigger to be connected to primary region integration account.  Give a connection name, select your **primary region integration account** from the list and click create.   
 ![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN2.png) 
 
-4. DateTime to start control number sync is optional.  Frequency can be set to **Day**, **Hour**, **Minute** or **Second** with an interval.   
+4. DateTime to start control number sync is optional.  Frequency can be set to **Day**, **Hour**, **Minute**, or **Second** with an interval.   
 ![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN3.png)  
 
 5. Click **New step** and **Add an action**   
@@ -108,7 +108,7 @@ These are 2 types based on control numbers
 6. Search **X12** and select **X12 - Add or update a generated control number**   
 ![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN5.png)
 
-7. Action needs to be connected to secondary integration account.  Select **Change connection** and **Add new connection** lists the available integration accounts.  Give a connection name, select your **secondary region integration account** from the list and click create.    
+7. Action to be connected to secondary integration account.  Select **Change connection** and **Add new connection** lists the available integration accounts.  Give a connection name, select your **secondary region integration account** from the list and click create.    
 ![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN6.png)
 
 8. Select the dynamic content and save the logic app   
