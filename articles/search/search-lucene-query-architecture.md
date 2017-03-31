@@ -11,7 +11,7 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 03/14/2017
+ms.date: 03/31/2017
 ms.author: jlembicz
 ---
 
@@ -61,19 +61,15 @@ POST /indexes/hotels/docs/search?api-version=2016-09-01
  } 
 ~~~~
 
-The entire statement is the *search request*. The first line of the request body is the *search query*. 
+Given the example request and the hotels index, the search engine filters out documents where the price is at least $60 and less than $300. Next, the search engine executes the query. In this example, the search query consists of phrases and terms: `"Spacious, air-condition* +\"Ocean view\""`. 
 
-In the example, the search query consists of phrases and terms: `"Spacious, air-condition* +\"Ocean view\""`. The remaining instructions (`searchFields`, `filter`, `orderby`) are parameters for scoping and ordering the results.  
+The search engine scans the description and title fields specified in `searchFields` for documents that contain "Ocean view", and additionally on the term "spacious", or on terms that start with the prefix "air-condition". From the list of matching documents, the resulting set of hotels is ordered by proximity to a given geography location, and then returned to the calling application. 
 
-In this example, the search query goes against an index of hotel listings, scanning the description and title fields for documents that contain "Ocean view", and additionally on the term "spacious", or on terms that start with the prefix "air-condition".  
-
-From the list of matching documents, the search engine filters out documents where the price is less than $60 and more than $300. The resulting set of hotels are ordered by proximity to a given geography location, and then returned to the calling application. 
-
-This article refers to the example request to explain processing of the *search query*. Filtering and ordering are out of scope for this article. 
+The majority of this article is about processing of the *search query*: `"Spacious, air-condition* +\"Ocean view\""`. Filtering and ordering, in this case by geographic location, are out of scope. 
 
 ## Stage 1: Query parsing 
 
-In the example, the query string is the first line of the request: 
+As noted, the query string is the first line of the request: 
 
 ~~~~
  "search": "Spacious, air-condition* +\"Ocean view\"", 
@@ -92,7 +88,7 @@ The query parser restructures the subqueries into a *query tree* (an internal st
  ![Boolean query searchmode any][2]
 
 > [!Note]
-> A search query is executed independently against all searchable fields in the Azure Search index unless you limit the fields set with the `searchFields` parameter, as illustrated in the example search request, per the title and description fields.  
+> A search query is executed independently against all searchable fields in the Azure Search index unless you limit the fields set with the `searchFields` parameter, as illustrated in the example search request.  
 
 ### Supported parsers: Simple and Full Lucene 
 
@@ -276,7 +272,7 @@ Scoring is part of full text search that includes analysis. Given a full text se
 Scoring is not applied in unspecified queries (search=*) or in specialized query types that bypass analysis. Specifically, wildcard search, prefix, regex, and fuzzy search queries are routed through an internal query rewriting process and thus return constant scores of 1.0. Whenever you see a constant of 1.0, you know that scoring was not applied. 
 
 > [!Note]
-> Although scoring is not used for full-syntax-only query types (such as wildcard, fuzzy, prefix, regex searches), you can use field or tag boosting to customize rank scores. For more information, see [Full Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+> Although scoring is not used for full-syntax-only query types (such as wildcard, fuzzy, prefix, regex searches), you can use field or tag boosting to customize rank scores. For more information, see [Full Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) and [Scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index).
 >
 
 ### Scoring example
