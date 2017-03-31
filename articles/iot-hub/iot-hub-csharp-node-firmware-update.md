@@ -53,16 +53,16 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 
     ![New Visual C# Windows Classic Desktop project][img-createapp]
 
-2. In Solution Explorer, right-click the **TriggerFWUpdate** project, and then click **Manage NuGet Packages...**.
-3. In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.
+1. In Solution Explorer, right-click the **TriggerFWUpdate** project, and then click **Manage NuGet Packages...**.
+1. In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.
 
     ![NuGet Package Manager window][img-servicenuget]
-4. Add the following `using` statements at the top of the **Program.cs** file:
+1. Add the following `using` statements at the top of the **Program.cs** file:
    
         using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Shared;
         
-5. Add the following fields to the **Program** class. Replace the multiple placeholder values with the IoT Hub connection string for the hub that you created in the previous section and the Id of your device.
+1. Add the following fields to the **Program** class. Replace the multiple placeholder values with the IoT Hub connection string for the hub that you created in the previous section and the Id of your device.
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
@@ -70,7 +70,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
         static JobClient jobClient;
         static string targetDevice = "{deviceIdForTargetDevice}";
         
-6. Add the following method to the **Program** class:
+1. Add the following method to the **Program** class:
    
         public static async Task QueryTwinFWUpdateReported()
         {
@@ -78,7 +78,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
             Console.WriteLine(twin.Properties.Reported.ToJson());
         }
         
-7. Add the following method to the **Program** class:
+1. Add the following method to the **Program** class:
 
         public static async Task StartFirmwareUpdate()
         {
@@ -95,7 +95,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
             Console.WriteLine("Invoked firmware update on device.");
         }
 
-7. Finally, add the following lines to the **Main** method:
+1. Finally, add the following lines to the **Main** method:
    
         registryManager = RegistryManager.CreateFromConnectionString(connString);
         StartFirmwareUpdate().Wait();
@@ -103,9 +103,9 @@ In this section, you create a .NET console app (using C#) that initiates a remot
         Console.WriteLine("Press ENTER to exit.");
         Console.ReadLine();
         
-8. In the Solution Explorer, open the **Set StartUp projects...** and make sure the **Action** for **TriggerFWUpdate** project is **Start**.
+1. In the Solution Explorer, open the **Set StartUp projects...** and make sure the **Action** for **TriggerFWUpdate** project is **Start**.
 
-9. Build the solution.
+1. Build the solution.
 
 [!INCLUDE [iot-hub-device-firmware-update](../../includes/iot-hub-device-firmware-update.md)]
 

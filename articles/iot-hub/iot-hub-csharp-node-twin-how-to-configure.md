@@ -50,13 +50,13 @@ In this section, you create a Node.js console app that connects to your hub as *
     ```
     npm init
     ```
-2. At your command prompt in the **simulatedeviceconfiguration** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** packages:
+1. At your command prompt in the **simulatedeviceconfiguration** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** packages:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Using a text editor, create a new **SimulateDeviceConfiguration.js** file in the **simulatedeviceconfiguration** folder.
-4. Add the following code to the **SimulateDeviceConfiguration.js** file, and substitute the **{device connection string}** placeholder with the device connection string you copied when you created the **myDeviceId** device identity:
+1. Using a text editor, create a new **SimulateDeviceConfiguration.js** file in the **simulatedeviceconfiguration** folder.
+1. Add the following code to the **SimulateDeviceConfiguration.js** file, and substitute the **{device connection string}** placeholder with the device connection string you copied when you created the **myDeviceId** device identity:
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -98,7 +98,7 @@ In this section, you create a Node.js console app that connects to your hub as *
    > Desired property change events are always emitted once at device connection. Make sure to check that there is an actual change in the desired properties before performing any action.
    > 
    > 
-5. Add the following methods before the `client.open()` invocation:
+1. Add the following methods before the `client.open()` invocation:
    
         var initConfigChange = function(twin) {
             var currentTelemetryConfig = twin.properties.reported.telemetryConfig;
@@ -147,7 +147,7 @@ In this section, you create a Node.js console app that connects to your hub as *
    > This tutorial does not simulate any behavior for concurrent configuration updates. Some configuration update processes might be able to accommodate changes of target configuration while the update is running, some might have to queue them, and some could reject them with an error condition. Make sure to consider the desired behavior for your specific configuration process, and add the appropriate logic before initiating the configuration change.
    > 
    > 
-6. Run the device app:
+1. Run the device app:
    
         node SimulateDeviceConfiguration.js
    
@@ -159,20 +159,20 @@ In this section, you will create a .NET console app that updates the *desired pr
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **SetDesiredConfigurationAndQuery**.
    
     ![New Visual C# Windows Classic Desktop project][img-createapp]
-2. In Solution Explorer, right-click the **SetDesiredConfigurationAndQuery** project, and then click **Manage NuGet Packages...**.
-3. In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.
+1. In Solution Explorer, right-click the **SetDesiredConfigurationAndQuery** project, and then click **Manage NuGet Packages...**.
+1. In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.
    
     ![NuGet Package Manager window][img-servicenuget]
-4. Add the following `using` statements at the top of the **Program.cs** file:
+1. Add the following `using` statements at the top of the **Program.cs** file:
    
         using Microsoft.Azure.Devices;
         using System.Threading;
         using Newtonsoft.Json;
-5. Add the following fields to the **Program** class. Replace the placeholder value with the IoT Hub connection string for the hub that you created in the previous section.
+1. Add the following fields to the **Program** class. Replace the placeholder value with the IoT Hub connection string for the hub that you created in the previous section.
    
         static RegistryManager registryManager;
         static string connectionString = "{iot hub connection string}";
-6. Add the following method to the **Program** class:
+1. Add the following method to the **Program** class:
    
         static private async Task SetDesiredConfigurationAndQuery()
         {
@@ -213,14 +213,14 @@ In this section, you will create a .NET console app that updates the *desired pr
    > This application queries IoT Hub every 10 seconds for illustrative purposes. Use queries to generate user-facing reports across many devices, and not to detect changes. If your solution requires real-time notifications of device events use [device-to-cloud messages][lnk-d2c].
    > 
    > 
-7. Finally, add the following lines to the **Main** method:
+1. Finally, add the following lines to the **Main** method:
    
         registryManager = RegistryManager.CreateFromConnectionString(connectionString);
         SetDesiredConfigurationAndQuery();
         Console.WriteLine("Press any key to quit.");
         Console.ReadLine();
-8. In the Solution Explorer, open the **Set StartUp projects...** and make sure the **Action** for **SetDesiredConfigurationAndQuery** project is **Start**. Build the solution.
-8. With **SimulateDeviceConfiguration.js** running, run the .NET application from Visual Studio using **F5** and you should see the reported configuration change from **Success** to **Pending** to **Success** again with the new active send frequency of five minutes instead of 24 hours.
+1. In the Solution Explorer, open the **Set StartUp projects...** and make sure the **Action** for **SetDesiredConfigurationAndQuery** project is **Start**. Build the solution.
+1. With **SimulateDeviceConfiguration.js** running, run the .NET application from Visual Studio using **F5** and you should see the reported configuration change from **Success** to **Pending** to **Success** again with the new active send frequency of five minutes instead of 24 hours.
 
  ![Device configured successfully][img-deviceconfigured]
    

@@ -41,8 +41,9 @@ This tutorial shows you how to:
 
 At the end of this tutorial, you have a Node.js console device app and a .NET (C#) console back-end app:
 
-* **simDevice.js**, which connects to your IoT hub with the device identity and receives a **lockDoor** direct method.
-* **ScheduleJob**, which calls a direct method in the simulated device app and updates the device twin's desired properties using a job.
+**simDevice.js**, which connects to your IoT hub with the device identity and receives a **lockDoor** direct method.
+
+**ScheduleJob**, which calls a direct method in the simulated device app and updates the device twin's desired properties using a job.
 
 To complete this tutorial, you need the following:
 
@@ -150,13 +151,13 @@ In this section, you create a Node.js console app that responds to a direct meth
     ```
     npm init
     ```
-2. At your command prompt in the **simDevice** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** packages:
+1. At your command prompt in the **simDevice** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** packages:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Using a text editor, create a new **simDevice.js** file in the **simDevice** folder.
-4. Add the following 'require' statements at the start of the **simDevice.js** file:
+1. Using a text editor, create a new **simDevice.js** file in the **simDevice** folder.
+1. Add the following 'require' statements at the start of the **simDevice.js** file:
    
     ```
     'use strict';
@@ -164,13 +165,13 @@ In this section, you create a Node.js console app that responds to a direct meth
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Add a **connectionString** variable and use it to create a **Client** instance. Make sure to replace the placeholders with values appropriate to your setup.
+1. Add a **connectionString** variable and use it to create a **Client** instance. Make sure to replace the placeholders with values appropriate to your setup.
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
-6. Add the following function to handle the **lockDoor** method.
+1. Add the following function to handle the **lockDoor** method.
    
     ```
     var onLockDoor = function(request, response) {
@@ -187,7 +188,7 @@ In this section, you create a Node.js console app that responds to a direct meth
         console.log('Locking Door!');
     };
     ```
-7. Add the following code to register the handler for the **lockDoor** method.
+1. Add the following code to register the handler for the **lockDoor** method.
    
     ```
     client.open(function(err) {
@@ -199,7 +200,7 @@ In this section, you create a Node.js console app that responds to a direct meth
         }
     });
     ```
-8. Save and close the **simDevice.js** file.
+1. Save and close the **simDevice.js** file.
 
 > [!NOTE]
 > To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
@@ -214,11 +215,11 @@ You are now ready to run the apps.
     ```
     node simDevice.js
     ```
-2. Run the C# console app **ScheduleJob** by right-clicking on the **ScheduleJob** project, then selecting **Debug** and **Start new instance**.
+1. Run the C# console app **ScheduleJob** by right-clicking on the **ScheduleJob** project, then selecting **Debug** and **Start new instance**.
 
-3. You see the output from both device and back-end apps.
+1. You see the output from both device and back-end apps.
 
-![Run the apps to schedule jobs][img-schedulejobs]
+    ![Run the apps to schedule jobs][img-schedulejobs]
 
 ## Next steps
 In this tutorial, you used a job to schedule a direct method to a device and the update of the device twin's properties.
