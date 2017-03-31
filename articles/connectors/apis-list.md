@@ -112,7 +112,7 @@ To ask questions, answer questions, and see what other Azure Logic Apps users ar
 To help improve Logic Apps and connectors, vote on or submit ideas at the 
 [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
 
-## Next Steps
+## Next steps
 * [Create your first logic app](../logic-apps/logic-apps-create-a-logic-app.md)
 * [Create custom APIs for logic apps](../logic-apps/logic-apps-create-api-app.md)
 * [Monitor your logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
