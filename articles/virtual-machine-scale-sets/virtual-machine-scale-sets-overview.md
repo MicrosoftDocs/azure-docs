@@ -130,7 +130,7 @@ This section lists some typical scale set scenarios. Some higher-level Azure ser
 
 **Q.** Are data disks supported within scale sets?
 
-**A.** Yes. A scale set can define an attached disks configuration that applies to all VMs in the set. For more information, see [Azure scale sets and attached data disks](virtual-machine-scale-sets-attached-disks.md). Other options for storing data include:
+**A.** Yes. A scale set can define an attached data disks configuration that applies to all VMs in the set. For more information, see [Azure scale sets and attached data disks](virtual-machine-scale-sets-attached-disks.md). Other options for storing data include:
 
 * Azure files (SMB shared drives)
 * OS drive

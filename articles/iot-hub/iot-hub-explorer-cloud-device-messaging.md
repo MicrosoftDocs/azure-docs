@@ -40,7 +40,7 @@ You learn how to use iothub-explorer to monitor device-to-cloud messages and to 
   - An active Azure subscription.
   - An Azure IoT hub under your subscription.
   - A client application that sends messages to your Azure IoT hub.
-- iothub-explorer. ([Download iothub-explorer](https://github.com/azure/iothub-explorer))
+- iothub-explorer. ([Install iothub-explorer](https://github.com/azure/iothub-explorer))
 
 ## Monitor device-to-cloud messages
 
@@ -54,9 +54,7 @@ To monitor messages that are sent from your device to your IoT hub, follow these
    ```
 
    > [!Note]
-   > Get `<device-id>` and `<IoTHubConnectionString>` from Tutorial 1.
-
-Here is the output:
+   > Get `<device-id>` and `<IoTHubConnectionString>` from your IoT hub. Make sure you've finished the previous tutorial.
 
 ## Send cloud-to-device messages
 
@@ -87,3 +85,6 @@ You’ve learned how to monitor device-to-cloud messages and send cloud-to-devic
 To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 
 - [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
+- [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
+- [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+- [Weather forecast using the sensor data from your IoT hub in Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
