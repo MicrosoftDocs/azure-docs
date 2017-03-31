@@ -40,9 +40,9 @@ The diagram below illustrates processing and execution of a search request.
 | Key components | Functional description | 
 |----------------|------------------------|
 |**Query parsers** | Separate query terms from query operators. Creates the query structure (a query tree) to be sent to the search engine. Azure Search supports two kinds of query syntax (simple and full) for different types of queries.|
-|**Analyzers** | Perform lexical analysis on query terms. This proces can involve transforming, removing, or expanding of query terms. Azure Search offers a collection predefined analyzers, inluding language analyzers, and allows defining custom analyzers.|
+|**Analyzers** | Perform lexical analysis on query terms. This proces can involve transforming, removing, or expanding of query terms. Azure Search offers a collection of predefined analyzers, inluding language analyzers, and allows defining custom analyzers.|
 |**Inverted index** | An efficient data structure used to store and organize searchable terms extracted from indexed documents. |
-|**Search engine** | Rtrieves and scores matching documents based on the contents of the inverted index. |
+|**Search engine** | Retrieves and scores matching documents based on the contents of the inverted index. |
 
 ## Anatomy of a search request
 
@@ -67,7 +67,7 @@ In the example, the search query consists of phrases and terms: `"Spacious, air-
 
 In this example, the search query goes against an index of hotel listings, scanning the description and title fields for documents that contain "Ocean view", and additionally on the term "spacious", or on terms that start with the prefix "air-condition".  
 
-From the list of matching documents, the search engine filters out documents where the price is less than $60 and more than $300. The resulting set of hotels are ordered by proximity to a given geography location, and then returned to the calling application. 
+From the list of matching documents, the search engine filters out documents where the price is at least $60 and less than $300. The resulting set of hotels are ordered by proximity to a given geographic location, and then returned to the calling application. 
 
 This article refers to the example request to explain processing of the *search query*. Filtering and ordering are out of scope for this article. 
 
@@ -79,7 +79,7 @@ In the example, the query string is the first line of the request:
  "search": "Spacious, air-condition* +\"Ocean view\"", 
 ~~~~
 
-The query parser separates operators (such as `*` and `+` in the example) from search terms, and deconstructs the search query into *subqueries* of a supported types: 
+The query parser separates operators (such as `*` and `+` in the example) from search terms, and deconstructs the search query into *subqueries* of a supported type: 
 
 + *term query* for standalone terms (like spacious)
 + *phrase query* for quoted terms (like ocean view)
@@ -96,19 +96,19 @@ The query parser restructures the subqueries into a *query tree* (an internal st
 
 ### Supported parsers: Simple and Full Lucene 
 
- Azure Search exposes two different query languages, *simple* (default) and *full*. By setting the `queryType` parameter with your search request, you tell the query parser which query language you chose so that it knows how to interpret the operators and syntax. The Full Lucene query language, which you get by setting `queryType=full`, extends the default Simple query language by adding support for more operators and query types like: wildcard, fuzzy, regex, and field-scoped queries. For example, a regular expression sent in Simple query syntax would be interpreted as a query string and not an expression. The example request in this article uses `queryType=full`.
+ Azure Search exposes two different query languages, *simple* (default) and *full*. By setting the `queryType` parameter with your search request, you tell the query parser which query language you choose so that it knows how to interpret the operators and syntax. The Full Lucene query language, which you get by setting `queryType=full`, extends the default Simple query language by adding support for more operators and query types like wildcard, fuzzy, regex, and field-scoped queries. For example, a regular expression sent in Simple query syntax would be interpreted as a query string and not an expression. The example request in this article uses `queryType=full`.
 
 ### Impact of searchMode on the parser 
 
 Another search request parameter that affects parsing is the `searchMode` parameter. It controls the default operator for Boolean queries: any (default) or all.  
 
-When `searchMode=any`, which is the default, the space delimiter between spacious and air-condition is OR'd (`|`), making the sample query text equivalent to: 
+When `searchMode=any`, which is the default, the space delimiter between spacious and air-condition is OR (`|`), making the sample query text equivalent to: 
 
 ~~~~
 Spacious,|air-condition*+"Ocean view" 
 ~~~~
 
-Explicit operators, such as `+` in `+"Ocean view"`, are unambiguous in boolean query construction (the term "must" match). Less obvious is how to interpret the remaining terms: spacious and air-condition. Should the search engine find matches on ocean view *and* spacious *and* air-condition? Or should if find ocean view plus *either one* of the remaining terms? 
+Explicit operators, such as `+` in `+"Ocean view"`, are unambiguous in boolean query construction (the term *must* match). Less obvious is how to interpret the remaining terms: spacious and air-condition. Should the search engine find matches on ocean view *and* spacious *and* air-condition? Or should it find ocean view plus *either one* of the remaining terms? 
 
 Using the default `searchMode=any`, the second interpretation prevails, where ocean view plus either term defines the match criteria. The initial query tree illustrated previously, with the two "should" operations, reflects the "or" semantics.  
 
@@ -144,13 +144,13 @@ Azure Search supports a long list of [language analyzers](https://docs.microsoft
 
 In our example, prior to analysis, the initial query tree has the term "Spacious," with an uppercase "S" and a comma that the query parser interprets as a part of the query term (a comma is not considered a query language operator).  
 
-When the default analyzer processes the term, it will lowercase "ocean view" and "spacious", and the comma character (removes it). The modified query tree will look as follows: 
+When the default analyzer processes the term, it will lowercase "ocean view" and "spacious", and remove the comma character. The modified query tree will look as follows: 
 
  ![Boolean query with analyzed terms][4]
 
 ### Exceptions to lexical analysis 
 
-Lexical analysis applies only to query types that require complete terms – either a term query or a phrase query. It doesn’t apply to query types with incomplete terms – prefix query, wildcard query, regex query – or to a fuzzy query. Those query types, including prefix query (air-condition*) in our example, are added directly to the query tree, bypassing the analysis stage. 
+Lexical analysis applies only to query types that require complete terms – either a term query or a phrase query. It doesn’t apply to query types with incomplete terms – prefix query, wildcard query, regex query – or to a fuzzy query. Those query types, including the prefix query (air-condition\*) in our example, are added directly to the query tree, bypassing the analysis stage. 
 
 ## Stage 3: Document retrieval 
 
@@ -171,28 +171,28 @@ Further assume that this index contains the following four documents:
 
 ~~~~
 { 
-  "value":[ 
-    {         
-    "id": "1",         
-    "title": "Hotel Atman",         
-    "description": "Spacious rooms, ocean view, walking distance to the beach."   
-    },       
-    {         
-    "id": "2",         
-    "title": "Beach Resort",        
-    "description": "Located on the north shore of the island of Kauai. Ocean view."     
-    },       
-    {         
-     "id": "3",         
-     "title": "Playa Hotel",         
-     "description": "Comfortable, air-conditioned rooms with ocean view."
-    },       
-    {         
-     "id": "4",         
-     "title": "Ocean Retreat",         
-     "description": "Quiet and secluded"
-    }    
-  ]
+    "value": [
+        {         
+            "id": "1",         
+            "title": "Hotel Atman",         
+            "description": "Spacious rooms, ocean view, walking distance to the beach."   
+        },       
+        {         
+            "id": "2",         
+            "title": "Beach Resort",        
+            "description": "Located on the north shore of the island of Kauaʻi. Ocean view."     
+        },       
+        {         
+            "id": "3",         
+            "title": "Playa Hotel",         
+            "description": "Comfortable, air-conditioned rooms with ocean view."
+        },       
+        {         
+            "id": "4",         
+            "title": "Ocean Retreat",         
+            "description": "Quiet and secluded"
+        }    
+    ]
 }
 ~~~~
 
@@ -203,7 +203,7 @@ During indexing, the search engine creates an inverted index for each searchable
 As with query parsing, indexing extracts terms, only during indexing the terms are extracted from documents instead of a query string. Text inputs are passed to an analyzer. Often the same analyzers used during indexing are also used for queries so that a query input can be processed to look like the terms stored inside the index.  
 
 > [!Note]
-> Azure Search lets you specify different analyzers for indexing and search via an additional `indexAnalyzer` and `searchAnalyzer` field parameters. Unspecified, the analyzer set with the `analyzer` property is used for both indexing and searching.  
+> Azure Search lets you specify different analyzers for indexing and search via additional `indexAnalyzer` and `searchAnalyzer` field parameters. If unspecified, the analyzer set with the `analyzer` property is used for both indexing and searching.  
 
 For the title field, the inverted index looks like this:
 
@@ -242,7 +242,7 @@ For the description field, the index is as follows:
 | spacious | 1
 | the | 1, 2
 | to | 1
-| view | 1, 2, 4
+| view | 1, 2, 3
 | walking |	1
 | with | 3
 
