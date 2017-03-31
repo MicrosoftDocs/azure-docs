@@ -250,7 +250,7 @@ ms.custom: H1Hack27Feb2017
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
-[virtual-machines-linux-attach-disk-portal]:../virtual-machines-linux-attach-disk-portal.md
+[virtual-machines-linux-attach-disk-portal]:../linux/attach-disk-portal.md
 [virtual-machines-azure-resource-manager-architecture]:../../resource-manager-deployment-model.md
 [virtual-machines-azurerm-versus-azuresm]:../../resource-manager-deployment-model.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../virtual-machines-windows-classic-configure-oracle-data-guard.md
