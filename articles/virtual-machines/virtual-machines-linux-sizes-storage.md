@@ -31,7 +31,7 @@ ms.author: cynthn
 - [General purpose](linux/sizes-general.md)
 - [Compute optimized](linux/sizes-compute.md)
 - [Memory optimized](virtual-machines-linux-sizes-memory.md)
-- [GPU](virtual-machines-linux-sizes-gpu.md)
+- [GPU](linux/sizes-gpu.md)
 - [High performance compute](virtual-machines-linux-sizes-hpc.md)
 
 ## Next steps

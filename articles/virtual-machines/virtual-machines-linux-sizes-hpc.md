@@ -31,7 +31,7 @@ ms.author: cynthn
 - [Compute optimized](linux/sizes-compute.md)
 - [Memory optimized](virtual-machines-linux-sizes-memory.md)
 - [Storage optimized](virtual-machines-linux-sizes-storage.md)
-- [GPU](virtual-machines-linux-sizes-gpu.md)
+- [GPU](linux/sizes-gpu.md)
 
 
 ## Next steps
