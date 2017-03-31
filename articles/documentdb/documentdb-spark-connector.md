@@ -21,7 +21,7 @@ ms.author: denlee
 
 # Accelerate real-time big-data analytics with the Spark to DocumentDB connector
 
-The Spark to DocumentDB connector enables DocumentDB to act as an input source or output sink for Apache Spark jobs. Connecting [Spark](http://spark.apache.org/) to [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) accelerates your ability to solve fast-moving data science problems, where data can be quickly persisted and queried using DocumentDB. The Spark to DocumentDB connector efficiently exploits the native DocumentDB managed indexes and enables updateable columns when performing analytics, push-down predicate filtering against fast-changing globally-distributed data, ranging from IoT, data science, and analytics scenarios. 
+The Spark to DocumentDB connector enables DocumentDB to act as an input source or output sink for Apache Spark jobs. Connecting [Spark](http://spark.apache.org/) to [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) accelerates your ability to solve fast-moving data science problems, where data can be quickly persisted and queried using DocumentDB. The Spark to DocumentDB connector efficiently utilizes the native DocumentDB managed indexes and enables updateable columns when performing analytics, push-down predicate filtering against fast-changing globally distributed data, ranging from IoT, data science, and analytics scenarios. 
 
 ## Download
 
@@ -31,7 +31,7 @@ Get started by downloading the Spark to DocumentDB connector (preview) from the 
 
 The connector involves the following components:
 
-* [Azure DocumentDB](http://documentdb.com) is Microsoft’s multi-tenant, [globally distributed database system](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-distribute-data-globally) designed for the cloud. DocumentDB allows customers to provision and elastically scale both, throughput as well as storage across any number of geographical regions. The service offers guaranteed low latency at the 99th percentile, a guaranteed 99.99% high availability and [multiple well-defined consistency models](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-consistency-levels) to developers.
+* [Azure DocumentDB](http://documentdb.com) is Microsoft’s multi-tenant, [globally distributed database system](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-distribute-data-globally) designed for the cloud. DocumentDB allows customers to provision and elastically scale both, throughput and storage across any number of geographical regions. The service offers guaranteed low latency at the 99th percentile, a guaranteed 99.99% high availability, and [multiple well-defined consistency models](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-consistency-levels) to developers.
 
 * [Apache Spark](http://spark.apache.org/) is a powerful open source processing engine built around speed, ease of use, and sophisticated analytics. 
 
@@ -54,7 +54,7 @@ There are two approaches to connect Apache Spark and Azure DocumentDB:
 - Create a Java-based Spark to DocumentDB connector utilizing the [Azure DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java).
 
 ## pyDocumentDB
-The current [`pyDocumentDB SDK`](https://github.com/Azure/azure-documentdb-python) enables us to connect `Spark` to `DocumentDB` as shown in the following diagram.
+The current [`pyDocumentDB SDK`](https://github.com/Azure/azure-documentdb-python) enables us to connect `Spark` to `DocumentDB` as shown in the following diagram:
 
 ![Spark to DocumentDB data flow via pyDocumentDB](./media/documentdb-spark-connector/azure-documentdb-spark-pydocumentdb.png)
 
@@ -64,10 +64,10 @@ The current [`pyDocumentDB SDK`](https://github.com/Azure/azure-documentdb-pytho
 The data flow is as follows:
 
 1. Connection is made from Spark master node to DocumentDB gateway node via `pyDocumentDB`.  Note, user only specifies Spark and DocumentDB connections, the fact that it connects to the respective master and gateway nodes is transparent to the user.
-2. Query is made against DocuemntDB (via the gateway node) where the query subsequently runs the query against the collection's partitions in the data nodes.   The response for those queries is sent back to the gateway node and that resultset is returned to Spark master node.
-3. Any subsequent queries (e.g. against a Spark DataFrame) is sent to the Spark worker nodes for processing.
+2. Query is made against DocuemntDB (via the gateway node) where the query subsequently runs the query against the collection's partitions in the data nodes. The response for those queries is sent back to the gateway node and that resultset is returned to Spark master node.
+3. Any subsequent queries (for example, against a Spark DataFrame) is sent to the Spark worker nodes for processing.
 
-The important call out is that communication between Spark and DocumentDB is limited to the Spark master node and DocumentDB gateway nodes.  The queries will go as fast as the transport layer is between these two nodes.
+The important call out is that communication between Spark and DocumentDB is limited to the Spark master node and DocumentDB gateway nodes.  The queries go as fast as the transport layer is between these two nodes.
 
 ### Installing pyDocumentDB
 You can install `pyDocumentDB` on your driver node using `pip`, i.e:
@@ -103,12 +103,12 @@ client = document_client.DocumentClient(host, {'masterKey': masterKey}, connecti
 
 As noted in the code snippet:
 
-* The DocumentDB python SDK contains the all the necessary connection parameters including the preferred locations (i.e. choosing which read replica in what priority order).
+* The DocumentDB Python SDK contains the all the necessary connection parameters including the preferred locations (that is, choosing which read replica in what priority order).
 *  Just import the necessary libraries and configure your `masterKey` and `host` to create the DocumentDB *client* (`pydocumentdb.document_client`).
 
 
 ### Executing Spark Queries via pyDocumentDB
-Below are examples using the above `DocumentDB` instance via the specified `read-only` keys.  This code snippet below connects to the `airports.codes` collection (in the DoctorWho account as specified earlier) running a query to extract the airport cities in Washington state. 
+The following examples use the `DocumentDB` instance created above via the specified `read-only` keys.  The following code snippet connects to the `airports.codes` collection (in the DoctorWho account as specified earlier) running a query to extract the airport cities in Washington state. 
 
 ```
 # Configure Database and Collections
@@ -132,7 +132,7 @@ query = client.QueryDocuments(collLink, querystr, options=None, partition_key=No
 elements = list(query)
 ```
 
-Once the query has been executed via `query`, the result is a `query_iterable.QueryIterable` that is converted into a Python list. A Python list can be easily converted into a Spark DataFrame using the code below.
+Once the query has been executed via `query`, the result is a `query_iterable.QueryIterable` that is converted into a Python list. A Python list can be easily converted into a Spark DataFrame using the following code.
 
 ```
 # Create `df` Spark DataFrame from `elements` Python list
@@ -143,7 +143,7 @@ df = spark.createDataFrame(elements)
 Connecting Spark to DocumentDB using `pyDocumentDB` is typically for scenarios where:
 
 * You want to use `python`.
-* You are returning a relatively small result set from DocumentDB to Spark.  Note, the underlying dataset within DocumentDB can be quite large. It is more that you are applying filters - i.e. running predicate filters - against your DocumentDB source.  
+* You are returning a relatively small result set from DocumentDB to Spark.  Note that the underlying dataset within DocumentDB can be quite large. It is more that you are applying filters - that is running predicate filters - against your DocumentDB source.  
 
 ## Data flow in the Spark to DocumentDB connector
 
@@ -196,7 +196,7 @@ The `jars` command allows you to include the two jars needed for `azure-document
 ### Connecting Spark to DocumentDB using the connector
 While the communication transport is a little more complicated, executing a query from Spark to DocumentDB using `azure-documentdb-spark` is significantly faster.
 
-Below is a code snippet on how to use `azure-documentdb-spark` within a Spark context.
+The following code snippet shows how to use the connector within a Spark context.
 
 ```
 // Import Necessary Libraries
@@ -221,12 +221,12 @@ coll.createOrReplaceTempView("c")
 
 As noted in the code snippet:
 
-- `azure-documentdb-spark` contains the all the necessary connection parameters including the preferred locations (i.e. choosing which read replica in what priority order).
+- `azure-documentdb-spark` contains the all the necessary connection parameters including the preferred locations (for example, choosing which read replica in what priority order).
 - Just import the necessary libraries and configure your masterKey and host to create the DocumentDB client.
 
 ### Executing Spark queries via the connector
 
-The following example shows uses the DocumentDB instance from above via the specified read-only keys. The code snippet below connects to the DepartureDelays.flights_pcoll collection (in the DoctorWho account as specified earlier) running a query to extract the flight delay information of flights departing from Seattle.
+The following example uses the DocumentDB instance created above via the specified read-only keys. The following code snippet connects to the DepartureDelays.flights_pcoll collection (in the DoctorWho account as specified earlier) running a query to extract the flight delay information of flights departing from Seattle.
 
 ```
 // Queries
@@ -240,14 +240,14 @@ df.count()
 df.show()
 ```
 
-### Why use the the Spark to DocumentDB connector implementation?
+### Why use the Spark to DocumentDB connector implementation?
 
 Connecting Spark to DocumentDB using the connector is typically for scenarios where:
 
-* You want to use Scala (we will update it to include a Python wrapper as noted in [Issue 3: Add Python wrapper and examples](https://github.com/Azure/azure-documentdb-spark/issues/3).
+* You want to use Scala (and update it to include a Python wrapper as noted in [Issue 3: Add Python wrapper and examples](https://github.com/Azure/azure-documentdb-spark/issues/3)).
 * You have a large amount of data to transfer between Apache Spark and DocumentDB.
 
-To give you an idea of the query performance difference, please see the [Query Test Runs wiki](https://github.com/Azure/azure-documentdb-spark/wiki/Query-Test-Runs).
+To give you an idea of the query performance difference, see the [Query Test Runs wiki](https://github.com/Azure/azure-documentdb-spark/wiki/Query-Test-Runs).
 
 ## Distributed aggregation example
 This section provides some examples of how you can do distributed aggregations and analytics using Apache Spark and Azure DocumentDB together.  Note, Azure DocumentDB already has support for aggregations, as discussed in the [Planet scale aggregates with Azure DocumentDB blog](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/), so here is how you can take it to the next level with Apache Spark.
@@ -276,7 +276,7 @@ val coll = spark.sqlContext.read.DocumentDB(readConfig2)
 coll.createOrReplaceTempView("c")
 ```
 
-With this, we will also run a base query which transfer the filtered set of data we want from DocumentDB to Spark (where the latter can perform distributed aggregates).  In this case, we are asking for flights departing from Seattle (SEA).
+With this snippet, we are also going to run a base query that transfers the filtered set of data we want from DocumentDB to Spark (where the latter can perform distributed aggregates).  In this case, we are asking for flights departing from Seattle (SEA).
 
 ```
 // Run, get row count, and time query
@@ -284,7 +284,7 @@ val originSEA = spark.sql("SELECT c.date, c.delay, c.distance, c.origin, c.desti
 originSEA.createOrReplaceTempView("originSEA")
 ```
 
-The results below are from running the queries using Jupyter notebook service.  Note, all of these code snippets are generic and not specific to any service.
+The following results were generated by running the queries from the Jupyter notebook service.  Note that all the code snippets are generic and not specific to any service.
 
 ### Running LIMIT and COUNT queries
 Just like you're used to in SQL/Spark SQL, let's start off with a `LIMIT` query:
@@ -315,7 +315,7 @@ And here is a `DISTINCT, ORDER BY` query:
 ### Continue the flight data analysis
 You can use the following example queries to continue analysis of the flight data:
 
-#### Top 5 Delayed Destinations (Cities) departing from Seattle
+#### Top 5 delayed destinations (cities) departing from Seattle
 ```
 select destination, sum(delay) 
 from originSEA
