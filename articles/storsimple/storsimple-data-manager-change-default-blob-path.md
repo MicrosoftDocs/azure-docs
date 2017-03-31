@@ -47,7 +47,7 @@ To create an Azure function, do the following:
 
     ![The Function App window "Create" button](./media/storsimple-data-manager-change-default-blob-path/create-new-function-app.png)
 
-6. On the function app **Configuration** blade, do the following:
+6. On the **Function App** configuration blade, do the following:
 
     a. In the **App name** box, type the app name.
     
@@ -92,10 +92,10 @@ To create an Azure function, do the following:
 
        ![Create a new C# function](./media/storsimple-data-manager-change-default-blob-path/create-new-csharp-function.png)
 
-11. Click **Create**.  
+    f. Click **Create**.  
     The **Function** window opens.
 
-12. In the **Function** window, run _.csx_ file, and then do the following:
+11. In the **Function** window, run _.csx_ file, and then do the following:
 
     a. Paste the following code:
 
@@ -205,7 +205,7 @@ To create an Azure function, do the following:
 
     ![Save function](./media/storsimple-data-manager-change-default-blob-path/save-function.png)
 
-13. To complete the function, add one more file by doing the following:
+12. To complete the function, add one more file by doing the following:
 
     a. Click **View files**.
 
