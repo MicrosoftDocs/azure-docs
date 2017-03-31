@@ -187,7 +187,7 @@ Create a new Update Deployment by clicking the **Add** button at the top of the 
 ### Time range
 By default, the scope of the data analyzed in the Update Management solution is from all connected management groups generated within the last 1 day. 
 
-To change the time range of the data, select **Data based on** at the top of the dashboard. You can select records created or updated within the last 7 days, 1 day, or 6 hours. Or you can select **Custom** and specify a custom date range.<br><br> ![Custom Time Range Option](./media/oms-solution-update-management/update-la-time-range-scope-databasedon.png)  
+To change the time range of the data, select **Data based on** at the top of the dashboard. You can select records created or updated within the last 7 days, 1 day, or 6 hours. Or you can select **Custom** and specify a custom date range.
 
 ## Log Analytics records
 The Update Management solution creates two types of records in the OMS repository.
