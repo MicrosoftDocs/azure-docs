@@ -768,6 +768,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 bottom: 0;
                                 right: 0;
                                 background-color: #0078d7;
+                                padding: 15px 30px;
                                 border: none;
                                 font-size: 1rem;
                                 color: white;
