@@ -22,7 +22,7 @@ ms.author: hermannd
 # Running SAP NetWeaver on Microsoft Azure SUSE Linux VMs
 This article describes various things to consider when you're running SAP NetWeaver on Microsoft Azure SUSE Linux virtual machines (VMs). As of May 19 2016 SAP NetWeaver is officially supported on SUSE Linux VMs on Azure. All details regarding Linux versions, 
 SAP kernel versions and so on can be found in SAP Note 1928533 "SAP Applications on Azure: Supported Products and Azure VM types".
-Further documentation about SAP on Linux VMs can be found here : [Using SAP on Linux virtual machines (VMs)](virtual-machines-linux-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Further documentation about SAP on Linux VMs can be found here : [Using SAP on Linux virtual machines (VMs)](workloads/sap/get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 The following information should help you avoid some potential pitfalls.
 
