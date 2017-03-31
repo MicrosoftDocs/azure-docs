@@ -72,6 +72,7 @@ Learn how to use App Service Web Apps to build and host websites and web applica
         <p>Free Pluralsight video training – Using Microsoft Azure App Service</a></p>
     </div>
 </div>
+
 ---
 <h2>Reference</h2>
 <ul class="panelContent cardsW">

@@ -57,6 +57,7 @@ Learn how to run Virtual Machines on Azure using the Linux distribution of your 
         <p>Free Pluralsight video training – Managing Microsoft Azure Virtual Machines</a></p>
     </div>
 </div>
+
 ---
 <h2>Reference</h2>
 <ul class="panelContent cardsW">

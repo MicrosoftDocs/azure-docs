@@ -763,7 +763,16 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </div>
                             </li>
                             <a href="/azure/index#pivot=services&panel=all">
-                            <button style="background:#3498db; border:none; padding:8px 16px; color:white; font-size: 14px;">View all services <span style="color: white; font-family:MWF-MDL2;">&E76C;</span></button>
+                            <button style="
+                                position: absolute;
+                                bottom: 0;
+                                right: 0;
+                                background:#3498db;
+                                border:none;
+                                padding:8px 16px;
+                                color:white;
+                                font-size: 14px;">View all services &gt;
+                            </button>
                             </a>
                         </ul>
                     </li>

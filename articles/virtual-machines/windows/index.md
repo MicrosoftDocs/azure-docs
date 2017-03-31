@@ -58,6 +58,7 @@ Learn how to create Windows virtual machines.
         <p>Free Pluralsight video training – Managing Microsoft Azure Virtual Machines</a></p>
     </div>
 </div>
+
 ---
 <h2>Reference</h2>
 <ul class="panelContent cardsW">
