@@ -120,7 +120,7 @@
 ### [Configure ports, endpoints, and security](../virtual-machines-linux-endpoints-in-resource-manager.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Allow access to a VM](../virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Use FreeBSD's Packet Filter](../virtual-machines-linux-freebsd-pf-nat.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [DNS name resolution options](../virtual-machines-linux-azure-dns.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [DNS name resolution options](azure-dns.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Use internal DNS for VM name resolution](../virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Create an FQDN](../virtual-machines-linux-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Create user-defined routes](../../virtual-network/virtual-network-create-udr-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
