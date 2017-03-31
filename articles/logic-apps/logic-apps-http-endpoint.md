@@ -14,6 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
+keywords: workflows, HTTP endpoints
 ms.date: 03/31/2017
 ms.author: jehollan; LADocs
 ---
