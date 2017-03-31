@@ -51,7 +51,7 @@ cd nodejs-docs-hello-world
 
 ## Run the app locally
 
-Run the application locally by opening a terminal window an using the `npm start` script for the sample to launch the built in Node.js http server.
+Run the application locally by opening a terminal window and using the `npm start` script for the sample to launch the built in Node.js http server.
 
 ```bash
 npm start
@@ -75,6 +75,21 @@ We are now going to use the Azure CLI 2.0 in a terminal window to create the res
 
 ```azurecli
 az login
+```
+
+## Configure a Deployment User
+
+For FTP and local Git it is necessary to have a deployment user configured on the server to authenicate your deployment. Creating a deployment user is a one time configuration, take a note of the username and password as they will be used in a step below.
+
+> [!NOTE]
+> A deployment user is required for FTP and Local Git deployment to a Web App.
+> The `username` and `password` are account-level, as such, are different from your Azure Subscription credentials. These credentials are only required to be created once.
+>
+
+Use the [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set) command to create your account-level credentials.
+
+```azurecli
+az appservice web deployment user set --user-name <username> --password <password>
 ```
 
 ## Create a resource group
@@ -161,14 +176,14 @@ http://<app_name>.azurewebsites.net
 
 ![app-service-web-service-created](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
 
-We’ve now created an empty new Web App in Azure. Let’s now deploy our Web App to use Node.js and deploy our app to it.
+We’ve now created an empty new Web App in Azure. Let’s now configure our Web App to use Node.js and deploy our app to it.
 
 ## Configure to use Node.js
 
-Use the az appservice web config update command to configure the Web App to use Node.js version `6.9.3`.
+Use the [az appservice web config update](/cli/azure/app-service/web/config#update) command to configure the Web App to use Node.js version `6.9.3`.
 
 > [!TIP]
-> Setting the node.js version this way uses a default container provided by the platform, if you would like to use your own container refer to the reference for the [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) command.
+> Setting the node.js version this way uses a default container provided by the platform, if you would like to use your own container refer to the CLI reference for the [az appservice web config container update](/cli/azure/appservice/web/config/container#update) command.
 
 ```azurecli
 az appservice web config update --linux-fx-version "NODE|6.9.3" --startup-file process.json --name <app_name> --resource-group myResourceGroup
@@ -176,20 +191,9 @@ az appservice web config update --linux-fx-version "NODE|6.9.3" --startup-file p
 
 ## Configure local git deployment
 
-You can deploy to your Web App in a variety of ways including FTP, local Git as well as GitHub, Visual Studio Team Services and Bitbucket. For FTP and local Git it is necessary to have a deployment user configured on the server to authenicate your deployment.
+You can deploy to your Web App in a variety of ways including FTP, local Git as well as GitHub, Visual Studio Team Services and Bitbucket.
 
-Use the [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set) command to create your account-level credentials.
-
-> [!NOTE]
-> A deployment user is required for FTP and Local Git deployment to a Web App.
-> The `username` and `password` are account-level, as such, are different from your Azure Subscription credentials. These credentials are only required to be created once.
->
-
-```azurecli
-az appservice web deployment user set --user-name <username> --password <password>
-```
-
-Use the [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config-local-git) command to configure local git access to the Web App.
+Use the [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) command to configure local git access to the Web App.
 
 ```azurecli
 az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv
@@ -279,6 +283,30 @@ git push azure master
 Once deployment has completed, switch back to the browser window that opened in the Browse to the app step, and hit refresh.
 
 ![hello-world-in-browser](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
+
+## Manage your new Azure web app
+
+Go to the Azure portal to take a look at the web app you just created.
+
+To do this, sign in to [https://portal.azure.com](https://portal.azure.com).
+
+From the left menu, click **App Service**, then click the name of your Azure web app.
+
+![Portal navigation to Azure web app](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
+
+You have landed in your web app's _blade_ (a portal page that opens horizontally).
+
+By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the blade shows the different configuration pages you can open.
+
+![App Service blade in Azure portal](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
+
+These tabs in the blade show the many great features you can add to your web app. The following list gives you just a few of the possibilities:
+
+* Map a custom DNS name
+* Bind a custom SSL certificate
+* Configure continuous deployment
+* Scale up and out
+* Add user authentication
 
 **Congratulations!** You've deployed your first Node.js app to App Service.
 
