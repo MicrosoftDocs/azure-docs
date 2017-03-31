@@ -49,7 +49,7 @@
 ### [Storage](../virtual-machines-linux-infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Networking](../virtual-machines-linux-infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Availability sets](infrastructure-availability-sets-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Infrastructure example](../virtual-machines-linux-infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Infrastructure example](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 # How-to guides
 ## Create VMs
