@@ -1,5 +1,5 @@
 # Overview
-## [About Virtual Machines](../virtual-machines-linux-azure-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [About Virtual Machines](azure-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 # Quickstart
 ## [Create VM - Portal](../virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

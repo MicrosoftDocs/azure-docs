@@ -1,4 +1,4 @@
-# [Overview](../../virtual-machines-linux-azure-overview.md)
+# [Overview](../azure-overview.md)
 ## [Images](about-images.md)
 ## [VM extensions](agents-and-extensions.md)
 ## [Availability](configure-availability.md)
