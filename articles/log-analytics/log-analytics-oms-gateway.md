@@ -111,11 +111,11 @@ To install the gateway, complete the following steps.
 3. On the **License Agreement** page, to agree to the Microsoft Software License Terms, select **I accept the terms in the License Agreement**. 
 4. On the **Port and proxy address** page:
 
-   1. Type the TCP port number to use for the gateway. Setup configures an inbound rule with this port number in Windows Firewall. The default value is 8080.
+   1. Enter the TCP port number to use for the gateway. Setup configures an inbound rule with this port number in Windows Firewall. The default value is 8080.
       The valid range for the port number is 1 to 65535. If the input does not fall in this range, an error message appears.
-   2. Optionally, if the server where the gateway is installed needs to communicate through a proxy, type the proxy address where the gateway needs to connect. For example, **http://myorgname.corp.contoso.com:80**. If this box is empty, the gateway tries to connect directly to the Internet. If your proxy server requires authentication, enter a user name and password.<br><br> ![Gateway Wizard proxy configuration](./media/log-analytics-oms-gateway/gateway-wizard02.png)<br>   
+   2. Optionally, if the server where the gateway is installed needs to communicate through a proxy, enter the proxy address where the gateway needs to connect. For example, **http://myorgname.corp.contoso.com:80**. If proxy address box is empty, the gateway tries to connect directly to the Internet. If your proxy server requires authentication, enter a user name and password.<br><br> ![Gateway Wizard proxy configuration](./media/log-analytics-oms-gateway/gateway-wizard02.png)<br>   
 5. If Microsoft Update is not enabled on the computer, the **Microsoft Update** page appears. You can choose to enable it on this page. Otherwise, continue to the next step.
-6. On the **Destination Folder** page, you can leave the default folder C:\Program Files\OMS Gateway or type the location where you want to install the gateway.
+6. On the **Destination Folder** page, you can leave the default folder C:\Program Files\OMS Gateway or enter the location where you want to install the gateway.
 7. On the **Ready to install** page, select **Install**. A dialog box that requests permission to install might appear. Select **Yes**.
 8. Select **Finish**. To verify that the service is running, open the Services.msc snap-in and check that **OMS Gateway** appears in the list of services. Its status should be **Running**.<br><br> ![Check services for OMS Gateway](./media/log-analytics-oms-gateway/gateway-service.png)  
 
@@ -156,7 +156,7 @@ To use the OMS gateway with Operations Manager, you must meet the following requ
 To connect your Operations Manager server to your Operations Management Suite agent workspace:
 
 1. In the Operations Manager console, go to **Operations Management Suite** > **Connection** > **Configure Proxy Server**.<br><br> ![Operations Manager: Configure proxy server](./media/log-analytics-oms-gateway/scom01.png)<br> 
-2. Select **Use a proxy server to access the Operations Management Suite**. Type the IP address of the OMS gateway server, or the virtual IP address of the network load balancer. Be sure that you start with the **http://** prefix.<br><br> ![Operations Manager: Proxy server address](./media/log-analytics-oms-gateway/scom02.png)<br> 
+2. Select **Use a proxy server to access the Operations Management Suite**. Enter the IP address of the OMS gateway server, or the virtual IP address of the network load balancer. Be sure that you start with the **http://** prefix.<br><br> ![Operations Manager: Proxy server address](./media/log-analytics-oms-gateway/scom02.png)<br> 
 3. Select **Finish**. 
 
 ### Set up Operations Manager (specific agents use the proxy server)
@@ -167,7 +167,7 @@ For large or complex environments, you might want only specific servers (or grou
 
 1. In the System Center Operations Manager console, select the **Authoring** workspace.  
 2. Select **Rules**, and on the System Center Operations Manage toolbar, select the **Scope** button. If this button is not available, check to make sure that you have an object, and not a folder, selected in the **Monitoring** pane. The **Scope Management Pack Objects** dialog box displays a list of common targeted classes, groups, or objects. 
-3. In the **Look for** box, type **Health Service**. Select it from the list. Select **OK**.  
+3. In the **Look for** box, enter **Health Service**. Select it from the list. Select **OK**.  
 4. On the Operations Manager console toolbar, search for the rule **Advisor Proxy Setting Rule**. Select **Overrides**, and then point to **Override the Rule\For a specific object of class: Health Service**. Select a specific object from the list. Optionally, you can create a custom group that has the health service object of the servers you want to apply this override to. Then, apply the override to that group.
 5. In the **Override Properties** dialog box, next to the **WebProxyAddress** parameter, select the **Override** column. In the **Override Value** box, enter the URL of the OMS gateway server. Be sure that you start with the **http://** prefix.
 
@@ -243,8 +243,8 @@ Cmdlets can help you update OMS gateway settings. Before you use PowerShell cmdl
 
 1. Install OMS Gateway (MSI).
 2. Open a PowerShell console window.
-3. To import the module, type this command: `Import-Module OMSGateway`. If no error occurs, the module was successfully imported and you can use the cmdlets. 
-4. Type `Get-Module OMSGateway`.
+3. To import the module, enter this command: `Import-Module OMSGateway`. If no error occurs, the module was successfully imported and you can use the cmdlets. 
+4. Enter `Get-Module OMSGateway`.
 5. After you make changes by using the cmdlets, restart the OMS gateway service.
 
 If you get an error in step 3, the module wasn't imported. This error might occur if PowerShell can't find the module. The module is listed in the gateway's installation path: C:\Program Files\Microsoft OMS Gateway\PowerShell.
