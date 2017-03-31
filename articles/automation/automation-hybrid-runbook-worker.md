@@ -87,14 +87,13 @@ Perform the following steps to automate the installation and configuration of th
 
   * *AutomationAccountName* (mandatory) - the name of your Automation account.  
   * *ResourceGroupName* (mandatory) - the name of the resource group associated with your Automation account.  
-  * *HybridGroupName* (mandatory) - the name of a Hybrid Runbook Worker group that you specify as a target for the runbooks supporting this scenario 
-  *  *SubscriptionID* (mandatory) - the Azure Subscription Id that your Automation account is in
+  * *HybridGroupName* (mandatory) - the name of a Hybrid Runbook Worker group that you specify as a target for the runbooks supporting this scenario. 
+  *  *SubscriptionID* (mandatory) - the Azure Subscription Id that your Automation account is in.
   *  *WorkspaceName* (optional) - the OMS workspace name.  If you do not have an OMS workspace, the script creates and configures one.  
 
     > [!NOTE]
-    > Currently the only Automation regions supported for integration with OMS are - **Australia Southeast**, **East US 2**, **Southeast Asia**, and **West Europe**.  If your Automation account is not in one of those regions, the script creates an OMS workspace but it warns you that it cannot link them together.  
+    > Currently the only Automation regions supported for integration with OMS are - **Australia Southeast**, **East US 2**, **Southeast Asia**, and **West Europe**.  If your Automation account is not in one of those regions, the script creates an OMS workspace but it warns you that it cannot link them together.
     > 
-
 2. On your computer, start **Windows PowerShell** from the **Start** screen in Administrator mode.  
 3. From the PowerShell command-line shell, navigate to the folder, which contains the script you downloaded and execute it changing the values for parameters *-AutomationAccountName*, *-ResourceGroupName*, *-HybridGroupName*, *-SubscriptionId*, and *-WorkspaceName*.
 
