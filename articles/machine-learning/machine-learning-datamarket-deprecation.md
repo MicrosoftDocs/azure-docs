@@ -17,12 +17,12 @@ ms.date: 03/31/2017
 ms.author: LuisCa
 ---
 
-# DataMarket is now Deprecated
+# DataMarket is now deprecated
 
 The [Microsoft DataMarket](https://datamarket.azure.com/datasets) is now deprecated. As such, the Machine Learning APIs
 that were hosted there are also deprecated.
 
-## Text Analytics API
+## Text analytics API
 
 Previous DataMarket Text Analytics API customers should start using the Cognitive Services Text Analytics API.
 The [Cognitive Services Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)
