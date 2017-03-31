@@ -63,7 +63,7 @@ Yes. You can either replicate VMs in Hyper-V servers in the VMM cloud to Azure, 
 You can replicate physical servers running Windows and Linux to Azure or to a secondary site. [Learn about](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) operating system requirements.  The same requirements apply whether you're replicating physical servers to Azure, or to a secondary site.
 
 
-Note that physical servers will run as VMs in Azure if your on-premises server goes down. Failback to an on-premises physical server isn't currently supported, but you can fail back to a virtual machine running on Hyper-V or VMware.
+Note that physical servers will run as VMs in Azure if your on-premises server goes down. Failback to an on-premises physical server isn't currently supported. For a machine protected as physical, you can only failback to a VMware virtual machine.
 
 ### What VMware VMs can I protect?
 
@@ -177,6 +177,12 @@ To automate you could use on-premises Orchestrator or Operations Manager to dete
 * [Read more](site-recovery-create-recovery-plans.md) about recovery plans.
 * [Read more](site-recovery-failover.md) about failover.
 * [Read more](site-recovery-failback-azure-to-vmware.md) about failing back VMware VMs and physical servers
+
+### If my on-premises host is not responding or crashed, can I failover back to a different host?
+Yes, you can use the alternate location recovery to failback to a different host from Azure. Read more about the options in the below links for VMware and Hyper-v virtual machines.
+
+* [For VMware virtual machines](site-recovery-how-to-failback-azure-to-vmware.md#fail-back-to-the-original-or-alternate-location)
+* [For Hyper-v virtual machines](site-recovery-failback-from-azure-to-hyper-v.md#failback-to-an-alternate-location)
 
 ## Service providers
 ### I'm a service provider. Does Site Recovery work for dedicated and shared infrastructure models?
