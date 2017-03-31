@@ -6,7 +6,7 @@ layout: LandingPage
 
 Learn how to use SQL Database, a relational database-as-a-service in the cloud built on the Microsoft SQL Server engine.
 
-<h3>Quickstarts</h3>
+<h2>Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/sql-database/sql-database-get-started-portal">
