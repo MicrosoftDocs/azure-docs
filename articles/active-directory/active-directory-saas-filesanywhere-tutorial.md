@@ -125,13 +125,13 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 	b. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<sub domain>.filesanywhere.com/`
 
 	> [!NOTE] 
-	> Please note that these are not the real values. You have to update these values with the actual Sign On URL and Reply URL. Contact [FilesAnywhere support team](support@FilesAnywhere.com) to get these values. 
+	> Please note that these are not the real values. You have to update these values with the actual Sign On URL and Reply URL. Contact [FilesAnywhere support team](mailto:support@FilesAnywhere.com) to get these values. 
 
 5. FilesAnywhere Software application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
 	
 	![Configure Single Sign-On](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_filesanywhere_attribute.png)
 	
-	When the users signs up with FilesAnywhere they get the value of **clientid** attribute from [FilesAnywhere team](support@FilesAnywhere.com). You have to add the "Client Id" attribute with the unique value provided by FilesAnywhere. All these attributes shown above are required.
+	When the users signs up with FilesAnywhere they get the value of **clientid** attribute from [FilesAnywhere team](mailto:support@FilesAnywhere.com). You have to add the "Client Id" attribute with the unique value provided by FilesAnywhere. All these attributes shown above are required.
 	> [!NOTE] 
 	> Please note that the value **2331** of **clientid** is just an example. You need to provide the actual value.
 
@@ -168,7 +168,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Configure Single Sign-On](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_configuresignon.png)
 
-10.	To get SSO configuration complete for your application at FilesAnywhere end, contact [FilesAnywhere support team](support@FilesAnywhere.com) and provide them the downloaded SAML token signing Certificate and Single Sign On (SSO) URL.
+10.	To get SSO configuration complete for your application at FilesAnywhere end, contact [FilesAnywhere support team](mailto:support@FilesAnywhere.com) and provide them the downloaded SAML token signing Certificate and Single Sign On (SSO) URL.
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure Management portal called Britta Simon.
