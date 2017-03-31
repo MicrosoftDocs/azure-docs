@@ -161,13 +161,13 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
   3. Open the downloaded certificate from Azure AD in Notepad and copy the values without the Begin and End lines and paste it in the Public X509 certificate box.
   4. Save the settings.
 
-	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_12.png)
-  
+      ![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_12.png)
+ 
 9. Update the Azure AD settings to make sure that you have setup the correct Identifier URL.
   1. Copy the SP Identity ID from the SAML screen and paste it in Azure AD as the **Identifier** value.
   2. Sign On URL is the tenant URL of your Atlassian Cloud. 	
 
-	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
+     ![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
 	
 10. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 	
