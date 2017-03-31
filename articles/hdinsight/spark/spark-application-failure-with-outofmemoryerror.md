@@ -21,12 +21,11 @@ ms.author: arijitt
 
 ### Why did my Spark application fail with OutOfMemoryError?
 
-#### Error
+#### Error:
 
 Spark application failed with OutOfMemoryError exception
 
-#### Detailed Description
-
+#### Detailed Description:
 Spark application fails with the following types of uncaught exceptions.  
 
 ~~~~
@@ -69,11 +68,11 @@ java.lang.OutOfMemoryError
     at java.lang.Thread.run(Unknown Source) 
 ~~~~
 
-#### Probable Cause
+#### Probable Cause:
 
 The most likely cause of this exception is not enough heap memory allocated to the Java Virtual Machine (JVM) that are launched as executors or driver as part of the Spark application. 
 
-#### Resolution Steps
+#### Resolution Steps:
 
 1. Determine the maximum size of the data a Spark application will handle. A guess can be made based on the maximum of the size of input data, the intermediate data produced by transforming the input data and the output data produced further transforming the intermediate data. This can be an iterative process also if formal initial guess is not possible. 
 
@@ -102,7 +101,7 @@ Total memory used by driver =
 spark.driver.memory + spark.yarn.driver.memoryOverhead
 ~~~~
 
-#### Further Reading
+#### Further Reading:
 
 1. [Spark memory management overview](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
 2. [Debugging Spark application on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)

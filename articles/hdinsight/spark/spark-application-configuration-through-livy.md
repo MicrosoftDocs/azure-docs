@@ -21,7 +21,9 @@ ms.author: arijitt
 
 ### How do I configure at submit time through LIVY the amount of memory and number of cores that a Spark application can use on HDInsight clusters?
 
-#### Issue: Need to configure at submit time through LIVY, the amount of memory and number of cores that a Spark application can use on HDInsight clusters. 
+#### Issue:
+
+Need to configure at submit time through LIVY, the amount of memory and number of cores that a Spark application can use on HDInsight clusters. 
 
 1. Refer to the topic [Why did my Spark application fail with OutOfMemoryError?](spark-application-failure-with-outofmemoryerror.md) to determine which Spark configurations need to be set and to what values.
 

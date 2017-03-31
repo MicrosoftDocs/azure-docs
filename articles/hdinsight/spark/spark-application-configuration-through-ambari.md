@@ -21,7 +21,9 @@ ms.author: arijitt
 
 ### How do I configure through Ambari the amount of memory and number of cores that a Spark application can use on HDInsight Spark clusters?
 
-#### Issue: Need to configure in Ambari the amount of memory and number of cores that a Spark application can use.  
+#### Issue:
+
+Need to configure in Ambari the amount of memory and number of cores that a Spark application can use.  
 
 #### Resolution Steps: 
 

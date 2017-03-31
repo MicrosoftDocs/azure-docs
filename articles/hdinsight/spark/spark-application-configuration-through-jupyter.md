@@ -20,7 +20,9 @@ ms.author: arijitt
 
 ### How do I configure the amount of memory and number of cores that a Spark application can use when using Jupyter notebook on HDInsight clusters?
 
-#### Issue:  Need to configure the amount of memory and number of cores that a Spark application can use when using Jupyter notebook on HDInsight clusters. 
+#### Issue:
+
+Need to configure the amount of memory and number of cores that a Spark application can use when using Jupyter notebook on HDInsight clusters. 
 
 1. Refer to the topic [Why did my Spark application fail with OutOfMemoryError?](spark-application-failure-with-outofmemoryerror.md) to determine which Spark configurations need to be set and to what values.
 
