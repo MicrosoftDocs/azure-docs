@@ -179,7 +179,7 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 [data-disk]: ../articles/storage/storage-about-disks-and-vhds-linux.md
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
-[fqdn]: ../articles/virtual-machines/virtual-machines-linux-portal-create-fqdn.md
+[fqdn]:../articles/virtual-machines/linux/portal-create-fqdn.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/
 [iostat]: https://en.wikipedia.org/wiki/Iostat
 [manage-vm-availability]:../articles/virtual-machines/linux/manage-availability.md
