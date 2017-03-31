@@ -25,7 +25,7 @@ ms.author: tomfitz
 > 
 > 
 
-When you have an app or script that needs to access resources, you can set up an identity for the app and authenticate it with its own credentials. This approach is enables you to:
+When you have an app or script that needs to access resources, you can set up an identity for the app and authenticate it with its own credentials. This approach enables you to:
 
 * Assign permissions to the app identity that are different than your own permissions. Typically, these permissions are restricted to exactly what the app needs to do.
 * Use a certificate to automate authentication when executing an unattended script.
