@@ -30,8 +30,6 @@ In this scenario, you compare a known good baseline to the security group view r
 
 This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher. The scenario also assumes that a Resource Group with a valid virtual machine exists to be used.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## Scenario
 
 The scenario covered in this article gets the security group view for a virtual machine.
