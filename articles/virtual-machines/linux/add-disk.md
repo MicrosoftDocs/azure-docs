@@ -338,5 +338,5 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
 ## Next Steps
 * Remember, that your new disk is not available to the VM if it reboots unless you write that information to your [fstab](http://en.wikipedia.org/wiki/Fstab) file.
 * To ensure your Linux VM is configured correctly, review the [Optimize your Linux machine performance](../virtual-machines-linux-optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) recommendations.
-* Expand your storage capacity by adding additional disks and [configure RAID](../virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for additional performance.
+* Expand your storage capacity by adding additional disks and [configure RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for additional performance.
 

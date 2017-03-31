@@ -261,7 +261,7 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-linux-capture-image-resource-manager-capture]:../../linux/capture-image.md#step-2-capture-the-vm
 [virtual-machines-windows-capture-image]:../../virtual-machines-windows-generalize-vhd.md
 [virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture]:../../virtual-machines-windows-generalize-vhd.md
-[virtual-machines-linux-configure-raid]:../../virtual-machines-linux-configure-raid.md
+[virtual-machines-linux-configure-raid]:../../linux/configure-raid.md
 [virtual-machines-linux-configure-lvm]:../../linux/configure-lvm.md
 [virtual-machines-linux-classic-create-upload-vhd-step-1]:../../virtual-machines-linux-classic-create-upload-vhd.md#step-1-prepare-the-image-to-be-uploaded
 [virtual-machines-linux-create-upload-vhd-suse]:../../virtual-machines-linux-suse-create-upload-vhd.md

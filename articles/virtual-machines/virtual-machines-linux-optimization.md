@@ -121,7 +121,7 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ```
 
 ## Using Software RAID to achieve higher I/Ops
-If your workloads require more IOps than a single disk can provide, you need to use a software RAID configuration of multiple disks. Because Azure already performs disk resiliency at the local fabric layer, you achieve the highest level of performance from a RAID-0 striping configuration.  Provision and create disks in the Azure environment and attach them to your Linux VM before partitioning, formatting and mounting the drives.  More details on configuring a software RAID setup on your Linux VM in azure can be found in the **[Configuring Software RAID on Linux](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** document.
+If your workloads require more IOps than a single disk can provide, you need to use a software RAID configuration of multiple disks. Because Azure already performs disk resiliency at the local fabric layer, you achieve the highest level of performance from a RAID-0 striping configuration.  Provision and create disks in the Azure environment and attach them to your Linux VM before partitioning, formatting and mounting the drives.  More details on configuring a software RAID setup on your Linux VM in azure can be found in the **[Configuring Software RAID on Linux](linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** document.
 
 ## Next Steps
 Remember, as with all optimization discussions, you need to perform tests before and after each change to measure the impact the change has.  Optimization is a step by step process that has different results across different machines in your environment.  What works for one configuration may not work for others.
@@ -131,5 +131,5 @@ Some useful links to additional resources:
 * [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md)
 * [Azure Linux Agent User Guide](linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Optimizing MySQL Performance on Azure Linux VMs](linux/classic/optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Configure Software RAID on Linux](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Configure Software RAID on Linux](linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

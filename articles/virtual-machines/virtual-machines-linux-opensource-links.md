@@ -91,7 +91,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 ## Storage
 * [Attaching a Data Disk to a Linux VM](linux/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Detaching a Data Disk from a Linux VM](linux/classic/detach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [RAID](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [RAID](linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Networking
 * [How to set up endpoints on a classic virtual machine in Azure](linux/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)

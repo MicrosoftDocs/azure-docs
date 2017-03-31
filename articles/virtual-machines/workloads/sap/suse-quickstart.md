@@ -140,7 +140,7 @@ Tuning Systems for SAP Workloads with tuned-adm - can be found [here](https://ww
 If you have a distributed installation--for example, where you want to install the database and the SAP application servers in separate VMs--you can share the /sapmnt directory via Network File System (NFS). If you have problems with the installation steps after you create the NFS share for /sapmnt, check to see if "no_root_squash" is set for the share.
 
 ## Logical volumes
-In the past if one needed a large logical volume across multiple Azure data disks (for example, for the SAP database), it was recommended to use mdadm as lvm wasn't fully validated yet on Azure. To learn how to set up Linux RAID on Azure by using mdadm, see [Configure software RAID on Linux](../../virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). In the meantime as of beginning of May 2016 also lvm is fully supported on Azure and can be used as an alternative to mdadm. For additional information regarding lvm on Azure see
+In the past if one needed a large logical volume across multiple Azure data disks (for example, for the SAP database), it was recommended to use mdadm as lvm wasn't fully validated yet on Azure. To learn how to set up Linux RAID on Azure by using mdadm, see [Configure software RAID on Linux](../../linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). In the meantime as of beginning of May 2016 also lvm is fully supported on Azure and can be used as an alternative to mdadm. For additional information regarding lvm on Azure see
 [Configure LVM on a Linux VM in Azure](../../linux/configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Azure SUSE repository

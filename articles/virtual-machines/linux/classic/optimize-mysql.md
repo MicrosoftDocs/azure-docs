@@ -67,7 +67,7 @@ You can see the added drives in the virtual machine by looking at the kernel mes
     sudo grep SCSI /var/log/dmesg
 
 #### Create RAID with the additional disks
-The following steps describe how to [configure software RAID on Linux](../../virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+The following steps describe how to [configure software RAID on Linux](../configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!NOTE]
 > If you are using the XFS file system, execute the following steps after you have created RAID.
