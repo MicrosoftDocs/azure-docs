@@ -22,11 +22,6 @@ ms.author: ancav
 ## Overview
 This article shows you how to use the Azure portal to set up alerts on activity log events.
 
->[!NOTE]
->This feature is currently in public preview. Not all functionality may be available at this time.
->
->
-
 You can receive an alert based on operations that were performed on resources in your subscription
 
 You can configure the alert based on:
@@ -86,6 +81,8 @@ You can configure and get information about service health notification alerts u
 
 Within a few minutes, the alert is active and triggers as previously described.
 
+For details on the webhook schema for activity log alerts [click here](monitoring-activity-log-alerts-webhook.md)
+
 >[!NOTE]
 >The action group defined in these steps will be reusable, as an existing action group, for all future alert definition.
 >
@@ -127,5 +124,6 @@ Once you have created an alert, it will be visible in the Alerts section of the 
 
 ## Next Steps:
 Get an [overview of alerts](monitoring-overview-alerts.md)  
+Review the [activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md)
 Learn more about [action groups](monitoring-action-groups.md)  
 Learn about [Service Health Notifications](monitoring-service-notifications.md)
