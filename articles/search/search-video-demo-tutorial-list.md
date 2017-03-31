@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/28/2017
+ms.date: 03/31/2017
 ms.author: heidist
 
 ---
@@ -95,5 +95,4 @@ Multi-session demos and labs for Azure Search.
 | [How to Add Suggestions to your Search Applications](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/) |Learn how to implement suggestions, commonly called auto complete. This demo walks through a number of topics including creating an MVC4 applications that leverages Azure Search suggestions, use of the Twitter typeahead.js library to build out an effective autosuggest component in JavaScript, and using fuzzy suggestions to allow you to bring back suggestions even if the user misspells the word. |
 | [TechNet Virtual Lab: Building a Microsoft Azure Search Application](http://go.microsoft.com/?linkid=9874663) |Virtual lab that provides a development environment, tools, documentation, and data. You will need an Azure account, either a trial subscription or your personal Azure subscription, to complete the lab. |
 | [Synchronize SQL Server Data with Azure Search](https://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/) |Blog post that explains how to load data from SQL Server relational databases to an Azure Search index. |
-| [Azure Search Management REST API tutorial](search-get-started-management-api.md) |How to use the Management REST API to provision the service and manage admin or query api-keys. |
 
