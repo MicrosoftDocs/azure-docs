@@ -14,9 +14,10 @@ ms.date: 01/23/2017
 ms.author: carolz
 ---
 # Web Apps Documentation
-<div class="intro">
-    Learn how to use App Service Web Apps to build and host websites and web applications.
-</div>
+
+Learn how to use App Service Web Apps to build and host websites and web applications.
+
+<h2>Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/app-service-web/app-service-web-get-started-html">
@@ -55,25 +56,8 @@ ms.author: carolz
         </a>
     </div>
 </div>
+
 <div class="columnHolder">
-    <div class="column50">
-        <h2>Tutorials</h2>
-        <p>Follow these step-by-step tutorials to build and deploy data-driven web applications.</p>
-        <ul class="spaced">
-            <li><a href="/azure/app-service-web/app-service-web-get-started-2">Add functionality to web app</a></li>
-            <li><a href="/azure/app-service-web/web-sites-dotnet-get-started">ASP​.NET app with SQL Database</a></li>
-            <li><a href="/azure/app-service-web/app-service-web-php-get-started">Laravel app with MySQL</a></li>
-            <li><a href="/azure/app-service-web/app-service-web-nodejs-sails">Sails​.js app with NOSQL DB</a></li>
-            <li><a href="/azure/app-service-web/app-service-web-eclipse-create-hello-world-web-app">Java app with Eclipse</a></li>
-            <li><a href="/azure/app-service-web/app-service-web-intellij-create-hello-world-web-app">Java app with IntelliJ</a></li>
-            <li><a href="/azure/app-service-web/web-sites-python-ptvs-django-mysql">Django app with MySQL</a></li>
-        </ul>
-    </div>
-    <div class="column50">
-        <h2>Video Training</h2>
-        <a href="https://azure.microsoft.com/community/training/courses/developing-dotnet-microsoft-azure-getting-started/"><img src="media/index/i_video.svg" height="160" width="360" alt="">
-        <p>Free Pluralsight video training – Using Microsoft Azure App Service</a></p>
-    </div>
     <div class="column50">
         <h2>Samples</h2>
         <p>Find scripts and code sample to simplify common management tasks</p>
@@ -81,6 +65,11 @@ ms.author: carolz
             <li><a href="/azure/app-service-web/app-service-cli-samples">Azure CLI</a></li>
             <li><a href="/azure/app-service-web/app-service-powershell-samples">PowerShell</a></li>
         </ul>
+    </div>
+    <div class="column50">
+        <h2>Video Training</h2>
+        <a href="https://azure.microsoft.com/community/training/courses/developing-dotnet-microsoft-azure-getting-started/"><img src="media/index/i_video.svg" height="160" width="360" alt="">
+        <p>Free Pluralsight video training – Using Microsoft Azure App Service</a></p>
     </div>
 </div>
 ---

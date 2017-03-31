@@ -14,9 +14,10 @@ ms.date: 01/23/2017
 ms.author: carolz
 ---
 # Linux Virtual Machine Documentation
-<div class="intro">
-    Learn how to run Virtual Machines on Azure using the Linux distribution of your choice.
-</div>
+
+Learn how to run Virtual Machines on Azure using the Linux distribution of your choice.
+
+<h2>Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
@@ -39,20 +40,9 @@ ms.author: carolz
         <h2>Tutorials</h2>
         <p>Follow these step-by-step tutorials to build and deploy virtual machines</p>
         <ul class="spaced">
-            <li><a href="/azure/virtual-machines/virtual-machines-linux-dotnet-core-1-landing?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Create highly available VMs</a></li>
-            <li><a href="/azure/virtual-machines/virtual-machines-linux-dotnet-core-2-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">App architecture</a></li>
-            <li><a href="/azure/virtual-machines/virtual-machines-linux-dotnet-core-3-access-security?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Access and security</a></li>
-            <li><a href="/azure/virtual-machines/virtual-machines-linux-dotnet-core-4-availability-scale?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Availability and scale</a></li>
-            <li><a href="/azure/virtual-machines/virtual-machines-linux-dotnet-core-5-app-deployment?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">App deployment</a></li>
+            <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Create and manage a VM</a></li>
+            <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-load-balance-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Load balance VMs</a></li>
         </ul>
-    </div>
-    <div class="column50">
-        <h2>Video Training</h2>
-        <a href="https://azure.microsoft.com/en-us/community/training/courses/azure-vms-getting-started/">
-        <img src="media/index/i_video.svg" height="160" width="360" alt="">
-        <p>Free Pluralsight video training – Managing Microsoft Azure Virtual Machines</a></p>
-    </div>
-    <div class="column50">
         <h2>Samples</h2>
         <p>Deploy your first application to Azure using the language and tools of your choice.</p>
         <ul class="spaced">
@@ -61,6 +51,10 @@ ms.author: carolz
         </ul>
     </div>
     <div class="column50">
+        <h2>Video Training</h2>
+        <a href="https://azure.microsoft.com/en-us/community/training/courses/azure-vms-getting-started/">
+        <img src="media/index/i_video.svg" height="160" width="360" alt="">
+        <p>Free Pluralsight video training – Managing Microsoft Azure Virtual Machines</a></p>
     </div>
 </div>
 ---

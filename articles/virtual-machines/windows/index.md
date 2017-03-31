@@ -16,9 +16,9 @@ ms.author: carolz
 
 # Windows Virtual Machines Documentation
 
-<div class="intro">
-    Learn how to create Windows virtual machines.
-</div>
+Learn how to create Windows virtual machines.
+
+<h2>Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
@@ -38,29 +38,12 @@ ms.author: carolz
 </div>
 <div class="columnHolder">
     <div class="column50">
-    
-     
-+## [Create and manage a VM](../virtual-machines-windows-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 
-
-
- 
-+## [Load balance VMs](../virtual-machines-windows-load-balanced-iis-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 
-
-
         <h2>Tutorials</h2>
         <p>Follow these step-by-step tutorials to build and deploy virtual machines.</p>
         <ul class="spaced">
-            <li><a href="../virtual-machines-windows-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Create and manage a VM</a></li>
-            <li><a href="../virtual-machines-windows-load-balanced-iis-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Load balance VMs</a></li>
+            <li><a href="/azure/virtual-machines/virtual-machines-windows-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Create and manage a VM</a></li>
+            <li><a href="/azure/virtual-machines/virtual-machines-windows-load-balanced-iis-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Load balance VMs</a></li>
         </ul>
-    </div>
-    <div class="column50">
-        <h2>Video Training</h2>
-        <a href="https://azure.microsoft.com/en-us/community/training/courses/azure-vms-getting-started/">
-        <img src="media/index/i_video.svg" height="160" width="360" alt="" />
-        <p>Free Pluralsight video training – Managing Microsoft Azure Virtual Machines</a></p>
-    </div>
-    <div class="column50">
         <h2>Samples</h2>
         <p>Find scripts and code sample to simplify common management tasks.</p>
         <ul class="spaced">
@@ -69,6 +52,10 @@ ms.author: carolz
         </ul>
     </div>
     <div class="column50">
+        <h2>Video Training</h2>
+        <a href="https://azure.microsoft.com/en-us/community/training/courses/azure-vms-getting-started/">
+        <img src="media/index/i_video.svg" height="160" width="360" alt="" />
+        <p>Free Pluralsight video training – Managing Microsoft Azure Virtual Machines</a></p>
     </div>
 </div>
 ---
