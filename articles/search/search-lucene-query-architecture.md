@@ -144,7 +144,7 @@ Azure Search supports a long list of [language analyzers](https://docs.microsoft
 
 In our example, prior to analysis, the initial query tree has the term "Spacious," with an uppercase "S" and a comma that the query parser interprets as a part of the query term (a comma is not considered a query language operator).  
 
-When the default analyzer processes the term, it will lowercase "ocean view" and "spacious", and the comma character (removes it). The modified query tree will look as follows: 
+When the default analyzer processes the term, it will lowercase "ocean view" and "spacious", and remove the comma character. The modified query tree will look as follows: 
 
  ![Boolean query with analyzed terms][4]
 
