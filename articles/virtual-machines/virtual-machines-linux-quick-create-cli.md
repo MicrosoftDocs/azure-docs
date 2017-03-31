@@ -67,26 +67,34 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 }
 ```
 
-## Use a CustomScript extension to install NGINX
+## Open port 80 for web traffic 
 
-Use the following command to use the Azure custom script extension to remotely execute two commands in order to install NGINX. 
-
-```azurecli 
-az vm extension set \
-  --publisher Microsoft.Azure.Extensions \
-  --version 2.0 \
-  --name CustomScript \
-  --vm-name myVM \
-  --resource-group myResourceGroup \
-  --settings '{"commandToExecute":"apt-get -y update && apt-get -y install nginx"}'
-```
-
-## Open port 80 to allow web traffic 
-
-By default only SSH connections are allowed into Linux virtual machines. You need to open port 80 from the Internet in order to make the web server visible.
+By default only SSH connections are allowed into Linux virtual machines deployed in Azure. If this VM is going to be a simple webserver, we will need to open port 80 from the Internet.  A single command is required in order to open the desired port.  
  
  ```azurecli 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
+```
+
+## SSH into your VM
+
+Use the following command to create an SSH session with the virtual machine. Make sure to replace <Public IP Address> with the correct public IP address of your virtual machine.  In our example above our IP address was 40.68.254.142.
+
+```bash 
+ssh <Public IP Address>
+```
+
+## Install NGINX
+
+Use the following simple bash script will run an update and install the latest NGINX package. 
+
+```bash 
+#!/bin/bash
+
+# update package source
+apt-get -y update
+
+# install NGINX
+apt-get -y install nginx
 ```
 
 ## View the default webpage of your VM
@@ -95,13 +103,6 @@ With NGINX installed and port 80 open on your VM from the internet - you can use
 
 ![NGINX default site](./media/virtual-machines-linux-quick-create-cli/nginx.png) 
 
-## (Optional) SSH into your VM
-
-Use the following command to create an SSH session with the virtual machine. Replace the IP address with the public IP address of your virtual machine.
-
-```bash 
-ssh <Public IP Address>
-```
 
 ## Delete virtual machine
 
