@@ -29,7 +29,7 @@ ms.author: cynthn
 
 
 ## Other sizes
-- [Compute optimized](virtual-machines-linux-sizes-compute.md)
+- [Compute optimized](linux/sizes-compute.md)
 - [Memory optimized](virtual-machines-linux-sizes-memory.md)
 - [Storage optimized](virtual-machines-linux-sizes-storage.md)
 - [GPU](virtual-machines-linux-sizes-gpu.md)

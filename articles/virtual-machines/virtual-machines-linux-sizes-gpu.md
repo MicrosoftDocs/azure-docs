@@ -27,7 +27,7 @@ ms.author: cynthn
 
 ## Other sizes
 - [General purpose](virtual-machines-linux-sizes-general.md)
-- [Compute optimized](virtual-machines-linux-sizes-compute.md)
+- [Compute optimized](linux/sizes-compute.md)
 - [Memory optimized](virtual-machines-linux-sizes-memory.md)
 - [Storage optimized](virtual-machines-linux-sizes-storage.md)
 - [High performance compute](virtual-machines-linux-sizes-hpc.md)
