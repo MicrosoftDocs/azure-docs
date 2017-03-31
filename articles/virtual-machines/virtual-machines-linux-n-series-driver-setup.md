@@ -115,7 +115,7 @@ After the update completes, restart the VM.
  
 ##### Ubuntu 16.04-LTS
 
-	 ```bash
+ ```bash
 	 CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
 	 DEBIAN_FRONTEND=noninteractive apt-mark hold walinuxagent
 	 export CUDA_DOWNLOAD_SUM=1f4dffe1f79061827c807e0266568731 && export CUDA_PKG_VERSION=8-0 && curl -o cuda-repo.deb -fsSL http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} && \
@@ -126,31 +126,34 @@ After the update completes, restart the VM.
 	     apt-get install -y nvidia-cuda-toolkit && \
 	 export LIBRARY_PATH=/usr/local/cuda-8.0/lib64/:${LIBRARY_PATH}  && export LIBRARY_PATH=/usr/local/cuda-8.0/lib64/stubs:${LIBRARY_PATH} && \
 	 export PATH=/usr/local/cuda-8.0/bin:${PATH}
-	 ```
+```
+
 ##### CentOS 7.3
-	  ```bash
+
+```bash
 		wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-repo-rhel7-8.0.61-1.x86_64.rpm
 		rpm -i cuda-repo-rhel7-8.0.61-1.x86_64.rpm
 		yum clean all
 		yum install -y cuda
-	 ```
+```
+
 ##### CUDA Samples Install
  
  [CUDA Samples](http://docs.nvidia.com/cuda/cuda-samples/#new-features-in-cuda-toolkit-8-0) can be installed in a location as follows:
  
 ###### Ubuntu 16.04-LTS
 	
-		 ```bash
+```bash
 		 export SHARE_DATA="/data"
 		 export SAMPLES_USER="samplesuser"
 		 su -c "/usr/local/cuda-8.0/bin/./cuda-install-samples-8.0.sh $SHARE_DATA" $SAMPLES_USER
-		 ```
+```
 
 ###### Centos 7.3
 	
-		 In /usr/local/cuda-8.0/samples for CentOS 7.3. 
+In /usr/local/cuda-8.0/samples for CentOS 7.3. 
 
-		 * Just a make within each would suffice post successful provisioning.
+* Just a make within each would suffice post successful provisioning.
  
  ##### Optional Unattended, silent NVIDIA Tesla Driver Install:
   
@@ -162,8 +165,8 @@ After the update completes, restart the VM.
  
  > **This is required  for NVIDIA Driver with DKMS (Dynamic Kernel Module Support) for driver load surviving kernel updates.**
 	
-	###### Ubuntu 16.04-LTS
-	```bash 
+###### Ubuntu 16.04-LTS
+```bash 
 		service lightdm stop 
 		wget  http://us.download.nvidia.com/XFree86/Linux-x86_64/375.39/NVIDIA-Linux-x86_64-375.39.run&lang=us&type=Tesla
 		apt-get install -y linux-image-virtual
@@ -176,7 +179,7 @@ After the update completes, restart the VM.
 		chmod +x NVIDIA-Linux-x86_64-375.39.run
 		./NVIDIA-Linux-x86_64-375.39.run  --silent --dkms
 		DEBIAN_FRONTEND=noninteractive update-initramfs -u
-	```
+```
 	###### CentOS 7.3
 
 > :grey_exclamation:
@@ -185,7 +188,7 @@ After the update completes, restart the VM.
 
 > **This is required  for NVIDIA Driver with DKMS (Dynamic Kernel Module Support) for driver load surviving kernel updates.**
 
-	```bash 
+```bash 
 		wget http://us.download.nvidia.com/XFree86/Linux-x86_64/375.39/NVIDIA-Linux-x86_64-375.39.run&lang=us&type=Tesla
 		yum clean all
 		yum update -y  dkms
@@ -204,21 +207,22 @@ After the update completes, restart the VM.
 		chmod +x install_nvidiarun.sh
 		echo -ne "~/install_nvidiarun.sh" >> /etc/rc.d/rc.local
 		chmod +x /etc/rc.d/rc.local
-	```
+```
 #### Secure Installation of CUDNN
+ 
  ##### Both Ubuntu 16.04-LTS and CentOS 7.3
 
 	The NVIDIA CUDA® Deep Neural Network library (cuDNN) is a GPU-accelerated library of primitives for deep neural networks. 
 	cuDNN provides highly tuned implementations for standard routines such as forward and backward convolution, pooling, normalization, and activation layers.
 	cuDNN is part of the NVIDIA Deep Learning SDK and it can be installed  as follows:
 
-	 ```bash
+```bash
 	    export CUDNN_DOWNLOAD_SUM=a87cb2df2e5e7cc0a05e266734e679ee1a2fadad6f06af82a76ed81a23b102c8 && curl -fsSL http://developer.download.nvidia.com/compute/redist/cudnn/v5.1/cudnn-8.0-linux-x64-v5.1.tgz -O && \
 	    echo "$CUDNN_DOWNLOAD_SUM  cudnn-8.0-linux-x64-v5.1.tgz" | sha256sum -c --strict - && \
 	    tar -xzf cudnn-8.0-linux-x64-v5.1.tgz -C /usr/local && \
 	    rm cudnn-8.0-linux-x64-v5.1.tgz && \
 	    ldconfig
-	  ```
+```
 
 ## Next steps
 
