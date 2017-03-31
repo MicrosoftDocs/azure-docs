@@ -17,21 +17,20 @@ ms.author: carolz
 <div class="intro">
     Learn how to run Virtual Machines on Azure using the Linux distribution of your choice.
 </div>
-<h2>Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
-            <span>Portal</span>
+            <span>Create VM - Portal</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
-            <span>Azure CLI</span>
+            <span>Create VM - Azure CLI</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
-            <span>PowerShell</span>
+            <span>Create VM - PowerShell</span>
         </a>
     </div>
 <div>

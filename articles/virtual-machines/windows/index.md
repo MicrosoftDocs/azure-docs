@@ -19,32 +19,39 @@ ms.author: carolz
 <div class="intro">
     Learn how to create Windows virtual machines.
 </div>
-<h3>Quickstarts</h3>
-<p>Create your first virtual machine using the language and tools of your choice.</p>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
-            <span>Portal</span>
+            <span>Create VM - Portal</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
-            <span>Azure CLI</span>
+            <span>Create VM - Azure CLI</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
-            <span>PowerShell</span>
+            <span>Create VM - PowerShell</span>
         </a>
     </div>
 </div>
 <div class="columnHolder">
     <div class="column50">
+    
+     
++## [Create and manage a VM](../virtual-machines-windows-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 
+
+
+ 
++## [Load balance VMs](../virtual-machines-windows-load-balanced-iis-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 
+
+
         <h2>Tutorials</h2>
         <p>Follow these step-by-step tutorials to build and deploy virtual machines.</p>
         <ul class="spaced">
-            <li><a href="/azure/virtual-machines/virtual-machines-windows-hero-role?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Install and run IIS</a></li>
-            <li><a href="/azure/virtual-machines/virtual-machines-windows-dotnet-core-1-landing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Deploy an app with a VM template</a></li>
+            <li><a href="../virtual-machines-windows-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Create and manage a VM</a></li>
+            <li><a href="../virtual-machines-windows-load-balanced-iis-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Load balance VMs</a></li>
         </ul>
     </div>
     <div class="column50">

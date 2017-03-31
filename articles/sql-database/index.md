@@ -7,26 +7,21 @@ layout: LandingPage
 <div class="intro">
     Learn how to use SQL Database, a relational database-as-a-service in the cloud built on the Microsoft SQL Server engine.
 </div>
-<div class="columnHolder">
-    <div class="column100"
-        <h2>Quickstarts</h2>
-        <p>Create your first SQL Database.</p>
-        <div class="ico48Case">
-            <div class="ico48Link">
-                <a href="/azure/sql-database/sql-database-get-started-portal">
-                    <span>Portal</span>
-                </a>
-            </div>
-            <div class="ico48Link">
-                <a href="/azure/sql-database/sql-database-get-started-cli">
-                    <span>Azure CLI</span>
-                </a>
-            </div>
-            <div class="ico48Link">
-                <a href="/azure/sql-database/sql-database-get-started-powershell">
-                    <span>PowerShell</span>
-                </a>
-            </div>
+    <div class="ico48Case">
+        <div class="ico48Link">
+            <a href="/azure/sql-database/sql-database-get-started-portal">
+                <span>Create DB - Portal</span>
+            </a>
+        </div>
+        <div class="ico48Link">
+            <a href="/azure/sql-database/sql-database-get-started-cli">
+                <span>Create DB - Azure CLI</span>
+            </a>
+        </div>
+        <div class="ico48Link">
+            <a href="/azure/sql-database/sql-database-get-started-powershell">
+                <span>Create DB - PowerShell</span>
+            </a>
         </div>
     </div>
 </div>
