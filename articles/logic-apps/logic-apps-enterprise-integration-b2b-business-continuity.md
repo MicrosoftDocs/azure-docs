@@ -31,10 +31,10 @@ B2B workloads involve money transactions like orders, invoices.  For business, i
 
 2. Add partners, schemas, and agreements for the required message flows where the run status needs to be replicated to secondary region integration account.
 
-    > [!Note]
+    > [!Tip]
     > Make sure consistency in integration account artifacts naming convention across regions 
     > 
-    >
+    > 
 
 ## Establish a connection from primary to secondary 
 To pull the run status from the primary region, create a Logic App in the secondary region.  It should have a **trigger** and an **action**.  The trigger should connect to primary region integration account and the action should connect to secondary region integration account.  Based on the time interval, the trigger polls the primary region run status table pulls the new records if any and action updates them to secondary region integration account. This helps to get incremental runtime status from primary region to secondary region.
@@ -62,7 +62,7 @@ Business continuity for EDI X12 documents is designed based on control numbers
 * Control numbers received (Inbound messages) from partners  
 * Control numbers generated (outbound messages) and send to partners  
     
-    > [!Note]
+    > [!Tip]
     > You can also use [X12 quick start template](https://azure.microsoft.com/en-us/resources/templates/201-logic-app-x12-disaster-recovery-replication/) to create Logic Apps.  Creating primary and secondary integration accounts are prerequisites to use the template.  The template helps create 2 Logic Apps, one for received control number and another for generated control number.  Respective triggers and actions are created in the Logic Apps, connects the trigger to primary integration account and action to secondary integration account.
     > 
     >
