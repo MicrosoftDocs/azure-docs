@@ -522,7 +522,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/resoure-health">
+                                            <a href="/azure/resource-health">
                                                 <img src="media/index/resource-health.svg" alt="" />
                                                 <p>Azure Resource Health</p>
                                             </a>
