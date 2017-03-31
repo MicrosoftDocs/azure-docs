@@ -46,9 +46,10 @@ Business continuity in Logic Apps integration account is designed to support bas
 * EDIFACT  (coming soon)
 
 ## Failover to secondary region during a disaster event
-The recommendation is to deploy all primary region resources in the secondary region as well.  During a disaster event when the primary region is not available for business continuity, direct traffic to the secondary region.  This helps recover business functions quickly to meet recovery time/point objectives (RPO/RTO) as agreed with their partners.  Also, minimizes efforts to fail over from one region to another region.
- 
+The recommendation is to deploy all primary region resources in the secondary region as well.  During a disaster event when the primary region is not available for business continuity, direct traffic to the secondary region. This helps recover business functions quickly to meet recovery time/point objectives (RPO/RTO) as agreed with their partners.  Also, minimizes efforts to fail over from one region to another region. 
 
+There is an expected latency while copying control numbers from primary to secondary region.  To avoid sending duplicate generated control numbers to partners during dister event, it is recommended to bump up control numbers in the **secondary region agreements** using [PowerShell cmdlets](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery).
+ 
 ## Fall back to primary region post-disaster event
 When primary region is available, to fall back to primary region follow below steps
 * Stop accepting messages from partners in the **secondary region**
@@ -56,14 +57,12 @@ When primary region is available, to fall back to primary region follow below st
 * Direct traffic from secondary to primary region
 * Check the Logic App created in the secondary region to pull run status from the primary is enabled 
 
-
 ## X12 
 These are 2 types based on control numbers 
-* Control numbers received (Inbound messages) from partners
-* Control numbers generated (outbound messages) and send to partners
+* Control numbers received (Inbound messages) from partners  
+* Control numbers generated (outbound messages) and send to partners  
 
-
-### Contorl numbers received from the partners
+### Control numbers received from the partners
 1. Create a [Logic App](../logic-apps/logic-apps-create-a-logic-app.md) in the secondary region   
 
 2. Search **X12** and select **X12 - When a received control number is modified**    
@@ -91,7 +90,7 @@ These are 2 types based on control numbers
 ![](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN8.png)
 
 
-### Contorl numbers generated and from the partners
+### Control numbers generated and from the partners
 1. Create a [Logic App](../logic-apps/logic-apps-create-a-logic-app.md) in the secondary region  
 
 2. Search **X12** and select **X12 - When a generated control number is modified**   
