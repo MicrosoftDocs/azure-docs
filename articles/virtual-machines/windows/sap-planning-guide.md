@@ -74,7 +74,7 @@ ms.custom: H1Hack27Feb2017
 [azure-subscription-service-limits]:../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../azure-subscription-service-limits.md#subscription-limits
 
-[dbms-guide]:sap-dbms-guide.md (SAP NetWeaver on Azure Virtual Machines 
+[dbms-guide]:sap-dbms-guide.md
 [dbms-guide-2.1]:sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f
 [dbms-guide-2.2]:sap-dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 
 [dbms-guide-2.3]:sap-dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 
