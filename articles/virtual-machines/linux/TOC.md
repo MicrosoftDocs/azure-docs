@@ -126,7 +126,7 @@
 ### [Create user-defined routes](../../virtual-network/virtual-network-create-udr-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Scale and availability
-### [VM availability](../virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [VM availability](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Create a load balancer](../../load-balancer/load-balancer-get-started-internet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Create multiple VMs with Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Vertically scale VMs with Azure Automation](../virtual-machines-linux-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -278,7 +278,7 @@ az network nic ip-config address-pool add \
 ## Next Steps
 To learn more about some of the high availability features introduced in this tutorial, see the following information:
 
-- [Manage the availability of Linux virtual machines](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Manage the availability of Linux virtual machines](linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure Load Balancer overview](../load-balancer/load-balancer-overview.md)
 - [Control network traffic flow with network security groups](../virtual-network/virtual-networks-nsg.md)
 - [Azure CLI sample scripts](linux/cli-samples.md)

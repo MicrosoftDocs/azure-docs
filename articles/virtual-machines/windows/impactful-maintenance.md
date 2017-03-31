@@ -88,7 +88,7 @@ form of update domains. 
 
 For more information about configuring your virtual machines for high
 availability, see [*Manage the availability of your Windows virtual
-machines*](../virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+machines*](../linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### Scheduled Events
 

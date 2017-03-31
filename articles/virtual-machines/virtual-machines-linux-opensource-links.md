@@ -70,7 +70,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 * [Selecting Linux Usernames](virtual-machines-linux-usernames.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [How to configure an availability set for virtual machines in the classic deployment model](linux/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [How to Schedule Planned Maintenance on Azure VMs](virtual-machines-linux-planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Manage the availability of virtual machines](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Manage the availability of virtual machines](linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Planned maintenance for Linux virtual machines in Azure](virtual-machines-linux-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Deployment

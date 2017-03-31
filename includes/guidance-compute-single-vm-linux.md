@@ -182,7 +182,7 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 [fqdn]: ../articles/virtual-machines/virtual-machines-linux-portal-create-fqdn.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/
 [iostat]: https://en.wikipedia.org/wiki/Iostat
-[manage-vm-availability]: ../articles/virtual-machines/virtual-machines-linux-manage-availability.md
+[manage-vm-availability]:../articles/virtual-machines/linux/manage-availability.md
 [multi-vm]: ../articles/guidance/guidance-compute-multi-vm.md
 [naming conventions]: ../articles/guidance/guidance-naming-conventions.md
 [nsg]: ../articles/virtual-network/virtual-networks-nsg.md
