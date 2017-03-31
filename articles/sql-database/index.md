@@ -7,44 +7,48 @@ layout: LandingPage
 <div class="intro">
     Learn how to use SQL Database, a relational database-as-a-service in the cloud built on the Microsoft SQL Server engine.
 </div>
-<h2>Quickstarts</h2>
-<p>Create, connect and manage you first SQL Database.</p>
-<div class="ico48Case">
-    <div class="ico48Link">
-        <a href="/azure/sql-database/sql-database-get-started-portal">
-            <img alt="" src="media/index/portal.svg" />
-            <span>Create DB - Portal</span>
-        </a>
-    </div>
-    <div class="ico48Link">
-        <a href="/azure/sql-database/sql-database-get-started-cli">
-            <img alt="" src="media/index/cli.svg" />
-            <span>Create DB - Azure CLI</span>
-        </a>
-    </div>
-    <div class="ico48Link">
-        <a href="/azure/sql-database/sql-database-get-started-powershell">
-            <img alt="" src="media/index/logo_powershell.svg" />
-            <span>Create DB - PowerShell</span>
-        </a>
-    </div>
-    <div class="ico48Link">
-        <a href="/azure/sql-database/sql-database-connect-query-ssms">
-            <img alt="" src="media/index/logo_SQL.svg" />
-            <span>Connect with SQL Server Management Studio</span>
-        </a>
-    </div>
-    <div class="ico48Link">
-        <a href="/azure/sql-database/sql-database-connect-query-vscode">
-            <img alt="" src="media/index/logo_VS.svg" />
-            <span>Connect with Visual Studio Code</span>
-        </a>
-    </div>
-    <div class="ico48Link">
-        <a href="/azure/sql-database/sql-database-connect-query-dotnet">
-            <img alt="" src="media/index/logo_csharp.svg" />
-            <span>Connect with C#</span>
-        </a>
+<div class="columnHolder">
+    <div class="column100"
+        <h2>Quickstarts</h2>
+        <p>Create, connect and manage your first SQL Database.</p>
+        <div class="ico48Case">
+            <div class="ico48Link">
+                <a href="/azure/sql-database/sql-database-get-started-portal">
+                    <img alt="" src="media/index/portal.svg" />
+                    <span>Create DB - Portal</span>
+                </a>
+            </div>
+            <div class="ico48Link">
+                <a href="/azure/sql-database/sql-database-get-started-cli">
+                    <img alt="" src="media/index/cli.svg" />
+                    <span>Create DB - Azure CLI</span>
+                </a>
+            </div>
+            <div class="ico48Link">
+                <a href="/azure/sql-database/sql-database-get-started-powershell">
+                    <img alt="" src="media/index/logo_powershell.svg" />
+                    <span>Create DB - PowerShell</span>
+                </a>
+            </div>
+            <div class="ico48Link">
+                <a href="/azure/sql-database/sql-database-connect-query-ssms">
+                    <img alt="" src="media/index/logo_SQL.svg" />
+                    <span>Connect with SQL Server Management Studio</span>
+                </a>
+            </div>
+            <div class="ico48Link">
+                <a href="/azure/sql-database/sql-database-connect-query-vscode">
+                    <img alt="" src="media/index/logo_VS.svg" />
+                    <span>Connect with Visual Studio Code</span>
+                </a>
+            </div>
+            <div class="ico48Link">
+                <a href="/azure/sql-database/sql-database-connect-query-dotnet">
+                    <img alt="" src="media/index/logo_csharp.svg" />
+                    <span>Connect with C#</span>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 <div class="columnHolder">
@@ -109,49 +113,53 @@ layout: LandingPage
                     </div>
                 </div>
             </li>
-            <li>
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardText">
-                                <h3>REST</h3>
-                                <p><a href="/rest/api/sql/">REST API Reference</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardText">
-                                <h3><a href="https://msdn.microsoft.com/library/mt238365.aspx">SQL Server Tools</a></h3>
-                                <p><a href="https://msdn.microsoft.com/library/mt238290.aspx">SQL Server Management Studio (SSMS)</a></p>
-                                <p><a href="https://msdn.microsoft.com/library/mt204009.aspx">SQL Server Data Tools (SSDT)</a></p>
-                                <p><a href="https://msdn.microsoft.com/library/ms162802.aspx">BCP</a></p>
-                                <p><a href="https://msdn.microsoft.com/library/ms162773.aspx">SQLCMD</a></p>
-                                <p><a href="https://msdn.microsoft.com/hh550080.aspx">SqlPackage</a></p>
-                                <p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Sql">SQL Database Management Library package</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardText">
-                                <h3><a href="https://msdn.microsoft.com/library/mt654049.aspx">SQL Server Drivers</a></h3>
-                                <p><a href="https://msdn.microsoft.com/library/mt657768.aspx">ADO.NET</a></p>
-                                <p><a href="https://msdn.microsoft.com/library/mt484311.aspx">JDBC</a></p>
-                                <p><a href="https://msdn.microsoft.com/library/mt654048.aspx">ODBC</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
         </ul>
     </div>
 </div>
+---
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+<li>
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardText">
+                    <h3>REST</h3>
+                    <p><a href="/rest/api/sql/">REST API Reference</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
+<li>
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardText">
+                    <h3><a href="https://msdn.microsoft.com/library/mt238365.aspx">SQL Server Tools</a></h3>
+                    <p><a href="https://msdn.microsoft.com/library/mt238290.aspx">SQL Server Management Studio (SSMS)</a></p>
+                    <p><a href="https://msdn.microsoft.com/library/mt204009.aspx">SQL Server Data Tools (SSDT)</a></p>
+                    <p><a href="https://msdn.microsoft.com/library/ms162802.aspx">BCP</a></p>
+                    <p><a href="https://msdn.microsoft.com/library/ms162773.aspx">SQLCMD</a></p>
+                    <p><a href="https://msdn.microsoft.com/hh550080.aspx">SqlPackage</a></p>
+                    <p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Sql">SQL Database Management Library package</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
+<li>
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardText">
+                    <h3><a href="https://msdn.microsoft.com/library/mt654049.aspx">SQL Server Drivers</a></h3>
+                    <p><a href="https://msdn.microsoft.com/library/mt657768.aspx">ADO.NET</a></p>
+                    <p><a href="https://msdn.microsoft.com/library/mt484311.aspx">JDBC</a></p>
+                    <p><a href="https://msdn.microsoft.com/library/mt654048.aspx">ODBC</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
+</ul>
