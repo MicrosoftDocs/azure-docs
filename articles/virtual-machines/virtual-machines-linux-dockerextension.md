@@ -134,6 +134,6 @@ You may wish to [configure the Docker daemon TCP port](https://docs.docker.com/e
 Read more information about the additional Docker deployment options in Azure:
 
 * [Use Docker Machine with the Azure driver](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
-* [Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine](virtual-machines-linux-docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine](linux/docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * [Deploy an Azure Container Service cluster](../container-service/container-service-deployment.md)
 

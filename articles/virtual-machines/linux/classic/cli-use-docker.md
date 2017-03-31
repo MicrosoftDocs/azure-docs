@@ -177,4 +177,4 @@ The Docker daemon on the host is configured to listen for and authenticate clien
 
 [Docker User Guide]:https://docs.docker.com/userguide/
 
-[Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine]:../../virtual-machines-linux-docker-compose-quickstart.md
+[Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine]:../docker-compose-quickstart.md
