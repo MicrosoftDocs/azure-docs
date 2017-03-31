@@ -379,7 +379,7 @@ If you are successful and the app automatically signs into the created user, the
 
 ## Step 5 - Store sensitive data as environment variables
 
-Earlier in the tutorial, you hardcoded the connection strings in the MEAN.js configuration files. Actually, that's actually best security practice. When you commit your changes into Git, your database key is immediately exposed to anyone with read access to your Git repository. In this step, you learn how to store and access the connection strings instead.
+Earlier in the tutorial, you hardcoded the connection strings in the MEAN.js configuration files. Actually, that's not the best security practice. When you commit your changes into Git, your database key is immediately exposed to anyone with read access to your Git repository. In this step, you learn how to store and access the connection strings instead.
 
 ### Configure an environment variable in Azure
 
