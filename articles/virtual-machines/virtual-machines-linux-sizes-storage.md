@@ -32,7 +32,7 @@ ms.author: cynthn
 - [Compute optimized](linux/sizes-compute.md)
 - [Memory optimized](virtual-machines-linux-sizes-memory.md)
 - [GPU](linux/sizes-gpu.md)
-- [High performance compute](virtual-machines-linux-sizes-hpc.md)
+- [High performance compute](linux/sizes-hpc.md)
 
 ## Next steps
 Learn more about how [Azure compute units (ACU)](linux/acu.md) can help you compare compute performance across Azure SKUs.

@@ -29,5 +29,5 @@ Here are links to more information about the different sizes:
 - [Memory optimized](../virtual-machines-linux-sizes-memory.md)
 - [Compute optimized](sizes-compute.md)
 - [GPU optimized](sizes-gpu.md)
-- [High performance compute](../virtual-machines-linux-sizes-hpc.md)
+- [High performance compute](sizes-hpc.md)
 - [Storage optimized](../virtual-machines-linux-sizes-storage.md)

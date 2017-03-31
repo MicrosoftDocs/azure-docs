@@ -39,7 +39,7 @@ This article describes the available sizes and options for the Azure virtual mac
 | [Memory optimized](../virtual-machines-linux-sizes-memory.md)         | GS, G, DSv2, DS   | High memory-to-core ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
 | [Storage optimized](../virtual-machines-linux-sizes-storage.md)        | Ls                | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases.                                                         |
 | [GPU](sizes-gpu.md)            | NV, NC            | Specialized virtual machines targeted for heavy graphic rendering and video editing. Available with single or multiple GPUs.       |
-| [High performance compute](../virtual-machines-linux-sizes-hpc.md) | H, A8-11          | Our fastest and most powerful CPU virtual machines with optional high-throughput network interfaces (RDMA). 
+| [High performance compute](sizes-hpc.md) | H, A8-11          | Our fastest and most powerful CPU virtual machines with optional high-throughput network interfaces (RDMA). 
 
 <br>
 
@@ -51,7 +51,7 @@ Learn more about the different VM sizes that are available:
 - [Memory optimized](../virtual-machines-linux-sizes-memory.md)
 - [Storage optimized](../virtual-machines-linux-sizes-storage.md)
 - [GPU](sizes-gpu.md)
-- [High performance compute](../virtual-machines-linux-sizes-hpc.md)
+- [High performance compute](sizes-hpc.md)
 
 
 
