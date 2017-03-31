@@ -4,7 +4,7 @@ description: Deploy your first PHP Hello World in App Service Web App in minutes
 services: app-service\web
 documentationcenter: ''
 author: syntaxc4
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/17/2017
+ms.date: 03/31/2017
 ms.author: cfowler
 
 ---
@@ -187,7 +187,7 @@ Use the [az appservice web config update](/cli/azure/app-service/web/config#upda
 > Setting the PHP version this way uses a default container provided by the platform, if you would like to use your own container refer to the CLI reference for the  [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) command.
 
 ```azurecli
-az appservice web config update --linux-fx-version "PHP|7.0" --startup-file process.json --name <app_name> --resource-group myResourceGroup
+az appservice web config update --linux-fx-version "PHP|7.0" --name <app_name> --resource-group myResourceGroup
 ```
 
 ## Configure local git deployment
