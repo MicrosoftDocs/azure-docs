@@ -1,23 +1,24 @@
 ## Create a simulated device app
 In this section, you:
 
-* Create a Node.js console app that responds to a direct method called by the cloud
-* Trigger a simulated firmware update
-* Use the reported properties to enable device twin queries to identify devices and when they last completed a firmware update
+0. Create a Node.js console app that responds to a direct method called by the cloud
+1. Trigger a simulated firmware update
+2. Use the reported properties to enable device twin queries to identify devices and when they last completed a firmware update
 
-0. Create an empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
+* Create an empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
    
     ```
     npm init
     ```
-1. At your command prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** Device SDK packages:
+
+* At your command prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** Device SDK packages:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-2. Using a text editor, create a **dmpatterns_fwupdate_device.js** file in the **manageddevice** folder.
+* Using a text editor, create a **dmpatterns_fwupdate_device.js** file in the **manageddevice** folder.
 
-3. Add the following 'require' statements at the start of the **dmpatterns_fwupdate_device.js** file:
+* Add the following 'require' statements at the start of the **dmpatterns_fwupdate_device.js** file:
    
     ```
     'use strict';
@@ -25,13 +26,13 @@ In this section, you:
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-4. Add a **connectionString** variable and use it to create a **Client** instance. Replace the `{yourdeviceconnectionstring}` placeholder with the connection string you previously made a note of in the "Create a device identity" section previously:
+* Add a **connectionString** variable and use it to create a **Client** instance. Replace the `{yourdeviceconnectionstring}` placeholder with the connection string you previously made a note of in the "Create a device identity" section previously:
    
     ```
     var connectionString = '{yourdeviceconnectionstring}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
-5. Add the following function that is used to update reported properties:
+* Add the following function that is used to update reported properties:
    
     ```
     var reportFWUpdateThroughTwin = function(twin, firmwareUpdateValue) {
@@ -47,7 +48,7 @@ In this section, you:
       });
     };
     ```
-6. Add the following functions that simulate downloading and applying the firmware image:
+* Add the following functions that simulate downloading and applying the firmware image:
    
     ```
     var simulateDownloadImage = function(imageUrl, callback) {
@@ -69,7 +70,7 @@ In this section, you:
       callback(error);
     }
     ```
-7. Add the following function that updates the firmware update status through the reported properties to **waiting**. Typically, devices are informed of an available update and an administrator defined policy causes the device to start downloading and applying the update. This function is where the logic to enable that policy should run. For simplicity, the sample waits for four seconds before proceeding to download the firmware image:
+* Add the following function that updates the firmware update status through the reported properties to **waiting**. Typically, devices are informed of an available update and an administrator defined policy causes the device to start downloading and applying the update. This function is where the logic to enable that policy should run. For simplicity, the sample waits for four seconds before proceeding to download the firmware image:
    
     ```
     var waitToDownload = function(twin, fwPackageUriVal, callback) {
@@ -84,7 +85,7 @@ In this section, you:
       setTimeout(callback, 4000);
     };
     ```
-8. Add the following function that updates the firmware update status through the reported properties to **downloading**. The function then simulates a firmware download and finally updates the firmware update status to either **downloadFailed** or **downloadComplete**:
+* Add the following function that updates the firmware update status through the reported properties to **downloading**. The function then simulates a firmware download and finally updates the firmware update status to either **downloadFailed** or **downloadComplete**:
    
     ```
     var downloadImage = function(twin, fwPackageUriVal, callback) {
@@ -122,7 +123,7 @@ In this section, you:
     }
     ```
 
-9. Add the following function that updates the firmware update status through the reported properties to **applying**. The function then simulates applying the firmware image and finally updates the firmware update status to either **applyFailed** or **applyComplete**:
+* Add the following function that updates the firmware update status through the reported properties to **applying**. The function then simulates applying the firmware image and finally updates the firmware update status to either **applyFailed** or **applyComplete**:
     
     ```
     var applyImage = function(twin, imageData, callback) {
@@ -160,7 +161,7 @@ In this section, you:
     }
     ```
 
-10. Add the following function that handles the **firmwareUpdate** direct method and initiates the multi-stage firmware update process:
+* Add the following function that handles the **firmwareUpdate** direct method and initiates the multi-stage firmware update process:
     
     ```
     var onFirmwareUpdate = function(request, response) {
@@ -196,7 +197,7 @@ In this section, you:
     }
     ```
 
-11. Finally, add the following code that connects to your IoT hub:
+* Finally, add the following code that connects to your IoT hub:
     
     ```
     client.open(function(err) {
