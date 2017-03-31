@@ -28,7 +28,7 @@
 ## [Azure Security Center](../../security-center/security-center-linux-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Disaster recovery](../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Planned maintenance](../virtual-machines-linux-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Preserving maintenance](../virtual-machines-linux-maintenance-in-place.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Preserving maintenance](maintenance-in-place.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Restarting maintenance](impactful-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## VM sizes
 ### [VM sizes overview](../virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
