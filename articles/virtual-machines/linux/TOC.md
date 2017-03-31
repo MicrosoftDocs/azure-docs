@@ -7,7 +7,7 @@
 ## [Create VM - PowerShell](../virtual-machines-linux-quick-create-powershell.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 # Samples
-## [Azure CLI](../virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Azure CLI](cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [PowerShell](../virtual-machines-linux-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 # Tutorials

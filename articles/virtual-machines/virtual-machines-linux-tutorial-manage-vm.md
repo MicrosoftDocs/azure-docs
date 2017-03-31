@@ -234,4 +234,4 @@ az group delete --name myResourceGroup
 
 Tutorial – [Create load balanced virtual machines](./virtual-machines-linux-tutorial-load-balance-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Samples – [Azure CLI sample scripts](./virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Samples – [Azure CLI sample scripts](linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
