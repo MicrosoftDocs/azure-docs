@@ -771,6 +771,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 border:none;
                                 padding:8px 16px;
                                 color:white;
+                                cursor: pointer;
                                 font-size: 14px;">View all services &gt;
                             </button>
                             </a>
