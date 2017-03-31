@@ -128,7 +128,6 @@
 
 ## Manage devices
 ### [Register devices](active-directory-device-registration-overview.md)
-#### [Manage automatic registration](active-directory-device-registration.md)
 #### [Setup](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
 #### [FAQs](active-directory-device-registration-faq.md)

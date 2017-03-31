@@ -86,6 +86,16 @@ You can also use the Azure Stack templates already provided in the [GitHub repos
 ### Default image and gallery item
 You must first add a Windows Server image and gallery item before deploying VMs in Azure Stack TP3.
 
+### After starting my Azure Stack TP2 host, some VMs may not automatically start.
+After rebooting your host, you may notice Azure Stack services are not immediately available.  This is because Azure Stack [infrastructure VMs](azure-stack-architecture.md#virtual-machine-roles) and RPs take a little bit to check consistency, but will eventually start automatically.
+
+You may also notice that tenant VMs don't automatically start after a reboot of the POC host.  This is a known issue in TP2, and just requires a few manual steps to bring them online:
+
+1.  On the POC host, start **Failover Cluster Manager** from the Start Menu.
+2.  Select the cluster **S-Cluster.azurestack.local**.
+3.  Select **Roles**.
+4.  Tenant VMs will appear in a *saved* state.  Once all Infrastructure VMs are running, right-click the tenant VMs and select **Start** to resume the VM.
+
 ### I have deleted some virtual machines, but still see the VHD files on disk. Is this behavior expected?
 Yes, this is behavior expected. It was designed this way because:
 
