@@ -25,8 +25,8 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 
 | Scenario | Building Blocks| 
 | --- | --- |  
-| Extending your on-premises identity to the cloud | Directory Synchronization - Password Hash Sync <br/>>[!NOTE] : If you already have DirSync/ADSync or earlier versions of Azure AD Connect, this step is optional. Some scenarios in this guide might require newer version of Azure AD Connect.  <br/>Branding | 
-| Assigning Azure AD licenses using groups | Group based licensing |
+| [Extending your on-premises identity to the cloud](#extending-your-on-premises-identity-to-the-cloud) | [Directory Synchronization - Password Hash Sync](active-directory-playbook-building-blocks.md#directory-synchronization--password-hash-sync-phs--new-installation) <br/>>[!NOTE] : If you already have DirSync/ADSync or earlier versions of Azure AD Connect, this step is optional. Some scenarios in this guide might require newer version of Azure AD Connect.  <br/>[Branding](active-directory-playbook-building-blocks.md#branding) | 
+| [Assigning Azure AD licenses using groups](#assigning-azure-ad-licenses-using-groups) | [Group based licensing](active-directory-playbook-building-blocks.md#group-based-licensing) |
 
 
 ### Extending your on-premises identity to the cloud 
@@ -46,10 +46,10 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 
 | Scenario | Building Blocks| 
 | --- | --- |  
-| Integrate SaaS Applications – Federated SSO | SaaS Federated SSO Configuration <br/>Groups - Delegated Ownership |
-| Integrate SaaS Applications– Password SSO | SaaS Password SSO Configuration |
-| SSO and Identity Lifecycle Events | SaaS and Identity Lifecycle |
-| Secure Access to Shared Accounts | SaaS Shared Accounts Configuration |
+| [Integrate SaaS Applications – Federated SSO](#integrate-saas-applications--federated-sso) | [SaaS Federated SSO Configuration](active-directory-playbook-building-blocks.md#saas-federated-sso-configuration) <br/>[Groups - Delegated Ownership](active-directory-playbook-building-blocks.md#groups--delegated-ownership) |
+| [Integrate SaaS Applications– Password SSO](#integrate-saas-applications-password-sso) | [SaaS Password SSO Configuration](active-directory-playbook-building-blocks.md#saas-password-sso-configuration) |
+| [SSO and Identity Lifecycle Events](#sso-and-identity-lifecycle-events) | [SaaS and Identity Lifecycle](active-directory-playbook-building-blocks.md#saas-and-identity-lifecycle) |
+| [Secure Access to Shared Accounts](#secure-access-to-shared-accounts) | [SaaS Shared Accounts Configuration](active-directory-playbook-building-blocks.md#saas-shared-accounts-configuration) |
 
 ### Integrate SaaS Applications – Federated SSO 
 
@@ -84,10 +84,10 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 
 | Scenario | Building Blocks| 
 | --- | --- |  
-| Secure administrator account access | Azure MFA with Phone Calls |
-| Secure access for applications | Conditional Access for SaaS applications |
-| Enable Just In Time administration | Privileged Identity Management |
-| Protect identities based on risk | Discovering risk events <br/>Deploying Sign-in risk policies |
+| [Secure administrator account access](#secure-administrator-account-access) | [Azure MFA with Phone Calls](active-directory-playbook-building-blocks.md#azure-multi-factor-authentication-with-phone-calls) |
+| [Secure access for applications](#secure-access-to-applications) | [Conditional Access for SaaS applications](active-directory-playbook-building-blocks.md#mfa-conditional-access-for-saas-applications) |
+| [Enable Just In Time administration](#enable-just-in-time-jit-administration) | [Privileged Identity Management](active-directory-playbook-building-blocks.md#privileged-identity-management-pim) |
+| [Protect identities based on risk](#protect-identities-based-on-risk) | [Discovering risk events](active-directory-playbook-building-blocks.md#discovering-risk-events) <br/>[Deploying Sign-in risk policies](active-directory-playbook-building-blocks.md#deploying-sign-in-risk-policies) |
 
 ### Secure administrator account access
 
@@ -119,8 +119,8 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 
 | Scenario | Building Blocks| 
 | --- | --- |  
-| Self Service Password Reset | Self Service Password Reset |
-| Self Service Access to Applications | Self Service Access to Applications |
+| [Self Service Password Reset](#self-service-password-reset) | [Self Service Password Reset](active-directory-playbook-building-blocks.md#self-service-password-reset) |
+| [Self Service Access to Applications](#self-service-access-to-applications) | [Self Service Access to Applications](active-directory-playbook-building-blocks.md#self-service-access-to-application-management) |
 
 ### Self Service Password Reset 
 
