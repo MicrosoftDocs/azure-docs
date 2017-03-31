@@ -383,7 +383,7 @@ Earlier in the tutorial, you hardcoded the connection strings in the MEAN.js con
 
 ### Configure an environment variable in Azure
 
-In App Service, you set environment variables as an _app settings_ by using the [az appservice web config appsettings update](/cli/azure/appservice/web/config/appsettings#update) command. 
+In App Service, you set environment variables as _app settings_ by using the [az appservice web config appsettings update](/cli/azure/appservice/web/config/appsettings#update) command. 
 
 The following example lets you configure a `MONGODB_URI` app setting in your Azure web app. Be sure to replace the placeholders like before.
 
