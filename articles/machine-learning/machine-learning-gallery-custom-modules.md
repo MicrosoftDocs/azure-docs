@@ -48,11 +48,11 @@ From this page, you can browse all the custom modules in the Gallery. You also c
 
 ![Click "See all" to browse all custom modules](media/machine-learning-gallery-custom-modules/click-see-all-for-all-custom-modules.png)
 
-## Understand
+### Understand
 
 To understand how a published custom module works, just click any custom module to open the module’s details page. This page delivers a consistent and informative learning experience, highlighting the purpose of the module, its expected inputs, outputs, parameters, and more. The page also has a link to the underlying source code, so you can examine and customize it if you want to.
 
-## Comment and share
+### Comment and share
 On a custom module's details page you can comment, provide feedback, or ask questions through the comments section. You can even share it with friends or colleagues using the share capabilities of LinkedIn or Twitter. You can also email a link to the custom module to invite other users to view the page.
 
 ![Share this item with friends](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
