@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 03/22/2017
 ms.author: jeedes
 
 ---
@@ -24,7 +24,7 @@ The objective of this tutorial is to show you how to integrate KnowBe4 with Azur
 Integrating KnowBe4 with Azure AD provides you with the following benefits:
 
 * You can control in Azure AD who has access to KnowBe4
-* You can enable your users to automatically get signed-on to KnowBe4 (Single Sign-On) with their Azure AD accounts
+* You can enable your users to automatically get signed-on to KnowBe4 single sign-on (SSO) with their Azure AD accounts
 * You can manage your accounts in one central location - the Azure Active Directory Portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -42,7 +42,7 @@ To configure Azure AD integration with KnowBe4, you need the following items:
 To test the steps in this tutorial, you should follow these recommendations:
 
 * You should not use your production environment, unless this is necessary.
-* If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* If you don't have an Azure AD trial environment, you can get a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario Description
 The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
@@ -50,7 +50,7 @@ The objective of this tutorial is to enable you to test Azure AD single sign-on 
 The scenario outlined in this tutorial consists of two main building blocks:
 
 * Adding KnowBe4 from the gallery
-* Configuring and testing Azure AD single sign-on
+* Configuring and testing Azure AD SSO
 
 ## Add KnowBe4 from the gallery
 To configure the integration of KnowBe4 into Azure AD, you need to add KnowBe4 from the gallery to your list of managed SaaS apps.
@@ -84,13 +84,13 @@ This link relationship is established by assigning the value of the **user name*
 
 To configure and test Azure AD single sign-on with KnowBe4, you need to complete the following building blocks:
 
-1. **[Configure Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+1. **[Configure Azure AD single sign-on](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 3. **[Create a KnowBe4 test user](#creating-a-KnowBe4-test-user)** - to have a counterpart of Britta Simon in KnowBe4 that is linked to the Azure AD representation of her.
 4. **[Assign the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+5. **[Test single sign-on](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configure Azure AD Single Sign-On
+### Configure Azure AD single sign-on
 The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your KnowBe4 application.
 
 **To configure Azure AD single sign-on with KnowBe4, perform the following steps:**
@@ -176,7 +176,7 @@ There is no action item for you in this section. A new user will be created duri
 ### Assign the Azure AD test user
 The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to KnowBe4.
 
-    ![Assign User][200] 
+   ![Assign User][200] 
 
 **To assign Britta Simon to KnowBe4, perform the following steps:**
 
