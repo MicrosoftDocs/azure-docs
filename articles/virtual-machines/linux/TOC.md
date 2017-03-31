@@ -138,7 +138,7 @@
 ### [Use root privileges](../virtual-machines-linux-use-root-privileges.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Encrypt a VM disk](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Apply policies to VMs](../virtual-machines-linux-policy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Set up Key Vault](../virtual-machines-linux-key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Set up Key Vault](key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Use VM extensions
 ### [VM Extension overview](extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

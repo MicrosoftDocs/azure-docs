@@ -106,5 +106,5 @@ ssh -l ahmet@mydomain.com mydomain.cloudapp.net
 ## Next Steps
 
 * [Red Hat Update Infrastructure (RHUI) for on-demand Red Hat Enterprise Linux VMs in Azure](../virtual-machines-linux-update-infrastructure-redhat.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Set up Key Vault for virtual machines in Azure Resource Manager](../virtual-machines-linux-key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Set up Key Vault for virtual machines in Azure Resource Manager](key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../windows/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
