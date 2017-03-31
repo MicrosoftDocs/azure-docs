@@ -121,7 +121,7 @@
 ### [Allow access to a VM](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Use FreeBSD's Packet Filter](freebsd-pf-nat.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [DNS name resolution options](azure-dns.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Use internal DNS for VM name resolution](../virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Use internal DNS for VM name resolution](static-dns-name-resolution-for-linux-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Create an FQDN](portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Create user-defined routes](../../virtual-network/virtual-network-create-udr-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
