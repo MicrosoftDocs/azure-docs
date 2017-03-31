@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/29/2017
+ms.date: 03/30/2017
 ms.author: seanmck
 
 ---
@@ -36,7 +36,7 @@ ASP.NET Core is a lightweight, cross-platform web development framework that you
    
     ![Choosing ASP.NET web service in the new service dialog][vs-new-service-dialog]
 
-3. The next page provides a set of ASP.NET Core project templates. Note that these are the same templates that you would see if you created an ASP.NET Core project outside of a Service Fabric application. For this tutorial, we will choose **Web API**. However, you can apply the same concepts to building a full web application.
+3. The next page provides a set of ASP.NET Core project templates. Note that these are the same choices that you would see if you created an ASP.NET Core project outside of a Service Fabric application, with a small amount of additional code to register the service with the Service Fabric runtime. For this tutorial, we will choose **Web API**. However, you can apply the same concepts to building a full web application.
    
     ![Choosing ASP.NET project type][vs-new-aspnet-project-dialog]
    
@@ -192,9 +192,12 @@ Our stateful service is now ready to receive traffic from other services. So all
    
     Refresh the browser periodically to see the counter value update.
 
-> [!WARNING]
-> The ASP.NET Core web server provided in the template, known as Kestrel, is [not currently supported for handling direct internet traffic](https://docs.asp.net/en/latest/fundamentals/servers.html#kestrel). For production scenarios, consider hosting your ASP.NET Core endpoints behind [API Management][api-management-landing-page] or another internet-facing gateway. Note that Service Fabric is not supported for deployment within IIS.
-> 
+## Kestrel and WebListener
+
+The default ASP.NET Core web server, known as Kestrel, is [not currently supported for handling direct internet traffic](https://docs.asp.net/en/latest/fundamentals/servers.html#kestrel). As a result, the ASP.NET templates for Service Fabric use [WebListener](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/weblistener) by default. 
+
+If you will not be serving direct internet traffic and would prefer to use Kestrel as your web server, you can change it in your service listener configuration. Simply replace `return new WebHostBuilder().UseWebListener()` with `return new WebHostBuilder().UseKestrel()`. All other configurations on the web host can remain the same.
+ 
 
 ## What about actors?
 This tutorial focused on adding a web front end that communicated with a stateful service. However, you can follow a very similar model to talk to actors. In fact, it is somewhat simpler.
