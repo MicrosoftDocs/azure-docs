@@ -10,42 +10,21 @@ layout: LandingPage
 <div class="columnHolder">
     <div class="column100"
         <h2>Quickstarts</h2>
-        <p>Create, connect and manage your first SQL Database.</p>
+        <p>Create your first SQL Database.</p>
         <div class="ico48Case">
             <div class="ico48Link">
                 <a href="/azure/sql-database/sql-database-get-started-portal">
-                    <img alt="" src="media/index/portal.svg" />
-                    <span>Create DB - Portal</span>
+                    <span>Portal</span>
                 </a>
             </div>
             <div class="ico48Link">
                 <a href="/azure/sql-database/sql-database-get-started-cli">
-                    <img alt="" src="media/index/cli.svg" />
-                    <span>Create DB - Azure CLI</span>
+                    <span>Azure CLI</span>
                 </a>
             </div>
             <div class="ico48Link">
                 <a href="/azure/sql-database/sql-database-get-started-powershell">
-                    <img alt="" src="media/index/logo_powershell.svg" />
-                    <span>Create DB - PowerShell</span>
-                </a>
-            </div>
-            <div class="ico48Link">
-                <a href="/azure/sql-database/sql-database-connect-query-ssms">
-                    <img alt="" src="media/index/logo_SQL.svg" />
-                    <span>Connect with SQL Server Management Studio</span>
-                </a>
-            </div>
-            <div class="ico48Link">
-                <a href="/azure/sql-database/sql-database-connect-query-vscode">
-                    <img alt="" src="media/index/logo_VS.svg" />
-                    <span>Connect with Visual Studio Code</span>
-                </a>
-            </div>
-            <div class="ico48Link">
-                <a href="/azure/sql-database/sql-database-connect-query-dotnet">
-                    <img alt="" src="media/index/logo_csharp.svg" />
-                    <span>Connect with C#</span>
+                    <span>PowerShell</span>
                 </a>
             </div>
         </div>

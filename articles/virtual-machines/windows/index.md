@@ -17,8 +17,7 @@ ms.author: carolz
 # Windows Virtual Machines Documentation
 
 <div class="intro">
-    Learn how to create Windows virtual machines. Tutorials, API references, and other documentation help you plan, deploy, and
-    manage a virtual machine computing environment in the cloud.
+    Learn how to create Windows virtual machines. Tutorials, API references, and other documentation help you plan, deploy, and manage a virtual machine computing environment in the cloud.
 </div>
 <h2>Quickstarts</h2>
 <p>Create your first virtual machine using the language and tools of your choice.</p>
@@ -67,49 +66,48 @@ ms.author: carolz
     </div>
     <div class="column50">
     </div>
-    <div class="column50">
-        <h2>Reference</h2>
-        <ul class="panelContent cardsW">
-            <li>
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardText">
-                                <h3>Command-Line</h3>
-                                <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
-                                <p><a href="/cli/azure/vm">Azure CLI</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardText">
-                                <h3>Languages</h3>
-                                <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
-                                <p><a href="/java/api">Java</a></p>
-                                <p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node​.js</a></p>
-                                <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardText">
-                                <h3>REST</h3>
-                                <p><a href="/rest/api/compute">Compute REST API Reference</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
 </div>
+---
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/cli/azure/vm">Azure CLI</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
+                        <p><a href="/java/api">Java</a></p>
+                        <p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node​.js</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/compute">Compute REST API Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
