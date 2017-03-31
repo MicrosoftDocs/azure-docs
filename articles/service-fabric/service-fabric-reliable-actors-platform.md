@@ -27,7 +27,7 @@ This article explains how Reliable Actors work on the Service Fabric platform. R
 These components together form the Reliable Actor framework.
 
 ## Service Layering
-Because the Actor Service itself is a Reliable Service, all of the [application model](service-fabric-application-model.md), lifecycle, [packaging](service-fabric-application-model.md#package-an-application), [deployment](service-fabric-deploy-remove-applications.md), upgrade, and scaling concepts of Reliable Services apply the same way to Actor services.
+Because the Actor Service itself is a Reliable Service, all of the [application model](service-fabric-application-model.md), lifecycle, [packaging](service-fabric-application-model.md), [deployment](service-fabric-deploy-remove-applications.md), upgrade, and scaling concepts of Reliable Services apply the same way to Actor services.
 
 ![Actor Service layering][1]
 
@@ -178,7 +178,7 @@ myActorServiceProxy.deleteActorAsync(actorToDelete);
 For more information on deleting actors and their state, refer to the [actor lifecycle documentation](service-fabric-reliable-actors-lifecycle.md).
 
 ### Custom Actor Service
-Using the actor registration lambda, you can also register your own custom actor service that derives from `ActorService`(C#) and `FabricActorService`(Java) where you can implement your own service-level functionality. This is done by writing a service class that inherits `ActorService`(C#) (for Java `FabricActorService`). A custom actor service inherits all of the actor runtime functionality from `ActorService` (C#) (in Java `FabricActorService`)and can be used to implement your own service methods.
+Using the actor registration lambda, you can also register your own custom actor service that derives from `ActorService`(C#) and `FabricActorService`(Java) where you can implement your own service-level functionality. This is done by writing a service class that inherits `ActorService`(C#) or `FabricActorService`(Java). A custom actor service inherits all of the actor runtime functionality from `ActorService` (C#) or `FabricActorService`(Java)and can be used to implement your own service methods.
 
 ```csharp
 class MyActorService : ActorService
@@ -286,8 +286,18 @@ class MyActorServiceImpl extends ActorService implements MyActorService
         }
         finally
         {
-           Directory.Delete(backupInfo.Directory, recursive: true);
+           deleteDirectory(backupInfo.Directory)
         }
+    }
+
+    void deleteDirectory(File file) {
+        File[] contents = file.listFiles();
+        if (contents != null) {
+            for (File f : contents) {
+               deleteDirectory(f);
+             }
+        }
+        file.delete();
     }
 }
 ```
@@ -339,7 +349,7 @@ Each actor that's created in the service has a unique ID associated with it, rep
 ActorProxy.Create<IMyActor>(ActorId.CreateRandom());
 ```
 ```Java
-ActorProxyBase.create<IMyActor>(ActorId.newId());
+ActorProxyBase.create<MyActor>(MyActor.class, ActorId.newId());
 ```
 
 

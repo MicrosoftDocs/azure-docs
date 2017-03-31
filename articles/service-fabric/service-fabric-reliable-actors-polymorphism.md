@@ -37,7 +37,7 @@ public abstract class Shape : Actor, IShape
 }
 ```
 ```Java
-public abstract class ShapeImpl implements Actor, Shape
+public abstract class ShapeImpl extends FabricActor implements Shape
 {
     public abstract CompletableFuture<int> getVerticeCount();
 
@@ -81,9 +81,9 @@ public class Circle extends ShapeImpl implements Circle
     @Override
     public CompletableFuture<Double> getAreaAsync()
     {
-        return (this.stateManager().getStateAsync<CircleState>("circle").thenApply(state->Math.PI *
-            state.radius *
-            state.radius);
+        return (this.stateManager().getStateAsync<CircleState>("circle").thenApply(state->{
+          return Math.PI * state.radius * state.radius;
+        }));
     }
 }
 ```

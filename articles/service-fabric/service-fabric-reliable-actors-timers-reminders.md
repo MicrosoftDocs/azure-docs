@@ -21,9 +21,9 @@ ms.author: vturecek
 Actors can schedule periodic work on themselves by registering either timers or reminders. This article shows how to use timers and reminders and explains the differences between them.
 
 ## Actor timers
-Actor timers provide a simple wrapper around .NET or Java timer to ensure that the callback methods respect the turn-based concurrency guarantees that the Actors runtime provides.
+Actor timers provide a simple wrapper around a .NET or Java timer to ensure that the callback methods respect the turn-based concurrency guarantees that the Actors runtime provides.
 
-Actors can use the `RegisterTimer`(C#) or `registerTimer`(Java)  and `UnregisterTimer`(C#) or `unregisterTimer`(Java) methods on their base class to register and unregister their timers. The example below shows the use of timer APIs. The APIs are very similar to the .NET or Java timer. In this example, when the timer is due, the Actors runtime will call the `MoveObject`(C#) or `moveObject`(Java) method. The method is guaranteed to respect the turn-based concurrency. This means that no other actor methods or timer/reminder callbacks will be in progress until this callback completes execution.
+Actors can use the `RegisterTimer`(C#) or `registerTimer`(Java)  and `UnregisterTimer`(C#) or `unregisterTimer`(Java) methods on their base class to register and unregister their timers. The example below shows the use of timer APIs. The APIs are very similar to the .NET timer or Java timer. In this example, when the timer is due, the Actors runtime will call the `MoveObject`(C#) or `moveObject`(Java) method. The method is guaranteed to respect the turn-based concurrency. This means that no other actor methods or timer/reminder callbacks will be in progress until this callback completes execution.
 
 ```csharp
 class VisualObjectActor : Actor, IVisualObject
@@ -163,7 +163,7 @@ protected CompletableFuture onActivateAsync()
 }
 ```
 
-In this example, `"Pay cell phone bill"` is the reminder name. This is a string that the actor uses to uniquely identify a reminder. `BitConverter.GetBytes(amountInDollars)`(C#) is the context that is associated with the reminder. It will be passed back to the actor as an argument to the reminder callback, i.e. `IRemindable.ReceiveReminderAsync`(C#).
+In this example, `"Pay cell phone bill"` is the reminder name. This is a string that the actor uses to uniquely identify a reminder. `BitConverter.GetBytes(amountInDollars)`(C#) is the context that is associated with the reminder. It will be passed back to the actor as an argument to the reminder callback, i.e. `IRemindable.ReceiveReminderAsync`(C#) or `Remindable.receiveReminderAsync`(Java).
 
 Actors that use reminders must implement the `IRemindable` interface, as shown in the example below.
 

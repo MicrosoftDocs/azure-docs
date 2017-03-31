@@ -80,6 +80,12 @@ static class Program
     {
         try
         {
+            ActorConcurrencySettings actorConcurrencySettings = new ActorConcurrencySettings();
+            actorConcurrencySettings.setReentrancyMode(ActorReentrancyMode.Disallowed);
+
+            ActorServiceSettings actorServiceSettings = new ActorServiceSettings();
+            actorServiceSettings.setActorConcurrencySettings(actorConcurrencySettings);
+
             ActorRuntime.registerActorAsync(
                 Actor1.getClass(),
                 (context, actorType) -> new FabricActorService(
@@ -87,13 +93,7 @@ static class Program
                     actorType, () -> new Actor1(),
                     null,
                     stateProvider,
-                    new ActorServiceSettings()
-                    {
-                        ActorConcurrencySettings = new ActorConcurrencySettings()
-                        {
-                            reentrancyMode = ActorReentrancyMode.Disallowed;
-                        }
-                    }));
+                    actorServiceSettings, timeout);
 
             Thread.sleep(Long.MAX_VALUE);
         }

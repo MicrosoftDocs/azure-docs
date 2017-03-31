@@ -88,7 +88,7 @@ public class Voicemail
     public Guid Id { get; set; }
 
     [DataMember]
-    public String Message { get; set; }
+    public string Message { get; set; }
 
     [DataMember]
     public DateTime ReceivedAt { get; set; }
@@ -131,7 +131,7 @@ public class VoicemailBox implements Serializable
     
     public VoicemailBox()
     {
-        this.messageList = new List<Voicemail>();
+        this.messageList = new ArrayList<Voicemail>();
     }
 
     private List<Voicemail> messageList;   //getMessageList() and setMessageList()

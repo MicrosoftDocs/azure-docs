@@ -47,7 +47,7 @@ public interface IGameActor : IActor, IActorEventPublisher<IGameEvents>
 }
 ```
 ```Java
-public interface GameActor implements Actor, ActorEventPublisherE<GameEvents>
+public interface GameActor extends Actor, ActorEventPublisherE<GameEvents>
 {
     CompletableFuture<?> updateGameStatus(GameStatus status);
 
@@ -85,7 +85,7 @@ await proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler());
 ```
 
 ```Java
-GameActor actorProxy = ActorProxyBase.create<GameActor>(actorInterfaceType, new ActorId(UUID.fromString(args)));
+GameActor actorProxy = ActorProxyBase.create<GameActor>(GameActor.class, new ActorId(UUID.fromString(args)));
 
 return ActorProxyEventUtility.subscribeAsync(actorProxy, new GameEventsHandler());
 ```
@@ -99,7 +99,7 @@ var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), score);
 ```
 ```Java
-GameEvents event = getEvent<GameEvents>();
+GameEvents event = getEvent<GameEvents>(GameEvents.class);
 event.gameScoreUpdated(Id.getUUIDId(), score);
 ```
 

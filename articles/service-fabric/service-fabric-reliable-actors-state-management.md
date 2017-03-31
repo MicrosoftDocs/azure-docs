@@ -113,7 +113,7 @@ State can be accessed through the State Manager by key. State Manager methods ar
 * An actor is re-activated, either after being deactivated or due to failure.
 * If the state provider pages state to disk. This behavior depends on the state provider implementation. The default state provider for the `Persisted` setting has this behavior.
 
-State can be retrieved using a standard *Get* operation that throws `KeyNotFoundException` if an entry does not exist for the given key:
+State can be retrieved using a standard *Get* operation that throws `KeyNotFoundException`(C#) or `NoSuchElementException`(Java) if an entry does not exist for the given key:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -224,7 +224,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-State can be added using an *Add* method, which will throw `InvalidOperationException` when trying to add a key that already exists:
+State can be added using an *Add* method, which will throw `InvalidOperationException`(C#) or `IllegalStateException`(Java) when trying to add a key that already exists:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -290,12 +290,12 @@ class MyActorImpl extends FabricActor implements  MyActor
 
     public CompletableFuture addCountAsync(int value)
     {
-      Boolean result = this.stateManager().tryAddStateAsync("MyState", value);
-
-      if (result)
-      {
-          // Added successfully!
-      }
+        return this.stateManager().tryAddStateAsync("MyState", value).thenApply((result)->{
+            if(result)
+            {
+                // Added successfully!
+            }
+        });
     }
 }
 ```
@@ -313,16 +313,18 @@ async Task IMyActor.SetCountAsync(int count)
 }
 ```
 ```Java
-CompletableFuture MyActor.setCountAsync(int count)
-{
-    this.stateManager().addOrUpdateStateAsync("count", count, (key, value) -> count > value ? count : value);
+interface MyActor {
+    CompletableFuture setCountAsync(int count)
+    {
+        this.stateManager().addOrUpdateStateAsync("count", count, (key, value) -> count > value ? count : value).thenApply();
 
-    this.stateManager().saveStateAsync();
+        this.stateManager().saveStateAsync().thenApply();
+    }
 }
 ```
 
 ### Removing state
-State can be removed permanently from an actor's State Manager by calling the *Remove* method. This method will throw `KeyNotFoundException` when trying to remove a key that doesn't exist:
+State can be removed permanently from an actor's State Manager by calling the *Remove* method. This method will throw `KeyNotFoundException`(C#) or `NoSuchElementException`(Java) when trying to remove a key that doesn't exist:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -388,12 +390,12 @@ class MyActorImpl extends FabricActor implements  MyActor
 
     public CompletableFuture removeCountAsync()
     {
-        Boolean result = this.stateManager().tryRemoveStateAsync("MyState");
-
-        if (result)
-        {
-            // State removed!
-        }
+        return this.stateManager().tryRemoveStateAsync("MyState").thenApply((result)->{
+            if(result)
+            {
+                // State removed!
+            }
+        });
     }
 }
 ```
