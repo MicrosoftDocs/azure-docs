@@ -176,7 +176,7 @@ There is no action item for you in this section. A new user will be created duri
 ### Assign the Azure AD test user
 The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to KnowBe4.
 
-    ![Assign User][200] 
+   ![Assign User][200] 
 
 **To assign Britta Simon to KnowBe4, perform the following steps:**
 
