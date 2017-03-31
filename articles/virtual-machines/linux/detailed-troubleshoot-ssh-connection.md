@@ -139,5 +139,5 @@ Try connecting from your computer again. If it still fails, the following are so
 * Intrusion detection or network monitoring software that's running on the Azure virtual machine is preventing SSH connections.
 
 ## Additional resources
-For more information about troubleshooting application access, see [Troubleshoot access to an application running on an Azure virtual machine](../virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+For more information about troubleshooting application access, see [Troubleshoot access to an application running on an Azure virtual machine](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
