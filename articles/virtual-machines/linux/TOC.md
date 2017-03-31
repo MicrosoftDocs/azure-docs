@@ -73,7 +73,7 @@
 ### [Use tags](../../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Tag a VM](tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Optimize your Linux VM](optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Update Azure Linux agent](../virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Update Azure Linux agent](update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Backup using Recovery Services](../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Join a RedHat VM to an Azure Active Directory Domain Service](join-redhat-linux-vm-to-azure-active-directory-domain-service.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
