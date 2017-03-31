@@ -188,7 +188,7 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 [nsg]: ../articles/virtual-network/virtual-networks-nsg.md
 [nsg-default-rules]: ../articles/virtual-network/virtual-networks-nsg.md#default-rules
 [OSPatching]: https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching
-[planned-maintenance]: ../articles/virtual-machines/virtual-machines-linux-planned-maintenance.md
+[planned-maintenance]:../articles/virtual-machines/linux/planned-maintenance.md
 [premium-storage]: ../articles/storage/storage-premium-storage.md
 [rbac]: ../articles/active-directory/role-based-access-control-what-is.md
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
