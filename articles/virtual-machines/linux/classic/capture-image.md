@@ -94,7 +94,7 @@ The image is ready to be used to create VMs. You can use the Azure CLI command `
 
 Alternatively, use the [Azure classic portal][Azure classic portal] to create a custom VM by using the **From Gallery** method and selecting the image you created. For more information, see [How to Create a Custom VM][How to Create a Custom Virtual Machine].
 
-**See also:** [Azure Linux Agent User Guide](../../virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+**See also:** [Azure Linux Agent User Guide](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Azure classic portal]:http://manage.windowsazure.com
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md

@@ -256,8 +256,8 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:../virtual-machines-linux-cli-deploy-templates.md 
 [virtual-machines-deploy-rmtemplates-powershell]:../virtual-machines-windows-ps-manage.md 
-[virtual-machines-linux-agent-user-guide]:../virtual-machines-linux-agent-user-guide.md
-[virtual-machines-linux-agent-user-guide-command-line-options]:../virtual-machines-linux-agent-user-guide.md#command-line-options
+[virtual-machines-linux-agent-user-guide]:../linux/agent-user-guide.md
+[virtual-machines-linux-agent-user-guide-command-line-options]:../linux/agent-user-guide.md#command-line-options
 [virtual-machines-linux-capture-image]:../virtual-machines-linux-capture-image.md
 [virtual-machines-linux-capture-image-capture]:../virtual-machines-linux-capture-image.md#capture-the-vm
 [virtual-machines-windows-capture-image]:../virtual-machines-windows-capture-image.md
