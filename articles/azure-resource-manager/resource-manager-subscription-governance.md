@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
 
 ---
@@ -78,11 +78,12 @@ You apply the scaffold at the subscription level to extend the governance requir
 The first pillar of the scaffold is naming standards. Well-designed naming standards enable you to identify resources in the portal, on a bill, and within scripts. Most likely, you already have naming standards for on-premise infrastructure. When adding Azure to your environment, you should extend those naming standards to your Azure resources. Naming standard facilitate more efficient management of the environment at all levels.
 
 > [!TIP]
+> For naming conventions:
 > * Review and adopt where possible the [Patterns and Practices guidance](../guidance/guidance-naming-conventions.md). This guidance helps you decide on a meaningful naming standard.
 > * Use camelCasing for names of resources (such as myResourceGroup and vnetNetworkName). Note: There are certain resources, such as storage accounts, where the only option is to use lower case (and no other special characters).
 > * Consider using Azure Resource Manager policies (described in the next section) to enforce naming standards.
 > 
-> 
+> The preceding tips help you implement a consistent naming convention.
 
 ## Policies and auditing
 The second pillar of the scaffold involves creating [Azure Resource Manager policies](resource-manager-policy.md) and [auditing the activity log](resource-group-audit.md). Resource Manager policies provide you with the ability to manage risk in Azure. You can define policies that ensure data sovereignty by restricting, enforcing, or auditing certain actions. 
