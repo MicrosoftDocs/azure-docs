@@ -33,7 +33,7 @@ You can complete the task by using one of the following command-line interface (
 
 
 ## Quick commands
-To accomplish the task quickly, follow the steps in this section. For more detailed information and context, begin at the ["Detailed walkthrough"](virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb.md#detailed-walkthrough) section.
+To accomplish the task quickly, follow the steps in this section. For more detailed information and context, begin at the ["Detailed walkthrough"](linux/mount-azure-file-storage-on-linux-using-smb.md#detailed-walkthrough) section.
 
 ### Prerequisites
 * A resource group
