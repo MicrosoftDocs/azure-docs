@@ -114,10 +114,10 @@ In this section, you enable Azure AD SSO in the Azure Management portal and conf
   1. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<tenant name>.fusion-universal.com/`
   2. In the **Identifier** textbox, type a URL using the following pattern: `https://<tenant name>.fusion-universal.com`
 
-	>[!NOTE] 
-	>These are not the real values. You have to update these values with the actual Sign On URL and Identifier. Contact [Fuse support team](mailto:support@fusion-universal.com) to get these values. 
-	>
-	>
+      >[!NOTE] 
+      >These are not the real values. You have to update these values with the actual Sign On URL and Identifier. Contact [Fuse support team](mailto:support@fusion-universal.com) to get these values. 
+      >
+      >
 
 4. On the **SAML Signing Certificate** section, click **Create new certificate**.
 
