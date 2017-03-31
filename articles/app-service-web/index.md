@@ -17,7 +17,7 @@ ms.author: carolz
 
 Learn how to use App Service Web Apps to build and host websites and web applications.
 
-<h2>Quickstarts</h2>
+<h2 class="likeAnH3">Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/app-service-web/app-service-web-get-started-html">
