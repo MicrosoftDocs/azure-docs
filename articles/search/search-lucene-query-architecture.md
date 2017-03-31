@@ -108,7 +108,7 @@ When `searchMode=any`, which is the default, the space delimiter between spaciou
 Spacious,|air-condition*+"Ocean view" 
 ~~~~
 
-Explicit operators, such as `+` in `+"Ocean view"`, are unambiguous in boolean query construction (the term *must* match). Less obvious is how to interpret the remaining terms: spacious and air-condition. Should the search engine find matches on ocean view *and* spacious *and* air-condition? Or should if find ocean view plus *either one* of the remaining terms? 
+Explicit operators, such as `+` in `+"Ocean view"`, are unambiguous in boolean query construction (the term *must* match). Less obvious is how to interpret the remaining terms: spacious and air-condition. Should the search engine find matches on ocean view *and* spacious *and* air-condition? Or should it find ocean view plus *either one* of the remaining terms? 
 
 Using the default `searchMode=any`, the second interpretation prevails, where ocean view plus either term defines the match criteria. The initial query tree illustrated previously, with the two "should" operations, reflects the "or" semantics.  
 
