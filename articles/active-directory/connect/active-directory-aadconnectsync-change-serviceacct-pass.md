@@ -18,9 +18,13 @@ ms.author: billmath
 
 ---
 # Changing the Azure AD Connect sync service account password
-If you change the  Azure AD Connect sync service account password, the Synchronization Service can no longer start correctly.  You may see the following:
+If you change the  Azure AD Connect sync service account password, the Synchronization Service will not be able start correctly until you have abandoned the encryption key and reinitialized the Azure AD Connect sync service account password. 
 
-To resolve the issue, you must abandon the encryption key.  You cannot just change the password.  Use the procedures in [Abandoning the Azure AD Connect Sync encryption key](#abandoning-the-azure-ad-connect-sync-encryption-key) to change the service account password.
+Azure AD Connect, as part of the Synchronization Services uses an encryption key to store the passwords of the AD DS and Azure AD service accounts.  These accounts are encrypted before they are stored in the database. 
+
+The encryption key used is secured using [Windows Data Protection (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx). DPAPI protects the encryption key using the **password of the Azure AD Connect sync service account**. 
+
+If you need to change the service account password you can use the procedures in [Abandoning the Azure AD Connect Sync encryption key](#abandoning-the-azure-ad-connect-sync-encryption-key) to accomplish this.  These procedures should also be used if you need to abandon the encryption key for any reason.
 
 ## Abandoning the Azure AD Connect Sync encryption key
 >[!IMPORTANT]
