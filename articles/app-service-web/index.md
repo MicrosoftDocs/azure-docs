@@ -15,7 +15,7 @@ ms.author: carolz
 ---
 # Web Apps Documentation
 <div class="intro">
-    Learn how to use App Service Web Apps to build and host websites and web applications. Tutorials, videos, API references, and other documentation show you how to develop on this fully managed compute platform.
+    Learn how to use App Service Web Apps to build and host websites and web applications.
 </div>
 <div class="ico48Case">
     <div class="ico48Link">

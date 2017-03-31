@@ -17,7 +17,7 @@ ms.author: carolz
 # Windows Virtual Machines Documentation
 
 <div class="intro">
-    Learn how to create Windows virtual machines. Tutorials, API references, and other documentation help you plan, deploy, and manage a virtual machine computing environment in the cloud.
+    Learn how to create Windows virtual machines.
 </div>
 <h3>Quickstarts</h3>
 <p>Create your first virtual machine using the language and tools of your choice.</p>
