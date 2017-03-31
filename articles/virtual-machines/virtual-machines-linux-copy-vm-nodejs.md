@@ -26,7 +26,7 @@ You can also [upload and create a VM from custom disk image](virtual-machines-li
 You can complete the task using one of the following CLI versions:
 
 - Azure CLI 1.0 – our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](linux/copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ## Before you begin
 Ensure that you meet the following prerequisites before you start the steps:
