@@ -242,7 +242,7 @@ For the description field, the index is as follows:
 | spacious | 1
 | the | 1, 2
 | to | 1
-| view | 1, 2, 4
+| view | 1, 2, 3
 | walking |	1
 | with | 3
 
