@@ -70,7 +70,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                 <a href="#services">Services</a>
                 <ul id="services">
                     <li>
-                        <a href="#all">All</a>
+                        <a name="all" href="#all">All</a>
                         <ul id="all" class="directory">
                             <li>
                                 <div class="group">
@@ -762,7 +762,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </div>
                             </li>
-                            <a href="/azure/index#pivot=services&panel=all">
+                            <a href="#all">
                             <button style="
                                 position: absolute;
                                 bottom: 0;
