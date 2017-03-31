@@ -180,7 +180,7 @@ In /usr/local/cuda-8.0/samples for CentOS 7.3.
 		./NVIDIA-Linux-x86_64-375.39.run  --silent --dkms
 		DEBIAN_FRONTEND=noninteractive update-initramfs -u
 ```
-	###### CentOS 7.3
+###### CentOS 7.3
 
 > :grey_exclamation:
 
@@ -195,7 +195,6 @@ In /usr/local/cuda-8.0/samples for CentOS 7.3.
 		yum install -y gcc make binutils gcc-c++ kernel-devel kernel-headers --disableexcludes=all
 		yum -y upgrade kernel kernel-devel
 		chmod +x NVIDIA-Linux-x86_64-375.39.run
-
 		cat >>~/install_nvidiarun.sh <<EOF
 		cd /var/lib/waagent/custom-script/download/0 && \
 		./NVIDIA-Linux-x86_64-375.39.run --silent --dkms --install-libglvnd && \
@@ -203,7 +202,6 @@ In /usr/local/cuda-8.0/samples for CentOS 7.3.
 		chmod -x /etc/rc.d/rc.local
 		rm -rf ~/install_nvidiarun.sh
 		EOF
-
 		chmod +x install_nvidiarun.sh
 		echo -ne "~/install_nvidiarun.sh" >> /etc/rc.d/rc.local
 		chmod +x /etc/rc.d/rc.local
@@ -212,9 +210,9 @@ In /usr/local/cuda-8.0/samples for CentOS 7.3.
  
  ##### Both Ubuntu 16.04-LTS and CentOS 7.3
 
-	The NVIDIA CUDA® Deep Neural Network library (cuDNN) is a GPU-accelerated library of primitives for deep neural networks. 
-	cuDNN provides highly tuned implementations for standard routines such as forward and backward convolution, pooling, normalization, and activation layers.
-	cuDNN is part of the NVIDIA Deep Learning SDK and it can be installed  as follows:
+The NVIDIA CUDA® Deep Neural Network library (cuDNN) is a GPU-accelerated library of primitives for deep neural networks. 
+cuDNN provides highly tuned implementations for standard routines such as forward and backward convolution, pooling, normalization, and activation layers.
+cuDNN is part of the NVIDIA Deep Learning SDK and it can be installed  as follows:
 
 ```bash
 	    export CUDNN_DOWNLOAD_SUM=a87cb2df2e5e7cc0a05e266734e679ee1a2fadad6f06af82a76ed81a23b102c8 && curl -fsSL http://developer.download.nvidia.com/compute/redist/cudnn/v5.1/cudnn-8.0-linux-x64-v5.1.tgz -O && \
