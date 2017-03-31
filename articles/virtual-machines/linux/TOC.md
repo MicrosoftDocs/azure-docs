@@ -11,7 +11,7 @@
 ## [PowerShell](powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 # Tutorials
-## [Create and manage a VM](../virtual-machines-linux-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Create and manage a VM](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Load balance VMs](tutorial-load-balance-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 # Concepts
