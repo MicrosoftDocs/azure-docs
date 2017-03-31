@@ -36,7 +36,7 @@ Resource health helps you diagnose and get support when an Azure issue impacts y
         </a>
     </li>
     <li>
-        <a href="/azure/resourcehealth/resource-health-health-checks-resource-types.md">
+        <a href="/azure/resource-health/resource-health-health-checks-resource-types.md">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
