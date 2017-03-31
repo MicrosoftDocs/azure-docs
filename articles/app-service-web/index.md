@@ -71,7 +71,7 @@ ms.author: carolz
     </div>
     <div class="column50">
         <h2>Video Training</h2>
-        <a href="https://azure.microsoft.com/community/training/courses/developing-dotnet-microsoft-azure-getting-started/"><img src="media/index/logo_pluralsight.svg" height="160" width="360" alt="">
+        <a href="https://azure.microsoft.com/community/training/courses/developing-dotnet-microsoft-azure-getting-started/"><img src="media/index/i_video.svg" height="160" width="360" alt="">
         <p>Free Pluralsight video training – Using Microsoft Azure App Service</a></p>
     </div>
     <div class="column50">
