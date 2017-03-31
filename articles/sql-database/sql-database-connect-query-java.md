@@ -119,15 +119,17 @@ public class App {
 				String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName " 
 				    + "FROM [SalesLT].[ProductCategory] pc "  
 				    + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
-				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery(selectSql);
+				
+				try (Statement statement = connection.createStatement();
+					ResultSet resultSet = statement.executeQuery(selectSql)) {
 
-				// Print results from select statement
-				System.out.println("Top 20 categories:");
-				while (resultSet.next())
-				{
-				    System.out.println(resultSet.getString(1) + " "
-					    + resultSet.getString(2));
+					// Print results from select statement
+					System.out.println("Top 20 categories:");
+					while (resultSet.next())
+					{
+					    System.out.println(resultSet.getString(1) + " "
+						    + resultSet.getString(2));
+					}
 				}
         	}
 		catch (Exception e) {
@@ -175,16 +177,17 @@ public class App {
 				java.util.Date date = new java.util.Date();
 				java.sql.Timestamp sqlTimeStamp = new java.sql.Timestamp(date.getTime());
 
-				PreparedStatement prep = connection.prepareStatement(insertSql);
-				prep.setString(1, "BrandNewProduct");
-				prep.setInt(2, 200989);
-				prep.setString(3, "Blue");
-				prep.setDouble(4, 75);
-				prep.setDouble(5, 80);
-				prep.setTimestamp(6, sqlTimeStamp);
+				try (PreparedStatement prep = connection.prepareStatement(insertSql)) {
+						prep.setString(1, "BrandNewProduct");
+						prep.setInt(2, 200989);
+						prep.setString(3, "Blue");
+						prep.setDouble(4, 75);
+						prep.setDouble(5, 80);
+						prep.setTimestamp(6, sqlTimeStamp);
 
-				int count = prep.executeUpdate();
-				System.out.println("Inserted: " + count + " row(s)");
+						int count = prep.executeUpdate();
+						System.out.println("Inserted: " + count + " row(s)");
+				}
 		}
 		catch (Exception e) {
 		    	e.printStackTrace();
@@ -226,12 +229,13 @@ public class App {
 				// Prepared statement to update data
 				String updateSql = "UPDATE SalesLT.Product SET ListPrice = ? WHERE Name = ?";
 
-				PreparedStatement prep = connection.prepareStatement(updateSql);
-				prep.setString(1, "500");
-				prep.setString(2, "BrandNewProduct");
+				try (PreparedStatement prep = connection.prepareStatement(updateSql)) {
+						prep.setString(1, "500");
+						prep.setString(2, "BrandNewProduct");
 
-				int count = prep.executeUpdate();
-				System.out.println("Updated: " + count + " row(s)")
+						int count = prep.executeUpdate();
+						System.out.println("Updated: " + count + " row(s)")
+				}
 		}
 		catch (Exception e) {
 		    	e.printStackTrace();
@@ -276,11 +280,12 @@ public class App {
 				// Prepared statement to delete data
 				String deleteSql = "DELETE SalesLT.Product WHERE Name = ?";
 
-				PreparedStatement prep = connection.prepareStatement(deleteSql);
-				prep.setString(1, "BrandNewProduct");
+				try (PreparedStatement prep = connection.prepareStatement(deleteSql)) {
+						prep.setString(1, "BrandNewProduct");
 
-				int count = prep.executeUpdate();
-				System.out.println("Deleted: " + count + " row(s)");
+						int count = prep.executeUpdate();
+						System.out.println("Deleted: " + count + " row(s)");
+				}
         	}		
 		catch (Exception e) {
 		    	e.printStackTrace();
@@ -291,7 +296,7 @@ public class App {
 
 ## Next steps
 * Review the [SQL Database Development Overview](sql-database-develop-overview.md).
-* Github repository for [Microsoft JDBC Driver for SQL Server](https://github.com/microsoft/mssql-jdbc).
+* GitHub repository for [Microsoft JDBC Driver for SQL Server](https://github.com/microsoft/mssql-jdbc).
 * [File issues/ask questions](https://github.com/microsoft/mssql-jdbc/issues).
 * Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
 
