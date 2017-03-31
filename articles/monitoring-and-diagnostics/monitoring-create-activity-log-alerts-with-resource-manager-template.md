@@ -118,14 +118,19 @@ To create an activity log alert using a Resource Manager template, you create a 
       "properties": {
         "name": "[parameters('activityLogAlertName')]",
         "activityLogAlertEnabled": "[parameters('activityLogAlertEnabled')]",
-        "conditions": [
+        "condition": [
           {
             "field": "category",
             "equals": "ServiceHealth"
           }
         ],
-        "action": {
-          "actionGroupId": "[reference(resourceId('Microsoft.Insights/actionGroups',parameters('actionGroupName')))]"
+        "actions": {
+          "actionGroups": 
+          [
+            {
+            "actionGroupId": "[reference(resourceId('Microsoft.Insights/actionGroups',parameters('actionGroupName')))]"
+            }
+          ]
         }
       }
     }
