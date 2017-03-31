@@ -49,7 +49,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 In this tutorial, you test Azure AD SSO in a test environment. 
 
 The scenario outlined in this tutorial consists of two main building blocks:
-
+ 
 1. Adding Nomadic from the gallery
 2. Configuring and testing Azure AD SSO
 
@@ -61,7 +61,7 @@ To configure the integration of Nomadic into Azure AD, you need to add Nomadic f
 1. In the **[Azure Management Portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
 	![Active Directory][1]
-
+ 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![Applications][2]
@@ -113,10 +113,10 @@ In this section, you enable Azure AD SSO in the Azure Management portal and conf
   1. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<company name>.nomadic.fm/signin`
   2. In the **Identifer** textbox, type a URL using the following pattern: `https://<company name>.nomadic.fm/auth/saml2/sp`
 
-	>[!NOTE] 
-	>Please note that these are not the real values. You have to update these values with the actual Sign On URL and Identifier. Contact [Nomadic support team](mailto:help@nomadic.fm) to get these values.
-	>
-	>
+     >[!NOTE] 
+     >These are not the real values. You have to update these values with the actual Sign On URL and Identifier. Contact [Nomadic support team](mailto:help@nomadic.fm) to get these values.
+     >
+     >
 
 4. On the **SAML Signing Certificate** section, click **Create new certificate**.
 
