@@ -26,7 +26,7 @@ In this tutorial, we will pick up where we left off in the [Creating your first 
 ASP.NET Core is a lightweight, cross-platform web development framework that you can use to create modern web UI and web APIs. Let's add an ASP.NET Web API project to our existing application.
 
 > [!NOTE]
-> This tutorial is based on the [ASP.NET Core tools for Visual Studio 2017](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc). The .NET Core tools for Visual Studio 2015 are no longer being updated.
+> This tutorial is based on the [ASP.NET Core tools for Visual Studio 2017](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/start-mvc). The .NET Core tools for Visual Studio 2015 are no longer being updated.
 
 
 1. In Solution Explorer, right-click **Services** within the application project and choose **Add > New Service Fabric Service**.
@@ -194,7 +194,7 @@ Our stateful service is now ready to receive traffic from other services. So all
 
 ## Kestrel and WebListener
 
-The default ASP.NET Core web server, known as Kestrel, is [not currently supported for handling direct internet traffic](https://docs.asp.net/en/latest/fundamentals/servers.html#kestrel). As a result, the ASP.NET templates for Service Fabric use [WebListener](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/weblistener) by default. 
+The default ASP.NET Core web server, known as Kestrel, is [not currently supported for handling direct internet traffic](https://docs.asp.net/en/latest/fundamentals/servers.html#kestrel). As a result, the ASP.NET templates for Service Fabric use [WebListener](https://docs.microsoft.com/aspnet/core/fundamentals/servers/weblistener) by default. 
 
 If you will not be serving direct internet traffic and would prefer to use Kestrel as your web server, you can change it in your service listener configuration. Simply replace `return new WebHostBuilder().UseWebListener()` with `return new WebHostBuilder().UseKestrel()`. All other configurations on the web host can remain the same.
  
@@ -233,4 +233,3 @@ To learn how to configure different values for different environment, see [Manag
 
 <!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
-[api-management-landing-page]: https://azure.microsoft.com/en-us/services/api-management/
