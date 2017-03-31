@@ -129,7 +129,7 @@ See also [Virtual Machines documentation](https://azure.microsoft.com/documentat
 
 ### <a name="vm-extension"></a>virtual machine extension
 A resource that implements behaviors or features that either help other programs work or provide the ability for you to interact with a running computer. For example, you could use the VM Access extension to reset or modify remote access values on an Azure virtual machine.  
-See also [About virtual machine extensions and features (Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [About virtual machine extensions and features (Linux)](virtual-machines/virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+See also [About virtual machine extensions and features (Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [About virtual machine extensions and features (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="vnet"></a>virtual network
 A network that provides connectivity between your Azure resources that is isolated from all other Azure tenants. It can be connected to other Azure virtual networks through an [Azure VPN Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md) and to your on-premises network using [multiple options](vpn-gateway/vpn-gateway-plan-design.md). You can fully control the IP address blocks, DNS settings, security policies, and route tables within this network.  

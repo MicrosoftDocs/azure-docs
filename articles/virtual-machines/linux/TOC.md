@@ -141,7 +141,7 @@
 ### [Set up Key Vault](../virtual-machines-linux-key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Use VM extensions
-### [VM Extension overview](../virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [VM Extension overview](extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Custom Script Extension](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [OMS Agent Extension](../virtual-machines-linux-extensions-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
