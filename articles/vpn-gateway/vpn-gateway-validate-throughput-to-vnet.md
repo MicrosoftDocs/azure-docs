@@ -20,7 +20,7 @@ ms.author: radwiv;chadmat
 ---
 # How to validate VPN throughput to a virtual network
 
-A VPN gateway connection enables you to establish secure, cross-premises connectivity between your Virtual Network within Azure and your on-premises IT infrastructure.
+A VPN gateway connection enables you to establish secure, cross-premises connectivity between your Virtual Network within Azure and your on-premises IT infrastructure.111
 
 This article shows how to validate network throughput from the on-premises resources to an Azure virtual machine. It also provides troubleshooting guidance.
 
@@ -85,7 +85,6 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). For
 	netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
 	```
 	</br>
-
 	**Azure Linux:**  Azure Linux images have permissive firewalls. If there is an application listening on a port the traffic will be allowed through. Custom images that are secured may need ports opened explicitly. Common Linux OS-layer firewalls include `iptables`, `ufw` or `firewalld`.
 
 3. On the server node, change to the directory where iperf3.exe is extracted, and then run iPerf in server mode and set it to listen on port 5001 as the following commands:
@@ -98,7 +97,9 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). For
 
 4. On the client node, change to the directory where iperf tool is extracted and then run the following command:
 
-	`iperf3.exe -c <IP of the iperf Server> -t 30 -p 5001 -P 32`
+	```CMD
+	iperf3.exe -c <IP of the iperf Server> -t 30 -p 5001 -P 32
+	```
 
 	The client will be inducing traffic on port 5001 to the server for 30 seconds. The flag '-P ' that indicates we are using 32 simultaneous connections to the server node.
 
@@ -108,7 +109,9 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). For
 
 5. (OPTIONAL) To preserve the testing results, run this command:
 
-		`iperf3.exe -c IPofTheServerToReach -t 30 -p 5001 -P 32  >> output.txt`
+  ```CMD
+	iperf3.exe -c IPofTheServerToReach -t 30 -p 5001 -P 32  >> output.txt
+	```
 
 6. After completing the previous steps, execute the same steps with the roles reversed, so that the server node will now be the client and vice-versa.
 
