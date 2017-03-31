@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a Linux environment with the Azure CLI 2.0 | Microsoft Docs
 description: Create storage, a Linux VM, a virtual network and subnet, a load balancer, an NIC, a public IP, and a network security group, all from the ground up by using the Azure CLI 2.0.
 services: virtual-machines-linux
@@ -995,7 +995,7 @@ Read more about [managing the availability of VMs](virtual-machines-linux-manage
 
 
 ## Create the Linux VMs
-You've created the network resources to support Internet-accessible VMs. Now let's create those VMs and secure them with an SSH key that doesn't have a password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We locate that image information by using [az vm image list](/cli/azure/vm/image#list), as described in [finding Azure VM images](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+You've created the network resources to support Internet-accessible VMs. Now let's create those VMs and secure them with an SSH key that doesn't have a password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We locate that image information by using [az vm image list](/cli/azure/vm/image#list), as described in [finding Azure VM images](linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 We also specify an SSH key to use for authentication. If you do not have any SSH keys, you can create them by using [these instructions](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Alternatively, you can use the `--admin-password` method to authenticate your SSH connections after the VM is created. This method is typically less secure.
 

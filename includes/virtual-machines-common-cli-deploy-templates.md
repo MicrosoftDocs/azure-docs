@@ -100,7 +100,7 @@ data:
 info:    group create command OK
 ```
 
-Second, you'll need an image. To find an image with the Azure CLI, see [Navigating and selecting Azure virtual machine images with PowerShell and the Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). But for this article, here's a short list of popular images. We'll use CoreOS's Stable image for this quick-create.
+Second, you'll need an image. To find an image with the Azure CLI, see [Navigating and selecting Azure virtual machine images with PowerShell and the Azure CLI](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). But for this article, here's a short list of popular images. We'll use CoreOS's Stable image for this quick-create.
 
 > [!NOTE]
 > For ComputeImageVersion, you can also simply supply 'latest' as the parameter in both the template language and in the Azure CLI. This will allow you to always use the latest and patched version of the image without having to modify your scripts or templates. This is shown below.

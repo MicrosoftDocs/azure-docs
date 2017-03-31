@@ -199,7 +199,7 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 [Resize virtual machines]: https://azure.microsoft.com/en-us/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/azure-resource-manager/resource-group-overview.md
-[select-vm-image]: ../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md
+[select-vm-image]:../articles/virtual-machines/linux/cli-ps-findimage.md
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
 [ssh-linux]: ../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md

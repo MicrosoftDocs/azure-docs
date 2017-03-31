@@ -1111,7 +1111,7 @@ Upgrade domains indicate groups of virtual machines and underlying physical hard
 Read more about [managing the availability of VMs](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Create the Linux VMs
-You've created the storage and network resources to support Internet-accessible VMs. Now let's create those VMs and secure them with an SSH key that doesn't have a password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We locate that image information by using `azure vm image list`, as described in [finding Azure VM images](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+You've created the storage and network resources to support Internet-accessible VMs. Now let's create those VMs and secure them with an SSH key that doesn't have a password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We locate that image information by using `azure vm image list`, as described in [finding Azure VM images](linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 We selected an image by using the command `azure vm image list westeurope canonical | grep LTS`. In this case, we use `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`. For the last field, we pass `latest` so that in the future we always get the most recent build. (The string we use is `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`).
 

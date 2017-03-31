@@ -84,7 +84,7 @@
 ### [Install and configure Remote Desktop to connect to a Linux VM](../virtual-machines-linux-use-remote-desktop.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Manage VM images
-### [Find marketplace VM images](../virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Find marketplace VM images](cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Create custom VM images](../virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Upload custom VM images](../virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Capture an existing VM into an image](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

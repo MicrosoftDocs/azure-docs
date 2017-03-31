@@ -45,7 +45,7 @@ The Batch service uses [Virtual machine scale sets](../virtual-machine-scale-set
 | Version |latest |
 
 > [!TIP]
-> You can learn more about these properties and how to list Marketplace images in [Navigate and select Linux virtual machine images in Azure with CLI or PowerShell](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Note that not all Marketplace images are currently compatible with Batch. For more information, see [Node agent SKU](#node-agent-sku).
+> You can learn more about these properties and how to list Marketplace images in [Navigate and select Linux virtual machine images in Azure with CLI or PowerShell](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Note that not all Marketplace images are currently compatible with Batch. For more information, see [Node agent SKU](#node-agent-sku).
 >
 >
 
