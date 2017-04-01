@@ -32,11 +32,11 @@ Azure Functions supports trigger and output bindings for Service Bus queues and 
 ## Service Bus trigger
 Use the Service Bus trigger to respond to messages from a Service Bus queue or topic. 
 
-The Service Bus queue and topic triggers to a function use the following JSON objects in the `bindings` array of function.json:
+The Service Bus queue and topic triggers are defined by the following JSON objects in the `bindings` array of function.json:
 
 * *queue* trigger:
 
-	```json
+    ```json
     {
         "name" : "<Name of input parameter in function signature>",
         "queueName" : "<Name of the queue>",
@@ -45,11 +45,11 @@ The Service Bus queue and topic triggers to a function use the following JSON ob
         "type" : "serviceBusTrigger",
         "direction" : "in"
     }
-	```
+    ```
 
 * *topic* trigger:
 
-	```json
+    ```json
     {
         "name" : "<Name of input parameter in function signature>",
         "topicName" : "<Name of the topic>",
@@ -59,7 +59,7 @@ The Service Bus queue and topic triggers to a function use the following JSON ob
         "type" : "serviceBusTrigger",
         "direction" : "in"
     }
-	```
+    ```
 
 Note the following:
 
