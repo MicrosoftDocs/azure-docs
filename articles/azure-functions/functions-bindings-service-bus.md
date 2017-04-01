@@ -63,7 +63,7 @@ The Service Bus queue and topic triggers are defined by the following JSON objec
 
 Note the following:
 
-* For `connection`, [create an app setting in your function app]() that contains the connection string to your Service Hub namespace, then specify the 
+* For `connection`, [create an app setting in your function app](functions-how-to-use-azure-function-app-settings.md) that contains the connection string to your Service Hub namespace, then specify the 
   name of the app setting in the `connection` property in your trigger. You obtain the connection string by following the steps shown at 
   [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
   The connection string must be for a Service Bus namespace, not limited to a specific queue or topic.
@@ -193,7 +193,7 @@ The Service Bus queue and topic output for a function use the following JSON obj
 
 Note the following:
 
-* For `connection`, [create an app setting in your function app]() that contains the connection string to your Service Hub namespace, then specify the 
+* For `connection`, [create an app setting in your function app](functions-how-to-use-azure-function-app-settings.md) that contains the connection string to your Service Hub namespace, then specify the 
   name of the app setting in the `connection` property in your output binding. You obtain the connection string by following the steps shown at 
   [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
   The connection string must be for a Service Bus namespace, not limited to a specific queue or topic.
