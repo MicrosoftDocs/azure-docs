@@ -29,7 +29,7 @@ The following diagram shows the architecture of the deployed system. A system ad
 In order to run through the following steps, you'll need:
 
 * An active Azure subscription. If you don't have one, you can get a free trail on [azure.com](https://azure.microsoft.com/).
-* A work or school id to use Azure resource groups. If you have a personal account and log in with a Microsoft id, you need to [create a work id from your personal one](virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* A work or school id to use Azure resource groups. If you have a personal account and log in with a Microsoft id, you need to [create a work id from your personal one](windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Either -- depending on your client operating system -- the [Azure PowerShell](/powershell/azureps-cmdlets-docs) or the [Azure CLI for Mac, Linux, and Windows](../cli-install-nodejs.md).
 * [OpenSSL](https://www.openssl.org/). OpenSSL is used to generate the necessary certificates.
 * A Git client such as [Git Bash](https://git-scm.com/).
@@ -174,7 +174,7 @@ The following steps show how to deploy a "Hello World" Go application to the clu
         ssh-keygen (press [Enter]s to use default file names and empty passcode)
 4. Add id_rsa.pub, or the public key of your choice, to GitHub. You can do this by using the Add SSH key button in your SSH keys configuration screen:
    
-   ![Github key](media/virtual-machines-linux-deis-cluster/github-key.png)
+   ![GitHub key](media/virtual-machines-linux-deis-cluster/github-key.png)
    
    <p />
 5. Register a new user:

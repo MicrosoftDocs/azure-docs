@@ -64,7 +64,7 @@ After you have changed your password, the new password will be usable in Azure A
 <br>
 
 ## Related Content
-* [How to update your own password](../active-directory/active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).)
+* [How to update your own password](../active-directory/active-directory-passwords-update-your-own-password.md#reset-your-password).)
 * [Getting started with Password Management in Azure AD](../active-directory/active-directory-passwords-getting-started.md).
 * [Enable password synchronization to AAD Domain Services for a synced Azure AD tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)

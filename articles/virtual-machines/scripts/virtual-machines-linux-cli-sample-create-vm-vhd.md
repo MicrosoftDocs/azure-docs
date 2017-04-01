@@ -29,7 +29,7 @@ You'll need a bootable VHD.
 You can download the VHD that we used from https://azclisamples.blob.core.windows.net/vhds/sample.vhd,
 or use your own VHD. The script looks for `~/sample.vhd`.
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample script
 

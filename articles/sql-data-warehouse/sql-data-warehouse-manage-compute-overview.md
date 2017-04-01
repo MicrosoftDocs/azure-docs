@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: manage
 ms.date: 03/22/2017
 ms.author: elbutter
 
@@ -153,9 +154,9 @@ To resume a database, use any of these individual methods.
 
 To resume a database, use any of these individual methods.
 
-- [Check database state with T-SQL]
-- [Check database state with PowerShell]
-- [Check database state with REST APIs]
+- [Check database state with T-SQL][Check database state with T-SQL]
+- [Check database state with PowerShell][Check database state with PowerShell]
+- [Check database state with REST APIs][Check database state with REST APIs]
 
 ## Permissions
 
@@ -194,6 +195,10 @@ Refer to the following articles to help you understand some additional key perfo
 [Resume compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md#resume-compute-bk
 [Resume compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#resume-compute-bk
 [Resume compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
+
+[Check database state with T-SQL]: ./sql-data-warehouse-manage-compute-tsql.md#check-database-state-and-operation-progress
+[Check database state with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#check-database-state
+[Check database state with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#check-database-state
 
 [Workload and concurrency managment]: ./sql-data-warehouse-develop-concurrency.md
 [Table design overview]: ./sql-data-warehouse-tables-overview.md

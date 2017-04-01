@@ -4,6 +4,7 @@
 # Get Started
 ## [Deploy a scale set in the portal](virtual-machine-scale-sets-portal-create.md)
 ## [Deploy a scale set using PowerShell or Azure CLI](virtual-machine-scale-sets-create.md)
+## [Deploy an autoscaling app using a template](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
 # How To
 ## Plan and design
