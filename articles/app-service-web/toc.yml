@@ -39,7 +39,7 @@
     href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
   - name: Authentication with on-premises AD
     href: web-sites-authentication-authorization.md
-- name: How-To guides
+- name: How-to guides
   items:
   - name: Develop your app
     items:
