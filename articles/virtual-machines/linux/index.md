@@ -56,7 +56,7 @@ Learn how to run Virtual Machines on Azure using the Linux distribution of your 
     <div class="column50">
         <h2>Video Training</h2>
         <a href="https://azure.microsoft.com/en-us/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
-        <img src="media/index/video-training-infrastructure.png" height="160" width="360" alt="" />
+        <img src="media/index/video-training-infrastructure.png" height="200" width="360" alt="" />
         <p>Free Pluralsight video training – Managing Infrastructure</a></p>
     </div>
 </div>
