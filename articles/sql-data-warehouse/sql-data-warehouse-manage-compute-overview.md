@@ -200,7 +200,7 @@ Refer to the following articles to help you understand some additional key perfo
 [Check database state with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#check-database-state
 [Check database state with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#check-database-state
 
-[Workload and concurrency managment]: ./sql-data-warehouse-develop-concurrency.md
+[Workload and concurrency management]: ./sql-data-warehouse-develop-concurrency.md
 [Table design overview]: ./sql-data-warehouse-tables-overview.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
 [Table indexing]: ./sql-data-warehouse-tables-index.md
