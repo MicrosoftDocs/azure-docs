@@ -96,7 +96,7 @@ Create a virtual machine configuration. This configuration includes the settings
 $cred = Get-Credential
 
 # Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_D1 | `
+$vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_D2 | `
 Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
 Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
 Add-AzureRmVMNetworkInterface -Id $nic.Id
