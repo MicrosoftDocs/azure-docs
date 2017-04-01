@@ -71,7 +71,7 @@ Note the following:
   in an app setting named `AzureWebJobsServiceBus`.
 * For `accessRights`, available values are `manage` and `listen`. The default is `manage`, which indicates that the 
   `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, 
-  set `accessRights` to `listen`. Otherwise, the Functions runtime might try and fail to do operations that require manage 
+  set `accessRights` to `listen`. Otherwise, the Functions runtime might fail trying to do operations that require manage 
   rights.
 
 ## Trigger behavior
@@ -96,13 +96,12 @@ In C# and F#, the Service Bus trigger message can be deserialized to any of the 
 * `string` - useful for string messages
 * `byte[]` - useful for binary data
 * Any [Object](https://msdn.microsoft.com/library/system.object.aspx) - useful for JSON-serialized data.
-  If you declare a custom input type (e.g. `FooType`), Azure Functions attempts to deserialize the JSON data
+  If you declare a custom input type, such as `CustomType`, Azure Functions tries to deserialize the JSON data
   into your specified type.
 * `BrokeredMessage` - gives you the deserialized message with the [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx)
   method.
 
-In Node.js, the Service Bus trigger message is passed into the function as either a string or, in the case of JSON message,
-a JavaScript object.
+In Node.js, the Service Bus trigger message is passed into the function as either a string or JSON object.
 
 <a name="triggersample"></a>
 
@@ -202,7 +201,7 @@ Note the following:
   in an app setting named `AzureWebJobsServiceBus`.
 * For `accessRights`, available values are `manage` and `listen`. The default is `manage`, which indicates that the 
   `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, 
-  set `accessRights` to `listen`. Otherwise, the Functions runtime might try and fail to do operations that require manage 
+  set `accessRights` to `listen`. Otherwise, the Functions runtime might fail trying to do operations that require manage 
   rights.
 
 <a name="outputusage"></a>
