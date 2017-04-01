@@ -87,6 +87,6 @@ There is a delay between when the usage data is generated in Azure Stack versus 
 
 ## Next steps
 
-* [Provider usage API](azure-stack-provider-resource-api)  
+* [Provider usage API](azure-stack-provider-resource-api.md)  
 * [Tenant usage API](azure-stack-tenant-resource-usage-api.md)
 * [Usage FAQ](azure-stack-usage-related-faq.md)
