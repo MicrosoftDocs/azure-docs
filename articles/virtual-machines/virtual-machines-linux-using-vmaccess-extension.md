@@ -36,7 +36,7 @@ The following examples use [az vm access](/cli/azure/vm/access) along with the a
 The following example resets the SSH key for the user `azureuser` on the VM named `myVM`:
 
 ```azurecli
-az vm access set-linux-user \
+az vm user update \
   --resource-group myResourceGroup \
   --name myVM \
   --username azureuser \
@@ -47,7 +47,7 @@ az vm access set-linux-user \
 The following example resets the password for the user `azureuser` on the VM named `myVM`:
 
 ```azurecli
-az vm access set-linux-user \
+az vm user update \
   --resource-group myResourceGroup \
   --name myVM \
   --username azureuser \
@@ -58,7 +58,7 @@ az vm access set-linux-user \
 The following example resets the SSHD configuration on a VM named `myVM`:
 
 ```azurecli
-az vm access reset-linux-ssh \
+az vm user reset-ssh \
   --resource-group myResourceGroup \
   --name myVM
 ```
@@ -67,7 +67,7 @@ az vm access reset-linux-ssh \
 The following example creates a user named `myNewUser` using an SSH key for authentication on the VM named `myVM`:
 
 ```azurecli
-az vm access set-linux-user \
+az vm user update \
   --resource-group myResourceGroup \
   --name myVM \
   --username myNewUser \
@@ -78,7 +78,7 @@ az vm access set-linux-user \
 The following example deletes a user named `myNewUser` on the VM named `myVM`:
 
 ```azurecli
-az vm access delete-linux-user \
+az vm user delete \
   --resource-group myResourceGroup \
   --name myVM \
   --username myNewUser
