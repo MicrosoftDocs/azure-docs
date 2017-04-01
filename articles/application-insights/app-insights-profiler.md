@@ -19,13 +19,13 @@ ms.author: awills
 
 *This feature of Application Insights is in preview.*
 
-Find out how much time is spent in each method in your live web application by using the profiling tool of [Azure Application Insights](app-insights-overview.md). It automatically highlights the 'hot path' that is using the most time. The profiler uses a variety of techniques to minimize overhead.
+Find out how much time is spent in each method in your live web application by using the profiling tool of [Azure Application Insights](app-insights-overview.md). It automatically highlights the 'hot path' that is using the most time. The profiler uses various techniques to minimize overhead.
 
 <a id="installation"></a>
 ## Prerequisites
 
 - Your app is an ASP.NET web application hosted in Azure App Services. 
-    * If it's an ASP.NET Core application, the target framework must be .NetCoreApp.
+    * If it's an ASP.NET Core application, the target framework must be `.NetCoreApp`.
 - The version of the Application Insights NuGet package you have installed in your web app is:
     * Microsoft.ApplicationInsights.Web v2.2.0-beta2 or later; or
     * Microsoft.ApplicationInsights.AspNetCore v2.0.0 or later.
@@ -38,66 +38,62 @@ App types that are **not yet** supported in this preview:
 
 ## Start the profiler
 
+
+![In the Performance blade, click Configure][performance-blade]
+
 1. In [https://portal.azure.com](https://portal.azure.com), open the Application Insights resource for your web app. (Either open it directly, or, from the web app blade, open Application Insights, then **View more detail**.)
 2. Open Investigate/**Performance**.
 3. Click **Configure** on the toolbar.
+ * *No Configure button? Use the [manual procedure](#manual-installation)*
 4. Select the app from the Web App list.
-5. Click **Start** to set up the profiler. 
+5. Click **Start** to set up the profiler. It will take 2 or 3 minutes to install.
 5. After the enabling completes, the profiler agent will run as a continuous web job (ApplicationInsightsProfiler) in the Web App.
 
-### What does starting the profiler do?
+### Manual installation
 
-Whe you click Start, these updates are made to the Web App's Application Settings. If you prefer it, you could do them yourself manually:
+When you configure the profiler, the following updates are made to the Web App's settings. You can do them yourself manually:
 
-* In Application Settings:
- * Set ".Net Framework version" to v4.6.
- * Set "Always On" to On.
- * Add app setting "__APPINSIGHTS_INSTRUMENTATIONKEY__" and set the value to the same instrumentation key used by the SDK.
-* In Extensions:
- * Add "Application Insights Profiler".
+1. In the Web app control blade, open Settings.
+2. Set ".Net Framework version" to v4.6.
+3. Set "Always On" to On.
+4. Add app setting "__APPINSIGHTS_INSTRUMENTATIONKEY__" and set the value to the same instrumentation key used by the SDK.
+5. In **Extensions**, Add "Application Insights Profiler." It will take 2 or 3 minutes to install.
 
 
-## Stop the profiler
+### Stop and restart the profiler
 
-1. Open the Web App resource in [https://portal.azure.com](https://portal.azure.com)
-2. Select "SETTINGS -> WebJobs" to open WebJobs blade.
-3. Select "ApplicationInsightsProfiler" and click "Stop" button.
-4. Later on, you can click "Start" button to re-enable the profiler.
+In the Web App resource, open SETTINGS/**WebJobs**. There you can stop and start the profiler job.
 
-## Delete the profiler
+### Delete the profiler
 
-1. Open the Web App resource in [https://portal.azure.com](https://portal.azure.com)
-2. Select "DEVELOPMENT TOOLS -> Extensions" to open Extensions blade.
-3. Select "Application Insights Profiler" and click "Delete" button. After deletion, the profiler agent will also be removed.
+In the Web App resource, open DEVELOPMENT TOOLS/**Extensions**. Delete the Application Insights profiler.
 
 ## Viewing profiler data
 
-To view data click on the performance tab in the overview blade or the first chart in the overview timeline.
+Open the Performance blade and scroll down to the operation list.
 
-![How to open the Performance blade](./media/app-insights-profiler/performance-blade.png)
+An icon in the Examples column indicates that the profiler has captured stack traces for that operation.
 
-When a row has an icon in the last column this means there are traces 
-available for that operation name. Clicking on this icon will bring you to our trace explorer where you can view several different samples 
-that the profiler has captured. 
 
 ![Application Insights Performance blade Examples Column][performance-blade-examples]
 
-In the explorer there are a few things that are available to you. On the left there is a percentile breakdown with samples in the categories.
-This gives you quick access to profile data in performance bucket. If you need more data or can't find what you need, click 'Show all' at the top, to reveal more data. 
+Click through to the trace explorer where you can view several different samples that the profiler has captured. 
 
+The trace explorer shows a percentile breakdown with samples in the categories.
+This gives you quick access to profile data in each performance bucket. If you want to see more data, click **Show all**. 
 
 ![Application Insights Trace Explorer][trace-explorer]
 
-In the toolbar there is meta information with a precise timestamp that you can use for tracing purposes. For more advanced investigations, you can download the .etl file and view it in a tool such as PerfView.
+In the toolbar there is meta information with a precise timestamp that you can use for tracing purposes. For more advanced investigations, you can download the `.etl` file and view it in a tool such as PerfView.
 
 ![Toolbar][trace-explorer-toolbar]
 
-In some cases, you will see a popup performance tip.
+In some cases, a popup performance tip appears.
 
 ![Hint][trace-explorer-hint-tip]
 
 **Show hot path** opens the biggest leaf node, or at least something close. In most cases this node
-will be adjacent to where your performance bottleneck is.
+will be adjacent to a performance bottleneck.
 
 ![Hot path][trace-explorer-hot-path]
 
@@ -105,57 +101,56 @@ will be adjacent to where your performance bottleneck is.
 ## How to read performance data
 
 Microsoft service profiler uses a combination of sampling method and instrumentation to analyze the performance of your application. 
-When detailed collection is in progress, service profiler samples the instruction pointer of each of the machine's CPUs every millisecond. 
+When detailed collection is in progress, service profiler samples the instruction pointer of each of the machine's CPU in every millisecond. 
 Each sample captures the complete call stack of the thread currently executing, giving detailed and useful information about what that 
 thread was doing at both high and low levels of abstraction. Service profiler also collects other events such as context switching events,
-TPL events and threadpool events to track activity correlation and causality. 
+TPL events, and thread-pool events to track activity correlation and causality. 
 
 The call stack shown in the timeline view is the result of the above sampling and instrumentation. Because each sample captures the complete
-call stack of the thread, it will include code from .net framework as well as other frameworks you reference.
+call stack of the thread, it includes code from the .NET framework, as well as other frameworks you reference.
 
-### <a id="jitnewobj"></a>Object Allocation (clr!JIT\_New or clr!JIT\_Newarr1)
-clr!JIT\_New and clr!JIT\_Newarr1 are helper functions inside .net framework that allocates memory from managed heap. clr!JIT\_New is invoked
-when an object is allocated. clr!JIT\_Newarr1 is invoked when an object array is allocated. These two functions are typically 
-very fast and should take relatively small amount of time. If you see clr!JIT\_New or clr!JIT\_Newarr1 take a substantial amount of 
+### <a id="jitnewobj"></a>Object Allocation (`clr!JIT\_New or clr!JIT\_Newarr1`)
+`clr!JIT\_New and clr!JIT\_Newarr1` are helper functions inside .NET framework that allocates memory from managed heap. `clr!JIT\_New` is invoked
+when an object is allocated. `clr!JIT\_Newarr1` is invoked when an object array is allocated. These two functions are typically 
+very fast and should take relatively small amount of time. If you see `clr!JIT\_New` or `clr!JIT\_Newarr1` take a substantial amount of 
 time in your timeline, it's an indication that the code may be allocating many objects and consuming significant amount of memory. 
 
-### <a id="theprestub"></a>Loading Code (clr!ThePreStub)
-clr!ThePreStub is a helper function inside .net framework that prepares the code to execute for the first time. This typically includes, 
-but not limited to, JIT (Just In Time) compilation. For each C# method, clr!ThePreStub should be invoked at most once during the lifetime
+### <a id="theprestub"></a>Loading Code (`clr!ThePreStub`)
+`clr!ThePreStub` is a helper function inside .NET framework that prepares the code to execute for the first time. This typically includes, 
+but not limited to, JIT (Just In Time) compilation. For each C# method, `clr!ThePreStub` should be invoked at most once during the lifetime
 of a process.
 
-If you see clr!ThePreStub takes significant amount of time for a request, it indicates that request is the first one that executes 
-that method, and the time for .net framework runtime to load that method is significant. You can consider a warm up process that executes
-that portion of the code before your users access it, or consider NGen your assemblies. 
+If you see `clr!ThePreStub` takes significant amount of time for a request, it indicates that request is the first one that executes 
+that method, and the time for .NET framework runtime to load that method is significant. You can consider a warm-up process that executes
+that portion of the code before your users access it, or consider running NGen on your assemblies. 
 
-### <a id="lockcontention"></a>Lock Contention (clr!JITutil\_MonContention or clr!JITutil\_MonEnterWorker)
-clr!JITutil\_MonContention or clr!JITutil\_MonEnterWorker indicate the current thread is waiting for a lock to be released. This typically
-shows up when executing a c# lock statement, invoking Monitor.Enter method, or invoking a method with MethodImplOptions.Synchronized 
+### <a id="lockcontention"></a>Lock Contention (`clr!JITutil\_MonContention` or `clr!JITutil\_MonEnterWorker`)
+`clr!JITutil\_MonContention` or `clr!JITutil\_MonEnterWorker` indicate the current thread is waiting for a lock to be released. This typically
+shows up when executing a C# lock statement, invoking Monitor.Enter method, or invoking a method with MethodImplOptions.Synchronized 
 attribute. Lock contention typically happens when thread A acquires a lock, and thread B tries to acquire the same lock before thread 
 A releases it. 
 
-### <a id="ngencold"></a>Loading code ([COLD])
-If the method name has the word "[COLD]" in it, such as mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined, it means the .net
-framework runtime is executing code that is not optimized by <a href="https://msdn.microsoft.com/en-us/library/e7k32f4k.aspx">
-profile-guided optimization</a> for the first time. For each method, it should show up at most once during the lifetime of the process. 
+### <a id="ngencold"></a>Loading code (`[COLD]`)
+If the method name contains `[COLD]`, such as `mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined`, it means that the .NET
+framework runtime is executing code that is not optimized by <a href="https://msdn.microsoft.com/library/e7k32f4k.aspx">profile-guided optimization</a> for the first time. For each method, it should show up at most once during the lifetime of the process. 
 
 If loading code takes significant amount of time for a request, it indicates that request is the first one to execute the unoptimized 
 portion of the method. You can consider a warm up process that executes that portion of the code before your users access it. 
 
 ### <a id="httpclientsend"></a>Send HTTP Request
-Methods such as HttpClient.Send indicates the code is waiting for a HTTP request to complete.
+Methods such as `HttpClient.Send` indicate the code is waiting for a HTTP request to complete.
 
 ### <a id="sqlcommand"></a>Database Operation
 Method such as SqlCommand.Execute indicates the code is waiting for a database operation to complete.
 
-### <a id="await"></a>Waiting (AWAIT\_TIME)
-AWAIT\_TIME indicates the code is waiting for another task to complete. This typically happens with C# 'await' statement. When the code
-does a C# 'await', the thread unwinds and returns control to the threadpool, and there is no thread that is blocked waiting for 
+### <a id="await"></a>Waiting (`AWAIT\_TIME`)
+`AWAIT\_TIME` indicates the code is waiting for another task to complete. This typically happens with C# 'await' statement. When the code
+does a C# 'await', the thread unwinds and returns control to the thread-pool, and there is no thread that is blocked waiting for 
 the 'await' to finish. However, logically the thread that did the await is 'blocked' waiting for the operation to complete. The
-AWAIT\_TIME indicates the blocked time waiting for the task to complete.
+`AWAIT\_TIME` indicates the blocked time waiting for the task to complete.
 
 ### <a id="block"></a>Blocked Time
-BLOCKED_TIME indicates the code is waiting for another resource to be available, such as waiting for a synchronization object,
+`BLOCKED_TIME` indicates the code is waiting for another resource to be available, such as waiting for a synchronization object,
 waiting for a thread to be available, or waiting for a request to finish. 
 
 ### <a id="cpu"></a>CPU Time
@@ -170,9 +165,9 @@ The application is performing network operations.
 ### <a id="when"></a>When column
 This is a visualization of how the INCLUSIVE samples collected for a node vary over time. The total range of the request
 is divided into 32 time buckets and the inclusive samples for that node are accumulated into those 32 buckets. Each bucket is then represented as 
-a bar whose height represents a scaled value. For nodes marked CPU_TIME or BLOCKED_TIME, or where there is an obvious relationship of consuming a resource (cpu, disk, thread),
+a bar whose height represents a scaled value. For nodes marked `CPU_TIME` or `BLOCKED_TIME`, or where there is an obvious relationship of consuming a resource (cpu, disk, thread),
 the bar represents consuming one of those resources for the period of time of that bucket. For these metrics you can get greater than 100% by consuming multiple 
-resources. (For example, if on average you use two CPUs over an interval then you get 200%).
+resources. For example, if on average you use two CPUs over an interval then you get 200%.
 
 ## <a id="aspnetcore"></a>ASP.NET Core Support
 
@@ -192,9 +187,9 @@ The application also needs to include the following components to enable profili
 
 ## <a id="troubleshooting"></a>Troubleshooting
 
-### How can I know if Application Insights profiler is running after installation?
+### How can I know whether Application Insights profiler is running?
 
-The profiler run as a continuous web job in Web App. You can open the Web App resource in https://portal.azure.com and check "ApplicationInsightsProfiler" status in the WebJobs blade. If it isn't running, open **Logs** to find out more. 
+The profiler runs as a continuous web job in Web App. You can open the Web App resource in https://portal.azure.com and check "ApplicationInsightsProfiler" status in the WebJobs blade. If it isn't running, open **Logs** to find out more. 
 
 ### Why can't I find any stack examples even though the profiler is running?
 
