@@ -21,7 +21,7 @@ ms.author: nepeters
 
 # Create a Windows virtual machine with PowerShell
 
-The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This guide details using PowerShell to create and Azure virtual machine running Windows Server 2016. 
+The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This guide details using PowerShell to create and Azure virtual machine running Windows Server 2016.  Once deployment is complete, we connect to the server and install IIS.  
 
 Before you start, make sure that the latest version of the Azure PowerShell module has been installed. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
@@ -96,7 +96,7 @@ Create a virtual machine configuration. This configuration includes the settings
 $cred = Get-Credential
 
 # Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_D2 | `
+$vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS2 | `
 Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
 Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
 Add-AzureRmVMNetworkInterface -Id $nic.Id
