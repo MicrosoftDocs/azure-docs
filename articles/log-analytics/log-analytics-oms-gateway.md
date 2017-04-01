@@ -22,15 +22,15 @@ Computers that are managed by Operations Management Suite (OMS) and monitored by
 
 You can use OMS Gateway with:
 
-* Azure Automation Hybrid Runbook Worker  
-* Windows computers that have the Microsoft Monitoring Agent, and which are directly connected to an Operations Management Suite workspace
-* System Center Operations Manager 2012 SP1 with Update Rollup (UR) 7, System Center Operations Manager 2012 R2 with UR3, or a System Center Operations Manager 2016 management group that is integrated with Operations Management Suite  
+* Azure Automation Hybrid Runbook Worker.  
+* Windows computers that have the Microsoft Monitoring Agent, and which are directly connected to an Operations Management Suite workspace.
+* System Center Operations Manager 2012 SP1 with Update Rollup (UR) 7, System Center Operations Manager 2012 R2 with UR3, or a System Center Operations Manager 2016 management group that is integrated with Operations Management Suite.  
 
 Some IT security policies do not allow networked computers to connect to the Internet. This might be true for point-of-sale (POS) devices, or for servers that support IT services. But, you need to connect the computers to Operations Management Suite to manage and monitor them. You can set up offline computers to communicate directly with OMS Gateway. The gateway receives configuration and forward data on behalf of the offline computers.  
 
 If you set up computers that have the Operations Management Suite agent to connect directly to an Operations Management Suite workspace, all computers instead communicate by using the OMS gateway. The gateway transfers data from the agents, directly to Operations Management Suite. The gateway does not analyze any data in transit.
 
-When you integrate an Operations Manager management group with Operations Management Suite, you can set up management servers to connect to the OMS gateway. The servers receive configuration information, and then send collected data, depending on the solution you have set up. Operations Manager agents send some data, like Operations Manager alerts, configuration assessment, instance space, and capacity data, to the management server. Other, high-volume data, such as Internet Information Services (IIS) logs, performance, and security events are sent directly to the OMS gateway. 
+When you integrate an Operations Manager management group with Operations Management Suite, you can set up management servers to connect to the OMS gateway. The servers receive configuration information, and then send collected data, depending on the solution you have set up. Operations Manager agents send some data, like Operations Manager alerts, configuration assessment, instance space, and capacity data, to the management server. Other, high-volume data--such as Internet Information Services (IIS) logs, performance, and security events--are sent directly to the OMS gateway. 
 
 An Operations Manager gateway server that is deployed in a perimeter network (also known as *DMZ*, *demilitarized zone*, and *screened subnet*) or other isolated network to monitor untrusted systems cannot communicate with the OMS gateway. Operations Manager gateway servers can report only to a management server. When you set up an Operations Manager management group to communicate with the OMS gateway, proxy configuration information is automatically distributed to every agent-managed computer that is set up to collect data for Azure Log Analytics. Proxy configuration information is automatically distributed even if the setting is empty.    
 
@@ -113,7 +113,7 @@ To install the gateway, complete the following steps.
 
    1. Enter the TCP port number to use for the gateway. Setup configures an inbound rule with this port number in Windows Firewall. The default value is 8080.
       The valid range for the port number is 1 to 65535. If the input does not fall in this range, an error message appears.
-   2. Optionally, if the server where the gateway is installed needs to communicate through a proxy, enter the proxy address where the gateway needs to connect. For example, **http://myorgname.corp.contoso.com:80**. If proxy address box is empty, the gateway tries to connect directly to the Internet. If your proxy server requires authentication, enter a user name and password.<br><br> ![Gateway Wizard proxy configuration](./media/log-analytics-oms-gateway/gateway-wizard02.png)<br>   
+   2. Optionally, if the server where the gateway is installed needs to communicate through a proxy, enter the proxy address where the gateway needs to connect. For example, **http://myorgname.corp.contoso.com:80**. If proxy address box is empty, the gateway tries to connect directly to the Internet. If your proxy server requires authentication, enter a username and password.<br><br> ![Gateway Wizard proxy configuration](./media/log-analytics-oms-gateway/gateway-wizard02.png)<br>   
 5. If Microsoft Update is not enabled on the computer, the **Microsoft Update** page appears. You can choose to enable it on this page. Otherwise, continue to the next step.
 6. On the **Destination Folder** page, you can leave the default folder C:\Program Files\OMS Gateway or enter the location where you want to install the gateway.
 7. On the **Ready to install** page, select **Install**. A dialog box that requests permission to install might appear. Select **Yes**.
