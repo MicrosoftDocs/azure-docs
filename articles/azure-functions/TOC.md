@@ -22,7 +22,7 @@
 #### [Mobile Apps bindings](functions-bindings-mobile-apps.md)
 #### [Notification Hub output binding](functions-bindings-notification-hubs.md)
 #### [Service Bus bindings](functions-bindings-service-bus.md)
-#### [Sendgrid bindings](functions-bindings-sendgrid.md)
+#### [SendGrid bindings](functions-bindings-sendgrid.md)
 #### Storage bindings
 ##### [Blob bindings](functions-bindings-storage-blob.md)
 ##### [Queue bindings](functions-bindings-storage-queue.md)
