@@ -56,9 +56,9 @@ Learn how to create Windows virtual machines.
     </div>
     <div class="column50">
         <h2>Video Training</h2>
-        <a href="https://azure.microsoft.com/en-us/community/training/courses/azure-vms-getting-started/">
-        <img src="media/index/video-training-virtual-machines.png" height="160" width="360" alt="" />
-        <p>Free Pluralsight video training – Managing Microsoft Azure Virtual Machines</a></p>
+        <a href="https://azure.microsoft.com/en-us/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
+        <img src="media/index/video-training-infrastructure.png" height="160" width="360" alt="" />
+        <p>Free Pluralsight video training – Managing Infrastructure</a></p>
     </div>
 </div>
 

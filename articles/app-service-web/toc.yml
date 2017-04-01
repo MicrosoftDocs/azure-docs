@@ -27,7 +27,6 @@
     href: app-service-cli-samples.md
   - name: PowerShell
     href: app-service-powershell-samples.md
-- name: Tutorials
 - name: Concepts
   items:
   - name: How App Service works
