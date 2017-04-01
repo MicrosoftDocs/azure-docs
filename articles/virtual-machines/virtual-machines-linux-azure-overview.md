@@ -46,13 +46,15 @@ Azure virtual machines allow you to deploy a wide range of computing solutions i
 ## VM Sizes
 When you deploy a VM in Azure, you are going to select a VM size within one of our series of sizes that is suitable to your workload. The size also affects the processing power, memory, and storage capacity of the virtual machine. You are billed based on the amount of time the VM is running and consuming its allocated resources. A complete list of [sizes of Virtual Machines](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Here are some basic guidelines for selecting a VM size from one of our series (A, D, DS, G and GS).
+Here are some basic guidelines for selecting a VM size from one of our series (A, D, DS, G ,GS ,F and H).
 
 * A-series VMs are our value priced entry-level VMs for light workloads and Dev/Test scenarios. They are widely available in all regions and can connect and use all standard resources available to virtual machines.
 * A-series sizes (A8 - A11) are special compute intensive configurations suitable for high-performance computing cluster applications.
 * D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk.
 * Dv2-series, is the latest version of our D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haskell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.2 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
 * G-series VMs offer the most memory and run on hosts that have Intel Xeon E5 V3 family processors.
+* F-series VMs offer faster CPUs and higher clock speed. This series is recomanded for workloads that demand faster CPUs but do not need as much memory or local SSD per CPU core.
+* H-series Vms are next generation high performance VMs. This series is recomanded for very high workloads or where high end performance is desired.  
 
 Note: DS-series and GS-series VMs have access to Premium Storage - our SSD backed high-performance, low-latency storage for I/O intensive workloads. Premium Storage is available in certain regions. For details, see:
 
