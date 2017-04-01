@@ -15,15 +15,15 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/31/2016
+ms.date: 04/01/2017
 ms.author: chrande; glenga
 
 ---
 # Azure Functions Service Bus bindings
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-This article explains how to configure and code Azure Service Bus bindings in Azure Functions. 
-Azure Functions supports trigger and output bindings for Notification Hubs queues and topics.
+This article explains how to configure and work with Azure Service Bus bindings in Azure Functions. 
+Azure Functions supports trigger and output bindings for Service Bus queues and topics.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -32,7 +32,7 @@ Azure Functions supports trigger and output bindings for Notification Hubs queue
 ## Service Bus trigger
 Use the Service Bus trigger to respond to messages from a Service Bus queue or topic. 
 
-The Notification Hubs queue and topic triggers to a function use the following JSON objects in the `bindings` array of function.json:
+The Service Bus queue and topic triggers to a function use the following JSON objects in the `bindings` array of function.json:
 
 * *queue* trigger:
 
@@ -164,7 +164,7 @@ module.exports = function(context, myQueueItem) {
 <a name="output"></a>
 
 ## Service Bus output binding
-The Notification Hubs queue and topic output for a function use the following JSON objects in the `bindings` array of function.json:
+The Service Bus queue and topic output for a function use the following JSON objects in the `bindings` array of function.json:
 
 * *queue* output:
 
@@ -173,7 +173,7 @@ The Notification Hubs queue and topic output for a function use the following JS
         "name" : "<Name of output parameter in function signature>",
         "queueName" : "<Name of the queue>",
         "connection" : "<Name of app setting that has your queue's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>"
+        "accessRights" : "<Access rights for the connection string - see below>",
         "type" : "serviceBus",
         "direction" : "out"
     }
