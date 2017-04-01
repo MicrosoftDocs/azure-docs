@@ -20,9 +20,9 @@ ms.author: ancav
 # Create Activity Log Alerts
 
 ## Overview
-This article shows you how to use the Azure portal to set up alerts on activity log events.
+Activity Log Alerts are Azure resources so they can be managed using the Azure portal or the Azure Resource Manager (ARM). This article shows you how to use the Azure portal to set up alerts on activity log events.
 
-You can receive an alert based on operations that were performed on resources in your subscription
+You can receive alerts about operations that were performed on resources in your subscription or about service health events that may impact the health of your resources. An Activity Log Alert monitors the activity log events for the specific subscription the alert is deployed to.
 
 You can configure the alert based on:
 * Event Category (for [service health events click here](monitoring-activity-log-alerts-on-service-notifications.md))
@@ -59,15 +59,15 @@ You can configure and get information about service health notification alerts u
 
     ![Add-Alert](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
 
-6.	The **Subscription** should be auto filled to the subscription you are currently operating under.
+6.	The **Subscription** should be auto filled to the subscription you are currently operating under. This is the subscription the alert resource will be deployed to and monitor.
 
     ![Add-Alert-New-Action-Group](./media/monitoring-activity-log-alerts/activity-log-alert-new-action-group.png)
 
-7.	Choose the **Resource Group** for this alert.
+7.	Choose the **Resource Group** this alert will be associated with in the **Subscription**.
 
-8.	Provide the **Event Category**, **Resource Group**, **Resource**, **Resource Type**, **Operation Name**, **Level**, **Status** and **Event intiated by** values to scope for what events this alert should apply.
+8.	Provide the **Event Category**, **Resource Group**, **Resource**, **Resource Type**, **Operation Name**, **Level**, **Status** and **Event intiated by** values to identify which events this alert should monitor.
 
-9.	Create a **New** Action Group by giving it **Name** and **Short Name**; the Short Name will be referenced in the notifications sent when this alert fires.
+9.	Create a **New** Action Group by giving it **Name** and **Short Name**; the Short Name will be referenced in the notifications sent when this alert is activated.
 
 10.	Then, define a list of receivers by providing the receiver’s
 
