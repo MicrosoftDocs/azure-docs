@@ -53,7 +53,7 @@ To set up usage data reporting in Azure Stack, you must [register your Azure Sta
 
 At TP3, because Azure Stack resources are not charged, the price is shown as $0.00. When Azure Stack becomes generally available, you can see the actual cost for each of these resources. 
 
-## What will a user be charged for?
+## Which Azure Stack instances are charged?
 At TP3, resource usage is free for Azure Stack POC and multi-node instances. 
 
 At general availability, Azure Stack multi-node systems will be charged whereas the single-node POC environment will continue to be available at no cost. For multi-node systems, workload VMs, Storage services, and App Services are charged. 
