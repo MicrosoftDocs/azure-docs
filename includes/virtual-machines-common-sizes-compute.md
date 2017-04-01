@@ -7,7 +7,7 @@ F-series VMs are an excellent choice for workloads that demand faster CPUs but d
 The Fs-series provides all the advantages of the F-series, in addition to Premium storage.
 
 > [!NOTE]
-> All Azure virtual machine sizes will support at least 2 network interfaces (NICs) starting April 15th. For specific region information stay tuned for a [service update.](https://azure.microsoft.com/en-us/updates/). These are indicated below with a "^".
+> All Azure virtual machine sizes will support at least 2 network interfaces (NICs) starting April 15th. For specific region information stay tuned for a [service update.](https://azure.microsoft.com/en-us/updates/).These are indicated below with a "^".
 
 ## Fs-series*
 
