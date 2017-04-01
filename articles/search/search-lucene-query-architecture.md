@@ -196,16 +196,18 @@ Further assume that this index contains the following four documents:
 }
 ~~~~
 
-**How the inverted index is created**
+**How terms are indexed**
 
 To understand retrieval, it helps to know a few basics about how terms are stored. During indexing, the search engine creates an inverted index for each searchable field independently. An inverted index is a sorted list of all terms from all documents. Each term maps to the list of documents where it occurs.
 
-Indexing and query parsing share some similarities. For example, both query parsing and indexing extracts terms, except during indexing the terms are extracted from *documents* instead of a query string. Analyzers and analysis are another shared component. Text inputs are passed to an analyzer during indexing. Often the same analyzers used during indexing are also used for queries so that a query input can be processed to look like the terms stored inside the index. The transformation of strings-to-terms in an index is roughly the same [lexical analysis](#stage2) performed during querying. 
+Indexing and query parsing share some similarities. For example, both extract terms, except indexing extracts terms from *documents* instead of a query string. [Lexical analysis](#stage2) is another shared component. During indexing, text inputs are passed to analyzer, lower-cased, punctuation is removed, and so forth. It's common, but not required, to use the same analyzers for both indexing and query processing. Using the same analyzers allows a processed term to look more like the terms stored inside the index.
 
 > [!Note]
 > In contrast with Lucene, Azure Search lets you specify different analyzers for indexing and search via additional `indexAnalyzer` and `searchAnalyzer` field parameters. If unspecified, the analyzer set with the `analyzer` property is used for both indexing and searching.  
 
-Returning to our example: For the title field, the inverted index looks like this:
+**Inverted index for example documents**
+
+Returning to our example, for the title field, the inverted index looks like this:
 
 | Term | Document list |
 |------|---------------|
