@@ -20,6 +20,8 @@ ms.author: allclark
 
 # Restart VMs
 
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
 This sample shows a couple of ways to get some VMs and restart them.
 
 The first restarts all the VMs in the resource group.
