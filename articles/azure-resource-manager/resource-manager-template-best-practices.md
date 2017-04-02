@@ -1,5 +1,5 @@
 ---
-title: Best practices Resource Manager template | Microsoft Docs
+title: Best practices for creating Resource Manager templates | Microsoft Docs
 description: Guidelines for simplifying your Azure Resource Manager templates.
 services: azure-resource-manager
 documentationcenter: ''
@@ -18,16 +18,16 @@ ms.author: tomfitz
 
 ---
 # Best practices for creating Azure Resource Manager templates
-The following guidelines help you create Resource Manager templates that are reliable and easy-to-use. These guidelines are intended only as suggestions, not absolute requirements. Your scenario may require variations from these guidelines.
+The following guidelines can help you create Resource Manager templates that are reliable and easy to use. These guidelines are suggestions only. They are not absolute requirements. For your scenario, you might want to use a variation of these guidelines.
 
 ## Resource names
-There are generally three types of resource names you work with:
+Generally, you'll work with three types of resource names:
 
-1. Resource names that must be unique.
-2. Resource names that do not need to be unique but you want to provide a name that helps identify the context.
-3. Resource names that can be generic.
+* Resource names that must be unique
+* Resource names that are not required to be unique, but you choose to provide a name that helps you identify the context
+* Resource names that can be generic
 
-For help with establishing a naming convention, see [Infrastructure naming guidelines](../virtual-machines/windows/infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For information about resource name restrictions, see [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md).
+For help creating a naming convention, see [Infrastructure naming guidelines](../virtual-machines/windows/infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For information about resource name restrictions, see [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md).
 
 ### Unique resource names
 You must provide a unique resource name for any resource type that has a data access endpoint. Some common types that require a unique name include:
@@ -324,12 +324,12 @@ If a template creates **publicIPAddresses**, it should have an **outputs** secti
 ```
 
 ## Single template or nested templates
-To deploy your solution, you can use either a single template or a main template with multiple nested templates. Nested templates are common for more advanced scenarios. Nested templates contain the following advantages:
+To deploy your solution, you can use either a single template or a main template with multiple nested templates. Nested templates are common for more advanced scenarios. Using a nested template gives you the following advantages:
 
-1. Can decompose solution into targeted components
-2. Can reuse nested templates with different main templates
+* You can break down a solution into targeted components.
+* You can reuse nested templates with different main template.s
 
-When you decide to decompose your template design into multiple nested templates, the following guidelines help standardize the design. These guidelines are based on the [patterns for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md) documentation. The recommended design consists of the following templates:
+When you decide to break down your template design into multiple nested templates, the following guidelines help standardize the design. These guidelines are based on the [patterns for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md) documentation. The recommended design consists of the following templates:
 
 * **Main template** (azuredeploy.json). Used for the input parameters.
 * **Shared resources template**. Deploys the shared resources that all other resources use (for example, virtual network, availability sets). The expression dependsOn enforces that this template is deployed before the other templates.
