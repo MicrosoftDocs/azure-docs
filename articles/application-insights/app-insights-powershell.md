@@ -173,7 +173,7 @@ You can add other parameters - you'll find their descriptions in the parameters 
 After creating an application resource, you'll want the instrumentation key: 
 
 ```PS
-    $resource = Find-AzureRmResource -ResourceNameEquals "h423"
+    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>"
     $details = Get-AzureRmResource -ResourceId $resource.ResourceId
     $ikey = $details.Properties.InstrumentationKey
 ```
