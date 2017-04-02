@@ -68,9 +68,12 @@ Learn how to use App Service Web Apps to build and host websites and web applica
     </div>
     <div class="column50">
         <h2>Video Training</h2>
-        <a href="https://azure.microsoft.com/community/training/courses/developing-dotnet-microsoft-azure-getting-started/">
+        <a href="https://app.pluralsight.com/player?author=scott-allen&name=f24a629c-37b7-47f1-bc43-4b122da61cbb&mode=live&clip=0&course=developing-dotnet-microsoft-azure-getting-started">
         <img src="media/index/video-training-dotnet.png" height="200" width="360" alt="">
-        <p>Free Pluralsight video training – Developing with .NET on Microsoft Azure</a></p>
+        <p>Free Pluralsight video training – Developing with .NET</a></p>
+        <a href="https://app.pluralsight.com/player?author=scott-allen&name=developing-nodejs-microsoft-azure-getting-started-m0&mode=live&clip=0&course=developing-nodejs-microsoft-azure-getting-started">
+        <img src="media/index/video-training-nodejs.png" height="200" width="360" alt="">
+        <p>Free Pluralsight video training – Developing with Node.js</a></p>
     </div>
 </div>
 
