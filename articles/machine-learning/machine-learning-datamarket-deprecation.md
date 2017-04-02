@@ -21,6 +21,8 @@ ms.author: LuisCa
 
 The [Microsoft DataMarket](https://datamarket.azure.com/datasets) is now deprecated, and so the Machine Learning APIs that were hosted there are also now deprecated.
 
+You can now find these capabilities (and more) in the [Cognitive Services APIs](https://www.microsoft.com/cognitive-services).
+
 ## Text analytics API
 
 Previous DataMarket Text Analytics API customers should start using the [Cognitive Services Text Analytics API](https://www.microsoft.com/cognitive-services/text-analytics-api).
@@ -34,7 +36,5 @@ Previous DataMarket Recommendations API customers should start using the [Cognit
 The Cognitive Services Recommendations API supports all the scenarios that the earlier DataMarket version did, as well as additional scenarios, such as 
 batch support and better offline metrics to evaluate the quality of models. 
 
-## Start using the new API
-
-For more information about how to start using the new API, please visit the [Migrate to Azure Cognitive Services
-Recommendations API]((http://aka.ms/recomigrate)) page. 
+For more information about how to start using the Cognitive Services Recommendations API, see [Migrate to Azure Cognitive Services
+Recommendations API](http://aka.ms/recomigrate).
