@@ -24,7 +24,7 @@ This article is for developers who need a deeper understanding of how Lucene ful
 
 ## Architecture overview and diagram
 
-Processing a full text search query starts with parsing the query text to extract search terms, passing text inputs over to an analyzer. During analysis, individual query terms are sometimes broken down and reconstituted into new forms to cast a broader net over what could be considered as a potential match. The search engine uses the reconstituted query to search an index and retrieve documents with matching terms. A result set is then sorted by a relevance score assigned to each individual matching document.
+Processing a full text search query starts with parsing the query text to extract search terms, passing text inputs over to an analyzer. During analysis, individual query terms are sometimes broken down and reconstituted into new forms to cast a broader net over what could be considered as a potential match. The search engine then uses the reconstituted query to search an index and retrieve documents with matching terms. A result set is sorted by a relevance score assigned to each individual matching document. Those at the top are what gets returned to the calling application.
 
 Restated, query execution has four stages: 
 
@@ -199,16 +199,16 @@ Further assume that this index contains the following four documents:
 
 **How terms are indexed**
 
-To understand retrieval, it helps to know a few basics about how terms are organized in an index. The unit of storage is an inverted index, one for each searchable field. Within an inverted index is a sorted list of all terms from all documents. Each term maps to the list of documents in which it occurs, as evident in the example below.
+To understand retrieval, it helps to know a few basics about indexing. The unit of storage is an inverted index, one for each searchable field. Within an inverted index is a sorted list of all terms from all documents. Each term maps to the list of documents in which it occurs, as evident in the example below.
 
-To produce the terms in the index, the search engine performs parsing and analysis steps similar to those described for query execution. For parsing, terms are extracted, except indexing extracts terms from *documents* instead of a query string. For analysis, text inputs are passed to an analyzer, lower-cased, stripped of punctuation, and so forth. It's common, but not required, to use the same analyzers for both operations so that processed terms look more like terms stored inside the index.
+To produce the terms in an inverted index, the search engine performs parsing and analysis steps similar to those described for query execution. For parsing, terms are extracted, except indexing extracts terms from *documents* instead of a query string. For analysis, text inputs are passed to an analyzer, lower-cased, stripped of punctuation, and so forth. It's common, but not required, to use the same analyzers for both operations so that terms from a query look more like terms inside the index.
 
 > [!Note]
 > In contrast with Lucene, Azure Search lets you specify different analyzers for indexing and search via additional `indexAnalyzer` and `searchAnalyzer` field parameters. If unspecified, the analyzer set with the `analyzer` property is used for both indexing and searching.  
 
 **Inverted index for example documents**
 
-Returning to our example, for the title field, the inverted index looks like this:
+Returning to our example, for the **title** field, the inverted index looks like this:
 
 | Term | Document list |
 |------|---------------|
@@ -222,7 +222,7 @@ Returning to our example, for the title field, the inverted index looks like thi
 
 In the title field, only *hotel* shows up in two documents: 1, 3.
 
-For the description field, the index is as follows:
+For the **description** field, the index is as follows:
 
 | Term | Document list |
 |------|---------------|
