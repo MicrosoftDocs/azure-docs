@@ -21,11 +21,6 @@ ms.author: ancav
 ## Overview
 This article shows you how to set up activity log alerts for service health notifications using the Azure portal.  
 
->[!NOTE]
->This feature is currently in public preview. Not all functionality may be available at this time.
->
->
-
 You can receive an alert based on service health notifications for your Azure subscription.  
 You can configure the alert based on:
 - The class of service health notification (Incident, Maintenance, Information, etc.)
@@ -81,6 +76,8 @@ You can configure and get information about service health notification alerts u
 
 Within a few minutes, the alert is active and triggers as previously described.
 
+For details on the webhook schema for activity log alerts [click here](monitoring-activity-log-alerts-webhook.md)
+
 >[!NOTE]
 >The action group defined in these steps will be reusable, as an existing action group, for all future alert definition.
 >
@@ -122,5 +119,6 @@ Once you have created an alert, it will be visible in the Alerts section of the 
 
 ## Next Steps:
 Learn about [Service Health Notifications](monitoring-service-notifications.md)  
+Review the [activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md)
 Get an [overview of activity log alerts](monitoring-overview-alerts.md) and learn how to get alerted  
 Learn more about [action groups](monitoring-action-groups.md)
