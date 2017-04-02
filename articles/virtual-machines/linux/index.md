@@ -55,9 +55,15 @@ Learn how to run Virtual Machines on Azure using the Linux distribution of your 
     </div>
     <div class="column50">
         <h2>Video Training</h2>
-        <a href="https://azure.microsoft.com/en-us/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
-        <img src="media/index/video-training-infrastructure.png" height="200" width="360" alt="" />
+        <a href="https://app.pluralsight.com/player?author=tim-warner&name=managing-infrastructure-microsoft-azure-getting-started-m0&mode=live&clip=0&course=managing-infrastructure-microsoft-azure-getting-started">
+        <img src="media/index/video-training-infrastructure.png" height="160" width="360" alt="" />
         <p>Free Pluralsight video training – Managing Infrastructure</a></p>
+        <a href="https://app.pluralsight.com/player?author=tim-warner&name=azure-vms-getting-started-m0&mode=live&clip=0&course=azure-vms-getting-started">
+        <img src="media/index/video-training-vms.png" height="160" width="360" alt="" />
+        <p>Free Pluralsight video training – Getting Started with Virtual Machines</a></p>
+        <a href="https://app.pluralsight.com/player?author=tim-warner&name=azure-iaas-monitoring-management-getting-started-m0&mode=live&clip=0&course=azure-iaas-monitoring-management-getting-started">
+        <img src="media/index/video-training-iaas-monitoring.png" height="160" width="360" alt="" />
+        <p>Free Pluralsight video training – Getting Started with IaaS Monitoring</a></p>
     </div>
 </div>
 
