@@ -17,14 +17,9 @@ ms.date: 03/31/2017
 ms.author: ancav
 
 ---
-# Create and Manager Action Groups in Azure Portal
+# Create and Manage Action Groups in Azure Portal
 ## Overview ##
 This article shows you how to create and manage action groups in the Azure portal.
-
->[!NOTE]
->This feature is currently in public preview. Not all functionality may be available at this time.
->
->
 
 Action groups enable you to configure a list of receivers. These groups can then be leveraged when defining activity log alerts; ensuring that a particular action group is notified when the activity log alert is triggered.
 
