@@ -61,7 +61,7 @@ Learn how to create Windows virtual machines.
         <p>Free Pluralsight video training – Managing Infrastructure</a></p>
         <p></p>
         <a href="https://app.pluralsight.com/player?author=tim-warner&name=azure-vms-getting-started-m0&mode=live&clip=0&course=azure-vms-getting-started">
-        <img src="media/index/video-training-infrastructure.png" height="160" width="360" alt="" />
+        <img src="media/index/video-training-vms.png" height="160" width="360" alt="" />
         <p>Free Pluralsight video training – Getting Started with Virtual Machines</a></p>
         <p></p>
         <a href="https://app.pluralsight.com/player?author=tim-warner&name=azure-iaas-monitoring-management-getting-started-m0&mode=live&clip=0&course=azure-iaas-monitoring-management-getting-started">
