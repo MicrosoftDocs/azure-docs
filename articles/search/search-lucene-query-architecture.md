@@ -24,7 +24,7 @@ This article is for developers who need a deeper understanding of how Lucene ful
 
 ## Architecture overview and diagram
 
-Processing a full text search query starts with parsing the query text to extract search terms, moves on to analysis, followed by retrieval and ranking of results. During analysis, individual query terms are sometimes broken down and reconstituted into new forms to cast a broader net over what could be considered as a potential match. The search engine uses the reconstituted query to search an index, retrieving documents with matching terms. A result set is then sorted by a relevance score assigned to each individual matching document.
+Processing a full text search query starts with parsing the query text to extract search terms, passing text inputs over to an analyzer. During analysis, individual query terms are sometimes broken down and reconstituted into new forms to cast a broader net over what could be considered as a potential match. The search engine uses the reconstituted query to search an index and retrieve documents with matching terms. A result set is then sorted by a relevance score assigned to each individual matching document.
 
 Restated, query execution has four stages: 
 
@@ -33,7 +33,7 @@ Restated, query execution has four stages:
 3. Document retrieval 
 4. Scoring 
 
-The diagram below illustrates processing and execution of a search request. 
+The diagram below illustrates the components used to process a search request. 
 
  ![Lucene query architecture diagram in Azure Search][1]
 
@@ -42,7 +42,7 @@ The diagram below illustrates processing and execution of a search request.
 |----------------|------------------------|
 |**Query parsers** | Separate query terms from query operators. Creates the query structure (a query tree) to be sent to the search engine. Azure Search supports two kinds of query syntax (simple and full) for different types of queries.|
 |**Analyzers** | Perform lexical analysis on query terms. This process can involve transforming, removing, or expanding of query terms. Azure Search offers a collection of predefined analyzers, including language analyzers, and allows defining custom analyzers.|
-|**Inverted index** | An efficient data structure used to store and organize searchable terms extracted from indexed documents. |
+|**Index** | An efficient data structure used to store and organize searchable terms extracted from indexed documents. |
 |**Search engine** | Retrieves and scores matching documents based on the contents of the inverted index. |
 
 ## Anatomy of a search request
