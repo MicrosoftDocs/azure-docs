@@ -17,16 +17,16 @@ ms.author: jlembicz
 
 # How full text search works in Azure Search
 
-This article is for developers who need a deeper understanding of how Lucene full text search works in Azure Search. For text queries, Azure Search will seamlessly deliver expected results in most scenarios, but occasionally you might get a result that seems "off" somehow. In these situations, having a background in the four stages of Lucene query execution (query parsing, lexical analysis, document matching, scoring) can help you identify which changes to query parameters or index configuration will deliver the desired outcome. 
+This article is for developers who need a deeper understanding of how Lucene full text search works in Azure Search. For text queries, Azure Search will seamlessly deliver expected results in most scenarios, but occasionally you might get a result that seems "off" somehow. In these situations, having a background in the four stages of Lucene query execution (query parsing, lexical analysis, document matching, scoring) can help you identify specific changes to query parameters or index configuration that will deliver the desired outcome. 
 
 > [!Note] 
-> In Azure Search, Lucene integration is not exhaustive. We selectively expose and extend Lucene functionality to enable the scenarios important to Azure Search. As a developer, using the Azure Search APIs, and not Lucene APIs, is required for any custom work related to full text search. 
+> Azure Search uses Lucene for full text search, but Lucene integration is not exhaustive. We selectively expose and extend Lucene functionality to enable the scenarios important to Azure Search. As a developer, using the Azure Search APIs, and not Lucene APIs, is required for any custom work related to full text search. 
 
 ## Architecture overview and diagram
 
-Processing a full text search query starts with parsing the query text to extract search terms. The search engine uses an index to retrieve documents with matching terms. Individual query terms are sometimes broken down and reconstituted into new forms to cast a broader net over what could be considered as a potential match. A result set is then sorted by a relevance score assigned to each individual matching document.
+Processing a full text search query starts with parsing the query text to extract search terms, moves on to analysis, followed by retrieval and ranking of results. During analysis, individual query terms are sometimes broken down and reconstituted into new forms to cast a broader net over what could be considered as a potential match. The search engine uses the reconstituted query to search an index, retrieving documents with matching terms. A result set is then sorted by a relevance score assigned to each individual matching document.
 
-There are four stages in query execution: 
+Restated, query execution has four stages: 
 
 1. Query parsing 
 2. Lexical analysis 
@@ -36,6 +36,7 @@ There are four stages in query execution:
 The diagram below illustrates processing and execution of a search request. 
 
  ![Lucene query architecture diagram in Azure Search][1]
+
 
 | Key components | Functional description | 
 |----------------|------------------------|
@@ -198,9 +199,9 @@ Further assume that this index contains the following four documents:
 
 **How terms are indexed**
 
-To understand retrieval, it helps to know a few basics about how terms are stored. During indexing, the search engine creates an inverted index for each searchable field independently. An inverted index is a sorted list of all terms from all documents. Each term maps to the list of documents where it occurs.
+To understand retrieval, it helps to know a few basics about how terms are organized in an index. The unit of storage is an inverted index, one for each searchable field. Within an inverted index is a sorted list of all terms from all documents. Each term maps to the list of documents in which it occurs, as evident in the example below.
 
-Indexing and query parsing share some similarities. For example, both extract terms, except indexing extracts terms from *documents* instead of a query string. [Lexical analysis](#stage2) is another shared component. During indexing, text inputs are passed to analyzer, lower-cased, punctuation is removed, and so forth. It's common, but not required, to use the same analyzers for both indexing and query processing. Using the same analyzers allows a processed term to look more like the terms stored inside the index.
+To produce the terms in the index, the search engine performs parsing and analysis steps similar to those described for query execution. For parsing, terms are extracted, except indexing extracts terms from *documents* instead of a query string. For analysis, text inputs are passed to an analyzer, lower-cased, stripped of punctuation, and so forth. It's common, but not required, to use the same analyzers for both operations so that processed terms look more like terms stored inside the index.
 
 > [!Note]
 > In contrast with Lucene, Azure Search lets you specify different analyzers for indexing and search via additional `indexAnalyzer` and `searchAnalyzer` field parameters. If unspecified, the analyzer set with the `analyzer` property is used for both indexing and searching.  
@@ -251,7 +252,7 @@ For the description field, the index is as follows:
 
 **Matching query terms against indexed terms**
 
-Given the inverted index above, let’s return to the sample query and see how matching documents are found for our example query. Recall that the final query tree looks something like this: 
+Given the inverted indices above, let’s return to the sample query and see how matching documents are found for our example query. Recall that the final query tree looks something like this: 
 
  ![Boolean query with analyzed terms][4]
 
