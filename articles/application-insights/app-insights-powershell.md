@@ -199,7 +199,7 @@ To create an app resource with the Enterprise price plan, using the template abo
 |2|Enterprise|
 
 * If you only want to use the default Basic price plan, you can omit the CurrentBillingFeatures resource from the template.
-* If you want to change the price plan after the component resource has been created, you can use a template that omits the "microsoft.insights/components" resource. Also, omit the `dependency` from the billing resource. 
+* If you want to change the price plan after the component resource has been created, you can use a template that omits the "microsoft.insights/components" resource. Also, omit the `dependsOn` node from the billing resource. 
 
 To verify the updated price plan, look at the "Features+pricing" blade in the browser. **Refresh the browser view** to make sure you see the latest state.
 
