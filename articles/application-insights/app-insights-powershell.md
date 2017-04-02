@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 04/02/2017
 ms.author: awills
 
 ---
@@ -189,6 +189,8 @@ To create an app resource with the Enterprise price plan, using the template abo
 |2|Enterprise|
 
 * If you only want to use the default Basic price plan, you can omit the CurrentBillingFeatures resource from the template.
+* If you want to change the price plan after the component resource has been created, you can use a template that omits the component resource. Also, omit the `dependency` from the billing resource. 
+* To verify that the price plan has changed, look at the "Features+pricing" blade in the browser. Refresh the browser view.
 
 
 ## To get the instrumentation key
