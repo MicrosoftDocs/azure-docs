@@ -65,7 +65,7 @@ The runbooks that are needed for Vertically Scaling your Virtual Machine are alr
 
 The runbooks that need to be imported are shown in the image below
 
-![Import runbooks](./media/virtual-machines-vertical-scaling-automation/scale-runbooks.png)
+![Import runbooks](./windows/media/vertical-scaling-automation/scale-runbooks.png)
 
 ## Add a webhook to your runbook
 Once you've imported the runbooks you'll need to add a webhook to the runbook so it can be triggered by an alert from a Virtual Machine. The details of creating a webhook for your Runbook can be read here
@@ -84,7 +84,7 @@ Make sure you copy the webhook before closing the webhook dialog as you will nee
 7. Select a period over which the monitoring service will check for the condition and threshold in Steps 5 & 6
 8. Paste in the webhook you copied from the previous section.
 
-![Add Alert to Virtual Machine 1](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-1.png)
+![Add Alert to Virtual Machine 1](./windows/media/vertical-scaling-automation/add-alert-webhook-1.png)
 
-![Add Alert to Virtual Machine 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
+![Add Alert to Virtual Machine 2](./windows/media/vertical-scaling-automation/add-alert-webhook-2.png)
 

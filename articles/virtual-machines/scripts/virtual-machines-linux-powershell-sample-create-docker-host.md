@@ -22,7 +22,7 @@ ms.author: nepeters
 
 This script creates a virtual machine with Docker enabled and starts a container running NGINX. After running the script, you can access the NGINX web server through the FQDN of the Azure virtual machine. 
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount` to create a connection with Azure. Also, you will need to have an SSH public key named `id_rsa.pub` in the .ssh directory of your user profile.
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
 ## Sample script
 
