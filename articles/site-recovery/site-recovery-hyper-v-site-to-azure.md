@@ -47,7 +47,7 @@ These are the scenario components:
 | **Prerequisite** | **Details** |
 | --- | --- |
 | **Azure account** | [Microsoft Azure](http://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about Site Recovery pricing. |
-| **Azure storage** | Standard storage account. You can use an LRS or GRS storage account. We recommend GRS so that data is resilient if a regional outage occurs, or if the primary region can't be recovered. [Learn more](../storage/storage-redundancy.md).<br/><br/> The account must be in the same region as the Recovery Services vault.<br/><br/> Premium storage isn't supported.<br/><br/> Replicated data is stored in Azure storage and Azure VMs are created when failover occurs.<br/><br/> [Read about](../storage/storage-introduction.md) Azure storage. |
+| **Azure storage** | Standard/premium storage account. You can use an LRS or GRS storage account. We recommend GRS so that data is resilient if a regional outage occurs, or if the primary region can't be recovered. [Learn more](../storage/storage-redundancy.md).<br/><br/>[Premium storage](../storage/storage-premium-storage.md) is  used for virtual machines that need a consistently high IO performance, and low latency to host IO intensive workloads.<br/><br/> If you want to use a premium account to store replicated data, you also need a standard storage account to store replication logs that capture ongoing changes to on-premises data.<br/><br/> The account must be in the same region as the Recovery Services vault.<br/><br/> Replicated data is stored in Azure storage and Azure VMs are created when failover occurs.<br/><br/> [Read about](../storage/storage-introduction.md) Azure storage. |
 | **Azure network** |You'll need an Azure virtual network that Azure VMs will connect to when failover occurs. The Azure virtual network must be in the same region as the Recovery Services vault. |
 
 ## On-premises prerequisites
@@ -85,7 +85,7 @@ Set up an Azure network. You’ll need this so that the Azure VMs created after 
 
 ### Set up an Azure storage account
 
-- You need a standard Azure storage account to hold data replicated to Azure.
+- You need a standard/premium Azure storage account to hold data replicated to Azure.[Premium storage](../storage/storage-premium-storage.md) is typically used for virtual machines that need a consistently high IO performance, and low latency to host IO intensive workloads. If you want to use a premium account to store replicated data, you also need a standard storage account to store replication logs that capture ongoing changes to on-premises data.
 - Depending on the resource model you want to use for failed over Azure VMs, you'll set an account in [Resource Manager mode](../storage/storage-create-storage-account.md) or [classic mode](../storage/storage-create-storage-account-classic-portal.md).
 - We recommend that you set up a storage account before you begin. If you don't you'll need to do it during Site Recovery deployment. The accounts need to be in the same region as the Recovery Services vault.
 - You can't move storage accounts used by Site Recovery across resource groups within the same subscription, or across different subscriptions.
@@ -203,7 +203,7 @@ Specify the Azure storage account to be used for replication, and the Azure netw
   	![Storage](./media/site-recovery-vmware-to-azure/enable-rep3.png)
 
 
-4. If you haven't created a storage account and you want to create one using Resource Manager click **+Storage** account to do that inline. On the **Create storage account** blade specify an account name, type, subscription, and location. The account should be in the same location as the Recovery Services vault.
+4. If you haven't created a storage account and you want to create one using Resource Manager click **+Storage** account to do that inline. On the **Create storage account** blade specify an account name, type, subscription, and location. The account should be in the same location as the Recovery Services vault. If you’re using a premium storage account for replicated data, you need to set up an additional standard storage account to store replication logs that capture ongoing changes to on-premises data.
 
   	![Storage](./media/site-recovery-hyper-v-site-to-azure/gs-createstorage.png)
 
@@ -223,6 +223,11 @@ If you want to create a network using the classic model you’ll do that [in the
     ![Network](./media/site-recovery-hyper-v-site-to-azure/gs-replication.png)
 2. In **Create and associate policy** specify a policy name.
 3. In **Copy frequency** specify how often you want to replicate delta data after the initial replication (every 30 seconds, 5 or 15 minutes).
+
+	> [!NOTE]
+	> Copy frequency of 30 secs is not supported for machines replicating to premium storage. This is based on the number of snapshots per blob (100 snapshots per blob) supported by premium storage.
+	> [Learn more](../storage/storage-premium-storage.md#snapshots-and-copy-blob)
+
 4. In **Recovery point retention**, specify in hours how long the retention window will be for each recovery point. Protected machines can be recovered to any point within a window.
 5. In **App-consistent snapshot frequency** specify how frequently (1-12 hours) recovery points containing application-consistent snapshots will be created. Hyper-V uses two types of snapshots — a standard snapshot that provides an incremental snapshot of the entire virtual machine, and an application-consistent snapshot that takes a point-in-time snapshot of the application data inside the virtual machine. Application-consistent snapshots use Volume Shadow Copy Service (VSS) to ensure that applications are in a consistent state when the snapshot is taken. Note that if you enable application-consistent snapshots, it will affect the performance of applications running on source virtual machines. Ensure that the value you set is less than the number of additional recovery points you configure.
 6. In **Initial replication start time** specify when to start the initial replication. The replication occurs over your internet bandwidth so you might want to schedule it outside your busy hours. Then click **OK**.
@@ -279,7 +284,7 @@ Now enable replication as follows:
     ![Enable replication](./media/site-recovery-hyper-v-site-to-azure/enable-replication.png)
 2. In the **Source** blade > select the Hyper-V site. Then click **OK**.
 3. In **Target** select the vault subscription, and the failover model you want to use in Azure (classic or resource management) after failover.
-4. Select the storage account you want to use. If you want to use a different storage account than those you have you can [create one](#set-up-an-azure-storage-account). To create a storage account using the Resource Manager model click **Create new**. If you want to create a storage account using the classic model you'll do that [in the Azure portal](../storage/storage-create-storage-account-classic-portal.md). Then click **OK**.
+4. Select the storage account you want to use. If you want to use a different storage account than those you have you can [create one](#set-up-an-azure-storage-account).If you’re using a premium storage account for replicated data, you need to select  an additional standard storage account to store replication logs that capture ongoing changes to on-premises data. To create a storage account using the Resource Manager model click **Create new**. If you want to create a storage account using the classic model you'll do that [in the Azure portal](../storage/storage-create-storage-account-classic-portal.md). Then click **OK**.
 5. Select the Azure network and subnet to which Azure VMs will connect when they're spun up after failover. Select **Configure now for selected machines** to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. If you want to use a different network from those you have you can [create one](#set-up-an-azure-network). To create a network using the Resource Manager model click **Create new**.If you want to create a network using the classic model you’ll do that [in the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Select a subnet if applicable. Then click **OK**.
    ![Enable replication](./media/site-recovery-hyper-v-site-to-azure/enable-replication11.png)
 
@@ -301,6 +306,12 @@ Now enable replication as follows:
 	>   	
 
 8. In **Replication settings** > **Configure replication settings**, select the replication policy you want to apply for the protected VMs. Then click **OK**. You can modify the replication policy in **Replication policies** > policy name > **Edit Settings**. Changes you apply will be used for machines that are already replicating, and new machines.
+
+	> [!NOTE]
+	> Replication policies with copy frequency of 5mins/15 mins would be allowed to be chosen if the 
+	> target storage account selected is of premium storage type. Copy frequency of 30 secs is not 
+	> allowed for machines replicating to premium storage.This is based on the number of snapshots 
+	> per blob (100 snapshots per blob) supported by premium storage.
 
    ![Enable replication](./media/site-recovery-hyper-v-site-to-azure/enable-replication7.png)
 
