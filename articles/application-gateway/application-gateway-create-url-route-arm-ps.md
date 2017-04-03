@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/15/2016
+ms.date: 04/03/2017
 ms.author: gwallace
 
 ---
@@ -218,7 +218,7 @@ Configure URL rule paths for the back-end pools. This step configures the relati
 > [!IMPORTANT]
 > Each path must start with / and the only place a "\*" is allowed, is at the end. Valid examples are /xyz, /xyz* or /xyz/*. The string fed to the path matcher does not include any text after the first "?" or "#", and those characters are not allowed. 
 
-The following example creates two rules: one for "/image/" path routing traffic to back-end "pool1" and another one for "/video/" path routing traffic to back-end "pool2".
+The following example creates two rules: one for "/image/" path routing traffic to back-end "pool1" and another one for "/video/" path routing traffic to back-end "pool2". These rules ensure that traffic for each set of urls is routed to the backend. For example, http://contoso.com/image/figure1.jpg will go to pool1 and http://contoso.com/video/example.mp4 will go to pool2.
 
 ```powershell
 $imagePathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule1" -Paths "/image/*" -BackendAddressPool $pool1 -BackendHttpSettings $poolSetting01
@@ -226,7 +226,7 @@ $imagePathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule1" -
 $videoPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule2" -Paths "/video/*" -BackendAddressPool $pool2 -BackendHttpSettings $poolSetting02
 ```
 
-If the path doesn't match any of the pre-defined path rules, the rule path map configuration also configures a default back-end address pool. 
+If the path doesn't match any of the pre-defined path rules, the rule path map configuration also configures a default back-end address pool. For example, http://contoso.com/shoppingcart/test.html will go to pool1 as it is defined as the default pool for un-matched traffic.
 
 ```powershell
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $videoPathRule, $imagePathRule -DefaultBackendAddressPool $pool1 -DefaultBackendHttpSettings $poolSetting02
@@ -234,7 +234,7 @@ $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -
 
 ### Step 8
 
-Create a rule setting. This step configures the application gateway to use URL path-based routing.
+Create a rule setting. This step configures the application gateway to use URL path-based routing. The `$urlPathMap` variable defined in the earlier step is now used to create the path-based rule. In this step we associate the rule with a listener and the url path mapping created earlier.
 
 ```powershell
 $rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType PathBasedRouting -HttpListener $listener -UrlPathMap $urlPathMap
