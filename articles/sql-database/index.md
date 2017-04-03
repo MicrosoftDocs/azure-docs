@@ -12,8 +12,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ---
-# SQL Database Documentation
-<p style="padding-bottom: 0px">Learn how to use SQL Database, a relational database-as-a-service in the cloud built on the Microsoft SQL Server engine.</p>
+<div class="content">
+    <h1>SQL Database Documentation</h1>
+    <p style="padding-bottom: 0px">Learn how to use SQL Database, a relational database-as-a-service in the cloud built on the Microsoft SQL Server engine.</p>
 <h2 style="margin-top: 36px">Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
@@ -142,3 +143,4 @@ ms.author: carolz
         </div>
     </li>
 </ul>
+</div>

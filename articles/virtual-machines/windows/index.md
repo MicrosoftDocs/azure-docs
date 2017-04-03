@@ -12,12 +12,10 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ---
-
-# Windows Virtual Machines Documentation
-
-Learn how to create Windows virtual machines.
-
-## Quickstarts
+<div class="content">
+    <h1>Windows Virtual Machines Documentation</h1>
+    <p style="padding-bottom: 0px">Learn how to create Windows virtual machines.</p>
+<h2 style="margin-top: 36px">Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
