@@ -1,4 +1,4 @@
-The following limits apply only for networking resources managed through the classic deployment model per subscription.
+<a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the classic deployment model per subscription.
 
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |

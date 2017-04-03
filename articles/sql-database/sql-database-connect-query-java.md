@@ -29,7 +29,7 @@ This quick start uses as its starting point the resources created in one of thes
 
 ## Configure development environment
 
-The following sections detail configuring your existing Mac OS, Linux(Ubuntu), and Windows development environments for working with Azure SQL Database.
+The following sections detail configuring your existing Mac OS, Linux (Ubuntu), and Windows development environments for working with Azure SQL Database.
 
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your Java project. Enter the following commands to install **brew** and **Maven**. 
@@ -48,7 +48,23 @@ sudo apt-get install maven
 ```
 
 ### **Windows**
-Install [Maven](https://maven.apache.org/download.cgi).  
+Install [Maven](https://maven.apache.org/download.cgi) using the official installer.  
+
+## Get connection information
+
+Get the connection string in the Azure portal. You use the connection string to connect to the Azure SQL database.
+
+1. Log in to the [Azure portal](https://portal.azure.com/).
+2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
+3. In the **Essentials** pane for your database, review the fully qualified server name. 
+
+    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="server name" style="width: 780px;" />
+
+4. Click **Show database connection strings**.
+
+5. Review the complete **JDBC** connection string.
+
+    <img src="./media/sql-database-connect-query-jdbc/jdbc-connection-string.png" alt="JDBC connection string" style="width: 780px;" />
 
 ### **Create Maven project**
 From the terminal, create a new Maven project. 
@@ -65,16 +81,6 @@ Add the **Microsoft JDBC Driver for SQL Server** to the dependencies in ***pom.x
 	<version>6.1.0.jre8</version>
 </dependency>
 ```
-
-## Get connection information
-
-Get the connection string in the Azure portal. You use the connection string to connect to the Azure SQL database.
-
-1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane for your database, review the fully qualified server name. 
-
-    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="server name" style="width: 780px;" />
 
 ## Select data
 
@@ -102,42 +108,35 @@ public class App {
 		Connection connection = null;
 
 		try {
+				connection = DriverManager.getConnection(url);
+				String schema = connection.getSchema();
+				System.out.println("Successful connection - Schema: " + schema);
 
-			connection = DriverManager.getConnection(url);
-			String schema = connection.getSchema();
-			System.out.println("\nSuccessful connection - Schema: " + schema);
-		}
+				System.out.println("Query data example:");
+				System.out.println("=========================================");
+
+				// Create and execute a SELECT SQL statement.
+				String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName " 
+				    + "FROM [SalesLT].[ProductCategory] pc "  
+				    + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
+				
+				try (Statement statement = connection.createStatement();
+					ResultSet resultSet = statement.executeQuery(selectSql)) {
+
+						// Print results from select statement
+						System.out.println("Top 20 categories:");
+						while (resultSet.next())
+						{
+						    System.out.println(resultSet.getString(1) + " "
+							    + resultSet.getString(2));
+						}
+				}
+        	}
 		catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		// Query data
-		System.out.println("\nQuery data example:");
-		System.out.println("=========================================\n");
-
-		Statement statement;
-		ResultSet resultSet;
-
-		try {
-			// Create and execute a SELECT SQL statement.
-			String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
-			statement = connection.createStatement();
-			resultSet = statement.executeQuery(selectSql);
-
-			// Print results from select statement
-			System.out.println("\nTop 20 categories:");
-			while (resultSet.next())
-			{
-				System.out.println(resultSet.getString(1) + " "
-						+ resultSet.getString(2));
-			}
-		}
-		catch (Exception e) {
-			e.printStackTrace();
+		    	e.printStackTrace();
 		}
 	}
 }
-
 ```
 
 ## Insert data
@@ -148,9 +147,7 @@ Use [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-stat
 package com.sqldbsamples;
 
 import java.sql.Connection;
-import java.sql.Statement;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.DriverManager;
 
 public class App {
@@ -166,43 +163,37 @@ public class App {
 		Connection connection = null;
 
 		try {
+				connection = DriverManager.getConnection(url);
+				String schema = connection.getSchema();
+				System.out.println("Successful connection - Schema: " + schema);
 
-			connection = DriverManager.getConnection(url);
-			String schema = connection.getSchema();
-			System.out.println("\nSuccessful connection - Schema: " + schema);
+				System.out.println("Insert data example:");
+				System.out.println("=========================================");
+
+				// Prepared statement to insert data
+				String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, )" 
+					+ " StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
+
+				java.util.Date date = new java.util.Date();
+				java.sql.Timestamp sqlTimeStamp = new java.sql.Timestamp(date.getTime());
+
+				try (PreparedStatement prep = connection.prepareStatement(insertSql)) {
+						prep.setString(1, "BrandNewProduct");
+						prep.setInt(2, 200989);
+						prep.setString(3, "Blue");
+						prep.setDouble(4, 75);
+						prep.setDouble(5, 80);
+						prep.setTimestamp(6, sqlTimeStamp);
+
+						int count = prep.executeUpdate();
+						System.out.println("Inserted: " + count + " row(s)");
+				}
 		}
 		catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		System.out.println("\nInsert data example:");
-		System.out.println("=========================================\n");
-
-		// Prepared statement to insert data
-		try {
-			String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
-			
-			PreparedStatement prep = connection.prepareStatement(insertSql);
-
-			java.util.Date date = new java.util.Date();
-            		java.sql.Timestamp sqlTimeStamp = new java.sql.Timestamp(date.getTime());
-
-			prep.setString(1, "BrandNewProduct");
-			prep.setInt(2, 200989);
-			prep.setString(3, "Blue");
-			prep.setDouble(4, 75);
-			prep.setDouble(5, 80);
-			prep.setTimestamp(6, sqlTimeStamp);
-
-			int count = prep.executeUpdate();
-			System.out.println("Inserted: " + count + " row(s)");
-		}
-		catch (Exception e) {
-			e.printStackTrace();
+		    	e.printStackTrace();
 		}
 	}
 }
-
 ```
 ## Update data
 
@@ -212,9 +203,7 @@ Use [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-stat
 package com.sqldbsamples;
 
 import java.sql.Connection;
-import java.sql.Statement;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.DriverManager;
 
 public class App {
@@ -228,34 +217,28 @@ public class App {
 		String password = "yourpassword";
 		String url = String.format("jdbc:sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
 		Connection connection = null;
- 
+
 		try {
-			connection = DriverManager.getConnection(url);
-			String schema = connection.getSchema();
-			System.out.println("\nSuccessful connection - Schema: " + schema);
+				connection = DriverManager.getConnection(url);
+				String schema = connection.getSchema();
+				System.out.println("Successful connection - Schema: " + schema);
+
+				System.out.println("Update data example:");
+				System.out.println("=========================================");
+
+				// Prepared statement to update data
+				String updateSql = "UPDATE SalesLT.Product SET ListPrice = ? WHERE Name = ?";
+
+				try (PreparedStatement prep = connection.prepareStatement(updateSql)) {
+						prep.setString(1, "500");
+						prep.setString(2, "BrandNewProduct");
+
+						int count = prep.executeUpdate();
+						System.out.println("Updated: " + count + " row(s)")
+				}
 		}
 		catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		System.out.println("\nUpdate data example:");
-		System.out.println("=========================================\n");
-		
-		// Prepared statement to update data
-		try {
-			String updateSql = "UPDATE SalesLT.Product SET ListPrice = ? WHERE Name = ?";
-
-			PreparedStatement prep = connection.prepareStatement(updateSql);
-
-			prep.setString(1, "500");
-			prep.setString(2, "BrandNewProduct");
-
-			int count = prep.executeUpdate();
-
-			System.out.println("Updated: " + count + " row(s)");
-		}
-		catch (Exception e) {
-			e.printStackTrace();
+		    	e.printStackTrace();
 		}
 	}
 }
@@ -271,9 +254,7 @@ Use [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-stat
 package com.sqldbsamples;
 
 import java.sql.Connection;
-import java.sql.Statement;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.DriverManager;
 
 public class App {
@@ -289,31 +270,25 @@ public class App {
 		Connection connection = null;
 
 		try {
-			connection = DriverManager.getConnection(url);
-			String schema = connection.getSchema();
-			System.out.println("\nSuccessful connection - Schema: " + schema);
-		}
+				connection = DriverManager.getConnection(url);
+				String schema = connection.getSchema();
+				System.out.println("Successful connection - Schema: " + schema);
+
+				System.out.println("Delete data example:");
+				System.out.println("=========================================");
+
+				// Prepared statement to delete data
+				String deleteSql = "DELETE SalesLT.Product WHERE Name = ?";
+
+				try (PreparedStatement prep = connection.prepareStatement(deleteSql)) {
+						prep.setString(1, "BrandNewProduct");
+
+						int count = prep.executeUpdate();
+						System.out.println("Deleted: " + count + " row(s)");
+				}
+        	}		
 		catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		System.out.println("\nUpdate data example:");
-		System.out.println("=========================================\n");
-		
-		// Prepared statement to delete data
-		try {
-			String deleteSql = "DELETE SalesLT.Product WHERE Name = ?";
-
-			PreparedStatement prep = connection.prepareStatement(deleteSql);
-
-			prep.setString(1, "BrandNewProduct");
-
-			int count = prep.executeUpdate();
-
-			System.out.println("Deleted: " + count + " row(s)");
-		}
-		catch (Exception e) {
-			e.printStackTrace();
+		    	e.printStackTrace();
 		}
 	}
 }
@@ -321,7 +296,7 @@ public class App {
 
 ## Next steps
 * Review the [SQL Database Development Overview](sql-database-develop-overview.md).
-* Github repository for [pyodbc for Python](https://github.com/mkleehammer/pyodbc).
-* [File issues/ask questions](https://github.com/Microsoft/msphpsql/issues).
+* GitHub repository for [Microsoft JDBC Driver for SQL Server](https://github.com/microsoft/mssql-jdbc).
+* [File issues/ask questions](https://github.com/microsoft/mssql-jdbc/issues).
 * Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
 
