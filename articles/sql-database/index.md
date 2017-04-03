@@ -18,7 +18,7 @@ ms.author: carolz
 
 <p style="padding-bottom: 0px">Learn how to use SQL Database, a relational database-as-a-service in the cloud built on the Microsoft SQL Server engine.</p>
 
-<h2>Quickstarts</h2>
+<h2 style="margin-top: 36px">Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/sql-database/sql-database-get-started-portal">
@@ -42,13 +42,13 @@ ms.author: carolz
 
 <div class="columnHolder">
     <div class="column50">
-        <h2>Tutorials</h2>
+        <h2 style="margin-top: 36px">Tutorials</h2>
         <p>Build and deploy SQL Database applications.</p>
         <ul class="spaced">
             <li><a href="/azure/sql-database/sql-database-design-first-database">Design a database</a></li>
             
         </ul>
-        <h2>Samples</h2>
+        <h2 style="margin-top: 36px">Samples</h2>
         <p>Find scripts to manage common tasks.</p>
         <ul class="spaced">
             <li><a href="/azure/sql-database/sql-database-cli-samples.md">Azure CLI</a></li>
@@ -56,7 +56,7 @@ ms.author: carolz
         </ul>
     </div>
     <div class="column50">
-        <h2>Free Video Training</h2>
+        <h2 style="margin-top: 36px">Free Video Training</h2>
         <a href="https://app.pluralsight.com/player?author=scott-allen&name=f24a629c-37b7-47f1-bc43-4b122da61cbb&mode=live&clip=0&course=developing-dotnet-microsoft-azure-getting-started">
         <img src="media/index/video-training-dotnet.png" width="400" alt="">
         <p>Free Pluralsight video training – Developing with .NET</a></p>
@@ -68,7 +68,7 @@ ms.author: carolz
 </div>
 
 ---
-<h2>Reference</h2>
+<h2 style="margin-top: 36px">Reference</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

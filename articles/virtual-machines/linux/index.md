@@ -18,7 +18,7 @@ ms.author: carolz
 
 <p style="padding-bottom: 0px">Learn how to run Virtual Machines on Azure using the Linux distribution of your choice.</p>
 
-<h2">Quickstarts</h2>
+<h2 style="margin-top: 36px">Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
@@ -41,13 +41,13 @@ ms.author: carolz
 <div>
 <div class="columnHolder">
     <div class="column50">
-        <h2>Tutorials</h2>
+        <h2 style="margin-top: 36px">Tutorials</h2>
         <p>Build and deploy Linux virtual machines.</p>
         <ul class="spaced">
             <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Create load balanced, highly available VMs</a></li>
             <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-load-balance-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Load balance VMs</a></li>
         </ul>
-        <h2>Samples</h2>
+        <h2 style="margin-top: 36px">Samples</h2>
         <p>Deploy your first application to Azure.</p>
         <ul class="spaced">
             <li><a href="/azure/virtual-machines/virtual-machines-linux-cli-samples.md">Azure CLI</a></li>
@@ -55,7 +55,7 @@ ms.author: carolz
         </ul>
     </div>
     <div class="column50" style="max-width: 400px;">
-        <h2>Free Video Training</h2>
+        <h2 style="margin-top: 36px">Free Video Training</h2>
         <a href="https://app.pluralsight.com/player?author=tim-warner&name=managing-infrastructure-microsoft-azure-getting-started-m0&mode=live&clip=0&course=managing-infrastructure-microsoft-azure-getting-started">
         <img src="media/index/video-training-infrastructure.png" width="400" alt="" />
         <p>Free Pluralsight video training – Managing Infrastructure</a></p>
@@ -71,7 +71,7 @@ ms.author: carolz
 </div>
 
 ---
-<h2>Reference</h2>
+<h2 style="margin-top: 36px">Reference</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

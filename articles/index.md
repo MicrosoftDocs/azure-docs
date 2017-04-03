@@ -2550,7 +2550,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
-                                    <h2>Languages &amp; Frameworks</h2>
+                                    <h2 style="margin-top: 36px">Languages &amp; Frameworks</h2>
                                 </div>
                             </li>
                             <li>
@@ -2729,7 +2729,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                             </li>
                             <li>
                                 <div class="container">
-                                    <h2>Command-Line Interface (CLI)</h2>
+                                    <h2 style="margin-top: 36px">Command-Line Interface (CLI)</h2>
                                 </div>
                             </li>
                             <li>
@@ -2817,7 +2817,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                             </li>
                             <li>
                                 <div class="container">
-                                    <h2>Tools &amp; Extensions</h2>
+                                    <h2 style="margin-top: 36px">Tools &amp; Extensions</h2>
                                 </div>
                             </li>
                             <li>
