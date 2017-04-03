@@ -38,7 +38,7 @@ Microsoft Azure Government delivers a cloud platform built upon the foundational
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=azure-government">
+        <a href="https://channel9.msdn.com/blogs/Azure-Government">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
