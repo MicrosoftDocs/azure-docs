@@ -276,7 +276,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroup -Name myPublicIP |
 
 Enter the public IP address in to a web browser. With the NSG rule in place, the default IIS website is displayed. 
 
-![IIS default site](./media/load-balanced-iis-tutorial/iis.png)
+![IIS default site](media/load-balanced-iis-tutorial/iis.png)
 
 ## Step 6 – Management tasks
 
