@@ -25,7 +25,7 @@ In this topic, you learn how to install Presto on HDInsight Hadoop clusters by u
 > The steps in this document require an **HDInsight 3.5 Hadoop cluster** that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versions](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## What is Presto?
-[Presto](https://prestodb.io/) is a fast distributed SQL query engine for big data. Presto is suitable for interactive querying of petabytes of data. For more information on what are the different components of Presto, and how they all work together, see [Presto concepts](https://github.com/prestodb/presto/blob/master/presto-docs/src/main/sphinx/overview/concepts.rst)
+[Presto](https://prestodb.io/overview.html) is a fast distributed SQL query engine for big data. Presto is suitable for interactive querying of petabytes of data. For more information on what are the different components of Presto, and how they all work together, see [Presto concepts](https://github.com/prestodb/presto/blob/master/presto-docs/src/main/sphinx/overview/concepts.rst)
 
 > [!WARNING]
 > Components provided with the HDInsight cluster are fully supported and Microsoft Support will help to isolate and resolve issues related to these components.
