@@ -105,7 +105,7 @@ To use Network Watcher PowerShell cmdlets, the latest PowerShell module needs to
 
 To use the PowerShell cmdlets, you must authenticate. Authentication needs to be configured in the Function app. To configure authencation, environment variables are configured and an encrypted key file needs to be uploaded to the Function app.
 
-> [!note]
+> [!NOTE]
 > This scenario provides just one example of how to implement authentication with Azure Functions, there are other ways to do this.
 
 ### Encrypted Credentials
