@@ -23,14 +23,14 @@ ms.author: larryfr
 
 HDInsight clusters provide two head nodes to increase the availability and reliability of Hadoop services and jobs running.
 
-Hadoop achieves high availability and reliability by distributing redundant copies of services and data across the nodes in a cluster. However standard distributions of Hadoop typically have only a single head node. Any outage of the single head node can cause the cluster to stop working. This is not a problem with HDInsight.
+Hadoop achieves high availability and reliability by keeping copies of services and data on multiple nodes in a cluster. However standard distributions of Hadoop typically have only a single head node. Any outage of the single head node can cause the cluster to stop working. This is not a problem with HDInsight.
 
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Understanding the nodes
 
-Nodes in an HDInsight cluster are implemented using Azure Virtual Machines. In the event that a node fails, it is taken offline and a new node is created to replace the failed node. While the node is offline, another node of the same type is used until the new node is brought online.
+Nodes in an HDInsight cluster are implemented using Azure Virtual Machines. If a node fails, it is taken offline and a new node is created to replace the failed node. While the node is offline, another node of the same type is used until the new node is brought online.
 
 > [!NOTE]
 > If the node is analyzing data when it fails, its progress on the job is lost. The job is resubmitted to another node.
@@ -41,10 +41,10 @@ The following sections discuss the individual node types used with HDInsight. No
 
 Both head nodes are active and running within the HDInsight cluster simultaneously. Some services, such as HDFS or YARN, are only 'active' on one head node at any given time. Other services such as HiveServer2 or Hive MetaStore are active on both head nodes at the same time.
 
-Head nodes (and other nodes in HDInsight,) have a numeric value as part of the hostname of the node. For example, `hn0-CLUSTERNAME` or `hn4-CLUSTERNAME`. 
+Head nodes (and other nodes in HDInsight) have a numeric value as part of the hostname of the node. For example, `hn0-CLUSTERNAME` or `hn4-CLUSTERNAME`.
 
 > [!IMPORTANT]
-> Do not associate the numeric value with whether a node is primary or secondary; the numeric value is only present to provide a unique name for each node.
+> Do not associate the numeric value with whether a node is primary or secondary. The numeric value is only present to provide a unique name for each node.
 
 ### Nimbus Nodes
 
@@ -52,11 +52,11 @@ For Storm clusters, the Nimbus nodes provide similar functionality to the Hadoop
 
 ### Zookeeper nodes
 
-[ZooKeeper](http://zookeeper.apache.org/) nodes are used for leader election of master services on head nodes, and to insure that services, data (worker) nodes, and gateways know which head node a master service is active on. By default, HDInsight provides 3 ZooKeeper nodes.
+[ZooKeeper](http://zookeeper.apache.org/) nodes are used for leader election of master services on head nodes, and to insure that services, data (worker) nodes, and gateways know which head node a master service is active on. By default, HDInsight provides three ZooKeeper nodes.
 
 ### Worker nodes
 
-Worker nodes perform the actual data analysis when a job is submitted to the cluster. If a worker node fails, the task that it was performing is submitted to another worker node. By default, HDInsight creates 4 worker nodes. You can change this number to suit your needs both during and after cluster creation.
+Worker nodes perform the actual data analysis when a job is submitted to the cluster. If a worker node fails, the task that it was performing is submitted to another worker node. By default, HDInsight creates four worker nodes. You can change this number to suit your needs both during and after cluster creation.
 
 ### Edge node
 
@@ -68,7 +68,7 @@ For information on using an edge node with cluster types other than R Server, se
 
 ## Accessing the nodes
 
-Access to the cluster over the internet is provided through a public gateway. Access is limited to connecting to the head nodes and (if one exists) the edge node. Access to services running on the head nodes is not effected by having multiple head nodes, as the public gateway routes requests to the head node that hosts the requested service. For example, if Ambari is currently hosted on the secondary head node, the gateway routes incoming requests for Ambari to that node.
+Access to the cluster over the internet is provided through a public gateway. Access is limited to connecting to the head nodes and (if one exists) the edge node. Access to services running on the head nodes is not effected by having multiple head nodes. The public gateway routes requests to the head node that hosts the requested service. For example, if Ambari is currently hosted on the secondary head node, the gateway routes incoming requests for Ambari to that node.
 
 Access over the public gateway is limited to port 443 (HTTPS), 22, and 23.
 
@@ -82,9 +82,9 @@ For more information on using SSH, see the [Use SSH with HDInsight](hdinsight-ha
 
 ### Internal fully qualified domain names (FQDN)
 
-Nodes in an HDInsight cluster have an internal IP address and FQDN that can only be accessed from the cluster (such as an SSH session to the head node or a job running on the cluster.) When accessing services on the cluster using the internal FQDN or IP address, you should use Ambari to verify the IP or FQDN to use when accessing the service.
+Nodes in an HDInsight cluster have an internal IP address and FQDN that can only be accessed from the cluster. When accessing services on the cluster using the internal FQDN or IP address, you should use Ambari to verify the IP or FQDN to use when accessing the service.
 
-For example, the Oozie service can only run on one head node, and using the `oozie` command from an SSH session requires the URL to the service. This can be retrieved from Ambari by using the following command:
+For example, the Oozie service can only run on one head node, and using the `oozie` command from an SSH session requires the URL to the service. This URL can be retrieved from Ambari by using the following command:
 
     curl -u admin:PASSWORD "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=oozie-site&tag=TOPOLOGY_RESOLVED" | grep oozie.base.url
 
@@ -96,7 +96,7 @@ For more information on working with the Ambari REST API, see [Monitor and Manag
 
 ### Accessing other node types
 
-You can connect to nodes that are not directly accessible over the internet by using the following methods.
+You can connect to nodes that are not directly accessible over the internet by using the following methods:
 
 * **SSH**: Once connected to a head node using SSH, you can then use SSH from the head node to connect to other nodes in the cluster. For more information, see the [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) document.
 
@@ -106,7 +106,7 @@ You can connect to nodes that are not directly accessible over the internet by u
 
 ## How to check on a service status
 
-Either the Ambari Web UI or the Ambari REST API can be used to check the status of services that run on the head nodes.
+To check the status of services that run on the head nodes, use the Ambari Web UI or the Ambari REST API.
 
 ### Ambari Web UI
 
@@ -118,7 +118,7 @@ When you arrive on the Ambari page, the installed services are listed on the lef
 
 There are a series of icons that may appear next to a service to indicate status. Any alerts related to a service can be viewed using the **Alerts** link at the top of the page. You can select each service to view more information on it.
 
-While the service page provides information on the status and configuration of each service, it does not provide information on which head node the service is running on. To view this information, use the **Hosts** link at the top of the page. This displays hosts within the cluster, including the head nodes.
+While the service page provides information on the status and configuration of each service, it does not provide information on which head node the service is running on. To view this information, use the **Hosts** link at the top of the page. This page displays hosts within the cluster, including the head nodes.
 
 ![hosts list](./media/hdinsight-high-availability-linux/hosts.png)
 
@@ -136,7 +136,7 @@ You can use the following command to check the state of a service through the Am
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICENAME?fields=ServiceInfo/state
 
-* Replace **PASSWORD** with the HTTP user (admin,) account password
+* Replace **PASSWORD** with the HTTP user (admin) account password
 * Replace **CLUSTERNAME** with the name of the cluster
 * Replace **SERVICENAME** with the name of the service to check the status of
 
@@ -187,9 +187,9 @@ Each head node can have unique log entries, so you should check the logs on both
 
 You can also connect to the head node using the SSH File Transfer Protocol or Secure File Transfer Protocol (SFTP), and download the log files directly.
 
-Similar to using an SSH client, when connecting to the cluster you must provide the SSH user account name and the SSH address of the cluster. For example, `sftp username@mycluster-ssh.azurehdinsight.net`. You must also provide the password for the account when prompted, or provide a public key using the `-i` parameter.
+Similar to using an SSH client, when connecting to the cluster you must provide the SSH user account name and the SSH address of the cluster. For example, `sftp username@mycluster-ssh.azurehdinsight.net`. You must provide the password for the account when prompted, or provide a public key using the `-i` parameter.
 
-Once connected, you are presented with a `sftp>` prompt. From this prompt, you can change directories, upload and download files. For example, the following commands change directories to the **/var/log/hadoop/hdfs** directory and then download all files in the directory.
+Once connected, you are presented with a `sftp>` prompt. From this prompt, you can change directories, upload, and download files. For example, the following commands change directories to the **/var/log/hadoop/hdfs** directory and then download all files in the directory.
 
     cd /var/log/hadoop/hdfs
     get *
@@ -202,19 +202,19 @@ For a list of available commands, enter `help` at the `sftp>` prompt.
 ### Ambari
 
 > [!NOTE]
-> Accessing log files through Ambari requires an SSH tunnel, as the web sites for the individual services are not exposed publicly on the Internet. For information on using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md).
+> To access log files using Ambari, you must use an SSH tunnel. The web interface for the individual services are not exposed publicly on the Internet. For information on using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UIs](hdinsight-linux-ambari-ssh-tunnel.md).
 
-From the Ambari Web UI, select the service you wish to view logs for (for example, YARN,) and then use **Quick Links** to select which head node to view the logs for.
+From the Ambari Web UI, select the service you wish to view logs for (for example, YARN). Then use **Quick Links** to select which head node to view the logs for.
 
 ![Using quick links to view logs](./media/hdinsight-high-availability-linux/viewlogs.png)
 
 ## How to configure the node size
 
-The size of the a node can only be selected during cluster creation. You can find a list of the different VM sizes available for HDInsight, including the core, memory, and local storage for each, on the [HDInsight pricing page](https://azure.microsoft.com/pricing/details/hdinsight/).
+The size of a node can only be selected during cluster creation. You can find a list of the different VM sizes available for HDInsight, including the core, memory, and local storage for each, on the [HDInsight pricing page](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-When creating a new cluster, you can specify the size of the nodes. The following information provides guidance on how to specify the size using the [Azure Portal][preview-portal], [Azure PowerShell][azure-powershell], and the [Azure CLI][azure-cli]:
+When creating a new cluster, you can specify the size of the nodes. The following information provides guidance on how to specify the size using the [Azure portal][preview-portal], [Azure PowerShell][azure-powershell], and the [Azure CLI][azure-cli]:
 
-* **Azure Portal**: When creating a new cluster, you are given the option of setting the size (pricing tier,) of the head, worker and (if used by the cluster type,) ZooKeeper nodes for the cluster:
+* **Azure portal**: When creating a cluster, you can set the size of the nodes used by the cluster:
 
     ![Image of cluster creation wizard with node size selection](./media/hdinsight-high-availability-linux/headnodesize.png)
 
@@ -224,7 +224,7 @@ When creating a new cluster, you can specify the size of the nodes. The followin
 
 ## Next steps
 
-In this document you have learned how Azure HDInsight provides high availability for Hadoop. Use the following links to learn more about things mentioned in this document.
+Use the following links to learn more about things mentioned in this document.
 
 * [Ambari REST Reference](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Install and configure the Azure CLI](../cli-install-nodejs.md)

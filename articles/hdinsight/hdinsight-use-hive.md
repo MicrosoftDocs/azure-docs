@@ -44,13 +44,13 @@ Learn how to use Hive with HDInsight. Use the following table to discover the va
 
 Hive queries are written in HiveQL, which is a query language similar to SQL. Hive can be used to interactively explore your data or to create reusable batch processing jobs.
 
-Hive understands how to work with structured and semi-structured data, such as text files where the fields are delimited by specific characters. Hive also supports custom **serializer/deserializers (SerDe)** for complex or irregularly structured data. For more information, see [How to use a custom JSON SerDe with HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx).
+Hive understands how to work with structured and semi-structured data, such as text files where the fields are delimited by specific characters. Hive also supports custom **serializer/deserializers (SerDe)** for complex or irregularly structured data. For more information, see the [How to use a custom JSON SerDe with HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx) document.
 
-## User defined functions (UDF)
+## User-defined functions (UDF)
 
 Hive can also be extended through **user-defined functions (UDF)**. A UDF allows you to implement functionality or logic that isn't easily modeled in HiveQL. For an example of using UDFs with Hive, see the following documents:
 
-* [Use a Java User Defined Function with Hive](hdinsight-hadoop-hive-java-udf.md)
+* [Use a Java user-defined Function with Hive](hdinsight-hadoop-hive-java-udf.md)
 
 * [Using Python with Hive and Pig in HDInsight](hdinsight-python.md)
 
@@ -76,7 +76,7 @@ For more information, see [HDInsight: Hive Internal and External Tables Intro][c
 
 ## <a id="data"></a>Example data
 
-HDInsight provides various example data sets, which are stored in the `/example/data` and `/HdiSamples` directory on the default storage for your cluster. This document uses the `/example/data/sample.log` file. This file is a *log4j* file. Each log inside the file consists of a line of fields that contains a `[LOG LEVEL]` field to show the type and the severity, for example:
+HDInsight provides various example data sets, which are stored in the `/example/data` and `/HdiSamples` directories. These directories exist in the default storage for your cluster. This document uses the `/example/data/sample.log` file. This file is a *log4j* file. Each log inside the file consists of a line of fields that contains a `[LOG LEVEL]` field to show the type and the severity, for example:
 
     2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
 
@@ -101,26 +101,26 @@ In the previous example, the HiveQL statements perform the following actions:
 * **set hive.execution.engine=tez;**: Sets the execution engine to use Tez. Using Tez instead of MapReduce can provide an increase in query performance. For more information on Tez, see the [Use Apache Tez for improved performance](#usetez) section.
 
     > [!NOTE]
-    > This statement is only required when using a Windows-based HDInsight cluster; Tez is the default execution engine for Linux-based HDInsight.
+    > This statement is only required when using a Windows-based HDInsight cluster. Tez is the default execution engine for Linux-based HDInsight.
 
-* **DROP TABLE**: Deletes the table and the data file if the table already exists.
+* **DROP TABLE**: If the table already exists, delete it.
 
-* **CREATE EXTERNAL TABLE**: Creates a new **external** table in Hive. External tables only store the table definition in Hive; the data is left in the original location and in the original format.
+* **CREATE EXTERNAL TABLE**: Creates a new **external** table in Hive. External tables only store the table definition in Hive. The data is left in the original location and in the original format.
 
 * **ROW FORMAT**: Tells Hive how the data is formatted. In this case, the fields in each log are separated by a space.
 
 * **STORED AS TEXTFILE LOCATION**: Tells Hive where the data is stored (the `example/data` directory) and that it is stored as text. The data can be in one file or spread across multiple files within the directory.
 
-* **SELECT**: Selects a count of all rows where the column **t4** contains the value **[ERROR]**. This should return a value of **3** because there are three rows that contain this value.
+* **SELECT**: Selects a count of all rows where the column **t4** contains the value **[ERROR]**. This statement returns a value of **3** because there are three rows that contain this value.
 
-* **INPUT__FILE__NAME LIKE '%.log'** - Tells Hive that we should only return data from files ending in .log. This restricts the search to the sample.log file that contains the data, and keeps it from returning data from other example data files that do not match the schema we defined.
+* **INPUT__FILE__NAME LIKE '%.log'** - Tells Hive that we should only return data from files ending in .log. This statement restricts the search to the `sample.log` file that contains the data.
 
 > [!NOTE]
-> External tables should be used when you expect the underlying data to be updated by an external source, such as an automated data upload process, or by another MapReduce operation, and you always want Hive queries to use the latest data.
+> External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process, or MapReduce operation.
 >
 > Dropping an external table does **not** delete the data, it only deletes the table definition.
 
-To create an **internal** table instead of exteranl, use the following HiveQL:
+To create an **internal** table instead of external, use the following HiveQL:
 
     set hive.execution.engine=tez;
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -130,7 +130,7 @@ To create an **internal** table instead of exteranl, use the following HiveQL:
 
 These statements perform the following actions:
 
-* **CREATE TABLE IF NOT EXISTS**: Creates a table, if it does not already exist. Because the **EXTERNAL** keyword is not used, this is an internal table, which is stored in the Hive data warehouse and is managed completely by Hive.
+* **CREATE TABLE IF NOT EXISTS**: If the table does not exist, create it. Because the **EXTERNAL** keyword is not used, this statement creates an internal table, which is stored in the Hive data warehouse and is managed completely by Hive.
 
 * **STORED AS ORC**: Stores the data in Optimized Row Columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
 
@@ -148,9 +148,9 @@ These statements perform the following actions:
 >
 > `set hive.execution.engine=tez;`
 >
-> This is not required on Linux-based HDInsight clusters.
+> Tez is the default engine for Linux-based HDInsight clusters.
 
-The [Hive on Tez design documents](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contain a number of details about the implementation choices and tuning configurations.
+The [Hive on Tez design documents](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contains details about the implementation choices and tuning configurations.
 
 To aid in debugging jobs ran using Tez, HDInsight provides the following web UIs that allow you to view details of Tez jobs:
 
@@ -160,7 +160,7 @@ To aid in debugging jobs ran using Tez, HDInsight provides the following web UIs
 
 ## <a id="run"></a>How to run the HiveQL job
 
-HDInsight can run HiveQL jobs using a variety of methods. Use the following table to decide which method is right for you, then follow the link for a walkthrough.
+HDInsight can run HiveQL jobs using various methods. Use the following table to decide which method is right for you, then follow the link for a walkthrough.
 
 | **Use this** if you want... | ...an **interactive** shell | ...**batch** processing | ...with this **cluster operating system** | ...from this **client operating system** |
 |:--- |:---:|:---:|:--- |:--- |

@@ -40,7 +40,7 @@ Pig is a platform for creating programs for Hadoop by using a procedural languag
 
 One of the challenges of processing data by using MapReduce in Hadoop is implementing your processing logic by using only a map and a reduce function. For complex processing, you often have to break processing into multiple MapReduce operations that are chained together to achieve the desired result.
 
-Instead of forcing you to use only map and reduce functions, Pig allows you to define processing as a series of transformations that the data flows through to produce the desired output.
+Pig allows you to define processing as a series of transformations that the data flows through to produce the desired output.
 
 The Pig Latin language allows you to describe the data flow from raw input, through one or more transformations, to produce the desired output. Pig Latin programs follow this general pattern:
 
@@ -50,7 +50,7 @@ The Pig Latin language allows you to describe the data flow from raw input, thro
 
 * **Dump or store**: Output data to the screen or store it for processing
 
-### User defined functions
+### User-defined functions
 
 Pig Latin also supports user-defined functions (UDF), which allows you to invoke external components that implement logic that is difficult to model in Pig Latin.
 
@@ -64,7 +64,7 @@ For an example of using UDFs with Pig, see the following documents:
 
 ## <a id="data"></a>Example data
 
-HDInsight provides various example data sets, which are stored in the `/example/data` and `/HdiSamples` directory on the default storage for your cluster. The Pig example in this document use an example *log4j* file from `/example/data/sample.log`.
+HDInsight provides various example data sets, which are stored in the `/example/data` and `/HdiSamples` directories. These directories are in the default storage for your cluster. The Pig example in this document uses the *log4j* file from `/example/data/sample.log`.
 
 Each log inside the file consists of a line of fields that contains a `[LOG LEVEL]` field to show the type and the severity, for example:
 
