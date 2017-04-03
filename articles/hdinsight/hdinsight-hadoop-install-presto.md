@@ -13,7 +13,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 04/03/2017
 ms.author: nitinme
 
 ---
@@ -50,6 +50,11 @@ This section provides instructions on how to use the sample script when creating
 
 1. Start provisioning a cluster by using the steps in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md). Make sure you start creating the HDInsight cluster using the **Custom** cluster creation flow.
 
+	> [!NOTE]
+	> Make sure that the cluster you create uses Azure Storage as the cluster storage. Using Presto on a cluster that uses Azure Data Lake Store as the storage option is not yet supported.
+	> 
+	>
+
 	![HDInsight cluster creation using custom options](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
 2. On the **Advanced settings** blade, select **Script Actions**, and provide the information below:
@@ -81,13 +86,15 @@ Perform the following steps to use Presto in an HDInsight cluster after you have
    
         presto --schema default
 
-3. Run a query on a sample table, hivesampletable, which is available on all HDInsight clusters by default.
+3. Run a query on a sample table, **hivesampletable**, which is available on all HDInsight clusters by default.
    
 		select count (*) from hivesampletable;
    
-	By default, [Hive](https://prestodb.io/docs/current/connector/hive.html) and [TPCH](https://prestodb.io/docs/current/connector/tpch.html) connectors for Presto are already configured. Hive connector is configured to use the default installed Hive installation, so all the tables from Hive will be automatically visible in Presto. You can also play around with TPCH or TPCDS datasets.
+	By default, [Hive](https://prestodb.io/docs/current/connector/hive.html) and [TPCH](https://prestodb.io/docs/current/connector/tpch.html) connectors for Presto are already configured. Hive connector is configured to use the default installed Hive installation, so all the tables from Hive will be automatically visible in Presto.
 
-## Using Airpal with Presto
+	For a detailed description on how you can use Presto, see [Presto documentation](https://prestodb.io/docs/current/index.html).
+
+## Use Airpal with Presto
 
 [Airpal]() is an open-source web-based query interface for Presto. For more information on Airpal, see [Airpal documentation](https://github.com/airbnb/airpal#airpal).
 
@@ -114,7 +121,7 @@ In this section, we look at the steps to **install Airpal on the edgenode** of a
 
 3. From the output, note the value for the **value** property. You will need this while installing Airpal on the cluster edgenode. From the output above, the value that you will need is **10.0.0.12:9090**.
 
-4. Use the template **[here](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdharmeshkakadia%2Fpresto-hdinsight%2Fmaster%2Fairpal-deploy.json)** to create an HDInsight cluster edgenode and provide the values as shown in the following screenshot.
+4. Use the template **[here](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2Fpresto-hdinsight%2Fmaster%2Fairpal-deploy.json)** to create an HDInsight cluster edgenode and provide the values as shown in the following screenshot.
 
 	![HDInsight install Airpal on Presto cluster](./media/hdinsight-hadoop-install-presto/hdinsight-install-airpal.png)
 
@@ -132,7 +139,36 @@ In this section, we look at the steps to **install Airpal on the edgenode** of a
 
 	c. When prompted, enter the admin credentials that you specified while creating the HDInsight Hadoop cluster.
 
- 
+## Customize a Presto installation on HDInsight cluster
+
+After you have installed Presto on an HDInsight Hadoop cluster, you can customize the installation to make changes such as update memory settings, change connectors, etc. Perform the following steps to do so.
+
+1. Using SSH, connect to the headnode of the HDInsight cluster that has Presto installed:
+   
+        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+   
+    For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+2. Make your configuration changes in the file `/var/lib/presto/presto-hdinsight-master/appConfig-default.json`. For more information on Presto configuration, see [Presto configuration for YARN-based clusters](https://prestodb.io/presto-yarn/installation-yarn-configuration-options.html).
+
+3. Stop and kill the current running instance of Presto.
+
+		sudo slider stop presto1 --force
+		sudo slider destroy presto1 --force
+
+4. Start a new instance of Presto with the customization.
+
+		sudo slider create presto1 --template /var/lib/presto/presto-hdinsight-master/appConfig-default.json --resources /var/lib/presto/presto-hdinsight-master/resources-default.json
+
+5. Wait for the new instance to be ready and note presto coordinator address.
+
+
+		sudo slider registry --name presto1 --getexp presto
+
+## Generate benchmark data for HDInsight clusters that run Presto?
+
+TPC-DS is the industry standard for measuring the performance of many decision support systems, including big data systems. You can use Presto on HDInsight clusters to generate data and evaluate how it compares with your own HDInsight benchmark data. For more information, see [here](https://github.com/hdinsight/tpcds-datagen-as-hive-query/blob/master/README.md).
+
 
 
 ## See also
