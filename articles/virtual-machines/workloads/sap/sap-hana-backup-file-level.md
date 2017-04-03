@@ -22,7 +22,7 @@ ms.author: rclaus
 
 This is part of a three-part series of related articles on SAP HANA backup. [Backup guide for SAP HANA on Azure Virtual Machines](./sap-hana-backup-guide.md) provides an overview and information on getting started, and [SAP HANA backup based on storage snapshots](./sap-hana-backup-storage-snapshots.md) covers the storage snapshot-based backup option.
 
-Looking at the Azure VM sizes, one can see that a GS5 allows 64 attached data disks. For large SAP HANA systems, a significant number of disks might already be taken for data and log files, possibly in combination with software RAID for optimal disk IO throughput. The question then is where to store SAP HANA backup files, which could fill up the attached data disks over time? See [Sizes for Linux virtual machines in Azure](../../virtual-machines-linux-sizes.md) for the Azure VM size tables.
+Looking at the Azure VM sizes, one can see that a GS5 allows 64 attached data disks. For large SAP HANA systems, a significant number of disks might already be taken for data and log files, possibly in combination with software RAID for optimal disk IO throughput. The question then is where to store SAP HANA backup files, which could fill up the attached data disks over time? See [Sizes for Linux virtual machines in Azure](../../linux/sizes.md) for the Azure VM size tables.
 
 There is no SAP HANA backup integration available with Azure Backup service at this time. The standard way to manage backup/restore at the file level is with a file-based backup via SAP HANA Studio or via SAP HANA SQL statements. See [SAP HANA SQL and System Views Reference](https://help.sap.com/hana/SAP_HANA_SQL_and_System_Views_Reference_en.pdf) for more information.
 

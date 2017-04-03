@@ -51,7 +51,7 @@ In your command-line interface (Bash, Terminal, Command prompt), switch to Resou
     ```
    
     > [!NOTE]
-    > If you have a work or school ID and you do not have two-factor authentication enabled, use `azure login -u` with the ID to log in without an interactive session. If you don't have a work or school ID, you can [create a work or school id from your personal Microsoft account](../virtual-machines/virtual-machines-linux-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > If you have a work or school ID and you do not have two-factor authentication enabled, use `azure login -u` with the ID to log in without an interactive session. If you don't have a work or school ID, you can [create a work or school id from your personal Microsoft account](../virtual-machines/linux/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     
 2. **Create a resource group**  
 All resources must be deployed to a resource group. For this tutorial, name the resource group **vmsstest1**.
