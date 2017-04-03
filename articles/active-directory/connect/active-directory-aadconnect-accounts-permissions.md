@@ -138,6 +138,21 @@ user account - Domain or Local user account
 
 For a full list, see [Supported options for the Azure AD sync service account](#supported-options-for-the-azure-ad-sync-service- account).
 
+#### Supported options for the Azure AD sync service account
+This table lists all supported options for the sync service account.
+
+| | LocalDB</br>Express | LocalDB/LocalSQL</br>Custom | Remote SQL</br>Custom |
+| --- | --- | --- | --- |
+| **standalone/workgroup machine** | Not supported | VSA</br>Local user account |  Not supported |
+| **domain-joined machine** | VSA</br>Local service account (2008) | VSA</br>user account</br>sMSA,gMSA | Domain user account</br>gMSA |
+| **Domain Controller** | Domain user account| Domain user account</br>sMSA,gMSA| Domain user account</br>gMSA |
+
+Legend:  
+2008 - When installed on Windows Server 2008  
+Local user account - Local user account only  
+Domain user account - Domain user account only  
+user account - Domain or Local user account  
+
 #### Virtual service account
 A virtual service account is a special type of account that does not have a password and is managed by Windows.
 
@@ -168,21 +183,6 @@ This account is used to store the passwords for the other accounts in a secure w
 If you use a full SQL Server, then the service account is the DBO of the created database for the sync engine. The service will not function as intended with any other permissions. A SQL login is also created.
 
 The account is also granted permissions to files, registry keys, and other objects related to the Sync Engine.
-
-#### Supported options for the Azure AD sync service account
-This table lists all supported options for the sync service account.
-
-| | LocalDB</br>Express | LocalDB/LocalSQL</br>Custom | Remote SQL</br>Custom |
-| --- | --- | --- | --- |
-| **standalone/workgroup machine** | Not supported | VSA</br>Local user account |  Not supported |
-| **domain-joined machine** | VSA</br>Local service account (2008) | VSA</br>user account</br>sMSA,gMSA | Domain user account</br>gMSA |
-| **Domain Controller** | VSA</br>Domain user account| VSA</br>Domain user account</br>sMSA,gMSA| Domain user account</br>gMSA |
-
-Legend:  
-2008 - When installed on Windows Server 2008  
-Local user account - Local user account only  
-Domain user account - Domain user account only  
-user account - Domain or Local user account  
 
 ### Azure AD service account
 An account in Azure AD is created for the sync service's use. This account can be identified by its display name.
