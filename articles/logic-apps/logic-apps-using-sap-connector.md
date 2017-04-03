@@ -24,8 +24,8 @@ requests an IDOC over HTTP and sends the response back.
 
 > [!NOTE]
 > Current limitations: 
-> - Logic apps time out when a request exceeds the [time limit](./logic-apps-limits-and-config.md). 
-> In this scenario, requests might be blocked. 
+> - You logic app times out when all steps required for the response don't finish within the 
+> [request timeout limit](./logic-apps-limits-and-config.md). In this scenario, requests might get blocked. 
 > - The file picker does not display all the available fields. In this scenario, you can manually add paths.
 
 ## Prerequisites
