@@ -54,7 +54,7 @@ Azure File shares can be mounted in macOS Sierra (10.12) and El Capitan (10.11).
 1. Replace `<storage-account-name>` with the name of your storage account. Provide Storage Account Key as password when prompted. 
 
     ```
-    mount_smbfs //<storage-account-name>@<storage-account-name>.file.core.windows.net/<share-name> <desired-mount-point> -o vers=3.0
+    mount_smbfs //<storage-account-name>@<storage-account-name>.file.core.windows.net/<share-name> <desired-mount-point>
     ```
 
 2. **Use the Azure File share as desired**: The Azure File share will be mounted at the mount point specified by the previous command.  
