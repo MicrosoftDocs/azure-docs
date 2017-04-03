@@ -120,7 +120,7 @@ The VM is now running on Azure and you are ready to log in.  Using passwords to 
 ## Storage
 * [Introduction to Microsoft Azure Storage](../../storage/storage-introduction.md)
 * [Add a disk to a Linux VM using the azure-cli](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [How to attach a data disk to a Linux VM in the Azure portal](../windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [How to attach a data disk to a Linux VM in the Azure portal](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Networking
 * [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md)
@@ -129,11 +129,11 @@ The VM is now running on Azure and you are ready to log in.  Using passwords to 
 * [Create a Fully Qualified Domain Name in the Azure portal](portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Containers
-* [Virtual Machines and Containers in Azure](containers.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Virtual Machines and Containers in Azure](../../log-analytics/containers.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure Container Service introduction](../../container-service/container-service-intro.md)
 * [Deploy an Azure Container Service cluster](../../container-service/container-service-deployment.md)
 
 ## Next steps
 You now have an overview of Linux on Azure.  The next step is to dive in and create a few VMs!
 
-* [Explore our growing list of Sample Scripts for common tasks via AzureCLI](cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Explore our growing list of Sample Scripts for common tasks via AzureCLI](../../app-service-web/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

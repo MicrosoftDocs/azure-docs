@@ -1,5 +1,5 @@
 # Overview
-## [About Virtual Machines](azure-overview.md)
+## [About Virtual Machines](overview.md)
 
 # Quickstart
 ## [Create VM - Portal](quick-create-portal.md)

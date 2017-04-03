@@ -1,4 +1,4 @@
-# [Overview](../azure-overview.md)
+# [Overview](../overview.md)
 ## [Images](about-images.md)
 ## [VM extensions](agents-and-extensions.md)
 ## [Availability](configure-availability.md)
