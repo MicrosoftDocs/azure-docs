@@ -248,29 +248,29 @@ ms.custom: H1Hack27Feb2017
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
-[virtual-machines-linux-attach-disk-portal]:../../virtual-machines-linux-attach-disk-portal.md
+[virtual-machines-linux-attach-disk-portal]:../../linux/attach-disk-portal.md
 [virtual-machines-azure-resource-manager-architecture]:../../../resource-manager-deployment-model.md
 [virtual-machines-azurerm-versus-azuresm]:../../../resource-manager-deployment-model.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
-[virtual-machines-linux-cli-deploy-templates]:../../virtual-machines-linux-cli-deploy-templates.md (Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI)
+[virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md (Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI)
 [virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines-windows-ps-manage.md (Manage virtual machines using Azure Resource Manager and PowerShell)
-[virtual-machines-linux-agent-user-guide]:../../virtual-machines-linux-agent-user-guide.md
-[virtual-machines-linux-agent-user-guide-command-line-options]:../../virtual-machines-linux-agent-user-guide.md#command-line-options
-[virtual-machines-linux-capture-image]:../../virtual-machines-linux-capture-image.md
-[virtual-machines-linux-capture-image-resource-manager]:../../virtual-machines-linux-capture-image.md
-[virtual-machines-linux-capture-image-resource-manager-capture]:../../virtual-machines-linux-capture-image.md#step-2-capture-the-vm
-[virtual-machines-linux-configure-raid]:../../virtual-machines-linux-configure-raid.md
-[virtual-machines-linux-configure-lvm]:../../virtual-machines-linux-configure-lvm.md
+[virtual-machines-linux-agent-user-guide]:../../linux/agent-user-guide.md
+[virtual-machines-linux-agent-user-guide-command-line-options]:../../linux/agent-user-guide.md#command-line-options
+[virtual-machines-linux-capture-image]:../../linux/capture-image.md
+[virtual-machines-linux-capture-image-resource-manager]:../../linux/capture-image.md
+[virtual-machines-linux-capture-image-resource-manager-capture]:../../linux/capture-image.md#step-2-capture-the-vm
+[virtual-machines-linux-configure-raid]:../../linux/configure-raid.md
+[virtual-machines-linux-configure-lvm]:../../linux/configure-lvm.md
 [virtual-machines-linux-classic-create-upload-vhd-step-1]:../../virtual-machines-linux-classic-create-upload-vhd.md#step-1-prepare-the-image-to-be-uploaded
-[virtual-machines-linux-create-upload-vhd-suse]:../../virtual-machines-linux-suse-create-upload-vhd.md
-[virtual-machines-linux-redhat-create-upload-vhd]:../../virtual-machines-linux-redhat-create-upload-vhd.md
-[virtual-machines-linux-how-to-attach-disk]:../../virtual-machines-linux-add-disk.md
-[virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../../virtual-machines-linux-add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk
-[virtual-machines-linux-tutorial]:../../virtual-machines-linux-quick-create-cli.md
-[virtual-machines-linux-update-agent]:../../virtual-machines-linux-update-agent.md
-[virtual-machines-manage-availability]:../../virtual-machines-linux-manage-availability.md
+[virtual-machines-linux-create-upload-vhd-suse]:../../linux/suse-create-upload-vhd.md
+[virtual-machines-linux-redhat-create-upload-vhd]:../../linux/redhat-create-upload-vhd.md
+[virtual-machines-linux-how-to-attach-disk]:../../linux/add-disk.md
+[virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk
+[virtual-machines-linux-tutorial]:../../linux/quick-create-cli.md
+[virtual-machines-linux-update-agent]:../../linux/update-agent.md
+[virtual-machines-manage-availability]:../../linux/manage-availability.md
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:virtual-machines-windows-create-powershell.md
-[virtual-machines-sizes]:../../virtual-machines-linux-sizes.md
+[virtual-machines-sizes]:../../linux/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
 [virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
@@ -716,7 +716,7 @@ There is a requirement to manage the backups on your own. Since the expectation 
 * Microsoft Visual Studio with Azure SDK installed (<https://azure.microsoft.com/downloads/>)
 * Microsoft Azure Storage Explorer (<https://azure.microsoft.com/downloads/>)
 * 3rd party tools
-FOr a more complete discussion of Backup and SAP on Azure, please refer to [the SAP Backup Guide](../../linux/sap-hana-backup-guide.md) for more information.
+FOr a more complete discussion of Backup and SAP on Azure, please refer to [the SAP Backup Guide](sap-hana-backup-guide.md) for more information.
 
 ### <a name="1b353e38-21b3-4310-aeb6-a77e7c8e81c8"></a>Using a SQL Server images out of the Microsoft Azure Marketplace
 Microsoft offers VMs in the Azure Marketplace which already contain versions of SQL Server. For SAP customers who require licenses for SQL Server and Windows, this might be an opportunity to basically cover the need for licenses by spinning up VMs with SQL Server already installed. In order to use such images for SAP, the following considerations need to be made:

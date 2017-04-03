@@ -111,6 +111,10 @@ If you are a developer trying to parse the JSON annotation data, look inside Mod
 	![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
 5.	The bottom text field will update with the face IDs. Create a file called "idlist.txt" with these IDs as a newline delimited list. 
+
+	>[!NOTE]
+	> The idlist.txt should be saved in ANSI. You can use notepad to save in ANSI.
+	
 6.	Upload this file to the output asset from step 1. Upload the original video to this asset as well and set as primary asset. 
 7.	Run Redaction job on this asset with "Redact" mode to get the final redacted video. 
 
