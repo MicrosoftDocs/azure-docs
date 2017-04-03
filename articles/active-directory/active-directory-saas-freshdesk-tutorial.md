@@ -6,13 +6,13 @@ documentationCenter: na
 author: jeevansd
 manager: femila
 
-ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
+ms.assetid: c2a3e5aa-7b5a-4fe4-9285-45dbe6e8efcc
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2017
+ms.date: 03/31/2017
 ms.author: jeedes
 
 ---
@@ -104,13 +104,11 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
  
 	![Configure Single Sign-On](./media/active-directory-saas-freshdesk-tutorial/tutorial_freshdesk_samlbase.png)
 
-3. On the **FreshDesk Domain and URLs** section, perform the following steps:
+3. On the **FreshDesk Domain and URLs** section, please enter the **Sign-on URL** as: `https://<tenant-name>.freshdesk.com`
 
 	![Configure Single Sign-On](./media/active-directory-saas-freshdesk-tutorial/tutorial_freshdesk_url.png)
 
-    a. In the **Sign-on URL** textbox, type the value as: `https://<tenant-name>.freshdesk.com`
-
-> [!NOTE] 
+	> [!NOTE] 
     > Please note that this is not the real value. You have to update the value with the actual Sign-on URL. Contact [FreshDesk Client support team](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) to get this value.  
 
 4. On the **SAML Signing Certificate** section, click **Certificate** and then save the certificate on your computer.
@@ -129,26 +127,30 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 8. In the menu on the top, click **Admin**.
    
-   ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Admin")
+   	![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Admin")
 
 9. In the **General Settings** tab, click **Security**.
    
-   ![Security](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "Security")
+   	![Security](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "Security")
 
 10. In the **Security** section, perform the following steps:
    
-    ![Single Sign On](./media/active-directory-saas-freshdesk-tutorial/IC776770.png "Single Sign On")
+	![Single Sign On](./media/active-directory-saas-freshdesk-tutorial/IC776770.png "Single Sign On")
    
-    1. For **Single Sign On (SSO)**, select **On**.
-    2. Select **SAML SSO**.
-    3. In the Azure portal, on the **Configure FreshDesk for single sign on** dialog page, copy the **SAML Single Sign-On Service URL** value, and then paste it into the **SAML Login URL** textbox.
-    4. In the Azure portal, on the **Configure FreshDesk for single sign on** dialog page, copy the **Sign-Out URL** value, and then paste it into the **Logout URL** textbox.
-    5. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Security Certificate Fingerprint** textbox.  
+	a. For **Single Sign On (SSO)**, select **On**.
+
+	b. Select **SAML SSO**.
+
+    c. Type the **SAML Single Sign-On Service URL** you copied from Azure portal into the **SAML Login URL** textbox.
+
+    d. Type the **Sign-Out URL**  you copied from Azure portal into the **Logout URL** textbox.
+
+    e. Copy the **Thumbprint** value from the downloaded certificate from Azure portal and paste it into the **Security Certificate Fingerprint** textbox.  
  
-      >[!TIP]
-      >For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI). 
-      > 
-   6. Click **Save**.
+    >[!TIP]
+    >For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI). 
+    
+	f. Click **Save**.
 
 
 ### Creating an Azure AD test user
@@ -192,36 +194,37 @@ In the case of FreshDesk, provisioning is a manual task.
 1. Log in to your **Freshdesk** tenant.
 2. In the menu on the top, click **Admin**.
    
-   ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776772.png "Admin")
+   	![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776772.png "Admin")
+
 3. In the **General Settings** tab, click **Agents**.
    
-   ![Agents](./media/active-directory-saas-freshdesk-tutorial/IC776773.png "Agents")
+   	![Agents](./media/active-directory-saas-freshdesk-tutorial/IC776773.png "Agents")
+
 4. Click **New Agent**.
    
-   ![New Agent](./media/active-directory-saas-freshdesk-tutorial/IC776774.png "New Agent")
+   	![New Agent](./media/active-directory-saas-freshdesk-tutorial/IC776774.png "New Agent")
+
 5. On the Agent Information dialog, perform the following steps:
    
-   ![Agent Information](./media/active-directory-saas-freshdesk-tutorial/IC776775.png "Agent Information")
+   	![Agent Information](./media/active-directory-saas-freshdesk-tutorial/IC776775.png "Agent Information")
    
-   1. In the **Full Name** textbox, type the name of the Azure AD account you want to provision.
-   2. In the **Email** textbox, type the Azure AD email address of the Azure AD account you want to provision.
-   3. In the **Title** textbox, type the title of the Azure AD account you want to provision.
-   4. Select **Agents role**, and then click **Assign**.
-   5. Click **Save**.     
+   	a. In the **Full Name** textbox, type the name of the Azure AD account you want to provision.
+
+   	b. In the **Email** textbox, type the Azure AD email address of the Azure AD account you want to provision.
+
+   	c. In the **Title** textbox, type the title of the Azure AD account you want to provision.
+
+   	d. Select **Agents role**, and then click **Assign**.
+	   
+   	e. Click **Save**.     
    
-      >[!NOTE]
-      >The Azure AD account holder will get an email that includes a link to confirm the account before it is activated. 
-      > 
-
->[!NOTE]
->You can use any other Freshdesk user account creation tools or APIs provided by Freshdesk to provision AAD user accounts. 
-> 
-
-### Assigning the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to FreshDesk.
-
-![Assign User][200] 
+	>[!NOTE]
+	>The Azure AD account holder will get an email that includes a link to confirm the account before it is activated. 
+	> 
+	
+	>[!NOTE]
+	>You can use any other Freshdesk user account creation tools or APIs provided by Freshdesk to provision AAD user accounts. 
+	to FreshDesk.
 
 **To assign Britta Simon to FreshDesk, perform the following steps:**
 
