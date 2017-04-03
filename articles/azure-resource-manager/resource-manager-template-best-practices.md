@@ -18,7 +18,7 @@ ms.author: tomfitz
 
 ---
 # Best practices for creating Azure Resource Manager templates
-These guidelines can help you create Azure Resource Manager templates that are reliable and easy to use. The guidelines are only suggestions. They are not requirements, except where stated. For your scenario, you might want to use a variation of the following guidance.
+These guidelines can help you create Azure Resource Manager templates that are reliable and easy to use. The guidelines are only suggestions. They are not requirements, except where noted. Your scenario might require a variation of one of the following approaches or examples.
 
 ## Resource names
 Generally, you work with three types of resource names in Resource Manager:
@@ -88,7 +88,7 @@ You also can use a hard-coded value:
 ```
 
 ### Generic resource names
-For resource types that you mostly access through a different resource, you can use a generic name that is hard-coded in the template. For example, you probably do not want a customizable name for firewall rules on a SQL server:
+For resource types that you mostly access through a different resource, you can use a generic name that is hard-coded in the template. For example, you can set a standard, generic name for firewall rules on a SQL server:
 
 ```json
 {
@@ -149,7 +149,7 @@ The following information can be helpful when you work with parameters:
    }
    ```
 
-* Whenever possible, don't use a parameter to specify location. Instead, use the **location** property of the resource group. By using the **resourceGroup().location** expression for all your resources, resources in the template are deployed in the same location as the resource group. Here's an example:
+* Whenever possible, don't use a parameter to specify location. Instead, use the **location** property of the resource group. By using the **resourceGroup().location** expression for all your resources, resources in the template are deployed in the same location as the resource group:
    
    ```json
    "resources": [
@@ -171,7 +171,7 @@ The following information can be helpful when you work with variables:
 
 * Use variables for values that you need to use more than once in a template. If a value is used only once, a hard-coded value makes your template easier to read.
 * You cannot use the [reference](resource-group-template-functions.md#reference) function in the **variables** section of the template. The **reference** function derives its value from the resource's runtime state. However, variables are resolved during the initial parsing of the template. Construct values that need the **reference** function directly in the **resources** or **outputs** section of the template.
-* Include variables for resource names that must be unique, as shown in [Resource names](#resource-names).
+* Include variables for resource names that must be unique, as described in [Resource names](#resource-names).
 * You can group variables into complex objects. Use the **variable.subentry** format to reference a value from a complex object. Grouping variables can help you track related variables. It also improves readability of the template. Here's an example:
    
    ```json
@@ -200,7 +200,7 @@ The following information can be helpful when you work with variables:
    > 
    > 
    
-     For advanced examples of using complex objects as variables, see [Sharing state in Azure Resource Manager templates](best-practices-resource-manager-state.md).
+     For advanced examples of using complex objects as variables, see [Share state in Azure Resource Manager templates](best-practices-resource-manager-state.md).
 
 ## Resources
 The following information can be helpful when you work with resources:
@@ -221,7 +221,7 @@ The following information can be helpful when you work with resources:
    ```
 
 * You can use tags to add metadata to resources. Use metadata to add information about your resources. For example, you can add metadata to record billing details for a resource. For more information, see [Using tags to organize your Azure resources](resource-group-using-tags.md).
-* If you use a **public endpoint** in your template (such as an Azure Blob storage public endpoint), *do not hard-code* the namespace. Use the **reference** function to dynamically retrieve the namespace. You can use this approach to deploy the template to different public namespace environments without manually changing the endpoint in the template. Set the API version to the same version that you are using for the storage account in your template:
+* If you use a *public endpoint* in your template (such as an Azure Blob storage public endpoint), *do not hard-code* the namespace. Use the **reference** function to dynamically retrieve the namespace. You can use this approach to deploy the template to different public namespace environments without manually changing the endpoint in the template. Set the API version to the same version that you are using for the storage account in your template:
    
    ```json
    "osDisk": {
@@ -254,7 +254,7 @@ The following information can be helpful when you work with resources:
    }
    ```
    
-   You also can **reference** an existing storage account that is in a different resource group:
+   You also can reference an existing storage account that is in a different resource group:
 
    ```json
    "osDisk": {
@@ -270,7 +270,7 @@ The following information can be helpful when you work with resources:
      For more information about connecting to virtual machines, see:
    
    * [Run VMs for an N-tier architecture in Azure](../guidance/guidance-compute-n-tier-vm.md)
-   * [Set up WinRM access for virtual machines in Azure Resource Manager](../virtual-machines/windows/winrm.md)
+   * [Set up WinRM access for VMs in Azure Resource Manager](../virtual-machines/windows/winrm.md)
    * [Allow external access to your VM by using the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md)
    * [Allow external access to your VM by using PowerShell](../virtual-machines/windows/nsg-quickstart-powershell.md)
    * [Allow external access to your Linux VM by using Azure CLI](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
@@ -291,7 +291,7 @@ The following information can be helpful when you work with resources:
    }
    ```
 
-* When you add a password to a custom script extension, use the **commandToExecute** property in the **protectedSettings** parameter:
+* When you add a password to a custom script extension, use the **commandToExecute** property in the **protectedSettings** property:
    
    ```json
    "properties": {
@@ -347,7 +347,7 @@ If you choose to use nested templates, the following guidelines can help you sta
 
 ![Nested template](./media/resource-manager-template-best-practices/nestedTemplateDesign.png)
 
-For more information, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
+For more information, see [Use linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 
 ## Conditionally link to nested templates
 You can use a parameter to conditionally link to nested templates. The parameter becomes part of the URI for the template:
@@ -389,8 +389,8 @@ It's a good practice to pass your template through a JSON validator. A validator
 It's also a good idea to format your JSON for better readability. You can use a JSON formatter package for your local editor. In Visual Studio, to format the document, press **Ctrl+K, Ctrl+D**. In Visual Studio Code, press **Alt+Shift+F**. If your local editor doesn't format the document, you can use an [online formatter](https://www.bing.com/search?q=json+formatter).
 
 ## Next steps
-* For guidance about architecting your solution for virtual machines, see [Run a Windows VM in Azure](../guidance/guidance-compute-single-vm.md) and [Run a Linux VM in Azure](../guidance/guidance-compute-single-vm-linux.md).
-* For guidance about setting up a storage account, see [Azure Storage performance and scalability checklist](../storage/storage-performance-checklist.md).
+* For guidance on architecting your solution for virtual machines, see [Run a Windows VM in Azure](../guidance/guidance-compute-single-vm.md) and [Run a Linux VM in Azure](../guidance/guidance-compute-single-vm-linux.md).
+* For guidance on setting up a storage account, see [Azure Storage performance and scalability checklist](../storage/storage-performance-checklist.md).
 * For help with virtual networks, see the [networking infrastructure guidelines](../virtual-machines/windows/infrastructure-networking-guidelines.md).
 * To learn about how an enterprise can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold: Prescriptive subscription governance](resource-manager-subscription-governance.md).
 
