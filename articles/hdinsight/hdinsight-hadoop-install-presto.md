@@ -45,11 +45,6 @@ This section provides instructions on how to use the sample script when creating
 
 	b. It must use Azure Storage as the data store. Using Presto on a cluster that uses Azure Data Lake Store as the storage option is not yet supported. 
 
-	> [!NOTE]
-	> Make sure that the cluster you create uses Azure Storage as the cluster storage. 
-	> 
-	>
-
 	![HDInsight cluster creation using custom options](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
 2. On the **Advanced settings** blade, select **Script Actions**, and provide the information below:
