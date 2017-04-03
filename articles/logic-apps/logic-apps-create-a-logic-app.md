@@ -209,15 +209,15 @@ choose **Logic Apps**. Select your logic app.
 
    In the logic app menu, you can find these logic app management tasks:
 
-   | Task | Steps |
-   | --- | --- |
-   | View your app's status, execution history, and general information | Choose **Overview**. |
-   | Edit your app | Choose **Logic App Designer**. |
-   | View your app's workflow JSON definition | Choose **Logic App Code View**. |
-   | View operations performed on your logic app | Choose **Activity log**. |
-   | View past versions for your logic app | Choose **Versions**. |
-   | Turn off your app temporarily | Choose **Overview**, then on the command bar, choose **Disable**. |
-   | Delete your app | Choose **Overview**, then on the command bar, choose **Delete**. Enter your logic app's name, and choose **Delete**. |
+   |Task|Steps| 
+   |:---|:---| 
+   | View your app's status, execution history, and general information| Choose **Overview**.| 
+   | Edit your app | Choose **Logic App Designer**. | 
+   | View your app's workflow JSON definition | Choose **Logic App Code View**. | 
+   | View operations performed on your logic app | Choose **Activity log**. | 
+   | View past versions for your logic app | Choose **Versions**. | 
+   | Turn off your app temporarily | Choose **Overview**, then on the command bar, choose **Disable**. | 
+   | Delete your app | Choose **Overview**, then on the command bar, choose **Delete**. Enter your logic app's name, and choose **Delete**. | 
 
 ## Get help
 
