@@ -17,7 +17,7 @@ ms.date: 03/31/2017
 ms.author: ancav
 
 ---
-# Create and Manager Action Groups in Azure Portal
+# Create and Manage Action Groups in Azure Portal
 ## Overview ##
 This article shows you how to create and manage action groups in the Azure portal.
 

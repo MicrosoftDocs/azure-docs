@@ -11,13 +11,9 @@
 ## [PowerShell](powershell-samples.md)
 
 # Tutorials
-## [Install and run IIS](hero-role.md)
-## Deploy an app with VM template
-### [Tutorial overview](dotnet-core-1-landing.md)
-### [App architecture](dotnet-core-2-architecture.md)
-### [Access and security](dotnet-core-3-access-security.md)
-### [Availability and scale](dotnet-core-4-availability-scale.md)
-### [App deployment](dotnet-core-5-app-deployment.md)
+## [Create and manage a VM](../virtual-machines-windows-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Load balance VMs](../virtual-machines-windows-load-balanced-iis-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+
 
 # Concepts
 ## [Regions and availability](regions-and-availability.md)
