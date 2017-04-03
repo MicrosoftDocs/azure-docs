@@ -38,7 +38,8 @@ property: it lists all product licenses currently assigned to the group.
 | Select SkuPartNumber
 ```
 Output:
-```SkuPartNumber
+```
+SkuPartNumber
 -------------
 ENTERPRISEPREMIUM
 EMSPREMIUM
@@ -78,7 +79,8 @@ below we list the total user count, the count of users with licenses
 already assigned by the group, and the count of users for whom licenses
 could not be assigned by the group.
 
-```/# get all groups with licenses 
+```
+/# get all groups with licenses 
 Get-MsolGroup -All | Where {$_.Licenses}  | Foreach { 
     $groupId = $_.ObjectId;
     $groupName = $_.DisplayName;
@@ -150,7 +152,8 @@ Given a group that contains some license related errors, you can now list all us
 from other groups, too, and in this example we limit results only to errors relevant to the group in question (this is done by checking the
 **ReferencedObjectId** property of each **IndirectLicenseError** entry on the user.
 
-```/# a sample group with errors
+```
+/# a sample group with errors
 $groupId = '11151866-5419-4d93-9141-0603bbf78b42'
 
 /# get all user members of the group
@@ -178,7 +181,8 @@ To list all users who have license errors from one or more groups, the following
 > [!NOTE] 
 > This script will enumerate all users in the tenant, which might not be optimal for large tenants.
 
-```Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
+```
+Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
     $user = $_;
     $user.IndirectLicenseErrors | % {
             New-Object Object | 
