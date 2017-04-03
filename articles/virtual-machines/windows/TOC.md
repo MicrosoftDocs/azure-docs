@@ -12,7 +12,7 @@
 
 # Tutorials
 ## [Create and manage a VM](../virtual-machines-windows-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Load balance VMs](../virtual-machines-windows-load-balanced-iis-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Load balance VMs](load-balanced-iis-tutorial.md)
 
 
 # Concepts
