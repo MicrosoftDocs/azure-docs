@@ -13,7 +13,7 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ---
-# Windows Virtual Machines Documentation
+#Windows Virtual Machines Documentation
 <p style="padding-bottom: 0px">Learn how to create Windows virtual machines.</p>
 <h2 style="margin-top: 36px">Quickstarts</h2>
 <div class="ico48Case">

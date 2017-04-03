@@ -13,7 +13,7 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ---
-# SQL Database Documentation
+#SQL Database Documentation
 <p style="padding-bottom: 0px">Learn how to use SQL Database, a relational database-as-a-service in the cloud built on the Microsoft SQL Server engine.</p>
 <h2 style="margin-top: 36px">Quickstarts</h2>
 <div class="ico48Case">
@@ -36,13 +36,13 @@ ms.author: carolz
         </a>
     </div>
 </div>
+
 <div class="columnHolder">
     <div class="column50">
         <h2 style="margin-top: 36px">Tutorials</h2>
         <p>Build and deploy SQL Database applications.</p>
         <ul class="spaced">
             <li><a href="/azure/sql-database/sql-database-design-first-database">Design a database</a></li>
-            
         </ul>
         <h2 style="margin-top: 36px">Samples</h2>
         <p>Find scripts to manage common tasks.</p>
@@ -62,7 +62,9 @@ ms.author: carolz
             <p>Free Pluralsight video training – Developing with Node.js</a></p>
     </div>
 </div>
+
 <hr />
+
 <h2 style="margin-top: 36px">Reference</h2>
 <ul class="panelContent cardsW">
     <li>
