@@ -23,19 +23,19 @@ Learn how to create Windows virtual machines.
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
         <img src="media/index/portal.svg" alt="">
-            <span>Create VM - Portal</span>
+            <span>Create a Windows VM - Portal</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
             <img src="media/index/cli.svg" alt="">
-            <span>Create VM - Azure CLI</span>
+            <span>Create a Windows VM - Azure CLI</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
             <img src="media/index/logo_powershell.svg" alt="">
-            <span>Create VM - PowerShell</span>
+            <span>Create a Windows VM - PowerShell</span>
         </a>
     </div>
 </div>
@@ -55,7 +55,7 @@ Learn how to create Windows virtual machines.
         </ul>
     </div>
     <div class="column50">
-        <h2>Video Training</h2>
+        <h2>Free Video Training</h2>
         <a href="https://app.pluralsight.com/player?author=tim-warner&name=managing-infrastructure-microsoft-azure-getting-started-m0&mode=live&clip=0&course=managing-infrastructure-microsoft-azure-getting-started">
         <img src="media/index/video-training-infrastructure.png" height="160" width="360" alt="" />
         <p>Free Pluralsight video training – Managing Infrastructure</a></p>

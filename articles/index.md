@@ -670,7 +670,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                             <li>
                                 <div class="container intro">
                                     <h2 class="likeAnH1">Get started with Azure</h2>
-                                    <p>Dive into Azure with our quickstarts, samples, tutorials and technical documentation.</p>
+                                    <p>Explore our most popular services with quickstarts, samples, and tutorials</p>
                                 </div>
                             </li>
                             <li>
@@ -695,7 +695,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="ico48Link">
                                                     <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
                                                         <img src="media/index/logo_NET.svg" alt="">
-                                                        <span>ASP.NET</span>
+                                                        <span>.NET</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
@@ -763,7 +763,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </div>
                             </li>
                             <a href="/azure/index#pivot=services&panel=all" style="position: absolute; bottom:30px; right: 30px;">
-                              <button style="cursor: pointer;position: relative; background: #3498db; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">View all services<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z"/></svg></button>
+                              <button style="cursor: pointer;position: relative; background: #3498db; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">View all Azure Services<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z"/></svg></button>
                             </a>
                         </ul>
                     </li>

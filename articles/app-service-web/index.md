@@ -28,7 +28,7 @@ Learn how to use App Service Web Apps to build and host websites and web applica
     <div class="ico48Link">
         <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
             <img src="media/index/logo_NET.svg" alt="">
-            <span>ASP.NET</span>
+            <span>.NET</span>
         </a>
     </div>
     <div class="ico48Link">
@@ -67,7 +67,7 @@ Learn how to use App Service Web Apps to build and host websites and web applica
         </ul>
     </div>
     <div class="column50">
-        <h2>Video Training</h2>
+        <h2>Free Video Training</h2>
         <a href="https://app.pluralsight.com/player?author=scott-allen&name=f24a629c-37b7-47f1-bc43-4b122da61cbb&mode=live&clip=0&course=developing-dotnet-microsoft-azure-getting-started">
         <img src="media/index/video-training-dotnet.png" width="400" alt="" />
             <div class="container" max-width="400">

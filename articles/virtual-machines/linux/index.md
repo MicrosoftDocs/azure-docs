@@ -22,19 +22,19 @@ Learn how to run Virtual Machines on Azure using the Linux distribution of your 
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
         <img src="media/index/portal.svg" alt="">
-            <span>Create VM - Portal</span>
+            <span>Create a Linux VM - Portal</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
             <img src="media/index/cli.svg" alt="">
-            <span>Create VM - Azure CLI</span>
+            <span>Create a Linux VM - Azure CLI</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
             <img src="media/index/logo_powershell.svg" alt="">
-            <span>Create VM - PowerShell</span>
+            <span>Create a Linux VM - PowerShell</span>
         </a>
     </div>
 <div>
@@ -54,7 +54,7 @@ Learn how to run Virtual Machines on Azure using the Linux distribution of your 
         </ul>
     </div>
     <div class="column50">
-        <h2>Video Training</h2>
+        <h2>Free Video Training</h2>
         <a href="https://app.pluralsight.com/player?author=tim-warner&name=managing-infrastructure-microsoft-azure-getting-started-m0&mode=live&clip=0&course=managing-infrastructure-microsoft-azure-getting-started">
         <img src="media/index/video-training-infrastructure.png" width="400" alt="" />
             <div class="container" width="400">
