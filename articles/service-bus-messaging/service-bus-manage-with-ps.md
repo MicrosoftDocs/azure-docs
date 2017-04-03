@@ -40,7 +40,7 @@ When working with Service Bus namespaces, you can use the [Get-AzureRmServiceBus
 
 This example creates a few local variables in the script; `$Namespace` and `$Location`.
 
-* `$Namespace` is the name the of the Service Bus namespace with which we want to work.
+* `$Namespace` is the name of the Service Bus namespace with which we want to work.
 * `$Location` identifies the data center in which will we provision the namespace.
 * `$CurrentNamespace` stores the reference namespace that we retrieve (or create).
 
