@@ -31,11 +31,11 @@ Get started by downloading the Spark to DocumentDB connector (preview) from the 
 
 The connector utilizes the following components:
 
-* [DocumentDB](http://documentdb.com), Microsoft’s multi-tenant, [globally distributed database system](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-distribute-data-globally) designed for the cloud. DocumentDB enables customers to provision and elastically scale both throughput and storage across any number of geographical regions. The service offers guaranteed low latency at the 99th percentile, a guaranteed 99.99% high availability, and [multiple well-defined consistency models](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-consistency-levels) to developers.
+* [DocumentDB](http://documentdb.com), Microsoft’s multi-tenant, [globally distributed database system](documentdb-distribute-data-globally.md) designed for the cloud. DocumentDB enables customers to provision and elastically scale both throughput and storage across any number of geographical regions. The service offers guaranteed low latency at the 99th percentile, a guaranteed 99.99% high availability, and [multiple well-defined consistency models](documentdb-consistency-levels.md) to developers.
 
 * [Apache Spark](http://spark.apache.org/), which is a powerful open source processing engine built around speed, ease of use, and sophisticated analytics. 
 
-* [Apache Spark on Azure HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql). You can deploy Apache Spark in the cloud for mission critical deployments using [Azure HDInsight](https://azure.microsoft.com/en-us/services/hdinsight/apache-spark/).
+* [Apache Spark on Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md). You can deploy Apache Spark in the cloud for mission critical deployments using [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/).
 
 Officially supported versions:
 
@@ -342,6 +342,6 @@ If you haven't already, download the Spark to DocumentDB connector from the [azu
 * [Distributed Aggregations Examples](https://github.com/Azure/azure-documentdb-spark/wiki/Aggregations-Examples)
 * [Sample Scripts and Notebooks](https://github.com/Azure/azure-documentdb-spark/tree/master/samples)
 
-You may also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Apache Spark on Azure HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql) article.
+You may also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Apache Spark on Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) article.
 
 
