@@ -16,7 +16,7 @@ ms.date: 02/01/2017
 ms.author: padmavc; LADocs
 ---
 
-# Connect to an on-premises SAP system from your logic app 
+# Connect to an on-premises SAP system from logic apps through the SAP connector 
 
 The on-premises data gateway enables you to manage data, and securely access resources that are on-premises. Use this topic to connect to an on-premises SAP system to request an IDOC over HTTP, and send the response back.    
 
@@ -47,15 +47,17 @@ So, we have to use another trigger at the start of the workflow.
 
 2. Select **Add an action**, and then select the SAP connector by typing `SAP` in the search field:    
 
-     ![Select SAP Application Server or SAP Message Server](media/logic-apps-using-sap-connector/picture1.png)
+     ![Select SAP Application Server or SAP Message Server](media/logic-apps-using-sap-connector/sap-action.png)
 
-3. Select **SAP** [application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [message server](http://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm), depending on your SAP setup. If you don't have an existing connection, you are prompted to create one: 
+3. Select [**SAP Application Server**](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) 
+or [**SAP Message Server**](http://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm), 
+based on your SAP setup. If you don't have an existing connection, you are prompted to create one.
 
    1. Select **Connect via on-premises data gateway**, and enter the details for your SAP system:   
 
        ![Add connection string to SAP](media/logic-apps-using-sap-connector/picture2.png)  
 
-   2. Select an existing **Gateway**. Or to install a new gateway, select **Install Gateway**.
+   2. Under **Gateway**, select an existing gateway, or to install a new gateway, select **Install Gateway**.
 
         ![Install a new gateway](media/logic-apps-using-sap-connector/install-gateway.png)
   
