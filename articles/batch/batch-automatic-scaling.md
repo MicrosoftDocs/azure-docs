@@ -53,7 +53,7 @@ Include these statements in your autoscale formula in order to arrive at a numbe
 
 ### Sample autoscale formula
 
-Here is an example of an autoscale formula that can be adjusted to work for most scenarios.
+Here is an example of an autoscale formula that can be adjusted to work for most scenarios. The variables `startingNumberOfVMs` and `maxNumberofVMs` in the example formula can be adjusted to your needs.
 
 ```
 startingNumberOfVMs = 1;
@@ -63,10 +63,10 @@ pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($
 $TargetDedicated=min(maxNumberofVMs, pendingTaskSamples);
 ```
 
-With this autoscale formula, the pool is initially created with a single VM. The $PendingTasks metric defines the number of tasks are running or queued. The formula finds the average number of pending tasks in the last 180 seconds and sets TargetDedicated accordingly. The formula ensures that TargetDedicated never exceeds 25 VMs. As new tasks are submitted, the pool automatically grows. As tasks complete, VMs become free one by one and the autoscaling formula shrinks the pool.
+With this autoscale formula, the pool is initially created with a single VM. The $PendingTasks metric defines the number of tasks that are running or queued. The formula finds the average number of pending tasks in the last 180 seconds and sets TargetDedicated accordingly. The formula ensures that TargetDedicated never exceeds 25 VMs. As new tasks are submitted, the pool automatically grows. As tasks complete, VMs become free one by one and the autoscaling formula shrinks the pool.
 
 ## Variables
-You can use both **service-defined** and **user-defined** variables in your autoscale formulas. The service-defined variables are built in to the Batch service--some are read-write, and some are read-only. User-defined variables are variables that *you* define. In the example formula shown in the previous section, `$TargetDedicated` and `$PendingTasks` are service-defined variables.
+You can use both **service-defined** and **user-defined** variables in your autoscale formulas. The service-defined variables are built in to the Batch service--some are read-write, and some are read-only. User-defined variables are variables that *you* define. In the example formula shown in the previous section, `$TargetDedicated` and `$PendingTasks` are service-defined variables. Variables `startingNumberOfVMs` and `maxNumberofVMs` are user-defined variables.
 
 The tables below show both read-write and read-only variables that are defined by the Batch service.
 
