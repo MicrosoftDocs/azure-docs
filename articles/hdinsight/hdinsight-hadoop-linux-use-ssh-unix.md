@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/16/2017
+ms.date: 04/03/2017
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -27,16 +27,19 @@ The following table contains the address and port information needed when connec
 
 | Address | Port | Connects to... |
 | ----- | ----- | ----- |
-| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Edge node (if one exists) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Edge node (R Server on HDInsight) |
+| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Edge node (any other cluster type, if an edge node exists) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Primary headnode |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Secondary headnode |
 
 > [!NOTE]
-> Replace `<edgenodename>` with the name of the edge node. For more information on using edge nodes, see [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node).
+> Replace `<edgenodename>` with the name of the edge node.
 >
 > Replace `<clustername>` with the name of your HDInsight cluster.
 >
 > We recommend __always connecting to the edge node__ if you have one. The head nodes host services that are critical to the health of the cluster. The edge node runs only what you put on it.
+>
+> For more information on using edge nodes, see [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node).
 
 ## SSH clients
 
