@@ -3,6 +3,7 @@
   - name: About Virtual Machines
     href: overview.md
 - name: Quickstart
+  expanded: true
   items:
   - name: Create VM - Portal
     href: quick-create-portal.md
