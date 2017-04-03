@@ -44,7 +44,7 @@ Learn how to create Windows virtual machines.
         <h2 style="margin-top: 18px;">Tutorials</h2>
         <p>Follow these step-by-step tutorials to build and deploy virtual machines.</p>
         <ul class="spaced">
-            <li><a href="/azure/virtual-machines/virtual-machines-windows-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Create and manage a VM</a></li>
+            <li><a href="/azure/virtual-machines/virtual-machines-windows-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Create load balanced, highly available VMs</a></li>
             <li><a href="/azure/virtual-machines/virtual-machines-windows-load-balanced-iis-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Load balance VMs</a></li>
         </ul>
         <h2>Samples</h2>

@@ -43,7 +43,7 @@ Learn how to run Virtual Machines on Azure using the Linux distribution of your 
         <h2 style="margin-top: 18px;">Tutorials</h2>
         <p>Follow these step-by-step tutorials to build and deploy virtual machines</p>
         <ul class="spaced">
-            <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Create and manage a VM</a></li>
+            <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Create load balanced, highly available VMs</a></li>
             <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-load-balance-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Load balance VMs</a></li>
         </ul>
         <h2>Samples</h2>
@@ -57,15 +57,15 @@ Learn how to run Virtual Machines on Azure using the Linux distribution of your 
         <h2 style="margin-top: 18px;">Free Video Training</h2>
         <a href="https://app.pluralsight.com/player?author=tim-warner&name=managing-infrastructure-microsoft-azure-getting-started-m0&mode=live&clip=0&course=managing-infrastructure-microsoft-azure-getting-started">
         <img src="media/index/video-training-infrastructure.png" width="400" alt="" />
-        <p>Free Pluralsight video training – Managing Infrastructure</a></p>
+        <p style="max-width: 400px;">Free Pluralsight video training – Managing Infrastructure</a></p>
         <p></p>
         <a href="https://app.pluralsight.com/player?author=tim-warner&name=azure-vms-getting-started-m0&mode=live&clip=0&course=azure-vms-getting-started">
         <img src="media/index/video-training-vms.png" width="400" alt="" />
-        <p>Free Pluralsight video training – Getting Started with Virtual Machines</a></p>
+        <p style="max-width: 400px;">Free Pluralsight video training – Getting Started with Virtual Machines</a></p>
         <p></p>
         <a href="https://app.pluralsight.com/player?author=tim-warner&name=azure-iaas-monitoring-management-getting-started-m0&mode=live&clip=0&course=azure-iaas-monitoring-management-getting-started">
         <img src="media/index/video-training-iaas-monitoring.png" width="400" alt="" />
-        <p>Free Pluralsight video training – Getting Started with IaaS Monitoring</a></p>
+        <p style="max-width: 400px;">Free Pluralsight video training – Getting Started with IaaS Monitoring</a></p>
     </div>
 </div>
 
