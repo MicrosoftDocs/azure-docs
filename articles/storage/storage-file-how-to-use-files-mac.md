@@ -1,6 +1,6 @@
 ---
 title: Use Azure Files with macOS | Microsoft Docs
-description: 
+description: Learn how to mount an Azure File share over SMB with macOS.
 services: storage
 documentationcenter: ''
 author: RenaShahMSFT
@@ -18,15 +18,7 @@ ms.author: renash
 ---
 
 # Use Azure Files with macOS
-Azure File shares can be mounted in macOS Sierra (10.12) and El Capitan (10.11). This article shows two different ways to mount an Azure File share on macOS: with the Finder UI and via the Terminal.
-
-## <a id="preq"></a>Prerequisites for mounting an Azure File share on macOS
-* **Azure File share UNC Path**: Copy the UNC path provided by the `net use` instructions in the Azure Portal:
-    ![The UNC path from the Azure Portal](media/storage-file/portal_netuse_connect.PNG)
-
-* **Storage Account Key**: To mount an Azure File share, you will need the storage account name and the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
-
-* **Ensure port 445 is open**: SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.
+[Azure Files](storage-file-storage.md) is Microsoft's easy to use cloud file system. Azure File shares can be mounted in macOS Sierra (10.12) and El Capitan (10.11). This article shows two different ways to mount an Azure File share on macOS: with the Finder UI and via the Terminal.
 
 > [!Note]  
 > Before mounting an Azure File share over SMB, we recommend disabling SMB packet signing. Not doing so may yield poor performance when accessing the Azure File share from macOS. From the terminal, the following commands will disable SMB packet signing, as described by this [Apple Support article](https://support.apple.com/en-us/HT205926):  
@@ -36,6 +28,13 @@ Azure File shares can be mounted in macOS Sierra (10.12) and El Capitan (10.11).
 >    echo "signing_required=no" >> /etc/nsmb.conf
 >    exit
 >    ```
+
+## <a id="preq"></a>Prerequisites for mounting an Azure File share on macOS
+* **Storage Account Name**: To mount an Azure File share, you will need the name of the storage account.
+
+* **Storage Account Key**: To mount an Azure File share, you will need the storage account name and the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
+
+* **Ensure port 445 is open**: SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.
 
 ## <a id="viafinder"/></a>Mount an Azure File share via Finder
 1. **Open Finder**: Finder is open on macOS by default, but you can ensure it is the currently selected application by clicking the "macOS face icon" on the dock:  

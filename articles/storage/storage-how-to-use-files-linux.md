@@ -1,6 +1,6 @@
 ---
-title: How to use Azure File Storage with Linux | Microsoft Docs
-description: Create an Azure file share in the cloud with this step-by-step tutorial. Manage your file share content, and mount a file share from an Azure virtual machine (VM) running Linux or an on-premises application that supports SMB 3.0.
+title: Use Azure File Storage with Linux | Microsoft Docs
+description: Learn how to mount an Azure File share over SMB on Linux.
 services: storage
 documentationcenter: na
 author: RenaShahMSFT
@@ -17,126 +17,77 @@ ms.date: 3/8/2017
 ms.author: renash
 
 ---
-# How to use Azure File Storage with Linux
-## Overview
-Azure File storage offers file shares in the cloud using the standard SMB protocol. With Azure File Storage, you can migrate enterprise applications that rely on file servers to Azure. Applications running in Azure can easily mount file shares from Azure virtual machines running Linux. And with the latest release of File storage, you can also mount a file share from an on-premises application that supports SMB 3.0.
+# Use Azure File Storage with Linux
+[Azure Files](storage-file-storage.md) is Microsoft's easy to use cloud file system. Azure File shares can be mounted in Linux distributions using the [cifs-utils package](https://wiki.samba.org/index.php/LinuxCIFS_utils) from the [Samba project](https://www.samba.org/). This article shows two ways to mount an Azure File share: on-demand with the `mount` command and on-boot by creating an entry in `/etc/fstab`.
 
-You can create Azure file shares using the [Azure Portal](https://portal.azure.com), the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API. Additionally, because file shares are SMB shares, you can access them via standard file system APIs.
+> [!NOTE]  
+> As of the time of publishing, Samba support for SMB 3.x is incomplete. Importantly, Samba does not yet support encryption, so mounting a file share from Linux using the cifs-utils package still requires that the client be in the same Azure as the Azure File share. Status on SMB 3.x compatibility can be viewed on the [Samba wiki](https://wiki.samba.org/index.php/SMB3_kernel_status#Security_Features).
 
-File storage is built on the same technology as Blob, Table, and Queue storage, so File storage offers the availability, durability, scalability, and geo-redundancy that is built into the Azure storage platform. For details about File storage performance targets and limits, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md).
+## <a id="preq"></a>Prerequisities for mounting an Azure File share with Linux and the cifs-utils package
+* **The cifs-utils package is installed**: The cifs-utils can be installed using the package manager on the Linux distribution of your choice. 
 
-File storage is now generally available and supports both SMB 2.1 and SMB 3.0. For additional details on File storage, see the [File service REST API](https://msdn.microsoft.com/library/azure/dn167006.aspx).
+    On Ubuntu and Debian-based distributions, use the `apt-get` package manager:
 
-> [!NOTE]
-> The Linux SMB client doesn’t yet support encryption, so mounting a file share from Linux still requires that the client be in the same Azure region as the file share. However, encryption support for Linux is on the roadmap of Linux developers responsible for SMB functionality. Linux distributions that support encryption in the future will be able to mount an Azure File share from anywhere as well.
-> 
-> 
+    ```
+    sudo apt-get update
+    sudo apt-get install cifs-utils
+    ```
 
-## Video: Using Azure File storage with Linux
-Here's a video that demonstrates how to create and use Azure File shares on Linux.
+    On RHEL and CentOS, use the `yum` package manager:
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Linux/player]
-> 
-> 
+    ```
+    sudo yum install samba-client samba-common cifs-utils
+    ```
 
-## Choose a Linux distribution to use
-When creating a Linux virtual machine in Azure, you can specify a Linux image which supports SMB 2.1 or higher from the Azure image gallery. Below is a list of recommended Linux images:
+    On openSUSE, use the `zypper` package manager:
 
-* Ubuntu Server 14.04+
-* RHEL 7+
-* CentOS 7+
-* Debian 8
-* openSUSE 13.2+
-* SUSE Linux Enterprise Server 12
-* SUSE Linux Enterprise Server 12 (Premium Image)
+    ```
+    sudo zypper install samba*
+    ```
 
-## Mount the file share
-To mount the file share from a virtual machine running Linux, you may need to install an SMB/CIFS client if the distribution you are using doesn't have a built-in client. This is the command from Ubuntu to install one choice cifs-utils:
+    On other distributions, use the appropriate package manager or [compile from source](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
 
-```
-sudo apt-get install cifs-utils
-```
+* **Decide on the directory/file permissions of the mounted share**: In the examples below, we use 0777, to give read, write, and execute permissions to all users. You can replace it with other [chmod permissions](https://en.wikipedia.org/wiki/Chmod) as desired. 
 
-Next, you need to make a mount point (mkdir mymountpoint), and then issue the mount command that is similar to this:
+* **Storage Account Name**: To mount an Azure File share, you will need the name of the storage account.
 
-```
-sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename ./mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
-```
+* **Storage Account Key**: To mount an Azure File share, you will need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
 
-You can also add settings in your /etc/fstab to mount the share.
+* **Ensure port 445 is open**: SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.
 
-Note that 0777 here represent a directory/file permission code that gives execution/read/write permissions to all users. You can replace it with other file permission code following Linux file permission document.
+## Mount the Azure File share on-demand with `mount`
+1. **Create a folder for the mount point**: This can be done anywhere on the file system.
 
-Also to keep a file share mounted after reboot, you can add a setting like below in your /etc/fstab:
+    ```
+    mkdir mymountpoint
+    ```
 
-```
-//myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
-```
+2. **Use the mount command to mount the Azure File share**: Remember to replace `<storage-account-name>`, `<share-name>`, and `<storage-account-key>` with the proper information.
 
-For example, if you created a Azure VM using Linux image Ubuntu Server 15.04 (which is available from the Azure image gallery), you can mount the file as below:
+    ```
+    sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> ./mymountpoint -o vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
+    ```
 
-```
-azureuser@azureconubuntu:~$ sudo apt-get install cifs-utils
-azureuser@azureconubuntu:~$ sudo mkdir /mnt/mountpoint
-azureuser@azureconubuntu:~$ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
-azureuser@azureconubuntu:~$ df -h /mnt/mountpoint
-Filesystem  Size  Used Avail Use% Mounted on
-//myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
-```
+> [!Note]  
+> When you are done use the Azure File share, you may use `sudo umount ./mymountpoint` to unmount the share.
 
-If you use CentOS 7.1, you can mount the file as below:
+## Mount the Azure File share on-boot with `/etc/fstab`
+1. **Create a folder for the mount point**: This can be done anywhere on the file system, but you need to note the absolute path of the folder. The following example creates a folder under root.
 
-```
-[azureuser@AzureconCent ~]$ sudo yum install samba-client samba-common cifs-utils
-[azureuser@AzureconCent ~]$ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
-[azureuser@AzureconCent ~]$ df -h /mnt/mountpoint
-Filesystem  Size  Used Avail Use% Mounted on
-//myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
-```
+    ```
+    sudo mkdir /mymountpoint
+    ```
 
-If you use Open SUSE 13.2, you can mount the file as below:
+2. **Use the following command to append the following line to `/etc/fstab`**: Remember to replace `<storage-account-name>`, `<share-name>`, and `<storage-account-key>` with the proper information.
 
-```
-azureuser@AzureconSuse:~> sudo zypper install samba*  
-azureuser@AzureconSuse:~> sudo mkdir /mnt/mountpoint
-azureuser@AzureconSuse:~> sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
-azureuser@AzureconSuse:~> df -h /mnt/mountpoint
-Filesystem  Size  Used Avail Use% Mounted on
-//myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
-```
+    ```
+    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+    ```
 
-If you use RHEL 7.3, you can mount the file as below:
+> [!Note]  
+> You can use `sudo mount -a` to mount the Azure File share after editing `/etc/fstab` instead of rebooting.
 
-```
-azureuser@AzureconRedhat:~> sudo yum install cifs-utils
-azureuser@AzureconRedhat:~> sudo mkdir /mnt/mountpoint
-azureuser@AzureconRedhat:~> sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
-azureuser@AzureconRedhat:~> df -h /mnt/mountpoint
-Filesystem  Size  Used Avail Use% Mounted on
-//myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
-```
-
-## Manage the file share
-The [Azure Portal](https://portal.azure.com) provides a user interface for managing Azure File Storage. You can perform the following actions from your web browser:
-
-* Upload and download files to and from your file share.
-* Monitor the actual usage of each file share.
-* Adjust the file share size quota.
-* Copy the `net use` command to use to mount your file share from a Windows client.
-
-You can also use the Azure Cross-Platform Command-Line Interface (Azure CLI) from Linux to manage the file share. Azure CLI provides a set of open source, cross-platform commands for you to work with Azure Storage, including File storage. It provides much of the same functionality found in the Azure Portal as well as rich data access functionality. For examples, see [Using the Azure CLI with Azure Storage](storage-azure-cli.md).
-
-## Develop with File storage
-As a developer, you can build an application with File storage by using the [Azure Storage Client Library for Java](https://github.com/azure/azure-storage-java). For code examples, see [How to use File storage from Java](storage-java-how-to-use-file-storage.md).
-
-You can also use the [Azure Storage Client Library for Node.js](https://github.com/Azure/azure-storage-node) to develop against File storage.
-
-## Feedback and more information
-Linux users, we want to hear from you!
-
-The Azure File storage for Linux users' group provides a forum for you to share feedback as you evaluate and adopt File storage on Linux. Email [Azure File Storage Linux Users](mailto:azurefileslinuxusers@microsoft.com) to join the users' group.
-
-## Next steps
+## See Also
 See these links for more information about Azure File storage.
 
 ### Conceptual articles and videos
