@@ -40,7 +40,7 @@ ms.author: carolz
 <div class="columnHolder">
     <div class="column50">
         <h2>Tutorials</h2>
-        <p>Follow these step-by-step tutorials to build and deploy virtual machines.</p>
+        <p>Build and deploy Linux virtual machines.</p>
         <ul class="spaced">
             <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Create load balanced, highly available VMs</a></li>
             <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-load-balance-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Load balance VMs</a></li>

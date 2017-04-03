@@ -42,7 +42,7 @@ ms.author: carolz
 <div class="columnHolder">
     <div class="column50">
         <h2>Tutorials</h2>
-        <p>Follow these step-by-step tutorials to build and deploy SQL Database applications.</p>
+        <p>Build and deploy SQL Database applications.</p>
         <ul class="spaced">
             <li><a href="/azure/sql-database/sql-database-design-first-database">Design a database</a></li>
             
