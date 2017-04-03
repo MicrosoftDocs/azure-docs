@@ -61,7 +61,7 @@ The app uses a switch statement that performs different actions based on the val
 
 3. Add a switch statement.
 
-   - Select **+ New step** > **... More** > **Add a switch statement**. 
+   - Select **+ New step** > **... More** > **Add a switch case**. 
    - Now we want to select the action to perform based on the `SelectedOptions` output from the *Send approval email* action. 
    You can find this field in the **Add dynamic content** selector.
    - Use *Case 1* to handle when the approver selects `Approve`.
@@ -69,7 +69,7 @@ The app uses a switch statement that performs different actions based on the val
      - Add another action within the case to notify users that a new file is available on SharePoint.
    - Add another case to handle when user selects `Reject`.
      - If rejected, send a notification email informing other approvers that the file is rejected and no further action is required.
-   - `SelectedOptions` provides only two options, so we can leave the **Default** empty.
+   - `SelectedOptions` provides only two options, so we can leave the **Default** case empty.
 
    ![Switch statement](./media/logic-apps-switch-case/switch.jpg)
 
