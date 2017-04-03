@@ -29,7 +29,7 @@ We recommend migrating to Premium Storage by using Site Recovery because this op
 
 ## Migration scenario components
 
-**Relevant Site Recovery components in this migration scenario：**
+**Relevant Site Recovery components in this migration scenario:**
 
 * A **configuration server** is an Azure VM that coordinates communication and manages data replication and recovery processes. On this VM you will run a single setup file to install the configuration server and an additional component, called a process server, as a replication gateway. Read about [configuration server prerequisites](../site-recovery/site-recovery-vmware-to-azure.md#prerequisites). Configuration server only needs to be configured once and can be used for all migrations to the same region.
 
@@ -37,7 +37,7 @@ We recommend migrating to Premium Storage by using Site Recovery because this op
 
 * A **mobility service** is a component that is deployed on every standard VM you want to replicate. It captures data writes on the standard VM and forwards them to the process server. Read about [Replicated machine prerequisites](../site-recovery/site-recovery-vmware-to-azure.md#prerequisites).
 
-**Azure essentials：**
+**Azure essentials:**
 
 * An Azure subscription
 * An Azure Premium storage account to store replicated data
