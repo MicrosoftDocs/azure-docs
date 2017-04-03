@@ -89,7 +89,7 @@ To create a VPN connection to the Azure Stack PoC computer, use the following st
     ```
     ![get NAT IP](media/azure-stack-connect-azure-stack/image1.png)  
 
-    This command will remote into the **MAS-BGPNAT01** infrastructure VM and gets the NAT IP address.  
+    This command remotes into the **MAS-BGPNAT01** infrastructure VM and gets the NAT IP address.  
 
 3. Create a VPN connection entry for your local user by using the **Add-AzureStackVpnConnection** command:
 
@@ -119,7 +119,7 @@ To create a VPN connection to the Azure Stack PoC computer, use the following st
 
     ![connect with UI](media/azure-stack-connect-azure-stack/image5.png)  
 
-    At the sign in prompt, enter the username (AzureStack\AzureStackAdmin) and the password. If the connection succeeds, the azurestack VPN should be in a **connected** state.
+    At the sign-in prompt, enter the username (AzureStack\AzureStackAdmin) and the password. If the connection succeeds, the azurestack VPN should be in a **connected** state.
 
 ### Validate the VPN connectivity
 
