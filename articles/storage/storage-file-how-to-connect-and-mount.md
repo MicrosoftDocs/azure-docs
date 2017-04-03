@@ -25,25 +25,25 @@ ms.author: renash
 2. **Open SMB over TCP port 445**: If you are connecting to a Azure File Share, check to see if your firewall is not blocking TCP ports 445 from client machine.
 3. **Operating system support for SMB 2.1 or 3.0**: To mount an Azure File share from an Azure virtual machine in the same region over SMB, your OS must support at least SMB 2.1. In order to mount an Azure File share from outside of the Azure region, your OS must support at least SMB 3.0. The following table shows current SMB support for popular operating systems:
 
-| Operating System | SMB Version | Supports Mounting from Azure VM | Supports Mounting from On-Premises | Notes |
-|----|----|----|----|-------|
-| Windows Server 2016 | SMB 3.1.1 | Yes | Yes | |
-| Windows 10 (versions 1507, 1511, 1607) | SMB 3.1.1 | Yes | Yes | |
-| Windows Server 2012 R2 | SMB 3.0.2 | Yes | Yes | |
-| Windows 8.1 | SMB 3.0.2 | Yes | Yes | | 
-| Windows Server 2012 | SMB 3.0 | Yes| Yes | |
-| Windows 8 | SMB 3.0 | Yes | Yes | |
-| macOS El Capitan | SMB 3.0 | No | Yes | |
-| macOS Sierra | SMB 3.0 | No | Yes | There is a known issue on macOS that can impact performance of SMB on macOS Sierra. |
-| Windows 7 | SMB 2.1 | Yes | No | |
-| Windows Server 2008 R2 | SMB 2.1 | Yes | No | |
-| Ubuntu 14.04+ | SMB 2.1 | Yes | No | |
-| RHEL 7+ | SMB 2.1 | Yes | No | |
-| CentOS 7+ | SMB 2.1 | Yes | No | |
-| Debian 8+ | SMB 2.1 | Yes | No | |
-| openSUSE 13.2+ | SMB 2.1 | Yes | No | |
-| SUSE Linux Enterprise Server 12 | SMB 2.1 | Yes | No | |
-| SUSE Linux Enterprise Server 12 (Premium Image) | SMB 2.1 | Yes | No | |
+| Operating System | Functional SMB Version | Supports Mounting from Azure VM | Supports Mounting from On-Premises | 
+|----|----|----|----|
+| Windows Server 2016 | SMB 3.1.1 | Yes | Yes |
+| Windows 10 (versions 1507, 1511, 1607) | SMB 3.1.1 | Yes | Yes |
+| Windows Server 2012 R2 | SMB 3.0.2 | Yes | Yes |
+| Windows 8.1 | SMB 3.0.2 | Yes | Yes |
+| Windows Server 2012 | SMB 3.0 | Yes| Yes |
+| Windows 8 | SMB 3.0 | Yes | Yes |
+| macOS El Capitan | SMB 3.0 | No | Yes |
+| macOS Sierra | SMB 3.0 | No | Yes |
+| Windows 7 | SMB 2.1 | Yes | No |
+| Windows Server 2008 R2 | SMB 2.1 | Yes | No |
+| Ubuntu 14.04+ | SMB 2.1 | Yes | No |
+| RHEL 7+ | SMB 2.1 | Yes | No |
+| CentOS 7+ | SMB 2.1 | Yes | No |
+| Debian 8+ | SMB 2.1 | Yes | No |
+| openSUSE 13.2+ | SMB 2.1 | Yes | No |
+| SUSE Linux Enterprise Server 12 | SMB 2.1 | Yes | No |
+| SUSE Linux Enterprise Server 12 (Premium Image) | SMB 2.1 | Yes | No |
 
 ## Next Steps
 * [Mount the file share from a machine running Windows](storage-file-how-to-use-files-windows.md)
