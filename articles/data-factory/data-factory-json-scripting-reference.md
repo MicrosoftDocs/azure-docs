@@ -20,13 +20,13 @@ ms.author: spelluru
 The following sections provide links to sections in other articles that have JSON schemas specific to the store or compute. 
 
 ## Pipeline JSON
-High-level pipeline JSON. Pproperties that are at the top level. 
+High-level pipeline JSON. Properties that are at the top level. 
 
 ## Activity JSON
 Properties at the activity level. Transformation activities have just type properties. Copy activity has two sections: source and sink. 
 
 ## Dataset JSON
-High-level dataset JSON. Properties that are at the top level. The typeProperties section is different for each type of dataset. See sections below. 
+High-level dataset JSON. Properties that are at the top level. The typeProperties section is different for each type of dataset.
 
 ## Data stores
 Click the link for the store you are interested in to see the JSON schemas for linked service, dataset, and the source/sink for the copy activity.
@@ -125,7 +125,7 @@ For more information about these linked services, see [Azure Blob Storage connec
 | format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No |
 | compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. Supported levels are: **Optimal** and **Fastest**. For more information, see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
-**Example:**
+#### Example
 
 ```json
 {
@@ -154,14 +154,14 @@ For more information about these linked services, see [Azure Blob Storage connec
 
 For more information, see [Azure Blob connector](data-factory-azure-blob-connector.md#dataset-properties) article.
 
-### Blob Source and Blob Sink in Copy Activity
+### BlobSource in Copy Activity
 **BlobSource** supports the following properties in the **typeProperties** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
 | recursive |Indicates whether the data is read recursively from the sub folders or only from the specified folder. |True (default value), False |No |
 
-**Example: BlobSource to SqlSink**
+#### Example: BlobSource**
 ```json
 {  
     "name":"SamplePipeline",
@@ -203,15 +203,14 @@ For more information, see [Azure Blob connector](data-factory-azure-blob-connect
    }
 }
 ```
-
-
+### BlobSink in Copy Activity
 **BlobSink** supports the following properties **typeProperties** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
 | copyBehavior |Defines the copy behavior when the source is BlobSource or FileSystem. |<b>PreserveHierarchy</b>: preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/><b>FlattenHierarchy</b>: all files from the source folder are in the first level of target folder. The target files have auto generated name. <br/><br/><b>MergeFiles (default):</b> merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. |No |
 
-**Example: SqlSource to BlobSink**
+#### Example: BlobSink
 
 ```json
 {  
@@ -270,7 +269,7 @@ The following table provides description for JSON elements specific to Azure Dat
 | subscriptionId | Azure subscription Id to which Data Lake Store belongs. | Required for sink |
 | resourceGroupName | Azure resource group name to which Data Lake Store belongs. | Required for sink |
 
-**Example:**
+#### Example
 ```json
 {
     "name": "AzureDataLakeStoreLinkedService",
@@ -299,7 +298,7 @@ The typeProperties section for dataset of type **AzureDataLakeStore** dataset ha
 | format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No |
 | compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. Supported levels are: **Optimal** and **Fastest**. For more information, see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
-**Example:**
+#### Example
 ```json
 {
     "name": "AzureDataLakeStoreInput",
@@ -334,7 +333,7 @@ The typeProperties section for dataset of type **AzureDataLakeStore** dataset ha
 
 For more information, see [Azure Data Lake Store connector](data-factory-azure-datalake-connector.md#dataset-properties) article. 
 
-### Azure Data Lake Store Source and Azure Data Lake Store Sink in Copy Activity
+### Azure Data Lake Store Source in Copy Activity
 
 **AzureDataLakeStoreSource** supports the following properties **typeProperties** section:
 
@@ -342,7 +341,7 @@ For more information, see [Azure Data Lake Store connector](data-factory-azure-d
 | --- | --- | --- | --- |
 | recursive |Indicates whether the data is read recursively from the sub folders or only from the specified folder. |True (default value), False |No |
 
-**Example: AzureDataLakeStoreSource to BlobSink**
+#### Example: AzureDataLakeStoreSource
 ```json
 {  
     "name":"SamplePipeline",
@@ -384,7 +383,7 @@ For more information, see [Azure Data Lake Store connector](data-factory-azure-d
     }
 }
 ```
-
+### Azure Data Lake Store Sink in Copy Activity
 
 **AzureDataLakeStoreSink** supports the following properties **typeProperties** section:
 
@@ -392,7 +391,7 @@ For more information, see [Azure Data Lake Store connector](data-factory-azure-d
 | --- | --- | --- | --- |
 | copyBehavior |Specifies the copy behavior. |<b>PreserveHierarchy</b>: preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/><b>FlattenHierarchy</b>: all files from the source folder are created in the first level of target folder. The target files are created with auto generated name.<br/><br/><b>MergeFiles</b>: merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. |No |
 
-**Example: BlobSource to AzureDataLakeStoreSink**
+#### Example: AzureDataLakeStoreSink
 ```json
 {  
     "name":"SamplePipeline",
