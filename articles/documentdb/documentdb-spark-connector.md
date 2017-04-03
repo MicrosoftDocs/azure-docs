@@ -39,10 +39,10 @@ The connector utilizes the following components:
 
 Officially supported versions:
 
-| Component       | Version |
-| --------- | ------- |
-| Apache Spark     | 2.0+    |
-| Scala     | 2.11    |
+| Component | Version |
+|---------|-------|
+|Apache Spark|2.0+|
+| Scala| 2.11|
 | Azure DocumentDB Java SDK | 1.9.6 |
  
 This article helps you run some simple samples with Python (via pyDocumentDB) and the scala interface.
@@ -342,6 +342,6 @@ If you haven't already, download the Spark to DocumentDB connector from the [azu
 * [Distributed Aggregations Examples](https://github.com/Azure/azure-documentdb-spark/wiki/Aggregations-Examples)
 * [Sample Scripts and Notebooks](https://github.com/Azure/azure-documentdb-spark/tree/master/samples)
 
-You may also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Apache Spark on Azure HDInsight] article(https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql).
+You may also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Apache Spark on Azure HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql) article.
 
 
