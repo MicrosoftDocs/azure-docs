@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 03/14/2017
 ms.author: awills
 
 ---
@@ -70,8 +70,12 @@ Open Analytics from your app's [overview blade](app-insights-dashboards.md) in A
 ![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics/001.png)
 
 
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
+
 
 ## Next steps
 * We recommend you start with the [language tour](app-insights-analytics-tour.md).

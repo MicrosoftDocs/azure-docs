@@ -1,10 +1,10 @@
 ---
-title: Manage pricing and data volume for Application Insights | Microsoft Docs
+title: Manage pricing and data volume for Azure Application Insights | Microsoft Docs
 description: Manage telemetry volumes and monitor costs in Application Insights.
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 03/17/2017
 ms.author: awills
 
 ---
@@ -27,7 +27,7 @@ There are two pricing plans. The default plan is called Basic. You can opt for t
 
 If you have questions about how pricing works for Application Insights, feel free to post a question in our [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights). 
 
-## The pricing plans
+## The price plans
 
 See the [Application Insights pricing page][pricing] for current prices in your currency.
 
@@ -155,10 +155,9 @@ To discover the actual sampling rate no matter where it has been applied, use an
 In each retained record, `itemCount` indicates the number of original records that it represents, equal to 1 + the number of previous discarded records. 
 
 
-## Transition from the old pricing tiers
+## Automation
 
-Existing applications can continue to use the old pricing tiers until February 2017. At that time, most applications will be automatically moved to the Basic plan. Those that are using continuous export or the connector for OMS Log Analytics will be moved to the Enterprise plan.
-
+You can write a script to set the price plan, using Azure Resource Management. [Learn how](app-insights-powershell.md#price).
 
 ## Limits summary
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]

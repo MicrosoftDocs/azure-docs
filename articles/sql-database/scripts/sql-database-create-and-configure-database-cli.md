@@ -15,7 +15,7 @@ ms.devlang: CLI
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
+ms.date: 03/16/2017
 ms.author: janeng
 ---
 
@@ -23,7 +23,7 @@ ms.author: janeng
 
 This sample CLI script creates an Azure SQL database and configure a server-level firewall rule. Once the script has been successfully run, the SQL Database can be accessed from all Azure services and the configured IP address. 
 
-Before running this script, ensure that a connection with Azure has been created using the `az login` command. 
+If needed, install the Azure CLI using the instructions found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure.
 
 This sample works in a Bash shell. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
@@ -56,3 +56,4 @@ This script uses the following commands. Each command in the table links to comm
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
 Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../sql-database-cli-samples.md).
+

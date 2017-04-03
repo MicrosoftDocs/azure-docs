@@ -156,7 +156,7 @@ Though you created one VNet and two VMs, the Azure portal created several additi
 
 	![Resource group contents](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-To learn more about VMs, disks, and storage accounts, read the [Virtual machine](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and [Storage account](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) overview articles. You can see the two default NSGs the portal created for you. You can also see that the portal created two network interface (NIC) resources. A NIC enables a VM to connect to other resources over the VNet. Read the [NIC](virtual-network-network-interface-overview.md) article to learn more about NICs. The portal also created one Public IP address resource. Public IP addresses are one setting for a public IP address resource. To learn more about public IP addresses, read the [IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) article.
+To learn more about VMs, disks, and storage accounts, read the [Virtual machine](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and [Storage account](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) overview articles. You can see the two default NSGs the portal created for you. You can also see that the portal created two network interface (NIC) resources. A NIC enables a VM to connect to other resources over the VNet. Read the [NIC](virtual-network-network-interface.md) article to learn more about NICs. The portal also created one Public IP address resource. Public IP addresses are one setting for a public IP address resource. To learn more about public IP addresses, read the [IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) article.
 
 ## <a name="connect-to-from-vms"></a>Connect to the VMs
 
@@ -236,9 +236,9 @@ The outbound connection to the Internet is allowed because all outbound traffic 
 
 To delete all resources created in this article, complete the following steps:
 
-1. To view the MyRG resource group created in this article, complete steps 1-3 in the [Review resources](#review) section of this article. Once again, review the resources in the resource group. If you created the MyRG resource group, per previous steps, you see the 12 resources shown in the picture in step 3.
+1. To view the MyRG resource group created in this article, complete steps 1-3 in the [Review resources](#review) section of this article. Once again, review the resources in the resource group. If you created the MyRG resource group, per previous steps, you see the 12 resources shown in the picture in step 4.
 2. In the MyRG blade, click the **Delete** button.
-3. The portal requires you to type the name of the resource group to confirm that you want to delete it. If you see resources other than the resources shown in step 3 of the [Review resources](#review) section of this article, click **Cancel**. If you see only the 12 resources created as part of this article, type *MyRG* for the resource group name, then click **Delete**. Deleting a resource group deletes all resources within the resource group, so always be sure to confirm the contents of a resource group before deleting it. The portal deletes all resources contained within the resource group, then deletes the resource group itself. This process takes several minutes.
+3. The portal requires you to type the name of the resource group to confirm that you want to delete it. If you see resources other than the resources shown in step 4 of the [Review resources](#review) section of this article, click **Cancel**. If you see only the 12 resources created as part of this article, type *MyRG* for the resource group name, then click **Delete**. Deleting a resource group deletes all resources within the resource group, so always be sure to confirm the contents of a resource group before deleting it. The portal deletes all resources contained within the resource group, then deletes the resource group itself. This process takes several minutes.
 
 ## <a name="next-steps"></a>Next steps
 
@@ -246,6 +246,6 @@ In this exercise, you created a VNet and two VMs. You specified come custom sett
 
 - [Virtual networks](virtual-networks-overview.md)
 - [Public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
-- [Network interfaces](virtual-network-network-interface-overview.md)
+- [Network interfaces](virtual-network-network-interface.md)
 - [Network security groups](virtual-networks-nsg.md)
 - [Virtual machines](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

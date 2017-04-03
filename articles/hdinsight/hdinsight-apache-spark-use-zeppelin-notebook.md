@@ -9,6 +9,7 @@ editor: cgronlun
 
 ms.assetid: cb276220-fb02-49e2-ac55-434fcb759629
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na

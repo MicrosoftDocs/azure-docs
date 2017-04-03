@@ -11,7 +11,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 03/20/2017
 ms.author: awills
 
 ---
@@ -64,24 +64,34 @@ You need:
 ## Define your schema
 
 Before you can import data, you must define a *data source,* which specifies the schema of your data.
+You can have up to 50 data sources in a single Application Insights resource
 
-1. Start the data source wizard
+1. Start the data source wizard.
 
     ![Add new data source](./media/app-insights-analytics-import/add-new-data-source.png)
 
-2. Upload a sample data file. (Optional if you upload a schema definition.)
+    Provide a name for your new data source.
 
-    The first row of the sample can be column headers. (You can change the field names in the next step.)
+2. Define format of the files that you will upload.
 
-    The sample should include at least 10 rows of data.
+    You can either define the format manually, or upload a sample file.
 
-3. Review the schema that the wizard has got. If it inferred the types from a sample, you will probably need to adjust the inferred types of the columns.
+    If the data is in CSV format, the first row of the sample can be column headers. You can change the field names in the next step.
 
-   (Optional.) Upload a schema definition. See the format below.
+    The sample should include at least 10 rows or records of data.
 
-4. Select a Timestamp. All data in Analytics must have a timestamp field. It must have type `datetime`, but it doesn't have to be named 'timestamp'. If your data has a column containing a date and time in ISO format, choose this as the timestamp column. Otherwise, choose "as data arrived", and the import process will add a timestamp field.
+    Column or field names should have alphanumeric names (without spaces or punctuation).
 
-    ![Review the schema](./media/app-insights-analytics-import/data-source-review-schema.png)
+    ![Upload a sample file](./media/app-insights-analytics-import/sample-data-file.png)
+
+
+3. Review the schema that the wizard has got. If it inferred the types from a sample, you might need to adjust the inferred types of the columns.
+
+    ![Review the inferred schema](./media/app-insights-analytics-import/data-source-review-schema.png)
+
+ * (Optional.) Upload a schema definition. See the format below.
+
+ * Select a Timestamp. All data in Analytics must have a timestamp field. It must have type `datetime`, but it doesn't have to be named 'timestamp'. If your data has a column containing a date and time in ISO format, choose this as the timestamp column. Otherwise, choose "as data arrived", and the import process will add a timestamp field.
 
 5. Create the data source.
 
@@ -129,6 +139,9 @@ You can perform the following process manually, or set up an automated system to
 
  * Blobs can be any size up to 1GB uncompressed. Large blobs of hundreds of MB are ideal from a performance perspective.
  * You can compress it with Gzip to improve upload time and latency for the data to be available for query. Use the `.gz` filename extension.
+ * It's best to use a separate storage account for this purpose, to avoid calls from different services slowing performance.
+ * When sending data in high frequency, every few seconds, it is recommended to use more than one storage account, for performance reasons.
+
  
 2. [Create a Shared Access Signature key for the blob](../storage/storage-dotnet-shared-access-signature-part-2.md). The key should have an expiration period of one day and provide read access.
 3. Make a REST call to notify Application Insights that data is waiting.
@@ -177,6 +190,7 @@ The data is available in Analytics after a few minutes.
  * The data source name is wrong.
 
 More detailed information is available in the response error message.
+
 
 ## Sample code
 

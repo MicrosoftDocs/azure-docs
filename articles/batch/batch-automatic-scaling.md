@@ -351,7 +351,7 @@ pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
 pool.Commit();
 ```
 
-In addition to the Batch REST API and .NET SDK, you can use any of the other [Batch SDKs](batch-technical-overview.md#batch-development-apis), [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md), and the [Batch CLI](batch-cli-get-started.md) to work with autoscaling.
+In addition to the Batch REST API and .NET SDK, you can use any of the other [Batch SDKs](batch-apis-tools.md#batch-development-apis), [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md), and the [Batch CLI](batch-cli-get-started.md) to work with autoscaling.
 
 > [!IMPORTANT]
 > When you create an autoscale-enabled pool, you must **not** specify the `targetDedicated` parameter. Also, if you want to manually resize an autoscale-enabled pool (for example, with [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), then you must first **disable** automatic scaling on the pool, then resize it.

@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/08/2017
@@ -25,7 +25,7 @@ The Azure PowerShell module is used to create and manage Azure resources from th
 
 Before you start, a public SSH key with the name `id_rsa.pub` needs to be stored in the `.ssh` directory of your Windows user profile. For detailed information on creating SSH keys for Azure, see [Create SSH keys for Azure](./virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## Create a virtual machine
+## Log in to Azure
 
 Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
 
@@ -33,11 +33,15 @@ Log in to your Azure subscription with the `Login-AzureRmAccount` command and fo
 Login-AzureRmAccount
 ```
 
+## Create resource group
+
 Create an Azure resource group. A resource group is a logical container into which Azure resources are deployed and managed. 
 
 ```powershell
 New-AzureRmResourceGroup -Name myResourceGroup -Location westeurope
 ```
+
+## Create networking resources
 
 Create a virtual network, subnet, and a public IP address. These resources are used to provide network connectivity to the virtual machine and connect it to the internet.
 
@@ -70,13 +74,12 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Locat
 Create a network card for the virtual machine. The network card connects the virtual machine to a subnet, network security group, and public IP address.
 
 ```powershell
-# Get subnet object
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -VirtualNetwork $vnet
-
 # Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -ResourceGroupName myResourceGroup -Location westeurope -Name myNic `
--Subnet $subnet -NetworkSecurityGroup $nsg -PublicIpAddress $pip
+$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location westeurope `
+-SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 ```
+
+## Create virtual machine
 
 Create a virtual machine configuration. This configuration includes the settings that are used when deploying the virtual machine such as a virtual machine image, size, and authentication configuration.
 

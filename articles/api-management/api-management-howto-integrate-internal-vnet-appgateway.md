@@ -110,7 +110,7 @@ $appgatewaysubnet = New-AzureRmVirtualNetworkSubnetConfig -Name apim01 -AddressP
 Assign the address range 10.0.1.0/24 to the subnet variable to be used for API Management while creating a Virtual Network.
 
 ```powershell
-$apimsubnet = New-AzureRmVirtualNetworkSubnetConfig -Name apim01 -AddressPrefix 10.0.1.0/24
+$apimsubnet = New-AzureRmVirtualNetworkSubnetConfig -Name apim02 -AddressPrefix 10.0.1.0/24
 ```
 
 ### Step 3
@@ -161,7 +161,7 @@ Once the certificate is uploaded, create a hostname configuration object for the
 
 ```powershell
 $proxyHostnameConfig = New-AzureRmApiManagementHostnameConfiguration -CertificateThumbprint $certUploadResult.Thumbprint -Hostname "api.contoso.net"
-$result = Set-AzureRmApiManagementHostnames -Name "ContosoApi" -ResourceGroupName "apim-appGw-RG" –PortalHostnameConfiguration $proxyHostnameConfig
+$result = Set-AzureRmApiManagementHostnames -Name "ContosoApi" -ResourceGroupName "apim-appGw-RG" -ProxyHostnameConfiguration $proxyHostnameConfig
 ```
 
 ## Create a public IP address for the front-end configuration
@@ -250,7 +250,7 @@ $apimProxyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name ap
 ```
 
 ### Step 10
-Configure URL rule paths for the back-end pools. This enables selecting only some of the APIs from API Management for being exposed to the public. (e.g. if there are `Echo API (/echo/), Calculator API (/calc/) etc.` make only `Echo API` accessible from Internet). 
+Configure URL rule paths for the back-end pools. This enables selecting only some of the APIs from API Management for being exposed to the public. (e.g. if there are `Echo API` (/echo/), `Calculator API` (/calc/) etc. make only `Echo API` accessible from Internet). 
 
 The following example creates a simple rule for the "/echo/" path routing traffic to the back-end "apimProxyBackendPool".
 

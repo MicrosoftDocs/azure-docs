@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 03/13/2017
 ms.author: terrylan
 
 ---
@@ -200,7 +200,7 @@ Learn more:
 ## Logging
 Logging at a network level is a key function for any network security scenario. In Azure, you can log information obtained for Network Security Groups to get network level logging information. With NSG logging, you get information from:
 
-* Audit logs – these logs are used to view all operations submitted to your Azure subscriptions. These logs are enabled by default and can be used within the Azure portal.
+* [Activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) – these logs are used to view all operations submitted to your Azure subscriptions. These logs are enabled by default and can be used within the Azure portal. They were previously known as "Audit logs" or "Operational Logs".
 * Event logs – these logs provide information about what NSG rules were applied.
 * Counter logs – these logs let you know how many times each NSG rule was applied to deny or allow traffic.
 

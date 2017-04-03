@@ -101,7 +101,7 @@ You can find the connection string in the Azure portal, or by using Azure comman
 
 3. In the **Deployment history** blade, click the deployment that has a name beginning with **microsoft-acs** followed by a deployment date. Example: microsoft-acs-201701310000.  
 
-4. On the **Summary** page, under **Outputs**, several cluster links are <provided></provided>. **SSHMaster0** provides an SSH connection string to the first master in your container service cluster. 
+4. On the **Summary** page, under **Outputs**, several cluster links are provided. **SSHMaster0** provides an SSH connection string to the first master in your container service cluster. 
 
 As previously noted, you can also use Azure tools to find the FQDN of the master. Make an SSH connection to the master using the FQDN of the master and the user name you specified when creating the cluster. For example:
 

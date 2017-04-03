@@ -22,17 +22,17 @@ ms.author: iainfou
 
 If you have existing Linux VMs in Azure that use unmanaged disks in storage accounts and you want those VMs to be able to take advantage of managed disks, you can convert the VMs. This process converts both the OS disk and any attached data disks. The conversion process requires a restart of the VM, so schedule the migration of your VMs during a pre-existing maintenance window. The migration process is not reversible. Be sure to test the migration process by migrating a test virtual machine before performing the migration in production.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > During the conversion, you deallocate the VM. The VM receives a new IP address when it is started after the conversion. If you have a dependency on a fixed IP, use a reserved IP.
 
 You cannot convert an unmanaged disk into a managed disk if the unmanaged disk is in a storage account that is, or at any time has been, encrypted using [Azure Storage Service Encryption (SSE)](../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The following steps detail how to convert unmanaged disks that are, or have been, in an encrypted storage account:
 
-- [Copy the virtual hard disk (VHD)](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unmanaged-disks) with [az storage blob copy start](/cli/azure/storage/blob/copy#start) to a storage account that has never been enabled for Azure Storage Service Encryption.
+- Copy the virtual hard disk (VHD) with [az storage blob copy start](/cli/azure/storage/blob/copy#start) to a storage account that has never been enabled for Azure Storage Service Encryption.
 - Create a VM that uses managed disks and specify that VHD file during creation with [az vm create](/cli/azure/vm#create), or
 - Attach the copied VHD with [az vm disk attach](/cli/azure/vm/disk#attach) to a running VM with managed disks.
 
 ## Convert VM to Azure Managed Disks
-This section covers how to convert your existing Azure VMs from unmanaged disks to managed disks. You can use this process to convert from Premium (SDD) unmanaged disks to Premium managed disks, or from standard (HDD) unmanaged disks to standard managed disks. 
+This section covers how to convert your existing Azure VMs from unmanaged disks to managed disks. You can use this process to convert from Premium (SDD) unmanaged disks to Premium managed disks, or from standard (HDD) unmanaged disks to standard managed disks.
 
 > [!IMPORTANT]
 > After performing the following procedure, there is a single block blob that remains in the default vhds container. The name of the file is “VMName.xxxxxxx.status”. Do not delete this remaining status object. Future work should address this issue.

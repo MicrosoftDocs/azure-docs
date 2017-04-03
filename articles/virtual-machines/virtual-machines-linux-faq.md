@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2016
+ms.date: 03/14/2017
 ms.author: cynthn
 
 ---
@@ -45,7 +45,7 @@ Yes. For instructions, see [How to create a copy of a Linux virtual machine in t
 The two new regions of Canada Central and Canada East are not automatically registered for virtual machine creation for existing Azure subscriptions. This registration is done automatically when a virtual machine is deployed through the Azure portal to any other region using Azure Resource Manager. After a virtual machine is deployed to any other Azure region, the new regions should be available for subsequent virtual machines.
 
 ## Can I add a NIC to my VM after it's created?
-No. Adding a NIC can only be done at creation time.
+Yes, this is now possible. The VM first needs to be stopped deallocated. Then you can add or remove a NIC (unless it's the last NIC on the VM). 
 
 ## Are there any computer name requirements?
 Yes. The computer name can be a maximum of 64 characters in length. See [Infrastructure naming guidelines](virtual-machines-linux-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information around naming your resources.

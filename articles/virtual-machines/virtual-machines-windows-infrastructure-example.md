@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 
@@ -44,7 +44,7 @@ The resulting design must incorporate:
 
 * An Azure subscription and account
 * A single resource group
-* Storage accounts
+* Azure Managed Disks
 * A virtual network with two subnets
 * Availability sets for the VMs with a similar role
 * Virtual machines
@@ -53,8 +53,6 @@ All the above follow these naming conventions:
 
 * Adventure Works Cycles uses **[IT workload]-[location]-[Azure resource]** as a prefix
   * For this example, "**azos**" (Azure On-line Store) is the IT workload name and "**use**" (East US 2) is the location
-* Storage accounts use adventureazosusesa**[description]**
-  * 'adventure' was added to the prefix to provide uniqueness, and storage account names do not support the use of hyphens.
 * Virtual networks use AZOS-USE-VN**[number]**
 * Availability sets use azos-use-as-**[role]**
 * Virtual machine names use azos-use-vm-**[vmname]**
@@ -62,11 +60,11 @@ All the above follow these naming conventions:
 ## Azure subscriptions and accounts
 Adventure Works Cycles is using their Enterprise subscription, named Adventure Works Enterprise Subscription, to provide billing for this IT workload.
 
-## Storage accounts
-Adventure Works Cycles determined that they needed two storage accounts:
+## Storage
+Adventure Works Cycles determined that they should use Azure Managed Disks. When creating VMs, both storage available storage tiers are used:
 
-* **adventureazosusesawebapp** for the standard storage of the web servers, application servers, and domain controllers and their data disks.
-* **adventureazosusesasql** for the Premium storage of the SQL Server VMs and their data disks.
+* **Standard storage** for the web servers, application servers, and domain controllers and their data disks.
+* **Premium storage** for the SQL Server VMs and their data disks.
 
 ## Virtual network and subnets
 Because the virtual network does not need ongoing connectivity to the Adventure Work Cycles on-premises network, they decided on a cloud-only virtual network.
@@ -110,7 +108,7 @@ Here is the resulting configuration.
 This configuration incorporates:
 
 * A cloud-only virtual network with two subnets (FrontEnd and BackEnd)
-* Two storage accounts
+* Azure Managed Disks with both Standard and Premium disks
 * Four availability sets, one for each tier of the on-line store
 * The virtual machines for the four tiers
 * An external load balanced set for HTTPS-based web traffic from the Internet to the web servers

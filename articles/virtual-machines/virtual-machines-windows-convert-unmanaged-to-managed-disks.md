@@ -72,7 +72,7 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 ## Convert existing Azure VMs to managed disks of the same storage type
 
 > [!IMPORTANT]
-> After performing the following procedure, there is a single blob that remains in the default /vhds container. The name of the file is “VMName.xxxxxxx.status”. This file is created by Azure only when you have installed [VM extensions](virtual-machines-windows-classic-agents-and-extensions.md) on the VM. Do not delete this remaining status object. Future work should address this issue.
+> After performing the following procedure, there is a single blob that remains in the default /vhds container. The name of the file is “VMName.xxxxxxx.status”. This file is created by Azure only when you have installed [VM extensions](windows/classic/agents-and-extensions.md) on the VM. Do not delete this remaining status object. Future work should address this issue.
 
 This section covers how to convert your existing Azure VMs from unmanaged disks in storage accounts to managed disks when you will be using the same storage type. You can use this process to go from Premium (SSD) unmanaged disks to Premium managed disks or from standard (HDD) unmanaged disks to standard managed disks. 
 
@@ -134,7 +134,7 @@ This section will show you how to convert your existing Azure VMs on Standard un
 1. Stop (deallocate) the VM.
 
     ```powershell
-    Stop-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName -Force
+    Stop-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName -Force
     ```
 2.  Upgrade all of the disks to Premium Storage.
 
@@ -153,7 +153,7 @@ This section will show you how to convert your existing Azure VMs on Standard un
 1. Start the VM.
 
     ```powershell
-    Start-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName
+    Start-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName
     ```
     
 You can also have a mixture of disks that use standard and Premium storage.

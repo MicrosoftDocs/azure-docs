@@ -302,7 +302,7 @@ This section will help you with the diagnosis and troubleshooting of some of the
 
 **Troubleshooting Decision Tree**
 
-- - -
+---
 Does your issue relate to the performance of one of the storage services?
 
 * [Metrics show high AverageE2ELatency and low AverageServerLatency]
@@ -310,39 +310,39 @@ Does your issue relate to the performance of one of the storage services?
 * [Metrics show high AverageServerLatency]
 * [You are experiencing unexpected delays in message delivery on a queue]
 
-- - -
+---
 Does your issue relate to the availability of one of the storage services?
 
 * [Metrics show an increase in PercentThrottlingError]
 * [Metrics show an increase in PercentTimeoutError]
 * [Metrics show an increase in PercentNetworkError]
 
-- - -
-Is your client application receiving an HTTP 4XX (such as 404) response from a storage service?
+---
+ Is your client application receiving an HTTP 4XX (such as 404) response from a storage service?
 
 * [The client is receiving HTTP 403 (Forbidden) messages]
 * [The client is receiving HTTP 404 (Not found) messages]
 * [The client is receiving HTTP 409 (Conflict) messages]
 
-- - -
+---
 [Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
 
-- - -
+---
 [Capacity metrics show an unexpected increase in storage capacity usage]
 
-- - -
+---
 [You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
 
-- - -
+---
 [Your issue arises from using the storage emulator for development or test]
 
-- - -
+---
 [You are encountering problems installing the Azure SDK for .NET]
 
-- - -
+---
 [You have a different issue with a storage service]
 
-- - -
+---
 ### <a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>Metrics show high AverageE2ELatency and low AverageServerLatency
 The illustration below from the [Azure portal](https://portal.azure.com) monitoring tool shows an example where the **AverageE2ELatency** is significantly higher than the **AverageServerLatency**.
 

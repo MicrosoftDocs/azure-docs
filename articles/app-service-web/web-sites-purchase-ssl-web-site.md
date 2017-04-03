@@ -171,8 +171,16 @@ If you selected **IP based SSL** and your custom domain is configured using an A
 * Using the tools provided by your domain name registrar, modify the A record for your custom domain name to point to the IP address from the previous step.
    At this point, you should be able to visit your app using HTTPS:// instead of HTTP:// to verify that the certificate has been configured correctly.
 
-## <a name="bkmk_Rekey"></a>Export App Service Certificate
+## <a name="bkmk_Export"></a>Export App Service Certificate
 You can create a local PFX copy of an App Service certificate so that you can use it with other Azure Services. For more information, **[read our blog post](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/)**
+
+## <a name="bkmk_Renew"></a>Auto Renew App Service Certificate
+To toggle Auto Renew settings for your certificate or to manually renew your certificate simply select **"Auto Renew Settings"** option from **"Certificate Properties"** Blade. 
+
+
+  ![insert image of create using browse](./media/app-service-web-purchase-ssl-web-site/autorenew.png)
+
+Turn **"Auto Renew"** ON if you would like to automatically renew your certificate before it expires. This is defsault option. If turned on, we would attempt to renew your certificate starting 90th day before expiration. If you have created SSL bindings on your App Service Apps using Azure portal experience then those bindings would be updated as well with the new certificate once it’s ready (Just like ReKey and Sync scenario). On the other hand, if you would like to take care of renewals manually then you should turn this setting off. You can manually renew an App Service Certificate only if its expiration is within 90 days.
 
 ## <a name="bkmk_Rekey"></a>Rekey and Sync the Certificate
 1. For security reasons, if you ever need to Rekey your certificate then simply select **"Rekey and Sync"** option from **"Certificate Properties"** Blade. 

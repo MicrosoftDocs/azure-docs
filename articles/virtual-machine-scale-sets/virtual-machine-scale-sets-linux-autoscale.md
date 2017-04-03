@@ -37,7 +37,7 @@ In this tutorial, you deploy the following resources and extensions:
 
 For more information about Resource Manager resources, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
 
-Before you get started with the steps in this tutorial, [install the Azure CLI](../xplat-cli-install.md).
+Before you get started with the steps in this tutorial, [install the Azure CLI](../cli-install-nodejs.md).
 
 ## Step 1: Create a resource group and a storage account
 

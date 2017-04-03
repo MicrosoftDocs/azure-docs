@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 82334b9e-4629-4005-8147-19f875c8774e
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -29,7 +30,7 @@ When you create a Spark cluster in HDInsight, you create Azure compute resources
 **Want to get started with Apache Spark on Azure HDInsight?** See [QuickStart: create a Spark cluster on HDInsight and run sample applications using Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 > [!NOTE]
-> For a list of known issues and limitations with the current release, see [Known issues of Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+> For a list of known issues and limitations with the current release, see [Known issues of Apache Spark in Azure HDInsight](hdinsight-apache-spark-known-issues.md).
 > 
 > 
 

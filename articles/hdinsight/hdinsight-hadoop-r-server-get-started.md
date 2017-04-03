@@ -9,6 +9,7 @@ editor: cgronlun
 
 ms.assetid: b5e111f3-c029-436c-ba22-c54a4a3016e3
 ms.service: HDInsight
+ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -22,21 +23,18 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
 ## Prerequisites
 * **An Azure subscription**: Before you begin this tutorial, you must have an Azure subscription. Go to [Get a Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) for more information.
-* **A Secure Shell (SSH) client**: An SSH client is used to remotely connect to the HDInsight cluster and run commands directly on the cluster. Linux, Unix, and OS X systems provide an SSH client through the `ssh` command. For Windows systems, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+* **A Secure Shell (SSH) client**: An SSH client is used to remotely connect to the HDInsight cluster and run commands directly on the cluster. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
   * **SSH keys (optional)**: You can secure the SSH account used to connect to the cluster using either a password or a public key. Using a password is easier, and allows you to get started without having to create a public/private key pair. However, using a key is more secure.
 
-      The steps in this document assume that you are using a password. For information on how to create and use SSH keys with HDInsight, see the following documents:
-
-    * [Use SSH with HDInsight from Linux, Unix, or OS X clients](hdinsight-hadoop-linux-use-ssh-unix.md)
-    * [Use SSH with HDInsight from Windows clients](hdinsight-hadoop-linux-use-ssh-windows.md)
+      The steps in this document assume that you are using a password.
 
 ### Access control requirements
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Create the cluster
 > [!NOTE]
-> The steps in this document guide you through how to create an R Server on HDInsight cluster using basic configuration information. For other cluster configuration settings (such as adding additional storage accounts, using an Azure Virtual Network, or creating a metastore for Hive,) see [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
+> The steps in this document guide you through how to create an R Server on HDInsight cluster using basic configuration information. For other cluster configuration settings (such as adding additional storage accounts, using an Azure Virtual Network, or creating a metastore for Hive,) see [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). To create an R Server using an Azure Resource Management template, see [Deploy an R-server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
 >
 > 
 
@@ -175,10 +173,7 @@ Connect to R Server edge node of the HDInsight cluster using SSH:
 
 If you used a password to secure your SSH user account you will be prompted to enter it. If you used a public key, you may have to use the `-i` parameter to specify the matching private key. For example, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net`.
 
-For more information on using SSH with Linux-based HDInsight, review the following articles:
-
-* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Once connected, you will arrive at a prompt similar to the following.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell Samples for SQL Database | Microsoft Docs
-description: Azure CLI Samples - Create and manage Azure SQL Database servers, elastic pools, databases, and firewalls. 
+description: Azure PowerShell Samples - Scripts to help you create and manage Azure SQL Database servers, elastic pools, databases, and firewalls. 
 services: sql-database
 documentationcenter: sql-database
 author: CarlRabeler

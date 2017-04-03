@@ -15,7 +15,7 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: "01/10/2017"
+ms.date: 03/17/2017
 ms.author: mikeray
 
 ---
@@ -334,7 +334,7 @@ Now that you have finished configuring Active Directory and the user objects, cr
 
 ## Create SQL Servers
 ### Create and configure the SQL Server VMs
-Next, create three VMs, including two SQL Server VMs, and a WSFC cluster node. To create each of the VMs, go back to **SQL-HA-RG** resource group, click **Add**, search for the appropriate gallery item, **Virtual Machine**, and then **From Gallery**. Use the information in the following table to help you create the VMs:
+Next, create three VMs, including two SQL Server VMs, and a VM for the an additional cluster node. To create each of the VMs, go back to **SQL-HA-RG** resource group, click **Add**, search for the appropriate gallery item, **Virtual Machine**, and then **From Gallery**. Use the information in the following table to help you create the VMs:
 
 | Page | VM1 | VM2 | VM3 |
 | --- | --- | --- | --- |

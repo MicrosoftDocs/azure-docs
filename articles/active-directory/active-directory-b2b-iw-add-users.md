@@ -33,7 +33,7 @@ Assign B2B collaboration users to a app as an information worker in a partner or
 
 Information workers can similarly add B2B collaboration users to an assigned group that is enabled for self-service group management.
 > [!NOTE]
-You cannot add B2B collaboration users to a dynamic group or to a group that is synced with on-premises Active Directory.
+> You cannot add B2B collaboration users to a dynamic group or to a group that is synced with on-premises Active Directory.
 
 
 ## Next steps

@@ -38,7 +38,7 @@ follow these steps.
 
 ### Prerequisites
 
-* [Visual Studio 2015 or Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+* [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * [Latest Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 or greater)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 * Access to the web when using the embedded designer
