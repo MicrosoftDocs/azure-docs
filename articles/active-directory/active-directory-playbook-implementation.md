@@ -50,6 +50,7 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 | [Integrate SaaS Applications– Password SSO](#integrate-saas-applications-password-sso) | [SaaS Password SSO Configuration](active-directory-playbook-building-blocks.md#saas-password-sso-configuration) |
 | [SSO and Identity Lifecycle Events](#sso-and-identity-lifecycle-events) | [SaaS and Identity Lifecycle](active-directory-playbook-building-blocks.md#saas-and-identity-lifecycle) |
 | [Secure Access to Shared Accounts](#secure-access-to-shared-accounts) | [SaaS Shared Accounts Configuration](active-directory-playbook-building-blocks.md#saas-shared-accounts-configuration) |
+| [Secure Remote Access to On-Prem Applications]() | [App Proxy Configuration]()
 
 ### Integrate SaaS Applications – Federated SSO 
 
@@ -79,6 +80,13 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 4. Upon clicking she get access directly to Twitter. She does not know the password.
 5. Arnold is also part of the sales team. He has the same experience as Susie in steps 3-4
 6. The Sales department wants to audit who accessed Twitter. Bob downloads an activity report and shares it with Kevin over email. 
+
+### Secure Remote Access to On-Prem Applications
+
+1. Bob, the Azure AD Global Admin, has gotten numerous requests to enable employees to access several useful on-prem resources, such as the expenses application, while working remotely. He follows the [Application Proxy documentation](active-directory-application-proxy-enable.md) to install a connector and publish Expenses as an Application Proxy application. 
+2. Bob share the external Expenses application URL with Susie, one of the employees who needs remote access. She accesses the link, and after authenticating against AAD, she is able to access the Expenses app and continue to be productive while remote. 
+3. Bob then continues to publish additional on-prem applications using the same process and giving access to users as needed. He adds conditional access and multi-factor auth for the more sensitive applications that he publishes, to ensure additional security.
+
 
 ## Theme – Increase your security 
 

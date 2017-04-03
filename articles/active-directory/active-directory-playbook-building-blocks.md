@@ -230,6 +230,36 @@ If the target application is not present in the gallery, then you can use bring 
    * Application should have a known login URL
    * The sign in page should contain an HTML form with one more text fields that the browser extensions can auto-populate. At the minimum, it should contain username and password. 
 
+## App Proxy Configuration
+
+Approximate time to Complete: 20 minutes
+
+### Pre-requisites
+
+| Pre-requisite | Resources |
+| --- | --- |
+| A Microsoft Azure AD basic or premium subscription and an Azure AD directory for which you are a global administrator | [Azure Active Directory editions](active-directory-editions.md) |
+| A web application hosted on-prem that you would like to configure for remote access |  |
+| A server running Windows Server 2012 R2, or Windows 8.1 or higher, on which you can install the Application Proxy Connector | [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md) |
+| If there is a firewall in the path, make sure that it's open so that the Connector can make HTTPS (TCP) requests to the Application Proxy | [Enable Application Proxy in the Azure portal: Open your ports](active-directory-application-proxy-enable.md#open-your-ports) |
+| If your organization uses proxy servers to connect to the internet, please take a look at the blog post Working with existing on-premises proxy servers for details on how to configure them | [Work with existing on-premises proxy servers](application-proxy-working-with-proxy-servers.md) |
+
+
+### Steps
+
+| Step | Resources |
+| --- | --- |
+| Install a connector on the server | [Enable Application Proxy in the Azure portal: Install and register the Connector](active-directory-application-proxy-enable.md#install-and-register-the-connector) |
+| Publish the on-prem application in Azure AD as an Application Proxy application | [Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md) |
+| Assign test users | [Publish applications using Azure AD Application Proxy: Add a test user](application-proxy-publish-azure-portal.md#add-a-test-user) | 
+| Optionally, configure a single sign-on experience for your users | [Provide single sign-on with Azure AD Application Proxy](application-proxy-sso-azure-portal) |
+| Test app by signing in to MyApps portal as assigned user | https://myapps.microsoft.com |
+
+### Considerations
+
+1. While we suggest putting the connector in your corporate network, there are cases when you will see better performance placing it in the cloud. Learn more: [Network topology considerations when using Azure Active Directory Application Proxy](application-proxy-network-topology-considerations.md)
+2. For further security details and how this provides a particularly secure remote access solution by only maintaining outbound connections, please see: [Security considerations for accessing apps remotely by using Azure AD Application Proxy](application-proxy-security-considerations.md)
+
 ## Groups – Delegated Ownership 
 
 Approximate time to Complete: 10 minutes
