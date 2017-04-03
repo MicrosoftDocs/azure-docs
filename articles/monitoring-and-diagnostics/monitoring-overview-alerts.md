@@ -40,9 +40,9 @@ The following diagram summarizes alerts and what you can do with them specifical
 You can receive alerts based on:
 
 * **Metric values**: This alert triggers when the value of a specified metric crosses a threshold that you assign in either direction. That is, it triggers both when the condition is first met and then afterward when that condition is no longer being met. For a growing list of available metrics supported by Azure monitor, see [List of metrics supported on Azure Monitor](monitoring-supported-metrics.md).
-* **Activity log events**: This alert can trigger on every event or only when a specific number of events occur.
+* **Activity log events**: This alert can trigger when a particular event occurs on a resource, or when a service notification is posted to your subscription.
 
-## What can Alerts do?
+## What can Metric Alerts do?
 You can configure an alert to do the following actions:
 
 * Send email notifications to the service administrator, to co-administrators, or to additional email addresses that you specify.
@@ -52,11 +52,26 @@ You can configure an alert to do the following actions:
     - Azure Logic App
     - a third-party service
 
+## What can Activity Log Alerts do?
+You can configure an alert to do the following actions:
+* Trigger whenever a specific event occurs one of the resources under your subscription
+* Trigger whenever a service notification is posted to your subscription
+* Alert members of an action group via
+    * SMS
+    * Email
+    * Webhook
 
 ## Next steps
 Get information about alert rules and configuring them by using:
 
-* [Azure portal](insights-alerts-portal.md)
-* [PowerShell](insights-alerts-powershell.md)
-* [Command-line interface (CLI)](insights-alerts-command-line-interface.md)
-* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* Learn more about [Metrics](monitoring-overview-metrics.md)
+* Configure [Metric Alerts via Azure portal](insights-alerts-portal.md)
+* Configure [Metric Alerts PowerShell](insights-alerts-powershell.md)
+* Configure [Metric Alerts Command-line interface (CLI)](insights-alerts-command-line-interface.md)
+* Configure [Metric Alerts Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* Learn more about [Activity Log](monitoring-overview-activity-logs.md)
+* Configure [Activity Log Alerts via Azure portal](monitoring-activity-log-alerts.md)
+* Configure [Activity Log Alerts via Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+* Review the [activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md)
+* Learn more about [Service Notifications](monitoring-service-notifications.md)
+* Learn more about [Action Groups](monitoring-action-groups.md)

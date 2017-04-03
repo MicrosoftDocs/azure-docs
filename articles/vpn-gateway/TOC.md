@@ -23,6 +23,7 @@
 ## Configure a VNet-to-VNet connection
 ### [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+### [Azure portal (classic)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ### [Classic portal (classic)](virtual-networks-configure-vnet-to-vnet-connection.md)
 ## Configure a VNet-to-VNet connection between deployment models
 ### [Azure portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -42,6 +43,7 @@
 ## [Verify a VPN gateway connection](vpn-gateway-verify-connection-resource-manager.md)
 ## [Reset a VPN gateway](vpn-gateway-resetgw-classic.md)
 ## Delete a VPN gateway
+### [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Create self-signed root certificates for P2S connections](vpn-gateway-certificates-point-to-site.md)
