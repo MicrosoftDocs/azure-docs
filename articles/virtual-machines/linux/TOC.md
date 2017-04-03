@@ -21,9 +21,9 @@
 ## [Networking](azure-vm-network-overview.md)
 ## [VM Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)
 ## [Containers](containers.md)
-## [Resource Manager](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Deployment models](../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Templates for VMs](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Resource Manager](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Deployment models](../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Templates for VMs](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Azure Linux agent](agent-user-guide.md)
 ## [Azure Security Center](../../security-center/security-center-linux-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Disaster recovery](../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -81,7 +81,7 @@
 ### [Create SSH keys on Linux and Mac](mac-create-ssh-keys.md)
 #### [Detailed steps](create-ssh-keys-detailed.md)
 ### [Use SSH keys with Windows for Linux VMs](ssh-from-windows.md)
-### [Install and configure Remote Desktop to connect to a Linux VM](use-remote-desktop.md)
+### [Use Remote Desktop to connect to a Linux VM](use-remote-desktop.md)
 
 ## Manage VM images
 ### [Find marketplace VM images](cli-ps-findimage.md)
@@ -96,12 +96,12 @@
 #### [Oracle Linux](oracle-create-upload-vhd.md)
 
 ## Manage VM storage
-### [Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [FAQs](../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [FAQs](../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Copy files to a Linux VM](copy-files-to-linux-vm-using-scp.md)
 ### [Convert a VM to Managed Disks](convert-unmanaged-to-managed-disks.md)
 ### [Take a snapshot of a Managed Disk](virtual-machines-linux-snapshot-copy-managed-disk.md)
-### Attach a disk
+### Add a disk
 #### [Azure CLI](add-disk.md)
 #### [Azure portal](attach-disk-portal.md)
 ### [Detach a disk](detach-disk.md)
