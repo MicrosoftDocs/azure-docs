@@ -15,8 +15,8 @@ ms.author: carolz
 ---
 
 # Web Apps Documentation
-
 <p style="padding-bottom: 0px">Learn how to use App Service Web Apps to build and host websites and web applications.</p>
+
 <h2 style="margin-top: 36px">Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
