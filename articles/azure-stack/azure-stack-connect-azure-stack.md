@@ -21,7 +21,7 @@ ms.author: sngun
 To manage resources, you must connect to the Azure Stack POC computer. You can use either of the following connection options:
 
 * [Remote Desktop](#connect-with-remote-desktop): lets a single concurrent user quickly connect from the POC computer.
-* [Virtual Private Network (VPN)](connect-with-vpn):  lets multiple concurrent users connect from clients outside of the Azure Stack infrastructure (requires configuration).
+* [Virtual Private Network (VPN)](#connect-with-vpn):  lets multiple concurrent users connect from clients outside of the Azure Stack infrastructure (requires configuration).
 
 ## Connect with Remote Desktop
 With a Remote Desktop connection, a single concurrent user can work with the portal to manage resources. You can also use tools on the MAS-CON01 virtual machine.
