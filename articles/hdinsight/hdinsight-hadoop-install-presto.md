@@ -1,6 +1,6 @@
 ---
-title: Install Presto on Linux-based Azure HDInsight clusters| Microsoft Docs
-description: Learn how to install Solr on Linux-based HDInsight Hadoop clusters using Script Actions.
+title: Install Presto on Azure HDInsight Linux clusters| Microsoft Docs
+description: Learn how to install Presto and Airpal on Linux-based HDInsight Hadoop clusters using Script Actions.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -25,7 +25,7 @@ In this topic, you learn how to install Presto on HDInsight Hadoop clusters by u
 > The steps in this document require an HDInsight 3.5 cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versions](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## What is Presto?
-[Apache Solr](http://lucene.apache.org/solr/features.html) is an enterprise search platform that enables powerful full-text search on data. While Hadoop enables storing and managing vast amounts of data, Apache Solr provides the search capabilities to quickly retrieve the data. This topic provides instructions on how to customize an HDInsight cluster to install Solr.
+[Presto](https://prestodb.io/) is a fast distributed SQL query engine for big data. Presto is suitable for interactive querying of petabytes of data. For more information on what are the different components of Presto, and how they all work together, see [Presto concepts](https://github.com/prestodb/presto/blob/master/presto-docs/src/main/sphinx/overview/concepts.rst)
 
 > [!WARNING]
 > Components provided with the HDInsight cluster are fully supported and Microsoft Support will help to isolate and resolve issues related to these components.
@@ -35,11 +35,11 @@ In this topic, you learn how to install Presto on HDInsight Hadoop clusters by u
 > 
 
 
-## Install Solr using Script Actions
+## Install Presto using script action
 
-A sample script to install Solr on an HDInsight cluster is available at the following location.
+A sample script to install Presto on an HDInsight cluster is available at the following location.
 
-    https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
+    https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh
 
 This section provides instructions on how to use the sample script when creating a new cluster by using the Azure portal. 
 
@@ -48,21 +48,27 @@ This section provides instructions on how to use the sample script when creating
 > 
 > 
 
-1. Start provisioning a cluster by using the steps in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md), but do not complete provisioning.
-2. On the **Optional Configuration** blade, select **Script Actions**, and provide the information below:
+1. Start provisioning a cluster by using the steps in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md). Make sure you start creating the HDInsight cluster using the **Custom** cluster creation flow.
+
+	![HDInsight cluster creation using custom options](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
+
+2. On the **Advanced settings** blade, select **Script Actions**, and provide the information below:
    
    * **NAME**: Enter a friendly name for the script action.
-   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
+   * **Bash script URI**: https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh
    * **HEAD**: Check this option
    * **WORKER**: Check this option
-   * **ZOOKEEPER**: Check this option to install on the Zookeeper node
+   * **ZOOKEEPER**: Clear this check box
    * **PARAMETERS**: Leave this field blank
-3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
+
+
+3. At the bottom of the **Script Actions** blade, click the **Select** button to save the configuration. Finally, click  the **Select** button at the bottom of the **Advanced Settings** blade to save the configuration information.
+
 4. Continue provisioning the cluster as described in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-## <a name="usesolr"></a>How do I use Solr in HDInsight?
-### Indexing data
-You must start with indexing Solr with some data files. You can then use Solr to run search queries on the indexed data. Use the following steps to add some example data to Solr, and then query it:
+## Use Presto with HDInsight
+
+Perform the following steps to use Presto in an HDInsight cluster after you have installed it using the steps described above.
 
 1. Connect to the HDInsight cluster using SSH:
    
@@ -70,218 +76,64 @@ You must start with indexing Solr with some data files. You can then use Solr to
    
     For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
      
-     > [!IMPORTANT]
-     > Steps later in this document make use of an SSL tunnel to connect to the Solr web UI. In order to use these steps, you must establish an SSL tunnel and then configure your browser to use it.
-     > 
-     > For more information, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md)
-     > 
-     > 
-2. Use the following commands to have Solr index sample data:
-   
-        cd /usr/hdp/current/solr/example/exampledocs
-        java -jar post.jar solr.xml monitor.xml
-   
-    You'll see the following output on the console:
-   
-        POSTing file solr.xml
-        POSTing file monitor.xml
-        2 files indexed.
-        COMMITting Solr index changes to http://localhost:8983/solr/update..
-        Time spent: 0:00:01.624
-   
-    The post.jar utility indexes Solr with two sample documents, **solr.xml** and **monitor.xml**. These will be stored in **collection1** within Solr.
-3. Use the following to query the REST API exposed by Solr:
-   
-        curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
-   
-    This issues a query against **collection1** for any documents matching **\*:\*** (encoded as \*%3A\* in the query string,) and that the response should be returned as JSON. The response should appear similar to the following:
-   
-            "response": {
-                "numFound": 2,
-                "start": 0,
-                "maxScore": 1,
-                "docs": [
-                  {
-                    "id": "SOLR1000",
-                    "name": "Solr, the Enterprise Search Server",
-                    "manu": "Apache Software Foundation",
-                    "cat": [
-                      "software",
-                      "search"
-                    ],
-                    "features": [
-                      "Advanced Full-Text Search Capabilities using Lucene",
-                      "Optimized for High Volume Web Traffic",
-                      "Standards Based Open Interfaces - XML and HTTP",
-                      "Comprehensive HTML Administration Interfaces",
-                      "Scalability - Efficient Replication to other Solr Search Servers",
-                      "Flexible and Adaptable with XML configuration and Schema",
-                      "Good unicode support: héllo (hello with an accent over the e)"
-                    ],
-                    "price": 0,
-                    "price_c": "0,USD",
-                    "popularity": 10,
-                    "inStock": true,
-                    "incubationdate_dt": "2006-01-17T00:00:00Z",
-                    "_version_": 1486960636996878300
-                  },
-                  {
-                    "id": "3007WFP",
-                    "name": "Dell Widescreen UltraSharp 3007WFP",
-                    "manu": "Dell, Inc.",
-                    "manu_id_s": "dell",
-                    "cat": [
-                      "electronics and computer1"
-                    ],
-                    "features": [
-                      "30\" TFT active matrix LCD, 2560 x 1600, .25mm dot pitch, 700:1 contrast"
-                    ],
-                    "includes": "USB cable",
-                    "weight": 401.6,
-                    "price": 2199,
-                    "price_c": "2199,USD",
-                    "popularity": 6,
-                    "inStock": true,
-                    "store": "43.17614,-90.57341",
-                    "_version_": 1486960637584081000
-                  }
-                ]
-              }
 
-### Using the Solr dashboard
-The Solr dashboard is a web UI that allows you to work with Solr through your web browser. The Solr dashboard is not exposed directly on the Internet from your HDInsight cluster, but must be accessed using an SSH tunnel. For more information on using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md)
+2. Start the Presto shell using the following command.
+   
+        presto --schema default
 
-Once you have established an SSH tunnel, use the following steps to use the Solr dashboard:
+3. Run a query on a sample table, hivesampletable, which is available on all HDInsight clusters by default.
+   
+		select count (*) from hivesampletable;
+   
+	By default, [Hive](https://prestodb.io/docs/current/connector/hive.html) and [TPCH](https://prestodb.io/docs/current/connector/tpch.html) connectors for Presto are already configured. Hive connector is configured to use the default installed Hive installation, so all the tables from Hive will be automatically visible in Presto. You can also play around with TPCH or TPCDS datasets.
 
-1. Determine the host name for the primary headnode:
-   
-   1. Use SSH to connect to the cluster on port 22. For example, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net` where **USERNAME** is your SSH user name and **CLUSTERNAME** is the name of your cluster.
-      
-       For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+## Using Airpal with Presto
 
-   2. Use the following command to get the fully qualified hostname:
-      
-           hostname -f
-      
-       This will return a name similar to the following:
-      
-           hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
-      
-       This is the hostname that should be used in the following steps.
-2. In your browser, connect to **http://HOSTNAME:8983/solr/#/**, where **HOSTNAME** is the name you determined in the previous steps. 
-   
-    The request should be routed through the SSH tunnel to the head node for your HDInsight cluster. You should see a page similar to the following:
-   
-    ![Image of Solr dashboard](./media/hdinsight-hadoop-solr-install-linux/solrdashboard.png)
-3. From the left pane, use the **Core Selector** drop-down to select **collection1**. Several entries should them appear below **collection1**.
-4. From the entries below **collection1**, select **Query**. Use the following values to populate the search page:
-   
-   * In the **q** text box, enter **\*:**\*. This will return all the documents that are indexed in Solr. If you want to search for a specific string within the documents, you can enter that string here.
-   * In the **wt** text box, select the output format. Default is **json**.
-     
-     Finally, select the **Execute Query** button at the bottom of the search pate.
-     
-     ![Use Script Action to customize a cluster](./media/hdinsight-hadoop-solr-install-linux/hdi-solr-dashboard-query.png)
-     
-     The output returns the two docs that we used for indexing Solr. The output resembles the following:
-     
-           "response": {
-               "numFound": 2,
-               "start": 0,
-               "maxScore": 1,
-               "docs": [
-                 {
-                   "id": "SOLR1000",
-                   "name": "Solr, the Enterprise Search Server",
-                   "manu": "Apache Software Foundation",
-                   "cat": [
-                     "software",
-                     "search"
-                   ],
-                   "features": [
-                     "Advanced Full-Text Search Capabilities using Lucene",
-                     "Optimized for High Volume Web Traffic",
-                     "Standards Based Open Interfaces - XML and HTTP",
-                     "Comprehensive HTML Administration Interfaces",
-                     "Scalability - Efficient Replication to other Solr Search Servers",
-                     "Flexible and Adaptable with XML configuration and Schema",
-                     "Good unicode support: héllo (hello with an accent over the e)"
-                   ],
-                   "price": 0,
-                   "price_c": "0,USD",
-                   "popularity": 10,
-                   "inStock": true,
-                   "incubationdate_dt": "2006-01-17T00:00:00Z",
-                   "_version_": 1486960636996878300
-                 },
-                 {
-                   "id": "3007WFP",
-                   "name": "Dell Widescreen UltraSharp 3007WFP",
-                   "manu": "Dell, Inc.",
-                   "manu_id_s": "dell",
-                   "cat": [
-                     "electronics and computer1"
-                   ],
-                   "features": [
-                     "30\" TFT active matrix LCD, 2560 x 1600, .25mm dot pitch, 700:1 contrast"
-                   ],
-                   "includes": "USB cable",
-                   "weight": 401.6,
-                   "price": 2199,
-                   "price_c": "2199,USD",
-                   "popularity": 6,
-                   "inStock": true,
-                   "store": "43.17614,-90.57341",
-                   "_version_": 1486960637584081000
-                 }
-               ]
-             }
+[Airpal]() is an open-source web-based query interface for Presto. For more information on Airpal, see [Airpal documentation](https://github.com/airbnb/airpal#airpal).
 
-### Starting and stopping Solr
-If you need to manually stop or start Solar, use the following commands:
+In this section, we look at the steps to **install Airpal on the edgenode** of an HDInsight Hadoop cluster, that already has Presto installed. This ensures that the Airpal web query interface is available over the Internet.
 
-    sudo stop solr
+1. Using SSH, connect to the headnode of the HDInsight cluster that has Presto installed:
+   
+        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+   
+    For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-    sudo start solr
+2. Once you are connected, run the following command.
 
-## Backup indexed data
-As a good practice, you should back up the indexed data from the Solr cluster nodes onto Azure Blob storage. Perform the following steps to do so:
+		sudo slider registry  --name presto1 --getexp presto 
+   
+    You should see an output like the following:
 
-1. Connect to the cluster using SSH, then use the following command to get the host name for the head node:
-   
-        hostname -f
-2. Use the following to create a snapshot of the indexed data. Replace **HOSTNAME** with the name returned from the previous command:
-   
-        curl http://HOSTNAME:8983/solr/replication?command=backup
-   
-    You should see a response like this:
-   
-        <?xml version="1.0" encoding="UTF-8"?>
-        <response>
-          <lst name="responseHeader">
-            <int name="status">0</int>
-            <int name="QTime">9</int>
-          </lst>
-          <str name="status">OK</str>
-        </response>
-3. Next, change directories to **/usr/hdp/current/solr/example/solr**. There will be a subdirectory here for each collection. Each collection directory contains a **data** directory, which is where the snapshot for that collection is located.
-   
-    For example, if you used the steps earlier to index the sample documents, the **/usr/hdp/current/solr/example/solr/collection1/data** directory should now contain a directory named **snapshot.###########** where the #'s are the date and time of the snapshot.
-4. Create a compressed archive of the snapshot folder using a command similar to the following:
-   
-        tar -zcf snapshot.20150806185338855.tgz snapshot.20150806185338855
-   
-    This will create a new archive named **snapshot.20150806185338855.tgz**, which contains the contents of the **snapshot.20150806185338855** directory.
-5. You can then store the archive to the cluster's primary storage using the following command:
-   
-    hadoop fs -copyFromLocal snapshot.20150806185338855.tgz /example/data
-   
-   > [!NOTE]
-   > You may want to create a dedicated directory for storing Solr snapshots. For example, `hadoop fs -mkdir /solrbackup`.
-   > 
-   > 
+		{
+  			"coordinator_address" : [ {
+    			"value" : "10.0.0.12:9090",
+    			"level" : "application",
+    			"updatedTime" : "Mon Apr 03 20:13:41 UTC 2017"
+  		} ]
 
-For more information on working with Solr backup and restores, see [Making and restoring backups of SolrCores](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores).
+3. From the output, note the value for the **value** property. You will need this while installing Airpal on the cluster edgenode. From the output above, the value that you will need is **10.0.0.12:9090**.
+
+4. Use the template **[here](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdharmeshkakadia%2Fpresto-hdinsight%2Fmaster%2Fairpal-deploy.json)** to create an HDInsight cluster edgenode and provide the values as shown in the following screenshot.
+
+	![HDInsight install Airpal on Presto cluster](./media/hdinsight-hadoop-install-presto/hdinsight-install-airpal.png)
+
+5. Click **Purchase**.
+
+6. Once the changes are applied to the cluster configuration, you can access the Airpal web interface by using the following steps.
+
+	a. From the cluster blade, click **Applications**.
+
+	![HDInsight launch Airpal on Presto cluster](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal.png)
+
+	b. From the **Installed Apps** blade, click **Portal** against airpal.
+
+	![HDInsight launch Airpal on Presto cluster](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal-1.png)
+
+	c. When prompted, enter the admin credentials that you specified while creating the HDInsight Hadoop cluster.
+
+ 
+
 
 ## See also
 * [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). Hue is a web UI that makes it easy to create, run and save Pig and Hive jobs, as well as browse the default storage for your HDInsight cluster.
