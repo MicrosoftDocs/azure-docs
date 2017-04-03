@@ -13,10 +13,8 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ---
-
 # Linux Virtual Machines Documentation
 <p style="padding-bottom: 0px">Learn how to run Virtual Machines on Azure using the Linux distribution of your choice.</p>
-
 <h2 style="margin-top: 36px">Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
@@ -68,7 +66,6 @@ ms.author: carolz
         <p>Free Pluralsight video training – Getting Started with IaaS Monitoring</a></p>
     </div>
 </div>
-
 ---
 <h2 style="margin-top: 36px">Reference</h2>
 <ul class="panelContent cardsW">

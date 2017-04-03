@@ -13,10 +13,8 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ---
-
 <h1>Web Apps Documentation</h1>
 <p style="padding-bottom: 0px">Learn how to use App Service Web Apps to build and host websites and web applications.</p>
-
 <h2 style="margin-top: 36px">Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
@@ -56,7 +54,6 @@ ms.author: carolz
         </a>
     </div>
 </div>
-
 <div class="columnHolder">
     <div class="column50">
         <h2 style="margin-top: 36px">Samples</h2>
@@ -81,7 +78,6 @@ ms.author: carolz
             </div>
     </div>
 </div>
-
 ---
 <h2 style="margin-top: 36px">Reference</h2>
 <ul class="panelContent cardsW">
