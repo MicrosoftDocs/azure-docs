@@ -5,7 +5,6 @@ services: sql-database
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid:
 ms.service: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na

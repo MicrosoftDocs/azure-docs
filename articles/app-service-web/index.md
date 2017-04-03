@@ -5,7 +5,6 @@ services: app-service
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid:
 ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na

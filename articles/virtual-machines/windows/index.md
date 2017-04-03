@@ -5,7 +5,6 @@ services: virtual-machines\windows
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: 
 ms.service: virtual-machines\windows
 ms.tgt_pltfrm: na
 ms.devlang: na
