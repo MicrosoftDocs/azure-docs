@@ -1,6 +1,6 @@
 ---
-title: Azure billing and cost management guidance | Microsoft Docs
-description: Learn about best practices and first things to do to optimize your bill
+title: Prevent unexpected costs, manage billing - Azure | Microsoft Docs
+description: Learn how to avoid unexpected charges on your Azure bill. Use cost-tracking and management features for your Microsoft Azure subscription.
 services: ''
 documentationcenter: ''
 author: jlian
