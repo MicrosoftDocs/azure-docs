@@ -15,13 +15,12 @@
 ## [PowerShell](app-service-powershell-samples.md) 
 
 # Tutorials
-## [Add functionality to web app](app-service-web-get-started-2.md)
-## [ASP.NET app with SQL Database](web-sites-dotnet-get-started.md)
-## [Laravel app with MySQL](app-service-web-php-get-started.md)
-## [Sails.js app with NOSQL DB](app-service-web-nodejs-sails.md)
-## [Java app with Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
-## [Java app with IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
-## [Django app with MySQL](web-sites-python-ptvs-django-mysql.md)
+## [Build data-driven apps]
+### [ASP.NET with SQL database](app-service-web-tutorial-dotnet-sqldatabase.md)
+### [Node.js with MongodB](app-service-web-tutorial-nodejs-mongodb-app.md)
+## [Use custom DNS name](app-service-web-tutorial-domain-ssl.md)
+## [Use custom SSL cert](app-service-web-tutorial-domain-ssl.md)
+## [Run highly-scalable apps](app-service-web-tutorial-hyper-scale-app.md)
 
 # Concepts
 ## [How App Service works](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)	
