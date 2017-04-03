@@ -1,4 +1,4 @@
-- name: SQL Database Documentation
+- SQL Database Documentation
   href: index.md
 - name: Overview
   items:
@@ -11,10 +11,10 @@
   items:
   - name: Create DB - Portal
     href: sql-database-get-started-portal.md
-  - name: Create DB - Azure CLI
-    href: sql-database-get-started-cli.md
   - name: Create DB - PowerShell
     href: sql-database-get-started-powershell.md
+  - name: Create DB - Azure CLI
+    href: sql-database-get-started-cli.md
   - name: Manage
     items:
     - name: SSMS
@@ -23,7 +23,7 @@
       href: sql-database-connect-query-vscode.md
   - name: Connect
     items:
-    - name: C #
+    - name: .NET
       href: sql-database-connect-query-dotnet.md
     - name: PHP
       href: sql-database-connect-query-php.md
