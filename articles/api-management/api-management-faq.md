@@ -40,6 +40,8 @@ Get the answers to common questions, patterns, and best practices for Azure API 
 * [Can I use a self-signed SSL certificate for a back end?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
 * [Why do I get an authentication failure when I try to clone a GIT repository?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [Does API Management work with Azure ExpressRoute?](#does-api-management-work-with-azure-expressroute)
+* [Why do we require a dedicated subnet in Resource Manager style VNET for API Management?](#why-dedicated-subnet-resourcemanger-vnet-apim)
+* [What is the minimum subnet size needed to deploy API Management?](#min-size-subnet-todeploy-apim)
 * [Can I move an API Management service from one subscription to another?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
 * [Are there restrictions on or known issues with importing my API?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
@@ -140,6 +142,13 @@ If you use Git Credential Manager, or if you're trying to clone a Git repository
 
 ### Does API Management work with Azure ExpressRoute?
 Yes. API Management works with Azure ExpressRoute.
+
+### Why do we require a dedicated subnet in Resource Manager style VNET for API Management?
+The dedicated subnet requirement for API Management comes from the fact, that it is built on PAAS V1 (Classic) technology. While we can deploy into a Resource Manager VNET (V2 layer), there are consequences to that. The Classic deployment model in Azure are not tightly coupled with Resource Manager model and so if you create a resource in V2 stuff, the V1 doesn't know about it and problems can happen such as API Management trying to use an IP that is already allocated to a NIC (built on V2).
+To learn more about difference of Classic and Resource Manager models in Azure refer to [difference in deployment models](../azure-resource-manager/resource-manager-deployment-model.md).
+
+### What is the minimum subnet size needed to deploy API Management?
+The minimum subnet size needed to deploy API Management is [/29](../virtual-network/virtual-networks-faq.md#configuration), which is the minimum subnet size that Azure supports.
 
 ### Can I move an API Management service from one subscription to another?
 Yes. To learn how, see [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
