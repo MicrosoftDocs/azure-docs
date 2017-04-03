@@ -32,15 +32,15 @@ To deploy the Azure Stack POC, you first need to [download the deployment packag
    * [.NET Framework 4.6 (or a later version)](https://aka.ms/r6mkiy) must be installed.
 
 2. [Go to the Get Started page](https://azure.microsoft.com/overview/azure-stack/try/?v=try), provide your details, and click **Submit**.
-3. Under **Download the software**, click **Azure Stack**.
+3. Under **Download the software**, click **Azure Stack Technical Preview 3**.
 4. Run the downloaded AzureStackDownloader.exe file.
-5. In the **Azure Stack POC Downloader** window, follow steps 1 through 5. After you click **Download**, choose a folder to download the files.
+5. In the **Azure Stack POC Downloader** window, follow steps 1 through 5.
 6. After the download completes, click **Run** to launch the MicrosoftAzureStackPOC.exe.
 7. Review the License Agreement screen and information of the Self-Extractor Wizard and then click **Next**.
 8. Review the Privacy Statement screen and information of the Self-Extractor Wizard and then click **Next**.
 9. Select the Destination for the files to be extracted, click **Next**.
    * The default is: <drive letter>:\<current folder>\Microsoft Azure Stack POC
-10. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~35 GB) and ThirdPartyLicenses.rtf files.
+10. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~35 GB) and ThirdPartyLicenses.rtf files. This will take some time to complete.
 
 > [!NOTE]
 > After you extract the files, you can delete the exe and bin files to recover space on the machine. Or, you can move these files to another location so that if you need to redeploy you don’t need to download the files again.
@@ -50,14 +50,14 @@ To deploy the Azure Stack POC, you first need to [download the deployment packag
 ## Prepare the deployment machine
 1. Make sure that you can physically connect to the deployment machine, or have physical console access (such as KVM). You will need such access after you reboot the deployment machine in step 9 below.
 2. Make sure the deployment machine meets the [minimum requirements](azure-stack-deploy.md). You can use the [Deployment Checker for Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm your requirements.
-3. Log in as the Local Administrator to your POC machine.
-4. Copy the CloudBuilder.vhdx file to the root of the C:\ drive (C:\CloudBuilder.vhdx).
+3. Log in as the Local Administrator to your POC host.
+4. Copy or move the CloudBuilder.vhdx file to the root of the C:\ drive (C:\CloudBuilder.vhdx).
    
    > [!NOTE]
    > If you choose not to use the recommended script to prepare your POC host computer (steps 5 – step 7), do not enter any license key at the activation page. A trial version of Windows Server 2016 image is included, and entering a license key causes expiration warning messages.
    > 
    > 
-5. On the POC machine, run the following PowerShell script to download the Azure Stack support files:
+5. On the POC host, run the following PowerShell script to download the Azure Stack support files:
    
         # Variables
         $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/'
@@ -148,6 +148,8 @@ If your AAD Identity is associated with GREATER THAN ONE AAD Directory:
     $aadpass = ConvertTo-SecureString "<AAD GLOBAL ADMIN ACCOUNT PASSWORD>" -AsPlainText -Force
     $aadcred = New-Object System.Management.Automation.PSCredential ("<AAD GLOBAL ADMIN ACCOUNT> example: user@AADDirName.onmicrosoft.com>", $aadpass)
     .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<SPECIFIC AAD DIRECTORY example: AADDirName.onmicrosoft.com>"
+
+### Using static IP addresses
 
 If your environment DOESN'T have DHCP enabled, you must include the following ADDITIONAL parameters to one of the options above (example usage provided):
 
