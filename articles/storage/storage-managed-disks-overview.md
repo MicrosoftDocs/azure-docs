@@ -95,7 +95,7 @@ snapshots exist independent of the source disk and can be used to create new Man
 To learn more about how to create snapshots with Managed Disks, please check out these resources:
 
 * [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
 For detailed information on pricing for Managed Disks, see [Managed Disks Pricing](https://azure.microsoft.com/pricing/details/managed-disks).
@@ -106,7 +106,7 @@ Managed Disks also support creating a managed custom image. You can create an im
 
 For information on creating images, please check out the following articles:
 * [How to capture a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md)
-* [How to generalize and capture a Linux virtual machine using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-capture-image.md)
+* [How to generalize and capture a Linux virtual machine using the Azure CLI 2.0](../virtual-machines/linux/capture-image.md)
 
 ## Images versus snapshots
 
@@ -140,11 +140,11 @@ For more information about Managed Disks, please refer to the following articles
 
 * [Create a VM using Resource Manager and PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md)
 
 * [Attach a managed data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md)
 
-* [Add a managed disk to a Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Add a managed disk to a Linux VM](../virtual-machines/linux/quick-create-cli.md)
 
 ### Compare Managed Disks storage options 
 

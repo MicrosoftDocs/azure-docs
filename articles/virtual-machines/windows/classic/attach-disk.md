@@ -26,7 +26,7 @@ Refernce article:
 
 This article shows you how to attach new and existing disks created with the Classic deployment model to a Windows virtual machine using the Azure portal.
 
-You can also [attach a data disk to a Linux VM in the Azure portal](../../virtual-machines-linux-attach-disk-portal.md).
+You can also [attach a data disk to a Linux VM in the Azure portal](../../linux/attach-disk-portal.md).
 
 Before you attach a disk, review these tips:
 
