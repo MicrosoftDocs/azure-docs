@@ -16,9 +16,9 @@
 ### [Add custom code with Azure Functions](logic-apps-azure-functions.md)
 ### [Loops, scopes, and data debatching](logic-apps-loops-and-scopes.md)
 ### [Author logic app definitions](logic-apps-author-definitions.md)
+### [Call, trigger, or nest logic apps](logic-apps-http-endpoint.md)
 ### [Create custom APIs for logic apps](logic-apps-create-api-app.md)
 ### [Call custom APIs for logic apps](logic-apps-custom-hosted-api.md)
-### [Call logic app endpoints as triggers](logic-apps-http-endpoint.md)
 ### [Handle errors and exceptions](logic-apps-exception-handling.md)
 ### [Handle content types](logic-apps-content-type.md)
 ### [Secure your logic apps](logic-apps-securing-a-logic-app.md)
@@ -69,6 +69,7 @@
 
 ## Examples, scenarios, and walkthroughs
 ### [Overview](logic-apps-examples-and-scenarios.md)
+### [Create a serverless social dashboard](logic-apps-scenario-social-serverless.md)
 ### [Call logic apps with Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Add error and exception handling](logic-apps-scenario-error-and-exception-handling.md)
 ### [B2B processing](logic-apps-enterprise-integration-b2b.md)

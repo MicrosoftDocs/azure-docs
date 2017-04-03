@@ -1,6 +1,6 @@
 ---
 title: Update the Azure Linux Agent from GitHub | Microsoft Docs
-description: Learn how to the update Azure Linux Agent for your Linux VM in Azure to the lateset version from Github
+description: Learn how to the update Azure Linux Agent for your Linux VM in Azure to the lateset version from GitHub
 services: virtual-machines-linux
 documentationcenter: ''
 author: SuperScottz
