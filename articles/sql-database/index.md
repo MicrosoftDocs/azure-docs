@@ -14,7 +14,8 @@ ms.date: 01/23/2017
 ms.author: carolz
 ---
 
-<h1>SQL Database Documentation</h1>
+# SQL Database Documentation
+
 <p style="padding-bottom: 0px">Learn how to use SQL Database, a relational database-as-a-service in the cloud built on the Microsoft SQL Server engine.</p>
 
 <h2>Quickstarts</h2>

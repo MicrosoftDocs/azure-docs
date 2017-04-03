@@ -14,7 +14,8 @@ ms.date: 01/23/2017
 ms.author: carolz
 ---
 
-<h1>Windows Virtual Machines Documentation</h1>
+# Windows Virtual Machines Documentation
+
 <p style="padding-bottom: 0px">Learn how to create Windows virtual machines.</p>
 
 <h2>Quickstarts</h2>
