@@ -46,11 +46,11 @@ An [Azure SQL Database logical server](sql-database-features.md) acts as a centr
 
 2. Type **server** in the search window on the **New** page, and select **SQL database (logical server)** from the filtered list in the Marketplace.
 
-    <img src="./media/sql-database-migrate-your-sql-server-database/logical-server.png" alt="select logical server" style="width: 780px;" />
+    ![select logical server](./media/sql-database-migrate-your-sql-server-database/logical-server.png)
 
 3. On the **Everything** page, click **SQL server (logical server)** and then click **Create** on the **SQL Server (logical server)** page.
 
-    <img src="./media/sql-database-migrate-your-sql-server-database/logical-server-create.png" alt="create logical server" style="width: 780px;" />
+    ![create logical server](./media/sql-database-migrate-your-sql-server-database/logical-server-create.png)
 
 4. Fill out the SQL server (logical server) form with the following information, as shown on the preceding image:     
 
@@ -60,7 +60,7 @@ An [Azure SQL Database logical server](sql-database-features.md) acts as a centr
    - Resource group: Specify **Create new** and specify **myResourceGroup**
    - Location: Select a data center location
 
-    <img src="./media/sql-database-migrate-your-sql-server-database/logical-server-create-completed.png" alt="create logical server completed form" style="width: 780px;" />
+    ![create logical server completed form](./media/sql-database-migrate-your-sql-server-database/logical-server-create-completed.png)
 
 5. Click **Create**  to provision the logical server. Provisioning takes a few minutes. 
 
@@ -70,13 +70,13 @@ The SQL Database service creates a firewall at the server-level preventing exter
 
 1. After the deployment completes, click **All resources** from the left-hand menu and click your new server on the **All resources** page. The overview page for your server opens, showing you the fully qualified server name (such as **mynewserver20170403.database.windows.net**) and provides options for further configuration.
 
-     <img src="./media/sql-database-migrate-your-sql-server-database/logical-server-overview.png" alt="logical server overview" style="width: 780px;" />
+     ![logical server overview](./media/sql-database-migrate-your-sql-server-database/logical-server-overview.png)
 
 2. Click **Firewall** in the left hand menu of the overview page. The **Firewall settings** page for the SQL Database server opens. 
 
 3. Click **Add client IP** on the toolbar and then click **Save**. A server-level firewall rule is created for your current IP address.
 
-     <img src="./media/sql-database-migrate-your-sql-server-database/server-firewall-rule-set.png" alt="set server firewall rule" style="width: 780px;" />
+     ![set server firewall rule](./media/sql-database-migrate-your-sql-server-database/server-firewall-rule-set.png)
 
 4. Click **OK**.
 
@@ -84,39 +84,39 @@ You can now connect to all databases on this server using SQL Server Management 
 
 ## Step 4 - Test for compatibility
 
-You are ready to test the database you plan to migrate to Azure SQL Database for compatibility issues using the **Data Migration Assistant**.
+You are ready to test the database you plan to migrate to Azure SQL Database for compatibility issues using the **Data Migration Assistant**. Follow these steps to assess the AdventureWorks2008R2 OLTP database for compatibility with Azure SQL Database.
 
 1. Open the **Data Migration Assistant** on your computer with connectivity to the SQL Server instance containing the database that you plan to migrate.
 
-     <img src="./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-open.png" alt="open data migration assistant" style="width: 780px;" />
+     ![](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-open.png) alt="open data migration assistant" style="width: 780px;" />
 
 2. In the left hand menu, click **+ New** to create an **Assessment** project. Fill in the form with a **Project name** (all other values should be left at their default values) and click **Create**. The **Options** page opens.
 
-     <img src="./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-new-project.png" alt="new data migration assistant project" style="width: 780px;" />
+     ![new data migration assistant project](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-new-project.png)
 
 3. On the **Options** page, review the selected target version of Azure SQL Database and the default report types selected. Click **Next**. The **Select sources** page opens.
 
-     <img src="./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-options.png" alt="new data migration options" style="width: 780px;" />
+     ![new data migration options](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-options.png) 
 
 4. On the **Select sources** page, enter the name of SQL Server instance containing the server you plan to migrate. Change the other values on this page if necessary. Click **Connect**.
 
-     <img src="./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-sources.png" alt="new data migration select sources" style="width: 780px;" />
+     ![new data migration select sources](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-sources.png)
 
 5. In the **Add sources** portion of the **Select sources** page, select the checkbox for the database(s) to be tested for compatibility. Click **Add**.
 
-     <img src="./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-sources-add.png" alt="new data migration select sources add" style="width: 780px;" />
+     ![new data migration select sources](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-sources-add.png)
 
 6. Click **Start Assessment**.
 
-     <img src="./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-start-assessment.png" alt="new data migration start assessment" style="width: 780px;" />
+     ![new data migration start assessment](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-start-assessment.png)
 
 7. When the assessment completes, first look to see if the database is sufficiently compatible to migrate. Look for the checkmark in a green circle.
 
-     <img src="./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-assessment-results-compatible.png" alt="new data migration assessment results compatible" style="width: 780px;" />
+     ![new data migration assessment results compatible](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-assessment-results-compatible.png)
 
 8. Review the results, beginning with **SQL Server feature parity**. Specifically review the information about unsupported and partially supported features, and the provided information about recommended actions. 
 
-     <img src="./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-assessment-results-parity.png" alt="new data migration assessment parity" style="width: 780px;" />
+     ![new data migration assessment parity](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-assessment-results-parity.png)
 
 8. Click **Compatibility issues**. Specifically review the information about migration blockers, behavior changes, and deprecated features for each compatibility level. For the AdventureWorks2008R2 database, review the changes to Full-Text Search since SQL Server 2008 as well as the changes to SERVERPROPERTY('LCID') since SQL Server 2000. For details on these changes, links for more information is provided. Many search options and settings for Full-Text Search have changed 
 
@@ -125,16 +125,86 @@ You are ready to test the database you plan to migrate to Azure SQL Database for
    >
 
 9. Optionally, click **Export report** to save the report as a JSON file.
+10. Close the Data Migration Assistant.
 
-## Step 5 - Resolve compatibility issues
+## Step 5 - Export to BACPAC file 
 
-## Step 6 - Export to BACPAC file 
+A BACPAC file is a ZIP file with an extension of BACPAC containing the metadata and data from a SQL Server database. A BACPAC file can be stored in Azure blob storage or in local storage for archiving or for migration - such as from SQL Server to Azure SQL Database. For an export to be transactionally consistent, you must ensure either that no write activity is occurring during the export.
 
-## Step 7 - Import BACPAC file to Azure SQL Database 
+Follow these steps to use the SQLPackage command line utility to export the AdventureWorks2008R2 database to local storage.
 
-## Step 8 - Connect to imported database using SSMS
+1. Open a Windows command prompt and change your directory to a folder in which you have the **130** version of SQLPackage - such as **C:\Program Files (x86)\Microsoft SQL Server\130\DAC\bin**.
 
-## Step 9 - Change the compatibility level to 130
+2. Execute the following SQLPackage command at the command prompt to export the **AdventureWorks2008R2** database from **localhost** to **AdventureWorks2008R2.bacpac**. Change any of these three values as appropriate to your environment.
+
+    ```
+    sqlpackage.exe /Action:Export /ssn:localhost /sdn:AdventureWorks2008R2 /tf:AdventureWorks2008R2.bacpac
+    ```
+
+    ![sqlpackage export](./media/sql-database-migrate-your-sql-server-database/sqlpackage-export.png)
+
+## Step 6 - Import BACPAC file to Azure SQL Database 
+
+The newest versions of the SQLPackage command line utility provide support for creating an Azure SQL database at a specified service tier and performance level. For best performance during import, select a high service tier and performance level and then scale down after import if the service tier and performance level is higher than you need immediately. See [Service tiers](sql-database-service-tiers.md) for more information.
+
+Follow these steps use the SQLPackage command line utility to import the AdventureWorks2008R2 database to Azure SQL Database.
+
+- Execute the following SQLPackage command at the command prompt to import the **AdventureWorks2008R2** database from local storage to the Azure SQL Database logical server that you previously created with a database name of **myMigratedDatabase**, a service tier of **Premium**, and a Service Objective of **P11**. Change any of these three values as appropriate to your environment.
+
+    ```
+    SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=ServerAdmin;Password=<change_to_your_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P11
+    ```
+
+
+    ![sqlpackage import](./media/sql-database-migrate-your-sql-server-database/sqlpackage-import.png)
+
+## Step 7 - Connect to imported database using SSMS
+
+Use SQL Server Management Studio to establish a connection to your Azure SQL Database server and newly migrated database.
+
+1. Open SQL Server Management Studio..
+
+2. In the **Connect to Server** dialog box, enter the following information:
+   - **Server type**: Specify Database engine
+   - **Server name**: Enter your fully qualified server name, such as **mynewserver20170403.database.windows.net**
+   - **Authentication**: Specify SQL Server Authentication
+   - **Login**: Enter your server admin account
+   - **Password**: Enter the password for your server admin account
+ 
+    ![connect with ssms](./media/sql-database-migrate-your-sql-server-database/connect-ssms.png)
+
+3. Click **Connect**. The Object Explorer window opens in SSMS. 
+
+4. In Object Explorer, expand **Databases** and then expand **myMigratedDatabase** to view the objects in the sample database.
+
+## Step 8 - Change database properties
+
+You can change the service tier, performance level, and compatibility level using SSMS.
+
+1. In Object Explorer, right-click **myMigratedDatabase** and click **New Query**. A query window opens connected to your database.
+
+2. Execute the following command to set the service tier to **Standard** and the performance level to **S1**.
+
+    ```
+    ALTER DATABASE myMigratedDatabase 
+    MODIFY 
+       (
+       EDITION = 'Standard'
+       , MAXSIZE = 250 GB
+       , SERVICE_OBJECTIVE = 'S1'
+       );
+   ```
+
+    ![change service tier](./media/sql-database-migrate-your-sql-server-database/service-tier.png)
+
+3. Execute the following command to change the database compatibility level to **130**.
+
+    ```
+    ALTER DATABASE myMigratedDatabase  
+    SET COMPATIBILITY_LEVEL = 130;
+    ```
+
+   ![change compatibility level](./media/sql-database-migrate-your-sql-server-database/compat-level.png)
 
 ## Next Steps 
 
