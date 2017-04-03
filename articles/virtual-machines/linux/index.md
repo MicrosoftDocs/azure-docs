@@ -53,14 +53,12 @@ Learn how to run Virtual Machines on Azure using the Linux distribution of your 
             <li><a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples.md">PowerShell</a></li>
         </ul>
     </div>
-    <div class="column50">
+    <div class="column50" max-width="400">
         <h2>Free Video Training</h2>
         <a href="https://app.pluralsight.com/player?author=tim-warner&name=managing-infrastructure-microsoft-azure-getting-started-m0&mode=live&clip=0&course=managing-infrastructure-microsoft-azure-getting-started">
         <img src="media/index/video-training-infrastructure.png" width="400" alt="" />
-            <div class="container" width="400">
-                <p>Free Pluralsight video training – Managing Infrastructure</a></p>
-                <p></p>
-            </div>
+        <p>Free Pluralsight video training – Managing Infrastructure</a></p>
+        <p></p>
         <a href="https://app.pluralsight.com/player?author=tim-warner&name=azure-vms-getting-started-m0&mode=live&clip=0&course=azure-vms-getting-started">
         <img src="media/index/video-training-vms.png" width="400" alt="" />
         <p>Free Pluralsight video training – Getting Started with Virtual Machines</a></p>
