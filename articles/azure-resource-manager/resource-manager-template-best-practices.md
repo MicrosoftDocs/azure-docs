@@ -32,15 +32,15 @@ For help establishing a naming convention, see the [Azure infrastructure naming 
 ### Unique resource names
 You must provide a unique resource name for any resource type that has a data access endpoint. Some common resource types that require a unique name include:
 
-* Azure Storage account<sup>1</sup> 
+* Azure Storage<sup>1</sup> 
 * Azure Web Apps
 * SQL Server
 * Azure Key Vault
 * Azure Redis Cache
-* Azure Batch account
+* Azure Batch
 * Azure Traffic Manager
-* Azure Search service
-* Azure HDInsight cluster
+* Azure Search
+* Azure HDInsight
 
 <sup>1</sup> Storage account names also must be lowercase, 24 characters or less, and not have any hyphens.
 
