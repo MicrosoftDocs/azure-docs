@@ -67,7 +67,7 @@
 #### [Deploy Linux virtual machines](azure-stack-linux.md)
 ### Usage and Billing
 #### [Overview](azure-stack-billing-and-chargeback.md)
-#### [Consumption reporting](azure-stack-usage-reporting.md)
+#### [usage data reporting](azure-stack-usage-reporting.md)
 #### [Provider usage API](azure-stack-provider-resource-api.md)
 #### [Tenant usage API](azure-stack-tenant-resource-usage-api.md)
 #### [Usage FAQ](azure-stack-usage-related-faq.md)
