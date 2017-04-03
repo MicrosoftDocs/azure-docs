@@ -3,7 +3,7 @@ title: Connect to Azure Stack | Microsoft Docs
 description: Learn how to connect Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: ErikjeMS
+author: SnehaGunda
 manager: byronr
 editor: ''
 
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 3/29/2017
-ms.author: erikje
+ms.author: sngun
 
 ---
 # Connect to Azure Stack
 To manage resources, you must connect to the Azure Stack POC computer. You can use either of the following connection options:
 
-* Remote Desktop: lets a single concurrent user quickly connect from the POC computer.
-* Virtual Private Network (VPN):  lets multiple concurrent users connect from clients outside of the Azure Stack infrastructure (requires configuration).
+* [Remote Desktop](#connect-with-remote-desktop): lets a single concurrent user quickly connect from the POC computer.
+* [Virtual Private Network (VPN)](connect-with-vpn):  lets multiple concurrent users connect from clients outside of the Azure Stack infrastructure (requires configuration).
 
 ## Connect with Remote Desktop
 With a Remote Desktop connection, a single concurrent user can work with the portal to manage resources. You can also use tools on the MAS-CON01 virtual machine.
