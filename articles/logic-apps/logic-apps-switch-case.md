@@ -1,30 +1,34 @@
 ---
-title: Switch statements in Azure Logic Apps | Microsoft Docs
-description: Choose different actions to perform in logic apps based on expression values by using switch statements
+title: Switch statement for different actions in Azure Logic Apps | Microsoft Docs
+description: Choose different actions to perform in logic apps based on expression values by using a switch statement
 services: logic-apps
-documentationcenter: ''
+keywords: switch statement
+author: ecfan
 manager: anneta
+editor: ''
+documentationcenter: ''
 
+ms.assetid: 
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: LADocs
+ms.author: deli; LADocs
 ---
 
-# Perform different actions in logic apps with switch statements
+# Perform different actions in logic apps with a switch statement
 
-When authoring a workflow, you often need to take different actions based on the value of an object or expression. 
+When authoring a workflow, you often have to take different actions based on the value of an object or expression. 
 For example, you might want your logic app to behave differently based on the status code of an HTTP request, 
-or the selected option of an approval email.
+or an option selected in an email.
 
 You can use a switch statement to implement these scenarios. Your logic app can evaluate a token or expression, 
 and choose the case with the same value to execute the specified actions. Only one case should match the switch statement.
 
 > [!TIP]
-> Like all programming languages, switch statements supports only equality operators. 
+> Like all programming languages, switch statements support only equality operators. 
 > If you need other relational operators, such as "greater than", use a condition statement.
 > To ensure deterministic execution behavior, cases must contain a unique and static value instead of dynamic tokens or expression.
 
@@ -34,11 +38,11 @@ and choose the case with the same value to execute the specified actions. Only o
 [create a free account](https://azure.microsoft.com/free/), or try [Logic Apps for free](https://tryappservice.azure.com/).
 - [Basic knowledge about logic apps](logic-apps-what-are-logic-apps.md)
 
-## Add switch statements to your logic app workflow
+## Add a switch statement to your workflow
 
 To show how switch statments work, this example creates a logic app that monitors files uploaded to Dropbox. 
 When the new files are uploaded, the logic app sends email to an approver who chooses whether to transfer those files to SharePoint. 
-The app uses a switch statement that performs different actions based on the value that approver selects.
+The app uses a switch statement that performs different actions based on the value that the approver selects.
 
 1. Create a logic app, and select this trigger: **Dropbox - When a file is created**.
 
@@ -72,7 +76,8 @@ The app uses a switch statement that performs different actions based on the val
    > [!NOTE]
    > A switch statement needs at least one case in addition to the default case.
 
-4. After the switch statement, delete the original file uploaded to Dropbox with **Dropbox - Delete file** action.
+4. After the switch statement, delete the original file uploaded to Dropbox 
+by adding this action: **Dropbox - Delete file**
 
 5. Save your logic app. Test your app by uploading a file to Dropbox. 
 You should receive an approval email shortly. Select an option, and observe the behavior.
@@ -83,7 +88,7 @@ You should receive an approval email shortly. Select an option, and observe the 
 ## Understand the code behind switch statements
 
 Now that you successfully created a logic app using a switch statement, 
-let's look at the code definition behind the swtich statement.
+let's look at the code definition behind the switch statement.
 
 ```json
 "Switch": {
