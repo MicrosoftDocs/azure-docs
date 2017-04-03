@@ -14,11 +14,10 @@ ms.date: 01/23/2017
 ms.author: carolz
 ---
 
-# SQL Database Documentation
+<h1>SQL Database Documentation</h1>
+<p style="padding-bottom: 0px">Learn how to use SQL Database, a relational database-as-a-service in the cloud built on the Microsoft SQL Server engine.</p>
 
-Learn how to use SQL Database, a relational database-as-a-service in the cloud built on the Microsoft SQL Server engine.
-
-<h2 style="margin-top: 6px;">Quickstarts</h2>
+<h2>Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/sql-database/sql-database-get-started-portal">
@@ -42,21 +41,21 @@ Learn how to use SQL Database, a relational database-as-a-service in the cloud b
 
 <div class="columnHolder">
     <div class="column50">
-        <h2 style="margin-top: 18px;">Tutorials</h2>
+        <h2>Tutorials</h2>
         <p>Follow these step-by-step tutorials to build and deploy SQL Database applications.</p>
         <ul class="spaced">
             <li><a href="/azure/sql-database/sql-database-design-first-database">Design a database</a></li>
             
         </ul>
         <h2>Samples</h2>
-        <p>Find scripts and code sample to simplify common management tasks.</p>
+        <p>Find scripts and code samples to simplify common management tasks.</p>
         <ul class="spaced">
             <li><a href="/azure/sql-database/sql-database-cli-samples.md">Azure CLI</a></li>
             <li><a href="/azure/sql-database/sql-database-powershell-samples.md">PowerShell</a></li>
         </ul>
     </div>
     <div class="column50">
-        <h2 style="margin-top: 18px;">Free Video Training</h2>
+        <h2>Free Video Training</h2>
         <a href="https://app.pluralsight.com/player?author=scott-allen&name=f24a629c-37b7-47f1-bc43-4b122da61cbb&mode=live&clip=0&course=developing-dotnet-microsoft-azure-getting-started">
         <img src="media/index/video-training-dotnet.png" width="400" alt="">
         <p>Free Pluralsight video training – Developing with .NET</a></p>
