@@ -49,7 +49,7 @@ This script uses the following commands. Each command in the table links to comm
 | [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/restore-azurermsqldatabase) | Restores a SQL database. |
 |[Remove-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/remove-azurermsqldatabase) | Removes an Azure SQL database. |
 | [Get-AzureRmSqlDeletedDatabaseBackup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/get-azurermsqldeleteddatabasebackup) | Gets a deleted database that you can restore. |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.resources/v3.2.0/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
