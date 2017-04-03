@@ -6,13 +6,13 @@ documentationCenter: na
 author: jeevansd
 manager: femila
 
-ms.assetid: 5e3a645c-5281-4e34-9e33-4c53837ad12f
+ms.assetid: c3546eab-96b5-489b-a309-b895eb428053
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/8/2017
+ms.date: 04/3/2017
 ms.author: jeedes
 
 ---
@@ -115,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 	> [!NOTE] 
 	> Please note that these are not the real values. You have to update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [ServiceChannel support team](https://servicechannel.zendesk.com/hc/en-us) to get these values.
 
-4. Your ServiceChannel application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. 	The following screenshot shows an example for this. The default value of **User Identifier** is **user.userprincipalname** but ServiceChannel expects this to be mapped with 		**user.mail**. You need to add another claim named **role** and the value needs to be mapped to **user.assignedroles** which contains the role of the user.  
+4. Your ServiceChannel application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. **NameIdentifier(User Identifier)** is the only mandatory claim and the default value is **user.userprincipalname** but ServiceChannel expects this to be mapped with **user.mail**. If you are planning to enable Just In Time user provisioning, then you should add the following claims as shown below. **Role** claim needs to be mapped to **user.assignedroles** which contains the role of the user.  
 
 	You can refer ServiceChannel guide [here](https://servicechannel.zendesk.com/hc/en-us/articles/217514326-Azure-AD-Configuration-Example) for more guidance on claims.
   	
