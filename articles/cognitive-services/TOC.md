@@ -1,19 +1,41 @@
 
 # Overview
 ## [What is Cognitive Services?](https://azure.microsoft.com/services/cognitive-services/)
+
 # Get Started
+## [Welcome](Welcome.md)
 ## [Create an account](cognitive-services-apis-create-account.md)
 ## [Text Analytics quick start](cognitive-services-text-analytics-quick-start.md)
 ## [Recommendations quick start](cognitive-services-recommendations-quick-start.md)
 
-# How to
-## Develop with Academic Knowledge API
-### [Overview](https://www.microsoft.com/cognitive-services/en-us/academic-knowledge-api/documentation/overview)
-### [API reference](https://dev.projectoxford.ai/docs/services/56332331778daf02acc0a50b/operations/565d9001ca73072048922d97)
+# Services
+## Academic Knowledge API
+### [Overview](Home.md)
+### Knowledge Exploration
+### [Entity attributes](EntityAttributes.md)  
+#### [Paper](PaperEntityAttributes.md)   
+#### [Author](AuthorEntityAttributes.md)
+#### [Affiliation](AffiliationEntityAttributes.md)  
+#### [Field of study](FieldsOfStudyEntityAttributes.md)
+#### [Conference series](ConferenceSeriesEntityAttributes.md)
+#### [Conference instance](ConferenceInstanceEntityAttributes.md)
+#### [Journal](JournalEntityAttributes.md) 
+### Methods
+#### [CalcHistogram](CalcHistogramMethod.md) 
+#### [Evaluate](EvaluateMethod.md)
+#### [Interpret](InterpretMethod.md)
+#### [Similarity](SimilarityMethod.md)
+### [Query expression syntax](QueryExpressionSyntax.md) 
+### Graph traversal
+#### [Lambda search syntax](LambdaSearchSyntax.md)
+#### [Graph search method](GraphSearchMethod.md) 
+#### [JSON Search Syntax](JSONSearchSyntax.md)                     
+### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56332331778daf02acc0a50b/operations/565d9001ca73072048922d97)
 
-## Develop with Text Analytics API
+## Text Analytics API
 ### [API migration](cognitive-services-text-analytics-api-migration.md)
-## Develop with Recommendations API
+
+## Recommendations API
 ### [Collect training data](cognitive-services-recommendations-collecting-data.md)
 ### [Build types & model quality](cognitive-services-recommendations-buildtypes.md)
 ### [Batch scoring](cognitive-services-recommendations-batch-scoring.md)
