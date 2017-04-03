@@ -716,7 +716,7 @@ There is a requirement to manage the backups on your own. Since the expectation 
 * Microsoft Visual Studio with Azure SDK installed (<https://azure.microsoft.com/downloads/>)
 * Microsoft Azure Storage Explorer (<https://azure.microsoft.com/downloads/>)
 * 3rd party tools
-FOr a more complete discussion of Backup and SAP on Azure, please refer to [the SAP Backup Guide](../../linux/sap-hana-backup-guide.md) for more information.
+FOr a more complete discussion of Backup and SAP on Azure, please refer to [the SAP Backup Guide](sap-hana-backup-guide.md) for more information.
 
 ### <a name="1b353e38-21b3-4310-aeb6-a77e7c8e81c8"></a>Using a SQL Server images out of the Microsoft Azure Marketplace
 Microsoft offers VMs in the Azure Marketplace which already contain versions of SQL Server. For SAP customers who require licenses for SQL Server and Windows, this might be an opportunity to basically cover the need for licenses by spinning up VMs with SQL Server already installed. In order to use such images for SAP, the following considerations need to be made:

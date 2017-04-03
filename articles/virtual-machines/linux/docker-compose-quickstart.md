@@ -161,7 +161,7 @@ You can now connect to WordPress directly on the VM on port 80. Open a web brows
 * Go to the [Docker VM extension user guide](https://github.com/Azure/azure-docker-extension/blob/master/README.md) for more options to configure Docker and Compose in your Docker VM. For example, one option is to put the Compose yml file (converted to JSON) directly in the configuration of the Docker VM extension.
 * Check out the [Compose command-line reference](http://docs.docker.com/compose/reference/) and [user guide](http://docs.docker.com/compose/) for more examples of building and deploying multi-container apps.
 * Use an Azure Resource Manager template, either your own or one contributed from the [community](https://azure.microsoft.com/documentation/templates/), to deploy an Azure VM with Docker and an application set up with Compose. For example, the [Deploy a WordPress blog with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) template uses Docker and Compose to quickly deploy WordPress with a MySQL backend on an Ubuntu VM.
-* Try integrating Docker Compose with a [Docker Swarm](docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) cluster. See
+* Try integrating Docker Compose with a Docker Swarm cluster. See
   [Using Compose with Swarm](https://docs.docker.com/compose/swarm/) for scenarios.
 
 <!--Image references-->

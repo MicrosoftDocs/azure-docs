@@ -18,14 +18,14 @@ ms.author: iainfou
 
 ---
 # Install and configure Remote Desktop to connect to a Linux VM in Azure
-Linux virtual machines (VMs) in Azure are usually managed from the command line using a secure shell (SSH) connection. When new to Linux, or for quick troubleshooting scenarios, the use of remote desktop may be easier. This article details how to install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://www.xrdp)) for your Linux VM using the Resource Manager deployment model. You can also [perform these steps for VMs using the Classic deployment model](linux/classic/remote-desktop.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Linux virtual machines (VMs) in Azure are usually managed from the command line using a secure shell (SSH) connection. When new to Linux, or for quick troubleshooting scenarios, the use of remote desktop may be easier. This article details how to install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://www.xrdp)) for your Linux VM using the Resource Manager deployment model. You can also [perform these steps for VMs using the Classic deployment model](classic/remote-desktop.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 
 ## Prerequisites
 This article requires an existing Linux VM in Azure. If you need to create a VM, use one of the following methods:
 
-- The [Azure CLI 2.0](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [Azure CLI 1.0](quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- The [Azure portal](../windows/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- The [Azure CLI 2.0](../linux/quick-createcli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [Azure CLI 1.0](quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- The [Azure portal](../linux/quick-createportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 You also need to be logged in to an [active Azure account](https://azure.microsoft.com/pricing/free-trial/).
 

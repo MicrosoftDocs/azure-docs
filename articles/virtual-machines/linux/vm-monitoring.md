@@ -51,6 +51,6 @@ To enable monitoring for an Azure VM.
 For more details about configuring monitoring metrics and samples, visit the document - **[Using Linux Diagnostic Extension to Monitor Linux VM’s performance and diagnostic data](classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 <!--Image references-->
-[1]: ./media/virtual-machines-linux-vm-monitoring/portal-enable-disable.png
+[1]: ./media/vm-monitoring/portal-enable-disable.png
 
 

@@ -31,7 +31,7 @@ The outline for the steps to accomplish this is as below
 ## Azure Resource Manager Policy 101
 For getting started with Azure Resource Manager policies, we recommend reading the article below and then continuing with the steps in this article. The article below describes the basic definition and structure of a policy, how policies get evaluated and gives various examples of policy definitions.
 
-* [Use Policy to manage resources and control access](../../resource-manager-policy.md)
+* [Use Policy to manage resources and control access](../../azure-resource-manager/resource-manager-policy.md)
 
 ## Define a policy for your Virtual Machine
 One of the common scenarios for an enterprise might be to only allow their users to create Virtual Machines from specific operating systems that have been tested to be compatible with a LOB application. Using an Azure Resource Manager policy this task can be accomplished in a few steps.

@@ -95,4 +95,4 @@ Continue by following instructions for attaching either a [managed disk](#use-az
 
 
 ## Next steps
-After the disk is added, you need to prepare it for use. For more information, see [How to: Initialize a new data disk in Linux](attach-disk.md#Connect-to-the-Linux-VM-to-mount-the-new-disk).
+After the disk is added, you need to prepare it for use. For more information, see [How to: Initialize a new data disk in Linux](add-disk.md#Connect-to-the-Linux-VM-to-mount-the-new-disk).
