@@ -75,7 +75,7 @@ Or manually type in the path, and select the HTTP response in the **body** field
 
      ![SAP action](media/logic-apps-using-sap-connector/picture3.png)
 
-6. Add a new action that creates an HTTP Response. 
+6. Add the action for creating an **HTTP Response**. 
 The response message should be from the SAP output.
 
 7. Save your logic app. Test it by sending an IDOC through the HTTP trigger URL. 
