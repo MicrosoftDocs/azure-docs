@@ -40,7 +40,7 @@ and choose the case with the same value to execute the specified actions. Only o
 
 ## Add a switch statement to your workflow
 
-To show how switch statments work, this example creates a logic app that monitors files uploaded to Dropbox. 
+To show how a switch statement works, this example creates a logic app that monitors files uploaded to Dropbox. 
 When the new files are uploaded, the logic app sends email to an approver who chooses whether to transfer those files to SharePoint. 
 The app uses a switch statement that performs different actions based on the value that the approver selects.
 
