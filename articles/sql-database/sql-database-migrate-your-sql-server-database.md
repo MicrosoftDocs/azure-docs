@@ -155,7 +155,6 @@ Follow these steps use the SQLPackage command-line utility to import the Adventu
     SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=ServerAdmin;Password=<change_to_your_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P11
     ```
 
-
     ![sqlpackage import](./media/sql-database-migrate-your-sql-server-database/sqlpackage-import.png)
 
 ## Step 7 - Connect to imported database using SSMS
@@ -188,12 +187,12 @@ You can change the service tier, performance level, and compatibility level usin
     ```
     ALTER DATABASE myMigratedDatabase 
     MODIFY 
-       (
-       EDITION = 'Standard'
-       , MAXSIZE = 250 GB
-       , SERVICE_OBJECTIVE = 'S1'
-       );
-   ```
+        (
+        EDITION = 'Standard'
+        , MAXSIZE = 250 GB
+        , SERVICE_OBJECTIVE = 'S1'
+    );
+    ```
 
     ![change service tier](./media/sql-database-migrate-your-sql-server-database/service-tier.png)
 
