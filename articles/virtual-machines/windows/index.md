@@ -26,15 +26,15 @@ ms.author: carolz
         </a>
     </div>
     <div class="ico48Link">
-        <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
-            <img src="media/index/cli.svg" alt="">
-            <span>Create a Windows VM - Azure CLI</span>
-        </a>
-    </div>
-    <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
             <img src="media/index/logo_powershell.svg" alt="">
             <span>Create a Windows VM - PowerShell</span>
+        </a>
+    </div>
+    <div class="ico48Link">
+        <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
+            <img src="media/index/cli.svg" alt="">
+            <span>Create a Windows VM - Azure CLI</span>
         </a>
     </div>
 </div>
@@ -47,7 +47,7 @@ ms.author: carolz
             <li><a href="/azure/virtual-machines/virtual-machines-windows-load-balanced-iis-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Load balance VMs</a></li>
         </ul>
         <h2>Samples</h2>
-        <p>Find scripts and code samples to simplify common management tasks.</p>
+        <p>Deploy your first application to Azure.</p>
         <ul class="spaced">
             <li><a href="/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure CLI</a></li>
             <li><a href="/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">PowerShell</a></li>

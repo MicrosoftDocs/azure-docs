@@ -19,27 +19,21 @@ ms.author: carolz
 <h2>Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
-        <a href="/azure/app-service-web/app-service-web-get-started-html">
-            <img src="media/index/logo_html5.svg" alt="">
-            <span>HTML</span>
-        </a>
-    </div>
-    <div class="ico48Link">
         <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
             <img src="media/index/logo_NET.svg" alt="">
             <span>.NET</span>
         </a>
     </div>
     <div class="ico48Link">
-        <a href="/azure/app-service-web/app-service-web-get-started-php">
-            <img src="media/index/logo_php.svg" alt="">
-            <span>PHP</span>
-        </a>
-    </div>
-    <div class="ico48Link">
         <a href="/azure/app-service-web/app-service-web-get-started-nodejs">
             <img src="media/index/logo_nodejs.svg" alt="">
             <span>Node.js</span>
+        </a>
+    </div>
+    <div class="ico48Link">
+        <a href="/azure/app-service-web/app-service-web-get-started-php">
+            <img src="media/index/logo_php.svg" alt="">
+            <span>PHP</span>
         </a>
     </div>
     <div class="ico48Link">
@@ -54,12 +48,18 @@ ms.author: carolz
             <span>Python</span>
         </a>
     </div>
+    <div class="ico48Link">
+        <a href="/azure/app-service-web/app-service-web-get-started-html">
+            <img src="media/index/logo_html5.svg" alt="">
+            <span>HTML</span>
+        </a>
+    </div>
 </div>
 
 <div class="columnHolder">
     <div class="column50">
         <h2>Samples</h2>
-        <p>Find scripts and code samples to simplify common management tasks.</p>
+        <p>Find scripts manage common tasks.</p>
         <ul class="spaced">
             <li><a href="/azure/app-service-web/app-service-cli-samples">Azure CLI</a></li>
             <li><a href="/azure/app-service-web/app-service-powershell-samples">PowerShell</a></li>

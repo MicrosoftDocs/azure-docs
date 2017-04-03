@@ -19,15 +19,15 @@ ms.author: carolz
 <h2>Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
-        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
-        <img src="media/index/portal.svg" alt="">
-            <span>Create a Linux VM - Portal</span>
-        </a>
-    </div>
-    <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
             <img src="media/index/cli.svg" alt="">
             <span>Create a Linux VM - Azure CLI</span>
+        </a>
+    </div>
+    <div class="ico48Link">
+        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
+        <img src="media/index/portal.svg" alt="">
+            <span>Create a Linux VM - Portal</span>
         </a>
     </div>
     <div class="ico48Link">
@@ -46,7 +46,7 @@ ms.author: carolz
             <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-load-balance-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Load balance VMs</a></li>
         </ul>
         <h2>Samples</h2>
-        <p>Deploy your first application to Azure using the language of your choice.</p>
+        <p>Deploy your first application to Azure.</p>
         <ul class="spaced">
             <li><a href="/azure/virtual-machines/virtual-machines-linux-cli-samples.md">Azure CLI</a></li>
             <li><a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples.md">PowerShell</a></li>

@@ -48,7 +48,7 @@ ms.author: carolz
             
         </ul>
         <h2>Samples</h2>
-        <p>Find scripts and code samples to simplify common management tasks.</p>
+        <p>Find scripts to manage common tasks.</p>
         <ul class="spaced">
             <li><a href="/azure/sql-database/sql-database-cli-samples.md">Azure CLI</a></li>
             <li><a href="/azure/sql-database/sql-database-powershell-samples.md">PowerShell</a></li>

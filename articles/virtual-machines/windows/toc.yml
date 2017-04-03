@@ -109,9 +109,9 @@
       href: creation-choices.md
     - name: Create VM with a template
       href: ps-template.md
-    - name: Create VM with C#
+    - name: Create VM with .NET
       href: csharp.md
-    - name: Create VM with C# and template
+    - name: Create VM with .NET and template
       href: csharp-template.md
     - name: Create VM with Chef
       href: chef-automation.md
@@ -142,7 +142,7 @@
       href: cli-manage.md
     - name: Manage VMs using CLI
       href: cli-deploy-templates.md
-    - name: Manage VMs using C#
+    - name: Manage VMs using .NET
       href: csharp-manage.md
   - name: Connect with RDP
     items:
