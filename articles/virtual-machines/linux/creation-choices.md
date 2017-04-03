@@ -126,7 +126,7 @@ If you require specific customizations, you can use an image based on an existin
 
 * [Azure endorsed distributions](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Information for non-endorsed distributions](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [How to capture a Linux virtual machine as a Resource Manager template](linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [How to capture a Linux virtual machine as a Resource Manager template](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
   
   * Quick-start **az vm** example commands to capture an existing VM using unmanaged disks:
     

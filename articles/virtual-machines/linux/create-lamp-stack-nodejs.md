@@ -164,6 +164,6 @@ Check out the Ubuntu documentation on the LAMP stack:
 
 * [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
 
-[1]: ./media/virtual-machines-linux-deploy-lamp-stack/configmysqlpassword-small.png
-[2]: ./media/virtual-machines-linux-deploy-lamp-stack/phpsuccesspage.png
-[3]: ./media/virtual-machines-linux-deploy-lamp-stack/apachesuccesspage.png
+[1]: ./media/deploy-lamp-stack/configmysqlpassword-small.png
+[2]: ./media/deploy-lamp-stack/phpsuccesspage.png
+[3]: ./media/deploy-lamp-stack/apachesuccesspage.png

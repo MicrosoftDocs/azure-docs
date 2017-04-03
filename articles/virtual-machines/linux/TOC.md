@@ -161,7 +161,7 @@
 #### [Run NAMD with Microsoft HPC Pack](classic/hpcpack-cluster-namd.md)
 ### SAP on Azure
 #### [Get started with SAP](../workloads/sap/get-started.md)
-#### [Planning for SAP](../workloads/sap/-planning-guide.md)
+#### [Planning for SAP](../workloads/sap/planning-guide.md)
 #### [Deploy SAP](../workloads/sap/deployment-guide.md)
 #### [SAP DBMS guide](../workloads/sap/dbms-guide.md)
 #### [SAP SUSE quick start](../workloads/sap/suse-quickstart.md)

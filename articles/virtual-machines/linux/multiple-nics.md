@@ -75,7 +75,7 @@ az network nic create --resource-group myResourceGroup --name myNic2 \
 ## Create a VM and attach the NICs
 When you create the VM, specify the NICs you created with `--nics`. You also need to take care when you select the VM size. There are limits for the total number of NICs that you can add to a VM. Read more about [Linux VM sizes](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
-Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named `myVM` using [Azure Managed Disks](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json):
+Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named `myVM` using [Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json):
 
 ```azurecli
 az vm create \

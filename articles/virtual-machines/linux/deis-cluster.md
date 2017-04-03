@@ -248,4 +248,4 @@ This article walked you through all the steps to provision a new Deis cluster on
 
 [azure-command-line-tools]: ../../cli-install-nodejs.md
 [resource-group-overview]: ../../azure-resource-manager/resource-group-overview.md
-[powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
+[powershell-azure-resource-manager]: ../../azure-resource-manager/powershell-azure-resource-manager.md

@@ -160,7 +160,7 @@ b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute 
 
 To see your container in action, open up a web browser and enter the FQDN name of your Docker host:
 
-![Running ngnix container](./media/dockerextension-nodejs/nginxrunning.png)
+![Running ngnix container](./media/dockerextension/nginxrunning.png)
 
 ## Azure Docker VM extension template reference
 The previous example uses an existing quickstart template. You can also deploy the Azure Docker VM extension with your own Resource Manager templates. To do so, add the following to your Resource Manager templates, defining the `vmName` of your VM appropriately:
