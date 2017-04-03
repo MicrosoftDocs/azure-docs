@@ -20,7 +20,7 @@ ms.author: iainfou
 ---
 # How to Attach a Data Disk to a Linux Virtual Machine
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. See how to [attach a data disk using the Resource Manager deployment model](../../virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. See how to [attach a data disk using the Resource Manager deployment model](../add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 You can attach both empty disks and disks that contain data to your Azure VMs. Both types of disks are .vhd files that reside in an Azure storage account. As with adding any disk to a Linux machine, after you attach the disk you need to initialize and format it so it's ready for use. This article details attaching both empty disks and disks already containing data to your VMs, as well as how to then initialize and format a new disk.
 
@@ -225,9 +225,9 @@ You can read more about using your Linux VM in the following articles:
 * [How to log on to a virtual machine running Linux][Logon]
 * [How to detach a disk from a Linux virtual machine](detach-disk.md)
 * [Using the Azure CLI with the Classic deployment model](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-* [Configure RAID on a Linux VM in Azure](../../virtual-machines-linux-configure-raid.md)
-* [Configure LVM on a Linux VM in Azure](../../virtual-machines-linux-configure-lvm.md)
+* [Configure RAID on a Linux VM in Azure](../configure-raid.md)
+* [Configure LVM on a Linux VM in Azure](../configure-lvm.md)
 
 <!--Link references-->
-[Agent]:../../virtual-machines-linux-agent-user-guide.md
-[Logon]:../../virtual-machines-linux-mac-create-ssh-keys.md
+[Agent]:../agent-user-guide.md
+[Logon]:../mac-create-ssh-keys.md

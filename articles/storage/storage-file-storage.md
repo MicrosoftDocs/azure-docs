@@ -1,6 +1,6 @@
 ---
 title: Introduction to Azure File Storage | Microsoft Docs
-description: An overview of Azure File Storage, Microsoft's cloud file system. Learn how to mount Azure File shares over SMB and lift classic on-premises workloads to the cloud without rewriting any code.
+description: An overview of Azure File Storage, Microsoft's cloud file system.
 services: storage
 documentationcenter: ''
 author: RenaShahMSFT
@@ -16,19 +16,28 @@ ms.topic: get-started-article
 ms.date: 03/21/2017
 ms.author: renash
 ---
+
 # Introduction to Azure File Storage
 Azure File Storage is Microsoft's easy to use cloud file system. Azure File Storage offers network file shares in the cloud using the industry standard [Server Message Block (SMB) Protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) and [Samba/Common Internet File System (CIFS)](https://technet.microsoft.com/en-us/library/cc939973.aspx). Azure File shares can be mounted concurrently by clients such as on-premises deployments of Windows, macOS, or Linux, or by Azure Virtual Machines. 
 
 Azure File shares can be used to:
 
-* **“Lift and Shift” applications**
-    Azure Files makes it easier to “lift and shift” applications to the cloud that use on-premise file shares to share data between parts of the application. To make this happen, each VM connects to the file share and then it can read and write files just like it would against an on-premise file share.
-* **Shared Application Settings**
-    A common pattern for distributed applications is to have configuration files in a centralized location where they can be accessed from many different virtual machines. Such configuration files can now be stored in an Azure File share, and read by all application instances. These settings can also be managed via the REST interface, which allows worldwide access to the configuration files.
-* **Diagnostic Share**
-    An Azure File share can also be used to save diagnostic files like logs, metrics, and crash dumps. Having these available through both the SMB and REST interface allows applications to build or leverage a variety of analysis tools for processing and analyzing the diagnostic data.
-* **Dev/Test/Debug**
-    When developers or administrators are working on virtual machines in the cloud, they often need a set of tools or utilities. Installing and distributing these utilities on each virtual machine where they are needed can be a time consuming exercise. With Azure Files, a developer or administrator can store their favorite tools on a file share, which can be easily connected to from any virtual machine.
+* **Replace on-premises file servers**:  
+    Azure Files can be used to completely replace file shares on traditional on-premises file servers or NAS devices. Popular operating systems such as Windows, macOS, and Linux can easily mount an Azure File share wherever they are in the world.
+
+* **"Lift and Shift" applications**:  
+    Azure Files makes it easy to "lift and shift" applications to the cloud that use on-premise file shares to share data between parts of the application. To make this happen, each VM connects to the file share and then it can read and write files just like it would against an on-premises file share.
+
+* **Simplify Cloud Development**:  
+    Azure Files can be used in a number of different ways to simplify new cloud development projects:
+    * **Shared Application Settings**:  
+        A common pattern for distributed applications is to have configuration files in a centralized location where they can be accessed from many different virtual machines. Such configuration files can now be stored in an Azure File share, and read by all application instances. These settings can also be managed via the REST interface, which allows worldwide access to the configuration files.
+
+    * **Diagnostic Share**:  
+        An Azure File share can also be used to save diagnostic files like logs, metrics, and crash dumps. Having these available through both the SMB and REST interface allows applications to build or leverage a variety of analysis tools for processing and analyzing the diagnostic data.
+
+    * **Dev/Test/Debug**:  
+        When developers or administrators are working on virtual machines in the cloud, they often need a set of tools or utilities. Installing and distributing these utilities on each virtual machine where they are needed can be a time consuming exercise. With Azure Files, a developer or administrator can store their favorite tools on a file share, which can be easily connected to from any virtual machine.
 
 ## Videos
 | Introducing Azure File Storage (27m) | Azure File Storage Tutorial (5 minutes)  |
@@ -46,7 +55,6 @@ Azure File Storage allows you to replace Windows Server, Linux, or NAS based fil
 
 ## How does it work?
 Managing Azure File shares is a lot simpler than managing file shares on-premises. The following diagram illustrates the Azure File Storage management constructs:
-
 
 ![File Structure](../../includes/media/storage-file-concepts-include/files-concepts.png)
 
@@ -75,7 +83,7 @@ Managing Azure File shares is a lot simpler than managing file shares on-premise
 * [FAQ](storage-files-faq.md)
 * [Troubleshooting](storage-troubleshoot-file-connection-problems.md)
 
-## Also See
+## See Also
 See these links for more information about Azure File storage.
 
 ### Conceptual articles and videos
