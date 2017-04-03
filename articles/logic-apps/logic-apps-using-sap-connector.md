@@ -55,11 +55,12 @@ So, we have to use another trigger at the start of the workflow.
 
        ![Add connection string to SAP](media/logic-apps-using-sap-connector/picture2.png)  
 
-   2. Select an existing **Gateway**. Or, select **Install Gateway** to install a new gateway:    
+   2. Select an existing **Gateway**. Or to install a new gateway, select **Install Gateway**.
 
         ![Install a new gateway](media/logic-apps-using-sap-connector/install-gateway.png)
   
-   3. After you enter all the details, select **Create**. Logic Apps configures and tests the connection to make sure it's working properly.
+   3. After you enter all the details, select **Create**. 
+   Logic Apps configures and tests the connection, making sure that the connection works properly.
 
 4. Enter a name for your SAP connection.
 
@@ -68,7 +69,8 @@ Or manually type in the path, and select the HTTP response in the **body** field
 
      ![SAP action](media/logic-apps-using-sap-connector/picture3.png)
 
-6. Create an HTTP Response by adding a new action. The response message should be from the SAP output.
+6. Add a new action that creates an HTTP Response. 
+The response message should be from the SAP output.
 
 7. Save your logic app. Test it by sending an IDOC through the HTTP trigger URL. 
 After the IDOC is sent, wait for the response from the logic app:   

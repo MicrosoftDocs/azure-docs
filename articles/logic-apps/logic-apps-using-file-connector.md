@@ -16,14 +16,14 @@ ms.date: 01/27/2017
 ms.author: deli; LADocs
 ---
 
-# Connect to on-premises file systems from logic apps through the on-premises data gateway and File System connector
+# Connect to on-premises file systems from logic apps with the File System connector
 
-Hybrid cloud connectivity is at the heart of logic apps. 
-The on-premises data gateway enables your logic apps to manage data and securely access on-premises resources. 
-In this article, we demonstrate how to connect to an on-premises file system with a simple scenario: 
-copy a file that's uploaded to Dropbox to a file share, then send an email.
+Hybrid cloud connectivity is central to logic apps, so to manage data and securely access on-premises resources, 
+your logic apps can use the on-premises data gateway. In this article, we show how to connect to an on-premises 
+file system with a basic scenario: copy a file that's uploaded to Dropbox to a file share, then send an email.
 
 ## Prerequisites
+
 - Install and configure the latest [on-premises data gateway](https://www.microsoft.com/en-us/download/details.aspx?id=53127).
 - Install the latest on-premises data gateway, version 1.15.6150.1 or above. [Connect to the on-premises data gateway](http://aka.ms/logicapps-gateway) lists the steps. The gateway must be installed on an on-premises machine before you can continue with the rest of the steps.
 
@@ -68,7 +68,7 @@ so relevant users know about the new file. Enter the recipients, title,
 and body of the email. 
 
    In the dynamic content selector, you can select output from 
-   from the file connector so you can add more details to the email.
+   the file connector so you can add more details to the email.
 
    ![Send email action](media/logic-apps-using-file-connector/send-email.png)
 
@@ -78,7 +78,7 @@ The file should get copied to the on-premises file share, and you should receive
    > [!TIP] 
    > Learn how to [monitor your logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md).
 
-Congratulations, you now you have a working logic app that can connect to your on-premises file system. 
+Congratulations, you now have a working logic app that can connect to your on-premises file system. 
 Try exploring other functionalities that the connector offers, for example:
 
 - Create file
