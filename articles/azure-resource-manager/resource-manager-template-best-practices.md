@@ -33,7 +33,7 @@ For help establishing a naming convention, see the [Azure infrastructure naming 
 You must provide a unique resource name for any resource type that has a data access endpoint. Some common resource types that require a unique name include:
 
 * Azure Storage<sup>1</sup> 
-* Azure Web Apps
+* Web Apps feature of Azure App Service
 * SQL Server
 * Azure Key Vault
 * Azure Redis Cache
