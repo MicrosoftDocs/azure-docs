@@ -27,7 +27,7 @@ Before you begin, you'll need the following:
 
 * An Azure subscription. For more
   information about obtaining a subscription, see [purchase options][purchase options], [member offers][member offers], or [free account][free account].
-* A computer with Azure PowerShell. For instructions, see [Get started with Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs#step-1-install-azure-powershell).
+* A computer with Azure PowerShell. For instructions, see [Get started with Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs.md#step-1-install-azure-powershell).
 * A general understanding of PowerShell scripts, NuGet packages, and the .NET Framework.
 
 ## Get started
