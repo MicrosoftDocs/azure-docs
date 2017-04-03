@@ -79,7 +79,6 @@ The following items are optional in case you don’t have a sensor. You also hav
 
    ![Basic information for IoT hub creation](media/iot-hub-arduino-huzzah-esp8266-get-started/4_iot-hub-provide-basic-info.png)
 
-
    * **Name**: The name for your IoT hub. If the name you enter is valid, a green check mark appears.
    * **Pricing and scale tier**: Select the free F1 tier for this demo. See [pricing and scale tier](https://azure.microsoft.com/pricing/details/iot-hub/).
    * **Resource group**: Create a resource group to host the IoT hub, or use an existing one. See [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-portal.md).
@@ -155,7 +154,6 @@ To register a device for Feather HUZZAH ESP8266, follow these steps:
    ```
 
 1. Register a new device. In the next example, `deviceID` is `new-device`. Get its connection string by running the following command.
-
 
    ```bash
    iothub-explorer create new-device --connection-string
