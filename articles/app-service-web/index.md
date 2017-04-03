@@ -74,7 +74,7 @@ ms.author: carolz
             <p>Free Pluralsight video training – Developing with Node.js</a></p>
     </div>
 </div>
----
+<hr />
 <h2 style="margin-top: 36px">Reference</h2>
 <ul class="panelContent cardsW">
     <li>

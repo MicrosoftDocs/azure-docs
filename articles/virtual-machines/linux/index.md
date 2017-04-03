@@ -66,7 +66,7 @@ ms.author: carolz
             <p>Free Pluralsight video training – Getting Started with IaaS Monitoring</a></p>
     </div>
 </div>
----
+<hr />
 <h2 style="margin-top: 36px">Reference</h2>
 <ul class="panelContent cardsW">
     <li>
