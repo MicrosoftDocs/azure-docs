@@ -100,7 +100,7 @@
 #### [FAQs](../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Copy files to a Linux VM](copy-files-to-linux-vm-using-scp.md)
 ### [Convert a VM to Managed Disks](convert-unmanaged-to-managed-disks.md)
-### [Take a snapshot of a Managed Disk](virtual-machines-linux-snapshot-copy-managed-disk.md)
+### [Take a snapshot of a Managed Disk](snapshot-copy-managed-disk.md)
 ### Add a disk
 #### [Azure CLI](add-disk.md)
 #### [Azure portal](attach-disk-portal.md)
