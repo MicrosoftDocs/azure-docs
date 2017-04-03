@@ -11,18 +11,14 @@
 ## [PowerShell](powershell-samples.md)
 
 # Tutorials
-## [Install and run IIS](hero-role.md)
-## Deploy an app with VM template
-### [Tutorial overview](dotnet-core-1-landing.md)
-### [App architecture](dotnet-core-2-architecture.md)
-### [Access and security](dotnet-core-3-access-security.md)
-### [Availability and scale](dotnet-core-4-availability-scale.md)
-### [App deployment](dotnet-core-5-app-deployment.md)
+## [Create and manage a VM](../virtual-machines-windows-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Load balance VMs](load-balanced-iis-tutorial.md)
+
 
 # Concepts
 ## [Regions and availability](regions-and-availability.md)
-## [VM storage](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [VM networking](network-overview.md)
+## [Storage](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Setworking](network-overview.md)
 ## [VM Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Containers](containers.md)
 ## [Resource Manager](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -31,7 +27,9 @@
 ## [Azure Windows agent](agent-user-guide.md)
 ## [Azure Security Center](../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Disaster recovery](../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Azure planned maintenance](planned-maintenance.md)
+## [Planned maintenance](planned-maintenance.md)
+### [Preserving maintenance](preserving-maintenance.md)
+### [Restarting maintenance](impactful-maintenance.md)
 ### [Schedule](planned-maintenance-schedule.md)
 ## [VM sizes](sizes.md)
 ### [General purpose](sizes-general.md)

@@ -27,11 +27,6 @@ Action groups enable you to configure a list of receivers. These groups can then
 
 This article covers the behavior of the SMS alerts and the response actions the user can take based on the locale of the user:
 
->[!NOTE]
->This feature is currently in private preview. Not all functionality may be available at this time.
->
->
-
 ## USA/Canada SMS behavior
 ### Receiving an SMS Alert
 An SMS receiver, who is configured as part of an action group, will receive an SMS when an alert fires. The SMS will carry the following information:

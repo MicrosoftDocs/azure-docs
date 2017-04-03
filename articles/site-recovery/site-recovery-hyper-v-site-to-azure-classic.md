@@ -207,7 +207,7 @@ Add virtual machines to a protection group to enable protection for them.
        ![Configure virtual machine properties](./media/site-recovery-hyper-v-site-to-azure-classic/vm-properties.png)
    * Configure additional virtual machine settings in *Protected Items** > **Protection Groups** > *protectiongroup_name* > **Virtual Machines** *virtual_machine_name* > **Configure**, including:
 
-     * **Network adapters**: The number of network adapters is dictated by the size you specify for the target virtual machine. Check [virtual machine size specs](../virtual-machines/virtual-machines-linux-sizes.md) for the number of nics supported by the virtual machine size.
+     * **Network adapters**: The number of network adapters is dictated by the size you specify for the target virtual machine. Check [virtual machine size specs](../virtual-machines/linux/sizes.md) for the number of nics supported by the virtual machine size.
 
        When you modify the size for a virtual machine and save the settings, the number of network adapter will change when you open **Configure** page the next time. The number of network adapters of target virtual machines is minimum of the number of network adapters on source virtual machine and maximum number of network adapters supported by the size of the virtual machine chosen. It is explained below:
 
