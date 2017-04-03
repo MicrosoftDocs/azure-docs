@@ -18,14 +18,18 @@ ms.author: padmavc; LADocs
 
 # Connect to an on-premises SAP system from logic apps through the SAP connector 
 
-The on-premises data gateway enables you to manage data, and securely access resources that are on-premises. Use this topic to connect to an on-premises SAP system to request an IDOC over HTTP, and send the response back.    
+The on-premises data gateway enables you to manage data, and securely access resources that are on-premises. 
+This topic shows how you can connect logic apps to an on-premises SAP system. In this example, your logic app 
+requests an IDOC over HTTP and sends the response back.    
 
 > [!NOTE]
 > Current limitations: 
-> - Logic Apps times out if there is a request that exceeds 90 seconds. In this scenario, requests may be blocked. 
+> - Logic apps time out when a request exceeds the [time limit](./logic-apps-limits-and-config.md). 
+> In this scenario, requests might be blocked. 
 > - The file picker does not display all the available fields. In this scenario, you can manually add paths.
 
 ## Prerequisites
+
 - Install and configure the latest [on-premises data gateway](https://www.microsoft.com/download/details.aspx?id=53127) version 1.15.6150.1 or newer. [How to connect to the on-premises data gateway in a logic app](http://aka.ms/logicapps-gateway) lists the steps. The gateway must be installed on an on-premises machine before you can proceed.
 
 - Download and install the latest SAP client library on the same machine where you installed the data gateway. Use any of the following SAP versions: 
