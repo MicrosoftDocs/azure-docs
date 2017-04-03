@@ -6,13 +6,14 @@ author: derek1ee
 manager: anneta
 documentationcenter: ''
 
+ms.assetid:
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/27/2017
-ms.author: deli
+ms.author: deli; LADocs
 ---
 
 # Connect to on-premises file systems from logic apps through the on-premises data gateway and File System connector
@@ -26,7 +27,7 @@ copy a file that's uploaded to Dropbox to a file share, then send an email.
 - Install and configure the latest [on-premises data gateway](https://www.microsoft.com/en-us/download/details.aspx?id=53127).
 - Install the latest on-premises data gateway, version 1.15.6150.1 or above. [Connect to the on-premises data gateway](http://aka.ms/logicapps-gateway) lists the steps. The gateway must be installed on an on-premises machine before you can continue with the rest of the steps.
 
-## Add trigger and action Use File System connector
+## Add trigger and actions for connecting to your file system
 
 1. Create a logic app, and add this Dropbox trigger: **When a file is created** 
 2. Under the trigger, choose **Next Step** > **Add an action**. 
