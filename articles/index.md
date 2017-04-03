@@ -670,7 +670,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                             <li>
                                 <div class="container intro">
                                     <h2 class="likeAnH1">Get started with Azure</h2>
-                                    <p>Explore our most popular services with quickstarts, samples, and tutorials</p>
+                                    <p>Explore our most popular services with quickstarts, samples, and tutorials.</p>
                                 </div>
                             </li>
                             <li>

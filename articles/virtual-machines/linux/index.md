@@ -17,7 +17,7 @@ ms.author: carolz
 
 Learn how to run Virtual Machines on Azure using the Linux distribution of your choice.
 
-<h2>Quickstarts</h2>
+<h2 style="margin-top: 6px;">Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
@@ -40,7 +40,7 @@ Learn how to run Virtual Machines on Azure using the Linux distribution of your 
 <div>
 <div class="columnHolder">
     <div class="column50">
-        <h2>Tutorials</h2>
+        <h2 style="margin-top: 18px;">Tutorials</h2>
         <p>Follow these step-by-step tutorials to build and deploy virtual machines</p>
         <ul class="spaced">
             <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Create and manage a VM</a></li>
@@ -54,7 +54,7 @@ Learn how to run Virtual Machines on Azure using the Linux distribution of your 
         </ul>
     </div>
     <div class="column50" max-width="400">
-        <h2>Free Video Training</h2>
+        <h2 style="margin-top: 18px;">Free Video Training</h2>
         <a href="https://app.pluralsight.com/player?author=tim-warner&name=managing-infrastructure-microsoft-azure-getting-started-m0&mode=live&clip=0&course=managing-infrastructure-microsoft-azure-getting-started">
         <img src="media/index/video-training-infrastructure.png" width="400" alt="" />
         <p>Free Pluralsight video training – Managing Infrastructure</a></p>
