@@ -20,7 +20,7 @@ ms.author: sngun;AlfredoPizzirani
 
 # Report Azure Stack usage data to Azure 
 
-Usage data, also called as consumption data, represents the amount of resources used. In Azure Stack, usage data must be reported to Azure for billing purpose. Azure Stack administrators should configure their Azure Stack instance to report usage data to Azure.
+Usage data, also called as consumption data represents the amount of resources used. In Azure Stack, usage data must be reported to Azure for billing purpose. Azure Stack administrators should configure their Azure Stack instance to report usage data to Azure.
 
 > [!NOTE]
 > At Technical Preview 3(TP3), usage data reporting is not required, and users are not charged for consuming resources. However, Azure Stack
