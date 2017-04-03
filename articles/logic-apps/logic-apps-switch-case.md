@@ -65,7 +65,7 @@ The app uses a switch statement that performs different actions based on the val
    - Now we want to select the action to perform based on the `SelectedOptions` output from the *Send approval email* action. 
    You can find this field in the **Add dynamic content** selector.
    - Use *Case 1* to handle when the approver selects `Approve`.
-     - If approved, copy the original file to SharePoint Online with **SharePoint Online - Create file** action.
+     - If approved, copy the original file to SharePoint Online with the [**SharePoint Online - Create file** action](../connectors/connectors-create-api-sharepointonline.md).
      - Add another action within the case to notify users that a new file is available on SharePoint.
    - Add another case to handle when user selects `Reject`.
      - If rejected, send a notification email informing other approvers that the file is rejected and no further action is required.
