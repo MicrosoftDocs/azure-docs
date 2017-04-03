@@ -89,7 +89,7 @@ The following figure shows the add-in license acquisition process for content an
  
 
  
-![App purchase process from Office Store](,,/images/SP15_app_licensePurchase.png)
+![App purchase process from Office Store](../images/SP15_app_licensePurchase.png)
  
 ### Acquiring an add-in license from an add-in catalog
 
