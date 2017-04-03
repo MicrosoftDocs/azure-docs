@@ -20,10 +20,10 @@ ms.custom: H1Hack27Feb2017
 # Log Analytics search reference
 The following reference section about search language describes the general query syntax options you can use when searching for data and filtering expressions to help narrow your search. It also describes commands that you can use to take action on the data retrieved.
 
-You can read about the fields returned in searches and the facets that help you dill-into similar categories of data in the [Search field and facet reference section](#search-field-and-facet-reference).
+You can read about the fields returned in searches, and the facets that help you discover more about similar categories of data, in the [Search field and facet reference section](#search-field-and-facet-reference).
 
 ## General query syntax
-Syntax:
+The syntax for general querying is as follows:
 
 ```
 filterExpression | command1 | command2 …
@@ -38,10 +38,10 @@ Examples:
 system
 ```
 
-This query returns results that contain the word "system" in any field that has been indexed for full text or terms searching.
+This query returns results that contain the word *system* in any field that has been indexed for full text or terms searching.
 
 > [!NOTE]
-> Not all fields are indexed this way, but the most common textual fields (such as descriptions and names) typically would be.
+> Not all fields are indexed this way, but the most common textual fields (such as descriptions and names) usually are.
 >
 >
 
@@ -55,14 +55,14 @@ This query returns results that contain the words *system* and *error*.
 system error | sort ManagementGroupName, TimeGenerated desc | top 10
 ```
 
-This query returns results that contain the words *system* and *error*. It then sorts the results by the *ManagementGroupName* field (in ascending order), and then by *TimeGenerated* (in descending order). It takes only the first 10 results.
+This query returns results that contain the words *system* and *error*. It then sorts the results by the *ManagementGroupName* field (in ascending order), and then by the *TimeGenerated* field (in descending order). It takes only the first 10 results.
 
 > [!IMPORTANT]
 > All the field names and the values for the string and text fields are case sensitive.
 >
 >
 
-## Filter expression
+## Filter expressions
 The following subsections explain the filter expressions.
 
 ### String literals
@@ -74,13 +74,13 @@ Examples:
 These all are string literals
 ```
 
-This query searches for results that contain occurrences of all five words. To perform a complex string search, enclose the string literal in quotation marks, for example:
+This query searches for results that contain occurrences of all five words. To perform a complex string search, enclose the string literal in quotation marks. For example:
 
 ```
-" Windows Server"
+"Windows Server"
 ```
 
-This only returns results with exact matches for “Windows Server”.
+This only returns results with exact matches for *Windows Server*.
 
 ### Numbers
 The parser supports the decimal integer and floating-point number syntax for numerical fields.
@@ -95,12 +95,12 @@ Type:Perf 0.5
 HTTP 500
 ```
 
-### Date/Time
-Every piece of data in the system has a *TimeGenerated* property, which represents the original date and time of the record. Some types of data can additionally have more Date/Time fields (for example, *LastModified*).
+### Dates and times
+Every piece of data in the system has a *TimeGenerated* property, which represents the original date and time of the record. Some types of data can have additional date and time fields (for example, *LastModified*).
 
-The timeline Chart/Time selector in Log Analytics shows a distribution of results over time (according to the current query being run), based on the *TimeGenerated* field. Date/Time fields have a specific string format that can be used in queries to restrict the query to a particular timeframe. You can also use syntax to refer to relative time intervals (for example, "between 3 days ago and 2 hours ago").
+The timeline **Chart/Time** selector in Log Analytics shows a distribution of results over time (according to the current query being run). This is based on the *TimeGenerated* field. Date and time fields have a specific string format that can be used in queries to restrict the query to a particular timeframe. You can also use syntax to refer to relative time intervals (for example, "between 3 days ago and 2 hours ago").
 
-Syntax:
+The following are valid forms of syntax for dates and times:
 
 ```
 yyyy-mm-ddThh:mm:ss.dddZ
@@ -127,22 +127,20 @@ yyyy-mm-dd
 ```
 
 
-Example:
+For example:
 
 ```
 TimeGenerated:2013-10-01T12:20
 ```
 
-The previous command returns only records with a *TimeGenerated* value of exactly 12:20 on October 1, 2013. It is unlikely that it will provide any result, but you understand the idea.
+The previous command returns only records with a *TimeGenerated* value of exactly 12:20 on October 1, 2013.
 
-The parser also supports the mnemonic Date/Time value, NOW.
+The parser also supports the mnemonic Date/Time value, NOW. (It is unlikely that this will yield any results, because data doesn’t make it through the system that fast.)
 
-Again, it is unlikely that this will yield any result because data doesn’t make it through the system that fast.
-
-These examples are building blocks to use for relative and absolute dates. In the next three subsections, we’ll explain how to use them in more advanced filters with examples that use relative date ranges.
+These examples are building blocks to use for relative and absolute dates. In the next three subsections, you'll see how to use them in more advanced filters, with examples that use relative date ranges.
 
 ### Date/Time math
-Use the Date/Time math operators to offset or round the Date/Time value by using simple Date/Time calculations.
+Use the Date/Time math operators to offset or round the Date/Time value, by using simple Date/Time calculations.
 
 Syntax:
 
@@ -156,10 +154,10 @@ datetime[+|-]count unit
 
 | Operator | Description |
 | --- | --- |
-| / |Rounds Date/Time to the specified unit. Example: NOW/DAY rounds the current Date/Time to the midnight of the current day. |
-| + or - |Offsets Date/Time by the specified number of units. Examples:NOW+1HOUR offsets the current Date/Time by one hour ahead.2013-10-01T12:00-10DAYS offsets the Date value back by 10 days. |
+| / |Rounds Date/Time to the specified unit. For example, NOW/DAY rounds the current Date/Time to midnight of the current day. |
+| + or - |Offsets Date/Time by the specified number of units. For example, NOW+1HOUR offsets the current Date/Time by one hour ahead. 2013-10-01T12:00-10DAYS offsets the Date value back by 10 days. |
 
-You can chain the Date/Time math operators together, for example:
+You can chain the Date/Time math operators together. For example:
 
 ```
 NOW+1HOUR-10MONTHS/MINUTE
@@ -178,7 +176,7 @@ The following table lists the supported Date/Time units.
 | MILLISECOND, MILLISECONDS, MILLI, MILLIS |Rounds to current millisecond, or offsets by the specified number of milliseconds. |
 
 ### Field facets
-By using field facets, you can specify the search condition for specific fields and their exact values, as opposed to writing "free text" queries for various terms throughout the index. We have already used this syntax in several examples in the previous paragraphs. Here, we provide more complex examples.
+By using field facets, you can specify the search condition for specific fields and their exact values. This differs from writing "free text" queries for various terms throughout the index. You have already seen this technique in several previous examples. The following are more complex examples.
 
 **Syntax**
 
@@ -192,9 +190,9 @@ field=value
 
 **Description**
 
-Searches the field for the specific value. The value can be a string literal, number, or Date/Time.
+Searches the field for the specific value. The value can be a string literal, number, or date and time.
 
-Example:
+For example:
 
 ```
 TimeGenerated:NOW
@@ -224,7 +222,7 @@ SampleValue:0.3
 
 Provides comparisons.
 
-Example:
+For example:
 
 ```
 TimeGenerated>NOW+2HOURS
@@ -240,7 +238,7 @@ field:[from..to]
 
 Provides range faceting.
 
-Example:
+For example:
 
 ```
 TimeGenerated:[NOW..NOW+1DAY]
