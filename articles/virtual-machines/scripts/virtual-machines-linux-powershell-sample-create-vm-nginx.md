@@ -20,9 +20,9 @@ ms.author: nepeters
 
 # Create an NGINX VM with PowerShell
 
-This script creates an Azure Virtual Machine and then uses the Azure Virtual Machine Custom Script Extension to install NGINX. Once the script has been run, a demo website can be reached on the public IP address of the virtual machine.
+This script creates an Azure Virtual Machine and then uses the Azure Virtual Machine Custom Script Extension to install NGINX. After running the script, you can access a demo website on the public IP address of the virtual machine.
 
-Before running this script, ensure that a connection with Azure has been created using the `Login-AzureRmAccount` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the .ssh directory of your user profile.
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
 ## Sample script
 
@@ -30,7 +30,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Clean up deployment 
 
-After the script sample has been run, the following command can be used to remove the Resource Group, VM, and all related resources.
+Run the following command to remove the resource group, VM, and all related resources.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
+ms.date: 03/20/2017
 ms.author: cherylmc
 
 ---
@@ -85,7 +85,7 @@ If you are creating additional client certificates, or are not using the same Po
 2. Locate the subject name from the returned list, then copy the thumbprint that is located next to it to a text file. In the following example, there are two certificates. The CN name is the name of the self-signed root certificate from which you want to generate a child certificate. In this case, 'P2SRootCert'.
 
 		Thumbprint                                Subject
-		----------                                -------
+
 		AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
 		7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
 
@@ -113,7 +113,7 @@ When you generate a client certificate, it's automatically installed on the comp
 
 1. To export a client certificate, open **certmgr.msc**. The client certificates that you generated are, by default, located in 'Certificates - Current User\Personal\Certificates'. Right-click the client certificate that you want to export, click **all tasks**, and then click **export**. This opens the **Certificate Export Wizard**.
 2. In the Wizard, click **Next**, then select **Yes, export the private key**, and then click **Next**.
-3. On the **Export File Format** page, you can leave the defaults selected. Then click **Next**. 
+3. On the **Export File Format** page, leave the defaults selected. Make sure that 'Include all certificates in the certification path if possible' is selected. Then click **Next**.
 4. On the **Security** page, you must protect the private key. If you select to use a password, make sure to record or remember the password that you set for this certificate. Then click **Next**.
 5. On the **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then click **Next**.
 6. Click **Finish** to export the certificate.    

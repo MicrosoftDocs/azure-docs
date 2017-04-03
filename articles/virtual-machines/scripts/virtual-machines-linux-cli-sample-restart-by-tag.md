@@ -20,6 +20,8 @@ ms.author: allclark
 
 # Restart VMs
 
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
 This sample shows a couple of ways to get some VMs and restart them.
 
 The first restarts all the VMs in the resource group.
@@ -35,7 +37,7 @@ and restarts those VMs.
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
 ```
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../windows/cli-options.md).
 
 
 ## Sample script

@@ -13,21 +13,15 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 ---
 
 # Upload files to a web app using FTP
 
-This sample script does the following using Azure PowerShell: 
+This sample script creates a web app in App Service with its related resources, and then deploys your web app code using FTP (via [WebClient.UploadFile()](https://msdn.microsoft.com/library/ms144229.aspx)).
 
-* Create a web app in Azure App Service in the West Europe Azure region.
-* Get FTP connection information from the web app
-* Deploy web app code using FTP (via [WebClient.UploadFile()](https://msdn.microsoft.com/library/ms144229.aspx)).
-
-## Prerequisites
-
-* Run `Login-AzureRmAccount` to log in to Azure.
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount` to create a connection with Azure.
 
 ## Sample script
 
@@ -35,7 +29,7 @@ This sample script does the following using Azure PowerShell:
 
 ## Clean up deployment 
 
-After the script sample has been run, the following command can be used to remove the Resource Group, web app, and all related resources.
+After the script sample has been run, the following command can be used to remove the resource group, web app, and all related resources.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $webappname -Force

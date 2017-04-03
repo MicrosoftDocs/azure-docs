@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 03/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -62,6 +62,12 @@ An Azure Active Directory service principal ID and password are also needed to c
 
 If you use [Azure CLI 2.0 commands](container-service-create-acs-cluster-cli.md) to deploy a Kubernetes cluster, service principal credentials can be automatically generated for your cluster.
 
+### How large a cluster can I create?
+You can create a cluster with 1, 3, or 5 master nodes. You can choose up to 100 agent nodes.
+
+> [!IMPORTANT]
+> For larger clusters and depending on the VM size you choose for your nodes, you might need to increase the cores quota in your subscription. To request a quota increase, open an [online customer support request](../azure-supportability/how-to-create-azure-support-request.md) at no charge. If you're using an [Azure free account](https://azure.microsoft.com/free/), you can use only a limited number of Azure compute cores.
+> 
 
 ### How do I increase the number of masters after a cluster is created? 
 Once the cluster is created, the number of masters is fixed and cannot be changed. During the creation of the cluster, you should ideally select multiple masters for high availability.
@@ -101,7 +107,7 @@ You can find the connection string in the Azure portal, or by using Azure comman
 
 3. In the **Deployment history** blade, click the deployment that has a name beginning with **microsoft-acs** followed by a deployment date. Example: microsoft-acs-201701310000.  
 
-4. On the **Summary** page, under **Outputs**, several cluster links are <provided></provided>. **SSHMaster0** provides an SSH connection string to the first master in your container service cluster. 
+4. On the **Summary** page, under **Outputs**, several cluster links are provided. **SSHMaster0** provides an SSH connection string to the first master in your container service cluster. 
 
 As previously noted, you can also use Azure tools to find the FQDN of the master. Make an SSH connection to the master using the FQDN of the master and the user name you specified when creating the cluster. For example:
 

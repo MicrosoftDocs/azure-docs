@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 
 ---
 # Use Maven to build Java applications that use HBase with Windows-based HDInsight (Hadoop)
@@ -29,7 +30,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 ## Requirements
 * [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 or later
 * [Maven](http://maven.apache.org/)
-* [A Windows-based HDInsight cluster with HBase](hdinsight-hbase-tutorial-get-started.md#create-hbase-cluster)
+* A Windows-based HDInsight cluster with HBase
 
     > [!NOTE] 
     > The steps in this document have been tested with HDInsight cluster versions 3.2 and 3.3. The default values provided in examples are for a HDInsight 3.3 cluster.

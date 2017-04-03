@@ -247,25 +247,15 @@ Consider a scenario where you want just one script to turn on a public IP on spe
 You can use the same script with different recovery plans and provide different parameters by storing the value corresponding to different recovery plans in different variable.
 
 ## Sample scripts
-For a repository of scripts that you can directly import into your automation account, see [Kristian Nese's OMS repository for scripts](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/Solutions/asrautomation)
+Deploy sample scripts into your Automation account using the Deploy to Azure button below.
 
-The script here is an Azure Resource Manager template that will deploy all the following scripts
+[![Deploy to Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-* NSG
+Also view a quick video about recovering a two tier WordPress application to Azure.
 
-The NSG runbook will assign Public IP addresses to every VM within the Recovery Plan and attach their virtual network adapters to a Network Security Group that allows default communication
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
-* PublicIP
 
-The Public IP runbook assigns Public IP addresses to every VM within the Recovery Plan. Access to the machines and applications will depend on the firewall settings within each guest
-
-* CustomScript
-
-The CustomScript runbook assigns Public IP addresses to every VM within the Recovery Plan and install a custom script extension that will pull the script you refer to during deployment of the template
-
-* NSGwithCustomScript
-
-The NSGwithCustomScript runbook assigns Public IP addresses to every VM within the Recovery Plan, install a custom script using extension and connect the virtual network adapters to a NSG allowing default inbound and outbound communication for remote access
 
 ## Additional Resources
 [Azure Automation Service Run as Account](../automation/automation-sec-configure-azure-runas-account.md)

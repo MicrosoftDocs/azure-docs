@@ -33,20 +33,25 @@
 # How-To guides
 ## Develop your app	
 ### ASP.NET
-
+#### [ASP.NET app with SQL Database](web-sites-dotnet-get-started.md)
 #### [Develop an ASP.NET Core app with VS Code](web-sites-create-web-app-using-vscode.md)
 ### PHP
+#### [Laravel app with MySQL](app-service-web-php-get-started.md)
 #### [Set up your PHP project](web-sites-php-configure.md)
 #### [Set up your WordPress Multisite](web-sites-php-convert-wordpress-multisite.md) 
 ### Node.js
+#### [Sails.js app with NOSQL DB](app-service-web-nodejs-sails.md)
 #### [Use io.js](web-sites-nodejs-iojs.md)
 #### [Debug Node.js app](web-sites-nodejs-debug.md)
 ### Java
-
+#### [Java app with Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
+#### [Java app with IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
 #### [Use Azure SDK for Java](java-create-azure-website-using-java-sdk.md)
 #### [Upload existing app](web-sites-java-add-app.md)
 #### [Remote debug Eclipse](app-service-web-debug-java-web-app-in-eclipse.md)
 #### [Remote debug IntelliJ](app-service-web-debug-java-web-app-in-intellij.md)
+### Python
+#### [Django app with MySQL](web-sites-python-ptvs-django-mysql.md)
 
 ### [Send emails with SendGrid](sendgrid-dotnet-how-to-send-email.md)
 
@@ -81,7 +86,7 @@
 
 ### [Migrate from IIS](web-sites-migration-from-iis-server.md)
 ### [Test in production](app-service-web-test-in-production-get-start.md)
-### [Run performance tests](app-service-web-app-performance-test.md) 
+### [Add functionality to web app](app-service-web-get-started-2.md)
 
 ## Connect to DB/resources		
 

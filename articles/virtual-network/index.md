@@ -122,7 +122,7 @@ Learn how to use Virtual Network (VNet), a logical representation of your networ
                         <h3>Command-Line</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network">PowerShell (Resource manager)</a></p>
                         <p><a href="/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking">PowerShell (Classic)</a></p>
-                        <p><a href="/cli/azure">Azure CLI</a></p>
+                        <p><a href="/cli/azure/network">Azure CLI</a></p>
                     </div>
                 </div>
             </div>

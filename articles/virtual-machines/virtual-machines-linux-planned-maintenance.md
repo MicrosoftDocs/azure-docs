@@ -1,35 +1,46 @@
 ---
-title: Planned maintenance for Linux VMs | Microsoft Docs
-description: Understand what Azure planned maintenance is and how it affects your Linux virtual machines running in Azure
+title: Planned maintenance for Liunx VMs in Azure | Microsoft Docs
+description: Understand what Azure planned maintenance is and how it affects your Windows virtual machines running in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: drewm
+author: 
 manager: timlt
 editor: ''
-tags: azure-service-management,azure-resource-manager
+tags: azure-resource-manager,azure-service-management
 
-ms.assetid: e65e614c-e969-40dc-a271-fe074069daf1
+ms.assetid: 
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
-ms.author: drewm
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 03/27/2017
+ms.author: 
 
 ---
-# Planned maintenance for Linux virtual machines in Azure
-Understand what Azure planned maintenance is and how it can affect the availability of your Linux virtual machines. This article is also available for [Windows virtual machines](virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 
-This article provides a background as to the Azure planned maintenance process. If you are wanting to troubleshoot why your VM rebooted, you can [read this blog post detailing viewing VM reboot logs](https://azure.microsoft.com/blog/viewing-vm-reboot-logs/).
+# Planned maintenance for Linux virtual machines 
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+Microsoft Azure periodically performs updates across the globe to
+improve the reliability, performance, and security of the host
+infrastructure that underlies virtual machines. Such updates range from
+patching software components in the hosting environment (OS, hypervisor
+and various agents deployed on the host), upgrading networking
+components, all the way to hardware decommissioning.
 
-## Why Azure performs planned maintenance
-Microsoft Azure periodically performs updates across the globe to improve the reliability, performance, and security of the host infrastructure that underlies virtual machines. Many of these updates are performed without any impact to your virtual machines or Cloud Services, including memory-preserving updates.
+The majority of these updates are performed without any impact to hosted
+virtual machines or cloud services.
 
-However, some updates do require a reboot to your virtual machines to apply the required updates to the infrastructure. The virtual machines are shut down while we patch the infrastructure, and then the virtual machines are restarted.
+However, there are cases where updates do have an impact to hosted
+virtual machines:
 
-Please note that there are two types of maintenance that can impact the availability of your virtual machines: planned and unplanned. This page describes how Microsoft Azure performs planned maintenance. For more information about unplanned maintenance, see [Understand planned versus unplanned maintenance](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+-   VM preserving maintenance using In-place VM migration describes a class of updates where virtual machines are not rebooted
+    during the maintenance.
 
-[!INCLUDE [virtual-machines-common-planned-maintenance](../../includes/virtual-machines-common-planned-maintenance.md)]
+-   VM restarting maintenance which require a reboot or redeploy to hosted
+    virtual machines.
+
+Please note that this page describes how Microsoft Azure performs
+planned maintenance. For more information about unplanned events
+(outages), see [Manage the availability of virtual
+machines](virtual-machines-linux-manage-availability.md).

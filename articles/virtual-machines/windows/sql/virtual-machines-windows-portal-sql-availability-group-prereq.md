@@ -15,7 +15,7 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: "01/10/2017"
+ms.date: 03/17/2017
 ms.author: mikeray
 
 ---
@@ -132,7 +132,7 @@ The following table summarizes the network configuration settings:
 
 ## Create availability sets
 
-Before creating virtual machines, you need to create availability sets. Availability sets reduce downtime for planned or unplanned maintenance events. An Azure availability set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availability set have separate power and network resources. An update domain ensures that members of the availability set are not brought down for maintenance at the same time. [Manage the availability of virtual machines](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Before creating virtual machines, you need to create availability sets. Availability sets reduce downtime for planned or unplanned maintenance events. An Azure availability set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availability set have separate power and network resources. An update domain ensures that members of the availability set are not brought down for maintenance at the same time. [Manage the availability of virtual machines](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 You need two availability sets. One is for the domain controllers. The second is for the SQL Servers.
 
@@ -191,7 +191,7 @@ The following table shows the settings for these two machines:
 
 
    >[!IMPORTANT]
-   >You can only place a VM in an availability set when you create it. You cannot change the availability set after a VM is created. See [Manage the availability of virtual machines](../../virtual-machines-windows-manage-availability.md).
+   >You can only place a VM in an availability set when you create it. You cannot change the availability set after a VM is created. See [Manage the availability of virtual machines](../manage-availability.md).
 
 Azure creates the virtual machines.
 
@@ -334,7 +334,7 @@ Now that you have finished configuring Active Directory and the user objects, cr
 
 ## Create SQL Servers
 ### Create and configure the SQL Server VMs
-Next, create three VMs, including two SQL Server VMs, and a WSFC cluster node. To create each of the VMs, go back to **SQL-HA-RG** resource group, click **Add**, search for the appropriate gallery item, **Virtual Machine**, and then **From Gallery**. Use the information in the following table to help you create the VMs:
+Next, create three VMs, including two SQL Server VMs, and a VM for the an additional cluster node. To create each of the VMs, go back to **SQL-HA-RG** resource group, click **Add**, search for the appropriate gallery item, **Virtual Machine**, and then **From Gallery**. Use the information in the following table to help you create the VMs:
 
 | Page | VM1 | VM2 | VM3 |
 | --- | --- | --- | --- |

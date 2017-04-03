@@ -16,9 +16,9 @@
 ### [Add custom code with Azure Functions](logic-apps-azure-functions.md)
 ### [Loops, scopes, and data debatching](logic-apps-loops-and-scopes.md)
 ### [Author logic app definitions](logic-apps-author-definitions.md)
+### [Call, trigger, or nest logic apps](logic-apps-http-endpoint.md)
 ### [Create custom APIs for logic apps](logic-apps-create-api-app.md)
 ### [Call custom APIs for logic apps](logic-apps-custom-hosted-api.md)
-### [Call logic app endpoints as triggers](logic-apps-http-endpoint.md)
 ### [Handle errors and exceptions](logic-apps-exception-handling.md)
 ### [Handle content types](logic-apps-content-type.md)
 ### [Secure your logic apps](logic-apps-securing-a-logic-app.md)
@@ -47,6 +47,7 @@
 ### [X12 enterprise integration](logic-apps-enterprise-integration-x12.md)
 ### [X12 encoding](logic-apps-enterprise-integration-x12-encode.md)
 ### [X12 decoding](logic-apps-enterprise-integration-x12-decode.md)
+### [Disaster recovery](logic-apps-enterprise-integration-b2b-business-continuity.md)
 
 ## Access on-premises data
 ### [Connect to on-premises data](logic-apps-gateway-connection.md)
@@ -69,6 +70,7 @@
 
 ## Examples, scenarios, and walkthroughs
 ### [Overview](logic-apps-examples-and-scenarios.md)
+### [Create a serverless social dashboard](logic-apps-scenario-social-serverless.md)
 ### [Call logic apps with Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Add error and exception handling](logic-apps-scenario-error-and-exception-handling.md)
 ### [B2B processing](logic-apps-enterprise-integration-b2b.md)
@@ -78,8 +80,8 @@
 ### [Usage metering](logic-apps-pricing.md)
 
 # Reference
-## [Workflow definition language](https://docs.microsoft.com/rest/api/logic/definition-language)
-## [Workflow actions and triggers](https://docs.microsoft.com/rest/api/logic/actions-and-triggers)
+## [Workflow definition language](logic-apps-workflow-definition-language.md)
+## [Workflow actions and triggers](logic-apps-workflow-actions-triggers.md)
 ## [REST API](/rest/api/logic/)
 ## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
 ## Schema History

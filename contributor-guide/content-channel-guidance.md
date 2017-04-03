@@ -1,5 +1,5 @@
-# Azure technical content channel guidance
-GitHub is an easy way (once you get over the Git hump) to author and publish technical content. But we need to ensure that content stays within the boundaries of technical documentation - there are other channels for other types of information.
+# Technical content channel guidance
+GitHub is a relatively easy way (once you get over the Git hump) to author and publish technical content. But we need to ensure that content stays within the boundaries of technical documentation - there are other channels for other types of information.
 
 ## Technical content that belongs in the azure-docs-pr repository
 The following types of content are authored in azure-docs-pr and published to https://docs.microsoft.com/azure. 
@@ -61,4 +61,3 @@ The following types of content are delivered in other Azure or Microsoft content
 * **Troubleshooting content of most types**: Although each service may include up to 10 troubleshooting articles and index files as described above, most formal troubleshooting and support content should be published as KB articles on http://support.microsoft.com.
 
 * **What's new in a release or service**:  Lists or descriptions of what is new in a release or service go to the [Service Updates channel](http://acomdocs.azurewebsites.net/articles/service-updates-overview/).
-

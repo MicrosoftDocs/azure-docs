@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 03/21/2017
 ms.author: markvi
 
 ---
@@ -63,10 +63,29 @@ The password synchronization feature automatically retries failed synchronizatio
 The synchronization of a password has no impact on the currently logged on user.
 Your current cloud service session is not immediately affected by a synchronized password change that occurs while you are signed in to a cloud service. However, when the cloud service requires you to authenticate again, you need to provide your new password.
 
+One caveat is that a user must enter their corporate credentials a second time to authenticate to Azure AD regardless of whether they're logged in to their corporate network. These pattern can be minimized, however, if the user checks the "Keep me signed in" (KMSI) checkbox at login. Checking this sets a session cookie that bypasses authentication for a short period. KMSI behavior can be enabled or disabled by the Azure Active Directory administrator.
+
 > [!NOTE]
 > Password sync is only supported for the object type user in Active Directory. It is not supported for the iNetOrgPerson object type.
->
->
+
+### Detailed description of how password synchronization works
+The following describes in-depth how password synchronization works between Active Directory and Azure Active Directory.
+
+![Detailed password flow](./media/active-directory-aadconnectsync-implement-password-synchronization/arch3.png)
+
+
+1. Every two minutes, the password synchronization agent on the AD Connect server requests stored password hashes (the unicodePwd attribute) from a DC via the standard [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) replication protocol used to synchronize data between DCs. The service account must have Replicate Directory Changes and Replicate Directory Changes All AD permissions (granted by default on installation) to obtain the password hashes.
+2. Before sending, the DC encrypts the MD4 password hash using a key that is a [MD5](http://www.rfc-editor.org/rfc/rfc1321.txt) hash of the RPC session key and a salt. It then sends the result to the password synchronization agent over RPC. The DC also passes the salt to the synchronization agent using the DC replication protocol, so the agent will be able to decrypt the envelope.
+3.	Once the password synchronization agent has the encrypted envelope, it uses [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx)and the salt to generate a key to decrypt the received data back to its original MD4 format. At no point does the password synchronization agent have access to the clear text password. The password synchronization agent’s use of MD5 is strictly for replication protocol compatibility with the DC, and is only used on premises between the DC and the password synchronization agent.
+4.	The password synchronization agent expands the 16-byte binary password hash to 64 bytes by first converting the hash to a 32-byte hexadecimal string, then converting this string back into binary with UTF-16 encoding.
+5.	The password synchronization agent adds a salt, consisting of a 10-byte length salt, to the 64-byte binary to further protect the original hash.
+6.	The password synchronization agent then combines the MD4 hash plus salt and inputs it into the [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) function, using 1000 iterations of the [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) keyed hashing algorithm.
+Azure AD 
+7.	The password synchronization agent takes the resulting 32-byte hash, concatenates both the salt and the number of SHA256 iterations to it (for use by Azure AD), then transmits the string from AD Connect to Azure AD over SSL.</br> 
+8.	When a user attempts to login to Azure AD and enters their password, the password is run through the same MD4+salt+PBKDF2+HMAC-SHA256 process. If the resulting hash matches the hash stored in Azure AD, the user has entered the correct password and is authenticated. 
+
+>[!Note] 
+>The original MD4 hash is not transmitted to Azure AD; rather, the SHA256 hash of the original MD4 hash is transmitted. As a result, if the hash stored in Azure AD is obtained it cannot be used in an on-premises pass-the-hash attack.
 
 ### How password synchronization works with Azure AD Domain Services
 You can also use the password synchronization feature to synchronize your on-premises passwords to the [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). This scenario allows the Azure AD Domain Services to authenticate your users in the cloud with all the methods available in your on-premises AD. The experience of this scenario is similar to using the Active Directory Migration Tool (ADMT) in an on-premises environment.
@@ -74,7 +93,11 @@ You can also use the password synchronization feature to synchronize your on-pre
 ### Security considerations
 When synchronizing passwords, the plain-text version of your password is not exposed to the password synchronization feature, to Azure AD, or any of the associated services.
 
-Also, there is no requirement on the on-premises Active Directory to store the password in a reversibly encrypted format. A digest of the Active Directory password hash is used for the transmission between the on-premises AD and Azure Active Directory. The digest of the password hash cannot be used to access resources in your on-premises environment.
+User authentication takes place against Azure AD rather than against the organization's own Active Directory. If your organization has concerns about password data in any form leaving the premises, consider the fact that the SHA256 password data stored in Azure AD - a hash of the original MD4 hash - is significantly more secure than what is stored in Active Directory. Further, because this SHA256 hash cannot be decrypted, it cannot be brought back to the organization's Active Directory environment and presented as a valid user password in a pass-the-hash attack.
+
+
+
+
 
 ### Password policy considerations
 There are two types of password policies that are affected by enabling password synchronization:
@@ -87,12 +110,14 @@ When you enable password synchronization, the password complexity policies in yo
 
 > [!NOTE]
 > Passwords for users that are created directly in the cloud are still subject to password policies as defined in the cloud.
->
->
 
 **Password expiration policy**  
 If a user is in the scope of password synchronization, the cloud account password is set to "*Never Expire*".
+
 You can continue to sign in to your cloud services using a synchronized password that has been expired in your on-premises environment. Your cloud password is updated the next time you change the password in the on-premises environment.
+
+**Account expiration**
+If your organization uses the accountExpires attribute as part of user account management, be aware that this attribute is not synchronized to Azure AD. As a result, an expired AD account in an environment configured for password synchronization will still be active in Azure AD. It is recommended that if the account is expired, a workflow action should trigger a PowerShell script that disables the user's Azure AD account. Conversely, when the account is enabled, the Azure AD should be enabled.
 
 ### Overwriting synchronized passwords
 An administrator can manually reset your password using Windows PowerShell.
@@ -100,6 +125,24 @@ An administrator can manually reset your password using Windows PowerShell.
 In this case, the new password overrides your synchronized password and all password policies defined in the cloud are applied to the new password.
 
 If you change your on-premises password again, the new password is synchronized to the cloud, and overrides the manually updated password.
+
+The synchronization of a password has no impact on the currently logged on Azure user. Your current cloud service session is not immediately affected by a synchronized password change that occurs while you are signed in to a cloud service. KMSI will extend the duration of this difference. When the cloud service requires you to authenticate again, you need to provide your new password.
+
+### Additional Advantages
+
+- Generally, password synchronization is simpler to implement than a federation service. It does not require any additional servers, and eliminates dependence on a highly available federation service to authenticate users. 
+- Password synchronization can also be enabled in addition to federation so it may be used as a fallback if your federation service experiences an outage.
+
+
+
+
+
+
+
+
+
+
+
 
 ## Enabling password synchronization
 Password synchronization is automatically enabled, when you install Azure AD Connect using the **Express Settings**. For more details, see [Getting started with Azure AD Connect using express settings](active-directory-aadconnect-get-started-express.md).

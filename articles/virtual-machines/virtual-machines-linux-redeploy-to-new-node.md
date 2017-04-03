@@ -39,7 +39,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ## Azure CLI 1.0
-Install the [latest Azure CLI 1.0](../xplat-cli-install.md), log in to an Azure account, and make sure that you are in Resource Manager mode (`azure config mode arm`).
+Install the [latest Azure CLI 1.0](../cli-install-nodejs.md), log in to an Azure account, and make sure that you are in Resource Manager mode (`azure config mode arm`).
 
 The following example redeploys the VM named `myVM` in the resource group named `myResourceGroup`:
 
