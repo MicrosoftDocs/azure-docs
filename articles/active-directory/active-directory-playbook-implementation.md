@@ -50,7 +50,7 @@ A hybrid identity is the foundation for most of the enterprise customers who alr
 | [Integrate SaaS Applications– Password SSO](#integrate-saas-applications-password-sso) | [SaaS Password SSO Configuration](active-directory-playbook-building-blocks.md#saas-password-sso-configuration) |
 | [SSO and Identity Lifecycle Events](#sso-and-identity-lifecycle-events) | [SaaS and Identity Lifecycle](active-directory-playbook-building-blocks.md#saas-and-identity-lifecycle) |
 | [Secure Access to Shared Accounts](#secure-access-to-shared-accounts) | [SaaS Shared Accounts Configuration](active-directory-playbook-building-blocks.md#saas-shared-accounts-configuration) |
-| [Secure Remote Access to On-Prem Applications]() | [App Proxy Configuration]()
+| [Secure Remote Access to On-Prem Applications](#secure-remote-access-to-on-prem-applications) | [App Proxy Configuration](active-directory-playbook-building-blocks.md#app-proxy-configuration)
 
 ### Integrate SaaS Applications – Federated SSO 
 
