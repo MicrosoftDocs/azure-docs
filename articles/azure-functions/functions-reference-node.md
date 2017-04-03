@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/13/2016
+ms.date: 02/06/2017
 ms.author: chrande, glenga
 
 ---
@@ -57,7 +57,7 @@ All bindings, regardless of direction, are also passed along on the `context` ob
 ## context object
 The runtime uses a `context` object to pass data to and from your function and to let you communicate with the runtime.
 
-The context object is always the first parameter to a function and should always be included because it has methods such as `context.done` and `context.log` which are required to correctly use the runtime. You can name the object whatever you like (i.e. `ctx` or `c`).
+The context object is always the first parameter to a function and must be included because it has methods such as `context.done` and `context.log` which are required to correctly use the runtime. You can name the object whatever you like (i.e. `ctx` or `c`).
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -66,8 +66,12 @@ module.exports = function(context) {
 };
 ```
 
-## context.bindings
-The `context.bindings` object collects all your input and output data. The data is added onto the `context.bindings` object via the `name` property of the binding. For instance, given the following binding definition in *function.json*, you can access the contents of the queue via `context.bindings.myInput`. 
+### context.bindings property
+
+```
+context.bindings
+```
+Returns a named object that contains all your input and output data. For instance, the following binding definition in your *function.json* lets you access the contents of the queue from the `context.bindings.myInput` object. 
 
 ```json
 {
@@ -87,10 +91,14 @@ context.bindings.myOutput = {
         a_number: 1 };
 ```
 
-## `context.done([err],[propertyBag])`
-The `context.done` function tells the runtime that you're done running. This is important to call when you're done with the function; if you don't, the runtime will still never know that your function completed. 
+### context.done method
+```
+context.done([err],[propertyBag])
+```
 
-The `context.done` function allows you to pass back a user-defined error to the runtime, as well as a property bag of properties which will overwrite the properties on the `context.bindings` object.
+Informs the runtime that your code has finished. You must call `context.done` or the runtime never knows that your function is complete and the execution will time out. 
+
+The `context.done` method allows you to pass back a user-defined error to the runtime, as well as a property bag of properties which will overwrite the properties on the `context.bindings` object.
 
 ```javascript
 // Even though we set myOutput to have:
@@ -102,8 +110,12 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 //  -> text: hello there, world, noNumber: true
 ```
 
-## context.log(message)
-The `context.log` method allows you to output log statements that are correlated together for logging purposes. If you use `console.log`, your messages will only show for process level logging, which isn't as useful.
+### context.log method  
+
+```
+context.log(message)
+```
+Allows you to generate a correlated set of output log statements. When you use `console.log`, your messages will only show for process level logging, which isn't as useful.
 
 ```javascript
 /* You can use context.log to log output specific to this 
@@ -125,15 +137,70 @@ context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', 
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
-## HTTP triggers: context.req and context.res
-In the case of HTTP Triggers, because it is such a common pattern to use `req` and `res` for the HTTP request and response objects, we decided to make it easy to access those on the context object, instead of forcing you to use the full `context.bindings.name` pattern.
+## HTTP triggers and bindings
 
-```javascript
-// You can access your http request off of the context ...
-if(context.req.body.emoji === ':pizza:') context.log('Yay!');
-// and also set your http response
-context.res = { status: 202, body: 'You successfully ordered more coffee!' };   
-```
+HTTP and webhook triggers and HTTP output bindings use request and response objects to represent the HTTP messaging.  
+
+### Request object
+
+The `request` object has the following properties:
+
+| Property      | Description                                                    |
+| ------------- | -------------------------------------------------------------- |
+| _body_        | An object that contains the body of the request.               |
+| _headers_     | An object that contains the request headers.                   |
+| _method_      | The HTTP method of the request.                                |
+| _originalUrl_ | The URL of the request.                                        |
+| _params_      | An object that contains the routing parameters of the request. |
+| _query_       | An object that contains the query parameters.                  |
+| _rawBody_     | The body of the message as a string.                           |
+
+
+### Response object
+
+The `response` object has the following properties:
+
+| Property  | Description                                       |
+| --------- | ------------------------------------------------- |
+| _body_    | An object that contains the body of the response. |
+| _headers_ | An object that contains the response headers.     |
+| _status_  | The HTTP status code of the response.             |
+
+### Accessing the request and response 
+
+When working with HTTP triggers, there are three ways that you can access the HTTP request and response objects:
+
++ From the named input and output bindings. In this way, the HTTP trigger and bindings work the same as any other binding. The following example sets the response object using a named `response` binding. 
+
+    ```javascript
+    context.bindings.response = { status: 201, body: "Insert succeeded." };
+    ```
+
++ From `req` and `res` properties on the `context` object. In this way, you can use the conventional pattern to access HTTP data from the context object, instead of having to use the full `context.bindings.name` pattern. The following example shows how to access the `req` and `res` objects on the `context`:
+
+    ```javascript
+    // You can access your http request off of the context ...
+    if(context.req.body.emoji === ':pizza:') context.log('Yay!');
+    // and also set your http response
+    context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
+    ```
+
++ Calling `context.done()`. There is a special kind of HTTP binding that returns the response that is passed to the `context.done()` method. The following HTTP output binding defines a `$return` output parameter:
+
+    ```json
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+    ``` 
+    This output binding expects you to supply the response when you call `done()` as follows:
+
+    ```javascript
+     // Define a valid response object.
+    res = { status: 201, body: "Insert succeeded." };
+    context.done(null, res);   
+    ```  
 
 ## Node Version & Package Management
 The node version is currently locked at `6.5.0`. We're investigating adding support for more versions and making it configurable.
