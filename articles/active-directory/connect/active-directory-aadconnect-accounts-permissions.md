@@ -112,7 +112,7 @@ The sync service can run under different accounts. It can run under a **Virtual 
 | --- | --- | --- |
 | [Virtual Service Account](#virtual-service-account) | Express and custom, 2017 April and later | This is the option used for all express installations. For custom it is the default option unless another option is used. |
 | [Group Managed Service Account](#group-managed-service-account) | Custom, 2017 April and later | If you use a remote SQL server, then we recommend to use a group managed service account. |
-| [User account](#user-account) | Express and custom, 2017 April and later | A user account prefixed with AAD_ is only created during installation when installed on Windows Server 2008. | 
+| [User account](#user-account) | Express and custom, 2017 April and later | A user account prefixed with AAD_ is only created during installation when installed on Windows Server 2008. |
 | [User account](#user-account) | Express and custom, 2017 March and earlier | A local account prefixed with AAD_ is created during installation. When using custom installation, another account can be specified. |
 
 If you use Connect with a build from 2017 March or earlier, then you should not reset the password on the service account since Windows destroys the encryption keys for security reasons. You cannot change the account to any other account without reinstalling Azure AD Connect. If you upgrade to a build from 2017 April or later, then it is supported to change the password on the service account.
@@ -121,6 +121,22 @@ If you originally installed Connect with a build from 2017 April or later, then 
 
 > [!Important]
 > An upgrade from a build from before 2017 April does not add Virtual Service Accounts and Managed Service Accounts to the supported options. These options are only available on fresh installations.
+
+This is a table of the default and recommended option for the sync service account. Where there are multiple rows in a cell, it lists multiple options.
+
+| | LocalDB</br>Express or Custom | Local SQL</br>Custom | Remote SQL</br>Custom |
+| --- | --- | --- | --- |
+| **standalone/workgroup machine** | VSA (custom)</br>Local user account (2008)</br>Not supported (express) | VSA</br>Local user account (2008) | Not supported |
+| **domain-joined machine** | VSA</br>user account (2008) | VSA </br>user account (2008) | gMSA |
+| **Domain Controller** | Domain user account | gMSA | gMSA |
+
+Legend:  
+2008 - When installed on Windows Server 2008  
+Local user account - Local user account only  
+Domain user account - Domain user account only  
+user account - Domain or Local user account  
+
+For a full list, see [Supported options for the Azure AD sync service account](#supported-options-for-the-azure-ad-sync-service- account).
 
 #### Virtual service account
 A virtual service account is a special type of account that does not have a password and is managed by Windows.
@@ -152,6 +168,21 @@ This account is used to store the passwords for the other accounts in a secure w
 If you use a full SQL Server, then the service account is the DBO of the created database for the sync engine. The service will not function as intended with any other permissions. A SQL login is also created.
 
 The account is also granted permissions to files, registry keys, and other objects related to the Sync Engine.
+
+#### Supported options for the Azure AD sync service account
+This table lists all supported options for the sync service account.
+
+| | LocalDB</br>Express | LocalDB/LocalSQL</br>Custom | Remote SQL</br>Custom |
+| --- | --- | --- | --- |
+| **standalone/workgroup machine** | Not supported | VSA</br>Local user account |  Not supported |
+| **domain-joined machine** | VSA</br>Local service account (2008) | VSA</br>user account</br>sMSA,gMSA | Domain user account</br>gMSA |
+| **Domain Controller** | VSA</br>Domain user account| VSA</br>Domain user account</br>sMSA,gMSA| Domain user account</br>gMSA |
+
+Legend:  
+2008 - When installed on Windows Server 2008  
+Local user account - Local user account only  
+Domain user account - Domain user account only  
+user account - Domain or Local user account  
 
 ### Azure AD service account
 An account in Azure AD is created for the sync service's use. This account can be identified by its display name.
