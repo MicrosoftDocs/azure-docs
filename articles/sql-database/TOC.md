@@ -9,7 +9,7 @@
 ### [SSMS](sql-database-connect-query-ssms.md)
 ### [VS Code](sql-database-connect-query-vscode.md)
 ## Connect
-### [C #](sql-database-connect-query-dotnet.md)
+### [.NET](sql-database-connect-query-dotnet.md)
 ### [PHP](sql-database-connect-query-php.md)
 ### [Node.js](sql-database-develop-nodejs-simple.md)
 ### [Java](sql-database-connect-query-java.md)
