@@ -353,7 +353,7 @@ The sample copies data to an Azure Data Lake store. New data is copies to Data L
 
 The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **BlobSource** and **sink** type is set to **AzureDataLakeStoreSink**.
 
-```JSON
+```json
 {  
     "name":"SamplePipeline",
     "properties":
@@ -414,7 +414,7 @@ The sample copies time-series data from an Azure Data Lake store to an Azure blo
 
 **Azure Data Lake Store linked service:**
 
-```JSON
+```json
 {
     "name": "AzureDataLakeStoreLinkedService",
     "properties": {
@@ -450,7 +450,7 @@ The sample copies time-series data from an Azure Data Lake store to an Azure blo
 
 Setting **"external": true** informs the Data Factory service that the table is external to the data factory and is not produced by an activity in the data factory.
 
-```JSON
+```json
 {
     "name": "AzureDataLakeStoreInput",
       "properties":
@@ -545,7 +545,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 
 The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **AzureDataLakeStoreSource** and **sink** type is set to **BlobSink**.
 
-```JSON
+```json
 {  
     "name":"SamplePipeline",
     "properties":{  

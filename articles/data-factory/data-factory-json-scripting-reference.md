@@ -19,12 +19,21 @@ ms.author: spelluru
 # Azure Data Factory - JSON Scripting Reference
 The following sections provide links to sections in other articles that have JSON schemas specific to the store or compute. 
 
+## Pipeline JSON
+High-level pipeline JSON. Pproperties that are at the top level. 
+
+## Activity JSON
+Properties at the activity level. Transformation activities have just type properties. Copy activity has two sections: source and sink. 
+
+## Dataset JSON
+High-level dataset JSON. Properties that are at the top level. The typeProperties section is different for each type of dataset. See sections below. 
+
 ## Data stores
 Click the link for the store you are interested in to see the JSON schemas for linked service, dataset, and the source/sink for the copy activity.
 
 | Category | Data store 
 |:--- |:--- |
-| **Azure** |[Azure Blob storage](#azure-blob-storage)) |
+| **Azure** |[Azure Blob storage](#azure-blob-storage) |
 | &nbsp; |[Azure Data Lake Store](#azure-datalake-store) |
 | &nbsp; |[Azure DocumentDB](data-factory-azure-documentdb-connector.md#linked-service-properties) |
 | &nbsp; |[Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties) |
@@ -54,25 +63,13 @@ Click the link for the store you are interested in to see the JSON schemas for l
 | &nbsp; |[Salesforce](data-factory-salesforce-connector.md#linked-service-properties) |
 | &nbsp; |[Web Table (table from HTML)](data-factory-web-table-connector.md#linked-service-properties) |
 
-
-## Computes
-Click the link for the compute you are interested in to see the JSON schemas for linked service to link it to a data factory.
-
-| Compute environment | activities |
-| --- | --- |
-| [On-demand HDInsight cluster](#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
-| [Azure Batch](#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) |[Machine Learning activities: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) |
-| [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) |[Stored Procedure](data-factory-stored-proc-activity.md) |
-
 ## Azure Blob Storage
 
 ### Linked service
 There are two types of linked services: Azure Storage linked service and Azure Storage SAS linked service.
 
 #### Azure Storage Linked Service
-The **Azure Storage linked service** allows you to link an Azure storage account to an Azure data factory by using the **account key**. This provides the data factory with global access to the Azure Storage. The following table provides description for JSON elements specific to Azure Storage linked service.
+The **Azure Storage linked service** allows you to link an Azure storage account to an Azure data factory by using the **account key**. It provides the data factory with global access to the Azure Storage. The following table provides description for JSON elements specific to Azure Storage linked service.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -93,13 +90,13 @@ The **Azure Storage linked service** allows you to link an Azure storage account
 }  
 ```
 
-#### Azure Storage Sas Linked Service
-The Azure Storage SAS linked service allows you to link an Azure Storage Account to an Azure data factory by using a Shared Access Signature (SAS). This provides the data factory with restricted/time-bound access to all/specific resources (blob/container) in the storage. The following table provides description for JSON elements specific to Azure Storage SAS linked service. 
+#### Azure Storage SAS Linked Service
+The Azure Storage SAS linked service allows you to link an Azure Storage Account to an Azure data factory by using a Shared Access Signature (SAS). It provides the data factory with restricted/time-bound access to all/specific resources (blob/container) in the storage. The following table provides description for JSON elements specific to Azure Storage SAS linked service. 
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type |The type property must be set to: **AzureStorageSas** |Yes |
-| sasUri |Specify Shared Access Signature URI to the Azure Storage resources such as blob, container, or table. See the notes below for details. |Yes |
+| sasUri |Specify Shared Access Signature URI to the Azure Storage resources such as blob, container, or table. |Yes |
 
 **Example:**
 
@@ -115,12 +112,10 @@ The Azure Storage SAS linked service allows you to link an Azure Storage Account
 }  
 ```
 
-For more details about these linked services, see [Azure Blob Storage connector](data-factory-azure-blob-connector.md#linked-service-properties) article. 
+For more information about these linked services, see [Azure Blob Storage connector](data-factory-azure-blob-connector.md#linked-service-properties) article. 
 
 ### Dataset
-Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.). For a full list of JSON sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article.
-
-The **typeProperties** section is different for each type of dataset and provides information about the location, format etc., of the data in the data store. The typeProperties section for dataset of type **AzureBlob** dataset has the following properties:
+ The typeProperties section for dataset of type **AzureBlob** has the following properties:
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -130,15 +125,85 @@ The **typeProperties** section is different for each type of dataset and provide
 | format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No |
 | compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. Supported levels are: **Optimal** and **Fastest**. For more information, see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
-For more details, see [Azure Blob connector](data-factory-azure-blob-connector.md#dataset-properties) article.
+**Example:**
+
+```json
+{
+     "name": "AzureBlobInput",
+     "properties": {
+         "type": "AzureBlob",
+         "linkedServiceName": "AzureStorageLinkedService",
+         "typeProperties": {
+             "fileName": "input.log",
+             "folderPath": "adfgetstarted/inputdata",
+             "format": {
+                 "type": "TextFormat",
+                 "columnDelimiter": ","
+             }
+         },
+         "availability": {
+             "frequency": "Month",
+             "interval": 1
+         },
+         "external": true,
+         "policy": {}
+     }
+ }
+ ```
+
+
+For more information, see [Azure Blob connector](data-factory-azure-blob-connector.md#dataset-properties) article.
 
 ### Blob Source and Blob Sink in Copy Activity
-
 **BlobSource** supports the following properties in the **typeProperties** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
 | recursive |Indicates whether the data is read recursively from the sub folders or only from the specified folder. |True (default value), False |No |
+
+**Example: BlobSource to SqlSink**
+```json
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+    "start":"2014-06-01T18:00:00",
+    "end":"2014-06-01T19:00:00",
+    "description":"pipeline with copy activity",
+    "activities":[  
+      {
+        "name": "AzureBlobtoSQL",
+        "description": "Copy Activity",
+        "type": "Copy",
+        "inputs": [
+          {
+            "name": "AzureBlobInput"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "AzureSqlOutput"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "BlobSource"
+          },
+          "sink": {
+            "type": "SqlSink"
+          }
+        },
+        "policy": {
+            "concurrency": 1,
+            "executionPriorityOrder": "OldestFirst",
+            "retry": 0,
+            "timeout": "01:00:00"
+        }
+      }
+      ]
+   }
+}
+```
+
 
 **BlobSink** supports the following properties **typeProperties** section:
 
@@ -146,12 +211,57 @@ For more details, see [Azure Blob connector](data-factory-azure-blob-connector.m
 | --- | --- | --- | --- |
 | copyBehavior |Defines the copy behavior when the source is BlobSource or FileSystem. |<b>PreserveHierarchy</b>: preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/><b>FlattenHierarchy</b>: all files from the source folder are in the first level of target folder. The target files have auto generated name. <br/><br/><b>MergeFiles (default):</b> merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. |No |
 
-For more details, see [Azure Blob connector](data-factory-azure-blob-connector.md#copy-activity-properties) article. 
+**Example: SqlSource to BlobSink**
+
+```json
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+        "start":"2014-06-01T18:00:00",
+        "end":"2014-06-01T19:00:00",
+        "description":"pipeline for copy activity",
+        "activities":[  
+              {
+                "name": "AzureSQLtoBlob",
+                "description": "copy activity",
+                "type": "Copy",
+                "inputs": [
+                  {
+                    "name": "AzureSQLInput"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "name": "AzureBlobOutput"
+                  }
+                ],
+                "typeProperties": {
+                    "source": {
+                        "type": "SqlSource",
+                        "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+                      },
+                      "sink": {
+                        "type": "BlobSink"
+                      }
+                },
+                "policy": {
+                      "concurrency": 1,
+                      "executionPriorityOrder": "OldestFirst",
+                      "retry": 0,
+                      "timeout": "01:00:00"
+                }
+              }
+         ]
+    }
+}
+```
+
+For more information, see [Azure Blob connector](data-factory-azure-blob-connector.md#copy-activity-properties) article. 
 
 ## Azure Data Lake Store
 
 ### Linked service
-Create a linked service of type **AzureDataLakeStore** to link your Azure Data Lake store to your data factory. The following table provides description for JSON elements specific to Azure Data Lake Store linked service, and you can choose between **service principal** and **user credential** authentication.
+The following table provides description for JSON elements specific to Azure Data Lake Store linked service, and you can choose between **service principal** and **user credential** authentication.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -160,12 +270,26 @@ Create a linked service of type **AzureDataLakeStore** to link your Azure Data L
 | subscriptionId | Azure subscription Id to which Data Lake Store belongs. | Required for sink |
 | resourceGroupName | Azure resource group name to which Data Lake Store belongs. | Required for sink |
 
-For details, see [Azure Data Lake Store connector](data-factory-azure-datalake-connector.md#linked-service-properties) article. 
+**Example:**
+```json
+{
+    "name": "AzureDataLakeStoreLinkedService",
+    "properties": {
+        "type": "AzureDataLakeStore",
+        "typeProperties": {
+            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": "<service principal key>",
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>"
+        }
+    }
+}
+```
+
+For more information, see [Azure Data Lake Store connector](data-factory-azure-datalake-connector.md#linked-service-properties) article. 
 
 ### Dataset
-To specify a dataset to represent input data in an Azure Data Lake Store, you set the type property of the dataset to: **AzureDataLakeStore**. Set the **linkedServiceName** property of the dataset to the name of the Azure Data Lake Store linked service. For a full list of JSON sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. 
-
-Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.). The **typeProperties** section is different for each type of dataset and provides information about the location, format etc., of the data in the data store. The typeProperties section for dataset of type **AzureDataLakeStore** dataset has the following properties:
+The typeProperties section for dataset of type **AzureDataLakeStore** dataset has the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -175,11 +299,42 @@ Sections such as structure, availability, and policy of a dataset JSON are simil
 | format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No |
 | compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. Supported levels are: **Optimal** and **Fastest**. For more information, see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
-For details, see [Azure Data Lake Store connector](data-factory-azure-datalake-connector.md#dataset-properties) article. 
+**Example:**
+```json
+{
+    "name": "AzureDataLakeStoreInput",
+      "properties":
+    {
+        "type": "AzureDataLakeStore",
+        "linkedServiceName": "AzureDataLakeStoreLinkedService",
+        "typeProperties": {
+            "folderPath": "datalake/input/",
+            "fileName": "SearchLog.tsv",
+            "format": {
+                "type": "TextFormat",
+                "rowDelimiter": "\n",
+                "columnDelimiter": "\t"
+            }
+        },
+        "external": true,
+        "availability": {
+            "frequency": "Hour",
+              "interval": 1
+        },
+        "policy": {
+              "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+              }
+        }
+      }
+}
+```
+
+For more information, see [Azure Data Lake Store connector](data-factory-azure-datalake-connector.md#dataset-properties) article. 
 
 ### Azure Data Lake Store Source and Azure Data Lake Store Sink in Copy Activity
-Properties such as name, description, input and output tables, and policy are available for all types of activities.
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Whereas, properties available in the typeProperties section of the activity vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks
 
 **AzureDataLakeStoreSource** supports the following properties **typeProperties** section:
 
@@ -187,8 +342,114 @@ For a full list of sections & properties available for defining activities, see 
 | --- | --- | --- | --- |
 | recursive |Indicates whether the data is read recursively from the sub folders or only from the specified folder. |True (default value), False |No |
 
+**Example: AzureDataLakeStoreSource to BlobSink**
+```json
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+        "start":"2014-06-01T18:00:00",
+        "end":"2014-06-01T19:00:00",
+        "description":"pipeline for copy activity",
+        "activities":[  
+              {
+                "name": "AzureDakeLaketoBlob",
+                "description": "copy activity",
+                "type": "Copy",
+                "inputs": [
+                  {
+                    "name": "AzureDataLakeStoreInput"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "name": "AzureBlobOutput"
+                  }
+                ],
+                "typeProperties": {
+                    "source": {
+                        "type": "AzureDataLakeStoreSource",
+                      },
+                      "sink": {
+                        "type": "BlobSink"
+                      }
+                },
+                "policy": {
+                      "concurrency": 1,
+                      "executionPriorityOrder": "OldestFirst",
+                      "retry": 0,
+                      "timeout": "01:00:00"
+                }
+              }
+         ]
+    }
+}
+```
+
+
 **AzureDataLakeStoreSink** supports the following properties **typeProperties** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
 | copyBehavior |Specifies the copy behavior. |<b>PreserveHierarchy</b>: preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/><b>FlattenHierarchy</b>: all files from the source folder are created in the first level of target folder. The target files are created with auto generated name.<br/><br/><b>MergeFiles</b>: merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. |No |
+
+**Example: BlobSource to AzureDataLakeStoreSink**
+```json
+{  
+    "name":"SamplePipeline",
+    "properties":
+    {  
+        "start":"2014-06-01T18:00:00",
+        "end":"2014-06-01T19:00:00",
+        "description":"pipeline with copy activity",
+        "activities":
+        [  
+              {
+                "name": "AzureBlobtoDataLake",
+                "description": "Copy Activity",
+                "type": "Copy",
+                "inputs": [
+                  {
+                    "name": "AzureBlobInput"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "name": "AzureDataLakeStoreOutput"
+                  }
+                ],
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                      },
+                      "sink": {
+                        "type": "AzureDataLakeStoreSink"
+                      }
+                },
+                   "scheduler": {
+                      "frequency": "Hour",
+                      "interval": 1
+                },
+                "policy": {
+                      "concurrency": 1,
+                      "executionPriorityOrder": "OldestFirst",
+                      "retry": 0,
+                      "timeout": "01:00:00"
+                }
+              }
+        ]
+    }
+}
+```
+
+For more information, see [Azure Data Lake Store connector](data-factory-azure-datalake-connector.md#copy-activity-properties) article. 
+
+## Computes
+Click the link for the compute you are interested in to see the JSON schemas for linked service to link it to a data factory.
+
+| Compute environment | activities |
+| --- | --- |
+| [On-demand HDInsight cluster](#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
+| [Azure Batch](#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) |[Machine Learning activities: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
+| [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) |[Stored Procedure](data-factory-stored-proc-activity.md) |
