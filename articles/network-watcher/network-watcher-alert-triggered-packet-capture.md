@@ -42,7 +42,7 @@ This scenario:
 
 ## Creating an Azure Function and overview
 
-The first step is to create an Azure function to process the alert and create a packet capture. 
+The first step is to create an Azure function to process the alert and create a packet capture.
 
 The following list is an overview of the workflow that takes place.
 

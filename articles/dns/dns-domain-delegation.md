@@ -62,6 +62,7 @@ How does a parent zone 'point' to the name servers for a child zone? It does thi
 Each delegation actually has two copies of the NS records; one in the parent zone pointing to the child, and another in the child zone itself. The 'contoso.com' zone contains the NS records for 'contoso.com' (in addition to the NS records in 'com'). These are called authoritative NS records and they sit at the apex of the child zone.
 
 ## Delegating a domain to Azure DNS
+
 Once you create your DNS zone in Azure DNS, you need to set up NS records in the parent zone to make Azure DNS the authoritative source for name resolution for your zone. For domains purchased from a registrar, your registrar will offer the option to set up these NS records.
 
 > [!NOTE]
