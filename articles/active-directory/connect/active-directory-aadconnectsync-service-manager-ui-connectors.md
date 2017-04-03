@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 04/03/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ---
@@ -63,6 +63,29 @@ Start by selecting a **scope**. You can search based on data (RDN, DN, Anchor, S
 If you for example do a Sub-Tree search, you get all objects in one OU.  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchsubtree.png)  
 From this grid you can select an object, select **properties**, and [follow it](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) from the source connector space, through the metaverse, and to the target connector space.
+
+### Changing the AD DS account password
+If you change the account password, the Synchronization Service will no longer be able to import/export changes to on-premises AD.   You may see the following:
+
+- The import/export step for the AD connector fails with "no-start-credentials" error.
+- Under Windows Event Viewer, the application event log contains an error with Event ID 6000 and message “The management agent “contoso.com” failed to run because the credentials were invalid.”
+
+To resolve the issue, update the AD DS user account using the following:
+
+
+1. Start the Synchronization Service Manager (START → Synchronization Service).
+</br>![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)
+2. Go to the **Connectors** tab.
+3. Select the AD Connector which is configured to use the AD DS account.
+4. Under Actions, select **Properties**.
+5. In the pop-up dialog, select Connect to Active Directory Forest:
+6. The Forest name indicates the corresponding on-prem AD.
+7. The User name indicates the AD DS account used for synchronization.
+8. Enter the new password of the AD DS account in the Password textbox
+![Azure AD Connect Sync Encryption Key Utility](media/active-directory-aadconnectsync-encryption-key/key6.png)
+9. Click OK to save the new password and restart the Synchronization Service to remove the old password from memory cache.
+
+
 
 ## Next steps
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.

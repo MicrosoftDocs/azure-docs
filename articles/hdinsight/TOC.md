@@ -65,6 +65,7 @@
 ### [Predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [Analyze website logs](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 ### [Use Caffe for deep learning](hdinsight-deep-learning-caffe-spark.md)
+### [Use with Microsoft Cognitive Toolkit](hdinsight-apache-spark-microsoft-cognitive-toolkit.md)
 ### [Use Zeppelin notebooks](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Jupyter notebook kernels](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 ### [Use external packages with Jupyter using cell magic](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
@@ -141,9 +142,8 @@
 #### [Use REST to install apps](https://msdn.microsoft.com/library/mt706515.aspx)
 #### [Publish HDInsight apps to Azure Marketplace](hdinsight-apps-publish-applications.md)
 ## Secure
+### [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 ### [Use SSH tunneling](hdinsight-linux-ambari-ssh-tunnel.md)
-### [Use SSH from Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-### [Use SSH from Windows OS](hdinsight-hadoop-linux-use-ssh-windows.md)
 ### [Restrict access to data](hdinsight-storage-sharedaccesssignature-permissions.md)
 ## Manage
 ### [Create Linux clusters](hdinsight-hadoop-provision-linux-clusters.md)
