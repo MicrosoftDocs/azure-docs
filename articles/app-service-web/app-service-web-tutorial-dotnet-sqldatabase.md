@@ -1,5 +1,5 @@
 ---
-title: Create a data-driven ASP.NET app with Azure with SQL Database | Microsoft Docs 
+title: Create an ASP.NET app in Azure with SQL Database | Microsoft Docs 
 description: Learn how to get a MEAN.js app working in Azure, with connection to a DocumentDB database with a MongoDB connection string.
 services: app-service\web
 documentationcenter: nodejs
@@ -13,51 +13,48 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 04/03/2017
 ms.author: cephalin
 
 ---
-# Create a data-driven ASP.NET app with Azure with SQL Database
+# Create an ASP.NET app in Azure with SQL Database
 
-This tutorial shows you how to get started in developing a data-driven ASP.NET web app in [Azure App Service](../app-service/app-service-value-prop-what-is.md). Connect your web app to Azure SQL Database in just a few minutes, and enable your data-driven functionality with minimal configuration.
+This tutorial shows you how to develop a data-driven ASP.NET web app in Azure. Connect your web app to Azure SQL Database in just a few minutes, and enable your data-driven functionality with minimal configuration. When you're finished, you'll have a data-driven ASP.NET web app running in [Azure App Service](../app-service/app-service-value-prop-what-is.md) and connected to SQL Database.
 
 This tutorial uses the ASP.NET template with **Individual User Accounts**. This template uses [ASP.NET Entity Framework](https://docs.microsoft.com/aspnet/entity-framework) to manage user profiles in the web application. 
 
-![Published ASP.NET application in Azure web app](./media/app-service-web-tutorial-dotnet-sqldatabase/published-azure-web-app.png)
+![Published ASP.NET application in Azure web app](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
 ## Before you begin
 
-This tutorial demonstrates how to use Visual Studio 2017 to build and deploy an ASP.NET web app to Azure. If you don’t already have Visual Studio 2017 installed, you can download and use the free [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
+This tutorial demonstrates how to use Visual Studio 2017 to build and deploy an ASP.NET web app to Azure. If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
-## Create an ASP.NET web app
+You also need to install [Git](http://www.git-scm.com/downloads).
 
-In Visual Studio, create a new project with `Ctrl`+`Shift`+`N`.
+## Step 1 - Set up the sample application
+In this step, you set up the local ASP.NET project.
 
-In the **New Project** dialog, click **Visual C# > Web > ASP.NET Web Application (.NET Framework)**.
+### Clone the sample application
 
-Name the application **myWebAppWithSqlDb**, and then click **OK**.
-   
-![New Project dialog box](./media/app-service-web-tutorial-dotnet-sqldatabase/new-project.png)
+Open a PowerShell window and `CD` to a working directory.  
 
-Select the **MVC** template. Then, change authentication to Individual User Accounts by clicking **Change Authentication > Individual User Accounts > OK**.
+Run the following commands to clone the sample repository. This sample repository contains the default [MEAN.js](http://meanjs.org/) application. 
 
-Click **OK**.
+```bash
+git clone https://github.com/cephalin/DotNetAppSqlDb.git
+```
 
-![New ASP.NET Project dialog box](./media/app-service-web-tutorial-dotnet-sqldatabase/select-mvc-template.png)
+### Run the application
 
-Once the project is created, the project overview page is opened. 
+From the repository root, launch `DotNetAppSqlDb.sln` in Visual Studio 2017.
 
-## Test data-driven functionality
+Once the sample solution is opened, type `F5` to run the web app in the browser.
 
-Type `F5` to run the web app in the browser.
+You should see a simple CRUD (create-read-update-delete) app in the homepage. Try to add a few todos to the empty list.
 
-In the homepage, click **Register** and follow the on-page instructions to register a dummy user.
+![New ASP.NET Project dialog box](./media/app-service-web-tutorial-dotnet-sqldatabase/local-app-in-browser.png)
 
-Once registered, you should see **Hello &lt;user_name>!** in place of **Register**. This change indicates that database connectivity is working in ASP.NET Entity Framework.
-
-![New ASP.NET Project dialog box](./media/app-service-web-tutorial-dotnet-sqldatabase/user-registered.png)
-
-Your app is only connected to the [LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-2016-express-localdb) instance on your machine. Visual Studio will help you create the SQL Database in Azure as well as connect your Azure web app to it in the same integrated wizard.
+Your app uses ASP.NET Entity Framework to access the local database. The database context uses a connection string called `MyDbConnection`. This connection string is defined in `Web.config` and referenced in `Models\MyDatabaseContext.cs`. This connection string name is all you will need later when connecting your Azure web app to Azure SQL Database. 
 
 ## Publish to Azure
 
@@ -71,7 +68,7 @@ Make sure that **Microsoft Azure App Service** is selected and click **Publish**
 
 This opens the **Create App Service** dialog, which helps you create all the Azure resources you need to run your ASP.NET web app in Azure.
 
-## Sign in to Azure
+### Sign in to Azure
 
 In the **Create App Service** dialog, click **Add an account**, and then sign in to your Azure subscription. If you're already signed into a Microsoft account, make sure that account holds your Azure subscription. If the signed-in Microsoft account doesn't have your Azure subscription, click it to add the correct account.
    
@@ -79,7 +76,7 @@ In the **Create App Service** dialog, click **Add an account**, and then sign in
 
 Once signed in, you're ready to create all the resources you need for your Azure web app in this dialog.
 
-## Create a resource group
+### Create a resource group
 
 First, you need a _resource group_. 
 
@@ -92,7 +89,7 @@ Next to **Resource Group**, click **New**.
 
 Name your resource group **myResourceGroup** and click **OK**.
 
-## Create an App Service plan
+### Create an App Service plan
 
 Your Azure web app also needs an _App Service plan_. 
 
@@ -120,23 +117,31 @@ Click **OK**.
 
 ![Create new App Service plan](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
 
+### Configure the web app name
 
-## Configure a SQL Database
+In **Web App Name**, type a unique app name. This name will be used as part of the default DNS name for your app (`<app_name>.azurewebsites.net`), so it needs to be unique across all apps in Azure. You can later map a custom domain name to your app before you expose it to your users.
+
+You can also accept the automatically generated name, which is already unique.
+
+![Configure web app name](./media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
+
+### Configure a SQL Database
 
 Click **Explore additional Azure services**.
 
-In the **Services** tab, click the **+** sign next to **SQL Database**. 
+In the **Services** tab, click the **+** icon next to **SQL Database**. 
 
-In the **Configure SQL Database** dialog, click **New** for a new database server. Configure this database server and click **OK**.
+In the **Configure SQL Database** dialog, click **New** for a new database server. 
 
-The rest of the dialog is now automatically filled. You can accept the default values. 
+In **Server Name**, type a unique name. This name will be used as part of the default DNS name for your database server (`<server_name>.database.windows.net`), so it needs to be unique across all SQL database servers in Azure. 
 
-> [!NOTE]
-> **Connection String Name** is set to **DefaultConnection** by default, which is the default connection string name for your ASP.NET application. You can find this connection string name in `Web.config`. 
->
-> The value in **Connection String Name** allows the Azure .NET SDK to create a connection string specific to your Azure SQL Database in the Azure web app. When deployed to Azure, your ASP.NET application knows to use this SQL Database connection string instead of the one configured in `Web.config`. However, if the DbContext in your code uses a different connection string name, you should change this value in the dialog accordingly. 
->
->
+Configure the rest of the fields as you like and click **OK**.
+
+![Create new SQL Database server](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
+
+In **Database Name**, type `myToDoAppDb`, or any name you like.
+
+In **Connection String Name**, type `MyDatabaseContext`. This name must match the connection string that is referenced in `Models\MyDatabaseContext.cs`.
 
 ## Create and publish the web app
 
@@ -144,9 +149,11 @@ Click **Create**.
 
 Once the wizard finishes creating the Azure resources, it automatically publishes your ASP.NET application to Azure for the first time, and then launches the published Azure web app in your default browser.
 
+Try to add a few todos to the empty list.
 
+![New ASP.NET Project dialog box](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-Congratulations, your first ASP.NET web app is running live in Azure App Service.
+Congratulations, your data-driven ASP.NET application is running live in Azure App Service.
 
 ## Next steps
 
