@@ -250,8 +250,15 @@ function GetEnvironmentVariable(name)
     return name + ": " + process.env[name];
 }
 ```
+## Considerations for JavaScript Functions
 
-## TypeScript/CoffeeScript support
+You should be aware of the following items when working with JavaScript functions.
+
+### Use small VMs when using App Service Plan
+
+When creating a function app that uses App Service Plan for your JavaScript functions, we recommend that you use multiple small VMs rather than a medium or large VM. At this point, Functions runs JavaScript functions more efficiently on small VMs; using larger VMs will not produce the expected results.    
+
+### TypeScript/CoffeeScript support
 There isn't, yet, any direct support for auto-compiling TypeScript/CoffeeScript via the runtime, so that would all need to be handled outside the runtime, at deployment time. 
 
 ## Next steps
