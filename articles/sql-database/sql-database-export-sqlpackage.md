@@ -45,8 +45,6 @@ For an overview of exporting to a BACPAC file, see [Export to a BACPAC](sql-data
    | < target_file > |file name and location for BACPAC file |
    |||
    
-    ![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
-
 ## Next steps
 
 * To learn about importing a BACPAC using SQLPackage, see [Import a BACPAC to Azure SQL Database using SqlPackage](sql-database-import-sqlpackage.md)
