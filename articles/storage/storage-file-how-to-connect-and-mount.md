@@ -28,7 +28,7 @@ ms.author: renash
 | Operating System | Functional SMB Version | Supports Mounting from Azure VM | Supports Mounting from On-Premises | 
 |----|----|----|----|
 | Windows Server 2016 | SMB 3.1.1 | Yes | Yes |
-| Windows 10 (versions 1507, 1511, 1607) | SMB 3.1.1 | Yes | Yes |
+| Windows 10 (versions 1507, 1511, 1607, 1703) | SMB 3.1.1 | Yes | Yes |
 | Windows Server 2012 R2 | SMB 3.0.2 | Yes | Yes |
 | Windows 8.1 | SMB 3.0.2 | Yes | Yes |
 | Windows Server 2012 | SMB 3.0 | Yes| Yes |

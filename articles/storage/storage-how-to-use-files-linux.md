@@ -69,7 +69,7 @@ ms.author: renash
     ```
 
 > [!Note]  
-> When you are done use the Azure File share, you may use `sudo umount ./mymountpoint` to unmount the share.
+> When you are done using the Azure File share, you may use `sudo umount ./mymountpoint` to unmount the share.
 
 ## Mount the Azure File share on-boot with `/etc/fstab`
 1. **Create a folder for the mount point**: This can be done anywhere on the file system, but you need to note the absolute path of the folder. The following example creates a folder under root.

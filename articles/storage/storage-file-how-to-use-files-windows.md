@@ -1,8 +1,8 @@
 ---
-title: Introduction to Azure File Storage | Microsoft Docs
-description: An overview of Azure File Storage, Microsoft's cloud file system. Learn how to mount Azure File shares over SMB and lift classic on-premises workloads to the cloud without rewriting any code.
+title: Use Azure File Storage with Windows | Microsoft Docs
+description: Learn how to mount an Azure File share over SMB on Windows.
 services: storage
-documentationcenter: ''
+documentationcenter: na
 author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
@@ -17,133 +17,99 @@ ms.date: 03/21/2017
 ms.author: renash
 ---
 
-# Mount the file share from a machine running Windows
+# Use Azure Files with Windows
+[Azure Files](storage-file-storage.md) is Microsoft's easy to use cloud file system. Azure File shares can be mounted in Windows and Windows Server. This article shows three different ways to mount an Azure File share on Windows: with the File Explorer UI, via PowerShell, and via the Command Prompt. 
 
-Azure File storage is a service that offers file shares in the cloud using the standard Server Message Block (SMB) Protocol. Both SMB 2.1 and SMB 3.0 are supported. Mounting is possible from the server located at local datacenter, on-premises or in Azure provided the [prereqisites](#prereq) below are met. The instructions to mount and persist on all Windows version are the same from command line. UI mounting differs slightly in each OS. We will go over mounting Azure File Share form Windows 10 File Explorer from UI.
+In order to mount an Azure File share outside of the Azure Region it is hosted in, such as on-premises or in a different Azure Region, the OS must support SMB 3.x. The following table shows the SMB version of recent Windows releases:
 
-* [Prerequisites](#prereq)
-* [Automatically reconnecting after reboot - Persisting credentials](#reconnect)
-* [Mount file share using net use command](#netuse)
-* [Mount Azure File Share using File Explorer on Windows 10](#win10)
-* [Troubleshoot mounting in Windows](#troubleshoot)
+| Windows version | SMB version | Supports mounting from Azure VM | Supports mounting from on-premises | Minimum Recommended KB |
+|----|----|----|----|----|
+| Windows 10 (versions 1507, 1511, 1607, 1703) | SMB 3.1.1 | Yes | Yes | |
+| Windows Server 2016 | SMB 3.1.1 | Yes | Yes | |
+| Windows 8.1 | SMB 3.0.2 | Yes | Yes | |
+| Windows Server 2012 R2 | SMB 3.0.2 | Yes | Yes | |
+| Windows 8 | SMB 3.0 | Yes | Yes | |
+| Windows Server 2012 | SMB 3.0 | Yes | Yes | |
+| Windows 7 | SMB 2.1 | Yes | No | |
+| Windows Server 2008 R2 | SMB 2.1 | Yes | No | |
 
-<a id="prereq"/></a>
-## Prerequisites for Mounting Azure File Share
+## <a id="prereq"/></a>Prerequisites for Mounting Azure File Share with Windows 
+* **Storage Account Name**: To mount an Azure File share, you will need the name of the storage account.
 
-Azure File share can be mounted on Windows machine either on-premises or in Azure VM depending on OS version. Below table illustrates the 
+* **Storage Account Key**: To mount an Azure File share, you will need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
 
-| Windows Version        | SMB Version |Mountable On Azure VM|Mountable On-Premise|
-|------------------------|-------------|---------------------|---------------------|
-| Windows 7              | SMB 2.1     | Yes                 | No                  |
-| Windows Server 2008 R2 | SMB 2.1     | Yes                 | No                  |
-| Windows 8              | SMB 3.0     | Yes                 | Yes                 |
-| Windows Server 2012    | SMB 3.0     | Yes                 | Yes                 |
-| Windows Server 2012 R2 | SMB 3.0     | Yes                 | Yes                 |
-| Windows 10             | SMB 3.0     | Yes                 | Yes                 |
+* **Ensure port 445 is open**: SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.
 
-<a id="reconnect"/></a>
-## Automatically reconnecting after reboot - Persisting credentials
+## <a id="explorer"></a>Mount the Azure File share with File Explorer
+> [!Note]  
+> Note that the following instructions are shown on Windows 10 and may differ slightly on older releases. 
 
-Before mounting to the file share, first persist your storage account
-credentials on the virtual machine. This step allows Windows to automatically
-reconnect to the file share when the virtual machine reboots. To persist your
-account credentials, run the cmdkey command from the PowerShell window on the
-virtual machine. Replace \<storage-account-name\> with the name of your storage
-account, and \<storage-account-key\> with your storage account key. Learn more about [how to find storage account and key from portal](storage-file-how-to-use-files-portal#connect)
+1. **Open File Explorer**: This can be done by opening from the Start Menu, or by pressing Win+E shortcut.
 
-```
-cmdkey /add:\<storage-account-name\>.file.core.windows.net
-/user:AZURE\\\<storage-account-name\> /pass:\<storage-account-key\>
-```
-
-Windows will now reconnect to your file share when the virtual machine reboots.
-You can verify that the share has been reconnected by running the net
-use command from a PowerShell window.
-
-Note that credentials are persisted only in the context in which cmdkey runs. If
-you are developing an application that runs as a service, you will need to
-persist your credentials in that context as well.
-
-Once you have a remote connection to the virtual machine, you can run the net
-use command to mount the file share, using the following syntax.
-Replace \<storage-account-name\> with the name of your storage account,
-and \<share-name\> with the name of your File storage share.
-
-```
-net use \<drive-letter\>:
-\\\\\<storage-account-name\>.file.core.windows.net\\\<share-name\>
-
-REM example :
-
-net use z:
-[\\\\samples.file.core.windows.net\\logs](file://samples.file.core.windows.net/logs)
-
-REM You could now use your favorite commands to write and copy data to mounted
-Azure file share.
-
-REM ipconfig \> z:\\sample0.txt
-
-REM copy sample1.txt z:\\
-```
-<a id="netuse"/></a>
-## Mount file share using net use command
-
-Since you persisted your storage account credentials in the previous step, you
-do not need to provide them with the net use command. If you have not already
-persisted your credentials, then include them as a parameter passed to the net
-use command, as shown in the following example.
-
-```
-
-net use \<drive-letter\>:
-\\\\\<storage-account-name\>.file.core.windows.net\\\<share-name\>
-/u:\<storage-account-name\> \<storage-account-key\>
-
-REM example :
-
-net use z: \\\\samples.file.core.windows.net\\logs /u:samples
-\<storage-account-key\>
-```
-
-You can now work with the File Storage share from the virtual machine as you
-would with any other drive. You can issue standard file commands from the
-command prompt, or view the mounted share and its contents from File Explorer.
-You can also run code within the virtual machine that accesses the file share
-using standard Windows file I/O APIs, such as those provided by the [System.IO
-namespaces](http://msdn.microsoft.com/library/gg145019.aspx) in the .NET
-Framework.
-
-You can also mount the file share from a role running in an Azure cloud service
-by remoting into the role.
-
-
-<a id="win10"/></a>
-## Mount Azure File Share using File Explorer on Windows 10
-
-* From File Explorer, select **Map Network Drive**
+2. **Navigate to the "This PC" item on the left-hand side of the window. This will change the menus available in the ribbon. Under the Computer menu, select "Map Network Drive"**.
     
-    ![](media/storage-file/1_MountOnWindows10.png)
+    ![A screenshot of the "Map network drive" drop down menu](media/storage-file/1_MountOnWindows10.png)
 
-* Select the Dive letter and enter the Share Name. Share name can be found from Azure Portal "Connect" Button. Learn more about [where to find the share name on azure portal](storage-file-how-to-use-files-portal.md/#connect)
+3. **Copy the UNC path from the "Connect" pane in the Azure Portal**: A detailed description of how to find this information can be found [here](storage-file-how-to-use-files-portal.md/#connect).
+
+    ![The UNC path from the Azure Files Connect pane](media/storage-file/portal_netuse_connect.png)
+
+4. **Select the Drive letter and enter the UNC path.** 
     
-    ![](media/storage-file/2_MountOnWindows10.png)
+    ![A screenshot of the "Map Network Drive" dialog](media/storage-file/2_MountOnWindows10.png)
 
-* Enter The Storage account name as user-name and Access Key as password.
+5. **Use the Storage Account Name prepended with `Azure\` as the username and a Storage Account Key as the password.**
     
-    ![](media/storage-file/3_MountOnWindows10.png)
+    ![A screenshot of the network credential dialog](media/storage-file/3_MountOnWindows10.png)
 
-* And you are done. Once the Azure File Storage hare is mounted, you can see it in the explorer.
+6. **Use Azure File share as desired**.
     
-    ![](media/storage-file/4_MountOnWindows10.png)
+    ![Azure File share is now mounted](media/storage-file/4_MountOnWindows10.png)
 
-## Troubleshoot mounting in Windows
+7. **When you are ready to dismount (or disconnect) the Azure File share, you can do so by right clicking on the entry for the share under the "Network locations" in File Explorer and selecting "Disconnect"**.
 
-** Q. Net use was successful but don't see the Azure file share mounted in Windows Explorer
-Cause **
+## <a id="powershell"></a>Mount the Azure File share with PowerShell
+1. **Use the following command to mount the Azure File share**: Remember to replace `<storage-account-name>`, `<share-name>`, `<storage-account-key>`, `<desired-drive-letter>` with the proper information.
 
-    By default, Windows Explorer does not run as Administrator. If you run net use from an Administrator command prompt, you map the network drive "As Administrator." Because mapped drives are user-centric, the user account that is logged in does not display the drives if they are mounted under a different user account. Solution is to mount the share from a non-administrator command line.
+    ```PowerShell
+    $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
+    $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "Azure\<storage-account-name>", $acctKey
+    New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\<share-name>" -Credential $credential
+    ```
 
-## Also See
+2. **Use the Azure File share as desired**.
+
+3. **When you are finished, dismount the Azure File share using the following command**.
+
+    ```PowerShell
+    Remove-PSDrive -Name <desired-drive-letter>
+    ```
+
+> [!Note]  
+> You may use the `-Persist` parameter on `New-PSDrive` to make the Azure File share visible to the rest of the OS while mounted.
+
+## <a id="netuse"></a>Mount the Azure File share with Command Prompt
+1. **Use the following command to mount the Azure File share**: Remember to replace `<storage-account-name>`, `<share-name>`, `<storage-account-key>`, `<desired-drive-letter>` with the proper information.
+
+    ```
+    net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
+    ```
+
+2. **Use the Azure File share as desired**.
+
+3. **When you are finished, dismount the Azure File share using the following command**.
+
+    ```
+    net use <desired-drive-letter>: /delete
+    ```
+
+> [!Note]  
+> You can configure the Azure File share to automatically reconnect on reboot by persisting the credentials in Windows. The following command will persist the credentials:
+>   ```
+>   cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>
+>   ```
+
+## See Also
 See these links for more information about Azure File storage.
 
 * [FAQ](storage-files-faq.md)
