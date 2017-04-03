@@ -51,19 +51,19 @@ ms.author: carolz
             <li><a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples.md">PowerShell</a></li>
         </ul>
     </div>
-    <div class="column50" style="max-width: 400px;">
+    <div class="column50" style="max-width: 400px">
         <h2 style="margin-top: 36px">Free Video Training</h2>
         <a href="https://app.pluralsight.com/player?author=tim-warner&name=managing-infrastructure-microsoft-azure-getting-started-m0&mode=live&clip=0&course=managing-infrastructure-microsoft-azure-getting-started">
-        <img src="media/index/video-training-infrastructure.png" width="400" alt="" />
-        <p>Free Pluralsight video training – Managing Infrastructure</a></p>
-        <p></p>
+            <img src="media/index/video-training-infrastructure.png" width="400" alt="" />
+            <p>Free Pluralsight video training – Managing Infrastructure</a></p>
+            <p></p>
         <a href="https://app.pluralsight.com/player?author=tim-warner&name=azure-vms-getting-started-m0&mode=live&clip=0&course=azure-vms-getting-started">
-        <img src="media/index/video-training-vms.png" width="400" alt="" />
-        <p>Free Pluralsight video training – Getting Started with Virtual Machines</a></p>
-        <p></p>
+            <img src="media/index/video-training-vms.png" width="400" alt="" />
+            <p>Free Pluralsight video training – Getting Started with Virtual Machines</a></p>
+            <p></p>
         <a href="https://app.pluralsight.com/player?author=tim-warner&name=azure-iaas-monitoring-management-getting-started-m0&mode=live&clip=0&course=azure-iaas-monitoring-management-getting-started">
-        <img src="media/index/video-training-iaas-monitoring.png" width="400" alt="" />
-        <p>Free Pluralsight video training – Getting Started with IaaS Monitoring</a></p>
+            <img src="media/index/video-training-iaas-monitoring.png" width="400" alt="" />
+            <p>Free Pluralsight video training – Getting Started with IaaS Monitoring</a></p>
     </div>
 </div>
 ---
