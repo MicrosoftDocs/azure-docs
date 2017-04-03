@@ -160,7 +160,6 @@
 ##### [Azure portal](application-proxy-publish-azure-portal.md)
 ##### [Classic portal](active-directory-application-proxy-publish.md)
 
-#### [PingAccess for Azure AD](application-proxy-ping-access.md)
 #### [Security](application-proxy-security-considerations.md)
 #### [Networks](application-proxy-network-topology-considerations.md)
 #### [Remote Desktop](application-proxy-publish-remote-desktop.md)
@@ -173,7 +172,8 @@
 #### [Custom domains](active-directory-application-proxy-custom-domains.md)
 #### [Access apps](active-directory-appssoaccess-whatis.md)
 ##### [Azure portal](application-proxy-sso-azure-portal.md)
-#### [Single sign-on](active-directory-application-proxy-sso-using-kcd.md)
+#### [SSO with KCD](active-directory-application-proxy-sso-using-kcd.md)
+#### [SSO with headers](application-proxy-ping-access.md)
 #### [Claims-aware apps](active-directory-application-proxy-claims-aware-apps.md)
 #### [Native client apps](active-directory-application-proxy-native-client.md)
 #### [Custom home page](application-proxy-office365-app-launcher.md)
