@@ -2,8 +2,8 @@
 ## [About Virtual Machines](overview.md)
 
 # Quickstart
-## [Create VM - Portal](quick-create-portal.md)
 ## [Create VM - Azure CLI](quick-create-cli.md)
+## [Create VM - Portal](quick-create-portal.md)
 ## [Create VM - PowerShell](quick-create-powershell.md)
 
 # Samples
@@ -12,7 +12,7 @@
 
 # Tutorials
 ## [Create and manage a VM](tutorial-manage-vm.md)
-## [Load balance VMs](tutorial-load-balance-nodejs.md)
+## [Load balance highly available VMs](tutorial-load-balance-nodejs.md)
 
 # Concepts
 ## [Azure-endorsed distributions](endorsed-distros.md)

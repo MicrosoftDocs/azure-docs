@@ -250,11 +250,7 @@ Azure virtual machine extensions are used to automate virtual machine configurat
 - Installing IIS
 - Formatting a data disk on the VM
 
-Because the extension runs at VM deployment time, the **install-iis-format-disk.ps1** file needs to be defined before creating the virtual machine. For this tutorial, the file is located in the Azure PowerShell scripts repository. The file contains the following commands:
-
-**Add-WindowsFeature Web-Server**
-
-**Get-Disk | Where partitionstyle -eq 'raw' | Initialize-Disk -PartitionStyle MBR -PassThru | New-Partition -AssignDriveLetter -UseMaximumSize | Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false**
+Because the extension runs at VM deployment time, the **install-iis-format-disk.ps1** file needs to be defined before creating the virtual machine. For this tutorial, the file is located in the Azure PowerShell scripts repository. The file contains the `Add-WindowsFeature Web-Server` command and the `Get-Disk | Where partitionstyle -eq 'raw' | Initialize-Disk -PartitionStyle MBR -PassThru | New-Partition -AssignDriveLetter -UseMaximumSize | Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false**` command.
 
 Add the extension with [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmextension):
 
