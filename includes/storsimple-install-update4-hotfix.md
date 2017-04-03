@@ -22,7 +22,7 @@ Perform the following steps to download the software update from the Microsoft U
 > [!NOTE]
 > The hotfixes must be accessible from both controllers to detect any potential error messages from the peer > controller.
 >
-> The hotfixes must be copied in 3 separate folders. The device software update must be copied in _FirstOrderUpdate_ folder, all the other non-disruptive updates should be copied in the _SecondOrderUpdate_ folder, and maintenance mode updates should be copied in _ThirdOrderUpdate_ folder.
+> The hotfixes must be copied in 3 separate folders. For example, the device software update can be copied in _FirstOrderUpdate_ folder, all the other non-disruptive updates could be copied in the _SecondOrderUpdate_ folder, and maintenance mode updates copied in _ThirdOrderUpdate_ folder.
 
 #### To install and verify regular mode hotfixes
 
