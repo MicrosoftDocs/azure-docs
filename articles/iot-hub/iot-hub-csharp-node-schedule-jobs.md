@@ -71,7 +71,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
         using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Shared;
 
-1. Make sure you see this `using` statement in the default statements. If not, add this:
+1. Add the following `using` statement if not already present in the default statements.
 
         using System.Threading.Tasks;
         
