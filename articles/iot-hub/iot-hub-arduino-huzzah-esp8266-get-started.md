@@ -85,6 +85,7 @@ The following items are optional in case you don’t have a sensor. You also hav
    * **Resource group**: Create a resource group to host the IoT hub, or use an existing one. See [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-portal.md).
    * **Location**: Select the closest location to you where the IoT hub is created.
    * **Pin to dashboard**: Select this option for easy access to your IoT hub from the dashboard.
+
 1. Click **Create**. It could take a few minutes for your IoT hub to be created. You can see progress in the **Notifications** pane.
 
    ![Monitor the IoT hub creation progress in the notification pane](media/iot-hub-arduino-huzzah-esp8266-get-started/5_iot-hub-monitor-creation-progress-notification-pane.png)
@@ -146,6 +147,7 @@ To register a device for Feather HUZZAH ESP8266, follow these steps:
      ```bash
      npm install -g iothub-explorer
      ```
+
 1. Log in to your IoT hub by running the following command:
 
    ```bash
