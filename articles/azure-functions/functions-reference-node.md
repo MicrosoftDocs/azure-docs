@@ -160,11 +160,12 @@ The `request` object has the following properties:
 
 The `response` object has the following properties:
 
-| Property  | Description                                       |
-| --------- | ------------------------------------------------- |
-| _body_    | An object that contains the body of the response. |
-| _headers_ | An object that contains the response headers.     |
-| _status_  | The HTTP status code of the response.             |
+| Property  | Description                                               |
+| --------- | --------------------------------------------------------- |
+| _body_    | An object that contains the body of the response.         |
+| _headers_ | An object that contains the response headers.             |
+| _isRaw_   | Indicates that formatting is skipped for the response.    |
+| _status_  | The HTTP status code of the response.                     |
 
 ### Accessing the request and response 
 
