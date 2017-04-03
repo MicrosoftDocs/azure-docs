@@ -6,7 +6,7 @@ documentationcenter: virtual-machines
 author: neilpeterson
 manager: timlt
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 
 ms.assetid:
 ms.service: virtual-machines-linux
