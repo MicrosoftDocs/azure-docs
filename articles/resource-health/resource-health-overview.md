@@ -28,7 +28,7 @@ A resource is an instance of a resource type offered by an Azure service through
 
 Resource health relies on signals emitted by the different Azure services to assess if a resource is healthy or not. If a resource is unhealthy, resource health analyzes additional information to determine the source of the problem. It also identifies actions Microsoft is taking to fix the issue or what actions you can take to address the cause of the problem. 
 
-Review the full list of resource types and health checks in Azure resource health](resource-health-checks-resource-types.md) for additional details on how health is assessed.
+Review the full list of resource types and health checks in [Azure resource health](resource-health-checks-resource-types.md) for additional details on how health is assessed.
 
 ## Health status provided by resource health
 The health of a resource is one of the following statuses:
