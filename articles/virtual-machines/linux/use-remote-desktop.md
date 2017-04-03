@@ -24,8 +24,8 @@ Linux virtual machines (VMs) in Azure are usually managed from the command line 
 ## Prerequisites
 This article requires an existing Linux VM in Azure. If you need to create a VM, use one of the following methods:
 
-- The [Azure CLI 2.0](../linux/quick-createcli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [Azure CLI 1.0](quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- The [Azure portal](../linux/quick-createportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- The [Azure CLI 2.0](../linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [Azure CLI 1.0](quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- The [Azure portal](../linux/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 You also need to be logged in to an [active Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
