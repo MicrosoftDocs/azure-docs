@@ -69,6 +69,11 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 1. Add the following `using` statements at the top of the **Program.cs** file:
    
         using Microsoft.Azure.Devices;
+        using Microsoft.Azure.Devices.Shared;
+
+1. Make sure you see this `using` statement in the default statements. If not, add this:
+
+        using System.Threading.Tasks;
         
 1. Add the following fields to the **Program** class. Replace the placeholder with the IoT Hub connection string for the hub that you created in the previous section.
    
