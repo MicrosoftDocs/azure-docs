@@ -16,9 +16,9 @@ ms.author: carolz
 
 # Linux Virtual Machines Documentation
 
-Learn how to run Virtual Machines on Azure using the Linux distribution of your choice.
+<p style="padding-bottom: 0px">Learn how to run Virtual Machines on Azure using the Linux distribution of your choice.</p>
 
-<h2 style="padding-top: 0px;">Quickstarts</h2>
+<h2">Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
