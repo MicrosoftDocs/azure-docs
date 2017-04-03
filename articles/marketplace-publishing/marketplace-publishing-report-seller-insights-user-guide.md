@@ -19,7 +19,9 @@ ms.author: v-dabosl
 ---
 # How to use the Microsoft Azure Marketplace Seller Insights Portal
 ##Onboarding
-[!NOTE]Administrators only
+
+[!NOTE]
+Administrators only
 
 ###Overview of roles
 
@@ -37,7 +39,8 @@ Ideally, before logging into the Seller Insights Portal, the Administrator shoul
 
 To activate your service, the Administrator should navigate to the URL listed in the invitation email (https://reports.azure.com)
 
-[!NOTE]NOTE: If the Administrator email is listed as a Microsoft Account and you have not created a Microsoft Account associated with the email address from which you received the invitation, you will need to do so before sign on by navigating to https://signup.live.command, utilizing this email address when creating your Microsoft Account.
+[!NOTE]
+NOTE: If the Administrator email is listed as a Microsoft Account and you have not created a Microsoft Account associated with the email address from which you received the invitation, you will need to do so before sign on by navigating to https://signup.live.command, utilizing this email address when creating your Microsoft Account.
 
 ###Sign in to the Portal
 
@@ -53,7 +56,8 @@ To activate your service, the Administrator should navigate to the URL listed in
 
 Your Administrator should advise you via email that your account has been created, and share the URL for the Seller Insights Portal with you (https://reports.azure.com).
 
-[!NOTE]The administrator is the owner of the account that actually publishes solutions to the Azure Marketplace.  The owner of this account can provide access to others.  
+[!NOTE]
+The administrator is the owner of the account that actually publishes solutions to the Azure Marketplace.  The owner of this account can provide access to others.  
 
 You can log in to the Seller Insights Portal using a personal Microsoft account or using a company account depending upon which account your Administrator has used when setting up your profile.  Your Administrator should advise you which account to use.
 
@@ -236,7 +240,9 @@ D. *Panel D*: this panel provides data relating to each individual subscription.
 
 
 ##User management
-[!NOTE]Administrators only
+
+[!NOTE]
+Administrators only
 
 ###Add user
 
@@ -311,7 +317,8 @@ D. *Panel D*: this panel provides data relating to each individual subscription.
 
 Try to reset your password by using the Self-Service Password Reset wizard following the links below.
 
-[!NOTE]Note: For Organizational accounts setup by Administrator account, if the Admin turned on the capability to let you to reset your own password, you will be able to reset your own password. Otherwise, the password reset form gives you the option to contact your Admin.
+[!NOTE]
+Note: For Organizational accounts setup by Administrator account, if the Admin turned on the capability to let you to reset your own password, you will be able to reset your own password. Otherwise, the password reset form gives you the option to contact your Admin.
 
 ****Microsoft account (Live ID): https://account.live.com/ResetPassword.aspx****
 ![password reset Microsoft account][3]
