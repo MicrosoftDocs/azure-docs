@@ -14,7 +14,7 @@ ms.date: 01/23/2017
 ms.author: carolz
 ---
 
-# Web Apps Documentation
+<h1>Web Apps Documentation</h1>
 <p style="padding-bottom: 0px">Learn how to use App Service Web Apps to build and host websites and web applications.</p>
 
 <h2 style="margin-top: 36px">Quickstarts</h2>
@@ -60,7 +60,7 @@ ms.author: carolz
 <div class="columnHolder">
     <div class="column50">
         <h2 style="margin-top: 36px">Samples</h2>
-        <p>Find scripts manage common tasks.</p>
+        <p>Find scripts to manage common tasks.</p>
         <ul class="spaced">
             <li><a href="/azure/app-service-web/app-service-cli-samples">Azure CLI</a></li>
             <li><a href="/azure/app-service-web/app-service-powershell-samples">PowerShell</a></li>
