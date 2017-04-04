@@ -15,8 +15,8 @@
 ## [PowerShell](app-service-powershell-samples.md)
 
 # Tutorials
-### [ASP.NET with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
-### [Node.js with MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)
+## [ASP.NET with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+## [Node.js with MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)
 
 # Concepts
 ## [How App Service works](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)	
