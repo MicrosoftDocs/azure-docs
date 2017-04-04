@@ -102,8 +102,8 @@ and then click **Create**.
 
 ## Set advanced options for a logic app step
 
-When you add a step to your logic app, clicking **Show advanced options** 
-lets you control how to filter data in that step by adding a filter or order by query.
+In a logic app step, clicking **Show advanced options** 
+to specify how to filter data in that step by adding a filter or order by query.
 
 For example, you can use a filter query to get only active accounts and order by the account name. 
 To perform this task, enter the OData filter query **statuscode eq 1** and select **Account Name** from the dynamic content list. 
@@ -158,16 +158,16 @@ To troubleshoot a failed step in a logic app, view the status details of the eve
 
    The Summary area is shown and provides the run status for the logic app. 
 
-   ![Logic App troubleshoot step 1](./media/connectors-create-api-crmonline/tshoot1.png)
+   ![Logic app run status](./media/connectors-create-api-crmonline/tshoot1.png)
 
 2. To view more information about any failed runs, click the failed event. 
 To expand a failed step, click that step.
 
-   ![Logic App troubleshoot step 2](./media/connectors-create-api-crmonline/tshoot2.png)
+   ![Expand failed step](./media/connectors-create-api-crmonline/tshoot2.png)
 
    The step details appear and can help troubleshoot the cause of the failure.
 
-   ![Logic App troubleshoot step 2](./media/connectors-create-api-crmonline/tshoot3.png)
+   ![Failed step etails](./media/connectors-create-api-crmonline/tshoot3.png)
 
 For more information about troubleshooting logic apps, see 
 [Diagnosing logic app failures](../logic-apps/logic-apps-diagnosing-failures.md).
