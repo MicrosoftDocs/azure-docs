@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2017
+ms.date: 04/04/2017
 ms.author: spelluru
 
 ---
@@ -79,15 +79,15 @@ The **Azure Storage linked service** allows you to link an Azure storage account
 **Example:**  
 
 ```json
-{  
-    "name": "StorageLinkedService",  
-    "properties": {  
-        "type": "AzureStorage",  
-        "typeProperties": {  
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"  
-        }  
-    }  
-}  
+{
+	"name": "StorageLinkedService",
+	"properties": {
+		"type": "AzureStorage",
+		"typeProperties": {
+			"connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+		}
+	}
+}
 ```
 
 #### Azure Storage SAS Linked Service
@@ -129,26 +129,26 @@ For more information about these linked services, see [Azure Blob Storage connec
 
 ```json
 {
-     "name": "AzureBlobInput",
-     "properties": {
-         "type": "AzureBlob",
-         "linkedServiceName": "AzureStorageLinkedService",
-         "typeProperties": {
-             "fileName": "input.log",
-             "folderPath": "adfgetstarted/inputdata",
-             "format": {
-                 "type": "TextFormat",
-                 "columnDelimiter": ","
-             }
-         },
-         "availability": {
-             "frequency": "Month",
-             "interval": 1
-         },
-         "external": true,
-         "policy": {}
-     }
- }
+	"name": "AzureBlobInput",
+	"properties": {
+		"type": "AzureBlob",
+		"linkedServiceName": "AzureStorageLinkedService",
+		"typeProperties": {
+			"fileName": "input.log",
+			"folderPath": "adfgetstarted/inputdata",
+			"format": {
+				"type": "TextFormat",
+				"columnDelimiter": ","
+			}
+		},
+		"availability": {
+			"frequency": "Month",
+			"interval": 1
+		},
+		"external": true,
+		"policy": {}
+	}
+}
  ```
 
 
@@ -163,44 +163,38 @@ For more information, see [Azure Blob connector](data-factory-azure-blob-connect
 
 #### Example: BlobSource**
 ```json
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-    "start":"2016-06-01T18:00:00",
-    "end":"2016-06-01T19:00:00",
-    "description":"pipeline with copy activity",
-    "activities":[  
-      {
-        "name": "AzureBlobtoSQL",
-        "description": "Copy Activity",
-        "type": "Copy",
-        "inputs": [
-          {
-            "name": "AzureBlobInput"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "AzureSqlOutput"
-          }
-        ],
-        "typeProperties": {
-          "source": {
-            "type": "BlobSource"
-          },
-          "sink": {
-            "type": "SqlSink"
-          }
-        },
-        "policy": {
-            "concurrency": 1,
-            "executionPriorityOrder": "OldestFirst",
-            "retry": 0,
-            "timeout": "01:00:00"
-        }
-      }
-      ]
-   }
+{
+	"name": "SamplePipeline",
+	"properties": {
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00",
+		"description": "pipeline with copy activity",
+		"activities": [{
+			"name": "AzureBlobtoSQL",
+			"description": "Copy Activity",
+			"type": "Copy",
+			"inputs": [{
+				"name": "AzureBlobInput"
+			}],
+			"outputs": [{
+				"name": "AzureSqlOutput"
+			}],
+			"typeProperties": {
+				"source": {
+					"type": "BlobSource"
+				},
+				"sink": {
+					"type": "SqlSink"
+				}
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "OldestFirst",
+				"retry": 0,
+				"timeout": "01:00:00"
+			}
+		}]
+	}
 }
 ```
 ### BlobSink in Copy Activity
@@ -213,45 +207,39 @@ For more information, see [Azure Blob connector](data-factory-azure-blob-connect
 #### Example: BlobSink
 
 ```json
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-        "start":"2016-06-01T18:00:00",
-        "end":"2016-06-01T19:00:00",
-        "description":"pipeline for copy activity",
-        "activities":[  
-              {
-                "name": "AzureSQLtoBlob",
-                "description": "copy activity",
-                "type": "Copy",
-                "inputs": [
-                  {
-                    "name": "AzureSQLInput"
-                  }
-                ],
-                "outputs": [
-                  {
-                    "name": "AzureBlobOutput"
-                  }
-                ],
-                "typeProperties": {
-                    "source": {
-                        "type": "SqlSource",
-                        "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-                      },
-                      "sink": {
-                        "type": "BlobSink"
-                      }
-                },
-                "policy": {
-                      "concurrency": 1,
-                      "executionPriorityOrder": "OldestFirst",
-                      "retry": 0,
-                      "timeout": "01:00:00"
-                }
-              }
-         ]
-    }
+{
+	"name": "SamplePipeline",
+	"properties": {
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00",
+		"description": "pipeline for copy activity",
+		"activities": [{
+			"name": "AzureSQLtoBlob",
+			"description": "copy activity",
+			"type": "Copy",
+			"inputs": [{
+				"name": "AzureSQLInput"
+			}],
+			"outputs": [{
+				"name": "AzureBlobOutput"
+			}],
+			"typeProperties": {
+				"source": {
+					"type": "SqlSource",
+					"SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+				},
+				"sink": {
+					"type": "BlobSink"
+				}
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "OldestFirst",
+				"retry": 0,
+				"timeout": "01:00:00"
+			}
+		}]
+	}
 }
 ```
 
@@ -301,33 +289,32 @@ The typeProperties section for dataset of type **AzureDataLakeStore** dataset ha
 #### Example
 ```json
 {
-    "name": "AzureDataLakeStoreInput",
-      "properties":
-    {
-        "type": "AzureDataLakeStore",
-        "linkedServiceName": "AzureDataLakeStoreLinkedService",
-        "typeProperties": {
-            "folderPath": "datalake/input/",
-            "fileName": "SearchLog.tsv",
-            "format": {
-                "type": "TextFormat",
-                "rowDelimiter": "\n",
-                "columnDelimiter": "\t"
-            }
-        },
-        "external": true,
-        "availability": {
-            "frequency": "Hour",
-              "interval": 1
-        },
-        "policy": {
-              "externalData": {
-                "retryInterval": "00:01:00",
-                "retryTimeout": "00:10:00",
-                "maximumRetry": 3
-              }
-        }
-      }
+	"name": "AzureDataLakeStoreInput",
+	"properties": {
+		"type": "AzureDataLakeStore",
+		"linkedServiceName": "AzureDataLakeStoreLinkedService",
+		"typeProperties": {
+			"folderPath": "datalake/input/",
+			"fileName": "SearchLog.tsv",
+			"format": {
+				"type": "TextFormat",
+				"rowDelimiter": "\n",
+				"columnDelimiter": "\t"
+			}
+		},
+		"external": true,
+		"availability": {
+			"frequency": "Hour",
+			"interval": 1
+		},
+		"policy": {
+			"externalData": {
+				"retryInterval": "00:01:00",
+				"retryTimeout": "00:10:00",
+				"maximumRetry": 3
+			}
+		}
+	}
 }
 ```
 
@@ -342,45 +329,40 @@ For more information, see [Azure Data Lake Store connector](data-factory-azure-d
 | recursive |Indicates whether the data is read recursively from the sub folders or only from the specified folder. |True (default value), False |No |
 
 #### Example: AzureDataLakeStoreSource
+
 ```json
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-        "start":"2016-06-01T18:00:00",
-        "end":"2016-06-01T19:00:00",
-        "description":"pipeline for copy activity",
-        "activities":[  
-              {
-                "name": "AzureDakeLaketoBlob",
-                "description": "copy activity",
-                "type": "Copy",
-                "inputs": [
-                  {
-                    "name": "AzureDataLakeStoreInput"
-                  }
-                ],
-                "outputs": [
-                  {
-                    "name": "AzureBlobOutput"
-                  }
-                ],
-                "typeProperties": {
-                    "source": {
-                        "type": "AzureDataLakeStoreSource",
-                      },
-                      "sink": {
-                        "type": "BlobSink"
-                      }
-                },
-                "policy": {
-                      "concurrency": 1,
-                      "executionPriorityOrder": "OldestFirst",
-                      "retry": 0,
-                      "timeout": "01:00:00"
-                }
-              }
-         ]
-    }
+{
+	"name": "SamplePipeline",
+	"properties": {
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00",
+		"description": "pipeline for copy activity",
+		"activities": [{
+			"name": "AzureDakeLaketoBlob",
+			"description": "copy activity",
+			"type": "Copy",
+			"inputs": [{
+				"name": "AzureDataLakeStoreInput"
+			}],
+			"outputs": [{
+				"name": "AzureBlobOutput"
+			}],
+			"typeProperties": {
+				"source": {
+					"type": "AzureDataLakeStoreSource"
+				},
+				"sink": {
+					"type": "BlobSink"
+				}
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "OldestFirst",
+				"retry": 0,
+				"timeout": "01:00:00"
+			}
+		}]
+	}
 }
 ```
 ### Azure Data Lake Store Sink in Copy Activity
@@ -393,50 +375,42 @@ For more information, see [Azure Data Lake Store connector](data-factory-azure-d
 
 #### Example: AzureDataLakeStoreSink
 ```json
-{  
-    "name":"SamplePipeline",
-    "properties":
-    {  
-        "start":"2016-06-01T18:00:00",
-        "end":"2016-06-01T19:00:00",
-        "description":"pipeline with copy activity",
-        "activities":
-        [  
-              {
-                "name": "AzureBlobtoDataLake",
-                "description": "Copy Activity",
-                "type": "Copy",
-                "inputs": [
-                  {
-                    "name": "AzureBlobInput"
-                  }
-                ],
-                "outputs": [
-                  {
-                    "name": "AzureDataLakeStoreOutput"
-                  }
-                ],
-                "typeProperties": {
-                    "source": {
-                        "type": "BlobSource"
-                      },
-                      "sink": {
-                        "type": "AzureDataLakeStoreSink"
-                      }
-                },
-                   "scheduler": {
-                      "frequency": "Hour",
-                      "interval": 1
-                },
-                "policy": {
-                      "concurrency": 1,
-                      "executionPriorityOrder": "OldestFirst",
-                      "retry": 0,
-                      "timeout": "01:00:00"
-                }
-              }
-        ]
-    }
+{
+	"name": "SamplePipeline",
+	"properties": {
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00",
+		"description": "pipeline with copy activity",
+		"activities": [{
+			"name": "AzureBlobtoDataLake",
+			"description": "Copy Activity",
+			"type": "Copy",
+			"inputs": [{
+				"name": "AzureBlobInput"
+			}],
+			"outputs": [{
+				"name": "AzureDataLakeStoreOutput"
+			}],
+			"typeProperties": {
+				"source": {
+					"type": "BlobSource"
+				},
+				"sink": {
+					"type": "AzureDataLakeStoreSink"
+				}
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "OldestFirst",
+				"retry": 0,
+				"timeout": "01:00:00"
+			}
+		}]
+	}
 }
 ```
 
@@ -454,15 +428,15 @@ The following table provides description for JSON elements specific to Azure Doc
 
 #### Example
 
-```JSON
+```json
 {
-  "name": "DocumentDbLinkedService",
-  "properties": {
-    "type": "DocumentDb",
-    "typeProperties": {
-      "connectionString": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
-    }
-  }
+	"name": "DocumentDbLinkedService",
+	"properties": {
+		"type": "DocumentDb",
+		"typeProperties": {
+			"connectionString": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
+		}
+	}
 }
 ```
 For more information, see [DocumentDB connector](data-factory-azure-documentdb-connector.md#linked-service-properties) article.
@@ -476,21 +450,21 @@ The typeProperties section for the dataset of type **DocumentDbCollection** has 
 
 #### Example
 
-```JSON
+```json
 {
-  "name": "PersonDocumentDbTable",
-  "properties": {
-    "type": "DocumentDbCollection",
-    "linkedServiceName": "DocumentDbLinkedService",
-    "typeProperties": {
-      "collectionName": "Person"
-    },
-    "external": true,
-    "availability": {
-      "frequency": "Day",
-      "interval": 1
-    }
-  }
+	"name": "PersonDocumentDbTable",
+	"properties": {
+		"type": "DocumentDbCollection",
+		"linkedServiceName": "DocumentDbLinkedService",
+		"typeProperties": {
+			"collectionName": "Person"
+		},
+		"external": true,
+		"availability": {
+			"frequency": "Day",
+			"interval": 1
+		}
+	}
 }
 ```
 For more information, see [DocumentDB connector](data-factory-azure-documentdb-connector.md#dataset-properties) article.
@@ -505,45 +479,39 @@ The following properties are available in **typeProperties** section when the so
 
 #### Example
 
-```JSON
+```json
 {
-  "name": "DocDbToBlobPipeline",
-  "properties": {
-    "activities": [
-      {
-        "type": "Copy",
-        "typeProperties": {
-          "source": {
-            "type": "DocumentDbCollectionSource",
-            "query": "SELECT Person.Id, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person",
-            "nestingSeparator": "."
-          },
-          "sink": {
-            "type": "BlobSink",
-            "blobWriterAddHeader": true,
-            "writeBatchSize": 1000,
-            "writeBatchTimeout": "00:00:59"
-          }
-        },
-        "inputs": [
-          {
-            "name": "PersonDocumentDbTable"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "PersonBlobTableOut"
-          }
-        ],
-        "policy": {
-          "concurrency": 1
-        },
-        "name": "CopyFromDocDbToBlob"
-      }
-    ],
-    "start": "2016-04-01T00:00:00",
-    "end": "2016-04-02T00:00:00"
-  }
+	"name": "DocDbToBlobPipeline",
+	"properties": {
+		"activities": [{
+			"type": "Copy",
+			"typeProperties": {
+				"source": {
+					"type": "DocumentDbCollectionSource",
+					"query": "SELECT Person.Id, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person",
+					"nestingSeparator": "."
+				},
+				"sink": {
+					"type": "BlobSink",
+					"blobWriterAddHeader": true,
+					"writeBatchSize": 1000,
+					"writeBatchTimeout": "00:00:59"
+				}
+			},
+			"inputs": [{
+				"name": "PersonDocumentDbTable"
+			}],
+			"outputs": [{
+				"name": "PersonBlobTableOut"
+			}],
+			"policy": {
+				"concurrency": 1
+			},
+			"name": "CopyFromDocDbToBlob"
+		}],
+		"start": "2016-04-01T00:00:00",
+		"end": "2016-04-02T00:00:00"
+	}
 }
 ```
 
@@ -558,47 +526,41 @@ The following properties are available in **typeProperties** section when the so
 
 #### Example
 
-```JSON
+```json
 {
-  "name": "BlobToDocDbPipeline",
-  "properties": {
-    "activities": [
-      {
-        "type": "Copy",
-        "typeProperties": {
-          "source": {
-            "type": "BlobSource"
-          },
-          "sink": {
-            "type": "DocumentDbCollectionSink",
-            "nestingSeparator": ".",
-            "writeBatchSize": 2,
-            "writeBatchTimeout": "00:00:00"
-          }
-          "translator": {
-              "type": "TabularTranslator",
-              "ColumnMappings": "FirstName: Name.First, MiddleName: Name.Middle, LastName: Name.Last, BusinessEntityID: BusinessEntityID, PersonType: PersonType, NameStyle: NameStyle, Title: Title, Suffix: Suffix, EmailPromotion: EmailPromotion, rowguid: rowguid, ModifiedDate: ModifiedDate"
-          }
-        },
-        "inputs": [
-          {
-            "name": "PersonBlobTableIn"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "PersonDocumentDbTableOut"
-          }
-        ],
-        "policy": {
-          "concurrency": 1
-        },
-        "name": "CopyFromBlobToDocDb"
-      }
-    ],
-    "start": "2016-04-14T00:00:00",
-    "end": "2016-04-15T00:00:00"
-  }
+	"name": "BlobToDocDbPipeline",
+	"properties": {
+		"activities": [{
+			"type": "Copy",
+			"typeProperties": {
+				"source": {
+					"type": "BlobSource"
+				},
+				"sink": {
+					"type": "DocumentDbCollectionSink",
+					"nestingSeparator": ".",
+					"writeBatchSize": 2,
+					"writeBatchTimeout": "00:00:00"
+				},
+				"translator": {
+					"type": "TabularTranslator",
+					"ColumnMappings": "FirstName: Name.First, MiddleName: Name.Middle, LastName: Name.Last, BusinessEntityID: BusinessEntityID, PersonType: PersonType, NameStyle: NameStyle, Title: Title, Suffix: Suffix"
+				}
+			},
+			"inputs": [{
+				"name": "PersonBlobTableIn"
+			}],
+			"outputs": [{
+				"name": "PersonDocumentDbTableOut"
+			}],
+			"policy": {
+				"concurrency": 1
+			},
+			"name": "CopyFromBlobToDocDb"
+		}],
+		"start": "2016-04-14T00:00:00",
+		"end": "2016-04-15T00:00:00"
+	}
 }
 ```
 
@@ -617,13 +579,13 @@ An Azure SQL linked service links an Azure SQL database to your data factory. Th
 #### Example
 ```json
 {
-  "name": "AzureSqlLinkedService",
-  "properties": {
-    "type": "AzureSqlDatabase",
-    "typeProperties": {
-      "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-    }
-  }
+	"name": "AzureSqlLinkedService",
+	"properties": {
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+		}
+	}
 }
 ```
 
@@ -640,26 +602,26 @@ For more information, see [Azure SQL connector](data-factory-azure-sql-connector
 
 ```json
 {
-  "name": "AzureSqlInput",
-  "properties": {
-    "type": "AzureSqlTable",
-    "linkedServiceName": "AzureSqlLinkedService",
-    "typeProperties": {
-      "tableName": "MyTable"
-    },
-    "external": true,
-    "availability": {
-      "frequency": "Hour",
-      "interval": 1
-    },
-    "policy": {
-      "externalData": {
-        "retryInterval": "00:01:00",
-        "retryTimeout": "00:10:00",
-        "maximumRetry": 3
-      }
-    }
-  }
+	"name": "AzureSqlInput",
+	"properties": {
+		"type": "AzureSqlTable",
+		"linkedServiceName": "AzureSqlLinkedService",
+		"typeProperties": {
+			"tableName": "MyTable"
+		},
+		"external": true,
+		"availability": {
+			"frequency": "Hour",
+			"interval": 1
+		},
+		"policy": {
+			"externalData": {
+				"retryInterval": "00:01:00",
+				"retryTimeout": "00:10:00",
+				"maximumRetry": 3
+			}
+		}
+	}
 }
 ```
 For more information, see [Azure SQL connector](data-factory-azure-sql-connector.md#dataset-properties) article. 
@@ -676,49 +638,43 @@ In copy activity, when the source is of type **SqlSource**, the following proper
 #### Example
 
 ```json
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-    "start":"2016-06-01T18:00:00",
-    "end":"2016-06-01T19:00:00",
-    "description":"pipeline for copy activity",
-    "activities":[  
-      {
-        "name": "AzureSQLtoBlob",
-        "description": "copy activity",
-        "type": "Copy",
-        "inputs": [
-          {
-            "name": "AzureSQLInput"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "AzureBlobOutput"
-          }
-        ],
-        "typeProperties": {
-          "source": {
-            "type": "SqlSource",
-            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-          },
-          "sink": {
-            "type": "BlobSink"
-          }
-        },
-       "scheduler": {
-          "frequency": "Hour",
-          "interval": 1
-        },
-        "policy": {
-          "concurrency": 1,
-          "executionPriorityOrder": "OldestFirst",
-          "retry": 0,
-          "timeout": "01:00:00"
-        }
-      }
-     ]
-   }
+{
+	"name": "SamplePipeline",
+	"properties": {
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00",
+		"description": "pipeline for copy activity",
+		"activities": [{
+			"name": "AzureSQLtoBlob",
+			"description": "copy activity",
+			"type": "Copy",
+			"inputs": [{
+				"name": "AzureSQLInput"
+			}],
+			"outputs": [{
+				"name": "AzureBlobOutput"
+			}],
+			"typeProperties": {
+				"source": {
+					"type": "SqlSource",
+					"SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+				},
+				"sink": {
+					"type": "BlobSink"
+				}
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "OldestFirst",
+				"retry": 0,
+				"timeout": "01:00:00"
+			}
+		}]
+	}
 }
 ```
 For more information, see [Azure SQL connector](data-factory-azure-sql-connector.md#copy-activity-properties) article. 
@@ -739,49 +695,43 @@ In copy activity, when the sink is of type **SqlSink**, the following properties
 #### Example
 
 ```json
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-    "start":"2016-06-01T18:00:00",
-    "end":"2016-06-01T19:00:00",
-    "description":"pipeline with copy activity",
-    "activities":[  
-      {
-        "name": "AzureBlobtoSQL",
-        "description": "Copy Activity",
-        "type": "Copy",
-        "inputs": [
-          {
-            "name": "AzureBlobInput"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "AzureSqlOutput"
-          }
-        ],
-        "typeProperties": {
-          "source": {
-            "type": "BlobSource",
-            "blobColumnSeparators": ","
-          },
-          "sink": {
-            "type": "SqlSink"
-          }
-        },
-       "scheduler": {
-          "frequency": "Hour",
-          "interval": 1
-        },
-        "policy": {
-          "concurrency": 1,
-          "executionPriorityOrder": "OldestFirst",
-          "retry": 0,
-          "timeout": "01:00:00"
-        }
-      }
-      ]
-   }
+{
+	"name": "SamplePipeline",
+	"properties": {
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00",
+		"description": "pipeline with copy activity",
+		"activities": [{
+			"name": "AzureBlobtoSQL",
+			"description": "Copy Activity",
+			"type": "Copy",
+			"inputs": [{
+				"name": "AzureBlobInput"
+			}],
+			"outputs": [{
+				"name": "AzureSqlOutput"
+			}],
+			"typeProperties": {
+				"source": {
+					"type": "BlobSource",
+					"blobColumnSeparators": ","
+				},
+				"sink": {
+					"type": "SqlSink"
+				}
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "OldestFirst",
+				"retry": 0,
+				"timeout": "01:00:00"
+			}
+		}]
+	}
 }
 ```
 
@@ -803,13 +753,13 @@ The following table provides description for JSON elements specific to Azure SQL
 
 ```json
 {
-  "name": "AzureSqlDWLinkedService",
-  "properties": {
-    "type": "AzureSqlDW",
-    "typeProperties": {
-      "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-    }
-  }
+	"name": "AzureSqlDWLinkedService",
+	"properties": {
+		"type": "AzureSqlDW",
+		"typeProperties": {
+			"connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+		}
+	}
 }
 ```
 
@@ -826,26 +776,26 @@ The **typeProperties** section for the dataset of type **AzureSqlDWTable** has t
 
 ```json
 {
-  "name": "AzureSqlDWInput",
-  "properties": {
-    "type": "AzureSqlDWTable",
-    "linkedServiceName": "AzureSqlDWLinkedService",
-    "typeProperties": {
-      "tableName": "MyTable"
-    },
-    "external": true,
-    "availability": {
-      "frequency": "Hour",
-      "interval": 1
-    },
-    "policy": {
-      "externalData": {
-        "retryInterval": "00:01:00",
-        "retryTimeout": "00:10:00",
-        "maximumRetry": 3
-      }
-    }
-  }
+	"name": "AzureSqlDWInput",
+	"properties": {
+		"type": "AzureSqlDWTable",
+		"linkedServiceName": "AzureSqlDWLinkedService",
+		"typeProperties": {
+			"tableName": "MyTable"
+		},
+		"external": true,
+		"availability": {
+			"frequency": "Hour",
+			"interval": 1
+		},
+		"policy": {
+			"externalData": {
+				"retryInterval": "00:01:00",
+				"retryTimeout": "00:10:00",
+				"maximumRetry": 3
+			}
+		}
+	}
 }
 ```
 
@@ -863,49 +813,43 @@ When source is of type **SqlDWSource**, the following properties are available i
 #### Example
 
 ```json
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-    "start":"2016-06-01T18:00:00",
-    "end":"2016-06-01T19:00:00",
-    "description":"pipeline for copy activity",
-    "activities":[  
-      {
-        "name": "AzureSQLDWtoBlob",
-        "description": "copy activity",
-        "type": "Copy",
-        "inputs": [
-          {
-            "name": "AzureSqlDWInput"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "AzureBlobOutput"
-          }
-        ],
-        "typeProperties": {
-          "source": {
-            "type": "SqlDWSource",
-            "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-          },
-          "sink": {
-            "type": "BlobSink"
-          }
-        },
-       "scheduler": {
-          "frequency": "Hour",
-          "interval": 1
-        },
-        "policy": {
-          "concurrency": 1,
-          "executionPriorityOrder": "OldestFirst",
-          "retry": 0,
-          "timeout": "01:00:00"
-        }
-      }
-     ]
-   }
+{
+	"name": "SamplePipeline",
+	"properties": {
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00",
+		"description": "pipeline for copy activity",
+		"activities": [{
+			"name": "AzureSQLDWtoBlob",
+			"description": "copy activity",
+			"type": "Copy",
+			"inputs": [{
+				"name": "AzureSqlDWInput"
+			}],
+			"outputs": [{
+				"name": "AzureBlobOutput"
+			}],
+			"typeProperties": {
+				"source": {
+					"type": "SqlDWSource",
+					"sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+				},
+				"sink": {
+					"type": "BlobSink"
+				}
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "OldestFirst",
+				"retry": 0,
+				"timeout": "01:00:00"
+			}
+		}]
+	}
 }
 ```
 
@@ -929,50 +873,44 @@ When sink is of type **SqlDWSink**, the following properties are available in **
 #### Example
 
 ```json
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-    "start":"2016-06-01T18:00:00",
-    "end":"2016-06-01T19:00:00",
-    "description":"pipeline with copy activity",
-    "activities":[  
-      {
-        "name": "AzureBlobtoSQLDW",
-        "description": "Copy Activity",
-        "type": "Copy",
-        "inputs": [
-          {
-            "name": "AzureBlobInput"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "AzureSqlDWOutput"
-          }
-        ],
-        "typeProperties": {
-          "source": {
-            "type": "BlobSource",
-            "blobColumnSeparators": ","
-          },
-          "sink": {
-            "type": "SqlDWSink",
-            "allowPolyBase": true
-          }
-        },
-       "scheduler": {
-          "frequency": "Hour",
-          "interval": 1
-        },
-        "policy": {
-          "concurrency": 1,
-          "executionPriorityOrder": "OldestFirst",
-          "retry": 0,
-          "timeout": "01:00:00"
-        }
-      }
-      ]
-   }
+{
+	"name": "SamplePipeline",
+	"properties": {
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00",
+		"description": "pipeline with copy activity",
+		"activities": [{
+			"name": "AzureBlobtoSQLDW",
+			"description": "Copy Activity",
+			"type": "Copy",
+			"inputs": [{
+				"name": "AzureBlobInput"
+			}],
+			"outputs": [{
+				"name": "AzureSqlDWOutput"
+			}],
+			"typeProperties": {
+				"source": {
+					"type": "BlobSource",
+					"blobColumnSeparators": ","
+				},
+				"sink": {
+					"type": "SqlDWSink",
+					"allowPolyBase": true
+				}
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "OldestFirst",
+				"retry": 0,
+				"timeout": "01:00:00"
+			}
+		}]
+	}
 }
 ```
 
@@ -995,7 +933,7 @@ The following table provides descriptions for JSON elements that are specific to
 {
 	"name": "AzureSearchLinkedService",
 	"properties": {
-	"type": "AzureSearch",
+		"type": "AzureSearch",
 		"typeProperties": {
 			"url": "https://<service>.search.windows.net",
 			"key": "<AdminKey>"
@@ -1022,8 +960,8 @@ The typeProperties section for a dataset of the type **AzureSearchIndex** has th
 	"properties": {
 		"type": "AzureSearchIndex",
 		"linkedServiceName": "AzureSearchLinkedService",
-		"typeProperties" : {
-			"indexName": "products",
+		"typeProperties": {
+			"indexName": "products"
 		},
 		"availability": {
 			"frequency": "Minute",
@@ -1046,49 +984,43 @@ For Copy Activity, when the sink is of the type **AzureSearchIndexSink**, the fo
 #### Example
 
 ```json
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-    "start":"2016-06-01T18:00:00",
-    "end":"2016-06-01T19:00:00",
-    "description":"pipeline for copy activity",
-    "activities":[  
-      {
-        "name": "SqlServertoAzureSearchIndex",
-        "description": "copy activity",
-        "type": "Copy",
-        "inputs": [
-          {
-            "name": " SqlServerInput"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "AzureSearchIndexDataset"
-          }
-        ],
-        "typeProperties": {
-          "source": {
-            "type": "SqlSource",
-            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-          },
-          "sink": {
-            "type": "AzureSearchIndexSink"
-          }
-        },
-       "scheduler": {
-          "frequency": "Hour",
-          "interval": 1
-        },
-        "policy": {
-          "concurrency": 1,
-          "executionPriorityOrder": "OldestFirst",
-          "retry": 0,
-          "timeout": "01:00:00"
-        }
-      }
-     ]
-   }
+{
+	"name": "SamplePipeline",
+	"properties": {
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00",
+		"description": "pipeline for copy activity",
+		"activities": [{
+			"name": "SqlServertoAzureSearchIndex",
+			"description": "copy activity",
+			"type": "Copy",
+			"inputs": [{
+				"name": " SqlServerInput"
+			}],
+			"outputs": [{
+				"name": "AzureSearchIndexDataset"
+			}],
+			"typeProperties": {
+				"source": {
+					"type": "SqlSource",
+					"SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+				},
+				"sink": {
+					"type": "AzureSearchIndexSink"
+				}
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "OldestFirst",
+				"retry": 0,
+				"timeout": "01:00:00"
+			}
+		}]
+	}
 }
 ```
 
@@ -1156,26 +1088,26 @@ The **typeProperties** section for the dataset of type **AzureTable** has the fo
 
 ```json
 {
-  "name": "AzureTableInput",
-  "properties": {
-    "type": "AzureTable",
-    "linkedServiceName": "StorageLinkedService",
-    "typeProperties": {
-      "tableName": "MyTable"
-    },
-    "external": true,
-    "availability": {
-      "frequency": "Hour",
-      "interval": 1
-    },
-    "policy": {
-      "externalData": {
-        "retryInterval": "00:01:00",
-        "retryTimeout": "00:10:00",
-        "maximumRetry": 3
-      }
-    }
-  }
+	"name": "AzureTableInput",
+	"properties": {
+		"type": "AzureTable",
+		"linkedServiceName": "StorageLinkedService",
+		"typeProperties": {
+			"tableName": "MyTable"
+		},
+		"external": true,
+		"availability": {
+			"frequency": "Hour",
+			"interval": 1
+		},
+		"policy": {
+			"externalData": {
+				"retryInterval": "00:01:00",
+				"retryTimeout": "00:10:00",
+				"maximumRetry": 3
+			}
+		}
+	}
 }
 ```
 
@@ -1192,49 +1124,43 @@ For more information about these linked services, see [Azure Table Storage conne
 #### Example
 
 ```json
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-        "start":"2016-06-01T18:00:00",
-        "end":"2016-06-01T19:00:00",
-        "description":"pipeline for copy activity",
-        "activities":[  
-            {
-                "name": "AzureTabletoBlob",
-                "description": "copy activity",
-                "type": "Copy",
-                "inputs": [
-                      {
-                        "name": "AzureTableInput"
-                    }
-                ],
-                "outputs": [
-                      {
-                            "name": "AzureBlobOutput"
-                      }
-                ],
-                "typeProperties": {
-                      "source": {
-                        "type": "AzureTableSource",
-                        "AzureTableSourceQuery": "PartitionKey eq 'DefaultPartitionKey'"
-                      },
-                      "sink": {
-                        "type": "BlobSink"
-                      }
-                },
-                "scheduler": {
-                      "frequency": "Hour",
-                      "interval": 1
-                },                
-                "policy": {
-                      "concurrency": 1,
-                      "executionPriorityOrder": "OldestFirst",
-                      "retry": 0,
-                      "timeout": "01:00:00"
-                }
-            }
-         ]    
-    }
+{
+	"name": "SamplePipeline",
+	"properties": {
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00",
+		"description": "pipeline for copy activity",
+		"activities": [{
+			"name": "AzureTabletoBlob",
+			"description": "copy activity",
+			"type": "Copy",
+			"inputs": [{
+				"name": "AzureTableInput"
+			}],
+			"outputs": [{
+				"name": "AzureBlobOutput"
+			}],
+			"typeProperties": {
+				"source": {
+					"type": "AzureTableSource",
+					"AzureTableSourceQuery": "PartitionKey eq 'DefaultPartitionKey'"
+				},
+				"sink": {
+					"type": "BlobSink"
+				}
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "OldestFirst",
+				"retry": 0,
+				"timeout": "01:00:00"
+			}
+		}]
+	}
 }
 ```
 
@@ -1255,50 +1181,44 @@ For more information about these linked services, see [Azure Table Storage conne
 #### Example
 
 ```json
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-    "start":"2016-06-01T18:00:00",
-    "end":"2016-06-01T19:00:00",
-    "description":"pipeline with copy activity",
-    "activities":[  
-      {
-        "name": "AzureBlobtoTable",
-        "description": "Copy Activity",
-        "type": "Copy",
-        "inputs": [
-          {
-            "name": "AzureBlobInput"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "AzureTableOutput"
-          }
-        ],
-        "typeProperties": {
-          "source": {
-            "type": "BlobSource"
-          },
-          "sink": {
-            "type": "AzureTableSink",
-            "writeBatchSize": 100,
-            "writeBatchTimeout": "01:00:00"
-          }
-        },
-        "scheduler": {
-          "frequency": "Hour",
-          "interval": 1
-        },                        
-        "policy": {
-          "concurrency": 1,
-          "executionPriorityOrder": "OldestFirst",
-          "retry": 0,
-          "timeout": "01:00:00"
-        }
-      }
-      ]
-   }
+{
+	"name": "SamplePipeline",
+	"properties": {
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00",
+		"description": "pipeline with copy activity",
+		"activities": [{
+			"name": "AzureBlobtoTable",
+			"description": "Copy Activity",
+			"type": "Copy",
+			"inputs": [{
+				"name": "AzureBlobInput"
+			}],
+			"outputs": [{
+				"name": "AzureTableOutput"
+			}],
+			"typeProperties": {
+				"source": {
+					"type": "BlobSource"
+				},
+				"sink": {
+					"type": "AzureTableSink",
+					"writeBatchSize": 100,
+					"writeBatchTimeout": "01:00:00"
+				}
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "OldestFirst",
+				"retry": 0,
+				"timeout": "01:00:00"
+			}
+		}]
+	}
 }
 ```
 For more information about these linked services, see [Azure Table Storage connector](data-factory-azure-table-connector.md#copy-activity-properties) article. 
@@ -1318,21 +1238,20 @@ The following table provides description for JSON elements specific to Amazon Re
 | password |Password for the user account. |Yes |
 
 #### Example
+
 ```json
 {
-    "name": "AmazonRedshiftLinkedService",
-    "properties":
-    {
-        "type": "AmazonRedshift",
-        "typeProperties":
-        {
-            "server": "< The IP address or host name of the Amazon Redshift server >",
-            "port": <The number of the TCP port that the Amazon Redshift server uses to listen for client connections.>,
-            "database": "<The database name of the Amazon Redshift database>",
-            "username": "<username>",
-            "password": "<password>"
-        }
-    }
+	"name": "AmazonRedshiftLinkedService",
+	"properties": {
+		"type": "AmazonRedshift",
+		"typeProperties": {
+			"server": "redshifthost",
+			"port": 5439,
+			"database": "sampledb",
+			"username": "user",
+			"password": "password"
+		}
+	}
 }
 ```
 
@@ -1350,19 +1269,19 @@ The typeProperties section for dataset of type **RelationalTable** (which includ
 
 ```json
 {
-    "name": "AmazonRedshiftInputDataset",
-    "properties": {
-        "type": "RelationalTable",
-        "linkedServiceName": "AmazonRedshiftLinkedService",
-        "typeProperties": {
-            "tableName": "<Table name>"
-        },
-        "availability": {
-            "frequency": "Hour",
-            "interval": 1
-        },
-        "external": true
-    }
+	"name": "AmazonRedshiftInputDataset",
+	"properties": {
+		"type": "RelationalTable",
+		"linkedServiceName": "AmazonRedshiftLinkedService",
+		"typeProperties": {
+			"tableName": "<Table name>"
+		},
+		"availability": {
+			"frequency": "Hour",
+			"interval": 1
+		},
+		"external": true
+	}
 }
 ```
 For more information, see [Amazon Redshift connector](#data-factory-amazon-redshift-connector.md#dataset-properties) article.
@@ -1378,47 +1297,41 @@ When source of copy activity is of type **RelationalSource** (which includes Ama
 
 ```json
 {
-    "name": "CopyAmazonRedshiftToBlob",
-    "properties": {
-        "description": "pipeline for copy activity",
-        "activities": [
-            {
-                "type": "Copy",
-                "typeProperties": {
-                    "source": {
-                        "type": "RelationalSource",
-                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)"
-                    },
-                    "sink": {
-                        "type": "BlobSink",
-                        "writeBatchSize": 0,
-                        "writeBatchTimeout": "00:00:00"
-                    }
-                },
-                "inputs": [
-                    {
-                        "name": "AmazonRedshiftInputDataset"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "AzureBlobOutputDataSet"
-                    }
-                ],
-                "policy": {
-                    "timeout": "01:00:00",
-                    "concurrency": 1
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "name": "AmazonRedshiftToBlob"
-            }
-        ],
-        "start": "2016-06-01T18:00:00",
-        "end": "2016-06-01T19:00:00"
-    }
+	"name": "CopyAmazonRedshiftToBlob",
+	"properties": {
+		"description": "pipeline for copy activity",
+		"activities": [{
+			"type": "Copy",
+			"typeProperties": {
+				"source": {
+					"type": "RelationalSource",
+					"query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)"
+				},
+				"sink": {
+					"type": "BlobSink",
+					"writeBatchSize": 0,
+					"writeBatchTimeout": "00:00:00"
+				}
+			},
+			"inputs": [{
+				"name": "AmazonRedshiftInputDataset"
+			}],
+			"outputs": [{
+				"name": "AzureBlobOutputDataSet"
+			}],
+			"policy": {
+				"timeout": "01:00:00",
+				"concurrency": 1
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"name": "AmazonRedshiftToBlob"
+		}],
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00"
+	}
 }
 ```
 For more information, see [Amazon Redshift connector](#data-factory-amazon-redshift-connector.md#copy-activity-properties) article.
@@ -1469,24 +1382,24 @@ The typeProperties section for dataset of type RelationalTable (which includes D
 #### Example
 ```json
 {
-    "name": "Db2DataSet",
-    "properties": {
-        "type": "RelationalTable",
-        "linkedServiceName": "OnPremDb2LinkedService",
-        "typeProperties": {},
-        "availability": {
-            "frequency": "Hour",
-            "interval": 1
-        },
-        "external": true,
-        "policy": {
-            "externalData": {
-                "retryInterval": "00:01:00",
-                "retryTimeout": "00:10:00",
-                "maximumRetry": 3
-            }
-        }
-    }
+	"name": "Db2DataSet",
+	"properties": {
+		"type": "RelationalTable",
+		"linkedServiceName": "OnPremDb2LinkedService",
+		"typeProperties": {},
+		"availability": {
+			"frequency": "Hour",
+			"interval": 1
+		},
+		"external": true,
+		"policy": {
+			"externalData": {
+				"retryInterval": "00:01:00",
+				"retryTimeout": "00:10:00",
+				"maximumRetry": 3
+			}
+		}
+	}
 }
 ```
 
@@ -1502,45 +1415,39 @@ For Copy Activity, when source is of type **RelationalSource** (which includes D
 #### Example
 ```json
 {
-    "name": "CopyDb2ToBlob",
-    "properties": {
-        "description": "pipeline for copy activity",
-        "activities": [
-            {
-                "type": "Copy",
-                "typeProperties": {
-                    "source": {
-                        "type": "RelationalSource",
-                        "query": "select * from \"Orders\""
-                    },
-                    "sink": {
-                        "type": "BlobSink"
-                    }
-                },
-                "inputs": [
-                    {
-                        "name": "Db2DataSet"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "AzureBlobDb2DataSet"
-                    }
-                ],
-                "policy": {
-                    "timeout": "01:00:00",
-                    "concurrency": 1
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "name": "Db2ToBlob"
-            }
-        ],
-        "start": "2016-06-01T18:00:00",
-        "end": "2016-06-01T19:00:00"
-    }
+	"name": "CopyDb2ToBlob",
+	"properties": {
+		"description": "pipeline for copy activity",
+		"activities": [{
+			"type": "Copy",
+			"typeProperties": {
+				"source": {
+					"type": "RelationalSource",
+					"query": "select * from \"Orders\""
+				},
+				"sink": {
+					"type": "BlobSink"
+				}
+			},
+			"inputs": [{
+				"name": "Db2DataSet"
+			}],
+			"outputs": [{
+				"name": "AzureBlobDb2DataSet"
+			}],
+			"policy": {
+				"timeout": "01:00:00",
+				"concurrency": 1
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"name": "Db2ToBlob"
+		}],
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00"
+	}
 }
 ```
 For more information, see [IBM DB2 connector](#data-factory-onprem-db2-connector.md#copy-activity-properties) article.
@@ -1563,22 +1470,22 @@ The following table provides description for JSON elements specific to MySQL lin
 
 #### Example
 
-```JSON
-    {
-      "name": "OnPremMySqlLinkedService",
-      "properties": {
-        "type": "OnPremisesMySql",
-        "typeProperties": {
-          "server": "<server name>",
-          "database": "<database name>",
-          "schema": "<schema name>",
-          "authenticationType": "<authentication type>",
-          "userName": "<user name>",
-          "password": "<password>",
-          "gatewayName": "<gateway>"
-        }
-      }
-    }
+```json
+{
+	"name": "OnPremMySqlLinkedService",
+	"properties": {
+		"type": "OnPremisesMySql",
+		"typeProperties": {
+			"server": "<server name>",
+			"database": "<database name>",
+			"schema": "<schema name>",
+			"authenticationType": "<authentication type>",
+			"userName": "<user name>",
+			"password": "<password>",
+			"gatewayName": "<gateway>"
+		}
+	}
+}
 ```
 
 For more information, see [MySQL connector](data-factory-onprem-mysql-connector.md#linked-service-properties) article. 
@@ -1592,28 +1499,28 @@ The typeProperties section for dataset of type **RelationalTable** (which includ
 
 #### Example
 
-```JSON
-    {
-        "name": "MySqlDataSet",
-        "properties": {
-            "published": false,
-            "type": "RelationalTable",
-            "linkedServiceName": "OnPremMySqlLinkedService",
-            "typeProperties": {},
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "external": true,
-            "policy": {
-                "externalData": {
-                    "retryInterval": "00:01:00",
-                    "retryTimeout": "00:10:00",
-                    "maximumRetry": 3
-                }
-            }
-        }
-    }
+```json
+{
+	"name": "MySqlDataSet",
+	"properties": {
+		"published": false,
+		"type": "RelationalTable",
+		"linkedServiceName": "OnPremMySqlLinkedService",
+		"typeProperties": {},
+		"availability": {
+			"frequency": "Hour",
+			"interval": 1
+		},
+		"external": true,
+		"policy": {
+			"externalData": {
+				"retryInterval": "00:01:00",
+				"retryTimeout": "00:10:00",
+				"maximumRetry": 3
+			}
+		}
+	}
+}
 ```
 For more information, see [MySQL connector](data-factory-onprem-mysql-connector.md#dataset-properties) article. 
 
@@ -1626,50 +1533,44 @@ When source in copy activity is of type **RelationalSource** (which includes MyS
 
 
 #### Example
-```JSON
-    {
-        "name": "CopyMySqlToBlob",
-        "properties": {
-            "description": "pipeline for copy activity",
-            "activities": [
-                {
-                    "type": "Copy",
-                    "typeProperties": {
-                        "source": {
-                            "type": "RelationalSource",
-                            "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)"
-                        },
-                        "sink": {
-                            "type": "BlobSink",
-                            "writeBatchSize": 0,
-                            "writeBatchTimeout": "00:00:00"
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "MySqlDataSet"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "AzureBlobMySqlDataSet"
-                        }
-                    ],
-                    "policy": {
-                        "timeout": "01:00:00",
-                        "concurrency": 1
-                    },
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
-                    },
-                    "name": "MySqlToBlob"
-                }
-            ],
-            "start": "2016-06-01T18:00:00",
-            "end": "2016-06-01T19:00:00"
-        }
-    }
+```json
+{
+	"name": "CopyMySqlToBlob",
+	"properties": {
+		"description": "pipeline for copy activity",
+		"activities": [{
+			"type": "Copy",
+			"typeProperties": {
+				"source": {
+					"type": "RelationalSource",
+					"query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)"
+				},
+				"sink": {
+					"type": "BlobSink",
+					"writeBatchSize": 0,
+					"writeBatchTimeout": "00:00:00"
+				}
+			},
+			"inputs": [{
+				"name": "MySqlDataSet"
+			}],
+			"outputs": [{
+				"name": "AzureBlobMySqlDataSet"
+			}],
+			"policy": {
+				"timeout": "01:00:00",
+				"concurrency": 1
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"name": "MySqlToBlob"
+		}],
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00"
+	}
+}
 ```
 
 For more information, see [MySQL connector](data-factory-onprem-mysql-connector.md#copy-activity-properties) article. 
@@ -1689,15 +1590,15 @@ The following table provides description for JSON elements specific to Oracle li
 #### Example
 ```json
 {
-    "name": "OnPremisesOracleLinkedService",
-    "properties": {
-        "type": "OnPremisesOracle",
-        "typeProperties": {
-            "driverType": "Microsoft",
-            "connectionString":"Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;",
-            "gatewayName": "<gateway name>"
-        }
-    }
+	"name": "OnPremisesOracleLinkedService",
+	"properties": {
+		"type": "OnPremisesOracle",
+		"typeProperties": {
+			"driverType": "Microsoft",
+			"connectionString": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;",
+			"gatewayName": "<gateway name>"
+		}
+	}
 }
 ```
 
@@ -1714,28 +1615,28 @@ The typeProperties section for the dataset of type **OracleTable** has the follo
 
 ```json
 {
-    "name": "OracleInput",
-    "properties": {
-        "type": "OracleTable",
-        "linkedServiceName": "OnPremisesOracleLinkedService",
-        "typeProperties": {
-            "tableName": "MyTable"
-        },
-        "external": true,
-        "availability": {
-            "offset": "01:00:00",
-            "interval": "1",
-            "anchorDateTime": "2016-02-27T12:00:00",
-            "frequency": "Hour"
-        },
-        "policy": {     
-            "externalData": {        
-                "retryInterval": "00:01:00",    
-                "retryTimeout": "00:10:00",       
-                "maximumRetry": 3       
-            }     
-        }
-    }
+	"name": "OracleInput",
+	"properties": {
+		"type": "OracleTable",
+		"linkedServiceName": "OnPremisesOracleLinkedService",
+		"typeProperties": {
+			"tableName": "MyTable"
+		},
+		"external": true,
+		"availability": {
+			"offset": "01:00:00",
+			"interval": "1",
+			"anchorDateTime": "2016-02-27T12:00:00",
+			"frequency": "Hour"
+		},
+		"policy": {
+			"externalData": {
+				"retryInterval": "00:01:00",
+				"retryTimeout": "00:10:00",
+				"maximumRetry": 3
+			}
+		}
+	}
 }
 ```
 For more information, see [Oracle connector](data-factory-onprem-oracle-connector.md#dataset-properties) article.
@@ -1749,49 +1650,43 @@ In Copy activity, when the source is of type **OracleSource** the following prop
 
 #### Example
 ```json
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-        "start":"2016-06-01T18:00:00",
-        "end":"2016-06-01T19:00:00",
-        "description":"pipeline for copy activity",
-        "activities":[  
-            {
-                "name": "OracletoBlob",
-                "description": "copy activity",
-                "type": "Copy",
-                "inputs": [
-                    {
-                        "name": " OracleInput"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "AzureBlobOutput"
-                    }
-                ],
-                "typeProperties": {
-                    "source": {
-                        "type": "OracleSource",
-                        "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-                    },
-                    "sink": {
-                        "type": "BlobSink"
-                    }
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "policy": {
-                    "concurrency": 1,
-                    "executionPriorityOrder": "OldestFirst",
-                    "retry": 0,
-                    "timeout": "01:00:00"
-                }
-            }
-        ]
-    }
+{
+	"name": "SamplePipeline",
+	"properties": {
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00",
+		"description": "pipeline for copy activity",
+		"activities": [{
+			"name": "OracletoBlob",
+			"description": "copy activity",
+			"type": "Copy",
+			"inputs": [{
+				"name": " OracleInput"
+			}],
+			"outputs": [{
+				"name": "AzureBlobOutput"
+			}],
+			"typeProperties": {
+				"source": {
+					"type": "OracleSource",
+					"oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+				},
+				"sink": {
+					"type": "BlobSink"
+				}
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "OldestFirst",
+				"retry": 0,
+				"timeout": "01:00:00"
+			}
+		}]
+	}
 }
 ```
 
@@ -1809,48 +1704,42 @@ For more information, see [Oracle connector](data-factory-onprem-oracle-connecto
 
 #### Example
 ```json
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-        "start":"2016-06-01T18:00:00",
-        "end":"2016-06-05T19:00:00",
-        "description":"pipeline with copy activity",
-        "activities":[  
-            {
-                "name": "AzureBlobtoOracle",
-                "description": "Copy Activity",
-                "type": "Copy",
-                "inputs": [
-                    {
-                        "name": "AzureBlobInput"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "OracleOutput"
-                    }
-                ],
-                "typeProperties": {
-                    "source": {
-                        "type": "BlobSource"
-                    },
-                    "sink": {
-                        "type": "OracleSink"
-                    }
-                },
-                "scheduler": {
-                    "frequency": "Day",
-                    "interval": 1
-                },
-                "policy": {
-                    "concurrency": 1,
-                    "executionPriorityOrder": "OldestFirst",
-                    "retry": 0,
-                    "timeout": "01:00:00"
-                }
-            }
-        ]
-    }
+{
+	"name": "SamplePipeline",
+	"properties": {
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-05T19:00:00",
+		"description": "pipeline with copy activity",
+		"activities": [{
+			"name": "AzureBlobtoOracle",
+			"description": "Copy Activity",
+			"type": "Copy",
+			"inputs": [{
+				"name": "AzureBlobInput"
+			}],
+			"outputs": [{
+				"name": "OracleOutput"
+			}],
+			"typeProperties": {
+				"source": {
+					"type": "BlobSource"
+				},
+				"sink": {
+					"type": "OracleSink"
+				}
+			},
+			"scheduler": {
+				"frequency": "Day",
+				"interval": 1
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "OldestFirst",
+				"retry": 0,
+				"timeout": "01:00:00"
+			}
+		}]
+	}
 }
 ```
 For more information, see [Oracle connector](data-factory-onprem-oracle-connector.md#copy-activity-properties) article.
@@ -1935,45 +1824,39 @@ When source is of type **RelationalSource** (which includes PostgreSQL), the fol
 
 ```json
 {
-    "name": "CopyPostgreSqlToBlob",
-    "properties": {
-        "description": "pipeline for copy activity",
-        "activities": [
-            {
-                "type": "Copy",
-                "typeProperties": {
-                    "source": {
-                        "type": "RelationalSource",
-                        "query": "select * from \"public\".\"usstates\""
-                    },
-                    "sink": {
-                        "type": "BlobSink"
-                    }
-                },
-                "inputs": [
-                    {
-                        "name": "PostgreSqlDataSet"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "AzureBlobPostgreSqlDataSet"
-                    }
-                ],
-                "policy": {
-                    "timeout": "01:00:00",
-                    "concurrency": 1
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "name": "PostgreSqlToBlob"
-            }
-        ],
-        "start": "2016-06-01T18:00:00",
-        "end": "2016-06-01T19:00:00"
-    }
+	"name": "CopyPostgreSqlToBlob",
+	"properties": {
+		"description": "pipeline for copy activity",
+		"activities": [{
+			"type": "Copy",
+			"typeProperties": {
+				"source": {
+					"type": "RelationalSource",
+					"query": "select * from \"public\".\"usstates\""
+				},
+				"sink": {
+					"type": "BlobSink"
+				}
+			},
+			"inputs": [{
+				"name": "PostgreSqlDataSet"
+			}],
+			"outputs": [{
+				"name": "AzureBlobPostgreSqlDataSet"
+			}],
+			"policy": {
+				"timeout": "01:00:00",
+				"concurrency": 1
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"name": "PostgreSqlToBlob"
+		}],
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00"
+	}
 }
 ```
 
@@ -1999,20 +1882,18 @@ encryptedCredential | The encrypted credential string. | string | No
 
 ```json
 {
-    "name": "SapBwLinkedService",
-    "properties":
-    {
-        "type": "SapBw",
-        "typeProperties":
-        {
-            "server": "<server name>",
-            "systemNumber": "<system number>",
-            "clientId": "<client id>",
-            "username": "<SAP user>",
-            "password": "<Password for SAP user>",
-            "gatewayName": "<gateway name>"
-        }
-    }
+	"name": "SapBwLinkedService",
+	"properties": {
+		"type": "SapBw",
+		"typeProperties": {
+			"server": "<server name>",
+			"systemNumber": "<system number>",
+			"clientId": "<client id>",
+			"username": "<SAP user>",
+			"password": "<Password for SAP user>",
+			"gatewayName": "<gateway name>"
+		}
+	}
 }
 ```
 
@@ -2051,47 +1932,41 @@ When source in copy activity is of type **RelationalSource** (which includes SAP
 
 ```json
 {
-    "name": "CopySapBwToBlob",
-    "properties": {
-        "description": "pipeline for copy activity",
-        "activities": [
-            {
-                "type": "Copy",
-                "typeProperties": {
-                    "source": {
-                        "type": "RelationalSource",
-        				"query": "<MDX query for SAP BW>"
-                    },
-                    "sink": {
-                        "type": "BlobSink",
-                        "writeBatchSize": 0,
-                        "writeBatchTimeout": "00:00:00"
-                    }
-                },
-                "inputs": [
-                    {
-                        "name": "SapBwDataset"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "AzureBlobDataSet"
-                    }
-                ],
-                "policy": {
-                    "timeout": "01:00:00",
-                    "concurrency": 1
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "name": "SapBwToBlob"
-            }
-        ],
-        "start": "2017-03-01T18:00:00",
-        "end": "2017-03-01T19:00:00"
-    }
+	"name": "CopySapBwToBlob",
+	"properties": {
+		"description": "pipeline for copy activity",
+		"activities": [{
+			"type": "Copy",
+			"typeProperties": {
+				"source": {
+					"type": "RelationalSource",
+					"query": "<MDX query for SAP BW>"
+				},
+				"sink": {
+					"type": "BlobSink",
+					"writeBatchSize": 0,
+					"writeBatchTimeout": "00:00:00"
+				}
+			},
+			"inputs": [{
+				"name": "SapBwDataset"
+			}],
+			"outputs": [{
+				"name": "AzureBlobDataSet"
+			}],
+			"policy": {
+				"timeout": "01:00:00",
+				"concurrency": 1
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"name": "SapBwToBlob"
+		}],
+		"start": "2017-03-01T18:00:00",
+		"end": "2017-03-01T19:00:00"
+	}
 }
 ```
 
@@ -2115,19 +1990,17 @@ encryptedCredential | The encrypted credential string. | string | No
 
 ```json
 {
-    "name": "SapHanaLinkedService",
-    "properties":
-    {
-        "type": "SapHana",
-        "typeProperties":
-        {
-            "server": "<server name>",
-            "authenticationType": "<Basic, or Windows>",
-            "username": "<SAP user>",
-            "password": "<Password for SAP user>",
-            "gatewayName": "<gateway name>"
-        }
-    }
+	"name": "SapHanaLinkedService",
+	"properties": {
+		"type": "SapHana",
+		"typeProperties": {
+			"server": "<server name>",
+			"authenticationType": "<Basic, or Windows>",
+			"username": "<SAP user>",
+			"password": "<Password for SAP user>",
+			"gatewayName": "<gateway name>"
+		}
+	}
 }
 
 ```
@@ -2168,47 +2041,41 @@ When source in copy activity is of type **RelationalSource** (which includes SAP
 
 ```json
 {
-    "name": "CopySapHanaToBlob",
-    "properties": {
-        "description": "pipeline for copy activity",
-        "activities": [
-            {
-                "type": "Copy",
-                "typeProperties": {
-                    "source": {
-                        "type": "RelationalSource",
-        				"query": "<SQL Query for HANA>"
-                    },
-                    "sink": {
-                        "type": "BlobSink",
-                        "writeBatchSize": 0,
-                        "writeBatchTimeout": "00:00:00"
-                    }
-                },
-                "inputs": [
-                    {
-                        "name": "SapHanaDataset"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "AzureBlobDataSet"
-                    }
-                ],
-                "policy": {
-                    "timeout": "01:00:00",
-                    "concurrency": 1
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "name": "SapHanaToBlob"
-            }
-        ],
-        "start": "2017-03-01T18:00:00",
-        "end": "2017-03-01T19:00:00"
-    }
+	"name": "CopySapHanaToBlob",
+	"properties": {
+		"description": "pipeline for copy activity",
+		"activities": [{
+			"type": "Copy",
+			"typeProperties": {
+				"source": {
+					"type": "RelationalSource",
+					"query": "<SQL Query for HANA>"
+				},
+				"sink": {
+					"type": "BlobSink",
+					"writeBatchSize": 0,
+					"writeBatchTimeout": "00:00:00"
+				}
+			},
+			"inputs": [{
+				"name": "SapHanaDataset"
+			}],
+			"outputs": [{
+				"name": "AzureBlobDataSet"
+			}],
+			"policy": {
+				"timeout": "01:00:00",
+				"concurrency": 1
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"name": "SapHanaToBlob"
+		}],
+		"start": "2017-03-01T18:00:00",
+		"end": "2017-03-01T19:00:00"
+	}
 }
 ```
 
@@ -2241,15 +2108,14 @@ You can encrypt credentials using the **New-AzureRmDataFactoryEncryptValue** cmd
 
 ```json
 {
-    "name": "MyOnPremisesSQLDB",
-    "properties":
-    {
-        "type": "OnPremisesSqlLinkedService",
-        "typeProperties": {
-            "connectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=False;User ID=<username>;Password=<password>;",
-            "gatewayName": "<gateway name>"
-        }
-    }
+	"name": "MyOnPremisesSQLDB",
+	"properties": {
+		"type": "OnPremisesSqlServer",
+		"typeProperties": {
+			"connectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=False;User ID=<username>;Password=<password>;",
+			"gatewayName": "<gateway name>"
+		}
+	}
 }
 ```
 #### Example: JSON for using Windows Authentication
@@ -2258,17 +2124,16 @@ If username and password are specified, gateway uses them to impersonate the spe
 
 ```json
 {
-     "Name": " MyOnPremisesSQLDB",
-     "Properties":
-     {
-         "type": "OnPremisesSqlLinkedService",
-         "typeProperties": {
-             "ConnectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=True;",
-             "username": "<domain\\username>",
-             "password": "<password>",
-             "gatewayName": "<gateway name>"
-        }
-     }
+	"Name": " MyOnPremisesSQLDB",
+	"Properties": {
+		"type": "OnPremisesSqlServer",
+		"typeProperties": {
+			"ConnectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=True;",
+			"username": "<domain\\username>",
+			"password": "<password>",
+			"gatewayName": "<gateway name>"
+		}
+	}
 }
 ```
 
@@ -2284,26 +2149,26 @@ The **typeProperties** section for the dataset of type **SqlServerTable** has th
 #### Example
 ```json
 {
-  "name": "SqlServerInput",
-  "properties": {
-    "type": "SqlServerTable",
-    "linkedServiceName": "SqlServerLinkedService",
-    "typeProperties": {
-      "tableName": "MyTable"
-    },
-    "external": true,
-    "availability": {
-      "frequency": "Hour",
-      "interval": 1
-    },
-    "policy": {
-      "externalData": {
-        "retryInterval": "00:01:00",
-        "retryTimeout": "00:10:00",
-        "maximumRetry": 3
-      }
-    }
-  }
+	"name": "SqlServerInput",
+	"properties": {
+		"type": "SqlServerTable",
+		"linkedServiceName": "SqlServerLinkedService",
+		"typeProperties": {
+			"tableName": "MyTable"
+		},
+		"external": true,
+		"availability": {
+			"frequency": "Hour",
+			"interval": 1
+		},
+		"policy": {
+			"externalData": {
+				"retryInterval": "00:01:00",
+				"retryTimeout": "00:10:00",
+				"maximumRetry": 3
+			}
+		}
+	}
 }
 ```
 
@@ -2330,49 +2195,43 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 
 #### Example
 ```json
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-    "start":"2016-06-01T18:00:00",
-    "end":"2016-06-01T19:00:00",
-    "description":"pipeline for copy activity",
-    "activities":[  
-      {
-        "name": "SqlServertoBlob",
-        "description": "copy activity",
-        "type": "Copy",
-        "inputs": [
-          {
-            "name": " SqlServerInput"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "AzureBlobOutput"
-          }
-        ],
-        "typeProperties": {
-          "source": {
-            "type": "SqlSource",
-            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-          },
-          "sink": {
-            "type": "BlobSink"
-          }
-        },
-       "scheduler": {
-          "frequency": "Hour",
-          "interval": 1
-        },
-        "policy": {
-          "concurrency": 1,
-          "executionPriorityOrder": "OldestFirst",
-          "retry": 0,
-          "timeout": "01:00:00"
-        }
-      }
-     ]
-   }
+{
+	"name": "SamplePipeline",
+	"properties": {
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00",
+		"description": "pipeline for copy activity",
+		"activities": [{
+			"name": "SqlServertoBlob",
+			"description": "copy activity",
+			"type": "Copy",
+			"inputs": [{
+				"name": " SqlServerInput"
+			}],
+			"outputs": [{
+				"name": "AzureBlobOutput"
+			}],
+			"typeProperties": {
+				"source": {
+					"type": "SqlSource",
+					"SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+				},
+				"sink": {
+					"type": "BlobSink"
+				}
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "OldestFirst",
+				"retry": 0,
+				"timeout": "01:00:00"
+			}
+		}]
+	}
 }
 ```
 
@@ -2399,49 +2258,43 @@ For more information, see [SQL Server connector](data-factory-sqlserver-connecto
 The pipeline contains a Copy Activity that is configured to use these input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **BlobSource** and **sink** type is set to **SqlSink**.
 
 ```json
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-    "start":"2016-06-01T18:00:00",
-    "end":"2016-06-01T19:00:00",
-    "description":"pipeline with copy activity",
-    "activities":[  
-      {
-        "name": "AzureBlobtoSQL",
-        "description": "Copy Activity",
-        "type": "Copy",
-        "inputs": [
-          {
-            "name": "AzureBlobInput"
-          }
-        ],
-        "outputs": [
-          {
-            "name": " SqlServerOutput "
-          }
-        ],
-        "typeProperties": {
-          "source": {
-            "type": "BlobSource",
-            "blobColumnSeparators": ","
-          },
-          "sink": {
-            "type": "SqlSink"
-          }
-        },
-       "scheduler": {
-          "frequency": "Hour",
-          "interval": 1
-        },
-        "policy": {
-          "concurrency": 1,
-          "executionPriorityOrder": "OldestFirst",
-          "retry": 0,
-          "timeout": "01:00:00"
-        }
-      }
-      ]
-   }
+{
+	"name": "SamplePipeline",
+	"properties": {
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00",
+		"description": "pipeline with copy activity",
+		"activities": [{
+			"name": "AzureBlobtoSQL",
+			"description": "Copy Activity",
+			"type": "Copy",
+			"inputs": [{
+				"name": "AzureBlobInput"
+			}],
+			"outputs": [{
+				"name": " SqlServerOutput "
+			}],
+			"typeProperties": {
+				"source": {
+					"type": "BlobSource",
+					"blobColumnSeparators": ","
+				},
+				"sink": {
+					"type": "SqlSink"
+				}
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "OldestFirst",
+				"retry": 0,
+				"timeout": "01:00:00"
+			}
+		}]
+	}
 }
 ```
 
@@ -2464,7 +2317,7 @@ The following table provides description for JSON elements specific to Sybase li
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises Sybase database. |Yes |
 
 #### Example
-```JSON
+```json
 {
     "name": "OnPremSybaseLinkedService",
     "properties": {
@@ -2493,7 +2346,7 @@ The **typeProperties** section for dataset of type **RelationalTable** (which in
 
 #### Example
 
-```JSON
+```json
 {
     "name": "SybaseDataSet",
     "properties": {
@@ -2527,47 +2380,41 @@ When the source is of type **RelationalSource** (which includes Sybase), the fol
 
 #### Example
 
-```JSON
+```json
 {
-    "name": "CopySybaseToBlob",
-    "properties": {
-        "description": "pipeline for copy activity",
-        "activities": [
-            {
-                "type": "Copy",
-                "typeProperties": {
-                    "source": {
-                        "type": "RelationalSource",
-                        "query": "select * from DBA.Orders"
-                    },
-                    "sink": {
-                        "type": "BlobSink"
-                    }
-                },
-                "inputs": [
-                    {
-                        "name": "SybaseDataSet"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "AzureBlobSybaseDataSet"
-                    }
-                ],
-                "policy": {
-                    "timeout": "01:00:00",
-                    "concurrency": 1
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "name": "SybaseToBlob"
-            }
-        ],
-        "start": "2016-06-01T18:00:00",
-        "end": "2016-06-01T19:00:00"
-    }
+	"name": "CopySybaseToBlob",
+	"properties": {
+		"description": "pipeline for copy activity",
+		"activities": [{
+			"type": "Copy",
+			"typeProperties": {
+				"source": {
+					"type": "RelationalSource",
+					"query": "select * from DBA.Orders"
+				},
+				"sink": {
+					"type": "BlobSink"
+				}
+			},
+			"inputs": [{
+				"name": "SybaseDataSet"
+			}],
+			"outputs": [{
+				"name": "AzureBlobSybaseDataSet"
+			}],
+			"policy": {
+				"timeout": "01:00:00",
+				"concurrency": 1
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"name": "SybaseToBlob"
+		}],
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00"
+	}
 }
 ```
 
@@ -2613,26 +2460,25 @@ The **typeProperties** section is different for each type of dataset and provide
 #### Example
 ```json
 {
-    "name": "TeradataDataSet",
-    "properties": {
-        "published": false,
-        "type": "RelationalTable",
-        "linkedServiceName": "OnPremTeradataLinkedService",
-        "typeProperties": {
-        },
-        "availability": {
-            "frequency": "Hour",
-            "interval": 1
-        },
-        "external": true,
-        "policy": {
-            "externalData": {
-                "retryInterval": "00:01:00",
-                "retryTimeout": "00:10:00",
-                "maximumRetry": 3
-            }
-        }
-    }
+	"name": "TeradataDataSet",
+	"properties": {
+		"published": false,
+		"type": "RelationalTable",
+		"linkedServiceName": "OnPremTeradataLinkedService",
+		"typeProperties": {},
+		"availability": {
+			"frequency": "Hour",
+			"interval": 1
+		},
+		"external": true,
+		"policy": {
+			"externalData": {
+				"retryInterval": "00:01:00",
+				"retryTimeout": "00:10:00",
+				"maximumRetry": 3
+			}
+		}
+	}
 }
 ```
 
@@ -2649,48 +2495,42 @@ When the source is of type **RelationalSource** (which includes Teradata), the f
 
 ```json
 {
-    "name": "CopyTeradataToBlob",
-    "properties": {
-        "description": "pipeline for copy activity",
-        "activities": [
-            {
-                "type": "Copy",
-                "typeProperties": {
-                    "source": {
-                        "type": "RelationalSource",
-                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', SliceStart, SliceEnd)"
-                    },
-                    "sink": {
-                        "type": "BlobSink",
-                        "writeBatchSize": 0,
-                        "writeBatchTimeout": "00:00:00"
-                    }
-                },
-                "inputs": [
-                    {
-                        "name": "TeradataDataSet"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "AzureBlobTeradataDataSet"
-                    }
-                ],                    
-                "policy": {
-                    "timeout": "01:00:00",
-                    "concurrency": 1
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "name": "TeradataToBlob"
-            }
-        ],
-        "start": "2016-06-01T18:00:00",
-        "end": "2016-06-01T19:00:00",
-        "isPaused": false
-    }
+	"name": "CopyTeradataToBlob",
+	"properties": {
+		"description": "pipeline for copy activity",
+		"activities": [{
+			"type": "Copy",
+			"typeProperties": {
+				"source": {
+					"type": "RelationalSource",
+					"query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', SliceStart, SliceEnd)"
+				},
+				"sink": {
+					"type": "BlobSink",
+					"writeBatchSize": 0,
+					"writeBatchTimeout": "00:00:00"
+				}
+			},
+			"inputs": [{
+				"name": "TeradataDataSet"
+			}],
+			"outputs": [{
+				"name": "AzureBlobTeradataDataSet"
+			}],
+			"policy": {
+				"timeout": "01:00:00",
+				"concurrency": 1
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"name": "TeradataToBlob"
+		}],
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00",
+		"isPaused": false
+	}
 }
 ```
 
@@ -2718,17 +2558,15 @@ The following table provides description for JSON elements specific to Cassandra
 ```json
 {
 	"name": "CassandraLinkedService",
-	"properties":
-	{
+	"properties": {
 		"type": "OnPremisesCassandra",
-		"typeProperties":
-		{
+		"typeProperties": {
 			"authenticationType": "Basic",
-			"host": "mycassandraserver",
+			"host": "cassandraserver",
 			"port": 9042,
 			"username": "user",
 			"password": "password",
-			"gatewayName": "mygateway"
+			"gatewayName": "onpremgateway"
 		}
 	}
 }
@@ -2748,27 +2586,27 @@ The **typeProperties** section is different for each type of dataset and provide
 
 ```json
 {
-    "name": "CassandraInput",
-    "properties": {
-        "linkedServiceName": "CassandraLinkedService",
-        "type": "CassandraTable",
-        "typeProperties": {
-            "tableName": "mytable",
-            "keySpace": "mykeyspace"
-        },
-        "availability": {
-            "frequency": "Hour",
-            "interval": 1
-        },
-        "external": true,
-        "policy": {
-            "externalData": {
-                "retryInterval": "00:01:00",
-                "retryTimeout": "00:10:00",
-                "maximumRetry": 3
-            }
-        }
-    }
+	"name": "CassandraInput",
+	"properties": {
+		"linkedServiceName": "CassandraLinkedService",
+		"type": "CassandraTable",
+		"typeProperties": {
+			"tableName": "mytable",
+			"keySpace": "mykeyspace"
+		},
+		"availability": {
+			"frequency": "Hour",
+			"interval": 1
+		},
+		"external": true,
+		"policy": {
+			"externalData": {
+				"retryInterval": "00:01:00",
+				"retryTimeout": "00:10:00",
+				"maximumRetry": 3
+			}
+		}
+	}
 }
 ```
 
@@ -2785,50 +2623,44 @@ When source is of type **CassandraSource**, the following properties are availab
 #### Example
   
 ```json
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-        "start":"2016-06-01T18:00:00",
-        "end":"2016-06-01T19:00:00",
-        "description":"pipeline with copy activity",
-        "activities":[  
-        {
-            "name": "CassandraToAzureBlob",
-            "description": "Copy from Cassandra to an Azure blob",
-            "type": "Copy",
-            "inputs": [
-            {
-                "name": "CassandraInput"
-            }
-            ],
-            "outputs": [
-            {
-                "name": "AzureBlobOutput"
-            }
-            ],
-            "typeProperties": {
-                "source": {
-                    "type": "CassandraSource",
-                    "query": "select id, firstname, lastname from mykeyspace.mytable"
+{
+	"name": "SamplePipeline",
+	"properties": {
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00",
+		"description": "pipeline with copy activity",
+		"activities": [{
+			"name": "CassandraToAzureBlob",
+			"description": "Copy from Cassandra to an Azure blob",
+			"type": "Copy",
+			"inputs": [{
+				"name": "CassandraInput"
+			}],
+			"outputs": [{
+				"name": "AzureBlobOutput"
+			}],
+			"typeProperties": {
+				"source": {
+					"type": "CassandraSource",
+					"query": "select id, firstname, lastname from mykeyspace.mytable"
 
-                },
-                "sink": {
-                    "type": "BlobSink"
-                }
-            },
-            "scheduler": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "policy": {
-                "concurrency": 1,
-                "executionPriorityOrder": "OldestFirst",
-                "retry": 0,
-                "timeout": "01:00:00"
-            }
-        }
-        ]    
-    }
+				},
+				"sink": {
+					"type": "BlobSink"
+				}
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "OldestFirst",
+				"retry": 0,
+				"timeout": "01:00:00"
+			}
+		}]
+	}
 }
 ```
 
@@ -2856,22 +2688,20 @@ The following table provides description for JSON elements specific to **OnPremi
 
 ```json
 {
-    "name": "OnPremisesMongoDbLinkedService",
-    "properties":
-    {
-        "type": "OnPremisesMongoDb",
-        "typeProperties":
-        {
-            "authenticationType": "<Basic or Anonymous>",
-            "server": "< The IP address or host name of the MongoDB server >",  
-            "port": "<The number of the TCP port that the MongoDB server uses to listen for client connections.>",
-            "username": "<username>",
-            "password": "<password>",
-           "authSource": "< The database that you want to use to check your credentials for authentication. >",
-            "databaseName": "<database name>",
-            "gatewayName": "<mygateway>"
-        }
-    }
+	"name": "OnPremisesMongoDbLinkedService",
+	"properties": {
+		"type": "OnPremisesMongoDb",
+		"typeProperties": {
+			"authenticationType": "<Basic or Anonymous>",
+			"server": "< The IP address or host name of the MongoDB server >",
+			"port": "<The number of the TCP port that the MongoDB server uses to listen for client connections.>",
+			"username": "<username>",
+			"password": "<password>",
+			"authSource": "< The database that you want to use to check your credentials for authentication. >",
+			"databaseName": "<database name>",
+			"gatewayName": "<onpremgateway>"
+		}
+	}
 }
 ```
 
@@ -2888,19 +2718,19 @@ The **typeProperties** section is different for each type of dataset and provide
 
 ```json
 {
-     "name":  "MongoDbInputDataset",
-    "properties": {
-        "type": "MongoDbCollection",
-        "linkedServiceName": "OnPremisesMongoDbLinkedService",
-        "typeProperties": {
-            "collectionName": "<Collection name>"    
-        },
-        "availability": {
-            "frequency": "Hour",
-            "interval": 1
-        },
-        "external": true
-    }
+	"name": "MongoDbInputDataset",
+	"properties": {
+		"type": "MongoDbCollection",
+		"linkedServiceName": "OnPremisesMongoDbLinkedService",
+		"typeProperties": {
+			"collectionName": "<Collection name>"
+		},
+		"availability": {
+			"frequency": "Hour",
+			"interval": 1
+		},
+		"external": true
+	}
 }
 ```
 
@@ -2917,47 +2747,41 @@ When the source is of type **MongoDbSource**, the following properties are avail
 
 ```json
 {
-    "name": "CopyMongoDBToBlob",
-    "properties": {
-        "description": "pipeline for copy activity",
-        "activities": [
-            {
-                "type": "Copy",
-                "typeProperties": {
-                    "source": {
-                        "type": "MongoDbSource",
-                        "query": "$$Text.Format('select * from  MyTable where LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)"
-                    },
-                    "sink": {
-                        "type": "BlobSink",
-                        "writeBatchSize": 0,
-                        "writeBatchTimeout": "00:00:00"
-                    }
-                },
-                "inputs": [
-                    {
-                        "name": "MongoDbInputDataset"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "AzureBlobOutputDataSet"
-                    }
-                ],
-                "policy": {
-                    "timeout": "01:00:00",
-                    "concurrency": 1
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "name": "MongoDBToAzureBlob"
-            }
-        ],
-        "start": "2016-06-01T18:00:00",
-        "end": "2016-06-01T19:00:00"
-    }
+	"name": "CopyMongoDBToBlob",
+	"properties": {
+		"description": "pipeline for copy activity",
+		"activities": [{
+			"type": "Copy",
+			"typeProperties": {
+				"source": {
+					"type": "MongoDbSource",
+					"query": "select * from  MyTable"
+				},
+				"sink": {
+					"type": "BlobSink",
+					"writeBatchSize": 0,
+					"writeBatchTimeout": "00:00:00"
+				}
+			},
+			"inputs": [{
+				"name": "MongoDbInputDataset"
+			}],
+			"outputs": [{
+				"name": "AzureBlobOutputDataSet"
+			}],
+			"policy": {
+				"timeout": "01:00:00",
+				"concurrency": 1
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"name": "MongoDBToAzureBlob"
+		}],
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00"
+	}
 }
 ```
 
@@ -3086,47 +2910,41 @@ When source in copy activity is of type **FileSystemSource** (which includes Ama
 
 ```json
 {
-    "name": "CopyAmazonS3ToBlob",
-    "properties": {
-        "description": "pipeline for copy activity",
-        "activities": [
-            {
-                "type": "Copy",
-                "typeProperties": {
-                    "source": {
-                        "type": "FileSystemSource",
-                        "recursive": true
-                    },
-                    "sink": {
-                        "type": "BlobSink",
-                        "writeBatchSize": 0,
-                        "writeBatchTimeout": "00:00:00"
-                    }
-                },
-                "inputs": [
-                    {
-                        "name": "AmazonS3InputDataset"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "AzureBlobOutputDataSet"
-                    }
-                ],
-                "policy": {
-                    "timeout": "01:00:00",
-                    "concurrency": 1
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "name": "AmazonS3ToBlob"
-            }
-        ],
-        "start": "2016-08-08T18:00:00",
-        "end": "2016-08-08T19:00:00"
-    }
+	"name": "CopyAmazonS3ToBlob",
+	"properties": {
+		"description": "pipeline for copy activity",
+		"activities": [{
+			"type": "Copy",
+			"typeProperties": {
+				"source": {
+					"type": "FileSystemSource",
+					"recursive": true
+				},
+				"sink": {
+					"type": "BlobSink",
+					"writeBatchSize": 0,
+					"writeBatchTimeout": "00:00:00"
+				}
+			},
+			"inputs": [{
+				"name": "AmazonS3InputDataset"
+			}],
+			"outputs": [{
+				"name": "AzureBlobOutputDataSet"
+			}],
+			"policy": {
+				"timeout": "01:00:00",
+				"concurrency": 1
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"name": "AmazonS3ToBlob"
+		}],
+		"start": "2016-08-08T18:00:00",
+		"end": "2016-08-08T19:00:00"
+	}
 }
 ```
 
@@ -3156,34 +2974,34 @@ You can link an on-premises file system to an Azure data factory with the **On-P
 
 #### Example: Using username and password in plain text
 
-```JSON
+```json
 {
-  "Name": "OnPremisesFileServerLinkedService",
-  "properties": {
-    "type": "OnPremisesFileServer",
-    "typeProperties": {
-      "host": "\\\\Contosogame-Asia",
-      "userid": "Admin",
-      "password": "123456",
-      "gatewayName": "mygateway"
-    }
-  }
+	"Name": "OnPremisesFileServerLinkedService",
+	"properties": {
+		"type": "OnPremisesFileServer",
+		"typeProperties": {
+			"host": "\\\\Contosogame-Asia",
+			"userid": "Admin",
+			"password": "123456",
+			"gatewayName": "onpremgateway"
+		}
+	}
 }
 ```
 
 #### Example: Using encryptedcredential
 
-```JSON
+```json
 {
-  "Name": " OnPremisesFileServerLinkedService ",
-  "properties": {
-    "type": "OnPremisesFileServer",
-    "typeProperties": {
-      "host": "D:\\",
-      "encryptedCredential": "WFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5xxxxxxxxxxxxxxxxx",
-      "gatewayName": "mygateway"
-    }
-  }
+	"Name": " OnPremisesFileServerLinkedService ",
+	"properties": {
+		"type": "OnPremisesFileServer",
+		"typeProperties": {
+			"host": "D:\\",
+			"encryptedCredential": "WFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5xxxxxxxxxxxxxxxxx",
+			"gatewayName": "onpremgateway"
+		}
+	}
 }
 ```
 
@@ -3206,63 +3024,58 @@ The typeProperties section for the dataset of type **FileShare** has the followi
 
 #### Example
 
-```JSON
+```json
 {
-  "name": "OnpremisesFileSystemInput",
-  "properties": {
-    "type": " FileShare",
-    "linkedServiceName": " OnPremisesFileServerLinkedService ",
-    "typeProperties": {
-      "folderPath": "mysharedfolder/yearno={Year}/monthno={Month}/dayno={Day}",
-      "fileName": "{Hour}.csv",
-      "partitionedBy": [
-        {
-          "name": "Year",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "yyyy"
-          }
-        },
-        {
-          "name": "Month",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "MM"
-          }
-        },
-        {
-          "name": "Day",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "dd"
-          }
-        },
-        {
-          "name": "Hour",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "HH"
-          }
-        }
-      ]
-    },
-    "external": true,
-    "availability": {
-      "frequency": "Hour",
-      "interval": 1
-    },
-    "policy": {
-      "externalData": {
-        "retryInterval": "00:01:00",
-        "retryTimeout": "00:10:00",
-        "maximumRetry": 3
-      }
-    }
-  }
+	"name": "OnpremisesFileSystemInput",
+	"properties": {
+		"type": " FileShare",
+		"linkedServiceName": " OnPremisesFileServerLinkedService ",
+		"typeProperties": {
+			"folderPath": "mysharedfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+			"fileName": "{Hour}.csv",
+			"partitionedBy": [{
+				"name": "Year",
+				"value": {
+					"type": "DateTime",
+					"date": "SliceStart",
+					"format": "yyyy"
+				}
+			}, {
+				"name": "Month",
+				"value": {
+					"type": "DateTime",
+					"date": "SliceStart",
+					"format": "MM"
+				}
+			}, {
+				"name": "Day",
+				"value": {
+					"type": "DateTime",
+					"date": "SliceStart",
+					"format": "dd"
+				}
+			}, {
+				"name": "Hour",
+				"value": {
+					"type": "DateTime",
+					"date": "SliceStart",
+					"format": "HH"
+				}
+			}]
+		},
+		"external": true,
+		"availability": {
+			"frequency": "Hour",
+			"interval": 1
+		},
+		"policy": {
+			"externalData": {
+				"retryInterval": "00:01:00",
+				"retryTimeout": "00:10:00",
+				"maximumRetry": 3
+			}
+		}
+	}
 }
 ```
 
@@ -3277,49 +3090,43 @@ For more information, see [File System connector article](data-factory-onprem-fi
 
 #### Example
 
-```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-    "start":"2015-06-01T18:00:00",
-    "end":"2015-06-01T19:00:00",
-    "description":"Pipeline for copy activity",
-    "activities":[  
-      {
-        "name": "OnpremisesFileSystemtoBlob",
-        "description": "copy activity",
-        "type": "Copy",
-        "inputs": [
-          {
-            "name": "OnpremisesFileSystemInput"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "AzureBlobOutput"
-          }
-        ],
-        "typeProperties": {
-          "source": {
-            "type": "FileSystemSource"
-          },
-          "sink": {
-            "type": "BlobSink"
-          }
-        },
-       "scheduler": {
-          "frequency": "Hour",
-          "interval": 1
-        },
-        "policy": {
-          "concurrency": 1,
-          "executionPriorityOrder": "OldestFirst",
-          "retry": 0,
-          "timeout": "01:00:00"
-        }
-      }
-     ]
-   }
+```json
+{
+	"name": "SamplePipeline",
+	"properties": {
+		"start": "2015-06-01T18:00:00",
+		"end": "2015-06-01T19:00:00",
+		"description": "Pipeline for copy activity",
+		"activities": [{
+			"name": "OnpremisesFileSystemtoBlob",
+			"description": "copy activity",
+			"type": "Copy",
+			"inputs": [{
+				"name": "OnpremisesFileSystemInput"
+			}],
+			"outputs": [{
+				"name": "AzureBlobOutput"
+			}],
+			"typeProperties": {
+				"source": {
+					"type": "FileSystemSource"
+				},
+				"sink": {
+					"type": "BlobSink"
+				}
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "OldestFirst",
+				"retry": 0,
+				"timeout": "01:00:00"
+			}
+		}]
+	}
 }
 ```
 For more information, see [File System connector article](data-factory-onprem-file-system-connector.md#copy-activity-properties).
@@ -3330,54 +3137,48 @@ For more information, see [File System connector article](data-factory-onprem-fi
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
 | copyBehavior |Defines the copy behavior when the source is BlobSource or FileSystem. |**PreserveHierarchy:** Preserves the file hierarchy in the target folder. That is, the relative path of the source file to the source folder is the same as the relative path of the target file to the target folder.<br/><br/>**FlattenHierarchy:** All files from the source folder are created in the first level of target folder. The target files are created with an autogenerated name.<br/><br/>**MergeFiles:** Merges all files from the source folder to one file. If the file name/blob name is specified, the merged file name is the specified name. Otherwise, it is an auto-generated file name. |No |
-
+auto-
 
 #### Example
 
-```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-    "start":"2015-06-01T18:00:00",
-    "end":"2015-06-01T20:00:00",
-    "description":"pipeline for copy activity",
-    "activities":[  
-      {
-        "name": "AzureSQLtoOnPremisesFile",
-        "description": "copy activity",
-        "type": "Copy",
-        "inputs": [
-          {
-            "name": "AzureSQLInput"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "OnpremisesFileSystemOutput"
-          }
-        ],
-        "typeProperties": {
-          "source": {
-            "type": "SqlSource",
-            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd}\\'', WindowStart, WindowEnd)"
-          },
-          "sink": {
-            "type": "FileSystemSink"
-          }
-        },
-       "scheduler": {
-          "frequency": "Hour",
-          "interval": 1
-        },
-        "policy": {
-          "concurrency": 1,
-          "executionPriorityOrder": "OldestFirst",
-          "retry": 3,
-          "timeout": "01:00:00"
-        }
-      }
-     ]
-   }
+```json
+{
+	"name": "SamplePipeline",
+	"properties": {
+		"start": "2015-06-01T18:00:00",
+		"end": "2015-06-01T20:00:00",
+		"description": "pipeline for copy activity",
+		"activities": [{
+			"name": "AzureSQLtoOnPremisesFile",
+			"description": "copy activity",
+			"type": "Copy",
+			"inputs": [{
+				"name": "AzureSQLInput"
+			}],
+			"outputs": [{
+				"name": "OnpremisesFileSystemOutput"
+			}],
+			"typeProperties": {
+				"source": {
+					"type": "SqlSource",
+					"SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd}\\'', WindowStart, WindowEnd)"
+				},
+				"sink": {
+					"type": "FileSystemSink"
+				}
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "OldestFirst",
+				"retry": 3,
+				"timeout": "01:00:00"
+			}
+		}]
+	}
 }
 ```
 
@@ -3403,39 +3204,39 @@ The following table provides description for JSON elements specific to FTP linke
 
 #### Example: Using Anonymous authentication
 
-```JSON
+```json
 {
-    "name": "FTPLinkedService",
-    "properties": {
-        "type": "FtpServer",
-        "typeProperties": {        
-            "authenticationType": "Anonymous",
-              "host": "myftpserver.com"
-        }
-    }
+	"name": "FTPLinkedService",
+	"properties": {
+		"type": "FtpServer",
+		"typeProperties": {
+			"authenticationType": "Anonymous",
+			"host": "myftpserver.com"
+		}
+	}
 }
 ```
 
 #### Example: Using username and password in plain text for basic authentication
 
-```JSON
+```json
 {
-    "name": "FTPLinkedService",
-      "properties": {
-    "type": "FtpServer",
-        "typeProperties": {
-            "host": "myftpserver.com",
-            "authenticationType": "Basic",
-            "username": "Admin",
-            "password": "123456"
-        }
-      }
+	"name": "FTPLinkedService",
+	"properties": {
+		"type": "FtpServer",
+		"typeProperties": {
+			"host": "myftpserver.com",
+			"authenticationType": "Basic",
+			"username": "Admin",
+			"password": "123456"
+		}
+	}
 }
 ```
 
 #### Example: Using port, enableSsl, enableServerCertificateValidation
 
-```JSON
+```json
 {
     "name": "FTPLinkedService",
     "properties": {
@@ -3455,7 +3256,7 @@ The following table provides description for JSON elements specific to FTP linke
 
 #### Example: Using encryptedCredential for authentication and gateway
 
-```JSON
+```json
 {
     "name": "FTPLinkedService",
     "properties": {
@@ -3464,7 +3265,7 @@ The following table provides description for JSON elements specific to FTP linke
             "host": "myftpserver.com",
             "authenticationType": "Basic",
             "encryptedCredential": "xxxxxxxxxxxxxxxxx",
-            "gatewayName": "mygateway"
+            "gatewayName": "onpremgateway"
         }
       }
 }
@@ -3490,23 +3291,23 @@ The typeProperties section for a dataset of type **FileShare** dataset has the f
 
 #### Example
 
-```JSON
+```json
 {
-  "name": "FTPFileInput",
-  "properties": {
-    "type": "FileShare",
-    "linkedServiceName": "FTPLinkedService",
-    "typeProperties": {
-      "folderPath": "mysharedfolder",
-      "fileName": "test.csv",
-      "useBinaryTransfer": true
-    },
-    "external": true,
-    "availability": {
-      "frequency": "Hour",
-      "interval": 1
-    }
-  }
+	"name": "FTPFileInput",
+	"properties": {
+		"type": "FileShare",
+		"linkedServiceName": "FTPLinkedService",
+		"typeProperties": {
+			"folderPath": "mysharedfolder",
+			"fileName": "test.csv",
+			"useBinaryTransfer": true
+		},
+		"external": true,
+		"availability": {
+			"frequency": "Hour",
+			"interval": 1
+		}
+	}
 }
 ```
 
@@ -3521,41 +3322,41 @@ In Copy Activity, when source is of type **FileSystemSource**, the following pro
 
 #### Example
 
-```JSON
+```json
 {
-    "name": "pipeline",
-    "properties": {
-        "activities": [{
-            "name": "FTPToBlobCopy",
-            "inputs": [{
-                "name": "FtpFileInput"
-            }],
-            "outputs": [{
-                "name": "AzureBlobOutput"
-            }],
-            "type": "Copy",
-            "typeProperties": {
-                "source": {
-                    "type": "FileSystemSource"
-                },
-                "sink": {
-                    "type": "BlobSink"
-                }
-            },
-            "scheduler": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "policy": {
-                "concurrency": 1,
-                "executionPriorityOrder": "NewestFirst",
-                "retry": 1,
-                "timeout": "00:05:00"
-            }
-        }],
-        "start": "2016-08-24T18:00:00",
-        "end": "2016-08-24T19:00:00"
-    }
+	"name": "pipeline",
+	"properties": {
+		"activities": [{
+			"name": "FTPToBlobCopy",
+			"inputs": [{
+				"name": "FtpFileInput"
+			}],
+			"outputs": [{
+				"name": "AzureBlobOutput"
+			}],
+			"type": "Copy",
+			"typeProperties": {
+				"source": {
+					"type": "FileSystemSource"
+				},
+				"sink": {
+					"type": "BlobSink"
+				}
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "NewestFirst",
+				"retry": 1,
+				"timeout": "00:05:00"
+			}
+		}],
+		"start": "2016-08-24T18:00:00",
+		"end": "2016-08-24T19:00:00"
+	}
 }
 ```
 
@@ -3579,40 +3380,36 @@ You create a linked service of type **Hdfs** to link an on-premises HDFS to your
 
 #### Example: Using Anonymous authentication
 
-```JSON
+```json
 {
-    "name": "HDFSLinkedService",
-    "properties":
-    {
-        "type": "Hdfs",
-        "typeProperties":
-        {
-            "authenticationType": "Anonymous",
-            "userName": "hadoop",
-            "url" : "http://<machine>:50070/webhdfs/v1/",
-            "gatewayName": "mygateway"
-        }
-    }
+	"name": "HDFSLinkedService",
+	"properties": {
+		"type": "Hdfs",
+		"typeProperties": {
+			"authenticationType": "Anonymous",
+			"userName": "hadoop",
+			"url": "http://<machine>:50070/webhdfs/v1/",
+			"gatewayName": "onpremgateway"
+		}
+	}
 }
 ```
 
 #### Example: Using Windows authentication
 
-```JSON
+```json
 {
-    "name": "HDFSLinkedService",
-    "properties":
-    {
-        "type": "Hdfs",
-        "typeProperties":
-        {
-            "authenticationType": "Windows",
-            "userName": "Administrator",
-            "password": "password",
-            "url" : "http://<machine>:50070/webhdfs/v1/",
-            "gatewayName": "mygateway"
-        }
-    }
+	"name": "HDFSLinkedService",
+	"properties": {
+		"type": "Hdfs",
+		"typeProperties": {
+			"authenticationType": "Windows",
+			"userName": "Administrator",
+			"password": "password",
+			"url": "http://<machine>:50070/webhdfs/v1/",
+			"gatewayName": "onpremgateway"
+		}
+	}
 }
 ```
 
@@ -3634,21 +3431,21 @@ The typeProperties section for dataset of type **FileShare** (which includes HDF
 
 #### Example
 
-```JSON
+```json
 {
-    "name": "InputDataset",
-    "properties": {
-        "type": "FileShare",
-        "linkedServiceName": "HDFSLinkedService",
-        "typeProperties": {
-            "folderPath": "DataTransfer/UnitTest/"
-        },
-        "external": true,
-        "availability": {
-            "frequency": "Hour",
-            "interval":  1
-        }
-    }
+	"name": "InputDataset",
+	"properties": {
+		"type": "FileShare",
+		"linkedServiceName": "HDFSLinkedService",
+		"typeProperties": {
+			"folderPath": "DataTransfer/UnitTest/"
+		},
+		"external": true,
+		"availability": {
+			"frequency": "Hour",
+			"interval": 1
+		}
+	}
 }
 ```
 
@@ -3665,41 +3462,37 @@ For Copy Activity, when source is of type **FileSystemSource** the following pro
 
 #### Example
 
-```JSON
+```json
 {
-    "name": "pipeline",
-    "properties":
-    {
-        "activities":
-        [
-            {
-                "name": "HdfsToBlobCopy",
-                "inputs": [ {"name": "InputDataset"} ],
-                "outputs": [ {"name": "OutputDataset"} ],
-                "type": "Copy",
-                "typeProperties":
-                {
-                    "source":
-                    {
-                        "type": "FileSystemSource"
-                    },
-                    "sink":
-                    {
-                        "type": "BlobSink"
-                    }
-                },
-                "policy":
-                {
-                    "concurrency": 1,
-                    "executionPriorityOrder": "NewestFirst",
-                    "retry": 1,
-                    "timeout": "00:05:00"
-                }
-            }
-        ],
-        "start": "2016-06-01T18:00:00",
-        "end": "2016-06-01T19:00:00"
-    }
+	"name": "pipeline",
+	"properties": {
+		"activities": [{
+			"name": "HdfsToBlobCopy",
+			"inputs": [{
+				"name": "InputDataset"
+			}],
+			"outputs": [{
+				"name": "OutputDataset"
+			}],
+			"type": "Copy",
+			"typeProperties": {
+				"source": {
+					"type": "FileSystemSource"
+				},
+				"sink": {
+					"type": "BlobSink"
+				}
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "NewestFirst",
+				"retry": 1,
+				"timeout": "00:05:00"
+			}
+		}],
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00"
+	}
 }
 ```
 
@@ -3733,41 +3526,41 @@ To use basic authentication, set `authenticationType` as `Basic`, and specify th
 
 ```json
 {
-    "name": "SftpLinkedService",
-    "properties": {
-        "type": "Sftp",
-        "typeProperties": {
-            "host": "mysftpserver",
-            "port": 22,
-            "authenticationType": "Basic",
-            "username": "xxx",
-            "password": "xxx",
-            "skipHostKeyValidation": false,
-            "hostKeyFingerPrint": "ssh-rsa 2048 xx:00:00:00:xx:00:x0:0x:0x:0x:0x:00:00:x0:x0:00",
-            "gatewayName": "mygateway"
-        }
-    }
+	"name": "SftpLinkedService",
+	"properties": {
+		"type": "Sftp",
+		"typeProperties": {
+			"host": "mysftpserver",
+			"port": 22,
+			"authenticationType": "Basic",
+			"username": "xxx",
+			"password": "xxx",
+			"skipHostKeyValidation": false,
+			"hostKeyFingerPrint": "ssh-rsa 2048 xx:00:00:00:xx:00:x0:0x:0x:0x:0x:00:00:x0:x0:00",
+			"gatewayName": "onpremgateway"
+		}
+	}
 }
 ```
 
 #### Example: Basic authentication with encrypted credential**
 
-```JSON
+```json
 {
-    "name": "SftpLinkedService",
-    "properties": {
-        "type": "Sftp",
-        "typeProperties": {
-            "host": "mysftpserver",
-            "port": 22,
-            "authenticationType": "Basic",
-            "username": "xxx",
-            "encryptedCredential": "xxxxxxxxxxxxxxxxx",
-            "skipHostKeyValidation": false,
-            "hostKeyFingerPrint": "ssh-rsa 2048 xx:00:00:00:xx:00:x0:0x:0x:0x:0x:00:00:x0:x0:00",
-            "gatewayName": "mygateway"
-        }
-      }
+	"name": "SftpLinkedService",
+	"properties": {
+		"type": "Sftp",
+		"typeProperties": {
+			"host": "mysftpserver",
+			"port": 22,
+			"authenticationType": "Basic",
+			"username": "xxx",
+			"encryptedCredential": "xxxxxxxxxxxxxxxxx",
+			"skipHostKeyValidation": false,
+			"hostKeyFingerPrint": "ssh-rsa 2048 xx:00:00:00:xx:00:x0:0x:0x:0x:0x:00:00:x0:x0:00",
+			"gatewayName": "onpremgateway"
+		}
+	}
 }
 ```
 
@@ -3795,7 +3588,7 @@ To use basic authentication, set `authenticationType` as `SshPublicKey`, and spe
             "privateKeyPath": "D:\\privatekey_openssh",
             "passPhrase": "xxx",
             "skipHostKeyValidation": true,
-            "gatewayName": "mygateway"
+            "gatewayName": "onpremgateway"
         }
     }
 }
@@ -3843,20 +3636,20 @@ The typeProperties section for a dataset of type **FileShare** dataset has the f
 
 ```json
 {
-  "name": "SFTPFileInput",
-  "properties": {
-    "type": "FileShare",
-    "linkedServiceName": "SftpLinkedService",
-    "typeProperties": {
-      "folderPath": "mysharedfolder",
-      "fileName": "test.csv"
-    },
-    "external": true,
-    "availability": {
-      "frequency": "Hour",
-      "interval": 1
-    }
-  }
+	"name": "SFTPFileInput",
+	"properties": {
+		"type": "FileShare",
+		"linkedServiceName": "SftpLinkedService",
+		"typeProperties": {
+			"folderPath": "mysharedfolder",
+			"fileName": "test.csv"
+		},
+		"external": true,
+		"availability": {
+			"frequency": "Hour",
+			"interval": 1
+		}
+	}
 }
 ```
 
@@ -3875,39 +3668,39 @@ In Copy Activity, when source is of type **FileSystemSource**, the following pro
 
 ```json
 {
-    "name": "pipeline",
-    "properties": {
-        "activities": [{
-            "name": "SFTPToBlobCopy",
-            "inputs": [{
-                "name": "SFTPFileInput"
-            }],
-            "outputs": [{
-                "name": "AzureBlobOutput"
-            }],
-            "type": "Copy",
-            "typeProperties": {
-                "source": {
-                    "type": "FileSystemSource"
-                },
-                "sink": {
-                    "type": "BlobSink"
-                }
-            },
-            "scheduler": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "policy": {
-                "concurrency": 1,
-                "executionPriorityOrder": "NewestFirst",
-                "retry": 1,
-                "timeout": "00:05:00"
-            }
-        }],
-        "start": "2017-02-20T18:00:00",
-        "end": "2017-02-20T19:00:00"
-    }
+	"name": "pipeline",
+	"properties": {
+		"activities": [{
+			"name": "SFTPToBlobCopy",
+			"inputs": [{
+				"name": "SFTPFileInput"
+			}],
+			"outputs": [{
+				"name": "AzureBlobOutput"
+			}],
+			"type": "Copy",
+			"typeProperties": {
+				"source": {
+					"type": "FileSystemSource"
+				},
+				"sink": {
+					"type": "BlobSink"
+				}
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "NewestFirst",
+				"retry": 1,
+				"timeout": "00:05:00"
+			}
+		}],
+		"start": "2017-02-20T18:00:00",
+		"end": "2017-02-20T19:00:00"
+	}
 }
 ```
 
@@ -3936,20 +3729,18 @@ Set `authenticationType` as `Basic`, `Digest`, or `Windows`, and specify the fol
 | username | Username to access the HTTP endpoint. | Yes |
 | password | Password for the user (username). | Yes |
 
-```JSON
+```json
 {
-    "name": "HttpLinkedService",
-    "properties":
-    {
-        "type": "Http",
-        "typeProperties":
-        {
-            "authenticationType": "basic",
-            "url" : "https://en.wikipedia.org/wiki/",
-            "userName": "user name",
-            "password": "password"
-        }
-    }
+	"name": "HttpLinkedService",
+	"properties": {
+		"type": "Http",
+		"typeProperties": {
+			"authenticationType": "basic",
+			"url": "https://en.wikipedia.org/wiki/",
+			"userName": "user name",
+			"password": "password"
+		}
+	}
 }
 ```
 
@@ -3973,41 +3764,37 @@ If you use `certThumbprint` for authentication and the certificate is installed 
 **Example: using client certificate:**
 This linked service links your data factory to an on-premises HTTP web server. It uses a client certificate that is installed on the machine with Data Management Gateway installed.
 
-```JSON
+```json
 {
-    "name": "HttpLinkedService",
-    "properties":
-    {
-        "type": "Http",
-        "typeProperties":
-        {
-            "authenticationType": "ClientCertificate",
-            "url": "https://en.wikipedia.org/wiki/",
-		    "certThumbprint": "thumbprint of certificate",
-		    "gatewayName": "gateway name"
+	"name": "HttpLinkedService",
+	"properties": {
+		"type": "Http",
+		"typeProperties": {
+			"authenticationType": "ClientCertificate",
+			"url": "https://en.wikipedia.org/wiki/",
+			"certThumbprint": "thumbprint of certificate",
+			"gatewayName": "gateway name"
 
-        }
-    }
+		}
+	}
 }
 ```
 
 #### Example: using client certificate in a file
 This linked service links your data factory to an on-premises HTTP web server. It uses a client certificate file on the machine with Data Management Gateway installed.
 
-```JSON
+```json
 {
-    "name": "HttpLinkedService",
-    "properties":
-    {
-        "type": "Http",
-        "typeProperties":
-        {
-            "authenticationType": "ClientCertificate",
-            "url": "https://en.wikipedia.org/wiki/",
-		    "embeddedCertData": "base64 encoded cert data",
-		    "password": "password of cert"
-        }
-    }
+	"name": "HttpLinkedService",
+	"properties": {
+		"type": "Http",
+		"typeProperties": {
+			"authenticationType": "ClientCertificate",
+			"url": "https://en.wikipedia.org/wiki/",
+			"embeddedCertData": "base64 encoded cert data",
+			"password": "password of cert"
+		}
+	}
 }
 ```
 
@@ -4028,44 +3815,44 @@ The typeProperties section for dataset of type **Http** has the following proper
 
 #### Example: using the GET (default) method
 
-```JSON
+```json
 {
 	"name": "HttpSourceDataInput",
-    "properties": {
+	"properties": {
 		"type": "Http",
-        "linkedServiceName": "HttpLinkedService",
-        "typeProperties": {
+		"linkedServiceName": "HttpLinkedService",
+		"typeProperties": {
 			"relativeUrl": "XXX/test.xml",
-	    	"additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
+			"additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
 		},
-        "external": true,
-        "availability": {
-            "frequency": "Hour",
-            "interval":  1
-        }
-    }
+		"external": true,
+		"availability": {
+			"frequency": "Hour",
+			"interval": 1
+		}
+	}
 }
 ```
 
 #### Example: using the POST method
 
-```JSON
+```json
 {
-    "name": "HttpSourceDataInput",
-    "properties": {
-        "type": "Http",
-        "linkedServiceName": "HttpLinkedService",
-        "typeProperties": {
-            "relativeUrl": "/XXX/test.xml",
-		   "requestMethod": "Post",
-            "requestBody": "body for POST HTTP request"
-        },
-        "external": true,
-        "availability": {
-            "frequency": "Hour",
-            "interval":  1
-        }
-    }
+	"name": "HttpSourceDataInput",
+	"properties": {
+		"type": "Http",
+		"linkedServiceName": "HttpLinkedService",
+		"typeProperties": {
+			"relativeUrl": "/XXX/test.xml",
+			"requestMethod": "Post",
+			"requestBody": "body for POST HTTP request"
+		},
+		"external": true,
+		"availability": {
+			"frequency": "Hour",
+			"interval": 1
+		}
+	}
 }
 ```
 For more information, see [HTTP connector](data-factory-http-connector.md#dataset-properties) article.
@@ -4080,49 +3867,43 @@ When the source in copy activity is of type **HttpSource**, the following proper
 
 #### Example
 
-```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-    "start":"2016-06-01T18:00:00",
-    "end":"2016-06-01T19:00:00",
-    "description":"pipeline with copy activity",
-    "activities":[  
-      {
-        "name": "HttpSourceToAzureBlob",
-        "description": "Copy from an HTTP source to an Azure blob",
-        "type": "Copy",
-        "inputs": [
-          {
-            "name": "HttpSourceDataInput"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "AzureBlobOutput"
-          }
-        ],
-        "typeProperties": {
-          "source": {
-            "type": "HttpSource"
-          },
-          "sink": {
-            "type": "BlobSink"
-          }
-        },
-       "scheduler": {
-          "frequency": "Hour",
-          "interval": 1
-        },
-        "policy": {
-          "concurrency": 1,
-          "executionPriorityOrder": "OldestFirst",
-          "retry": 0,
-          "timeout": "01:00:00"
-        }
-      }
-      ]
-   }
+```json
+{
+	"name": "SamplePipeline",
+	"properties": {
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00",
+		"description": "pipeline with copy activity",
+		"activities": [{
+			"name": "HttpSourceToAzureBlob",
+			"description": "Copy from an HTTP source to an Azure blob",
+			"type": "Copy",
+			"inputs": [{
+				"name": "HttpSourceDataInput"
+			}],
+			"outputs": [{
+				"name": "AzureBlobOutput"
+			}],
+			"typeProperties": {
+				"source": {
+					"type": "HttpSource"
+				},
+				"sink": {
+					"type": "BlobSink"
+				}
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "OldestFirst",
+				"retry": 0,
+				"timeout": "01:00:00"
+			}
+		}]
+	}
 }
 ```
 
@@ -4146,18 +3927,16 @@ The following table provides description for JSON elements specific to OData lin
 #### Example - Using Basic authentication
 ```json
 {
-    "name": "inputLinkedService",
-    "properties":
-    {
-        "type": "OData",
-            "typeProperties":
-        {
-            "url": "http://services.odata.org/OData/OData.svc",
-            "authenticationType": "Basic",
-            "username": "username",
-            "password": "password"
-        }
-    }
+	"name": "inputLinkedService",
+	"properties": {
+		"type": "OData",
+		"typeProperties": {
+			"url": "http://services.odata.org/OData/OData.svc",
+			"authenticationType": "Basic",
+			"username": "username",
+			"password": "password"
+		}
+	}
 }
 ```
 
@@ -4165,16 +3944,14 @@ The following table provides description for JSON elements specific to OData lin
 
 ```json
 {
-    "name": "ODataLinkedService",
-        "properties":
-    {
-        "type": "OData",
-        "typeProperties":
-        {
-            "url": "http://services.odata.org/OData/OData.svc",
-            "authenticationType": "Anonymous"
-        }
-    }
+	"name": "ODataLinkedService",
+	"properties": {
+		"type": "OData",
+		"typeProperties": {
+			"url": "http://services.odata.org/OData/OData.svc",
+			"authenticationType": "Anonymous"
+		}
+	}
 }
 ```
 
@@ -4182,19 +3959,17 @@ The following table provides description for JSON elements specific to OData lin
 
 ```json
 {
-    "name": "inputLinkedService",
-    "properties":
-    {
-        "type": "OData",
-            "typeProperties":
-        {
-            "url": "<endpoint of on-premises OData source, for example, Dynamics CRM>",
-            "authenticationType": "Windows",
-            "username": "domain\\user",
-            "password": "password",
-            "gatewayName": "mygateway"
-        }
-    }
+	"name": "inputLinkedService",
+	"properties": {
+		"type": "OData",
+		"typeProperties": {
+			"url": "<endpoint of on-premises OData source, for example, Dynamics CRM>",
+			"authenticationType": "Windows",
+			"username": "domain\\user",
+			"password": "password",
+			"gatewayName": "onpremgateway"
+		}
+	}
 }
 ```
 
@@ -4228,27 +4003,25 @@ The typeProperties section for dataset of type **ODataResource** (which includes
 
 ```json
 {
-    "name": "ODataDataset",
-    "properties":
-    {
-        "type": "ODataResource",
-        "typeProperties":
-        {
-                "path": "Products"
-        },
-        "linkedServiceName": "ODataLinkedService",
-        "structure": [],
-        "availability": {
-            "frequency": "Hour",
-            "interval": 1
-        },
-        "external": true,
-        "policy": {
-            "retryInterval": "00:01:00",
-            "retryTimeout": "00:10:00",
-            "maximumRetry": 3                
-        }
-    }
+	"name": "ODataDataset",
+	"properties": {
+		"type": "ODataResource",
+		"typeProperties": {
+			"path": "Products"
+		},
+		"linkedServiceName": "ODataLinkedService",
+		"structure": [],
+		"availability": {
+			"frequency": "Hour",
+			"interval": 1
+		},
+		"external": true,
+		"policy": {
+			"retryInterval": "00:01:00",
+			"retryTimeout": "00:10:00",
+			"maximumRetry": 3
+		}
+	}
 }
 ```
 
@@ -4265,47 +4038,41 @@ When source is of type **RelationalSource** (which includes OData) the following
 
 ```json
 {
-    "name": "CopyODataToBlob",
-    "properties": {
-        "description": "pipeline for copy activity",
-        "activities": [
-            {
-                "type": "Copy",
-                "typeProperties": {
-                    "source": {
-                        "type": "RelationalSource",
-                        "query": "?$select=Name, Description&$top=5",
-                    },
-                    "sink": {
-                        "type": "BlobSink",
-                        "writeBatchSize": 0,
-                        "writeBatchTimeout": "00:00:00"
-                    }
-                },
-                "inputs": [
-                    {
-                        "name": "ODataDataSet"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "AzureBlobODataDataSet"
-                    }
-                ],
-                "policy": {
-                    "timeout": "01:00:00",
-                    "concurrency": 1
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "name": "ODataToBlob"
-            }
-        ],
-        "start": "2017-02-01T18:00:00",
-        "end": "2017-02-03T19:00:00"
-    }
+	"name": "CopyODataToBlob",
+	"properties": {
+		"description": "pipeline for copy activity",
+		"activities": [{
+			"type": "Copy",
+			"typeProperties": {
+				"source": {
+					"type": "RelationalSource",
+					"query": "?$select=Name, Description&$top=5"
+				},
+				"sink": {
+					"type": "BlobSink",
+					"writeBatchSize": 0,
+					"writeBatchTimeout": "00:00:00"
+				}
+			},
+			"inputs": [{
+				"name": "ODataDataSet"
+			}],
+			"outputs": [{
+				"name": "AzureBlobODataDataSet"
+			}],
+			"policy": {
+				"timeout": "01:00:00",
+				"concurrency": 1
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"name": "ODataToBlob"
+		}],
+		"start": "2017-02-01T18:00:00",
+		"end": "2017-02-03T19:00:00"
+	}
 }
 ```
 
@@ -4332,19 +4099,17 @@ The following table provides description for JSON elements specific to ODBC link
 
 ```json
 {
-    "name": "odbc",
-    "properties":
-    {
-        "type": "OnPremisesOdbc",
-        "typeProperties":
-        {
-            "authenticationType": "Basic",
-            "connectionString": "Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;",
-            "userName": "username",
-            "password": "password",
-            "gatewayName": "mygateway"
-        }
-    }
+	"name": "odbc",
+	"properties": {
+		"type": "OnPremisesOdbc",
+		"typeProperties": {
+			"authenticationType": "Basic",
+			"connectionString": "Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;",
+			"userName": "username",
+			"password": "password",
+			"gatewayName": "onpremgateway"
+		}
+	}
 }
 ```
 #### Example - Using Basic authentication with encrypted credentials
@@ -4352,17 +4117,15 @@ You can encrypt the credentials using the [New-AzureRMDataFactoryEncryptValue](h
 
 ```json
 {
-    "name": "odbc",
-    "properties":
-    {
-        "type": "OnPremisesOdbc",
-        "typeProperties":
-        {
-            "authenticationType": "Basic",
-            "connectionString": "Driver={SQL Server};Server=myserver.database.windows.net; Database=TestDatabase;;EncryptedCredential=eyJDb25uZWN0...........................",
-            "gatewayName": "mygateway"
-        }
-    }
+	"name": "odbc",
+	"properties": {
+		"type": "OnPremisesOdbc",
+		"typeProperties": {
+			"authenticationType": "Basic",
+			"connectionString": "Driver={SQL Server};Server=myserver.database.windows.net; Database=TestDatabase;;EncryptedCredential=eyJDb25uZWN0...........................",
+			"gatewayName": "onpremgateway"
+		}
+	}
 }
 ```
 
@@ -4370,18 +4133,16 @@ You can encrypt the credentials using the [New-AzureRMDataFactoryEncryptValue](h
 
 ```json
 {
-    "name": "odbc",
-    "properties":
-    {
-        "type": "OnPremisesOdbc",
-        "typeProperties":
-        {
-            "authenticationType": "Anonymous",
-            "connectionString": "Driver={SQL Server};Server={servername}.database.windows.net; Database=TestDatabase;",
-            "credential": "UID={uid};PWD={pwd}",
-            "gatewayName": "mygateway"
-        }
-    }
+	"name": "odbc",
+	"properties": {
+		"type": "OnPremisesOdbc",
+		"typeProperties": {
+			"authenticationType": "Anonymous",
+			"connectionString": "Driver={SQL Server};Server={servername}.database.windows.net; Database=TestDatabase;",
+			"credential": "UID={uid};PWD={pwd}",
+			"gatewayName": "onpremgateway"
+		}
+	}
 }
 ```
 
@@ -4399,25 +4160,25 @@ The typeProperties section for dataset of type **RelationalTable** (which includ
 
 ```json
 {
-    "name": "ODBCDataSet",
-    "properties": {
-        "published": false,
-        "type": "RelationalTable",
-        "linkedServiceName": "OnPremOdbcLinkedService",
-        "typeProperties": {},
-        "availability": {
-            "frequency": "Hour",
-            "interval": 1
-        },
-        "external": true,
-        "policy": {
-            "externalData": {
-                "retryInterval": "00:01:00",
-                "retryTimeout": "00:10:00",
-                "maximumRetry": 3
-            }
-        }
-    }
+	"name": "ODBCDataSet",
+	"properties": {
+		"published": false,
+		"type": "RelationalTable",
+		"linkedServiceName": "OnPremOdbcLinkedService",
+		"typeProperties": {},
+		"availability": {
+			"frequency": "Hour",
+			"interval": 1
+		},
+		"external": true,
+		"policy": {
+			"externalData": {
+				"retryInterval": "00:01:00",
+				"retryTimeout": "00:10:00",
+				"maximumRetry": 3
+			}
+		}
+	}
 }
 ```
 
@@ -4434,47 +4195,41 @@ In copy activity, when source is of type **RelationalSource** (which includes OD
 
 ```json
 {
-    "name": "CopyODBCToBlob",
-    "properties": {
-        "description": "pipeline for copy activity",
-        "activities": [
-            {
-                "type": "Copy",
-                "typeProperties": {
-                    "source": {
-                        "type": "RelationalSource",
-                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)"
-                    },
-                    "sink": {
-                        "type": "BlobSink",
-                        "writeBatchSize": 0,
-                        "writeBatchTimeout": "00:00:00"
-                    }
-                },
-                "inputs": [
-                    {
-                        "name": "OdbcDataSet"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "AzureBlobOdbcDataSet"
-                    }
-                ],
-                "policy": {
-                    "timeout": "01:00:00",
-                    "concurrency": 1
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "name": "OdbcToBlob"
-            }
-        ],
-        "start": "2016-06-01T18:00:00",
-        "end": "2016-06-01T19:00:00"
-    }
+	"name": "CopyODBCToBlob",
+	"properties": {
+		"description": "pipeline for copy activity",
+		"activities": [{
+			"type": "Copy",
+			"typeProperties": {
+				"source": {
+					"type": "RelationalSource",
+					"query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)"
+				},
+				"sink": {
+					"type": "BlobSink",
+					"writeBatchSize": 0,
+					"writeBatchTimeout": "00:00:00"
+				}
+			},
+			"inputs": [{
+				"name": "OdbcDataSet"
+			}],
+			"outputs": [{
+				"name": "AzureBlobOdbcDataSet"
+			}],
+			"policy": {
+				"timeout": "01:00:00",
+				"concurrency": 1
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"name": "OdbcToBlob"
+		}],
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00"
+	}
 }
 ``` 
 
@@ -4498,17 +4253,15 @@ The following table provides descriptions for JSON elements that are specific to
 
 ```json
 {
-    "name": "SalesforceLinkedService",
-    "properties":
-    {
-        "type": "Salesforce",
-        "typeProperties":
-        {
-            "username": "<user name>",
-            "password": "<password>",
-            "securityToken": "<security token>"
-        }
-    }
+	"name": "SalesforceLinkedService",
+	"properties": {
+		"type": "Salesforce",
+		"typeProperties": {
+			"username": "<user name>",
+			"password": "<password>",
+			"securityToken": "<security token>"
+		}
+	}
 }
 ```
 
@@ -4525,26 +4278,26 @@ The typeProperties section for a dataset of the type **RelationalTable** has the
 
 ```json
 {
-    "name": "SalesforceInput",
-    "properties": {
-        "linkedServiceName": "SalesforceLinkedService",
-        "type": "RelationalTable",
-        "typeProperties": {
-            "tableName": "AllDataType__c"  
-        },
-        "availability": {
-            "frequency": "Hour",
-            "interval": 1
-        },
-        "external": true,
-        "policy": {
-            "externalData": {
-                "retryInterval": "00:01:00",
-                "retryTimeout": "00:10:00",
-                "maximumRetry": 3
-            }
-        }
-    }
+	"name": "SalesforceInput",
+	"properties": {
+		"linkedServiceName": "SalesforceLinkedService",
+		"type": "RelationalTable",
+		"typeProperties": {
+			"tableName": "AllDataType__c"
+		},
+		"availability": {
+			"frequency": "Hour",
+			"interval": 1
+		},
+		"external": true,
+		"policy": {
+			"externalData": {
+				"retryInterval": "00:01:00",
+				"retryTimeout": "00:10:00",
+				"maximumRetry": 3
+			}
+		}
+	}
 }
 ```
 
@@ -4562,49 +4315,43 @@ In copy activity, when the source is of the type **RelationalSource** (which inc
 
 
 ```json
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-        "start":"2016-06-01T18:00:00",
-        "end":"2016-06-01T19:00:00",
-        "description":"pipeline with copy activity",
-        "activities":[  
-        {
-            "name": "SalesforceToAzureBlob",
-            "description": "Copy from Salesforce to an Azure blob",
-            "type": "Copy",
-            "inputs": [
-            {
-                "name": "SalesforceInput"
-            }
-            ],
-            "outputs": [
-            {
-                "name": "AzureBlobOutput"
-            }
-            ],
-            "typeProperties": {
-                "source": {
-                    "type": "RelationalSource",
-                    "query": "SELECT Id, Col_AutoNumber__c, Col_Checkbox__c, Col_Currency__c, Col_Date__c, Col_DateTime__c, Col_Email__c, Col_Number__c, Col_Percent__c, Col_Phone__c, Col_Picklist__c, Col_Picklist_MultiSelect__c, Col_Text__c, Col_Text_Area__c, Col_Text_AreaLong__c, Col_Text_AreaRich__c, Col_URL__c, Col_Text_Encrypt__c, Col_Lookup__c FROM AllDataType__c"                
-                },
-                "sink": {
-                    "type": "BlobSink"
-                }
-            },
-            "scheduler": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "policy": {
-                "concurrency": 1,
-                "executionPriorityOrder": "OldestFirst",
-                "retry": 0,
-                "timeout": "01:00:00"
-            }
-        }
-        ]
-    }
+{
+	"name": "SamplePipeline",
+	"properties": {
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00",
+		"description": "pipeline with copy activity",
+		"activities": [{
+			"name": "SalesforceToAzureBlob",
+			"description": "Copy from Salesforce to an Azure blob",
+			"type": "Copy",
+			"inputs": [{
+				"name": "SalesforceInput"
+			}],
+			"outputs": [{
+				"name": "AzureBlobOutput"
+			}],
+			"typeProperties": {
+				"source": {
+					"type": "RelationalSource",
+					"query": "SELECT Id, Col_AutoNumber__c, Col_Checkbox__c, Col_Currency__c, Col_Date__c, Col_DateTime__c, Col_Email__c, Col_Number__c, Col_Percent__c, Col_Phone__c, Col_Picklist__c, Col_Picklist_MultiSelect__c, Col_Text__c, Col_Text_Area__c, Col_Text_AreaLong__c, Col_Text_AreaRich__c, Col_URL__c, Col_Text_Encrypt__c, Col_Lookup__c FROM AllDataType__c"
+				},
+				"sink": {
+					"type": "BlobSink"
+				}
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "OldestFirst",
+				"retry": 0,
+				"timeout": "01:00:00"
+			}
+		}]
+	}
 }
 ```
 
@@ -4630,16 +4377,14 @@ The following table provides description for JSON elements specific to Web linke
 
 ```json
 {
-    "name": "web",
-    "properties":
-    {
-        "type": "Web",
-        "typeProperties":
-        {
-            "authenticationType": "Anonymous",
-            "url" : "https://en.wikipedia.org/wiki/"
-        }
-    }
+	"name": "web",
+	"properties": {
+		"type": "Web",
+		"typeProperties": {
+			"authenticationType": "Anonymous",
+			"url": "https://en.wikipedia.org/wiki/"
+		}
+	}
 }
 ```
 
@@ -4658,20 +4403,20 @@ The typeProperties section for dataset of type **WebTable** has the following pr
 
 ```json
 {
-    "name": "WebTableInput",
-    "properties": {
-        "type": "WebTable",
-        "linkedServiceName": "WebLinkedService",
-        "typeProperties": {
-            "index": 1,
-            "path": "AFI's_100_Years...100_Movies"
-        },
-        "external": true,
-        "availability": {
-            "frequency": "Hour",
-            "interval":  1
-        }
-    }
+	"name": "WebTableInput",
+	"properties": {
+		"type": "WebTable",
+		"linkedServiceName": "WebLinkedService",
+		"typeProperties": {
+			"index": 1,
+			"path": "AFI's_100_Years...100_Movies"
+		},
+		"external": true,
+		"availability": {
+			"frequency": "Hour",
+			"interval": 1
+		}
+	}
 }
 ```
 
@@ -4683,48 +4428,42 @@ Currently, when the source in copy activity is of type **WebSource**, no additio
 #### Example
 
 ```json
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-    "start":"2016-06-01T18:00:00",
-    "end":"2016-06-01T19:00:00",
-    "description":"pipeline with copy activity",
-    "activities":[  
-      {
-        "name": "WebTableToAzureBlob",
-        "description": "Copy from a Web table to an Azure blob",
-        "type": "Copy",
-        "inputs": [
-          {
-            "name": "WebTableInput"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "AzureBlobOutput"
-          }
-        ],
-        "typeProperties": {
-          "source": {
-            "type": "WebSource"
-          },
-          "sink": {
-            "type": "BlobSink"
-          }
-        },
-       "scheduler": {
-          "frequency": "Hour",
-          "interval": 1
-        },
-        "policy": {
-          "concurrency": 1,
-          "executionPriorityOrder": "OldestFirst",
-          "retry": 0,
-          "timeout": "01:00:00"
-        }
-      }
-      ]
-   }
+{
+	"name": "SamplePipeline",
+	"properties": {
+		"start": "2016-06-01T18:00:00",
+		"end": "2016-06-01T19:00:00",
+		"description": "pipeline with copy activity",
+		"activities": [{
+			"name": "WebTableToAzureBlob",
+			"description": "Copy from a Web table to an Azure blob",
+			"type": "Copy",
+			"inputs": [{
+				"name": "WebTableInput"
+			}],
+			"outputs": [{
+				"name": "AzureBlobOutput"
+			}],
+			"typeProperties": {
+				"source": {
+					"type": "WebSource"
+				},
+				"sink": {
+					"type": "BlobSink"
+				}
+			},
+			"scheduler": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"policy": {
+				"concurrency": 1,
+				"executionPriorityOrder": "OldestFirst",
+				"retry": 0,
+				"timeout": "01:00:00"
+			}
+		}]
+	}
 }
 ```
 
@@ -4790,16 +4529,16 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 
 ```json
 {
-  "name": "HDInsightLinkedService",
-  "properties": {
-    "type": "HDInsight",
-    "typeProperties": {
-      "clusterUri": " https://<hdinsightclustername>.azurehdinsight.net/",
-      "userName": "admin",
-      "password": "<password>",
-      "linkedServiceName": "MyHDInsightStoragelinkedService"
-    }
-  }
+	"name": "HDInsightLinkedService",
+	"properties": {
+		"type": "HDInsight",
+		"typeProperties": {
+			"clusterUri": " https://<hdinsightclustername>.azurehdinsight.net/",
+			"userName": "admin",
+			"password": "<password>",
+			"linkedServiceName": "MyHDInsightStoragelinkedService"
+		}
+	}
 }
 ```
 
@@ -4819,16 +4558,16 @@ You can create an Azure Batch linked service to register a Batch pool of virtual
 
 ```json
 {
-  "name": "AzureBatchLinkedService",
-  "properties": {
-    "type": "AzureBatch",
-    "typeProperties": {
-      "accountName": "<Azure Batch account name>",
-      "accessKey": "<Azure Batch account key>",
-      "poolName": "<Azure Batch pool name>",
-      "linkedServiceName": "<Specify associated storage linked service reference here>"
-    }
-  }
+	"name": "AzureBatchLinkedService",
+	"properties": {
+		"type": "AzureBatch",
+		"typeProperties": {
+			"accountName": "<Azure Batch account name>",
+			"accessKey": "<Azure Batch account key>",
+			"poolName": "<Azure Batch pool name>",
+			"linkedServiceName": "<Specify associated storage linked service reference here>"
+		}
+	}
 }
 ```
 
@@ -4846,14 +4585,14 @@ You create an Azure Machine Learning linked service to register a Machine Learni
 
 ```json
 {
-  "name": "AzureMLLinkedService",
-  "properties": {
-    "type": "AzureML",
-    "typeProperties": {
-      "mlEndpoint": "https://[batch scoring endpoint]/jobs",
-      "apiKey": "<apikey>"
-    }
-  }
+	"name": "AzureMLLinkedService",
+	"properties": {
+		"type": "AzureML",
+		"typeProperties": {
+			"mlEndpoint": "https://[batch scoring endpoint]/jobs",
+			"apiKey": "<apikey>"
+		}
+	}
 }
 ```
 
@@ -4864,18 +4603,18 @@ The following example provides JSON definition for an Azure Data Lake Analytics 
 
 ```json
 {
-    "name": "AzureDataLakeAnalyticsLinkedService",
-    "properties": {
-        "type": "AzureDataLakeAnalytics",
-        "typeProperties": {
-            "accountName": "adftestaccount",
-            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
-            "authorization": "<authcode>",
-            "sessionId": "<session ID>",
-            "subscriptionId": "<subscription id>",
-            "resourceGroupName": "<resource group name>"
-        }
-    }
+	"name": "AzureDataLakeAnalyticsLinkedService",
+	"properties": {
+		"type": "AzureDataLakeAnalytics",
+		"typeProperties": {
+			"accountName": "adftestaccount",
+			"dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
+			"authorization": "<authcode>",
+			"sessionId": "<session ID>",
+			"subscriptionId": "<subscription id>",
+			"resourceGroupName": "<resource group name>"
+		}
+	}
 }
 ```
 
@@ -4889,7 +4628,7 @@ The following table provides descriptions for the properties used in the JSON de
 | authorization |Authorization code is automatically retrieved after clicking **Authorize** button in the Data Factory Editor and completing the OAuth login. |Yes |
 | subscriptionId |Azure subscription id |No (If not specified, subscription of the data factory is used). |
 | resourceGroupName |Azure resource group name |No (If not specified, resource group of the data factory is used). |
-| sessionId |session id from the OAuth authorization session. Each session id is unique and may only be used once. When you use the Data Factory Editor, this ID is auto-generated . |Yes |
+| sessionId |session id from the OAuth authorization session. Each session id is unique and may only be used once. When you use the Data Factory Editor, this ID is auto-generated. |Yes |
 
 
 ## Azure SQL Database
