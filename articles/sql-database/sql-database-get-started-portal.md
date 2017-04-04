@@ -78,7 +78,7 @@ The SQL Database service creates a firewall at the server-level preventing exter
 
 4. Click **OK** and then click the **X** to close the **Firewall settings** page.
 
-You can now connect to the database and its server using SQL Server Management Studio or another tool of your choice.
+You can now connect to the database and its server using SQL Server Management Studio or another tool of your choice from this IP address using the Server admin account created previously..
 
 ## Query the SQL database
 
