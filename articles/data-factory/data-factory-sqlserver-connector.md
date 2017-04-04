@@ -50,7 +50,7 @@ When you use the wizard, JSON definitions for these Data Factory entities (linke
 The following sections provide details about JSON properties that are used to define Data Factory entities specific to SQL Server: 
 
 ## Linked service properties
-In the samples, you have used a linked service of type **OnPremisesSqlServer** to link an on-premises SQL Server database to a data factory. The following table provides description for JSON elements specific to on-premises SQL Server linked service.
+You create a linked service of type **OnPremisesSqlServer** to link an on-premises SQL Server database to a data factory. The following table provides description for JSON elements specific to on-premises SQL Server linked service.
 
 The following table provides description for JSON elements specific to SQL Server linked service.
 

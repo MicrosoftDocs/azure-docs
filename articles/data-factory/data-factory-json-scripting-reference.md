@@ -38,28 +38,28 @@ Click the link for the store you are interested in to see the JSON schemas for l
 | &nbsp; |[Azure DocumentDB](#azure-documentdb) |
 | &nbsp; |[Azure SQL Database](#azure-sql-database) |
 | &nbsp; |[Azure SQL Data Warehouse](#azure-sql-data-warehouse) |
-| &nbsp; |[Azure Search Index](#azure-search) |
+| &nbsp; |[Azure Search](#azure-search) |
 | &nbsp; |[Azure Table storage](#azure-table-storage) |
 | **Databases** |[Amazon Redshift](#amazon-redshift) |
-| &nbsp; |[DB2](#ibm-db2) |
+| &nbsp; |[IBM DB2](#ibm-db2) |
 | &nbsp; |[MySQL](#mysql) |
 | &nbsp; |[Oracle](#oracle) |
 | &nbsp; |[PostgreSQL](#postgresql) |
 | &nbsp; |[SAP Business Warehouse](#sap-business-warehouse) |
 | &nbsp; |[SAP HANA](#sap-hana) |
-| &nbsp; |[SQL Server](data-factory-sqlserver-connector.md#linked-service-properties) |
-| &nbsp; |[Sybase](data-factory-onprem-sybase-connector.md#linked-service-properties) |
-| &nbsp; |[Teradata](data-factory-onprem-teradata-connector.md#linked-service-properties) |
-| **NoSQL** |[Cassandra](data-factory-onprem-cassandra-connector.md#linked-service-properties) |
-| &nbsp; |[MongoDB](data-factory-on-premises-mongodb-connector.md#linked-service-properties) |
-| **File** |[Amazon S3](data-factory-amazon-simple-storage-service-connector.md#linked-service-properties) |
-| &nbsp; |[File System](data-factory-onprem-file-system-connector.md#linked-service-properties) |
-| &nbsp; |[FTP](data-factory-ftp-connector.md#linked-service-properties) |
-| &nbsp; |[HDFS](data-factory-hdfs-connector.md#linked-service-properties) |
-| &nbsp; |[SFTP](data-factory-sftp-connector.md#linked-service-properties) |
-| **Others** |[Generic HTTP](data-factory-http-connector.md#linked-service-properties) |
-| &nbsp; |[Generic OData](data-factory-odata-connector.md#linked-service-properties) |
-| &nbsp; |[Generic ODBC](data-factory-odbc-connector.md#linked-service-properties) |
+| &nbsp; |[SQL Server](#sql-server) |
+| &nbsp; |[Sybase](#sybase) |
+| &nbsp; |[Teradata](#teradata) |
+| **NoSQL** |[Cassandra](#cassandra) |
+| &nbsp; |[MongoDB](#mongodb) |
+| **File** |[Amazon S3](amazon-s3) |
+| &nbsp; |[File System](#file-system) |
+| &nbsp; |[FTP](#ftp) |
+| &nbsp; |[HDFS](#hdfs) |
+| &nbsp; |[SFTP](#sftp) |
+| **Others** |[HTTP](data-factory-http-connector.md#linked-service-properties) |
+| &nbsp; |[OData](data-factory-odata-connector.md#linked-service-properties) |
+| &nbsp; |[ODBC](data-factory-odbc-connector.md#linked-service-properties) |
 | &nbsp; |[Salesforce](data-factory-salesforce-connector.md#linked-service-properties) |
 | &nbsp; |[Web Table (table from HTML)](data-factory-web-table-connector.md#linked-service-properties) |
 
@@ -1416,8 +1416,8 @@ When source of copy activity is of type **RelationalSource** (which includes Ama
                 "name": "AmazonRedshiftToBlob"
             }
         ],
-        "start": "2016-06-01T18:00:00Z",
-        "end": "2016-06-01T19:00:00Z"
+        "start": "2016-06-01T18:00:00",
+        "end": "2016-06-01T19:00:00"
     }
 }
 ```
@@ -1538,8 +1538,8 @@ For Copy Activity, when source is of type **RelationalSource** (which includes D
                 "name": "Db2ToBlob"
             }
         ],
-        "start": "2016-06-01T18:00:00Z",
-        "end": "2016-06-01T19:00:00Z"
+        "start": "2016-06-01T18:00:00",
+        "end": "2016-06-01T19:00:00"
     }
 }
 ```
@@ -1666,8 +1666,8 @@ When source in copy activity is of type **RelationalSource** (which includes MyS
                     "name": "MySqlToBlob"
                 }
             ],
-            "start": "2014-06-01T18:00:00Z",
-            "end": "2014-06-01T19:00:00Z"
+            "start": "2016-06-01T18:00:00",
+            "end": "2016-06-01T19:00:00"
         }
     }
 ```
@@ -1725,7 +1725,7 @@ The typeProperties section for the dataset of type **OracleTable** has the follo
         "availability": {
             "offset": "01:00:00",
             "interval": "1",
-            "anchorDateTime": "2014-02-27T12:00:00",
+            "anchorDateTime": "2016-02-27T12:00:00",
             "frequency": "Hour"
         },
         "policy": {     
@@ -1752,8 +1752,8 @@ In Copy activity, when the source is of type **OracleSource** the following prop
 {  
     "name":"SamplePipeline",
     "properties":{  
-        "start":"2014-06-01T18:00:00",
-        "end":"2014-06-01T19:00:00",
+        "start":"2016-06-01T18:00:00",
+        "end":"2016-06-01T19:00:00",
         "description":"pipeline for copy activity",
         "activities":[  
             {
@@ -1812,8 +1812,8 @@ For more information, see [Oracle connector](data-factory-onprem-oracle-connecto
 {  
     "name":"SamplePipeline",
     "properties":{  
-        "start":"2014-06-01T18:00:00",
-        "end":"2014-06-05T19:00:00",
+        "start":"2016-06-01T18:00:00",
+        "end":"2016-06-05T19:00:00",
         "description":"pipeline with copy activity",
         "activities":[  
             {
@@ -1971,8 +1971,8 @@ When source is of type **RelationalSource** (which includes PostgreSQL), the fol
                 "name": "PostgreSqlToBlob"
             }
         ],
-        "start": "2014-06-01T18:00:00Z",
-        "end": "2014-06-01T19:00:00Z"
+        "start": "2016-06-01T18:00:00",
+        "end": "2016-06-01T19:00:00"
     }
 }
 ```
@@ -2089,8 +2089,8 @@ When source in copy activity is of type **RelationalSource** (which includes SAP
                 "name": "SapBwToBlob"
             }
         ],
-        "start": "2017-03-01T18:00:00Z",
-        "end": "2017-03-01T19:00:00Z"
+        "start": "2017-03-01T18:00:00",
+        "end": "2017-03-01T19:00:00"
     }
 }
 ```
@@ -2206,13 +2206,1719 @@ When source in copy activity is of type **RelationalSource** (which includes SAP
                 "name": "SapHanaToBlob"
             }
         ],
-        "start": "2017-03-01T18:00:00Z",
-        "end": "2017-03-01T19:00:00Z"
+        "start": "2017-03-01T18:00:00",
+        "end": "2017-03-01T19:00:00"
     }
 }
 ```
 
-For more information, see [SAP HANA connector](data-factory-sap-hana-connector.md#copy-activity-properties) article. 
+For more information, see [SAP HANA connector](data-factory-sap-hana-connector.md#copy-activity-properties) article.
+
+
+## SQL Server
+
+### Linked service
+You create a linked service of type **OnPremisesSqlServer** to link an on-premises SQL Server database to a data factory. The following table provides description for JSON elements specific to on-premises SQL Server linked service.
+
+The following table provides description for JSON elements specific to SQL Server linked service.
+
+| Property | Description | Required |
+| --- | --- | --- |
+| type |The type property should be set to: **OnPremisesSqlServer**. |Yes |
+| connectionString |Specify connectionString information needed to connect to the on-premises SQL Server database using either SQL authentication or Windows authentication. |Yes |
+| gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises SQL Server database. |Yes |
+| username |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
+| password |Specify password for the user account you specified for the username. |No |
+
+#### Examples
+You can encrypt credentials using the **New-AzureRmDataFactoryEncryptValue** cmdlet and use them in the connection string as shown in the following example (**EncryptedCredential** property):  
+
+```JSON
+"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+```
+
+**JSON for using SQL Authentication**
+
+```json
+{
+    "name": "MyOnPremisesSQLDB",
+    "properties":
+    {
+        "type": "OnPremisesSqlLinkedService",
+        "typeProperties": {
+            "connectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=False;User ID=<username>;Password=<password>;",
+            "gatewayName": "<gateway name>"
+        }
+    }
+}
+```
+**JSON for using Windows Authentication**
+
+If username and password are specified, gateway uses them to impersonate the specified user account to connect to the on-premises SQL Server database. Otherwise, gateway connects to the SQL Server directly with the security context of Gateway (its startup account).
+
+```json
+{
+     "Name": " MyOnPremisesSQLDB",
+     "Properties":
+     {
+         "type": "OnPremisesSqlLinkedService",
+         "typeProperties": {
+             "ConnectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=True;",
+             "username": "<domain\\username>",
+             "password": "<password>",
+             "gatewayName": "<gateway name>"
+        }
+     }
+}
+```
+
+For more information, see [SQL Server connector](data-factory-sql-server-connector.md#linked-service-properties) article. 
+
+### Dataset
+The **typeProperties** section for the dataset of type **SqlServerTable** has the following properties:
+
+| Property | Description | Required |
+| --- | --- | --- |
+| tableName |Name of the table or view in the SQL Server Database instance that linked service refers to. |Yes |
+
+#### Example
+```json
+{
+  "name": "SqlServerInput",
+  "properties": {
+    "type": "SqlServerTable",
+    "linkedServiceName": "SqlServerLinkedService",
+    "typeProperties": {
+      "tableName": "MyTable"
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    },
+    "policy": {
+      "externalData": {
+        "retryInterval": "00:01:00",
+        "retryTimeout": "00:10:00",
+        "maximumRetry": 3
+      }
+    }
+  }
+}
+```
+
+For more information, see [SQL Server connector](data-factory-sql-server-connector.md#dataset-properties) article. 
+
+### Sql Source in Copy Activity
+When source in a copy activity is of type **SqlSource**, the following properties are available in **typeProperties** section:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| sqlReaderQuery |Use the custom query to read data. |SQL query string. For example: select * from MyTable. May reference multiple tables from the database referenced by the input dataset. If not specified, the SQL statement that is executed: select from MyTable. |No |
+| sqlReaderStoredProcedureName |Name of the stored procedure that reads data from the source table. |Name of the stored procedure. |No |
+| storedProcedureParameters |Parameters for the stored procedure. |Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. |No |
+
+If the **sqlReaderQuery** is specified for the SqlSource, the Copy Activity runs this query against the SQL Server Database source to get the data.
+
+Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters).
+
+If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section are used to build a select query to run against the SQL Server Database. If the dataset definition does not have the structure, all columns are selected from the table.
+
+> [!NOTE]
+> When you use **sqlReaderStoredProcedureName**, you still need to specify a value for the **tableName** property in the dataset JSON. There are no validations performed against this table though.
+
+
+#### Example
+```json
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+    "start":"2016-06-01T18:00:00",
+    "end":"2016-06-01T19:00:00",
+    "description":"pipeline for copy activity",
+    "activities":[  
+      {
+        "name": "SqlServertoBlob",
+        "description": "copy activity",
+        "type": "Copy",
+        "inputs": [
+          {
+            "name": " SqlServerInput"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "AzureBlobOutput"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "SqlSource",
+            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+          },
+          "sink": {
+            "type": "BlobSink"
+          }
+        },
+       "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
+      }
+     ]
+   }
+}
+```
+
+In this example, **sqlReaderQuery** is specified for the SqlSource. The Copy Activity runs this query against the SQL Server Database source to get the data. Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters). The sqlReaderQuery can reference multiple tables within the database referenced by the input dataset. It is not limited to only the table set as the dataset's tableName typeProperty.
+
+If you do not specify sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section are used to build a select query to run against the SQL Server Database. If the dataset definition does not have the structure, all columns are selected from the table.
+
+For more information, see [SQL Server connector](data-factory-sql-server-connector.md#copy-activity-properties) article. 
+
+### Sql Sink in Copy Activity
+**SqlSink** supports the following properties:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| writeBatchTimeout |Wait time for the batch insert operation to complete before it times out. |timespan<br/><br/> Example: “00:30:00” (30 minutes). |No |
+| writeBatchSize |Inserts data into the SQL table when the buffer size reaches writeBatchSize. |Integer (number of rows) |No (default: 10000) |
+| sqlWriterCleanupScript |Specify query for Copy Activity to execute such that data of a specific slice is cleaned up. For more information, see [repeatability](#repeatability-during-copy) section. |A query statement. |No |
+| sliceIdentifierColumnName |Specify column name for Copy Activity to fill with auto generated slice identifier, which is used to clean up data of a specific slice when rerun. For more information, see [repeatability](#repeatability-during-copy) section. |Column name of a column with data type of binary(32). |No |
+| sqlWriterStoredProcedureName |Name of the stored procedure that upserts (updates/inserts) data into the target table. |Name of the stored procedure. |No |
+| storedProcedureParameters |Parameters for the stored procedure. |Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. |No |
+| sqlWriterTableType |Specify table type name to be used in the stored procedure. Copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data being copied with existing data. |A table type name. |No |
+
+#### Example
+The pipeline contains a Copy Activity that is configured to use these input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **BlobSource** and **sink** type is set to **SqlSink**.
+
+```json
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+    "start":"2016-06-01T18:00:00",
+    "end":"2016-06-01T19:00:00",
+    "description":"pipeline with copy activity",
+    "activities":[  
+      {
+        "name": "AzureBlobtoSQL",
+        "description": "Copy Activity",
+        "type": "Copy",
+        "inputs": [
+          {
+            "name": "AzureBlobInput"
+          }
+        ],
+        "outputs": [
+          {
+            "name": " SqlServerOutput "
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "BlobSource",
+            "blobColumnSeparators": ","
+          },
+          "sink": {
+            "type": "SqlSink"
+          }
+        },
+       "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
+      }
+      ]
+   }
+}
+```
+
+For more information, see [SQL Server connector](data-factory-sql-server-connector.md#copy-activity-properties) article. 
+
+## Sybase
+
+### Linked service
+The following table provides description for JSON elements specific to Sybase linked service.
+
+| Property | Description | Required |
+| --- | --- | --- |
+| type |The type property must be set to: **OnPremisesSybase** |Yes |
+| server |Name of the Sybase server. |Yes |
+| database |Name of the Sybase database. |Yes |
+| schema |Name of the schema in the database. |No |
+| authenticationType |Type of authentication used to connect to the Sybase database. Possible values are: Anonymous, Basic, and Windows. |Yes |
+| username |Specify user name if you are using Basic or Windows authentication. |No |
+| password |Specify password for the user account you specified for the username. |No |
+| gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises Sybase database. |Yes |
+
+#### Example
+```JSON
+{
+    "name": "OnPremSybaseLinkedService",
+    "properties": {
+        "type": "OnPremisesSybase",
+        "typeProperties": {
+            "server": "<server>",
+            "database": "<database>",
+            "schema": "<schema>",
+            "authenticationType": "<authentication type>",
+            "username": "<username>",
+            "password": "<password>",
+            "gatewayName": "<gatewayName>"
+        }
+    }
+}
+```
+
+For more information, see [Sybase connector](data-factory-onprem-sybase-connector.md#linked-service-properties) article. 
+
+### Dataset
+The **typeProperties** section for dataset of type **RelationalTable** (which includes Sybase dataset) has the following properties:
+
+| Property | Description | Required |
+| --- | --- | --- |
+| tableName |Name of the table in the Sybase Database instance that linked service refers to. |No (if **query** of **RelationalSource** is specified) |
+
+#### Example
+
+```JSON
+{
+    "name": "SybaseDataSet",
+    "properties": {
+        "type": "RelationalTable",
+        "linkedServiceName": "OnPremSybaseLinkedService",
+        "typeProperties": {},
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+            }
+        }
+    }
+}
+```
+
+For more information, see [Sybase connector](data-factory-onprem-sybase-connector.md#dataset-properties) article. 
+
+### Relational Source in Copy Activity
+When the source is of type **RelationalSource** (which includes Sybase), the following properties are available in **typeProperties** section:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| query |Use the custom query to read data. |SQL query string. For example: select * from MyTable. |No (if **tableName** of **dataset** is specified) |
+
+#### Example
+
+```JSON
+{
+    "name": "CopySybaseToBlob",
+    "properties": {
+        "description": "pipeline for copy activity",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "RelationalSource",
+                        "query": "select * from DBA.Orders"
+                    },
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "SybaseDataSet"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobSybaseDataSet"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "SybaseToBlob"
+            }
+        ],
+        "start": "2016-06-01T18:00:00",
+        "end": "2016-06-01T19:00:00"
+    }
+}
+```
+
+For more information, see [Sybase connector](data-factory-onprem-sybase-connector.md#copy-activity-properties) article.
+
+## Teradata
+
+### Linked service
+The following table provides description for JSON elements specific to Teradata linked service.
+
+| Property | Description | Required |
+| --- | --- | --- |
+| type |The type property must be set to: **OnPremisesTeradata** |Yes |
+| server |Name of the Teradata server. |Yes |
+| authenticationType |Type of authentication used to connect to the Teradata database. Possible values are: Anonymous, Basic, and Windows. |Yes |
+| username |Specify user name if you are using Basic or Windows authentication. |No |
+| password |Specify password for the user account you specified for the username. |No |
+| gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises Teradata database. |Yes |
+
+#### Example
+```json
+{
+    "name": "OnPremTeradataLinkedService",
+    "properties": {
+        "type": "OnPremisesTeradata",
+        "typeProperties": {
+            "server": "<server>",
+            "authenticationType": "<authentication type>",
+            "username": "<username>",
+            "password": "<password>",
+            "gatewayName": "<gatewayName>"
+        }
+    }
+}
+```
+
+For more information, see [Teradata connector](data-factory-onprem-teradata-connector.md#linked-service-properties) article.
+
+### Dataset
+The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. Currently, there are no type properties supported for the Teradata dataset.
+
+
+#### Example
+```json
+{
+    "name": "TeradataDataSet",
+    "properties": {
+        "published": false,
+        "type": "RelationalTable",
+        "linkedServiceName": "OnPremTeradataLinkedService",
+        "typeProperties": {
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+            }
+        }
+    }
+}
+```
+
+For more information, see [Teradata connector](data-factory-onprem-teradata-connector.md#dataset-properties) article.
+
+### Relational Source in Copy Activity
+When the source is of type **RelationalSource** (which includes Teradata), the following properties are available in **typeProperties** section:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| query |Use the custom query to read data. |SQL query string. For example: select * from MyTable. |Yes |
+
+#### Example
+
+```json
+{
+    "name": "CopyTeradataToBlob",
+    "properties": {
+        "description": "pipeline for copy activity",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "RelationalSource",
+                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', SliceStart, SliceEnd)"
+                    },
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "TeradataDataSet"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobTeradataDataSet"
+                    }
+                ],                    
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "TeradataToBlob"
+            }
+        ],
+        "start": "2016-06-01T18:00:00",
+        "end": "2016-06-01T19:00:00",
+        "isPaused": false
+    }
+}
+```
+
+For more information, see [Teradata connector](data-factory-onprem-teradata-connector.md#copy-activity-properties) article.
+
+## Cassandra
+
+
+### Linked service
+The following table provides description for JSON elements specific to Cassandra linked service.
+
+| Property | Description | Required |
+| --- | --- | --- |
+| type |The type property must be set to: **OnPremisesCassandra** |Yes |
+| host |One or more IP addresses or host names of Cassandra servers.<br/><br/>Specify a comma-separated list of IP addresses or host names to connect to all servers concurrently. |Yes |
+| port |The TCP port that the Cassandra server uses to listen for client connections. |No, default value: 9042 |
+| authenticationType |Basic, or Anonymous |Yes |
+| username |Specify user name for the user account. |Yes, if authenticationType is set to Basic. |
+| password |Specify password for the user account. |Yes, if authenticationType is set to Basic. |
+| gatewayName |The name of the gateway that is used to connect to the on-premises Cassandra database. |Yes |
+| encryptedCredential |Credential encrypted by the gateway. |No |
+
+#### Example
+```json
+{
+    "name": "CassandraLinkedService",
+    "properties":
+    {
+        "type": "OnPremisesCassandra",
+        "typeProperties":
+        {
+            "authenticationType": "Basic",
+            "host": "mycassandraserver",
+            "port": 9042,
+            "username": "user",
+            "password": "password",
+            "gatewayName": "mygateway"
+        }
+    }
+}
+```
+
+For more information, see [Cassandra connector](data-factory-onprem-cassandra-connector.md#linked-service-properties) article. 
+
+### Dataset
+The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **CassandraTable** has the following properties
+
+| Property | Description | Required |
+| --- | --- | --- |
+| keyspace |Name of the keyspace or schema in Cassandra database. |Yes (If **query** for **CassandraSource** is not defined). |
+| tableName |Name of the table in Cassandra database. |Yes (If **query** for **CassandraSource** is not defined). |
+
+#### Example
+
+```json
+{
+    "name": "CassandraInput",
+    "properties": {
+        "linkedServiceName": "CassandraLinkedService",
+        "type": "CassandraTable",
+        "typeProperties": {
+            "tableName": "mytable",
+            "keySpace": "mykeyspace"
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+            }
+        }
+    }
+}
+```
+
+For more information, see [Cassandra connector](data-factory-onprem-cassandra-connector.md#dataset-properties) article. 
+
+### Cassandra Source in Copy Activity
+When source is of type **CassandraSource**, the following properties are available in typeProperties section:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| query |Use the custom query to read data. |SQL-92 query or CQL query. See [CQL reference](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>When using SQL query, specify **keyspace name.table name** to represent the table you want to query. |No (if tableName and keyspace on dataset are defined). |
+| consistencyLevel |The consistency level specifies how many replicas must respond to a read request before returning data to the client application. Cassandra checks the specified number of replicas for data to satisfy the read request. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. See [Configuring data consistency](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) for details. |No. Default value is ONE. |
+
+#### Example
+  
+```json
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+        "start":"2016-06-01T18:00:00",
+        "end":"2016-06-01T19:00:00",
+        "description":"pipeline with copy activity",
+        "activities":[  
+        {
+            "name": "CassandraToAzureBlob",
+            "description": "Copy from Cassandra to an Azure blob",
+            "type": "Copy",
+            "inputs": [
+            {
+                "name": "CassandraInput"
+            }
+            ],
+            "outputs": [
+            {
+                "name": "AzureBlobOutput"
+            }
+            ],
+            "typeProperties": {
+                "source": {
+                    "type": "CassandraSource",
+                    "query": "select id, firstname, lastname from mykeyspace.mytable"
+
+                },
+                "sink": {
+                    "type": "BlobSink"
+                }
+            },
+            "scheduler": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "policy": {
+                "concurrency": 1,
+                "executionPriorityOrder": "OldestFirst",
+                "retry": 0,
+                "timeout": "01:00:00"
+            }
+        }
+        ]    
+    }
+}
+```
+
+For more information, see [Cassandra connector](data-factory-onprem-cassandra-connector.md#copy-activity-properties) article.
+
+## MongoDB
+
+### Linked service
+The following table provides description for JSON elements specific to **OnPremisesMongoDB** linked service.
+
+| Property | Description | Required |
+| --- | --- | --- |
+| type |The type property must be set to: **OnPremisesMongoDb** |Yes |
+| server |IP address or host name of the MongoDB server. |Yes |
+| port |TCP port that the MongoDB server uses to listen for client connections. |Optional, default value: 27017 |
+| authenticationType |Basic, or Anonymous. |Yes |
+| username |User account to access MongoDB. |Yes (if basic authentication is used). |
+| password |Password for the user. |Yes (if basic authentication is used). |
+| authSource |Name of the MongoDB database that you want to use to check your credentials for authentication. |Optional (if basic authentication is used). default: uses the admin account and the database specified using databaseName property. |
+| databaseName |Name of the MongoDB database that you want to access. |Yes |
+| gatewayName |Name of the gateway that accesses the data store. |Yes |
+| encryptedCredential |Credential encrypted by gateway. |Optional |
+
+#### Example
+
+```json
+{
+    "name": "OnPremisesMongoDbLinkedService",
+    "properties":
+    {
+        "type": "OnPremisesMongoDb",
+        "typeProperties":
+        {
+            "authenticationType": "<Basic or Anonymous>",
+            "server": "< The IP address or host name of the MongoDB server >",  
+            "port": "<The number of the TCP port that the MongoDB server uses to listen for client connections.>",
+            "username": "<username>",
+            "password": "<password>",
+           "authSource": "< The database that you want to use to check your credentials for authentication. >",
+            "databaseName": "<database name>",
+            "gatewayName": "<mygateway>"
+        }
+    }
+}
+```
+
+For more information, see [MongoDB connector article](data-factory-on-premises-mongodb-connector.md#linked-service-properties)
+
+### Dataset
+The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **MongoDbCollection** has the following properties:
+
+| Property | Description | Required |
+| --- | --- | --- |
+| collectionName |Name of the collection in MongoDB database. |Yes |
+
+#### Example
+
+```json
+{
+     "name":  "MongoDbInputDataset",
+    "properties": {
+        "type": "MongoDbCollection",
+        "linkedServiceName": "OnPremisesMongoDbLinkedService",
+        "typeProperties": {
+            "collectionName": "<Collection name>"    
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true
+    }
+}
+```
+
+For more information, see [MongoDB connector article](data-factory-on-premises-mongodb-connector.md#dataset-properties)
+
+#### MongoDB Source in Copy Activity
+When the source is of type **MongoDbSource**, the following properties are available in typeProperties section:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| query |Use the custom query to read data. |SQL-92 query string. For example: select * from MyTable. |No (if **collectionName** of **dataset** is specified) |
+
+#### Example
+
+```json
+{
+    "name": "CopyMongoDBToBlob",
+    "properties": {
+        "description": "pipeline for copy activity",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "MongoDbSource",
+                        "query": "$$Text.Format('select * from  MyTable where LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)"
+                    },
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "MongoDbInputDataset"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobOutputDataSet"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "MongoDBToAzureBlob"
+            }
+        ],
+        "start": "2016-06-01T18:00:00",
+        "end": "2016-06-01T19:00:00"
+    }
+}
+```
+
+For more information, see [MongoDB connector article](data-factory-on-premises-mongodb-connector.md#copy-activity-properties)
+
+## Amazon S3
+
+
+### Linked service
+A linked service links a data store to a data factory. You create a linked service of type **AwsAccessKey** to link your Amazon S3 data store to your data factory. The following table provides description for JSON elements specific to Amazon S3 (AwsAccessKey) linked service.
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| accessKeyID |ID of the secret access key. |string |Yes |
+| secretAccessKey |The secret access key itself. |Encrypted secret string |Yes |
+
+#### Example
+```json
+{
+    "name": "AmazonS3LinkedService",
+    "properties": {
+        "type": "AwsAccessKey",
+        "typeProperties": {
+            "accessKeyId": "<access key id>",
+            "secretAccessKey": "<secret access key>"
+        }
+    }
+}
+```
+
+For more information, see [Amazon S3 connector article](data-factory-amazon-simple-storage-service-connector.md#linked-service-properties).
+
+### Dataset
+To specify a dataset to represent input data in an Azure Blob Storage, you set the type property of the dataset to: **AmazonS3**. Set the **linkedServiceName** property of the dataset to the name of the Amazon S3 linked service.  For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.). The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **AmazonS3** (which includes Amazon S3 dataset) has the following properties
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| bucketName |The S3 bucket name. |String |Yes |
+| key |The S3 object key. |String |No |
+| prefix |Prefix for the S3 object key. Objects whose keys start with this prefix are selected. Applies only when key is empty. |String |No |
+| version |The version of S3 object if S3 versioning is enabled. |String |No |
+| format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No | |
+| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. The supported levels are: **Optimal** and **Fastest**. For more information, see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No | |
+
+
+> [!NOTE]
+> bucketName + key specifies the location of the S3 object where bucket is the root container for S3 objects and key is the full path to S3 object.
+
+#### Example
+
+**Sample dataset with prefix:**
+
+```json
+{
+    "name": "dataset-s3",
+    "properties": {
+        "type": "AmazonS3",
+        "linkedServiceName": "link- testS3",
+        "typeProperties": {
+            "prefix": "testFolder/test",
+            "bucketName": "testbucket",
+            "format": {
+                "type": "OrcFormat"
+            }
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true
+    }
+}
+```
+**Sample data set (with version):**
+
+```json
+{
+    "name": "dataset-s3",
+    "properties": {
+        "type": "AmazonS3",
+        "linkedServiceName": "link- testS3",
+        "typeProperties": {
+            "key": "testFolder/test.orc",
+            "bucketName": "testbucket",
+            "version": "XXXXXXXXXczm0CJajYkHf0_k6LhBmkcL",
+            "format": {
+                "type": "OrcFormat"
+            }
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true
+    }
+}
+```
+
+**Dynamic paths for S3:**
+In the sample, we use fixed values for key and bucketName properties in the Amazon S3 dataset.
+
+```json
+"key": "testFolder/test.orc",
+"bucketName": "testbucket",
+```
+
+You can have Data Factory calculate the key and bucketName dynamically at runtime by using system variables such as SliceStart.
+
+```json
+"key": "$$Text.Format('{0:MM}/{0:dd}/test.orc', SliceStart)"
+"bucketName": "$$Text.Format('{0:yyyy}', SliceStart)"
+```
+
+You can do the same for the prefix property of an Amazon S3 dataset. See [Data Factory functions and system variables](data-factory-functions-variables.md) for a list of supported functions and variables.
+
+For more information, see [Amazon S3 connector article](data-factory-amazon-simple-storage-service-connector.md#dataset-properties).
+
+### File System Source in Copy Activity
+When source in copy activity is of type **FileSystemSource** (which includes Amazon S3), the following properties are available in typeProperties section:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| recursive |Specifies whether to recursively list S3 objects under the directory. |true/false |No |
+
+
+#### Example
+
+
+```json
+{
+    "name": "CopyAmazonS3ToBlob",
+    "properties": {
+        "description": "pipeline for copy activity",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "FileSystemSource",
+                        "recursive": true
+                    },
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "AmazonS3InputDataset"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobOutputDataSet"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "AmazonS3ToBlob"
+            }
+        ],
+        "start": "2016-08-08T18:00:00",
+        "end": "2016-08-08T19:00:00"
+    }
+}
+```
+
+For more information, see [Amazon S3 connector article](data-factory-amazon-simple-storage-service-connector.md#copy-activity-properties).
+
+## File System
+
+
+### Linked service
+You can link an on-premises file system to an Azure data factory with the **On-Premises File Server** linked service. The following table provides descriptions for JSON elements that are specific to the On-Premises File Server linked service.
+
+| Property | Description | Required |
+| --- | --- | --- |
+| type |Ensure that the type property is set to **OnPremisesFileServer**. |Yes |
+| host |Specifies the root path of the folder that you want to copy. Use the escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples. |Yes |
+| userid |Specify the ID of the user who has access to the server. |No (if you choose encryptedCredential) |
+| password |Specify the password for the user (userid). |No (if you choose encryptedCredential |
+| encryptedCredential |Specify the encrypted credentials that you can get by running the New-AzureRmDataFactoryEncryptValue cmdlet. |No (if you choose to specify userid and password in plain text) |
+| gatewayName |Specifies the name of the gateway that Data Factory should use to connect to the on-premises file server. |Yes |
+
+#### Example
+| Scenario | Host in linked service definition | folderPath in dataset definition |
+| --- | --- | --- |
+| Local folder on Data Management Gateway machine: <br/><br/>Examples: D:\\\* or D:\folder\subfolder\\* |D:\\\\ (for Data Management Gateway 2.0 and later versions) <br/><br/> localhost (for earlier versions than Data Management Gateway 2.0) |.\\\\ or folder\\\\subfolder (for Data Management Gateway 2.0 and later versions) <br/><br/>D:\\\\ or D:\\\\folder\\\\subfolder (for gateway version below 2.0) |
+| Remote shared folder: <br/><br/>Examples: \\\\myserver\\share\\\* or \\\\myserver\\share\\folder\\subfolder\\* |\\\\\\\\myserver\\\\share |.\\\\ or folder\\\\subfolder |
+
+
+**Example: Using username and password in plain text**
+
+```JSON
+{
+  "Name": "OnPremisesFileServerLinkedService",
+  "properties": {
+    "type": "OnPremisesFileServer",
+    "typeProperties": {
+      "host": "\\\\Contosogame-Asia",
+      "userid": "Admin",
+      "password": "123456",
+      "gatewayName": "mygateway"
+    }
+  }
+}
+```
+
+**Example: Using encryptedcredential**
+
+```JSON
+{
+  "Name": " OnPremisesFileServerLinkedService ",
+  "properties": {
+    "type": "OnPremisesFileServer",
+    "typeProperties": {
+      "host": "D:\\",
+      "encryptedCredential": "WFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5xxxxxxxxxxxxxxxxx",
+      "gatewayName": "mygateway"
+    }
+  }
+}
+```
+
+For more information, see [File System connector article](data-factory-onprem-file-system-connector.md#linked-service-properties).
+
+### Dataset
+The typeProperties section for the dataset of type **FileShare** has the following properties:
+
+| Property | Description | Required |
+| --- | --- | --- |
+| folderPath |Specifies the subpath to the folder. Use the escape character ‘\’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. |Yes |
+| fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file is in the following format: <br/><br/>`Data.<Guid>.txt` (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |No |
+| fileFilter |Specify a filter to be used to select a subset of files in the folderPath rather than all files. <br/><br/>Allowed values are: `*` (multiple characters) and `?` (single character).<br/><br/>Example 1: "fileFilter": "*.log"<br/>Example 2: "fileFilter": 2016-1-?.txt"<br/><br/>Note that fileFilter is applicable for an input FileShare dataset. |No |
+| partitionedBy |You can use partitionedBy to specify a dynamic folderPath/fileName for time-series data. An example is folderPath parameterized for every hour of data. |No |
+| format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No |
+| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**; and supported levels are: **Optimal** and **Fastest**. see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+
+> [!NOTE]
+> You cannot use fileName and fileFilter simultaneously.
+
+#### Example
+
+```JSON
+{
+  "name": "OnpremisesFileSystemInput",
+  "properties": {
+    "type": " FileShare",
+    "linkedServiceName": " OnPremisesFileServerLinkedService ",
+    "typeProperties": {
+      "folderPath": "mysharedfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+      "fileName": "{Hour}.csv",
+      "partitionedBy": [
+        {
+          "name": "Year",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "yyyy"
+          }
+        },
+        {
+          "name": "Month",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "MM"
+          }
+        },
+        {
+          "name": "Day",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "dd"
+          }
+        },
+        {
+          "name": "Hour",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "HH"
+          }
+        }
+      ]
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    },
+    "policy": {
+      "externalData": {
+        "retryInterval": "00:01:00",
+        "retryTimeout": "00:10:00",
+        "maximumRetry": 3
+      }
+    }
+  }
+}
+```
+
+For more information, see [File System connector article](data-factory-onprem-file-system-connector.md#dataset-properties).
+
+### File System Source in Copy Activity
+**FileSystemSource** supports the following properties:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| recursive |Indicates whether the data is read recursively from the subfolders or only from the specified folder. |True, False (default) |No |
+
+#### Example
+
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+    "start":"2015-06-01T18:00:00",
+    "end":"2015-06-01T19:00:00",
+    "description":"Pipeline for copy activity",
+    "activities":[  
+      {
+        "name": "OnpremisesFileSystemtoBlob",
+        "description": "copy activity",
+        "type": "Copy",
+        "inputs": [
+          {
+            "name": "OnpremisesFileSystemInput"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "AzureBlobOutput"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "FileSystemSource"
+          },
+          "sink": {
+            "type": "BlobSink"
+          }
+        },
+       "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
+      }
+     ]
+   }
+}
+```
+For more information, see [File System connector article](data-factory-onprem-file-system-connector.md#copy-activity-properties).
+
+### File System Sink in Copy Activity
+**FileSystemSink** supports the following properties:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| copyBehavior |Defines the copy behavior when the source is BlobSource or FileSystem. |**PreserveHierarchy:** Preserves the file hierarchy in the target folder. That is, the relative path of the source file to the source folder is the same as the relative path of the target file to the target folder.<br/><br/>**FlattenHierarchy:** All files from the source folder are created in the first level of target folder. The target files are created with an autogenerated name.<br/><br/>**MergeFiles:** Merges all files from the source folder to one file. If the file name/blob name is specified, the merged file name is the specified name. Otherwise, it is an auto-generated file name. |No |
+
+
+#### Example
+
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+    "start":"2015-06-01T18:00:00",
+    "end":"2015-06-01T20:00:00",
+    "description":"pipeline for copy activity",
+    "activities":[  
+      {
+        "name": "AzureSQLtoOnPremisesFile",
+        "description": "copy activity",
+        "type": "Copy",
+        "inputs": [
+          {
+            "name": "AzureSQLInput"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "OnpremisesFileSystemOutput"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "SqlSource",
+            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd}\\'', WindowStart, WindowEnd)"
+          },
+          "sink": {
+            "type": "FileSystemSink"
+          }
+        },
+       "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 3,
+          "timeout": "01:00:00"
+        }
+      }
+     ]
+   }
+}
+```
+
+For more information, see [File System connector article](data-factory-onprem-file-system-connector.md#copy-activity-properties).
+
+## FTP
+
+### Linked service
+The following table provides description for JSON elements specific to FTP linked service.
+
+| Property | Description | Required | Default |
+| --- | --- | --- | --- |
+| type |The type property must be set to FtpServer |Yes |&nbsp; |
+| host |Name or IP address of the FTP Server |Yes |&nbsp; |
+| authenticationType |Specify authentication type |Yes |Basic, Anonymous |
+| username |User who has access to the FTP server |No |&nbsp; |
+| password |Password for the user (username) |No |&nbsp; |
+| encryptedCredential |Encrypted credential to access the FTP server |No |&nbsp; |
+| gatewayName |Name of the Data Management Gateway gateway to connect to an on-premises FTP server |No |&nbsp; |
+| port |Port on which the FTP server is listening |No |21 |
+| enableSsl |Specify whether to use FTP over SSL/TLS channel |No |true |
+| enableServerCertificateValidation |Specify whether to enable server SSL certificate validation when using FTP over SSL/TLS channel |No |true |
+
+#### Example
+**Using Anonymous authentication:**
+
+```JSON
+{
+    "name": "FTPLinkedService",
+    "properties": {
+        "type": "FtpServer",
+        "typeProperties": {        
+            "authenticationType": "Anonymous",
+              "host": "myftpserver.com"
+        }
+    }
+}
+```
+
+**Using username and password in plain text for basic authentication:**
+
+```JSON
+{
+    "name": "FTPLinkedService",
+      "properties": {
+    "type": "FtpServer",
+        "typeProperties": {
+            "host": "myftpserver.com",
+            "authenticationType": "Basic",
+            "username": "Admin",
+            "password": "123456"
+        }
+      }
+}
+```
+
+**Using port, enableSsl, enableServerCertificateValidation:**
+
+```JSON
+{
+    "name": "FTPLinkedService",
+    "properties": {
+        "type": "FtpServer",
+        "typeProperties": {
+            "host": "myftpserver.com",
+            "authenticationType": "Basic",    
+            "username": "Admin",
+            "password": "123456",
+            "port": "21",
+            "enableSsl": true,
+            "enableServerCertificateValidation": true
+        }
+    }
+}
+```
+
+**Using encryptedCredential for authentication and gateway:**
+
+```JSON
+{
+    "name": "FTPLinkedService",
+    "properties": {
+        "type": "FtpServer",
+        "typeProperties": {
+            "host": "myftpserver.com",
+            "authenticationType": "Basic",
+            "encryptedCredential": "xxxxxxxxxxxxxxxxx",
+            "gatewayName": "mygateway"
+        }
+      }
+}
+```
+
+For more information, see [FTP connector](data-factory-ftp-connector.md#linked-service-properties) article.
+
+### Dataset
+The typeProperties section for a dataset of type **FileShare** dataset has the following properties:
+
+| Property | Description | Required |
+| --- | --- | --- |
+| folderPath |Sub path to the folder. Use escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. |Yes 
+| fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: <br/><br/>Data.<Guid>.txt (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
+| fileFilter |Specify a filter to be used to select a subset of files in the folderPath rather than all files.<br/><br/>Allowed values are: `*` (multiple characters) and `?` (single character).<br/><br/>Examples 1: `"fileFilter": "*.log"`<br/>Example 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter is applicable for an input FileShare dataset. This property is not supported with HDFS. |No |
+| partitionedBy |partitionedBy can be used to specify a dynamic folderPath, filename for time series data. For example, folderPath parameterized for every hour of data. |No |
+| format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No |
+| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**; and supported levels are: **Optimal** and **Fastest**. For more information, see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+| useBinaryTransfer |Specify whether use Binary transfer mode. True for binary mode and false ASCII. Default value: True. This property can only be used when associated linked service type is of type: FtpServer. |No |
+
+> [!NOTE]
+> filename and fileFilter cannot be used simultaneously.
+
+#### Example
+
+```JSON
+{
+  "name": "FTPFileInput",
+  "properties": {
+    "type": "FileShare",
+    "linkedServiceName": "FTPLinkedService",
+    "typeProperties": {
+      "folderPath": "mysharedfolder",
+      "fileName": "test.csv",
+      "useBinaryTransfer": true
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    }
+  }
+}
+```
+
+For more information, see [FTP connector](data-factory-ftp-connector.md#dataset-properties) article.
+
+### File System Source in Copy Activity
+In Copy Activity, when source is of type **FileSystemSource**, the following properties are available in typeProperties section:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| recursive |Indicates whether the data is read recursively from the sub folders or only from the specified folder. |True, False (default) |No |
+
+#### Example
+
+```JSON
+{
+    "name": "pipeline",
+    "properties": {
+        "activities": [{
+            "name": "FTPToBlobCopy",
+            "inputs": [{
+                "name": "FtpFileInput"
+            }],
+            "outputs": [{
+                "name": "AzureBlobOutput"
+            }],
+            "type": "Copy",
+            "typeProperties": {
+                "source": {
+                    "type": "FileSystemSource"
+                },
+                "sink": {
+                    "type": "BlobSink"
+                }
+            },
+            "scheduler": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "policy": {
+                "concurrency": 1,
+                "executionPriorityOrder": "NewestFirst",
+                "retry": 1,
+                "timeout": "00:05:00"
+            }
+        }],
+        "start": "2016-08-24T18:00:00",
+        "end": "2016-08-24T19:00:00"
+    }
+}
+```
+
+For more information, see [FTP connector](data-factory-ftp-connector.md#copy-activity-properties) article.
+
+
+## HDFS
+
+### Linked service
+You create a linked service of type **Hdfs** to link an on-premises HDFS to your data factory. The following table provides description for JSON elements specific to HDFS linked service.
+
+| Property | Description | Required |
+| --- | --- | --- |
+| type |The type property must be set to: **Hdfs** |Yes |
+| Url |URL to the HDFS |Yes |
+| authenticationType |Anonymous, or Windows. <br><br> To use **Kerberos authentication** for HDFS connector, refer to [this section](#use-kerberos-authentication-for-hdfs-connector) to set up your on-premises environment accordingly. |Yes |
+| userName |Username for Windows authentication. |Yes (for Windows Authentication) |
+| password |Password for Windows authentication. |Yes (for Windows Authentication) |
+| gatewayName |Name of the gateway that the Data Factory service should use to connect to the HDFS. |Yes |
+| encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) output of the access credential. |No |
+
+#### Example
+**Using Anonymous authentication:**
+
+```JSON
+{
+    "name": "HDFSLinkedService",
+    "properties":
+    {
+        "type": "Hdfs",
+        "typeProperties":
+        {
+            "authenticationType": "Anonymous",
+            "userName": "hadoop",
+            "url" : "http://<machine>:50070/webhdfs/v1/",
+            "gatewayName": "mygateway"
+        }
+    }
+}
+```
+
+**Using Windows authentication:**
+
+```JSON
+{
+    "name": "HDFSLinkedService",
+    "properties":
+    {
+        "type": "Hdfs",
+        "typeProperties":
+        {
+            "authenticationType": "Windows",
+            "userName": "Administrator",
+            "password": "password",
+            "url" : "http://<machine>:50070/webhdfs/v1/",
+            "gatewayName": "mygateway"
+        }
+    }
+}
+```
+
+For more information, see [HDFS connector](#data-factory-hdfs-connector.md#linked-service-properties) article. 
+
+### Dataset
+The typeProperties section for dataset of type **FileShare** (which includes HDFS dataset) has the following properties
+
+| Property | Description | Required |
+| --- | --- | --- |
+| folderPath |Path to the folder. Example: `myfolder`<br/><br/>Use escape character ‘ \ ’ for special characters in the string. For example: for folder\subfolder, specify folder\\\\subfolder and for d:\samplefolder, specify d:\\\\samplefolder.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. |Yes |
+| fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: <br/><br/>Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
+| partitionedBy |partitionedBy can be used to specify a dynamic folderPath, filename for time series data. Example: folderPath parameterized for every hour of data. |No |
+| format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No |
+| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. Supported levels are: **Optimal** and **Fastest**. For more information, see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+
+> [!NOTE]
+> filename and fileFilter cannot be used simultaneously.
+
+#### Example
+
+```JSON
+{
+    "name": "InputDataset",
+    "properties": {
+        "type": "FileShare",
+        "linkedServiceName": "HDFSLinkedService",
+        "typeProperties": {
+            "folderPath": "DataTransfer/UnitTest/"
+        },
+        "external": true,
+        "availability": {
+            "frequency": "Hour",
+            "interval":  1
+        }
+    }
+}
+```
+
+For more information, see [HDFS connector](#data-factory-hdfs-connector.md#dataset-properties) article. 
+
+### File System Source in Copy Activity
+For Copy Activity, when source is of type **FileSystemSource** the following properties are available in typeProperties section:
+
+**FileSystemSource** supports the following properties:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| recursive |Indicates whether the data is read recursively from the sub folders or only from the specified folder. |True, False (default) |No |
+
+#### Example
+
+```JSON
+{
+    "name": "pipeline",
+    "properties":
+    {
+        "activities":
+        [
+            {
+                "name": "HdfsToBlobCopy",
+                "inputs": [ {"name": "InputDataset"} ],
+                "outputs": [ {"name": "OutputDataset"} ],
+                "type": "Copy",
+                "typeProperties":
+                {
+                    "source":
+                    {
+                        "type": "FileSystemSource"
+                    },
+                    "sink":
+                    {
+                        "type": "BlobSink"
+                    }
+                },
+                "policy":
+                {
+                    "concurrency": 1,
+                    "executionPriorityOrder": "NewestFirst",
+                    "retry": 1,
+                    "timeout": "00:05:00"
+                }
+            }
+        ],
+        "start": "2016-06-01T18:00:00",
+        "end": "2016-06-01T19:00:00"
+    }
+}
+```
+
+For more information, see [HDFS connector](#data-factory-hdfs-connector.md#copy-activity-properties) article.
+
+## SFTP
+
+
+### Linked service
+The following table provides description for JSON elements specific to FTP linked service.
+
+| Property | Description | Required |
+| --- | --- | --- | --- |
+| type | The type property must be set to `Sftp`. |Yes |
+| host | Name or IP address of the SFTP server. |Yes |
+| port |Port on which the SFTP server is listening. The default value is: 21 |No |
+| authenticationType |Specify authentication type. Allowed values: **Basic**, **SshPublicKey**. <br><br> Refer to [Using basic authentication](#using-basic-authentication) and [Using SSH public key authentication](#using-ssh-public-key-authentication) sections on more properties and JSON samples respectively. |Yes |
+| skipHostKeyValidation | Specify whether to skip host key validation. | No. The default value: false |
+| hostKeyFingerprint | Specify the finger print of the host key. | Yes if the `skipHostKeyValidation` is set to false.  |
+| gatewayName |Name of the Data Management Gateway to connect to an on-premises SFTP server. | Yes if copying data from an on-premises SFTP server. |
+| encryptedCredential | Encrypted credential to access the SFTP server. Auto-generated when you specify basic authentication (username + password) or SshPublicKey authentication (username + private key path or content) in copy wizard or the ClickOnce popup dialog. | No. Apply only when copying data from an on-premises SFTP server. |
+
+#### Example
+**Using basic authentication:**
+
+To use basic authentication, set `authenticationType` as `Basic`, and specify the following properties besides the SFTP connector generic ones introduced in the last section:
+
+| Property | Description | Required |
+| --- | --- | --- | --- |
+| username | User who has access to the SFTP server. |Yes |
+| password | Password for the user (username). | Yes |
+
+**Example: Basic authentication**
+```json
+{
+    "name": "SftpLinkedService",
+    "properties": {
+        "type": "Sftp",
+        "typeProperties": {
+            "host": "mysftpserver",
+            "port": 22,
+            "authenticationType": "Basic",
+            "username": "xxx",
+            "password": "xxx",
+            "skipHostKeyValidation": false,
+            "hostKeyFingerPrint": "ssh-rsa 2048 xx:00:00:00:xx:00:x0:0x:0x:0x:0x:00:00:x0:x0:00",
+            "gatewayName": "mygateway"
+        }
+    }
+}
+```
+
+**Example: Basic authentication with encrypted credential**
+
+```JSON
+{
+    "name": "SftpLinkedService",
+    "properties": {
+        "type": "Sftp",
+        "typeProperties": {
+            "host": "mysftpserver",
+            "port": 22,
+            "authenticationType": "Basic",
+            "username": "xxx",
+            "encryptedCredential": "xxxxxxxxxxxxxxxxx",
+            "skipHostKeyValidation": false,
+            "hostKeyFingerPrint": "ssh-rsa 2048 xx:00:00:00:xx:00:x0:0x:0x:0x:0x:00:00:x0:x0:00",
+            "gatewayName": "mygateway"
+        }
+      }
+}
+```
+
+**Using SSH public key authentication:**
+
+To use basic authentication, set `authenticationType` as `SshPublicKey`, and specify the following properties besides the SFTP connector generic ones introduced in the last section:
+
+| Property | Description | Required |
+| --- | --- | --- | --- |
+| username |User who has access to the SFTP server |Yes |
+| privateKeyPath | Specify absolute path to the private key file that gateway can access. | Specify either the `privateKeyPath` or `privateKeyContent`. <br><br> Apply only when copying data from an on-premises SFTP server. |
+| privateKeyContent | A serialized string of the private key content. The Copy Wizard can read the private key file and extract the private key content automatically. If you are using any other tool/SDK, use the privateKeyPath property instead. | Specify either the `privateKeyPath` or `privateKeyContent`. |
+| passPhrase | Specify the pass phrase/password to decrypt the private key if the key file is protected by a pass phrase. | Yes if the private key file is protected by a pass phrase. |
+
+**Example: SshPublicKey authentication using private key filePath**
+
+```json
+{
+    "name": "SftpLinkedServiceWithPrivateKeyPath",
+    "properties": {
+        "type": "Sftp",
+        "typeProperties": {
+            "host": "mysftpserver",
+            "port": 22,
+            "authenticationType": "SshPublicKey",
+            "username": "xxx",
+            "privateKeyPath": "D:\\privatekey_openssh",
+            "passPhrase": "xxx",
+            "skipHostKeyValidation": true,
+            "gatewayName": "mygateway"
+        }
+    }
+}
+```
+
+**Example: SshPublicKey authentication using private key content**
+
+```json
+{
+    "name": "SftpLinkedServiceWithPrivateKeyContent",
+    "properties": {
+        "type": "Sftp",
+        "typeProperties": {
+            "host": "mysftpserver.westus.cloudapp.azure.com",
+            "port": 22,
+            "authenticationType": "SshPublicKey",
+            "username": "xxx",
+            "privateKeyContent": "<base64 string of the private key content>",
+            "passPhrase": "xxx",
+            "skipHostKeyValidation": true
+        }
+    }
+}
+```
+
+For more information, see [SFTP connector](data-factory-sftp-connector.md#linked-service-properties) article. 
+
+### Dataset
+The typeProperties section for a dataset of type **FileShare** dataset has the following properties:
+
+| Property | Description | Required |
+| --- | --- | --- |
+| folderPath |Sub path to the folder. Use escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. |Yes |
+| fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: <br/><br/>Data.<Guid>.txt (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
+| fileFilter |Specify a filter to be used to select a subset of files in the folderPath rather than all files.<br/><br/>Allowed values are: `*` (multiple characters) and `?` (single character).<br/><br/>Examples 1: `"fileFilter": "*.log"`<br/>Example 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter is applicable for an input FileShare dataset. This property is not supported with HDFS. |No |
+| partitionedBy |partitionedBy can be used to specify a dynamic folderPath, filename for time series data. For example, folderPath parameterized for every hour of data. |No |
+| format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No |
+| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. Supported levels are: **Optimal** and **Fastest**. For more information, see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+| useBinaryTransfer |Specify whether use Binary transfer mode. True for binary mode and false ASCII. Default value: True. This property can only be used when associated linked service type is of type: FtpServer. |No |
+
+> [!NOTE]
+> filename and fileFilter cannot be used simultaneously.
+
+#### Example
+
+```json
+{
+  "name": "SFTPFileInput",
+  "properties": {
+    "type": "FileShare",
+    "linkedServiceName": "SftpLinkedService",
+    "typeProperties": {
+      "folderPath": "mysharedfolder",
+      "fileName": "test.csv"
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    }
+  }
+}
+```
+
+For more information, see [SFTP connector](data-factory-sftp-connector.md#dataset-properties) article. 
+
+### File System Source in Copy Activity
+In Copy Activity, when source is of type **FileSystemSource**, the following properties are available in typeProperties section:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| recursive |Indicates whether the data is read recursively from the sub folders or only from the specified folder. |True, False (default) |No |
+
+
+
+#### Example
+
+```json
+{
+    "name": "pipeline",
+    "properties": {
+        "activities": [{
+            "name": "SFTPToBlobCopy",
+            "inputs": [{
+                "name": "SFTPFileInput"
+            }],
+            "outputs": [{
+                "name": "AzureBlobOutput"
+            }],
+            "type": "Copy",
+            "typeProperties": {
+                "source": {
+                    "type": "FileSystemSource"
+                },
+                "sink": {
+                    "type": "BlobSink"
+                }
+            },
+            "scheduler": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "policy": {
+                "concurrency": 1,
+                "executionPriorityOrder": "NewestFirst",
+                "retry": 1,
+                "timeout": "00:05:00"
+            }
+        }],
+        "start": "2017-02-20T18:00:00",
+        "end": "2017-02-20T19:00:00"
+    }
+}
+```
+
+For more information, see [SFTP connector](data-factory-sftp-connector.md#copy-activity-properties) article. 
 
 ## Computes
 Click the link for the compute you are interested in to see the JSON schemas for linked service to link it to a data factory.
@@ -2224,3 +3930,4 @@ Click the link for the compute you are interested in to see the JSON schemas for
 | [Azure Machine Learning](#azure-machine-learning-linked-service) |[Machine Learning activities: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) |[Stored Procedure](data-factory-stored-proc-activity.md) |
+
