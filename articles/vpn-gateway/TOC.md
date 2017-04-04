@@ -24,13 +24,10 @@
 ### [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Azure portal (classic)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-### [Classic portal (classic)](virtual-networks-configure-vnet-to-vnet-connection.md)
 ## Configure a VNet-to-VNet connection between deployment models
 ### [Azure portal](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
-## Create Site-to-Site and ExpressRoute coexisting connections
-### [PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
-### [PowerShell (classic)](../expressroute/expressroute-howto-coexist-classic.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
+## [Configure Site-to-Site and ExpressRoute coexisting connections](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## Configure forced tunneling
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell (classic)](vpn-gateway-about-forced-tunneling.md)
