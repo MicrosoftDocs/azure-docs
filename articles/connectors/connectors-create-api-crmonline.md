@@ -114,7 +114,7 @@ To perform this task, enter the OData filter query **statuscode eq 1** and selec
 More information: [MSDN: $filter](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_1) 
 and [$orderby](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_2).
 
-![LogicApp advanced options](./media/connectors-create-api-crmonline/advanced-options.png)
+![Logic app advanced options](./media/connectors-create-api-crmonline/advanced-options.png)
 
 ### Best practices when using advanced options
 
@@ -158,7 +158,7 @@ Alternatively, on the actions toolbar, to copy the full URL into your default em
 ## Troubleshooting
 To troubleshoot a failed step in a logic app, view the status details of the event.
 
-1. In the Logic Apps area, click your logic app and then click **Overview**. 
+1. Under **Logic Apps**, select your logic app, and then click **Overview**. 
 
    The Summary area is shown and provides the run status for the logic app. 
 
