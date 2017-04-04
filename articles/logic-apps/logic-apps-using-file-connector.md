@@ -25,7 +25,7 @@ file system with a basic scenario: copy a file that's uploaded to Dropbox to a f
 
 ## Prerequisites
 
-- Install and configure the latest [on-premises data gateway](https://www.microsoft.com/en-us/download/details.aspx?id=53127).
+- Install and configure the latest [on-premises data gateway](https://www.microsoft.com/download/details.aspx?id=53127).
 - Install the latest on-premises data gateway, version 1.15.6150.1 or above. [Connect to the on-premises data gateway](http://aka.ms/logicapps-gateway) lists the steps. The gateway must be installed on an on-premises machine before you can continue with the rest of the steps.
 
 ## Add trigger and actions for connecting to your file system
