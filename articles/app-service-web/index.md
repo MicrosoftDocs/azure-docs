@@ -69,6 +69,7 @@ ms.author: carolz
             <img src="media/index/video-training-dotnet.png" width="400" alt="" />
             <p>Free Pluralsight video training – Developing with .NET</a></p>
             <p></p>
+        <p style="margin-top: 36px"></p>
         <a href="https://app.pluralsight.com/player?author=scott-allen&name=developing-nodejs-microsoft-azure-getting-started-m0&mode=live&clip=0&course=developing-nodejs-microsoft-azure-getting-started">
             <img src="media/index/video-training-nodejs.png" width="400" alt="" />
             <p>Free Pluralsight video training – Developing with Node.js</a></p>
@@ -83,6 +84,7 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
                         <p><a href="/cli/azure/appservice">Azure CLI 2.0</a></p>
                     </div>
                 </div>

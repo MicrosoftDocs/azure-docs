@@ -56,10 +56,6 @@ ms.author: carolz
         <a href="https://app.pluralsight.com/player?author=scott-allen&name=f24a629c-37b7-47f1-bc43-4b122da61cbb&mode=live&clip=0&course=developing-dotnet-microsoft-azure-getting-started">
             <img src="media/index/video-training-dotnet.png" width="400" alt="">
             <p>Free Pluralsight video training – Developing with .NET</a></p>
-            <p></p>
-        <a href="https://app.pluralsight.com/player?author=scott-allen&name=developing-nodejs-microsoft-azure-getting-started-m0&mode=live&clip=0&course=developing-nodejs-microsoft-azure-getting-started">
-            <img src="media/index/video-training-nodejs.png" width="400" alt="">
-            <p>Free Pluralsight video training – Developing with Node.js</a></p>
     </div>
 </div>
 

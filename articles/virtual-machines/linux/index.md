@@ -41,8 +41,8 @@ ms.author: carolz
         <h2 style="margin-top: 36px">Tutorials</h2>
         <p>Build and deploy Linux virtual machines.</p>
         <ul class="spaced">
-            <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Create load balanced, highly available VMs</a></li>
-            <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-load-balance-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Load balance VMs</a></li>
+            <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Create and manage Linux VMs</a></li>
+            <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-load-balance-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Load balance highly available VMs</a></li>
         </ul>
         <h2>Samples</h2>
         <p>Deploy your first application to Azure.</p>
@@ -56,11 +56,11 @@ ms.author: carolz
         <a href="https://app.pluralsight.com/player?author=tim-warner&name=managing-infrastructure-microsoft-azure-getting-started-m0&mode=live&clip=0&course=managing-infrastructure-microsoft-azure-getting-started">
             <img src="media/index/video-training-infrastructure.png" width="400" alt="" />
             <p>Free Pluralsight video training – Managing Infrastructure</a></p>
-            <p></p>
-        <a href="https://app.pluralsight.com/player?author=tim-warner&name=azure-vms-getting-started-m0&mode=live&clip=0&course=azure-vms-getting-started">
+            <p style="margin-top: 36px"></p>
+                <a href="https://app.pluralsight.com/player?author=tim-warner&name=azure-vms-getting-started-m0&mode=live&clip=0&course=azure-vms-getting-started">
             <img src="media/index/video-training-vms.png" width="400" alt="" />
             <p>Free Pluralsight video training – Getting Started with Virtual Machines</a></p>
-            <p></p>
+        <p style="margin-top: 36px"></p>
         <a href="https://app.pluralsight.com/player?author=tim-warner&name=azure-iaas-monitoring-management-getting-started-m0&mode=live&clip=0&course=azure-iaas-monitoring-management-getting-started">
             <img src="media/index/video-training-iaas-monitoring.png" width="400" alt="" />
             <p>Free Pluralsight video training – Getting Started with IaaS Monitoring</a></p>
