@@ -1,5 +1,5 @@
 ---
-title: Microsoft Academic Graph entity attributes | Microsoft Docs
+title: Microsoft Academic Graph entity attributes Academic Knowledge API | Microsoft Docs
 description: Learn about the entity attributes you can use in the Academic Graph by using the Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
@@ -31,5 +31,5 @@ Name 															|value
 [Conference Series](JournalEntityAttributes.md)					|3
 [Conference Instance](ConferenceInstanceEntityAttributes.md)	|4
 [Affiliation](AffiliationEntityAttributes.md)					|5
-[Field Of Study](FieldsOfStudyEntity.md)						|6
+[Field Of Study](FieldsOfStudyEntityAttributes.md)						|6
 
