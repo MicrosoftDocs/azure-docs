@@ -101,3 +101,27 @@ This table provides basic fields and aggregations over various job related field
 | JobStatus |String |Status of the finished job e.g. Completed, Active |
 | JobUniqueId |String |Unique Id to identify the job |
 | State |String |Current state of the job object e.g. Active, Deleted |
+
+### Policy
+This table provides basic fields and aggregations over various policy related fields.
+
+| Field | Data Type | Description |
+| --- | --- | --- |
+| #Policies |Number |Total number of policies that exist |
+| #PoliciesInUse |Number |Number of policies currently being used for configuring backups |
+| AsOnDateTime |Time |Latest refresh time for the selected row |
+| BackupDaysOfTheWeek |String |Days of the week when backups have been scheduled |
+| BackupFrequency |String |Frequency with which backups are run e.g. daily, weekly |
+| BackupTimes |Time |Date and time when backups are scheduled |
+| DailyRetentionDuration |Number |Total daily retention duration(in days) for configured backups |
+| DailyRetentionTimes |Time |Date and time when daily retention was configured |
+| MonthlyRetentionDaysOfTheMonth |String |Recovery Point selected on date of the month for monthly retention |
+| MonthlyRetentionDaysOfTheWeek |String |Recovery Point selected on day of the week for monthly retention |
+| MonthlyRetentionDuration |Number |Total daily retention duration(in months) for configured backups |
+| MonthlyRetentionFormat |String |Type of configuration for montly retention e.g. daily for day based, weekly for week based |
+| MonthlyRetentionTimes |Time |Date and time when monthly retention was configured |
+| MonthlyRetentionWeeksOfTheMonth |String |Weeks of the month when monthly retention is configured e.g. First, Last etc. |
+| PolicyName |String |Name of the policy defined |
+| RetentionDuration |Number |Total duration of the retention policy |
+| RetentionType |String |Type of retention policy e.g. Daily, Weekly, Monthly, Yearly |
+| State |String |Current state of the job object e.g. Active, Deleted |
