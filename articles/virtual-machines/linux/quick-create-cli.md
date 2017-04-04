@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/10/2017
+ms.date: 04/03/2017
 ms.author: nepeters
 ---
 
 # Create a Linux virtual machine with the Azure CLI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a virtual machine running Ubuntu 16.04 LTS.
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a virtual machine running Ubuntu 16.04 LTS. Once the server is deployed, we SSH into the VM in order to install NGINX. 
 
 Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
@@ -52,7 +52,7 @@ The following example creates a VM named `myVM` and creates SSH keys if they do 
 az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the public IP address. This address is used to access the VM.
+When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the `publicIpAddress`. This address is used to access the VM.
 
 ```azurecli
 {
@@ -62,18 +62,47 @@ When the VM has been created, the Azure CLI shows information similar to the fol
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
-  "publicIpAddress": "52.174.34.95",
+  "publicIpAddress": "40.68.254.142",
   "resourceGroup": "myResourceGroup"
 }
 ```
 
-## Connect to virtual machine
+## Open port 80 for web traffic 
 
-Use the following command to create an SSH session with the virtual machine. Replace the IP address with the public IP address of your virtual machine.
+By default only SSH connections are allowed into Linux virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 from the Internet.  A single command is required to open the desired port.  
+ 
+ ```azurecli 
+az vm open-port --port 80 --resource-group myResourceGroup --name myVM
+```
+
+## SSH into your VM
+
+Use the following command to create an SSH session with the virtual machine. Make sure to replace `<publicIpAddress>` with the correct public IP address of your virtual machine.  In our example above our IP address was `40.68.254.142`.
 
 ```bash 
-ssh <Public IP Address>
+ssh <publicIpAddress>
 ```
+
+## Install NGINX
+
+Use the following bash script to update package sources and install the latest NGINX package. 
+
+```bash 
+#!/bin/bash
+
+# update package source
+apt-get -y update
+
+# install NGINX
+apt-get -y install nginx
+```
+
+## View the NGIX welcome page
+
+With NGINX installed and port 80 now open on your VM from the Internet - you can use a web browser of your choice to view the default NGINX welcome page. Be sure to use the `publicIpAddress` you documented above to visit the default page. 
+
+![NGINX default site](./media/virtual-machines-linux-quick-create-cli/nginx.png) 
+
 
 ## Delete virtual machine
 
@@ -85,6 +114,6 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-[Create highly available virtual machines tutorial](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Create highly available virtual machines tutorial](./virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Explore VM deployment CLI samples](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Explore VM deployment CLI samples](./virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
