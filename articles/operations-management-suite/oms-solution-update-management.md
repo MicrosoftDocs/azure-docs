@@ -55,12 +55,16 @@ At the date and time specified in the update deployment, the target computers ex
 * Red Hat Enterprise 5 and newer x86/x64 (verified on 7.3) 
 * Linux agents must have access to an update repository.  
 
-For additional information on how to install the OMS Agent for Linux and download the  latest version of the agent, refer to [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux). 
+    > [!NOTE]
+    > An OMS Agent for Linux configured to report to multiple OMS workspaces is not supported with this solution.  
+    > 
+
+For additional information on how to install the OMS Agent for Linux and download the  latest version, refer to [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux). 
 
 ## Configuration
-Perform the following steps to add the Update Management solution to your OMS workspace and confirm agents are reporting in. Windows agents are added automatically with no additional configuration. 
+Perform the following steps to add the Update Management solution to your OMS workspace and confirm agents are reporting. Windows agents are added automatically with no additional configuration. 
 
-There are three different ways you can add this solution; from Azure Marketplace in the Azure portal by selecting either the Automation & Control offering or Update Management solution, or from the OMS Solutions Gallery in your OMS workspace.  If you already have an Automation account and OMS workspace linked together in the same resource group and region, selecting Automation & Control will verify your configuration and only install the solution and configure it in both services.  Selecting the Update Management solution from Azure Marketplace delivers the same behavior.  If you do not have either services deployed in your subscription, follow the steps in the **Create new Solution** blade and confirm you want to install the other pre-selected recommended solutions.  Optionally, you can add the Update Management solution to your OMS workspace using the steps described in [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) from the Solutions Gallery.  
+There are three different ways you can add this solution: from Azure Marketplace in the Azure portal by selecting either the Automation & Control offering or Update Management solution, or from the OMS Solutions Gallery in your OMS workspace.  If you already have an Automation account and OMS workspace linked together in the same resource group and region, selecting Automation & Control will verify your configuration and only install the solution and configure it in both services.  Selecting the Update Management solution from Azure Marketplace delivers the same behavior.  If you do not have either services deployed in your subscription, follow the steps in the **Create new Solution** blade and confirm you want to install the other pre-selected recommended solutions.  Optionally, you can add the Update Management solution to your OMS workspace using the steps described in [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) from the Solutions Gallery.  
 
 > [!NOTE]
 > After you enable this solution, any Windows computer connected to your OMS workspace are automatically configured as a Hybrid Runbook Worker in order to support the runbooks included in this solution.  However, it is not registered with any Hybrid Worker groups you  already have defined in your Automation account.  It can be added to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you are using the same account for both the solution and Hybrid Runbook Worker group membership.  This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.   
