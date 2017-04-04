@@ -352,10 +352,13 @@
     items:
     - name: Remote Desktop connections
       href: troubleshoot-rdp-connection.md
+      items:
+      - name: Detailed steps
+        href: detailed-troubleshoot-rdp.md
+      - name: Error messages
+        href: troubleshoot-specific-rdp-errors.md
     - name: Reset RDP password
       href: reset-rdp.md
-    - name: Specific RDP error messages
-      href: troubleshoot-specific-rdp-errors.md
     - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
     - name: Restarting or resizing a VM
