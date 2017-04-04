@@ -83,3 +83,21 @@ This table provides details about calendar related fields.
 
 ### Job
 This table provides basic fields and aggregations over various job related fields.
+
+| Field | Data Type | Description |
+| --- | --- | --- |
+| #JobsCreatedInPeriod |Number |Number of jobs created in the selected time period |
+| %FailuresForJobsCreatedInPeriod |Percentage |Percentage overall job failures in the selected time period |
+| 80thPercentileDataTransferredInMBForBackupJobsCreatedInPeriod |Number |80th percentile value of data transferred in MB for **backup** jobs created in the selected time period |
+| AsOnDateTime |Time |Latest refresh time for the selected row |
+| AvgBackupDurationInMinsForJobsCreatedInPeriod |Number |Average time in minutes for **backup** jobs to **complete** created in selected time period |
+| AvgRestoreDurationInMinsForJobsCreatedInPeriod |Number |Average time in minutes for **restore** jobs to **complete** created in selected time period |
+| BackupItemUniqueId |String |Unique Id to identify backup item |
+| BackupStorageDestination |String |Destination where backup is storage e.g. Cloud, Disk  |
+| JobFailureCode |String |Failure Code string because of which job failure happened |
+| JobOperation |String |Operation for which job is run e.g. Backup, Restore, Configure Backup |
+| JobStartDate |Date |Date when job started running |
+| JobStartTime |Time |Time when job started running |
+| JobStatus |String |Status of the finished job e.g. Completed, Active |
+| JobUniqueId |String |Unique Id to identify the job |
+| State |String |Current state of the job object e.g. Active, Deleted |
