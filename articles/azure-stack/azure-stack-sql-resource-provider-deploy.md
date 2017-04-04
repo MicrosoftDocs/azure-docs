@@ -130,7 +130,7 @@ $AdminCreds = New-Object System.Management.Automation.PSCredential ("admin@mydom
 
 	The **SQL Hosting Servers** blade is where you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the resource provider’s backend.
 
-	![Hosting Servers](./media/azure-stack-sql-rp-deploy/MultipleHostingServers.PNG)
+	![Hosting Servers](./media/azure-stack-sql-rp-deploy/multiplehostingservers.PNG)
 
 3. Fill the form with the connection details of your SQL Server instance. By default, a preconfigured SQL Server called “SQLVM” with the administrator username “sa” and the password you called out in the "LocalCredential" parameter is running on the VM. You will need to specify the fully-qualified domain name (FQDN) or IPv4 address of each hosting server you add. Specify the maximum size of the server (for all databases).
 
@@ -151,7 +151,7 @@ $AdminCreds = New-Object System.Management.Automation.PSCredential ("admin@mydom
 
 3. Fill in the form with database details, including a **Database Name**, **Maximum Size**, and change the other parameters as necessary.
 
-	![New database](./media/azure-stack-sql-rp-deploy/sql-newdb.png)
+	![New database](./media/azure-stack-sql-rp-deploy/sqlrp-newdb.png)
 
 
 4. Fill in the Login Settings: **Database login**, and **Password**. These is a SQL Authentication credential that will be created for your access to this database only. The login user name must be globally unique.
