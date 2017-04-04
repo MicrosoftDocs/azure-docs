@@ -116,15 +116,6 @@
 ## [Develop with Face API](https://www.microsoft.com/cognitive-services/en-us/face-api/documentation/overview)
 ## [Develop with Emotion API](https://www.microsoft.com/cognitive-services/en-us/emotion-api/documentation)
 
-## Develop with (Computer Vision API
-### [Overview](https://www.microsoft.com/cognitive-services/en-us/(Computer-vision-api/documentation)
-### [Python API](https://www.microsoft.com/cognitive-services/en-us/(Computer-vision-api/documentation/getstarted/getstartedwithpython)
-### [C## API](https://www.microsoft.com/cognitive-services/en-us/(Computer-vision-api/documentation/getstarted/getstartedvisionapiforwindows)
-### [Call the API](https://www.microsoft.com/cognitive-services/en-us/(Computer-Vision-API/documentation/vision-api-how-to-topics/HowToCallVisionAPI)
-### [API reference](https://dev.projectoxford.ai/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa)
-
-
-
 ## [Develop with Web Language Model API](https://www.microsoft.com/cognitive-services/en-us/web-language-model-api/documentation)
 ## [Develop with Language Understanding Intelligent Service](https://www.luis.ai/Help/)
 
