@@ -104,7 +104,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
  
 	![Configure Single Sign-On](./media/active-directory-saas-freshdesk-tutorial/tutorial_freshdesk_samlbase.png)
 
-3. On the **FreshDesk Domain and URLs** section, please enter the **Sign-on URL** as: `https://<tenant-name>.freshdesk.com`
+3. On the **FreshDesk Domain and URLs** section, please enter the **Sign-on URL** as: `https://<tenant-name>.freshdesk.com` or any other value Freshdesk has suggested.
 
 	![Configure Single Sign-On](./media/active-directory-saas-freshdesk-tutorial/tutorial_freshdesk_url.png)
 
@@ -225,6 +225,12 @@ In the case of FreshDesk, provisioning is a manual task.
 	>[!NOTE]
 	>You can use any other Freshdesk user account creation tools or APIs provided by Freshdesk to provision AAD user accounts. 
 	to FreshDesk.
+
+### Assigning the Azure AD test user
+
+In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Box.
+
+![Assign User][200] 
 
 **To assign Britta Simon to FreshDesk, perform the following steps:**
 
