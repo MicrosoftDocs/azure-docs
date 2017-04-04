@@ -71,7 +71,7 @@ Premium Storage accounts have the following scalability targets in addition to t
 |:--- |:--- |
 | Disk capacity: 35TB<br />Snapshot capacity: 10 TB |Up to 50 gigabits per second for Inbound + Outbound |
 
-For the more information on Premium Storage specifications, check out [Scalability and Performance Targets when using Premium Storage](storage-premium-storage.md#premium-storage-scalability-and-performance-targets).
+For the more information on Premium Storage specifications, check out [Scalability and Performance Targets when using Premium Storage](storage-premium-storage.md#scalability-and-performance-targets).
 
 #### Disk caching policy
 By default, disk caching policy is *Read-Only* for all the Premium data disks, and *Read-Write* for the Premium operating system disk attached to the VM. This configuration setting is recommended to achieve the optimal performance for your application’s IOs. For write-heavy or write-only data disks (such as SQL Server log files), disable disk caching so that you can achieve better application performance. The cache settings for existing data disks can be updated using [Azure Portal](https://portal.azure.com) or the *-HostCaching* parameter of the *Set-AzureDataDisk* cmdlet.
@@ -266,7 +266,7 @@ Using AzCopy, you can easily upload the VHD over the Internet. Depending on the 
 	```azcopy
 	AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
 	```
-	
+
     Example:
 
 	```azcopy
