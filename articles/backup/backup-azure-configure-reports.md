@@ -43,8 +43,7 @@ Use the following steps to configure storage account for recovery services vault
      The selected vault dashboard opens.
 2. From the list of items that appears under vault, click **Backup Reports** under Monitoring and Reports section to configure storage account for reports.
 
-     ![Select Backup Reports menu item step 2](./media/backup-azure-configure-reports/backup-reports-settings.PNG) <br/>
-
+      ![Select Backup Reports menu item step 2](./media/backup-azure-configure-reports/backup-reports-settings.PNG)
 3. On the Backup Reports blade, click **Configure** button and set the Status toggle button to **On**.
 4. Select **Export to Storage Account** check box so that reporting data can start flowing in to storage account.
 5. Click Storage Account picker and select storage account from the list for storing reporting data.
@@ -58,23 +57,22 @@ After configuring storage account for reports using recovery services vault, it 
 3. Type **Azure Backup** in Search bar and click **Get it now**.
 4. Enter storage account name configured in step 5 above and click **Next** button.
 
-    ![Enter storage account name step 4](./media/backup-azure-configure-reports/content-pack-storage-account-name.png) <br/>
-    
+    ![Enter storage account name](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
 5. Enter storage account key for this storage account. You can [view and copy storage access keys](../storage/storage-create-storage-account.md#manage-your-storage-account) by navigating to your storage account in Azure portal. 
 
-     ![Enter storage account name step 5](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
+     ![Enter storage account](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      
 6. Click **Sign in** button. After sign-in is successful, you get **Importing data** notification.
 
-    ![Importing content pack step 6](./media/backup-azure-configure-reports/content-pack-importing-data.png) <br/>
+    ![Importing content pack](./media/backup-azure-configure-reports/content-pack-importing-data.png) <br/>
     
     After some time, depending on size of data to be imported, you get **Success** notification after the import.
     
-    ![Import success content pack step 6](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
+    ![Import success content pack](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
     
 7. Once data is imported successfully, type **Azure Backup** in the navigation pane. The list now shows Azure Backup dashboard, reports, and dataset with a yellow star indicating newly imported reports.
 
-     ![Import success content pack step 7](./media/backup-azure-configure-reports/content-pack-azure-backup.png) <br/>
+     ![Azure Backup content pack](./media/backup-azure-configure-reports/content-pack-azure-backup.png) <br/>
      
 8. Click **Azure Backup** under Dashboards, which shows a set of pinned key reports.
 9. To view the complete set of reports, click any report in the dashboard.
