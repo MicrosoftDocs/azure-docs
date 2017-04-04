@@ -6,8 +6,8 @@
 ## [Create ASP.NET app](app-service-web-get-started-dotnet.md)		
 ## [Create PHP app](app-service-web-get-started-php.md) 
 ## [Create Node.js app](app-service-web-get-started-nodejs.md) 
-<!--## [Create Java app](app-service-web-get-started-java.md)-->
-<!--## [Create Python app](app-service-web-get-started-python.md)-->
+## [Create Java app](app-service-web-get-started-java.md)
+## [Create Python app](app-service-web-get-started-python.md)
 ## [Create static HTML site](app-service-web-get-started-html.md)
 
 # Samples
