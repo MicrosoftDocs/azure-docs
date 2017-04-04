@@ -1,5 +1,5 @@
 ---
-title: Create Hadoop, HBase, Kafka, Storm or Spark on Azure HDInsight | Microsoft Docs
+title: Create Hadoop, HBase, Kafka, Storm or Spark clouster in Azure HDInsight | Microsoft Docs
 description: Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight by using a browser, the Azure CLI, Azure PowerShell, REST, or an SDK.
 services: hdinsight
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/23/2017
+ms.date: 03/31/2017
 ms.author: jgao
 
 ---
@@ -22,27 +22,6 @@ ms.author: jgao
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks on the cluster. Azure abstracts the implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information. In this article,  you learn about these configuration settings.
-
-## Access control requirements
-
-There are two way 
-You must specify an Azure subscription when you create an HDInsight cluster. You use the following steps to verify your permissions for creating HDInsight clusters:
-
-1. Check permissions.
-2. Register HDInsight resource
-
-**To check permissions**
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **Subscriptions** from the left menu. It has a yellow key icon. You shall see a list of subscriptions.
-3. Click the subscription you want to use to create HDInsight clusters.
-4. Click **My permissions**.  It shows your [role](../active-directory/role-based-access-control-what-is.md#built-in-roles) on the subscription. You need at least contributor access to create HDInsight cluster.
-
-**To checking HDInsight registration**
-
-1. Open the subscription taht you want to use to create HDInsight clusters.  See the previous procedure for details.
-2. Click **Resource providers**
-3. Search **HDInsight**, and make sure the **Status** is **Registered**.  You need at least contributor access to the subscription for registering the HDInsight resource. 
 
 
 ## Cluster types
