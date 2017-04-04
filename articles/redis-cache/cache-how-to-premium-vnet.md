@@ -21,7 +21,7 @@ ms.author: sdanie
 Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features, including Premium tier features such as clustering, persistence, and virtual network support. A VNet is a private network in the cloud. When an Azure Redis Cache instance is configured with a VNet, it is not publicly addressable and can only be accessed from virtual machines and applications within the VNet. This article describes how to configure virtual network support for a premium Azure Redis Cache instance.
 
 > [!NOTE]
-> Azure Redis Cache supports both classic and ARM VNets.
+> Azure Redis Cache supports both classic and Resource Manager VNets.
 > 
 > 
 
@@ -44,7 +44,7 @@ To configure the VNet for your new cache, click **Virtual Network** on the **New
 Select the desired subnet from the **Subnet** drop-down list, and specify the desired **Static IP address**. If you are using a classic VNet the **Static IP address** field is optional, and if none is specified, one is chosen from the selected subnet.
 
 > [!IMPORTANT]
-> When deploying an Azure Redis Cache to an ARM VNet, the cache must be in a dedicated subnet that contains no other resources except for Azure Redis Cache instances. If an attempt is made to deploy an Azure Redis Cache to an ARM VNet to a subnet that contains other resources, the deployment fails.
+> When deploying an Azure Redis Cache to a Resource Manager VNet, the cache must be in a dedicated subnet that contains no other resources except for Azure Redis Cache instances. If an attempt is made to deploy an Azure Redis Cache to a Resource Manager VNet to a subnet that contains other resources, the deployment fails.
 > 
 > 
 
@@ -112,7 +112,7 @@ There are network connectivity requirements for Azure Redis Cache that may not b
 VNets can only be used with premium caches.
 
 ### Why does creating a Redis cache fail in some subnets but not others?
-If you are deploying an Azure Redis Cache to an ARM VNet, the cache must be in a dedicated subnet that contains no other resource type. If an attempt is made to deploy an Azure Redis Cache to an ARM VNet subnet that contains other resources, the deployment fails. You must delete the existing resources inside the subnet before you can create a new Redis cache.
+If you are deploying an Azure Redis Cache to a Resource Manager VNet, the cache must be in a dedicated subnet that contains no other resource type. If an attempt is made to deploy an Azure Redis Cache to a Resource Manager VNet subnet that contains other resources, the deployment fails. You must delete the existing resources inside the subnet before you can create a new Redis cache.
 
 You can deploy multiple types of resources to a classic VNet as long as you have enough IP addresses available.
 
