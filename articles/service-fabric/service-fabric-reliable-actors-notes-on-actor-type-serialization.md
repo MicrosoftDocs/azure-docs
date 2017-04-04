@@ -37,7 +37,7 @@ public interface VoiceMailBoxActor extends Actor
 }
 ```
 
-The interface is impelemented by an actor that uses the state manager to store a `VoicemailBox` object:
+The interface is implemented by an actor that uses the state manager to store a `VoicemailBox` object:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]

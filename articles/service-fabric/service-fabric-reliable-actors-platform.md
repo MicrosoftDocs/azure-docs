@@ -27,7 +27,7 @@ This article explains how Reliable Actors work on the Azure Service Fabric platf
 These components together form the Reliable Actor framework.
 
 ## Service layering
-Because the actor service itself is a reliable service, all of the [application model](service-fabric-application-model.md), lifecycle, [packaging](service-fabric-package-apps.md), [deployment](service-fabric-deploy-remove-applications.md), upgrade, and scaling concepts of Reliable Services apply the same way to actor services. 
+Because the actor service itself is a reliable service, all the [application model](service-fabric-application-model.md), lifecycle, [packaging](service-fabric-package-apps.md), [deployment](service-fabric-deploy-remove-applications.md), upgrade, and scaling concepts of Reliable Services apply the same way to actor services. 
 
 ![Actor service layering][1]
 
@@ -37,7 +37,8 @@ In Reliable Services, your service inherits the `StatefulService` class. This cl
 
 * Service backup and restore.
 * Shared functionality for all actors, for example, a circuit breaker.
-* Remote procedure calls on the actor service itself, as well as on each individual actor.
+* Remote procedure calls on the actor service itself and on each individual actor.
+
 > [!NOTE]
 > Stateful services are not currently supported in Java/Linux.
 
@@ -109,10 +110,10 @@ static class Program
 ```
 
 ### Actor service methods
-The Actor service implements `IActorService`(C#) or `ActorService`(Java), which in turn implements `IService` or `Service`(Java). This is the interface used by Reliable Services remoting, which allows remote procedure calls on service methods. It contains service-level methods that can be called remotely via service remoting.
+The Actor service implements `IActorService`(C#) or `ActorService`(Java), which in turn implements `IService` (C#) or `Service`(Java). This is the interface used by Reliable Services remoting, which allows remote procedure calls on service methods. It contains service-level methods that can be called remotely via service remoting.
 
 #### Enumerating actors
-The actor service allows a client to enumerate metadata about the actors that the service is hosting. Because the actor service is a partitioned stateful service, enumeration is performed per partition. Because each partition might contain a large number of actors, the enumeration is returned as a set of paged results. The pages are looped over until all pages are read. The following example shows how to create a list of all active actors in one partition of an actor service:
+The actor service allows a client to enumerate metadata about the actors that the service is hosting. Because the actor service is a partitioned stateful service, enumeration is performed per partition. Because each partition might contain many actors, the enumeration is returned as a set of paged results. The pages are looped over until all pages are read. The following example shows how to create a list of all active actors in one partition of an actor service:
 
 ```csharp
 IActorService actorServiceProxy = ActorServiceProxy.Create(
@@ -175,10 +176,10 @@ ActorService myActorServiceProxy = ActorServiceProxy.create(
 myActorServiceProxy.deleteActorAsync(actorToDelete);
 ```
 
-For more information on deleting actors and their state, refer to the [actor lifecycle documentation](service-fabric-reliable-actors-lifecycle.md).
+For more information on deleting actors and their state, see the [actor lifecycle documentation](service-fabric-reliable-actors-lifecycle.md).
 
 ### Custom actor service
-By using the actor registration lambda, you can also register your own custom actor service that derives from `ActorService`(C#) and `FabricActorService`(Java). In this custom actor service, you can implement your own service-level functionality by writing a service class that inherits `ActorService`(C#) or `FabricActorService`(Java). A custom actor service inherits all of the actor runtime functionality from `ActorService` (C#) or `FabricActorService`(Java) and can be used to implement your own service methods.
+By using the actor registration lambda, you can register your own custom actor service that derives from `ActorService`(C#) and `FabricActorService`(Java). In this custom actor service, you can implement your own service-level functionality by writing a service class that inherits `ActorService`(C#) or `FabricActorService`(Java). A custom actor service inherits all the actor runtime functionality from `ActorService` (C#) or `FabricActorService`(Java) and can be used to implement your own service methods.
 
 ```csharp
 class MyActorService : ActorService
@@ -319,7 +320,7 @@ myActorServiceProxy.backupActorsAsync();
 ```
 
 ## Application model
-Actor services are Reliable Services, so the application model is the same. However, the actor framework build tools generate much of the application model files for you.
+Actor services are Reliable Services, so the application model is the same. However, the actor framework build tools generate some of the application model files for you.
 
 ### Service manifest
 The actor framework build tools automatically generate the contents of your actor service's ServiceManifest.xml file. This file includes:
@@ -332,7 +333,7 @@ The actor framework build tools automatically generate the contents of your acto
 ### Application manifest
 The actor framework build tools automatically create a default service definition for your actor service. The build tools populate the default service properties:
 
-* Replica set count is determined by the persistence attribute on your actor. Each time the persistence attribute on your actor is changed, the replica set count in the default service definition will be reset accordingly.
+* Replica set count is determined by the persistence attribute on your actor. Each time the persistence attribute on your actor is changed, the replica set count in the default service definition is reset accordingly.
 * Partition scheme and range are set to Uniform Int64 with the full Int64 key range.
 
 ## Service Fabric partition concepts for actors
