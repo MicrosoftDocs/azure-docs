@@ -39,7 +39,7 @@ Click the link for the store you are interested in to see the JSON schemas for l
 | &nbsp; |[Azure SQL Database](#azure-sql-database) |
 | &nbsp; |[Azure SQL Data Warehouse](#azure-sql-data-warehouse) |
 | &nbsp; |[Azure Search Index](#azure-search) |
-| &nbsp; |[Azure Table storage](data-factory-azure-table-connector.md#linked-service-properties) |
+| &nbsp; |[Azure Table storage](#azure-table-storage) |
 | **Databases** |[Amazon Redshift](data-factory-amazon-redshift-connector.md#linked-service-properties) |
 | &nbsp; |[DB2](data-factory-onprem-db2-connector.md#linked-service-properties) |
 | &nbsp; |[MySQL](data-factory-onprem-mysql-connector.md#linked-service-properties) |
@@ -166,8 +166,8 @@ For more information, see [Azure Blob connector](data-factory-azure-blob-connect
 {  
     "name":"SamplePipeline",
     "properties":{  
-    "start":"2014-06-01T18:00:00",
-    "end":"2014-06-01T19:00:00",
+    "start":"2016-06-01T18:00:00",
+    "end":"2016-06-01T19:00:00",
     "description":"pipeline with copy activity",
     "activities":[  
       {
@@ -216,8 +216,8 @@ For more information, see [Azure Blob connector](data-factory-azure-blob-connect
 {  
     "name":"SamplePipeline",
     "properties":{  
-        "start":"2014-06-01T18:00:00",
-        "end":"2014-06-01T19:00:00",
+        "start":"2016-06-01T18:00:00",
+        "end":"2016-06-01T19:00:00",
         "description":"pipeline for copy activity",
         "activities":[  
               {
@@ -279,7 +279,7 @@ The following table provides description for JSON elements specific to Azure Dat
             "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": "<service principal key>",
-            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>"
+            "tenant": "<tenant info. Example: microsoft.onmicrosoft.com>"
         }
     }
 }
@@ -346,8 +346,8 @@ For more information, see [Azure Data Lake Store connector](data-factory-azure-d
 {  
     "name":"SamplePipeline",
     "properties":{  
-        "start":"2014-06-01T18:00:00",
-        "end":"2014-06-01T19:00:00",
+        "start":"2016-06-01T18:00:00",
+        "end":"2016-06-01T19:00:00",
         "description":"pipeline for copy activity",
         "activities":[  
               {
@@ -397,8 +397,8 @@ For more information, see [Azure Data Lake Store connector](data-factory-azure-d
     "name":"SamplePipeline",
     "properties":
     {  
-        "start":"2014-06-01T18:00:00",
-        "end":"2014-06-01T19:00:00",
+        "start":"2016-06-01T18:00:00",
+        "end":"2016-06-01T19:00:00",
         "description":"pipeline with copy activity",
         "activities":
         [  
@@ -541,8 +541,8 @@ The following properties are available in **typeProperties** section when the so
         "name": "CopyFromDocDbToBlob"
       }
     ],
-    "start": "2015-04-01T00:00:00Z",
-    "end": "2015-04-02T00:00:00Z"
+    "start": "2016-04-01T00:00:00",
+    "end": "2016-04-02T00:00:00"
   }
 }
 ```
@@ -596,8 +596,8 @@ The following properties are available in **typeProperties** section when the so
         "name": "CopyFromBlobToDocDb"
       }
     ],
-    "start": "2015-04-14T00:00:00Z",
-    "end": "2015-04-15T00:00:00Z"
+    "start": "2016-04-14T00:00:00",
+    "end": "2016-04-15T00:00:00"
   }
 }
 ```
@@ -679,8 +679,8 @@ In copy activity, when the source is of type **SqlSource**, the following proper
 {  
     "name":"SamplePipeline",
     "properties":{  
-    "start":"2014-06-01T18:00:00",
-    "end":"2014-06-01T19:00:00",
+    "start":"2016-06-01T18:00:00",
+    "end":"2016-06-01T19:00:00",
     "description":"pipeline for copy activity",
     "activities":[  
       {
@@ -742,8 +742,8 @@ In copy activity, when the sink is of type **SqlSink**, the following properties
 {  
     "name":"SamplePipeline",
     "properties":{  
-    "start":"2014-06-01T18:00:00",
-    "end":"2014-06-01T19:00:00",
+    "start":"2016-06-01T18:00:00",
+    "end":"2016-06-01T19:00:00",
     "description":"pipeline with copy activity",
     "activities":[  
       {
@@ -866,8 +866,8 @@ When source is of type **SqlDWSource**, the following properties are available i
 {  
     "name":"SamplePipeline",
     "properties":{  
-    "start":"2014-06-01T18:00:00",
-    "end":"2014-06-01T19:00:00",
+    "start":"2016-06-01T18:00:00",
+    "end":"2016-06-01T19:00:00",
     "description":"pipeline for copy activity",
     "activities":[  
       {
@@ -932,8 +932,8 @@ When sink is of type **SqlDWSink**, the following properties are available in **
 {  
     "name":"SamplePipeline",
     "properties":{  
-    "start":"2014-06-01T18:00:00",
-    "end":"2014-06-01T19:00:00",
+    "start":"2016-06-01T18:00:00",
+    "end":"2016-06-01T19:00:00",
     "description":"pipeline with copy activity",
     "activities":[  
       {
@@ -1023,14 +1023,14 @@ The typeProperties section for a dataset of the type **AzureSearchIndex** has th
 	"properties": {
 		"type": "AzureSearchIndex",
 		"linkedServiceName": "AzureSearchLinkedService",
-     	"typeProperties" : {
+		"typeProperties" : {
 			"indexName": "products",
 		},
 		"availability": {
 			"frequency": "Minute",
 			"interval": 15
 		}
-   }
+	}
 }
 ```
 
@@ -1050,8 +1050,8 @@ For Copy Activity, when the sink is of the type **AzureSearchIndexSink**, the fo
 {  
     "name":"SamplePipeline",
     "properties":{  
-    "start":"2014-06-01T18:00:00",
-    "end":"2014-06-01T19:00:00",
+    "start":"2016-06-01T18:00:00",
+    "end":"2016-06-01T19:00:00",
     "description":"pipeline for copy activity",
     "activities":[  
       {
@@ -1196,8 +1196,8 @@ For more information about these linked services, see [Azure Table Storage conne
 {  
     "name":"SamplePipeline",
     "properties":{  
-        "start":"2014-06-01T18:00:00",
-        "end":"2014-06-01T19:00:00",
+        "start":"2016-06-01T18:00:00",
+        "end":"2016-06-01T19:00:00",
         "description":"pipeline for copy activity",
         "activities":[  
             {
@@ -1259,8 +1259,8 @@ For more information about these linked services, see [Azure Table Storage conne
 {  
     "name":"SamplePipeline",
     "properties":{  
-    "start":"2014-06-01T18:00:00",
-    "end":"2014-06-01T19:00:00",
+    "start":"2016-06-01T18:00:00",
+    "end":"2016-06-01T19:00:00",
     "description":"pipeline with copy activity",
     "activities":[  
       {
