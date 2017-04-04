@@ -102,34 +102,34 @@ These steps read settings at directory level, which apply to all Office groups i
   ```
   Id                                   DisplayName   TemplateId                           Values
   --                                   -----------   ----------                           ------
-  c391b57d-5783-4c53-9236-cefb5c6ef323 Group.Unified 62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...`
+  c391b57d-5783-4c53-9236-cefb5c6ef323 Group.Unified 62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
   ```
 
 2. Read all settings for a specific group:
   ```
   Get-AzureADObjectSetting -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -TargetType Groups
   ```
+
 3. Read all directory settings values of a specific directory settings object, using Settings Id GUID:
   ```
   (Get-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323).values'
   ```
-
-This cmdlet returns the names and values in this settings object for this specific group:
-```
-Name                          Value
-----                          -----
-ClassificationDescriptions
-DefaultClassification
-PrefixSuffixNamingRequirement
-AllowGuestsToBeGroupOwner     False
-AllowGuestsToAccessGroups     True
-GuestUsageGuidelinesUrl
-GroupCreationAllowedGroupId
-AllowToAddGuests              True
-UsageGuidelinesUrl            <https://guideline.com>
-ClassificationList
-EnableGroupCreation           True
-```
+  This cmdlet returns the names and values in this settings object for this specific group:
+  ```
+  Name                          Value
+  ----                          -----
+  ClassificationDescriptions
+  DefaultClassification
+  PrefixSuffixNamingRequirement
+  AllowGuestsToBeGroupOwner     False 
+  AllowGuestsToAccessGroups     True
+  GuestUsageGuidelinesUrl
+  GroupCreationAllowedGroupId
+  AllowToAddGuests              True
+  UsageGuidelinesUrl            <https://guideline.com>
+  ClassificationList
+  EnableGroupCreation           True
+  ```
 
 ## Update settings for a specific group
 
