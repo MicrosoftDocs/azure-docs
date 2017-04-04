@@ -65,12 +65,12 @@ ms.author: carolz
     </div>
     <div class="column50" style="max-width: 400px">
         <h2 style="margin-top: 36px">Free Video Training</h2>
-        <a href="https://app.pluralsight.com/player?author=scott-allen&name=f24a629c-37b7-47f1-bc43-4b122da61cbb&mode=live&clip=0&course=developing-dotnet-microsoft-azure-getting-started">
+        <a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
             <img src="media/index/video-training-dotnet.png" width="400" alt="" />
             <p>Free Pluralsight video training – Developing with .NET</a></p>
             <p></p>
         <p style="margin-top: 36px"></p>
-        <a href="https://app.pluralsight.com/player?author=scott-allen&name=developing-nodejs-microsoft-azure-getting-started-m0&mode=live&clip=0&course=developing-nodejs-microsoft-azure-getting-started">
+        <a href="https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
             <img src="media/index/video-training-nodejs.png" width="400" alt="" />
             <p>Free Pluralsight video training – Developing with Node.js</a></p>
     </div>
