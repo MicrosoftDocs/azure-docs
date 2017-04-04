@@ -138,7 +138,7 @@ If you add the parameter *--dry-run* you can test the update, but it does not ac
 ### Disk setup
 The root file system in a Linux VM on Azure is of limited size. Therefore, it's necessary to attach additional disk space to a VM for running SAP. If the SAP app server VM is used in a pure prototype or demo environment, it's fine to use Azure standard storage disks. For SAP HANA DB data and log files, use Azure premium storage disks even in a non-production landscape.
 
-For more information, see [how to attach disks to a Linux VM](../../virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information, see [how to attach disks to a Linux VM](../../linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 For Azure disk caching, enter **None** for disks that are to be used to store the
 HANA transaction logs. For HANA data files, it's OK to use read caching. Because HANA is an in-memory database, how much the read cache on Azure disk level might improve performance (for example, starting HANA and reading data from the disk into memory) depends on the overall usage pattern.
@@ -157,8 +157,8 @@ Depending on the size or throughput requirements of the system, you might need t
 
 For more information about the two main tools for configuring striping, see the following articles:
 
-* [Configure software RAID on Linux](../../virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Configure LVM on a Linux VM in Azure](../../virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Configure software RAID on Linux](../../linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Configure LVM on a Linux VM in Azure](../../linux/configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 In the test environment, two Azure standard storage disks were attached to the SAP app server VM, as shown in the following screenshot. One disk stored all the SAP software for installation (that is, NetWeaver 7.5, SAP GUI, SAP HANA, and so forth). The second disk ensured that enough free space would be available for additional requirements (for example, backup and test data) and the /sapmnt directory (that is, SAP profiles) to be shared among all VMs that belong to the same SAP landscape.
 
@@ -207,7 +207,7 @@ For a description of the standard file-system layout of SAP HANA, see the [SAP H
 
 When you install SAP NetWeaver on a standard SLES/SLES-for-SAP Applications 12 Azure gallery image, a message is displayed that says that there is no swap space. To dismiss this message, you can manually add a swap file by using dd, mkswap, and swapon. To learn how, search for "Adding a Swap File Manually" in the ["Using the YaST Partitioner" section of SUSE documentation](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip).
 
-Another option is to configure swap space by using the Linux VM agent. For more information, see the [Azure Linux Agent User Guide](../../virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Another option is to configure swap space by using the Linux VM agent. For more information, see the [Azure Linux Agent User Guide](../../linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ![Pop-up message advising that there is insufficient swap space](./media/hana-get-started/image010.jpg)
 
@@ -405,14 +405,14 @@ For more information, see the following documentation:
 * Information about existing SAP templates for customer use: [Azure Quickstart Templates for SAP](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
 * General SAP Azure information about running SAP on Azure with Linux OS in Azure Resource Manager model: [Using SAP on Linux virtual machines (VMs)](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Certified SAP HANA hardware directory, which lists which Azure VM types are supported for production: [Certified SAP HANA® Hardware Directory](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html).
-* Information about virtual machine sizes especially for Linux workloads: [Sizes for virtual machines in Azure](../../virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Information about virtual machine sizes especially for Linux workloads: [Sizes for virtual machines in Azure](../../linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * SAP Note that lists all supported SAP products on Azure and supported Azure VM types for SAP: [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533/E).
 * SAP Note about SAP "enhanced monitoring" with Linux VMs on Azure: [SAP Note 2191498](https://launchpad.support.sap.com/#/notes/2191498/E).
 * SAP HANA offering on Azure "Large Instances." It's important to understand that this information is not about running SAP HANA on Azure VMs. It's about a hybrid environment where the SAP app servers run in Azure VMs but SAP HANA runs on bare-metal servers: [SAP Note 2316233](https://launchpad.support.sap.com/#/notes/2316233/E).
 * SAP Note with information about SAPOSCOL on Linux: [SAP Note 1102124](https://launchpad.support.sap.com/#/notes/1102124/E).
 * Key monitoring metrics for SAP on Microsoft Azure: [SAP Note 2178632](https://launchpad.support.sap.com/#/notes/2178632/E).
 * Information about Azure Resource Manager: [Azure Resource Manager overview](../../../azure-resource-manager/resource-group-overview.md).
-* Information about deploying Linux VMs by using templates: [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../../virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Information about deploying Linux VMs by using templates: [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../../linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Comparison of Azure Resource Manager and classic deployment models: [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../../../resource-manager-deployment-model.md).
 
 ## SAP software downloads

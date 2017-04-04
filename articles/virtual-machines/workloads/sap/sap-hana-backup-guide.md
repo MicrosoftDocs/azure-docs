@@ -231,4 +231,4 @@ Based on the test results the following tables show pros and cons of solutions t
 ## Next steps
 * [SAP HANA Azure Backup on file level](sap-hana-backup-file-level.md) describes the file-based backup option.
 * [SAP HANA backup based on storage snapshots](sap-hana-backup-storage-snapshots.md) describes the storage snapshot-based backup option.
-* To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](sap-hana-overview-high-availability-disaster-recovery.md).
+* To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md).
