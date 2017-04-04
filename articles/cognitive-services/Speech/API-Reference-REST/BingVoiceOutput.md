@@ -1,39 +1,19 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Bing Text To Speech API in Microsoft Cognitive Services | Microsoft Docs
+description: Use the Bing Text to Speech API to provide real-time text to speech conversion in a variety of voices and languages
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: priyaravi20
+manager: yanbo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: speech
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 03/16/2017
+ms.author: prrajan
 ---
 
 # Bing Text To Speech API
 
-## Contents
-[Introduction](#Introduction) 
-
-[Voice Synthesis Request](#VoiceSynReq)
-* [Authorization Tokens](#Subscription) 
-* [HTTP Headers](#Http) 
-* [Input Parameters](#InputParam) 
-* [Example Voice Output Request](#SampleVoiceOR) 
-
-[Voice Output Responses](#VoiceOutResponse) 
-  * [Successful Synthesis Response](#SuccessfulRecResponse) 
-  * [Synthesis Failure](#RecFailure)
-  * [Error Responses](#ErrorResponse) 
-
-[Sample Text to Speech Application](#SampleApp)  
-
-[Supported Locales and Voice Fonts](#SupLocales)  
-
-[Troubleshooting and Support](#TrouNSupport)
- 
 ## <a name="Introduction"> Introduction</a>
 With the Bing Text to Speech API your application can send HTTP requests to a cloud server, where text is instantly synthesized into human sounding speech, and returned as an audio file.  The API can be used in many different contexts to provide real-time text to speech conversion in a variety of different voices and languages.  
 
@@ -63,7 +43,8 @@ Clients must use the following endpoint to access the text to speech service:
 
 `https://speech.platform.bing.com/synthesize` 
 
-**Note!**: Until you have acquired an access token with your subscription key as described above this link will generate a 403 Response Error.
+>[!NOTE]
+>Until you have acquired an access token with your subscription key as described above this link will generate a 403 Response Error.
 
 ### <a name="Http">HTTP Headers</a>
 HTTP headers for the request include:
@@ -90,7 +71,8 @@ RequestUri | Indicates the URI of the Internet resource associated with the requ
 AuthorizationToken | Token used to validate the transaction | 
 Text | The text to be synthesized. | **Note**: Unsafe characters should be escaped following the W3C URL specifications ([http://www.w3.org/Addressing/URL/url-spec.txt](http://www.w3.org/Addressing/URL/url-spec.txt)).
 
-**Note**: Requests with more than one instance of any parameter will result in an HTTP 400 error response.
+>[!NOTE]
+>Requests with more than one instance of any parameter will result in an HTTP 400 error response.
 
 ###  <a name="SampleVoiceOR">Example Voice Output Request</a>
 The following is an example of a voice output request:  
