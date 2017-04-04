@@ -34,7 +34,7 @@ When creating a company account, follow these guidelines if more than one person
 
 > [!Important]
 > Important To allow multiple users to access your Dev Center account, we recommend using Azure Active Directory to assign roles to individual users, who can access the account by signing in with their individual Azure AD credentials. For
-more info, see [Manage account users](https://msdn.microsoft.com/en-us/windows/uwp/publish/manage-account-users).
+more info, see [Manage account users](https://msdn.microsoft.com/windows/uwp/publish/manage-account-users).
 
 * Create your Microsoft account using an email address that belongs to your company's domain, but not to a single individual—for example, windowsapps@fabrikam.com.
 * Limit access to this Microsoft account to the smallest possible number of developers.
@@ -46,18 +46,22 @@ more info, see [Manage account users](https://msdn.microsoft.com/en-us/windows/u
 
 Your developer account should be accessed primarily from trusted PCs. This is critical because there is a limit to the number of codes generated per account, per week. It also enables the most seamless sign-in experience.
 
-For more information on additional developer account guidelines and security, click [here](https://msdn.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
+For more information on additional developer account guidelines and security, click [here](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
 
 ### Instructions
 1. Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to an existing account.
 2. Register the email (per the guidelines above e.g. windowsapp@fabrikam.com) as a Microsoft account by using the link [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Follow the instructions below.
 
-   1. During registering your account as a Microsoft account, you need to provide a valid phone number for the system to send you an account verification code as a text message or an automated call.
-   2. During registering your account as a Microsoft account, you need to provide a valid email id for receiving an automated email for account verification.
-3. Verify the email address sent to the DL.
-4. You’re now ready to use the new Microsoft account in the Microsoft Developer Center.
+   	A. During registering your account as a Microsoft account, you need to provide a valid phone number for the system to send you an account verification code as a text message or an automated call.
+
+   	B. During registering your account as a Microsoft account, you need to provide a valid email id for receiving an automated email for account verification.
+
+	C. Verify the email address sent to the DL.
+
+	D. You’re now ready to use the new Microsoft account in the Microsoft Developer Center.
 
 ## 2. Register your account in Microsoft Developer Center
+
 The Microsoft Developer Center is used to register the company information once. The registrant must be a valid representative of the company, and must provide their personal information as a way to validate their identity. The person registering must use a Microsoft account that is shared for the company, **and the same account must be used in the Cloud Partner Portal.** You should check to make sure your company does not already have a Microsoft Developer Center account before you attempt to create one. During the process, we will collect company address information, bank account information, and tax information. These are typically obtainable from finance or business contacts.
 
 > [!IMPORTANT]
@@ -77,8 +81,11 @@ The Microsoft Developer Center is used to register the company information once.
 >
 
 ### Register your company account
-1. Open a new  Internet Explorer InPrivate or Chrome Incognito browsing session to ensure that you’re not signed in to a personal account.
-2. Go to [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) to register yourself as a seller in the Dev Center. Please read the following important note before you proceed.
+Step 1. Open a new  Internet Explorer InPrivate or Chrome Incognito browsing session to ensure that you’re not signed in to a personal account.
+
+Step 2. Go to [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) to register yourself as a seller in the Dev Center. Please read the following important note before you proceed.
+
+![drawing][img-verify]
 
    > [!IMPORTANT]
    > Ensure that the email id or distribution list (a distribution list is recommended to remove dependency from individuals) which you will be using for registering in the Dev Center is at first registered as a Microsoft account. If not, then please register using this [link](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1). Also, **any email id under the Microsoft company domain i.e. @microsoft.com cannot be used** for Dev Center registration.
@@ -87,11 +94,9 @@ The Microsoft Developer Center is used to register the company information once.
 
 ![Dev center sign in](./media/cloud-partner-portal-create-dev-center-registration/seller-dashboard-login.jpg)
 
-3. Complete the "Help us protect your account" wizard, which will verify your identity via phone number or email address.
+Step 3. Complete the "Help us protect your account" wizard, which will verify your identity via phone number or email address.
 
- ![drawing][img-verify]
-
-4. In the "Registration-Account Info" section, select your **Account country/region** from the dropdown menu.
+Step 4. In the "Registration-Account Info" section, select your **Account country/region** from the dropdown menu.
 
  ![drawing](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
@@ -99,7 +104,7 @@ The Microsoft Developer Center is used to register the company information once.
    > **"Sell-from" Countries:** In order to sell your services on the Azure Marketplace, your registered entity needs to be from one of the approved “sell-from” countries above. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so stay tuned. For more information, see the  [Marketplace participation policies](http://go.microsoft.com/fwlink/?LinkID=526833).
    >
    >
-5. Select your "Account Type" as **Company** and then click the **Next** button.
+Step 5. Select your "Account Type" as **Company** and then click the **Next** button.
 
    > [!IMPORTANT]
    > To better understand account types and which is best for you to choose, please view page [Account types, locations, and fees](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx)
@@ -107,27 +112,27 @@ The Microsoft Developer Center is used to register the company information once.
    >
 
    ![drawing](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_05.png)
-6. Enter the **Publisher display name**, typically the name of your company.
+Step 6. Enter the **Publisher display name**, typically the name of your company.
 
    > [!TIP]
    > The publisher display name entered in the Dev Center is not displayed in the Azure Marketplace once your offer goes listed. But this must be filled to complete the registration process.
    >
    >
-7. Enter the **Contact info** for the account verification.
+Step 7. Enter the **Contact info** for the account verification.
 
    > [!IMPORTANT]
    > You must provide accurate contact information because it will be used in our verification process for your company to be approved in the Developer Center.
    >
    >
-8. Enter the contact information for the **Company Approver**. Company approver is the person who can verify that you are authorized to create an account in the Dev Center on behalf of your organization. Click on **Next** to move to the **"Payment section"** once you are finished.
+Step 8. Enter the contact information for the **Company Approver**. Company approver is the person who can verify that you are authorized to create an account in the Dev Center on behalf of your organization. Click on **Next** to move to the **"Payment section"** once you are finished.
 
    ![drawing](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_08.png)
-9. Enter your payment info to pay for your account. If you have a promo code that covers the cost of registration, you can enter that here. Otherwise, provide your credit card info (or PayPal in supported markets). When you are finished, click **Next** to move on to the **"Review screen"**.
+Step 9. Enter your payment info to pay for your account. If you have a promo code that covers the cost of registration, you can enter that here. Otherwise, provide your credit card info (or PayPal in supported markets). When you are finished, click **Next** to move on to the **"Review screen"**.
 
   ![drawing](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_09.png)
-10. Review your account info and confirm that everything is correct. Then, read and accept the terms and conditions of the [Microsoft Azure Marketplace Publisher Agreement](http://go.microsoft.com/fwlink/?LinkID=699560). Check the box to indicate you have read and accepted these terms.
-11. Click **Finish** to confirm your registration. We'll send a confirmation message to your email address.
-12. If you are planning to publish only free offers, click **Go to to the [Cloud Partner Portal](https://cloudpartner.azure.com/).** and you can skip to section 3 of this document.
+Step 10. Review your account info and confirm that everything is correct. Then, read and accept the terms and conditions of the [Microsoft Azure Marketplace Publisher Agreement](http://go.microsoft.com/fwlink/?LinkID=699560). Check the box to indicate you have read and accepted these terms.
+Step 11. Click **Finish** to confirm your registration. We'll send a confirmation message to your email address.
+Step 12. If you are planning to publish only free offers, click **Go to to the [Cloud Partner Portal](https://cloudpartner.azure.com/).** and you can skip to section 3 of this document.
 
 If you are planning to publish commercial offers (e.g. Virtual Machine offers with hourly billing model), click **Update your account information** where you must fill in the tax and banking information in your Developer Center account.
 
