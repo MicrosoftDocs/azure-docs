@@ -31,7 +31,7 @@ Learn how to create a Java-based user-defined function (UDF) that works with Hiv
 
     Most steps in this document work on both cluster types. However, the steps used to upload the compiled UDF to the cluster and run it are specific to Linux-based clusters. Links are provided to information that can be used with Windows-based clusters.
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 7 or later (or an equivalent, such as OpenJDK)
+* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 or later (or an equivalent, such as OpenJDK)
 
 * [Apache Maven](http://maven.apache.org/)
 
