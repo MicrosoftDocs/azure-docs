@@ -310,6 +310,23 @@ You can use a relative path with the `#load` directive:
 
 The `#load` directive works only with *.csx* (C# script) files, not with *.cs* files. 
 
+## Versioning
+
+The Functions runtime runs as a site extension to your Function App. Site extensions are extensibility points that enable you to add features to an Azure App Service, Website, or Function App. `Kudu` and `Monaco` are two examples of site extensions, and you may create and use custom extensions as well. You can configure the version of the extensions using the `FUNCTIONS_EXTENSION_VERSION` app setting.
+
+The `FUNCTIONS_EXTENSION_VERSION` only sets the major version of the runtime. For example, the value "~0.4" indicates that your Function App will use 0.4 as its major version. Function Apps are upgraded to each new minor version as they are released. This allows you manage when to upgrade to versions to avoid breaking changes.
+
+Additionally, you may want to upgrade the runtime before it becomes the default version in the portal. Don't worry though, you can roll back at any time by reverting the `FUNCTIONS_EXTENSION_VERSION` setting to its old value.
+
+*To determine your Azure Function App's runtime version:*
+
+Locate the `applicationhost.config` file located in the `D:\local\Config` folder in Kudu. The `virtualDirectory` entry reveals the exact Functions runtime version: 
+
+```xml
+<virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Functions\0.8.10564" />
+```
+You may use this value to set a specific major and minor runtime version of your Function App. Whenever you change the version of a Function App you must restart it.
+
 ## Next steps
 For more information, see the following resources:
 
