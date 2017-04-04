@@ -173,6 +173,7 @@ Below are some code_numbers and suggested resolutions.
 
 | Code | Description | Resolution |
 |:--|:--|:--|
+| 0x17 | The library installer requires a Windows update that hasn't been installed. | Look in the most recent library installer log (see above).<br><br>If a reference to "Windows8.1-KB2999226-x64.msu" is followed by a line "Error 0x80240017: Failed to execute MSU package.", then you do not have the necessary prerequisites installed to install KB2999226.  Follow the instructions in the prerequisites section in https://support.microsoft.com/kb/2999226.  Note that you may need to run Windows Update and reboot multiple times in order to install the necessary prerequisites.<br><br>Run the Microsoft Dependency Agent installer again. |
 
 ### Post-Installation issues
 #### Server doesn't show in Service Map
