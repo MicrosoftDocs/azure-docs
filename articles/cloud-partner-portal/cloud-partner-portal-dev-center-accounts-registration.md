@@ -1,6 +1,6 @@
 ---
-title: How to create a Microsoft Developer account for Azure Marketplace and AppSource Publishing  | Microsoft Docs
-description: This article explains the steps to create a Microsoft Developer account for Azure Marketplace and AppSource Publishing. 
+title: How to create a Microsoft Developer account for Azure Marketplace publishing  | Microsoft Docs
+description: This article explains the steps to create a Microsoft Developer account for Azure Marketplace and publishing. 
 services: cloud-partner-portal
 documentationcenter: ''
 author: rupeshazure
@@ -17,10 +17,10 @@ ms.robots: NOINDEX, NOFOLLOW
 
 ---
 # Create a Microsoft Developer account
-This article walks you through the necessary account creation and registration process to become an approved Microsoft Developer for the Azure Marketplace and AppSource.
+This article walks you through the necessary account creation and registration process to become an approved Microsoft Developer for the Azure Marketplace publishing.
 
 ## 1. Create a Microsoft account
-To start the publishing process, you will need to complete the **Microsoft Developer Center** registration.You will use the same registered account on the **[Cloud Partner Portal](https://cloudpartner.azure.com/)** to start the publishing process. You should have only one Microsoft account for your Azure Marketplace and AppSource offerings. It should not be specific to services or offers.
+To start the publishing process, you will need to complete the **Microsoft Developer Center** registration.You will use the same registered account on the **[Cloud Partner Portal](https://cloudpartner.azure.com/)** to start the publishing process. You should have only one Microsoft account for your Azure Marketplace offerings. It should not be specific to services or offers.
 
 The address that forms the user name should be on your domain and controlled by your IT team. All the publishing related activities should be done through this account.
 
@@ -186,7 +186,7 @@ If you prefer to update your tax and bank information later, then you can move t
 If you have issues with Developer Center registration, please log a support ticket as below
 
 1. Go to the support link [https://developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support)
-2. Under **Contact Us** section, click on the button **Submit an incident** (as shown in the screenshot below)
+2. Under **Contact Us** section, click on the button **Submit an incident** (as shown in the screen shot below)
 
   ![drawing](./media/cloud-partner-portal-create-dev-center-registration/imgAddTax_02.png)
 3. Choose "Help with Dev Center" as **Problem type** and "Publish and manage apps" as **Category**. After that click on the button "Start email".
@@ -217,7 +217,7 @@ If you are added as a contributor/owner in the cloud partner portal portal, then
 
 
 ## Next steps
-Now that your account is created and registered, you can start the Azure marketplace or AppSource publishing process.
+Now that your account is created and registered, you can start the Azure marketplace publishing process.
 
 [img-msalive]:media/cloud-partner-portal-create-dev-center-registration/creating-msa-account-msa-live.jpg
 [img-email]:media/cloud-partner-portal-create-dev-center-registration/creating-msa-account-msa-verifyemail.jpg
