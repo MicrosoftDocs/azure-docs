@@ -1,20 +1,21 @@
 ---
- title: Connect to Dynamics 365 (online) from Azure Logic Apps | Microsoft Docs
- description: Create logic app workflows that manage Dynamics 365 (online) entities through the API provided by the Dynamics 365 connector
- services: logic-apps
- cloud: Azure Stack
- author: Mattp123
- manager: anneta
- documentationcenter:
+title: Connect to Dynamics 365 (online) from Azure Logic Apps | Microsoft Docs
+description: Create logic app workflows that manage Dynamics 365 (online) entities through the API provided by the Dynamics 365 connector
+services: logic-apps
+cloud: Azure Stack
+author: Mattp123
+manager: anneta
+documentationcenter:
+tags: connectors
 
- ms.assetid: 0dc2abef-7d2c-4a2d-87ca-fad21367d135
- ms.service: logic-apps
- ms.workload: integration
- ms.tgt_pltfrm: na
- ms.devlang: na
- ms.topic: article
- ms.date: 02/10/2017
- ms.author: matp; LADocs
+ms.assetid: 0dc2abef-7d2c-4a2d-87ca-fad21367d135
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/10/2017
+ms.author: matp; LADocs
 ---
 
 # Connect to Dynamics 365 from logic app workflows
@@ -33,14 +34,14 @@ This topic shows you how to create a logic app that creates a task in Dynamics 3
 * An Azure account.
 * A Dynamics 365 (online) account.
 
-## Walkthrough: Create a task whenever a new lead is created in Dynamics 365
+## Create a task when a new lead is created in Dynamics 365
 
 1.	[Sign in to Azure](https://portal.azure.com).
-2.	Type *Logic Apps* in the **Search** box, and then press ENTER.
+2.	In the Azure search box, type *Logic apps* , and then press ENTER.
 
       ![Find Logic Apps](./media/connectors-create-api-crmonline/find-logic-apps.png)
 
-3.	In the Logic App service area, click **Add**.
+3.	Under **Logic apps**, click **Add**.
 
       ![LogicApp add](./media/connectors-create-api-crmonline/add-logic-app.png)
 
@@ -49,9 +50,11 @@ and then click **Create**.
 
 5.	Select the new logic app. When you receive the **Deployment Succeeded** notification, click **Refresh**.
 
-6.	Under Development Tools, click **Logic App Designer**, and then in the list of available templates click **Blank Logic App**.
+6.	Under **Development Tools**, click **Logic App Designer**. 
+In the template list, click **Blank Logic App**.
 
-7.	Type *Dynamics 365*. From the Dynamics 365 triggers list, select **Dynamics 365 – When a record is created**.
+7.	In the search box, type *Dynamics 365*. From the Dynamics 365 triggers list, 
+select **Dynamics 365 – When a record is created**.
 
 8.	If you are prompted to sign in to Dynamics 365, do so now.
 
@@ -66,13 +69,13 @@ and then click **Create**.
 
     * **Frequency**. Select seconds, minutes, hours, or days.
 
-    * **Interval**. Enter a number that indicates the number of seconds, minutes, hours, or days pass before the next check.
+    * **Interval**. Enter the number of seconds, minutes, hours, or days that you want to pass before the next check.
 
       ![Logic App Trigger details](./media/connectors-create-api-crmonline/trigger-details.png)
 
 10. Click **New step**, and then click **Add an action**.
 
-11. Type *Dynamics 365*, and then in the list, click **Dynamics 365 – Create a new record**.
+11. In the search box, type *Dynamics 365*. From the actions list, select **Dynamics 365 – Create a new record**.
 
 12. Enter the following information:
 
@@ -82,7 +85,8 @@ and then click **Create**.
     * **Entity Name**. Select the entity that you want to create a record when the event is triggered. 
     In this walkthrough, **Tasks** is selected.
 
-13. Click in the **Subject** box that appears. From the dynamic content list that appears, you can select either of the following fields:
+13. Click in the **Subject** box that appears. From the dynamic content list that appears, 
+you can select either of these fields:
 
     * **Last Name**. Selecting this field inserts the last name for the lead into the Subject field for the task, when the task record is created.
     * **Topic**. Selecting this field inserts the Topic field for the lead into the Subject field for the task, when the task record is created. 
@@ -90,7 +94,7 @@ and then click **Create**.
 
       ![Logic App Create new record details](./media/connectors-create-api-crmonline/create-record-details.png)
 
-14. Click **Save** on the Logic App Designer toolbar.
+14. On the Logic App Designer toolbar, click **Save**.
 
     ![Logic App Designer toolbar Save](./media/connectors-create-api-crmonline/designer-toolbar-save.png)
 
