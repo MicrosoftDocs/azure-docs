@@ -159,30 +159,64 @@
 ### How to
 #### [Detect faces in image](Face/Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
 #### [Identify faces in image](Face/Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md)
-#### [Analyze videos in real time](Face/Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md )
+#### [Analyze videos in real time](Face/Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md)
 ### Quickstarts
-#### [cURL](Face/QuickStarts/curl.md )
-#### [C#](Face/QuickStarts/CSharp.md )
+#### [cURL](Face/QuickStarts/curl.md)
+#### [C#](Face/QuickStarts/CSharp.md)
 #### [Java](Face/QuickStarts/Java.md)
 #### [JavaScript](Face/QuickStarts/JavaScript.md)
 #### [PHP](Face/QuickStarts/PHP.md)
 #### [Python](Face/QuickStarts/Python.md)
 #### [Ruby](Face/QuickStarts/Ruby.md)
 ### Tutorials
-#### [C#](Face/Tutorials/FaceAPIinCSharpTutorial.md )
+#### [C#](Face/Tutorials/FaceAPIinCSharpTutorial.md)
 #### [Java for Android](Face/Tutorials/FaceAPIinJavaForAndroidTutorial.md)
 #### [Python](Face/Tutorials/FaceAPIinPythonTutorial.md)
 ### [SDKs + samples](Face/SDKsAndSamples.md)
-### [API reference](Face/APIReference.md )
+### [API reference](Face/APIReference.md)
 ### [Glossary](Face/Glossary.md)
-### [FAQ](Face/FAQ.md )
+### [FAQ](Face/FAQ.md)
 ### [Release notes](Face/ReleaseNotes.md)
 
+## Knowledge Exploration Service
+### [Overview](KES/Overview.md)  
+### [Getting started](KES/GettingStarted.md)
+### [Command line](KES/CommandLine.md)
+### [Schema format](KES/SchemaFormat.md)    
+### [Data format](KES/DataFormat.md)
+### [Grammar format](KES/GrammarFormat.md) 
+### [Semantic interpretation](KES/SemanticInterpretation.md)
+### [Web API interface](KES/WebAPI.md) 
+#### [calchistogram](KES/calchistogramMethod.md)   
+#### [evaluate](KES/evaluateMethod.md)        
+#### [interpret](KES/interpretMethod.md)
+### [Structured query expressions](KES/Expressions.md)        
+            
+## Linguistic Analysis API
+### [Overview](LinguisticAnalysisAPI/Home.md)
+### [Analyzer names](LinguisticAnalysisAPI/Analyzer-Names.md)
+### [Constituency parsing](LinguisticAnalysisAPI/Constituency-Parsing.md)
+### [Part-of-speech tagging](LinguisticAnalysisAPI/POS-tagging.md)
+### [Sentences and tokens](LinguisticAnalysisAPI/Sentences-and-Tokens.md)
+### [Analyze method](LinguisticAnalysisAPI/AnalyzeMethod.md)
+### [Analyzers method](LinguisticAnalysisAPI/AnalyzersMethod.md)
+### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56ea598f778daf01942505ff/operations/56ea5a1cca73071fd4b102bb)
 
-           
+
+ 
+
+
 
 
        
+     
+        
+
+              
+        
+      
+
+        
 
 
         
