@@ -16,7 +16,7 @@ ms.date: 02/01/2017
 ms.author: padmavc; LADocs
 ---
 
-# Connect to an on-premises SAP system from logic apps through the SAP connector 
+# Connect to an on-premises SAP system from logic apps with the SAP connector 
 
 The on-premises data gateway enables you to manage data, and securely access resources that are on-premises. 
 This topic shows how you can connect logic apps to an on-premises SAP system. In this example, your logic app 
