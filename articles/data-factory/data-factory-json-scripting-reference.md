@@ -1017,23 +1017,6 @@ The typeProperties section for a dataset of the type **AzureSearchIndex** has th
 
 #### Example
 
-```json
-{
-	"name": "AzureSearchIndexDataset",
-	"properties": {
-		"type": "AzureSearchIndex",
-		"linkedServiceName": "AzureSearchLinkedService",
-		"typeProperties" : {
-			"indexName": "products",
-		},
-		"availability": {
-			"frequency": "Minute",
-			"interval": 15
-		}
-	}
-}
-```
-
 For more information, see [Azure Search connector](data-factory-azure-search-connector.md#dataset-properties) article.
 
 ### Azure Search Index Sink in Copy Activity
