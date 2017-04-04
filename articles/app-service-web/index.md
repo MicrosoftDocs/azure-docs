@@ -14,7 +14,7 @@ ms.author: carolz
 ---
 <div class="content">
     <h1>Web Apps Documentation</h1>
-    <p style="padding-bottom: 0px">Azure Web Apps offers auto-scaling and high availability, supports both Windows and Linux (preview), and supports a variety of partner like WordPress or Umbraco. Our quickstarts, tutorials, and samples will help you learn to build and deploy your apps to Azure.</p>
+    <p style="padding-bottom: 0px">Azure Web Apps enables you to build and host websites in the programming language of your choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux (preview), and enables automated deployments from GitHub, Team Services, or any Git repo. Learn how to use Azure Web Apps with our quickstarts, tutorials, and samples.</p>
 <h2 style="margin-top: 36px">Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">

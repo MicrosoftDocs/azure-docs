@@ -14,7 +14,7 @@ ms.author: carolz
 ---
 <div class="content">
     <h1>SQL Database Documentation</h1>
-    <p style="padding-bottom: 0px">Azure SQL DB is a relational database as a service built on the Microsoft SQL Server Engine. SQL Database includes built-in intelligence that learns app patterns and adapts to maximize performance, reliability, and data protection. Learn how to use SQL Database with our quickstarts, tutorials, and samples.</p>
+    <p style="padding-bottom: 0px">Azure SQL Database is a relational database-as-a service using the Microsoft SQL Server Engine. SQL Database is a high-performance, reliable, and secure database you can use to build data-driven applications and websites in the programming language of your choice, without needing to manage infrastructure. Learn how to use SQL Database with our quickstarts, tutorials, and samples.</p>
 <h2 style="margin-top: 36px">Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
@@ -47,8 +47,8 @@ ms.author: carolz
         <h2>Samples</h2>
         <p>Find scripts to manage common tasks.</p>
         <ul class="spaced">
-            <li><a href="/azure/sql-database/sql-database-cli-samples.md">Azure CLI</a></li>
-            <li><a href="/azure/sql-database/sql-database-powershell-samples.md">Azure PowerShell</a></li>
+            <li><a href="/azure/sql-database/sql-database-cli-samples">Azure CLI</a></li>
+            <li><a href="/azure/sql-database/sql-database-powershell-samples">Azure PowerShell</a></li>
         </ul>
     </div>
     <div class="column50" style="max-width: 400px">

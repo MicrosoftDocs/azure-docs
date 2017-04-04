@@ -14,7 +14,7 @@ ms.author: carolz
 ---
 <div class="content">
     <h1>Linux Virtual Machines Documentation</h1>
-    <p style="padding-bottom: 0px">Linux VMs on Azure offer you the power and flexibility of virtualization with secure, resizable compute capacity based on the Linux distribution of your choice. Learn how to use Linux VMs with our quickstarts, tutorials, and samples.</p>
+    <p style="padding-bottom: 0px">Azure Linux Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Red Hat, Ubuntu, or the Linux distribution of your choice.  Learn how to create, configure, manage, and scale Linux VMs with our quickstarts, tutorials, and samples.</p>
 <h2 style="margin-top: 36px">Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
@@ -47,8 +47,8 @@ ms.author: carolz
         <h2>Samples</h2>
         <p>Deploy your first application to Azure.</p>
         <ul class="spaced">
-            <li><a href="/azure/virtual-machines/virtual-machines-linux-cli-samples.md">Azure CLI</a></li>
-            <li><a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples.md">Azure PowerShell</a></li>
+            <li><a href="/azure/virtual-machines/virtual-machines-linux-cli-samples">Azure CLI</a></li>
+            <li><a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a></li>
         </ul>
     </div>
     <div class="column50" style="max-width: 400px">
