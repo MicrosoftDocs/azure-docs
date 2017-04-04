@@ -55,15 +55,15 @@ ms.author: carolz
         <h2 style="margin-top: 36px">Free Video Training</h2>
         <a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
             <img src="media/index/video-training-infrastructure.png" width="400" alt="" />
-            <p>Free Pluralsight video training – Managing Infrastructure</a></p>
+            <p style="margin-top: 0px">Free Pluralsight video training – Managing Infrastructure</a></p>
             <p style="margin-top: 36px"></p>
                 <a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
             <img src="media/index/video-training-vms.png" width="400" alt="" />
-            <p>Free Pluralsight video training – Getting Started with Virtual Machines</a></p>
+            <p style="margin-top: 0px">Free Pluralsight video training – Getting Started with Virtual Machines</a></p>
         <p style="margin-top: 36px"></p>
         <a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
             <img src="media/index/video-training-iaas-monitoring.png" width="400" alt="" />
-            <p>Free Pluralsight video training – Getting Started with IaaS Monitoring</a></p>
+            <p style="margin-top: 0px">Free Pluralsight video training – Getting Started with IaaS Monitoring</a></p>
     </div>
 </div>
 <hr />

@@ -55,7 +55,7 @@ ms.author: carolz
         <h2 style="margin-top: 36px">Free Video Training</h2>
         <a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
             <img src="media/index/video-training-dotnet.png" width="400" alt="">
-            <p>Free Pluralsight video training – Developing with .NET</a></p>
+            <p style="margin-top: 0px">Free Pluralsight video training – Developing with .NET</a></p>
     </div>
 </div>
 
