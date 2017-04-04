@@ -249,7 +249,7 @@ SampleValue:[0..2]
 ```
 
 ### IN
-The **IN** keyword allows you to select from a list of values.  Depending on the syntax you use, this can be a simple list of values you provide or a list of values from an aggregation.
+The **IN** keyword allows you to select from a list of values. Depending on the syntax you use, this can be a simple list of values you provide, or a list of values from an aggregation.
 
 Syntax 1:
 
@@ -257,7 +257,6 @@ Syntax 1:
 field IN {value1,value2,value3,...}
 ```
 
-Description:
 This syntax allows you to include all values in a simple list.
 
 
@@ -275,60 +274,59 @@ Computer IN {"srv01.contoso.com","srv02.contoso.com"}
 Syntax 2:
 
 ```
-(Outer Query) (Field to use with inner query results) IN {Inner query | measure count() by (Field to send to outer query)} (rest  of outer query)  
+(Outer query) (Field to use with inner query results) IN {Inner query | measure count() by (Field to send to outer query)} (rest  of outer query)  
 ```
 
-Description:
-This syntax allows you to create an aggregation and feed the list of values from that aggregation into another outer (primary) search that will look for events with those value. You do this by enclosing the inner search in braces and feeding its results as possible values for a field in the outer search using the IN operator.
+This syntax allows you to create an aggregation. You can then feed the list of values from that aggregation into another outer (primary) search that looks for events with those value. You do this by enclosing the inner search in braces, and feeding its results as possible values for a field in the outer search by using the IN operator.
 
-Inner query Example: *computers currently missing security updates* with the following aggregation query:
+Inner query example: *computers currently missing security updates* with the following aggregation query:
 
 ```
 Type:Update Classification="Security Updates"  UpdateState=needed TimeGenerated>NOW-25HOURS | measure count() by Computer
 ```    
 
-The final query that finds *all Windows events for computers currently missing security updates* would resemble:
+The final query that finds *all Windows events for computers currently missing security updates* resembles the following:
 
 ```
 Type=Event Computer IN {Type:Update Classification="Security Updates"  UpdateState=needed TimeGenerated>NOW-25HOURS | measure count() by Computer}
 ```
 
 ### Contains
-The **Contains** keyword allows you to filter for records with a field that contains a specified string.  This is case sensitive, will only work with string fields, and may not include any escape characters.
+The **Contains** keyword allows you to filter for records with a field that contains a specified string. This is case sensitive, works only with string fields, and may not include any escape characters.
 
-**Syntax**
+Syntax:
 
 ```
 field:contains("string")
 ```
 
-**Example**
+Example:
 
 ```
 Type:contains("Event")
 ```
 
-This returns records with a type that contains the string "Event".  Examples include **Event**, **SecurityEvent**, and **ServiceFabricOperationEvent**.
+This returns records with a type that contains the string "Event". Examples include **Event**, **SecurityEvent**, and **ServiceFabricOperationEvent**.
 
 
 
-### Regular Expressions
-You can specify a search condition for a field with a regular expression by using the Regex keyword.  Get a complete description of the syntax you can use in regular expressions in [Using regular expressions to filter log searches in Log Analytics](log-analytics-log-searches-regex.md).
+### Regular expressions
+You can specify a search condition for a field with a regular expression, by using the **Regex** keyword. For a complete description of the syntax you can use in regular expressions, see [Using regular expressions to filter log searches in Log Analytics](log-analytics-log-searches-regex.md).
 
-**Syntax**
+Syntax:
 
 ```
 field:Regex("Regular Expression")
 ```
 
-**Example**
+Example:
 
 ```
 Computer:Regex("^C.*")
 ```
 
 ### Logical operators
-The query languages support the logical operators (*AND*, *OR*, and *NOT*) and their C-style aliases (*&&*, *||*, and *!*) respectively. You can use parentheses to group these operators.
+The query languages support the logical operators (*AND*, *OR*, and *NOT*) and their C-style aliases (*&&*, *||*, and *!*, respectively). You can use parentheses to group these operators.
 
 Examples:
 
@@ -351,16 +349,16 @@ You can omit the logical operator for the top-level filter arguments. In this ca
 ### Wildcarding
 The query language supports using the ( \* ) character to  represent one or more characters for a value in a query.
 
-Examples:
+Example:
 
- Find all computers with "SQL" in the name such as "Redmond-SQL".
+ Find all computers with "SQL" in the name, such as "Redmond-SQL".
 
 ```
 Type=Event Computer=*SQL*
 ```
 
 > [!NOTE]
-> Wildcards cannot be used within quotations today. Message=`"*This text*"` will consider the (\*) used as a literal (\*) character.
+> At this time, wildcards cannot be used within quotations. For example, the message `"*This text*"` considers the (\*) used as a literal (\*) character.
 
 
 ## Commands
@@ -378,7 +376,7 @@ Syntax:
 
     sort field1 asc|desc, field2 asc|desc, …
 
-Sorts the results by particular fields. The asc/desc prefix is optional. If they are omitted, the *asc* sort order is assumed. If a query does not use the *Sort* command explicitly, Sort **TimeGenerated** desc is the default behavior, and it will always return the most recent results first.
+Sorts the results by particular fields. The asc/desc suffix to sort the results in ascending or descending order is optional. If it is omitted, the *asc* sort order is assumed. For the **TimeGenerated** field, *desc* sort order is assumed, so it returns the most recent results first by default.
 
 ### Top/Limit
 Syntax:
@@ -422,7 +420,7 @@ Example:
 Limits the returned results fields to *Name* and *Severity*.
 
 ### Measure
-The *measure* command is used to apply statistical functions to the raw search results. This is very useful to get *group-by* views over the data. When you use the *measure* command, Log Analytics search displays a table with aggregated results.
+The *measure* command is used to apply statistical functions to the raw search results. This is very useful to get *group-by* views over the data. When you use the measure command, Log Analytics search displays a table with aggregated results.
 
 **Syntax:**
 
@@ -433,19 +431,19 @@ The *measure* command is used to apply statistical functions to the raw search r
 
 
 
-Aggregates the results by *groupField* and calculates the aggregated measure values by using *aggregatedField*.
+Aggregates the results by *groupField*, and calculates the aggregated measure values by using *aggregatedField*.
 
 | Measure statistical function | Description |
 | --- | --- |
-| *aggregateFunction* |The name of the aggregate function (case insensitive). The following aggregate functions are supported:COUNT MAX MIN SUM AVG STDDEV COUNTDISTINCT PERCENTILE## or PCT## (## is any number between 1 to 99) |
-| *aggregatedField* |The field that is being aggregated. This field is optional for the COUNT aggregate function, but has to be an existing numeric field for SUM, MAX, MIN, AVG STDDEV, or PERCENTILE## or PCT## (## is any number between 1 to 99). The aggregatedField can also be any of the Extend supported functions. |
-| *fieldAlias* |The (optional) alias for the calculated aggregated value. If not specified, the field name will be AggregatedValue. |
+| *aggregateFunction* |The name of the aggregate function (case insensitive). The following aggregate functions are supported: COUNT, MAX, MIN, SUM, AVG, STDDEV, COUNTDISTINCT, PERCENTILE##, or PCT## (## is any number between 1 and 99). |
+| *aggregatedField* |The field that is being aggregated. This field is optional for the COUNT aggregate function, but has to be an existing numeric field for SUM, MAX, MIN, AVG, STDDEV, PERCENTILE##, or PCT## (## is any number between 1 and 99). The aggregatedField can also be any of the **Extend** supported functions. |
+| *fieldAlias* |The (optional) alias for the calculated aggregated value. If not specified, the field name is **AggregatedValue**. |
 | *groupField* |The name of the field that the result set is grouped by. |
-| *Interval* |The time interval in the format:**nnnNAME** Where:nnn is the positive integer number. **NAME** is the interval name. Supported interval names include (case sensitive):MILLISECOND[S] SECOND[S] MINUTE[S] HOUR[S] DAY[S] MONTH[S] YEAR[S] |
+| *Interval* |The time interval, in the format:**nnnNAME**. **nnn** is the positive integer number. **NAME** is the interval name. Supported interval names are case sensitive, and include:MILLISECOND[S], SECOND[S], MINUTE[S], HOUR[S], DAY[S], MONTH[S], and YEAR[S]. |
 
-The interval option can only be used in Date/Time group fields (such as *TimeGenerated* and *TimeCreated*). Currently, this is not enforced by the service, but a field without Date/Time that is passed to the backend will cause a runtime error. When the schema validation is implemented, the service API rejects queries that use fields without Date/Time for interval aggregation. The current *Measure* implementation supports interval grouping for any aggregate function.
+The interval option can only be used in Date/Time group fields (such as *TimeGenerated* and *TimeCreated*). Currently, this is not enforced by the service, but a field without Date/Time that is passed to the back end causes a runtime error. When the schema validation is implemented, the service API rejects queries that use fields without Date/Time for interval aggregation. The current *Measure* implementation supports interval grouping for any aggregate function.
 
-If the BY clause is omitted but an interval is specified (as a second syntax), the *TimeGenerated* field is assumed by default.
+If the BY clause is omitted, but an interval is specified (as a second syntax), the *TimeGenerated* field is assumed by default.
 
 Examples:
 
@@ -453,15 +451,11 @@ Examples:
 
     Type:Alert | measure count() as Count by ObjectId
 
-*Explanation*
-
-Groups the alerts by *ObjectID* and calculates the number of alerts for each group. The aggregated value is returned as the *Count* field (alias).
+Groups the alerts by *ObjectID*, and calculates the number of alerts for each group. The aggregated value is returned as the *Count* field (alias).
 
 **Example 2**
 
     Type:Alert | measure count() interval 1HOUR
-
-*Explanation*
 
 Groups the alerts by 1-hour intervals by using the *TimeGenerated* field, and returns the number of alerts in each interval.
 
@@ -469,15 +463,11 @@ Groups the alerts by 1-hour intervals by using the *TimeGenerated* field, and re
 
     Type:Alert | measure count() as AlertsPerHour interval 1HOUR
 
-*Explanation*
-
 Same as the previous example, but with an aggregated field alias (*AlertsPerHour*).
 
 **Example 4**
 
     * | measure count() by TimeCreated interval 5DAYS
-
-*Explanation*
 
 Groups the results by 5-day intervals by using the *TimeCreated* field, and returns the number of results in each interval.
 
@@ -485,49 +475,37 @@ Groups the results by 5-day intervals by using the *TimeCreated* field, and retu
 
     Type:Alert | measure max(Severity) by WorkflowName
 
-*Explanation*
-
 Groups the alerts by workload name, and returns the maximum alert severity value for each workflow.
 
 **Example 6**
 
     Type:Alert | measure min(Severity) by WorkflowName
 
-*Explanation*
-
-Same as the previous example, but with the *Min* aggregated function.
+Same as the previous example, but with the *min* aggregated function.
 
 **Example 7**
 
     Type:Perf | measure avg(CounterValue) by Computer
 
-*Explanation*
-
-Groups Perf by Computer and calculates the average (avg).
+Groups Perf by computer, and calculates the average (avg).
 
 **Example 8**
 
     Type:Perf | measure sum(CounterValue) by Computer
 
-*Explanation*
-
-Same as the previous example, but uses *Sum*.
+Same as the previous example, but uses *sum*.
 
 **Example 9**
 
     Type:Perf | measure stddev(CounterValue) by Computer
 
-*Explanation*
-
-Same as the previous example, but uses *STDDEV*.
+Same as the previous example, but uses *stddev*.
 
 **Example 10**
 
     Type:Perf | measure percentile70(CounterValue) by Computer
 
-*Explanation*
-
-Same as the previous example, but uses *PERCENTILE70*.
+Same as the previous example, but uses *percentile70*.
 
 **Example 11**
 
