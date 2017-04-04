@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 03/30/2017
 ms.author: terrylan
 
 ---
@@ -35,10 +35,9 @@ This recommendation applies to the Azure SQL service only; it doesn’t include 
    ![Enable auditing on SQL servers][1]
 2. Select a SQL server to enable auditing and threat detection on. This opens the **Auditing & Threat Detection** blade.
 
-   ![Auditing settings][2]
 3. On the **Auditing & Threat Detection** blade, select **ON** under **Auditing**.
 
-   ![Turn on auditing settings][3]
+   ![Turn on auditing settings][2]
 4. Follow the steps in [SQL database auditing in the Azure portal](../sql-database/sql-database-auditing-portal.md) to configure storage where your audit logs will be stored. The subscription's storage account for data collection is the default storage account.
 5. Follow the steps in [Get started with SQL Database Threat Detection](../sql-database/sql-database-threat-detection.md) to turn on and configure Threat Detection and to configure the list of emails that will receive security alerts upon detection of anomalous activities.
 
@@ -59,5 +58,4 @@ To learn more about Security Center, see the following:
 
 <!--Image references-->
 [1]: ./media/security-center-enable-auditing-on-sql-server/enable-auditing-on-sql-servers.png
-[2]:./media/security-center-enable-auditing-on-sql-server/enable-auditing.png
-[3]: ./media/security-center-enable-auditing-on-sql-server/auditing-settings-blade.png
+[2]: ./media/security-center-enable-auditing-on-sql-server/auditing-settings-blade.png
