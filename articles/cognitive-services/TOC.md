@@ -32,6 +32,45 @@
 #### [JSON Search Syntax](JSONSearchSyntax.md)                     
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56332331778daf02acc0a50b/operations/565d9001ca73072048922d97)
 
+## Bing APIs
+### Autosuggest
+#### [Overview](overview.md)
+#### [Use and Display Requirements](UseAndDisplayRequirements.md)
+#### [API reference](https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2)
+
+### Image Search
+#### [Overview](overview.md)
+#### [Use and Display Requirements](UseAndDisplayRequirements.md)
+#### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43f0ccf5ff8098cef3808/operations/571fab09dbe2d933e891028f)
+
+### News Search
+#### [Overview](overview.md)
+#### [Use and Display Requirements](UseAndDisplayRequirements.md)
+#### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553)
+
+### Speech
+#### [Overview](overview.md)
+#### [Speech recognition]
+
+
+
+
+
+
+
+###Bing Search APIs
+#### [Web Search API](https://www.microsoft.com/cognitive-services/en-us/bing-web-search-api/documentation)
+#### [Image Search API](https://www.microsoft.com/cognitive-services/en-us/bing-image-search-api/documentation)
+#### [Video Search API](https://www.microsoft.com/cognitive-services/en-us/bing-video-search-api/documentation)
+#### [News Search API](https://www.microsoft.com/cognitive-services/en-us/bing-news-search-api/documentation)
+### [Bing Autosuggest API](https://www.microsoft.com/cognitive-services/en-us/bing-autosuggest-api/documentation)
+### [Bing Spell Check API](https://www.microsoft.com/cognitive-services/en-us/bing-spell-check-api/documentation)
+### [Bing Speech API](https://www.microsoft.com/cognitive-services/en-us/speech-api/documentation/overview)
+
+
+
+
+
 ## Text Analytics API
 ### [API migration](cognitive-services-text-analytics-api-migration.md)
 
@@ -54,15 +93,7 @@
 ### [Call the API](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/vision-api-how-to-topics/HowToCallVisionAPI)
 ### [API reference](https://dev.projectoxford.ai/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa)
 
-## Develop with Bing APIs
-### Bing Search APIs
-#### [Web Search API](https://www.microsoft.com/cognitive-services/en-us/bing-web-search-api/documentation)
-#### [Image Search API](https://www.microsoft.com/cognitive-services/en-us/bing-image-search-api/documentation)
-#### [Video Search API](https://www.microsoft.com/cognitive-services/en-us/bing-video-search-api/documentation)
-#### [News Search API](https://www.microsoft.com/cognitive-services/en-us/bing-news-search-api/documentation)
-### [Bing Autosuggest API](https://www.microsoft.com/cognitive-services/en-us/bing-autosuggest-api/documentation)
-### [Bing Spell Check API](https://www.microsoft.com/cognitive-services/en-us/bing-spell-check-api/documentation)
-### [Bing Speech API](https://www.microsoft.com/cognitive-services/en-us/speech-api/documentation/overview)
+
 
 ## [Develop with Web Language Model API](https://www.microsoft.com/cognitive-services/en-us/web-language-model-api/documentation)
 ## [Develop with Language Understanding Intelligent Service](https://www.luis.ai/Help/)
