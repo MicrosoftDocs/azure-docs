@@ -83,6 +83,26 @@ After the deployment has completed, create an SSH connection with the virtual ma
 ```bash 
 ssh <replace with IP address>
 ```
+
+## Install NGINX
+
+Use the following bash script to update package sources and install the latest NGINX package. 
+
+```bash 
+#!/bin/bash
+
+# update package source
+apt-get -y update
+
+# install NGINX
+apt-get -y install nginx
+```
+
+## View the NGIX welcome page
+
+With NGINX installed and port 80 now open on your VM from the Internet - you can use a web browser of your choice to view the default NGINX welcome page. Be sure to use the `publicIpAddress` you documented above to visit the default page. 
+
+![NGINX default site](./media/quick-create-cli/nginx.png) 
 ## Delete virtual machine
 
 When no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group from the virtual machine blade and click **Delete**.
