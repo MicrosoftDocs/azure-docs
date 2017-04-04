@@ -39,7 +39,7 @@ The most robust disaster recovery solution involves maintaining multiple deploym
 
 For the fastest response to the loss of a region, it is important that you configure Traffic Manager's [endpoint monitoring](../traffic-manager/traffic-manager-monitoring.md).
 
-## Option 2: Re-Deploy your cloud service configuration to a new region
+## Option 2: Deploy your application to a new region
 Maintaining multiple active deployments as described in the previous option incurs additional ongoing costs. If your recovery time objective (RTO) is flexible enough and you have the original code or compiled Cloud Services package, you can create a new instance of your application in another region and update your DNS records to point to the new deployment.
 
 For more detail about how to create and deploy a cloud service application, see [How to create and deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).
@@ -57,5 +57,3 @@ In this case, no action on your part is required, but your service will be unava
 To learn more about how to implement a disaster recovery and high availability strategy, see [Disaster recovery and high availability for Azure applications](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
 To develop a detailed technical understanding of a cloud platform’s capabilities, see [Azure resiliency technical guidance](../resiliency/resiliency-technical-guidance.md).
-
-If the instructions are not clear, or if you would like Microsoft to do the operations on your behalf please contact [Customer Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
