@@ -15,6 +15,10 @@
     href: app-service-web-get-started-php.md
   - name: Create Node.js app
     href: app-service-web-get-started-nodejs.md
+  - name: Create Java app
+    href: app-service-web-get-started-java.md
+  - name: Create Python app
+    href: app-service-web-get-started-python.md
   - name: Create static HTML site
     href: app-service-web-get-started-html.md
 - name: Samples
