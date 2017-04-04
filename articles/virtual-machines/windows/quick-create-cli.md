@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Create a Windows virtual machine with the Azure CLI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a virtual machine running Windows Server 2016.
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a virtual machine running Windows Server 2016. Once deployment is complete, we connect to the server and install IIS.
 
 Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
@@ -67,6 +67,15 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 }
 ```
 
+## Open port 80 for web traffic 
+
+By default only RDP connections are allowed into Windows virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 from the Internet.  A single command is required to open the desired port.  
+ 
+ ```azurecli 
+az vm open-port --port 80 --resource-group myResourceGroup --name myVM
+```
+
+
 ## Connect to virtual machine
 
 Use the following command to create a remote desktop session with the virtual machine. Replace the IP address with the public IP address of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
@@ -75,6 +84,19 @@ Use the following command to create a remote desktop session with the virtual ma
 mstsc /v:<Public IP Address>
 ```
 
+## Install IIS using PowerShell
+
+Now that you have logged into the Azure VM, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic.  Open a PowerShell prompt and run the following command:
+
+```powershell
+Install-WindowsFeature -name Web-Server -IncludeManagementTools
+```
+
+## View the IIS welcome page
+
+With IIS installed and port 80 now open on your VM from the Internet, you can use a web browser of your choice to view the default IIS welcome page. Be sure to use the `publicIpAddress` you documented above to visit the default page. 
+
+![IIS default site](./media/quick-create-powershell/default-iis-website.png) 
 ## Delete virtual machine
 
 When no longer needed, the following command can be used to remove the Resource Group, VM, and all related resources.

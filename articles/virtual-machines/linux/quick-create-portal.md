@@ -58,6 +58,18 @@ Log in to the Azure portal at http://portal.azure.com.
 
 7. To monitor deployment status, click the virtual machine. The VM can be found on the Azure portal dashboard, or by selecting **Virtual Machines** from the left-hand menu. When the VM has been created, the status changes from **Deploying** to **Running**.
 
+
+## Open port 80 for web traffic 
+
+By default only SSH connections are allowed into Linux virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 to web traffic. This step walks you through creating a network security group (NSG) rule to allow inbound connections on port 80.
+
+1. On the blade for the virtual machine, in the **Essentials** section, click on the name of the *Resource group**.
+2. In the blade for the resource group, click on the **Network security group** in the list of resources. The NSG name should be the VM name with -nsg appended to the end.
+3. Click on the **Inbound Security Rule** heading to open the list of inbound rules. You should see a rule for RDP already in the list.
+4. Click on **+ Add** to open the **Add inbound security rule** blade.
+5. In **Name** type **nginx** and make sure **Port range** is set to 80 and **Action** is set to **Allow** and then click **OK**.
+
+
 ## Connect to virtual machine
 
 After the deployment has completed, create an SSH connection with the virtual machine.
