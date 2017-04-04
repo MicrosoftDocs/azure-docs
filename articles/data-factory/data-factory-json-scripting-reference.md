@@ -40,13 +40,13 @@ Click the link for the store you are interested in to see the JSON schemas for l
 | &nbsp; |[Azure SQL Data Warehouse](#azure-sql-data-warehouse) |
 | &nbsp; |[Azure Search Index](#azure-search) |
 | &nbsp; |[Azure Table storage](#azure-table-storage) |
-| **Databases** |[Amazon Redshift](data-factory-amazon-redshift-connector.md#linked-service-properties) |
-| &nbsp; |[DB2](data-factory-onprem-db2-connector.md#linked-service-properties) |
-| &nbsp; |[MySQL](data-factory-onprem-mysql-connector.md#linked-service-properties) |
-| &nbsp; |[Oracle](data-factory-onprem-oracle-connector.md#linked-service-properties) |
-| &nbsp; |[PostgreSQL](data-factory-onprem-postgresql-connector.md#linked-service-properties) |
-| &nbsp; |[SAP Business Warehouse](data-factory-sap-business-warehouse-connector.md#linked-service-properties) |
-| &nbsp; |[SAP HANA](data-factory-sap-hana-connector.md#linked-service-properties) |
+| **Databases** |[Amazon Redshift](#amazon-redshift) |
+| &nbsp; |[DB2](#ibm-db2) |
+| &nbsp; |[MySQL](#mysql) |
+| &nbsp; |[Oracle](#oracle) |
+| &nbsp; |[PostgreSQL](#postgresql) |
+| &nbsp; |[SAP Business Warehouse](#sap-business-warehouse) |
+| &nbsp; |[SAP HANA](#sap-hana) |
 | &nbsp; |[SQL Server](data-factory-sqlserver-connector.md#linked-service-properties) |
 | &nbsp; |[Sybase](data-factory-onprem-sybase-connector.md#linked-service-properties) |
 | &nbsp; |[Teradata](data-factory-onprem-teradata-connector.md#linked-service-properties) |
@@ -1301,8 +1301,918 @@ For more information about these linked services, see [Azure Table Storage conne
    }
 }
 ```
-
 For more information about these linked services, see [Azure Table Storage connector](data-factory-azure-table-connector.md#copy-activity-properties) article. 
+
+## Amazon RedShift
+
+### Linked service
+The following table provides description for JSON elements specific to Amazon Redshift linked service.
+
+| Property | Description | Required |
+| --- | --- | --- |
+| type |The type property must be set to: **AmazonRedshift**. |Yes |
+| server |IP address or host name of the Amazon Redshift server. |Yes |
+| port |The number of the TCP port that the Amazon Redshift server uses to listen for client connections. |No, default value: 5439 |
+| database |Name of the Amazon Redshift database. |Yes |
+| username |Name of user who has access to the database. |Yes |
+| password |Password for the user account. |Yes |
+
+#### Example
+```json
+{
+    "name": "AmazonRedshiftLinkedService",
+    "properties":
+    {
+        "type": "AmazonRedshift",
+        "typeProperties":
+        {
+            "server": "< The IP address or host name of the Amazon Redshift server >",
+            "port": <The number of the TCP port that the Amazon Redshift server uses to listen for client connections.>,
+            "database": "<The database name of the Amazon Redshift database>",
+            "username": "<username>",
+            "password": "<password>"
+        }
+    }
+}
+```
+
+For more information, see [Amazon Redshift connector](#data-factory-amazon-redshift-connector.md#linked-service-properties) article. 
+
+### Dataset
+The typeProperties section for dataset of type **RelationalTable** (which includes Amazon Redshift dataset) has the following properties
+
+| Property | Description | Required |
+| --- | --- | --- |
+| tableName |Name of the table in the Amazon Redshift database that linked service refers to. |No (if **query** of **RelationalSource** is specified) |
+
+
+#### Example
+
+```json
+{
+    "name": "AmazonRedshiftInputDataset",
+    "properties": {
+        "type": "RelationalTable",
+        "linkedServiceName": "AmazonRedshiftLinkedService",
+        "typeProperties": {
+            "tableName": "<Table name>"
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true
+    }
+}
+```
+For more information, see [Amazon Redshift connector](#data-factory-amazon-redshift-connector.md#dataset-properties) article.
+
+### Relational Source in Copy Activity 
+When source of copy activity is of type **RelationalSource** (which includes Amazon Redshift) the following properties are available in typeProperties section:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| query |Use the custom query to read data. |SQL query string. For example: select * from MyTable. |No (if **tableName** of **dataset** is specified) |
+
+#### Example
+
+```json
+{
+    "name": "CopyAmazonRedshiftToBlob",
+    "properties": {
+        "description": "pipeline for copy activity",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "RelationalSource",
+                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)"
+                    },
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "AmazonRedshiftInputDataset"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobOutputDataSet"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "AmazonRedshiftToBlob"
+            }
+        ],
+        "start": "2016-06-01T18:00:00Z",
+        "end": "2016-06-01T19:00:00Z"
+    }
+}
+```
+For more information, see [Amazon Redshift connector](#data-factory-amazon-redshift-connector.md#copy-activity-properties) article.
+
+## IBM DB2
+
+### Linked service
+The following table provides description for JSON elements specific to DB2 linked service.
+
+| Property | Description | Required |
+| --- | --- | --- |
+| type |The type property must be set to: **OnPremisesDB2** |Yes |
+| server |Name of the DB2 server. |Yes |
+| database |Name of the DB2 database. |Yes |
+| schema |Name of the schema in the database. The schema name is case-sensitive. |No |
+| authenticationType |Type of authentication used to connect to the DB2 database. Possible values are: Anonymous, Basic, and Windows. |Yes |
+| username |Specify user name if you are using Basic or Windows authentication. |No |
+| password |Specify password for the user account you specified for the username. |No |
+| gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises DB2 database. |Yes |
+
+#### Example
+```json
+{
+    "name": "OnPremDb2LinkedService",
+    "properties": {
+        "type": "OnPremisesDb2",
+        "typeProperties": {
+            "server": "<server>",
+            "database": "<database>",
+            "schema": "<schema>",
+            "authenticationType": "<authentication type>",
+            "username": "<username>",
+            "password": "<password>",
+            "gatewayName": "<gatewayName>"
+        }
+    }
+}
+```
+For more information, see [IBM DB2 connector](#data-factory-onprem-db2-connector.md#linked-service-properties) article.
+
+### Dataset
+The typeProperties section for dataset of type RelationalTable (which includes DB2 dataset) has the following properties.
+
+| Property | Description | Required |
+| --- | --- | --- |
+| tableName |Name of the table in the DB2 Database instance that linked service refers to. The tableName is case-sensitive. |No (if **query** of **RelationalSource** is specified) 
+
+#### Example
+```json
+{
+    "name": "Db2DataSet",
+    "properties": {
+        "type": "RelationalTable",
+        "linkedServiceName": "OnPremDb2LinkedService",
+        "typeProperties": {},
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+            }
+        }
+    }
+}
+```
+
+For more information, see [IBM DB2 connector](#data-factory-onprem-db2-connector.md#dataset-properties) article.
+
+### Relational Source in Copy Activity
+For Copy Activity, when source is of type **RelationalSource** (which includes DB2) the following properties are available in typeProperties section:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| query |Use the custom query to read data. |SQL query string. For example: `"query": "select * from "MySchema"."MyTable""`. |No (if **tableName** of **dataset** is specified) |
+
+#### Example
+```json
+{
+    "name": "CopyDb2ToBlob",
+    "properties": {
+        "description": "pipeline for copy activity",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "RelationalSource",
+                        "query": "select * from \"Orders\""
+                    },
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "Db2DataSet"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobDb2DataSet"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "Db2ToBlob"
+            }
+        ],
+        "start": "2016-06-01T18:00:00Z",
+        "end": "2016-06-01T19:00:00Z"
+    }
+}
+```
+For more information, see [IBM DB2 connector](#data-factory-onprem-db2-connector.md#copy-activity-properties) article.
+
+## MySQL
+
+### Linked service
+The following table provides description for JSON elements specific to MySQL linked service.
+
+| Property | Description | Required |
+| --- | --- | --- |
+| type |The type property must be set to: **OnPremisesMySql** |Yes |
+| server |Name of the MySQL server. |Yes |
+| database |Name of the MySQL database. |Yes |
+| schema |Name of the schema in the database. |No |
+| authenticationType |Type of authentication used to connect to the MySQL database. Possible values are: `Basic`. |Yes |
+| username |Specify user name to connect to the MySQL database. |Yes |
+| password |Specify password for the user account you specified. |Yes |
+| gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises MySQL database. |Yes |
+
+#### Example
+
+```JSON
+    {
+      "name": "OnPremMySqlLinkedService",
+      "properties": {
+        "type": "OnPremisesMySql",
+        "typeProperties": {
+          "server": "<server name>",
+          "database": "<database name>",
+          "schema": "<schema name>",
+          "authenticationType": "<authentication type>",
+          "userName": "<user name>",
+          "password": "<password>",
+          "gatewayName": "<gateway>"
+        }
+      }
+    }
+```
+
+For more information, see [MySQL connector](data-factory-onprem-mysql-connector.md#linked-service-properties) article. 
+
+### Dataset
+The typeProperties section for dataset of type **RelationalTable** (which includes MySQL dataset) has the following properties
+
+| Property | Description | Required |
+| --- | --- | --- |
+| tableName |Name of the table in the MySQL Database instance that linked service refers to. |No (if **query** of **RelationalSource** is specified) |
+
+#### Example
+
+```JSON
+    {
+        "name": "MySqlDataSet",
+        "properties": {
+            "published": false,
+            "type": "RelationalTable",
+            "linkedServiceName": "OnPremMySqlLinkedService",
+            "typeProperties": {},
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "external": true,
+            "policy": {
+                "externalData": {
+                    "retryInterval": "00:01:00",
+                    "retryTimeout": "00:10:00",
+                    "maximumRetry": 3
+                }
+            }
+        }
+    }
+```
+For more information, see [MySQL connector](data-factory-onprem-mysql-connector.md#dataset-properties) article. 
+
+### Relational Source in Copy Activity
+When source in copy activity is of type **RelationalSource** (which includes MySQL), the following properties are available in typeProperties section:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| query |Use the custom query to read data. |SQL query string. For example: select * from MyTable. |No (if **tableName** of **dataset** is specified) |
+
+
+#### Example
+```JSON
+    {
+        "name": "CopyMySqlToBlob",
+        "properties": {
+            "description": "pipeline for copy activity",
+            "activities": [
+                {
+                    "type": "Copy",
+                    "typeProperties": {
+                        "source": {
+                            "type": "RelationalSource",
+                            "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)"
+                        },
+                        "sink": {
+                            "type": "BlobSink",
+                            "writeBatchSize": 0,
+                            "writeBatchTimeout": "00:00:00"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "MySqlDataSet"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "AzureBlobMySqlDataSet"
+                        }
+                    ],
+                    "policy": {
+                        "timeout": "01:00:00",
+                        "concurrency": 1
+                    },
+                    "scheduler": {
+                        "frequency": "Hour",
+                        "interval": 1
+                    },
+                    "name": "MySqlToBlob"
+                }
+            ],
+            "start": "2014-06-01T18:00:00Z",
+            "end": "2014-06-01T19:00:00Z"
+        }
+    }
+```
+
+For more information, see [MySQL connector](data-factory-onprem-mysql-connector.md#copy-activity-properties) article. 
+
+## Oracle 
+
+### Linked service
+The following table provides description for JSON elements specific to Oracle linked service.
+
+| Property | Description | Required |
+| --- | --- | --- |
+| type |The type property must be set to: **OnPremisesOracle** |Yes |
+| driverType | Specify which driver to use to copy data from/to Oracle Database. Allowed values are **Microsoft** or **ODP** (default). See [Supported version and installation](#supported-versions-and-installation) section on driver details. | No |
+| connectionString | Specify information needed to connect to the Oracle Database instance for the connectionString property. | Yes |
+| gatewayName | Name of the gateway that that is used to connect to the on-premises Oracle server |Yes |
+
+#### Example
+```json
+{
+    "name": "OnPremisesOracleLinkedService",
+    "properties": {
+        "type": "OnPremisesOracle",
+        "typeProperties": {
+            "driverType": "Microsoft",
+            "connectionString":"Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;",
+            "gatewayName": "<gateway name>"
+        }
+    }
+}
+```
+
+For more information, see [Oracle connector](data-factory-onprem-oracle-connector.md#linked-service-properties) article.
+
+### Dataset
+The typeProperties section for the dataset of type **OracleTable** has the following properties:
+
+| Property | Description | Required |
+| --- | --- | --- |
+| tableName |Name of the table in the Oracle Database that the linked service refers to. |No (if **oracleReaderQuery** of **OracleSource** is specified) |
+
+#### Example
+
+```json
+{
+    "name": "OracleInput",
+    "properties": {
+        "type": "OracleTable",
+        "linkedServiceName": "OnPremisesOracleLinkedService",
+        "typeProperties": {
+            "tableName": "MyTable"
+        },
+        "external": true,
+        "availability": {
+            "offset": "01:00:00",
+            "interval": "1",
+            "anchorDateTime": "2014-02-27T12:00:00",
+            "frequency": "Hour"
+        },
+        "policy": {     
+            "externalData": {        
+                "retryInterval": "00:01:00",    
+                "retryTimeout": "00:10:00",       
+                "maximumRetry": 3       
+            }     
+        }
+    }
+}
+```
+For more information, see [Oracle connector](data-factory-onprem-oracle-connector.md#dataset-properties) article.
+
+### Oracle Source in Copy Activity
+In Copy activity, when the source is of type **OracleSource** the following properties are available in **typeProperties** section:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| oracleReaderQuery |Use the custom query to read data. |SQL query string. For example: select * from MyTable <br/><br/>If not specified, the SQL statement that is executed: select * from MyTable |No (if **tableName** of **dataset** is specified) |
+
+#### Example
+```json
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+        "start":"2014-06-01T18:00:00",
+        "end":"2014-06-01T19:00:00",
+        "description":"pipeline for copy activity",
+        "activities":[  
+            {
+                "name": "OracletoBlob",
+                "description": "copy activity",
+                "type": "Copy",
+                "inputs": [
+                    {
+                        "name": " OracleInput"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobOutput"
+                    }
+                ],
+                "typeProperties": {
+                    "source": {
+                        "type": "OracleSource",
+                        "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+                    },
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "policy": {
+                    "concurrency": 1,
+                    "executionPriorityOrder": "OldestFirst",
+                    "retry": 0,
+                    "timeout": "01:00:00"
+                }
+            }
+        ]
+    }
+}
+```
+
+For more information, see [Oracle connector](data-factory-onprem-oracle-connector.md#copy-activity-properties) article.
+
+### Oracle Sink in Copy Activity
+**OracleSink** supports the following properties:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| writeBatchTimeout |Wait time for the batch insert operation to complete before it times out. |timespan<br/><br/> Example: 00:30:00 (30 minutes). |No |
+| writeBatchSize |Inserts data into the SQL table when the buffer size reaches writeBatchSize. |Integer (number of rows) |No (default: 100) |
+| sqlWriterCleanupScript |Specify a query for Copy Activity to execute such that data of a specific slice is cleaned up. |A query statement. |No |
+| sliceIdentifierColumnName |Specify column name for Copy Activity to fill with auto generated slice identifier, which is used to clean up data of a specific slice when rerun. |Column name of a column with data type of binary(32). |No |
+
+#### Example
+```json
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+        "start":"2014-06-01T18:00:00",
+        "end":"2014-06-05T19:00:00",
+        "description":"pipeline with copy activity",
+        "activities":[  
+            {
+                "name": "AzureBlobtoOracle",
+                "description": "Copy Activity",
+                "type": "Copy",
+                "inputs": [
+                    {
+                        "name": "AzureBlobInput"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "OracleOutput"
+                    }
+                ],
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "OracleSink"
+                    }
+                },
+                "scheduler": {
+                    "frequency": "Day",
+                    "interval": 1
+                },
+                "policy": {
+                    "concurrency": 1,
+                    "executionPriorityOrder": "OldestFirst",
+                    "retry": 0,
+                    "timeout": "01:00:00"
+                }
+            }
+        ]
+    }
+}
+```
+For more information, see [Oracle connector](data-factory-onprem-oracle-connector.md#copy-activity-properties) article.
+
+## PostgreSQL
+
+### Linked service
+The following table provides description for JSON elements specific to PostgreSQL linked service.
+
+| Property | Description | Required |
+| --- | --- | --- |
+| type |The type property must be set to: **OnPremisesPostgreSql** |Yes |
+| server |Name of the PostgreSQL server. |Yes |
+| database |Name of the PostgreSQL database. |Yes |
+| schema |Name of the schema in the database. The schema name is case-sensitive. |No |
+| authenticationType |Type of authentication used to connect to the PostgreSQL database. Possible values are: Anonymous, Basic, and Windows. |Yes |
+| username |Specify user name if you are using Basic or Windows authentication. |No |
+| password |Specify password for the user account you specified for the username. |No |
+| gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises PostgreSQL database. |Yes |
+
+#### Example
+
+```json
+{
+    "name": "OnPremPostgreSqlLinkedService",
+    "properties": {
+        "type": "OnPremisesPostgreSql",
+        "typeProperties": {
+            "server": "<server>",
+            "database": "<database>",
+            "schema": "<schema>",
+            "authenticationType": "<authentication type>",
+            "username": "<username>",
+            "password": "<password>",
+            "gatewayName": "<gatewayName>"
+        }
+    }
+}
+```
+For more information, see [PostgreSQL connector](data-factory-onprem-postgresql-connector.md#linked-service-properties) article.
+
+### Dataset
+The typeProperties section for dataset of type **RelationalTable** (which includes PostgreSQL dataset) has the following properties:
+
+| Property | Description | Required |
+| --- | --- | --- |
+| tableName |Name of the table in the PostgreSQL Database instance that linked service refers to. The tableName is case-sensitive. |No (if **query** of **RelationalSource** is specified) |
+
+#### Example
+```json
+{
+    "name": "PostgreSqlDataSet",
+    "properties": {
+        "type": "RelationalTable",
+        "linkedServiceName": "OnPremPostgreSqlLinkedService",
+        "typeProperties": {},
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+            }
+        }
+    }
+}
+```
+For more information, see [PostgreSQL connector](data-factory-onprem-postgresql-connector.md#dataset-properties) article.
+
+### Relational Source in Copy Activity
+When source is of type **RelationalSource** (which includes PostgreSQL), the following properties are available in typeProperties section:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| query |Use the custom query to read data. |SQL query string. For example: "query": "select * from \"MySchema\".\"MyTable\"". |No (if **tableName** of **dataset** is specified) |
+
+#### Example
+
+```json
+{
+    "name": "CopyPostgreSqlToBlob",
+    "properties": {
+        "description": "pipeline for copy activity",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "RelationalSource",
+                        "query": "select * from \"public\".\"usstates\""
+                    },
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "PostgreSqlDataSet"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobPostgreSqlDataSet"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "PostgreSqlToBlob"
+            }
+        ],
+        "start": "2014-06-01T18:00:00Z",
+        "end": "2014-06-01T19:00:00Z"
+    }
+}
+```
+
+For more information, see [PostgreSQL connector](data-factory-onprem-postgresql-connector.md#copy-activity-properties) article.
+
+## SAP Business Warehouse
+
+
+### Linked service
+The following table provides description for JSON elements specific to SAP Business Warehouse (BW) linked service.
+
+Property | Description | Allowed values | Required
+-------- | ----------- | -------------- | --------
+server | Name of the server on which the SAP BW instance resides. | string | Yes
+systemNumber | System number of the SAP BW system. | Two-digit decimal number represented as a string. | Yes
+clientId | Client ID of the client in the SAP W system. | Three-digit decimal number represented as a string. | Yes
+username | Name of the user who has access to the SAP server | string | Yes
+password | Password for the user. | string | Yes
+gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises SAP BW instance. | string | Yes
+encryptedCredential | The encrypted credential string. | string | No
+
+#### Example
+
+```json
+{
+    "name": "SapBwLinkedService",
+    "properties":
+    {
+        "type": "SapBw",
+        "typeProperties":
+        {
+            "server": "<server name>",
+            "systemNumber": "<system number>",
+            "clientId": "<client id>",
+            "username": "<SAP user>",
+            "password": "<Password for SAP user>",
+            "gatewayName": "<gateway name>"
+        }
+    }
+}
+```
+
+For more information, see [SAP Business Warehouse connector](data-factory-sap-business-warehouse-connector.md#linked-service-properties) article. 
+
+### Dataset
+The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. There are no type-specific properties supported for the SAP BW dataset of type **RelationalTable**. 
+
+#### Example
+
+```json
+{
+    "name": "SapBwDataset",
+    "properties": {
+        "type": "RelationalTable",
+        "linkedServiceName": "SapBwLinkedService",
+        "typeProperties": {},
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true
+    }
+}
+```
+For more information, see [SAP Business Warehouse connector](data-factory-sap-business-warehouse-connector.md#dataset-properties) article. 
+
+### Relational Source in Copy Activity
+When source in copy activity is of type **RelationalSource** (which includes SAP BW), the following properties are available in typeProperties section:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| query | Specifies the MDX query to read data from the SAP BW instance. | MDX query. | Yes |
+
+#### Example
+
+```json
+{
+    "name": "CopySapBwToBlob",
+    "properties": {
+        "description": "pipeline for copy activity",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "RelationalSource",
+        				"query": "<MDX query for SAP BW>"
+                    },
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "SapBwDataset"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobDataSet"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "SapBwToBlob"
+            }
+        ],
+        "start": "2017-03-01T18:00:00Z",
+        "end": "2017-03-01T19:00:00Z"
+    }
+}
+```
+
+For more information, see [SAP Business Warehouse connector](data-factory-sap-business-warehouse-connector.md#copy-activity-properties) article. 
+
+## SAP HANA
+
+### Linked service
+The following table provides description for JSON elements specific to SAP HANA linked service.
+
+Property | Description | Allowed values | Required
+-------- | ----------- | -------------- | --------
+server | Name of the server on which the SAP HANA instance resides. If your server is using a customized port, specify `server:port`. | string | Yes
+authenticationType | Type of authentication. | string. "Basic" or "Windows" | Yes 
+username | Name of the user who has access to the SAP server | string | Yes
+password | Password for the user. | string | Yes
+gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises SAP HANA instance. | string | Yes
+encryptedCredential | The encrypted credential string. | string | No
+
+#### Example
+
+```json
+{
+    "name": "SapHanaLinkedService",
+    "properties":
+    {
+        "type": "SapHana",
+        "typeProperties":
+        {
+            "server": "<server name>",
+            "authenticationType": "<Basic, or Windows>",
+            "username": "<SAP user>",
+            "password": "<Password for SAP user>",
+            "gatewayName": "<gateway name>"
+        }
+    }
+}
+
+```
+For more information, see [SAP HANA connector](data-factory-sap-hana-connector.md#linked-service-properties) article.
+ 
+### Dataset
+The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. There are no type-specific properties supported for the SAP HANA dataset of type **RelationalTable**. 
+
+#### Example
+
+```json
+{
+    "name": "SapHanaDataset",
+    "properties": {
+        "type": "RelationalTable",
+        "linkedServiceName": "SapHanaLinkedService",
+        "typeProperties": {},
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true
+    }
+}
+```
+For more information, see [SAP HANA connector](data-factory-sap-hana-connector.md#dataset-properties) article. 
+
+### Relational Source in Copy Activity
+When source in copy activity is of type **RelationalSource** (which includes SAP HANA), the following properties are available in typeProperties section:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| query | Specifies the SQL query to read data from the SAP HANA instance. | SQL query. | Yes |
+
+
+#### Example
+
+
+```json
+{
+    "name": "CopySapHanaToBlob",
+    "properties": {
+        "description": "pipeline for copy activity",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "RelationalSource",
+        				"query": "<SQL Query for HANA>"
+                    },
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "SapHanaDataset"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobDataSet"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "SapHanaToBlob"
+            }
+        ],
+        "start": "2017-03-01T18:00:00Z",
+        "end": "2017-03-01T19:00:00Z"
+    }
+}
+```
+
+For more information, see [SAP HANA connector](data-factory-sap-hana-connector.md#copy-activity-properties) article. 
 
 ## Computes
 Click the link for the compute you are interested in to see the JSON schemas for linked service to link it to a data factory.
