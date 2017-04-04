@@ -60,18 +60,16 @@ You can download the existing Azure Resource Manager template to create a virtua
 1. Open the file that you saved and look at the contents under **parameters** in line
 1. Azure Resource Manager template parameters provide a placeholder for values that can be filled out during deployment.
 
-   | Parameter | Description |
-   | --- | --- |
-   | **addressPrefix** |Address space for the virtual network, in CIDR format. |
-   | **subnetPrefix** |CIDR block for the application gateway subnet. |
-   | **applicationGatewaySize** | Size of the application gateway.  WAF only allows medium and large. |
-   | **capacity** |Number of instances (1-10).|
-   | **backendIpaddress1** |IP address of the first web server. |
-   | **backendIpaddress2** |IP address of the second web server. |
-   | **wafEnabled** | Setting to determine if WAF is enabled.|
-   | **wafMode** | Mode of the web application firewall.  Available options are **prevention** or **detection**.|
-   | **wafRuleSetType** | Ruleset type for WAF.  Currently OWASP is the only supported option. |
-   | **wafRuleSetVersion** |Ruleset version. OWASP CRS 2.2.9 and 3.0 are currently the supported options. |
+  | Parameter | Description |
+  | --- | --- |
+  | **subnetPrefix** |CIDR block for the application gateway subnet. |
+  | **applicationGatewaySize** | Size of the application gateway.  WAF only allows medium and large. |
+  | **backendIpaddress1** |IP address of the first web server. |
+  | **backendIpaddress2** |IP address of the second web server. |
+  | **wafEnabled** | Setting to determine if WAF is enabled.|
+  | **wafMode** | Mode of the web application firewall.  Available options are **prevention** or **detection**.|
+  | **wafRuleSetType** | Ruleset type for WAF.  Currently OWASP is the only supported option. |
+  | **wafRuleSetVersion** |Ruleset version. OWASP CRS 2.2.9 and 3.0 are currently the supported options. |
 
 
   > [!IMPORTANT]
