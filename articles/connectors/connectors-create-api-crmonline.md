@@ -175,7 +175,7 @@ To expand a failed step, click that step.
 
    The step details appear and can help troubleshoot the cause of the failure.
 
-   ![Failed step etails](./media/connectors-create-api-crmonline/tshoot3.png)
+   ![Failed step details](./media/connectors-create-api-crmonline/tshoot3.png)
 
 For more information about troubleshooting logic apps, see 
 [Diagnosing logic app failures](../logic-apps/logic-apps-diagnosing-failures.md).
