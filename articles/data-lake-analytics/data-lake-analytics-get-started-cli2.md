@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/17/2017
+ms.date: 04/04/2017
 ms.author: jgao
 
 ---
@@ -31,8 +31,13 @@ Before you begin this tutorial, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure CLI 2.0**. See [Install and configure Azure CLI](../install-azure-cli.md).
-* Download and install the **pre-release** [Azure CLI tools](https://github.com/MicrosoftBigData/AzureDataLake/releases) in order to complete this demo.
 
+## Enable Data Lake Store/Analytics CLI 2.0 Preview
+
+Data Lake Store and Dat Lake Analytics CLI 2.0 is still in Preview. Run the following commands to enable both:
+
+    az component update --add dls
+    az component update --add dla 
 
 ## Log in to Azure
 
@@ -67,19 +72,19 @@ You must have a Data Lake Analytics account before you can run any jobs. To crea
   
     To list the existing Data Lake account:
   
-        az datalake store account list
+        az dls account list
   
     To create a new Data Lake account:
   
-        az datalake store account create --account "<Data Lake Store Account Name>" -resource-group "<Resource Group Name>"
+        az dls account create --account "<Data Lake Store Account Name>" --resource-group "<Resource Group Name>"
   
 
 **To create a Data Lake Analytics account**
 
-        az datalake analytics account create --account "<Data Lake Analytics Account Name>" --resource-group "<Resource Group Name>" --location "<Azure location>" --default-datalake-store "<Default Data Lake Account Name>"
+        az dla account create --account "<Data Lake Analytics Account Name>" --resource-group "<Resource Group Name>" --location "<Azure location>" --default-data-lake-store "<Default Data Lake Account Name>"
 
-        az datalake analytics account list
-        az datalake analytics account show --account "<Data Lake Analytics Account Name>"            
+        az dla account list
+        az dla account show --account "<Data Lake Analytics Account Name>"            
 
 ![Data Lake Analytics show account](./media/data-lake-analytics-get-started-cli/data-lake-analytics-show-account-cli.png)
 
@@ -91,8 +96,8 @@ The Azure Portal provides a user interface for copying some sample data files to
 
 To upload files using cli, use the following command:
 
-      az datalake store file upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
-      az datalake store file list --account "<Data Lake Store Account Name>" --path "<Path>"
+      az dls file upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
+      az dls file list --account "<Data Lake Store Account Name>" --path "<Path>"
 
 Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see [Using the Azure CLI with Azure Storage](../storage/storage-azure-cli.md).
 
@@ -137,22 +142,27 @@ The Data Lake Analytics jobs are written in the U-SQL language. To learn more ab
 
 **To submit the job**
 
-    azure datalake analytics job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"
+    az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"
+
+For example:
+
+    az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
 
 
 The following commands can be used to list jobs, get job details, and cancel jobs:
 
-```
-azure datalake analytics job cancel "<Data Lake Analytics Account Name>" "<Job Id>"
-azure datalake analytics job list "<Data Lake Analytics Account Name>"
-azure datalake analytics job show "<Data Lake Analytics Account Name>" "<Job Id>"
-```
+    ```
+    az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
+    az dla job list --account "<Data Lake Analytics Account Name>"
+    az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
+    ```
 
 After the job is completed, you can use the following cmdlets to list the file, and download the file:
 
-    azure datalake store filesystem list "<Data Lake Store Account Name>" "/Output"
-    azure datalake store filesystem export "<Data Lake Store Account Name>" "/Output/SearchLog-from-Data-Lake.csv" "<Destination>"
-    azure datalake store filesystem read "<Data Lake Store Account Name>" "/Output/SearchLog-from-Data-Lake.csv" <Length> <Offset>
+    az dls fs list --account "<Data Lake Store Account Name>" --source-path "/Output" --destination-path "<Destintion>"
+    az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" 
+    az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" --length 128 --offset 0
+    az dls fs downlod --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "<Destination>"
 
 ## See also
 * To see the same tutorial using other tools, click the tab selectors on the top of the page.
