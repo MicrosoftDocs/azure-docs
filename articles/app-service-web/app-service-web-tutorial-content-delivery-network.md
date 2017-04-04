@@ -46,3 +46,6 @@ The Endpoint will be created, once the Content Delivery Network endpoint is crea
 Now that the endpoint is running, let's validate that the content is available on the pop server by browsing to a static file on the web server, then changing the hostname from `http://<app_name>.azurewebsites.net/path/to-static-file` to `http://<endpoint_name>.azureedge.net/path/to-static-file`.
 
 ![app-service-web-url-to-cdn-endpoint-url](media/app-service-web-tutorial-content-delivery-network/app-service-web-url-to-cdn-endpoint-url.png)
+
+## Next Steps
+
