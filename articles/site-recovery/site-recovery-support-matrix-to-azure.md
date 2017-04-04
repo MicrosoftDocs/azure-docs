@@ -150,7 +150,7 @@ Multi-path (MPIO) | N/A | Yes
 --- | --- | ---
 LRS | Yes | Yes
 GRS | Yes | Yes
-RA-GRS | yes | Yes
+RA-GRS | Yes | Yes
 Cool storage | No | No
 Hot storage| No | No
 Encryption at rest(SSE)| Yes | Yes
