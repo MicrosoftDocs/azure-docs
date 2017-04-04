@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/31/2017
+ms.date: 04/04/2017
 ms.author: magoedte
 
 ---
@@ -29,7 +29,7 @@ Computers managed by OMS use the following for performing assessment and update 
 * Automation Hybrid Runbook Worker 
 * Microsoft Update or Windows Server Update Services
 
-The following diagrams shows a conceptual view of the behavior and data flow with how the solution assesses and applies updates to managed Windows Server and Linux computers.    
+The following diagrams shows a conceptual view of the behavior and data flow with how the solution assesses and applies updates to all connected Windows Server and Linux computers in a workspace.    
 
 #### Windows Server
 ![Windows Server update management process flow](media/oms-solution-update-management/update-mgmt-windows-updateworkflow.png)
@@ -53,47 +53,34 @@ At the date and time specified in the update deployment, the target computers ex
     >
 * Ubuntu 12.04 LTS and newer x86/x64 (verified on 16.04)
 * Red Hat Enterprise 5 and newer x86/x64 (verified on 7.3) 
-* Linux agents must have access to an update repository.  The OMS Agent for Linux can be downloaded from [GitHub](https://github.com/microsoft/oms-agent-for-linux). 
+* Linux agents must have access to an update repository.  
+
+For additional information on how to install the OMS Agent for Linux and download the  latest version of the agent, refer to [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux). 
 
 ## Configuration
-Perform the following steps to add the Update Management solution to your OMS workspace and add Linux agents. Windows agents are added automatically with no additional configuration. 
+Perform the following steps to add the Update Management solution to your OMS workspace and confirm agents are reporting in. Windows agents are added automatically with no additional configuration. 
 
-There are three different ways you can add this solution; from Azure Marketplace in the Azure portal by selecting either the Automation & Control offering or Update Management solution, or from the OMS Solutions Gallery in your OMS workspace.  If you choose to add the solution by selecting the Automation & Control offering, on the **Create new Solution** blade, confirm you want to install the other pre-selected recommended solutions. 
+There are three different ways you can add this solution; from Azure Marketplace in the Azure portal by selecting either the Automation & Control offering or Update Management solution, or from the OMS Solutions Gallery in your OMS workspace.  If you already have an Automation account and OMS workspace linked together in the same resource group and region, selecting Automation & Control will verify your configuration and only install the solution and configure it in both services.  Selecting the Update Management solution from Azure Marketplace delivers the same behavior.  If you do not have either services deployed in your subscription, follow the steps in the **Create new Solution** blade and confirm you want to install the other pre-selected recommended solutions.  Optionally, you can add the Update Management solution to your OMS workspace using the steps described in [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) from the Solutions Gallery.  
 
 > [!NOTE]
-> After you enable this solution, any Windows computer connected to your OMS workspace are automatically configured as a Hybrid Runbook Worker in order to support the runbooks included in this solution.  However, it is not registered with any Hybrid Worker groups you  already have defined in your Automation account.  It can be added to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you are using the same account for both the solution and Hybrid Runbook Worker group membership.  This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook  Worker.   
-
-1. Add the Update Management solution to your OMS workspace using the process described in [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) from the Solutions Gallery.  
-2. In the OMS portal, select **Settings** and then **Connected Sources**.  Note the **Workspace ID** and either the **Primary Key** or **Secondary Key**.
-3. Perform the following steps for each Linux computer.
-   
-   a.    Install the latest version of the OMS Agent for Linux by running the following commands.  Replace <Workspace ID> with the Workspace ID and <Key> with either the Primary or Secondary Key.
-   
-        cd ~
-        wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID>  -s <PrimaryKey> -d opinsights.azure.com 
-
-   b. Copy and the following lines to `/etc/sudoers.d/omsagent` from the [installer/conf/sudoers](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/installer/conf/sudoers) configuration file on GitHub. 
-   > [!NOTE]
-   > For supported Ubuntu distros, you must run the following command for update data to start reporting: `sudo service omsagent restart`. 
-   >  
-   c. To remove the agent, use the process described in the section [Uninstalling the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#uninstalling-the-oms-agent-for-linux).  
+> After you enable this solution, any Windows computer connected to your OMS workspace are automatically configured as a Hybrid Runbook Worker in order to support the runbooks included in this solution.  However, it is not registered with any Hybrid Worker groups you  already have defined in your Automation account.  It can be added to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you are using the same account for both the solution and Hybrid Runbook Worker group membership.  This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.   
 
 ### Confirm OMS agents and Operations Manager management group connected to OMS
 
-To confirm the OMS Agent for Linux and Windows on directly connected computers are communicating with OMS, after a few minutes you can run the following log search:
+To confirm directly connected OMS Agent for Linux and Windows are communicating with OMS, after a few minutes you can run the following log search:
 
 * Linux - `Type=Heartbeat OSType=Linux | top 500000 | dedup SourceComputerId | Sort Computer | display Table`.  
 
 * Windows - `Type=Heartbeat OSType=Windows | top 500000 | dedup SourceComputerId | Sort Computer | display Table`
 
-Alternatively, you can review your configuration on a Windows computer by opening Microsoft Monitoring Agent in Control Panel and on the **Azure Log Analytics (OMS)** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.   
+Another option to review your configuration on a Windows computer, open Microsoft Monitoring Agent in Control Panel and on the **Azure Log Analytics (OMS)** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.   
 
-Newly added Linux agents will show as **Updated** after an assessment has been performed, and this process can take up to 6 hours. 
+Newly added Linux agents will show a status of **Updated** after an assessment has been performed.  This process can take up to 6 hours. 
 
 To confirm an Operations Manager management group is communicating with OMS, see [Validate Operations Manager Integration with OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
 ## Management packs
-If your System Center Operations Manager management group is connected to your OMS workspace, then the following management packs will be installed in Operations Manager after you add this solution. There is no configuration or maintenance of these management packs required. 
+If your System Center Operations Manager management group is connected to an OMS workspace,  the following management packs are installed in Operations Manager or directly connected Windows computers after adding this solution. There is nothing to configure or manage with these management packs. 
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -123,9 +110,8 @@ When you add the Update Management solution to your OMS workspace, the **Update 
 
 The **Not Assessed** status returns how many agent-managed computers are sending a heartbeat to the OMS serice, but have not sent or are not sending update assessment data.  This can happen for a number of reasons:
 
-* No computers connected or sending heartbeat
-* At least one computer is connected, but hasn't sent Update Assessment data yet
-* At least one computer sending Update Assessment data
+* Computers were just added recently and assessment is still in progress
+* Computers do not have the Update Management solution configured for them 
 
 This status can be influenced by latency between when you add a new computer and when the completed compliance assessment is forwarded to the service.  When you add a new computer, it sends a heartbeat within the first 10 minutes, but the first compliance assessment scan may occur within 2 hours.  
 
@@ -180,7 +166,7 @@ Create a new Update Deployment by clicking the **Add** button at the top of the 
 | Schedule Type | Type of schedule.  Options available are *One Time*, *Recurring Weekly*, or *Recurring Monthly*.  
 | Start Time |Date and time to start the update deployment. **Note:** The soonest a deployment can run is 30 minutes from current time if you need to deploy immediately. |
 | Duration |Number of minutes the Update Deployment is allowed to run.  If all updates are not installed within this duration, then the remaining updates must wait until the next Update Deployment. |
-| Computers |Names of computers or computer groups to include in the Update Deployment.  Select one or more entries from the drop down list. |
+| Computers |Names of computers or computer groups to include and target in the Update Deployment.  Select one or more entries from the drop down list. |
 
 <br><br> ![New Update Deployment Page](./media/oms-solution-update-management/update-newupdaterun-page.png)
 
