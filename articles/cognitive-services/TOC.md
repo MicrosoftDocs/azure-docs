@@ -170,7 +170,7 @@
 #### [C#](Face/Tutorials/FaceAPIinCSharpTutorial.md)
 #### [Java for Android](Face/Tutorials/FaceAPIinJavaForAndroidTutorial.md)
 #### [Python](Face/Tutorials/FaceAPIinPythonTutorial.md)
-### [SDKs + samples](Face/SDKsAndSamples.md)
+### [SDKs + samples](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=face)
 ### [API reference](Face/APIReference.md)
 ### [Glossary](Face/Glossary.md)
 ### [FAQ](Face/FAQ.md)
