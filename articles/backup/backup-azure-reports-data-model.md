@@ -113,15 +113,25 @@ This table provides basic fields and aggregations over various policy related fi
 | BackupDaysOfTheWeek |String |Days of the week when backups have been scheduled |
 | BackupFrequency |String |Frequency with which backups are run e.g. daily, weekly |
 | BackupTimes |Time |Date and time when backups are scheduled |
-| DailyRetentionDuration |Number |Total daily retention duration(in days) for configured backups |
+| DailyRetentionDuration |Number |Total daily retention duration for configured backups |
 | DailyRetentionTimes |Time |Date and time when daily retention was configured |
-| MonthlyRetentionDaysOfTheMonth |String |Recovery Point selected on date of the month for monthly retention |
-| MonthlyRetentionDaysOfTheWeek |String |Recovery Point selected on day of the week for monthly retention |
-| MonthlyRetentionDuration |Number |Total daily retention duration(in months) for configured backups |
-| MonthlyRetentionFormat |String |Type of configuration for montly retention e.g. daily for day based, weekly for week based |
-| MonthlyRetentionTimes |Time |Date and time when monthly retention was configured |
+| MonthlyRetentionDaysOfTheMonth |String |Dates of the month selected for monthly retention |
+| MonthlyRetentionDaysOfTheWeek |String |Days of the week selected for monthly retention |
+| MonthlyRetentionDuration |Number |Total monthly retention duration for configured backups |
+| MonthlyRetentionFormat |String |Type of configuration for monthly retention e.g. daily for day based, weekly for week based |
+| MonthlyRetentionTimes |Time |Date and time when monthly retention is configured |
 | MonthlyRetentionWeeksOfTheMonth |String |Weeks of the month when monthly retention is configured e.g. First, Last etc. |
 | PolicyName |String |Name of the policy defined |
 | RetentionDuration |Number |Total duration of the retention policy |
 | RetentionType |String |Type of retention policy e.g. Daily, Weekly, Monthly, Yearly |
-| State |String |Current state of the job object e.g. Active, Deleted |
+| State |String |Current state of the policy object e.g. Active, Deleted |
+| WeeklyRetentionDaysOfTheWeek |String |Days of the week selected for weekly retention |
+| WeeklyRetentionDuration |Number |Total weekly retention duration(in week) for configured backups |
+| WeeklyRetentionTimes |Time |Date and time when weekly retention is configured |
+| YearlyRetentionDaysOfTheMonth |String |Dates of the month selected for yearly retention |
+| YearlyRetentionDaysOfTheWeek |String |Days of the week selected for yearly retention |
+| YearlyRetentionDuration |Number |Total yearly retention duration for configured backups |
+| YearlyRetentionFormat |String |Type of configuration for yearly retention e.g. daily for day based, weekly for week based |
+| YearlyRetentionMonthsOfTheYear |String |Months of the year selected for yearly retention |
+| YearlyRetentionTimes |Time |Date and time when yearly retention is configured |
+| YearlyRetentionWeeksOfTheMonth |String |Weeks of the month when yearly retention is configured e.g. First, Last etc. |
