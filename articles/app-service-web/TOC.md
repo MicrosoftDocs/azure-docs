@@ -3,18 +3,21 @@
 ## [Compare hosting options](choose-web-site-cloud-service-vm.md)
 
 # Quickstart	
-## [Create static HTML site](app-service-web-get-started-html.md)
 ## [Create ASP.NET app](app-service-web-get-started-dotnet.md)		
 ## [Create PHP app](app-service-web-get-started-php.md) 
 ## [Create Node.js app](app-service-web-get-started-nodejs.md) 
-## [Create Java app](app-service-web-get-started-java.md)		
-## [Create Python app](app-service-web-get-started-python.md)	
+<!--## [Create Java app](app-service-web-get-started-java.md)-->
+<!--## [Create Python app](app-service-web-get-started-python.md)-->
+## [Create static HTML site](app-service-web-get-started-html.md)
 
 # Samples
 ## [Azure CLI](app-service-cli-samples.md) 
 ## [PowerShell](app-service-powershell-samples.md) 
 
 # Tutorials
+## [Map Custom Domain](web-)
+## [Bind SSL Certificate](web-sites-ssl-purchase-web-site.md)
+## [Connect to CDN](app-service-web-tutorial-content-delivery-network.md)
 
 # Concepts
 ## [How App Service works](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)	

@@ -17,7 +17,7 @@ In this tutorial, you will create an Azure CDN Profile and an Azure CDN Endpoint
 > Review the update to date list of [Azure CDN pop locations](https://docs.microsoft.com/en-us/azure/cdn/cdn-pop-locations).
 >
 
-## Step 1 - Logic to the Azure Portal
+## Step 1 - Login to Azure Portal
 
 First, open your favorite browser and browse to the Azure [Portal](https://portal.azure.com).
 
@@ -41,7 +41,7 @@ The Endpoint will be created, once the Content Delivery Network endpoint is crea
 
 ![azure-cdn-endpoint-created](media/app-service-web-tutorial-content-delivery-network/azure-cdn-endpoint-created.png)
 
-## Step 4 - Leveraging CDN Resouces
+## Step 4 - Leveraging CDN
 
 Now that the endpoint is running, let's validate that the content is available on the pop server by browsing to a static file on the web server, then changing the hostname from `http://<app_name>.azurewebsites.net/path/to-static-file` to `http://<endpoint_name>.azureedge.net/path/to-static-file`.
 
