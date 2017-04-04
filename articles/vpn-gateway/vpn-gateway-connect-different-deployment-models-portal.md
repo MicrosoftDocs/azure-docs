@@ -38,7 +38,7 @@ For more information about VNet-to-VNet, see [VNet-to-VNet considerations](#faq)
 ### <a name="values"></a>Example settings
 You can use the example settings as a reference, or you can use them to create a test configuration.
 
-**Classic VNet settings**
+**Classic VNet**
 
 VNet name = ClassicVNet <br>
 Address space = 10.0.0.0/24 <br>
@@ -48,7 +48,7 @@ Location = West US <br>
 GatewaySubnet = 10.0.0.32/28 <br>
 Local site = RMVNetLocal <br>
 
-**Resource Manager VNet settings**
+**Resource Manager VNet**
 
 VNet name = RMVNet <br>
 Address space = 192.168.0.0/16 <br>
@@ -77,7 +77,7 @@ The following table shows an example of how the example VNets and local sites ar
 ## <a name="classicvnet"></a>1. Configure the classic VNet settings
 In this section, you create the local network (local site) and the virtual network gateway for your classic VNet. If you don't have a classic VNet and are running these steps as an exercise, you can create a VNet by using the steps in [this article](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) and the [Example](#values) settings values from above. If you already have a VNet with a VPN gateway, verify that the gateway is Dynamic. If it's Static, you must first delete the VPN gateway, then proceed.
 
-**Screenshots are provided as examples. Be sure to replace the values with your own.**
+Screenshots are provided as examples. Be sure to replace the values with your own, or use the [Example](#values) values.
 
 ### Part 1 - Configure the local site
 
@@ -116,7 +116,7 @@ After the virtual network gateway has been created, you can view the gateway IP 
 
 In this section, you create the virtual network gateway and the local network gateway for your Resource Manager VNet. If you don't have a Resource Manager VNet and are running these steps as an exercise, you can create a VNet by using the steps in [this article](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) and the [Example](#values) settings values from above.
 
-Screenshots are provided as examples. Be sure to replace the values with your own, or use the [Example values](#values).
+Screenshots are provided as examples. Be sure to replace the values with your own, or use the [Example](#values) values.
 
 ### Part 1 - Create a gateway subnet
 Before creating a virtual network gateway, you first need to create the gateway subnet. Create a gateway subnet with CIDR count of /28 or larger. (/27, /26, etc.)
