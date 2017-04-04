@@ -8,4 +8,4 @@ ExternalLink: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d7
 
 # API Reference
 
-[Computer Vision API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739)
+[API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739)
