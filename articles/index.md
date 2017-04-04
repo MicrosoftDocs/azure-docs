@@ -745,13 +745,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Command-Line Tools</h3>
-                                                <div class="ico48Link">
+                                                <div class="ico48Link" style="max-width:50px;">
                                                     <a href="/cli/azure/get-started-with-azure-cli">
                                                         <img src="media/index/azure_dev-7.svg" alt="">
                                                         <span>Azure CLI</span>
                                                     </a>
                                                 </div>
-                                                <div class="ico48Link">
+                                                <div class="ico48Link" style="max-width:50px;">
                                                     <a href="/powershell/azureps-cmdlets-docs/index">
                                                         <img src="media/index/azure_dev-8.svg" alt="">
                                                         <span>Azure PowerShell</span>

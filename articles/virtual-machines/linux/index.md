@@ -20,19 +20,19 @@ ms.author: carolz
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
             <img src="media/index/cli.svg" alt="">
-            <span>Create a Linux VM - Azure CLI</span>
+            <span>Create a Linux VM using Azure CLI</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
         <img src="media/index/portal.svg" alt="">
-            <span>Create a Linux VM - Portal</span>
+            <span>Create a Linux VM using Azure Portal</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
             <img src="media/index/logo_powershell.svg" alt="">
-            <span>Create a Linux VM - PowerShell</span>
+            <span>Create a Linux VM using Azure PowerShell</span>
         </a>
     </div>
 <div>
@@ -44,11 +44,11 @@ ms.author: carolz
             <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Create load balanced, highly available VMs</a></li>
             <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-load-balance-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Load balance VMs</a></li>
         </ul>
-        <h2 style="margin-top: 36px">Samples</h2>
+        <h2>Samples</h2>
         <p>Deploy your first application to Azure.</p>
         <ul class="spaced">
             <li><a href="/azure/virtual-machines/virtual-machines-linux-cli-samples.md">Azure CLI</a></li>
-            <li><a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples.md">PowerShell</a></li>
+            <li><a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples.md">Azure PowerShell</a></li>
         </ul>
     </div>
     <div class="column50" style="max-width: 400px">
@@ -76,7 +76,7 @@ ms.author: carolz
                     <div class="cardText">
                         <h3>Command-Line</h3>
                         <p><a href="/cli/azure/vm">Azure CLI</a></p>
-                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
                     </div>
                 </div>
             </div>

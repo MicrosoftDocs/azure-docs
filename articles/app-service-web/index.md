@@ -60,7 +60,7 @@ ms.author: carolz
         <p>Find scripts to manage common tasks.</p>
         <ul class="spaced">
             <li><a href="/azure/app-service-web/app-service-cli-samples">Azure CLI</a></li>
-            <li><a href="/azure/app-service-web/app-service-powershell-samples">PowerShell</a></li>
+            <li><a href="/azure/app-service-web/app-service-powershell-samples">Azure PowerShell</a></li>
         </ul>
     </div>
     <div class="column50" style="max-width: 400px">

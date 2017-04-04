@@ -20,19 +20,19 @@ ms.author: carolz
     <div class="ico48Link">
         <a href="/azure/sql-database/sql-database-get-started-portal">
             <img src="media/index/portal.svg" alt="">
-            <span>Create a SQL DB - Portal</span>
+            <span>Create a SQL DB using Azure Portal</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/sql-database/sql-database-get-started-cli">
             <img src="media/index/cli.svg" alt="">
-            <span>Create a SQL DB - Azure CLI</span>
+            <span>Create a SQL DB using Azure CLI</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/sql-database/sql-database-get-started-powershell">
             <img src="media/index/logo_powershell.svg" alt="">
-            <span>Create a SQL DB - PowerShell</span>
+            <span>Create a SQL DB using Azure PowerShell</span>
         </a>
     </div>
 </div>
@@ -44,11 +44,11 @@ ms.author: carolz
         <ul class="spaced">
             <li><a href="/azure/sql-database/sql-database-design-first-database">Design a database</a></li>
         </ul>
-        <h2 style="margin-top: 36px">Samples</h2>
+        <h2>Samples</h2>
         <p>Find scripts to manage common tasks.</p>
         <ul class="spaced">
             <li><a href="/azure/sql-database/sql-database-cli-samples.md">Azure CLI</a></li>
-            <li><a href="/azure/sql-database/sql-database-powershell-samples.md">PowerShell</a></li>
+            <li><a href="/azure/sql-database/sql-database-powershell-samples.md">Azure PowerShell</a></li>
         </ul>
     </div>
     <div class="column50" style="max-width: 400px">
@@ -73,8 +73,8 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">PowerShell</a></p>
-                        <p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">PowerShell (Elastic DB)</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">Azure PowerShell</a></p>
+                        <p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">Azure PowerShell (Elastic DB)</a></p>
                         <p><a href="/cli/azure/sql">Azure CLI 2.0</a></p>
                     </div>
                 </div>
