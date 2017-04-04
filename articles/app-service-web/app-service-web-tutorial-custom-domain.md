@@ -1,6 +1,6 @@
 ---
-title: Add custom domain and SSL to an Azure web app | Microsoft Docs 
-description: Learn how to prepare your Azure web app to go production by adding your company branding. Map the custom domain name (vanity domain) to your web app and secure it with a custom SSL certificate.
+title: Map a custom DNS name to an Azure web app | Microsoft Docs 
+description: Learn add a custom DNS domain name (i.e. vanity domain) to web app, mobile app backend, or API app in Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -17,299 +17,268 @@ ms.date: 03/29/2017
 ms.author: cephalin
 
 ---
-# Add custom domain and SSL to an Azure web app
+# Map a custom DNS name to an Azure web app
 
-This tutorial shows you how to quickly map a custom domain name to your Azure web app and then secure it with a custom SSL certificate. 
+This tutorial shows you how to map a custom DNS name (i.e. vanity domain) to your web app, mobile app backend, or API app in [Azure App Service](../app-service/app-service-value-prop-what-is.md). 
+
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+
+This tutorial follows the example scenario of mapping two DNS names to an app in App Service:
+
+- `contoso.com` - a root domain. You will use an [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) to map it to Azure. 
+- `www.contoso.com` - a subdomain of `contoso.com`. You can use either an [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) or a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record).
+
+The tutorial also shows you how to map a [wildcard DNS](https://en.wikipedia.org/wiki/Wildcard_DNS_record) to App Service (e.g. `*.contoso.com`).
 
 ## Before you begin
 
-Before running this sample, install the [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) locally.
+Since this tutorial shows you how to map a DNS name to Azure App Service, you must have administrative access to the DNS configuration page for your respective domain provider (e.g. GoDaddy). For example, to add a mapping for `contoso.com` and `www.contoso.com`, you need to be able to configure DNS entries for `contoso.com`.
 
-You also need administrative access to the DNS configuration page for your respective domain provider. For example, to add `www.contoso.com`, you need to be able to configure DNS entries for `contoso.com`.
+If you haven't registered a domain with a domain provider yet, you can always just [buy a domain directly from Azure and map it to your app](custom-dns-web-site-buydomains-web-app.md).
 
-Lastly, you need a valid .PFX file _and_ its password for the SSL certificate you want to upload and bind. This SSL certificate should be configured to secure the custom domain name you want. In the above example, your SSL certificate should secure `www.contoso.com`. 
-
-## Step 1 - Create an Azure web app
+## Step 1 - Prepare your app
+To map a custom DNS name, your[App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be in the **Shared** tier or above. In this step, you make sure that your Azure app is in the supported pricing tier.
 
 ### Log in to Azure
 
-We are now going to use the Azure CLI 2.0 in a terminal window to create the resources needed to host our Node.js app in Azure.  Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. 
+Open the Azure portal. 
 
-```azurecli 
-az login 
-``` 
-   
-### Create a resource group   
-Create a resource group with the [az group create](/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed. 
+To do this, sign in to [https://portal.azure.com](https://portal.azure.com) with your Azure account.
 
-```azurecli
-az group create --name myResourceGroup --location westeurope 
-```
+### Navigate to your app
+From the left menu, click **App Service**, then click the name of your Azure app.
 
-To see what possible values you can use for `---location`, use the `az appservice list-locations` Azure CLI command.
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
-## Create an App Service plan
+You have landed in your app's _blade_ (a portal page that opens horizontally).  
 
-Create a Linux-based App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#create) command. 
+### Check the pricing tier
+In the **Overview** page, which opens by default, check to make sure that your app is not in the **Free** tier.
 
-> [!NOTE] 
-> An App Service plan represents the collection of physical resources used to host your apps. All applications assigned to an App Service plan share the resources defined by it allowing you to save cost when hosting multiple apps. 
-> 
-> App Service plans define: 
-> * Region (North Europe, East US, Southeast Asia) 
-> * Instance Size (Small, Medium, Large) 
-> * Scale Count (one, two or three instances, etc.) 
-> * SKU (Free, Shared, Basic, Standard, Premium) 
-> 
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-The following example creates an App Service plan named `myAppServicePlan` using the **Basic** pricing tier.
+Custom DNS is not supported in the **Free** tier. If you need to scale up, follow the next section. Otherwise, skip to [Step 2]().
 
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1
+### Scale up your App Service plan
 
-When the App Service plan has been created, the Azure CLI shows information similar to the following example. 
+To scale up your plan, click **Scale up (App Service plan)** in the left pane.
 
-```json 
-{ 
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan", 
-    "kind": "app", 
-    "location": "West Europe", 
-    "sku": { 
-    "capacity": 1, 
-    "family": "B", 
-    "name": "B1", 
-    "tier": "Basic" 
-    }, 
-    "status": "Ready", 
-    "type": "Microsoft.Web/serverfarms" 
-} 
-``` 
+Select the tier you want to scale to. For example, select **Shared**. When ready, click **Select**.
 
-## Create a web app
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
-Now that an App Service plan has been created, create a web app within the `myAppServicePlan` App Service plan. The web app gives your a hosting space to deploy your code as well as provides a URL for you to view the deployed application. Use the [az appservice web create](/cli/azure/appservice/web#create) command to create the web app. 
+When you see the notification below, the scale operation is complete.
 
-In the command below, please substitute your own unique app name where you see the `<app_name>` placeholder. This unique name will be used as the part of the default domain name for the web app, so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users. 
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
-```azurecli
-az appservice web create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan 
-```
+<a name="info"></a>
 
-When the web app has been created, the Azure CLI shows information similar to the following example. 
+## Step 2 - Get mapping information
 
-```json 
-{ 
-    "clientAffinityEnabled": true, 
-    "defaultHostName": "<app_name>.azurewebsites.net", 
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app_name>", 
-    "isDefaultContainer": null, 
-    "kind": "app", 
-    "location": "West Europe", 
-    "name": "<app_name>", 
-    "repositorySiteName": "<app_name>", 
-    "reserved": true, 
-    "resourceGroup": "myResourceGroup", 
-    "serverFarmId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan", 
-    "state": "Running", 
-    "type": "Microsoft.Web/sites", 
-} 
-```
+In this step, you obtain the information that you will need to create the DNS record(s) later. 
 
-From the JSON output, `defaultHostName` shows your web app's default domain name. In your browser, navigate to this address.
+### Open the custom domain UI
 
-```
-http://<app_name>.azurewebsites.net 
-``` 
- 
-![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-created.png)  
+In your app's blade, click **Custom domains** in the menu. 
 
-## Step 2 - Configure DNS mapping
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-In this step, you add a mapping from a custom domain to your web app's default domain name, `<app_name>.azurewebsites.net`. Typically, you perform this step in your domain provider's website. Every domain registrar's website is slightly different, so you should consult your provider's documentation. However, here are some general guidelines. 
+### Copy the mapping information
 
-### Navigate to to DNS management page
+In th **Custom domains** page, copy the app's **IP address** and its default hostname under **Hostnames assigned to site**.
 
-First, log in to your domain registrar's website.  
+You will need the IP address later for the A record mapping, and the default hostname for the CNAME record mapping.
 
-Then, find the page for managing DNS records. Look for links or areas of the site labeled **Domain Name**, **DNS**, or **Name Server Management**. Often, you can find the link by viewing your account information, and then looking for a link such as **My domains**.
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-Once you find this page, look for a link that lets you add or edit DNS records. This might be a **Zone file** or **DNS Records** link, or an **Advanced configuration** link.
+## Step 3 - Add DNS records 
+
+In this step, you add the DNS records you need to map your custom DNS to your app. You perform this step with your own domain provider.
+
+### Access DNS records with domain provider
+
+First, log in to the website of your domain provider.
+
+Then, you need to find the page for managing DNS records. Every domain provider has its own DNS records interface, so you should consult your provider's documentation. In general, you should look for links or areas of the site labeled **Domain Name**, **DNS**, or **Name Server Management**. Often, you can find the link by viewing your account information, and then looking for a link such as **My domains**. 
+
+Then, look for a link that lets you manage DNS records. This link might be named **Zone file**, **DNS Records**, or **Advanced configuration**.
+
+The following screenshot is an example of what your DNS records page may look like:
+
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
+
+In the example screenshot, you click **Add** to create a record. Some providers have different links to add different record types. Again, consult your provider's documentation.
+
+> [!NOTE]
+> For certain providers, such as GoDaddy, changes to DNS records don't become effective until you click a separate **Save Changes** link after you create them. 
+>
+>
+
+<a name="a"></a>
+
+### Create an A record
+
+In the tutorial example, you want to add an A record for the root domain, `contoso.com`. 
+
+To map an A record to your app, App Service actually requires _two_ DNS records:
+
+- An **A** record to map to your app's IP address.
+- A **TXT** record to map to your app's default hostname. This record lets App Service verify that you own the custom domain you want to map.
+
+The following table shows you how you would configure an A record mapping for the supported domain types (`@` typically represents the root domain). 
+
+<table cellspacing="0" border="1">
+  <tr>
+    <th>Domain type</th>
+    <th>Record type</th>
+    <th>Host</th>
+    <th>Value</th>
+  </tr>
+  <tr>
+    <td rowspan="2" align="left">Root domain<br>(e.g. <code>contoso.com</code>)</td>
+    <td>A</td>
+    <td>@</td>
+    <td>IP address from <a href="#info">Step 2</a></td>
+  </tr>
+  <tr>
+    <td>TXT</td>
+    <td>@</td>
+    <td>Default hostname from <a href="#info">Step 2</a></td>
+  </tr>
+  <tr>
+    <td rowspan="2" align="left">Subdomain<br>(e.g. <code>www.contoso.com</code>)</td>
+    <td>A</td>
+    <td>www</td>
+    <td>IP address from <a href="#info">Step 2</a></td>
+  </tr>
+  <tr>
+    <td>TXT</td>
+    <td>www</td>
+    <td>Default hostname from <a href="#info">Step 2</a></td>
+  </tr>
+  <tr>
+    <td rowspan="2" align="left">Wildcard domain<br>(e.g. <code>*.contoso.com</code>)</td>
+    <td>A</td>
+    <td>\*</td>
+    <td>IP address from <a href="#info">Step 2</a></td>
+  </tr>
+  <tr>
+    <td>TXT</td>
+    <td>\*</td>
+    <td>Default hostname from <a href="#info">Step 2</a></td>
+  </tr>
+</table>
+
+For the `contoso.com` domain example, your DNS records page show look like the following screenshot:
+
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/a-record.png)
+
+<a name="cname"></a>
 
 ### Create a CNAME record
+In the tutorial example, you want to add a CNAME record for the root domain, `contoso.com`. 
 
-Add a CNAME record that maps the desired subdomain name to your web app's default domain name (`<app_name>.azurewebsites.net`, where `<app_name>` is your app's unique name).
+Unlike [mapping an A record](#a), mapping a CNAME record to your app doesn't require any additional record.
 
-For the `www.contoso.com` example, you create a CNAME that maps the `www` hostname to `<app_name>.azurewebsites.net`.
+> [!IMPORTANT]
+> It is recommended that you use a CNAME mapping. If you delete and recreate your app, or change from a dedicated hosting tier back to the **Shared** tier, your app's virtual IP address may change. A CNAME mapping is valid through such a change, whereas an A mapping is potentially invalidated by a new IP address. 
+>
+> However, do _not_ create a CNAME record for your root domain (i.e. the "root record"). For more information, see 
+> [Why can't a CNAME record be used at the root domain](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain).
+> To map a root domain to your Azure app, use an [A record](#a) instead.
+> 
+> 
 
-## Step 3 - Configure the custom domain on your web app
+The following table shows you how you would configure a CNAME record mapping for the supported domain types.
 
-When you finish configuring the hostname mapping in your domain provider's website, you're ready to configure the custom domain on your web app. Use the [az appservice web config hostname add](/cli/azure/appservice/web/config/hostname#add) command to add this configuration. 
+Configure your CNAME record as follows.
 
-In the command below, please substitute `<app_name>` with your unique app name, and <your_custom_domain> with the fully qualified custom domain name (e.g. `www.contoso.com`). 
+<table cellspacing="0" border="1">
+  <tr>
+    <th>Domain type</th>
+    <th>CNAME Host</th>
+    <th>CNAME Value</th>
+  </tr>
+  <tr>
+    <td>Subdomain<br>(e.g. <code>www.contoso.com</code>)</td>
+    <td>www</td>
+    <td>Default hostname from <a href="#info">Step 2</a></td>
+  </tr>
+  <tr>
+    <td>Wildcard domain<br>(e.g. <code>*.contoso.com</code>)</td>
+    <td>\*</td>
+    <td>Default hostname from <a href="#info">Step 2</a></td>
+  </tr>
+</table>
 
-```azurecli
-az appservice web config hostname add --webapp <app_name> --resource-group myResourceGroup --name <your_custom_domain>
-```
+For the `www.contoso.com` domain example, your DNS records page show look like the following screenshot:
 
-The custom domain now is fully mapped to your web app. In your browser, navigate to the custom domain name. For example:
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/cname-record.png)
 
-```
-http://www.contoso.com 
-``` 
+<a name="enable"></a>
 
-![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-custom-domain.png)  
+## Step 4 - Enable the custom DNS in your app
 
-## Step 4 - Bind a custom SSL certificate to your web app
+You are now ready to add your configured DNS names (e.g. `contoso.com` and `www.contoso.com`) to your app.
 
-You now have an Azure web app, with the domain name you want in the browser's address bar. However, if you navigate to the `https://<your_custom_domain>` now, you get a certificate error. 
+Back in your app's **Custom domains** page in the Azure portal (see [Step 1](#info)), you need to add the fully-qualified
+domain name (FQDN) of your custom domain to the list.
 
-![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-cert-error.png)  
+### Add the A hostname to your app
 
-This error occurs because your web app doesn't yet have an SSL certificate binding that matches your custom domain name. However, you don't get an error if you navigate to `https://<app_name>.azurewebsites.net`. This is because your app, as well as all Azure App Service apps, is secured with the SSL certificate for the `*.azurewebsites.net` wildcard domain by default. 
+Click the **+** icon next to **Add hostname**.
 
-In order to access your web app by your custom domain name, you need to bind the SSL certificate for your custom domain to the web app. You will do it in this step. 
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
 
-### Upload the SSL certificate
+Type the FQDN for which you configured the A record earlier (e.g. `contoso.com`), then click **Validate**.
 
-Upload the SSL certificate for your custom domain to your web app by using the [az appservice web config ssl upload](/cli/azure/appservice/web/config/ssl#upload) command.
+If you missed a step or made a typo somewhere earlier, you see a verification error at the bottom of the page.
 
-In the command below, please substitute `<app_name>` with your unique app name, `<path_to_ptx_file>` with the path to your .PFX file, and `<password>` with your certificate's password. 
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
-```azurecli
-az appservice web config ssl upload --name <app_name> --resource-group myResourceGroup --certificate-file <path_to_pfx_file> --certificate-password <password> 
-```
+Otherwise, the **Add hostname** button is activated. 
 
-When the certificate is uploaded, the Azure CLI shows information similar to the following example:
+Make sure that **Hostname record type** is set to **A record (example.com)**.
 
-```json
-{
-  "cerBlob": null,
-  "expirationDate": "2018-03-29T14:12:57+00:00",
-  "friendlyName": "",
-  "hostNames": [
-    "www.contoso.com"
-  ],
-  "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/cert
-ificates/9FD1D2D06E2293673E2A8D1CA484A092BD016D00__West Europe_myResourceGroup",
-  "issueDate": "2017-03-29T14:12:57+00:00",
-  "issuer": "www.contoso.com",
-  "keyVaultId": null,
-  "keyVaultSecretName": null,
-  "keyVaultSecretStatus": "Initialized",
-  "kind": null,
-  "location": "West Europe",
-  "name": "9FD1D2D06E2293673E2A8D1CA484A092BD016D00__West Europe_myResourceGroup",
-  "password": null,
- "pfxBlob": null,
-  "publicKeyHash": null,
-  "resourceGroup": "myResourceGroup",
-  "selfLink": null,
-  "serverFarmId": null,
-  "siteName": null,
-  "subjectName": "www.contoso.com",
-  "tags": null,
-  "thumbprint": "9FD1D2D06E2293673E2A8D1CA484A092BD016D00",
-  "type": "Microsoft.Web/certificates",
-  "valid": null
-}
-```
+Click **Add hostname** to add the DNS name to your app.
 
-From the JSON output, `thumbprint` shows your uploaded certificate's thumbprint. Copy its value for the next step.
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
 
-### Bind the uploaded SSL certificate to the web app
+It might take some time for the new hostname to be reflected in your app's **Custom domains** page. Try refreshing the browser to update the data.
 
-Your web app now has the custom domain name you want, and it also has a SSL certificate that secures that custom domain. The only thing left to do is to bind the uploaded certificate to the web app. You do this by using the [az appservice web config ssl bind](/cli/azure/appservice/web/config/ssl#bind) command.
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
-In the command below, please substitute `<app_name>` with your unique app name and `<thumbprint-from-previous-output>` with the certificate thumbprint that you get from the previous command. 
+<a name="add-cname"></a>
+### Add the CNAME hostname to your app
 
-az appservice web config ssl bind --name <app_name> --resource-group myResourceGroup --certificate-thumbprint <thumbprint-from-previous-output> --ssl-type SNI
+Click the **+** icon next to **Add hostname**.
 
-When the certificate is bound to your web app, the Azure CLI shows information similar to the following example:
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "enabled": true,
-  "enabledHostNames": [
-    "www.contoso.com",
-    "<app_name>.azurewebsites.net",
-    "<app_name>.scm.azurewebsites.net"
-  ],
-  "gatewaySiteName": null,
-  "hostNameSslStates": [
-    {
-      "hostType": "Standard",
-      "name": "<app_name>.azurewebsites.net",
-      "sslState": "Disabled",
-      "thumbprint": null,
-      "toUpdate": null,
-      "virtualIp": null
-    },
-    {
-      "hostType": "Repository",
-      "name": "<app_name>.scm.azurewebsites.net",
-      "sslState": "Disabled",
-      "thumbprint": null,
-      "toUpdate": null,
-      "virtualIp": null
-    },
-    {
-      "hostType": "Standard",
-      "name": "www.contoso.com",
-      "sslState": "SniEnabled",
-      "thumbprint": "9FD1D2D06E2293673E2A8D1CA484A092BD016D00",
-      "toUpdate": null,
-      "virtualIp": null
-    }
-  ],
-  "hostNames": [
-    "www.contoso.com",
-    "<app_name>.azurewebsites.net"
-  ],
-  "hostNamesDisabled": false,
-  "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/site
-s/<app_name>",
-  "isDefaultContainer": null,
-  "kind": "WebApp",
-  "lastModifiedTimeUtc": "2017-03-29T14:36:18.803333",
-  "location": "West Europe",
-  "maxNumberOfWorkers": null,
-  "microService": "false",
-  "name": "<app_name>",
-  "outboundIpAddresses": "13.94.143.57,13.94.136.57,40.68.199.146,13.94.138.55,13.94.140.1",
-  "premiumAppDeployed": null,
-  "repositorySiteName": "<app_name>",
-  "reserved": false,
-  "resourceGroup": "myResourceGroup",
-  "scmSiteAlsoStopped": false,
-  "serverFarmId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsof
-t.Web/serverfarms/myAppServicePlan",
-  "siteConfig": null,
-  "slotSwapStatus": null,
-  "state": "Running",
-  "suspendedTill": null,
-  "tags": null,
-  "targetSwapSlot": null,
-  "trafficManagerHostNames": null,
-  "type": "Microsoft.Web/sites",
-  "usageState": "Normal"
-}
+Type the FQDN for which you configured the CNAME record earlier (e.g. `www.contoso.com`), then click **Validate**.
 
-In your browser, navigate to HTTPS endpoint of your custom domain name. For example:
+If you missed a step or made a typo somewhere earlier, you see a verification error at the bottom of the page.
 
-```
-https://www.contoso.com 
-``` 
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
-![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-ssl-success.png)  
+Otherwise, the **Add hostname** button is activated. 
+
+Make sure that **Hostname record type** is set to **A record (example.com)**.
+
+Click **Add hostname** to add the DNS name to your app.
+
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+
+It might take some time for the new hostname to be reflected in your app's **Custom domains** page. Try refreshing the browser to update the data.
+
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
+
+### Step 5 - Test in browser
+
+In your browser, browse to the DNS name(s) that you configured earlier (`contoso.com` and `www.contoso.com`).
+
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
 ## More resources
 
 [Buy and Configure a custom domain name in Azure App Service](custom-dns-web-site-buydomains-web-app.md)
-[Buy and Configure an SSL Certificate for your Azure App Service](web-sites-purchase-ssl-web-site.md)
