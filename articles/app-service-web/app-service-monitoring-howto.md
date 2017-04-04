@@ -1,23 +1,15 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Monitor App Service Web Apps
-
-#TODO: Add Description
-description: 
+title: Monitor a Web App | Microsoft Docs
+description: Learn how to set up Monitoring on your Web App
 services: App-Service
-
-#TODO: Add Keywords
 keywords: 
-
 author: btardif
 ms.author: byvinyal
 ms.date: 04/04/2017
-
-#TODO: Add Topic
-ms.topic: 
+ms.topic: article
 # Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
-#TODO: Add Service
-ms.service: service-name-from-white-list
+ms.service: app-service-web
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -28,24 +20,10 @@ ms.service: service-name-from-white-list
 # manager: MSFT-alias-manager-or-PM-counterpart
 ---
 
-<!---
-Purpose of a QuickStart article: To help customers complete a basic task and try the service quickly. 
-1. Include short, simple info and steps since customers may be new to service.
-2. Don't include multiple ways to complete the task, just one.
--->
+# Monitor App Service
+This tutorial is a continuation from the [Create App Service Web App](app-service-web-get-started-dotnet.md). Following these steps, you can learn to set up metrics based configurable charts and alerts. 
 
-# How To: Monitor App Service
-Use the Azure portal to quickly monitor key metrics for your apps.
-
-Learn how to view the metrics for your Web Apps through configurable charts or automate the process using alerts.
-
-![Monitor App](media/app-service-monitor-howto/app-service-monitor.png)
-
-Before you start, you need an app to monitor. For details on how to create an app see [Create App Service Web App](app-service-web-get-started-dotnet.md).
-
-If you have completed the prerequisites, this task takes approximately *five* minutes to complete.
-
-## View App Service metrics
+## Step 1: View App Service metrics
 For any app hosted in app service, you must monitor the app and the App Service plan.
 
 - **App** metrics provide information about http requests/failures and average response time.
@@ -53,12 +31,12 @@ For any app hosted in app service, you must monitor the app and the App Service 
 
 Azure portal has a quick way to visually inspect the metrics of your app using **Azure Monitor**.
 
-1. Go to the **Overview** blade of the app you want to monitor.
+- Go to the **Overview** blade of the app you want to monitor.
 
 ![Monitor App](media/app-service-monitor-howto/app-service-monitor.png)
 
-2. You can view the app's metrics as a Monitoring tile.
-3. You can then edit the tile and configure what metrics to view and the time range to display.
+- You can view the app's metrics as a Monitoring tile.
+- You can then edit the tile and configure what metrics to view and the time range to display.
 
 ![Configure Chart](media/app-service-monitor-howto/app-service-monitor-configure.png)
 
@@ -68,19 +46,19 @@ Azure portal has a quick way to visually inspect the metrics of your app using *
 > - [Azure Metrics](..\monitoring-and-diagnostics\monitoring-overview-metrics.md)
 > - [Supported metrics with Azure Monitor](..\monitoring-and-diagnostics\monitoring-supported-metrics.md#microsoftwebsites-including-functions)
 
-4. You can pin custom charts to the dashboard for easy access and quick reference.
+- You can pin custom charts to the dashboard for easy access and quick reference.
 
 ![Pin Chart](media/app-service-monitor-howto/app-service-monitor-pin.png)
 
-## Configure Alerts
+## Step 2: Configure Alerts
 Alerts allow you to automate the monitoring of your application.
 
 ![Alerts](media/app-service-monitor-howto/app-service-monitor-alerts.png)
 
-1. Go to the **Overview** blade of the app you want to monitor.
-2. From the menu, navigate to **Monitoring** > **Alerts**
-3. Select **[+] Add Alert**
-4. Configure the alert as needed.
+- Go to the **Overview** blade of the app you want to monitor.
+- From the menu, navigate to **Monitoring** > **Alerts**
+- Select **[+] Add Alert**
+- Configure the alert as needed.
 
 As an example, a simple set of Alerts to monitor an app hosted in app service could include:
 
