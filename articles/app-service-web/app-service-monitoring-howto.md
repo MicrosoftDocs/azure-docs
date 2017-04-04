@@ -23,7 +23,7 @@ ms.service: app-service-web
 # Monitor App Service
 This tutorial is a continuation from the [Create App Service Web App](app-service-web-get-started-dotnet.md). Following these steps, you can learn to set up metrics based configurable charts and alerts. 
 
-## Step 1: View App Service metrics
+## Step 1 - View App Service metrics
 For any app hosted in app service, you must monitor the app and the App Service plan.
 
 - **App** metrics provide information about http requests/failures and average response time.
@@ -50,7 +50,7 @@ Azure portal has a quick way to visually inspect the metrics of your app using *
 
 ![Pin Chart](media/app-service-monitor-howto/app-service-monitor-pin.png)
 
-## Step 2: Configure Alerts
+## Step 2 - Configure Alerts
 Alerts allow you to automate the monitoring of your application.
 
 ![Alerts](media/app-service-monitor-howto/app-service-monitor-alerts.png)
