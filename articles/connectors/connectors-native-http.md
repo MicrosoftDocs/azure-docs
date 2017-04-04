@@ -46,7 +46,7 @@ Here’s an example sequence of how to set up the HTTP trigger in the Logic App 
 
 The HTTP trigger sends a call to HTTP endpoint on a recurring interval. 
 By default, any HTTP response code that is lower than 300 causes a logic app to run. 
-To specify whether the the logic app should fire, you can edit the logic app in code view, 
+To specify whether the logic app should fire, you can edit the logic app in code view, 
 and add a condition that evaluates after the HTTP call. Here's an example of an HTTP trigger 
 that fires when the returned status code is greater than or equal to `400`.
 

@@ -37,7 +37,7 @@ This topic shows you how to create a logic app that creates a task in Dynamics 3
 ## Create a task when a new lead is created in Dynamics 365
 
 1.	[Sign in to Azure](https://portal.azure.com).
-2.	In the Azure search box, type *Logic apps* , and then press ENTER.
+2.	In the Azure search box, type *Logic apps*, and then press ENTER.
 
       ![Find Logic Apps](./media/connectors-create-api-crmonline/find-logic-apps.png)
 
