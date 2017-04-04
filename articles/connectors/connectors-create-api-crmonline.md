@@ -35,7 +35,7 @@ This topic shows you how to create a logic app that creates a task in Dynamics 3
 1.	[Sign in to Azure](https://portal.azure.com).
 2.	Type *Logic Apps* in the **Search** box, and then press ENTER.
 
-      ![Find Logic Apps](.media/connectors-create-api-crmonline/find-logic-apps.png)
+      ![Find Logic Apps](./media/connectors-create-api-crmonline/find-logic-apps.png)
 
 3.	In the Logic App service area, click **Add**.
 
