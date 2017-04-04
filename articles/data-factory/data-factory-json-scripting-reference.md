@@ -52,7 +52,7 @@ Click the link for the store you are interested in to see the JSON schemas for l
 | &nbsp; |[Teradata](#teradata) |
 | **NoSQL** |[Cassandra](#cassandra) |
 | &nbsp; |[MongoDB](#mongodb) |
-| **File** |[Amazon S3](amazon-s3) |
+| **File** |[Amazon S3](#amazon-s3) |
 | &nbsp; |[File System](#file-system) |
 | &nbsp; |[FTP](#ftp) |
 | &nbsp; |[HDFS](#hdfs) |
@@ -2230,14 +2230,14 @@ The following table provides description for JSON elements specific to SQL Serve
 | username |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
 | password |Specify password for the user account you specified for the username. |No |
 
-#### Examples
 You can encrypt credentials using the **New-AzureRmDataFactoryEncryptValue** cmdlet and use them in the connection string as shown in the following example (**EncryptedCredential** property):  
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 ```
 
-**JSON for using SQL Authentication**
+
+#### Example: JSON for using SQL Authentication
 
 ```json
 {
@@ -2252,7 +2252,7 @@ You can encrypt credentials using the **New-AzureRmDataFactoryEncryptValue** cmd
     }
 }
 ```
-**JSON for using Windows Authentication**
+#### Example: JSON for using Windows Authentication
 
 If username and password are specified, gateway uses them to impersonate the specified user account to connect to the on-premises SQL Server database. Otherwise, gateway connects to the SQL Server directly with the security context of Gateway (its startup account).
 
@@ -2272,7 +2272,7 @@ If username and password are specified, gateway uses them to impersonate the spe
 }
 ```
 
-For more information, see [SQL Server connector](data-factory-sql-server-connector.md#linked-service-properties) article. 
+For more information, see [SQL Server connector](data-factory-sqlserver-connector.md#linked-service-properties) article. 
 
 ### Dataset
 The **typeProperties** section for the dataset of type **SqlServerTable** has the following properties:
@@ -2307,7 +2307,7 @@ The **typeProperties** section for the dataset of type **SqlServerTable** has th
 }
 ```
 
-For more information, see [SQL Server connector](data-factory-sql-server-connector.md#dataset-properties) article. 
+For more information, see [SQL Server connector](data-factory-sqlserver-connector.md#dataset-properties) article. 
 
 ### Sql Source in Copy Activity
 When source in a copy activity is of type **SqlSource**, the following properties are available in **typeProperties** section:
@@ -2380,7 +2380,7 @@ In this example, **sqlReaderQuery** is specified for the SqlSource. The Copy Act
 
 If you do not specify sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section are used to build a select query to run against the SQL Server Database. If the dataset definition does not have the structure, all columns are selected from the table.
 
-For more information, see [SQL Server connector](data-factory-sql-server-connector.md#copy-activity-properties) article. 
+For more information, see [SQL Server connector](data-factory-sqlserver-connector.md#copy-activity-properties) article. 
 
 ### Sql Sink in Copy Activity
 **SqlSink** supports the following properties:
@@ -2445,7 +2445,7 @@ The pipeline contains a Copy Activity that is configured to use these input and 
 }
 ```
 
-For more information, see [SQL Server connector](data-factory-sql-server-connector.md#copy-activity-properties) article. 
+For more information, see [SQL Server connector](data-factory-sqlserver-connector.md#copy-activity-properties) article. 
 
 ## Sybase
 
@@ -2714,6 +2714,7 @@ The following table provides description for JSON elements specific to Cassandra
 | encryptedCredential |Credential encrypted by the gateway. |No |
 
 #### Example
+
 ```json
 {
     "name": "CassandraLinkedService",
@@ -3005,9 +3006,7 @@ To specify a dataset to represent input data in an Azure Blob Storage, you set t
 > [!NOTE]
 > bucketName + key specifies the location of the S3 object where bucket is the root container for S3 objects and key is the full path to S3 object.
 
-#### Example
-
-**Sample dataset with prefix:**
+#### Example: Sample dataset with prefix
 
 ```json
 {
@@ -3030,7 +3029,7 @@ To specify a dataset to represent input data in an Azure Blob Storage, you set t
     }
 }
 ```
-**Sample data set (with version):**
+#### Example: Sample data set (with version)
 
 ```json
 {
@@ -3055,7 +3054,7 @@ To specify a dataset to represent input data in an Azure Blob Storage, you set t
 }
 ```
 
-**Dynamic paths for S3:**
+#### Example: Dynamic paths for S3
 In the sample, we use fixed values for key and bucketName properties in the Amazon S3 dataset.
 
 ```json
@@ -3148,14 +3147,14 @@ You can link an on-premises file system to an Azure data factory with the **On-P
 | encryptedCredential |Specify the encrypted credentials that you can get by running the New-AzureRmDataFactoryEncryptValue cmdlet. |No (if you choose to specify userid and password in plain text) |
 | gatewayName |Specifies the name of the gateway that Data Factory should use to connect to the on-premises file server. |Yes |
 
-#### Example
+#### Sample folder path definitions 
 | Scenario | Host in linked service definition | folderPath in dataset definition |
 | --- | --- | --- |
 | Local folder on Data Management Gateway machine: <br/><br/>Examples: D:\\\* or D:\folder\subfolder\\* |D:\\\\ (for Data Management Gateway 2.0 and later versions) <br/><br/> localhost (for earlier versions than Data Management Gateway 2.0) |.\\\\ or folder\\\\subfolder (for Data Management Gateway 2.0 and later versions) <br/><br/>D:\\\\ or D:\\\\folder\\\\subfolder (for gateway version below 2.0) |
 | Remote shared folder: <br/><br/>Examples: \\\\myserver\\share\\\* or \\\\myserver\\share\\folder\\subfolder\\* |\\\\\\\\myserver\\\\share |.\\\\ or folder\\\\subfolder |
 
 
-**Example: Using username and password in plain text**
+#### Example: Using username and password in plain text
 
 ```JSON
 {
@@ -3172,7 +3171,7 @@ You can link an on-premises file system to an Azure data factory with the **On-P
 }
 ```
 
-**Example: Using encryptedcredential**
+#### Example: Using encryptedcredential
 
 ```JSON
 {
@@ -3402,8 +3401,7 @@ The following table provides description for JSON elements specific to FTP linke
 | enableSsl |Specify whether to use FTP over SSL/TLS channel |No |true |
 | enableServerCertificateValidation |Specify whether to enable server SSL certificate validation when using FTP over SSL/TLS channel |No |true |
 
-#### Example
-**Using Anonymous authentication:**
+#### Example: Using Anonymous authentication
 
 ```JSON
 {
@@ -3418,7 +3416,7 @@ The following table provides description for JSON elements specific to FTP linke
 }
 ```
 
-**Using username and password in plain text for basic authentication:**
+#### Example: Using username and password in plain text for basic authentication
 
 ```JSON
 {
@@ -3435,7 +3433,7 @@ The following table provides description for JSON elements specific to FTP linke
 }
 ```
 
-**Using port, enableSsl, enableServerCertificateValidation:**
+#### Example: Using port, enableSsl, enableServerCertificateValidation
 
 ```JSON
 {
@@ -3455,7 +3453,7 @@ The following table provides description for JSON elements specific to FTP linke
 }
 ```
 
-**Using encryptedCredential for authentication and gateway:**
+#### Example: Using encryptedCredential for authentication and gateway
 
 ```JSON
 {
@@ -3579,8 +3577,7 @@ You create a linked service of type **Hdfs** to link an on-premises HDFS to your
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the HDFS. |Yes |
 | encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) output of the access credential. |No |
 
-#### Example
-**Using Anonymous authentication:**
+#### Example: Using Anonymous authentication
 
 ```JSON
 {
@@ -3599,7 +3596,7 @@ You create a linked service of type **Hdfs** to link an on-premises HDFS to your
 }
 ```
 
-**Using Windows authentication:**
+#### Example: Using Windows authentication
 
 ```JSON
 {
@@ -3725,8 +3722,7 @@ The following table provides description for JSON elements specific to FTP linke
 | gatewayName |Name of the Data Management Gateway to connect to an on-premises SFTP server. | Yes if copying data from an on-premises SFTP server. |
 | encryptedCredential | Encrypted credential to access the SFTP server. Auto-generated when you specify basic authentication (username + password) or SshPublicKey authentication (username + private key path or content) in copy wizard or the ClickOnce popup dialog. | No. Apply only when copying data from an on-premises SFTP server. |
 
-#### Example
-**Using basic authentication:**
+#### Example: Using basic authentication
 
 To use basic authentication, set `authenticationType` as `Basic`, and specify the following properties besides the SFTP connector generic ones introduced in the last section:
 
@@ -3735,7 +3731,6 @@ To use basic authentication, set `authenticationType` as `Basic`, and specify th
 | username | User who has access to the SFTP server. |Yes |
 | password | Password for the user (username). | Yes |
 
-**Example: Basic authentication**
 ```json
 {
     "name": "SftpLinkedService",
@@ -3755,7 +3750,7 @@ To use basic authentication, set `authenticationType` as `Basic`, and specify th
 }
 ```
 
-**Example: Basic authentication with encrypted credential**
+#### Example: Basic authentication with encrypted credential**
 
 ```JSON
 {
@@ -3776,7 +3771,7 @@ To use basic authentication, set `authenticationType` as `Basic`, and specify th
 }
 ```
 
-**Using SSH public key authentication:**
+#### Using SSH public key authentication:**
 
 To use basic authentication, set `authenticationType` as `SshPublicKey`, and specify the following properties besides the SFTP connector generic ones introduced in the last section:
 
@@ -3786,8 +3781,6 @@ To use basic authentication, set `authenticationType` as `SshPublicKey`, and spe
 | privateKeyPath | Specify absolute path to the private key file that gateway can access. | Specify either the `privateKeyPath` or `privateKeyContent`. <br><br> Apply only when copying data from an on-premises SFTP server. |
 | privateKeyContent | A serialized string of the private key content. The Copy Wizard can read the private key file and extract the private key content automatically. If you are using any other tool/SDK, use the privateKeyPath property instead. | Specify either the `privateKeyPath` or `privateKeyContent`. |
 | passPhrase | Specify the pass phrase/password to decrypt the private key if the key file is protected by a pass phrase. | Yes if the private key file is protected by a pass phrase. |
-
-**Example: SshPublicKey authentication using private key filePath**
 
 ```json
 {
@@ -3808,7 +3801,7 @@ To use basic authentication, set `authenticationType` as `SshPublicKey`, and spe
 }
 ```
 
-**Example: SshPublicKey authentication using private key content**
+#### Example: SshPublicKey authentication using private key content**
 
 ```json
 {
@@ -3918,7 +3911,222 @@ In Copy Activity, when source is of type **FileSystemSource**, the following pro
 }
 ```
 
-For more information, see [SFTP connector](data-factory-sftp-connector.md#copy-activity-properties) article. 
+For more information, see [SFTP connector](data-factory-sftp-connector.md#copy-activity-properties) article.
+
+
+## HTTP
+
+### Linked service
+The following table provides description for JSON elements specific to HTTP linked service.
+
+| Property | Description | Required |
+| --- | --- | --- |
+| type | The type property must be set to: `Http`. | Yes |
+| url | Base URL to the Web Server | Yes |
+| authenticationType | Specifies the authentication type. Allowed values are: **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Refer to sections below this table on more properties and JSON samples for those authentication types respectively. | Yes |
+| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation if source is HTTPS Web Server | No, default is true |
+| gatewayName | Name of the Data Management Gateway to connect to an on-premises HTTP source. | Yes if copying data from an on-premises HTTP source. |
+| encryptedCredential | Encrypted credential to access the HTTP endpoint. Auto-generated when you configure the authentication information in copy wizard or the ClickOnce popup dialog. | No. Apply only when copying data from an on-premises HTTP server. |
+
+#### Example: Using Basic, Digest, or Windows authentication
+Set `authenticationType` as `Basic`, `Digest`, or `Windows`, and specify the following properties besides the HTTP connector generic ones introduced above:
+
+| Property | Description | Required |
+| --- | --- | --- |
+| username | Username to access the HTTP endpoint. | Yes |
+| password | Password for the user (username). | Yes |
+
+```JSON
+{
+    "name": "HttpLinkedService",
+    "properties":
+    {
+        "type": "Http",
+        "typeProperties":
+        {
+            "authenticationType": "basic",
+            "url" : "https://en.wikipedia.org/wiki/",
+            "userName": "user name",
+            "password": "password"
+        }
+    }
+}
+```
+
+#### Example: Using ClientCertificate authentication
+
+To use basic authentication, set `authenticationType` as `ClientCertificate`, and specify the following properties besides the HTTP connector generic ones introduced above:
+
+| Property | Description | Required |
+| --- | --- | --- |
+| embeddedCertData | The Base64-encoded contents of binary data of the Personal Information Exchange (PFX) file. | Specify either the `embeddedCertData` or `certThumbprint`. |
+| certThumbprint | The thumbprint of the certificate that was installed on your gateway machine’s cert store. Apply only when copying data from an on-premises HTTP source. | Specify either the `embeddedCertData` or `certThumbprint`. |
+| password | Password associated with the certificate. | No |
+
+If you use `certThumbprint` for authentication and the certificate is installed in the personal store of the local computer, you need to grant the read permission to the gateway service:
+
+1. Launch Microsoft Management Console (MMC). Add the **Certificates** snap-in that targets the **Local Computer**.
+2. Expand **Certificates**, **Personal**, and click **Certificates**.
+3. Right-click the certificate from the personal store, and select **All Tasks**->**Manage Private Keys...**
+3. On the **Security** tab, add the user account under which Data Management Gateway Host Service is running with the read access to the certificate.  
+
+**Example: using client certificate:**
+This linked service links your data factory to an on-premises HTTP web server. It uses a client certificate that is installed on the machine with Data Management Gateway installed.
+
+```JSON
+{
+    "name": "HttpLinkedService",
+    "properties":
+    {
+        "type": "Http",
+        "typeProperties":
+        {
+            "authenticationType": "ClientCertificate",
+            "url": "https://en.wikipedia.org/wiki/",
+		    "certThumbprint": "thumbprint of certificate",
+		    "gatewayName": "gateway name"
+
+        }
+    }
+}
+```
+
+#### Example: using client certificate in a file
+This linked service links your data factory to an on-premises HTTP web server. It uses a client certificate file on the machine with Data Management Gateway installed.
+
+```JSON
+{
+    "name": "HttpLinkedService",
+    "properties":
+    {
+        "type": "Http",
+        "typeProperties":
+        {
+            "authenticationType": "ClientCertificate",
+            "url": "https://en.wikipedia.org/wiki/",
+		    "embeddedCertData": "base64 encoded cert data",
+		    "password": "password of cert"
+        }
+    }
+}
+```
+
+For more information, see [HTTP connector](data-factory-http-connector.md#linked-service-properties) article.
+
+### Dataset
+The typeProperties section for dataset of type **Http** has the following properties
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | Specified the type of the dataset. must be set to `Http`. | Yes |
+| relativeUrl | A relative URL to the resource that contains the data. When path is not specified, only the URL specified in the linked service definition is used. <br><br> To construct dynamic URL, you can use [Data Factory functions and system variables](data-factory-functions-variables.md), e.g. "relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)". | No |
+| requestMethod | Http method. Allowed values are **GET** or **POST**. | No. Default is `GET`. |
+| additionalHeaders | Additional HTTP request headers. | No |
+| requestBody | Body for HTTP request. | No |
+| format | If you want to simply **retrieve the data from HTTP endpoint as-is** without parsing it, skip this format settings. <br><br> If you want to parse the HTTP response content during copy, the following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. For more information, see [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. |No |
+| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. Supported levels are: **Optimal** and **Fastest**. For more information, see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+
+#### Example: using the GET (default) method
+
+```JSON
+{
+	"name": "HttpSourceDataInput",
+    "properties": {
+		"type": "Http",
+        "linkedServiceName": "HttpLinkedService",
+        "typeProperties": {
+			"relativeUrl": "XXX/test.xml",
+	    	"additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
+		},
+        "external": true,
+        "availability": {
+            "frequency": "Hour",
+            "interval":  1
+        }
+    }
+}
+```
+
+#### Example: using the POST method
+
+```JSON
+{
+    "name": "HttpSourceDataInput",
+    "properties": {
+        "type": "Http",
+        "linkedServiceName": "HttpLinkedService",
+        "typeProperties": {
+            "relativeUrl": "/XXX/test.xml",
+		   "requestMethod": "Post",
+            "requestBody": "body for POST HTTP request"
+        },
+        "external": true,
+        "availability": {
+            "frequency": "Hour",
+            "interval":  1
+        }
+    }
+}
+```
+For more information, see [HTTP connector](data-factory-http-connector.md#dataset-properties) article.
+
+### HTTP Source in Copy Activity
+When the source in copy activity is of type **HttpSource**, the following properties are supported.
+
+| Property | Description | Required |
+| -------- | ----------- | -------- |
+| httpRequestTimeout | The timeout (TimeSpan) for the HTTP request to get a response. It is the timeout to get a response, not the timeout to read response data. | No. Default value: 00:01:40 |
+
+
+#### Example
+
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+    "start":"2014-06-01T18:00:00",
+    "end":"2014-06-01T19:00:00",
+    "description":"pipeline with copy activity",
+    "activities":[  
+      {
+        "name": "HttpSourceToAzureBlob",
+        "description": "Copy from an HTTP source to an Azure blob",
+        "type": "Copy",
+        "inputs": [
+          {
+            "name": "HttpSourceDataInput"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "AzureBlobOutput"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "HttpSource"
+          },
+          "sink": {
+            "type": "BlobSink"
+          }
+        },
+       "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
+      }
+      ]
+   }
+}
+```
+
+For more information, see [HTTP connector](data-factory-http-connector.md#copy-activity-properties) article.
 
 ## Computes
 Click the link for the compute you are interested in to see the JSON schemas for linked service to link it to a data factory.
