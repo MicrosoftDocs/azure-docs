@@ -15,11 +15,11 @@
 ## [PowerShell](app-service-powershell-samples.md) 
 
 # Tutorials
-## [Build data-driven apps]
+## Build data-driven apps
 ### [ASP.NET with SQL database](app-service-web-tutorial-dotnet-sqldatabase.md)
 ### [Node.js with MongodB](app-service-web-tutorial-nodejs-mongodb-app.md)
-## [Use custom DNS name](app-service-web-tutorial-domain-ssl.md)
-## [Use custom SSL cert](app-service-web-tutorial-domain-ssl.md)
+## [Map custom DNS name](app-service-web-tutorial-custom-domain.md)
+## Bind custom SSL cert
 ## [Run highly-scalable apps](app-service-web-tutorial-hyper-scale-app.md)
 
 # Concepts
