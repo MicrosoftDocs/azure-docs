@@ -10,26 +10,26 @@
 
 # Services
 ## Academic Knowledge API
-### [Overview](Home.md)
+### [Overview](Academic-Knowledge/Home.md)
 ### Knowledge Exploration
-### [Entity attributes](EntityAttributes.md)  
-#### [Paper](PaperEntityAttributes.md)   
-#### [Author](AuthorEntityAttributes.md)
-#### [Affiliation](AffiliationEntityAttributes.md)  
-#### [Field of study](FieldsOfStudyEntityAttributes.md)
-#### [Conference series](ConferenceSeriesEntityAttributes.md)
-#### [Conference instance](ConferenceInstanceEntityAttributes.md)
-#### [Journal](JournalEntityAttributes.md) 
+### [Entity attributes](Academic-Knowledge/EntityAttributes.md)  
+#### [Paper](Academic-Knowledge/PaperEntityAttributes.md)   
+#### [Author](Academic-Knowledge/AuthorEntityAttributes.md)
+#### [Affiliation](Academic-Knowledge/AffiliationEntityAttributes.md)  
+#### [Field of study](Academic-Knowledge/FieldsOfStudyEntityAttributes.md)
+#### [Conference series](Academic-Knowledge/ConferenceSeriesEntityAttributes.md)
+#### [Conference instance](Academic-Knowledge/ConferenceInstanceEntityAttributes.md)
+#### [Journal](Academic-Knowledge/JournalEntityAttributes.md) 
 ### Methods
-#### [CalcHistogram](CalcHistogramMethod.md) 
-#### [Evaluate](EvaluateMethod.md)
-#### [Interpret](InterpretMethod.md)
-#### [Similarity](SimilarityMethod.md)
-### [Query expression syntax](QueryExpressionSyntax.md) 
+#### [CalcHistogram](Academic-Knowledge/CalcHistogramMethod.md) 
+#### [Evaluate](Academic-Knowledge/EvaluateMethod.md)
+#### [Interpret](Academic-Knowledge/InterpretMethod.md)
+#### [Similarity](Academic-Knowledge/SimilarityMethod.md)
+### [Query expression syntax](Academic-Knowledge/QueryExpressionSyntax.md) 
 ### Graph traversal
-#### [Lambda search syntax](LambdaSearchSyntax.md)
-#### [Graph search method](GraphSearchMethod.md) 
-#### [JSON Search Syntax](JSONSearchSyntax.md)                     
+#### [Lambda search syntax](Academic-Knowledge/LambdaSearchSyntax.md)
+#### [Graph search method](Academic-Knowledge/GraphSearchMethod.md) 
+#### [JSON Search Syntax](Academic-Knowledge/JSONSearchSyntax.md)                     
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56332331778daf02acc0a50b/operations/565d9001ca73072048922d97)
 
 ## Text Analytics API
