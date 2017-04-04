@@ -511,15 +511,11 @@ Same as the previous example, but uses *percentile70*.
 
     Type:Perf | measure pct70(CounterValue) by Computer
 
-*Explanation*
-
-Same as the previous example, but uses *PCT70*. Note that *PCT##* is only an alias for *PERCENTILE##* function.
+Same as the previous example, but uses *pct70*. Note that *PCT##* is only an alias for *PERCENTILE##* function.
 
 **Example 12**
 
     Type:Perf | measure avg(CounterValue) by Computer, CounterName
-
-*Explanation*
 
 Groups Perf first by Computer and then CounterName, and calculates the average (avg).
 
@@ -527,23 +523,17 @@ Groups Perf first by Computer and then CounterName, and calculates the average (
 
     Type:Alert | measure count() as Count by WorkflowName | sort Count desc | top 5
 
-*Explanation*
-
 Gets the top five workflows with the maximum number of alerts.
 
 **Example 14**
 
     * | measure countdistinct(Computer) by Type
 
-*Explanation*
-
 Counts the number of unique computers reporting for each Type.
 
 **Example 15**
 
     * | measure countdistinct(Computer) Interval 1HOUR
-
-*Explanation*
 
 Counts the number of unique computers reporting for every hour.
 
@@ -553,15 +543,11 @@ Counts the number of unique computers reporting for every hour.
 Type:Perf CounterName=”% Processor Time” InstanceName=”_Total” | measure avg(CounterValue) by Computer Interval 1HOUR
 ```
 
-*Explanation*
-
-Groups % Processor Time by Computer, and returns the average for every 1 hour.
+Groups % Processor Time by Computer, and returns the average for every hour.
 
 **Example 17**
 
     Type:W3CIISLog | measure max(TimeTaken) by csMethod Interval 5MINUTES
-
-*Explanation*
 
 Groups W3CIISLog by method, and returns the maximum for every 5 minutes.
 
@@ -571,9 +557,7 @@ Groups W3CIISLog by method, and returns the maximum for every 5 minutes.
 Type:Perf CounterName=”% Processor Time” InstanceName=”_Total”  | measure min(CounterValue) as MIN, avg(CounterValue) as AVG, percentile75(CounterValue) as PCT75, max(CounterValue) as MAX by Computer Interval 1HOUR
 ```
 
-*Explanation*
-
-Groups % Processor Time by computer, and returns the minimum, average, 75 percentile, and maximum for every 1 hour.
+Groups % Processor Time by computer, and returns the minimum, average, 75 percentile, and maximum for every hour.
 
 **Example 19**
 
@@ -581,9 +565,7 @@ Groups % Processor Time by computer, and returns the minimum, average, 75 percen
 Type:Perf CounterName=”% Processor Time”  | measure min(CounterValue) as MIN, avg(CounterValue) as AVG, percentile75(CounterValue) as PCT75, max(CounterValue) as MAX by Computer, InstanceName Interval 1HOUR
 ```
 
-*Explanation*
-
-Groups % Processor Time first by computer and then by Instance name, and returns the minimum, average, 75 percentile, and maximum for every 1 hour
+Groups % Processor Time first by computer and then by Instance name, and returns the minimum, average, 75 percentile, and maximum for every hour.
 
 **Example 20**
 
@@ -591,9 +573,7 @@ Groups % Processor Time first by computer and then by Instance name, and returns
 Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | measure max(product(CounterValue,60)) as MaxDWPerMin by InstanceName Interval 1HOUR
 ```
 
-*Explanation*
-
-Calculates the maximum of Disk writes per minute for every disk on your computer
+Calculates the maximum of disk writes per minute for every disk on your computer.
 
 ### Where
 Syntax:
@@ -613,19 +593,17 @@ Examples:
 
 
 ### Dedup
-Returns the first document found for every unique value of the given field.
-
-**Syntax**
+Syntax:
 
     Dedup FieldName
 
+Returns the first document found for every unique value of the given field.
 
-**Example**
+Example:
 
     Type=Event | Dedup EventID | sort TimeGenerated DESC
 
-The above example returns one event (the latest since we use DESC on TimeGenerated) per EventID
-
+This example returns one event (the latest event) per EventID.
 
 
 ### Extend
