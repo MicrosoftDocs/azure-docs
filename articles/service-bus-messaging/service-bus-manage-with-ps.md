@@ -19,7 +19,9 @@ ms.author: sethm
 ---
 # Use PowerShell to manage Service Bus resources
 
-Microsoft Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of Azure services. This article describes how to use the [Service Bus Resource Manager PowerShell module](/powershell/resourcemanager/azurerm.servicebus/v0.1.0/azurerm.servicebus) to provision and manage Service Bus entities such as namespaces, queues, topics, and subscriptions using a local Azure PowerShell console or script.
+Microsoft Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of Azure services. This article describes how to use the [Service Bus Resource Manager PowerShell module](/powershell/resourcemanager/azurerm.servicebus/v0.1.0/azurerm.servicebus) to provision and manage Service Bus entities (namespaces, queues, topics, and subscriptions) using a local Azure PowerShell console or script.
+
+You can also manage Service Bus entities using Azure Resource Manager templates. For more information, see the article [Create Service Bus resources using Azure Resource Manager templates](service-bus-resource-manager-overview.md).
 
 ## Prerequisites
 
@@ -60,7 +62,6 @@ This part of the script does the following:
     if ($CurrentNamespace)
     {
         Write-Host "The namespace $Namespace already exists in the $Location region:"
-        Get-AzureRMServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace
     }
     else
     {
@@ -116,24 +117,25 @@ else
 ```
 
 ## Create a queue
-To create a queue or topic, perform a namespace check using the script in the previous section. Then, create the queue
+
+To create a queue or topic, perform a namespace check using the script in the previous section. Then, create the queue:
 
 ```powershell
-    # Check if queue already exists
-    $CurrentQ = Get-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName
+# Check if queue already exists
+$CurrentQ = Get-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName
 
-    if($CurrentQ)
-    {
-        Write-Host "The queue $QueueName already exists in the $Location region:"
-    }
-    else
-    {
-        Write-Host "The $QueueName queue does not exist."
-        Write-Host "Creating the $QueueName queue in the $Location region..."
-        New-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName -EnablePartitioning $True
-        $CurrentQ = Get-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName
-        Write-Host "The $QueueName queue in Resource Group $ResGrpName in the $Location region has been successfully created."
-	}
+if($CurrentQ)
+{
+    Write-Host "The queue $QueueName already exists in the $Location region:"
+}
+else
+{
+    Write-Host "The $QueueName queue does not exist."
+    Write-Host "Creating the $QueueName queue in the $Location region..."
+    New-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName -EnablePartitioning $True
+    $CurrentQ = Get-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName
+    Write-Host "The $QueueName queue in Resource Group $ResGrpName in the $Location region has been successfully created."
+}
 ```
 
 ### Modify queue properties
@@ -151,11 +153,13 @@ Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace 
 
 ## Provisioning other Service Bus entities
 
-You can use the [Service Bus PowerShell module](/powershell/resourcemanager/azurerm.servicebus/v0.1.0/azurerm.servicebus) to provision other entities, such as topics and subscriptions. These cmdlets are similar to the queue creation cmdlets demonstrated in the previous section.
+You can use the [Service Bus PowerShell module](/powershell/resourcemanager/azurerm.servicebus/v0.1.0/azurerm.servicebus) to provision other entities, such as topics and subscriptions. These cmdlets are syntactically similar to the queue creation cmdlets demonstrated in the previous section.
 
 ## Next steps
 
-See the complete Service Bus Resource Manager PowerShell module documentation [here](/powershell/resourcemanager/azurerm.servicebus/v0.1.0/azurerm.servicebus). This page lists all available cmdlets.
+- See the complete Service Bus Resource Manager PowerShell module documentation [here](/powershell/resourcemanager/azurerm.servicebus/v0.1.0/azurerm.servicebus). This page lists all available cmdlets.
+- For information about using Azure Resource Manager templates, see the article [Create Service Bus resources using Azure Resource Manager templates](service-bus-resource-manager-overview.md).
+- Information about [Service Bus .NET management libraries](service-bus-management-libraries.md).
 
 There are some alternate ways to manage Service Bus entities, as described in these blog posts:
 
