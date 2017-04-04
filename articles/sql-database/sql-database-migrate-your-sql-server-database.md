@@ -25,7 +25,7 @@ ms.author: janeng
 In this tutorial, you will migrate an existing SQL Server database to an Azure SQL Database using the Data Migration Assistant and will go through all the required steps from validating compatibility to performing the actual data migration to connecting to the migrated database after completed migration. 
 
 > [!IMPORTANT]
-> To fix compatibility issues, use [Visual Studio Data Tools](https://msdn.microsoft.com/mt186501). 
+> To fix compatibility issues, use [Visual Studio Data Tools](https://docs.microsoft.com/en-us/sql/ssdt/download-sql-server-data-tools-ssdt). 
 >
 
 To complete this tutorial, make sure you have:
@@ -82,9 +82,9 @@ The SQL Database service creates a [firewall at the server-level](sql-database-f
 
 You can now connect to all databases on this server using SQL Server Management Studio or another tool of your choice from this IP address using the Server admin account created previously.
 
-## Step 4 - Test for compatibility
+## Step 4 - Prepare for migration
 
-You are ready to test the database you plan to migrate to Azure SQL Database for compatibility issues using the **Data Migration Assistant**. Follow these steps to assess the AdventureWorks2008R2 OLTP database for compatibility with Azure SQL Database.
+You are ready to prepare for migration using the **Data Migration Assistant**. Follow these steps to assess the readiness of the AdventureWorks2008R2 OLTP database for migration to Azure SQL Database.
 
 1. Open the **Data Migration Assistant** on your computer with connectivity to the SQL Server instance containing the database that you plan to migrate.
 
@@ -118,14 +118,14 @@ You are ready to test the database you plan to migrate to Azure SQL Database for
 
      ![new data migration assessment parity](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-assessment-results-parity.png)
 
-8. Click **Compatibility issues**. Specifically review the information about migration blockers, behavior changes, and deprecated features for each compatibility level. For the AdventureWorks2008R2 database, review the changes to Full-Text Search since SQL Server 2008 and the changes to SERVERPROPERTY('LCID') since SQL Server 2000. For details on these changes, links for more information is provided. Many search options and settings for Full-Text Search have changed 
+9. Click **Compatibility issues**. Specifically review the information about migration blockers, behavior changes, and deprecated features for each compatibility level. For the AdventureWorks2008R2 database, review the changes to Full-Text Search since SQL Server 2008 and the changes to SERVERPROPERTY('LCID') since SQL Server 2000. For details on these changes, links for more information is provided. Many search options and settings for Full-Text Search have changed 
 
    > [!IMPORTANT] 
    > After you migrate your database to Azure SQL Database, you can choose to operate the database at its current compatibility level (level 100 for the AdventureWorks2008R2 database) or at a higher level. For more information on the implications and options for operating a database at a specific compatibility level, see [ALTER DATABASE Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). See also [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) for information about additional database-level settings related to compatibility levels.
    >
 
-9. Optionally, click **Export report** to save the report as a JSON file.
-10. Close the Data Migration Assistant.
+10. Optionally, click **Export report** to save the report as a JSON file.
+11. Close the Data Migration Assistant.
 
 ## Step 5 - Export to BACPAC file 
 
