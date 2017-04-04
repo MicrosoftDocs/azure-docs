@@ -3,18 +3,20 @@
 ## [Compare hosting options](choose-web-site-cloud-service-vm.md)
 
 # Quickstart	
-## [Create static HTML site](app-service-web-get-started-html.md)
 ## [Create ASP.NET app](app-service-web-get-started-dotnet.md)		
 ## [Create PHP app](app-service-web-get-started-php.md) 
 ## [Create Node.js app](app-service-web-get-started-nodejs.md) 
-## [Create Java app](app-service-web-get-started-java.md)		
-## [Create Python app](app-service-web-get-started-python.md)	
+<!--## [Create Java app](app-service-web-get-started-java.md)-->
+<!--## [Create Python app](app-service-web-get-started-python.md)-->
+## [Create static HTML site](app-service-web-get-started-html.md)
 
 # Samples
-## [Azure CLI](app-service-cli-samples.md) 
-## [PowerShell](app-service-powershell-samples.md) 
+## [Azure CLI](app-service-cli-samples.md)
+## [PowerShell](app-service-powershell-samples.md)
 
 # Tutorials
+## [ASP.NET with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+## [Node.js with MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)
 
 # Concepts
 ## [How App Service works](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)	
@@ -23,9 +25,8 @@
 ## [Authentication and authorization](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [Authentication with on-premises AD](web-sites-authentication-authorization.md)
 
-
 # How-To guides
-## Develop your app	
+## Develop your app
 ### ASP.NET
 #### [ASP.NET app with SQL Database](web-sites-dotnet-get-started.md)
 #### [Develop an ASP.NET Core app with VS Code](web-sites-create-web-app-using-vscode.md)
