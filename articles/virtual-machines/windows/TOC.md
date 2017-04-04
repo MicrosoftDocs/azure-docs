@@ -3,17 +3,17 @@
 
 # Quickstart
 ## [Create VM - Portal](quick-create-portal.md)
-## [Create VM - Azure CLI](quick-create-cli.md)
 ## [Create VM - PowerShell](quick-create-powershell.md)
+## [Create VM - Azure CLI](quick-create-cli.md)
 
 # Samples
-## [Azure CLI](cli-samples.md)
 ## [PowerShell](powershell-samples.md)
+## [Azure CLI](cli-samples.md)
+
 
 # Tutorials
 ## [Create and manage a VM](../virtual-machines-windows-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Load balance VMs](../virtual-machines-windows-load-balanced-iis-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
+## [Load balance highly available VMs](load-balanced-iis-tutorial.md)
 
 # Concepts
 ## [Regions and availability](regions-and-availability.md)
