@@ -164,26 +164,17 @@ Enter any other optional details about the event, such as content for that event
 
 ## Technical details
 
-### Event Hubs triggers
+### Triggers
 
 | Trigger | Description |
 | --- | --- |
 | When events are available in Event Hub | Trigger a workflow when events are available in the specified Event Hub. |
 
-### Event Hubs actions
+### Actions
 
 | Action | Description |
 | --- | --- |
 | Send an event | Send an event to the specified Event Hub. |
-
-### HTTP responses
-
-This connector's triggers and actions can return one or more of these HTTP status codes:
-
-| Name | Description |
-| --- | --- |
-| 200 | OK |
-| default | Operation failed |
 
 ## Get help
 
