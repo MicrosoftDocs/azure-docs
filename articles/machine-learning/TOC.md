@@ -198,12 +198,6 @@
 #### [Anomaly detection](machine-learning-apps-anomaly-detection-api.md)
 #### [Text analytics](machine-learning-apps-text-analytics.md)
 #### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
-#### Recommendations
-##### [Overview](machine-learning-recommendation-api-sample-application.md)
-##### [Quick start](machine-learning-recommendation-api-quick-start-guide.md)
-##### [Reference](machine-learning-recommendation-api-documentation.md)
-##### [Use JavaScript](machine-learning-recommendation-api-javascript-integration.md)
-##### [FAQ](machine-learning-recommendation-api-faq.md)
 #### Predictive maintenance
 ##### [Overview](cortana-analytics-playbook-predictive-maintenance.md)
 ##### [Architecture](cortana-analytics-architecture-predictive-maintenance.md)
