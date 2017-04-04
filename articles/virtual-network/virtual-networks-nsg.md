@@ -179,21 +179,21 @@ The current NSG rules only allow for protocols *TCP* or *UDP*. There is not a sp
 ## Sample deployment
 To illustrate the application of the information in this article, we’ll define NSGs to filter network traffic for a two tier workload solution with the following requirements:
 
-1. Separation of traffic between front end (Windows web servers) and back end (SQL database servers).
+1. Separation of traffic between front-end (Windows web servers) and back-end (SQL database servers).
 2. Load balancing rules forwarding traffic to the load balancer to all web servers on port 80.
-3. NAT rules forwarding traffic coming in port 50001 on load balancer to port 3389 on only one VM in the front end.
-4. No access to the front end or back end VMs from the Internet, with exception of requirement number 1.
-5. No access from the front end or back end to the Internet.
-6. Access to port 3389 to any web server in the front end, for traffic coming from the front end subnet itself.
-7. Access to port 3389 to all SQL Server VMs in the back end from the front end subnet only.
-8. Access to port 1433 to all SQL Server VMs in the back end from the front end subnet only.
-9. Separation of management traffic (port 3389) and database traffic (1433) on different NICs in the back end VMs.
+3. NAT rules forwarding traffic coming in port 50001 on load balancer to port 3389 on WEB1 VM in the front-end subnet.
+4. No access to the front-end or back-end VMs from the Internet, with exception of requirements 1 and 3.
+5. No access from the front-end or back-end servers to the Internet.
+6. Access to port 3389 to any web server in the front-end, for traffic coming from the front-end subnet itself.
+7. Access to port 3389 to all SQL Server VMs in the back-end from the front-end subnet only.
+8. Access to port 1433 to all SQL Server VMs in the back-end from the front-end subnet only.
+9. Separation of management traffic (port 3389) and database traffic (1433) on different NICs in the back-end VMs.
 
 ![NSGs](./media/virtual-network-nsg-overview/figure1.png)
 
 As seen in the diagram above, the *Web1* and *Web2* VMs are connected to the *FrontEnd* subnet, and the *DB1* and *DB2* VMs are connected to the *BackEnd* subnet.  Both subnets are part of the *TestVNet* VNet. All resources are assigned to the *West US* Azure region.
 
-Requirements 1-6 (with exception of 3) above are all confined to subnet spaces. To minimize the number of rules required for each NSG, and to make it easy to add additional VMs to the subnets running the same workload types as the existing VMs, we can implement the following subnet level NSGs.
+Requirements 1-6 (with exception of 3 and 4) above are all confined to subnet spaces. To minimize the number of rules required for each NSG, and to make it easy to add additional VMs to the subnets running the same workload types as the existing VMs, we can implement the following subnet level NSGs.
 
 ### NSG for FrontEnd subnet
 **Incoming rules**
@@ -201,7 +201,7 @@ Requirements 1-6 (with exception of 3) above are all confined to subnet spaces. 
 | Rule | Access | Priority | Source address range | Source port | Destination address range | Destination port | Protocol |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | allow HTTP |Allow |100 |INTERNET |\* |\* |80 |TCP |
-| allow RDP from FrontEnd |Allow |200 |192.168.1.0/24 |\* |\* |3389 |TCP |
+| allow RDP from Internet |Allow |200 |INTERNET |\* |\* |3389 |TCP |
 | deny anything from Internet |Deny |300 |INTERNET |\* |\* |\* |TCP |
 
 **Outgoing rules**
@@ -223,31 +223,40 @@ Requirements 1-6 (with exception of 3) above are all confined to subnet spaces. 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | deny Internet |Deny |100 |\* |\* |INTERNET |\* |\* |
 
-### NSG for single VM (NIC) in FrontEnd for RDP from Internet
+### NSG for WEB1 VM (NIC) in FrontEnd for RDP from Internet
 **Incoming rules**
 
 | Rule | Access | Priority | Source address range | Source port | Destination address range | Destination port | Protocol |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| allow RDP from Internet |Allow |100 |INTERNET |* |\* |3389 |TCP |
+| allow RDP from Internet |Allow |100 |INTERNET |\*|\* |3389 |TCP |
+| allow HTTP from Internet |Allow |200 |INTERNET |\* |\* |80 |TCP |
 
 > [!NOTE]
 > Notice how the source address range for this rule is **Internet**, and not the VIP for the load balancer; the source port is **\***, not 500001. Do not get confused between NAT rules/load balancing rules and NSG rules. The NSG rules are always related to the original source and final destination of traffic, **NOT** the load balancer between the two. 
 > 
 > 
 
+### NSG for WEB2 VM (NIC) in FrontEnd for RDP from Internet
+**Incoming rules**
+
+| Rule | Access | Priority | Source address range | Source port | Destination address range | Destination port | Protocol |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| deny RDP from Internet |Deny |100 |INTERNET |\* |\* |3389 |TCP |
+| allow HTTP from Internet |Allow |200 |INTERNET |\* |\* |80 |TCP |
+
 ### NSG for management NICs in BackEnd
 **Incoming rules**
 
 | Rule | Access | Priority | Source address range | Source port | Destination address range | Destination port | Protocol |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| allow RDP from front end |Allow |100 |192.168.1.0/24 |* |\* |3389 |TCP |
+| allow RDP from front end |Allow |100 |192.168.1.0/24 |\* |\* |3389 |TCP |
 
 ### NSG for database access NICs in back end
 **Incoming rules**
 
 | Rule | Access | Priority | Source address range | Source port | Destination address range | Destination port | Protocol |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| allow SQL from front end |Allow |100 |192.168.1.0/24 |* |\* |1433 |TCP |
+| allow SQL from front end |Allow |100 |192.168.1.0/24 |\* |\* |1433 |TCP |
 
 Since some of the NSGs above need to be associated to individual NICs, you need to deploy this scenario as a Resource Manager deployment. Notice how rules are combined for subnet and NIC level, depending on how they need to be applied. 
 
