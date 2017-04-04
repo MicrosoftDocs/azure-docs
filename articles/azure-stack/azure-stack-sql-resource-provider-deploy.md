@@ -19,7 +19,9 @@ ms.author: JeffGo
 
 # Use SQL databases on Azure Stack
 
+> [!NOTE]
 > The following information only applies to Azure Stack TP3 Refresh deployments.
+>
 >
 
 Use the SQL Server resource provider adapter to expose SQL databases as a service of Azure Stack. After you install the resource provider and connect it to a SQL Server instance, you and your users can create databases for cloud-native apps, websites that are based on SQL, and workloads that are based on SQL without having to provision a virtual machine (VM) that hosts SQL Server each time.
@@ -33,7 +35,9 @@ The resource provider is made up of three components:
 - **The resource provider itself**, which processes provisioning requests and exposes database resources.
 - **Servers that host SQL Server**, which provide capacity for databases, called Hosting Servers
 
+> [!NOTE]
 > The SQL Server Resource Provider Adapter requires an Azure Stack TP3 Refresh deployment.
+>
 >
 
 You can offer SQL Server databases as a service to your Azure Stack users. To do so, you must deploy the SQL Server resource provider, connect it to a SQL Server instance, and then create plans and offers that users can subscribe to. Users who subscribe can then create databases for cloud native apps and SQL-based websites and workloads without having to provision a SQL Server virtual machine each time.
@@ -50,14 +54,19 @@ The resource provider does not support all of the database management capabiliti
 
 To deploy the SQL provider on a system that does not have internet access, you can copy the file [SQL 2014 SP1 Enterprise Evaluation ISO](http://care.dlservice.microsoft.com/dl/download/2/F/8/2F8F7165-BB21-4D1E-B5D8-3BD3CE73C77D/SQLServer2014SP1-FullSlipstream-x64-ENU.iso) to a local file share and provide that share name when prompted (see below). You will also need to provision the Windows Server 2016 VM image and install the PowerShell module using the offline procedure.
 
+> [!NOTE]
 > The deployment script will perform retries, if necessary, to accommodate less reliable network connections or if an operation exceeds a timeout.
+>
 >
 
 ## Deploy the resource provider
 
 1. If you have not already done so, create a [Windows Server 2016 image with the .NET 3.5 runtime](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-add-default-image) installed.
 
+> [!NOTE]
 > The current RP uses SQL Server 2014 SP1, which requires the .NET 3.5 runtime - if your image does not contain this optional component, the deployment will fail.
+>
+>
 
 2. Sign in to the POC host, [download the SQL Server RP installer executable file](https://aka.ms/azurestacksqlrptp3), and extract the files to a temporary directory. If your POC host has limited hard disk space, you can instead download the executable to another computer and then copy the extracted files to the POC host.
 
@@ -109,8 +118,12 @@ $AdminCreds = New-Object System.Management.Automation.PSCredential ("admin@mydom
  ```
 
 ## Verify the deployment using the Azure Stack Portal
-> After the installation script completes, it can take up to 60 minutes for all of the virtual machines to finish configuration. If you attempt the next steps before this completes, you will see failures.
+
+> [!NOTE]
+>  After the installation script completes, it can take up to 60 minutes for all of the virtual machines to finish configuration. If you attempt the next steps before this completes, you will see failures.
 >
+>
+
 1. On the Console VM desktop, click **Microsoft Azure Stack Portal** and sign in to the portal as the service administrator.
 
 2. Verify that the deployment succeeded. Click **Resource Groups** &gt; click the resource group you used (default is **Microsoft-SQL-RP1**), and then make sure that the essentials part of the blade (upper half) reads **_date_ (Succeeded)**.
