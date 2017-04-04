@@ -30,7 +30,7 @@ separated values (CSV) file. To go through the same tutorial using other support
 Before you begin this tutorial, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure CLI 2.0**. See [Install and configure Azure CLI](../install-azure-cli.md).
+* **Azure CLI 2.0**. See [Install and configure Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## Enable Data Lake Store/Analytics CLI 2.0 Preview
 
