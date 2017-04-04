@@ -41,8 +41,8 @@ ms.author: carolz
         <h2 style="margin-top: 36px">Tutorials</h2>
         <p>Build and deploy Linux virtual machines.</p>
         <ul class="spaced">
-            <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Create and manage Linux VMs</a></li>
-            <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-load-balance-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Load balance highly available VMs</a></li>
+            <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-manage-vm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Create and manage Linux VMs</a></li>
+            <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-load-balance-nodejs?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Load balance highly available VMs</a></li>
         </ul>
         <h2>Samples</h2>
         <p>Deploy your first application to Azure.</p>

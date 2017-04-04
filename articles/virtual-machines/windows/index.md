@@ -41,8 +41,8 @@ ms.author: carolz
         <h2 style="margin-top: 36px">Tutorials</h2>
         <p>Build and deploy Windows virtual machines.</p>
         <ul class="spaced">
-            <li><a href="/azure/virtual-machines/virtual-machines-windows-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Create and manage Windows VMs</a></li>
-            <li><a href="/azure/virtual-machines/virtual-machines-windows-load-balanced-iis-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Load balance highly available VMs</a></li>
+            <li><a href="/azure/virtual-machines/virtual-machines-windows-tutorial-manage-vm?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Create and manage Windows VMs</a></li>
+            <li><a href="/azure/virtual-machines/virtual-machines-windows-load-balanced-iis-tutorial?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Load balance highly available VMs</a></li>
         </ul>
         <h2>Samples</h2>
         <p>Deploy your first application to Azure.</p>
