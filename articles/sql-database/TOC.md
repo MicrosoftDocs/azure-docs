@@ -3,13 +3,13 @@
 ## [Compare SQL DB](sql-database-features.md)
 # Quickstart
 ## [Create DB - Portal](sql-database-get-started-portal.md)
-## [Create DB - Azure CLI](sql-database-get-started-cli.md)
 ## [Create DB - PowerShell](sql-database-get-started-powershell.md)
+## [Create DB - Azure CLI](sql-database-get-started-cli.md)
 ## Manage
 ### [SSMS](sql-database-connect-query-ssms.md)
 ### [VS Code](sql-database-connect-query-vscode.md)
 ## Connect
-### [C #](sql-database-connect-query-dotnet.md)
+### [.NET](sql-database-connect-query-dotnet.md)
 ### [PHP](sql-database-connect-query-php.md)
 ### [Node.js](sql-database-develop-nodejs-simple.md)
 ### [Java](sql-database-connect-query-java.md)
