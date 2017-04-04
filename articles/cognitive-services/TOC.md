@@ -207,7 +207,7 @@
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)
 ### [Plan your app](LUIS/Plan-your-app.md)
 ### [Create an app](LUIS/Create-new-app.md)
-### [Dashboard](LUIS/App-Dashboard.md )
+### [Dashboard](LUIS/App-Dashboard.md)
 ### [Add intents](LUIS/Add-intents.md)
 ### [Add utterances](LUIS/Add-example-utterances.md)
 ### [Add entities](LUIS/Add-entities.md)
@@ -218,7 +218,7 @@
 ### [Pre-built entities](LUIS/Pre-builtEntities.md)
 ### [Cortana prebuilt app](LUIS/Cortana-Prebuilt-App.md)
 ### [Key management](LUIS/Manage-Keys.md)
-### [Create subscription keys](LUIS/AzureIbizaSubscription.md )
+### [Create subscription keys](LUIS/AzureIbizaSubscription.md)
                      
 
                
