@@ -7,10 +7,10 @@
 - name: Quickstart
   expanded: true
   items:
-  - name: Create VM - Portal
-    href: quick-create-portal.md
   - name: Create VM - Azure CLI
     href: quick-create-cli.md
+  - name: Create VM - Portal
+    href: quick-create-portal.md
   - name: Create VM - PowerShell
     href: quick-create-powershell.md
 - name: Samples
@@ -23,7 +23,7 @@
   items:
   - name: Create and manage a VM
     href: tutorial-manage-vm.md
-  - name: Load balance VMs
+  - name: Load balance highly available VMs
     href: tutorial-load-balance-nodejs.md
 - name: Concepts
   items:
