@@ -113,7 +113,8 @@ click **Show advanced options** in that step,
 then add a filter or order by query.
 
 For example, you can use a filter query to get only active accounts and order by the account name. 
-To perform this task, enter the OData filter query **statuscode eq 1** and select **Account Name** from the dynamic content list. 
+To perform this task, enter the OData filter query `statuscode eq 1`, 
+and select **Account Name** from the dynamic content list. 
 More information: [MSDN: $filter](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_1) 
 and [$orderby](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_2).
 
@@ -126,10 +127,10 @@ you type a value or select a value from the dynamic content list.
 
 Field type  |How to use  |Where to find  |Name  |Data type  
 ---------|---------|---------|---------|---------
-Text fields|Text fields require a single line of text or dynamic content that is a text type field. Examples include the Category and Sub-Category fields.|Settings > Customizations > Customize the System > Entities > Task > Fields |category |Single Line of Text.       
+Text fields|Text fields require a single line of text or dynamic content that is a text type field. Examples include the Category and Sub-Category fields.|Settings > Customizations > Customize the System > Entities > Task > Fields |category |Single Line of Text        
 Integer fields | Some fields require integer or dynamic content that is an integer type field. Examples include Percent Complete and Duration. |Settings > Customizations > Customize the System > Entities > Task > Fields |percentcomplete |Whole Number         
-Date fields | Some fields require a date entered in mm/dd/yyyy format or dynamic content that is a date type field. Examples include Created On, Start Date, Actual Start, Last on Hold Time, Actual End, and Due Date. | Settings > Customizations > Customize the System > Entities > Task > Fields |createdon |Date and Time         
-Fields that require both a record ID and lookup type |Some fields that reference another entity record require both the record ID and the lookup type. |Settings > Customizations > Customize the System > Entities > Account > Fields  | accountid   | Primary Key
+Date fields | Some fields require a date entered in mm/dd/yyyy format or dynamic content that is a date type field. Examples include Created On, Start Date, Actual Start, Last on Hold Time, Actual End, and Due Date. | Settings > Customizations > Customize the System > Entities > Task > Fields |createdon |Date and Time
+Fields that require both a record ID and lookup type |Some fields that reference another entity record require both the record ID and the lookup type. |Settings > Customizations > Customize the System > Entities > Account > Fields  | accountid  | Primary Key
 
 ### More examples of fields that require both a record ID and lookup type
 Expanding on the previous table, here are more examples of fields that don't work with values selected from the dynamic content list. Instead, these fields require both a record ID and lookup type entered into the fields in PowerApps.  
