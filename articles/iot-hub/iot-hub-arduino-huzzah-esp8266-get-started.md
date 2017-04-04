@@ -95,9 +95,7 @@ The following items are optional in case you don’t have a sensor. You also hav
 
 1. In the **Shared access policies** pane, click the **iothubowner** policy, and then copy and save the **Connection string** value for your IoT hub. You use this value later in this article. For more information, see [Control access to IoT Hub](iot-hub-devguide-security.md).
 
-
    ![Get IoT hub connection string](media/iot-hub-arduino-huzzah-esp8266-get-started/7_iot-hub-get-connection-string.png)
-
 
 You've now created your IoT hub. Ensure that you save the **Hostname** and **Connection string** values, they're used later in this article.
 
@@ -118,7 +116,6 @@ To register a device for Feather HUZZAH ESP8266, follow these steps:
 
 1. [Download](https://nodejs.org/en/download/) and install the latest LTS version of Node.js, NPM included.
 1. Install iothub explorer by using NPM.
-
 
    * Windows 7 or later:
 
@@ -155,7 +152,6 @@ To register a device for Feather HUZZAH ESP8266, follow these steps:
    ```bash
    iothub-explorer create new-device --connection-string
    ```
-
 
 Make a note of the connection string of the registered device, it is used later.
 
