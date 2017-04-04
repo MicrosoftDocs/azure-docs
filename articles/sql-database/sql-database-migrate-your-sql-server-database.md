@@ -36,57 +36,9 @@ To complete this tutorial, make sure you have:
 - The [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595)
 - A database to migrate. This tutorial uses the [SQL Server 2008R2 AdventureWorks OLTP database](https://msftdbprodsamples.codeplex.com/releases/view/59211) on an instance of SQL Server 2008R2 or newer. 
 
-## Step 1: Log in to the Azure portal
+## Step 1 - Prepare for migration
 
-Log in to the [Azure portal](https://portal.azure.com/).
-
-## Step 2: Create a SQL Database logical server
-
-An [Azure SQL Database logical server](sql-database-features.md) acts as a central administrative point for multiple databases. Follow these steps to create a SQL Database logical server to contain the migrated Adventure Works OLTP SQL Server database. 
-
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
-
-2. Type **server** in the search window on the **New** page, and select **SQL database (logical server)** from the filtered list.
-
-    ![select logical server](./media/sql-database-migrate-your-sql-server-database/logical-server.png)
-
-3. On the **Everything** page, click **SQL server (logical server)** and then click **Create** on the **SQL Server (logical server)** page.
-
-    ![create logical server](./media/sql-database-migrate-your-sql-server-database/logical-server-create.png)
-
-4. Fill out the SQL server (logical server) form with the following information, as shown on the preceding image:     
-
-   - Server name: Specify a globally unique server name
-   - Server admin login: Provide a name for the Server admin login
-   - Password: Specify the password of your choice
-   - Resource group: Select **Create new** and specify **myResourceGroup**
-   - Location: Select a data center location
-
-    ![create logical server completed form](./media/sql-database-migrate-your-sql-server-database/logical-server-create-completed.png)
-
-5. Click **Create** to provision the logical server. Provisioning takes a few minutes. 
-
-## Step 3: Create a server-level firewall rule
-
-The SQL Database service creates a [firewall at the server-level](sql-database-firewall-configure.md) preventing external applications and tools from connecting to the server or any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. Follow these steps to create a SQL Database server-level firewall rule for your client's IP address and enable external connectivity through the SQL Database firewall for your specified IP address only. 
-
-1. Click **All resources** from the left-hand menu and click your new server on the **All resources** page. The overview page for your server opens, showing you the fully qualified server name (such as **mynewserver20170403.database.windows.net**) and provides options for further configuration.
-
-     ![logical server overview](./media/sql-database-migrate-your-sql-server-database/logical-server-overview.png)
-
-2. Click **Firewall** in the left-hand menu under Settings on the overview page. The **Firewall settings** page for the SQL Database server opens. 
-
-3. Click **Add client IP** on the toolbar to add the IP address of the computer you are currently using and then click **Save**. A server-level firewall rule is created for this IP address.
-
-     ![set server firewall rule](./media/sql-database-migrate-your-sql-server-database/server-firewall-rule-set.png)
-
-4. Click **OK**.
-
-You can now connect to all databases on this server using SQL Server Management Studio or another tool of your choice from this IP address using the Server admin account created previously.
-
-## Step 4 - Prepare for migration
-
-You are ready to prepare for migration using the **Data Migration Assistant**. Follow these steps to assess the readiness of the AdventureWorks2008R2 OLTP database for migration to Azure SQL Database.
+You are ready to prepare for migration . Follow these steps to use the **[Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595)** to assess the readiness of your database for migration to Azure SQL Database.
 
 1. Open the **Data Migration Assistant** on your computer with connectivity to the SQL Server instance containing the database that you plan to migrate.
 
@@ -129,7 +81,7 @@ You are ready to prepare for migration using the **Data Migration Assistant**. F
 10. Optionally, click **Export report** to save the report as a JSON file.
 11. Close the Data Migration Assistant.
 
-## Step 5 - Export to BACPAC file 
+## Step 2 - Export to BACPAC file 
 
 A BACPAC file is a ZIP file with an extension of BACPAC containing the metadata and data from a SQL Server database. A BACPAC file can be stored in Azure blob storage or in local storage for archiving or for migration - such as from SQL Server to Azure SQL Database. For an export to be transactionally consistent, you must ensure either that no write activity is occurring during the export.
 
@@ -145,6 +97,54 @@ Follow these steps to use the SQLPackage command-line utility to export the Adve
 
     ![sqlpackage export](./media/sql-database-migrate-your-sql-server-database/sqlpackage-export.png)
 
+## Step 3: Log in to the Azure portal
+
+Log in to the [Azure portal](https://portal.azure.com/). Logging on from the computer from which you are running the SQLPackage command-line utility will ease the creation of the firewall rule in step 5.
+
+## Step 4: Create a SQL Database logical server
+
+An [Azure SQL Database logical server](sql-database-features.md) acts as a central administrative point for multiple databases. Follow these steps to create a SQL Database logical server to contain the migrated Adventure Works OLTP SQL Server database. 
+
+1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+
+2. Type **server** in the search window on the **New** page, and select **SQL database (logical server)** from the filtered list.
+
+    ![select logical server](./media/sql-database-migrate-your-sql-server-database/logical-server.png)
+
+3. On the **Everything** page, click **SQL server (logical server)** and then click **Create** on the **SQL Server (logical server)** page.
+
+    ![create logical server](./media/sql-database-migrate-your-sql-server-database/logical-server-create.png)
+
+4. Fill out the SQL server (logical server) form with the following information, as shown on the preceding image:     
+
+   - Server name: Specify a globally unique server name
+   - Server admin login: Provide a name for the Server admin login
+   - Password: Specify the password of your choice
+   - Resource group: Select **Create new** and specify **myResourceGroup**
+   - Location: Select a data center location
+
+    ![create logical server completed form](./media/sql-database-migrate-your-sql-server-database/logical-server-create-completed.png)
+
+5. Click **Create** to provision the logical server. Provisioning takes a few minutes. 
+
+## Step 5: Create a server-level firewall rule
+
+The SQL Database service creates a [firewall at the server-level](sql-database-firewall-configure.md) preventing external applications and tools from connecting to the server or any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. Follow these steps to create a SQL Database server-level firewall rule for the IP address of the computer from which you are running the SQLPackage command-line utility. This enables SQLPackage to connect to the SQL Database logical server through the Azure SQL Database firewall. 
+
+1. Click **All resources** from the left-hand menu and click your new server on the **All resources** page. The overview page for your server opens, showing you the fully qualified server name (such as **mynewserver20170403.database.windows.net**) and provides options for further configuration.
+
+     ![logical server overview](./media/sql-database-migrate-your-sql-server-database/logical-server-overview.png)
+
+2. Click **Firewall** in the left-hand menu under Settings on the overview page. The **Firewall settings** page for the SQL Database server opens. 
+
+3. Click **Add client IP** on the toolbar to add the IP address of the computer you are currently using and then click **Save**. A server-level firewall rule is created for this IP address.
+
+     ![set server firewall rule](./media/sql-database-migrate-your-sql-server-database/server-firewall-rule-set.png)
+
+4. Click **OK**.
+
+You can now connect to all databases on this server using SQL Server Management Studio or another tool of your choice from this IP address using the Server admin account created previously.
+
 ## Step 6 - Import BACPAC file to Azure SQL Database 
 
 The newest versions of the SQLPackage command-line utility provide support for creating an Azure SQL database at a specified service tier and performance level. For best performance during import, select a high service tier and performance level and then scale down after import if the service tier and performance level is higher than you need immediately. See [Service tiers](sql-database-service-tiers.md) for more information.
@@ -159,9 +159,13 @@ Follow these steps use the SQLPackage command-line utility to import the Adventu
 
    ![sqlpackage import](./media/sql-database-migrate-your-sql-server-database/sqlpackage-import.png)
 
-## Step 7 - Connect to imported database using SSMS
+> [!IMPORTANT]
+> An Azure SQL Database logical server listens on port 1433. If you are attempting to connect to an Azure SQL Database logical server from within a corporate firewall, this port must be open in the corporate firewall for you to successfully connect.
+>
 
-Use SQL Server Management Studio to establish a connection to your Azure SQL Database server and newly migrated database.
+## Step 7 - Connect using SQL Server Management Studio (SSMS)
+
+Use SQL Server Management Studio to establish a connection to your Azure SQL Database server and newly migrated database. If you are running SSMS on a different computer from which you ran SQLPackage, create a firewall rule for this computer using the steps in the previous procedure.
 
 1. Open SQL Server Management Studio..
 
@@ -209,3 +213,4 @@ You can change the service tier, performance level, and compatibility level usin
 
 ## Next Steps 
 
+To design your first database, see [Design a database](sql-database-design-first-database.md).
