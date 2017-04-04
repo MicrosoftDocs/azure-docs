@@ -29,7 +29,6 @@
 ## [Authentication and authorization](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [Authentication with on-premises AD](web-sites-authentication-authorization.md)
 
-
 # How-To guides
 ## Develop your app	
 ### ASP.NET
