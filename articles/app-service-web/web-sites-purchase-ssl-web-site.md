@@ -3,7 +3,7 @@ title: Buy and Configure an SSL Certificate for your Azure App Service
 description: Learn how to Buy and Configure an SSL Certificate for your Azure App Service.
 services: app-service
 documentationcenter: .net
-author: apurvajo;ahmedelnably
+author: ahmedelnably
 manager: stefsch
 editor: cephalin
 tags: buy-ssl-certificates
