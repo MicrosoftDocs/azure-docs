@@ -144,7 +144,7 @@ The following snippet can be used to authenticate your application **non-interac
     var creds = await ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential);
 
 ### If you are using service-to-service authentication with certificate
-As a third option, the following snippet can be used to authenticate your application **non-interactively**, using the certificate for an Azure Active Directory application / service principal. Use this with an existing [Azure AD Application with certificates](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+As a third option, the following snippet can be used to authenticate your application **non-interactively**, using the certificate for an Azure Active Directory application / service principal. Use this with an existing [Azure AD Application with certificates](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
     // Service principal / application authentication with certificate
     // Use the client ID and certificate of an existing AAD "Web App" application.
