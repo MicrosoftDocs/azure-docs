@@ -103,9 +103,9 @@ In user subscription mode, an Azure key vault is required that belongs to the s
 
     c. **Pool allocation mode**: Select **User subscription**.
 
-    d. **Key vault**: Select the key vault you created for your Batch account in the previous section.
+    d. **Key vault**: Select the key vault you created for your Batch account in the previous section. Optionally, create a new key vault. After selecting the vault, select the checkbox to grant Azure Batch access to the key vault.
    
-    c. **Resource group**: Select the resource group in which you have created the Azure key vault.
+    c. **Resource group**: Select the resource group in which you  created the key vault.
    
     d. **Location**: The Azure region in which you created the key vault for the Batch account. 
    
@@ -128,7 +128,7 @@ Once the account has been created, you can open the **Batch account blade** to a
 
 ![Batch account URL in portal][account_url]
 
-* **Access keys** (Batch service mode): To authenticate access to your Batch account from your application, you'll need an account access key. (This setting is not available in user subscription mode.)
+* **Access keys** (Batch service mode): To authenticate access to your Batch account from your application, you'll need an account access key. (This setting is not available in user subscription mode, where you use Azure Active Directory authetication.)
 
     To view or regenerate your Batch account's access keys, enter `keys` in the left menu **Search** box on the Batch account blade, then select **Keys**. 
   
