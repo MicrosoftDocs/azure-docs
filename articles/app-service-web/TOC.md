@@ -31,7 +31,7 @@
 ## [Authentication with on-premises AD](web-sites-authentication-authorization.md)
 
 # How-To guides
-## Develop your app	
+## Develop your app
 ### ASP.NET
 #### [ASP.NET app with SQL Database](web-sites-dotnet-get-started.md)
 #### [Develop an ASP.NET Core app with VS Code](web-sites-create-web-app-using-vscode.md)

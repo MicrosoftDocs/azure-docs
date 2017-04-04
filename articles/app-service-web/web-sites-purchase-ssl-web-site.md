@@ -31,7 +31,7 @@ Log in to the Azure portal at http://portal.azure.com
 In the **Azure Portal**, click Browse and Type “App Service Certificates” in search bar and select “App Service Certificates” from the result and Click Add.
 
    
-   ![insert image of create using browse](./media/app-service-web-purchase-ssl-web-site/browse.jpg)
+![insert image of create using browse](./media/app-service-web-purchase-ssl-web-site/browse.jpg)
    
    ![insert image of create using browse](./media/app-service-web-purchase-ssl-web-site/add.jpg)
 
@@ -55,7 +55,7 @@ Select your **Subscription**, **Resource Group**, and **Certificate SKU**
 
 Once the SSL Certificate purchase is complete you will need to open **App Service Certificates** Resource blade by browsing to it again.
    
-   ![insert image of ready to store in KV](./media/app-service-web-purchase-ssl-web-site/ReadyKV.jpg)
+![insert image of ready to store in KV](./media/app-service-web-purchase-ssl-web-site/ReadyKV.jpg)
 
 You will notice that Certificate status is **“Pending Issuance”** as there are few more steps you need to complete before you can start using this certificates.
 
@@ -115,11 +115,11 @@ In the **Settings**, Click **SSL certificates**.
 
 Click **Import App Service Certificate** and select the certificate that you just purchased.
    
-   ![insert image of Import Certificate](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
+![insert image of Import Certificate](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
 In the **ssl bindings** section Click on **Add bindings**, and use the dropdowns to select the domain name to secure with SSL, and the certificate to use. You may also select whether to use **[Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** or IP based SSL.
    
-    ![insert image of SSL Bindings](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
+![insert image of SSL Bindings](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
 
 Click **Add Binding** to save the changes and enable SSL.
 
@@ -127,7 +127,7 @@ If you selected **IP based SSL** and your custom domain is configured using an A
 
 After you have configured an IP based SSL binding, a dedicated IP address is assigned to your app. You can find this IP address on the **Custom domain** page under settings of your app, right above the **Hostnames** section. It will be listed as **External IP Address**
   
-    ![insert image of IP SSL](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
+![insert image of IP SSL](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
 
 Note that this IP address will be different than the virtual IP address used previously to configure the A record for your domain. If you are configured to use SNI based SSL, or are not configured to use SSL, no address will be listed for this entry.
 
@@ -140,7 +140,7 @@ For security reasons, if you ever need to Rekey your certificate then simply sel
 
 Click on **"Rekey"** Button to initiate the process. This process can take 1-10 minutes to complete. 
    
-    ![insert image of ReKey SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.jpg)
+![insert image of ReKey SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.jpg)
 
 Rekeying your certificate will roll the certificate with a new certificate issued from the certificate authority.
 
