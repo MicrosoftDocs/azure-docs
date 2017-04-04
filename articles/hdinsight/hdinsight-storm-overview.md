@@ -93,13 +93,13 @@ You can provision a new Storm cluster on HDInsight in minutes. For more informat
 
 * __Azure Data Lake Store__: For an example of using Data Lake Store with Storm, see [Use Azure Data Lake Store with Apache Storm on HDInsight](hdinsight-storm-write-data-lake-store.md).
 
-* __Event Hubs__: For an example of using  Event Hubs with Storm, see the following documents:
+* __Event Hubs__: For an example of using Event Hubs with Storm, see the following documents:
 
     * [Develop a Java-based topology for Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
 
     * [Process events from Azure Event Hubs with Storm on HDInsight (C#)](hdinsight-storm-develop-csharp-event-hub-topology.md)
 
-* __SQL Database__, __DocumentDB__, __Event Hubs__, and __HBase__: Template examples are included in the  Data Lake Tools for Visual Studio. For more information, see [Develop a C# topology for Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+* __SQL Database__, __DocumentDB__, __Event Hubs__, and __HBase__: Template examples are included in the Data Lake Tools for Visual Studio. For more information, see [Develop a C# topology for Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 ## Reliability
 
@@ -107,7 +107,7 @@ Storm guarantees that each incoming message is always fully processed, even when
 
 The **Nimbus node** provides functionality similar to the Hadoop JobTracker, and it assigns tasks to other nodes in a cluster through **Zookeeper**. Zookeeper nodes provide coordination for a cluster and facilitate communication between Nimbus and the **Supervisor** process on the worker nodes. If one processing node goes down, the Nimbus node is informed, and it assigns the task and associated data to another node.
 
-The default configuration for Storm is to have only one Nimbus node. Storm on HDInsight runs two Nimbus nodes. If the primary node fails, the HDInsight cluster switches to the secondary node while the primary node is recovered.
+The default configuration for Storm is to have only one Nimbus node. Storm on HDInsight runs two Nimbus nodes. If the primary node fails, the HDInsight cluster switches to the secondary node while the primary node is recovered. The following diagram illustrates the task flow configuration for Storm on HDInsight:
 
 ![Diagram of nimbus, zookeeper, and supervisor](./media/hdinsight-storm-overview/nimbus.png)
 
