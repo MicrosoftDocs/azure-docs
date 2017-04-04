@@ -139,3 +139,4 @@ buffer that it uses to buffer the audio and clears the buffer as it received Rec
 ## <a name="Buffering">Buffering Behavior</a>
 By default, the SDK buffers audio so it can recover when a network interrupt occurs. In some scenario where it is preferable to discard the audio lost during the network disconnect and restart the connection where the stream at due to performance 
 considerations, it is best to disable audio buffering by setting **EnableAudioBuffering** in the Preferences object to **false**.
+ 
