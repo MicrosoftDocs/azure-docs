@@ -49,7 +49,7 @@ This article uses a simpler authentication approach with Data Lake Store where y
 
 ## Enable Data Lake Store (Preview) in Azure CLI 2.0
 
-Data Lake Store CLI 2.0 is still in Preview and does not get enabled by default when you install Azure CLI 2.0. Run the following command to enable Data Lake Store CLI 2.0.
+Data Lake Store CLI 2.0 is currently in Preview and does not get enabled by default when you install Azure CLI 2.0. Run the following command to enable Data Lake Store CLI 2.0.
 
 	az component update --add dls
 
@@ -89,7 +89,7 @@ Run the following commands.
 
 You can create folders under your Azure Data Lake Store account to manage and store data. Use the following command to create a folder called **mynewfolder** at the root of the Data Lake Store.
 
-    az dls fs create --account <dataLakeStoreAccountName> --path /mynewfolder --folder
+    az dls fs create --account <dataLakeStoreAccountName> --path <new folder path> --folder
 
 For example:
 
