@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/10/2017
+ms.date: 04/03/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -47,8 +47,8 @@ Connect by Remote Desktop to each N-series VM. Download, extract, and install th
 
 | OS | Driver version |
 | -------- |------------- |
-| Windows Server 2016 | [369.71](https://go.microsoft.com/fwlink/?linkid=836843) (.zip) |
-| Windows Server 2012 R2 | [369.71](https://go.microsoft.com/fwlink/?linkid=836844) (.zip)  |
+| Windows Server 2016 | [369.95](https://go.microsoft.com/fwlink/?linkid=836843) (.zip) |
+| Windows Server 2012 R2 | [369.95](https://go.microsoft.com/fwlink/?linkid=836844) (.zip)  |
 
 
 

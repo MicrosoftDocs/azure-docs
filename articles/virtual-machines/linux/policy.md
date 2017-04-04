@@ -79,7 +79,7 @@ The above policy can easily be modified to a scenario where you might want to al
 ```
 
 #### Virtual Machine Property Fields
-The table below describes the Virtual Machine properties that can be used as fields in your policy definition. For more information about policy fields, see [Use policy to manage resources and control access](../../resource-manager-policy.md#conditions).
+The table below describes the Virtual Machine properties that can be used as fields in your policy definition. For more information about policy fields, see [Use policy to manage resources and control access](../../resource-manager-policy.md).
 
 | Field Name | Description |
 | --- | --- |
