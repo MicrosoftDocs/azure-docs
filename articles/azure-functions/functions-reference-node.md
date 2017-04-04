@@ -27,7 +27,7 @@ ms.author: chrande, glenga
 > 
 > 
 
-The JavaScript experience for Azure Functions makes it easy to export a function which is passed a `context` object for communicating with the runtime, and for receiving and sending data via bindings.
+The JavaScript experience for Azure Functions makes it easy to export a function, which is passed a `context` object for communicating with the runtime and for receiving and sending data via bindings.
 
 This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md).
 
@@ -48,7 +48,7 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 };
 ```
 
-Bindings of `direction === "in"` are passed along as function arguments, meaning you can use [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) to dynamically handle new inputs (for example, by using `arguments.length` to iterate over all your inputs). This functionality is very convenient if you only have a trigger with no additional inputs, as you can predictably access your trigger data without referencing your `context` object.
+Bindings of `direction === "in"` are passed along as function arguments, meaning you can use [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) to dynamically handle new inputs (for example, by using `arguments.length` to iterate over all your inputs). This functionality is convenient when you only have a trigger with no additional inputs, as you can predictably access your trigger data without referencing your `context` object.
 
 The arguments are always passed along to the function in the order they occur in *function.json*, even if you don't specify them in your exports statement. For example, if you have `function(context, a, b)` and change it to `function(context, a)`, you can still get the value of `b` in function code by referring to `arguments[3]`.
 
@@ -229,7 +229,7 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-Node should have a `package.json` at the root of the Function App so Functions can shared cached packages. If there are version conflicts, you can add a `package.json` at a Function level. However, doing so should be avoided for performance reasons. 
+Node should have a `package.json` at the root of the Function App. This lets functions  shared cached packages. If there are version conflicts, you can add a `package.json` at a function level. However, you should avoid doing for performance reasons. 
 
 ## Environment variables
 To get an environment variable or an app setting value, use `process.env`, as shown in the following code example:
