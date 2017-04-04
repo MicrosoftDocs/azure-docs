@@ -62,9 +62,9 @@ The previous picture shows how NSG rules are processed.
 ### Default Tags
 Default tags are system-provided identifiers to address a category of IP addresses. You can use default tags in the **source address prefix** and **destination address prefix** properties of any rule. There are three default tags you can use:
 
-* **VIRTUAL_NETWORK** (**VirtualNetwork** if using Azure Resource Manager): This tag denotes all of your network address space. It includes the virtual network address space (CIDR ranges defined in Azure) as well as all connected on-premises address spaces and connected Azure VNets (local networks).
-* **AZURE_LOADBALANCER** (**AzureLoadBalancer** if using Azure Resource Manager): This tag denotes Azure’s infrastructure load balancer. This translates to an Azure datacenter IP where Azure’s health probes originate.
-* **INTERNET:** This tag denotes the IP address space that is outside the virtual network and reachable by public Internet. This range includes the [Azure owned public IP space](https://www.microsoft.com/download/details.aspx?id=41653) as well.
+* **VirtualNetwork** (**VIRTUAL_NETWORK** for classic): This tag denotes all of your network address space. It includes the virtual network address space (CIDR ranges defined in Azure) as well as all connected on-premises address spaces and connected Azure VNets (local networks).
+* **AzureLoadBalancer** (**AZURE_LOADBALANCER** for classic): This tag denotes Azure’s infrastructure load balancer. This translates to an Azure datacenter IP where Azure’s health probes originate.
+* **Internet** (**INTERNET** for classic): This tag denotes the IP address space that is outside the virtual network and reachable by public Internet. This range includes the [Azure owned public IP space](https://www.microsoft.com/download/details.aspx?id=41653) as well.
 
 ### Default rules
 All NSGs contain a set of default rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create. 
@@ -87,49 +87,49 @@ The default rules allow and disallow traffic as follows:
 | Name | Priority | Source IP | Source Port | Destination IP | Destination Port | Protocol | Access |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | AllowVnetOutBound | 65000 | VirtualNetwork | * | VirtualNetwork | * | * | Allow |
-| ALLOW INTERNET OUTBOUND |65001 |* |* |INTERNET |* |* |ALLOW |
-| DENY ALL OUTBOUND |65500 |* |* |* |* |* |DENY |
+| AllowInternetOutBound | 65001 | * | * | Internet | * | * | Allow |
+| DenyAllOutBound | 65500 | * | * | * | * | * | Deny |
 
 ## Associating NSGs
-You can associate an NSG to VMs, NICs, and subnets, depending on the deployment model you are using.
+You can associate an NSG to VMs, NICs, and subnets, depending on the deployment model you are using, as follows:
 
-* **Associating an NSG to a VM (classic deployments only).** When you associate an NSG to a VM, the network access rules in the NSG are applied to all traffic that destined and leaving the VM. 
-* **Associating an NSG to a NIC (Resource Manager deployments only).** When you associate an NSG to a NIC, the network access rules in the NSG are applied only to that NIC. That means that in a multi-NIC VM, if an NSG is applied to a single NIC, it does not affect traffic bound to other NICs. 
-* **Associating an NSG to a subnet (all deployments)**. When you associate an NSG to a subnet, the network access rules in the NSG are applied to all the IaaS and PaaS resources in the subnet. 
+* **VM (classic only):** Security rules are applied to all traffic to/from the VM. 
+* **NIC (Resource Manager only):** Security rules are applied to all traffic to/from the NIC the NSG is associated to. In a multi-NIC VM, you can apply different (or the same) NSG to each NIC individually. 
+* **Subnet (Resource Manager and classic):** Security rules are applied to any traffic to/from any resources connected to the VNet.
 
-You can associate different NSGs to a VM (or NIC, depending on the deployment model) and the subnet that a NIC or VM is bound to. When that happens, all network access rules are applied to the traffic, by priority in each NSG, in the following order:
+You can associate different NSGs to a VM (or NIC, depending on the deployment model) and the subnet that a NIC or VM is connected to. Security rules are applied to the traffic, by priority, in each NSG, in the following order:
 
 - **Inbound traffic**
 
-  1. **NSG applied to subnet:** If a subnet NSG has a matching rule to deny traffic, the packet will be dropped.
+  1. **NSG applied to subnet:** If a subnet NSG has a matching rule to deny traffic, the packet is dropped.
 
-  2. **NSG applied to NIC** (Resource Manager) or VM (classic): If VM\NIC NSG has a matching rule to deny traffic, packet will be dropped at VM\NIC, although subnet NSG has a matching rule to allow traffic.
+  2. **NSG applied to NIC** (Resource Manager) or VM (classic): If VM\NIC NSG has a matching rule that denies traffic, packets are dropped at the VM\NIC, even if a subnet NSG has a matching rule that allows traffic.
 
 - **Outbound traffic**
 
-  1. **NSG applied to NIC** (Resource Manager) or VM (classic): If VM\NIC NSG has a matching rule to deny traffic, the packet will be dropped.
+  1. **NSG applied to NIC** (Resource Manager) or VM (classic): If a VM\NIC NSG has a matching rule that denies traffic, packets are dropped.
 
-  2. **NSG applied to subnet:** If subnet NSG has a matching rule to deny traffic, packet will be dropped here, although VM\NIC NSG has a matching rule to allow traffic.
+  2. **NSG applied to subnet:** If a subnet NSG has a matching rule that denies traffic, packets are dropped, even if a VM\NIC NSG has a matching rule that allows traffic.
 
 > [!NOTE]
 > Although you can only associate a single NSG to a subnet, VM, or NIC; you can associate the same NSG to as many resources as you want.
 >
 
 ## Implementation
-You can implement NSGs in the classic or Resource Manager deployment models using the different tools listed below.
+You can implement NSGs in the Resource Manager or classic deployment models using the following tools:
 
 | Deployment tool | Classic | Resource Manager |
 | --- | --- | --- |
-| Classic portal | No  | No |
 | Azure portal   | Yes | [Yes](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [Yes](virtual-networks-create-nsg-classic-ps.md) | [Yes](virtual-networks-create-nsg-arm-ps.md) |
-| Azure CLI      | [Yes](virtual-networks-create-nsg-classic-cli.md) | [Yes](virtual-networks-create-nsg-arm-cli.md) |
+| Azure CLI V1   | [Yes](virtual-networks-create-nsg-classic-cli.md) | [Yes](virtual-networks-create-nsg-cli-nodejs.md) |
+| Azure CLI V2   | No | [Yes](virtual-networks-create-nsg-arm-cli.md) |
 | ARM template   | No  | [Yes](virtual-networks-create-nsg-arm-template.md) |
 
 ## Planning
 Before implementing NSGs, you need to answer the following questions:
 
-1. What types of resources do you want to filter traffic to or from (NICs in the same VM, VMs or other resources such as cloud services or application service environments connected to the same subnet, or between resources connected to different subnets)?
+1. What types of resources do you want to filter traffic to or from? You can connect resources such as NICs (Resource Manager), VMs (classic), Cloud Services, Application Service Environments, and VM Scale Sets. 
 2. Are the resources you want to filter traffic to/from connected to subnets in existing VNets or will they be connected to new VNets or subnets?
 
 For more information on planning for network security in Azure, read the [best practices for cloud services and network security](../best-practices-network-security.md). 
