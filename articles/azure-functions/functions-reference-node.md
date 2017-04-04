@@ -254,9 +254,9 @@ function GetEnvironmentVariable(name)
 
 You should be aware of the following items when working with JavaScript functions.
 
-### Use small VMs when using App Service Plan
+### Choose single-core App Service plans
 
-When creating a function app that uses App Service Plan for your JavaScript functions, we recommend that you use multiple small VMs rather than a medium or large VM. At this point, Functions runs JavaScript functions more efficiently on small VMs; using larger VMs will not produce the expected results.    
+When creating a function app that uses App Service plan, we recommend that you select a single-core plan rather than a plan with multiple cores. Today, Functions runs JavaScript functions more efficiently on single-core VMs; using larger VMs will not produce the expected performance improvements. When needed, you can manually scale out by adding more single-core VM instances, or you can enable auto-scale. For more information, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fazure-functions%2ftoc.json).    
 
 ### TypeScript/CoffeeScript support
 There isn't, yet, any direct support for auto-compiling TypeScript/CoffeeScript via the runtime, so that would all need to be handled outside the runtime, at deployment time. 
