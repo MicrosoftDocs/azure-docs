@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 04/04/2017
 ms.author: sdanie
 
 ---
@@ -51,7 +51,9 @@ Select the desired subnet from the **Subnet** drop-down list, and specify the de
 ![Virtual network][redis-cache-vnet-ip]
 
 > [!IMPORTANT]
-> The first four addresses in a subnet are reserved and can't be used. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+> Azure reserves some IP addresses within each subnet, and these addresses can't be used. The first and last IP addresses of the subnets are reserved for protocol conformance, along with 3 more addresses used for Azure services. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+> 
+> In addition to the IP addresses used by the Azure VNET infrastructure, Redis uses 3 IP address: 1 for the load balancer and 2 IP addresses per shard. A non-clustered cache is considered to have 1 shard.
 > 
 > 
 
@@ -80,6 +82,7 @@ The following list contains answers to commonly asked questions about the Azure 
 * [What are some common misconfiguration issues with Azure Redis Cache and VNets?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
 * [Can I use VNets with a standard or basic cache?](#can-i-use-vnets-with-a-standard-or-basic-cache)
 * [Why does creating a Redis cache fail in some subnets but not others?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
+* [What are the subnet address space requirements?](#what-are-the-subnet-address-space-requirements)
 * [Do all cache features work when hosting a cache in a VNET?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
 ## What are some common misconfiguration issues with Azure Redis Cache and VNets?
@@ -113,10 +116,16 @@ If you are deploying an Azure Redis Cache to an ARM VNet, the cache must be in a
 
 You can deploy multiple types of resources to a classic VNet as long as you have enough IP addresses available.
 
+### What are the subnet address space requirements?
+
+Azure reserves some IP addresses within each subnet, and these addresses can't be used. The first and last IP addresses of the subnets are reserved for protocol conformance, along with 3 more addresses used for Azure services. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+
+In addition to the IP addresses used by the Azure VNET infrastructure, Redis uses 3 IP address: 1 for the load balancer and 2 IP addresses per shard. A non-clustered cache is considered to have 1 shard.
+
 ### Do all cache features work when hosting a cache in a VNET?
 When your cache is part of a VNET, only clients in the VNET can access the cache. As a result, the following cache management features don't work at this time.
 
-* Redis Console - Because Redis Console uses the redis-cli.exe client hosted on VMs that are not part of your VNET, it can't connect to your cache.
+* Redis Console - Because Redis Console runs in your local browser, which is outside the VNET, it can't connect to your cache.
 
 ## Use ExpressRoute with Azure Redis Cache
 Customers can connect an [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) circuit to their virtual network infrastructure, thus extending their on-premises network to Azure. 
