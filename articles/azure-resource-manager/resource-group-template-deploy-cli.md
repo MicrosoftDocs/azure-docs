@@ -34,7 +34,7 @@ This topic explains how to use [Azure CLI 2.0](/cli/azure/install-az-cli2) with 
 
   ```azurecli
   az login
-  az account set --subscription {subscription-id}
+  az account set --name {subscription-id}
 
   az group create --name ExampleGroup --location "Central US"
   az group deployment create \
