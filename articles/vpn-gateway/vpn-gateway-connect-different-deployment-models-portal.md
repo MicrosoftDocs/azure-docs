@@ -75,9 +75,7 @@ The following table shows an example of how the example VNets and local sites ar
 | RMVNet | (192.168.0.0/16) |East US |ClassicVNetLocal (10.0.0.0/24) |
 
 ## <a name="classicvnet"></a>1. Configure the classic VNet settings
-In this section, you create the local network (local site) and the virtual network gateway for your classic VNet. If you don't have a classic VNet and are running these steps as an exercise, you can create a VNet by using the steps in [this article](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) and the [Example](#values) settings values from above.
-
-When following these steps, we assume that a VPN gateway has not been created for the classic VNet. If you already have a VPN gateway, verify that it is a Dynamic gateway. If it's Static, you must first delete the VPN gateway, then proceed.
+In this section, you create the local network (local site) and the virtual network gateway for your classic VNet. If you don't have a classic VNet and are running these steps as an exercise, you can create a VNet by using the steps in [this article](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) and the [Example](#values) settings values from above. If you already have a VNet with a VPN gateway, verify that the gateway is Dynamic. If it's Static, you must first delete the VPN gateway, then proceed.
 
 **Screenshots are provided as examples. Be sure to replace the values with your own.**
 
