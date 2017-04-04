@@ -243,9 +243,6 @@
 ### [Overview](Speaker-recognition/Home.md)
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797)
 
-
-## Speech Folder?
-
 ## Text Analytics
 ### [Overview](Text-Analytics/overview.md)
 ### [Quickstart](cognitive-services-text-analytics-quick-start.md)
@@ -268,7 +265,23 @@
 ### [Text translation API reference](http://docs.microsofttranslator.com/text-translate.html)
 
 ## Video
+### [Overview](Video/Home.md)
+### [Get started in C#](Video/GetStarted.md)
+### [Call video APIs](Video/How-To/HowtoCallVideoAPIs.md)
+### [Analyze videos in real time](Video/How-To/HowtoAnalyzeVideo_Video.md)
+### [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/565d6516778daf15800928d5/operations/565d6517778daf0978c45e39)
+### [Glossary](Video/Glossary.md)
 
+## Web Language Model
+### [Overview](Web-Language-Model/Home.md)
+### [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51)
+                   
+
+     
+          
+             
+               
+    
 
 
 
