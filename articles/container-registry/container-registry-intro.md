@@ -44,9 +44,7 @@ Developers can also push to a container registry as part of a container developm
 
 
 ## Key concepts
-* **Registry** - Create one or more container registries in your Azure subscription. Each registry is backed by a standard Azure [storage account](../storage/storage-introduction.md) in the same location. Take advantage of local, network-close storage of your container images by creating a registry in the same Azure location as your deployments.
-
-  Registries are named in a root domain based on the subscription's [Azure Active Directory tenant](../active-directory/active-directory-howto-tenant.md). For example, if you have an organizational account in the Contoso domain, your fully qualified registry name is of the form `myregistry-contoso.azurecr.io`.
+* **Registry** - Create one or more container registries in your Azure subscription. Each registry is backed by a standard Azure [storage account](../storage/storage-introduction.md) in the same location. Take advantage of local, network-close storage of your container images by creating a registry in the same Azure location as your deployments. A fully qualified registry name has the form `myregistry.azurecr.io`.
 
   You [control access](container-registry-authentication.md) to a container registry using an Azure Active Directory-backed [service principal](../active-directory/active-directory-application-objects.md) or a provided admin account. Run the standard `docker login` command to authenticate with a registry.
 

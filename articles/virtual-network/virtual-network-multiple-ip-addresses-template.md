@@ -43,8 +43,8 @@ Deploying a template enables you to quickly and consistently create Azure resour
 
 |Name|Description|
 |---|---|
-|adminUsername|Admin username. The username must comply with [Azure username requirements](../virtual-machines/virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
-|adminPassword|Admin password The password must comply with [Azure password requirements](../virtual-machines/virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+|adminUsername|Admin username. The username must comply with [Azure username requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
+|adminPassword|Admin password The password must comply with [Azure password requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
 |dnsLabelPrefix|DNS name for PublicIPAddressName1. The DNS name will resolve to one of the public IP addresses assigned to the VM. The name must be unique within the Azure region (location) you create the VM in.|
 |dnsLabelPrefix1|DNS name for PublicIPAddressName2. The DNS name will resolve to one of the public IP addresses assigned to the VM. The name must be unique within the Azure region (location) you create the VM in.|
 |OSVersion|The Windows/Linux version for the VM. The operating system is a fully patched image of the given Windows/Linux version selected.|
@@ -78,7 +78,7 @@ To deploy the template using PowerShell, complete the following steps:
 
 	Regardless of the option you choose to deploy the template with, you must supply values for the parameter values listed in the [parameters](#parameters) section of this article. If you choose to supply parameters using a parameters file, copy the contents of the [parameters file](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) from GitHub into a new file on your computer. Modify the values in the file. Use the file you created as the value for the `-TemplateParameterFile` parameter.
 	
-	To determine valid values for the OSVersion, ImagePublisher, and imageOffer parameters, complete the steps in the [Navigate and select Windows VM images article](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) article.
+	To determine valid values for the OSVersion, ImagePublisher, and imageOffer parameters, complete the steps in the [Navigate and select Windows VM images article](../virtual-machines/windows/cli-ps-findimage.md) article.
 
 	>[!TIP]
 	>If you're not sure whether a dnslabelprefix is available, enter the `Test-AzureRmDnsAvailability -DomainNameLabel <name-you-want-to-use> -Location <location>` command to find out. If it is available, the command will return `True`.
@@ -93,7 +93,7 @@ To deploy the template using the Azure CLI 1.0, complete the following steps:
 
 	Regardless of the option you choose to deploy the template with, you must supply values for the parameter values listed in the [parameters](#parameters) section of this article. If you choose to supply parameters using a parameters file, copy the contents of the [parameters file](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) from GitHub into a new file on your computer. Modify the values in the file. Use the file you created as the value for the `--parameters-file` (-e) parameter.
 	
-	To determine valid values for the OSVersion, ImagePublisher, and imageOffer parameters, complete the steps in the [Navigate and select Windows VM images article](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) article.
+	To determine valid values for the OSVersion, ImagePublisher, and imageOffer parameters, complete the steps in the [Navigate and select Windows VM images article](../virtual-machines/windows/cli-ps-findimage.md) article.
 
 2. After the VM is deployed, connect to the VM and add the private IP addresses to the operating system you deployed by completing the steps in the [Add IP addresses to a VM operating system](#os-config) section of this article. Do not add the public IP addresses to the operating system.
 

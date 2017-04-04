@@ -1,7 +1,8 @@
 ## Typical output
-Below is an example of the output written to the log file by the Hello World sample. Newline and Tab characters have been added for legibility:
 
-```
+The following is an example of the output written to the log file by the Hello World sample. The output is formatted for legibility:
+
+```json
 [{
     "time": "Mon Apr 11 13:48:07 2016",
     "content": "Log started"
@@ -30,14 +31,16 @@ Below is an example of the output written to the log file by the Hello World sam
 ```
 
 ## Code snippets
-This section discusses some key parts of the code in the Hello World sample.
+
+This section discusses some key sections of the code in the hello\_world sample.
 
 ### Gateway creation
-The developer must write the *gateway process*. This program creates the internal infrastructure (the broker), loads the modules, and sets everything up to function correctly. The SDK provides the **Gateway_Create_From_JSON** function to enable you to bootstrap a gateway from a JSON file. To use the **Gateway_Create_From_JSON** function you must pass it the path to a JSON file that specifies the modules to load. 
 
-You can find the code for the gateway process in the Hello World sample in the [main.c][lnk-main-c] file. For legibility, the snippet below shows an abbreviated version of the gateway process code. This program creates a gateway and then waits for the user to press the **ENTER** key before it tears down the gateway. 
+The developer must write the *gateway process*. This program creates the internal infrastructure (the broker), loads the modules, and sets everything up to function correctly. The SDK provides the **Gateway\_Create\_From\_JSON** function to enable you to bootstrap a gateway from a JSON file. To use the **Gateway\_Create\_From\_JSON** function, you must pass it the path to a JSON file that specifies the modules to load.
 
-```
+You can find the code for the gateway process in the Hello World sample in the [main.c][lnk-main-c] file. For legibility, the following snippet shows an abbreviated version of the gateway process code. This example program creates a gateway and then waits for the user to press the **ENTER** key before it tears down the gateway.
+
+```c
 int main(int argc, char** argv)
 {
     GATEWAY_HANDLE gateway;
@@ -53,34 +56,21 @@ int main(int argc, char** argv)
         Gateway_LL_Destroy(gateway);
     }
     return 0;
-} 
+}
 ```
 
-The JSON settings file contains a list of modules to load and links between the modules.
-Each module must specify a:
+The JSON settings file contains a list of modules to load and the links between the modules. Each module must specify a:
 
 * **name**: a unique name for the module.
-* **loader**: a loader which knows how to load the desired module.  Loaders are an extension 
-point for loading different types of modules. We provide loaders for use with modules written 
-in native C, Node.js, Java, and .NET. The Hello World sample only uses the "native" loader since 
-all the modules in this sample are dynamic libraries written in C. Please refer to the [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), 
-[Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample), or [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample) 
-samples for more information on using modules written in different languages.
-    * **name**: name of the loader used to load the module.  
-    * **entrypoint**: the path to the library containing the module. For Linux this is a .so 
-    file, on Windows this is a .dll file. Note that this entry point is specific to the type of 
-    loader being used. For example, the Node.js loader's entry point is a .js file, the Java 
-    loader's entry point is a classpath + class name, and the .NET loader's entry point is an 
-    assembly name + class name.
+* **loader**: a loader that knows how to load the desired module. Loaders are an extension point for loading different types of modules. We provide loaders for use with modules written in native C, Node.js, Java, and .NET. The Hello World sample only uses the native C loader because all the modules in this sample are dynamic libraries written in C. For more information about how to use modules written in different languages, see the [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/java_sample), or [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/dotnet_binding_sample) samples.
+    * **name**: name of the loader used to load the module.
+    * **entrypoint**: the path to the library containing the module. On Linux this library is a .so file, on Windows this library is a .dll file. The entry point is specific to the type of loader being used. The Node.js loader's entry point is a .js file. The Java loader's entry point is a classpath plus a class name. The .NET loader's entry point is an assembly name plus a class name.
 
 * **args**: any configuration information the module needs.
 
-The following code shows the JSON used to declare all of the modules for the Hello World 
-sample on Linux. Whether a module requires any arguments depends on the design of the module. 
-In this example, the logger module takes an argument which is the path to the output file 
-and the Hello World module does not take any arguments.
+The following code shows the JSON used to declare all the modules for the Hello World sample on Linux. Whether a module requires any arguments depends on the design of the module. In this example, the logger module takes an argument that is the path to the output file and the hello\_world module has no arguments.
 
-```
+```json
 "modules" :
 [
     {
@@ -106,22 +96,17 @@ and the Hello World module does not take any arguments.
 ]
 ```
 
-The JSON file also contains the links between the modules that will be passed to the broker. 
-A link has two properties:
+The JSON file also contains the links between the modules that are passed to the broker. A link has two properties:
 
 * **source**: a module name from the `modules` section, or "\*".
 * **sink**: a module name from the `modules` section.
 
-Each link defines a message route and direction. Messages from module `source` are to be delivered 
-to the module `sink`. The `source` may be set to "\*", indicating that messages from any module 
-will be received by `sink`.
+Each link defines a message route and direction. Messages from module `source` are delivered to the module `sink`. The `source` may be set to "\*", indicating that messages from any module are received by `sink`.
 
-The following code shows the JSON used to configure links between the modules used in the Hello 
-World sample on Linux. Every message produced by module `hello_world` will be consumed by module 
-`logger`.
+The following code shows the JSON used to configure links between the modules used in the hello\_world sample on Linux. Every message produced by the `hello_world` module is consumed by the `logger` module.
 
-```
-"links": 
+```json
+"links":
 [
     {
         "source": "hello_world",
@@ -130,10 +115,11 @@ World sample on Linux. Every message produced by module `hello_world` will be co
 ]
 ```
 
-### Hello World module message publishing
-You can find the code used by the "hello world" module to publish messages in the ['hello_world.c'][lnk-helloworld-c] file. The snippet below shows an amended version with additional comments and some error handling code removed for legibility:
+### Hello\_world module message publishing
 
-```
+You can find the code used by the hello\_world module to publish messages in the ['hello_world.c'][lnk-helloworld-c] file. The following snippet shows an amended version of the code with comments added and some error handling code removed for legibility:
+
+```c
 int helloWorldThread(void *param)
 {
     // create data structures used in function.
@@ -179,10 +165,11 @@ int helloWorldThread(void *param)
 }
 ```
 
-### Hello World module message processing
-The Hello World module never needs to process any messages that other modules publish to the broker. This makes implementation of the message callback in the Hello World module a no-op function.
+### Hello\_world module message processing
 
-```
+The hello\_world module never processes messages that other modules publish to the broker. Therefore, the implementation of the message callback in the hello\_world module is a no-op function.
+
+```c
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
     /* No action, HelloWorld is not interested in any messages. */
@@ -190,11 +177,12 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 ```
 
 ### Logger module message publishing and processing
-The Logger module receives messages from the broker and writes them to a file. It never publishes any messages. Therefore, the code of the logger module never calls the **Broker_Publish** function.
 
-The **Logger_Recieve** function in the [logger.c][lnk-logger-c] file is the callback the broker invokes to deliver messages to the logger module. The snippet below shows an amended version with additional comments and some error handling code removed for legibility:
+The logger module receives messages from the broker and writes them to a file. It never publishes any messages. Therefore, the code of the logger module never calls the **Broker_Publish** function.
 
-```
+The **Logger_Recieve** function in the [logger.c][lnk-logger-c] file is the callback the broker invokes to deliver messages to the logger module. The following snippet shows an amended version with comments added and some error handling code removed for legibility:
+
+```c
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
 
@@ -234,7 +222,8 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 ```
 
 ## Next steps
-To learn about how to use the IoT Gateway SDK, see the following:
+
+To learn about how to use the IoT Gateway SDK, see the following articles:
 
 * [IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated].
 * [Azure IoT Gateway SDK][lnk-gateway-sdk] on GitHub.
