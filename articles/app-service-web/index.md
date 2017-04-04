@@ -56,7 +56,13 @@ ms.author: carolz
 </div>
 <div class="columnHolder">
     <div class="column50">
-        <h2 style="margin-top: 36px">Samples</h2>
+        <h2 style="margin-top: 36px">Tutorials</h2>
+        <p>Create simple web apps in the cloud.</p>
+        <ul class="spaced">
+            <li><a href="/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase">.NET with SQL Database</a></li>
+            <li><a href="/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">Node.js with MongoDB</a></li>
+        </ul>
+        <h2>Samples</h2>
         <p>Find scripts to manage common tasks.</p>
         <ul class="spaced">
             <li><a href="/azure/app-service-web/app-service-cli-samples">Azure CLI</a></li>
