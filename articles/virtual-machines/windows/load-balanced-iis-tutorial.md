@@ -18,7 +18,7 @@ ms.date: 03/30/2017
 ms.author: davidmu
 ---
 
-# Build a highly available application on Windows virtual machines in Azure
+# Build a load balanced, highly available application on Windows virtual machines in Azure
 
 In this tutorial, you create a highly available application that is resilient to maintenance events. The app uses a load balancer, an availability set, and three Windows virtual machines (VMs). This tutorial installs IIS, though you can use this tutorial to deploy a different application framework using the same high availability components and guidelines. 
 
@@ -244,7 +244,7 @@ for ($i=1; $i -le 3; $i++)
 
 ```
 
-It takes a several minutes to create and configure all three VMs. The load balancer health probe automatically detects when the app is running on each VM. Once the app is running, the load balancer rule starts to distribute traffic.
+It takes several minutes to create and configure all three VMs. The load balancer health probe automatically detects when the app is running on each VM. Once the app is running, the load balancer rule starts to distribute traffic.
 
 ### Install the app 
 
