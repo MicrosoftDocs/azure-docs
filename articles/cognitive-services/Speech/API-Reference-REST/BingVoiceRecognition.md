@@ -1,41 +1,18 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Bing Speech Recognition REST API in Microsoft Cognitive Services | Microsoft Docs
+description: Use the Bing Speech Recognition REST API in contexts that need cloud-based speech recognition capabilities.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: priyaravi20
+manager: yanbo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: speech
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 02/28/2017
+ms.author: prrajan
 ---
 
 # Bing Speech Recognition API
-
-### Contents
-[Introduction](#Introduction) 
-
-[Speech Recognition Request](#VoiceRecReq)
-* [Authenticate the API Call](#Authorize)
-* [Access the Speech Service Endpoint](#SpeechService)
-* [Input Parameters](#InputParam) 
- * [Required Parameters](#ReqParam) 
- * [Optional Parameters](#OptParam) 
-* [REST API Implmentation Sample](#SampleImplementation)  
-* [Example Speech Recognition Request](#SampleVoiceRR)  
-* [Supported Codecs](#Codecs) 
-
-[Speech Recognition Responses](#VoiceRecResponse)
-* [Normal Response](#NormalResponse)  
-  * [Schema 1](#Schema1) 
-  * [Schema 2](#Schema2) 
-  * [Successful Recognition Response](#SuccessfulRecResponse) 
-  * [Recognition Failure](#RecFailure)
-* [Error Responses](#ErrorResponse)  
-
-[Troubleshooting and Support](#TrouNSupport)
 
 ## <a name="Introduction">Introduction</a>
 This documentation describes the Bing Speech Recognition REST API that exposes an HTTP interface which enables developers to transcribe voice queries. The Bing Speech Recognition API may be used in many different contexts that need cloud-based speech recognition capabilities. 
@@ -68,7 +45,8 @@ Clients must use the following endpoint to access the service and build voice en
 
  `https://speech.platform.bing.com/recognize`
 
-**Note!:** Until you have acquired an `access token` with your subscription key as described above this link will generate a 403 Response Error.
+>[!NOTE]
+>Until you have acquired an `access token` with your subscription key as described above this link will generate a 403 Response Error.
 
 The API uses HTTP POST to upload audio. The API supports [chunked transfer encoding](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) for efficient audio streaming. For live transcription scenarios, it is recommended you use chunked transfer encoding to stream the audio to the service while the user is speaking. Other implementations result in higher user-perceived latency. 
 
@@ -95,7 +73,8 @@ instanceid      |    GUID     |      A globally unique device identifier of the 
   
 #### <a name="OptParam">Optional Parameters</a>
 
-**Note**: the values below are used either for performing the request or to manage the service operationally. 
+>[!NOTE]
+>The values below are used either for performing the request or to manage the service operationally. 
 
 Name  |Format  |Description and example  
 ---------|---------|---------
