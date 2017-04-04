@@ -1,6 +1,7 @@
 ---
 title: Connect to on-premises file systems from Azure Logic Apps | Microsoft Docs
 description: Connect to on-premises file systems from your logic app workflow through the on-premises data gateway and File System connector
+keywords: file systems
 services: logic-apps
 author: derek1ee
 manager: anneta
