@@ -54,10 +54,11 @@ In this scenario you will:
 You can download the existing Azure Resource Manager template to create a virtual network and two subnets from GitHub, make any changes you might want, and reuse it. To do so, use the following steps:
 
 1. Navigate to [Create Application Gateway with web application firewall enabled](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-waf).
-2. Click **azuredeploy.json**, and then click **RAW**.
-3. Save the file to a local folder on your computer.
-4. If you are familiar with Azure Resource Manager templates, skip to step 7.
-5. Open the file that you saved and look at the contents under **parameters** in line 5. Azure Resource Manager template parameters provide a placeholder for values that can be filled out during deployment.
+1. Click **azuredeploy.json**, and then click **RAW**.
+1. Save the file to a local folder on your computer.
+1. If you are familiar with Azure Resource Manager templates, skip to step 7.
+1. Open the file that you saved and look at the contents under **parameters** in line
+1. Azure Resource Manager template parameters provide a placeholder for values that can be filled out during deployment.
 
    | Parameter | Description |
    | --- | --- |
@@ -73,10 +74,10 @@ You can download the existing Azure Resource Manager template to create a virtua
    | **wafRuleSetVersion** |Ruleset version. OWASP CRS 2.2.9 and 3.0 are currently the supported options. |
 
 
-    > [!IMPORTANT]
-    >Azure Resource Manager templates maintained in GitHub can change over time. Make sure that you check the template before using it.
+  > [!IMPORTANT]
+  > Azure Resource Manager templates maintained in GitHub can change over time. Make sure that you check the template before using it.
 
-6. Check the content under **resources** and notice the following properties:
+1. Check the content under **resources** and notice the following properties:
 
    * **type**. Type of resource being created by the template. In this case, the type is `Microsoft.Network/applicationGateways`, which represents an application gateway.
    * **name**. Name for the resource. Notice the use of `[parameters('applicationGatewayName')]`, which means that the name is provided as input by you or by a parameter file during deployment.
@@ -85,10 +86,10 @@ You can download the existing Azure Resource Manager template to create a virtua
    > [!NOTE]
    > For more information on templates visit: [Resource Manager templates reference](/templates/)
 
-7. Navigate back to [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
-8. Click **azuredeploy-parameters.json**, and then click **RAW**.
-9. Save the file to a local folder on your computer.
-10. Open the file that you saved and edit the values for the parameters. Use the following values to deploy the application gateway described in our scenario.
+1. Navigate back to [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
+1. Click **azuredeploy-parameters.json**, and then click **RAW**.
+1. Save the file to a local folder on your computer.
+1. Open the file that you saved and edit the values for the parameters. Use the following values to deploy the application gateway described in our scenario.
 
     ```json
     {
@@ -129,7 +130,7 @@ You can download the existing Azure Resource Manager template to create a virtua
     }
     ```
 
-11. Save the file. You can test the JSON template and parameter template by using online JSON validation tools like [JSlint.com](http://www.jslint.com/).
+1. Save the file. You can test the JSON template and parameter template by using online JSON validation tools like [JSlint.com](http://www.jslint.com/).
 
 ## Deploy the Azure Resource Manager template by using PowerShell
 
@@ -184,7 +185,7 @@ If you have never used Azure CLI, see [Install and configure the Azure CLI](/cli
 
 ### Step 2
 
-If necessary, run the **az group create** command to create a resource group, as shown in the following code snippet. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
+If necessary, run the `az group create` command to create a resource group, as shown in the following code snippet. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 ```azurecli
 az group create --location westus --name appgatewayRG
@@ -192,11 +193,11 @@ az group create --location westus --name appgatewayRG
 
 **-n (or --name)**. Name for the new resource group. For our scenario, it's *appgatewayRG*.
 
-**-l (or --location)**. Azure region where the new resource group is created. For our scenario, it's *eastus*.
+**-l (or --location)**. Azure region where the new resource group is created. For our scenario, it's *westus*.
 
 ### Step 4
 
-Run the **az group deployment create** cmdlet to deploy the new virtual network by using the template and parameter files you downloaded and modified in the preceding step. The list shown after the output explains the parameters used.
+Run the `az group deployment create` cmdlet to deploy the new virtual network by using the template and parameter files you downloaded and modified in the preceding step. The list shown after the output explains the parameters used.
 
 ```azurecli
 az group deployment create --resource-group appgatewayRG --name TestAppgatewayDeployment --template-file azuredeploy.json --parameters @azuredeploy-parameters.json
