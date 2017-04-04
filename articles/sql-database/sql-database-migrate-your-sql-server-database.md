@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 03/30/2017
+ms.date: 04/04/2017
 ms.author: janeng
 
 ---
 
 # Migrate your SQL Server database to Azure SQL database
 
-In this tutorial, you will migrate an existing SQL Server database to an Azure SQL Database using the Data Migration Assistant and will go through all the required steps from validating compatibility to performing the actual data migration to connecting to the migrated database after completed migration. 
+In this tutorial, you will migrate an existing SQL Server database to an Azure SQL Database using the Data Migration Assistant and will go through all the required steps from preparing for migration to performing the actual data migration and then connecting to the migrated database after completed migration. 
 
 > [!IMPORTANT]
 > To fix compatibility issues, use [Visual Studio Data Tools](https://docs.microsoft.com/en-us/sql/ssdt/download-sql-server-data-tools-ssdt). 
