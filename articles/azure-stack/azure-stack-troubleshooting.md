@@ -40,7 +40,7 @@ Code examples are provided as is and expected results cannot be guaranteed. This
 * VM Availability sets can only be configured with a fault domain of one and an update domain of one.  
 * You should avoid restarting the one-node environment because Azure Stack infrastructure services do not start in the proper order.
 * You cannot associate a load balancer with a backend network via the portal.  This task can be completed with PowerShell or with a template.
-* VM Scale Set scale-in operations may fail to delete unneeded resources.
+* VM Scale Set scale-in operations may fail.
 * VM Scale Set resize operations fail to complete. As an example, scaling out a VM Scale Set and resizing from A1 to D2 VMs will fail.
 * You will notice in the Total Memory in Region Management>Scale Units is expressed in MB instead of GB. 
  
