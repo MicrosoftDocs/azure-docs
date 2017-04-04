@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/08/2017
+ms.date: 04/03/2017
 ms.author: nepeters
 
 ---
@@ -58,7 +58,7 @@ $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location w
 -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
 ```
 
-Create a network security group and a network security group rule. The network security group secures the virtual machine using inbound and outbound rules. In this case, an inbound rule is created for port 22, which allows incoming SSH connections.
+Create a network security group and a network security group rule. The network security group secures the virtual machine using inbound and outbound rules. In this case, an inbound rule is created for port 22, which allows incoming SSH connections. We also want to create an inbound rule for port 80, which allows incoming web traffic.
 
 ```powershell
 # Create an inbound network security group rule for port 22
