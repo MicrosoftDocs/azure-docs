@@ -110,9 +110,9 @@ The sync service can run under different accounts. It can run under a **Virtual 
 
 | Type of account | Installation option | Description |
 | --- | --- | --- |
-| [Virtual Service Account](#virtual-service-account) | Express and custom, 2017 April and later | This is the option used for all express installations. For custom it is the default option unless another option is used. |
+| [Virtual Service Account](#virtual-service-account) | Express and custom, 2017 April and later | This is the option used for all express installations, except for installations on a Domain Controller. For custom it is the default option unless another option is used. |
 | [Group Managed Service Account](#group-managed-service-account) | Custom, 2017 April and later | If you use a remote SQL server, then we recommend to use a group managed service account. |
-| [User account](#user-account) | Express and custom, 2017 April and later | A user account prefixed with AAD_ is only created during installation when installed on Windows Server 2008. |
+| [User account](#user-account) | Express and custom, 2017 April and later | A user account prefixed with AAD_ is only created during installation when installed on Windows Server 2008 and when installed on a Domain Controller. |
 | [User account](#user-account) | Express and custom, 2017 March and earlier | A local account prefixed with AAD_ is created during installation. When using custom installation, another account can be specified. |
 
 If you use Connect with a build from 2017 March or earlier, then you should not reset the password on the service account since Windows destroys the encryption keys for security reasons. You cannot change the account to any other account without reinstalling Azure AD Connect. If you upgrade to a build from 2017 April or later, then it is supported to change the password on the service account but you cannot change the account used.
@@ -124,7 +124,8 @@ This is a table of the default, recommended, and supported options for the sync 
 
 Legend:
 
-- **Bold** indicates the preferred, recommended, and default option.
+- **Bold** indicates the default option and in most cases the recommended option.
+- *Italic* indicates the recommended option when it is not the default option.
 - 2008 - Default option when installed on Windows Server 2008
 - Non-bold - Supported option
 - Local account - Local user account on the server
@@ -136,7 +137,7 @@ Legend:
 | --- | --- | --- | --- |
 | **standalone/workgroup machine** | Not supported | **VSA**</br>Local account (2008)</br>Local account |  Not supported |
 | **domain-joined machine** | **VSA**</br>Local account (2008) | **VSA**</br>Local account (2008)</br>Local account</br>Domain account</br>sMSA,gMSA | **gMSA**</br>Domain account |
-| **Domain Controller** | **Domain account** | **sMSA,gMSA**</br>Domain account| **gMSA**</br>Domain account|
+| **Domain Controller** | **Domain account** | *gMSA*</br>**Domain account**</br>sMSA| *gMSA*</br>**Domain account**|
 
 #### Virtual service account
 A virtual service account is a special type of account that does not have a password and is managed by Windows.
