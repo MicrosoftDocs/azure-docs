@@ -63,8 +63,8 @@
 #### [Text-to-speech API reference](Speech/API-Reference-REST/BingVoiceOutput.md)
 
 ### Spell Check
-#### [Overview](Custom Speech Service/Home.md)
-#### [Use and Display Requirements](Custom Speech Service/UseAndDisplayRequirements.md)
+#### [Overview](Bing-Spell-Check/Home.md)
+#### [Use and Display Requirements](Bing-Spell-Check/UseAndDisplayRequirements.md)
 #### [API reference](https://dev.cognitive.microsoft.com/docs/services/56e73033cf5ff80c2008c679/operations/57855119bca1df1c647bc358)
 
 ### Video Search
@@ -126,8 +126,8 @@
 ## Custom Speech Service
 ### [Overview](Custom-Speech-Service/Home.md)
 ### [Get started](Custom-Speech-Service/GetStarted.md)
-### [FAQ](FAQ.md)  
-### [Glossary](Glossary.md)   
+### [FAQ](Custom-Speech-Service/FAQ.md)  
+### [Glossary](Custom-Speech-Service/Glossary.md)   
 
 ## Emotion API   
 ### [Overview](Emotion/Home.md)
@@ -143,7 +143,7 @@
 #### [Python](Emotion/QuickStarts/Python.md)                   
 #### [Ruby](Emotion/QuickStarts/Ruby.md)                     
 ### Tutorials
-#### [C#](Emotion/Tutorials/CSharpTutorial.md))           
+#### [C#](Emotion/Tutorials/CSharpTutorial.md)           
 #### [Python](Emotion/Tutorials/PythonTutorial.md)           
 ### [SDKs + samples](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=emotion)  
 ### [API Reference for Images](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89)
@@ -201,6 +201,30 @@
 ### [Analyze method](LinguisticAnalysisAPI/AnalyzeMethod.md)
 ### [Analyzers method](LinguisticAnalysisAPI/AnalyzersMethod.md)
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56ea598f778daf01942505ff/operations/56ea5a1cca73071fd4b102bb)
+
+## Language Understanding Intelligent Svcs
+### [Overview](LUIS/Home.md)
+### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)
+### [Plan your app](LUIS/Plan-your-app.md)
+### [Create an app](LUIS/Create-new-app.md)
+### [Dashboard](LUIS/App-Dashboard.md )
+### [Add intents](LUIS/Add-intents.md)
+### [Add utterances](LUIS/Add-example-utterances.md)
+### [Add entities](LUIS/Add-entities.md)
+### [Add features](LUIS/Add-Features.md)
+### [Train + test the app](LUIS/Train-Test.md)
+### [Active learning](LUIS/Label-Suggested-Utterances.md)
+### [Publish your app](LUIS/PublishApp.md)
+### [Pre-built entities](LUIS/Pre-builtEntities.md)
+### [Cortana prebuilt app](LUIS/Cortana-Prebuilt-App.md)
+### [Key management](LUIS/Manage-Keys.md)
+### [Create subscription keys](LUIS/AzureIbizaSubscription.md )
+                     
+
+               
+             
+         
+                
 
 
  
