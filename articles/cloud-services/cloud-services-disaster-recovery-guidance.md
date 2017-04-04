@@ -37,7 +37,7 @@ The most robust disaster recovery solution involves maintaining multiple deploym
 
 ![Balancing Azure Cloud Services across regions with Azure Traffic Manager](./media/cloud-services-disaster-recovery-guidance/using-azure-traffic-manager.png)
 
-For the fastest response to the loss of a region, it is important that you configure Traffic Manager's [endpoint monitoring](../traffic-manager-monitoring.md).
+For the fastest response to the loss of a region, it is important that you configure Traffic Manager's [endpoint monitoring](../traffic-manager/traffic-manager-monitoring.md).
 
 ## Option 2: Re-Deploy your cloud service configuration to a new region
 Maintaining multiple active deployments as described in the previous option incurs additional ongoing costs. If your recovery time objective (RTO) is flexible enough and you have the original code or compiled Cloud Services package, you can create a new instance of your application in another region and update your DNS records to point to the new deployment.
