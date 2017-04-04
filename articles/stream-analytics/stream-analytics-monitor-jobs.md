@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
+ms.date: 04/04/2017
 ms.author: jeffstok
 
 ---
 # Programmatically create a Stream Analytics job monitor
- This article demonstrates how to enable monitoring for a Stream Analytics job. Stream Analytics jobs created via REST APIs, Azure SDK, or Powershell do not have monitoring enabled by default.  You can manually enable this in the Azure Portal by navigating to the job’s Monitor page and clicking the Enable button or you can automate this process by following the steps in this article. The monitoring data will show up in the “Monitor” tab in the Azure Portal for your Stream Analytics job.
-
-![job monitor Jobs Tab](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
+ This article demonstrates how to enable monitoring for a Stream Analytics job. Stream Analytics jobs created via REST APIs, Azure SDK, or Powershell do not have monitoring enabled by default.  You can manually enable this in the Azure Portal by navigating to the job’s Monitor page and clicking the Enable button or you can automate this process by following the steps in this article. The monitoring data will show up in the Metrics area of the Azure portal for your Stream Analytics job.
 
 ## Prerequisites
 Before you begin this article, you must have the following:
