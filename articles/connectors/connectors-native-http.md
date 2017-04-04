@@ -1,11 +1,11 @@
 ---
-title: Add the HTTP action in logic apps | Microsoft Docs
-description: Overview of the HTTP action with properties
-services: ''
-documentationcenter: ''
+title: Communicate with any endpoint over HTTP - Azure Logic Apps | Microsoft Docs
+description: Create logic apps that can communicate with any endpoint over HTTP
+services: logic-apps
 author: jeffhollan
 manager: anneta
 editor: ''
+documentationcenter: ''
 tags: connectors
 
 ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
@@ -15,10 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
-ms.author: jehollan
+ms.author: jehollan; LADocs
 
 ---
 # Get started with the HTTP action
+
 With the HTTP action, you can extend workflows for your organization and communicate to any endpoint over HTTP.
 
 You can:
@@ -36,9 +37,10 @@ Here’s an example sequence of how to set up the HTTP trigger in the Logic App 
 1. Add the HTTP trigger in your logic app.
 2. Fill in the parameters for the HTTP endpoint that you want to poll.
 3. Modify the recurrence interval on how frequently it should poll.
-4. The logic app now fires with any content that is returned during each check.
 
-![HTTP trigger](./media/connectors-native-http/using-trigger.png)
+   The logic app now fires with any content that is returned during each check.
+
+   ![HTTP trigger](./media/connectors-native-http/using-trigger.png)
 
 ### How the HTTP trigger works
 The HTTP trigger makes a call to an HTTP endpoint on a recurring interval. By default, any HTTP response code less than 300 results in a logic app run. You can add a condition in code view that will evaluate after the HTTP call to determine if the logic app should fire. Here's an example of an HTTP trigger that fires whenever the status code returned is greater than or equal to `400`.
