@@ -63,7 +63,7 @@ For a full list of sections and properties that are available for defining datas
 
 
 ## Copy activity properties
-For a full list of sections and properties that are available for defining activities, see the [Creating pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and various policies are available for all types of activities. Whereas, the properties that are available in the typeProperties section of the activity vary with each activity type. For Copy Activity, they vary depending on the types of sources and sinks.
+For a full list of sections and properties that are available for defining activities, see the [Creating pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and various policies are available for all types of activities. Whereas, properties available in the typeProperties section vary with each activity type. For Copy Activity, they vary depending on the types of sources and sinks.
 
 For Copy Activity, when the sink is of the type **AzureSearchIndexSink**, the following properties are available in typeProperties section:
 
