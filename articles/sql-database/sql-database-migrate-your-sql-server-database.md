@@ -66,7 +66,7 @@ An [Azure SQL Database logical server](sql-database-features.md) acts as a centr
 
 ## Step 3: Create a server-level firewall rule
 
-The SQL Database service creates a firewall at the server-level preventing external applications and tools from connecting to the server or any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your client's IP address and enable external connectivity through the SQL Database firewall for your IP address only. 
+The SQL Database service creates a [firewall at the server-level](sql-database-firewall-configure.md) preventing external applications and tools from connecting to the server or any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. Follow these steps to create a SQL Database server-level firewall rule for your client's IP address and enable external connectivity through the SQL Database firewall for your IP address only. 
 
 1. After the deployment completes, click **All resources** from the left-hand menu and click your new server on the **All resources** page. The overview page for your server opens, showing you the fully qualified server name (such as **mynewserver20170403.database.windows.net**) and provides options for further configuration.
 
