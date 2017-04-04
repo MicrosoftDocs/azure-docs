@@ -81,13 +81,10 @@ You must have a Data Lake Analytics account before you can run any jobs. To crea
 
 **To create a Data Lake Analytics account**
 
-        az dla account create --account "<Data Lake Analytics Account Name>" --resource-group "<Resource Group Name>" --location "<Azure location>" --default-data-lake-store "<Default Data Lake Account Name>"
+    az dla account create --account "<Data Lake Analytics Account Name>" --resource-group "<Resource Group Name>" --location "<Azure location>" --default-data-lake-store "<Default Data Lake Account Name>"
 
-        az dla account list
-        az dla account show --account "<Data Lake Analytics Account Name>"            
-
-![Data Lake Analytics show account](./media/data-lake-analytics-get-started-cli/data-lake-analytics-show-account-cli.png)
-
+    az dla account list
+    az dla account show --account "<Data Lake Analytics Account Name>"            
 
 ## Upload data to Data Lake Store
 In this tutorial, you process some search logs.  The search log can be stored in either Data Lake store or Azure Blob storage. 
@@ -96,8 +93,8 @@ The Azure Portal provides a user interface for copying some sample data files to
 
 To upload files using cli, use the following command:
 
-      az dls file upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
-      az dls file list --account "<Data Lake Store Account Name>" --path "<Path>"
+    az dls file upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
+    az dls file list --account "<Data Lake Store Account Name>" --path "<Path>"
 
 Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see [Using the Azure CLI with Azure Storage](../storage/storage-azure-cli.md).
 
@@ -152,9 +149,9 @@ For example:
 The following commands can be used to list jobs, get job details, and cancel jobs:
 
     ```
-    az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
     az dla job list --account "<Data Lake Analytics Account Name>"
     az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
+    az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
     ```
 
 After the job is completed, you can use the following cmdlets to list the file, and download the file:
