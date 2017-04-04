@@ -22,7 +22,7 @@ ms.author: janeng
 
 # Migrate your SQL Server database to Azure SQL database
 
-In this tutorial, you use the Azure portal, the SQLPackage command-line utility, the [Data Migration Assistant](https://blogs.msdn.microsoft.com/datamigration/dma/), [Visual Studio Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt), and [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) to migrate the [SQL Server 2008R2 AdventureWorks OLTP database](https://msftdbprodsamples.codeplex.com/releases/view/59211) to Azure SQL Database. You start by creating an Azure SQL Database logical server and server-level firewall rule using the Azure portal. Next, you validate the compatibility of your SQL Server database with Azure SQL Database using the Data Migration Assistant. Next, you export the database as a BACPAC file to local storage using SQLPackage and then import the BACPAC as a new database on your Azure Database server. Finally, you connect to the migrated database using SQL Server Management Studio. 
+In this tutorial, you will migrate an existing SQL Server database to an Azure SQL Database using the Data Migration Assistant and will go through all the required steps from validating compatibility to performing the actual data migration to connecting to the migrated database after completed migration. 
 
 > [!IMPORTANT]
 > To fix compatibility issues, use [Visual Studio Data Tools](https://msdn.microsoft.com/mt186501). 
@@ -44,7 +44,7 @@ An [Azure SQL Database logical server](sql-database-features.md) acts as a centr
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
-2. Type **server** in the search window on the **New** page, and select **SQL database (logical server)** from the filtered list in the Marketplace.
+2. Type **server** in the search window on the **New** page, and select **SQL database (logical server)** from the filtered list.
 
     ![select logical server](./media/sql-database-migrate-your-sql-server-database/logical-server.png)
 
@@ -56,8 +56,8 @@ An [Azure SQL Database logical server](sql-database-features.md) acts as a centr
 
    - Server name: Specify a globally unique server name
    - Server admin login: Provide a name for the Server admin login
-   - Password: specify the password of your choice
-   - Resource group: Specify **Create new** and specify **myResourceGroup**
+   - Password: Specify the password of your choice
+   - Resource group: Select **Create new** and specify **myResourceGroup**
    - Location: Select a data center location
 
     ![create logical server completed form](./media/sql-database-migrate-your-sql-server-database/logical-server-create-completed.png)
@@ -66,15 +66,15 @@ An [Azure SQL Database logical server](sql-database-features.md) acts as a centr
 
 ## Step 3: Create a server-level firewall rule
 
-The SQL Database service creates a [firewall at the server-level](sql-database-firewall-configure.md) preventing external applications and tools from connecting to the server or any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. Follow these steps to create a SQL Database server-level firewall rule for your client's IP address and enable external connectivity through the SQL Database firewall for your IP address only. 
+The SQL Database service creates a [firewall at the server-level](sql-database-firewall-configure.md) preventing external applications and tools from connecting to the server or any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. Follow these steps to create a SQL Database server-level firewall rule for your client's IP address and enable external connectivity through the SQL Database firewall for your specified IP address only. 
 
-1. After the deployment completes, click **All resources** from the left-hand menu and click your new server on the **All resources** page. The overview page for your server opens, showing you the fully qualified server name (such as **mynewserver20170403.database.windows.net**) and provides options for further configuration.
+1. Click **All resources** from the left-hand menu and click your new server on the **All resources** page. The overview page for your server opens, showing you the fully qualified server name (such as **mynewserver20170403.database.windows.net**) and provides options for further configuration.
 
      ![logical server overview](./media/sql-database-migrate-your-sql-server-database/logical-server-overview.png)
 
-2. Click **Firewall** in the left-hand menu of the overview page. The **Firewall settings** page for the SQL Database server opens. 
+2. Click **Firewall** in the left-hand menu under Settings on the overview page. The **Firewall settings** page for the SQL Database server opens. 
 
-3. Click **Add client IP** on the toolbar and then click **Save**. A server-level firewall rule is created for your current IP address.
+3. Click **Add client IP** on the toolbar to add the IP address of the computer you are currently using and then click **Save**. A server-level firewall rule is created for this IP address.
 
      ![set server firewall rule](./media/sql-database-migrate-your-sql-server-database/server-firewall-rule-set.png)
 
