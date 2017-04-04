@@ -68,8 +68,8 @@ for the File System connector.
 so relevant users know about the new file. Enter the recipients, title, 
 and body of the email. 
 
-   In the dynamic content selector, you can select output from 
-   the file connector so you can add more details to the email.
+   In the dynamic content selector, you can choose data outputs 
+   from the file connector so you can add more details to the email.
 
    ![Send email action](media/logic-apps-using-file-connector/send-email.png)
 
