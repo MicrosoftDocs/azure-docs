@@ -5,8 +5,6 @@
 # Get Started
 ## [Welcome](Welcome.md)
 ## [Create an account](cognitive-services-apis-create-account.md)
-## [Text Analytics quick start](cognitive-services-text-analytics-quick-start.md)
-## [Recommendations quick start](cognitive-services-recommendations-quick-start.md)
 
 # Services/APIs
 ## Academic Knowledge
@@ -232,69 +230,56 @@
 ### [API Reference](QnAMaker/HTTPEndPoint.md)
 ### [FAQ](QnAMaker/Guides/QnAMaker/FAQs.md)
 
-
-        
-       
-         
-        
-            
-           
-    
-     
-               
-             
-         
-                
-
-
- 
-
-
-
-
-       
-     
-        
-
-              
-        
-      
-
-        
-
-
-        
-                  
-                           
-                       
-                     
-                   
-                             
-
-         
-         
-
-
-
-
-
-## Text Analytics API
-### [API migration](cognitive-services-text-analytics-api-migration.md)
-
-## Recommendations API
-### [Collect training data](cognitive-services-recommendations-collecting-data.md)
+## Recommendations
+### [Overview](Recommendations/overview.md)
+### [Recommendations quick start](cognitive-services-recommendations-quick-start.md)
 ### [Build types & model quality](cognitive-services-recommendations-buildtypes.md)
+### [Collect training data](cognitive-services-recommendations-collecting-data.md)
+### [Use the Recommendations UI](cognitive-services-recommendations-ui-intro.md) 
+### [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3db)
 ### [Batch scoring](cognitive-services-recommendations-batch-scoring.md)
-### [Use the Recommendations UI](cognitive-services-recommendations-ui-intro.md)
+       
+## Speaker Recognition
+### [Overview](Speaker-recognition/Home.md)
+### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797)
 
-## Develop with Speaker Recognition API
-### [API overview](https://www.microsoft.com/cognitive-services/en-us/speaker-recognition-api/documentation)
-### [API reference](https://dev.projectoxford.ai/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797)
-## [Develop with Face API](https://www.microsoft.com/cognitive-services/en-us/face-api/documentation/overview)
-## [Develop with Emotion API](https://www.microsoft.com/cognitive-services/en-us/emotion-api/documentation)
 
-## [Develop with Web Language Model API](https://www.microsoft.com/cognitive-services/en-us/web-language-model-api/documentation)
-## [Develop with Language Understanding Intelligent Service](https://www.luis.ai/Help/)
+## Speech Folder?
+
+## Text Analytics
+### [Overview](Text-Analytics/overview.md)
+### [Quickstart](cognitive-services-text-analytics-quick-start.md)
+### [API migration](cognitive-services-text-analytics-api-migration.md)
+### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
+     
+## Translator
+### [Overview](Translator/translator-info-overview.md)
+### [Languages](Translator/languages.md)
+### [Hub](Translator/translator-hub-overview.md)
+### [CTF](Translator/collaborative-translation-framework-reporting-api.md)
+### Web widget
+#### [](Translator/widget-AddingTheWidgetToYourPage.md)
+#### [](Translator/widget-CustomizingTheWebWidget.md)
+#### [](Translator/widget-GettingStartedWithTheTranslatorWebWidget.md)
+#### [](Translator/widget-TheTranslatorWebWidgetAPI.md)
+### [Speech translation API overview](Translator/speech-overview.md)
+### [Speech translation API reference](http://docs.microsofttranslator.com/speech-translate.html)
+### [Text translation API overview](Translator/text-overview.md)
+### [Text translation API reference](http://docs.microsofttranslator.com/text-translate.html)
+
+## Video
+
+
+
+
+         
+
+
+
+
+
+
+
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.cognitiveservices/v0.4.1/azurerm.cognitiveservices)
