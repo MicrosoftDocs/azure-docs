@@ -25,9 +25,11 @@ Before you can provision virtual machines, you must add the Windows Server VM im
 2. Go to https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 and download the Windows Server 2016 evaluation. When prompted, select the **ISO** version of the download. Record the path to the download location to use later in these steps.
 3. Open PowerShell ISE as an administrator.
 4. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
-5. [Download the Azure Stack tools from GitHub](azure-stack-powershell-download.md).
+5. [Download the Azure Stack tools from GitHub](azure-stack-powershell-download.md).  
+
    > [!NOTE]
    > Make sure that you download and extract the Azure Stack tool repository to a folder that is NOT under the C:\Windows\System32 directory.  
+   
 6. Import the Azure Stack Connect and Compute Modules by using the following script:
 
     ```powershell
