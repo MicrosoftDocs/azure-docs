@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: develop
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 
