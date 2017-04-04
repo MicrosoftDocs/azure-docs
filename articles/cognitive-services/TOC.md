@@ -77,17 +77,28 @@
 #### [Use and Display Requirements](Bing-Web-Search/UseAndDisplayRequirements.md)
 #### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d)
 
-###Bing Search APIs
-#### [Web Search API](https://www.microsoft.com/cognitive-services/en-us/bing-web-search-api/documentation)
-#### [Image Search API](https://www.microsoft.com/cognitive-services/en-us/bing-image-search-api/documentation)
-#### [Video Search API](https://www.microsoft.com/cognitive-services/en-us/bing-video-search-api/documentation)
-#### [News Search API](https://www.microsoft.com/cognitive-services/en-us/bing-news-search-api/documentation)
-### [Bing Autosuggest API](https://www.microsoft.com/cognitive-services/en-us/bing-autosuggest-api/documentation)
-### [Bing Spell Check API](https://www.microsoft.com/cognitive-services/en-us/bing-spell-check-api/documentation)
-### [Bing Speech API](https://www.microsoft.com/cognitive-services/en-us/speech-api/documentation/overview)
-
-
-
+## (Computer Vision API
+### [Overview](Computer-vision/Home.md) 
+### How-to
+#### [Obtain subscription keys](Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md) 
+#### [Call the (Computer Vision API](Computer-vision/Vision-API-How-to-Topics/HowToCallVisionAPI.md)      
+#### [Analyze videos in real time](Computer-vision/Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md)
+### Quickstarts
+#### [cURL](Computer-vision/QuickStarts/curl.md) 
+#### [C#](Computer-vision/QuickStarts/CSharp.md)                                   
+#### [Java](Computer-vision/QuickStarts/Java.md)                    
+#### [JavaScript](Computer-vision/QuickStarts/JavaScript.md)              
+#### [PHP](Computer-vision/QuickStarts/PHP.md)                     
+#### [Python](Computer-vision/QuickStarts/Python.md)                  
+#### [Ruby](Computer-vision/QuickStarts/Ruby.md)
+### Tutorials
+#### [C#](Computer-vision/Tutorials/CSharpTutorial.md)          
+#### [Python](Computer-vision/Tutorials/PythonTutorial.md)
+### [SDKs & samples](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=(Computer%20vision)
+### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739)
+### [Category taxonomy](Computer-vision/Category-Taxonomy.md)       
+### [FAQ](Computer-vision/FAQ.md)                                      
+### [Research papers](Computer-vision/Research.md)                
 
 
 ## Text Analytics API
@@ -105,11 +116,11 @@
 ## [Develop with Face API](https://www.microsoft.com/cognitive-services/en-us/face-api/documentation/overview)
 ## [Develop with Emotion API](https://www.microsoft.com/cognitive-services/en-us/emotion-api/documentation)
 
-## Develop with Computer Vision API
-### [Overview](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api/documentation)
-### [Python API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api/documentation/getstarted/getstartedwithpython)
-### [C## API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api/documentation/getstarted/getstartedvisionapiforwindows)
-### [Call the API](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/vision-api-how-to-topics/HowToCallVisionAPI)
+## Develop with (Computer Vision API
+### [Overview](https://www.microsoft.com/cognitive-services/en-us/(Computer-vision-api/documentation)
+### [Python API](https://www.microsoft.com/cognitive-services/en-us/(Computer-vision-api/documentation/getstarted/getstartedwithpython)
+### [C## API](https://www.microsoft.com/cognitive-services/en-us/(Computer-vision-api/documentation/getstarted/getstartedvisionapiforwindows)
+### [Call the API](https://www.microsoft.com/cognitive-services/en-us/(Computer-Vision-API/documentation/vision-api-how-to-topics/HowToCallVisionAPI)
 ### [API reference](https://dev.projectoxford.ai/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa)
 
 
