@@ -68,20 +68,20 @@ You must have a Data Lake Analytics account before you can run any jobs. To crea
         az group create --name "<Resource Group Name>" --location "<Azure Location>"
 * **Data Lake Analytics account name**
 * **Location**: one of the Azure data centers that supports Data Lake Analytics.
-* **Default Data Lake account**: each Data Lake Analytics account has a default Data Lake account.
+* **Default Data Lake Store account**: each Data Lake Analytics account has a default Data Lake Store account.
   
-    To list the existing Data Lake account:
+    To list the existing Data Lake Store account:
   
         az dls account list
   
-    To create a new Data Lake account:
+    To create a new Data Lake Store account:
   
         az dls account create --account "<Data Lake Store Account Name>" --resource-group "<Resource Group Name>"
   
 
 **To create a Data Lake Analytics account**
 
-    az dla account create --account "<Data Lake Analytics Account Name>" --resource-group "<Resource Group Name>" --location "<Azure location>" --default-data-lake-store "<Default Data Lake Account Name>"
+    az dla account create --account "<Data Lake Analytics Account Name>" --resource-group "<Resource Group Name>" --location "<Azure location>" --default-data-lake-store "<Default Data Lake Store Account Name>"
 
     az dla account list
     az dla account show --account "<Data Lake Analytics Account Name>"            
@@ -89,7 +89,7 @@ You must have a Data Lake Analytics account before you can run any jobs. To crea
 ## Upload data to Data Lake Store
 In this tutorial, you process some search logs.  The search log can be stored in either Data Lake store or Azure Blob storage. 
 
-The Azure portal provides a user interface for copying some sample data files to the default Data Lake account, which include a search log file. See [Prepare source data](data-lake-analytics-get-started-portal.md#prepare-source-data) to upload the data to the default Data Lake Store account.
+The Azure portal provides a user interface for copying some sample data files to the default Data Lake Store account, which include a search log file. See [Prepare source data](data-lake-analytics-get-started-portal.md#prepare-source-data) to upload the data to the default Data Lake Store account.
 
 To upload files using cli, use the following command:
 
@@ -124,7 +124,7 @@ The Data Lake Analytics jobs are written in the U-SQL language. To learn more ab
   
     Don't modify the two paths unless you copy the source file into a different location.  Data Lake Analytics will create the output folder if it doesn't exist.
   
-    It is simpler to use relative paths for files stored in default data Lake accounts. You can also use absolute paths.  For example 
+    It is simpler to use relative paths for files stored in default Data Lake Store accounts. You can also use absolute paths.  For example 
   
         adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
   
