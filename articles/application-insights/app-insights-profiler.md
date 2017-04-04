@@ -11,7 +11,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 04/03/2017
 ms.author: awills
 
 ---
@@ -19,84 +19,55 @@ ms.author: awills
 
 *This feature of Application Insights is in preview.*
 
-Find out how much time is spent in each method in your live web application by using the profiling tool of [Azure Application Insights](app-insights-overview.md). It automatically highlights the 'hot path' that is using the most time. The profiler uses various techniques to minimize overhead.
+Find out how much time is spent in each method in your live web application by using the profiling tool of [Azure Application Insights](app-insights-overview.md). It shows you detailed profiles of live requests that were served by your app, and highlights the 'hot path' that is using the most time. It automatically selects examples that have different response times. The profiler uses various techniques to minimize overhead. 
+
+The profiler currently works for ASP.NET web apps running on Azure App Services, in at least the Basic pricing tier. (If you're using ASP.NET Core, the target framework must be `.NetCoreApp`.)
 
 <a id="installation"></a>
-## Prerequisites
+## Enable the profiler
 
-- Your app is an ASP.NET web application hosted in Azure App Services. 
-    * If it's an ASP.NET Core application, the target framework must be `.NetCoreApp`.
-- The version of the Application Insights NuGet package you have installed in your web app is:
-    * Microsoft.ApplicationInsights.Web v2.2.0-beta2 or later; or
-    * Microsoft.ApplicationInsights.AspNetCore v2.0.0 or later.
-- The Azure Web App Service Plan that is hosting your app must be Basic tier or above.
+[Install Application Insights](app-insights-azure-asp-net.md) in your code. If it's already installed, make sure you have the latest version. (To do this, right-click your project in Solution Explorer, and choose Manage NuGet packages. Select Updates and update all packages.)
 
-App types that are **not yet** supported in this preview:
+*Using ASP.NET Core? [Check here](#aspnetcore).*
 
-* Azure WebJobs.
-* ASP.NET Core apps targeted on .NET Framework. See [ASP.NET Core Support](#aspnetcore) for more information.
-
-## Start the profiler
-
+In [https://portal.azure.com](https://portal.azure.com), open the Application Insights resource for your web app. Open **Performance** and click **Configure**. Select your app and follow the wizard.
 
 ![In the Performance blade, click Configure][performance-blade]
 
-1. In [https://portal.azure.com](https://portal.azure.com), open the Application Insights resource for your web app. (Either open it directly, or, from the web app blade, open Application Insights, then **View more detail**.)
-2. Open Investigate/**Performance**.
-3. Click **Configure** on the toolbar.
- * *No Configure button? Use the [manual procedure](#manual-installation)*
-4. Select the app from the Web App list.
-5. Click **Start** to set up the profiler. It will take 2 or 3 minutes to install.
-5. After the enabling completes, the profiler agent will run as a continuous web job (ApplicationInsightsProfiler) in the Web App.
+* *No Configure button? Use the [manual procedure](#manual-installation).*
 
-### Manual installation
-
-When you configure the profiler, the following updates are made to the Web App's settings. You can do them yourself manually:
-
-1. In the Web app control blade, open Settings.
-2. Set ".Net Framework version" to v4.6.
-3. Set "Always On" to On.
-4. Add app setting "__APPINSIGHTS_INSTRUMENTATIONKEY__" and set the value to the same instrumentation key used by the SDK.
-5. In **Extensions**, Add "Application Insights Profiler." It will take 2 or 3 minutes to install.
-
-
-### Stop and restart the profiler
-
-In the Web App resource, open SETTINGS/**WebJobs**. There you can stop and start the profiler job.
-
-### Delete the profiler
-
-In the Web App resource, open DEVELOPMENT TOOLS/**Extensions**. Delete the Application Insights profiler.
+If you need to stop or restart the profiler, you'll find it **in the App Service resource**, in **Web Jobs**. To delete it, look under **Extensions**.
 
 ## Viewing profiler data
 
 Open the Performance blade and scroll down to the operation list.
 
-An icon in the Examples column indicates that the profiler has captured stack traces for that operation.
+
 
 
 ![Application Insights Performance blade Examples Column][performance-blade-examples]
 
-Click through to the trace explorer where you can view several different samples that the profiler has captured. 
+The columns in the table are:
 
-The trace explorer shows a percentile breakdown with samples in the categories.
-This gives you quick access to profile data in each performance bucket. If you want to see more data, click **Show all**. 
+* **Count** - The number of these requests in the time range of the blade.
+* **Median** - The typical time your app takes to respond to a request. Half of all responses were faster than this.
+* **95th percentile** 95% of responses were faster than this. If this figure is very different from the median, there might be an intermittent problem with your app. (Or it might be explained by a design feature such as caching.)
+* **Examples** - an icon indicates that the profiler has captured stack traces for this operation.
+
+Click the Examples icon to open the trace explorer. The explorer shows several samples that the profiler has captured, classified by response time.
+
+Select a sample to show a code-level breakdown of time spent executing the request.
 
 ![Application Insights Trace Explorer][trace-explorer]
-
-In the toolbar there is meta information with a precise timestamp that you can use for tracing purposes. For more advanced investigations, you can download the `.etl` file and view it in a tool such as PerfView.
-
-![Toolbar][trace-explorer-toolbar]
-
-In some cases, a popup performance tip appears.
-
-![Hint][trace-explorer-hint-tip]
 
 **Show hot path** opens the biggest leaf node, or at least something close. In most cases this node
 will be adjacent to a performance bottleneck.
 
-![Hot path][trace-explorer-hot-path]
 
+
+* **Label**: The name of the function or event. The tree shows a mix of code and events that occurred (such as SQL and http events). The top event represents the overall request duration.
+* **Metric**: The elapsed time.
+* **When**: Shows when the function/event was running in relation to other functions. 
 
 ## How to read performance data
 
@@ -169,21 +140,6 @@ a bar whose height represents a scaled value. For nodes marked `CPU_TIME` or `BL
 the bar represents consuming one of those resources for the period of time of that bucket. For these metrics you can get greater than 100% by consuming multiple 
 resources. For example, if on average you use two CPUs over an interval then you get 200%.
 
-## <a id="aspnetcore"></a>ASP.NET Core Support
-
-ASP.NET Core application is currently supported on .NET Core runtime but NOT supported in full .NET Framework runtime.
-
-The application also needs to include the following components to enable profiling.
-
-1. [Application Insights for ASP.NET Core 2.0](https://github.com/Microsoft/ApplicationInsights-aspnetcore/releases/tag/v2.0.0)
-2. [System.Diagnostics.DiagnosticSource 4.4.0-beta-25022-02](https://dotnet.myget.org/feed/dotnet-core/package/nuget/System.Diagnostics.DiagnosticSource/4.4.0-beta-25022-02)
-    * In Visual Studio, select menu "Tools -> NuGet Package Manager -> Package Manager Settings".
-    * In Options dialog, select "NuGet Package Manager -> Package Sources".
-    * Click "+" button to add a new package source with Name "DotNet-Core-MyGet" and Value "https://dotnet.myget.org/F/dotnet-core/api/v3/index.json".
-    * Click "Update" button and close Options dialog.
-    * Open Solution Explorer, right-click the ASP.NET Core project and select "Manage NuGet Packages...".
-    * Click "Browse" tab, select "Package source: DotNet-Core-MyGet" and check "Include prerelease".
-    * Search "System.Diagnostics.DiagnosticSource" and choose "__4.4.0-beta-25022-02__" to install.
 
 ## <a id="troubleshooting"></a>Troubleshooting
 
@@ -228,6 +184,33 @@ When you see parallel threads in your traces, you need to determine which thread
 ### Error report in the profiling viewer
 
 File a support ticket from the portal. Please include the correlation ID from the error message.
+
+
+## Manual installation
+
+When you configure the profiler, the following updates are made to the Web App's settings. You can do them yourself manually:
+
+1. In the Web app control blade, open Settings.
+2. Set ".Net Framework version" to v4.6.
+3. Set "Always On" to On.
+4. Add app setting "__APPINSIGHTS_INSTRUMENTATIONKEY__" and set the value to the same instrumentation key used by the SDK.
+5. In **Extensions**, Add "Application Insights Profiler." It will take 2 or 3 minutes to install.
+
+## <a id="aspnetcore"></a>ASP.NET Core Support
+
+ASP.NET Core application is currently supported on .NET Core runtime.
+
+The application also needs to include the following components to enable profiling.
+
+1. [Application Insights for ASP.NET Core 2.0](https://github.com/Microsoft/ApplicationInsights-aspnetcore/releases/tag/v2.0.0)
+2. [System.Diagnostics.DiagnosticSource 4.4.0-beta-25022-02](https://dotnet.myget.org/feed/dotnet-core/package/nuget/System.Diagnostics.DiagnosticSource/4.4.0-beta-25022-02)
+    * In Visual Studio, select menu "Tools -> NuGet Package Manager -> Package Manager Settings".
+    * In Options dialog, select "NuGet Package Manager -> Package Sources".
+    * Click "+" button to add a new package source with Name "DotNet-Core-MyGet" and Value "https://dotnet.myget.org/F/dotnet-core/api/v3/index.json".
+    * Click "Update" button and close Options dialog.
+    * Open Solution Explorer, right-click the ASP.NET Core project and select "Manage NuGet Packages...".
+    * Click "Browse" tab, select "Package source: DotNet-Core-MyGet" and check "Include prerelease".
+    * Search "System.Diagnostics.DiagnosticSource" and choose "__4.4.0-beta-25022-02__" to install.
 
 
 ## Next steps
