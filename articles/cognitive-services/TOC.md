@@ -100,6 +100,38 @@
 ### [FAQ](Computer-vision/FAQ.md)                                      
 ### [Research papers](Computer-vision/Research.md)                
 
+## Content Moderator API
+### [Overview](Content-Moderator/overview.md) 
+### [Get started](Content-Moderator/quick-start.md)
+### Review tool user guide
+#### [Human in the loop](Content-Moderator/Review-Tool-User-Guide/human-in-the-loop.md)
+#### [Create team](Content-Moderator/Review-Tool-User-Guide/Sign-up.md) 
+#### [Upload images](Content-Moderator/Review-Tool-User-Guide/Upload-Images.md)
+#### [Image reviews](Content-Moderator/Review-Tool-User-Guide/Review-Moderated-Images.md) 
+#### [Text reviews](Content-Moderator/Review-Tool-User-Guide/Text-Reviews.md)
+#### [Team and subteams](Content-Moderator/Review-Tool-User-Guide/SubTeams.md)
+#### [Using workflows](Content-Moderator/Review-Tool-User-Guide/Workflows.md)
+#### [Settings](Content-Moderator/Review-Tool-User-Guide/Configure.md)                    
+#### [View dashboard](Content-Moderator/Review-Tool-User-Guide/View-Dashboard.md)               
+### [API Reference](Content-Moderator/api-reference.md)
+#### [Review](Content-Moderator/review-api.md) 
+#### [Review authentication](Content-Moderator/Review-API-Authentication.md) 
+#### [Image moderation](Content-Moderator/image-moderation-api.md)
+#### [Text moderation](Content-Moderator/text-moderation-api.md) 
+#### [Text moderation - languages](Content-Moderator/Text-Moderation-API-Languages.md)
+#### [Video moderation](Content-Moderator/video-moderation-api.md)
+### [SDK + samples](Content-Moderator/sdk-and-samples.md)
+### [FAQ](Content-Moderator/FAQs.md)                  
+    
+                 
+              
+
+         
+         
+
+
+
+
 
 ## Text Analytics API
 ### [API migration](cognitive-services-text-analytics-api-migration.md)
