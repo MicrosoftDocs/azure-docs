@@ -1,4 +1,4 @@
-1. In the portal, navigate to the Resource Manager virtual network for which you want to create a virtual network gateway.
+1. In the [portal](http://portal.azure.com), navigate to the Resource Manager virtual network for which you want to create a virtual network gateway.
 2. In the **Settings** section of your VNet blade, click **Subnets** to expand the Subnets blade.
 3. On the **Subnets** blade, click **+Gateway subnet** at the top. This will open the **Add subnet** blade. 
    
