@@ -3,14 +3,15 @@
 ## [Compare SQL DB](sql-database-features.md)
 # Quickstart
 ## [Create DB - Portal](sql-database-get-started-portal.md)
-## [Create DB - Azure CLI](sql-database-get-started-cli.md)
 ## [Create DB - PowerShell](sql-database-get-started-powershell.md)
+## [Create DB - Azure CLI](sql-database-get-started-cli.md)
 ## Manage
 ### [SSMS](sql-database-connect-query-ssms.md)
 ### [VS Code](sql-database-connect-query-vscode.md)
 ## Connect
-### [C #](sql-database-connect-query-dotnet.md)
+### [.NET](sql-database-connect-query-dotnet.md)
 ### [PHP](sql-database-connect-query-php.md)
+### [Node.js](sql-database-develop-nodejs-simple.md)
 ### [Java](sql-database-connect-query-java.md)
 ### [Python](sql-database-connect-query-python.md)
 ### [Ruby](sql-database-connect-query-ruby.md)
@@ -116,7 +117,7 @@
 ## Secure data
 ### [Azure AD auth](sql-database-aad-authentication-configure.md)
 ### [Auditing](sql-database-auditing-portal.md)
-### [Treat detection](sql-database-threat-detection-portal.md)
+### [Threat detection](sql-database-threat-detection-portal.md)
 ### [Encrypt - cert store](sql-database-always-encrypted.md)
 ### [Encrypt - key vault](sql-database-always-encrypted-azure-key-vault.md)
 ### [Configure masking](sql-database-dynamic-data-masking-get-started-portal.md)
@@ -147,7 +148,6 @@
 ### [Sync data](sql-database-get-started-sql-data-sync.md)
 ## Connect applications
 ### [C and C ++](sql-database-develop-cplusplus-simple.md)
-### [Node.js](sql-database-develop-nodejs-simple.md)
 ### [Excel](sql-database-connect-excel.md)
 ### [Guidance](sql-database-connectivity-issues.md)
 ### [Issues](sql-database-troubleshoot-common-connection-issues.md)

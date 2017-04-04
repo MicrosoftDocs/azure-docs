@@ -34,17 +34,17 @@ For an overview of exporting to a BACPAC file, see [Export to a BACPAC](sql-data
 1. Open a command prompt and change a directory containing the sqlpackage.exe command-line utility - this utility ships with both Visual Studio and SQL Server. Use search on your computer to find the path in your environment.
 2. Execute the following sqlpackage.exe command with the following arguments for your environment:
    
-```    sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file >
-```
+    ```
+    sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file >
+    ```
    
    | Argument | Description |
    | --- | --- |
    | < server_name > |source server name |
    | < database_name > |source database name |
    | < target_file > |file name and location for BACPAC file |
+   |||
    
-   ![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
-
 ## Next steps
 
 * To learn about importing a BACPAC using SQLPackage, see [Import a BACPAC to Azure SQL Database using SqlPackage](sql-database-import-sqlpackage.md)

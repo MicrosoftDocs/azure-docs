@@ -84,7 +84,7 @@ If you are using your own storage accounts for your VMs, type:
 	-Name "myAvailabilitySet" -Location "West US" 
 ```
 
-For more information, see [New-AzureRmAvailabilitySet](/powershell/new-azurermavailabilityset).
+For more information, see [New-AzureRmAvailabilitySet](/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermavailabilityset).
 
 ## Troubleshooting
 * When you create a VM, if the availability set you want isn't in the drop-down list in the portal you may have created it in a different resource group. If you don't know the resource group for your availability set, go to the hub menu and click Browse > Availability sets to see a list of your availability sets and which resource groups they belong to.

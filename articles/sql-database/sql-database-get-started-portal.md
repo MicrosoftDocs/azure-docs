@@ -15,13 +15,15 @@ ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/29/2017
+ms.date: 04/03/2017
 ms.author: carlrab
 
 ---
 # Create an Azure SQL database in the Azure portal
 
 This quick start tutorial walks through how to create a SQL database in Azure.  Azure SQL Database is a “Database-as-a-Service” offering that enables you to run and scale highly-available SQL Server databases in the cloud.  This quick start shows you how to get started by creating a new SQL database using the Azure portal.
+
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Log in to the Azure portal
 
@@ -78,7 +80,7 @@ The SQL Database service creates a firewall at the server-level preventing exter
 
 4. Click **OK** and then click the **X** to close the **Firewall settings** page.
 
-You can now connect to the database and its server using SQL Server Management Studio or another tool of your choice.
+You can now connect to the database and its server using SQL Server Management Studio or another tool of your choice from this IP address using the Server admin account created previously..
 
 ## Query the SQL database
 
