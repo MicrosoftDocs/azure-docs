@@ -151,8 +151,48 @@
 ### [FAQ](Emotion/FAQ.md)
 
 
+## Entity Linking API
+### [Overview](EntityLinking/Home.md)
+### [Get started](EntityLinking/GettingStarted.md)
+### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f0eabfca730713cc392442/operations/56f0eabfca73070e44d0f39c)                          
+## Face API
+### [Overview](Face/Overview.md)
+### How to
+#### [Detect faces in image](Face/Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
+#### [Identify faces in image](Face/Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md)
+#### [Analyze videos in real time](Face/Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md )
+### Quickstarts
+#### [cURL](Face/QuickStarts/curl.md )
+#### [C#](Face/QuickStarts/CSharp.md )
+#### [Java](Face/QuickStarts/Java.md)
+#### [JavaScript](Face/QuickStarts/JavaScript.md)
+#### [PHP](Face/QuickStarts/PHP.md)
+#### [Python](Face/QuickStarts/Python.md)
+#### [Ruby](Face/QuickStarts/Ruby.md)
+### Tutorials
+#### [C#](Face/Tutorials/FaceAPIinCSharpTutorial.md )
+#### [Java for Android](Face/Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+#### [Python](Face/Tutorials/FaceAPIinPythonTutorial.md)
+### [SDKs + samples](Face/SDKsAndSamples.md)
+### [API reference](Face/APIReference.md )
+### [Glossary](Face/Glossary.md)
+### [FAQ](Face/FAQ.md )
+### [Release notes](Face/ReleaseNotes.md)
+
+
+           
+
+
+       
+
+
+        
+                  
+                           
                        
                      
+                   
+                             
 
          
          
