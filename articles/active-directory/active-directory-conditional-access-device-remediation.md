@@ -23,11 +23,11 @@ During an attempt to, for example, access your organization's SharePoint Online 
 
 If you are using a **Windows** device, you should check the following:
 
-1. Are you using a supported browser?
+- Are you using a supported browser?
 
-2. Are you running a supported version of Windows on your device?
+- Are you running a supported version of Windows on your device?
 
-3. Is your device compliant?
+- Is your device compliant?
 
 
 
