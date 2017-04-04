@@ -28,6 +28,8 @@ In this tutorial, you will migrate an existing SQL Server database to an Azure S
 > To fix compatibility issues, use [Visual Studio Data Tools](https://docs.microsoft.com/en-us/sql/ssdt/download-sql-server-data-tools-ssdt). 
 >
 
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+
 To complete this tutorial, make sure you have:
 
 - The newest version of [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms) (this download also installs the newest version of SQLPackage) 
