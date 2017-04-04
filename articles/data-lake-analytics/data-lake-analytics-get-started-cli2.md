@@ -51,7 +51,7 @@ Once you have logged in, the login command lists your subsriptions.
 
 To use a specific subscription:
 
-    az account set --subscription &lt;subscription id>
+    az account set --subscription <subscription id>
 
 
 ## Create Data Lake Analytics account
@@ -159,7 +159,11 @@ After the job is completed, you can use the following cmdlets to list the file, 
     az dls fs list --account "<Data Lake Store Account Name>" --source-path "/Output" --destination-path "<Destintion>"
     az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" 
     az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" --length 128 --offset 0
-    az dls fs downlod --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "<Destination>"
+    az dls fs downlod --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "<Destination Path and File Name>"
+
+For example:
+
+    az dls fs downlod --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "C:\DLA\myfile.csv"
 
 ## See also
 * To see the same tutorial using other tools, click the tab selectors on the top of the page.
