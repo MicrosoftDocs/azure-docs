@@ -4,6 +4,7 @@
 # Get started
 ## [Getting started with cloud partner portal](./cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md)
 ## [Supported products](./Cloud-partner-portal-products-that-can-get-published-via-portal.md)
+## [Microsoft developer account registration](./cloud-partner-portal-dev-center-accounts-registration.md)
 
 # How-to guides
 ## Manage Virtual Machines
