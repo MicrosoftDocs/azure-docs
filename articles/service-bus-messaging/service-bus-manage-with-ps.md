@@ -1,7 +1,7 @@
 ---
-title: Use PowerShell to manage Service Bus and Event Hubs resources | Microsoft Docs
-description: Using PowerShell to create and manage Service Bus and Event Hubs resources
-services: service-bus-messaging,event-hubs
+title: Use PowerShell to manage Azure Service Bus resources | Microsoft Docs
+description: Use PowerShell module to create and manage Service Bus resources
+services: service-bus-messaging
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
@@ -50,7 +50,7 @@ In an actual script, `$Namespace` and `$Location` can be passed as parameters.
 
 This part of the script does the following:
 
-1. Attempts to retrieve a Service Bus namespace with the provided name.
+1. Attempts to retrieve a Service Bus namespace with the specified name.
 2. If the namespace is found, it reports what was found.
 3. If the namespace is not found, it creates the namespace and then retrieves the newly created namespace.
    
@@ -62,6 +62,8 @@ This part of the script does the following:
     if ($CurrentNamespace)
     {
         Write-Host "The namespace $Namespace already exists in the $Location region:"
+		# Report what was found
+		Get-AzureRMServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace
     }
     else
     {
