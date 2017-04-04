@@ -14,7 +14,7 @@ ms.author: carolz
 ---
 <div class="content">
     <h1>Linux Virtual Machines Documentation</h1>
-    <p style="padding-bottom: 0px">Azure Linux Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Red Hat, Ubuntu, or the Linux distribution of your choice.  Learn how to create, configure, manage, and scale Linux VMs with our quickstarts, tutorials, and samples.</p>
+    <p style="padding-bottom: 0px; max-width: 1000px;">Azure Linux Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Red Hat, Ubuntu, or the Linux distribution of your choice.  Learn how to create, configure, manage, and scale Linux VMs with our quickstarts, tutorials, and samples.</p>
 <h2 style="margin-top: 36px">Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">

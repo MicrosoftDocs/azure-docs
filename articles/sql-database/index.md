@@ -14,7 +14,7 @@ ms.author: carolz
 ---
 <div class="content">
     <h1>SQL Database Documentation</h1>
-    <p style="padding-bottom: 0px">Azure SQL Database is a relational database-as-a service using the Microsoft SQL Server Engine. SQL Database is a high-performance, reliable, and secure database you can use to build data-driven applications and websites in the programming language of your choice, without needing to manage infrastructure. Learn how to use SQL Database with our quickstarts, tutorials, and samples.</p>
+    <p style="padding-bottom: 0px; max-width: 1000px;">Azure SQL Database is a relational database-as-a service using the Microsoft SQL Server Engine. SQL Database is a high-performance, reliable, and secure database you can use to build data-driven applications and websites in the programming language of your choice, without needing to manage infrastructure. Learn how to use SQL Database with our quickstarts, tutorials, and samples.</p>
 <h2 style="margin-top: 36px">Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
