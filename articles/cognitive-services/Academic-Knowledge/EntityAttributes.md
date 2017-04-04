@@ -1,28 +1,28 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Microsoft Academic Graph entity attributes Academic Knowledge API | Microsoft Docs
+description: Learn about the entity attributes you can use in the Academic Graph by using the Academic Knowledge API.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: alch-msft
+manager: kuansanw
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: academic-knowledge
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 03/27/2017
+ms.author: alch
 ---
 
-#Entity Attributes
+# Entity Attributes
 
 The academic graph is composed of 7 types of entity. All entities will have a Entity ID and a Entity type.
 
-### Common Entity Attributes
+## Common Entity Attributes
 Name	|Description	            |Type       | Operations
 ------- | ------------------------- | --------- | ----------------------------
 Id		|Entity ID					|Int64		|Equals
 Ty 		|Entity type 				|enum	|Equals
 
-### Entity type enum
+## Entity type enum
 Name 															|value
 ----------------------------------------------------------------|-----
 [Paper](PaperEntityAttributes.md)								|0
@@ -31,5 +31,5 @@ Name 															|value
 [Conference Series](JournalEntityAttributes.md)					|3
 [Conference Instance](ConferenceInstanceEntityAttributes.md)	|4
 [Affiliation](AffiliationEntityAttributes.md)					|5
-[Field Of Study](FieldsOfStudyEntity.md)						|6
+[Field Of Study](FieldsOfStudyEntityAttributes.md)						|6
 
