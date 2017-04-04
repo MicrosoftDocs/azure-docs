@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2017
+ms.date: 04/04/2017
 ms.author: magoedte
 ---
 
@@ -25,7 +25,7 @@ You can view and manage data from all of those sources with Log Analytics and le
 
 This article is a guide that will help you configure your Linux computers using the OMS Agent for Linux.
 
-The Operations Management Suite Agent for Linux comprises multiple packages. The release file contains the following packages, available by running the shell bundle with `--extract`:
+The agent is comprised of multiple packages. The release file contains the following packages, available by running the shell bundle with `--extract`:
 
 **Package** | **Version** | **Description**
 ----------- | ----------- | --------------
@@ -37,9 +37,10 @@ apache-cimprov | 1.0.0 | Apache HTTP Server performance monitoring provider for 
 mysql-cimprov | 1.0.0 | MySQL Server performance monitoring provider for OMI. Only installed if MySQL/MariaDB server is detected.
 docker-cimprov | 0.1.0 | Docker provider for OMI. Only installed if Docker is detected.
 
-**Additional Installation Artifacts**
-After installing the OMS agent for Linux packages, the following additional system-wide configuration changes are applied. These artifacts are removed when the omsagent package is uninstalled.
-* A non-privileged user named: `omsagent` is created. This is the account the omsagent daemon runs as
+## Additional Installation Artifacts
+After installing the OMS Agent for Linux packages, the following additional system-wide configuration changes are applied. These artifacts are removed when the omsagent package is uninstalled.
+
+* A non-privileged user named: `omsagent` is created. This is the account the omsagent daemon runs as.
 * A sudoers “include” file is created at /etc/sudoers.d/omsagent This authorizes omsagent to restart the syslog and omsagent daemons. If sudo “include” directives are not supported in the installed version of sudo, these entries will be written to /etc/sudoers.
 * The syslog configuration is modified to forward a subset of events to the agent. For more information, see the **Configuring Data Collection** section below
 
@@ -68,16 +69,18 @@ PAM | Pluggable authentication Modules	 |
 
 
 ## Upgrade from a Previous Release
-Upgrade from prior versions (>1.0.0-47) is supported in this release. Performing the installation with the --upgrade command will upgrade all components of the agent to the latest version.
-
+Upgrade from versions earlier than 1.0.0-47 is supported in this release. Performing the installation with the `--upgrade` command will upgrade all components of the agent to the latest version.
 
 ## Steps to install the OMS Agent for Linux
-The OMS agent for Linux is provided in a self-extracting and installable shell script bundle. This bundle contains Debian and RPM packages for each of the agent components and can be installed directly or extracted to retrieve the individual packages. One bundle is provided for x64 architectures and one for x86 architectures. 
+The OMS Agent for Linux is provided in a self-extracting and installable shell script bundle. This bundle contains Debian and RPM packages for each of the agent components and can be installed directly or extracted to retrieve the individual packages. One bundle is provided for x64 architectures and one for x86 architectures. 
 
 ### Installing the agent
 
-1. Transfer the appropriate bundle (x86 or x64) to your Linux computer, using scp/sftp.
-2. Install the bundle by using the `--install` or `--upgrade` argument. Note: use the `--upgrade` argument if any existing packages are installed, as would be the case if the system Center Operations Manager agent for Linux is already installed. To onboard to Operations Management Suite during installation, provide the `-w <WorkspaceID>` and `-s <Shared Key>` parameters.
+1. Transfer the appropriate bundle (x86 or x64) to your Linux computer using scp/sftp.
+2. Install the bundle by using the `--install` or `--upgrade` argument. 
+
+    > [!NOTE]
+    > Use the `--upgrade` argument if any existing packages are installed, as would be the case if the System Center Operations Manager agent for Linux is already installed. To onboard to Operations Management Suite during installation, provide the `-w <WorkspaceID>` and `-s <Shared Key>` parameters.
 
 ### All bundle operations
 ```
@@ -139,7 +142,7 @@ sudo sh ./omsagent-1.3.0-1.universal.x64.sh --extract
 ```
 
 ##Configuring the agent for use with an HTTP proxy server
-Communication between the agent and OMS services can use an HTTP or HTTPS proxy server. Both anonymous and basic authentication (username/password) proxies are supported. 
+The OMS Agent for Linux supports communicating through an HTTP or HTTPS proxy server to the OMS service.  Both anonymous and basic authentication (username/password) is supported. 
 
 ### Proxy Configuration
 The proxy configuration value has the following syntax:
@@ -157,17 +160,17 @@ port|Optional port number for the proxy server
 For example:
 `http://user01:password@proxy01.contoso.com:8080`
 
-The proxy server can be specified during installation or directly in a file (at any point). 
+The proxy server can be specified during installation or by modifying the proxy.conf configuration file after installation.   
 
 ### Specify proxy configuration during installation
-The `-p` or `--proxy` argument to the omsagent installation bundle specifies the proxy configuration to use. 
+The `-p` or `--proxy` argument for the omsagent installation bundle specifies the proxy configuration to use. 
 
 ```
 sudo sh ./omsagent-1.3.0-1.universal.x64.sh --upgrade -p http://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
 ```
 
 ### Define the proxy configuration in a file
-The proxy configuration is set in the file: `/etc/opt/microsoft/omsagent/proxy.conf` This file can be directly created or edited, but must be readable by the omsagent user. For example:
+The proxy configuration can be set in the file: `/etc/opt/microsoft/omsagent/proxy.conf` This file can be directly created or edited, but must be readable by the omsagent user. For example:
 ```
 proxyconf="https://proxyuser:proxypassword@proxyserver01:8080"
 sudo echo $proxyconf >>/etc/opt/microsoft/omsagent/proxy.conf
@@ -206,13 +209,14 @@ SHARED_KEY=<Shared Key>
 4.	The file will be deleted on successful onboarding
 
 ### Onboard a secondary workspace
-From 1.3.0-1, OMSAgent supports to onboard the agent to multiple workspaces.
+Since version 1.3.0-1, the OMS agent supports to onboard the agent to multiple workspaces.
 Run the omsadmin.sh command supplying the workspace id and key for your workspace, and -m to indicate secondary workspace:
 ```
 cd /opt/microsoft/omsagent/bin
 sudo ./omsadmin.sh -w <workspace id> -s <shared key> -m <multi-homing marker>
 ```
-NOTE: Secondary workspace is currently unable to pull the configuration from OMS service. We are working on it.
+>[!NOTE]
+> Secondary workspace is currently unable to pull the configuration from OMS service. We are working on it.
 
 ### Onboard a secondary workspace using a file
 Reference [Onboarding using a file](#onboarding-using-a-file)
@@ -223,7 +227,7 @@ MULTI_HOMING_MARKER=<any string, e.g. MySecondaryWS>
 ```
 
 ## Manage Workspaces
-From 1.3.0-1, OMSAgent supports onboarding to multiple workspaces. Here are the commands for workspace management:
+Since version 1.3.0-1, the OMS agent supports onboarding to multiple workspaces. Here are the commands for workspace management:
 
 ### List all workspaces
 ```
@@ -247,19 +251,17 @@ sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -X
 ```
 
 ## Manage omsagent Daemon
-From 1.3.0-1, we will register omsagent daemon for each onboarded workspace. The daemon name is omsagent-\<workspace-id>
-You can use `/opt/microsoft/omsagent/bin/service_control` command to operate the daemon.
+Starting with version 1.3.0-1, we register omsagent daemon for each onboarded workspace. The daemon name is *omsagent-\<workspace-id>*.  You can use `/opt/microsoft/omsagent/bin/service_control` command to operate the daemon.
 
 ```
 sudo sh /opt/microsoft/omsagent/bin/service_control start|stop|restart|enable|disable [<workspace id>]
 ```
 
-The workspace id is an optional parameter. If it is specified, it will only operate on the workspace-specific daemon.
-Otherwise, it will operate on all the daemons.
+The workspace id is an optional parameter. If it is specified, it will only operate on the workspace-specific daemon.  Otherwise, it will operate on all the daemons.
 
 
 ## Agent Logs
-The logs for the Operations Management Suite Agent for Linux can be found at: 
+The logs for the OMS Agent for Linux can be found at: 
 `/var/opt/microsoft/omsagent/<workspace id>/log/`
 The logs for the omsconfig (agent configuration) program can be found at: 
 `/var/opt/microsoft/omsconfig/log/`
@@ -270,7 +272,7 @@ Logs for the OMI and SCX components (which provide performance metrics data) can
 The log rotate configuration for omsagent can be found at:
 `/etc/logrotate.d/omsagent-<workspace id>`
 
-The default settings are 
+The default settings are: 
 ```
 /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log {
     rotate 5
@@ -283,7 +285,7 @@ The default settings are
 ```
 
 ## Uninstalling the OMS Agent for Linux
-The agent packages can be uninstalled using dpkg or rpm, or by running the bundle .sh file with the `--remove` argument. Additionally, if you want to completely remove all pieces of the OMS Agent for Linux you can run the bundle .sh file with the `--purge` arguement. 
+The agent packages can be uninstalled using dpkg or rpm, or by running the bundle .sh file with the `--remove` argument.  Additionally, if you want to completely remove all elements of the OMS Agent for Linux, you can run the bundle .sh file with the `--purge` argument. 
 
 ### Debian & Ubuntu
 ```
@@ -300,17 +302,17 @@ The agent packages can be uninstalled using dpkg or rpm, or by running the bundl
 ```
 
 ## Compatibility with System Center Operations Manager
-The Operations Management Suite Agent for Linux shares agent binaries with the System Center Operations Manager agent. Installing the OMS Agent for Linux on a system currently managed by Operations Manager upgrades the OMI and SCX packages on the computer to a newer version. In this preview release, the OMS and System Center 2012 R2 Agents for Linux are compatible. 
+The OMS Agent for Linux shares agent binaries with the System Center Operations Manager agent. Installing the OMS Agent for Linux on a system currently managed by Operations Manager upgrades the OMI and SCX packages on the computer to a newer version. In this preview release, the OMS and System Center 2012 R2 Agents for Linux are compatible. 
 
 > [!NOTE]
 > System Center 2012 SP1 and earlier versions are currently not compatible or supported with the OMS Agent for Linux.<br>
 > If the OMS Agent for Linux is installed to a computer that is not currently managed by Operations Manager, and you then wish to manage the computer with Operations Manager, you must modify the OMI configuration prior to discovering the computer. **This step is *not* needed if the Operations Manager agent is installed before the OMS Agent for Linux.**
 
 ### To enable the OMS Agent for Linux to communicate with System Center Operations Manager:
-* Edit the file `/etc/opt/omi/conf/omiserver.conf`
-* Ensure that the line beginning with **httpsport=** defines the port 1270. Such as:
+1. Edit the file `/etc/opt/omi/conf/omiserver.conf`
+2. Ensure that the line beginning with **httpsport=** defines the port 1270. Such as:
 `httpsport=1270`
-* Restart the OMI server:
+3. Restart the OMI server:
 `sudo /opt/omi/bin/service_control restart`
 
 ## Troubleshooting
@@ -362,5 +364,5 @@ This is a known issue an occurs on first upload of Linux data into an OMS worksp
 2. Re-onboard using the `omsadmin.sh` command line instructions
 3. If using a proxy, refer to the proxy resolution steps provided earlier.
 4. In some cases, when the OMS Agent for Linux cannot communicate with the OMS Service, data on the agent is queued to the full buffer size, which is 50 MB. The OMS Agent for Linux should be restarted by running the following command `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
-> [!Note]
-> This issue is fixed in agent version >= 1.1.0-28
+> [!NOTE]
+> This issue is fixed in agent version greater than 1.1.0-28.
