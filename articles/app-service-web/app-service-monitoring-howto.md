@@ -1,5 +1,4 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Monitor a Web App | Microsoft Docs
 description: Learn how to set up Monitoring on your Web App
 services: App-Service
@@ -8,18 +7,8 @@ author: btardif
 ms.author: byvinyal
 ms.date: 04/04/2017
 ms.topic: article
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
 ms.service: app-service-web
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer
-# manager: MSFT-alias-manager-or-PM-counterpart
 ---
-
 # Monitor App Service
 This tutorial is a continuation from the [Create App Service Web App](app-service-web-get-started-dotnet.md). Following these steps, you can learn to set up metrics based configurable charts and alerts. 
 
@@ -89,7 +78,7 @@ As an example, a simple set of Alerts to monitor an app hosted in app service co
 > [!TIP]
 > Learn more about Azure Alerts with the following links:
 > - [What are alerts in Microsoft Azure](..\monitoring-and-diagnostics\monitoring-overview-alerts.md)
-> - [Take Action On Metrics](..\monitoring-and-diagnostics\monitoring-overview.md#take-action-on-metrics)
+> - [Take Action On Metrics](..\monitoring-and-diagnostics\monitoring-overview.md)
 
 ## Next steps
 Check out **Application Insights** for more advanced monitoring capabilities for App Service:
