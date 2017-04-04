@@ -28,11 +28,11 @@ In this tutorial, you use the Azure portal, the SQLPackage command-line utility,
 > To fix compatibility issues, use [Visual Studio Data Tools](https://msdn.microsoft.com/mt186501). 
 >
 
-To complete this tutorial, make sure you have installed the following:
+To complete this tutorial, make sure you have:
 
 - The newest version of [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms) (this download also installs the newest version of SQLPackage) 
 - The [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595)
-- The [SQL Server 2008R2 AdventureWorks OLTP database](https://msftdbprodsamples.codeplex.com/releases/view/59211) on an instance of SQL Server 2008R2 or newer. 
+- A database to migrate. This tutorial uses the [SQL Server 2008R2 AdventureWorks OLTP database](https://msftdbprodsamples.codeplex.com/releases/view/59211) on an instance of SQL Server 2008R2 or newer. 
 
 ## Step 1: Log in to the Azure portal
 
