@@ -40,7 +40,7 @@ API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ## Gather information from DC/OS and Marathon
 Before you deploy containers to the DC/OS cluster, gather some
-information about the DC/OS cluster, such as the names and current
+information about the DC/OS cluster, such as the names and
 status of the DC/OS agents. To do so, query the `master/slaves`
 endpoint of the DC/OS REST API. If everything goes well, the query returns a list of DC/OS agents and several properties for each.
 
@@ -127,7 +127,7 @@ You can use the Marathon API to scale out or scale in application deployments. I
 { "instances": 3 }
 ```
 
-From your tunnelled connection, run the following command to scale out the application.
+From your tunneled connection, run the following command to scale out the application.
 
 > [!NOTE]
 > The URI is http://localhost/marathon/v2/apps/ followed by the ID of the application to scale. If you are using the Nginx sample that is provided here, the URI would be http://localhost/marathon/v2/apps/nginx.
