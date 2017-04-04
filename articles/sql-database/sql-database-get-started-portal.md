@@ -15,13 +15,15 @@ ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/13/2017
+ms.date: 04/03/2017
 ms.author: carlrab
 
 ---
 # Create an Azure SQL database in the Azure portal
 
 This quick start tutorial walks through how to create a SQL database in Azure.  Azure SQL Database is a “Database-as-a-Service” offering that enables you to run and scale highly-available SQL Server databases in the cloud.  This quick start shows you how to get started by creating a new SQL database using the Azure portal.
+
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Log in to the Azure portal
 
@@ -39,10 +41,10 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 
     ![create database-1](./media/sql-database-get-started/create-database-1.png)
 
-3. Fill out the SQL Database form with the following information, as shown on the preceding image: 
-   - Database name: Use **mySampleDatabase**
-   - Resource group: Use **myResourceGroup**
-   - Source: Select **Sample (AdventureWorksLT)**
+3. Fill out the SQL Database form with the following information, as shown on the preceding image:     
+   - Database name: **mySampleDatabase**
+   - Resource group: **myResourceGroup**
+   - Source: **Sample (AdventureWorksLT)**
 
 4. Click **Server** to create and configure a new server for your new database. Fill out the **New server form** specifying a globally unique server name, provide a name for the Server admin login, and then specify the password of your choice. 
 
@@ -78,7 +80,7 @@ The SQL Database service creates a firewall at the server-level preventing exter
 
 4. Click **OK** and then click the **X** to close the **Firewall settings** page.
 
-You can now connect to the database and its server using SQL Server Management Studio or another tool of your choice.
+You can now connect to the database and its server using SQL Server Management Studio or another tool of your choice from this IP address using the Server admin account created previously..
 
 ## Query the SQL database
 
@@ -99,7 +101,7 @@ When we created our SQL database, we populated it with the **AdventureWorksLT** 
 5. After you are authenticated, type the following query in the query editor pane.
 
    ```
-   SELECT pc.Name as CategoryName, p.name as ProductName
+   SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p
    ON pc.productcategoryid = p.productcategoryid;
