@@ -26,7 +26,7 @@ This article will cover:
 - Parallelism
 - Common bottlenecks
 
-> **Note**
+> [!NOTE]
 > 
 > This topic hasn’t been written yet! 
 >
