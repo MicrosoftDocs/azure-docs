@@ -103,7 +103,8 @@ Step 4. In the "Registration-Account Info" section, select your **Account countr
    > [!WARNING]
    > **"Sell-from" Countries:** In order to sell your services on the Azure Marketplace, your registered entity needs to be from one of the approved “sell-from” countries above. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so stay tuned. For more information, see the  [Marketplace participation policies](http://go.microsoft.com/fwlink/?LinkID=526833).
    >
-   >
+
+
 Step 5. Select your "Account Type" as **Company** and then click the **Next** button.
 
    > [!IMPORTANT]
@@ -112,26 +113,33 @@ Step 5. Select your "Account Type" as **Company** and then click the **Next** bu
    >
 
    ![drawing](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_05.png)
+
 Step 6. Enter the **Publisher display name**, typically the name of your company.
 
    > [!TIP]
    > The publisher display name entered in the Dev Center is not displayed in the Azure Marketplace once your offer goes listed. But this must be filled to complete the registration process.
    >
-   >
+
+
 Step 7. Enter the **Contact info** for the account verification.
 
    > [!IMPORTANT]
    > You must provide accurate contact information because it will be used in our verification process for your company to be approved in the Developer Center.
    >
-   >
+
+
 Step 8. Enter the contact information for the **Company Approver**. Company approver is the person who can verify that you are authorized to create an account in the Dev Center on behalf of your organization. Click on **Next** to move to the **"Payment section"** once you are finished.
 
    ![drawing](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_08.png)
+
 Step 9. Enter your payment info to pay for your account. If you have a promo code that covers the cost of registration, you can enter that here. Otherwise, provide your credit card info (or PayPal in supported markets). When you are finished, click **Next** to move on to the **"Review screen"**.
 
   ![drawing](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_09.png)
+
 Step 10. Review your account info and confirm that everything is correct. Then, read and accept the terms and conditions of the [Microsoft Azure Marketplace Publisher Agreement](http://go.microsoft.com/fwlink/?LinkID=699560). Check the box to indicate you have read and accepted these terms.
+
 Step 11. Click **Finish** to confirm your registration. We'll send a confirmation message to your email address.
+
 Step 12. If you are planning to publish only free offers, click **Go to to the [Cloud Partner Portal](https://cloudpartner.azure.com/).** and you can skip to section 3 of this document.
 
 If you are planning to publish commercial offers (e.g. Virtual Machine offers with hourly billing model), click **Update your account information** where you must fill in the tax and banking information in your Developer Center account.
@@ -142,7 +150,6 @@ If you prefer to update your tax and bank information later, then you can move t
 > In case of commercial offers, you will not be able to push your offers to production without completing the tax and bank account information.
 >
 >
-
 
 ### Add tax and banking information
  If you want to publish commercial offers for purchase, you also need to add payout and tax information and submit it for validation in the Developer Center. If you will publish only free offers (or BYOL offers), then you do not need to add this information. You can add it later, but it takes some time to validate the tax information. If you know that you will offer commercial offers for purchase, we recommend that you add it as soon as possible.
