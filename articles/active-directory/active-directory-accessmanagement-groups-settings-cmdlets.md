@@ -182,10 +182,12 @@ These steps update settings at directory level, which apply to all Unified group
   $setting = Get-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323`
   ```
 2. Update the value:
+  
   ```
   $Setting["AllowToAddGuests"] = "false"`
   ```
 3. Update the setting:
+  
   ```
   Set-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323 -DirectorySetting $Setting`
   ```
