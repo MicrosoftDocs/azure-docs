@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2017
+ms.date: 04/04/2017
 ms.author: danlep
 
 ---
@@ -57,7 +57,7 @@ curl localhost/marathon/v2/apps
 ```
 
 ## Deploy a Docker-formatted container
-You deploy Docker-formatted containers through Marathon by using a JSON file that describes the intended deployment. The following sample deploys the Nginx container, binding port 80 of the DC/OS agent to port 80 of the container. Also note that the `acceptedResourceRoles` property is set to `slave_public`. This deploys the container to an agent in the public-facing agent scale set.
+You deploy Docker-formatted containers through Marathon by using a JSON file that describes the intended deployment. The following sample deploys the Nginx container, binding port 80 of the DC/OS agent to port 80 of the container. 
 
 ```json
 {
@@ -65,9 +65,6 @@ You deploy Docker-formatted containers through Marathon by using a JSON file tha
   "cpus": 0.1,
   "mem": 16.0,
   "instances": 1,
-    "acceptedResourceRoles": [
-    "slave_public"
-  ],
   "container": {
     "type": "DOCKER",
     "docker": {

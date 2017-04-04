@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 04/04/2017
 ms.author: danlep
 
 ---
 # Manage an Azure Container Service DC/OS cluster through the Marathon web UI
 DC/OS provides an environment for deploying and scaling clustered workloads, while abstracting the underlying hardware. On top of DC/OS, there is a framework that manages scheduling and executing compute workloads.
 
-While frameworks are available for many popular workloads, this document describes how you can create and scale container deployments with Marathon. 
+While frameworks are available for many popular workloads, this document describes how to get started deploying containers with Marathon. 
 
 
 ## Prerequisites
@@ -93,16 +93,15 @@ To see the cluster node that the task is running on, click the **Nodes** tab.
 
 ![DC/OS web UI--task cluster node](./media/container-service-mesos-marathon-ui/dcos9.png)
 
-## Scale your containers
-You can use the Marathon UI to scale the instance count of a container. To do so, navigate to the **Marathon** page, select the container that you want to scale, and click **Scale Application**. In the **Scale Application** dialog box, enter the number of container instances that you want, and click **Scale Application**.
+## Reach the container
 
-![Marathon UI--Scale Application dialog box](./media/container-service-mesos-marathon-ui/dcos10.png)
+In this example, the application is running on a public agent node. You reach the application from the internet by browsing to the agent FQDN of the cluster: `http://[DNSPREFIX]agents.[REGION].cloudapp.azure.com`, where:
 
-After the scale operation finishes, you will see multiple instances of the same task spread across DC/OS agents.
+* **DNSPREFIX** is the DNS prefix that you provided when you deployed the cluster.
+* **REGION** is the region in which your resource group is located.
 
-![DC/OS web UI dashboard--task spread across agents](./media/container-service-mesos-marathon-ui/dcos11.png)
+    ![Nginx from Internet](./media/container-service-mesos-marathon-ui/nginx.png)
 
-![DC/OS web UI--nodes](./media/container-service-mesos-marathon-ui/dcos12.png)
 
 ## Next steps
 * [Work with DC/OS and the Marathon API](container-service-mesos-marathon-rest.md)
