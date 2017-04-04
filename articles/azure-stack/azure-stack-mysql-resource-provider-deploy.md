@@ -19,21 +19,27 @@ ms.author: JeffGo
 
 # Use MySQL databases as PaaS on Azure Stack
 
+> [!NOTE]
 > The following information only applies to Azure Stack TP3 Refresh deployments. TP3 Refresh now uses the current release of MySQL 5.7.
+>
 >
 
 You can deploy a MySQL resource provider on Azure Stack. After you deploy the resource provider, you can create MySQL servers and databases through Azure Resource Manager deployment templates and provide MySQL databases as a service. MySQL databases, which are common on web sites, support many website platforms. As an example, after you deploy the resource provider, you can create WordPress websites from the Azure Web Apps platform as a service (PaaS) add-on for Azure Stack.
 
 To deploy the MySQL provider on a system that does not have internet access, you can copy the files  [mysql-5.7.17-winx64.zip](https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.17-winx64.zip) and [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.9.9.msi) to a local share and provide that share name when prompted (see below).
 
+> [!NOTE]
 > The deployment script will perform retries, if necessary, to accommodate less reliable network connections or if an operation exceeds a timeout.
+>
 >
 
 ## Steps to deploy the resource provider
 
 1. If you have not already done so, create a [Windows Server 2016 image with the .NET 3.5 runtime](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-add-default-image) installed.
 
+> [!NOTE]
 > The .NET 3.5 runtime is not required for this RP, but will be used for the SQL Resource Provider, so you can save space by using the same image.
+>>
 
 2. If you have installed any version of the AzureRm PowerShell module other than 1.2.9, you will need to remove it or the install will block.
 
@@ -90,8 +96,11 @@ $AdminCreds = New-Object System.Management.Automation.PSCredential ("admin@mydom
 
 Depending on the system performance and download speeds, installation may take as little as 20 minutes or as long as several hours. You may need to refresh the admin portal if the MySQLAdapter blade is not available.
 
+> [!NOTE]
 > If the installation takes more than 90 minutes, it may fail and you will see a failure message on the screen and in the log file, but the deployment will be retried from the failing step. Systems that do not meet the minimum required memory and core specifications may not be able to deploy the MySQL RP.
 >
+>
+
 ## Provide capacity by connecting it to a MySQL hosting server
 
 1. Sign in to the Azure Stack POC portal as a service admin
@@ -110,8 +119,11 @@ The size provided helps the resource provider manage the database capacity. It s
 
 ## Create your first MySQL database to test your deployment
 
+> [!NOTE]
 > After the installation script completes, it can take up to 60 minutes for all of the virtual machines to finish configuration. If you attempt the next steps before this completes, you will see failures.
 >
+>
+
 1. Sign in to the Azure Stack POC portal as service admin.
 
 2. Click the **+ New** button &gt; **Data + Storage** &gt; **MySQL Database (preview)**.
