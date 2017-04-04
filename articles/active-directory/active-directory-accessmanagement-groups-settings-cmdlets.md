@@ -30,10 +30,12 @@ The cmdlets are part of the Azure Active Directory PowerShell V2 module. For mor
 These steps create settings at directory level, which apply to all Unified groups in the directory.
 
 1. In the DirectorySettings cmdlets you will need to specify the ID of the SettingsTemplate you want to use. If you do not know this ID, this cmdlet returns the list of all settings templates:
+  
   ```
   PS C:> Get-AzureADDirectorySettingTemplate
   ```
-  This cmdlet call will return all templates that are available:
+  This cmdlet call returns all templates that are available:
+  
   ```
   Id                                   DisplayName         Description
   --                                   -----------         -----------
@@ -45,18 +47,22 @@ These steps create settings at directory level, which apply to all Unified group
   5cf42378-d67d-4f36-ba46-e8b86229381d Password Rule       Settings ...
   ```
 2. To add a usage guideline URL, first you need to get the SettingsTemplate object that defines the usage guideline URL value; that is, the Group.Unified template:
+  
   ```
   $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
   ```
 3. Next, create a new settings object based on that template:
+  
   ```
   $Setting = $template.CreateDirectorySetting()
   ```  
 4. Then update the usage guideline value:
+  
   ```
   $setting["UsageGuidelinesUrl"] = "<https://guideline.com>"
   ```  
 5. Finally, apply the settings:
+  
   ```
   New-AzureADDirectorySetting -DirectorySetting $settings
   ```
