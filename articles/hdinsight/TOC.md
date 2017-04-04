@@ -171,6 +171,8 @@
 ### [Cluster and service ports and URIs](hdinsight-hadoop-port-settings-for-services.md)
 ### [Migrate to Resource Manager development tools](hdinsight-hadoop-development-using-azure-resource-manager.md)
 ### [Availability and reliability ](hdinsight-high-availability-linux.md)
+### [Upgrade HDInsight cluster to newer version](hdinsight-upgrade-cluster.md)
+### [OS patching for HDInsight cluster](hdinsight-os-patching.md)
 ## Troubleshoot
 ### [Tips for Linux](hdinsight-hadoop-linux-information.md)
 ### [Release notes](hdinsight-release-notes.md)
