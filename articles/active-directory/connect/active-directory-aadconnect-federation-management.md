@@ -64,7 +64,7 @@ You can use Azure AD Connect to check the current health of the AD FS and Azure 
 > [!NOTE]
 > Azure AD Connect can only repair or act on certificates that are self-signed. Azure AD Connect can't repair third-party certificates.
 
-## Federate with Azure AD using AlternateID
+## Federate with Azure AD using AlternateID <a name=alternateid></a>
 It is recommended that the on-premises UserPrincipalName and the cloud UserPrincipalName is kept the same. If the on-premises UPN uses a non-routable domain (ex. Contoso.local), or the existing UPN cannot be changed due to local application dependencies, we recommend setting up alternate login ID. Alternate login ID allows you to configure a sign in experience where users can sign in with an attribute other than their UPN, such as mail. Azure AD Connect when providing the choice for UserPrincipalName will default to the userPrincipalName attribute in active directory. While federating using AD FS, if you chose any other attribute for UserPrincipalName, then Azure AD Connect will configure AD FS for alternateID. An example of chosing a different attribute for userPrincipalName is shown below:
 
 ![Alternate ID attribute selection](media/active-directory-aadconnect-federation-management/attributeselection.png)
