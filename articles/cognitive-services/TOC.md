@@ -219,7 +219,6 @@
 ### [Create subscription keys](LUIS/AzureIbizaSubscription.md)
                      
 ## QnAMaker
-
 ### [Overview](QnAMaker/Home.md) 
 ### [Quickstart](QnAMaker/Quickstart.md)
 ### [Create a knowledge base](QnAMaker/Guides/CreateKB.md)
@@ -228,7 +227,7 @@
 ### [Update a knowledge base](QnAMaker/Guides/UpdateKB.md)
 ### [Authentication](QnAMaker/SubscriptionKeys.md)
 ### [API Reference](QnAMaker/HTTPEndPoint.md)
-### [FAQ](QnAMaker/Guides/QnAMaker/FAQs.md)
+### [FAQ](QnAMaker/FAQs.md)
 
 ## Recommendations
 ### [Overview](Recommendations/overview.md)
