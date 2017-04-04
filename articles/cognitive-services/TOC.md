@@ -49,14 +49,33 @@
 #### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553)
 
 ### Speech
-#### [Overview](Speech/overview.md)
-#### [Speech recognition]
+#### [Overview](Speech/Home.md)
+#### Get started
+##### [Objective C on iOS](Speech/GetStarted/Get-Started-ObjectiveC-iOS.md)    
+##### [cURL](Speech/GetStarted/GetStarted-cURL.md)               
+##### [C&#35; for .NET Windows](Speech/GetStarted/GetStartedCSharpDesktop.md)       
+##### [C&#35; for .Net Window (Service Library)](Speech/GetStarted/GetStartedCSharpServiceLibrary.md)
+##### [C&#35; for .Net Universal Apps on Windows 10](Speech/GetStarted/GetStartedCSharpWin10.md)         
+##### [C&#35; for .Net on Windows Phone 8.1](Speech/GetStarted/GetStartedCSharpWinPhone.md)      
+##### [Java on Android](Speech/GetStarted/GetStartedJavaAndroid.md)         
+##### [JavaScript](Speech/GetStarted/GetStartedJS.md)
+#### [Speech recognition API reference](Speech/API-Reference-REST/BingVoiceRecognition.md)
+#### [Text-to-speech API reference](Speech/API-Reference-REST/BingVoiceOutput.md)
 
+### Spell Check
+#### [Overview](Bing-Spell-Check/Home.md)
+#### [Use and Display Requirements](Bing-Spell-Check/UseAndDisplayRequirements.md)
+#### [API reference](https://dev.cognitive.microsoft.com/docs/services/56e73033cf5ff80c2008c679/operations/57855119bca1df1c647bc358)
 
+### Video Search
+#### [Overview](Bing-Video-Search/overview.md)
+#### [Use and Display Requirements](Bing-Video-Search/UseAndDisplayRequirements.md)
+#### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8)
 
-
-
-
+### Web Search
+#### [Overview](Bing-Web-Search/overview.md)
+#### [Use and Display Requirements](Bing-Web-Search/UseAndDisplayRequirements.md)
+#### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d)
 
 ###Bing Search APIs
 #### [Web Search API](https://www.microsoft.com/cognitive-services/en-us/bing-web-search-api/documentation)
