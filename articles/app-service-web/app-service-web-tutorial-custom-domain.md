@@ -21,6 +21,8 @@ ms.author: cephalin
 
 This tutorial shows you how to map a custom DNS name (i.e. vanity domain) to your web app, mobile app backend, or API app in [Azure App Service](../app-service/app-service-value-prop-what-is.md). 
 
+![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+
 This tutorial follows the example scenario of mapping two DNS names to an app in App Service:
 
 - `contoso.com` - a root domain. You will use an [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) to map it to Azure. 
