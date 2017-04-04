@@ -37,7 +37,8 @@ This topic shows you how to create a logic app that creates a task in Dynamics 3
 ## Create a task when a new lead is created in Dynamics 365
 
 1.	[Sign in to Azure](https://portal.azure.com).
-2.	In the Azure search box, type *Logic apps*, and then press ENTER.
+
+2.	In the Azure search box, type `Logic apps`, and press ENTER.
 
       ![Find Logic Apps](./media/connectors-create-api-crmonline/find-logic-apps.png)
 
@@ -53,7 +54,7 @@ and then click **Create**.
 6.	Under **Development Tools**, click **Logic App Designer**. 
 In the template list, click **Blank Logic App**.
 
-7.	In the search box, type *Dynamics 365*. From the Dynamics 365 triggers list, 
+7.	In the search box, type `Dynamics 365`. From the Dynamics 365 triggers list, 
 select **Dynamics 365 – When a record is created**.
 
 8.	If you are prompted to sign in to Dynamics 365, do so now.
@@ -75,7 +76,8 @@ select **Dynamics 365 – When a record is created**.
 
 10. Click **New step**, and then click **Add an action**.
 
-11. In the search box, type *Dynamics 365*. From the actions list, select **Dynamics 365 – Create a new record**.
+11. In the search box, type `Dynamics 365`. 
+From the actions list, select **Dynamics 365 – Create a new record**.
 
 12. Enter the following information:
 
@@ -106,8 +108,9 @@ you can select either of these fields:
 
 ## Set advanced options for a logic app step
 
-In a logic app step, clicking **Show advanced options** 
-to specify how to filter data in that step by adding a filter or order by query.
+To specify how to filter data in a logic app step, 
+click **Show advanced options** in that step, 
+then add a filter or order by query.
 
 For example, you can use a filter query to get only active accounts and order by the account name. 
 To perform this task, enter the OData filter query **statuscode eq 1** and select **Account Name** from the dynamic content list. 
