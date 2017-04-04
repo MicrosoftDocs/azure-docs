@@ -8,8 +8,8 @@
 ## [Text Analytics quick start](cognitive-services-text-analytics-quick-start.md)
 ## [Recommendations quick start](cognitive-services-recommendations-quick-start.md)
 
-# Services
-## Academic Knowledge API
+# Services/APIs
+## Academic Knowledge
 ### [Overview](Academic-Knowledge/Home.md)
 ### Knowledge Exploration
 #### [Entity attributes](Academic-Knowledge/EntityAttributes.md)  
@@ -32,7 +32,7 @@
 #### [JSON Search Syntax](Academic-Knowledge/JSONSearchSyntax.md)                     
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56332331778daf02acc0a50b/operations/565d9001ca73072048922d97)
 
-## Bing APIs
+## Bing
 ### Autosuggest
 #### [Overview](Bing-Autosuggest/overview.md)
 #### [Use and Display Requirements](Bing-Autosuggest/UseAndDisplayRequirements.md)
@@ -77,7 +77,7 @@
 #### [Use and Display Requirements](Bing-Web-Search/UseAndDisplayRequirements.md)
 #### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d)
 
-## Computer Vision API
+## Computer Vision
 ### [Overview](Computer-vision/Home.md) 
 ### How-to
 #### [Obtain subscription keys](Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md) 
@@ -100,7 +100,7 @@
 ### [FAQ](Computer-vision/FAQ.md)                                      
 ### [Research papers](Computer-vision/Research.md)                
 
-## Content Moderator API
+## Content Moderator
 ### [Overview](Content-Moderator/overview.md) 
 ### [Get started](Content-Moderator/quick-start.md)
 ### Review tool user guide
@@ -129,7 +129,7 @@
 ### [FAQ](Custom-Speech-Service/FAQ.md)  
 ### [Glossary](Custom-Speech-Service/Glossary.md)   
 
-## Emotion API   
+## Emotion
 ### [Overview](Emotion/Home.md)
 ### How to
 #### [Call the Emotion API for video](Emotion/emotion-api-how-to-topics/HowtoCallEmotionForVideo.md)               
@@ -150,11 +150,11 @@
 ### [API Reference for Video](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f8d40e1984551ec0a0984e)       
 ### [FAQ](Emotion/FAQ.md)
 
-## Entity Linking API
+## Entity Linking
 ### [Overview](EntityLinking/Home.md)
 ### [Get started](EntityLinking/GettingStarted.md)
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f0eabfca730713cc392442/operations/56f0eabfca73070e44d0f39c)                          
-## Face API
+## Face
 ### [Overview](Face/Overview.md)
 ### How to
 #### [Detect faces in image](Face/Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
@@ -192,7 +192,7 @@
 #### [interpret](KES/interpretMethod.md)
 ### [Structured query expressions](KES/Expressions.md)        
             
-## Linguistic Analysis API
+## Linguistic Analysis
 ### [Overview](LinguisticAnalysisAPI/Home.md)
 ### [Analyzer names](LinguisticAnalysisAPI/Analyzer-Names.md)
 ### [Constituency parsing](LinguisticAnalysisAPI/Constituency-Parsing.md)
@@ -220,7 +220,27 @@
 ### [Key management](LUIS/Manage-Keys.md)
 ### [Create subscription keys](LUIS/AzureIbizaSubscription.md)
                      
+## QnAMaker
 
+### [Overview](QnAMaker/Home.md) 
+### [Quickstart](QnAMaker/Quickstart.md)
+### [Create a knowledge base](QnAMaker/Guides/CreateKB.md)
+### [Publish a knowledge base](QnAMaker/Guides/PublishKB.md)
+### [Train a knowledge base](QnAMaker/Guides/TrainKB.md)
+### [Update a knowledge base](QnAMaker/Guides/UpdateKB.md)
+### [Authentication](QnAMaker/SubscriptionKeys.md)
+### [API Reference](QnAMaker/HTTPEndPoint.md)
+### [FAQ](QnAMaker/Guides/QnAMaker/FAQs.md)
+
+
+        
+       
+         
+        
+            
+           
+    
+     
                
              
          
