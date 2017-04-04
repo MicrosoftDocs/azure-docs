@@ -14,7 +14,7 @@ ms.author: carolz
 ---
 <div class="content">
     <h1>SQL Database Documentation</h1>
-    <p style="padding-bottom: 0px">Learn how to use SQL Database, a relational database-as-a-service in the cloud built on the Microsoft SQL Server engine.</p>
+    <p style="padding-bottom: 0px">Azure SQL DB is a relational database as a service built on the Microsoft SQL Server Engine. SQL Database includes built-in intelligence that learns app patterns and adapts to maximize performance, reliability, and data protection. Learn how to use SQL Database with our quickstarts, tutorials, and samples.</p>
 <h2 style="margin-top: 36px">Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">

@@ -14,7 +14,7 @@ ms.author: carolz
 ---
 <div class="content">
     <h1>Linux Virtual Machines Documentation</h1>
-    <p style="padding-bottom: 0px">Learn how to run Virtual Machines on Azure using the Linux distribution of your choice.</p>
+    <p style="padding-bottom: 0px">Linux VMs on Azure offer you the power and flexibility of virtualization with secure, resizable compute capacity based on the Linux distribution of your choice. Learn how to use Linux VMs with our quickstarts, tutorials, and samples.</p>
 <h2 style="margin-top: 36px">Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">

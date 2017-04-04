@@ -14,7 +14,7 @@ ms.author: carolz
 ---
 <div class="content">
     <h1>Windows Virtual Machines Documentation</h1>
-    <p style="padding-bottom: 0px">Learn how to create Windows virtual machines.</p>
+    <p style="padding-bottom: 0px">Windows VMs on Azure offer you the power and flexibility of virtualization for development and testing or extending your datacenter. Learn how to use Windows VMs with our quickstarts, tutorials, and samples.</p>
 <h2 style="margin-top: 36px">Quickstarts</h2>
 <div class="ico48Case">
     <div class="ico48Link">
