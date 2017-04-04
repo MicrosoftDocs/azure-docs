@@ -58,7 +58,7 @@ You can download the existing Azure Resource Manager template to create a virtua
 3. Save the file to a local folder on your computer.
 4. If you are familiar with Azure Resource Manager templates, skip to step 7.
 5. Open the file that you saved and look at the contents under **parameters** in line 5. Azure Resource Manager template parameters provide a placeholder for values that can be filled out during deployment.
-   
+
    | Parameter | Description |
    | --- | --- |
    | **addressPrefix** |Address space for the virtual network, in CIDR format. |
@@ -68,7 +68,7 @@ You can download the existing Azure Resource Manager template to create a virtua
    | **backendIpaddress1** |IP address of the first web server. |
    | **backendIpaddress2** |IP address of the second web server. |
    | **wafEnabled** | Setting to determine if WAF is enabled.|
-   | **wafMode** | Mode of the web application firewall.  Availble options are **prevention** or **detection** .|
+   | **wafMode** | Mode of the web application firewall.  Available options are **prevention** or **detection**.|
    | **wafRuleSetType** | Ruleset type for WAF.  Currently OWASP is the only supported option. |
    | **wafRuleSetVersion** |Ruleset version. OWASP CRS 2.2.9 and 3.0 are currently the supported options. |
 
@@ -133,7 +133,7 @@ You can download the existing Azure Resource Manager template to create a virtua
 
 ## Deploy the Azure Resource Manager template by using PowerShell
 
-If you have never used Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) and follow the instructions to sign into Azure and select your subscription.
+If you have never used Azure PowerShell, visit: [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) and follow the instructions to sign into Azure and select your subscription.
 
 ### Step 1
 
@@ -184,7 +184,7 @@ If you have never used Azure CLI, see [Install and configure the Azure CLI](~/cl
 
 ### Step 2
 
-If necessary, run the **az group create** command to create a new resource group, as shown in the following code snippet. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
+If necessary, run the **az group create** command to create a resource group, as shown in the following code snippet. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 ```azurecli
 az group create --location westus --name appgatewayRG
@@ -240,9 +240,9 @@ When using SSL with a template, the certificate needs to be provided in a base64
 
 ## Next steps
 
-If you want to configure SSL offload, see [Configure an application gateway for SSL offload](application-gateway-ssl.md).
+If you want to configure SSL offload, visit: [Configure an application gateway for SSL offload](application-gateway-ssl.md).
 
-If you want to configure an application gateway to use with an internal load balancer, see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).
+If you want to configure an application gateway to use with an internal load balancer, visit: [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).
 
 If you want more information about load balancing options in general, visit:
 
