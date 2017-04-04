@@ -74,7 +74,7 @@ Yes, when a resource is unavailable, resource health identifies the root cause w
 In the portal, user initiated actions are shown using a blue notification icon, while planned and unplanned events are shown using a red warning icon. More details are provided in the [resource health overview](Resource-health-overview.md).  
 
 ## Can I integrate resource health with my monitoring tools?
-Resource health is a service designed to help you diagnose and mitigate Azure service issues that impact your resources. While you can use the resource health API to programmatically obtain the health status, we recommend you use metrics to monitor your resources. Once an issue is detected, resource health helps you determine the root cause and guides you through actions to address them. Visit [Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/) to learn more about how you can use metrics to check  your resources.
+Resource health is a service designed to help you diagnose and mitigate Azure service issues that impact your resources. While you can use the resource health API to programmatically obtain the health status, we recommend you use metrics to monitor your resources. Once an issue is detected, resource health helps you determine the root cause and guides you through actions to address them. Visit [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) to learn more about how you can use metrics to check your resources.
 
 ## Where do I find resource health?
 After you log in to the Azure portal, there are multiple ways you can access resource health:
