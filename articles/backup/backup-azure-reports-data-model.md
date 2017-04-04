@@ -63,3 +63,23 @@ This table provides basic fields and aggregations over various backup item relat
 | ProtectedServerName |String |Name of protected server to which backup item belongs |
 | ProtectionState |String |Current protection state of the backup item e.g. Protected, ProtectionStopped |
 | State |String |Current state of the backup item object e.g. Active, Deleted |
+
+### Calendar
+This table provides details about calendar related fields.
+
+| Field | Data Type | Description |
+| --- | --- | --- |
+| Date |Date |Date selected for filtering data |
+| DateKey |Number |Unique key for each date item |
+| DayDiff |Number |Difference in day for filtering data e.g. 0 indicates current day's data, -1 indicates previous one day's data, 0 and -1 indicate data for current and previous day  |
+| Month |String |Month of the year selected for filtering data, month begins on 1st day and ends on 31st day |
+| MonthDate |Date |Date in the month when month ends, selected for filtering data |
+| MonthDiff |Number |Difference in month for filtering data e.g. 0 indicates current month's data, -1 indicates previous month's data, 0 and -1 indicate data for current and previous month |
+| Week |String |Week selected for filtering data, week begins on Sunday and ends on Saturday |
+| WeekDate |Date |Date in the week when week ends, selected for filtering data |
+| WeekDiff |Number |Difference in week for filtering data e.g. 0 indicates current week's data, -1 indicates previous week's data, 0 and -1 indicate data for current and previous week |
+| Year |String |Calendar year selected for filtering data |
+| YearDate |String |Date in the year when year ends, selected for filtering data |
+
+### Job
+This table provides basic fields and aggregations over various job related fields.
