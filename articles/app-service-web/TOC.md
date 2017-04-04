@@ -15,13 +15,8 @@
 ## [PowerShell](app-service-powershell-samples.md)
 
 # Tutorials
-## [Create a Hyper-Scale App](app-service-web-tutorial-hyper-scale-app.md)
-## Web App + Database
 ### [ASP.NET with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
 ### [Node.js with MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)
-## [Map Custom Domain](app-service-web-tutorial-custom-domain.md)
-## [Bind SSL Certificate](app-service-web-tutorial-domain-ssl.md)
-## [Connect to CDN](app-service-web-tutorial-content-delivery-network.md)
 
 # Concepts
 ## [How App Service works](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)	
