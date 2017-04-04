@@ -32,6 +32,64 @@
 #### [JSON Search Syntax](Academic-Knowledge/JSONSearchSyntax.md)                     
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56332331778daf02acc0a50b/operations/565d9001ca73072048922d97)
 
+## Bing APIs
+### Autosuggest
+#### [Overview](Bing-Autosuggest/overview.md)
+#### [Use and Display Requirements](Bing-Autosuggest/UseAndDisplayRequirements.md)
+#### [API reference](https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2)
+
+### Image Search
+#### [Overview](Bing-Image-Search/overview.md)
+#### [Use and Display Requirements](Bing-Image-Search/UseAndDisplayRequirements.md)
+#### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43f0ccf5ff8098cef3808/operations/571fab09dbe2d933e891028f)
+
+### News Search
+#### [Overview](Bing-News-Search/overview.md)
+#### [Use and Display Requirements](Bing-News-Search/UseAndDisplayRequirements.md)
+#### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553)
+
+### Speech
+#### [Overview](Speech/Home.md)
+#### Get started
+##### [Objective C on iOS](Speech/GetStarted/Get-Started-ObjectiveC-iOS.md)    
+##### [cURL](Speech/GetStarted/GetStarted-cURL.md)               
+##### [C&#35; for .NET Windows](Speech/GetStarted/GetStartedCSharpDesktop.md)       
+##### [C&#35; for .Net Window (Service Library)](Speech/GetStarted/GetStartedCSharpServiceLibrary.md)
+##### [C&#35; for .Net Universal Apps on Windows 10](Speech/GetStarted/GetStartedCSharpWin10.md)         
+##### [C&#35; for .Net on Windows Phone 8.1](Speech/GetStarted/GetStartedCSharpWinPhone.md)      
+##### [Java on Android](Speech/GetStarted/GetStartedJavaAndroid.md)         
+##### [JavaScript](Speech/GetStarted/GetStartedJS.md)
+#### [Speech recognition API reference](Speech/API-Reference-REST/BingVoiceRecognition.md)
+#### [Text-to-speech API reference](Speech/API-Reference-REST/BingVoiceOutput.md)
+
+### Spell Check
+#### [Overview](Bing-Spell-Check/Home.md)
+#### [Use and Display Requirements](Bing-Spell-Check/UseAndDisplayRequirements.md)
+#### [API reference](https://dev.cognitive.microsoft.com/docs/services/56e73033cf5ff80c2008c679/operations/57855119bca1df1c647bc358)
+
+### Video Search
+#### [Overview](Bing-Video-Search/overview.md)
+#### [Use and Display Requirements](Bing-Video-Search/UseAndDisplayRequirements.md)
+#### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8)
+
+### Web Search
+#### [Overview](Bing-Web-Search/overview.md)
+#### [Use and Display Requirements](Bing-Web-Search/UseAndDisplayRequirements.md)
+#### [API reference](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d)
+
+###Bing Search APIs
+#### [Web Search API](https://www.microsoft.com/cognitive-services/en-us/bing-web-search-api/documentation)
+#### [Image Search API](https://www.microsoft.com/cognitive-services/en-us/bing-image-search-api/documentation)
+#### [Video Search API](https://www.microsoft.com/cognitive-services/en-us/bing-video-search-api/documentation)
+#### [News Search API](https://www.microsoft.com/cognitive-services/en-us/bing-news-search-api/documentation)
+### [Bing Autosuggest API](https://www.microsoft.com/cognitive-services/en-us/bing-autosuggest-api/documentation)
+### [Bing Spell Check API](https://www.microsoft.com/cognitive-services/en-us/bing-spell-check-api/documentation)
+### [Bing Speech API](https://www.microsoft.com/cognitive-services/en-us/speech-api/documentation/overview)
+
+
+
+
+
 ## Text Analytics API
 ### [API migration](cognitive-services-text-analytics-api-migration.md)
 
@@ -54,15 +112,7 @@
 ### [Call the API](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/vision-api-how-to-topics/HowToCallVisionAPI)
 ### [API reference](https://dev.projectoxford.ai/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa)
 
-## Develop with Bing APIs
-### Bing Search APIs
-#### [Web Search API](https://www.microsoft.com/cognitive-services/en-us/bing-web-search-api/documentation)
-#### [Image Search API](https://www.microsoft.com/cognitive-services/en-us/bing-image-search-api/documentation)
-#### [Video Search API](https://www.microsoft.com/cognitive-services/en-us/bing-video-search-api/documentation)
-#### [News Search API](https://www.microsoft.com/cognitive-services/en-us/bing-news-search-api/documentation)
-### [Bing Autosuggest API](https://www.microsoft.com/cognitive-services/en-us/bing-autosuggest-api/documentation)
-### [Bing Spell Check API](https://www.microsoft.com/cognitive-services/en-us/bing-spell-check-api/documentation)
-### [Bing Speech API](https://www.microsoft.com/cognitive-services/en-us/speech-api/documentation/overview)
+
 
 ## [Develop with Web Language Model API](https://www.microsoft.com/cognitive-services/en-us/web-language-model-api/documentation)
 ## [Develop with Language Understanding Intelligent Service](https://www.luis.ai/Help/)
