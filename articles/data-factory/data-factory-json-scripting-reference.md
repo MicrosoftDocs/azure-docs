@@ -60,7 +60,7 @@ Click the link for the store you are interested in to see the JSON schemas for l
 | **Others** |[HTTP](#http) |
 | &nbsp; |[OData](#odata) |
 | &nbsp; |[ODBC](#odbc) |
-| &nbsp; |[Salesforce](salesforce) |
+| &nbsp; |[Salesforce](#salesforce) |
 | &nbsp; |[Web Table](#web-table) |
 
 ## Azure Blob Storage
@@ -553,7 +553,7 @@ The following properties are available in **typeProperties** section when the so
 | **Property** | **Description** | **Allowed values** | **Required** |
 | --- | --- | --- | --- |
 | nestingSeparator |A special character in the source column name to indicate that nested document is needed. <br/><br/>For example above: `Name.First` in the output table produces the following JSON structure in the DocumentDB document:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Character that is used to separate nesting levels.<br/><br/>Default value is `.` (dot). |Character that is used to separate nesting levels. <br/><br/>Default value is `.` (dot). |
-| writeBatchSize |Number of parallel requests to DocumentDB service to create documents.<br/><br/>You can fine-tune the performance when copying data to/from DocumentDB by using this property. You can expect a better performance when you increase writeBatchSize because more parallel requests to DocumentDB are sent. However you’ll need to avoid throttling that can throw the error message: "Request rate is large".<br/><br/>Throttling is decided by a number of factors, including size of documents, number of terms in documents, indexing policy of target collection, etc. For copy operations, you can use a better collection (e.g. S3) to have the most throughput available (2,500 request units/second). |Integer |No (default: 5) |
+| writeBatchSize |Number of parallel requests to DocumentDB service to create documents.<br/><br/>You can fine-tune the performance when copying data to/from DocumentDB by using this property. You can expect a better performance when you increase writeBatchSize because more parallel requests to DocumentDB are sent. However you’ll need to avoid throttling that can throw the error message: "Request rate is large".<br/><br/>Throttling is decided by a number of factors, including size of documents, number of terms in documents, indexing policy of target collection, etc. For copy operations, you can use a better collection (for example, S3) to have the most throughput available (2,500 request units/second). |Integer |No (default: 5) |
 | writeBatchTimeout |Wait time for the operation to complete before it times out. |timespan<br/><br/> Example: “00:30:00” (30 minutes). |No |
 
 #### Example
@@ -994,13 +994,13 @@ The following table provides descriptions for JSON elements that are specific to
 ```json
 {
 	"name": "AzureSearchLinkedService",
-   	"properties": {
-		"type": "AzureSearch",
-   		"typeProperties": {
+	"properties": {
+	"type": "AzureSearch",
+		"typeProperties": {
 			"url": "https://<service>.search.windows.net",
-        	"key": "<AdminKey>"
+			"key": "<AdminKey>"
 		}
-   	}
+	}
 }
 ```
 
@@ -1022,14 +1022,14 @@ The typeProperties section for a dataset of the type **AzureSearchIndex** has th
 	"properties": {
 		"type": "AzureSearchIndex",
 		"linkedServiceName": "AzureSearchLinkedService",
-     	"typeProperties" : {
+		"typeProperties" : {
 			"indexName": "products",
 		},
 		"availability": {
 			"frequency": "Minute",
 			"interval": 15
 		}
-   }
+	}
 }
 ```
 
@@ -2717,20 +2717,20 @@ The following table provides description for JSON elements specific to Cassandra
 
 ```json
 {
-    "name": "CassandraLinkedService",
-    "properties":
-    {
-        "type": "OnPremisesCassandra",
-        "typeProperties":
-        {
-            "authenticationType": "Basic",
-            "host": "mycassandraserver",
-            "port": 9042,
-            "username": "user",
-            "password": "password",
-            "gatewayName": "mygateway"
-        }
-    }
+	"name": "CassandraLinkedService",
+	"properties":
+	{
+		"type": "OnPremisesCassandra",
+		"typeProperties":
+		{
+			"authenticationType": "Basic",
+			"host": "mycassandraserver",
+			"port": 9042,
+			"username": "user",
+			"password": "password",
+			"gatewayName": "mygateway"
+		}
+	}
 }
 ```
 
@@ -4019,7 +4019,7 @@ The typeProperties section for dataset of type **Http** has the following proper
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | Specified the type of the dataset. must be set to `Http`. | Yes |
-| relativeUrl | A relative URL to the resource that contains the data. When path is not specified, only the URL specified in the linked service definition is used. <br><br> To construct dynamic URL, you can use [Data Factory functions and system variables](data-factory-functions-variables.md), e.g. "relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)". | No |
+| relativeUrl | A relative URL to the resource that contains the data. When path is not specified, only the URL specified in the linked service definition is used. <br><br> To construct dynamic URL, you can use [Data Factory functions and system variables](data-factory-functions-variables.md), Example: `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"`. | No |
 | requestMethod | Http method. Allowed values are **GET** or **POST**. | No. Default is `GET`. |
 | additionalHeaders | Additional HTTP request headers. | No |
 | requestBody | Body for HTTP request. | No |
@@ -4084,8 +4084,8 @@ When the source in copy activity is of type **HttpSource**, the following proper
 {  
     "name":"SamplePipeline",
     "properties":{  
-    "start":"2014-06-01T18:00:00",
-    "end":"2014-06-01T19:00:00",
+    "start":"2016-06-01T18:00:00",
+    "end":"2016-06-01T19:00:00",
     "description":"pipeline with copy activity",
     "activities":[  
       {
@@ -4188,7 +4188,7 @@ The following table provides description for JSON elements specific to OData lin
         "type": "OData",
             "typeProperties":
         {
-            "url": "<endpoint of on-premises OData source e.g. Dynamics CRM>",
+            "url": "<endpoint of on-premises OData source, for example, Dynamics CRM>",
             "authenticationType": "Windows",
             "username": "domain\\user",
             "password": "password",
@@ -4207,7 +4207,7 @@ The following table provides description for JSON elements specific to OData lin
         "type": "OData",
             "typeProperties":
         {
-            "url": "<endpoint of cloud OData source e.g. https://<tenant>.crm.dynamics.com/XRMServices/2011/OrganizationData.svc>",
+            "url": "<endpoint of cloud OData source, for example, https://<tenant>.crm.dynamics.com/XRMServices/2011/OrganizationData.svc>",
             "authenticationType": "OAuth",
             "authorizedCredential": "<auto generated by clicking the Authorize button on UI>"
         }
@@ -4686,8 +4686,8 @@ Currently, when the source in copy activity is of type **WebSource**, no additio
 {  
     "name":"SamplePipeline",
     "properties":{  
-    "start":"2014-06-01T18:00:00",
-    "end":"2014-06-01T19:00:00",
+    "start":"2016-06-01T18:00:00",
+    "end":"2016-06-01T19:00:00",
     "description":"pipeline with copy activity",
     "activities":[  
       {
@@ -4889,7 +4889,7 @@ The following table provides descriptions for the properties used in the JSON de
 | authorization |Authorization code is automatically retrieved after clicking **Authorize** button in the Data Factory Editor and completing the OAuth login. |Yes |
 | subscriptionId |Azure subscription id |No (If not specified, subscription of the data factory is used). |
 | resourceGroupName |Azure resource group name |No (If not specified, resource group of the data factory is used). |
-| sessionId |session id from the OAuth authorization session. Each session id is unique and may only be used once. This is auto-generated in the Data Factory Editor. |Yes |
+| sessionId |session id from the OAuth authorization session. Each session id is unique and may only be used once. When you use the Data Factory Editor, this ID is auto-generated . |Yes |
 
 
 ## Azure SQL Database
