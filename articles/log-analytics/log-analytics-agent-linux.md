@@ -44,7 +44,8 @@ After installing the OMS Agent for Linux packages, the following additional syst
 * A sudoers “include” file is created at /etc/sudoers.d/omsagent This authorizes omsagent to restart the syslog and omsagent daemons. If sudo “include” directives are not supported in the installed version of sudo, these entries will be written to /etc/sudoers.
 * The syslog configuration is modified to forward a subset of events to the agent. For more information, see the **Configuring Data Collection** section below
 
-## Supported Linux Operating Systems
+## Supported Linux operating systems
+The following Linux distributions are officially supported.  However, the OMS Agent for Linux might also run on other distributions not listed.
 
 * Amazon Linux 2012.09 --> 2015.09 (x86/x64)
 * CentOS Linux 5,6, and 7 (x86/x64)
@@ -54,7 +55,7 @@ After installing the OMS Agent for Linux packages, the following additional syst
 * Ubuntu 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS (x86/x64)
 * SUSE Linux Enteprise Server 11 and 12 (x86/x64)
 
-## Package Requirements
+## Package requirements
 
  **Required package** 	| **Description** 	| **Minimum version**
 --------------------- | --------------------- | -------------------
@@ -68,7 +69,7 @@ PAM | Pluggable authentication Modules	 |
 >  Either rsyslog or syslog-ng are required to collect syslog messages. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the rsyslog daemon should be installed and configured to replace sysklog, 
 
 
-## Upgrade from a Previous Release
+## Upgrade from a previous release
 Upgrade from versions earlier than 1.0.0-47 is supported in this release. Performing the installation with the `--upgrade` command will upgrade all components of the agent to the latest version.
 
 ## Steps to install the OMS Agent for Linux
@@ -144,7 +145,7 @@ sudo sh ./omsagent-1.3.0-1.universal.x64.sh --extract
 ##Configuring the agent for use with an HTTP proxy server
 The OMS Agent for Linux supports communicating through an HTTP or HTTPS proxy server to the OMS service.  Both anonymous and basic authentication (username/password) is supported. 
 
-### Proxy Configuration
+### Proxy configuration
 The proxy configuration value has the following syntax:
 
 `[protocol://][user:password@]proxyhost[:port]`
@@ -250,7 +251,7 @@ sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -x <workspace id>
 sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -X
 ```
 
-## Manage omsagent Daemon
+## Manage omsagent daemon
 Starting with version 1.3.0-1, we register omsagent daemon for each onboarded workspace. The daemon name is *omsagent-\<workspace-id>*.  You can use `/opt/microsoft/omsagent/bin/service_control` command to operate the daemon.
 
 ```
@@ -260,7 +261,7 @@ sudo sh /opt/microsoft/omsagent/bin/service_control start|stop|restart|enable|di
 The workspace id is an optional parameter. If it is specified, it will only operate on the workspace-specific daemon.  Otherwise, it will operate on all the daemons.
 
 
-## Agent Logs
+## Agent logs
 The logs for the OMS Agent for Linux can be found at: 
 `/var/opt/microsoft/omsagent/<workspace id>/log/`
 The logs for the omsconfig (agent configuration) program can be found at: 
@@ -268,7 +269,7 @@ The logs for the omsconfig (agent configuration) program can be found at:
 Logs for the OMI and SCX components (which provide performance metrics data) can be found at:
 `/var/opt/omi/log/ and /var/opt/microsoft/scx/log`
 
-### Log Rotation Configuration##
+### Log rotation configuration##
 The log rotate configuration for omsagent can be found at:
 `/etc/logrotate.d/omsagent-<workspace id>`
 
@@ -308,7 +309,7 @@ The OMS Agent for Linux shares agent binaries with the System Center Operations 
 > System Center 2012 SP1 and earlier versions are currently not compatible or supported with the OMS Agent for Linux.<br>
 > If the OMS Agent for Linux is installed to a computer that is not currently managed by Operations Manager, and you then wish to manage the computer with Operations Manager, you must modify the OMI configuration prior to discovering the computer. **This step is *not* needed if the Operations Manager agent is installed before the OMS Agent for Linux.**
 
-### To enable the OMS Agent for Linux to communicate with System Center Operations Manager:
+### To enable the OMS Agent for Linux to communicate with System Center Operations Manager
 1. Edit the file `/etc/opt/omi/conf/omiserver.conf`
 2. Ensure that the line beginning with **httpsport=** defines the port 1270. Such as:
 `httpsport=1270`
@@ -319,7 +320,7 @@ The OMS Agent for Linux shares agent binaries with the System Center Operations 
 
 ### Issue: Unable to connect through proxy to OMS
 
-#### Probable Causes
+#### Probable causes
 * The proxy specified during onboarding was incorrect
 * The OMS Service Endpoints are not whitelistested in your datacenter 
 
@@ -338,7 +339,7 @@ The OMS Agent for Linux shares agent binaries with the System Center Operations 
 
 ### Issue: You receive a 403 error when trying to onboard
 
-#### Probable Causes
+#### Probable causes
 * Date and Time is incorrect on Linux Server 
 * Workspace ID and Workspace Key used are not correct
 
@@ -353,7 +354,7 @@ This is a known issue an occurs on first upload of Linux data into an OMS worksp
 
 ### Issue:  You are not seeing any data in the OMS portal
 
-#### Probable Causes
+#### Probable causes
 
 - Onboarding to the OMS Service failed
 - Connection to the OMS Service is blocked
@@ -365,4 +366,4 @@ This is a known issue an occurs on first upload of Linux data into an OMS worksp
 3. If using a proxy, refer to the proxy resolution steps provided earlier.
 4. In some cases, when the OMS Agent for Linux cannot communicate with the OMS Service, data on the agent is queued to the full buffer size, which is 50 MB. The OMS Agent for Linux should be restarted by running the following command `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
 > [!NOTE]
-> This issue is fixed in agent version greater than 1.1.0-28.
+> This issue is fixed in agent version 1.1.0-28 and later.
