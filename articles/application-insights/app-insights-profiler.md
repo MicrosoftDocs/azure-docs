@@ -26,7 +26,7 @@ The profiler currently works for ASP.NET web apps running on Azure App Services,
 <a id="installation"></a>
 ## Enable the profiler
 
-[Install Application Insights](app-insights-azure-asp-net.md) in your code. If it's already installed, make sure you have the latest version. (To do this, right-click your project in Solution Explorer, and choose Manage NuGet packages. Select Updates and update all packages.)
+[Install Application Insights](app-insights-asp-net.md) in your code. If it's already installed, make sure you have the latest version. (To do this, right-click your project in Solution Explorer, and choose Manage NuGet packages. Select Updates and update all packages.)
 
 *Using ASP.NET Core? [Check here](#aspnetcore).*
 
