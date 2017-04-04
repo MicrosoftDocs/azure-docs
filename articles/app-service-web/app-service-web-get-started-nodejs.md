@@ -32,6 +32,8 @@ Before running this sample, install the following prerequisites locally:
 1. [Download and install Node.js and NPM](https://nodejs.org/)
 1. Download and install the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Download the sample
 
 Clone the Hello World sample app repository to your local machine.
