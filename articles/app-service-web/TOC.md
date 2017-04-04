@@ -11,13 +11,16 @@
 ## [Create static HTML site](app-service-web-get-started-html.md)
 
 # Samples
-## [Azure CLI](app-service-cli-samples.md) 
-## [PowerShell](app-service-powershell-samples.md) 
+## [Azure CLI](app-service-cli-samples.md)
+## [PowerShell](app-service-powershell-samples.md)
 
 # Tutorials
-## [Map Custom Domain](web-)
-## [Bind SSL Certificate](web-sites-ssl-purchase-web-site.md)
+## [ASP.NET with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+## [Node.js with MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)
+## [Map Custom Domain](app-service-web-tutorial-custom-domain.md)
+## [Bind SSL Certificate](ap-service-web-tutorial-domain-ssl.md)
 ## [Connect to CDN](app-service-web-tutorial-content-delivery-network.md)
+## [Hyper-Scale App](app-service-web-tutorial-hyper-scale-app.md)
 
 # Concepts
 ## [How App Service works](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)	
