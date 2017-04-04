@@ -219,7 +219,7 @@ You can specify the sizes of head, data, and zookeeper nodes using the following
 | zookeeperNodeSize |Specifies the size of the Zoo Keeper node. The default value is: Standard_D3. |No |
 
 #### Specifying node sizes
-See the [Sizes of Virtual Machines](../virtual-machines/virtual-machines-linux-sizes.md) article for string values you need to specify for the above properties. The values need to conform to the **CMDLETs & APIS** referenced in the article. As you can see in the article, the data node of Large (default) size has 7 GB memory, which may not be good enough for your scenario. 
+See the [Sizes of Virtual Machines](../virtual-machines/linux/sizes.md) article for string values you need to specify for the above properties. The values need to conform to the **CMDLETs & APIS** referenced in the article. As you can see in the article, the data node of Large (default) size has 7 GB memory, which may not be good enough for your scenario. 
 
 If you want to create D4 sized head nodes and worker nodes, you need to specify **Standard_D4** as the value for headNodeSize and dataNodeSize properties. 
 

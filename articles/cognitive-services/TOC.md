@@ -1,19 +1,41 @@
 
 # Overview
 ## [What is Cognitive Services?](https://azure.microsoft.com/services/cognitive-services/)
+
 # Get Started
+## [Welcome](Welcome.md)
 ## [Create an account](cognitive-services-apis-create-account.md)
 ## [Text Analytics quick start](cognitive-services-text-analytics-quick-start.md)
 ## [Recommendations quick start](cognitive-services-recommendations-quick-start.md)
 
-# How to
-## Develop with Academic Knowledge API
-### [Overview](https://www.microsoft.com/cognitive-services/en-us/academic-knowledge-api/documentation/overview)
-### [API reference](https://dev.projectoxford.ai/docs/services/56332331778daf02acc0a50b/operations/565d9001ca73072048922d97)
+# Services
+## Academic Knowledge API
+### [Overview](Academic-Knowledge/Home.md)
+### Knowledge Exploration
+#### [Entity attributes](Academic-Knowledge/EntityAttributes.md)  
+##### [Paper](Academic-Knowledge/PaperEntityAttributes.md)   
+##### [Author](Academic-Knowledge/AuthorEntityAttributes.md)
+##### [Affiliation](Academic-Knowledge/AffiliationEntityAttributes.md)  
+##### [Field of study](Academic-Knowledge/FieldsOfStudyEntityAttributes.md)
+##### [Conference series](Academic-Knowledge/ConferenceSeriesEntityAttributes.md)
+##### [Conference instance](Academic-Knowledge/ConferenceInstanceEntityAttributes.md)
+##### [Journal](Academic-Knowledge/JournalEntityAttributes.md) 
+#### Methods
+##### [CalcHistogram](Academic-Knowledge/CalcHistogramMethod.md) 
+##### [Evaluate](Academic-Knowledge/EvaluateMethod.md)
+##### [Interpret](Academic-Knowledge/InterpretMethod.md)
+##### [Similarity](Academic-Knowledge/SimilarityMethod.md)
+#### [Query expression syntax](Academic-Knowledge/QueryExpressionSyntax.md) 
+### Graph traversal
+#### [Lambda search syntax](Academic-Knowledge/LambdaSearchSyntax.md)
+#### [Graph search method](Academic-Knowledge/GraphSearchMethod.md) 
+#### [JSON Search Syntax](Academic-Knowledge/JSONSearchSyntax.md)                     
+### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56332331778daf02acc0a50b/operations/565d9001ca73072048922d97)
 
-## Develop with Text Analytics API
+## Text Analytics API
 ### [API migration](cognitive-services-text-analytics-api-migration.md)
-## Develop with Recommendations API
+
+## Recommendations API
 ### [Collect training data](cognitive-services-recommendations-collecting-data.md)
 ### [Build types & model quality](cognitive-services-recommendations-buildtypes.md)
 ### [Batch scoring](cognitive-services-recommendations-batch-scoring.md)
