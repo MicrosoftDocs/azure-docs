@@ -96,13 +96,13 @@ The following items are optional in case you don’t have a sensor. You also hav
    ![Get Hostname of your IoT hub](media/iot-hub-arduino-huzzah-esp8266-get-started/6_iot-hub-get-hostname.png)
 
 
-1. In the **Shared access policies** pane, click the **iothubowner** policy, and then copy and save the **Connection string** value for your IoT hub. You use this value later in this article. For more information, see [Control access to IoT Hub](iot-hub-devguide-security.md).
+6. In the **Shared access policies** pane, click the **iothubowner** policy, and then copy and save the **Connection string** value for your IoT hub. You use this value later in this article. For more information, see [Control access to IoT Hub](iot-hub-devguide-security.md).
 
 
    ![Get IoT hub connection string](media/iot-hub-arduino-huzzah-esp8266-get-started/7_iot-hub-get-connection-string.png)
 
 
-You have now created your IoT hub. Ensure that you save the **Hostname** and **Connection string** values, they're used later in this article.
+You've now created your IoT hub. Ensure that you save the **Hostname** and **Connection string** values, they're used later in this article.
 
 
 ### Register a device for Feather HUZZAH ESP8266 in your IoT hub
@@ -147,13 +147,13 @@ To register a device for Feather HUZZAH ESP8266, follow these steps:
      npm install -g iothub-explorer
      ```
 
-1. Log in to your IoT hub by running the following command:
+3. Log in to your IoT hub by running the following command:
 
    ```bash
    iothub-explorer login [your IoT hub connection string]
    ```
 
-1. Register a new device. In the next example, `deviceID` is `new-device`. Get its connection string by running the following command.
+4. Register a new device. In the next example, `deviceID` is `new-device`. Get its connection string by running the following command.
 
    ```bash
    iothub-explorer create new-device --connection-string
