@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 04/05/2017
 ms.author: gwallace
 
 ---
@@ -29,6 +29,8 @@ ms.author: gwallace
 
 Learn how to create an application gateway using SSL offload.
 
+![Scenario example][scenario]
+
 Application Gateway is a dedicated virtual appliance providing application delivery controller (ADC) as a service, offering various layer 7 load balancing capabilities for your application.
 
 This scenario will:
@@ -40,7 +42,7 @@ This scenario will:
 1. Add servers to the back-end pool
 1. [Delete all resources](#delete-all-resources. You incur charges for some of the resources created in this exercise while they're provisioned. To minimize the charges, after you complete the exercise, be sure to complete the steps in this section to delete the resources you create.
 
-![Scenario example][scenario]
+
 
 > [!IMPORTANT]
 > Additional configuration of the application gateway, including custom health probes, backend pool addresses, and additional rules are configured after the application gateway is configured and not during initial deployment.
