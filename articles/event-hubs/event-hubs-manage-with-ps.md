@@ -19,7 +19,7 @@ ms.author: sethm
 ---
 # Use PowerShell to manage Event Hubs resources
 
-Microsoft Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of Azure services. This article describes how to use the [Event Hubs Resource Manager PowerShell module](/powershell/resourcemanager/azurerm.eventhub/v0.1.0/azurerm.eventhub) to provision and manage Event Hubs entities (namespaces, Event Hubs, consumer groups) using a local Azure PowerShell console or script.
+Microsoft Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of Azure services. This article describes how to use the [Event Hubs Resource Manager PowerShell module](/powershell/module/azurerm.eventhub/?view=azurermps-3.7.0#event_hub) to provision and manage Event Hubs entities (namespaces, Event Hubs, consumer groups) using a local Azure PowerShell console or script.
 
 You can also manage Event Hubs resources using Azure Resource Manager templates. For more information, see the article [Create an Event Hubs namespace with Event Hub and consumer group using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md).
 
@@ -29,12 +29,12 @@ Before you begin, you'll need the following:
 
 * An Azure subscription. For more
   information about obtaining a subscription, see [purchase options][purchase options], [member offers][member offers], or [free account][free account].
-* A computer with Azure PowerShell. For instructions, see [Get started with Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs.md#step-1-install-azure-powershell).
+* A computer with Azure PowerShell. For instructions, see [Get started with Azure PowerShell cmdlets](/powershell/azure/get-started-azureps).
 * A general understanding of PowerShell scripts, NuGet packages, and the .NET Framework.
 
 ## Get started
 
-The first step is to use PowerShell to log in to your Azure account and Azure subscription. Follow the instructions in [Get started with Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs/) to log in to your Azure account, and retrieve and access the resources in your Azure subscription.
+The first step is to use PowerShell to log in to your Azure account and Azure subscription. Follow the instructions in [Get started with Azure PowerShell cmdlets](/powershell/azure/get-started-azureps) to log in to your Azure account, and retrieve and access the resources in your Azure subscription.
 
 ## Provision an Event Hubs namespace
 
@@ -148,7 +148,7 @@ Remove-AzureRmEventHubNamespace -ResourceGroupName $ResGrpName -NamespaceName $N
 
 ## Next steps
 
-- See the complete Event Hubs Resource Manager PowerShell module documentation [here](/powershell/resourcemanager/azurerm.eventhub/v0.1.0/azurerm.eventhub). This page lists all available cmdlets.
+- See the complete Event Hubs Resource Manager PowerShell module documentation [here](/powershell/module/azurerm.eventhub/?view=azurermps-3.7.0#event_hub). This page lists all available cmdlets.
 - For information about using Azure Resource Manager templates, see the article [Create an Event Hubs namespace with Event Hub and consumer group using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md).
 - Information about [Event Hubs .NET management libraries](event-hubs-management-libraries.md).
 
