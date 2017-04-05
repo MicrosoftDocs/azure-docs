@@ -90,11 +90,9 @@ az component update --add dls
 
 You can create folders under your Azure Data Lake Store account to manage and store data. Use the following command to create a folder called **mynewfolder** at the root of the Data Lake Store.
 
-    az dls fs create --account <dataLakeStoreAccountName> --path <new folder path> --folder
-
-For example:
-
-    az dls fs create --account mydatalakestore --path /mynewfolder --folder
+```azurecli
+az dls fs create --account mydatalakestore --path /mynewfolder --folder
+```
 
 > [!NOTE]
 > The `--folder` parameter ensures that the command creates a folder. If this parameter is not present, the command creates an empty file called mynewfolder at the root of the Data Lake Store account.
@@ -107,11 +105,9 @@ You can upload data to Data Lake Store directly at the root level or to a folder
 
 If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Download the file and store it in a local directory on your computer, such as  C:\sampledata\.
 
-    az dls fs upload --account <dataLakeStoreAccountName> --source-path "<source path>" --destination-path "<destination path>"
-
-For example:
-    
-	az dls fs upload --account mydatalakestore --source-path "C:\SampleData\AmbulanceData\vehicle1_09142014.csv" --destination-path "/mynewfolder/vehicle1_09142014.csv"
+```azurecli
+az dls fs upload --account mydatalakestore --source-path "C:\SampleData\AmbulanceData\vehicle1_09142014.csv" --destination-path "/mynewfolder/vehicle1_09142014.csv"
+```
 
 > [!NOTE]
 > For the destination, you must specify the complete path including the file name.
@@ -123,11 +119,9 @@ For example:
 
 Use the following command to list the files in a Data Lake Store account.
 
-    az dls fs list --account <dataLakeStoreAccountName> --path <path>
-
-For example:
-
-    az dls fs list --account mydatalakestore --path /mynewfolder
+```azurecli
+az dls fs list --account mydatalakestore --path /mynewfolder
+```
 
 The output of this should be similar to the following:
 
@@ -153,19 +147,15 @@ The output of this should be similar to the following:
 
 * **To rename a file**, use the following command:
   
-        az dls fs move --account <dataLakeStoreAccountName> --source-path <path/old_file_name> --destination-path <path/new_file_name>
-  
-    For example:
-  
-        az dls fs move --account mydatalakestore --source-path /mynewfolder/vehicle1_09142014.csv --destination-path /mynewfolder/vehicle1_09142014_copy.csv
+	```azurecli
+	az dls fs move --account mydatalakestore --source-path /mynewfolder/vehicle1_09142014.csv --destination-path /mynewfolder/vehicle1_09142014_copy.csv
+	```
 
 * **To download a file**, use the following command. Make sure the destination path you specify already exists.
   
-        az dls fs download --account <dataLakeStoreAccountName> --source-path <source_path> --destination-path <destination_path>
-  
-    For example:
-  
-        az dls fs download --account mydatalakestore --source-path /mynewfolder/vehicle1_09142014_copy.csv --destination-path "C:\mysampledata\vehicle1_09142014_copy.csv"
+	```azurecli		
+	az dls fs download --account mydatalakestore --source-path /mynewfolder/vehicle1_09142014_copy.csv --destination-path "C:\mysampledata\vehicle1_09142014_copy.csv"
+	```
 
 	> [!NOTE]
 	> The command creates the destination folder if it does not exist.
@@ -174,43 +164,37 @@ The output of this should be similar to the following:
 
 * **To delete a file**, use the following command:
   
-        az dls fs delete --account <dataLakeStoreAccountName> --path <path>
-  
-    For example:
-  
-        az dls fs delete --account mydatalakestore --path /mynewfolder/vehicle1_09142014_copy.csv
+	```azurecli
+	az dls fs delete --account mydatalakestore --path /mynewfolder/vehicle1_09142014_copy.csv
+	```
 
 	If you want to delete the folder **mynewfolder** and the file **vehicle1_09142014_copy.csv** together in one command, use the --recurse parameter
 
-		az dls fs delete --account mydatalakestore --path /mynewfolder --recurse
-  
+	```azurecli
+	az dls fs delete --account mydatalakestore --path /mynewfolder --recurse
+	```
+
 ## Work with permissions and ACLs for a Data Lake Store account
 
 In this section you learn about how to manage ACLs and permissions using Azure CLI 2.0. For a detailed discussion on how ACLs are implemented in Azure Data Lake Store, see [Access control in Azure Data Lake Store](data-lake-store-access-control.md).
 
 * **To update the owner of a file/folder**, use the following command:
 
-		az dls fs access set-owner --account <dataLakeStoreAccountName> --path <path/file_name> --group <group_id> --owner <user_id>
-
-	For example:
-
-		az dls fs access set-owner --account mydatalakestore --path /mynewfolder/vehicle1_09142014.csv --group 80a3ed5f-959e-4696-ba3c-d3c8b2db6766 --owner 6361e05d-c381-4275-a932-5535806bb323
+	```azurecli
+	az dls fs access set-owner --account mydatalakestore --path /mynewfolder/vehicle1_09142014.csv --group 80a3ed5f-959e-4696-ba3c-d3c8b2db6766 --owner 6361e05d-c381-4275-a932-5535806bb323
+	```
 
 * **To update the permissions for a file/folder**, use the following command:
 
-		az dls fs access set-permission --account <dataLakeStoreAccountName> --path <path/file_name> --permission <permission>
-
-	For example:
-
-		az dls fs access set-permission --account mydatalakestore --path /mynewfolder/vehicle1_09142014.csv --permission 777
-
+	```azurecli
+	az dls fs access set-permission --account mydatalakestore --path /mynewfolder/vehicle1_09142014.csv --permission 777
+	```
+	
 * **To get the ACLs for a given path**, use the following command:
 
-		az dls fs access show --account <dataLakeStoreAccountName> --path <path/file_name>
-  
-    For example:
-  
-        az dls fs access show --account mydatalakestore --path /mynewfolder/vehicle1_09142014.csv
+	```azurecli
+	az dls fs access show --account mydatalakestore --path /mynewfolder/vehicle1_09142014.csv
+	```
 
 	The output should be similar to the following:
 
@@ -228,45 +212,34 @@ In this section you learn about how to manage ACLs and permissions using Azure C
 
 * **To set an entry for an ACL**, use the following command:
 
-		az dls fs access set-entry --account <dataLakeStoreAccountName> --path <path/file_name> --acl-spec <acl specs>
-
-	For example
-	
-		az dls fs access set-entry --account mydatalakestore --path /mynewfolder --acl-spec user:6360e05d-c381-4275-a932-5535806bb323:-w-
+	```azurecli
+	az dls fs access set-entry --account mydatalakestore --path /mynewfolder --acl-spec user:6360e05d-c381-4275-a932-5535806bb323:-w-
+	```
 
 * **To remove an entry for an ACL**, use the following command:
 
-		az dls fs access remove-entry --account <dataLakeStoreAccountName> --path <path/file_name> --acl-spec <acl specs>
-
-	For example
-	
-		az dls fs access remove-entry --account mydatalakestore --path /mynewfolder --acl-spec user:6360e05d-c381-4275-a932-5535806bb323
+	```azurecli
+	az dls fs access remove-entry --account mydatalakestore --path /mynewfolder --acl-spec user:6360e05d-c381-4275-a932-5535806bb323
+	```
 
 * **To remove an entire default ACL**, use the following command:
 
-		az dls fs access remove-all --account <dataLakeStoreAccountName> --path <path/file_name> --default-acl
-
-	For example
-	
-		az dls fs access remove-all --account mydatalakestore --path /mynewfolder --default-acl
+	```azurecli
+	az dls fs access remove-all --account mydatalakestore --path /mynewfolder --default-acl
+	```
 
 * **To remove an entire non-default ACL**, use the following command:
 
-		az dls fs access remove-all --account <dataLakeStoreAccountName> --path <path/file_name>
-
-	For example
-	
-		az dls fs access remove-all --account mydatalakestore --path /mynewfolder
-
+	```azurecli
+	az dls fs access remove-all --account mydatalakestore --path /mynewfolder
+	```
     
 ## Delete a Data Lake Store account
 Use the following command to delete a Data Lake Store account.
 
-    az dls account delete --account <dataLakeStoreAccountName>
-
-For example:
-
-    az dls account delete --account mydatalakestore
+```azurecli
+az dls account delete --account mydatalakestore
+```
 
 When prompted, enter **Y** to delete the account.
 
